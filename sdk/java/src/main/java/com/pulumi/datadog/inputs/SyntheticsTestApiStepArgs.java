@@ -16,7 +16,6 @@ import com.pulumi.datadog.inputs.SyntheticsTestApiStepRetryArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -169,13 +168,13 @@ public final class SyntheticsTestApiStepArgs extends com.pulumi.resources.Resour
      * 
      */
     @Import(name="requestHeaders")
-    private @Nullable Output<Map<String,Object>> requestHeaders;
+    private @Nullable Output<Map<String,String>> requestHeaders;
 
     /**
      * @return Header name and value map.
      * 
      */
-    public Optional<Output<Map<String,Object>>> requestHeaders() {
+    public Optional<Output<Map<String,String>>> requestHeaders() {
         return Optional.ofNullable(this.requestHeaders);
     }
 
@@ -184,13 +183,13 @@ public final class SyntheticsTestApiStepArgs extends com.pulumi.resources.Resour
      * 
      */
     @Import(name="requestMetadata")
-    private @Nullable Output<Map<String,Object>> requestMetadata;
+    private @Nullable Output<Map<String,String>> requestMetadata;
 
     /**
      * @return Metadata to include when performing the gRPC request.
      * 
      */
-    public Optional<Output<Map<String,Object>>> requestMetadata() {
+    public Optional<Output<Map<String,String>>> requestMetadata() {
         return Optional.ofNullable(this.requestMetadata);
     }
 
@@ -214,13 +213,13 @@ public final class SyntheticsTestApiStepArgs extends com.pulumi.resources.Resour
      * 
      */
     @Import(name="requestQuery")
-    private @Nullable Output<Map<String,Object>> requestQuery;
+    private @Nullable Output<Map<String,String>> requestQuery;
 
     /**
      * @return Query arguments name and value map.
      * 
      */
-    public Optional<Output<Map<String,Object>>> requestQuery() {
+    public Optional<Output<Map<String,String>>> requestQuery() {
         return Optional.ofNullable(this.requestQuery);
     }
 
@@ -525,7 +524,7 @@ public final class SyntheticsTestApiStepArgs extends com.pulumi.resources.Resour
          * @return builder
          * 
          */
-        public Builder requestHeaders(@Nullable Output<Map<String,Object>> requestHeaders) {
+        public Builder requestHeaders(@Nullable Output<Map<String,String>> requestHeaders) {
             $.requestHeaders = requestHeaders;
             return this;
         }
@@ -536,7 +535,7 @@ public final class SyntheticsTestApiStepArgs extends com.pulumi.resources.Resour
          * @return builder
          * 
          */
-        public Builder requestHeaders(Map<String,Object> requestHeaders) {
+        public Builder requestHeaders(Map<String,String> requestHeaders) {
             return requestHeaders(Output.of(requestHeaders));
         }
 
@@ -546,7 +545,7 @@ public final class SyntheticsTestApiStepArgs extends com.pulumi.resources.Resour
          * @return builder
          * 
          */
-        public Builder requestMetadata(@Nullable Output<Map<String,Object>> requestMetadata) {
+        public Builder requestMetadata(@Nullable Output<Map<String,String>> requestMetadata) {
             $.requestMetadata = requestMetadata;
             return this;
         }
@@ -557,7 +556,7 @@ public final class SyntheticsTestApiStepArgs extends com.pulumi.resources.Resour
          * @return builder
          * 
          */
-        public Builder requestMetadata(Map<String,Object> requestMetadata) {
+        public Builder requestMetadata(Map<String,String> requestMetadata) {
             return requestMetadata(Output.of(requestMetadata));
         }
 
@@ -588,7 +587,7 @@ public final class SyntheticsTestApiStepArgs extends com.pulumi.resources.Resour
          * @return builder
          * 
          */
-        public Builder requestQuery(@Nullable Output<Map<String,Object>> requestQuery) {
+        public Builder requestQuery(@Nullable Output<Map<String,String>> requestQuery) {
             $.requestQuery = requestQuery;
             return this;
         }
@@ -599,7 +598,7 @@ public final class SyntheticsTestApiStepArgs extends com.pulumi.resources.Resour
          * @return builder
          * 
          */
-        public Builder requestQuery(Map<String,Object> requestQuery) {
+        public Builder requestQuery(Map<String,String> requestQuery) {
             return requestQuery(Output.of(requestQuery));
         }
 

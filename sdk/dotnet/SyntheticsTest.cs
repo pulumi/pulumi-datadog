@@ -732,13 +732,13 @@ namespace Pulumi.Datadog
         /// Header name and value map.
         /// </summary>
         [Output("requestHeaders")]
-        public Output<ImmutableDictionary<string, object>?> RequestHeaders { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> RequestHeaders { get; private set; } = null!;
 
         /// <summary>
         /// Metadata to include when performing the gRPC request.
         /// </summary>
         [Output("requestMetadata")]
-        public Output<ImmutableDictionary<string, object>?> RequestMetadata { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> RequestMetadata { get; private set; } = null!;
 
         /// <summary>
         /// The proxy to perform the test.
@@ -750,7 +750,7 @@ namespace Pulumi.Datadog
         /// Query arguments name and value map.
         /// </summary>
         [Output("requestQuery")]
-        public Output<ImmutableDictionary<string, object>?> RequestQuery { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> RequestQuery { get; private set; } = null!;
 
         /// <summary>
         /// Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
@@ -970,26 +970,26 @@ namespace Pulumi.Datadog
         }
 
         [Input("requestHeaders")]
-        private InputMap<object>? _requestHeaders;
+        private InputMap<string>? _requestHeaders;
 
         /// <summary>
         /// Header name and value map.
         /// </summary>
-        public InputMap<object> RequestHeaders
+        public InputMap<string> RequestHeaders
         {
-            get => _requestHeaders ?? (_requestHeaders = new InputMap<object>());
+            get => _requestHeaders ?? (_requestHeaders = new InputMap<string>());
             set => _requestHeaders = value;
         }
 
         [Input("requestMetadata")]
-        private InputMap<object>? _requestMetadata;
+        private InputMap<string>? _requestMetadata;
 
         /// <summary>
         /// Metadata to include when performing the gRPC request.
         /// </summary>
-        public InputMap<object> RequestMetadata
+        public InputMap<string> RequestMetadata
         {
-            get => _requestMetadata ?? (_requestMetadata = new InputMap<object>());
+            get => _requestMetadata ?? (_requestMetadata = new InputMap<string>());
             set => _requestMetadata = value;
         }
 
@@ -1000,14 +1000,14 @@ namespace Pulumi.Datadog
         public Input<Inputs.SyntheticsTestRequestProxyArgs>? RequestProxy { get; set; }
 
         [Input("requestQuery")]
-        private InputMap<object>? _requestQuery;
+        private InputMap<string>? _requestQuery;
 
         /// <summary>
         /// Query arguments name and value map.
         /// </summary>
-        public InputMap<object> RequestQuery
+        public InputMap<string> RequestQuery
         {
-            get => _requestQuery ?? (_requestQuery = new InputMap<object>());
+            get => _requestQuery ?? (_requestQuery = new InputMap<string>());
             set => _requestQuery = value;
         }
 
@@ -1203,26 +1203,26 @@ namespace Pulumi.Datadog
         }
 
         [Input("requestHeaders")]
-        private InputMap<object>? _requestHeaders;
+        private InputMap<string>? _requestHeaders;
 
         /// <summary>
         /// Header name and value map.
         /// </summary>
-        public InputMap<object> RequestHeaders
+        public InputMap<string> RequestHeaders
         {
-            get => _requestHeaders ?? (_requestHeaders = new InputMap<object>());
+            get => _requestHeaders ?? (_requestHeaders = new InputMap<string>());
             set => _requestHeaders = value;
         }
 
         [Input("requestMetadata")]
-        private InputMap<object>? _requestMetadata;
+        private InputMap<string>? _requestMetadata;
 
         /// <summary>
         /// Metadata to include when performing the gRPC request.
         /// </summary>
-        public InputMap<object> RequestMetadata
+        public InputMap<string> RequestMetadata
         {
-            get => _requestMetadata ?? (_requestMetadata = new InputMap<object>());
+            get => _requestMetadata ?? (_requestMetadata = new InputMap<string>());
             set => _requestMetadata = value;
         }
 
@@ -1233,14 +1233,14 @@ namespace Pulumi.Datadog
         public Input<Inputs.SyntheticsTestRequestProxyGetArgs>? RequestProxy { get; set; }
 
         [Input("requestQuery")]
-        private InputMap<object>? _requestQuery;
+        private InputMap<string>? _requestQuery;
 
         /// <summary>
         /// Query arguments name and value map.
         /// </summary>
-        public InputMap<object> RequestQuery
+        public InputMap<string> RequestQuery
         {
-            get => _requestQuery ?? (_requestQuery = new InputMap<object>());
+            get => _requestQuery ?? (_requestQuery = new InputMap<string>());
             set => _requestQuery = value;
         }
 

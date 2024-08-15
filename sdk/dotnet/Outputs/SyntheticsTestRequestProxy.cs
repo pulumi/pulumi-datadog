@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// Header name and value map.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Headers;
+        public readonly ImmutableDictionary<string, string>? Headers;
         /// <summary>
         /// URL of the proxy to perform the test.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private SyntheticsTestRequestProxy(
-            ImmutableDictionary<string, object>? headers,
+            ImmutableDictionary<string, string>? headers,
 
             string url)
         {

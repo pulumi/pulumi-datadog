@@ -21939,11 +21939,11 @@ export interface SyntheticsTestApiStep {
     /**
      * Header name and value map.
      */
-    requestHeaders?: pulumi.Input<{[key: string]: any}>;
+    requestHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Metadata to include when performing the gRPC request.
      */
-    requestMetadata?: pulumi.Input<{[key: string]: any}>;
+    requestMetadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The proxy to perform the test.
      */
@@ -21951,7 +21951,7 @@ export interface SyntheticsTestApiStep {
     /**
      * Query arguments name and value map.
      */
-    requestQuery?: pulumi.Input<{[key: string]: any}>;
+    requestQuery?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     retry?: pulumi.Input<inputs.SyntheticsTestApiStepRetry>;
     /**
      * The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `wait`. Defaults to `"http"`.
@@ -22297,7 +22297,7 @@ export interface SyntheticsTestApiStepRequestProxy {
     /**
      * Header name and value map.
      */
-    headers?: pulumi.Input<{[key: string]: any}>;
+    headers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * URL of the proxy to perform the test.
      */
@@ -22948,7 +22948,7 @@ export interface SyntheticsTestRequestProxy {
     /**
      * Header name and value map.
      */
-    headers?: pulumi.Input<{[key: string]: any}>;
+    headers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * URL of the proxy to perform the test.
      */

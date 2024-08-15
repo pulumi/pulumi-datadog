@@ -38,9 +38,9 @@ import (
 //					pulumi.String("key:value"),
 //					pulumi.String("key2:value2"),
 //				},
-//				AccountSpecificNamespaceRules: pulumi.Map{
-//					"auto_scaling": pulumi.Any(false),
-//					"opsworks":     pulumi.Any(false),
+//				AccountSpecificNamespaceRules: pulumi.StringMap{
+//					"auto_scaling": pulumi.String("false"),
+//					"opsworks":     pulumi.String("false"),
 //				},
 //				ExcludedRegions: pulumi.StringArray{
 //					pulumi.String("us-east-1"),
@@ -71,7 +71,7 @@ type Integration struct {
 	// Your AWS Account ID without dashes.
 	AccountId pulumi.StringPtrOutput `pulumi:"accountId"`
 	// Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
-	AccountSpecificNamespaceRules pulumi.MapOutput `pulumi:"accountSpecificNamespaceRules"`
+	AccountSpecificNamespaceRules pulumi.StringMapOutput `pulumi:"accountSpecificNamespaceRules"`
 	// Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional resources not covered under the general resource_collection.
 	CspmResourceCollectionEnabled pulumi.StringOutput `pulumi:"cspmResourceCollectionEnabled"`
 	// An array of AWS regions to exclude from metrics collection.
@@ -137,7 +137,7 @@ type integrationState struct {
 	// Your AWS Account ID without dashes.
 	AccountId *string `pulumi:"accountId"`
 	// Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
-	AccountSpecificNamespaceRules map[string]interface{} `pulumi:"accountSpecificNamespaceRules"`
+	AccountSpecificNamespaceRules map[string]string `pulumi:"accountSpecificNamespaceRules"`
 	// Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional resources not covered under the general resource_collection.
 	CspmResourceCollectionEnabled *string `pulumi:"cspmResourceCollectionEnabled"`
 	// An array of AWS regions to exclude from metrics collection.
@@ -167,7 +167,7 @@ type IntegrationState struct {
 	// Your AWS Account ID without dashes.
 	AccountId pulumi.StringPtrInput
 	// Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
-	AccountSpecificNamespaceRules pulumi.MapInput
+	AccountSpecificNamespaceRules pulumi.StringMapInput
 	// Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional resources not covered under the general resource_collection.
 	CspmResourceCollectionEnabled pulumi.StringPtrInput
 	// An array of AWS regions to exclude from metrics collection.
@@ -201,7 +201,7 @@ type integrationArgs struct {
 	// Your AWS Account ID without dashes.
 	AccountId *string `pulumi:"accountId"`
 	// Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
-	AccountSpecificNamespaceRules map[string]interface{} `pulumi:"accountSpecificNamespaceRules"`
+	AccountSpecificNamespaceRules map[string]string `pulumi:"accountSpecificNamespaceRules"`
 	// Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional resources not covered under the general resource_collection.
 	CspmResourceCollectionEnabled *string `pulumi:"cspmResourceCollectionEnabled"`
 	// An array of AWS regions to exclude from metrics collection.
@@ -231,7 +231,7 @@ type IntegrationArgs struct {
 	// Your AWS Account ID without dashes.
 	AccountId pulumi.StringPtrInput
 	// Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
-	AccountSpecificNamespaceRules pulumi.MapInput
+	AccountSpecificNamespaceRules pulumi.StringMapInput
 	// Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional resources not covered under the general resource_collection.
 	CspmResourceCollectionEnabled pulumi.StringPtrInput
 	// An array of AWS regions to exclude from metrics collection.
@@ -352,8 +352,8 @@ func (o IntegrationOutput) AccountId() pulumi.StringPtrOutput {
 }
 
 // Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
-func (o IntegrationOutput) AccountSpecificNamespaceRules() pulumi.MapOutput {
-	return o.ApplyT(func(v *Integration) pulumi.MapOutput { return v.AccountSpecificNamespaceRules }).(pulumi.MapOutput)
+func (o IntegrationOutput) AccountSpecificNamespaceRules() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Integration) pulumi.StringMapOutput { return v.AccountSpecificNamespaceRules }).(pulumi.StringMapOutput)
 }
 
 // Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional resources not covered under the general resource_collection.

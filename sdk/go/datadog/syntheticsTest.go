@@ -61,8 +61,8 @@ import (
 //					Method: pulumi.String("GET"),
 //					Url:    pulumi.String("https://www.example.org"),
 //				},
-//				RequestHeaders: pulumi.Map{
-//					"Content-Type": pulumi.Any("application/json"),
+//				RequestHeaders: pulumi.StringMap{
+//					"Content-Type": pulumi.String("application/json"),
 //				},
 //				Assertions: datadog.SyntheticsTestAssertionArray{
 //					&datadog.SyntheticsTestAssertionArgs{
@@ -105,9 +105,9 @@ import (
 //					Method: pulumi.String("GET"),
 //					Url:    pulumi.String("https://www.example.org"),
 //				},
-//				RequestHeaders: pulumi.Map{
-//					"Content-Type":   pulumi.Any("application/json"),
-//					"Authentication": pulumi.Any("Token: 1234566789"),
+//				RequestHeaders: pulumi.StringMap{
+//					"Content-Type":   pulumi.String("application/json"),
+//					"Authentication": pulumi.String("Token: 1234566789"),
 //				},
 //				Assertions: datadog.SyntheticsTestAssertionArray{
 //					&datadog.SyntheticsTestAssertionArgs{
@@ -270,9 +270,9 @@ import (
 //							Method: pulumi.String("GET"),
 //							Url:    pulumi.String("https://www.example.org"),
 //						},
-//						RequestHeaders: pulumi.Map{
-//							"Content-Type":   pulumi.Any("application/json"),
-//							"Authentication": pulumi.Any("Token: 1234566789"),
+//						RequestHeaders: pulumi.StringMap{
+//							"Content-Type":   pulumi.String("application/json"),
+//							"Authentication": pulumi.String("Token: 1234566789"),
 //						},
 //					},
 //					&datadog.SyntheticsTestApiStepArgs{
@@ -486,8 +486,8 @@ import (
 // `),
 //
 //				},
-//				RequestMetadata: pulumi.Map{
-//					"header": pulumi.Any("value"),
+//				RequestMetadata: pulumi.StringMap{
+//					"header": pulumi.String("value"),
 //				},
 //				Assertions: datadog.SyntheticsTestAssertionArray{
 //					&datadog.SyntheticsTestAssertionArgs{
@@ -608,13 +608,13 @@ type SyntheticsTest struct {
 	// Files to be used as part of the request in the test.
 	RequestFiles SyntheticsTestRequestFileArrayOutput `pulumi:"requestFiles"`
 	// Header name and value map.
-	RequestHeaders pulumi.MapOutput `pulumi:"requestHeaders"`
+	RequestHeaders pulumi.StringMapOutput `pulumi:"requestHeaders"`
 	// Metadata to include when performing the gRPC request.
-	RequestMetadata pulumi.MapOutput `pulumi:"requestMetadata"`
+	RequestMetadata pulumi.StringMapOutput `pulumi:"requestMetadata"`
 	// The proxy to perform the test.
 	RequestProxy SyntheticsTestRequestProxyPtrOutput `pulumi:"requestProxy"`
 	// Query arguments name and value map.
-	RequestQuery pulumi.MapOutput `pulumi:"requestQuery"`
+	RequestQuery pulumi.StringMapOutput `pulumi:"requestQuery"`
 	// Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
 	SetCookie pulumi.StringPtrOutput `pulumi:"setCookie"`
 	// Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
@@ -703,13 +703,13 @@ type syntheticsTestState struct {
 	// Files to be used as part of the request in the test.
 	RequestFiles []SyntheticsTestRequestFile `pulumi:"requestFiles"`
 	// Header name and value map.
-	RequestHeaders map[string]interface{} `pulumi:"requestHeaders"`
+	RequestHeaders map[string]string `pulumi:"requestHeaders"`
 	// Metadata to include when performing the gRPC request.
-	RequestMetadata map[string]interface{} `pulumi:"requestMetadata"`
+	RequestMetadata map[string]string `pulumi:"requestMetadata"`
 	// The proxy to perform the test.
 	RequestProxy *SyntheticsTestRequestProxy `pulumi:"requestProxy"`
 	// Query arguments name and value map.
-	RequestQuery map[string]interface{} `pulumi:"requestQuery"`
+	RequestQuery map[string]string `pulumi:"requestQuery"`
 	// Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
 	SetCookie *string `pulumi:"setCookie"`
 	// Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
@@ -757,13 +757,13 @@ type SyntheticsTestState struct {
 	// Files to be used as part of the request in the test.
 	RequestFiles SyntheticsTestRequestFileArrayInput
 	// Header name and value map.
-	RequestHeaders pulumi.MapInput
+	RequestHeaders pulumi.StringMapInput
 	// Metadata to include when performing the gRPC request.
-	RequestMetadata pulumi.MapInput
+	RequestMetadata pulumi.StringMapInput
 	// The proxy to perform the test.
 	RequestProxy SyntheticsTestRequestProxyPtrInput
 	// Query arguments name and value map.
-	RequestQuery pulumi.MapInput
+	RequestQuery pulumi.StringMapInput
 	// Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
 	SetCookie pulumi.StringPtrInput
 	// Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
@@ -813,13 +813,13 @@ type syntheticsTestArgs struct {
 	// Files to be used as part of the request in the test.
 	RequestFiles []SyntheticsTestRequestFile `pulumi:"requestFiles"`
 	// Header name and value map.
-	RequestHeaders map[string]interface{} `pulumi:"requestHeaders"`
+	RequestHeaders map[string]string `pulumi:"requestHeaders"`
 	// Metadata to include when performing the gRPC request.
-	RequestMetadata map[string]interface{} `pulumi:"requestMetadata"`
+	RequestMetadata map[string]string `pulumi:"requestMetadata"`
 	// The proxy to perform the test.
 	RequestProxy *SyntheticsTestRequestProxy `pulumi:"requestProxy"`
 	// Query arguments name and value map.
-	RequestQuery map[string]interface{} `pulumi:"requestQuery"`
+	RequestQuery map[string]string `pulumi:"requestQuery"`
 	// Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
 	SetCookie *string `pulumi:"setCookie"`
 	// Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
@@ -866,13 +866,13 @@ type SyntheticsTestArgs struct {
 	// Files to be used as part of the request in the test.
 	RequestFiles SyntheticsTestRequestFileArrayInput
 	// Header name and value map.
-	RequestHeaders pulumi.MapInput
+	RequestHeaders pulumi.StringMapInput
 	// Metadata to include when performing the gRPC request.
-	RequestMetadata pulumi.MapInput
+	RequestMetadata pulumi.StringMapInput
 	// The proxy to perform the test.
 	RequestProxy SyntheticsTestRequestProxyPtrInput
 	// Query arguments name and value map.
-	RequestQuery pulumi.MapInput
+	RequestQuery pulumi.StringMapInput
 	// Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
 	SetCookie pulumi.StringPtrInput
 	// Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
@@ -1056,13 +1056,13 @@ func (o SyntheticsTestOutput) RequestFiles() SyntheticsTestRequestFileArrayOutpu
 }
 
 // Header name and value map.
-func (o SyntheticsTestOutput) RequestHeaders() pulumi.MapOutput {
-	return o.ApplyT(func(v *SyntheticsTest) pulumi.MapOutput { return v.RequestHeaders }).(pulumi.MapOutput)
+func (o SyntheticsTestOutput) RequestHeaders() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SyntheticsTest) pulumi.StringMapOutput { return v.RequestHeaders }).(pulumi.StringMapOutput)
 }
 
 // Metadata to include when performing the gRPC request.
-func (o SyntheticsTestOutput) RequestMetadata() pulumi.MapOutput {
-	return o.ApplyT(func(v *SyntheticsTest) pulumi.MapOutput { return v.RequestMetadata }).(pulumi.MapOutput)
+func (o SyntheticsTestOutput) RequestMetadata() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SyntheticsTest) pulumi.StringMapOutput { return v.RequestMetadata }).(pulumi.StringMapOutput)
 }
 
 // The proxy to perform the test.
@@ -1071,8 +1071,8 @@ func (o SyntheticsTestOutput) RequestProxy() SyntheticsTestRequestProxyPtrOutput
 }
 
 // Query arguments name and value map.
-func (o SyntheticsTestOutput) RequestQuery() pulumi.MapOutput {
-	return o.ApplyT(func(v *SyntheticsTest) pulumi.MapOutput { return v.RequestQuery }).(pulumi.MapOutput)
+func (o SyntheticsTestOutput) RequestQuery() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SyntheticsTest) pulumi.StringMapOutput { return v.RequestQuery }).(pulumi.StringMapOutput)
 }
 
 // Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.

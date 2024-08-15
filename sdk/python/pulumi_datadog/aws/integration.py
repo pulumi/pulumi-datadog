@@ -16,7 +16,7 @@ class IntegrationArgs:
     def __init__(__self__, *,
                  access_key_id: Optional[pulumi.Input[str]] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
-                 account_specific_namespace_rules: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 account_specific_namespace_rules: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  cspm_resource_collection_enabled: Optional[pulumi.Input[str]] = None,
                  excluded_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  extended_resource_collection_enabled: Optional[pulumi.Input[str]] = None,
@@ -30,7 +30,7 @@ class IntegrationArgs:
         The set of arguments for constructing a Integration resource.
         :param pulumi.Input[str] access_key_id: Your AWS access key ID. Only required if your AWS account is a GovCloud or China account.
         :param pulumi.Input[str] account_id: Your AWS Account ID without dashes.
-        :param pulumi.Input[Mapping[str, Any]] account_specific_namespace_rules: Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] account_specific_namespace_rules: Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
         :param pulumi.Input[str] cspm_resource_collection_enabled: Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional resources not covered under the general resource_collection.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_regions: An array of AWS regions to exclude from metrics collection.
         :param pulumi.Input[str] extended_resource_collection_enabled: Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cspm_resource_collection_enabled`.
@@ -95,14 +95,14 @@ class IntegrationArgs:
 
     @property
     @pulumi.getter(name="accountSpecificNamespaceRules")
-    def account_specific_namespace_rules(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def account_specific_namespace_rules(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
         """
         return pulumi.get(self, "account_specific_namespace_rules")
 
     @account_specific_namespace_rules.setter
-    def account_specific_namespace_rules(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def account_specific_namespace_rules(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "account_specific_namespace_rules", value)
 
     @property
@@ -220,7 +220,7 @@ class _IntegrationState:
     def __init__(__self__, *,
                  access_key_id: Optional[pulumi.Input[str]] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
-                 account_specific_namespace_rules: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 account_specific_namespace_rules: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  cspm_resource_collection_enabled: Optional[pulumi.Input[str]] = None,
                  excluded_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  extended_resource_collection_enabled: Optional[pulumi.Input[str]] = None,
@@ -235,7 +235,7 @@ class _IntegrationState:
         Input properties used for looking up and filtering Integration resources.
         :param pulumi.Input[str] access_key_id: Your AWS access key ID. Only required if your AWS account is a GovCloud or China account.
         :param pulumi.Input[str] account_id: Your AWS Account ID without dashes.
-        :param pulumi.Input[Mapping[str, Any]] account_specific_namespace_rules: Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] account_specific_namespace_rules: Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
         :param pulumi.Input[str] cspm_resource_collection_enabled: Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional resources not covered under the general resource_collection.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_regions: An array of AWS regions to exclude from metrics collection.
         :param pulumi.Input[str] extended_resource_collection_enabled: Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cspm_resource_collection_enabled`.
@@ -302,14 +302,14 @@ class _IntegrationState:
 
     @property
     @pulumi.getter(name="accountSpecificNamespaceRules")
-    def account_specific_namespace_rules(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def account_specific_namespace_rules(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
         """
         return pulumi.get(self, "account_specific_namespace_rules")
 
     @account_specific_namespace_rules.setter
-    def account_specific_namespace_rules(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def account_specific_namespace_rules(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "account_specific_namespace_rules", value)
 
     @property
@@ -438,7 +438,7 @@ class Integration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_key_id: Optional[pulumi.Input[str]] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
-                 account_specific_namespace_rules: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 account_specific_namespace_rules: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  cspm_resource_collection_enabled: Optional[pulumi.Input[str]] = None,
                  excluded_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  extended_resource_collection_enabled: Optional[pulumi.Input[str]] = None,
@@ -468,8 +468,8 @@ class Integration(pulumi.CustomResource):
                 "key2:value2",
             ],
             account_specific_namespace_rules={
-                "auto_scaling": False,
-                "opsworks": False,
+                "auto_scaling": "false",
+                "opsworks": "false",
             },
             excluded_regions=[
                 "us-east-1",
@@ -489,7 +489,7 @@ class Integration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_key_id: Your AWS access key ID. Only required if your AWS account is a GovCloud or China account.
         :param pulumi.Input[str] account_id: Your AWS Account ID without dashes.
-        :param pulumi.Input[Mapping[str, Any]] account_specific_namespace_rules: Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] account_specific_namespace_rules: Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
         :param pulumi.Input[str] cspm_resource_collection_enabled: Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional resources not covered under the general resource_collection.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_regions: An array of AWS regions to exclude from metrics collection.
         :param pulumi.Input[str] extended_resource_collection_enabled: Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cspm_resource_collection_enabled`.
@@ -525,8 +525,8 @@ class Integration(pulumi.CustomResource):
                 "key2:value2",
             ],
             account_specific_namespace_rules={
-                "auto_scaling": False,
-                "opsworks": False,
+                "auto_scaling": "false",
+                "opsworks": "false",
             },
             excluded_regions=[
                 "us-east-1",
@@ -559,7 +559,7 @@ class Integration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_key_id: Optional[pulumi.Input[str]] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
-                 account_specific_namespace_rules: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 account_specific_namespace_rules: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  cspm_resource_collection_enabled: Optional[pulumi.Input[str]] = None,
                  excluded_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  extended_resource_collection_enabled: Optional[pulumi.Input[str]] = None,
@@ -605,7 +605,7 @@ class Integration(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             access_key_id: Optional[pulumi.Input[str]] = None,
             account_id: Optional[pulumi.Input[str]] = None,
-            account_specific_namespace_rules: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+            account_specific_namespace_rules: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             cspm_resource_collection_enabled: Optional[pulumi.Input[str]] = None,
             excluded_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             extended_resource_collection_enabled: Optional[pulumi.Input[str]] = None,
@@ -625,7 +625,7 @@ class Integration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_key_id: Your AWS access key ID. Only required if your AWS account is a GovCloud or China account.
         :param pulumi.Input[str] account_id: Your AWS Account ID without dashes.
-        :param pulumi.Input[Mapping[str, Any]] account_specific_namespace_rules: Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] account_specific_namespace_rules: Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
         :param pulumi.Input[str] cspm_resource_collection_enabled: Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional resources not covered under the general resource_collection.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_regions: An array of AWS regions to exclude from metrics collection.
         :param pulumi.Input[str] extended_resource_collection_enabled: Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cspm_resource_collection_enabled`.
@@ -673,7 +673,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountSpecificNamespaceRules")
-    def account_specific_namespace_rules(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def account_specific_namespace_rules(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
         """

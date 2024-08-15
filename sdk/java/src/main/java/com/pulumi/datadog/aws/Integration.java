@@ -10,7 +10,6 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.datadog.Utilities;
 import com.pulumi.datadog.aws.IntegrationArgs;
 import com.pulumi.datadog.aws.inputs.IntegrationState;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -111,14 +110,14 @@ public class Integration extends com.pulumi.resources.CustomResource {
      * Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
      * 
      */
-    @Export(name="accountSpecificNamespaceRules", refs={Map.class,String.class,Object.class}, tree="[0,1,2]")
-    private Output</* @Nullable */ Map<String,Object>> accountSpecificNamespaceRules;
+    @Export(name="accountSpecificNamespaceRules", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> accountSpecificNamespaceRules;
 
     /**
      * @return Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
      * 
      */
-    public Output<Optional<Map<String,Object>>> accountSpecificNamespaceRules() {
+    public Output<Optional<Map<String,String>>> accountSpecificNamespaceRules() {
         return Codegen.optional(this.accountSpecificNamespaceRules);
     }
     /**

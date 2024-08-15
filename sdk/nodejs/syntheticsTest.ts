@@ -565,11 +565,11 @@ export class SyntheticsTest extends pulumi.CustomResource {
     /**
      * Header name and value map.
      */
-    public readonly requestHeaders!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly requestHeaders!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Metadata to include when performing the gRPC request.
      */
-    public readonly requestMetadata!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly requestMetadata!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The proxy to perform the test.
      */
@@ -577,7 +577,7 @@ export class SyntheticsTest extends pulumi.CustomResource {
     /**
      * Query arguments name and value map.
      */
-    public readonly requestQuery!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly requestQuery!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
      */
@@ -756,11 +756,11 @@ export interface SyntheticsTestState {
     /**
      * Header name and value map.
      */
-    requestHeaders?: pulumi.Input<{[key: string]: any}>;
+    requestHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Metadata to include when performing the gRPC request.
      */
-    requestMetadata?: pulumi.Input<{[key: string]: any}>;
+    requestMetadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The proxy to perform the test.
      */
@@ -768,7 +768,7 @@ export interface SyntheticsTestState {
     /**
      * Query arguments name and value map.
      */
-    requestQuery?: pulumi.Input<{[key: string]: any}>;
+    requestQuery?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
      */
@@ -859,11 +859,11 @@ export interface SyntheticsTestArgs {
     /**
      * Header name and value map.
      */
-    requestHeaders?: pulumi.Input<{[key: string]: any}>;
+    requestHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Metadata to include when performing the gRPC request.
      */
-    requestMetadata?: pulumi.Input<{[key: string]: any}>;
+    requestMetadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The proxy to perform the test.
      */
@@ -871,7 +871,7 @@ export interface SyntheticsTestArgs {
     /**
      * Query arguments name and value map.
      */
-    requestQuery?: pulumi.Input<{[key: string]: any}>;
+    requestQuery?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
      */

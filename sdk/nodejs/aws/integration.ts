@@ -23,8 +23,8 @@ import * as utilities from "../utilities";
  *         "key2:value2",
  *     ],
  *     accountSpecificNamespaceRules: {
- *         auto_scaling: false,
- *         opsworks: false,
+ *         auto_scaling: "false",
+ *         opsworks: "false",
  *     },
  *     excludedRegions: [
  *         "us-east-1",
@@ -80,7 +80,7 @@ export class Integration extends pulumi.CustomResource {
     /**
      * Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
      */
-    public readonly accountSpecificNamespaceRules!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly accountSpecificNamespaceRules!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional resources not covered under the general resource_collection.
      */
@@ -185,7 +185,7 @@ export interface IntegrationState {
     /**
      * Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
      */
-    accountSpecificNamespaceRules?: pulumi.Input<{[key: string]: any}>;
+    accountSpecificNamespaceRules?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional resources not covered under the general resource_collection.
      */
@@ -242,7 +242,7 @@ export interface IntegrationArgs {
     /**
      * Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
      */
-    accountSpecificNamespaceRules?: pulumi.Input<{[key: string]: any}>;
+    accountSpecificNamespaceRules?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional resources not covered under the general resource_collection.
      */

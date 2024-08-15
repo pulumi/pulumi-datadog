@@ -82655,10 +82655,10 @@ class SyntheticsTestApiStepArgs:
                  request_client_certificate: Optional[pulumi.Input['SyntheticsTestApiStepRequestClientCertificateArgs']] = None,
                  request_definition: Optional[pulumi.Input['SyntheticsTestApiStepRequestDefinitionArgs']] = None,
                  request_files: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestApiStepRequestFileArgs']]]] = None,
-                 request_headers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 request_metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 request_headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 request_metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  request_proxy: Optional[pulumi.Input['SyntheticsTestApiStepRequestProxyArgs']] = None,
-                 request_query: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 request_query: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  retry: Optional[pulumi.Input['SyntheticsTestApiStepRetryArgs']] = None,
                  subtype: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[int]] = None):
@@ -82672,10 +82672,10 @@ class SyntheticsTestApiStepArgs:
         :param pulumi.Input['SyntheticsTestApiStepRequestClientCertificateArgs'] request_client_certificate: Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
         :param pulumi.Input['SyntheticsTestApiStepRequestDefinitionArgs'] request_definition: The request for the api step.
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestApiStepRequestFileArgs']]] request_files: Files to be used as part of the request in the test.
-        :param pulumi.Input[Mapping[str, Any]] request_headers: Header name and value map.
-        :param pulumi.Input[Mapping[str, Any]] request_metadata: Metadata to include when performing the gRPC request.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_headers: Header name and value map.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_metadata: Metadata to include when performing the gRPC request.
         :param pulumi.Input['SyntheticsTestApiStepRequestProxyArgs'] request_proxy: The proxy to perform the test.
-        :param pulumi.Input[Mapping[str, Any]] request_query: Query arguments name and value map.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_query: Query arguments name and value map.
         :param pulumi.Input[str] subtype: The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `wait`. Defaults to `"http"`.
         :param pulumi.Input[int] value: The time to wait in seconds. Minimum value: 0. Maximum value: 180.
         """
@@ -82821,26 +82821,26 @@ class SyntheticsTestApiStepArgs:
 
     @property
     @pulumi.getter(name="requestHeaders")
-    def request_headers(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def request_headers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Header name and value map.
         """
         return pulumi.get(self, "request_headers")
 
     @request_headers.setter
-    def request_headers(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def request_headers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "request_headers", value)
 
     @property
     @pulumi.getter(name="requestMetadata")
-    def request_metadata(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def request_metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Metadata to include when performing the gRPC request.
         """
         return pulumi.get(self, "request_metadata")
 
     @request_metadata.setter
-    def request_metadata(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def request_metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "request_metadata", value)
 
     @property
@@ -82857,14 +82857,14 @@ class SyntheticsTestApiStepArgs:
 
     @property
     @pulumi.getter(name="requestQuery")
-    def request_query(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def request_query(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Query arguments name and value map.
         """
         return pulumi.get(self, "request_query")
 
     @request_query.setter
-    def request_query(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def request_query(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "request_query", value)
 
     @property
@@ -84173,10 +84173,10 @@ class SyntheticsTestApiStepRequestFileArgs:
 class SyntheticsTestApiStepRequestProxyArgs:
     def __init__(__self__, *,
                  url: pulumi.Input[str],
-                 headers: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] url: URL of the proxy to perform the test.
-        :param pulumi.Input[Mapping[str, Any]] headers: Header name and value map.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] headers: Header name and value map.
         """
         pulumi.set(__self__, "url", url)
         if headers is not None:
@@ -84196,14 +84196,14 @@ class SyntheticsTestApiStepRequestProxyArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def headers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Header name and value map.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def headers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "headers", value)
 
 
@@ -86678,10 +86678,10 @@ class SyntheticsTestRequestFileArgs:
 class SyntheticsTestRequestProxyArgs:
     def __init__(__self__, *,
                  url: pulumi.Input[str],
-                 headers: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] url: URL of the proxy to perform the test.
-        :param pulumi.Input[Mapping[str, Any]] headers: Header name and value map.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] headers: Header name and value map.
         """
         pulumi.set(__self__, "url", url)
         if headers is not None:
@@ -86701,14 +86701,14 @@ class SyntheticsTestRequestProxyArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def headers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Header name and value map.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def headers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "headers", value)
 
 

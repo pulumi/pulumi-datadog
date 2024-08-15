@@ -77632,10 +77632,10 @@ class SyntheticsTestApiStep(dict):
                  request_client_certificate: Optional['outputs.SyntheticsTestApiStepRequestClientCertificate'] = None,
                  request_definition: Optional['outputs.SyntheticsTestApiStepRequestDefinition'] = None,
                  request_files: Optional[Sequence['outputs.SyntheticsTestApiStepRequestFile']] = None,
-                 request_headers: Optional[Mapping[str, Any]] = None,
-                 request_metadata: Optional[Mapping[str, Any]] = None,
+                 request_headers: Optional[Mapping[str, str]] = None,
+                 request_metadata: Optional[Mapping[str, str]] = None,
                  request_proxy: Optional['outputs.SyntheticsTestApiStepRequestProxy'] = None,
-                 request_query: Optional[Mapping[str, Any]] = None,
+                 request_query: Optional[Mapping[str, str]] = None,
                  retry: Optional['outputs.SyntheticsTestApiStepRetry'] = None,
                  subtype: Optional[str] = None,
                  value: Optional[int] = None):
@@ -77649,10 +77649,10 @@ class SyntheticsTestApiStep(dict):
         :param 'SyntheticsTestApiStepRequestClientCertificateArgs' request_client_certificate: Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
         :param 'SyntheticsTestApiStepRequestDefinitionArgs' request_definition: The request for the api step.
         :param Sequence['SyntheticsTestApiStepRequestFileArgs'] request_files: Files to be used as part of the request in the test.
-        :param Mapping[str, Any] request_headers: Header name and value map.
-        :param Mapping[str, Any] request_metadata: Metadata to include when performing the gRPC request.
+        :param Mapping[str, str] request_headers: Header name and value map.
+        :param Mapping[str, str] request_metadata: Metadata to include when performing the gRPC request.
         :param 'SyntheticsTestApiStepRequestProxyArgs' request_proxy: The proxy to perform the test.
-        :param Mapping[str, Any] request_query: Query arguments name and value map.
+        :param Mapping[str, str] request_query: Query arguments name and value map.
         :param str subtype: The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `wait`. Defaults to `"http"`.
         :param int value: The time to wait in seconds. Minimum value: 0. Maximum value: 180.
         """
@@ -77762,7 +77762,7 @@ class SyntheticsTestApiStep(dict):
 
     @property
     @pulumi.getter(name="requestHeaders")
-    def request_headers(self) -> Optional[Mapping[str, Any]]:
+    def request_headers(self) -> Optional[Mapping[str, str]]:
         """
         Header name and value map.
         """
@@ -77770,7 +77770,7 @@ class SyntheticsTestApiStep(dict):
 
     @property
     @pulumi.getter(name="requestMetadata")
-    def request_metadata(self) -> Optional[Mapping[str, Any]]:
+    def request_metadata(self) -> Optional[Mapping[str, str]]:
         """
         Metadata to include when performing the gRPC request.
         """
@@ -77786,7 +77786,7 @@ class SyntheticsTestApiStep(dict):
 
     @property
     @pulumi.getter(name="requestQuery")
-    def request_query(self) -> Optional[Mapping[str, Any]]:
+    def request_query(self) -> Optional[Mapping[str, str]]:
         """
         Query arguments name and value map.
         """
@@ -78889,10 +78889,10 @@ class SyntheticsTestApiStepRequestFile(dict):
 class SyntheticsTestApiStepRequestProxy(dict):
     def __init__(__self__, *,
                  url: str,
-                 headers: Optional[Mapping[str, Any]] = None):
+                 headers: Optional[Mapping[str, str]] = None):
         """
         :param str url: URL of the proxy to perform the test.
-        :param Mapping[str, Any] headers: Header name and value map.
+        :param Mapping[str, str] headers: Header name and value map.
         """
         pulumi.set(__self__, "url", url)
         if headers is not None:
@@ -78908,7 +78908,7 @@ class SyntheticsTestApiStepRequestProxy(dict):
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[Mapping[str, Any]]:
+    def headers(self) -> Optional[Mapping[str, str]]:
         """
         Header name and value map.
         """
@@ -81086,10 +81086,10 @@ class SyntheticsTestRequestFile(dict):
 class SyntheticsTestRequestProxy(dict):
     def __init__(__self__, *,
                  url: str,
-                 headers: Optional[Mapping[str, Any]] = None):
+                 headers: Optional[Mapping[str, str]] = None):
         """
         :param str url: URL of the proxy to perform the test.
-        :param Mapping[str, Any] headers: Header name and value map.
+        :param Mapping[str, str] headers: Header name and value map.
         """
         pulumi.set(__self__, "url", url)
         if headers is not None:
@@ -81105,7 +81105,7 @@ class SyntheticsTestRequestProxy(dict):
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[Mapping[str, Any]]:
+    def headers(self) -> Optional[Mapping[str, str]]:
         """
         Header name and value map.
         """
