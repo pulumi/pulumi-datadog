@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
+from ._inputs import *
 
 __all__ = ['ProviderArgs', 'Provider']
 
@@ -17,6 +18,7 @@ class ProviderArgs:
                  api_key: Optional[pulumi.Input[str]] = None,
                  api_url: Optional[pulumi.Input[str]] = None,
                  app_key: Optional[pulumi.Input[str]] = None,
+                 default_tags: Optional[pulumi.Input['ProviderDefaultTagsArgs']] = None,
                  http_client_retry_backoff_base: Optional[pulumi.Input[int]] = None,
                  http_client_retry_backoff_multiplier: Optional[pulumi.Input[int]] = None,
                  http_client_retry_enabled: Optional[pulumi.Input[str]] = None,
@@ -26,12 +28,15 @@ class ProviderArgs:
         """
         The set of arguments for constructing a Provider resource.
         :param pulumi.Input[str] api_key: (Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.
-        :param pulumi.Input[str] api_url: The API URL. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the `/api/`
-               path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And
-               if you're working with "EU" version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples:
-               `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See
-               https://docs.datadoghq.com/getting_started/site/ for all available regions.
+        :param pulumi.Input[str] api_url: The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`.
+               Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value,
+               while `https://api.datadoghq.com/api/` is not. And if you're working with "EU" version of Datadog, use
+               `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`,
+               `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/
+               for all available regions.
         :param pulumi.Input[str] app_key: (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
+        :param pulumi.Input['ProviderDefaultTagsArgs'] default_tags: [Experimental - Monitors only] Configuration block containing settings to apply default resource tags across all
+               resources.
         :param pulumi.Input[int] http_client_retry_backoff_base: The HTTP request retry back off base. Defaults to 2.
         :param pulumi.Input[int] http_client_retry_backoff_multiplier: The HTTP request retry back off multiplier. Defaults to 2.
         :param pulumi.Input[str] http_client_retry_enabled: Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
@@ -46,6 +51,8 @@ class ProviderArgs:
             pulumi.set(__self__, "api_url", api_url)
         if app_key is not None:
             pulumi.set(__self__, "app_key", app_key)
+        if default_tags is not None:
+            pulumi.set(__self__, "default_tags", default_tags)
         if http_client_retry_backoff_base is not None:
             pulumi.set(__self__, "http_client_retry_backoff_base", http_client_retry_backoff_base)
         if http_client_retry_backoff_multiplier is not None:
@@ -75,11 +82,12 @@ class ProviderArgs:
     @pulumi.getter(name="apiUrl")
     def api_url(self) -> Optional[pulumi.Input[str]]:
         """
-        The API URL. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the `/api/`
-        path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And
-        if you're working with "EU" version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples:
-        `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See
-        https://docs.datadoghq.com/getting_started/site/ for all available regions.
+        The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`.
+        Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value,
+        while `https://api.datadoghq.com/api/` is not. And if you're working with "EU" version of Datadog, use
+        `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`,
+        `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/
+        for all available regions.
         """
         return pulumi.get(self, "api_url")
 
@@ -98,6 +106,19 @@ class ProviderArgs:
     @app_key.setter
     def app_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "app_key", value)
+
+    @property
+    @pulumi.getter(name="defaultTags")
+    def default_tags(self) -> Optional[pulumi.Input['ProviderDefaultTagsArgs']]:
+        """
+        [Experimental - Monitors only] Configuration block containing settings to apply default resource tags across all
+        resources.
+        """
+        return pulumi.get(self, "default_tags")
+
+    @default_tags.setter
+    def default_tags(self, value: Optional[pulumi.Input['ProviderDefaultTagsArgs']]):
+        pulumi.set(self, "default_tags", value)
 
     @property
     @pulumi.getter(name="httpClientRetryBackoffBase")
@@ -181,6 +202,7 @@ class Provider(pulumi.ProviderResource):
                  api_key: Optional[pulumi.Input[str]] = None,
                  api_url: Optional[pulumi.Input[str]] = None,
                  app_key: Optional[pulumi.Input[str]] = None,
+                 default_tags: Optional[pulumi.Input[Union['ProviderDefaultTagsArgs', 'ProviderDefaultTagsArgsDict']]] = None,
                  http_client_retry_backoff_base: Optional[pulumi.Input[int]] = None,
                  http_client_retry_backoff_multiplier: Optional[pulumi.Input[int]] = None,
                  http_client_retry_enabled: Optional[pulumi.Input[str]] = None,
@@ -197,12 +219,15 @@ class Provider(pulumi.ProviderResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_key: (Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.
-        :param pulumi.Input[str] api_url: The API URL. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the `/api/`
-               path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And
-               if you're working with "EU" version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples:
-               `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See
-               https://docs.datadoghq.com/getting_started/site/ for all available regions.
+        :param pulumi.Input[str] api_url: The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`.
+               Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value,
+               while `https://api.datadoghq.com/api/` is not. And if you're working with "EU" version of Datadog, use
+               `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`,
+               `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/
+               for all available regions.
         :param pulumi.Input[str] app_key: (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
+        :param pulumi.Input[Union['ProviderDefaultTagsArgs', 'ProviderDefaultTagsArgsDict']] default_tags: [Experimental - Monitors only] Configuration block containing settings to apply default resource tags across all
+               resources.
         :param pulumi.Input[int] http_client_retry_backoff_base: The HTTP request retry back off base. Defaults to 2.
         :param pulumi.Input[int] http_client_retry_backoff_multiplier: The HTTP request retry back off multiplier. Defaults to 2.
         :param pulumi.Input[str] http_client_retry_enabled: Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
@@ -241,6 +266,7 @@ class Provider(pulumi.ProviderResource):
                  api_key: Optional[pulumi.Input[str]] = None,
                  api_url: Optional[pulumi.Input[str]] = None,
                  app_key: Optional[pulumi.Input[str]] = None,
+                 default_tags: Optional[pulumi.Input[Union['ProviderDefaultTagsArgs', 'ProviderDefaultTagsArgsDict']]] = None,
                  http_client_retry_backoff_base: Optional[pulumi.Input[int]] = None,
                  http_client_retry_backoff_multiplier: Optional[pulumi.Input[int]] = None,
                  http_client_retry_enabled: Optional[pulumi.Input[str]] = None,
@@ -259,6 +285,7 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["api_key"] = None if api_key is None else pulumi.Output.secret(api_key)
             __props__.__dict__["api_url"] = api_url
             __props__.__dict__["app_key"] = None if app_key is None else pulumi.Output.secret(app_key)
+            __props__.__dict__["default_tags"] = pulumi.Output.from_input(default_tags).apply(pulumi.runtime.to_json) if default_tags is not None else None
             __props__.__dict__["http_client_retry_backoff_base"] = pulumi.Output.from_input(http_client_retry_backoff_base).apply(pulumi.runtime.to_json) if http_client_retry_backoff_base is not None else None
             __props__.__dict__["http_client_retry_backoff_multiplier"] = pulumi.Output.from_input(http_client_retry_backoff_multiplier).apply(pulumi.runtime.to_json) if http_client_retry_backoff_multiplier is not None else None
             __props__.__dict__["http_client_retry_enabled"] = http_client_retry_enabled
@@ -285,11 +312,12 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="apiUrl")
     def api_url(self) -> pulumi.Output[Optional[str]]:
         """
-        The API URL. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the `/api/`
-        path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And
-        if you're working with "EU" version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples:
-        `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See
-        https://docs.datadoghq.com/getting_started/site/ for all available regions.
+        The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`.
+        Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value,
+        while `https://api.datadoghq.com/api/` is not. And if you're working with "EU" version of Datadog, use
+        `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`,
+        `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/
+        for all available regions.
         """
         return pulumi.get(self, "api_url")
 

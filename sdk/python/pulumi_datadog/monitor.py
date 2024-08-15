@@ -1927,7 +1927,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def tags(self) -> pulumi.Output[Sequence[str]]:
         """
         A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
         page of the UI. Note: it's not currently possible to filter by these tags when querying via the API

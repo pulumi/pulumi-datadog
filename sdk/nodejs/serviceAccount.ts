@@ -72,7 +72,7 @@ export class ServiceAccount extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * A list a role IDs to assign to the service account.
+     * A list of role IDs to assign to the service account.
      */
     public readonly roles!: pulumi.Output<string[]>;
 
@@ -125,7 +125,7 @@ export interface ServiceAccountState {
      */
     name?: pulumi.Input<string>;
     /**
-     * A list a role IDs to assign to the service account.
+     * A list of role IDs to assign to the service account.
      */
     roles?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -147,7 +147,7 @@ export interface ServiceAccountArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A list a role IDs to assign to the service account.
+     * A list of role IDs to assign to the service account.
      */
     roles?: pulumi.Input<pulumi.Input<string>[]>;
 }

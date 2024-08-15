@@ -70,7 +70,7 @@ namespace Pulumi.Datadog
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A list a role IDs to assign to the service account.
+        /// A list of role IDs to assign to the service account.
         /// </summary>
         [Output("roles")]
         public Output<ImmutableArray<string>> Roles { get; private set; } = null!;
@@ -143,7 +143,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _roles;
 
         /// <summary>
-        /// A list a role IDs to assign to the service account.
+        /// A list of role IDs to assign to the service account.
         /// </summary>
         public InputList<string> Roles
         {
@@ -181,7 +181,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _roles;
 
         /// <summary>
-        /// A list a role IDs to assign to the service account.
+        /// A list of role IDs to assign to the service account.
         /// </summary>
         public InputList<string> Roles
         {

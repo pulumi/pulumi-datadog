@@ -44,11 +44,12 @@ namespace Pulumi.Datadog
 
         private static readonly __Value<string?> _apiUrl = new __Value<string?>(() => __config.Get("apiUrl"));
         /// <summary>
-        /// The API URL. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the `/api/`
-        /// path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And
-        /// if you're working with "EU" version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples:
-        /// `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See
-        /// https://docs.datadoghq.com/getting_started/site/ for all available regions.
+        /// The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`.
+        /// Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value,
+        /// while `https://api.datadoghq.com/api/` is not. And if you're working with "EU" version of Datadog, use
+        /// `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`,
+        /// `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/
+        /// for all available regions.
         /// </summary>
         public static string? ApiUrl
         {
@@ -64,6 +65,17 @@ namespace Pulumi.Datadog
         {
             get => _appKey.Get();
             set => _appKey.Set(value);
+        }
+
+        private static readonly __Value<Pulumi.Datadog.Config.Types.DefaultTags?> _defaultTags = new __Value<Pulumi.Datadog.Config.Types.DefaultTags?>(() => __config.GetObject<Pulumi.Datadog.Config.Types.DefaultTags>("defaultTags"));
+        /// <summary>
+        /// [Experimental - Monitors only] Configuration block containing settings to apply default resource tags across all
+        /// resources.
+        /// </summary>
+        public static Pulumi.Datadog.Config.Types.DefaultTags? DefaultTags
+        {
+            get => _defaultTags.Get();
+            set => _defaultTags.Set(value);
         }
 
         private static readonly __Value<int?> _httpClientRetryBackoffBase = new __Value<int?>(() => __config.GetInt32("httpClientRetryBackoffBase"));
@@ -127,5 +139,16 @@ namespace Pulumi.Datadog
             set => _validate.Set(value);
         }
 
+        public static class Types
+        {
+
+             public class DefaultTags
+             {
+            /// <summary>
+            /// [Experimental - Monitors only] Resource tags to be applied by default across all resources.
+            /// </summary>
+                public ImmutableDictionary<string, string>? Tags { get; set; } = null!;
+            }
+        }
     }
 }

@@ -66,7 +66,7 @@ type ServiceAccount struct {
 	Email pulumi.StringOutput `pulumi:"email"`
 	// Name for the service account.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// A list a role IDs to assign to the service account.
+	// A list of role IDs to assign to the service account.
 	Roles pulumi.StringArrayOutput `pulumi:"roles"`
 }
 
@@ -109,7 +109,7 @@ type serviceAccountState struct {
 	Email *string `pulumi:"email"`
 	// Name for the service account.
 	Name *string `pulumi:"name"`
-	// A list a role IDs to assign to the service account.
+	// A list of role IDs to assign to the service account.
 	Roles []string `pulumi:"roles"`
 }
 
@@ -120,7 +120,7 @@ type ServiceAccountState struct {
 	Email pulumi.StringPtrInput
 	// Name for the service account.
 	Name pulumi.StringPtrInput
-	// A list a role IDs to assign to the service account.
+	// A list of role IDs to assign to the service account.
 	Roles pulumi.StringArrayInput
 }
 
@@ -135,7 +135,7 @@ type serviceAccountArgs struct {
 	Email string `pulumi:"email"`
 	// Name for the service account.
 	Name *string `pulumi:"name"`
-	// A list a role IDs to assign to the service account.
+	// A list of role IDs to assign to the service account.
 	Roles []string `pulumi:"roles"`
 }
 
@@ -147,7 +147,7 @@ type ServiceAccountArgs struct {
 	Email pulumi.StringInput
 	// Name for the service account.
 	Name pulumi.StringPtrInput
-	// A list a role IDs to assign to the service account.
+	// A list of role IDs to assign to the service account.
 	Roles pulumi.StringArrayInput
 }
 
@@ -253,7 +253,7 @@ func (o ServiceAccountOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceAccount) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// A list a role IDs to assign to the service account.
+// A list of role IDs to assign to the service account.
 func (o ServiceAccountOutput) Roles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ServiceAccount) pulumi.StringArrayOutput { return v.Roles }).(pulumi.StringArrayOutput)
 }

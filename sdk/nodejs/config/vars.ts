@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 declare var exports: any;
@@ -19,11 +21,12 @@ Object.defineProperty(exports, "apiKey", {
 });
 
 /**
- * The API URL. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the `/api/`
- * path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And
- * if you're working with "EU" version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples:
- * `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See
- * https://docs.datadoghq.com/getting_started/site/ for all available regions.
+ * The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`.
+ * Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value,
+ * while `https://api.datadoghq.com/api/` is not. And if you're working with "EU" version of Datadog, use
+ * `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`,
+ * `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/
+ * for all available regions.
  */
 export declare const apiUrl: string | undefined;
 Object.defineProperty(exports, "apiUrl", {
@@ -40,6 +43,18 @@ export declare const appKey: string | undefined;
 Object.defineProperty(exports, "appKey", {
     get() {
         return __config.get("appKey");
+    },
+    enumerable: true,
+});
+
+/**
+ * [Experimental - Monitors only] Configuration block containing settings to apply default resource tags across all
+ * resources.
+ */
+export declare const defaultTags: outputs.config.DefaultTags | undefined;
+Object.defineProperty(exports, "defaultTags", {
+    get() {
+        return __config.getObject<outputs.config.DefaultTags>("defaultTags");
     },
     enumerable: true,
 });

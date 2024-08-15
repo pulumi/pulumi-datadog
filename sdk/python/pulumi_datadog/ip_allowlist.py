@@ -103,6 +103,26 @@ class IpAllowlist(pulumi.CustomResource):
         """
         Provides the Datadog IP allowlist resource. This can be used to manage the Datadog IP allowlist
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        example = datadog.IpAllowlist("example",
+            enabled=False,
+            entries=[
+                {
+                    "cidr_block": "127.0.0.0/32",
+                    "note": "1st Example IP Range",
+                },
+                {
+                    "cidr_block": "192.0.2.0/24",
+                    "note": "2nd Example IP Range",
+                },
+            ])
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Whether the IP Allowlist is enabled.
@@ -116,6 +136,26 @@ class IpAllowlist(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides the Datadog IP allowlist resource. This can be used to manage the Datadog IP allowlist
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        example = datadog.IpAllowlist("example",
+            enabled=False,
+            entries=[
+                {
+                    "cidr_block": "127.0.0.0/32",
+                    "note": "1st Example IP Range",
+                },
+                {
+                    "cidr_block": "192.0.2.0/24",
+                    "note": "2nd Example IP Range",
+                },
+            ])
+        ```
 
         :param str resource_name: The name of the resource.
         :param IpAllowlistArgs args: The arguments to use to populate this resource's properties.

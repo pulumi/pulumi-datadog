@@ -27,7 +27,7 @@ public final class DashboardWidgetChangeDefinitionRequestQueryEventQuery {
      */
     private @Nullable String crossOrgUuids;
     /**
-     * @return The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
+     * @return The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.
      * 
      */
     private String dataSource;
@@ -73,7 +73,7 @@ public final class DashboardWidgetChangeDefinitionRequestQueryEventQuery {
         return Optional.ofNullable(this.crossOrgUuids);
     }
     /**
-     * @return The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
+     * @return The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.
      * 
      */
     public String dataSource() {

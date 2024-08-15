@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -30,11 +32,12 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly apiKey!: pulumi.Output<string | undefined>;
     /**
-     * The API URL. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the `/api/`
-     * path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And
-     * if you're working with "EU" version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples:
-     * `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See
-     * https://docs.datadoghq.com/getting_started/site/ for all available regions.
+     * The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`.
+     * Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value,
+     * while `https://api.datadoghq.com/api/` is not. And if you're working with "EU" version of Datadog, use
+     * `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`,
+     * `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/
+     * for all available regions.
      */
     public readonly apiUrl!: pulumi.Output<string | undefined>;
     /**
@@ -65,6 +68,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["apiKey"] = args?.apiKey ? pulumi.secret(args.apiKey) : undefined;
             resourceInputs["apiUrl"] = args ? args.apiUrl : undefined;
             resourceInputs["appKey"] = args?.appKey ? pulumi.secret(args.appKey) : undefined;
+            resourceInputs["defaultTags"] = pulumi.output(args ? args.defaultTags : undefined).apply(JSON.stringify);
             resourceInputs["httpClientRetryBackoffBase"] = pulumi.output(args ? args.httpClientRetryBackoffBase : undefined).apply(JSON.stringify);
             resourceInputs["httpClientRetryBackoffMultiplier"] = pulumi.output(args ? args.httpClientRetryBackoffMultiplier : undefined).apply(JSON.stringify);
             resourceInputs["httpClientRetryEnabled"] = args ? args.httpClientRetryEnabled : undefined;
@@ -88,17 +92,23 @@ export interface ProviderArgs {
      */
     apiKey?: pulumi.Input<string>;
     /**
-     * The API URL. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the `/api/`
-     * path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And
-     * if you're working with "EU" version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples:
-     * `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See
-     * https://docs.datadoghq.com/getting_started/site/ for all available regions.
+     * The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`.
+     * Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value,
+     * while `https://api.datadoghq.com/api/` is not. And if you're working with "EU" version of Datadog, use
+     * `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`,
+     * `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/
+     * for all available regions.
      */
     apiUrl?: pulumi.Input<string>;
     /**
      * (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
      */
     appKey?: pulumi.Input<string>;
+    /**
+     * [Experimental - Monitors only] Configuration block containing settings to apply default resource tags across all
+     * resources.
+     */
+    defaultTags?: pulumi.Input<inputs.ProviderDefaultTags>;
     /**
      * The HTTP request retry back off base. Defaults to 2.
      */

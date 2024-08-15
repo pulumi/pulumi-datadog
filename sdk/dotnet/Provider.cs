@@ -25,11 +25,12 @@ namespace Pulumi.Datadog
         public Output<string?> ApiKey { get; private set; } = null!;
 
         /// <summary>
-        /// The API URL. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the `/api/`
-        /// path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And
-        /// if you're working with "EU" version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples:
-        /// `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See
-        /// https://docs.datadoghq.com/getting_started/site/ for all available regions.
+        /// The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`.
+        /// Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value,
+        /// while `https://api.datadoghq.com/api/` is not. And if you're working with "EU" version of Datadog, use
+        /// `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`,
+        /// `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/
+        /// for all available regions.
         /// </summary>
         [Output("apiUrl")]
         public Output<string?> ApiUrl { get; private set; } = null!;
@@ -103,11 +104,12 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The API URL. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the `/api/`
-        /// path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And
-        /// if you're working with "EU" version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples:
-        /// `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See
-        /// https://docs.datadoghq.com/getting_started/site/ for all available regions.
+        /// The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`.
+        /// Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value,
+        /// while `https://api.datadoghq.com/api/` is not. And if you're working with "EU" version of Datadog, use
+        /// `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`,
+        /// `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/
+        /// for all available regions.
         /// </summary>
         [Input("apiUrl")]
         public Input<string>? ApiUrl { get; set; }
@@ -127,6 +129,13 @@ namespace Pulumi.Datadog
                 _appKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// [Experimental - Monitors only] Configuration block containing settings to apply default resource tags across all
+        /// resources.
+        /// </summary>
+        [Input("defaultTags", json: true)]
+        public Input<Inputs.ProviderDefaultTagsArgs>? DefaultTags { get; set; }
 
         /// <summary>
         /// The HTTP request retry back off base. Defaults to 2.

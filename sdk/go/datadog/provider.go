@@ -20,11 +20,12 @@ type Provider struct {
 
 	// (Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.
 	ApiKey pulumi.StringPtrOutput `pulumi:"apiKey"`
-	// The API URL. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the `/api/`
-	// path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And
-	// if you're working with "EU" version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples:
-	// `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See
-	// https://docs.datadoghq.com/getting_started/site/ for all available regions.
+	// The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`.
+	// Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value,
+	// while `https://api.datadoghq.com/api/` is not. And if you're working with "EU" version of Datadog, use
+	// `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`,
+	// `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/
+	// for all available regions.
 	ApiUrl pulumi.StringPtrOutput `pulumi:"apiUrl"`
 	// (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
 	AppKey pulumi.StringPtrOutput `pulumi:"appKey"`
@@ -65,14 +66,18 @@ func NewProvider(ctx *pulumi.Context,
 type providerArgs struct {
 	// (Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.
 	ApiKey *string `pulumi:"apiKey"`
-	// The API URL. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the `/api/`
-	// path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And
-	// if you're working with "EU" version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples:
-	// `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See
-	// https://docs.datadoghq.com/getting_started/site/ for all available regions.
+	// The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`.
+	// Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value,
+	// while `https://api.datadoghq.com/api/` is not. And if you're working with "EU" version of Datadog, use
+	// `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`,
+	// `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/
+	// for all available regions.
 	ApiUrl *string `pulumi:"apiUrl"`
 	// (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
 	AppKey *string `pulumi:"appKey"`
+	// [Experimental - Monitors only] Configuration block containing settings to apply default resource tags across all
+	// resources.
+	DefaultTags *ProviderDefaultTags `pulumi:"defaultTags"`
 	// The HTTP request retry back off base. Defaults to 2.
 	HttpClientRetryBackoffBase *int `pulumi:"httpClientRetryBackoffBase"`
 	// The HTTP request retry back off multiplier. Defaults to 2.
@@ -92,14 +97,18 @@ type providerArgs struct {
 type ProviderArgs struct {
 	// (Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.
 	ApiKey pulumi.StringPtrInput
-	// The API URL. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the `/api/`
-	// path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And
-	// if you're working with "EU" version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples:
-	// `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See
-	// https://docs.datadoghq.com/getting_started/site/ for all available regions.
+	// The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`.
+	// Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value,
+	// while `https://api.datadoghq.com/api/` is not. And if you're working with "EU" version of Datadog, use
+	// `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`,
+	// `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/
+	// for all available regions.
 	ApiUrl pulumi.StringPtrInput
 	// (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
 	AppKey pulumi.StringPtrInput
+	// [Experimental - Monitors only] Configuration block containing settings to apply default resource tags across all
+	// resources.
+	DefaultTags ProviderDefaultTagsPtrInput
 	// The HTTP request retry back off base. Defaults to 2.
 	HttpClientRetryBackoffBase pulumi.IntPtrInput
 	// The HTTP request retry back off multiplier. Defaults to 2.
@@ -157,11 +166,12 @@ func (o ProviderOutput) ApiKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ApiKey }).(pulumi.StringPtrOutput)
 }
 
-// The API URL. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the `/api/`
-// path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And
-// if you're working with "EU" version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples:
-// `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See
-// https://docs.datadoghq.com/getting_started/site/ for all available regions.
+// The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`.
+// Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value,
+// while `https://api.datadoghq.com/api/` is not. And if you're working with "EU" version of Datadog, use
+// `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`,
+// `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/
+// for all available regions.
 func (o ProviderOutput) ApiUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ApiUrl }).(pulumi.StringPtrOutput)
 }

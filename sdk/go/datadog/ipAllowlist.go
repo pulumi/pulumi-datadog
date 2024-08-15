@@ -13,6 +13,42 @@ import (
 )
 
 // Provides the Datadog IP allowlist resource. This can be used to manage the Datadog IP allowlist
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.NewIpAllowlist(ctx, "example", &datadog.IpAllowlistArgs{
+//				Enabled: pulumi.Bool(false),
+//				Entries: datadog.IpAllowlistEntryArray{
+//					&datadog.IpAllowlistEntryArgs{
+//						CidrBlock: pulumi.String("127.0.0.0/32"),
+//						Note:      pulumi.String("1st Example IP Range"),
+//					},
+//					&datadog.IpAllowlistEntryArgs{
+//						CidrBlock: pulumi.String("192.0.2.0/24"),
+//						Note:      pulumi.String("2nd Example IP Range"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type IpAllowlist struct {
 	pulumi.CustomResourceState
 

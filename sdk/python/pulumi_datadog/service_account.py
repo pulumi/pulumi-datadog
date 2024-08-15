@@ -23,7 +23,7 @@ class ServiceAccountArgs:
         :param pulumi.Input[str] email: Email of the associated user.
         :param pulumi.Input[bool] disabled: Whether the service account is disabled. Defaults to `false`.
         :param pulumi.Input[str] name: Name for the service account.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: A list a role IDs to assign to the service account.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: A list of role IDs to assign to the service account.
         """
         pulumi.set(__self__, "email", email)
         if disabled is not None:
@@ -73,7 +73,7 @@ class ServiceAccountArgs:
     @pulumi.getter
     def roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list a role IDs to assign to the service account.
+        A list of role IDs to assign to the service account.
         """
         return pulumi.get(self, "roles")
 
@@ -94,7 +94,7 @@ class _ServiceAccountState:
         :param pulumi.Input[bool] disabled: Whether the service account is disabled. Defaults to `false`.
         :param pulumi.Input[str] email: Email of the associated user.
         :param pulumi.Input[str] name: Name for the service account.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: A list a role IDs to assign to the service account.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: A list of role IDs to assign to the service account.
         """
         if disabled is not None:
             pulumi.set(__self__, "disabled", disabled)
@@ -145,7 +145,7 @@ class _ServiceAccountState:
     @pulumi.getter
     def roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list a role IDs to assign to the service account.
+        A list of role IDs to assign to the service account.
         """
         return pulumi.get(self, "roles")
 
@@ -193,7 +193,7 @@ class ServiceAccount(pulumi.CustomResource):
         :param pulumi.Input[bool] disabled: Whether the service account is disabled. Defaults to `false`.
         :param pulumi.Input[str] email: Email of the associated user.
         :param pulumi.Input[str] name: Name for the service account.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: A list a role IDs to assign to the service account.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: A list of role IDs to assign to the service account.
         """
         ...
     @overload
@@ -283,7 +283,7 @@ class ServiceAccount(pulumi.CustomResource):
         :param pulumi.Input[bool] disabled: Whether the service account is disabled. Defaults to `false`.
         :param pulumi.Input[str] email: Email of the associated user.
         :param pulumi.Input[str] name: Name for the service account.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: A list a role IDs to assign to the service account.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: A list of role IDs to assign to the service account.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -323,7 +323,7 @@ class ServiceAccount(pulumi.CustomResource):
     @pulumi.getter
     def roles(self) -> pulumi.Output[Sequence[str]]:
         """
-        A list a role IDs to assign to the service account.
+        A list of role IDs to assign to the service account.
         """
         return pulumi.get(self, "roles")
 

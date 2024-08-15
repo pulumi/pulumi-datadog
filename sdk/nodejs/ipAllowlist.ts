@@ -8,6 +8,27 @@ import * as utilities from "./utilities";
 
 /**
  * Provides the Datadog IP allowlist resource. This can be used to manage the Datadog IP allowlist
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const example = new datadog.IpAllowlist("example", {
+ *     enabled: false,
+ *     entries: [
+ *         {
+ *             cidrBlock: "127.0.0.0/32",
+ *             note: "1st Example IP Range",
+ *         },
+ *         {
+ *             cidrBlock: "192.0.2.0/24",
+ *             note: "2nd Example IP Range",
+ *         },
+ *     ],
+ * });
+ * ```
  */
 export class IpAllowlist extends pulumi.CustomResource {
     /**

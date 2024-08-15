@@ -64,14 +64,14 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list a role IDs to assign to the user.
+     * A list of role IDs to assign to the user.
      * 
      */
     @Import(name="roles")
     private @Nullable Output<List<String>> roles;
 
     /**
-     * @return A list a role IDs to assign to the user.
+     * @return A list of role IDs to assign to the user.
      * 
      */
     public Optional<Output<List<String>>> roles() {
@@ -185,7 +185,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roles A list a role IDs to assign to the user.
+         * @param roles A list of role IDs to assign to the user.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roles A list a role IDs to assign to the user.
+         * @param roles A list of role IDs to assign to the user.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roles A list a role IDs to assign to the user.
+         * @param roles A list of role IDs to assign to the user.
          * 
          * @return builder
          * 
