@@ -69,12 +69,16 @@
             },
             "apiUrl": {
                 "type": "string",
-                "description": "The API URL. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the `/api/`\npath. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And\nif you're working with \"EU\" version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples:\n`https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See\nhttps://docs.datadoghq.com/getting_started/site/ for all available regions.\n"
+                "description": "The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`.\nNote that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value,\nwhile `https://api.datadoghq.com/api/` is not. And if you're working with \"EU\" version of Datadog, use\n`https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`,\n`https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/\nfor all available regions.\n"
             },
             "appKey": {
                 "type": "string",
                 "description": "(Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.\n",
                 "secret": true
+            },
+            "defaultTags": {
+                "$ref": "#/types/datadog:config/defaultTags:defaultTags",
+                "description": "[Experimental - Monitors only] Configuration block containing settings to apply default resource tags across all\nresources.\n"
             },
             "httpClientRetryBackoffBase": {
                 "type": "integer",
@@ -125,11 +129,23 @@
                 }
             }
         },
+        "datadog:config/defaultTags:defaultTags": {
+            "properties": {
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "[Experimental - Monitors only] Resource tags to be applied by default across all resources.\n"
+                }
+            },
+            "type": "object"
+        },
         "datadog:index/ApmRetentionFilterFilter:ApmRetentionFilterFilter": {
             "properties": {
                 "query": {
                     "type": "string",
-                    "description": "The search query - following the span search syntax. Defaults to `\"*\"`.\n"
+                    "description": "The search query - follow the span search syntax, use `AND` between tags and `\\` to escape special characters, use nanosecond for duration. Defaults to `\"*\"`.\n"
                 }
             },
             "type": "object",
@@ -1250,7 +1266,7 @@
                 },
                 "dataSource": {
                     "type": "string",
-                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.\n"
+                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.\n"
                 },
                 "groupBies": {
                     "type": "array",
@@ -2198,7 +2214,7 @@
                 },
                 "dataSource": {
                     "type": "string",
-                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.\n"
+                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.\n"
                 },
                 "groupBies": {
                     "type": "array",
@@ -3138,7 +3154,7 @@
                 },
                 "dataSource": {
                     "type": "string",
-                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.\n"
+                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.\n"
                 },
                 "groupBies": {
                     "type": "array",
@@ -4763,7 +4779,7 @@
                 },
                 "dataSource": {
                     "type": "string",
-                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.\n"
+                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.\n"
                 },
                 "groupBies": {
                     "type": "array",
@@ -5614,7 +5630,7 @@
                 },
                 "dataSource": {
                     "type": "string",
-                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.\n"
+                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.\n"
                 },
                 "groupBies": {
                     "type": "array",
@@ -6406,7 +6422,7 @@
                 },
                 "dataSource": {
                     "type": "string",
-                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.\n"
+                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.\n"
                 },
                 "groupBies": {
                     "type": "array",
@@ -7998,7 +8014,7 @@
                 },
                 "dataSource": {
                     "type": "string",
-                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.\n"
+                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.\n"
                 },
                 "groupBies": {
                     "type": "array",
@@ -9009,7 +9025,7 @@
                 },
                 "dataSource": {
                     "type": "string",
-                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.\n"
+                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.\n"
                 },
                 "groupBies": {
                     "type": "array",
@@ -9907,7 +9923,7 @@
                 },
                 "dataSource": {
                     "type": "string",
-                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.\n"
+                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.\n"
                 },
                 "groupBies": {
                     "type": "array",
@@ -10650,7 +10666,7 @@
                 },
                 "dataSource": {
                     "type": "string",
-                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.\n"
+                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.\n"
                 },
                 "groupBies": {
                     "type": "array",
@@ -13722,7 +13738,7 @@
                 },
                 "dataSource": {
                     "type": "string",
-                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.\n"
+                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.\n"
                 },
                 "groupBies": {
                     "type": "array",
@@ -15454,7 +15470,7 @@
                 },
                 "dataSource": {
                     "type": "string",
-                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.\n"
+                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.\n"
                 },
                 "groupBies": {
                     "type": "array",
@@ -16516,7 +16532,7 @@
                 },
                 "dataSource": {
                     "type": "string",
-                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.\n"
+                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.\n"
                 },
                 "groupBies": {
                     "type": "array",
@@ -19274,7 +19290,7 @@
                 },
                 "dataSource": {
                     "type": "string",
-                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.\n"
+                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.\n"
                 },
                 "groupBies": {
                     "type": "array",
@@ -20573,7 +20589,7 @@
                 },
                 "dataSource": {
                     "type": "string",
-                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.\n"
+                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.\n"
                 },
                 "groupBies": {
                     "type": "array",
@@ -21477,7 +21493,7 @@
                 },
                 "dataSource": {
                     "type": "string",
-                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.\n"
+                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.\n"
                 },
                 "groupBies": {
                     "type": "array",
@@ -23897,7 +23913,7 @@
                 },
                 "dataSource": {
                     "type": "string",
-                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.\n"
+                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.\n"
                 },
                 "groupBies": {
                     "type": "array",
@@ -25356,7 +25372,7 @@
                 },
                 "dataSource": {
                     "type": "string",
-                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.\n"
+                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.\n"
                 },
                 "groupBies": {
                     "type": "array",
@@ -26702,7 +26718,7 @@
                 },
                 "dataSource": {
                     "type": "string",
-                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.\n"
+                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.\n"
                 },
                 "groupBies": {
                     "type": "array",
@@ -27669,7 +27685,7 @@
                 },
                 "dataSource": {
                     "type": "string",
-                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.\n"
+                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.\n"
                 },
                 "groupBies": {
                     "type": "array",
@@ -27931,6 +27947,18 @@
                 "x",
                 "y"
             ]
+        },
+        "datadog:index/ProviderDefaultTags:ProviderDefaultTags": {
+            "properties": {
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "[Experimental - Monitors only] Resource tags to be applied by default across all resources.\n"
+                }
+            },
+            "type": "object"
         },
         "datadog:index/RestrictionPolicyBinding:RestrictionPolicyBinding": {
             "properties": {
@@ -31418,12 +31446,16 @@
             },
             "apiUrl": {
                 "type": "string",
-                "description": "The API URL. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the `/api/`\npath. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And\nif you're working with \"EU\" version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples:\n`https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See\nhttps://docs.datadoghq.com/getting_started/site/ for all available regions.\n"
+                "description": "The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`.\nNote that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value,\nwhile `https://api.datadoghq.com/api/` is not. And if you're working with \"EU\" version of Datadog, use\n`https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`,\n`https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/\nfor all available regions.\n"
             },
             "appKey": {
                 "type": "string",
                 "description": "(Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.\n",
                 "secret": true
+            },
+            "defaultTags": {
+                "$ref": "#/types/datadog:index/ProviderDefaultTags:ProviderDefaultTags",
+                "description": "[Experimental - Monitors only] Configuration block containing settings to apply default resource tags across all\nresources.\n"
             },
             "httpClientRetryBackoffBase": {
                 "type": "integer",
@@ -31458,12 +31490,16 @@
             },
             "apiUrl": {
                 "type": "string",
-                "description": "The API URL. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the `/api/`\npath. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And\nif you're working with \"EU\" version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples:\n`https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See\nhttps://docs.datadoghq.com/getting_started/site/ for all available regions.\n"
+                "description": "The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`.\nNote that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value,\nwhile `https://api.datadoghq.com/api/` is not. And if you're working with \"EU\" version of Datadog, use\n`https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`,\n`https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/\nfor all available regions.\n"
             },
             "appKey": {
                 "type": "string",
                 "description": "(Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.\n",
                 "secret": true
+            },
+            "defaultTags": {
+                "$ref": "#/types/datadog:index/ProviderDefaultTags:ProviderDefaultTags",
+                "description": "[Experimental - Monitors only] Configuration block containing settings to apply default resource tags across all\nresources.\n"
             },
             "httpClientRetryBackoffBase": {
                 "type": "integer",
@@ -31777,7 +31813,7 @@
             }
         },
         "datadog:aws/integrationLambdaArn:IntegrationLambdaArn": {
-            "description": "Provides a Datadog - Amazon Web Services integration Lambda ARN resource. This can be used to create and manage the log collection Lambdas for an account.\n\nUpdate operations are currently not supported with datadog API so any change forces a new resource.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Create a new Datadog - Amazon Web Services integration Lambda ARN\nconst mainCollector = new datadog.aws.IntegrationLambdaArn(\"main_collector\", {\n    accountId: \"1234567890\",\n    lambdaArn: \"arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Create a new Datadog - Amazon Web Services integration Lambda ARN\nmain_collector = datadog.aws.IntegrationLambdaArn(\"main_collector\",\n    account_id=\"1234567890\",\n    lambda_arn=\"arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Create a new Datadog - Amazon Web Services integration Lambda ARN\n    var mainCollector = new Datadog.Aws.IntegrationLambdaArn(\"main_collector\", new()\n    {\n        AccountId = \"1234567890\",\n        LambdaArn = \"arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/aws\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t// Create a new Datadog - Amazon Web Services integration Lambda ARN\n\t\t_, err := aws.NewIntegrationLambdaArn(ctx, \"main_collector\", \u0026aws.IntegrationLambdaArnArgs{\n\t\t\tAccountId: pulumi.String(\"1234567890\"),\n\t\t\tLambdaArn: pulumi.String(\"arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.aws.IntegrationLambdaArn;\nimport com.pulumi.datadog.aws.IntegrationLambdaArnArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // Create a new Datadog - Amazon Web Services integration Lambda ARN\n        var mainCollector = new IntegrationLambdaArn(\"mainCollector\", IntegrationLambdaArnArgs.builder()\n            .accountId(\"1234567890\")\n            .lambdaArn(\"arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Create a new Datadog - Amazon Web Services integration Lambda ARN\n  mainCollector:\n    type: datadog:aws:IntegrationLambdaArn\n    name: main_collector\n    properties:\n      accountId: '1234567890'\n      lambdaArn: arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nAmazon Web Services Lambda ARN integrations can be imported using their account_id and lambda_arn separated with a space (` `).\n\n```sh\n$ pulumi import datadog:aws/integrationLambdaArn:IntegrationLambdaArn test \"1234567890 arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder\"\n```\n\n",
+            "description": "Provides a Datadog - Amazon Web Services integration Lambda ARN resource. This can be used to create and manage the log collection Lambdas for an account.\n\nUpdate operations are currently not supported with datadog API so any change forces a new resource.\n\n**Note**: If you are using AWS GovCloud or the AWS China* region, update the `lambda_arn` parameter for your environment.\n\n *\\*All use of Datadog Services in (or in connection with environments within) mainland China is subject to the disclaimer published in the \u003ca href=\"https://www.datadoghq.com/legal/restricted-service-locations/\"\u003eRestricted Service Locations\u003c/a\u003e section on our website.*\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Create a new Datadog - Amazon Web Services integration Lambda ARN\nconst mainCollector = new datadog.aws.IntegrationLambdaArn(\"main_collector\", {\n    accountId: \"1234567890\",\n    lambdaArn: \"arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Create a new Datadog - Amazon Web Services integration Lambda ARN\nmain_collector = datadog.aws.IntegrationLambdaArn(\"main_collector\",\n    account_id=\"1234567890\",\n    lambda_arn=\"arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Create a new Datadog - Amazon Web Services integration Lambda ARN\n    var mainCollector = new Datadog.Aws.IntegrationLambdaArn(\"main_collector\", new()\n    {\n        AccountId = \"1234567890\",\n        LambdaArn = \"arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/aws\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t// Create a new Datadog - Amazon Web Services integration Lambda ARN\n\t\t_, err := aws.NewIntegrationLambdaArn(ctx, \"main_collector\", \u0026aws.IntegrationLambdaArnArgs{\n\t\t\tAccountId: pulumi.String(\"1234567890\"),\n\t\t\tLambdaArn: pulumi.String(\"arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.aws.IntegrationLambdaArn;\nimport com.pulumi.datadog.aws.IntegrationLambdaArnArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // Create a new Datadog - Amazon Web Services integration Lambda ARN\n        var mainCollector = new IntegrationLambdaArn(\"mainCollector\", IntegrationLambdaArnArgs.builder()\n            .accountId(\"1234567890\")\n            .lambdaArn(\"arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Create a new Datadog - Amazon Web Services integration Lambda ARN\n  mainCollector:\n    type: datadog:aws:IntegrationLambdaArn\n    name: main_collector\n    properties:\n      accountId: '1234567890'\n      lambdaArn: arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nAmazon Web Services Lambda ARN integrations can be imported using their account_id and lambda_arn separated with a space (` `).\n\n```sh\n$ pulumi import datadog:aws/integrationLambdaArn:IntegrationLambdaArn test \"1234567890 arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder\"\n```\n\n",
             "properties": {
                 "accountId": {
                     "type": "string",
@@ -32756,7 +32792,7 @@
             }
         },
         "datadog:index/apmRetentionFilter:ApmRetentionFilter": {
-            "description": "The object describing the configuration of the retention filter to create/update.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.ApmRetentionFilter;\nimport com.pulumi.datadog.ApmRetentionFilterArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // Create APM retention filter\n        var foo = new ApmRetentionFilter(\"foo\", ApmRetentionFilterArgs.builder()\n            .name(\"Sample order\")\n            .rate(\"1.0\")\n            .filter(ApmRetentionFilterFilterArgs.builder()\n                .query(\"*\")\n                .build())\n            .filterType(\"spans-sampling-processor\")\n            .enabled(false)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Create APM retention filter\n  foo:\n    type: datadog:ApmRetentionFilter\n    properties:\n      name: Sample order\n      rate: '1.0'\n      filter:\n        - query: '*'\n      filterType: spans-sampling-processor\n      enabled: false\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nImport existing APM retention filter \n\n```sh\n$ pulumi import datadog:index/apmRetentionFilter:ApmRetentionFilter foo \u003cfilter_id\u003e\n```\n\n",
+            "description": "The object describing the configuration of the retention filter to create/update.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.ApmRetentionFilter;\nimport com.pulumi.datadog.ApmRetentionFilterArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // Create APM retention filter\n        var foo = new ApmRetentionFilter(\"foo\", ApmRetentionFilterArgs.builder()\n            .name(\"Sample order\")\n            .rate(\"1.0\")\n            .filter(ApmRetentionFilterFilterArgs.builder()\n                .query(\"service:sample AND env:production AND @http.method:GET AND app:sampleapp AND @http.status_code:200 AND @duration:\u003e600000000\")\n                .build())\n            .filterType(\"spans-sampling-processor\")\n            .enabled(false)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Create APM retention filter\n  foo:\n    type: datadog:ApmRetentionFilter\n    properties:\n      name: Sample order\n      rate: '1.0'\n      filter:\n        - query: service:sample AND env:production AND @http.method:GET AND app:sampleapp AND @http.status_code:200 AND @duration:\u003e600000000\n      filterType: spans-sampling-processor\n      enabled: false\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nImport existing APM retention filter \n\n```sh\n$ pulumi import datadog:index/apmRetentionFilter:ApmRetentionFilter foo \u003cfilter_id\u003e\n```\n\n",
             "properties": {
                 "enabled": {
                     "type": "boolean",
@@ -34175,7 +34211,7 @@
             }
         },
         "datadog:index/ipAllowlist:IpAllowlist": {
-            "description": "Provides the Datadog IP allowlist resource. This can be used to manage the Datadog IP allowlist\n",
+            "description": "Provides the Datadog IP allowlist resource. This can be used to manage the Datadog IP allowlist\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst example = new datadog.IpAllowlist(\"example\", {\n    enabled: false,\n    entries: [\n        {\n            cidrBlock: \"127.0.0.0/32\",\n            note: \"1st Example IP Range\",\n        },\n        {\n            cidrBlock: \"192.0.2.0/24\",\n            note: \"2nd Example IP Range\",\n        },\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nexample = datadog.IpAllowlist(\"example\",\n    enabled=False,\n    entries=[\n        {\n            \"cidr_block\": \"127.0.0.0/32\",\n            \"note\": \"1st Example IP Range\",\n        },\n        {\n            \"cidr_block\": \"192.0.2.0/24\",\n            \"note\": \"2nd Example IP Range\",\n        },\n    ])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Datadog.IpAllowlist(\"example\", new()\n    {\n        Enabled = false,\n        Entries = new[]\n        {\n            new Datadog.Inputs.IpAllowlistEntryArgs\n            {\n                CidrBlock = \"127.0.0.0/32\",\n                Note = \"1st Example IP Range\",\n            },\n            new Datadog.Inputs.IpAllowlistEntryArgs\n            {\n                CidrBlock = \"192.0.2.0/24\",\n                Note = \"2nd Example IP Range\",\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewIpAllowlist(ctx, \"example\", \u0026datadog.IpAllowlistArgs{\n\t\t\tEnabled: pulumi.Bool(false),\n\t\t\tEntries: datadog.IpAllowlistEntryArray{\n\t\t\t\t\u0026datadog.IpAllowlistEntryArgs{\n\t\t\t\t\tCidrBlock: pulumi.String(\"127.0.0.0/32\"),\n\t\t\t\t\tNote:      pulumi.String(\"1st Example IP Range\"),\n\t\t\t\t},\n\t\t\t\t\u0026datadog.IpAllowlistEntryArgs{\n\t\t\t\t\tCidrBlock: pulumi.String(\"192.0.2.0/24\"),\n\t\t\t\t\tNote:      pulumi.String(\"2nd Example IP Range\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.IpAllowlist;\nimport com.pulumi.datadog.IpAllowlistArgs;\nimport com.pulumi.datadog.inputs.IpAllowlistEntryArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new IpAllowlist(\"example\", IpAllowlistArgs.builder()\n            .enabled(false)\n            .entries(            \n                IpAllowlistEntryArgs.builder()\n                    .cidrBlock(\"127.0.0.0/32\")\n                    .note(\"1st Example IP Range\")\n                    .build(),\n                IpAllowlistEntryArgs.builder()\n                    .cidrBlock(\"192.0.2.0/24\")\n                    .note(\"2nd Example IP Range\")\n                    .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: datadog:IpAllowlist\n    properties:\n      enabled: false\n      entries:\n        - cidrBlock: 127.0.0.0/32\n          note: 1st Example IP Range\n        - cidrBlock: 192.0.2.0/24\n          note: 2nd Example IP Range\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "properties": {
                 "enabled": {
                     "type": "boolean",
@@ -35203,6 +35239,7 @@
                 "message",
                 "name",
                 "query",
+                "tags",
                 "type"
             ],
             "inputProperties": {
@@ -36933,7 +36970,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list a role IDs to assign to the service account.\n"
+                    "description": "A list of role IDs to assign to the service account.\n"
                 }
             },
             "required": [
@@ -36959,7 +36996,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list a role IDs to assign to the service account.\n"
+                    "description": "A list of role IDs to assign to the service account.\n"
                 }
             },
             "requiredInputs": [
@@ -36985,7 +37022,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "A list a role IDs to assign to the service account.\n"
+                        "description": "A list of role IDs to assign to the service account.\n"
                     }
                 },
                 "type": "object"
@@ -38515,7 +38552,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list a role IDs to assign to the user.\n"
+                    "description": "A list of role IDs to assign to the user.\n"
                 },
                 "sendUserInvitation": {
                     "type": "boolean",
@@ -38554,7 +38591,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list a role IDs to assign to the user.\n"
+                    "description": "A list of role IDs to assign to the user.\n"
                 },
                 "sendUserInvitation": {
                     "type": "boolean",
@@ -38584,7 +38621,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "A list a role IDs to assign to the user.\n"
+                        "description": "A list of role IDs to assign to the user.\n"
                     },
                     "sendUserInvitation": {
                         "type": "boolean",
