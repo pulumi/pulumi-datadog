@@ -39,7 +39,7 @@ class GetSyntheticsLocationsResult:
 
     @property
     @pulumi.getter
-    def locations(self) -> Mapping[str, Any]:
+    def locations(self) -> Mapping[str, str]:
         """
         A map of available Synthetics location IDs to names for Synthetics tests.
         """

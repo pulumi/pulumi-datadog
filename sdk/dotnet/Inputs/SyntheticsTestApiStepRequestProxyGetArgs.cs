@@ -13,14 +13,14 @@ namespace Pulumi.Datadog.Inputs
     public sealed class SyntheticsTestApiStepRequestProxyGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("headers")]
-        private InputMap<object>? _headers;
+        private InputMap<string>? _headers;
 
         /// <summary>
         /// Header name and value map.
         /// </summary>
-        public InputMap<object> Headers
+        public InputMap<string> Headers
         {
-            get => _headers ?? (_headers = new InputMap<object>());
+            get => _headers ?? (_headers = new InputMap<string>());
             set => _headers = value;
         }
 

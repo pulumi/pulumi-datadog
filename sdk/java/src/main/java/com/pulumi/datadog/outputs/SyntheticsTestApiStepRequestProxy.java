@@ -5,7 +5,6 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Object;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -17,7 +16,7 @@ public final class SyntheticsTestApiStepRequestProxy {
      * @return Header name and value map.
      * 
      */
-    private @Nullable Map<String,Object> headers;
+    private @Nullable Map<String,String> headers;
     /**
      * @return URL of the proxy to perform the test.
      * 
@@ -29,7 +28,7 @@ public final class SyntheticsTestApiStepRequestProxy {
      * @return Header name and value map.
      * 
      */
-    public Map<String,Object> headers() {
+    public Map<String,String> headers() {
         return this.headers == null ? Map.of() : this.headers;
     }
     /**
@@ -49,7 +48,7 @@ public final class SyntheticsTestApiStepRequestProxy {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable Map<String,Object> headers;
+        private @Nullable Map<String,String> headers;
         private String url;
         public Builder() {}
         public Builder(SyntheticsTestApiStepRequestProxy defaults) {
@@ -59,7 +58,7 @@ public final class SyntheticsTestApiStepRequestProxy {
         }
 
         @CustomType.Setter
-        public Builder headers(@Nullable Map<String,Object> headers) {
+        public Builder headers(@Nullable Map<String,String> headers) {
 
             this.headers = headers;
             return this;

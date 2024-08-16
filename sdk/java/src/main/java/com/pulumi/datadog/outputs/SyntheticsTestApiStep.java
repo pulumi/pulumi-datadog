@@ -15,7 +15,6 @@ import com.pulumi.datadog.outputs.SyntheticsTestApiStepRetry;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -74,12 +73,12 @@ public final class SyntheticsTestApiStep {
      * @return Header name and value map.
      * 
      */
-    private @Nullable Map<String,Object> requestHeaders;
+    private @Nullable Map<String,String> requestHeaders;
     /**
      * @return Metadata to include when performing the gRPC request.
      * 
      */
-    private @Nullable Map<String,Object> requestMetadata;
+    private @Nullable Map<String,String> requestMetadata;
     /**
      * @return The proxy to perform the test.
      * 
@@ -89,7 +88,7 @@ public final class SyntheticsTestApiStep {
      * @return Query arguments name and value map.
      * 
      */
-    private @Nullable Map<String,Object> requestQuery;
+    private @Nullable Map<String,String> requestQuery;
     private @Nullable SyntheticsTestApiStepRetry retry;
     /**
      * @return The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `wait`. Defaults to `&#34;http&#34;`.
@@ -170,14 +169,14 @@ public final class SyntheticsTestApiStep {
      * @return Header name and value map.
      * 
      */
-    public Map<String,Object> requestHeaders() {
+    public Map<String,String> requestHeaders() {
         return this.requestHeaders == null ? Map.of() : this.requestHeaders;
     }
     /**
      * @return Metadata to include when performing the gRPC request.
      * 
      */
-    public Map<String,Object> requestMetadata() {
+    public Map<String,String> requestMetadata() {
         return this.requestMetadata == null ? Map.of() : this.requestMetadata;
     }
     /**
@@ -191,7 +190,7 @@ public final class SyntheticsTestApiStep {
      * @return Query arguments name and value map.
      * 
      */
-    public Map<String,Object> requestQuery() {
+    public Map<String,String> requestQuery() {
         return this.requestQuery == null ? Map.of() : this.requestQuery;
     }
     public Optional<SyntheticsTestApiStepRetry> retry() {
@@ -230,10 +229,10 @@ public final class SyntheticsTestApiStep {
         private @Nullable SyntheticsTestApiStepRequestClientCertificate requestClientCertificate;
         private @Nullable SyntheticsTestApiStepRequestDefinition requestDefinition;
         private @Nullable List<SyntheticsTestApiStepRequestFile> requestFiles;
-        private @Nullable Map<String,Object> requestHeaders;
-        private @Nullable Map<String,Object> requestMetadata;
+        private @Nullable Map<String,String> requestHeaders;
+        private @Nullable Map<String,String> requestMetadata;
         private @Nullable SyntheticsTestApiStepRequestProxy requestProxy;
-        private @Nullable Map<String,Object> requestQuery;
+        private @Nullable Map<String,String> requestQuery;
         private @Nullable SyntheticsTestApiStepRetry retry;
         private @Nullable String subtype;
         private @Nullable Integer value;
@@ -324,13 +323,13 @@ public final class SyntheticsTestApiStep {
             return requestFiles(List.of(requestFiles));
         }
         @CustomType.Setter
-        public Builder requestHeaders(@Nullable Map<String,Object> requestHeaders) {
+        public Builder requestHeaders(@Nullable Map<String,String> requestHeaders) {
 
             this.requestHeaders = requestHeaders;
             return this;
         }
         @CustomType.Setter
-        public Builder requestMetadata(@Nullable Map<String,Object> requestMetadata) {
+        public Builder requestMetadata(@Nullable Map<String,String> requestMetadata) {
 
             this.requestMetadata = requestMetadata;
             return this;
@@ -342,7 +341,7 @@ public final class SyntheticsTestApiStep {
             return this;
         }
         @CustomType.Setter
-        public Builder requestQuery(@Nullable Map<String,Object> requestQuery) {
+        public Builder requestQuery(@Nullable Map<String,String> requestQuery) {
 
             this.requestQuery = requestQuery;
             return this;

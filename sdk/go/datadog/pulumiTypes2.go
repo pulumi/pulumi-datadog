@@ -2133,13 +2133,13 @@ type SyntheticsTestApiStep struct {
 	// Files to be used as part of the request in the test.
 	RequestFiles []SyntheticsTestApiStepRequestFile `pulumi:"requestFiles"`
 	// Header name and value map.
-	RequestHeaders map[string]interface{} `pulumi:"requestHeaders"`
+	RequestHeaders map[string]string `pulumi:"requestHeaders"`
 	// Metadata to include when performing the gRPC request.
-	RequestMetadata map[string]interface{} `pulumi:"requestMetadata"`
+	RequestMetadata map[string]string `pulumi:"requestMetadata"`
 	// The proxy to perform the test.
 	RequestProxy *SyntheticsTestApiStepRequestProxy `pulumi:"requestProxy"`
 	// Query arguments name and value map.
-	RequestQuery map[string]interface{}      `pulumi:"requestQuery"`
+	RequestQuery map[string]string           `pulumi:"requestQuery"`
 	Retry        *SyntheticsTestApiStepRetry `pulumi:"retry"`
 	// The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `wait`. Defaults to `"http"`.
 	Subtype *string `pulumi:"subtype"`
@@ -2178,13 +2178,13 @@ type SyntheticsTestApiStepArgs struct {
 	// Files to be used as part of the request in the test.
 	RequestFiles SyntheticsTestApiStepRequestFileArrayInput `pulumi:"requestFiles"`
 	// Header name and value map.
-	RequestHeaders pulumi.MapInput `pulumi:"requestHeaders"`
+	RequestHeaders pulumi.StringMapInput `pulumi:"requestHeaders"`
 	// Metadata to include when performing the gRPC request.
-	RequestMetadata pulumi.MapInput `pulumi:"requestMetadata"`
+	RequestMetadata pulumi.StringMapInput `pulumi:"requestMetadata"`
 	// The proxy to perform the test.
 	RequestProxy SyntheticsTestApiStepRequestProxyPtrInput `pulumi:"requestProxy"`
 	// Query arguments name and value map.
-	RequestQuery pulumi.MapInput                    `pulumi:"requestQuery"`
+	RequestQuery pulumi.StringMapInput              `pulumi:"requestQuery"`
 	Retry        SyntheticsTestApiStepRetryPtrInput `pulumi:"retry"`
 	// The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `wait`. Defaults to `"http"`.
 	Subtype pulumi.StringPtrInput `pulumi:"subtype"`
@@ -2291,13 +2291,13 @@ func (o SyntheticsTestApiStepOutput) RequestFiles() SyntheticsTestApiStepRequest
 }
 
 // Header name and value map.
-func (o SyntheticsTestApiStepOutput) RequestHeaders() pulumi.MapOutput {
-	return o.ApplyT(func(v SyntheticsTestApiStep) map[string]interface{} { return v.RequestHeaders }).(pulumi.MapOutput)
+func (o SyntheticsTestApiStepOutput) RequestHeaders() pulumi.StringMapOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStep) map[string]string { return v.RequestHeaders }).(pulumi.StringMapOutput)
 }
 
 // Metadata to include when performing the gRPC request.
-func (o SyntheticsTestApiStepOutput) RequestMetadata() pulumi.MapOutput {
-	return o.ApplyT(func(v SyntheticsTestApiStep) map[string]interface{} { return v.RequestMetadata }).(pulumi.MapOutput)
+func (o SyntheticsTestApiStepOutput) RequestMetadata() pulumi.StringMapOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStep) map[string]string { return v.RequestMetadata }).(pulumi.StringMapOutput)
 }
 
 // The proxy to perform the test.
@@ -2306,8 +2306,8 @@ func (o SyntheticsTestApiStepOutput) RequestProxy() SyntheticsTestApiStepRequest
 }
 
 // Query arguments name and value map.
-func (o SyntheticsTestApiStepOutput) RequestQuery() pulumi.MapOutput {
-	return o.ApplyT(func(v SyntheticsTestApiStep) map[string]interface{} { return v.RequestQuery }).(pulumi.MapOutput)
+func (o SyntheticsTestApiStepOutput) RequestQuery() pulumi.StringMapOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStep) map[string]string { return v.RequestQuery }).(pulumi.StringMapOutput)
 }
 
 func (o SyntheticsTestApiStepOutput) Retry() SyntheticsTestApiStepRetryPtrOutput {
@@ -4835,7 +4835,7 @@ func (o SyntheticsTestApiStepRequestFileArrayOutput) Index(i pulumi.IntInput) Sy
 
 type SyntheticsTestApiStepRequestProxy struct {
 	// Header name and value map.
-	Headers map[string]interface{} `pulumi:"headers"`
+	Headers map[string]string `pulumi:"headers"`
 	// URL of the proxy to perform the test.
 	Url string `pulumi:"url"`
 }
@@ -4853,7 +4853,7 @@ type SyntheticsTestApiStepRequestProxyInput interface {
 
 type SyntheticsTestApiStepRequestProxyArgs struct {
 	// Header name and value map.
-	Headers pulumi.MapInput `pulumi:"headers"`
+	Headers pulumi.StringMapInput `pulumi:"headers"`
 	// URL of the proxy to perform the test.
 	Url pulumi.StringInput `pulumi:"url"`
 }
@@ -4936,8 +4936,8 @@ func (o SyntheticsTestApiStepRequestProxyOutput) ToSyntheticsTestApiStepRequestP
 }
 
 // Header name and value map.
-func (o SyntheticsTestApiStepRequestProxyOutput) Headers() pulumi.MapOutput {
-	return o.ApplyT(func(v SyntheticsTestApiStepRequestProxy) map[string]interface{} { return v.Headers }).(pulumi.MapOutput)
+func (o SyntheticsTestApiStepRequestProxyOutput) Headers() pulumi.StringMapOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestProxy) map[string]string { return v.Headers }).(pulumi.StringMapOutput)
 }
 
 // URL of the proxy to perform the test.
@@ -4970,13 +4970,13 @@ func (o SyntheticsTestApiStepRequestProxyPtrOutput) Elem() SyntheticsTestApiStep
 }
 
 // Header name and value map.
-func (o SyntheticsTestApiStepRequestProxyPtrOutput) Headers() pulumi.MapOutput {
-	return o.ApplyT(func(v *SyntheticsTestApiStepRequestProxy) map[string]interface{} {
+func (o SyntheticsTestApiStepRequestProxyPtrOutput) Headers() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestProxy) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.Headers
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // URL of the proxy to perform the test.
@@ -9909,7 +9909,7 @@ func (o SyntheticsTestRequestFileArrayOutput) Index(i pulumi.IntInput) Synthetic
 
 type SyntheticsTestRequestProxy struct {
 	// Header name and value map.
-	Headers map[string]interface{} `pulumi:"headers"`
+	Headers map[string]string `pulumi:"headers"`
 	// URL of the proxy to perform the test.
 	Url string `pulumi:"url"`
 }
@@ -9927,7 +9927,7 @@ type SyntheticsTestRequestProxyInput interface {
 
 type SyntheticsTestRequestProxyArgs struct {
 	// Header name and value map.
-	Headers pulumi.MapInput `pulumi:"headers"`
+	Headers pulumi.StringMapInput `pulumi:"headers"`
 	// URL of the proxy to perform the test.
 	Url pulumi.StringInput `pulumi:"url"`
 }
@@ -10010,8 +10010,8 @@ func (o SyntheticsTestRequestProxyOutput) ToSyntheticsTestRequestProxyPtrOutputW
 }
 
 // Header name and value map.
-func (o SyntheticsTestRequestProxyOutput) Headers() pulumi.MapOutput {
-	return o.ApplyT(func(v SyntheticsTestRequestProxy) map[string]interface{} { return v.Headers }).(pulumi.MapOutput)
+func (o SyntheticsTestRequestProxyOutput) Headers() pulumi.StringMapOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestProxy) map[string]string { return v.Headers }).(pulumi.StringMapOutput)
 }
 
 // URL of the proxy to perform the test.
@@ -10044,13 +10044,13 @@ func (o SyntheticsTestRequestProxyPtrOutput) Elem() SyntheticsTestRequestProxyOu
 }
 
 // Header name and value map.
-func (o SyntheticsTestRequestProxyPtrOutput) Headers() pulumi.MapOutput {
-	return o.ApplyT(func(v *SyntheticsTestRequestProxy) map[string]interface{} {
+func (o SyntheticsTestRequestProxyPtrOutput) Headers() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestProxy) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.Headers
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // URL of the proxy to perform the test.

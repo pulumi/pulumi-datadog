@@ -85,26 +85,26 @@ namespace Pulumi.Datadog.Inputs
         }
 
         [Input("requestHeaders")]
-        private InputMap<object>? _requestHeaders;
+        private InputMap<string>? _requestHeaders;
 
         /// <summary>
         /// Header name and value map.
         /// </summary>
-        public InputMap<object> RequestHeaders
+        public InputMap<string> RequestHeaders
         {
-            get => _requestHeaders ?? (_requestHeaders = new InputMap<object>());
+            get => _requestHeaders ?? (_requestHeaders = new InputMap<string>());
             set => _requestHeaders = value;
         }
 
         [Input("requestMetadata")]
-        private InputMap<object>? _requestMetadata;
+        private InputMap<string>? _requestMetadata;
 
         /// <summary>
         /// Metadata to include when performing the gRPC request.
         /// </summary>
-        public InputMap<object> RequestMetadata
+        public InputMap<string> RequestMetadata
         {
-            get => _requestMetadata ?? (_requestMetadata = new InputMap<object>());
+            get => _requestMetadata ?? (_requestMetadata = new InputMap<string>());
             set => _requestMetadata = value;
         }
 
@@ -115,14 +115,14 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.SyntheticsTestApiStepRequestProxyArgs>? RequestProxy { get; set; }
 
         [Input("requestQuery")]
-        private InputMap<object>? _requestQuery;
+        private InputMap<string>? _requestQuery;
 
         /// <summary>
         /// Query arguments name and value map.
         /// </summary>
-        public InputMap<object> RequestQuery
+        public InputMap<string> RequestQuery
         {
-            get => _requestQuery ?? (_requestQuery = new InputMap<object>());
+            get => _requestQuery ?? (_requestQuery = new InputMap<string>());
             set => _requestQuery = value;
         }
 

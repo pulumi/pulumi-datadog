@@ -23,7 +23,6 @@ import com.pulumi.datadog.outputs.SyntheticsTestRequestFile;
 import com.pulumi.datadog.outputs.SyntheticsTestRequestProxy;
 import java.lang.Boolean;
 import java.lang.Integer;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -750,28 +749,28 @@ public class SyntheticsTest extends com.pulumi.resources.CustomResource {
      * Header name and value map.
      * 
      */
-    @Export(name="requestHeaders", refs={Map.class,String.class,Object.class}, tree="[0,1,2]")
-    private Output</* @Nullable */ Map<String,Object>> requestHeaders;
+    @Export(name="requestHeaders", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> requestHeaders;
 
     /**
      * @return Header name and value map.
      * 
      */
-    public Output<Optional<Map<String,Object>>> requestHeaders() {
+    public Output<Optional<Map<String,String>>> requestHeaders() {
         return Codegen.optional(this.requestHeaders);
     }
     /**
      * Metadata to include when performing the gRPC request.
      * 
      */
-    @Export(name="requestMetadata", refs={Map.class,String.class,Object.class}, tree="[0,1,2]")
-    private Output</* @Nullable */ Map<String,Object>> requestMetadata;
+    @Export(name="requestMetadata", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> requestMetadata;
 
     /**
      * @return Metadata to include when performing the gRPC request.
      * 
      */
-    public Output<Optional<Map<String,Object>>> requestMetadata() {
+    public Output<Optional<Map<String,String>>> requestMetadata() {
         return Codegen.optional(this.requestMetadata);
     }
     /**
@@ -792,14 +791,14 @@ public class SyntheticsTest extends com.pulumi.resources.CustomResource {
      * Query arguments name and value map.
      * 
      */
-    @Export(name="requestQuery", refs={Map.class,String.class,Object.class}, tree="[0,1,2]")
-    private Output</* @Nullable */ Map<String,Object>> requestQuery;
+    @Export(name="requestQuery", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> requestQuery;
 
     /**
      * @return Query arguments name and value map.
      * 
      */
-    public Output<Optional<Map<String,Object>>> requestQuery() {
+    public Output<Optional<Map<String,String>>> requestQuery() {
         return Codegen.optional(this.requestQuery);
     }
     /**

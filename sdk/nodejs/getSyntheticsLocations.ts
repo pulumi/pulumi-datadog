@@ -25,7 +25,7 @@ export interface GetSyntheticsLocationsResult {
     /**
      * A map of available Synthetics location IDs to names for Synthetics tests.
      */
-    readonly locations: {[key: string]: any};
+    readonly locations: {[key: string]: string};
 }
 /**
  * Use this data source to retrieve Datadog's Synthetics Locations (to be used in Synthetics tests).

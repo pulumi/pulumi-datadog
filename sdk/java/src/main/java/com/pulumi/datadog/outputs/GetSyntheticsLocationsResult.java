@@ -5,7 +5,6 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Object;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -21,7 +20,7 @@ public final class GetSyntheticsLocationsResult {
      * @return A map of available Synthetics location IDs to names for Synthetics tests.
      * 
      */
-    private Map<String,Object> locations;
+    private Map<String,String> locations;
 
     private GetSyntheticsLocationsResult() {}
     /**
@@ -35,7 +34,7 @@ public final class GetSyntheticsLocationsResult {
      * @return A map of available Synthetics location IDs to names for Synthetics tests.
      * 
      */
-    public Map<String,Object> locations() {
+    public Map<String,String> locations() {
         return this.locations;
     }
 
@@ -49,7 +48,7 @@ public final class GetSyntheticsLocationsResult {
     @CustomType.Builder
     public static final class Builder {
         private String id;
-        private Map<String,Object> locations;
+        private Map<String,String> locations;
         public Builder() {}
         public Builder(GetSyntheticsLocationsResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -66,7 +65,7 @@ public final class GetSyntheticsLocationsResult {
             return this;
         }
         @CustomType.Setter
-        public Builder locations(Map<String,Object> locations) {
+        public Builder locations(Map<String,String> locations) {
             if (locations == null) {
               throw new MissingRequiredPropertyException("GetSyntheticsLocationsResult", "locations");
             }
