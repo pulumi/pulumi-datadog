@@ -22587,11 +22587,11 @@ export interface SyntheticsTestApiStep {
     /**
      * Header name and value map.
      */
-    requestHeaders?: {[key: string]: any};
+    requestHeaders?: {[key: string]: string};
     /**
      * Metadata to include when performing the gRPC request.
      */
-    requestMetadata?: {[key: string]: any};
+    requestMetadata?: {[key: string]: string};
     /**
      * The proxy to perform the test.
      */
@@ -22599,7 +22599,7 @@ export interface SyntheticsTestApiStep {
     /**
      * Query arguments name and value map.
      */
-    requestQuery?: {[key: string]: any};
+    requestQuery?: {[key: string]: string};
     retry?: outputs.SyntheticsTestApiStepRetry;
     /**
      * The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `wait`. Defaults to `"http"`.
@@ -22945,7 +22945,7 @@ export interface SyntheticsTestApiStepRequestProxy {
     /**
      * Header name and value map.
      */
-    headers?: {[key: string]: any};
+    headers?: {[key: string]: string};
     /**
      * URL of the proxy to perform the test.
      */
@@ -23596,7 +23596,7 @@ export interface SyntheticsTestRequestProxy {
     /**
      * Header name and value map.
      */
-    headers?: {[key: string]: any};
+    headers?: {[key: string]: string};
     /**
      * URL of the proxy to perform the test.
      */

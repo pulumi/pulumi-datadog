@@ -35,13 +35,13 @@ namespace Pulumi.Datadog
         /// <summary>
         /// A map of available Synthetics location IDs to names for Synthetics tests.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Locations;
+        public readonly ImmutableDictionary<string, string> Locations;
 
         [OutputConstructor]
         private GetSyntheticsLocationsResult(
             string id,
 
-            ImmutableDictionary<string, object> locations)
+            ImmutableDictionary<string, string> locations)
         {
             Id = id;
             Locations = locations;

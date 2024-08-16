@@ -5,7 +5,6 @@ package com.pulumi.datadog.aws.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -53,13 +52,13 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="accountSpecificNamespaceRules")
-    private @Nullable Output<Map<String,Object>> accountSpecificNamespaceRules;
+    private @Nullable Output<Map<String,String>> accountSpecificNamespaceRules;
 
     /**
      * @return Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
      * 
      */
-    public Optional<Output<Map<String,Object>>> accountSpecificNamespaceRules() {
+    public Optional<Output<Map<String,String>>> accountSpecificNamespaceRules() {
         return Optional.ofNullable(this.accountSpecificNamespaceRules);
     }
 
@@ -297,7 +296,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder accountSpecificNamespaceRules(@Nullable Output<Map<String,Object>> accountSpecificNamespaceRules) {
+        public Builder accountSpecificNamespaceRules(@Nullable Output<Map<String,String>> accountSpecificNamespaceRules) {
             $.accountSpecificNamespaceRules = accountSpecificNamespaceRules;
             return this;
         }
@@ -308,7 +307,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder accountSpecificNamespaceRules(Map<String,Object> accountSpecificNamespaceRules) {
+        public Builder accountSpecificNamespaceRules(Map<String,String> accountSpecificNamespaceRules) {
             return accountSpecificNamespaceRules(Output.of(accountSpecificNamespaceRules));
         }
 

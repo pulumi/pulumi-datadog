@@ -52,11 +52,11 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// Header name and value map.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? RequestHeaders;
+        public readonly ImmutableDictionary<string, string>? RequestHeaders;
         /// <summary>
         /// Metadata to include when performing the gRPC request.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? RequestMetadata;
+        public readonly ImmutableDictionary<string, string>? RequestMetadata;
         /// <summary>
         /// The proxy to perform the test.
         /// </summary>
@@ -64,7 +64,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// Query arguments name and value map.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? RequestQuery;
+        public readonly ImmutableDictionary<string, string>? RequestQuery;
         public readonly Outputs.SyntheticsTestApiStepRetry? Retry;
         /// <summary>
         /// The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `wait`. Defaults to `"http"`.
@@ -95,13 +95,13 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.SyntheticsTestApiStepRequestFile> requestFiles,
 
-            ImmutableDictionary<string, object>? requestHeaders,
+            ImmutableDictionary<string, string>? requestHeaders,
 
-            ImmutableDictionary<string, object>? requestMetadata,
+            ImmutableDictionary<string, string>? requestMetadata,
 
             Outputs.SyntheticsTestApiStepRequestProxy? requestProxy,
 
-            ImmutableDictionary<string, object>? requestQuery,
+            ImmutableDictionary<string, string>? requestQuery,
 
             Outputs.SyntheticsTestApiStepRetry? retry,
 

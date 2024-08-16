@@ -6,7 +6,6 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Object;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -23,13 +22,13 @@ public final class SyntheticsTestApiStepRequestProxyArgs extends com.pulumi.reso
      * 
      */
     @Import(name="headers")
-    private @Nullable Output<Map<String,Object>> headers;
+    private @Nullable Output<Map<String,String>> headers;
 
     /**
      * @return Header name and value map.
      * 
      */
-    public Optional<Output<Map<String,Object>>> headers() {
+    public Optional<Output<Map<String,String>>> headers() {
         return Optional.ofNullable(this.headers);
     }
 
@@ -79,7 +78,7 @@ public final class SyntheticsTestApiStepRequestProxyArgs extends com.pulumi.reso
          * @return builder
          * 
          */
-        public Builder headers(@Nullable Output<Map<String,Object>> headers) {
+        public Builder headers(@Nullable Output<Map<String,String>> headers) {
             $.headers = headers;
             return this;
         }
@@ -90,7 +89,7 @@ public final class SyntheticsTestApiStepRequestProxyArgs extends com.pulumi.reso
          * @return builder
          * 
          */
-        public Builder headers(Map<String,Object> headers) {
+        public Builder headers(Map<String,String> headers) {
             return headers(Output.of(headers));
         }
 
