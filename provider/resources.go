@@ -19,7 +19,6 @@ import (
 	"context"
 	"fmt"
 	"path"
-	"regexp"
 	"strings"
 	"unicode"
 
@@ -229,28 +228,17 @@ func docEditRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
 			},
 		},
 		removeTutorialLink,
-		removeTFOrLater,
 	)
 }
 
-var tutorialLink = "Try the hands-on tutorial on the Datadog provider on the HashiCorp Learn site."
+const tutorialLink = "Try the hands-on tutorial on the Datadog provider on the HashiCorp Learn site."
 
 // Removes a reference to Consul Remote State Backend
 var removeTutorialLink = tfbridge.DocsEdit{
 	Path: "index.md",
 	Edit: func(_ string, content []byte) ([]byte, error) {
-		before, after, _ := bytes.Cut(content, []byte(tutorialLink))
-		content = append(before, after...)
-		return content, nil
-	},
-}
-
-// Removes a reference to TF version and compatibility
-var TFVersionOrLaterRegexp = regexp.MustCompile(`It requires [tT]erraform [0-9]+\.?[0-9]?\.?[0-9]? or later.`)
-var removeTFOrLater = tfbridge.DocsEdit{
-	Path: "index.md",
-	Edit: func(_ string, content []byte) ([]byte, error) {
-		content = TFVersionOrLaterRegexp.ReplaceAllLiteral(content, nil)
+		contentSplit := bytes.Split(content, []byte(tutorialLink))
+		content = bytes.Join(contentSplit, []byte(" "))
 		return content, nil
 	},
 }

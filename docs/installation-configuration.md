@@ -13,7 +13,7 @@ The datadog provider is available as a package in all Pulumi languages:
 * .NET: [`Pulumi.Datadog`](https://www.nuget.org/packages/Pulumi.Datadog)
 * Java: [`com.pulumi/datadog`](https://central.sonatype.com/artifact/com.pulumi/datadog)
 
-The [Datadog](https://www.datadoghq.com) provider is used to interact with the resources supported by Datadog. The provider needs to be configured with the proper credentials before it can be used.
+The [Datadog](https://www.datadoghq.com) provider is used to interact with the resources supported by Datadog. The provider needs to be configured with the proper credentials before it can be used. 
 
 Use the navigation to the left to read about the available resources.
 ## Example Usage
