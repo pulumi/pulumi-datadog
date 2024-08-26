@@ -217,13 +217,28 @@ func Provider() tfbridge.ProviderInfo {
 }
 
 func docEditRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
-	return append(defaults, tfbridge.DocsEdit{
-		Path: "*",
-		Edit: func(_ string, b []byte) ([]byte, error) {
-			b = bytes.ReplaceAll(b,
-				[]byte("Created using the Datadog provider in Terraform"),
-				[]byte("Created using the Datadog provider in Pulumi"))
-			return b, nil
+	return append(defaults,
+		tfbridge.DocsEdit{
+			Path: "*",
+			Edit: func(_ string, b []byte) ([]byte, error) {
+				b = bytes.ReplaceAll(b,
+					[]byte("Created using the Datadog provider in Terraform"),
+					[]byte("Created using the Datadog provider in Pulumi"))
+				return b, nil
+			},
 		},
-	})
+		removeTutorialLink,
+	)
+}
+
+const tutorialLink = "Try the hands-on tutorial on the Datadog provider on the HashiCorp Learn site."
+
+// Removes a reference to Consul Remote State Backend
+var removeTutorialLink = tfbridge.DocsEdit{
+	Path: "index.md",
+	Edit: func(_ string, content []byte) ([]byte, error) {
+		contentSplit := bytes.Split(content, []byte(tutorialLink))
+		content = bytes.Join(contentSplit, []byte(" "))
+		return content, nil
+	},
 }
