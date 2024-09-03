@@ -22,7 +22,7 @@ public final class PowerpackWidgetTimeseriesDefinitionRequestStyle {
      */
     private @Nullable String lineWidth;
     /**
-     * @return A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+     * @return A color palette to apply to the widget. The available options are available at: [https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance](https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance).
      * 
      */
     private @Nullable String palette;
@@ -43,7 +43,7 @@ public final class PowerpackWidgetTimeseriesDefinitionRequestStyle {
         return Optional.ofNullable(this.lineWidth);
     }
     /**
-     * @return A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+     * @return A color palette to apply to the widget. The available options are available at: [https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance](https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance).
      * 
      */
     public Optional<String> palette() {

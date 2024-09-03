@@ -17,7 +17,7 @@ public final class RestrictionPolicyBinding {
      */
     private List<String> principals;
     /**
-     * @return The role/level of access. See this page for more details https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources
+     * @return The role/level of access. See this page for more details [https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources](https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources)
      * 
      */
     private String relation;
@@ -31,7 +31,7 @@ public final class RestrictionPolicyBinding {
         return this.principals;
     }
     /**
-     * @return The role/level of access. See this page for more details https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources
+     * @return The role/level of access. See this page for more details [https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources](https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources)
      * 
      */
     public String relation() {

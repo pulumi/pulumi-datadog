@@ -18,7 +18,6 @@ class ServiceObjectArgs:
                  service_name: pulumi.Input[str]):
         """
         The set of arguments for constructing a ServiceObject resource.
-        :param pulumi.Input[str] service_key: Your Service name associated service key in PagerDuty. This key may also be referred to as an Integration Key or Routing Key in the Pagerduty Integration documentation to have it destroyed and recreated.
         :param pulumi.Input[str] service_name: Your Service name in PagerDuty.
         """
         pulumi.set(__self__, "service_key", service_key)
@@ -27,9 +26,6 @@ class ServiceObjectArgs:
     @property
     @pulumi.getter(name="serviceKey")
     def service_key(self) -> pulumi.Input[str]:
-        """
-        Your Service name associated service key in PagerDuty. This key may also be referred to as an Integration Key or Routing Key in the Pagerduty Integration documentation to have it destroyed and recreated.
-        """
         return pulumi.get(self, "service_key")
 
     @service_key.setter
@@ -56,7 +52,6 @@ class _ServiceObjectState:
                  service_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ServiceObject resources.
-        :param pulumi.Input[str] service_key: Your Service name associated service key in PagerDuty. This key may also be referred to as an Integration Key or Routing Key in the Pagerduty Integration documentation to have it destroyed and recreated.
         :param pulumi.Input[str] service_name: Your Service name in PagerDuty.
         """
         if service_key is not None:
@@ -67,9 +62,6 @@ class _ServiceObjectState:
     @property
     @pulumi.getter(name="serviceKey")
     def service_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        Your Service name associated service key in PagerDuty. This key may also be referred to as an Integration Key or Routing Key in the Pagerduty Integration documentation to have it destroyed and recreated.
-        """
         return pulumi.get(self, "service_key")
 
     @service_key.setter
@@ -124,7 +116,6 @@ class ServiceObject(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] service_key: Your Service name associated service key in PagerDuty. This key may also be referred to as an Integration Key or Routing Key in the Pagerduty Integration documentation to have it destroyed and recreated.
         :param pulumi.Input[str] service_name: Your Service name in PagerDuty.
         """
         ...
@@ -211,7 +202,6 @@ class ServiceObject(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] service_key: Your Service name associated service key in PagerDuty. This key may also be referred to as an Integration Key or Routing Key in the Pagerduty Integration documentation to have it destroyed and recreated.
         :param pulumi.Input[str] service_name: Your Service name in PagerDuty.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -225,9 +215,6 @@ class ServiceObject(pulumi.CustomResource):
     @property
     @pulumi.getter(name="serviceKey")
     def service_key(self) -> pulumi.Output[str]:
-        """
-        Your Service name associated service key in PagerDuty. This key may also be referred to as an Integration Key or Routing Key in the Pagerduty Integration documentation to have it destroyed and recreated.
-        """
         return pulumi.get(self, "service_key")
 
     @property

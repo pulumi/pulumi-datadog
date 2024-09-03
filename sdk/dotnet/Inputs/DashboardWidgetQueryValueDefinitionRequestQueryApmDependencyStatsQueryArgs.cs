@@ -49,7 +49,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> OperationName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        /// The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         /// </summary>
         [Input("primaryTagName")]
         public Input<string>? PrimaryTagName { get; set; }

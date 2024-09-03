@@ -665,7 +665,7 @@ export interface DashboardWidgetChangeDefinitionRequestFormulaLimit {
 
 export interface DashboardWidgetChangeDefinitionRequestFormulaStyle {
     /**
-     * The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+     * The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
      */
     palette?: string;
     /**
@@ -750,7 +750,7 @@ export interface DashboardWidgetChangeDefinitionRequestQueryApmDependencyStatsQu
      */
     operationName: string;
     /**
-     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
      */
     primaryTagName?: string;
     /**
@@ -797,7 +797,7 @@ export interface DashboardWidgetChangeDefinitionRequestQueryApmResourceStatsQuer
      */
     operationName?: string;
     /**
-     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
      */
     primaryTagName?: string;
     /**
@@ -1202,7 +1202,7 @@ export interface DashboardWidgetDistributionDefinitionRequestProcessQuery {
 
 export interface DashboardWidgetDistributionDefinitionRequestStyle {
     /**
-     * A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+     * A color palette to apply to the widget. The available options are available at: [https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance](https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance).
      */
     palette?: string;
 }
@@ -1434,7 +1434,7 @@ export interface DashboardWidgetGeomapDefinitionRequestFormulaLimit {
 
 export interface DashboardWidgetGeomapDefinitionRequestFormulaStyle {
     /**
-     * The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+     * The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
      */
     palette?: string;
     /**
@@ -1500,7 +1500,7 @@ export interface DashboardWidgetGeomapDefinitionRequestQueryApmDependencyStatsQu
      */
     operationName: string;
     /**
-     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
      */
     primaryTagName?: string;
     /**
@@ -1547,7 +1547,7 @@ export interface DashboardWidgetGeomapDefinitionRequestQueryApmResourceStatsQuer
      */
     operationName?: string;
     /**
-     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
      */
     primaryTagName?: string;
     /**
@@ -2171,7 +2171,7 @@ export interface DashboardWidgetHeatmapDefinitionRequestFormulaLimit {
 
 export interface DashboardWidgetHeatmapDefinitionRequestFormulaStyle {
     /**
-     * The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+     * The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
      */
     palette?: string;
     /**
@@ -2256,7 +2256,7 @@ export interface DashboardWidgetHeatmapDefinitionRequestQueryApmDependencyStatsQ
      */
     operationName: string;
     /**
-     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
      */
     primaryTagName?: string;
     /**
@@ -2303,7 +2303,7 @@ export interface DashboardWidgetHeatmapDefinitionRequestQueryApmResourceStatsQue
      */
     operationName?: string;
     /**
-     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
      */
     primaryTagName?: string;
     /**
@@ -2537,7 +2537,7 @@ export interface DashboardWidgetHeatmapDefinitionRequestQuerySloQuery {
 
 export interface DashboardWidgetHeatmapDefinitionRequestStyle {
     /**
-     * A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+     * A color palette to apply to the widget. The available options are available at: [https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance](https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance).
      */
     palette?: string;
 }
@@ -2744,7 +2744,7 @@ export interface DashboardWidgetHostmapDefinitionStyle {
      */
     fillMin?: string;
     /**
-     * A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+     * A color palette to apply to the widget. The available options are available at: [https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance](https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance).
      */
     palette?: string;
     /**
@@ -3445,7 +3445,7 @@ export interface DashboardWidgetQueryTableDefinitionRequestFormulaLimit {
 
 export interface DashboardWidgetQueryTableDefinitionRequestFormulaStyle {
     /**
-     * The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+     * The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
      */
     palette?: string;
     /**
@@ -3530,7 +3530,7 @@ export interface DashboardWidgetQueryTableDefinitionRequestQueryApmDependencySta
      */
     operationName: string;
     /**
-     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
      */
     primaryTagName?: string;
     /**
@@ -3577,7 +3577,7 @@ export interface DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStats
      */
     operationName?: string;
     /**
-     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
      */
     primaryTagName?: string;
     /**
@@ -4117,7 +4117,7 @@ export interface DashboardWidgetQueryValueDefinitionRequestFormulaLimit {
 
 export interface DashboardWidgetQueryValueDefinitionRequestFormulaStyle {
     /**
-     * The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+     * The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
      */
     palette?: string;
     /**
@@ -4202,7 +4202,7 @@ export interface DashboardWidgetQueryValueDefinitionRequestQueryApmDependencySta
      */
     operationName: string;
     /**
-     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
      */
     primaryTagName?: string;
     /**
@@ -4249,7 +4249,7 @@ export interface DashboardWidgetQueryValueDefinitionRequestQueryApmResourceStats
      */
     operationName?: string;
     /**
-     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
      */
     primaryTagName?: string;
     /**
@@ -4809,7 +4809,7 @@ export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuer
      */
     operationName: string;
     /**
-     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
      */
     primaryTagName?: string;
     /**
@@ -4856,7 +4856,7 @@ export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuer
      */
     operationName?: string;
     /**
-     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
      */
     primaryTagName?: string;
     /**
@@ -5871,7 +5871,7 @@ export interface DashboardWidgetSunburstDefinitionRequestFormulaLimit {
 
 export interface DashboardWidgetSunburstDefinitionRequestFormulaStyle {
     /**
-     * The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+     * The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
      */
     palette?: string;
     /**
@@ -6039,7 +6039,7 @@ export interface DashboardWidgetSunburstDefinitionRequestQueryApmDependencyStats
      */
     operationName: string;
     /**
-     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
      */
     primaryTagName?: string;
     /**
@@ -6086,7 +6086,7 @@ export interface DashboardWidgetSunburstDefinitionRequestQueryApmResourceStatsQu
      */
     operationName?: string;
     /**
-     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
      */
     primaryTagName?: string;
     /**
@@ -6320,7 +6320,7 @@ export interface DashboardWidgetSunburstDefinitionRequestQuerySloQuery {
 
 export interface DashboardWidgetSunburstDefinitionRequestStyle {
     /**
-     * A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+     * A color palette to apply to the widget. The available options are available at: [https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance](https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance).
      */
     palette?: string;
 }
@@ -6644,7 +6644,7 @@ export interface DashboardWidgetTimeseriesDefinitionRequestFormulaLimit {
 
 export interface DashboardWidgetTimeseriesDefinitionRequestFormulaStyle {
     /**
-     * The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+     * The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
      */
     palette?: string;
     /**
@@ -6823,7 +6823,7 @@ export interface DashboardWidgetTimeseriesDefinitionRequestQueryApmDependencySta
      */
     operationName: string;
     /**
-     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
      */
     primaryTagName?: string;
     /**
@@ -6870,7 +6870,7 @@ export interface DashboardWidgetTimeseriesDefinitionRequestQueryApmResourceStats
      */
     operationName?: string;
     /**
-     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
      */
     primaryTagName?: string;
     /**
@@ -7112,7 +7112,7 @@ export interface DashboardWidgetTimeseriesDefinitionRequestStyle {
      */
     lineWidth?: string;
     /**
-     * A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+     * A color palette to apply to the widget. The available options are available at: [https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance](https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance).
      */
     palette?: string;
 }
@@ -7451,7 +7451,7 @@ export interface DashboardWidgetToplistDefinitionRequestFormulaLimit {
 
 export interface DashboardWidgetToplistDefinitionRequestFormulaStyle {
     /**
-     * The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+     * The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
      */
     palette?: string;
     /**
@@ -7536,7 +7536,7 @@ export interface DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQ
      */
     operationName: string;
     /**
-     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
      */
     primaryTagName?: string;
     /**
@@ -7583,7 +7583,7 @@ export interface DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQue
      */
     operationName?: string;
     /**
-     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
      */
     primaryTagName?: string;
     /**
@@ -7817,7 +7817,7 @@ export interface DashboardWidgetToplistDefinitionRequestQuerySloQuery {
 
 export interface DashboardWidgetToplistDefinitionRequestStyle {
     /**
-     * A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+     * A color palette to apply to the widget. The available options are available at: [https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance](https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance).
      */
     palette?: string;
 }
@@ -8048,7 +8048,7 @@ export interface DashboardWidgetTreemapDefinitionRequestFormulaLimit {
 
 export interface DashboardWidgetTreemapDefinitionRequestFormulaStyle {
     /**
-     * The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+     * The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
      */
     palette?: string;
     /**
@@ -8114,7 +8114,7 @@ export interface DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQ
      */
     operationName: string;
     /**
-     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
      */
     primaryTagName?: string;
     /**
@@ -8161,7 +8161,7 @@ export interface DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQue
      */
     operationName?: string;
     /**
-     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
      */
     primaryTagName?: string;
     /**
@@ -10864,7 +10864,7 @@ export interface PowerpackWidgetChangeDefinitionRequestFormulaLimit {
 
 export interface PowerpackWidgetChangeDefinitionRequestFormulaStyle {
     /**
-     * The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+     * The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
      */
     palette?: string;
     /**
@@ -11032,7 +11032,7 @@ export interface PowerpackWidgetChangeDefinitionRequestQueryApmDependencyStatsQu
      */
     operationName: string;
     /**
-     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
      */
     primaryTagName?: string;
     /**
@@ -11079,7 +11079,7 @@ export interface PowerpackWidgetChangeDefinitionRequestQueryApmResourceStatsQuer
      */
     operationName?: string;
     /**
-     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
      */
     primaryTagName?: string;
     /**
@@ -11982,7 +11982,7 @@ export interface PowerpackWidgetDistributionDefinitionRequestSecurityQueryMultiC
 
 export interface PowerpackWidgetDistributionDefinitionRequestStyle {
     /**
-     * A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+     * A color palette to apply to the widget. The available options are available at: [https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance](https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance).
      */
     palette?: string;
 }
@@ -12214,7 +12214,7 @@ export interface PowerpackWidgetGeomapDefinitionRequestFormulaLimit {
 
 export interface PowerpackWidgetGeomapDefinitionRequestFormulaStyle {
     /**
-     * The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+     * The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
      */
     palette?: string;
     /**
@@ -12363,7 +12363,7 @@ export interface PowerpackWidgetGeomapDefinitionRequestQueryApmDependencyStatsQu
      */
     operationName: string;
     /**
-     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
      */
     primaryTagName?: string;
     /**
@@ -12410,7 +12410,7 @@ export interface PowerpackWidgetGeomapDefinitionRequestQueryApmResourceStatsQuer
      */
     operationName?: string;
     /**
-     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
      */
     primaryTagName?: string;
     /**
@@ -13011,7 +13011,7 @@ export interface PowerpackWidgetHeatmapDefinitionRequestFormulaLimit {
 
 export interface PowerpackWidgetHeatmapDefinitionRequestFormulaStyle {
     /**
-     * The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+     * The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
      */
     palette?: string;
     /**
@@ -13179,7 +13179,7 @@ export interface PowerpackWidgetHeatmapDefinitionRequestQueryApmDependencyStatsQ
      */
     operationName: string;
     /**
-     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
      */
     primaryTagName?: string;
     /**
@@ -13226,7 +13226,7 @@ export interface PowerpackWidgetHeatmapDefinitionRequestQueryApmResourceStatsQue
      */
     operationName?: string;
     /**
-     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
      */
     primaryTagName?: string;
     /**
@@ -13626,7 +13626,7 @@ export interface PowerpackWidgetHeatmapDefinitionRequestSecurityQueryMultiComput
 
 export interface PowerpackWidgetHeatmapDefinitionRequestStyle {
     /**
-     * A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+     * A color palette to apply to the widget. The available options are available at: [https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance](https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance).
      */
     palette?: string;
 }
@@ -14497,7 +14497,7 @@ export interface PowerpackWidgetHostmapDefinitionStyle {
      */
     fillMin?: string;
     /**
-     * A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+     * A color palette to apply to the widget. The available options are available at: [https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance](https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance).
      */
     palette?: string;
     /**
@@ -15130,7 +15130,7 @@ export interface PowerpackWidgetQueryTableDefinitionRequestFormulaLimit {
 
 export interface PowerpackWidgetQueryTableDefinitionRequestFormulaStyle {
     /**
-     * The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+     * The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
      */
     palette?: string;
     /**
@@ -15298,7 +15298,7 @@ export interface PowerpackWidgetQueryTableDefinitionRequestQueryApmDependencySta
      */
     operationName: string;
     /**
-     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
      */
     primaryTagName?: string;
     /**
@@ -15345,7 +15345,7 @@ export interface PowerpackWidgetQueryTableDefinitionRequestQueryApmResourceStats
      */
     operationName?: string;
     /**
-     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
      */
     primaryTagName?: string;
     /**
@@ -16134,7 +16134,7 @@ export interface PowerpackWidgetQueryValueDefinitionRequestFormulaLimit {
 
 export interface PowerpackWidgetQueryValueDefinitionRequestFormulaStyle {
     /**
-     * The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+     * The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
      */
     palette?: string;
     /**
@@ -16302,7 +16302,7 @@ export interface PowerpackWidgetQueryValueDefinitionRequestQueryApmDependencySta
      */
     operationName: string;
     /**
-     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
      */
     primaryTagName?: string;
     /**
@@ -16349,7 +16349,7 @@ export interface PowerpackWidgetQueryValueDefinitionRequestQueryApmResourceStats
      */
     operationName?: string;
     /**
-     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
      */
     primaryTagName?: string;
     /**
@@ -16992,7 +16992,7 @@ export interface PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQuer
      */
     operationName: string;
     /**
-     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
      */
     primaryTagName?: string;
     /**
@@ -17039,7 +17039,7 @@ export interface PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQuer
      */
     operationName?: string;
     /**
-     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
      */
     primaryTagName?: string;
     /**
@@ -18592,7 +18592,7 @@ export interface PowerpackWidgetSunburstDefinitionRequestFormulaLimit {
 
 export interface PowerpackWidgetSunburstDefinitionRequestFormulaStyle {
     /**
-     * The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+     * The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
      */
     palette?: string;
     /**
@@ -18843,7 +18843,7 @@ export interface PowerpackWidgetSunburstDefinitionRequestQueryApmDependencyStats
      */
     operationName: string;
     /**
-     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
      */
     primaryTagName?: string;
     /**
@@ -18890,7 +18890,7 @@ export interface PowerpackWidgetSunburstDefinitionRequestQueryApmResourceStatsQu
      */
     operationName?: string;
     /**
-     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
      */
     primaryTagName?: string;
     /**
@@ -19290,7 +19290,7 @@ export interface PowerpackWidgetSunburstDefinitionRequestSecurityQueryMultiCompu
 
 export interface PowerpackWidgetSunburstDefinitionRequestStyle {
     /**
-     * A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+     * A color palette to apply to the widget. The available options are available at: [https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance](https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance).
      */
     palette?: string;
 }
@@ -19697,7 +19697,7 @@ export interface PowerpackWidgetTimeseriesDefinitionRequestFormulaLimit {
 
 export interface PowerpackWidgetTimeseriesDefinitionRequestFormulaStyle {
     /**
-     * The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+     * The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
      */
     palette?: string;
     /**
@@ -19959,7 +19959,7 @@ export interface PowerpackWidgetTimeseriesDefinitionRequestQueryApmDependencySta
      */
     operationName: string;
     /**
-     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
      */
     primaryTagName?: string;
     /**
@@ -20006,7 +20006,7 @@ export interface PowerpackWidgetTimeseriesDefinitionRequestQueryApmResourceStats
      */
     operationName?: string;
     /**
-     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
      */
     primaryTagName?: string;
     /**
@@ -20414,7 +20414,7 @@ export interface PowerpackWidgetTimeseriesDefinitionRequestStyle {
      */
     lineWidth?: string;
     /**
-     * A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+     * A color palette to apply to the widget. The available options are available at: [https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance](https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance).
      */
     palette?: string;
 }
@@ -20836,7 +20836,7 @@ export interface PowerpackWidgetToplistDefinitionRequestFormulaLimit {
 
 export interface PowerpackWidgetToplistDefinitionRequestFormulaStyle {
     /**
-     * The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+     * The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
      */
     palette?: string;
     /**
@@ -21004,7 +21004,7 @@ export interface PowerpackWidgetToplistDefinitionRequestQueryApmDependencyStatsQ
      */
     operationName: string;
     /**
-     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
      */
     primaryTagName?: string;
     /**
@@ -21051,7 +21051,7 @@ export interface PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQue
      */
     operationName?: string;
     /**
-     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
      */
     primaryTagName?: string;
     /**
@@ -21451,7 +21451,7 @@ export interface PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComput
 
 export interface PowerpackWidgetToplistDefinitionRequestStyle {
     /**
-     * A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+     * A color palette to apply to the widget. The available options are available at: [https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance](https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance).
      */
     palette?: string;
 }
@@ -21682,7 +21682,7 @@ export interface PowerpackWidgetTreemapDefinitionRequestFormulaLimit {
 
 export interface PowerpackWidgetTreemapDefinitionRequestFormulaStyle {
     /**
-     * The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+     * The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
      */
     palette?: string;
     /**
@@ -21748,7 +21748,7 @@ export interface PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQ
      */
     operationName: string;
     /**
-     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
      */
     primaryTagName?: string;
     /**
@@ -21795,7 +21795,7 @@ export interface PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQue
      */
     operationName?: string;
     /**
-     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
      */
     primaryTagName?: string;
     /**
@@ -22056,7 +22056,7 @@ export interface RestrictionPolicyBinding {
      */
     principals: string[];
     /**
-     * The role/level of access. See this page for more details https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources
+     * The role/level of access. See this page for more details [https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources](https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources)
      */
     relation: string;
 }

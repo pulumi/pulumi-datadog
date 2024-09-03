@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetToplistDefinitionRequestFormulaStyle {
     /**
-     * @return The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+     * @return The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
      * 
      */
     private @Nullable String palette;
@@ -25,7 +25,7 @@ public final class DashboardWidgetToplistDefinitionRequestFormulaStyle {
 
     private DashboardWidgetToplistDefinitionRequestFormulaStyle() {}
     /**
-     * @return The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+     * @return The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
      * 
      */
     public Optional<String> palette() {

@@ -3555,7 +3555,7 @@ class DashboardWidgetChangeDefinitionRequestFormulaStyleArgs:
                  palette: Optional[pulumi.Input[str]] = None,
                  palette_index: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] palette: The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+        :param pulumi.Input[str] palette: The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
         :param pulumi.Input[int] palette_index: Index specifying which color to use within the palette.
         """
         if palette is not None:
@@ -3567,7 +3567,7 @@ class DashboardWidgetChangeDefinitionRequestFormulaStyleArgs:
     @pulumi.getter
     def palette(self) -> Optional[pulumi.Input[str]]:
         """
-        The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+        The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
         """
         return pulumi.get(self, "palette")
 
@@ -3801,7 +3801,7 @@ class DashboardWidgetChangeDefinitionRequestQueryApmDependencyStatsQueryArgs:
         :param pulumi.Input[str] stat: APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[bool] is_upstream: Determines whether stats for upstream or downstream dependencies should be queried.
-        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         :param pulumi.Input[str] primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
         """
         pulumi.set(__self__, "data_source", data_source)
@@ -3932,7 +3932,7 @@ class DashboardWidgetChangeDefinitionRequestQueryApmDependencyStatsQueryArgs:
     @pulumi.getter(name="primaryTagName")
     def primary_tag_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         """
         return pulumi.get(self, "primary_tag_name")
 
@@ -3976,7 +3976,7 @@ class DashboardWidgetChangeDefinitionRequestQueryApmResourceStatsQueryArgs:
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_bies: Array of fields to group results by.
         :param pulumi.Input[str] operation_name: Name of operation on service.
-        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         :param pulumi.Input[str] primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
         :param pulumi.Input[str] resource_name: APM resource.
         """
@@ -4098,7 +4098,7 @@ class DashboardWidgetChangeDefinitionRequestQueryApmResourceStatsQueryArgs:
     @pulumi.getter(name="primaryTagName")
     def primary_tag_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         """
         return pulumi.get(self, "primary_tag_name")
 
@@ -5570,7 +5570,7 @@ class DashboardWidgetDistributionDefinitionRequestStyleArgs:
     def __init__(__self__, *,
                  palette: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] palette: A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+        :param pulumi.Input[str] palette: A color palette to apply to the widget. The available options are available at: [https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance](https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance).
         """
         if palette is not None:
             pulumi.set(__self__, "palette", palette)
@@ -5579,7 +5579,7 @@ class DashboardWidgetDistributionDefinitionRequestStyleArgs:
     @pulumi.getter
     def palette(self) -> Optional[pulumi.Input[str]]:
         """
-        A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+        A color palette to apply to the widget. The available options are available at: [https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance](https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance).
         """
         return pulumi.get(self, "palette")
 
@@ -6457,7 +6457,7 @@ class DashboardWidgetGeomapDefinitionRequestFormulaStyleArgs:
                  palette: Optional[pulumi.Input[str]] = None,
                  palette_index: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] palette: The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+        :param pulumi.Input[str] palette: The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
         :param pulumi.Input[int] palette_index: Index specifying which color to use within the palette.
         """
         if palette is not None:
@@ -6469,7 +6469,7 @@ class DashboardWidgetGeomapDefinitionRequestFormulaStyleArgs:
     @pulumi.getter
     def palette(self) -> Optional[pulumi.Input[str]]:
         """
-        The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+        The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
         """
         return pulumi.get(self, "palette")
 
@@ -6633,7 +6633,7 @@ class DashboardWidgetGeomapDefinitionRequestQueryApmDependencyStatsQueryArgs:
         :param pulumi.Input[str] stat: APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[bool] is_upstream: Determines whether stats for upstream or downstream dependencies should be queried.
-        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         :param pulumi.Input[str] primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
         """
         pulumi.set(__self__, "data_source", data_source)
@@ -6764,7 +6764,7 @@ class DashboardWidgetGeomapDefinitionRequestQueryApmDependencyStatsQueryArgs:
     @pulumi.getter(name="primaryTagName")
     def primary_tag_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         """
         return pulumi.get(self, "primary_tag_name")
 
@@ -6808,7 +6808,7 @@ class DashboardWidgetGeomapDefinitionRequestQueryApmResourceStatsQueryArgs:
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_bies: Array of fields to group results by.
         :param pulumi.Input[str] operation_name: Name of operation on service.
-        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         :param pulumi.Input[str] primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
         :param pulumi.Input[str] resource_name: APM resource.
         """
@@ -6930,7 +6930,7 @@ class DashboardWidgetGeomapDefinitionRequestQueryApmResourceStatsQueryArgs:
     @pulumi.getter(name="primaryTagName")
     def primary_tag_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         """
         return pulumi.get(self, "primary_tag_name")
 
@@ -9253,7 +9253,7 @@ class DashboardWidgetHeatmapDefinitionRequestFormulaStyleArgs:
                  palette: Optional[pulumi.Input[str]] = None,
                  palette_index: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] palette: The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+        :param pulumi.Input[str] palette: The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
         :param pulumi.Input[int] palette_index: Index specifying which color to use within the palette.
         """
         if palette is not None:
@@ -9265,7 +9265,7 @@ class DashboardWidgetHeatmapDefinitionRequestFormulaStyleArgs:
     @pulumi.getter
     def palette(self) -> Optional[pulumi.Input[str]]:
         """
-        The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+        The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
         """
         return pulumi.get(self, "palette")
 
@@ -9499,7 +9499,7 @@ class DashboardWidgetHeatmapDefinitionRequestQueryApmDependencyStatsQueryArgs:
         :param pulumi.Input[str] stat: APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[bool] is_upstream: Determines whether stats for upstream or downstream dependencies should be queried.
-        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         :param pulumi.Input[str] primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
         """
         pulumi.set(__self__, "data_source", data_source)
@@ -9630,7 +9630,7 @@ class DashboardWidgetHeatmapDefinitionRequestQueryApmDependencyStatsQueryArgs:
     @pulumi.getter(name="primaryTagName")
     def primary_tag_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         """
         return pulumi.get(self, "primary_tag_name")
 
@@ -9674,7 +9674,7 @@ class DashboardWidgetHeatmapDefinitionRequestQueryApmResourceStatsQueryArgs:
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_bies: Array of fields to group results by.
         :param pulumi.Input[str] operation_name: Name of operation on service.
-        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         :param pulumi.Input[str] primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
         :param pulumi.Input[str] resource_name: APM resource.
         """
@@ -9796,7 +9796,7 @@ class DashboardWidgetHeatmapDefinitionRequestQueryApmResourceStatsQueryArgs:
     @pulumi.getter(name="primaryTagName")
     def primary_tag_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         """
         return pulumi.get(self, "primary_tag_name")
 
@@ -10615,7 +10615,7 @@ class DashboardWidgetHeatmapDefinitionRequestStyleArgs:
     def __init__(__self__, *,
                  palette: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] palette: A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+        :param pulumi.Input[str] palette: A color palette to apply to the widget. The available options are available at: [https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance](https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance).
         """
         if palette is not None:
             pulumi.set(__self__, "palette", palette)
@@ -10624,7 +10624,7 @@ class DashboardWidgetHeatmapDefinitionRequestStyleArgs:
     @pulumi.getter
     def palette(self) -> Optional[pulumi.Input[str]]:
         """
-        A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+        A color palette to apply to the widget. The available options are available at: [https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance](https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance).
         """
         return pulumi.get(self, "palette")
 
@@ -11369,7 +11369,7 @@ class DashboardWidgetHostmapDefinitionStyleArgs:
         """
         :param pulumi.Input[str] fill_max: The max value to use to color the map.
         :param pulumi.Input[str] fill_min: The min value to use to color the map.
-        :param pulumi.Input[str] palette: A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+        :param pulumi.Input[str] palette: A color palette to apply to the widget. The available options are available at: [https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance](https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance).
         :param pulumi.Input[bool] palette_flip: A Boolean indicating whether to flip the palette tones.
         """
         if fill_max is not None:
@@ -11409,7 +11409,7 @@ class DashboardWidgetHostmapDefinitionStyleArgs:
     @pulumi.getter
     def palette(self) -> Optional[pulumi.Input[str]]:
         """
-        A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+        A color palette to apply to the widget. The available options are available at: [https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance](https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance).
         """
         return pulumi.get(self, "palette")
 
@@ -14037,7 +14037,7 @@ class DashboardWidgetQueryTableDefinitionRequestFormulaStyleArgs:
                  palette: Optional[pulumi.Input[str]] = None,
                  palette_index: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] palette: The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+        :param pulumi.Input[str] palette: The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
         :param pulumi.Input[int] palette_index: Index specifying which color to use within the palette.
         """
         if palette is not None:
@@ -14049,7 +14049,7 @@ class DashboardWidgetQueryTableDefinitionRequestFormulaStyleArgs:
     @pulumi.getter
     def palette(self) -> Optional[pulumi.Input[str]]:
         """
-        The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+        The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
         """
         return pulumi.get(self, "palette")
 
@@ -14283,7 +14283,7 @@ class DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryArgs
         :param pulumi.Input[str] stat: APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[bool] is_upstream: Determines whether stats for upstream or downstream dependencies should be queried.
-        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         :param pulumi.Input[str] primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
         """
         pulumi.set(__self__, "data_source", data_source)
@@ -14414,7 +14414,7 @@ class DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryArgs
     @pulumi.getter(name="primaryTagName")
     def primary_tag_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         """
         return pulumi.get(self, "primary_tag_name")
 
@@ -14458,7 +14458,7 @@ class DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryArgs:
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_bies: Array of fields to group results by.
         :param pulumi.Input[str] operation_name: Name of operation on service.
-        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         :param pulumi.Input[str] primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
         :param pulumi.Input[str] resource_name: APM resource.
         """
@@ -14580,7 +14580,7 @@ class DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryArgs:
     @pulumi.getter(name="primaryTagName")
     def primary_tag_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         """
         return pulumi.get(self, "primary_tag_name")
 
@@ -16568,7 +16568,7 @@ class DashboardWidgetQueryValueDefinitionRequestFormulaStyleArgs:
                  palette: Optional[pulumi.Input[str]] = None,
                  palette_index: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] palette: The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+        :param pulumi.Input[str] palette: The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
         :param pulumi.Input[int] palette_index: Index specifying which color to use within the palette.
         """
         if palette is not None:
@@ -16580,7 +16580,7 @@ class DashboardWidgetQueryValueDefinitionRequestFormulaStyleArgs:
     @pulumi.getter
     def palette(self) -> Optional[pulumi.Input[str]]:
         """
-        The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+        The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
         """
         return pulumi.get(self, "palette")
 
@@ -16814,7 +16814,7 @@ class DashboardWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQueryArgs
         :param pulumi.Input[str] stat: APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[bool] is_upstream: Determines whether stats for upstream or downstream dependencies should be queried.
-        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         :param pulumi.Input[str] primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
         """
         pulumi.set(__self__, "data_source", data_source)
@@ -16945,7 +16945,7 @@ class DashboardWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQueryArgs
     @pulumi.getter(name="primaryTagName")
     def primary_tag_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         """
         return pulumi.get(self, "primary_tag_name")
 
@@ -16989,7 +16989,7 @@ class DashboardWidgetQueryValueDefinitionRequestQueryApmResourceStatsQueryArgs:
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_bies: Array of fields to group results by.
         :param pulumi.Input[str] operation_name: Name of operation on service.
-        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         :param pulumi.Input[str] primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
         :param pulumi.Input[str] resource_name: APM resource.
         """
@@ -17111,7 +17111,7 @@ class DashboardWidgetQueryValueDefinitionRequestQueryApmResourceStatsQueryArgs:
     @pulumi.getter(name="primaryTagName")
     def primary_tag_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         """
         return pulumi.get(self, "primary_tag_name")
 
@@ -19080,7 +19080,7 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDepende
         :param pulumi.Input[str] stat: APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[bool] is_upstream: Determines whether stats for upstream or downstream dependencies should be queried.
-        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         :param pulumi.Input[str] primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
         """
         pulumi.set(__self__, "data_source", data_source)
@@ -19211,7 +19211,7 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDepende
     @pulumi.getter(name="primaryTagName")
     def primary_tag_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         """
         return pulumi.get(self, "primary_tag_name")
 
@@ -19255,7 +19255,7 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourc
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_bies: Array of fields to group results by.
         :param pulumi.Input[str] operation_name: Name of operation on service.
-        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         :param pulumi.Input[str] primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
         :param pulumi.Input[str] resource_name: APM resource.
         """
@@ -19377,7 +19377,7 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourc
     @pulumi.getter(name="primaryTagName")
     def primary_tag_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         """
         return pulumi.get(self, "primary_tag_name")
 
@@ -23115,7 +23115,7 @@ class DashboardWidgetSunburstDefinitionRequestFormulaStyleArgs:
                  palette: Optional[pulumi.Input[str]] = None,
                  palette_index: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] palette: The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+        :param pulumi.Input[str] palette: The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
         :param pulumi.Input[int] palette_index: Index specifying which color to use within the palette.
         """
         if palette is not None:
@@ -23127,7 +23127,7 @@ class DashboardWidgetSunburstDefinitionRequestFormulaStyleArgs:
     @pulumi.getter
     def palette(self) -> Optional[pulumi.Input[str]]:
         """
-        The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+        The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
         """
         return pulumi.get(self, "palette")
 
@@ -23663,7 +23663,7 @@ class DashboardWidgetSunburstDefinitionRequestQueryApmDependencyStatsQueryArgs:
         :param pulumi.Input[str] stat: APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[bool] is_upstream: Determines whether stats for upstream or downstream dependencies should be queried.
-        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         :param pulumi.Input[str] primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
         """
         pulumi.set(__self__, "data_source", data_source)
@@ -23794,7 +23794,7 @@ class DashboardWidgetSunburstDefinitionRequestQueryApmDependencyStatsQueryArgs:
     @pulumi.getter(name="primaryTagName")
     def primary_tag_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         """
         return pulumi.get(self, "primary_tag_name")
 
@@ -23838,7 +23838,7 @@ class DashboardWidgetSunburstDefinitionRequestQueryApmResourceStatsQueryArgs:
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_bies: Array of fields to group results by.
         :param pulumi.Input[str] operation_name: Name of operation on service.
-        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         :param pulumi.Input[str] primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
         :param pulumi.Input[str] resource_name: APM resource.
         """
@@ -23960,7 +23960,7 @@ class DashboardWidgetSunburstDefinitionRequestQueryApmResourceStatsQueryArgs:
     @pulumi.getter(name="primaryTagName")
     def primary_tag_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         """
         return pulumi.get(self, "primary_tag_name")
 
@@ -24779,7 +24779,7 @@ class DashboardWidgetSunburstDefinitionRequestStyleArgs:
     def __init__(__self__, *,
                  palette: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] palette: A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+        :param pulumi.Input[str] palette: A color palette to apply to the widget. The available options are available at: [https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance](https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance).
         """
         if palette is not None:
             pulumi.set(__self__, "palette", palette)
@@ -24788,7 +24788,7 @@ class DashboardWidgetSunburstDefinitionRequestStyleArgs:
     @pulumi.getter
     def palette(self) -> Optional[pulumi.Input[str]]:
         """
-        A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+        A color palette to apply to the widget. The available options are available at: [https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance](https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance).
         """
         return pulumi.get(self, "palette")
 
@@ -26011,7 +26011,7 @@ class DashboardWidgetTimeseriesDefinitionRequestFormulaStyleArgs:
                  palette: Optional[pulumi.Input[str]] = None,
                  palette_index: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] palette: The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+        :param pulumi.Input[str] palette: The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
         :param pulumi.Input[int] palette_index: Index specifying which color to use within the palette.
         """
         if palette is not None:
@@ -26023,7 +26023,7 @@ class DashboardWidgetTimeseriesDefinitionRequestFormulaStyleArgs:
     @pulumi.getter
     def palette(self) -> Optional[pulumi.Input[str]]:
         """
-        The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+        The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
         """
         return pulumi.get(self, "palette")
 
@@ -26597,7 +26597,7 @@ class DashboardWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQueryArgs
         :param pulumi.Input[str] stat: APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[bool] is_upstream: Determines whether stats for upstream or downstream dependencies should be queried.
-        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         :param pulumi.Input[str] primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
         """
         pulumi.set(__self__, "data_source", data_source)
@@ -26728,7 +26728,7 @@ class DashboardWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQueryArgs
     @pulumi.getter(name="primaryTagName")
     def primary_tag_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         """
         return pulumi.get(self, "primary_tag_name")
 
@@ -26772,7 +26772,7 @@ class DashboardWidgetTimeseriesDefinitionRequestQueryApmResourceStatsQueryArgs:
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_bies: Array of fields to group results by.
         :param pulumi.Input[str] operation_name: Name of operation on service.
-        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         :param pulumi.Input[str] primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
         :param pulumi.Input[str] resource_name: APM resource.
         """
@@ -26894,7 +26894,7 @@ class DashboardWidgetTimeseriesDefinitionRequestQueryApmResourceStatsQueryArgs:
     @pulumi.getter(name="primaryTagName")
     def primary_tag_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         """
         return pulumi.get(self, "primary_tag_name")
 
@@ -27717,7 +27717,7 @@ class DashboardWidgetTimeseriesDefinitionRequestStyleArgs:
         """
         :param pulumi.Input[str] line_type: The type of lines displayed. Valid values are `dashed`, `dotted`, `solid`.
         :param pulumi.Input[str] line_width: The width of line displayed. Valid values are `normal`, `thick`, `thin`.
-        :param pulumi.Input[str] palette: A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+        :param pulumi.Input[str] palette: A color palette to apply to the widget. The available options are available at: [https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance](https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance).
         """
         if line_type is not None:
             pulumi.set(__self__, "line_type", line_type)
@@ -27754,7 +27754,7 @@ class DashboardWidgetTimeseriesDefinitionRequestStyleArgs:
     @pulumi.getter
     def palette(self) -> Optional[pulumi.Input[str]]:
         """
-        A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+        A color palette to apply to the widget. The available options are available at: [https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance](https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance).
         """
         return pulumi.get(self, "palette")
 
@@ -29031,7 +29031,7 @@ class DashboardWidgetToplistDefinitionRequestFormulaStyleArgs:
                  palette: Optional[pulumi.Input[str]] = None,
                  palette_index: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] palette: The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+        :param pulumi.Input[str] palette: The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
         :param pulumi.Input[int] palette_index: Index specifying which color to use within the palette.
         """
         if palette is not None:
@@ -29043,7 +29043,7 @@ class DashboardWidgetToplistDefinitionRequestFormulaStyleArgs:
     @pulumi.getter
     def palette(self) -> Optional[pulumi.Input[str]]:
         """
-        The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+        The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
         """
         return pulumi.get(self, "palette")
 
@@ -29277,7 +29277,7 @@ class DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryArgs:
         :param pulumi.Input[str] stat: APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[bool] is_upstream: Determines whether stats for upstream or downstream dependencies should be queried.
-        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         :param pulumi.Input[str] primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
         """
         pulumi.set(__self__, "data_source", data_source)
@@ -29408,7 +29408,7 @@ class DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryArgs:
     @pulumi.getter(name="primaryTagName")
     def primary_tag_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         """
         return pulumi.get(self, "primary_tag_name")
 
@@ -29452,7 +29452,7 @@ class DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryArgs:
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_bies: Array of fields to group results by.
         :param pulumi.Input[str] operation_name: Name of operation on service.
-        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         :param pulumi.Input[str] primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
         :param pulumi.Input[str] resource_name: APM resource.
         """
@@ -29574,7 +29574,7 @@ class DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryArgs:
     @pulumi.getter(name="primaryTagName")
     def primary_tag_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         """
         return pulumi.get(self, "primary_tag_name")
 
@@ -30393,7 +30393,7 @@ class DashboardWidgetToplistDefinitionRequestStyleArgs:
     def __init__(__self__, *,
                  palette: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] palette: A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+        :param pulumi.Input[str] palette: A color palette to apply to the widget. The available options are available at: [https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance](https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance).
         """
         if palette is not None:
             pulumi.set(__self__, "palette", palette)
@@ -30402,7 +30402,7 @@ class DashboardWidgetToplistDefinitionRequestStyleArgs:
     @pulumi.getter
     def palette(self) -> Optional[pulumi.Input[str]]:
         """
-        A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+        A color palette to apply to the widget. The available options are available at: [https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance](https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance).
         """
         return pulumi.get(self, "palette")
 
@@ -31265,7 +31265,7 @@ class DashboardWidgetTreemapDefinitionRequestFormulaStyleArgs:
                  palette: Optional[pulumi.Input[str]] = None,
                  palette_index: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] palette: The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+        :param pulumi.Input[str] palette: The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
         :param pulumi.Input[int] palette_index: Index specifying which color to use within the palette.
         """
         if palette is not None:
@@ -31277,7 +31277,7 @@ class DashboardWidgetTreemapDefinitionRequestFormulaStyleArgs:
     @pulumi.getter
     def palette(self) -> Optional[pulumi.Input[str]]:
         """
-        The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+        The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
         """
         return pulumi.get(self, "palette")
 
@@ -31441,7 +31441,7 @@ class DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryArgs:
         :param pulumi.Input[str] stat: APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[bool] is_upstream: Determines whether stats for upstream or downstream dependencies should be queried.
-        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         :param pulumi.Input[str] primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
         """
         pulumi.set(__self__, "data_source", data_source)
@@ -31572,7 +31572,7 @@ class DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryArgs:
     @pulumi.getter(name="primaryTagName")
     def primary_tag_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         """
         return pulumi.get(self, "primary_tag_name")
 
@@ -31616,7 +31616,7 @@ class DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryArgs:
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_bies: Array of fields to group results by.
         :param pulumi.Input[str] operation_name: Name of operation on service.
-        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         :param pulumi.Input[str] primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
         :param pulumi.Input[str] resource_name: APM resource.
         """
@@ -31738,7 +31738,7 @@ class DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryArgs:
     @pulumi.getter(name="primaryTagName")
     def primary_tag_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         """
         return pulumi.get(self, "primary_tag_name")
 
@@ -39334,7 +39334,7 @@ class PowerpackWidgetChangeDefinitionRequestFormulaStyleArgs:
                  palette: Optional[pulumi.Input[str]] = None,
                  palette_index: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] palette: The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+        :param pulumi.Input[str] palette: The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
         :param pulumi.Input[int] palette_index: Index specifying which color to use within the palette.
         """
         if palette is not None:
@@ -39346,7 +39346,7 @@ class PowerpackWidgetChangeDefinitionRequestFormulaStyleArgs:
     @pulumi.getter
     def palette(self) -> Optional[pulumi.Input[str]]:
         """
-        The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+        The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
         """
         return pulumi.get(self, "palette")
 
@@ -39882,7 +39882,7 @@ class PowerpackWidgetChangeDefinitionRequestQueryApmDependencyStatsQueryArgs:
         :param pulumi.Input[str] stat: APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[bool] is_upstream: Determines whether stats for upstream or downstream dependencies should be queried.
-        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         :param pulumi.Input[str] primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
         """
         pulumi.set(__self__, "data_source", data_source)
@@ -40013,7 +40013,7 @@ class PowerpackWidgetChangeDefinitionRequestQueryApmDependencyStatsQueryArgs:
     @pulumi.getter(name="primaryTagName")
     def primary_tag_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         """
         return pulumi.get(self, "primary_tag_name")
 
@@ -40057,7 +40057,7 @@ class PowerpackWidgetChangeDefinitionRequestQueryApmResourceStatsQueryArgs:
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_bies: Array of fields to group results by.
         :param pulumi.Input[str] operation_name: Name of operation on service.
-        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         :param pulumi.Input[str] primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
         :param pulumi.Input[str] resource_name: APM resource.
         """
@@ -40179,7 +40179,7 @@ class PowerpackWidgetChangeDefinitionRequestQueryApmResourceStatsQueryArgs:
     @pulumi.getter(name="primaryTagName")
     def primary_tag_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         """
         return pulumi.get(self, "primary_tag_name")
 
@@ -43463,7 +43463,7 @@ class PowerpackWidgetDistributionDefinitionRequestStyleArgs:
     def __init__(__self__, *,
                  palette: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] palette: A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+        :param pulumi.Input[str] palette: A color palette to apply to the widget. The available options are available at: [https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance](https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance).
         """
         if palette is not None:
             pulumi.set(__self__, "palette", palette)
@@ -43472,7 +43472,7 @@ class PowerpackWidgetDistributionDefinitionRequestStyleArgs:
     @pulumi.getter
     def palette(self) -> Optional[pulumi.Input[str]]:
         """
-        A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+        A color palette to apply to the widget. The available options are available at: [https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance](https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance).
         """
         return pulumi.get(self, "palette")
 
@@ -44350,7 +44350,7 @@ class PowerpackWidgetGeomapDefinitionRequestFormulaStyleArgs:
                  palette: Optional[pulumi.Input[str]] = None,
                  palette_index: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] palette: The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+        :param pulumi.Input[str] palette: The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
         :param pulumi.Input[int] palette_index: Index specifying which color to use within the palette.
         """
         if palette is not None:
@@ -44362,7 +44362,7 @@ class PowerpackWidgetGeomapDefinitionRequestFormulaStyleArgs:
     @pulumi.getter
     def palette(self) -> Optional[pulumi.Input[str]]:
         """
-        The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+        The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
         """
         return pulumi.get(self, "palette")
 
@@ -44828,7 +44828,7 @@ class PowerpackWidgetGeomapDefinitionRequestQueryApmDependencyStatsQueryArgs:
         :param pulumi.Input[str] stat: APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[bool] is_upstream: Determines whether stats for upstream or downstream dependencies should be queried.
-        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         :param pulumi.Input[str] primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
         """
         pulumi.set(__self__, "data_source", data_source)
@@ -44959,7 +44959,7 @@ class PowerpackWidgetGeomapDefinitionRequestQueryApmDependencyStatsQueryArgs:
     @pulumi.getter(name="primaryTagName")
     def primary_tag_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         """
         return pulumi.get(self, "primary_tag_name")
 
@@ -45003,7 +45003,7 @@ class PowerpackWidgetGeomapDefinitionRequestQueryApmResourceStatsQueryArgs:
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_bies: Array of fields to group results by.
         :param pulumi.Input[str] operation_name: Name of operation on service.
-        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         :param pulumi.Input[str] primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
         :param pulumi.Input[str] resource_name: APM resource.
         """
@@ -45125,7 +45125,7 @@ class PowerpackWidgetGeomapDefinitionRequestQueryApmResourceStatsQueryArgs:
     @pulumi.getter(name="primaryTagName")
     def primary_tag_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         """
         return pulumi.get(self, "primary_tag_name")
 
@@ -47316,7 +47316,7 @@ class PowerpackWidgetHeatmapDefinitionRequestFormulaStyleArgs:
                  palette: Optional[pulumi.Input[str]] = None,
                  palette_index: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] palette: The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+        :param pulumi.Input[str] palette: The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
         :param pulumi.Input[int] palette_index: Index specifying which color to use within the palette.
         """
         if palette is not None:
@@ -47328,7 +47328,7 @@ class PowerpackWidgetHeatmapDefinitionRequestFormulaStyleArgs:
     @pulumi.getter
     def palette(self) -> Optional[pulumi.Input[str]]:
         """
-        The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+        The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
         """
         return pulumi.get(self, "palette")
 
@@ -47864,7 +47864,7 @@ class PowerpackWidgetHeatmapDefinitionRequestQueryApmDependencyStatsQueryArgs:
         :param pulumi.Input[str] stat: APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[bool] is_upstream: Determines whether stats for upstream or downstream dependencies should be queried.
-        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         :param pulumi.Input[str] primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
         """
         pulumi.set(__self__, "data_source", data_source)
@@ -47995,7 +47995,7 @@ class PowerpackWidgetHeatmapDefinitionRequestQueryApmDependencyStatsQueryArgs:
     @pulumi.getter(name="primaryTagName")
     def primary_tag_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         """
         return pulumi.get(self, "primary_tag_name")
 
@@ -48039,7 +48039,7 @@ class PowerpackWidgetHeatmapDefinitionRequestQueryApmResourceStatsQueryArgs:
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_bies: Array of fields to group results by.
         :param pulumi.Input[str] operation_name: Name of operation on service.
-        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         :param pulumi.Input[str] primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
         :param pulumi.Input[str] resource_name: APM resource.
         """
@@ -48161,7 +48161,7 @@ class PowerpackWidgetHeatmapDefinitionRequestQueryApmResourceStatsQueryArgs:
     @pulumi.getter(name="primaryTagName")
     def primary_tag_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         """
         return pulumi.get(self, "primary_tag_name")
 
@@ -49584,7 +49584,7 @@ class PowerpackWidgetHeatmapDefinitionRequestStyleArgs:
     def __init__(__self__, *,
                  palette: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] palette: A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+        :param pulumi.Input[str] palette: A color palette to apply to the widget. The available options are available at: [https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance](https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance).
         """
         if palette is not None:
             pulumi.set(__self__, "palette", palette)
@@ -49593,7 +49593,7 @@ class PowerpackWidgetHeatmapDefinitionRequestStyleArgs:
     @pulumi.getter
     def palette(self) -> Optional[pulumi.Input[str]]:
         """
-        A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+        A color palette to apply to the widget. The available options are available at: [https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance](https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance).
         """
         return pulumi.get(self, "palette")
 
@@ -52754,7 +52754,7 @@ class PowerpackWidgetHostmapDefinitionStyleArgs:
         """
         :param pulumi.Input[str] fill_max: The max value to use to color the map.
         :param pulumi.Input[str] fill_min: The min value to use to color the map.
-        :param pulumi.Input[str] palette: A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+        :param pulumi.Input[str] palette: A color palette to apply to the widget. The available options are available at: [https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance](https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance).
         :param pulumi.Input[bool] palette_flip: A Boolean indicating whether to flip the palette tones.
         """
         if fill_max is not None:
@@ -52794,7 +52794,7 @@ class PowerpackWidgetHostmapDefinitionStyleArgs:
     @pulumi.getter
     def palette(self) -> Optional[pulumi.Input[str]]:
         """
-        A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+        A color palette to apply to the widget. The available options are available at: [https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance](https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance).
         """
         return pulumi.get(self, "palette")
 
@@ -55175,7 +55175,7 @@ class PowerpackWidgetQueryTableDefinitionRequestFormulaStyleArgs:
                  palette: Optional[pulumi.Input[str]] = None,
                  palette_index: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] palette: The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+        :param pulumi.Input[str] palette: The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
         :param pulumi.Input[int] palette_index: Index specifying which color to use within the palette.
         """
         if palette is not None:
@@ -55187,7 +55187,7 @@ class PowerpackWidgetQueryTableDefinitionRequestFormulaStyleArgs:
     @pulumi.getter
     def palette(self) -> Optional[pulumi.Input[str]]:
         """
-        The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+        The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
         """
         return pulumi.get(self, "palette")
 
@@ -55723,7 +55723,7 @@ class PowerpackWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryArgs
         :param pulumi.Input[str] stat: APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[bool] is_upstream: Determines whether stats for upstream or downstream dependencies should be queried.
-        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         :param pulumi.Input[str] primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
         """
         pulumi.set(__self__, "data_source", data_source)
@@ -55854,7 +55854,7 @@ class PowerpackWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryArgs
     @pulumi.getter(name="primaryTagName")
     def primary_tag_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         """
         return pulumi.get(self, "primary_tag_name")
 
@@ -55898,7 +55898,7 @@ class PowerpackWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryArgs:
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_bies: Array of fields to group results by.
         :param pulumi.Input[str] operation_name: Name of operation on service.
-        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         :param pulumi.Input[str] primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
         :param pulumi.Input[str] resource_name: APM resource.
         """
@@ -56020,7 +56020,7 @@ class PowerpackWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryArgs:
     @pulumi.getter(name="primaryTagName")
     def primary_tag_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         """
         return pulumi.get(self, "primary_tag_name")
 
@@ -58914,7 +58914,7 @@ class PowerpackWidgetQueryValueDefinitionRequestFormulaStyleArgs:
                  palette: Optional[pulumi.Input[str]] = None,
                  palette_index: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] palette: The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+        :param pulumi.Input[str] palette: The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
         :param pulumi.Input[int] palette_index: Index specifying which color to use within the palette.
         """
         if palette is not None:
@@ -58926,7 +58926,7 @@ class PowerpackWidgetQueryValueDefinitionRequestFormulaStyleArgs:
     @pulumi.getter
     def palette(self) -> Optional[pulumi.Input[str]]:
         """
-        The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+        The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
         """
         return pulumi.get(self, "palette")
 
@@ -59462,7 +59462,7 @@ class PowerpackWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQueryArgs
         :param pulumi.Input[str] stat: APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[bool] is_upstream: Determines whether stats for upstream or downstream dependencies should be queried.
-        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         :param pulumi.Input[str] primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
         """
         pulumi.set(__self__, "data_source", data_source)
@@ -59593,7 +59593,7 @@ class PowerpackWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQueryArgs
     @pulumi.getter(name="primaryTagName")
     def primary_tag_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         """
         return pulumi.get(self, "primary_tag_name")
 
@@ -59637,7 +59637,7 @@ class PowerpackWidgetQueryValueDefinitionRequestQueryApmResourceStatsQueryArgs:
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_bies: Array of fields to group results by.
         :param pulumi.Input[str] operation_name: Name of operation on service.
-        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         :param pulumi.Input[str] primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
         :param pulumi.Input[str] resource_name: APM resource.
         """
@@ -59759,7 +59759,7 @@ class PowerpackWidgetQueryValueDefinitionRequestQueryApmResourceStatsQueryArgs:
     @pulumi.getter(name="primaryTagName")
     def primary_tag_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         """
         return pulumi.get(self, "primary_tag_name")
 
@@ -62030,7 +62030,7 @@ class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDepende
         :param pulumi.Input[str] stat: APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[bool] is_upstream: Determines whether stats for upstream or downstream dependencies should be queried.
-        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         :param pulumi.Input[str] primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
         """
         pulumi.set(__self__, "data_source", data_source)
@@ -62161,7 +62161,7 @@ class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDepende
     @pulumi.getter(name="primaryTagName")
     def primary_tag_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         """
         return pulumi.get(self, "primary_tag_name")
 
@@ -62205,7 +62205,7 @@ class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourc
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_bies: Array of fields to group results by.
         :param pulumi.Input[str] operation_name: Name of operation on service.
-        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         :param pulumi.Input[str] primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
         :param pulumi.Input[str] resource_name: APM resource.
         """
@@ -62327,7 +62327,7 @@ class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourc
     @pulumi.getter(name="primaryTagName")
     def primary_tag_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         """
         return pulumi.get(self, "primary_tag_name")
 
@@ -68014,7 +68014,7 @@ class PowerpackWidgetSunburstDefinitionRequestFormulaStyleArgs:
                  palette: Optional[pulumi.Input[str]] = None,
                  palette_index: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] palette: The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+        :param pulumi.Input[str] palette: The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
         :param pulumi.Input[int] palette_index: Index specifying which color to use within the palette.
         """
         if palette is not None:
@@ -68026,7 +68026,7 @@ class PowerpackWidgetSunburstDefinitionRequestFormulaStyleArgs:
     @pulumi.getter
     def palette(self) -> Optional[pulumi.Input[str]]:
         """
-        The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+        The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
         """
         return pulumi.get(self, "palette")
 
@@ -68864,7 +68864,7 @@ class PowerpackWidgetSunburstDefinitionRequestQueryApmDependencyStatsQueryArgs:
         :param pulumi.Input[str] stat: APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[bool] is_upstream: Determines whether stats for upstream or downstream dependencies should be queried.
-        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         :param pulumi.Input[str] primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
         """
         pulumi.set(__self__, "data_source", data_source)
@@ -68995,7 +68995,7 @@ class PowerpackWidgetSunburstDefinitionRequestQueryApmDependencyStatsQueryArgs:
     @pulumi.getter(name="primaryTagName")
     def primary_tag_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         """
         return pulumi.get(self, "primary_tag_name")
 
@@ -69039,7 +69039,7 @@ class PowerpackWidgetSunburstDefinitionRequestQueryApmResourceStatsQueryArgs:
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_bies: Array of fields to group results by.
         :param pulumi.Input[str] operation_name: Name of operation on service.
-        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         :param pulumi.Input[str] primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
         :param pulumi.Input[str] resource_name: APM resource.
         """
@@ -69161,7 +69161,7 @@ class PowerpackWidgetSunburstDefinitionRequestQueryApmResourceStatsQueryArgs:
     @pulumi.getter(name="primaryTagName")
     def primary_tag_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         """
         return pulumi.get(self, "primary_tag_name")
 
@@ -70584,7 +70584,7 @@ class PowerpackWidgetSunburstDefinitionRequestStyleArgs:
     def __init__(__self__, *,
                  palette: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] palette: A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+        :param pulumi.Input[str] palette: A color palette to apply to the widget. The available options are available at: [https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance](https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance).
         """
         if palette is not None:
             pulumi.set(__self__, "palette", palette)
@@ -70593,7 +70593,7 @@ class PowerpackWidgetSunburstDefinitionRequestStyleArgs:
     @pulumi.getter
     def palette(self) -> Optional[pulumi.Input[str]]:
         """
-        A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+        A color palette to apply to the widget. The available options are available at: [https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance](https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance).
         """
         return pulumi.get(self, "palette")
 
@@ -72118,7 +72118,7 @@ class PowerpackWidgetTimeseriesDefinitionRequestFormulaStyleArgs:
                  palette: Optional[pulumi.Input[str]] = None,
                  palette_index: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] palette: The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+        :param pulumi.Input[str] palette: The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
         :param pulumi.Input[int] palette_index: Index specifying which color to use within the palette.
         """
         if palette is not None:
@@ -72130,7 +72130,7 @@ class PowerpackWidgetTimeseriesDefinitionRequestFormulaStyleArgs:
     @pulumi.getter
     def palette(self) -> Optional[pulumi.Input[str]]:
         """
-        The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+        The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
         """
         return pulumi.get(self, "palette")
 
@@ -73006,7 +73006,7 @@ class PowerpackWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQueryArgs
         :param pulumi.Input[str] stat: APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[bool] is_upstream: Determines whether stats for upstream or downstream dependencies should be queried.
-        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         :param pulumi.Input[str] primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
         """
         pulumi.set(__self__, "data_source", data_source)
@@ -73137,7 +73137,7 @@ class PowerpackWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQueryArgs
     @pulumi.getter(name="primaryTagName")
     def primary_tag_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         """
         return pulumi.get(self, "primary_tag_name")
 
@@ -73181,7 +73181,7 @@ class PowerpackWidgetTimeseriesDefinitionRequestQueryApmResourceStatsQueryArgs:
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_bies: Array of fields to group results by.
         :param pulumi.Input[str] operation_name: Name of operation on service.
-        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         :param pulumi.Input[str] primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
         :param pulumi.Input[str] resource_name: APM resource.
         """
@@ -73303,7 +73303,7 @@ class PowerpackWidgetTimeseriesDefinitionRequestQueryApmResourceStatsQueryArgs:
     @pulumi.getter(name="primaryTagName")
     def primary_tag_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         """
         return pulumi.get(self, "primary_tag_name")
 
@@ -74730,7 +74730,7 @@ class PowerpackWidgetTimeseriesDefinitionRequestStyleArgs:
         """
         :param pulumi.Input[str] line_type: The type of lines displayed. Valid values are `dashed`, `dotted`, `solid`.
         :param pulumi.Input[str] line_width: The width of line displayed. Valid values are `normal`, `thick`, `thin`.
-        :param pulumi.Input[str] palette: A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+        :param pulumi.Input[str] palette: A color palette to apply to the widget. The available options are available at: [https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance](https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance).
         """
         if line_type is not None:
             pulumi.set(__self__, "line_type", line_type)
@@ -74767,7 +74767,7 @@ class PowerpackWidgetTimeseriesDefinitionRequestStyleArgs:
     @pulumi.getter
     def palette(self) -> Optional[pulumi.Input[str]]:
         """
-        A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+        A color palette to apply to the widget. The available options are available at: [https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance](https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance).
         """
         return pulumi.get(self, "palette")
 
@@ -76346,7 +76346,7 @@ class PowerpackWidgetToplistDefinitionRequestFormulaStyleArgs:
                  palette: Optional[pulumi.Input[str]] = None,
                  palette_index: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] palette: The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+        :param pulumi.Input[str] palette: The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
         :param pulumi.Input[int] palette_index: Index specifying which color to use within the palette.
         """
         if palette is not None:
@@ -76358,7 +76358,7 @@ class PowerpackWidgetToplistDefinitionRequestFormulaStyleArgs:
     @pulumi.getter
     def palette(self) -> Optional[pulumi.Input[str]]:
         """
-        The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+        The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
         """
         return pulumi.get(self, "palette")
 
@@ -76894,7 +76894,7 @@ class PowerpackWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryArgs:
         :param pulumi.Input[str] stat: APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[bool] is_upstream: Determines whether stats for upstream or downstream dependencies should be queried.
-        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         :param pulumi.Input[str] primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
         """
         pulumi.set(__self__, "data_source", data_source)
@@ -77025,7 +77025,7 @@ class PowerpackWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryArgs:
     @pulumi.getter(name="primaryTagName")
     def primary_tag_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         """
         return pulumi.get(self, "primary_tag_name")
 
@@ -77069,7 +77069,7 @@ class PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQueryArgs:
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_bies: Array of fields to group results by.
         :param pulumi.Input[str] operation_name: Name of operation on service.
-        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         :param pulumi.Input[str] primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
         :param pulumi.Input[str] resource_name: APM resource.
         """
@@ -77191,7 +77191,7 @@ class PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQueryArgs:
     @pulumi.getter(name="primaryTagName")
     def primary_tag_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         """
         return pulumi.get(self, "primary_tag_name")
 
@@ -78614,7 +78614,7 @@ class PowerpackWidgetToplistDefinitionRequestStyleArgs:
     def __init__(__self__, *,
                  palette: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] palette: A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+        :param pulumi.Input[str] palette: A color palette to apply to the widget. The available options are available at: [https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance](https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance).
         """
         if palette is not None:
             pulumi.set(__self__, "palette", palette)
@@ -78623,7 +78623,7 @@ class PowerpackWidgetToplistDefinitionRequestStyleArgs:
     @pulumi.getter
     def palette(self) -> Optional[pulumi.Input[str]]:
         """
-        A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+        A color palette to apply to the widget. The available options are available at: [https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance](https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance).
         """
         return pulumi.get(self, "palette")
 
@@ -79486,7 +79486,7 @@ class PowerpackWidgetTreemapDefinitionRequestFormulaStyleArgs:
                  palette: Optional[pulumi.Input[str]] = None,
                  palette_index: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] palette: The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+        :param pulumi.Input[str] palette: The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
         :param pulumi.Input[int] palette_index: Index specifying which color to use within the palette.
         """
         if palette is not None:
@@ -79498,7 +79498,7 @@ class PowerpackWidgetTreemapDefinitionRequestFormulaStyleArgs:
     @pulumi.getter
     def palette(self) -> Optional[pulumi.Input[str]]:
         """
-        The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+        The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
         """
         return pulumi.get(self, "palette")
 
@@ -79662,7 +79662,7 @@ class PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryArgs:
         :param pulumi.Input[str] stat: APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[bool] is_upstream: Determines whether stats for upstream or downstream dependencies should be queried.
-        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         :param pulumi.Input[str] primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
         """
         pulumi.set(__self__, "data_source", data_source)
@@ -79793,7 +79793,7 @@ class PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryArgs:
     @pulumi.getter(name="primaryTagName")
     def primary_tag_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         """
         return pulumi.get(self, "primary_tag_name")
 
@@ -79837,7 +79837,7 @@ class PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryArgs:
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_bies: Array of fields to group results by.
         :param pulumi.Input[str] operation_name: Name of operation on service.
-        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        :param pulumi.Input[str] primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         :param pulumi.Input[str] primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
         :param pulumi.Input[str] resource_name: APM resource.
         """
@@ -79959,7 +79959,7 @@ class PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryArgs:
     @pulumi.getter(name="primaryTagName")
     def primary_tag_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
         """
         return pulumi.get(self, "primary_tag_name")
 
@@ -80886,7 +80886,7 @@ class RestrictionPolicyBindingArgs:
                  relation: pulumi.Input[str]):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] principals: An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `org`. The org ID can be obtained through the api/v2/users API.
-        :param pulumi.Input[str] relation: The role/level of access. See this page for more details https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources
+        :param pulumi.Input[str] relation: The role/level of access. See this page for more details [https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources](https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources)
         """
         pulumi.set(__self__, "principals", principals)
         pulumi.set(__self__, "relation", relation)
@@ -80907,7 +80907,7 @@ class RestrictionPolicyBindingArgs:
     @pulumi.getter
     def relation(self) -> pulumi.Input[str]:
         """
-        The role/level of access. See this page for more details https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources
+        The role/level of access. See this page for more details [https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources](https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources)
         """
         return pulumi.get(self, "relation")
 

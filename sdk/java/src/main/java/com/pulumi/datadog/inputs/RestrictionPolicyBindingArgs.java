@@ -31,14 +31,14 @@ public final class RestrictionPolicyBindingArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The role/level of access. See this page for more details https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources
+     * The role/level of access. See this page for more details [https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources](https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources)
      * 
      */
     @Import(name="relation", required=true)
     private Output<String> relation;
 
     /**
-     * @return The role/level of access. See this page for more details https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources
+     * @return The role/level of access. See this page for more details [https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources](https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources)
      * 
      */
     public Output<String> relation() {
@@ -102,7 +102,7 @@ public final class RestrictionPolicyBindingArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param relation The role/level of access. See this page for more details https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources
+         * @param relation The role/level of access. See this page for more details [https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources](https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources)
          * 
          * @return builder
          * 
@@ -113,7 +113,7 @@ public final class RestrictionPolicyBindingArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param relation The role/level of access. See this page for more details https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources
+         * @param relation The role/level of access. See this page for more details [https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources](https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources)
          * 
          * @return builder
          * 

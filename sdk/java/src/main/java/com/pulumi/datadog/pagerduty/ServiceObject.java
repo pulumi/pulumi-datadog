@@ -69,17 +69,9 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="datadog:pagerduty/serviceObject:ServiceObject")
 public class ServiceObject extends com.pulumi.resources.CustomResource {
-    /**
-     * Your Service name associated service key in PagerDuty. This key may also be referred to as an Integration Key or Routing Key in the Pagerduty Integration documentation to have it destroyed and recreated.
-     * 
-     */
     @Export(name="serviceKey", refs={String.class}, tree="[0]")
     private Output<String> serviceKey;
 
-    /**
-     * @return Your Service name associated service key in PagerDuty. This key may also be referred to as an Integration Key or Routing Key in the Pagerduty Integration documentation to have it destroyed and recreated.
-     * 
-     */
     public Output<String> serviceKey() {
         return this.serviceKey;
     }

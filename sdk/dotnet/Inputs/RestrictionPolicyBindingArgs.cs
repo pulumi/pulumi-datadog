@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// The role/level of access. See this page for more details https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources
+        /// The role/level of access. See this page for more details [https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources](https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources)
         /// </summary>
         [Input("relation", required: true)]
         public Input<string> Relation { get; set; } = null!;

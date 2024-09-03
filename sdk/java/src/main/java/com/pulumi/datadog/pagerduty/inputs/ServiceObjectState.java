@@ -15,17 +15,9 @@ public final class ServiceObjectState extends com.pulumi.resources.ResourceArgs 
 
     public static final ServiceObjectState Empty = new ServiceObjectState();
 
-    /**
-     * Your Service name associated service key in PagerDuty. This key may also be referred to as an Integration Key or Routing Key in the Pagerduty Integration documentation to have it destroyed and recreated.
-     * 
-     */
     @Import(name="serviceKey")
     private @Nullable Output<String> serviceKey;
 
-    /**
-     * @return Your Service name associated service key in PagerDuty. This key may also be referred to as an Integration Key or Routing Key in the Pagerduty Integration documentation to have it destroyed and recreated.
-     * 
-     */
     public Optional<Output<String>> serviceKey() {
         return Optional.ofNullable(this.serviceKey);
     }
@@ -70,23 +62,11 @@ public final class ServiceObjectState extends com.pulumi.resources.ResourceArgs 
             $ = new ServiceObjectState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param serviceKey Your Service name associated service key in PagerDuty. This key may also be referred to as an Integration Key or Routing Key in the Pagerduty Integration documentation to have it destroyed and recreated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceKey(@Nullable Output<String> serviceKey) {
             $.serviceKey = serviceKey;
             return this;
         }
 
-        /**
-         * @param serviceKey Your Service name associated service key in PagerDuty. This key may also be referred to as an Integration Key or Routing Key in the Pagerduty Integration documentation to have it destroyed and recreated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceKey(String serviceKey) {
             return serviceKey(Output.of(serviceKey));
         }

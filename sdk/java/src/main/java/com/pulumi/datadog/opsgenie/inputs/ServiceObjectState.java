@@ -45,17 +45,9 @@ public final class ServiceObjectState extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts to have it destroyed and recreated.
-     * 
-     */
     @Import(name="opsgenieApiKey")
     private @Nullable Output<String> opsgenieApiKey;
 
-    /**
-     * @return The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts to have it destroyed and recreated.
-     * 
-     */
     public Optional<Output<String>> opsgenieApiKey() {
         return Optional.ofNullable(this.opsgenieApiKey);
     }
@@ -144,23 +136,11 @@ public final class ServiceObjectState extends com.pulumi.resources.ResourceArgs 
             return name(Output.of(name));
         }
 
-        /**
-         * @param opsgenieApiKey The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts to have it destroyed and recreated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder opsgenieApiKey(@Nullable Output<String> opsgenieApiKey) {
             $.opsgenieApiKey = opsgenieApiKey;
             return this;
         }
 
-        /**
-         * @param opsgenieApiKey The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts to have it destroyed and recreated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder opsgenieApiKey(String opsgenieApiKey) {
             return opsgenieApiKey(Output.of(opsgenieApiKey));
         }
