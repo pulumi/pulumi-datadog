@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
  * 
  * **Note**: If you are using AWS GovCloud or the AWS China* region, update the `lambda_arn` parameter for your environment.
  * 
- *  *\*All use of Datadog Services in (or in connection with environments within) mainland China is subject to the disclaimer published in the &lt;a href=&#34;https://www.datadoghq.com/legal/restricted-service-locations/&#34;&gt;Restricted Service Locations&lt;/a&gt; section on our website.*
+ * *\*All use of Datadog Services in (or in connection with environments within) mainland China is subject to the disclaimer published in the &lt;a href=&#34;https://www.datadoghq.com/legal/restricted-service-locations/&#34;&gt;Restricted Service Locations&lt;/a&gt; section on our website.*
  * 
  * ## Example Usage
  * 

@@ -18,7 +18,7 @@ import (
 //
 // **Note**: If you are using AWS GovCloud or the AWS China* region, update the `lambdaArn` parameter for your environment.
 //
-//	*\*All use of Datadog Services in (or in connection with environments within) mainland China is subject to the disclaimer published in the <a href="https://www.datadoghq.com/legal/restricted-service-locations/">Restricted Service Locations</a> section on our website.*
+// *\*All use of Datadog Services in (or in connection with environments within) mainland China is subject to the disclaimer published in the <a href="https://www.datadoghq.com/legal/restricted-service-locations/">Restricted Service Locations</a> section on our website.*
 //
 // ## Example Usage
 //

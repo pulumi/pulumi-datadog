@@ -46,14 +46,14 @@ public final class DashboardWidgetTimeseriesDefinitionRequestStyleArgs extends c
     }
 
     /**
-     * A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+     * A color palette to apply to the widget. The available options are available at: [https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance](https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance).
      * 
      */
     @Import(name="palette")
     private @Nullable Output<String> palette;
 
     /**
-     * @return A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+     * @return A color palette to apply to the widget. The available options are available at: [https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance](https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance).
      * 
      */
     public Optional<Output<String>> palette() {
@@ -129,7 +129,7 @@ public final class DashboardWidgetTimeseriesDefinitionRequestStyleArgs extends c
         }
 
         /**
-         * @param palette A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+         * @param palette A color palette to apply to the widget. The available options are available at: [https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance](https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance).
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class DashboardWidgetTimeseriesDefinitionRequestStyleArgs extends c
         }
 
         /**
-         * @param palette A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+         * @param palette A color palette to apply to the widget. The available options are available at: [https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance](https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance).
          * 
          * @return builder
          * 

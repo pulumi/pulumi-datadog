@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetToplistDefinitionRequestStyle {
     /**
-     * @return A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+     * @return A color palette to apply to the widget. The available options are available at: [https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance](https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance).
      * 
      */
     private @Nullable String palette;
 
     private DashboardWidgetToplistDefinitionRequestStyle() {}
     /**
-     * @return A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+     * @return A color palette to apply to the widget. The available options are available at: [https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance](https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance).
      * 
      */
     public Optional<String> palette() {

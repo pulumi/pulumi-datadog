@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class PowerpackWidgetQueryValueDefinitionRequestFormulaStyleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+        /// The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
         /// </summary>
         [Input("palette")]
         public Input<string>? Palette { get; set; }

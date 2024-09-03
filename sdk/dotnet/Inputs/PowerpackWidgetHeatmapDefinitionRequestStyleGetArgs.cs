@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class PowerpackWidgetHeatmapDefinitionRequestStyleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+        /// A color palette to apply to the widget. The available options are available at: [https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance](https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance).
         /// </summary>
         [Input("palette")]
         public Input<string>? Palette { get; set; }

@@ -44,7 +44,7 @@ public final class PowerpackWidgetGeomapDefinitionRequestQueryApmResourceStatsQu
      */
     private @Nullable String operationName;
     /**
-     * @return The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * @return The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
      * 
      */
     private @Nullable String primaryTagName;
@@ -113,7 +113,7 @@ public final class PowerpackWidgetGeomapDefinitionRequestQueryApmResourceStatsQu
         return Optional.ofNullable(this.operationName);
     }
     /**
-     * @return The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * @return The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See [https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog](https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog).
      * 
      */
     public Optional<String> primaryTagName() {

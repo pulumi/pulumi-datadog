@@ -17,14 +17,14 @@ public final class PowerpackWidgetToplistDefinitionRequestFormulaStyleArgs exten
     public static final PowerpackWidgetToplistDefinitionRequestFormulaStyleArgs Empty = new PowerpackWidgetToplistDefinitionRequestFormulaStyleArgs();
 
     /**
-     * The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+     * The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
      * 
      */
     @Import(name="palette")
     private @Nullable Output<String> palette;
 
     /**
-     * @return The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+     * @return The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
      * 
      */
     public Optional<Output<String>> palette() {
@@ -72,7 +72,7 @@ public final class PowerpackWidgetToplistDefinitionRequestFormulaStyleArgs exten
         }
 
         /**
-         * @param palette The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+         * @param palette The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class PowerpackWidgetToplistDefinitionRequestFormulaStyleArgs exten
         }
 
         /**
-         * @param palette The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+         * @param palette The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
          * 
          * @return builder
          * 

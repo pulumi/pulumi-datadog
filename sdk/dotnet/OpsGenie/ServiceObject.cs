@@ -54,9 +54,6 @@ namespace Pulumi.Datadog.OpsGenie
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts to have it destroyed and recreated.
-        /// </summary>
         [Output("opsgenieApiKey")]
         public Output<string> OpsgenieApiKey { get; private set; } = null!;
 
@@ -130,10 +127,6 @@ namespace Pulumi.Datadog.OpsGenie
 
         [Input("opsgenieApiKey", required: true)]
         private Input<string>? _opsgenieApiKey;
-
-        /// <summary>
-        /// The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts to have it destroyed and recreated.
-        /// </summary>
         public Input<string>? OpsgenieApiKey
         {
             get => _opsgenieApiKey;
@@ -172,10 +165,6 @@ namespace Pulumi.Datadog.OpsGenie
 
         [Input("opsgenieApiKey")]
         private Input<string>? _opsgenieApiKey;
-
-        /// <summary>
-        /// The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts to have it destroyed and recreated.
-        /// </summary>
         public Input<string>? OpsgenieApiKey
         {
             get => _opsgenieApiKey;

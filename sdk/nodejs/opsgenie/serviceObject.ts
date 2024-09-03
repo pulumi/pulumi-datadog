@@ -61,9 +61,6 @@ export class ServiceObject extends pulumi.CustomResource {
      * The name for the Opsgenie service.
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts to have it destroyed and recreated.
-     */
     public readonly opsgenieApiKey!: pulumi.Output<string>;
     /**
      * The region for the Opsgenie service. Valid values are `us`, `eu`, `custom`.
@@ -122,9 +119,6 @@ export interface ServiceObjectState {
      * The name for the Opsgenie service.
      */
     name?: pulumi.Input<string>;
-    /**
-     * The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts to have it destroyed and recreated.
-     */
     opsgenieApiKey?: pulumi.Input<string>;
     /**
      * The region for the Opsgenie service. Valid values are `us`, `eu`, `custom`.
@@ -144,9 +138,6 @@ export interface ServiceObjectArgs {
      * The name for the Opsgenie service.
      */
     name: pulumi.Input<string>;
-    /**
-     * The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts to have it destroyed and recreated.
-     */
     opsgenieApiKey: pulumi.Input<string>;
     /**
      * The region for the Opsgenie service. Valid values are `us`, `eu`, `custom`.

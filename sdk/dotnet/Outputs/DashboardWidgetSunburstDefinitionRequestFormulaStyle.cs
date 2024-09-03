@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetSunburstDefinitionRequestFormulaStyle
     {
         /// <summary>
-        /// The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+        /// The color palette used to display the formula. A guide to the available color palettes can be found at [https://docs.datadoghq.com/dashboards/guide/widget_colors](https://docs.datadoghq.com/dashboards/guide/widget_colors).
         /// </summary>
         public readonly string? Palette;
         /// <summary>
