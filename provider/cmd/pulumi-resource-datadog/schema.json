@@ -38842,7 +38842,6 @@
                 },
                 "opsgenieApiKey": {
                     "type": "string",
-                    "description": "The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts to have it destroyed and recreated.\n",
                     "secret": true
                 },
                 "region": {
@@ -38866,7 +38865,6 @@
                 },
                 "opsgenieApiKey": {
                     "type": "string",
-                    "description": "The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts to have it destroyed and recreated.\n",
                     "secret": true
                 },
                 "region": {
@@ -38892,7 +38890,6 @@
                     },
                     "opsgenieApiKey": {
                         "type": "string",
-                        "description": "The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts to have it destroyed and recreated.\n",
                         "secret": true
                     },
                     "region": {
@@ -38975,7 +38972,6 @@
             "properties": {
                 "serviceKey": {
                     "type": "string",
-                    "description": "Your Service name associated service key in PagerDuty. This key may also be referred to as an Integration Key or Routing Key in the Pagerduty Integration documentation to have it destroyed and recreated.\n",
                     "secret": true
                 },
                 "serviceName": {
@@ -38990,7 +38986,6 @@
             "inputProperties": {
                 "serviceKey": {
                     "type": "string",
-                    "description": "Your Service name associated service key in PagerDuty. This key may also be referred to as an Integration Key or Routing Key in the Pagerduty Integration documentation to have it destroyed and recreated.\n",
                     "secret": true
                 },
                 "serviceName": {
@@ -39008,7 +39003,6 @@
                 "properties": {
                     "serviceKey": {
                         "type": "string",
-                        "description": "Your Service name associated service key in PagerDuty. This key may also be referred to as an Integration Key or Routing Key in the Pagerduty Integration documentation to have it destroyed and recreated.\n",
                         "secret": true
                     },
                     "serviceName": {
