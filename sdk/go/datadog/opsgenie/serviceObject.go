@@ -55,8 +55,7 @@ type ServiceObject struct {
 	// The custom url for a custom region.
 	CustomUrl pulumi.StringPtrOutput `pulumi:"customUrl"`
 	// The name for the Opsgenie service.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts to have it destroyed and recreated.
+	Name           pulumi.StringOutput `pulumi:"name"`
 	OpsgenieApiKey pulumi.StringOutput `pulumi:"opsgenieApiKey"`
 	// The region for the Opsgenie service. Valid values are `us`, `eu`, `custom`.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -111,8 +110,7 @@ type serviceObjectState struct {
 	// The custom url for a custom region.
 	CustomUrl *string `pulumi:"customUrl"`
 	// The name for the Opsgenie service.
-	Name *string `pulumi:"name"`
-	// The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts to have it destroyed and recreated.
+	Name           *string `pulumi:"name"`
 	OpsgenieApiKey *string `pulumi:"opsgenieApiKey"`
 	// The region for the Opsgenie service. Valid values are `us`, `eu`, `custom`.
 	Region *string `pulumi:"region"`
@@ -122,8 +120,7 @@ type ServiceObjectState struct {
 	// The custom url for a custom region.
 	CustomUrl pulumi.StringPtrInput
 	// The name for the Opsgenie service.
-	Name pulumi.StringPtrInput
-	// The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts to have it destroyed and recreated.
+	Name           pulumi.StringPtrInput
 	OpsgenieApiKey pulumi.StringPtrInput
 	// The region for the Opsgenie service. Valid values are `us`, `eu`, `custom`.
 	Region pulumi.StringPtrInput
@@ -137,8 +134,7 @@ type serviceObjectArgs struct {
 	// The custom url for a custom region.
 	CustomUrl *string `pulumi:"customUrl"`
 	// The name for the Opsgenie service.
-	Name string `pulumi:"name"`
-	// The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts to have it destroyed and recreated.
+	Name           string `pulumi:"name"`
 	OpsgenieApiKey string `pulumi:"opsgenieApiKey"`
 	// The region for the Opsgenie service. Valid values are `us`, `eu`, `custom`.
 	Region string `pulumi:"region"`
@@ -149,8 +145,7 @@ type ServiceObjectArgs struct {
 	// The custom url for a custom region.
 	CustomUrl pulumi.StringPtrInput
 	// The name for the Opsgenie service.
-	Name pulumi.StringInput
-	// The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts to have it destroyed and recreated.
+	Name           pulumi.StringInput
 	OpsgenieApiKey pulumi.StringInput
 	// The region for the Opsgenie service. Valid values are `us`, `eu`, `custom`.
 	Region pulumi.StringInput
@@ -253,7 +248,6 @@ func (o ServiceObjectOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceObject) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts to have it destroyed and recreated.
 func (o ServiceObjectOutput) OpsgenieApiKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceObject) pulumi.StringOutput { return v.OpsgenieApiKey }).(pulumi.StringOutput)
 }
