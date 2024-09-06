@@ -21,7 +21,6 @@ class ServiceObjectArgs:
         """
         The set of arguments for constructing a ServiceObject resource.
         :param pulumi.Input[str] name: The name for the Opsgenie service.
-        :param pulumi.Input[str] opsgenie_api_key: The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts to have it destroyed and recreated.
         :param pulumi.Input[str] region: The region for the Opsgenie service. Valid values are `us`, `eu`, `custom`.
         :param pulumi.Input[str] custom_url: The custom url for a custom region.
         """
@@ -46,9 +45,6 @@ class ServiceObjectArgs:
     @property
     @pulumi.getter(name="opsgenieApiKey")
     def opsgenie_api_key(self) -> pulumi.Input[str]:
-        """
-        The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts to have it destroyed and recreated.
-        """
         return pulumi.get(self, "opsgenie_api_key")
 
     @opsgenie_api_key.setter
@@ -91,7 +87,6 @@ class _ServiceObjectState:
         Input properties used for looking up and filtering ServiceObject resources.
         :param pulumi.Input[str] custom_url: The custom url for a custom region.
         :param pulumi.Input[str] name: The name for the Opsgenie service.
-        :param pulumi.Input[str] opsgenie_api_key: The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts to have it destroyed and recreated.
         :param pulumi.Input[str] region: The region for the Opsgenie service. Valid values are `us`, `eu`, `custom`.
         """
         if custom_url is not None:
@@ -130,9 +125,6 @@ class _ServiceObjectState:
     @property
     @pulumi.getter(name="opsgenieApiKey")
     def opsgenie_api_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts to have it destroyed and recreated.
-        """
         return pulumi.get(self, "opsgenie_api_key")
 
     @opsgenie_api_key.setter
@@ -185,7 +177,6 @@ class ServiceObject(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] custom_url: The custom url for a custom region.
         :param pulumi.Input[str] name: The name for the Opsgenie service.
-        :param pulumi.Input[str] opsgenie_api_key: The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts to have it destroyed and recreated.
         :param pulumi.Input[str] region: The region for the Opsgenie service. Valid values are `us`, `eu`, `custom`.
         """
         ...
@@ -276,7 +267,6 @@ class ServiceObject(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] custom_url: The custom url for a custom region.
         :param pulumi.Input[str] name: The name for the Opsgenie service.
-        :param pulumi.Input[str] opsgenie_api_key: The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts to have it destroyed and recreated.
         :param pulumi.Input[str] region: The region for the Opsgenie service. Valid values are `us`, `eu`, `custom`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -308,9 +298,6 @@ class ServiceObject(pulumi.CustomResource):
     @property
     @pulumi.getter(name="opsgenieApiKey")
     def opsgenie_api_key(self) -> pulumi.Output[str]:
-        """
-        The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts to have it destroyed and recreated.
-        """
         return pulumi.get(self, "opsgenie_api_key")
 
     @property

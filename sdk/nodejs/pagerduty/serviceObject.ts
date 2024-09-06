@@ -59,9 +59,6 @@ export class ServiceObject extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceObject.__pulumiType;
     }
 
-    /**
-     * Your Service name associated service key in PagerDuty. This key may also be referred to as an Integration Key or Routing Key in the Pagerduty Integration documentation to have it destroyed and recreated.
-     */
     public readonly serviceKey!: pulumi.Output<string>;
     /**
      * Your Service name in PagerDuty.
@@ -105,9 +102,6 @@ export class ServiceObject extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ServiceObject resources.
  */
 export interface ServiceObjectState {
-    /**
-     * Your Service name associated service key in PagerDuty. This key may also be referred to as an Integration Key or Routing Key in the Pagerduty Integration documentation to have it destroyed and recreated.
-     */
     serviceKey?: pulumi.Input<string>;
     /**
      * Your Service name in PagerDuty.
@@ -119,9 +113,6 @@ export interface ServiceObjectState {
  * The set of arguments for constructing a ServiceObject resource.
  */
 export interface ServiceObjectArgs {
-    /**
-     * Your Service name associated service key in PagerDuty. This key may also be referred to as an Integration Key or Routing Key in the Pagerduty Integration documentation to have it destroyed and recreated.
-     */
     serviceKey: pulumi.Input<string>;
     /**
      * Your Service name in PagerDuty.
