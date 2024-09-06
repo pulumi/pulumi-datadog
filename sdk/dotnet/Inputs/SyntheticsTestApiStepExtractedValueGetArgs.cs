@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class SyntheticsTestApiStepExtractedValueGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// When type is `http_header`, name of the header to use to extract the value.
+        /// When type is `http_header` or `grpc_metadata`, name of the header or metadatum to extract.
         /// </summary>
         [Input("field")]
         public Input<string>? Field { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<bool>? Secure { get; set; }
 
         /// <summary>
-        /// Property of the Synthetics Test Response to use for the variable. Valid values are `http_body`, `http_header`, `local_variable`.
+        /// Property of the Synthetics Test Response to use for the variable. Valid values are `grpc_message`, `grpc_metadata`, `http_body`, `http_header`, `http_status_code`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

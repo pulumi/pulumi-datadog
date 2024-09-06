@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Use this data source to retrieve information about an existing api key.
+ * Use this data source to retrieve information about an existing api key. Deprecated. This will be removed in a future release with prior notice. Securely store your API keys using a secret management system or use the datadog.ApiKey resource to manage API keys in your Datadog account.
  *
  * ## Example Usage
  *
@@ -69,7 +69,7 @@ export interface GetApiKeyResult {
     readonly name?: string;
 }
 /**
- * Use this data source to retrieve information about an existing api key.
+ * Use this data source to retrieve information about an existing api key. Deprecated. This will be removed in a future release with prior notice. Securely store your API keys using a secret management system or use the datadog.ApiKey resource to manage API keys in your Datadog account.
  *
  * ## Example Usage
  *

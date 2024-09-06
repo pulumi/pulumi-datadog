@@ -36,7 +36,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// DNS server port to use for DNS tests.
         /// </summary>
-        public readonly int? DnsServerPort;
+        public readonly string? DnsServerPort;
         /// <summary>
         /// Host name to perform the test with.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// Port to use when performing the test.
         /// </summary>
-        public readonly int? Port;
+        public readonly string? Port;
         /// <summary>
         /// A protobuf JSON descriptor. **Deprecated.** Use `plain_proto_file` instead.
         /// </summary>
@@ -110,7 +110,7 @@ namespace Pulumi.Datadog.Outputs
 
             string? dnsServer,
 
-            int? dnsServerPort,
+            string? dnsServerPort,
 
             string? host,
 
@@ -128,7 +128,7 @@ namespace Pulumi.Datadog.Outputs
 
             string? plainProtoFile,
 
-            int? port,
+            string? port,
 
             string? protoJsonDescriptor,
 

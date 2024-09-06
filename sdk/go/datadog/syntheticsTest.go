@@ -148,7 +148,7 @@ import (
 //				},
 //				RequestDefinition: &datadog.SyntheticsTestRequestDefinitionArgs{
 //					Host: pulumi.String("example.org"),
-//					Port: pulumi.Int(443),
+//					Port: pulumi.String("443"),
 //				},
 //				Assertions: datadog.SyntheticsTestAssertionArray{
 //					&datadog.SyntheticsTestAssertionArgs{
@@ -183,7 +183,7 @@ import (
 //				},
 //				RequestDefinition: &datadog.SyntheticsTestRequestDefinitionArgs{
 //					Host: pulumi.String("example.org"),
-//					Port: pulumi.Int(443),
+//					Port: pulumi.String("443"),
 //				},
 //				Assertions: datadog.SyntheticsTestAssertionArray{
 //					&datadog.SyntheticsTestAssertionArgs{
@@ -302,7 +302,7 @@ import (
 //						},
 //						RequestDefinition: &datadog.SyntheticsTestApiStepRequestDefinitionArgs{
 //							Host:     pulumi.String("example.org"),
-//							Port:     pulumi.Int(443),
+//							Port:     pulumi.String("443"),
 //							CallType: pulumi.String("healthcheck"),
 //							Service:  pulumi.String("greeter.Greeter"),
 //						},
@@ -319,7 +319,7 @@ import (
 //						},
 //						RequestDefinition: &datadog.SyntheticsTestApiStepRequestDefinitionArgs{
 //							Host:     pulumi.String("example.org"),
-//							Port:     pulumi.Int(443),
+//							Port:     pulumi.String("443"),
 //							CallType: pulumi.String("unary"),
 //							Service:  pulumi.String("greeter.Greeter"),
 //							Method:   pulumi.String("SayHello"),
@@ -455,7 +455,7 @@ import (
 //		},
 //		RequestDefinition: &datadog.SyntheticsTestRequestDefinitionArgs{
 //			Host:     pulumi.String("example.org"),
-//			Port:     pulumi.Int(443),
+//			Port:     pulumi.String("443"),
 //			CallType: pulumi.String("unary"),
 //			Service:  pulumi.String("greeter.Greeter"),
 //			Method:   pulumi.String("SayHello"),
@@ -537,7 +537,7 @@ import (
 //				},
 //				RequestDefinition: &datadog.SyntheticsTestRequestDefinitionArgs{
 //					Host:     pulumi.String("example.org"),
-//					Port:     pulumi.Int(443),
+//					Port:     pulumi.String("443"),
 //					CallType: pulumi.String("healthcheck"),
 //					Service:  pulumi.String("greeter.Greeter"),
 //				},

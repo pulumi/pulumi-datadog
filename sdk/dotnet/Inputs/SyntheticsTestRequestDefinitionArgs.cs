@@ -52,7 +52,7 @@ namespace Pulumi.Datadog.Inputs
         /// DNS server port to use for DNS tests.
         /// </summary>
         [Input("dnsServerPort")]
-        public Input<int>? DnsServerPort { get; set; }
+        public Input<string>? DnsServerPort { get; set; }
 
         /// <summary>
         /// Host name to perform the test with.
@@ -106,7 +106,7 @@ namespace Pulumi.Datadog.Inputs
         /// Port to use when performing the test.
         /// </summary>
         [Input("port")]
-        public Input<int>? Port { get; set; }
+        public Input<string>? Port { get; set; }
 
         /// <summary>
         /// A protobuf JSON descriptor. **Deprecated.** Use `plain_proto_file` instead.

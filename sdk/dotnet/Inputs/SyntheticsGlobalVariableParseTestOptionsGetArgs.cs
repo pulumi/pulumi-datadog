@@ -28,7 +28,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.SyntheticsGlobalVariableParseTestOptionsParserGetArgs>? Parser { get; set; }
 
         /// <summary>
-        /// Defines the source to use to extract the value. Valid values are `http_body`, `http_header`, `local_variable`.
+        /// Defines the source to use to extract the value. Valid values are `http_body`, `http_header`, `http_status_code`, `local_variable`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

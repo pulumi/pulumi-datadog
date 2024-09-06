@@ -13,6 +13,893 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type SecurityMonitoringRuleThirdPartyCase struct {
+	// Name of the case.
+	Name *string `pulumi:"name"`
+	// Notification targets for each rule case.
+	Notifications []string `pulumi:"notifications"`
+	// A query to associate a third-party event to this case.
+	Query *string `pulumi:"query"`
+	// Severity of the Security Signal. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+	Status string `pulumi:"status"`
+}
+
+// SecurityMonitoringRuleThirdPartyCaseInput is an input type that accepts SecurityMonitoringRuleThirdPartyCaseArgs and SecurityMonitoringRuleThirdPartyCaseOutput values.
+// You can construct a concrete instance of `SecurityMonitoringRuleThirdPartyCaseInput` via:
+//
+//	SecurityMonitoringRuleThirdPartyCaseArgs{...}
+type SecurityMonitoringRuleThirdPartyCaseInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringRuleThirdPartyCaseOutput() SecurityMonitoringRuleThirdPartyCaseOutput
+	ToSecurityMonitoringRuleThirdPartyCaseOutputWithContext(context.Context) SecurityMonitoringRuleThirdPartyCaseOutput
+}
+
+type SecurityMonitoringRuleThirdPartyCaseArgs struct {
+	// Name of the case.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Notification targets for each rule case.
+	Notifications pulumi.StringArrayInput `pulumi:"notifications"`
+	// A query to associate a third-party event to this case.
+	Query pulumi.StringPtrInput `pulumi:"query"`
+	// Severity of the Security Signal. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (SecurityMonitoringRuleThirdPartyCaseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringRuleThirdPartyCase)(nil)).Elem()
+}
+
+func (i SecurityMonitoringRuleThirdPartyCaseArgs) ToSecurityMonitoringRuleThirdPartyCaseOutput() SecurityMonitoringRuleThirdPartyCaseOutput {
+	return i.ToSecurityMonitoringRuleThirdPartyCaseOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringRuleThirdPartyCaseArgs) ToSecurityMonitoringRuleThirdPartyCaseOutputWithContext(ctx context.Context) SecurityMonitoringRuleThirdPartyCaseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringRuleThirdPartyCaseOutput)
+}
+
+// SecurityMonitoringRuleThirdPartyCaseArrayInput is an input type that accepts SecurityMonitoringRuleThirdPartyCaseArray and SecurityMonitoringRuleThirdPartyCaseArrayOutput values.
+// You can construct a concrete instance of `SecurityMonitoringRuleThirdPartyCaseArrayInput` via:
+//
+//	SecurityMonitoringRuleThirdPartyCaseArray{ SecurityMonitoringRuleThirdPartyCaseArgs{...} }
+type SecurityMonitoringRuleThirdPartyCaseArrayInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringRuleThirdPartyCaseArrayOutput() SecurityMonitoringRuleThirdPartyCaseArrayOutput
+	ToSecurityMonitoringRuleThirdPartyCaseArrayOutputWithContext(context.Context) SecurityMonitoringRuleThirdPartyCaseArrayOutput
+}
+
+type SecurityMonitoringRuleThirdPartyCaseArray []SecurityMonitoringRuleThirdPartyCaseInput
+
+func (SecurityMonitoringRuleThirdPartyCaseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityMonitoringRuleThirdPartyCase)(nil)).Elem()
+}
+
+func (i SecurityMonitoringRuleThirdPartyCaseArray) ToSecurityMonitoringRuleThirdPartyCaseArrayOutput() SecurityMonitoringRuleThirdPartyCaseArrayOutput {
+	return i.ToSecurityMonitoringRuleThirdPartyCaseArrayOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringRuleThirdPartyCaseArray) ToSecurityMonitoringRuleThirdPartyCaseArrayOutputWithContext(ctx context.Context) SecurityMonitoringRuleThirdPartyCaseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringRuleThirdPartyCaseArrayOutput)
+}
+
+type SecurityMonitoringRuleThirdPartyCaseOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringRuleThirdPartyCaseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringRuleThirdPartyCase)(nil)).Elem()
+}
+
+func (o SecurityMonitoringRuleThirdPartyCaseOutput) ToSecurityMonitoringRuleThirdPartyCaseOutput() SecurityMonitoringRuleThirdPartyCaseOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleThirdPartyCaseOutput) ToSecurityMonitoringRuleThirdPartyCaseOutputWithContext(ctx context.Context) SecurityMonitoringRuleThirdPartyCaseOutput {
+	return o
+}
+
+// Name of the case.
+func (o SecurityMonitoringRuleThirdPartyCaseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleThirdPartyCase) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Notification targets for each rule case.
+func (o SecurityMonitoringRuleThirdPartyCaseOutput) Notifications() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleThirdPartyCase) []string { return v.Notifications }).(pulumi.StringArrayOutput)
+}
+
+// A query to associate a third-party event to this case.
+func (o SecurityMonitoringRuleThirdPartyCaseOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleThirdPartyCase) *string { return v.Query }).(pulumi.StringPtrOutput)
+}
+
+// Severity of the Security Signal. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+func (o SecurityMonitoringRuleThirdPartyCaseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleThirdPartyCase) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type SecurityMonitoringRuleThirdPartyCaseArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringRuleThirdPartyCaseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityMonitoringRuleThirdPartyCase)(nil)).Elem()
+}
+
+func (o SecurityMonitoringRuleThirdPartyCaseArrayOutput) ToSecurityMonitoringRuleThirdPartyCaseArrayOutput() SecurityMonitoringRuleThirdPartyCaseArrayOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleThirdPartyCaseArrayOutput) ToSecurityMonitoringRuleThirdPartyCaseArrayOutputWithContext(ctx context.Context) SecurityMonitoringRuleThirdPartyCaseArrayOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleThirdPartyCaseArrayOutput) Index(i pulumi.IntInput) SecurityMonitoringRuleThirdPartyCaseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityMonitoringRuleThirdPartyCase {
+		return vs[0].([]SecurityMonitoringRuleThirdPartyCase)[vs[1].(int)]
+	}).(SecurityMonitoringRuleThirdPartyCaseOutput)
+}
+
+type SensitiveDataScannerGroupFilter struct {
+	// Query to filter the events.
+	Query string `pulumi:"query"`
+}
+
+// SensitiveDataScannerGroupFilterInput is an input type that accepts SensitiveDataScannerGroupFilterArgs and SensitiveDataScannerGroupFilterOutput values.
+// You can construct a concrete instance of `SensitiveDataScannerGroupFilterInput` via:
+//
+//	SensitiveDataScannerGroupFilterArgs{...}
+type SensitiveDataScannerGroupFilterInput interface {
+	pulumi.Input
+
+	ToSensitiveDataScannerGroupFilterOutput() SensitiveDataScannerGroupFilterOutput
+	ToSensitiveDataScannerGroupFilterOutputWithContext(context.Context) SensitiveDataScannerGroupFilterOutput
+}
+
+type SensitiveDataScannerGroupFilterArgs struct {
+	// Query to filter the events.
+	Query pulumi.StringInput `pulumi:"query"`
+}
+
+func (SensitiveDataScannerGroupFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SensitiveDataScannerGroupFilter)(nil)).Elem()
+}
+
+func (i SensitiveDataScannerGroupFilterArgs) ToSensitiveDataScannerGroupFilterOutput() SensitiveDataScannerGroupFilterOutput {
+	return i.ToSensitiveDataScannerGroupFilterOutputWithContext(context.Background())
+}
+
+func (i SensitiveDataScannerGroupFilterArgs) ToSensitiveDataScannerGroupFilterOutputWithContext(ctx context.Context) SensitiveDataScannerGroupFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SensitiveDataScannerGroupFilterOutput)
+}
+
+func (i SensitiveDataScannerGroupFilterArgs) ToSensitiveDataScannerGroupFilterPtrOutput() SensitiveDataScannerGroupFilterPtrOutput {
+	return i.ToSensitiveDataScannerGroupFilterPtrOutputWithContext(context.Background())
+}
+
+func (i SensitiveDataScannerGroupFilterArgs) ToSensitiveDataScannerGroupFilterPtrOutputWithContext(ctx context.Context) SensitiveDataScannerGroupFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SensitiveDataScannerGroupFilterOutput).ToSensitiveDataScannerGroupFilterPtrOutputWithContext(ctx)
+}
+
+// SensitiveDataScannerGroupFilterPtrInput is an input type that accepts SensitiveDataScannerGroupFilterArgs, SensitiveDataScannerGroupFilterPtr and SensitiveDataScannerGroupFilterPtrOutput values.
+// You can construct a concrete instance of `SensitiveDataScannerGroupFilterPtrInput` via:
+//
+//	        SensitiveDataScannerGroupFilterArgs{...}
+//
+//	or:
+//
+//	        nil
+type SensitiveDataScannerGroupFilterPtrInput interface {
+	pulumi.Input
+
+	ToSensitiveDataScannerGroupFilterPtrOutput() SensitiveDataScannerGroupFilterPtrOutput
+	ToSensitiveDataScannerGroupFilterPtrOutputWithContext(context.Context) SensitiveDataScannerGroupFilterPtrOutput
+}
+
+type sensitiveDataScannerGroupFilterPtrType SensitiveDataScannerGroupFilterArgs
+
+func SensitiveDataScannerGroupFilterPtr(v *SensitiveDataScannerGroupFilterArgs) SensitiveDataScannerGroupFilterPtrInput {
+	return (*sensitiveDataScannerGroupFilterPtrType)(v)
+}
+
+func (*sensitiveDataScannerGroupFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SensitiveDataScannerGroupFilter)(nil)).Elem()
+}
+
+func (i *sensitiveDataScannerGroupFilterPtrType) ToSensitiveDataScannerGroupFilterPtrOutput() SensitiveDataScannerGroupFilterPtrOutput {
+	return i.ToSensitiveDataScannerGroupFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *sensitiveDataScannerGroupFilterPtrType) ToSensitiveDataScannerGroupFilterPtrOutputWithContext(ctx context.Context) SensitiveDataScannerGroupFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SensitiveDataScannerGroupFilterPtrOutput)
+}
+
+type SensitiveDataScannerGroupFilterOutput struct{ *pulumi.OutputState }
+
+func (SensitiveDataScannerGroupFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SensitiveDataScannerGroupFilter)(nil)).Elem()
+}
+
+func (o SensitiveDataScannerGroupFilterOutput) ToSensitiveDataScannerGroupFilterOutput() SensitiveDataScannerGroupFilterOutput {
+	return o
+}
+
+func (o SensitiveDataScannerGroupFilterOutput) ToSensitiveDataScannerGroupFilterOutputWithContext(ctx context.Context) SensitiveDataScannerGroupFilterOutput {
+	return o
+}
+
+func (o SensitiveDataScannerGroupFilterOutput) ToSensitiveDataScannerGroupFilterPtrOutput() SensitiveDataScannerGroupFilterPtrOutput {
+	return o.ToSensitiveDataScannerGroupFilterPtrOutputWithContext(context.Background())
+}
+
+func (o SensitiveDataScannerGroupFilterOutput) ToSensitiveDataScannerGroupFilterPtrOutputWithContext(ctx context.Context) SensitiveDataScannerGroupFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SensitiveDataScannerGroupFilter) *SensitiveDataScannerGroupFilter {
+		return &v
+	}).(SensitiveDataScannerGroupFilterPtrOutput)
+}
+
+// Query to filter the events.
+func (o SensitiveDataScannerGroupFilterOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v SensitiveDataScannerGroupFilter) string { return v.Query }).(pulumi.StringOutput)
+}
+
+type SensitiveDataScannerGroupFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (SensitiveDataScannerGroupFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SensitiveDataScannerGroupFilter)(nil)).Elem()
+}
+
+func (o SensitiveDataScannerGroupFilterPtrOutput) ToSensitiveDataScannerGroupFilterPtrOutput() SensitiveDataScannerGroupFilterPtrOutput {
+	return o
+}
+
+func (o SensitiveDataScannerGroupFilterPtrOutput) ToSensitiveDataScannerGroupFilterPtrOutputWithContext(ctx context.Context) SensitiveDataScannerGroupFilterPtrOutput {
+	return o
+}
+
+func (o SensitiveDataScannerGroupFilterPtrOutput) Elem() SensitiveDataScannerGroupFilterOutput {
+	return o.ApplyT(func(v *SensitiveDataScannerGroupFilter) SensitiveDataScannerGroupFilter {
+		if v != nil {
+			return *v
+		}
+		var ret SensitiveDataScannerGroupFilter
+		return ret
+	}).(SensitiveDataScannerGroupFilterOutput)
+}
+
+// Query to filter the events.
+func (o SensitiveDataScannerGroupFilterPtrOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SensitiveDataScannerGroupFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Query
+	}).(pulumi.StringPtrOutput)
+}
+
+type SensitiveDataScannerRuleIncludedKeywordConfiguration struct {
+	// Number of characters before the match to find a keyword validating the match. It must be between 1 and 50 (inclusive).
+	CharacterCount int `pulumi:"characterCount"`
+	// Keyword list that is checked during scanning in order to validate a match. The number of keywords in the list must be lower than or equal to 30.
+	Keywords []string `pulumi:"keywords"`
+}
+
+// SensitiveDataScannerRuleIncludedKeywordConfigurationInput is an input type that accepts SensitiveDataScannerRuleIncludedKeywordConfigurationArgs and SensitiveDataScannerRuleIncludedKeywordConfigurationOutput values.
+// You can construct a concrete instance of `SensitiveDataScannerRuleIncludedKeywordConfigurationInput` via:
+//
+//	SensitiveDataScannerRuleIncludedKeywordConfigurationArgs{...}
+type SensitiveDataScannerRuleIncludedKeywordConfigurationInput interface {
+	pulumi.Input
+
+	ToSensitiveDataScannerRuleIncludedKeywordConfigurationOutput() SensitiveDataScannerRuleIncludedKeywordConfigurationOutput
+	ToSensitiveDataScannerRuleIncludedKeywordConfigurationOutputWithContext(context.Context) SensitiveDataScannerRuleIncludedKeywordConfigurationOutput
+}
+
+type SensitiveDataScannerRuleIncludedKeywordConfigurationArgs struct {
+	// Number of characters before the match to find a keyword validating the match. It must be between 1 and 50 (inclusive).
+	CharacterCount pulumi.IntInput `pulumi:"characterCount"`
+	// Keyword list that is checked during scanning in order to validate a match. The number of keywords in the list must be lower than or equal to 30.
+	Keywords pulumi.StringArrayInput `pulumi:"keywords"`
+}
+
+func (SensitiveDataScannerRuleIncludedKeywordConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SensitiveDataScannerRuleIncludedKeywordConfiguration)(nil)).Elem()
+}
+
+func (i SensitiveDataScannerRuleIncludedKeywordConfigurationArgs) ToSensitiveDataScannerRuleIncludedKeywordConfigurationOutput() SensitiveDataScannerRuleIncludedKeywordConfigurationOutput {
+	return i.ToSensitiveDataScannerRuleIncludedKeywordConfigurationOutputWithContext(context.Background())
+}
+
+func (i SensitiveDataScannerRuleIncludedKeywordConfigurationArgs) ToSensitiveDataScannerRuleIncludedKeywordConfigurationOutputWithContext(ctx context.Context) SensitiveDataScannerRuleIncludedKeywordConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SensitiveDataScannerRuleIncludedKeywordConfigurationOutput)
+}
+
+func (i SensitiveDataScannerRuleIncludedKeywordConfigurationArgs) ToSensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput() SensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput {
+	return i.ToSensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i SensitiveDataScannerRuleIncludedKeywordConfigurationArgs) ToSensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutputWithContext(ctx context.Context) SensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SensitiveDataScannerRuleIncludedKeywordConfigurationOutput).ToSensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutputWithContext(ctx)
+}
+
+// SensitiveDataScannerRuleIncludedKeywordConfigurationPtrInput is an input type that accepts SensitiveDataScannerRuleIncludedKeywordConfigurationArgs, SensitiveDataScannerRuleIncludedKeywordConfigurationPtr and SensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput values.
+// You can construct a concrete instance of `SensitiveDataScannerRuleIncludedKeywordConfigurationPtrInput` via:
+//
+//	        SensitiveDataScannerRuleIncludedKeywordConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type SensitiveDataScannerRuleIncludedKeywordConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToSensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput() SensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput
+	ToSensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutputWithContext(context.Context) SensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput
+}
+
+type sensitiveDataScannerRuleIncludedKeywordConfigurationPtrType SensitiveDataScannerRuleIncludedKeywordConfigurationArgs
+
+func SensitiveDataScannerRuleIncludedKeywordConfigurationPtr(v *SensitiveDataScannerRuleIncludedKeywordConfigurationArgs) SensitiveDataScannerRuleIncludedKeywordConfigurationPtrInput {
+	return (*sensitiveDataScannerRuleIncludedKeywordConfigurationPtrType)(v)
+}
+
+func (*sensitiveDataScannerRuleIncludedKeywordConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SensitiveDataScannerRuleIncludedKeywordConfiguration)(nil)).Elem()
+}
+
+func (i *sensitiveDataScannerRuleIncludedKeywordConfigurationPtrType) ToSensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput() SensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput {
+	return i.ToSensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *sensitiveDataScannerRuleIncludedKeywordConfigurationPtrType) ToSensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutputWithContext(ctx context.Context) SensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput)
+}
+
+type SensitiveDataScannerRuleIncludedKeywordConfigurationOutput struct{ *pulumi.OutputState }
+
+func (SensitiveDataScannerRuleIncludedKeywordConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SensitiveDataScannerRuleIncludedKeywordConfiguration)(nil)).Elem()
+}
+
+func (o SensitiveDataScannerRuleIncludedKeywordConfigurationOutput) ToSensitiveDataScannerRuleIncludedKeywordConfigurationOutput() SensitiveDataScannerRuleIncludedKeywordConfigurationOutput {
+	return o
+}
+
+func (o SensitiveDataScannerRuleIncludedKeywordConfigurationOutput) ToSensitiveDataScannerRuleIncludedKeywordConfigurationOutputWithContext(ctx context.Context) SensitiveDataScannerRuleIncludedKeywordConfigurationOutput {
+	return o
+}
+
+func (o SensitiveDataScannerRuleIncludedKeywordConfigurationOutput) ToSensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput() SensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput {
+	return o.ToSensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o SensitiveDataScannerRuleIncludedKeywordConfigurationOutput) ToSensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutputWithContext(ctx context.Context) SensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SensitiveDataScannerRuleIncludedKeywordConfiguration) *SensitiveDataScannerRuleIncludedKeywordConfiguration {
+		return &v
+	}).(SensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput)
+}
+
+// Number of characters before the match to find a keyword validating the match. It must be between 1 and 50 (inclusive).
+func (o SensitiveDataScannerRuleIncludedKeywordConfigurationOutput) CharacterCount() pulumi.IntOutput {
+	return o.ApplyT(func(v SensitiveDataScannerRuleIncludedKeywordConfiguration) int { return v.CharacterCount }).(pulumi.IntOutput)
+}
+
+// Keyword list that is checked during scanning in order to validate a match. The number of keywords in the list must be lower than or equal to 30.
+func (o SensitiveDataScannerRuleIncludedKeywordConfigurationOutput) Keywords() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SensitiveDataScannerRuleIncludedKeywordConfiguration) []string { return v.Keywords }).(pulumi.StringArrayOutput)
+}
+
+type SensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (SensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SensitiveDataScannerRuleIncludedKeywordConfiguration)(nil)).Elem()
+}
+
+func (o SensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput) ToSensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput() SensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput {
+	return o
+}
+
+func (o SensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput) ToSensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutputWithContext(ctx context.Context) SensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput {
+	return o
+}
+
+func (o SensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput) Elem() SensitiveDataScannerRuleIncludedKeywordConfigurationOutput {
+	return o.ApplyT(func(v *SensitiveDataScannerRuleIncludedKeywordConfiguration) SensitiveDataScannerRuleIncludedKeywordConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret SensitiveDataScannerRuleIncludedKeywordConfiguration
+		return ret
+	}).(SensitiveDataScannerRuleIncludedKeywordConfigurationOutput)
+}
+
+// Number of characters before the match to find a keyword validating the match. It must be between 1 and 50 (inclusive).
+func (o SensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput) CharacterCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SensitiveDataScannerRuleIncludedKeywordConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.CharacterCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Keyword list that is checked during scanning in order to validate a match. The number of keywords in the list must be lower than or equal to 30.
+func (o SensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput) Keywords() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SensitiveDataScannerRuleIncludedKeywordConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Keywords
+	}).(pulumi.StringArrayOutput)
+}
+
+type SensitiveDataScannerRuleTextReplacement struct {
+	// Required if type == 'partial*replacement*from*beginning' or 'partial*replacement*from*end'. It must be > 0.
+	NumberOfChars *int `pulumi:"numberOfChars"`
+	// Required if type == 'replacement_string'.
+	ReplacementString *string `pulumi:"replacementString"`
+	// Type of the replacement text. None means no replacement. hash means the data will be stubbed. replacement*string means that one can chose a text to replace the data. partial*replacement*from*beginning allows a user to partially replace the data from the beginning, and partial*replacement*from_end on the other hand, allows to replace data from the end. Valid values are `none`, `hash`, `replacementString`, `partialReplacementFromBeginning`, `partialReplacementFromEnd`.
+	Type string `pulumi:"type"`
+}
+
+// SensitiveDataScannerRuleTextReplacementInput is an input type that accepts SensitiveDataScannerRuleTextReplacementArgs and SensitiveDataScannerRuleTextReplacementOutput values.
+// You can construct a concrete instance of `SensitiveDataScannerRuleTextReplacementInput` via:
+//
+//	SensitiveDataScannerRuleTextReplacementArgs{...}
+type SensitiveDataScannerRuleTextReplacementInput interface {
+	pulumi.Input
+
+	ToSensitiveDataScannerRuleTextReplacementOutput() SensitiveDataScannerRuleTextReplacementOutput
+	ToSensitiveDataScannerRuleTextReplacementOutputWithContext(context.Context) SensitiveDataScannerRuleTextReplacementOutput
+}
+
+type SensitiveDataScannerRuleTextReplacementArgs struct {
+	// Required if type == 'partial*replacement*from*beginning' or 'partial*replacement*from*end'. It must be > 0.
+	NumberOfChars pulumi.IntPtrInput `pulumi:"numberOfChars"`
+	// Required if type == 'replacement_string'.
+	ReplacementString pulumi.StringPtrInput `pulumi:"replacementString"`
+	// Type of the replacement text. None means no replacement. hash means the data will be stubbed. replacement*string means that one can chose a text to replace the data. partial*replacement*from*beginning allows a user to partially replace the data from the beginning, and partial*replacement*from_end on the other hand, allows to replace data from the end. Valid values are `none`, `hash`, `replacementString`, `partialReplacementFromBeginning`, `partialReplacementFromEnd`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (SensitiveDataScannerRuleTextReplacementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SensitiveDataScannerRuleTextReplacement)(nil)).Elem()
+}
+
+func (i SensitiveDataScannerRuleTextReplacementArgs) ToSensitiveDataScannerRuleTextReplacementOutput() SensitiveDataScannerRuleTextReplacementOutput {
+	return i.ToSensitiveDataScannerRuleTextReplacementOutputWithContext(context.Background())
+}
+
+func (i SensitiveDataScannerRuleTextReplacementArgs) ToSensitiveDataScannerRuleTextReplacementOutputWithContext(ctx context.Context) SensitiveDataScannerRuleTextReplacementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SensitiveDataScannerRuleTextReplacementOutput)
+}
+
+func (i SensitiveDataScannerRuleTextReplacementArgs) ToSensitiveDataScannerRuleTextReplacementPtrOutput() SensitiveDataScannerRuleTextReplacementPtrOutput {
+	return i.ToSensitiveDataScannerRuleTextReplacementPtrOutputWithContext(context.Background())
+}
+
+func (i SensitiveDataScannerRuleTextReplacementArgs) ToSensitiveDataScannerRuleTextReplacementPtrOutputWithContext(ctx context.Context) SensitiveDataScannerRuleTextReplacementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SensitiveDataScannerRuleTextReplacementOutput).ToSensitiveDataScannerRuleTextReplacementPtrOutputWithContext(ctx)
+}
+
+// SensitiveDataScannerRuleTextReplacementPtrInput is an input type that accepts SensitiveDataScannerRuleTextReplacementArgs, SensitiveDataScannerRuleTextReplacementPtr and SensitiveDataScannerRuleTextReplacementPtrOutput values.
+// You can construct a concrete instance of `SensitiveDataScannerRuleTextReplacementPtrInput` via:
+//
+//	        SensitiveDataScannerRuleTextReplacementArgs{...}
+//
+//	or:
+//
+//	        nil
+type SensitiveDataScannerRuleTextReplacementPtrInput interface {
+	pulumi.Input
+
+	ToSensitiveDataScannerRuleTextReplacementPtrOutput() SensitiveDataScannerRuleTextReplacementPtrOutput
+	ToSensitiveDataScannerRuleTextReplacementPtrOutputWithContext(context.Context) SensitiveDataScannerRuleTextReplacementPtrOutput
+}
+
+type sensitiveDataScannerRuleTextReplacementPtrType SensitiveDataScannerRuleTextReplacementArgs
+
+func SensitiveDataScannerRuleTextReplacementPtr(v *SensitiveDataScannerRuleTextReplacementArgs) SensitiveDataScannerRuleTextReplacementPtrInput {
+	return (*sensitiveDataScannerRuleTextReplacementPtrType)(v)
+}
+
+func (*sensitiveDataScannerRuleTextReplacementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SensitiveDataScannerRuleTextReplacement)(nil)).Elem()
+}
+
+func (i *sensitiveDataScannerRuleTextReplacementPtrType) ToSensitiveDataScannerRuleTextReplacementPtrOutput() SensitiveDataScannerRuleTextReplacementPtrOutput {
+	return i.ToSensitiveDataScannerRuleTextReplacementPtrOutputWithContext(context.Background())
+}
+
+func (i *sensitiveDataScannerRuleTextReplacementPtrType) ToSensitiveDataScannerRuleTextReplacementPtrOutputWithContext(ctx context.Context) SensitiveDataScannerRuleTextReplacementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SensitiveDataScannerRuleTextReplacementPtrOutput)
+}
+
+type SensitiveDataScannerRuleTextReplacementOutput struct{ *pulumi.OutputState }
+
+func (SensitiveDataScannerRuleTextReplacementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SensitiveDataScannerRuleTextReplacement)(nil)).Elem()
+}
+
+func (o SensitiveDataScannerRuleTextReplacementOutput) ToSensitiveDataScannerRuleTextReplacementOutput() SensitiveDataScannerRuleTextReplacementOutput {
+	return o
+}
+
+func (o SensitiveDataScannerRuleTextReplacementOutput) ToSensitiveDataScannerRuleTextReplacementOutputWithContext(ctx context.Context) SensitiveDataScannerRuleTextReplacementOutput {
+	return o
+}
+
+func (o SensitiveDataScannerRuleTextReplacementOutput) ToSensitiveDataScannerRuleTextReplacementPtrOutput() SensitiveDataScannerRuleTextReplacementPtrOutput {
+	return o.ToSensitiveDataScannerRuleTextReplacementPtrOutputWithContext(context.Background())
+}
+
+func (o SensitiveDataScannerRuleTextReplacementOutput) ToSensitiveDataScannerRuleTextReplacementPtrOutputWithContext(ctx context.Context) SensitiveDataScannerRuleTextReplacementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SensitiveDataScannerRuleTextReplacement) *SensitiveDataScannerRuleTextReplacement {
+		return &v
+	}).(SensitiveDataScannerRuleTextReplacementPtrOutput)
+}
+
+// Required if type == 'partial*replacement*from*beginning' or 'partial*replacement*from*end'. It must be > 0.
+func (o SensitiveDataScannerRuleTextReplacementOutput) NumberOfChars() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SensitiveDataScannerRuleTextReplacement) *int { return v.NumberOfChars }).(pulumi.IntPtrOutput)
+}
+
+// Required if type == 'replacement_string'.
+func (o SensitiveDataScannerRuleTextReplacementOutput) ReplacementString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SensitiveDataScannerRuleTextReplacement) *string { return v.ReplacementString }).(pulumi.StringPtrOutput)
+}
+
+// Type of the replacement text. None means no replacement. hash means the data will be stubbed. replacement*string means that one can chose a text to replace the data. partial*replacement*from*beginning allows a user to partially replace the data from the beginning, and partial*replacement*from_end on the other hand, allows to replace data from the end. Valid values are `none`, `hash`, `replacementString`, `partialReplacementFromBeginning`, `partialReplacementFromEnd`.
+func (o SensitiveDataScannerRuleTextReplacementOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SensitiveDataScannerRuleTextReplacement) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type SensitiveDataScannerRuleTextReplacementPtrOutput struct{ *pulumi.OutputState }
+
+func (SensitiveDataScannerRuleTextReplacementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SensitiveDataScannerRuleTextReplacement)(nil)).Elem()
+}
+
+func (o SensitiveDataScannerRuleTextReplacementPtrOutput) ToSensitiveDataScannerRuleTextReplacementPtrOutput() SensitiveDataScannerRuleTextReplacementPtrOutput {
+	return o
+}
+
+func (o SensitiveDataScannerRuleTextReplacementPtrOutput) ToSensitiveDataScannerRuleTextReplacementPtrOutputWithContext(ctx context.Context) SensitiveDataScannerRuleTextReplacementPtrOutput {
+	return o
+}
+
+func (o SensitiveDataScannerRuleTextReplacementPtrOutput) Elem() SensitiveDataScannerRuleTextReplacementOutput {
+	return o.ApplyT(func(v *SensitiveDataScannerRuleTextReplacement) SensitiveDataScannerRuleTextReplacement {
+		if v != nil {
+			return *v
+		}
+		var ret SensitiveDataScannerRuleTextReplacement
+		return ret
+	}).(SensitiveDataScannerRuleTextReplacementOutput)
+}
+
+// Required if type == 'partial*replacement*from*beginning' or 'partial*replacement*from*end'. It must be > 0.
+func (o SensitiveDataScannerRuleTextReplacementPtrOutput) NumberOfChars() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SensitiveDataScannerRuleTextReplacement) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NumberOfChars
+	}).(pulumi.IntPtrOutput)
+}
+
+// Required if type == 'replacement_string'.
+func (o SensitiveDataScannerRuleTextReplacementPtrOutput) ReplacementString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SensitiveDataScannerRuleTextReplacement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReplacementString
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of the replacement text. None means no replacement. hash means the data will be stubbed. replacement*string means that one can chose a text to replace the data. partial*replacement*from*beginning allows a user to partially replace the data from the beginning, and partial*replacement*from_end on the other hand, allows to replace data from the end. Valid values are `none`, `hash`, `replacementString`, `partialReplacementFromBeginning`, `partialReplacementFromEnd`.
+func (o SensitiveDataScannerRuleTextReplacementPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SensitiveDataScannerRuleTextReplacement) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceLevelObjectiveQuery struct {
+	// The sum of the `total` events.
+	Denominator string `pulumi:"denominator"`
+	// The sum of all the `good` events.
+	Numerator string `pulumi:"numerator"`
+}
+
+// ServiceLevelObjectiveQueryInput is an input type that accepts ServiceLevelObjectiveQueryArgs and ServiceLevelObjectiveQueryOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveQueryInput` via:
+//
+//	ServiceLevelObjectiveQueryArgs{...}
+type ServiceLevelObjectiveQueryInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveQueryOutput() ServiceLevelObjectiveQueryOutput
+	ToServiceLevelObjectiveQueryOutputWithContext(context.Context) ServiceLevelObjectiveQueryOutput
+}
+
+type ServiceLevelObjectiveQueryArgs struct {
+	// The sum of the `total` events.
+	Denominator pulumi.StringInput `pulumi:"denominator"`
+	// The sum of all the `good` events.
+	Numerator pulumi.StringInput `pulumi:"numerator"`
+}
+
+func (ServiceLevelObjectiveQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveQuery)(nil)).Elem()
+}
+
+func (i ServiceLevelObjectiveQueryArgs) ToServiceLevelObjectiveQueryOutput() ServiceLevelObjectiveQueryOutput {
+	return i.ToServiceLevelObjectiveQueryOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveQueryArgs) ToServiceLevelObjectiveQueryOutputWithContext(ctx context.Context) ServiceLevelObjectiveQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveQueryOutput)
+}
+
+func (i ServiceLevelObjectiveQueryArgs) ToServiceLevelObjectiveQueryPtrOutput() ServiceLevelObjectiveQueryPtrOutput {
+	return i.ToServiceLevelObjectiveQueryPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveQueryArgs) ToServiceLevelObjectiveQueryPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveQueryOutput).ToServiceLevelObjectiveQueryPtrOutputWithContext(ctx)
+}
+
+// ServiceLevelObjectiveQueryPtrInput is an input type that accepts ServiceLevelObjectiveQueryArgs, ServiceLevelObjectiveQueryPtr and ServiceLevelObjectiveQueryPtrOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveQueryPtrInput` via:
+//
+//	        ServiceLevelObjectiveQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceLevelObjectiveQueryPtrInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveQueryPtrOutput() ServiceLevelObjectiveQueryPtrOutput
+	ToServiceLevelObjectiveQueryPtrOutputWithContext(context.Context) ServiceLevelObjectiveQueryPtrOutput
+}
+
+type serviceLevelObjectiveQueryPtrType ServiceLevelObjectiveQueryArgs
+
+func ServiceLevelObjectiveQueryPtr(v *ServiceLevelObjectiveQueryArgs) ServiceLevelObjectiveQueryPtrInput {
+	return (*serviceLevelObjectiveQueryPtrType)(v)
+}
+
+func (*serviceLevelObjectiveQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjectiveQuery)(nil)).Elem()
+}
+
+func (i *serviceLevelObjectiveQueryPtrType) ToServiceLevelObjectiveQueryPtrOutput() ServiceLevelObjectiveQueryPtrOutput {
+	return i.ToServiceLevelObjectiveQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceLevelObjectiveQueryPtrType) ToServiceLevelObjectiveQueryPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveQueryPtrOutput)
+}
+
+type ServiceLevelObjectiveQueryOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveQuery)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveQueryOutput) ToServiceLevelObjectiveQueryOutput() ServiceLevelObjectiveQueryOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveQueryOutput) ToServiceLevelObjectiveQueryOutputWithContext(ctx context.Context) ServiceLevelObjectiveQueryOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveQueryOutput) ToServiceLevelObjectiveQueryPtrOutput() ServiceLevelObjectiveQueryPtrOutput {
+	return o.ToServiceLevelObjectiveQueryPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLevelObjectiveQueryOutput) ToServiceLevelObjectiveQueryPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLevelObjectiveQuery) *ServiceLevelObjectiveQuery {
+		return &v
+	}).(ServiceLevelObjectiveQueryPtrOutput)
+}
+
+// The sum of the `total` events.
+func (o ServiceLevelObjectiveQueryOutput) Denominator() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveQuery) string { return v.Denominator }).(pulumi.StringOutput)
+}
+
+// The sum of all the `good` events.
+func (o ServiceLevelObjectiveQueryOutput) Numerator() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveQuery) string { return v.Numerator }).(pulumi.StringOutput)
+}
+
+type ServiceLevelObjectiveQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjectiveQuery)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveQueryPtrOutput) ToServiceLevelObjectiveQueryPtrOutput() ServiceLevelObjectiveQueryPtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveQueryPtrOutput) ToServiceLevelObjectiveQueryPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveQueryPtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveQueryPtrOutput) Elem() ServiceLevelObjectiveQueryOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveQuery) ServiceLevelObjectiveQuery {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceLevelObjectiveQuery
+		return ret
+	}).(ServiceLevelObjectiveQueryOutput)
+}
+
+// The sum of the `total` events.
+func (o ServiceLevelObjectiveQueryPtrOutput) Denominator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Denominator
+	}).(pulumi.StringPtrOutput)
+}
+
+// The sum of all the `good` events.
+func (o ServiceLevelObjectiveQueryPtrOutput) Numerator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Numerator
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceLevelObjectiveSliSpecification struct {
+	// The time slice condition, composed of 3 parts: 1. The timeseries query, 2. The comparator, and 3. The threshold. Optionally, a fourth part, the query interval, can be provided.
+	TimeSlice ServiceLevelObjectiveSliSpecificationTimeSlice `pulumi:"timeSlice"`
+}
+
+// ServiceLevelObjectiveSliSpecificationInput is an input type that accepts ServiceLevelObjectiveSliSpecificationArgs and ServiceLevelObjectiveSliSpecificationOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveSliSpecificationInput` via:
+//
+//	ServiceLevelObjectiveSliSpecificationArgs{...}
+type ServiceLevelObjectiveSliSpecificationInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveSliSpecificationOutput() ServiceLevelObjectiveSliSpecificationOutput
+	ToServiceLevelObjectiveSliSpecificationOutputWithContext(context.Context) ServiceLevelObjectiveSliSpecificationOutput
+}
+
+type ServiceLevelObjectiveSliSpecificationArgs struct {
+	// The time slice condition, composed of 3 parts: 1. The timeseries query, 2. The comparator, and 3. The threshold. Optionally, a fourth part, the query interval, can be provided.
+	TimeSlice ServiceLevelObjectiveSliSpecificationTimeSliceInput `pulumi:"timeSlice"`
+}
+
+func (ServiceLevelObjectiveSliSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveSliSpecification)(nil)).Elem()
+}
+
+func (i ServiceLevelObjectiveSliSpecificationArgs) ToServiceLevelObjectiveSliSpecificationOutput() ServiceLevelObjectiveSliSpecificationOutput {
+	return i.ToServiceLevelObjectiveSliSpecificationOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveSliSpecificationArgs) ToServiceLevelObjectiveSliSpecificationOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveSliSpecificationOutput)
+}
+
+func (i ServiceLevelObjectiveSliSpecificationArgs) ToServiceLevelObjectiveSliSpecificationPtrOutput() ServiceLevelObjectiveSliSpecificationPtrOutput {
+	return i.ToServiceLevelObjectiveSliSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveSliSpecificationArgs) ToServiceLevelObjectiveSliSpecificationPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveSliSpecificationOutput).ToServiceLevelObjectiveSliSpecificationPtrOutputWithContext(ctx)
+}
+
+// ServiceLevelObjectiveSliSpecificationPtrInput is an input type that accepts ServiceLevelObjectiveSliSpecificationArgs, ServiceLevelObjectiveSliSpecificationPtr and ServiceLevelObjectiveSliSpecificationPtrOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveSliSpecificationPtrInput` via:
+//
+//	        ServiceLevelObjectiveSliSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceLevelObjectiveSliSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveSliSpecificationPtrOutput() ServiceLevelObjectiveSliSpecificationPtrOutput
+	ToServiceLevelObjectiveSliSpecificationPtrOutputWithContext(context.Context) ServiceLevelObjectiveSliSpecificationPtrOutput
+}
+
+type serviceLevelObjectiveSliSpecificationPtrType ServiceLevelObjectiveSliSpecificationArgs
+
+func ServiceLevelObjectiveSliSpecificationPtr(v *ServiceLevelObjectiveSliSpecificationArgs) ServiceLevelObjectiveSliSpecificationPtrInput {
+	return (*serviceLevelObjectiveSliSpecificationPtrType)(v)
+}
+
+func (*serviceLevelObjectiveSliSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjectiveSliSpecification)(nil)).Elem()
+}
+
+func (i *serviceLevelObjectiveSliSpecificationPtrType) ToServiceLevelObjectiveSliSpecificationPtrOutput() ServiceLevelObjectiveSliSpecificationPtrOutput {
+	return i.ToServiceLevelObjectiveSliSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceLevelObjectiveSliSpecificationPtrType) ToServiceLevelObjectiveSliSpecificationPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveSliSpecificationPtrOutput)
+}
+
+type ServiceLevelObjectiveSliSpecificationOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveSliSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveSliSpecification)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveSliSpecificationOutput) ToServiceLevelObjectiveSliSpecificationOutput() ServiceLevelObjectiveSliSpecificationOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSliSpecificationOutput) ToServiceLevelObjectiveSliSpecificationOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSliSpecificationOutput) ToServiceLevelObjectiveSliSpecificationPtrOutput() ServiceLevelObjectiveSliSpecificationPtrOutput {
+	return o.ToServiceLevelObjectiveSliSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLevelObjectiveSliSpecificationOutput) ToServiceLevelObjectiveSliSpecificationPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLevelObjectiveSliSpecification) *ServiceLevelObjectiveSliSpecification {
+		return &v
+	}).(ServiceLevelObjectiveSliSpecificationPtrOutput)
+}
+
+// The time slice condition, composed of 3 parts: 1. The timeseries query, 2. The comparator, and 3. The threshold. Optionally, a fourth part, the query interval, can be provided.
+func (o ServiceLevelObjectiveSliSpecificationOutput) TimeSlice() ServiceLevelObjectiveSliSpecificationTimeSliceOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveSliSpecification) ServiceLevelObjectiveSliSpecificationTimeSlice {
+		return v.TimeSlice
+	}).(ServiceLevelObjectiveSliSpecificationTimeSliceOutput)
+}
+
+type ServiceLevelObjectiveSliSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveSliSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjectiveSliSpecification)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveSliSpecificationPtrOutput) ToServiceLevelObjectiveSliSpecificationPtrOutput() ServiceLevelObjectiveSliSpecificationPtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSliSpecificationPtrOutput) ToServiceLevelObjectiveSliSpecificationPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationPtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSliSpecificationPtrOutput) Elem() ServiceLevelObjectiveSliSpecificationOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveSliSpecification) ServiceLevelObjectiveSliSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceLevelObjectiveSliSpecification
+		return ret
+	}).(ServiceLevelObjectiveSliSpecificationOutput)
+}
+
+// The time slice condition, composed of 3 parts: 1. The timeseries query, 2. The comparator, and 3. The threshold. Optionally, a fourth part, the query interval, can be provided.
+func (o ServiceLevelObjectiveSliSpecificationPtrOutput) TimeSlice() ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveSliSpecification) *ServiceLevelObjectiveSliSpecificationTimeSlice {
+		if v == nil {
+			return nil
+		}
+		return &v.TimeSlice
+	}).(ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput)
+}
+
 type ServiceLevelObjectiveSliSpecificationTimeSlice struct {
 	// The comparator used to compare the SLI value to the threshold. Valid values are `>`, `>=`, `<`, `<=`.
 	Comparator string `pulumi:"comparator"`
@@ -1634,7 +2521,7 @@ type SyntheticsGlobalVariableParseTestOptions struct {
 	// When type is `localVariable`, name of the local variable to use to extract the value.
 	LocalVariableName *string                                         `pulumi:"localVariableName"`
 	Parser            *SyntheticsGlobalVariableParseTestOptionsParser `pulumi:"parser"`
-	// Defines the source to use to extract the value. Valid values are `httpBody`, `httpHeader`, `localVariable`.
+	// Defines the source to use to extract the value. Valid values are `httpBody`, `httpHeader`, `httpStatusCode`, `localVariable`.
 	Type string `pulumi:"type"`
 }
 
@@ -1655,7 +2542,7 @@ type SyntheticsGlobalVariableParseTestOptionsArgs struct {
 	// When type is `localVariable`, name of the local variable to use to extract the value.
 	LocalVariableName pulumi.StringPtrInput                                  `pulumi:"localVariableName"`
 	Parser            SyntheticsGlobalVariableParseTestOptionsParserPtrInput `pulumi:"parser"`
-	// Defines the source to use to extract the value. Valid values are `httpBody`, `httpHeader`, `localVariable`.
+	// Defines the source to use to extract the value. Valid values are `httpBody`, `httpHeader`, `httpStatusCode`, `localVariable`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1752,7 +2639,7 @@ func (o SyntheticsGlobalVariableParseTestOptionsOutput) Parser() SyntheticsGloba
 	}).(SyntheticsGlobalVariableParseTestOptionsParserPtrOutput)
 }
 
-// Defines the source to use to extract the value. Valid values are `httpBody`, `httpHeader`, `localVariable`.
+// Defines the source to use to extract the value. Valid values are `httpBody`, `httpHeader`, `httpStatusCode`, `localVariable`.
 func (o SyntheticsGlobalVariableParseTestOptionsOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SyntheticsGlobalVariableParseTestOptions) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1810,7 +2697,7 @@ func (o SyntheticsGlobalVariableParseTestOptionsPtrOutput) Parser() SyntheticsGl
 	}).(SyntheticsGlobalVariableParseTestOptionsParserPtrOutput)
 }
 
-// Defines the source to use to extract the value. Valid values are `httpBody`, `httpHeader`, `localVariable`.
+// Defines the source to use to extract the value. Valid values are `httpBody`, `httpHeader`, `httpStatusCode`, `localVariable`.
 func (o SyntheticsGlobalVariableParseTestOptionsPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsGlobalVariableParseTestOptions) *string {
 		if v == nil {
@@ -3036,13 +3923,13 @@ func (o SyntheticsTestApiStepAssertionTargetxpathPtrOutput) Xpath() pulumi.Strin
 }
 
 type SyntheticsTestApiStepExtractedValue struct {
-	// When type is `httpHeader`, name of the header to use to extract the value.
+	// When type is `httpHeader` or `grpcMetadata`, name of the header or metadatum to extract.
 	Field  *string                                   `pulumi:"field"`
 	Name   string                                    `pulumi:"name"`
 	Parser SyntheticsTestApiStepExtractedValueParser `pulumi:"parser"`
 	// Determines whether or not the extracted value will be obfuscated.
 	Secure *bool `pulumi:"secure"`
-	// Property of the Synthetics Test Response to use for the variable. Valid values are `httpBody`, `httpHeader`, `localVariable`.
+	// Property of the Synthetics Test Response to use for the variable. Valid values are `grpcMessage`, `grpcMetadata`, `httpBody`, `httpHeader`, `httpStatusCode`.
 	Type string `pulumi:"type"`
 }
 
@@ -3058,13 +3945,13 @@ type SyntheticsTestApiStepExtractedValueInput interface {
 }
 
 type SyntheticsTestApiStepExtractedValueArgs struct {
-	// When type is `httpHeader`, name of the header to use to extract the value.
+	// When type is `httpHeader` or `grpcMetadata`, name of the header or metadatum to extract.
 	Field  pulumi.StringPtrInput                          `pulumi:"field"`
 	Name   pulumi.StringInput                             `pulumi:"name"`
 	Parser SyntheticsTestApiStepExtractedValueParserInput `pulumi:"parser"`
 	// Determines whether or not the extracted value will be obfuscated.
 	Secure pulumi.BoolPtrInput `pulumi:"secure"`
-	// Property of the Synthetics Test Response to use for the variable. Valid values are `httpBody`, `httpHeader`, `localVariable`.
+	// Property of the Synthetics Test Response to use for the variable. Valid values are `grpcMessage`, `grpcMetadata`, `httpBody`, `httpHeader`, `httpStatusCode`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -3119,7 +4006,7 @@ func (o SyntheticsTestApiStepExtractedValueOutput) ToSyntheticsTestApiStepExtrac
 	return o
 }
 
-// When type is `httpHeader`, name of the header to use to extract the value.
+// When type is `httpHeader` or `grpcMetadata`, name of the header or metadatum to extract.
 func (o SyntheticsTestApiStepExtractedValueOutput) Field() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepExtractedValue) *string { return v.Field }).(pulumi.StringPtrOutput)
 }
@@ -3137,7 +4024,7 @@ func (o SyntheticsTestApiStepExtractedValueOutput) Secure() pulumi.BoolPtrOutput
 	return o.ApplyT(func(v SyntheticsTestApiStepExtractedValue) *bool { return v.Secure }).(pulumi.BoolPtrOutput)
 }
 
-// Property of the Synthetics Test Response to use for the variable. Valid values are `httpBody`, `httpHeader`, `localVariable`.
+// Property of the Synthetics Test Response to use for the variable. Valid values are `grpcMessage`, `grpcMetadata`, `httpBody`, `httpHeader`, `httpStatusCode`.
 func (o SyntheticsTestApiStepExtractedValueOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepExtractedValue) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -4142,7 +5029,7 @@ type SyntheticsTestApiStepRequestDefinition struct {
 	// DNS server to use for DNS tests (`subtype = "dns"`).
 	DnsServer *string `pulumi:"dnsServer"`
 	// DNS server port to use for DNS tests.
-	DnsServerPort *int `pulumi:"dnsServerPort"`
+	DnsServerPort *string `pulumi:"dnsServerPort"`
 	// Determines whether or not the API HTTP test should follow redirects.
 	FollowRedirects *bool `pulumi:"followRedirects"`
 	// Host name to perform the test with.
@@ -4162,7 +5049,7 @@ type SyntheticsTestApiStepRequestDefinition struct {
 	// The content of a proto file as a string.
 	PlainProtoFile *string `pulumi:"plainProtoFile"`
 	// Port to use when performing the test.
-	Port *int `pulumi:"port"`
+	Port *string `pulumi:"port"`
 	// A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
 	//
 	// Deprecated: Use `plainProtoFile` instead.
@@ -4204,7 +5091,7 @@ type SyntheticsTestApiStepRequestDefinitionArgs struct {
 	// DNS server to use for DNS tests (`subtype = "dns"`).
 	DnsServer pulumi.StringPtrInput `pulumi:"dnsServer"`
 	// DNS server port to use for DNS tests.
-	DnsServerPort pulumi.IntPtrInput `pulumi:"dnsServerPort"`
+	DnsServerPort pulumi.StringPtrInput `pulumi:"dnsServerPort"`
 	// Determines whether or not the API HTTP test should follow redirects.
 	FollowRedirects pulumi.BoolPtrInput `pulumi:"followRedirects"`
 	// Host name to perform the test with.
@@ -4224,7 +5111,7 @@ type SyntheticsTestApiStepRequestDefinitionArgs struct {
 	// The content of a proto file as a string.
 	PlainProtoFile pulumi.StringPtrInput `pulumi:"plainProtoFile"`
 	// Port to use when performing the test.
-	Port pulumi.IntPtrInput `pulumi:"port"`
+	Port pulumi.StringPtrInput `pulumi:"port"`
 	// A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
 	//
 	// Deprecated: Use `plainProtoFile` instead.
@@ -4349,8 +5236,8 @@ func (o SyntheticsTestApiStepRequestDefinitionOutput) DnsServer() pulumi.StringP
 }
 
 // DNS server port to use for DNS tests.
-func (o SyntheticsTestApiStepRequestDefinitionOutput) DnsServerPort() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *int { return v.DnsServerPort }).(pulumi.IntPtrOutput)
+func (o SyntheticsTestApiStepRequestDefinitionOutput) DnsServerPort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *string { return v.DnsServerPort }).(pulumi.StringPtrOutput)
 }
 
 // Determines whether or not the API HTTP test should follow redirects.
@@ -4399,8 +5286,8 @@ func (o SyntheticsTestApiStepRequestDefinitionOutput) PlainProtoFile() pulumi.St
 }
 
 // Port to use when performing the test.
-func (o SyntheticsTestApiStepRequestDefinitionOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *int { return v.Port }).(pulumi.IntPtrOutput)
+func (o SyntheticsTestApiStepRequestDefinitionOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
 
 // A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
@@ -4520,13 +5407,13 @@ func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) DnsServer() pulumi.Stri
 }
 
 // DNS server port to use for DNS tests.
-func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) DnsServerPort() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) *int {
+func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) DnsServerPort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) *string {
 		if v == nil {
 			return nil
 		}
 		return v.DnsServerPort
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Determines whether or not the API HTTP test should follow redirects.
@@ -4620,13 +5507,13 @@ func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) PlainProtoFile() pulumi
 }
 
 // Port to use when performing the test.
-func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) *int {
+func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Port
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
@@ -9244,7 +10131,7 @@ type SyntheticsTestRequestDefinition struct {
 	// DNS server to use for DNS tests (`subtype = "dns"`).
 	DnsServer *string `pulumi:"dnsServer"`
 	// DNS server port to use for DNS tests.
-	DnsServerPort *int `pulumi:"dnsServerPort"`
+	DnsServerPort *string `pulumi:"dnsServerPort"`
 	// Host name to perform the test with.
 	Host *string `pulumi:"host"`
 	// HTTP version to use for an HTTP request in an API test or step. **Deprecated.** Use `httpVersion` in the `optionsList` field instead.
@@ -9264,7 +10151,7 @@ type SyntheticsTestRequestDefinition struct {
 	// The content of a proto file as a string.
 	PlainProtoFile *string `pulumi:"plainProtoFile"`
 	// Port to use when performing the test.
-	Port *int `pulumi:"port"`
+	Port *string `pulumi:"port"`
 	// A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
 	//
 	// Deprecated: Use `plainProtoFile` instead.
@@ -9304,7 +10191,7 @@ type SyntheticsTestRequestDefinitionArgs struct {
 	// DNS server to use for DNS tests (`subtype = "dns"`).
 	DnsServer pulumi.StringPtrInput `pulumi:"dnsServer"`
 	// DNS server port to use for DNS tests.
-	DnsServerPort pulumi.IntPtrInput `pulumi:"dnsServerPort"`
+	DnsServerPort pulumi.StringPtrInput `pulumi:"dnsServerPort"`
 	// Host name to perform the test with.
 	Host pulumi.StringPtrInput `pulumi:"host"`
 	// HTTP version to use for an HTTP request in an API test or step. **Deprecated.** Use `httpVersion` in the `optionsList` field instead.
@@ -9324,7 +10211,7 @@ type SyntheticsTestRequestDefinitionArgs struct {
 	// The content of a proto file as a string.
 	PlainProtoFile pulumi.StringPtrInput `pulumi:"plainProtoFile"`
 	// Port to use when performing the test.
-	Port pulumi.IntPtrInput `pulumi:"port"`
+	Port pulumi.StringPtrInput `pulumi:"port"`
 	// A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
 	//
 	// Deprecated: Use `plainProtoFile` instead.
@@ -9444,8 +10331,8 @@ func (o SyntheticsTestRequestDefinitionOutput) DnsServer() pulumi.StringPtrOutpu
 }
 
 // DNS server port to use for DNS tests.
-func (o SyntheticsTestRequestDefinitionOutput) DnsServerPort() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *int { return v.DnsServerPort }).(pulumi.IntPtrOutput)
+func (o SyntheticsTestRequestDefinitionOutput) DnsServerPort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *string { return v.DnsServerPort }).(pulumi.StringPtrOutput)
 }
 
 // Host name to perform the test with.
@@ -9491,8 +10378,8 @@ func (o SyntheticsTestRequestDefinitionOutput) PlainProtoFile() pulumi.StringPtr
 }
 
 // Port to use when performing the test.
-func (o SyntheticsTestRequestDefinitionOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *int { return v.Port }).(pulumi.IntPtrOutput)
+func (o SyntheticsTestRequestDefinitionOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
 
 // A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
@@ -9602,13 +10489,13 @@ func (o SyntheticsTestRequestDefinitionPtrOutput) DnsServer() pulumi.StringPtrOu
 }
 
 // DNS server port to use for DNS tests.
-func (o SyntheticsTestRequestDefinitionPtrOutput) DnsServerPort() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SyntheticsTestRequestDefinition) *int {
+func (o SyntheticsTestRequestDefinitionPtrOutput) DnsServerPort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestDefinition) *string {
 		if v == nil {
 			return nil
 		}
 		return v.DnsServerPort
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Host name to perform the test with.
@@ -9694,13 +10581,13 @@ func (o SyntheticsTestRequestDefinitionPtrOutput) PlainProtoFile() pulumi.String
 }
 
 // Port to use when performing the test.
-func (o SyntheticsTestRequestDefinitionPtrOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SyntheticsTestRequestDefinition) *int {
+func (o SyntheticsTestRequestDefinitionPtrOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestDefinition) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Port
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
@@ -15356,6 +16243,18 @@ func (o GetUsersUserArrayOutput) Index(i pulumi.IntInput) GetUsersUserOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleThirdPartyCaseInput)(nil)).Elem(), SecurityMonitoringRuleThirdPartyCaseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleThirdPartyCaseArrayInput)(nil)).Elem(), SecurityMonitoringRuleThirdPartyCaseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SensitiveDataScannerGroupFilterInput)(nil)).Elem(), SensitiveDataScannerGroupFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SensitiveDataScannerGroupFilterPtrInput)(nil)).Elem(), SensitiveDataScannerGroupFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SensitiveDataScannerRuleIncludedKeywordConfigurationInput)(nil)).Elem(), SensitiveDataScannerRuleIncludedKeywordConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SensitiveDataScannerRuleIncludedKeywordConfigurationPtrInput)(nil)).Elem(), SensitiveDataScannerRuleIncludedKeywordConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SensitiveDataScannerRuleTextReplacementInput)(nil)).Elem(), SensitiveDataScannerRuleTextReplacementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SensitiveDataScannerRuleTextReplacementPtrInput)(nil)).Elem(), SensitiveDataScannerRuleTextReplacementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveQueryInput)(nil)).Elem(), ServiceLevelObjectiveQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveQueryPtrInput)(nil)).Elem(), ServiceLevelObjectiveQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationInput)(nil)).Elem(), ServiceLevelObjectiveSliSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationPtrInput)(nil)).Elem(), ServiceLevelObjectiveSliSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationTimeSliceInput)(nil)).Elem(), ServiceLevelObjectiveSliSpecificationTimeSliceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationTimeSlicePtrInput)(nil)).Elem(), ServiceLevelObjectiveSliSpecificationTimeSliceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationTimeSliceQueryInput)(nil)).Elem(), ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs{})
@@ -15543,6 +16442,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamMembershipsTeamMembershipArrayInput)(nil)).Elem(), GetTeamMembershipsTeamMembershipArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserInput)(nil)).Elem(), GetUsersUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserArrayInput)(nil)).Elem(), GetUsersUserArray{})
+	pulumi.RegisterOutputType(SecurityMonitoringRuleThirdPartyCaseOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringRuleThirdPartyCaseArrayOutput{})
+	pulumi.RegisterOutputType(SensitiveDataScannerGroupFilterOutput{})
+	pulumi.RegisterOutputType(SensitiveDataScannerGroupFilterPtrOutput{})
+	pulumi.RegisterOutputType(SensitiveDataScannerRuleIncludedKeywordConfigurationOutput{})
+	pulumi.RegisterOutputType(SensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(SensitiveDataScannerRuleTextReplacementOutput{})
+	pulumi.RegisterOutputType(SensitiveDataScannerRuleTextReplacementPtrOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveQueryOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveQueryPtrOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveSliSpecificationOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveSliSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveSliSpecificationTimeSliceOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput{})
