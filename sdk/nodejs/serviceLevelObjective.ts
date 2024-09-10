@@ -197,7 +197,7 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
      */
     public readonly type!: pulumi.Output<string>;
     /**
-     * Whether or not to validate the SLO.
+     * Whether or not to validate the SLO. It checks if monitors added to a monitor SLO already exist.
      */
     public readonly validate!: pulumi.Output<boolean | undefined>;
     /**
@@ -316,7 +316,7 @@ export interface ServiceLevelObjectiveState {
      */
     type?: pulumi.Input<string>;
     /**
-     * Whether or not to validate the SLO.
+     * Whether or not to validate the SLO. It checks if monitors added to a monitor SLO already exist.
      */
     validate?: pulumi.Input<boolean>;
     /**
@@ -378,7 +378,7 @@ export interface ServiceLevelObjectiveArgs {
      */
     type: pulumi.Input<string>;
     /**
-     * Whether or not to validate the SLO.
+     * Whether or not to validate the SLO. It checks if monitors added to a monitor SLO already exist.
      */
     validate?: pulumi.Input<boolean>;
     /**

@@ -234,7 +234,7 @@ namespace Pulumi.Datadog
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// Whether or not to validate the SLO.
+        /// Whether or not to validate the SLO. It checks if monitors added to a monitor SLO already exist.
         /// </summary>
         [Output("validate")]
         public Output<bool?> Validate { get; private set; } = null!;
@@ -388,7 +388,7 @@ namespace Pulumi.Datadog
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Whether or not to validate the SLO.
+        /// Whether or not to validate the SLO. It checks if monitors added to a monitor SLO already exist.
         /// </summary>
         [Input("validate")]
         public Input<bool>? Validate { get; set; }
@@ -504,7 +504,7 @@ namespace Pulumi.Datadog
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// Whether or not to validate the SLO.
+        /// Whether or not to validate the SLO. It checks if monitors added to a monitor SLO already exist.
         /// </summary>
         [Input("validate")]
         public Input<bool>? Validate { get; set; }

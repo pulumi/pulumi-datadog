@@ -117,7 +117,7 @@ import * as utilities from "./utilities";
  *     ],
  *     requestDefinition: {
  *         host: "example.org",
- *         port: 443,
+ *         port: "443",
  *     },
  *     assertions: [{
  *         type: "certificate",
@@ -145,7 +145,7 @@ import * as utilities from "./utilities";
  *     ],
  *     requestDefinition: {
  *         host: "example.org",
- *         port: 443,
+ *         port: "443",
  *     },
  *     assertions: [{
  *         type: "responseTime",
@@ -242,7 +242,7 @@ import * as utilities from "./utilities";
  *             }],
  *             requestDefinition: {
  *                 host: "example.org",
- *                 port: 443,
+ *                 port: "443",
  *                 callType: "healthcheck",
  *                 service: "greeter.Greeter",
  *             },
@@ -257,7 +257,7 @@ import * as utilities from "./utilities";
  *             }],
  *             requestDefinition: {
  *                 host: "example.org",
- *                 port: 443,
+ *                 port: "443",
  *                 callType: "unary",
  *                 service: "greeter.Greeter",
  *                 method: "SayHello",
@@ -371,7 +371,7 @@ import * as utilities from "./utilities";
  *     ],
  *     requestDefinition: {
  *         host: "example.org",
- *         port: 443,
+ *         port: "443",
  *         callType: "unary",
  *         service: "greeter.Greeter",
  *         method: "SayHello",
@@ -443,7 +443,7 @@ import * as utilities from "./utilities";
  *     ],
  *     requestDefinition: {
  *         host: "example.org",
- *         port: 443,
+ *         port: "443",
  *         callType: "healthcheck",
  *         service: "greeter.Greeter",
  *     },

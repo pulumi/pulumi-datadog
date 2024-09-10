@@ -11356,6 +11356,41 @@
                     }
                 }
             },
+            "datadog_logs_custom_destination": {
+                "current": "datadog:index/logsCustomDestination:LogsCustomDestination",
+                "majorVersion": 4,
+                "fields": {
+                    "elasticsearch_destination": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "basic_auth": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "forward_tags_restriction_list": {
+                        "maxItemsOne": false
+                    },
+                    "http_destination": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "basic_auth": {
+                                    "maxItemsOne": true
+                                },
+                                "custom_header_auth": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "splunk_destination": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
             "datadog_logs_custom_pipeline": {
                 "current": "datadog:index/logsCustomPipeline:LogsCustomPipeline",
                 "majorVersion": 4,
@@ -15291,6 +15326,10 @@
                 "current": "datadog:index/sloCorrection:SloCorrection",
                 "majorVersion": 4
             },
+            "datadog_software_catalog": {
+                "current": "datadog:index/softwareCatalog:SoftwareCatalog",
+                "majorVersion": 4
+            },
             "datadog_spans_metric": {
                 "current": "datadog:index/spansMetric:SpansMetric",
                 "majorVersion": 4,
@@ -16211,6 +16250,7 @@
             "datadog:index/ipAllowlist:IpAllowlist": 1,
             "datadog:index/logsArchive:LogsArchive": 0,
             "datadog:index/logsArchiveOrder:LogsArchiveOrder": 0,
+            "datadog:index/logsCustomDestination:LogsCustomDestination": 1,
             "datadog:index/logsCustomPipeline:LogsCustomPipeline": 0,
             "datadog:index/logsIndex:LogsIndex": 0,
             "datadog:index/logsIndexOrder:LogsIndexOrder": 0,
@@ -16240,6 +16280,7 @@
             "datadog:index/serviceDefinitionYaml:ServiceDefinitionYaml": 0,
             "datadog:index/serviceLevelObjective:ServiceLevelObjective": 0,
             "datadog:index/sloCorrection:SloCorrection": 0,
+            "datadog:index/softwareCatalog:SoftwareCatalog": 1,
             "datadog:index/spansMetric:SpansMetric": 1,
             "datadog:index/syntheticsConcurrencyCap:SyntheticsConcurrencyCap": 1,
             "datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable": 0,

@@ -161,7 +161,7 @@ namespace Pulumi.Datadog
     ///         RequestDefinition = new Datadog.Inputs.SyntheticsTestRequestDefinitionArgs
     ///         {
     ///             Host = "example.org",
-    ///             Port = 443,
+    ///             Port = "443",
     ///         },
     ///         Assertions = new[]
     ///         {
@@ -201,7 +201,7 @@ namespace Pulumi.Datadog
     ///         RequestDefinition = new Datadog.Inputs.SyntheticsTestRequestDefinitionArgs
     ///         {
     ///             Host = "example.org",
-    ///             Port = 443,
+    ///             Port = "443",
     ///         },
     ///         Assertions = new[]
     ///         {
@@ -345,7 +345,7 @@ namespace Pulumi.Datadog
     ///                 RequestDefinition = new Datadog.Inputs.SyntheticsTestApiStepRequestDefinitionArgs
     ///                 {
     ///                     Host = "example.org",
-    ///                     Port = 443,
+    ///                     Port = "443",
     ///                     CallType = "healthcheck",
     ///                     Service = "greeter.Greeter",
     ///                 },
@@ -366,7 +366,7 @@ namespace Pulumi.Datadog
     ///                 RequestDefinition = new Datadog.Inputs.SyntheticsTestApiStepRequestDefinitionArgs
     ///                 {
     ///                     Host = "example.org",
-    ///                     Port = 443,
+    ///                     Port = "443",
     ///                     CallType = "unary",
     ///                     Service = "greeter.Greeter",
     ///                     Method = "SayHello",
@@ -510,7 +510,7 @@ namespace Pulumi.Datadog
     ///         RequestDefinition = new Datadog.Inputs.SyntheticsTestRequestDefinitionArgs
     ///         {
     ///             Host = "example.org",
-    ///             Port = 443,
+    ///             Port = "443",
     ///             CallType = "unary",
     ///             Service = "greeter.Greeter",
     ///             Method = "SayHello",
@@ -596,7 +596,7 @@ namespace Pulumi.Datadog
     ///         RequestDefinition = new Datadog.Inputs.SyntheticsTestRequestDefinitionArgs
     ///         {
     ///             Host = "example.org",
-    ///             Port = 443,
+    ///             Port = "443",
     ///             CallType = "healthcheck",
     ///             Service = "greeter.Greeter",
     ///         },

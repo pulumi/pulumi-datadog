@@ -113,13 +113,13 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
      * 
      */
     @Import(name="dnsServerPort")
-    private @Nullable Output<Integer> dnsServerPort;
+    private @Nullable Output<String> dnsServerPort;
 
     /**
      * @return DNS server port to use for DNS tests.
      * 
      */
-    public Optional<Output<Integer>> dnsServerPort() {
+    public Optional<Output<String>> dnsServerPort() {
         return Optional.ofNullable(this.dnsServerPort);
     }
 
@@ -263,13 +263,13 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
      * 
      */
     @Import(name="port")
-    private @Nullable Output<Integer> port;
+    private @Nullable Output<String> port;
 
     /**
      * @return Port to use when performing the test.
      * 
      */
-    public Optional<Output<Integer>> port() {
+    public Optional<Output<String>> port() {
         return Optional.ofNullable(this.port);
     }
 
@@ -559,7 +559,7 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder dnsServerPort(@Nullable Output<Integer> dnsServerPort) {
+        public Builder dnsServerPort(@Nullable Output<String> dnsServerPort) {
             $.dnsServerPort = dnsServerPort;
             return this;
         }
@@ -570,7 +570,7 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder dnsServerPort(Integer dnsServerPort) {
+        public Builder dnsServerPort(String dnsServerPort) {
             return dnsServerPort(Output.of(dnsServerPort));
         }
 
@@ -769,7 +769,7 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder port(@Nullable Output<Integer> port) {
+        public Builder port(@Nullable Output<String> port) {
             $.port = port;
             return this;
         }
@@ -780,7 +780,7 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder port(Integer port) {
+        public Builder port(String port) {
             return port(Output.of(port));
         }
 

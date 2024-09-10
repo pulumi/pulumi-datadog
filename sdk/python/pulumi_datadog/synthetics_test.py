@@ -974,7 +974,7 @@ class SyntheticsTest(pulumi.CustomResource):
             ],
             request_definition={
                 "host": "example.org",
-                "port": 443,
+                "port": "443",
             },
             assertions=[{
                 "type": "certificate",
@@ -1001,7 +1001,7 @@ class SyntheticsTest(pulumi.CustomResource):
             ],
             request_definition={
                 "host": "example.org",
-                "port": 443,
+                "port": "443",
             },
             assertions=[{
                 "type": "responseTime",
@@ -1096,7 +1096,7 @@ class SyntheticsTest(pulumi.CustomResource):
                     }],
                     "request_definition": {
                         "host": "example.org",
-                        "port": 443,
+                        "port": "443",
                         "call_type": "healthcheck",
                         "service": "greeter.Greeter",
                     },
@@ -1111,7 +1111,7 @@ class SyntheticsTest(pulumi.CustomResource):
                     }],
                     "request_definition": {
                         "host": "example.org",
-                        "port": 443,
+                        "port": "443",
                         "call_type": "unary",
                         "service": "greeter.Greeter",
                         "method": "SayHello",
@@ -1223,7 +1223,7 @@ class SyntheticsTest(pulumi.CustomResource):
             ],
             request_definition={
                 "host": "example.org",
-                "port": 443,
+                "port": "443",
                 "call_type": "unary",
                 "service": "greeter.Greeter",
                 "method": "SayHello",
@@ -1294,7 +1294,7 @@ class SyntheticsTest(pulumi.CustomResource):
             ],
             request_definition={
                 "host": "example.org",
-                "port": 443,
+                "port": "443",
                 "call_type": "healthcheck",
                 "service": "greeter.Greeter",
             },
@@ -1466,7 +1466,7 @@ class SyntheticsTest(pulumi.CustomResource):
             ],
             request_definition={
                 "host": "example.org",
-                "port": 443,
+                "port": "443",
             },
             assertions=[{
                 "type": "certificate",
@@ -1493,7 +1493,7 @@ class SyntheticsTest(pulumi.CustomResource):
             ],
             request_definition={
                 "host": "example.org",
-                "port": 443,
+                "port": "443",
             },
             assertions=[{
                 "type": "responseTime",
@@ -1588,7 +1588,7 @@ class SyntheticsTest(pulumi.CustomResource):
                     }],
                     "request_definition": {
                         "host": "example.org",
-                        "port": 443,
+                        "port": "443",
                         "call_type": "healthcheck",
                         "service": "greeter.Greeter",
                     },
@@ -1603,7 +1603,7 @@ class SyntheticsTest(pulumi.CustomResource):
                     }],
                     "request_definition": {
                         "host": "example.org",
-                        "port": 443,
+                        "port": "443",
                         "call_type": "unary",
                         "service": "greeter.Greeter",
                         "method": "SayHello",
@@ -1715,7 +1715,7 @@ class SyntheticsTest(pulumi.CustomResource):
             ],
             request_definition={
                 "host": "example.org",
-                "port": 443,
+                "port": "443",
                 "call_type": "unary",
                 "service": "greeter.Greeter",
                 "method": "SayHello",
@@ -1786,7 +1786,7 @@ class SyntheticsTest(pulumi.CustomResource):
             ],
             request_definition={
                 "host": "example.org",
-                "port": 443,
+                "port": "443",
                 "call_type": "healthcheck",
                 "service": "greeter.Greeter",
             },

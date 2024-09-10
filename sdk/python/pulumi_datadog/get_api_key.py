@@ -85,7 +85,7 @@ def get_api_key(exact_match: Optional[bool] = None,
                 name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiKeyResult:
     """
-    Use this data source to retrieve information about an existing api key.
+    Use this data source to retrieve information about an existing api key. Deprecated. This will be removed in a future release with prior notice. Securely store your API keys using a secret management system or use the ApiKey resource to manage API keys in your Datadog account.
 
     ## Example Usage
 
@@ -121,7 +121,7 @@ def get_api_key_output(exact_match: Optional[pulumi.Input[Optional[bool]]] = Non
                        name: Optional[pulumi.Input[Optional[str]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiKeyResult]:
     """
-    Use this data source to retrieve information about an existing api key.
+    Use this data source to retrieve information about an existing api key. Deprecated. This will be removed in a future release with prior notice. Securely store your API keys using a secret management system or use the ApiKey resource to manage API keys in your Datadog account.
 
     ## Example Usage
 

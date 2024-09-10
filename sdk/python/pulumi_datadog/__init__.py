@@ -59,6 +59,7 @@ from .get_users import *
 from .ip_allowlist import *
 from .logs_archive import *
 from .logs_archive_order import *
+from .logs_custom_destination import *
 from .logs_custom_pipeline import *
 from .logs_index import *
 from .logs_index_order import *
@@ -89,6 +90,7 @@ from .service_account_application_key import *
 from .service_definition_yaml import *
 from .service_level_objective import *
 from .slo_correction import *
+from .software_catalog import *
 from .spans_metric import *
 from .synthetics_concurrency_cap import *
 from .synthetics_global_variable import *
@@ -384,6 +386,14 @@ _utilities.register(
  },
  {
   "pkg": "datadog",
+  "mod": "index/logsCustomDestination",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/logsCustomDestination:LogsCustomDestination": "LogsCustomDestination"
+  }
+ },
+ {
+  "pkg": "datadog",
   "mod": "index/logsCustomPipeline",
   "fqn": "pulumi_datadog",
   "classes": {
@@ -612,6 +622,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/sloCorrection:SloCorrection": "SloCorrection"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/softwareCatalog",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/softwareCatalog:SoftwareCatalog": "SoftwareCatalog"
   }
  },
  {

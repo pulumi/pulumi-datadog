@@ -55,14 +55,14 @@ public final class SyntheticsGlobalVariableParseTestOptionsArgs extends com.pulu
     }
 
     /**
-     * Defines the source to use to extract the value. Valid values are `http_body`, `http_header`, `local_variable`.
+     * Defines the source to use to extract the value. Valid values are `http_body`, `http_header`, `http_status_code`, `local_variable`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Defines the source to use to extract the value. Valid values are `http_body`, `http_header`, `local_variable`.
+     * @return Defines the source to use to extract the value. Valid values are `http_body`, `http_header`, `http_status_code`, `local_variable`.
      * 
      */
     public Output<String> type() {
@@ -148,7 +148,7 @@ public final class SyntheticsGlobalVariableParseTestOptionsArgs extends com.pulu
         }
 
         /**
-         * @param type Defines the source to use to extract the value. Valid values are `http_body`, `http_header`, `local_variable`.
+         * @param type Defines the source to use to extract the value. Valid values are `http_body`, `http_header`, `http_status_code`, `local_variable`.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class SyntheticsGlobalVariableParseTestOptionsArgs extends com.pulu
         }
 
         /**
-         * @param type Defines the source to use to extract the value. Valid values are `http_body`, `http_header`, `local_variable`.
+         * @param type Defines the source to use to extract the value. Valid values are `http_body`, `http_header`, `http_status_code`, `local_variable`.
          * 
          * @return builder
          * 

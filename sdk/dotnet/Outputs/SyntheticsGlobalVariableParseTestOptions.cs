@@ -23,7 +23,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly string? LocalVariableName;
         public readonly Outputs.SyntheticsGlobalVariableParseTestOptionsParser? Parser;
         /// <summary>
-        /// Defines the source to use to extract the value. Valid values are `http_body`, `http_header`, `local_variable`.
+        /// Defines the source to use to extract the value. Valid values are `http_body`, `http_header`, `http_status_code`, `local_variable`.
         /// </summary>
         public readonly string Type;
 

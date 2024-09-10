@@ -100,7 +100,7 @@ import java.util.concurrent.CompletableFuture;
 
 public final class DatadogFunctions {
     /**
-     * Use this data source to retrieve information about an existing api key.
+     * Use this data source to retrieve information about an existing api key. Deprecated. This will be removed in a future release with prior notice. Securely store your API keys using a secret management system or use the datadog.ApiKey resource to manage API keys in your Datadog account.
      * 
      * ## Example Usage
      * 
@@ -142,7 +142,7 @@ public final class DatadogFunctions {
         return getApiKey(GetApiKeyArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve information about an existing api key.
+     * Use this data source to retrieve information about an existing api key. Deprecated. This will be removed in a future release with prior notice. Securely store your API keys using a secret management system or use the datadog.ApiKey resource to manage API keys in your Datadog account.
      * 
      * ## Example Usage
      * 
@@ -184,7 +184,7 @@ public final class DatadogFunctions {
         return getApiKeyPlain(GetApiKeyPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve information about an existing api key.
+     * Use this data source to retrieve information about an existing api key. Deprecated. This will be removed in a future release with prior notice. Securely store your API keys using a secret management system or use the datadog.ApiKey resource to manage API keys in your Datadog account.
      * 
      * ## Example Usage
      * 
@@ -226,7 +226,7 @@ public final class DatadogFunctions {
         return getApiKey(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve information about an existing api key.
+     * Use this data source to retrieve information about an existing api key. Deprecated. This will be removed in a future release with prior notice. Securely store your API keys using a secret management system or use the datadog.ApiKey resource to manage API keys in your Datadog account.
      * 
      * ## Example Usage
      * 
@@ -268,7 +268,7 @@ public final class DatadogFunctions {
         return getApiKeyPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve information about an existing api key.
+     * Use this data source to retrieve information about an existing api key. Deprecated. This will be removed in a future release with prior notice. Securely store your API keys using a secret management system or use the datadog.ApiKey resource to manage API keys in your Datadog account.
      * 
      * ## Example Usage
      * 
@@ -310,7 +310,7 @@ public final class DatadogFunctions {
         return Deployment.getInstance().invoke("datadog:index/getApiKey:getApiKey", TypeShape.of(GetApiKeyResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve information about an existing api key.
+     * Use this data source to retrieve information about an existing api key. Deprecated. This will be removed in a future release with prior notice. Securely store your API keys using a secret management system or use the datadog.ApiKey resource to manage API keys in your Datadog account.
      * 
      * ## Example Usage
      * 

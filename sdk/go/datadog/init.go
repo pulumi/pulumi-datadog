@@ -55,6 +55,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LogsArchive{}
 	case "datadog:index/logsArchiveOrder:LogsArchiveOrder":
 		r = &LogsArchiveOrder{}
+	case "datadog:index/logsCustomDestination:LogsCustomDestination":
+		r = &LogsCustomDestination{}
 	case "datadog:index/logsCustomPipeline:LogsCustomPipeline":
 		r = &LogsCustomPipeline{}
 	case "datadog:index/logsIndex:LogsIndex":
@@ -113,6 +115,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ServiceLevelObjective{}
 	case "datadog:index/sloCorrection:SloCorrection":
 		r = &SloCorrection{}
+	case "datadog:index/softwareCatalog:SoftwareCatalog":
+		r = &SoftwareCatalog{}
 	case "datadog:index/spansMetric:SpansMetric":
 		r = &SpansMetric{}
 	case "datadog:index/syntheticsConcurrencyCap:SyntheticsConcurrencyCap":
@@ -253,6 +257,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/logsArchiveOrder",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/logsCustomDestination",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -398,6 +407,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/sloCorrection",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/softwareCatalog",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
