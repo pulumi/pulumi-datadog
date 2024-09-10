@@ -8560,6 +8560,92 @@ export interface LogsArchiveS3Archive {
     roleName: pulumi.Input<string>;
 }
 
+export interface LogsCustomDestinationElasticsearchDestination {
+    /**
+     * Basic access authentication.
+     */
+    basicAuth: pulumi.Input<inputs.LogsCustomDestinationElasticsearchDestinationBasicAuth>;
+    /**
+     * The destination for which logs will be forwarded to. Must have HTTPS scheme. Forwarding back to Datadog is not allowed.
+     */
+    endpoint: pulumi.Input<string>;
+    /**
+     * Name of the Elasticsearch index (must follow [Elasticsearch's criteria](https://www.elastic.co/guide/en/elasticsearch/reference/8.11/indices-create-index.html#indices-create-api-path-params)).
+     */
+    indexName: pulumi.Input<string>;
+    /**
+     * Date pattern with US locale and UTC timezone to be appended to the index name after adding '-'
+     * 						(that is, '${index_name}-${indexPattern}').
+     * 						You can customize the index rotation naming pattern by choosing one of these options:
+     * 						- Hourly: 'yyyy-MM-dd-HH' (as an example, it would render: '2022-10-19-09')
+     * 						- Daily: 'yyyy-MM-dd' (as an example, it would render: '2022-10-19')
+     * 						- Weekly: 'yyyy-'W'ww' (as an example, it would render: '2022-W42')
+     * 						- Monthly: 'yyyy-MM' (as an example, it would render: '2022-10')
+     * 						If this field is missing or is blank, it means that the index name will always be the same
+     * 						(that is, no rotation).
+     */
+    indexRotation?: pulumi.Input<string>;
+}
+
+export interface LogsCustomDestinationElasticsearchDestinationBasicAuth {
+    /**
+     * The password of the authentication. This field is not returned by the API.
+     */
+    password: pulumi.Input<string>;
+    /**
+     * The username of the authentication. This field is not returned by the API.
+     */
+    username: pulumi.Input<string>;
+}
+
+export interface LogsCustomDestinationHttpDestination {
+    /**
+     * Basic access authentication.
+     */
+    basicAuth?: pulumi.Input<inputs.LogsCustomDestinationHttpDestinationBasicAuth>;
+    /**
+     * Custom header access authentication.
+     */
+    customHeaderAuth?: pulumi.Input<inputs.LogsCustomDestinationHttpDestinationCustomHeaderAuth>;
+    /**
+     * The destination for which logs will be forwarded to. Must have HTTPS scheme. Forwarding back to Datadog is not allowed.
+     */
+    endpoint: pulumi.Input<string>;
+}
+
+export interface LogsCustomDestinationHttpDestinationBasicAuth {
+    /**
+     * The password of the authentication. This field is not returned by the API.
+     */
+    password: pulumi.Input<string>;
+    /**
+     * The username of the authentication. This field is not returned by the API.
+     */
+    username: pulumi.Input<string>;
+}
+
+export interface LogsCustomDestinationHttpDestinationCustomHeaderAuth {
+    /**
+     * The header name of the authentication.
+     */
+    headerName: pulumi.Input<string>;
+    /**
+     * The header value of the authentication. This field is not returned by the API.
+     */
+    headerValue: pulumi.Input<string>;
+}
+
+export interface LogsCustomDestinationSplunkDestination {
+    /**
+     * Access token of the Splunk HTTP Event Collector. This field is not returned by the API.
+     */
+    accessToken: pulumi.Input<string>;
+    /**
+     * The destination for which logs will be forwarded to. Must have HTTPS scheme. Forwarding back to Datadog is not allowed.
+     */
+    endpoint: pulumi.Input<string>;
+}
+
 export interface LogsCustomPipelineFilter {
     /**
      * Filter criteria of the category.
@@ -21876,7 +21962,7 @@ export interface SyntheticsGlobalVariableParseTestOptions {
     localVariableName?: pulumi.Input<string>;
     parser?: pulumi.Input<inputs.SyntheticsGlobalVariableParseTestOptionsParser>;
     /**
-     * Defines the source to use to extract the value. Valid values are `httpBody`, `httpHeader`, `localVariable`.
+     * Defines the source to use to extract the value. Valid values are `httpBody`, `httpHeader`, `httpStatusCode`, `localVariable`.
      */
     type: pulumi.Input<string>;
 }
@@ -22045,7 +22131,7 @@ export interface SyntheticsTestApiStepAssertionTargetxpath {
 
 export interface SyntheticsTestApiStepExtractedValue {
     /**
-     * When type is `httpHeader`, name of the header to use to extract the value.
+     * When type is `httpHeader` or `grpcMetadata`, name of the header or metadatum to extract.
      */
     field?: pulumi.Input<string>;
     name: pulumi.Input<string>;
@@ -22055,7 +22141,7 @@ export interface SyntheticsTestApiStepExtractedValue {
      */
     secure?: pulumi.Input<boolean>;
     /**
-     * Property of the Synthetics Test Response to use for the variable. Valid values are `httpBody`, `httpHeader`, `localVariable`.
+     * Property of the Synthetics Test Response to use for the variable. Valid values are `grpcMessage`, `grpcMetadata`, `httpBody`, `httpHeader`, `httpStatusCode`.
      */
     type: pulumi.Input<string>;
 }
@@ -22197,7 +22283,7 @@ export interface SyntheticsTestApiStepRequestDefinition {
     /**
      * DNS server port to use for DNS tests.
      */
-    dnsServerPort?: pulumi.Input<number>;
+    dnsServerPort?: pulumi.Input<string>;
     /**
      * Determines whether or not the API HTTP test should follow redirects.
      */
@@ -22237,7 +22323,7 @@ export interface SyntheticsTestApiStepRequestDefinition {
     /**
      * Port to use when performing the test.
      */
-    port?: pulumi.Input<number>;
+    port?: pulumi.Input<string>;
     /**
      * A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
      *
@@ -22850,7 +22936,7 @@ export interface SyntheticsTestRequestDefinition {
     /**
      * DNS server port to use for DNS tests.
      */
-    dnsServerPort?: pulumi.Input<number>;
+    dnsServerPort?: pulumi.Input<string>;
     /**
      * Host name to perform the test with.
      */
@@ -22888,7 +22974,7 @@ export interface SyntheticsTestRequestDefinition {
     /**
      * Port to use when performing the test.
      */
-    port?: pulumi.Input<number>;
+    port?: pulumi.Input<string>;
     /**
      * A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
      *

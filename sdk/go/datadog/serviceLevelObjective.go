@@ -176,7 +176,7 @@ type ServiceLevelObjective struct {
 	Timeframe pulumi.StringOutput `pulumi:"timeframe"`
 	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`, `timeSlice`.
 	Type pulumi.StringOutput `pulumi:"type"`
-	// Whether or not to validate the SLO.
+	// Whether or not to validate the SLO. It checks if monitors added to a monitor SLO already exist.
 	Validate pulumi.BoolPtrOutput `pulumi:"validate"`
 	// The objective's warning value in `(0,100)`. This must be greater than the target value and match the corresponding thresholds of the primary time frame.
 	WarningThreshold pulumi.Float64Output `pulumi:"warningThreshold"`
@@ -245,7 +245,7 @@ type serviceLevelObjectiveState struct {
 	Timeframe *string `pulumi:"timeframe"`
 	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`, `timeSlice`.
 	Type *string `pulumi:"type"`
-	// Whether or not to validate the SLO.
+	// Whether or not to validate the SLO. It checks if monitors added to a monitor SLO already exist.
 	Validate *bool `pulumi:"validate"`
 	// The objective's warning value in `(0,100)`. This must be greater than the target value and match the corresponding thresholds of the primary time frame.
 	WarningThreshold *float64 `pulumi:"warningThreshold"`
@@ -276,7 +276,7 @@ type ServiceLevelObjectiveState struct {
 	Timeframe pulumi.StringPtrInput
 	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`, `timeSlice`.
 	Type pulumi.StringPtrInput
-	// Whether or not to validate the SLO.
+	// Whether or not to validate the SLO. It checks if monitors added to a monitor SLO already exist.
 	Validate pulumi.BoolPtrInput
 	// The objective's warning value in `(0,100)`. This must be greater than the target value and match the corresponding thresholds of the primary time frame.
 	WarningThreshold pulumi.Float64PtrInput
@@ -311,7 +311,7 @@ type serviceLevelObjectiveArgs struct {
 	Timeframe *string `pulumi:"timeframe"`
 	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`, `timeSlice`.
 	Type string `pulumi:"type"`
-	// Whether or not to validate the SLO.
+	// Whether or not to validate the SLO. It checks if monitors added to a monitor SLO already exist.
 	Validate *bool `pulumi:"validate"`
 	// The objective's warning value in `(0,100)`. This must be greater than the target value and match the corresponding thresholds of the primary time frame.
 	WarningThreshold *float64 `pulumi:"warningThreshold"`
@@ -343,7 +343,7 @@ type ServiceLevelObjectiveArgs struct {
 	Timeframe pulumi.StringPtrInput
 	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`, `timeSlice`.
 	Type pulumi.StringInput
-	// Whether or not to validate the SLO.
+	// Whether or not to validate the SLO. It checks if monitors added to a monitor SLO already exist.
 	Validate pulumi.BoolPtrInput
 	// The objective's warning value in `(0,100)`. This must be greater than the target value and match the corresponding thresholds of the primary time frame.
 	WarningThreshold pulumi.Float64PtrInput
@@ -498,7 +498,7 @@ func (o ServiceLevelObjectiveOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceLevelObjective) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
-// Whether or not to validate the SLO.
+// Whether or not to validate the SLO. It checks if monitors added to a monitor SLO already exist.
 func (o ServiceLevelObjectiveOutput) Validate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelObjective) pulumi.BoolPtrOutput { return v.Validate }).(pulumi.BoolPtrOutput)
 }

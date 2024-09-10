@@ -275,6 +275,11 @@ export type LogsArchiveOrder = import("./logsArchiveOrder").LogsArchiveOrder;
 export const LogsArchiveOrder: typeof import("./logsArchiveOrder").LogsArchiveOrder = null as any;
 utilities.lazyLoad(exports, ["LogsArchiveOrder"], () => require("./logsArchiveOrder"));
 
+export { LogsCustomDestinationArgs, LogsCustomDestinationState } from "./logsCustomDestination";
+export type LogsCustomDestination = import("./logsCustomDestination").LogsCustomDestination;
+export const LogsCustomDestination: typeof import("./logsCustomDestination").LogsCustomDestination = null as any;
+utilities.lazyLoad(exports, ["LogsCustomDestination"], () => require("./logsCustomDestination"));
+
 export { LogsCustomPipelineArgs, LogsCustomPipelineState } from "./logsCustomPipeline";
 export type LogsCustomPipeline = import("./logsCustomPipeline").LogsCustomPipeline;
 export const LogsCustomPipeline: typeof import("./logsCustomPipeline").LogsCustomPipeline = null as any;
@@ -425,6 +430,11 @@ export type SloCorrection = import("./sloCorrection").SloCorrection;
 export const SloCorrection: typeof import("./sloCorrection").SloCorrection = null as any;
 utilities.lazyLoad(exports, ["SloCorrection"], () => require("./sloCorrection"));
 
+export { SoftwareCatalogArgs, SoftwareCatalogState } from "./softwareCatalog";
+export type SoftwareCatalog = import("./softwareCatalog").SoftwareCatalog;
+export const SoftwareCatalog: typeof import("./softwareCatalog").SoftwareCatalog = null as any;
+utilities.lazyLoad(exports, ["SoftwareCatalog"], () => require("./softwareCatalog"));
+
 export { SpansMetricArgs, SpansMetricState } from "./spansMetric";
 export type SpansMetric = import("./spansMetric").SpansMetric;
 export const SpansMetric: typeof import("./spansMetric").SpansMetric = null as any;
@@ -556,6 +566,8 @@ const _module = {
                 return new LogsArchive(name, <any>undefined, { urn })
             case "datadog:index/logsArchiveOrder:LogsArchiveOrder":
                 return new LogsArchiveOrder(name, <any>undefined, { urn })
+            case "datadog:index/logsCustomDestination:LogsCustomDestination":
+                return new LogsCustomDestination(name, <any>undefined, { urn })
             case "datadog:index/logsCustomPipeline:LogsCustomPipeline":
                 return new LogsCustomPipeline(name, <any>undefined, { urn })
             case "datadog:index/logsIndex:LogsIndex":
@@ -614,6 +626,8 @@ const _module = {
                 return new ServiceLevelObjective(name, <any>undefined, { urn })
             case "datadog:index/sloCorrection:SloCorrection":
                 return new SloCorrection(name, <any>undefined, { urn })
+            case "datadog:index/softwareCatalog:SoftwareCatalog":
+                return new SoftwareCatalog(name, <any>undefined, { urn })
             case "datadog:index/spansMetric:SpansMetric":
                 return new SpansMetric(name, <any>undefined, { urn })
             case "datadog:index/syntheticsConcurrencyCap:SyntheticsConcurrencyCap":
@@ -662,6 +676,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/downtimeSchedule", _modu
 pulumi.runtime.registerResourceModule("datadog", "index/ipAllowlist", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/logsArchive", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/logsArchiveOrder", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/logsCustomDestination", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/logsCustomPipeline", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/logsIndex", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/logsIndexOrder", _module)
@@ -691,6 +706,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/serviceAccountApplicatio
 pulumi.runtime.registerResourceModule("datadog", "index/serviceDefinitionYaml", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/serviceLevelObjective", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/sloCorrection", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/softwareCatalog", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/spansMetric", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/syntheticsConcurrencyCap", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/syntheticsGlobalVariable", _module)

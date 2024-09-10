@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SyntheticsTestApiStepExtractedValue {
     /**
-     * @return When type is `http_header`, name of the header to use to extract the value.
+     * @return When type is `http_header` or `grpc_metadata`, name of the header or metadatum to extract.
      * 
      */
     private @Nullable String field;
@@ -27,14 +27,14 @@ public final class SyntheticsTestApiStepExtractedValue {
      */
     private @Nullable Boolean secure;
     /**
-     * @return Property of the Synthetics Test Response to use for the variable. Valid values are `http_body`, `http_header`, `local_variable`.
+     * @return Property of the Synthetics Test Response to use for the variable. Valid values are `grpc_message`, `grpc_metadata`, `http_body`, `http_header`, `http_status_code`.
      * 
      */
     private String type;
 
     private SyntheticsTestApiStepExtractedValue() {}
     /**
-     * @return When type is `http_header`, name of the header to use to extract the value.
+     * @return When type is `http_header` or `grpc_metadata`, name of the header or metadatum to extract.
      * 
      */
     public Optional<String> field() {
@@ -54,7 +54,7 @@ public final class SyntheticsTestApiStepExtractedValue {
         return Optional.ofNullable(this.secure);
     }
     /**
-     * @return Property of the Synthetics Test Response to use for the variable. Valid values are `http_body`, `http_header`, `local_variable`.
+     * @return Property of the Synthetics Test Response to use for the variable. Valid values are `grpc_message`, `grpc_metadata`, `http_body`, `http_header`, `http_status_code`.
      * 
      */
     public String type() {

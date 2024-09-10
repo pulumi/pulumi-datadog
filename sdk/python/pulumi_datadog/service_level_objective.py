@@ -44,7 +44,7 @@ class ServiceLevelObjectiveArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
         :param pulumi.Input[float] target_threshold: The objective's target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
         :param pulumi.Input[str] timeframe: The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
-        :param pulumi.Input[bool] validate: Whether or not to validate the SLO.
+        :param pulumi.Input[bool] validate: Whether or not to validate the SLO. It checks if monitors added to a monitor SLO already exist.
         :param pulumi.Input[float] warning_threshold: The objective's warning value in `(0,100)`. This must be greater than the target value and match the corresponding thresholds of the primary time frame.
         """
         pulumi.set(__self__, "name", name)
@@ -221,7 +221,7 @@ class ServiceLevelObjectiveArgs:
     @pulumi.getter
     def validate(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether or not to validate the SLO.
+        Whether or not to validate the SLO. It checks if monitors added to a monitor SLO already exist.
         """
         return pulumi.get(self, "validate")
 
@@ -273,7 +273,7 @@ class _ServiceLevelObjectiveState:
         :param pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveThresholdArgs']]] thresholds: A list of thresholds and targets that define the service level objectives from the provided SLIs.
         :param pulumi.Input[str] timeframe: The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
         :param pulumi.Input[str] type: The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`, `time_slice`.
-        :param pulumi.Input[bool] validate: Whether or not to validate the SLO.
+        :param pulumi.Input[bool] validate: Whether or not to validate the SLO. It checks if monitors added to a monitor SLO already exist.
         :param pulumi.Input[float] warning_threshold: The objective's warning value in `(0,100)`. This must be greater than the target value and match the corresponding thresholds of the primary time frame.
         """
         if description is not None:
@@ -453,7 +453,7 @@ class _ServiceLevelObjectiveState:
     @pulumi.getter
     def validate(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether or not to validate the SLO.
+        Whether or not to validate the SLO. It checks if monitors added to a monitor SLO already exist.
         """
         return pulumi.get(self, "validate")
 
@@ -619,7 +619,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceLevelObjectiveThresholdArgs', 'ServiceLevelObjectiveThresholdArgsDict']]]] thresholds: A list of thresholds and targets that define the service level objectives from the provided SLIs.
         :param pulumi.Input[str] timeframe: The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
         :param pulumi.Input[str] type: The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`, `time_slice`.
-        :param pulumi.Input[bool] validate: Whether or not to validate the SLO.
+        :param pulumi.Input[bool] validate: Whether or not to validate the SLO. It checks if monitors added to a monitor SLO already exist.
         :param pulumi.Input[float] warning_threshold: The objective's warning value in `(0,100)`. This must be greater than the target value and match the corresponding thresholds of the primary time frame.
         """
         ...
@@ -840,7 +840,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceLevelObjectiveThresholdArgs', 'ServiceLevelObjectiveThresholdArgsDict']]]] thresholds: A list of thresholds and targets that define the service level objectives from the provided SLIs.
         :param pulumi.Input[str] timeframe: The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
         :param pulumi.Input[str] type: The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`, `time_slice`.
-        :param pulumi.Input[bool] validate: Whether or not to validate the SLO.
+        :param pulumi.Input[bool] validate: Whether or not to validate the SLO. It checks if monitors added to a monitor SLO already exist.
         :param pulumi.Input[float] warning_threshold: The objective's warning value in `(0,100)`. This must be greater than the target value and match the corresponding thresholds of the primary time frame.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -963,7 +963,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
     @pulumi.getter
     def validate(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether or not to validate the SLO.
+        Whether or not to validate the SLO. It checks if monitors added to a monitor SLO already exist.
         """
         return pulumi.get(self, "validate")
 

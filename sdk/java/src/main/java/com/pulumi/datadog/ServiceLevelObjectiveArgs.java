@@ -204,14 +204,14 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Whether or not to validate the SLO.
+     * Whether or not to validate the SLO. It checks if monitors added to a monitor SLO already exist.
      * 
      */
     @Import(name="validate")
     private @Nullable Output<Boolean> validate;
 
     /**
-     * @return Whether or not to validate the SLO.
+     * @return Whether or not to validate the SLO. It checks if monitors added to a monitor SLO already exist.
      * 
      */
     public Optional<Output<Boolean>> validate() {
@@ -563,7 +563,7 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param validate Whether or not to validate the SLO.
+         * @param validate Whether or not to validate the SLO. It checks if monitors added to a monitor SLO already exist.
          * 
          * @return builder
          * 
@@ -574,7 +574,7 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param validate Whether or not to validate the SLO.
+         * @param validate Whether or not to validate the SLO. It checks if monitors added to a monitor SLO already exist.
          * 
          * @return builder
          * 

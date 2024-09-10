@@ -19,14 +19,14 @@ public final class SyntheticsTestApiStepExtractedValueArgs extends com.pulumi.re
     public static final SyntheticsTestApiStepExtractedValueArgs Empty = new SyntheticsTestApiStepExtractedValueArgs();
 
     /**
-     * When type is `http_header`, name of the header to use to extract the value.
+     * When type is `http_header` or `grpc_metadata`, name of the header or metadatum to extract.
      * 
      */
     @Import(name="field")
     private @Nullable Output<String> field;
 
     /**
-     * @return When type is `http_header`, name of the header to use to extract the value.
+     * @return When type is `http_header` or `grpc_metadata`, name of the header or metadatum to extract.
      * 
      */
     public Optional<Output<String>> field() {
@@ -63,14 +63,14 @@ public final class SyntheticsTestApiStepExtractedValueArgs extends com.pulumi.re
     }
 
     /**
-     * Property of the Synthetics Test Response to use for the variable. Valid values are `http_body`, `http_header`, `local_variable`.
+     * Property of the Synthetics Test Response to use for the variable. Valid values are `grpc_message`, `grpc_metadata`, `http_body`, `http_header`, `http_status_code`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Property of the Synthetics Test Response to use for the variable. Valid values are `http_body`, `http_header`, `local_variable`.
+     * @return Property of the Synthetics Test Response to use for the variable. Valid values are `grpc_message`, `grpc_metadata`, `http_body`, `http_header`, `http_status_code`.
      * 
      */
     public Output<String> type() {
@@ -106,7 +106,7 @@ public final class SyntheticsTestApiStepExtractedValueArgs extends com.pulumi.re
         }
 
         /**
-         * @param field When type is `http_header`, name of the header to use to extract the value.
+         * @param field When type is `http_header` or `grpc_metadata`, name of the header or metadatum to extract.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class SyntheticsTestApiStepExtractedValueArgs extends com.pulumi.re
         }
 
         /**
-         * @param field When type is `http_header`, name of the header to use to extract the value.
+         * @param field When type is `http_header` or `grpc_metadata`, name of the header or metadatum to extract.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class SyntheticsTestApiStepExtractedValueArgs extends com.pulumi.re
         }
 
         /**
-         * @param type Property of the Synthetics Test Response to use for the variable. Valid values are `http_body`, `http_header`, `local_variable`.
+         * @param type Property of the Synthetics Test Response to use for the variable. Valid values are `grpc_message`, `grpc_metadata`, `http_body`, `http_header`, `http_status_code`.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class SyntheticsTestApiStepExtractedValueArgs extends com.pulumi.re
         }
 
         /**
-         * @param type Property of the Synthetics Test Response to use for the variable. Valid values are `http_body`, `http_header`, `local_variable`.
+         * @param type Property of the Synthetics Test Response to use for the variable. Valid values are `grpc_message`, `grpc_metadata`, `http_body`, `http_header`, `http_status_code`.
          * 
          * @return builder
          * 

@@ -48,7 +48,7 @@ public final class SyntheticsTestApiStepRequestDefinition {
      * @return DNS server port to use for DNS tests.
      * 
      */
-    private @Nullable Integer dnsServerPort;
+    private @Nullable String dnsServerPort;
     /**
      * @return Determines whether or not the API HTTP test should follow redirects.
      * 
@@ -98,7 +98,7 @@ public final class SyntheticsTestApiStepRequestDefinition {
      * @return Port to use when performing the test.
      * 
      */
-    private @Nullable Integer port;
+    private @Nullable String port;
     /**
      * @return A protobuf JSON descriptor. **Deprecated.** Use `plain_proto_file` instead.
      * 
@@ -181,7 +181,7 @@ public final class SyntheticsTestApiStepRequestDefinition {
      * @return DNS server port to use for DNS tests.
      * 
      */
-    public Optional<Integer> dnsServerPort() {
+    public Optional<String> dnsServerPort() {
         return Optional.ofNullable(this.dnsServerPort);
     }
     /**
@@ -251,7 +251,7 @@ public final class SyntheticsTestApiStepRequestDefinition {
      * @return Port to use when performing the test.
      * 
      */
-    public Optional<Integer> port() {
+    public Optional<String> port() {
         return Optional.ofNullable(this.port);
     }
     /**
@@ -316,7 +316,7 @@ public final class SyntheticsTestApiStepRequestDefinition {
         private @Nullable String callType;
         private @Nullable List<String> certificateDomains;
         private @Nullable String dnsServer;
-        private @Nullable Integer dnsServerPort;
+        private @Nullable String dnsServerPort;
         private @Nullable Boolean followRedirects;
         private @Nullable String host;
         private @Nullable String httpVersion;
@@ -326,7 +326,7 @@ public final class SyntheticsTestApiStepRequestDefinition {
         private @Nullable Integer numberOfPackets;
         private @Nullable Boolean persistCookies;
         private @Nullable String plainProtoFile;
-        private @Nullable Integer port;
+        private @Nullable String port;
         private @Nullable String protoJsonDescriptor;
         private @Nullable String servername;
         private @Nullable String service;
@@ -401,7 +401,7 @@ public final class SyntheticsTestApiStepRequestDefinition {
             return this;
         }
         @CustomType.Setter
-        public Builder dnsServerPort(@Nullable Integer dnsServerPort) {
+        public Builder dnsServerPort(@Nullable String dnsServerPort) {
 
             this.dnsServerPort = dnsServerPort;
             return this;
@@ -461,7 +461,7 @@ public final class SyntheticsTestApiStepRequestDefinition {
             return this;
         }
         @CustomType.Setter
-        public Builder port(@Nullable Integer port) {
+        public Builder port(@Nullable String port) {
 
             this.port = port;
             return this;

@@ -368,6 +368,12 @@ __all__ = [
     'LogsArchiveAzureArchiveArgs',
     'LogsArchiveGcsArchiveArgs',
     'LogsArchiveS3ArchiveArgs',
+    'LogsCustomDestinationElasticsearchDestinationArgs',
+    'LogsCustomDestinationElasticsearchDestinationBasicAuthArgs',
+    'LogsCustomDestinationHttpDestinationArgs',
+    'LogsCustomDestinationHttpDestinationBasicAuthArgs',
+    'LogsCustomDestinationHttpDestinationCustomHeaderAuthArgs',
+    'LogsCustomDestinationSplunkDestinationArgs',
     'LogsCustomPipelineFilterArgs',
     'LogsCustomPipelineProcessorArgs',
     'LogsCustomPipelineProcessorArithmeticProcessorArgs',
@@ -33159,6 +33165,292 @@ class LogsArchiveS3ArchiveArgs:
     @path.setter
     def path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "path", value)
+
+
+@pulumi.input_type
+class LogsCustomDestinationElasticsearchDestinationArgs:
+    def __init__(__self__, *,
+                 basic_auth: pulumi.Input['LogsCustomDestinationElasticsearchDestinationBasicAuthArgs'],
+                 endpoint: pulumi.Input[str],
+                 index_name: pulumi.Input[str],
+                 index_rotation: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['LogsCustomDestinationElasticsearchDestinationBasicAuthArgs'] basic_auth: Basic access authentication.
+        :param pulumi.Input[str] endpoint: The destination for which logs will be forwarded to. Must have HTTPS scheme. Forwarding back to Datadog is not allowed.
+        :param pulumi.Input[str] index_name: Name of the Elasticsearch index (must follow [Elasticsearch's criteria](https://www.elastic.co/guide/en/elasticsearch/reference/8.11/indices-create-index.html#indices-create-api-path-params)).
+        :param pulumi.Input[str] index_rotation: Date pattern with US locale and UTC timezone to be appended to the index name after adding '-'
+               						(that is, '${index_name}-${indexPattern}').
+               						You can customize the index rotation naming pattern by choosing one of these options:
+               						- Hourly: 'yyyy-MM-dd-HH' (as an example, it would render: '2022-10-19-09')
+               						- Daily: 'yyyy-MM-dd' (as an example, it would render: '2022-10-19')
+               						- Weekly: 'yyyy-'W'ww' (as an example, it would render: '2022-W42')
+               						- Monthly: 'yyyy-MM' (as an example, it would render: '2022-10')
+               						If this field is missing or is blank, it means that the index name will always be the same
+               						(that is, no rotation).
+        """
+        pulumi.set(__self__, "basic_auth", basic_auth)
+        pulumi.set(__self__, "endpoint", endpoint)
+        pulumi.set(__self__, "index_name", index_name)
+        if index_rotation is not None:
+            pulumi.set(__self__, "index_rotation", index_rotation)
+
+    @property
+    @pulumi.getter(name="basicAuth")
+    def basic_auth(self) -> pulumi.Input['LogsCustomDestinationElasticsearchDestinationBasicAuthArgs']:
+        """
+        Basic access authentication.
+        """
+        return pulumi.get(self, "basic_auth")
+
+    @basic_auth.setter
+    def basic_auth(self, value: pulumi.Input['LogsCustomDestinationElasticsearchDestinationBasicAuthArgs']):
+        pulumi.set(self, "basic_auth", value)
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> pulumi.Input[str]:
+        """
+        The destination for which logs will be forwarded to. Must have HTTPS scheme. Forwarding back to Datadog is not allowed.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @endpoint.setter
+    def endpoint(self, value: pulumi.Input[str]):
+        pulumi.set(self, "endpoint", value)
+
+    @property
+    @pulumi.getter(name="indexName")
+    def index_name(self) -> pulumi.Input[str]:
+        """
+        Name of the Elasticsearch index (must follow [Elasticsearch's criteria](https://www.elastic.co/guide/en/elasticsearch/reference/8.11/indices-create-index.html#indices-create-api-path-params)).
+        """
+        return pulumi.get(self, "index_name")
+
+    @index_name.setter
+    def index_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "index_name", value)
+
+    @property
+    @pulumi.getter(name="indexRotation")
+    def index_rotation(self) -> Optional[pulumi.Input[str]]:
+        """
+        Date pattern with US locale and UTC timezone to be appended to the index name after adding '-'
+        						(that is, '${index_name}-${indexPattern}').
+        						You can customize the index rotation naming pattern by choosing one of these options:
+        						- Hourly: 'yyyy-MM-dd-HH' (as an example, it would render: '2022-10-19-09')
+        						- Daily: 'yyyy-MM-dd' (as an example, it would render: '2022-10-19')
+        						- Weekly: 'yyyy-'W'ww' (as an example, it would render: '2022-W42')
+        						- Monthly: 'yyyy-MM' (as an example, it would render: '2022-10')
+        						If this field is missing or is blank, it means that the index name will always be the same
+        						(that is, no rotation).
+        """
+        return pulumi.get(self, "index_rotation")
+
+    @index_rotation.setter
+    def index_rotation(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "index_rotation", value)
+
+
+@pulumi.input_type
+class LogsCustomDestinationElasticsearchDestinationBasicAuthArgs:
+    def __init__(__self__, *,
+                 password: pulumi.Input[str],
+                 username: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] password: The password of the authentication. This field is not returned by the API.
+        :param pulumi.Input[str] username: The username of the authentication. This field is not returned by the API.
+        """
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def password(self) -> pulumi.Input[str]:
+        """
+        The password of the authentication. This field is not returned by the API.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: pulumi.Input[str]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> pulumi.Input[str]:
+        """
+        The username of the authentication. This field is not returned by the API.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: pulumi.Input[str]):
+        pulumi.set(self, "username", value)
+
+
+@pulumi.input_type
+class LogsCustomDestinationHttpDestinationArgs:
+    def __init__(__self__, *,
+                 endpoint: pulumi.Input[str],
+                 basic_auth: Optional[pulumi.Input['LogsCustomDestinationHttpDestinationBasicAuthArgs']] = None,
+                 custom_header_auth: Optional[pulumi.Input['LogsCustomDestinationHttpDestinationCustomHeaderAuthArgs']] = None):
+        """
+        :param pulumi.Input[str] endpoint: The destination for which logs will be forwarded to. Must have HTTPS scheme. Forwarding back to Datadog is not allowed.
+        :param pulumi.Input['LogsCustomDestinationHttpDestinationBasicAuthArgs'] basic_auth: Basic access authentication.
+        :param pulumi.Input['LogsCustomDestinationHttpDestinationCustomHeaderAuthArgs'] custom_header_auth: Custom header access authentication.
+        """
+        pulumi.set(__self__, "endpoint", endpoint)
+        if basic_auth is not None:
+            pulumi.set(__self__, "basic_auth", basic_auth)
+        if custom_header_auth is not None:
+            pulumi.set(__self__, "custom_header_auth", custom_header_auth)
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> pulumi.Input[str]:
+        """
+        The destination for which logs will be forwarded to. Must have HTTPS scheme. Forwarding back to Datadog is not allowed.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @endpoint.setter
+    def endpoint(self, value: pulumi.Input[str]):
+        pulumi.set(self, "endpoint", value)
+
+    @property
+    @pulumi.getter(name="basicAuth")
+    def basic_auth(self) -> Optional[pulumi.Input['LogsCustomDestinationHttpDestinationBasicAuthArgs']]:
+        """
+        Basic access authentication.
+        """
+        return pulumi.get(self, "basic_auth")
+
+    @basic_auth.setter
+    def basic_auth(self, value: Optional[pulumi.Input['LogsCustomDestinationHttpDestinationBasicAuthArgs']]):
+        pulumi.set(self, "basic_auth", value)
+
+    @property
+    @pulumi.getter(name="customHeaderAuth")
+    def custom_header_auth(self) -> Optional[pulumi.Input['LogsCustomDestinationHttpDestinationCustomHeaderAuthArgs']]:
+        """
+        Custom header access authentication.
+        """
+        return pulumi.get(self, "custom_header_auth")
+
+    @custom_header_auth.setter
+    def custom_header_auth(self, value: Optional[pulumi.Input['LogsCustomDestinationHttpDestinationCustomHeaderAuthArgs']]):
+        pulumi.set(self, "custom_header_auth", value)
+
+
+@pulumi.input_type
+class LogsCustomDestinationHttpDestinationBasicAuthArgs:
+    def __init__(__self__, *,
+                 password: pulumi.Input[str],
+                 username: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] password: The password of the authentication. This field is not returned by the API.
+        :param pulumi.Input[str] username: The username of the authentication. This field is not returned by the API.
+        """
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def password(self) -> pulumi.Input[str]:
+        """
+        The password of the authentication. This field is not returned by the API.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: pulumi.Input[str]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> pulumi.Input[str]:
+        """
+        The username of the authentication. This field is not returned by the API.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: pulumi.Input[str]):
+        pulumi.set(self, "username", value)
+
+
+@pulumi.input_type
+class LogsCustomDestinationHttpDestinationCustomHeaderAuthArgs:
+    def __init__(__self__, *,
+                 header_name: pulumi.Input[str],
+                 header_value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] header_name: The header name of the authentication.
+        :param pulumi.Input[str] header_value: The header value of the authentication. This field is not returned by the API.
+        """
+        pulumi.set(__self__, "header_name", header_name)
+        pulumi.set(__self__, "header_value", header_value)
+
+    @property
+    @pulumi.getter(name="headerName")
+    def header_name(self) -> pulumi.Input[str]:
+        """
+        The header name of the authentication.
+        """
+        return pulumi.get(self, "header_name")
+
+    @header_name.setter
+    def header_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "header_name", value)
+
+    @property
+    @pulumi.getter(name="headerValue")
+    def header_value(self) -> pulumi.Input[str]:
+        """
+        The header value of the authentication. This field is not returned by the API.
+        """
+        return pulumi.get(self, "header_value")
+
+    @header_value.setter
+    def header_value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "header_value", value)
+
+
+@pulumi.input_type
+class LogsCustomDestinationSplunkDestinationArgs:
+    def __init__(__self__, *,
+                 access_token: pulumi.Input[str],
+                 endpoint: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] access_token: Access token of the Splunk HTTP Event Collector. This field is not returned by the API.
+        :param pulumi.Input[str] endpoint: The destination for which logs will be forwarded to. Must have HTTPS scheme. Forwarding back to Datadog is not allowed.
+        """
+        pulumi.set(__self__, "access_token", access_token)
+        pulumi.set(__self__, "endpoint", endpoint)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> pulumi.Input[str]:
+        """
+        Access token of the Splunk HTTP Event Collector. This field is not returned by the API.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: pulumi.Input[str]):
+        pulumi.set(self, "access_token", value)
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> pulumi.Input[str]:
+        """
+        The destination for which logs will be forwarded to. Must have HTTPS scheme. Forwarding back to Datadog is not allowed.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @endpoint.setter
+    def endpoint(self, value: pulumi.Input[str]):
+        pulumi.set(self, "endpoint", value)
 
 
 @pulumi.input_type
@@ -82524,7 +82816,7 @@ class SyntheticsGlobalVariableParseTestOptionsArgs:
                  local_variable_name: Optional[pulumi.Input[str]] = None,
                  parser: Optional[pulumi.Input['SyntheticsGlobalVariableParseTestOptionsParserArgs']] = None):
         """
-        :param pulumi.Input[str] type: Defines the source to use to extract the value. Valid values are `http_body`, `http_header`, `local_variable`.
+        :param pulumi.Input[str] type: Defines the source to use to extract the value. Valid values are `http_body`, `http_header`, `http_status_code`, `local_variable`.
         :param pulumi.Input[str] field: Required when type = `http_header`. Defines the header to use to extract the value
         :param pulumi.Input[str] local_variable_name: When type is `local_variable`, name of the local variable to use to extract the value.
         """
@@ -82540,7 +82832,7 @@ class SyntheticsGlobalVariableParseTestOptionsArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Defines the source to use to extract the value. Valid values are `http_body`, `http_header`, `local_variable`.
+        Defines the source to use to extract the value. Valid values are `http_body`, `http_header`, `http_status_code`, `local_variable`.
         """
         return pulumi.get(self, "type")
 
@@ -83203,8 +83495,8 @@ class SyntheticsTestApiStepExtractedValueArgs:
                  field: Optional[pulumi.Input[str]] = None,
                  secure: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] type: Property of the Synthetics Test Response to use for the variable. Valid values are `http_body`, `http_header`, `local_variable`.
-        :param pulumi.Input[str] field: When type is `http_header`, name of the header to use to extract the value.
+        :param pulumi.Input[str] type: Property of the Synthetics Test Response to use for the variable. Valid values are `grpc_message`, `grpc_metadata`, `http_body`, `http_header`, `http_status_code`.
+        :param pulumi.Input[str] field: When type is `http_header` or `grpc_metadata`, name of the header or metadatum to extract.
         :param pulumi.Input[bool] secure: Determines whether or not the extracted value will be obfuscated.
         """
         pulumi.set(__self__, "name", name)
@@ -83237,7 +83529,7 @@ class SyntheticsTestApiStepExtractedValueArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Property of the Synthetics Test Response to use for the variable. Valid values are `http_body`, `http_header`, `local_variable`.
+        Property of the Synthetics Test Response to use for the variable. Valid values are `grpc_message`, `grpc_metadata`, `http_body`, `http_header`, `http_status_code`.
         """
         return pulumi.get(self, "type")
 
@@ -83249,7 +83541,7 @@ class SyntheticsTestApiStepExtractedValueArgs:
     @pulumi.getter
     def field(self) -> Optional[pulumi.Input[str]]:
         """
-        When type is `http_header`, name of the header to use to extract the value.
+        When type is `http_header` or `grpc_metadata`, name of the header or metadatum to extract.
         """
         return pulumi.get(self, "field")
 
@@ -83699,7 +83991,7 @@ class SyntheticsTestApiStepRequestDefinitionArgs:
                  call_type: Optional[pulumi.Input[str]] = None,
                  certificate_domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  dns_server: Optional[pulumi.Input[str]] = None,
-                 dns_server_port: Optional[pulumi.Input[int]] = None,
+                 dns_server_port: Optional[pulumi.Input[str]] = None,
                  follow_redirects: Optional[pulumi.Input[bool]] = None,
                  host: Optional[pulumi.Input[str]] = None,
                  http_version: Optional[pulumi.Input[str]] = None,
@@ -83709,7 +84001,7 @@ class SyntheticsTestApiStepRequestDefinitionArgs:
                  number_of_packets: Optional[pulumi.Input[int]] = None,
                  persist_cookies: Optional[pulumi.Input[bool]] = None,
                  plain_proto_file: Optional[pulumi.Input[str]] = None,
-                 port: Optional[pulumi.Input[int]] = None,
+                 port: Optional[pulumi.Input[str]] = None,
                  proto_json_descriptor: Optional[pulumi.Input[str]] = None,
                  servername: Optional[pulumi.Input[str]] = None,
                  service: Optional[pulumi.Input[str]] = None,
@@ -83723,7 +84015,7 @@ class SyntheticsTestApiStepRequestDefinitionArgs:
         :param pulumi.Input[str] call_type: The type of gRPC call to perform. Valid values are `healthcheck`, `unary`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] certificate_domains: By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `certificate_domains`.
         :param pulumi.Input[str] dns_server: DNS server to use for DNS tests (`subtype = "dns"`).
-        :param pulumi.Input[int] dns_server_port: DNS server port to use for DNS tests.
+        :param pulumi.Input[str] dns_server_port: DNS server port to use for DNS tests.
         :param pulumi.Input[bool] follow_redirects: Determines whether or not the API HTTP test should follow redirects.
         :param pulumi.Input[str] host: Host name to perform the test with.
         :param pulumi.Input[str] http_version: HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `"any"`.
@@ -83733,7 +84025,7 @@ class SyntheticsTestApiStepRequestDefinitionArgs:
         :param pulumi.Input[int] number_of_packets: Number of pings to use per test for ICMP tests (`subtype = "icmp"`) between 0 and 10.
         :param pulumi.Input[bool] persist_cookies: Persist cookies across redirects.
         :param pulumi.Input[str] plain_proto_file: The content of a proto file as a string.
-        :param pulumi.Input[int] port: Port to use when performing the test.
+        :param pulumi.Input[str] port: Port to use when performing the test.
         :param pulumi.Input[str] proto_json_descriptor: A protobuf JSON descriptor. **Deprecated.** Use `plain_proto_file` instead.
         :param pulumi.Input[str] servername: For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
         :param pulumi.Input[str] service: The gRPC service on which you want to perform the gRPC call.
@@ -83865,14 +84157,14 @@ class SyntheticsTestApiStepRequestDefinitionArgs:
 
     @property
     @pulumi.getter(name="dnsServerPort")
-    def dns_server_port(self) -> Optional[pulumi.Input[int]]:
+    def dns_server_port(self) -> Optional[pulumi.Input[str]]:
         """
         DNS server port to use for DNS tests.
         """
         return pulumi.get(self, "dns_server_port")
 
     @dns_server_port.setter
-    def dns_server_port(self, value: Optional[pulumi.Input[int]]):
+    def dns_server_port(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "dns_server_port", value)
 
     @property
@@ -83985,14 +84277,14 @@ class SyntheticsTestApiStepRequestDefinitionArgs:
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[int]]:
+    def port(self) -> Optional[pulumi.Input[str]]:
         """
         Port to use when performing the test.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[int]]):
+    def port(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "port", value)
 
     @property
@@ -86231,7 +86523,7 @@ class SyntheticsTestRequestDefinitionArgs:
                  call_type: Optional[pulumi.Input[str]] = None,
                  certificate_domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  dns_server: Optional[pulumi.Input[str]] = None,
-                 dns_server_port: Optional[pulumi.Input[int]] = None,
+                 dns_server_port: Optional[pulumi.Input[str]] = None,
                  host: Optional[pulumi.Input[str]] = None,
                  http_version: Optional[pulumi.Input[str]] = None,
                  message: Optional[pulumi.Input[str]] = None,
@@ -86240,7 +86532,7 @@ class SyntheticsTestRequestDefinitionArgs:
                  number_of_packets: Optional[pulumi.Input[int]] = None,
                  persist_cookies: Optional[pulumi.Input[bool]] = None,
                  plain_proto_file: Optional[pulumi.Input[str]] = None,
-                 port: Optional[pulumi.Input[int]] = None,
+                 port: Optional[pulumi.Input[str]] = None,
                  proto_json_descriptor: Optional[pulumi.Input[str]] = None,
                  servername: Optional[pulumi.Input[str]] = None,
                  service: Optional[pulumi.Input[str]] = None,
@@ -86253,7 +86545,7 @@ class SyntheticsTestRequestDefinitionArgs:
         :param pulumi.Input[str] call_type: The type of gRPC call to perform. Valid values are `healthcheck`, `unary`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] certificate_domains: By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `certificate_domains`.
         :param pulumi.Input[str] dns_server: DNS server to use for DNS tests (`subtype = "dns"`).
-        :param pulumi.Input[int] dns_server_port: DNS server port to use for DNS tests.
+        :param pulumi.Input[str] dns_server_port: DNS server port to use for DNS tests.
         :param pulumi.Input[str] host: Host name to perform the test with.
         :param pulumi.Input[str] http_version: HTTP version to use for an HTTP request in an API test or step. **Deprecated.** Use `http_version` in the `options_list` field instead.
         :param pulumi.Input[str] message: For UDP and websocket tests, message to send with the request.
@@ -86262,7 +86554,7 @@ class SyntheticsTestRequestDefinitionArgs:
         :param pulumi.Input[int] number_of_packets: Number of pings to use per test for ICMP tests (`subtype = "icmp"`) between 0 and 10.
         :param pulumi.Input[bool] persist_cookies: Persist cookies across redirects.
         :param pulumi.Input[str] plain_proto_file: The content of a proto file as a string.
-        :param pulumi.Input[int] port: Port to use when performing the test.
+        :param pulumi.Input[str] port: Port to use when performing the test.
         :param pulumi.Input[str] proto_json_descriptor: A protobuf JSON descriptor. **Deprecated.** Use `plain_proto_file` instead.
         :param pulumi.Input[str] servername: For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
         :param pulumi.Input[str] service: The gRPC service on which you want to perform the gRPC call.
@@ -86381,14 +86673,14 @@ class SyntheticsTestRequestDefinitionArgs:
 
     @property
     @pulumi.getter(name="dnsServerPort")
-    def dns_server_port(self) -> Optional[pulumi.Input[int]]:
+    def dns_server_port(self) -> Optional[pulumi.Input[str]]:
         """
         DNS server port to use for DNS tests.
         """
         return pulumi.get(self, "dns_server_port")
 
     @dns_server_port.setter
-    def dns_server_port(self, value: Optional[pulumi.Input[int]]):
+    def dns_server_port(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "dns_server_port", value)
 
     @property
@@ -86490,14 +86782,14 @@ class SyntheticsTestRequestDefinitionArgs:
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[int]]:
+    def port(self) -> Optional[pulumi.Input[str]]:
         """
         Port to use when performing the test.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[int]]):
+    def port(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "port", value)
 
     @property

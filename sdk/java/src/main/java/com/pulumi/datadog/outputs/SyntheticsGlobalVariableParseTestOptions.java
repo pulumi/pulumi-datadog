@@ -25,7 +25,7 @@ public final class SyntheticsGlobalVariableParseTestOptions {
     private @Nullable String localVariableName;
     private @Nullable SyntheticsGlobalVariableParseTestOptionsParser parser;
     /**
-     * @return Defines the source to use to extract the value. Valid values are `http_body`, `http_header`, `local_variable`.
+     * @return Defines the source to use to extract the value. Valid values are `http_body`, `http_header`, `http_status_code`, `local_variable`.
      * 
      */
     private String type;
@@ -49,7 +49,7 @@ public final class SyntheticsGlobalVariableParseTestOptions {
         return Optional.ofNullable(this.parser);
     }
     /**
-     * @return Defines the source to use to extract the value. Valid values are `http_body`, `http_header`, `local_variable`.
+     * @return Defines the source to use to extract the value. Valid values are `http_body`, `http_header`, `http_status_code`, `local_variable`.
      * 
      */
     public String type() {

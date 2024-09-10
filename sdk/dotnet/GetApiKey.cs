@@ -12,7 +12,7 @@ namespace Pulumi.Datadog
     public static class GetApiKey
     {
         /// <summary>
-        /// Use this data source to retrieve information about an existing api key.
+        /// Use this data source to retrieve information about an existing api key. Deprecated. This will be removed in a future release with prior notice. Securely store your API keys using a secret management system or use the datadog.ApiKey resource to manage API keys in your Datadog account.
         /// 
         /// ## Example Usage
         /// 
@@ -36,7 +36,7 @@ namespace Pulumi.Datadog
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiKeyResult>("datadog:index/getApiKey:getApiKey", args ?? new GetApiKeyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to retrieve information about an existing api key.
+        /// Use this data source to retrieve information about an existing api key. Deprecated. This will be removed in a future release with prior notice. Securely store your API keys using a secret management system or use the datadog.ApiKey resource to manage API keys in your Datadog account.
         /// 
         /// ## Example Usage
         /// 

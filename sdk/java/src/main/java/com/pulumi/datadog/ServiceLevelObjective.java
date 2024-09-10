@@ -333,14 +333,14 @@ public class ServiceLevelObjective extends com.pulumi.resources.CustomResource {
         return this.type;
     }
     /**
-     * Whether or not to validate the SLO.
+     * Whether or not to validate the SLO. It checks if monitors added to a monitor SLO already exist.
      * 
      */
     @Export(name="validate", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> validate;
 
     /**
-     * @return Whether or not to validate the SLO.
+     * @return Whether or not to validate the SLO. It checks if monitors added to a monitor SLO already exist.
      * 
      */
     public Output<Optional<Boolean>> validate() {
