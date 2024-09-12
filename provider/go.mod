@@ -1,8 +1,8 @@
 module github.com/pulumi/pulumi-datadog/provider/v4
 
-go 1.22
+go 1.23
 
-toolchain go1.22.7
+toolchain go1.23.1
 
 require (
 	github.com/pulumi/providertest v0.0.14
@@ -40,7 +40,7 @@ require (
 	github.com/Azure/azure-sdk-for-go/sdk/keyvault/internal v0.7.1 // indirect
 	github.com/AzureAD/microsoft-authentication-library-for-go v1.2.2 // indirect
 	github.com/BurntSushi/toml v1.2.1 // indirect
-	github.com/DataDog/datadog-api-client-go/v2 v2.30.0 // indirect
+	github.com/DataDog/datadog-api-client-go/v2 v2.30.1-0.20240911195025-92128b15dc8c // indirect
 	github.com/DataDog/zstd v1.5.2 // indirect
 	github.com/Masterminds/goutils v1.1.1 // indirect
 	github.com/Masterminds/semver v1.5.0 // indirect
