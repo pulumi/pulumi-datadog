@@ -22,7 +22,6 @@ import * as utilities from "./utilities";
  */
 export function getServiceLevelObjectives(args?: GetServiceLevelObjectivesArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceLevelObjectivesResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getServiceLevelObjectives:getServiceLevelObjectives", {
         "errorOnEmptyResult": args.errorOnEmptyResult,
@@ -116,7 +115,16 @@ export interface GetServiceLevelObjectivesResult {
  * ```
  */
 export function getServiceLevelObjectivesOutput(args?: GetServiceLevelObjectivesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceLevelObjectivesResult> {
-    return pulumi.output(args).apply((a: any) => getServiceLevelObjectives(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("datadog:index/getServiceLevelObjectives:getServiceLevelObjectives", {
+        "errorOnEmptyResult": args.errorOnEmptyResult,
+        "ids": args.ids,
+        "metricsQuery": args.metricsQuery,
+        "nameQuery": args.nameQuery,
+        "query": args.query,
+        "tagsQuery": args.tagsQuery,
+    }, opts);
 }
 
 /**

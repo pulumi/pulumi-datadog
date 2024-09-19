@@ -23,7 +23,6 @@ import * as utilities from "./utilities";
  */
 export function getMonitor(args?: GetMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitorResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getMonitor:getMonitor", {
         "monitorTagsFilters": args.monitorTagsFilters,
@@ -204,7 +203,13 @@ export interface GetMonitorResult {
  * ```
  */
 export function getMonitorOutput(args?: GetMonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitorResult> {
-    return pulumi.output(args).apply((a: any) => getMonitor(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("datadog:index/getMonitor:getMonitor", {
+        "monitorTagsFilters": args.monitorTagsFilters,
+        "nameFilter": args.nameFilter,
+        "tagsFilters": args.tagsFilters,
+    }, opts);
 }
 
 /**

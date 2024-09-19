@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getMonitorConfigPolicies(opts?: pulumi.InvokeOptions): Promise<GetMonitorConfigPoliciesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getMonitorConfigPolicies:getMonitorConfigPolicies", {
     }, opts);
@@ -51,5 +50,7 @@ export interface GetMonitorConfigPoliciesResult {
  * ```
  */
 export function getMonitorConfigPoliciesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitorConfigPoliciesResult> {
-    return pulumi.output(getMonitorConfigPolicies(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("datadog:index/getMonitorConfigPolicies:getMonitorConfigPolicies", {
+    }, opts);
 }

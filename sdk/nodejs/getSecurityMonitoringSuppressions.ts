@@ -10,7 +10,6 @@ import * as utilities from "./utilities";
  * Use this data source to retrieve information about existing suppression rules, and use them in other resources.
  */
 export function getSecurityMonitoringSuppressions(opts?: pulumi.InvokeOptions): Promise<GetSecurityMonitoringSuppressionsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getSecurityMonitoringSuppressions:getSecurityMonitoringSuppressions", {
     }, opts);
@@ -37,5 +36,7 @@ export interface GetSecurityMonitoringSuppressionsResult {
  * Use this data source to retrieve information about existing suppression rules, and use them in other resources.
  */
 export function getSecurityMonitoringSuppressionsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityMonitoringSuppressionsResult> {
-    return pulumi.output(getSecurityMonitoringSuppressions(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("datadog:index/getSecurityMonitoringSuppressions:getSecurityMonitoringSuppressions", {
+    }, opts);
 }

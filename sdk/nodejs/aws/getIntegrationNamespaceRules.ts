@@ -17,7 +17,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getIntegrationNamespaceRules(opts?: pulumi.InvokeOptions): Promise<GetIntegrationNamespaceRulesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:aws/getIntegrationNamespaceRules:getIntegrationNamespaceRules", {
     }, opts);
@@ -49,5 +48,7 @@ export interface GetIntegrationNamespaceRulesResult {
  * ```
  */
 export function getIntegrationNamespaceRulesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationNamespaceRulesResult> {
-    return pulumi.output(getIntegrationNamespaceRules(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("datadog:aws/getIntegrationNamespaceRules:getIntegrationNamespaceRules", {
+    }, opts);
 }

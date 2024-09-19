@@ -10,7 +10,6 @@ import * as utilities from "../utilities";
  * Use this data source to retrieve all AWS log ready services.
  */
 export function getIntegrationLogsServices(opts?: pulumi.InvokeOptions): Promise<GetIntegrationLogsServicesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:aws/getIntegrationLogsServices:getIntegrationLogsServices", {
     }, opts);
@@ -33,5 +32,7 @@ export interface GetIntegrationLogsServicesResult {
  * Use this data source to retrieve all AWS log ready services.
  */
 export function getIntegrationLogsServicesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationLogsServicesResult> {
-    return pulumi.output(getIntegrationLogsServices(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("datadog:aws/getIntegrationLogsServices:getIntegrationLogsServices", {
+    }, opts);
 }

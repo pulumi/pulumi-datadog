@@ -8,7 +8,6 @@ import * as utilities from "./utilities";
  * Use this data source to retrieve Datadog's Synthetics Locations (to be used in Synthetics tests).
  */
 export function getSyntheticsLocations(opts?: pulumi.InvokeOptions): Promise<GetSyntheticsLocationsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getSyntheticsLocations:getSyntheticsLocations", {
     }, opts);
@@ -31,5 +30,7 @@ export interface GetSyntheticsLocationsResult {
  * Use this data source to retrieve Datadog's Synthetics Locations (to be used in Synthetics tests).
  */
 export function getSyntheticsLocationsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetSyntheticsLocationsResult> {
-    return pulumi.output(getSyntheticsLocations(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("datadog:index/getSyntheticsLocations:getSyntheticsLocations", {
+    }, opts);
 }

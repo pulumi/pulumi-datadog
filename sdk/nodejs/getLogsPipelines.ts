@@ -26,7 +26,6 @@ import * as utilities from "./utilities";
  */
 export function getLogsPipelines(args?: GetLogsPipelinesArgs, opts?: pulumi.InvokeOptions): Promise<GetLogsPipelinesResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getLogsPipelines:getLogsPipelines", {
         "isReadOnly": args.isReadOnly,
@@ -79,7 +78,11 @@ export interface GetLogsPipelinesResult {
  * ```
  */
 export function getLogsPipelinesOutput(args?: GetLogsPipelinesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogsPipelinesResult> {
-    return pulumi.output(args).apply((a: any) => getLogsPipelines(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("datadog:index/getLogsPipelines:getLogsPipelines", {
+        "isReadOnly": args.isReadOnly,
+    }, opts);
 }
 
 /**

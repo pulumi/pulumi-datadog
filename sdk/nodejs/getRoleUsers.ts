@@ -10,7 +10,6 @@ import * as utilities from "./utilities";
  * Use this data source to retrieve information about existing Datadog role users assignments. This data source is in beta and is subject to change.
  */
 export function getRoleUsers(args: GetRoleUsersArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleUsersResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getRoleUsers:getRoleUsers", {
         "exactMatch": args.exactMatch,
@@ -66,7 +65,12 @@ export interface GetRoleUsersResult {
  * Use this data source to retrieve information about existing Datadog role users assignments. This data source is in beta and is subject to change.
  */
 export function getRoleUsersOutput(args: GetRoleUsersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleUsersResult> {
-    return pulumi.output(args).apply((a: any) => getRoleUsers(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("datadog:index/getRoleUsers:getRoleUsers", {
+        "exactMatch": args.exactMatch,
+        "filter": args.filter,
+        "roleId": args.roleId,
+    }, opts);
 }
 
 /**

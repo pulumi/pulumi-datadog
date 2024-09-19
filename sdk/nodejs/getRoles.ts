@@ -22,7 +22,6 @@ import * as utilities from "./utilities";
  */
 export function getRoles(args?: GetRolesArgs, opts?: pulumi.InvokeOptions): Promise<GetRolesResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getRoles:getRoles", {
         "filter": args.filter,
@@ -71,7 +70,11 @@ export interface GetRolesResult {
  * ```
  */
 export function getRolesOutput(args?: GetRolesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRolesResult> {
-    return pulumi.output(args).apply((a: any) => getRoles(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("datadog:index/getRoles:getRoles", {
+        "filter": args.filter,
+    }, opts);
 }
 
 /**

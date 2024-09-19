@@ -8,7 +8,6 @@ import * as utilities from "./utilities";
  * Use this data source to retrieve a Datadog Synthetic Test.
  */
 export function getSyntheticsTest(args: GetSyntheticsTestArgs, opts?: pulumi.InvokeOptions): Promise<GetSyntheticsTestResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getSyntheticsTest:getSyntheticsTest", {
         "testId": args.testId,
@@ -54,7 +53,10 @@ export interface GetSyntheticsTestResult {
  * Use this data source to retrieve a Datadog Synthetic Test.
  */
 export function getSyntheticsTestOutput(args: GetSyntheticsTestOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyntheticsTestResult> {
-    return pulumi.output(args).apply((a: any) => getSyntheticsTest(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("datadog:index/getSyntheticsTest:getSyntheticsTest", {
+        "testId": args.testId,
+    }, opts);
 }
 
 /**

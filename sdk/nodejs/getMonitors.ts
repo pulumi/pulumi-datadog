@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  */
 export function getMonitors(args?: GetMonitorsArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitorsResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getMonitors:getMonitors", {
         "monitorTagsFilters": args.monitorTagsFilters,
@@ -67,7 +66,13 @@ export interface GetMonitorsResult {
  * Use this data source to list several existing monitors for use in other resources.
  */
 export function getMonitorsOutput(args?: GetMonitorsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitorsResult> {
-    return pulumi.output(args).apply((a: any) => getMonitors(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("datadog:index/getMonitors:getMonitors", {
+        "monitorTagsFilters": args.monitorTagsFilters,
+        "nameFilter": args.nameFilter,
+        "tagsFilters": args.tagsFilters,
+    }, opts);
 }
 
 /**

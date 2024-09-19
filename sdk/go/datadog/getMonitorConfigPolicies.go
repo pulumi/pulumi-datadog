@@ -55,13 +55,19 @@ type GetMonitorConfigPoliciesResult struct {
 }
 
 func GetMonitorConfigPoliciesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetMonitorConfigPoliciesResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetMonitorConfigPoliciesResult, error) {
-		r, err := GetMonitorConfigPolicies(ctx, opts...)
-		var s GetMonitorConfigPoliciesResult
-		if r != nil {
-			s = *r
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetMonitorConfigPoliciesResultOutput, error) {
+		opts = internal.PkgInvokeDefaultOpts(opts)
+		var rv GetMonitorConfigPoliciesResult
+		secret, err := ctx.InvokePackageRaw("datadog:index/getMonitorConfigPolicies:getMonitorConfigPolicies", nil, &rv, "", opts...)
+		if err != nil {
+			return GetMonitorConfigPoliciesResultOutput{}, err
 		}
-		return s, err
+
+		output := pulumi.ToOutput(rv).(GetMonitorConfigPoliciesResultOutput)
+		if secret {
+			return pulumi.ToSecret(output).(GetMonitorConfigPoliciesResultOutput), nil
+		}
+		return output, nil
 	}).(GetMonitorConfigPoliciesResultOutput)
 }
 

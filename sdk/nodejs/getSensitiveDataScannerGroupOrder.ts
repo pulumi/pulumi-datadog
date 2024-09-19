@@ -18,7 +18,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getSensitiveDataScannerGroupOrder(opts?: pulumi.InvokeOptions): Promise<GetSensitiveDataScannerGroupOrderResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getSensitiveDataScannerGroupOrder:getSensitiveDataScannerGroupOrder", {
     }, opts);
@@ -51,5 +50,7 @@ export interface GetSensitiveDataScannerGroupOrderResult {
  * ```
  */
 export function getSensitiveDataScannerGroupOrderOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetSensitiveDataScannerGroupOrderResult> {
-    return pulumi.output(getSensitiveDataScannerGroupOrder(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("datadog:index/getSensitiveDataScannerGroupOrder:getSensitiveDataScannerGroupOrder", {
+    }, opts);
 }

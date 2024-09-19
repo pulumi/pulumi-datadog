@@ -31,13 +31,19 @@ type GetSyntheticsLocationsResult struct {
 }
 
 func GetSyntheticsLocationsOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetSyntheticsLocationsResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetSyntheticsLocationsResult, error) {
-		r, err := GetSyntheticsLocations(ctx, opts...)
-		var s GetSyntheticsLocationsResult
-		if r != nil {
-			s = *r
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetSyntheticsLocationsResultOutput, error) {
+		opts = internal.PkgInvokeDefaultOpts(opts)
+		var rv GetSyntheticsLocationsResult
+		secret, err := ctx.InvokePackageRaw("datadog:index/getSyntheticsLocations:getSyntheticsLocations", nil, &rv, "", opts...)
+		if err != nil {
+			return GetSyntheticsLocationsResultOutput{}, err
 		}
-		return s, err
+
+		output := pulumi.ToOutput(rv).(GetSyntheticsLocationsResultOutput)
+		if secret {
+			return pulumi.ToSecret(output).(GetSyntheticsLocationsResultOutput), nil
+		}
+		return output, nil
 	}).(GetSyntheticsLocationsResultOutput)
 }
 
