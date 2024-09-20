@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getLogsIndexes(opts?: pulumi.InvokeOptions): Promise<GetLogsIndexesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getLogsIndexes:getLogsIndexes", {
     }, opts);
@@ -51,5 +50,7 @@ export interface GetLogsIndexesResult {
  * ```
  */
 export function getLogsIndexesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetLogsIndexesResult> {
-    return pulumi.output(getLogsIndexes(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("datadog:index/getLogsIndexes:getLogsIndexes", {
+    }, opts);
 }

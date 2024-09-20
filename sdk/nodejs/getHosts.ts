@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  */
 export function getHosts(args?: GetHostsArgs, opts?: pulumi.InvokeOptions): Promise<GetHostsResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getHosts:getHosts", {
         "filter": args.filter,
@@ -93,7 +92,15 @@ export interface GetHostsResult {
  * Use this data source to retrieve information about your live hosts in Datadog.
  */
 export function getHostsOutput(args?: GetHostsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostsResult> {
-    return pulumi.output(args).apply((a: any) => getHosts(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("datadog:index/getHosts:getHosts", {
+        "filter": args.filter,
+        "from": args.from,
+        "includeMutedHostsData": args.includeMutedHostsData,
+        "sortDir": args.sortDir,
+        "sortField": args.sortField,
+    }, opts);
 }
 
 /**

@@ -87,14 +87,20 @@ type LookupDashboardListResult struct {
 
 func LookupDashboardListOutput(ctx *pulumi.Context, args LookupDashboardListOutputArgs, opts ...pulumi.InvokeOption) LookupDashboardListResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupDashboardListResult, error) {
+		ApplyT(func(v interface{}) (LookupDashboardListResultOutput, error) {
 			args := v.(LookupDashboardListArgs)
-			r, err := LookupDashboardList(ctx, &args, opts...)
-			var s LookupDashboardListResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupDashboardListResult
+			secret, err := ctx.InvokePackageRaw("datadog:index/getDashboardList:getDashboardList", args, &rv, "", opts...)
+			if err != nil {
+				return LookupDashboardListResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupDashboardListResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupDashboardListResultOutput), nil
+			}
+			return output, nil
 		}).(LookupDashboardListResultOutput)
 }
 

@@ -8,7 +8,6 @@ import * as utilities from "./utilities";
  * Use this data source to retrieve a Datadog Synthetics global variable (to be used in Synthetics tests).
  */
 export function getSyntheticsGlobalVariable(args: GetSyntheticsGlobalVariableArgs, opts?: pulumi.InvokeOptions): Promise<GetSyntheticsGlobalVariableResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getSyntheticsGlobalVariable:getSyntheticsGlobalVariable", {
         "name": args.name,
@@ -46,7 +45,10 @@ export interface GetSyntheticsGlobalVariableResult {
  * Use this data source to retrieve a Datadog Synthetics global variable (to be used in Synthetics tests).
  */
 export function getSyntheticsGlobalVariableOutput(args: GetSyntheticsGlobalVariableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyntheticsGlobalVariableResult> {
-    return pulumi.output(args).apply((a: any) => getSyntheticsGlobalVariable(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("datadog:index/getSyntheticsGlobalVariable:getSyntheticsGlobalVariable", {
+        "name": args.name,
+    }, opts);
 }
 
 /**

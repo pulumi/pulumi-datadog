@@ -55,13 +55,19 @@ type GetIntegrationNamespaceRulesResult struct {
 }
 
 func GetIntegrationNamespaceRulesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetIntegrationNamespaceRulesResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetIntegrationNamespaceRulesResult, error) {
-		r, err := GetIntegrationNamespaceRules(ctx, opts...)
-		var s GetIntegrationNamespaceRulesResult
-		if r != nil {
-			s = *r
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetIntegrationNamespaceRulesResultOutput, error) {
+		opts = internal.PkgInvokeDefaultOpts(opts)
+		var rv GetIntegrationNamespaceRulesResult
+		secret, err := ctx.InvokePackageRaw("datadog:aws/getIntegrationNamespaceRules:getIntegrationNamespaceRules", nil, &rv, "", opts...)
+		if err != nil {
+			return GetIntegrationNamespaceRulesResultOutput{}, err
 		}
-		return s, err
+
+		output := pulumi.ToOutput(rv).(GetIntegrationNamespaceRulesResultOutput)
+		if secret {
+			return pulumi.ToSecret(output).(GetIntegrationNamespaceRulesResultOutput), nil
+		}
+		return output, nil
 	}).(GetIntegrationNamespaceRulesResultOutput)
 }
 

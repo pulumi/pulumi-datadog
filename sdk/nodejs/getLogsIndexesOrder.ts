@@ -17,7 +17,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getLogsIndexesOrder(opts?: pulumi.InvokeOptions): Promise<GetLogsIndexesOrderResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getLogsIndexesOrder:getLogsIndexesOrder", {
     }, opts);
@@ -49,5 +48,7 @@ export interface GetLogsIndexesOrderResult {
  * ```
  */
 export function getLogsIndexesOrderOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetLogsIndexesOrderResult> {
-    return pulumi.output(getLogsIndexesOrder(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("datadog:index/getLogsIndexesOrder:getLogsIndexesOrder", {
+    }, opts);
 }

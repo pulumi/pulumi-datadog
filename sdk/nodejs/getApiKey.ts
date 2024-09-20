@@ -20,7 +20,6 @@ import * as utilities from "./utilities";
  */
 export function getApiKey(args?: GetApiKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetApiKeyResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getApiKey:getApiKey", {
         "exactMatch": args.exactMatch,
@@ -83,7 +82,13 @@ export interface GetApiKeyResult {
  * ```
  */
 export function getApiKeyOutput(args?: GetApiKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiKeyResult> {
-    return pulumi.output(args).apply((a: any) => getApiKey(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("datadog:index/getApiKey:getApiKey", {
+        "exactMatch": args.exactMatch,
+        "id": args.id,
+        "name": args.name,
+    }, opts);
 }
 
 /**

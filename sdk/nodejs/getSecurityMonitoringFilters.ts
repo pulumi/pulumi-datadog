@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getSecurityMonitoringFilters(opts?: pulumi.InvokeOptions): Promise<GetSecurityMonitoringFiltersResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getSecurityMonitoringFilters:getSecurityMonitoringFilters", {
     }, opts);
@@ -55,5 +54,7 @@ export interface GetSecurityMonitoringFiltersResult {
  * ```
  */
 export function getSecurityMonitoringFiltersOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityMonitoringFiltersResult> {
-    return pulumi.output(getSecurityMonitoringFilters(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("datadog:index/getSecurityMonitoringFilters:getSecurityMonitoringFilters", {
+    }, opts);
 }

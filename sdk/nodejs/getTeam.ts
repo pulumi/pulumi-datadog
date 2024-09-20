@@ -20,7 +20,6 @@ import * as utilities from "./utilities";
  */
 export function getTeam(args?: GetTeamArgs, opts?: pulumi.InvokeOptions): Promise<GetTeamResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getTeam:getTeam", {
         "filterKeyword": args.filterKeyword,
@@ -98,7 +97,12 @@ export interface GetTeamResult {
  * ```
  */
 export function getTeamOutput(args?: GetTeamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTeamResult> {
-    return pulumi.output(args).apply((a: any) => getTeam(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("datadog:index/getTeam:getTeam", {
+        "filterKeyword": args.filterKeyword,
+        "teamId": args.teamId,
+    }, opts);
 }
 
 /**

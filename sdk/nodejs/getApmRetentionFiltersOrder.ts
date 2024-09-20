@@ -17,7 +17,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getApmRetentionFiltersOrder(opts?: pulumi.InvokeOptions): Promise<GetApmRetentionFiltersOrderResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getApmRetentionFiltersOrder:getApmRetentionFiltersOrder", {
     }, opts);
@@ -49,5 +48,7 @@ export interface GetApmRetentionFiltersOrderResult {
  * ```
  */
 export function getApmRetentionFiltersOrderOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetApmRetentionFiltersOrderResult> {
-    return pulumi.output(getApmRetentionFiltersOrder(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("datadog:index/getApmRetentionFiltersOrder:getApmRetentionFiltersOrder", {
+    }, opts);
 }
