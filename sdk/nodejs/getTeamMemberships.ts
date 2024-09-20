@@ -22,7 +22,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getTeamMemberships(args: GetTeamMembershipsArgs, opts?: pulumi.InvokeOptions): Promise<GetTeamMembershipsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getTeamMemberships:getTeamMemberships", {
         "exactMatch": args.exactMatch,
@@ -90,7 +89,12 @@ export interface GetTeamMembershipsResult {
  * ```
  */
 export function getTeamMembershipsOutput(args: GetTeamMembershipsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTeamMembershipsResult> {
-    return pulumi.output(args).apply((a: any) => getTeamMemberships(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("datadog:index/getTeamMemberships:getTeamMemberships", {
+        "exactMatch": args.exactMatch,
+        "filterKeyword": args.filterKeyword,
+        "teamId": args.teamId,
+    }, opts);
 }
 
 /**

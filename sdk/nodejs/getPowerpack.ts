@@ -8,7 +8,6 @@ import * as utilities from "./utilities";
  * Use this data source to retrieve information about an existing Datadog Powerpack.
  */
 export function getPowerpack(args: GetPowerpackArgs, opts?: pulumi.InvokeOptions): Promise<GetPowerpackResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getPowerpack:getPowerpack", {
         "name": args.name,
@@ -42,7 +41,10 @@ export interface GetPowerpackResult {
  * Use this data source to retrieve information about an existing Datadog Powerpack.
  */
 export function getPowerpackOutput(args: GetPowerpackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPowerpackResult> {
-    return pulumi.output(args).apply((a: any) => getPowerpack(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("datadog:index/getPowerpack:getPowerpack", {
+        "name": args.name,
+    }, opts);
 }
 
 /**

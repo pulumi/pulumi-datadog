@@ -75,14 +75,20 @@ type GetTeamMembershipsResult struct {
 
 func GetTeamMembershipsOutput(ctx *pulumi.Context, args GetTeamMembershipsOutputArgs, opts ...pulumi.InvokeOption) GetTeamMembershipsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetTeamMembershipsResult, error) {
+		ApplyT(func(v interface{}) (GetTeamMembershipsResultOutput, error) {
 			args := v.(GetTeamMembershipsArgs)
-			r, err := GetTeamMemberships(ctx, &args, opts...)
-			var s GetTeamMembershipsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetTeamMembershipsResult
+			secret, err := ctx.InvokePackageRaw("datadog:index/getTeamMemberships:getTeamMemberships", args, &rv, "", opts...)
+			if err != nil {
+				return GetTeamMembershipsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetTeamMembershipsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetTeamMembershipsResultOutput), nil
+			}
+			return output, nil
 		}).(GetTeamMembershipsResultOutput)
 }
 

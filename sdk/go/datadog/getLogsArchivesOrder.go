@@ -31,13 +31,19 @@ type GetLogsArchivesOrderResult struct {
 }
 
 func GetLogsArchivesOrderOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetLogsArchivesOrderResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetLogsArchivesOrderResult, error) {
-		r, err := GetLogsArchivesOrder(ctx, opts...)
-		var s GetLogsArchivesOrderResult
-		if r != nil {
-			s = *r
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetLogsArchivesOrderResultOutput, error) {
+		opts = internal.PkgInvokeDefaultOpts(opts)
+		var rv GetLogsArchivesOrderResult
+		secret, err := ctx.InvokePackageRaw("datadog:index/getLogsArchivesOrder:getLogsArchivesOrder", nil, &rv, "", opts...)
+		if err != nil {
+			return GetLogsArchivesOrderResultOutput{}, err
 		}
-		return s, err
+
+		output := pulumi.ToOutput(rv).(GetLogsArchivesOrderResultOutput)
+		if secret {
+			return pulumi.ToSecret(output).(GetLogsArchivesOrderResultOutput), nil
+		}
+		return output, nil
 	}).(GetLogsArchivesOrderResultOutput)
 }
 

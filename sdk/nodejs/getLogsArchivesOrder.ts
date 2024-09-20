@@ -8,7 +8,6 @@ import * as utilities from "./utilities";
  * Get the current order of your logs archives.
  */
 export function getLogsArchivesOrder(opts?: pulumi.InvokeOptions): Promise<GetLogsArchivesOrderResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getLogsArchivesOrder:getLogsArchivesOrder", {
     }, opts);
@@ -31,5 +30,7 @@ export interface GetLogsArchivesOrderResult {
  * Get the current order of your logs archives.
  */
 export function getLogsArchivesOrderOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetLogsArchivesOrderResult> {
-    return pulumi.output(getLogsArchivesOrder(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("datadog:index/getLogsArchivesOrder:getLogsArchivesOrder", {
+    }, opts);
 }

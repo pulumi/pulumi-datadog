@@ -20,7 +20,6 @@ import * as utilities from "./utilities";
  */
 export function getApplicationKey(args?: GetApplicationKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationKeyResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getApplicationKey:getApplicationKey", {
         "exactMatch": args.exactMatch,
@@ -83,7 +82,13 @@ export interface GetApplicationKeyResult {
  * ```
  */
 export function getApplicationKeyOutput(args?: GetApplicationKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationKeyResult> {
-    return pulumi.output(args).apply((a: any) => getApplicationKey(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("datadog:index/getApplicationKey:getApplicationKey", {
+        "exactMatch": args.exactMatch,
+        "id": args.id,
+        "name": args.name,
+    }, opts);
 }
 
 /**

@@ -40,14 +40,20 @@ type GetLogsPipelinesResult struct {
 
 func GetLogsPipelinesOutput(ctx *pulumi.Context, args GetLogsPipelinesOutputArgs, opts ...pulumi.InvokeOption) GetLogsPipelinesResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetLogsPipelinesResult, error) {
+		ApplyT(func(v interface{}) (GetLogsPipelinesResultOutput, error) {
 			args := v.(GetLogsPipelinesArgs)
-			r, err := GetLogsPipelines(ctx, &args, opts...)
-			var s GetLogsPipelinesResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetLogsPipelinesResult
+			secret, err := ctx.InvokePackageRaw("datadog:index/getLogsPipelines:getLogsPipelines", args, &rv, "", opts...)
+			if err != nil {
+				return GetLogsPipelinesResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetLogsPipelinesResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetLogsPipelinesResultOutput), nil
+			}
+			return output, nil
 		}).(GetLogsPipelinesResultOutput)
 }
 

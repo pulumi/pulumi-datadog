@@ -33,13 +33,19 @@ type GetCsmThreatsAgentRulesResult struct {
 }
 
 func GetCsmThreatsAgentRulesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetCsmThreatsAgentRulesResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetCsmThreatsAgentRulesResult, error) {
-		r, err := GetCsmThreatsAgentRules(ctx, opts...)
-		var s GetCsmThreatsAgentRulesResult
-		if r != nil {
-			s = *r
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetCsmThreatsAgentRulesResultOutput, error) {
+		opts = internal.PkgInvokeDefaultOpts(opts)
+		var rv GetCsmThreatsAgentRulesResult
+		secret, err := ctx.InvokePackageRaw("datadog:index/getCsmThreatsAgentRules:getCsmThreatsAgentRules", nil, &rv, "", opts...)
+		if err != nil {
+			return GetCsmThreatsAgentRulesResultOutput{}, err
 		}
-		return s, err
+
+		output := pulumi.ToOutput(rv).(GetCsmThreatsAgentRulesResultOutput)
+		if secret {
+			return pulumi.ToSecret(output).(GetCsmThreatsAgentRulesResultOutput), nil
+		}
+		return output, nil
 	}).(GetCsmThreatsAgentRulesResultOutput)
 }
 

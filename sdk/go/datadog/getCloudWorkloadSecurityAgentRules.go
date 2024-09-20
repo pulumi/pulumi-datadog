@@ -53,13 +53,19 @@ type GetCloudWorkloadSecurityAgentRulesResult struct {
 }
 
 func GetCloudWorkloadSecurityAgentRulesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetCloudWorkloadSecurityAgentRulesResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetCloudWorkloadSecurityAgentRulesResult, error) {
-		r, err := GetCloudWorkloadSecurityAgentRules(ctx, opts...)
-		var s GetCloudWorkloadSecurityAgentRulesResult
-		if r != nil {
-			s = *r
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetCloudWorkloadSecurityAgentRulesResultOutput, error) {
+		opts = internal.PkgInvokeDefaultOpts(opts)
+		var rv GetCloudWorkloadSecurityAgentRulesResult
+		secret, err := ctx.InvokePackageRaw("datadog:index/getCloudWorkloadSecurityAgentRules:getCloudWorkloadSecurityAgentRules", nil, &rv, "", opts...)
+		if err != nil {
+			return GetCloudWorkloadSecurityAgentRulesResultOutput{}, err
 		}
-		return s, err
+
+		output := pulumi.ToOutput(rv).(GetCloudWorkloadSecurityAgentRulesResultOutput)
+		if secret {
+			return pulumi.ToSecret(output).(GetCloudWorkloadSecurityAgentRulesResultOutput), nil
+		}
+		return output, nil
 	}).(GetCloudWorkloadSecurityAgentRulesResultOutput)
 }
 

@@ -8,7 +8,6 @@ import * as utilities from "./utilities";
  * Use this data source to retrieve information about an existing sensitive data scanner standard pattern.
  */
 export function getSensitiveDataScannerStandardPattern(args: GetSensitiveDataScannerStandardPatternArgs, opts?: pulumi.InvokeOptions): Promise<GetSensitiveDataScannerStandardPatternResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getSensitiveDataScannerStandardPattern:getSensitiveDataScannerStandardPattern", {
         "filter": args.filter,
@@ -58,7 +57,10 @@ export interface GetSensitiveDataScannerStandardPatternResult {
  * Use this data source to retrieve information about an existing sensitive data scanner standard pattern.
  */
 export function getSensitiveDataScannerStandardPatternOutput(args: GetSensitiveDataScannerStandardPatternOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSensitiveDataScannerStandardPatternResult> {
-    return pulumi.output(args).apply((a: any) => getSensitiveDataScannerStandardPattern(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("datadog:index/getSensitiveDataScannerStandardPattern:getSensitiveDataScannerStandardPattern", {
+        "filter": args.filter,
+    }, opts);
 }
 
 /**

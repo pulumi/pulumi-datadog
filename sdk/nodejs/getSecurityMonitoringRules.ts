@@ -24,7 +24,6 @@ import * as utilities from "./utilities";
  */
 export function getSecurityMonitoringRules(args?: GetSecurityMonitoringRulesArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityMonitoringRulesResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getSecurityMonitoringRules:getSecurityMonitoringRules", {
         "defaultOnlyFilter": args.defaultOnlyFilter,
@@ -106,7 +105,14 @@ export interface GetSecurityMonitoringRulesResult {
  * ```
  */
 export function getSecurityMonitoringRulesOutput(args?: GetSecurityMonitoringRulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityMonitoringRulesResult> {
-    return pulumi.output(args).apply((a: any) => getSecurityMonitoringRules(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("datadog:index/getSecurityMonitoringRules:getSecurityMonitoringRules", {
+        "defaultOnlyFilter": args.defaultOnlyFilter,
+        "nameFilter": args.nameFilter,
+        "tagsFilters": args.tagsFilters,
+        "userOnlyFilter": args.userOnlyFilter,
+    }, opts);
 }
 
 /**

@@ -35,7 +35,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getDashboardList(args: GetDashboardListArgs, opts?: pulumi.InvokeOptions): Promise<GetDashboardListResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getDashboardList:getDashboardList", {
         "name": args.name,
@@ -96,7 +95,10 @@ export interface GetDashboardListResult {
  * ```
  */
 export function getDashboardListOutput(args: GetDashboardListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDashboardListResult> {
-    return pulumi.output(args).apply((a: any) => getDashboardList(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("datadog:index/getDashboardList:getDashboardList", {
+        "name": args.name,
+    }, opts);
 }
 
 /**

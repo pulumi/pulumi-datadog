@@ -10,7 +10,6 @@ import * as utilities from "./utilities";
  * Use this data source to retrieve information about existing Agent rules.
  */
 export function getCsmThreatsAgentRules(opts?: pulumi.InvokeOptions): Promise<GetCsmThreatsAgentRulesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getCsmThreatsAgentRules:getCsmThreatsAgentRules", {
     }, opts);
@@ -37,5 +36,7 @@ export interface GetCsmThreatsAgentRulesResult {
  * Use this data source to retrieve information about existing Agent rules.
  */
 export function getCsmThreatsAgentRulesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetCsmThreatsAgentRulesResult> {
-    return pulumi.output(getCsmThreatsAgentRules(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("datadog:index/getCsmThreatsAgentRules:getCsmThreatsAgentRules", {
+    }, opts);
 }

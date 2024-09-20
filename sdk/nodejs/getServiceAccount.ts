@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  */
 export function getServiceAccount(args?: GetServiceAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceAccountResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getServiceAccount:getServiceAccount", {
         "exactMatch": args.exactMatch,
@@ -102,7 +101,14 @@ export interface GetServiceAccountResult {
  * Use this data source to retrieve information about an existing Datadog service account.
  */
 export function getServiceAccountOutput(args?: GetServiceAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceAccountResult> {
-    return pulumi.output(args).apply((a: any) => getServiceAccount(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("datadog:index/getServiceAccount:getServiceAccount", {
+        "exactMatch": args.exactMatch,
+        "filter": args.filter,
+        "filterStatus": args.filterStatus,
+        "id": args.id,
+    }, opts);
 }
 
 /**
