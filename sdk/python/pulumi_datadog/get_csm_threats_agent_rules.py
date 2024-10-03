@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -81,11 +86,14 @@ def get_csm_threats_agent_rules(opts: Optional[pulumi.InvokeOptions] = None) -> 
         agent_rules=pulumi.get(__ret__, 'agent_rules'),
         agent_rules_ids=pulumi.get(__ret__, 'agent_rules_ids'),
         id=pulumi.get(__ret__, 'id'))
-
-
-@_utilities.lift_output_func(get_csm_threats_agent_rules)
 def get_csm_threats_agent_rules_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCsmThreatsAgentRulesResult]:
     """
     Use this data source to retrieve information about existing Agent rules.
     """
-    ...
+    __args__ = dict()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('datadog:index/getCsmThreatsAgentRules:getCsmThreatsAgentRules', __args__, opts=opts, typ=GetCsmThreatsAgentRulesResult)
+    return __ret__.apply(lambda __response__: GetCsmThreatsAgentRulesResult(
+        agent_rules=pulumi.get(__response__, 'agent_rules'),
+        agent_rules_ids=pulumi.get(__response__, 'agent_rules_ids'),
+        id=pulumi.get(__response__, 'id')))

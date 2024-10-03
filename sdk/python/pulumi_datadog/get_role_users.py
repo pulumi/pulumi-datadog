@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -118,9 +123,6 @@ def get_role_users(exact_match: Optional[bool] = None,
         id=pulumi.get(__ret__, 'id'),
         role_id=pulumi.get(__ret__, 'role_id'),
         role_users=pulumi.get(__ret__, 'role_users'))
-
-
-@_utilities.lift_output_func(get_role_users)
 def get_role_users_output(exact_match: Optional[pulumi.Input[Optional[bool]]] = None,
                           filter: Optional[pulumi.Input[Optional[str]]] = None,
                           role_id: Optional[pulumi.Input[str]] = None,
@@ -133,4 +135,15 @@ def get_role_users_output(exact_match: Optional[pulumi.Input[Optional[bool]]] = 
     :param str filter: Search query, can be user name.
     :param str role_id: The role's identifier.
     """
-    ...
+    __args__ = dict()
+    __args__['exactMatch'] = exact_match
+    __args__['filter'] = filter
+    __args__['roleId'] = role_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('datadog:index/getRoleUsers:getRoleUsers', __args__, opts=opts, typ=GetRoleUsersResult)
+    return __ret__.apply(lambda __response__: GetRoleUsersResult(
+        exact_match=pulumi.get(__response__, 'exact_match'),
+        filter=pulumi.get(__response__, 'filter'),
+        id=pulumi.get(__response__, 'id'),
+        role_id=pulumi.get(__response__, 'role_id'),
+        role_users=pulumi.get(__response__, 'role_users')))

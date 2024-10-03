@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -113,9 +118,6 @@ def get_application_key(exact_match: Optional[bool] = None,
         id=pulumi.get(__ret__, 'id'),
         key=pulumi.get(__ret__, 'key'),
         name=pulumi.get(__ret__, 'name'))
-
-
-@_utilities.lift_output_func(get_application_key)
 def get_application_key_output(exact_match: Optional[pulumi.Input[Optional[bool]]] = None,
                                id: Optional[pulumi.Input[Optional[str]]] = None,
                                name: Optional[pulumi.Input[Optional[str]]] = None,
@@ -137,4 +139,14 @@ def get_application_key_output(exact_match: Optional[pulumi.Input[Optional[bool]
     :param str id: Id for Application Key.
     :param str name: Name for Application Key.
     """
-    ...
+    __args__ = dict()
+    __args__['exactMatch'] = exact_match
+    __args__['id'] = id
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('datadog:index/getApplicationKey:getApplicationKey', __args__, opts=opts, typ=GetApplicationKeyResult)
+    return __ret__.apply(lambda __response__: GetApplicationKeyResult(
+        exact_match=pulumi.get(__response__, 'exact_match'),
+        id=pulumi.get(__response__, 'id'),
+        key=pulumi.get(__response__, 'key'),
+        name=pulumi.get(__response__, 'name')))

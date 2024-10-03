@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -111,9 +116,6 @@ def get_synthetics_test(test_id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         test_id=pulumi.get(__ret__, 'test_id'),
         url=pulumi.get(__ret__, 'url'))
-
-
-@_utilities.lift_output_func(get_synthetics_test)
 def get_synthetics_test_output(test_id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSyntheticsTestResult]:
     """
@@ -122,4 +124,13 @@ def get_synthetics_test_output(test_id: Optional[pulumi.Input[str]] = None,
 
     :param str test_id: The synthetic test id or URL to search for
     """
-    ...
+    __args__ = dict()
+    __args__['testId'] = test_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('datadog:index/getSyntheticsTest:getSyntheticsTest', __args__, opts=opts, typ=GetSyntheticsTestResult)
+    return __ret__.apply(lambda __response__: GetSyntheticsTestResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        tags=pulumi.get(__response__, 'tags'),
+        test_id=pulumi.get(__response__, 'test_id'),
+        url=pulumi.get(__response__, 'url')))

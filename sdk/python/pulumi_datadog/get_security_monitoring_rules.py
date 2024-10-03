@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -158,9 +163,6 @@ def get_security_monitoring_rules(default_only_filter: Optional[bool] = None,
         rules=pulumi.get(__ret__, 'rules'),
         tags_filters=pulumi.get(__ret__, 'tags_filters'),
         user_only_filter=pulumi.get(__ret__, 'user_only_filter'))
-
-
-@_utilities.lift_output_func(get_security_monitoring_rules)
 def get_security_monitoring_rules_output(default_only_filter: Optional[pulumi.Input[Optional[bool]]] = None,
                                          name_filter: Optional[pulumi.Input[Optional[str]]] = None,
                                          tags_filters: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
@@ -186,4 +188,18 @@ def get_security_monitoring_rules_output(default_only_filter: Optional[pulumi.In
     :param Sequence[str] tags_filters: A list of tags to limit the search
     :param bool user_only_filter: Limit the search to user rules
     """
-    ...
+    __args__ = dict()
+    __args__['defaultOnlyFilter'] = default_only_filter
+    __args__['nameFilter'] = name_filter
+    __args__['tagsFilters'] = tags_filters
+    __args__['userOnlyFilter'] = user_only_filter
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('datadog:index/getSecurityMonitoringRules:getSecurityMonitoringRules', __args__, opts=opts, typ=GetSecurityMonitoringRulesResult)
+    return __ret__.apply(lambda __response__: GetSecurityMonitoringRulesResult(
+        default_only_filter=pulumi.get(__response__, 'default_only_filter'),
+        id=pulumi.get(__response__, 'id'),
+        name_filter=pulumi.get(__response__, 'name_filter'),
+        rule_ids=pulumi.get(__response__, 'rule_ids'),
+        rules=pulumi.get(__response__, 'rules'),
+        tags_filters=pulumi.get(__response__, 'tags_filters'),
+        user_only_filter=pulumi.get(__response__, 'user_only_filter')))
