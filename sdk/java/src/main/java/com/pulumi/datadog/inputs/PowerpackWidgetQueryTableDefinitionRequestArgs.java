@@ -14,6 +14,7 @@ import com.pulumi.datadog.inputs.PowerpackWidgetQueryTableDefinitionRequestProce
 import com.pulumi.datadog.inputs.PowerpackWidgetQueryTableDefinitionRequestQueryArgs;
 import com.pulumi.datadog.inputs.PowerpackWidgetQueryTableDefinitionRequestRumQueryArgs;
 import com.pulumi.datadog.inputs.PowerpackWidgetQueryTableDefinitionRequestSecurityQueryArgs;
+import com.pulumi.datadog.inputs.PowerpackWidgetQueryTableDefinitionRequestTextFormatArgs;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -227,6 +228,21 @@ public final class PowerpackWidgetQueryTableDefinitionRequestArgs extends com.pu
         return Optional.ofNullable(this.securityQuery);
     }
 
+    /**
+     * Text formats define how to format text in table widget content. Multiple `text_formats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
+     * 
+     */
+    @Import(name="textFormats")
+    private @Nullable Output<List<PowerpackWidgetQueryTableDefinitionRequestTextFormatArgs>> textFormats;
+
+    /**
+     * @return Text formats define how to format text in table widget content. Multiple `text_formats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
+     * 
+     */
+    public Optional<Output<List<PowerpackWidgetQueryTableDefinitionRequestTextFormatArgs>>> textFormats() {
+        return Optional.ofNullable(this.textFormats);
+    }
+
     private PowerpackWidgetQueryTableDefinitionRequestArgs() {}
 
     private PowerpackWidgetQueryTableDefinitionRequestArgs(PowerpackWidgetQueryTableDefinitionRequestArgs $) {
@@ -245,6 +261,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequestArgs extends com.pu
         this.queries = $.queries;
         this.rumQuery = $.rumQuery;
         this.securityQuery = $.securityQuery;
+        this.textFormats = $.textFormats;
     }
 
     public static Builder builder() {
@@ -570,6 +587,37 @@ public final class PowerpackWidgetQueryTableDefinitionRequestArgs extends com.pu
          */
         public Builder securityQuery(PowerpackWidgetQueryTableDefinitionRequestSecurityQueryArgs securityQuery) {
             return securityQuery(Output.of(securityQuery));
+        }
+
+        /**
+         * @param textFormats Text formats define how to format text in table widget content. Multiple `text_formats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder textFormats(@Nullable Output<List<PowerpackWidgetQueryTableDefinitionRequestTextFormatArgs>> textFormats) {
+            $.textFormats = textFormats;
+            return this;
+        }
+
+        /**
+         * @param textFormats Text formats define how to format text in table widget content. Multiple `text_formats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder textFormats(List<PowerpackWidgetQueryTableDefinitionRequestTextFormatArgs> textFormats) {
+            return textFormats(Output.of(textFormats));
+        }
+
+        /**
+         * @param textFormats Text formats define how to format text in table widget content. Multiple `text_formats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder textFormats(PowerpackWidgetQueryTableDefinitionRequestTextFormatArgs... textFormats) {
+            return textFormats(List.of(textFormats));
         }
 
         public PowerpackWidgetQueryTableDefinitionRequestArgs build() {

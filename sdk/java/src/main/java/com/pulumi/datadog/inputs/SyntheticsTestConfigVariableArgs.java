@@ -77,14 +77,14 @@ public final class SyntheticsTestConfigVariableArgs extends com.pulumi.resources
     }
 
     /**
-     * Type of test configuration variable. Valid values are `global`, `text`.
+     * Type of test configuration variable. Valid values are `global`, `text`, `email`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Type of test configuration variable. Valid values are `global`, `text`.
+     * @return Type of test configuration variable. Valid values are `global`, `text`, `email`.
      * 
      */
     public Output<String> type() {
@@ -202,7 +202,7 @@ public final class SyntheticsTestConfigVariableArgs extends com.pulumi.resources
         }
 
         /**
-         * @param type Type of test configuration variable. Valid values are `global`, `text`.
+         * @param type Type of test configuration variable. Valid values are `global`, `text`, `email`.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class SyntheticsTestConfigVariableArgs extends com.pulumi.resources
         }
 
         /**
-         * @param type Type of test configuration variable. Valid values are `global`, `text`.
+         * @param type Type of test configuration variable. Valid values are `global`, `text`, `email`.
          * 
          * @return builder
          * 

@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.PowerpackWidgetToplistDefinitionCustomLinkArgs;
 import com.pulumi.datadog.inputs.PowerpackWidgetToplistDefinitionRequestArgs;
+import com.pulumi.datadog.inputs.PowerpackWidgetToplistDefinitionStyleArgs;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -64,6 +65,21 @@ public final class PowerpackWidgetToplistDefinitionArgs extends com.pulumi.resou
     }
 
     /**
+     * The style of the widget
+     * 
+     */
+    @Import(name="styles")
+    private @Nullable Output<List<PowerpackWidgetToplistDefinitionStyleArgs>> styles;
+
+    /**
+     * @return The style of the widget
+     * 
+     */
+    public Optional<Output<List<PowerpackWidgetToplistDefinitionStyleArgs>>> styles() {
+        return Optional.ofNullable(this.styles);
+    }
+
+    /**
      * The title of the widget.
      * 
      */
@@ -114,6 +130,7 @@ public final class PowerpackWidgetToplistDefinitionArgs extends com.pulumi.resou
         this.customLinks = $.customLinks;
         this.liveSpan = $.liveSpan;
         this.requests = $.requests;
+        this.styles = $.styles;
         this.title = $.title;
         this.titleAlign = $.titleAlign;
         this.titleSize = $.titleSize;
@@ -218,6 +235,37 @@ public final class PowerpackWidgetToplistDefinitionArgs extends com.pulumi.resou
          */
         public Builder requests(PowerpackWidgetToplistDefinitionRequestArgs... requests) {
             return requests(List.of(requests));
+        }
+
+        /**
+         * @param styles The style of the widget
+         * 
+         * @return builder
+         * 
+         */
+        public Builder styles(@Nullable Output<List<PowerpackWidgetToplistDefinitionStyleArgs>> styles) {
+            $.styles = styles;
+            return this;
+        }
+
+        /**
+         * @param styles The style of the widget
+         * 
+         * @return builder
+         * 
+         */
+        public Builder styles(List<PowerpackWidgetToplistDefinitionStyleArgs> styles) {
+            return styles(Output.of(styles));
+        }
+
+        /**
+         * @param styles The style of the widget
+         * 
+         * @return builder
+         * 
+         */
+        public Builder styles(PowerpackWidgetToplistDefinitionStyleArgs... styles) {
+            return styles(List.of(styles));
         }
 
         /**

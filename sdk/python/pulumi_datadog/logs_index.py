@@ -23,6 +23,7 @@ class LogsIndexArgs:
                  daily_limit_warning_threshold_percentage: Optional[pulumi.Input[float]] = None,
                  disable_daily_limit: Optional[pulumi.Input[bool]] = None,
                  exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input['LogsIndexExclusionFilterArgs']]]] = None,
+                 flex_retention_days: Optional[pulumi.Input[int]] = None,
                  retention_days: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a LogsIndex resource.
@@ -33,7 +34,8 @@ class LogsIndexArgs:
         :param pulumi.Input[float] daily_limit_warning_threshold_percentage: A percentage threshold of the daily quota at which a Datadog warning event is generated.
         :param pulumi.Input[bool] disable_daily_limit: If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
         :param pulumi.Input[Sequence[pulumi.Input['LogsIndexExclusionFilterArgs']]] exclusion_filters: List of exclusion filters.
-        :param pulumi.Input[int] retention_days: The number of days before logs are deleted from this index.
+        :param pulumi.Input[int] flex_retention_days: The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
+        :param pulumi.Input[int] retention_days: The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
         """
         pulumi.set(__self__, "filters", filters)
         pulumi.set(__self__, "name", name)
@@ -47,6 +49,8 @@ class LogsIndexArgs:
             pulumi.set(__self__, "disable_daily_limit", disable_daily_limit)
         if exclusion_filters is not None:
             pulumi.set(__self__, "exclusion_filters", exclusion_filters)
+        if flex_retention_days is not None:
+            pulumi.set(__self__, "flex_retention_days", flex_retention_days)
         if retention_days is not None:
             pulumi.set(__self__, "retention_days", retention_days)
 
@@ -135,10 +139,22 @@ class LogsIndexArgs:
         pulumi.set(self, "exclusion_filters", value)
 
     @property
+    @pulumi.getter(name="flexRetentionDays")
+    def flex_retention_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
+        """
+        return pulumi.get(self, "flex_retention_days")
+
+    @flex_retention_days.setter
+    def flex_retention_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "flex_retention_days", value)
+
+    @property
     @pulumi.getter(name="retentionDays")
     def retention_days(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of days before logs are deleted from this index.
+        The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
         """
         return pulumi.get(self, "retention_days")
 
@@ -156,6 +172,7 @@ class _LogsIndexState:
                  disable_daily_limit: Optional[pulumi.Input[bool]] = None,
                  exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input['LogsIndexExclusionFilterArgs']]]] = None,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input['LogsIndexFilterArgs']]]] = None,
+                 flex_retention_days: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  retention_days: Optional[pulumi.Input[int]] = None):
         """
@@ -166,8 +183,9 @@ class _LogsIndexState:
         :param pulumi.Input[bool] disable_daily_limit: If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
         :param pulumi.Input[Sequence[pulumi.Input['LogsIndexExclusionFilterArgs']]] exclusion_filters: List of exclusion filters.
         :param pulumi.Input[Sequence[pulumi.Input['LogsIndexFilterArgs']]] filters: Logs filter
+        :param pulumi.Input[int] flex_retention_days: The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
         :param pulumi.Input[str] name: The name of the index. Index names cannot be modified after creation. If this value is changed, a new index will be created.
-        :param pulumi.Input[int] retention_days: The number of days before logs are deleted from this index.
+        :param pulumi.Input[int] retention_days: The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
         """
         if daily_limit is not None:
             pulumi.set(__self__, "daily_limit", daily_limit)
@@ -181,6 +199,8 @@ class _LogsIndexState:
             pulumi.set(__self__, "exclusion_filters", exclusion_filters)
         if filters is not None:
             pulumi.set(__self__, "filters", filters)
+        if flex_retention_days is not None:
+            pulumi.set(__self__, "flex_retention_days", flex_retention_days)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if retention_days is not None:
@@ -259,6 +279,18 @@ class _LogsIndexState:
         pulumi.set(self, "filters", value)
 
     @property
+    @pulumi.getter(name="flexRetentionDays")
+    def flex_retention_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
+        """
+        return pulumi.get(self, "flex_retention_days")
+
+    @flex_retention_days.setter
+    def flex_retention_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "flex_retention_days", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -274,7 +306,7 @@ class _LogsIndexState:
     @pulumi.getter(name="retentionDays")
     def retention_days(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of days before logs are deleted from this index.
+        The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
         """
         return pulumi.get(self, "retention_days")
 
@@ -294,6 +326,7 @@ class LogsIndex(pulumi.CustomResource):
                  disable_daily_limit: Optional[pulumi.Input[bool]] = None,
                  exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogsIndexExclusionFilterArgs', 'LogsIndexExclusionFilterArgsDict']]]]] = None,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogsIndexFilterArgs', 'LogsIndexFilterArgsDict']]]]] = None,
+                 flex_retention_days: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  retention_days: Optional[pulumi.Input[int]] = None,
                  __props__=None):
@@ -314,6 +347,7 @@ class LogsIndex(pulumi.CustomResource):
             },
             daily_limit_warning_threshold_percentage=50,
             retention_days=7,
+            flex_retention_days=180,
             filters=[{
                 "query": "*",
             }],
@@ -351,8 +385,9 @@ class LogsIndex(pulumi.CustomResource):
         :param pulumi.Input[bool] disable_daily_limit: If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LogsIndexExclusionFilterArgs', 'LogsIndexExclusionFilterArgsDict']]]] exclusion_filters: List of exclusion filters.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LogsIndexFilterArgs', 'LogsIndexFilterArgsDict']]]] filters: Logs filter
+        :param pulumi.Input[int] flex_retention_days: The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
         :param pulumi.Input[str] name: The name of the index. Index names cannot be modified after creation. If this value is changed, a new index will be created.
-        :param pulumi.Input[int] retention_days: The number of days before logs are deleted from this index.
+        :param pulumi.Input[int] retention_days: The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
         """
         ...
     @overload
@@ -377,6 +412,7 @@ class LogsIndex(pulumi.CustomResource):
             },
             daily_limit_warning_threshold_percentage=50,
             retention_days=7,
+            flex_retention_days=180,
             filters=[{
                 "query": "*",
             }],
@@ -427,6 +463,7 @@ class LogsIndex(pulumi.CustomResource):
                  disable_daily_limit: Optional[pulumi.Input[bool]] = None,
                  exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogsIndexExclusionFilterArgs', 'LogsIndexExclusionFilterArgsDict']]]]] = None,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogsIndexFilterArgs', 'LogsIndexFilterArgsDict']]]]] = None,
+                 flex_retention_days: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  retention_days: Optional[pulumi.Input[int]] = None,
                  __props__=None):
@@ -446,6 +483,7 @@ class LogsIndex(pulumi.CustomResource):
             if filters is None and not opts.urn:
                 raise TypeError("Missing required property 'filters'")
             __props__.__dict__["filters"] = filters
+            __props__.__dict__["flex_retention_days"] = flex_retention_days
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
@@ -466,6 +504,7 @@ class LogsIndex(pulumi.CustomResource):
             disable_daily_limit: Optional[pulumi.Input[bool]] = None,
             exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogsIndexExclusionFilterArgs', 'LogsIndexExclusionFilterArgsDict']]]]] = None,
             filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogsIndexFilterArgs', 'LogsIndexFilterArgsDict']]]]] = None,
+            flex_retention_days: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             retention_days: Optional[pulumi.Input[int]] = None) -> 'LogsIndex':
         """
@@ -481,8 +520,9 @@ class LogsIndex(pulumi.CustomResource):
         :param pulumi.Input[bool] disable_daily_limit: If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LogsIndexExclusionFilterArgs', 'LogsIndexExclusionFilterArgsDict']]]] exclusion_filters: List of exclusion filters.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LogsIndexFilterArgs', 'LogsIndexFilterArgsDict']]]] filters: Logs filter
+        :param pulumi.Input[int] flex_retention_days: The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
         :param pulumi.Input[str] name: The name of the index. Index names cannot be modified after creation. If this value is changed, a new index will be created.
-        :param pulumi.Input[int] retention_days: The number of days before logs are deleted from this index.
+        :param pulumi.Input[int] retention_days: The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -494,6 +534,7 @@ class LogsIndex(pulumi.CustomResource):
         __props__.__dict__["disable_daily_limit"] = disable_daily_limit
         __props__.__dict__["exclusion_filters"] = exclusion_filters
         __props__.__dict__["filters"] = filters
+        __props__.__dict__["flex_retention_days"] = flex_retention_days
         __props__.__dict__["name"] = name
         __props__.__dict__["retention_days"] = retention_days
         return LogsIndex(resource_name, opts=opts, __props__=__props__)
@@ -547,6 +588,14 @@ class LogsIndex(pulumi.CustomResource):
         return pulumi.get(self, "filters")
 
     @property
+    @pulumi.getter(name="flexRetentionDays")
+    def flex_retention_days(self) -> pulumi.Output[int]:
+        """
+        The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
+        """
+        return pulumi.get(self, "flex_retention_days")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -558,7 +607,7 @@ class LogsIndex(pulumi.CustomResource):
     @pulumi.getter(name="retentionDays")
     def retention_days(self) -> pulumi.Output[int]:
         """
-        The number of days before logs are deleted from this index.
+        The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
         """
         return pulumi.get(self, "retention_days")
 

@@ -36,6 +36,7 @@ import (
 //				},
 //				DailyLimitWarningThresholdPercentage: pulumi.Float64(50),
 //				RetentionDays:                        pulumi.Int(7),
+//				FlexRetentionDays:                    pulumi.Int(180),
 //				Filters: datadog.LogsIndexFilterArray{
 //					&datadog.LogsIndexFilterArgs{
 //						Query: pulumi.String("*"),
@@ -93,9 +94,11 @@ type LogsIndex struct {
 	ExclusionFilters LogsIndexExclusionFilterArrayOutput `pulumi:"exclusionFilters"`
 	// Logs filter
 	Filters LogsIndexFilterArrayOutput `pulumi:"filters"`
+	// The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
+	FlexRetentionDays pulumi.IntOutput `pulumi:"flexRetentionDays"`
 	// The name of the index. Index names cannot be modified after creation. If this value is changed, a new index will be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The number of days before logs are deleted from this index.
+	// The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
 	RetentionDays pulumi.IntOutput `pulumi:"retentionDays"`
 }
 
@@ -147,9 +150,11 @@ type logsIndexState struct {
 	ExclusionFilters []LogsIndexExclusionFilter `pulumi:"exclusionFilters"`
 	// Logs filter
 	Filters []LogsIndexFilter `pulumi:"filters"`
+	// The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
+	FlexRetentionDays *int `pulumi:"flexRetentionDays"`
 	// The name of the index. Index names cannot be modified after creation. If this value is changed, a new index will be created.
 	Name *string `pulumi:"name"`
-	// The number of days before logs are deleted from this index.
+	// The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
 	RetentionDays *int `pulumi:"retentionDays"`
 }
 
@@ -166,9 +171,11 @@ type LogsIndexState struct {
 	ExclusionFilters LogsIndexExclusionFilterArrayInput
 	// Logs filter
 	Filters LogsIndexFilterArrayInput
+	// The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
+	FlexRetentionDays pulumi.IntPtrInput
 	// The name of the index. Index names cannot be modified after creation. If this value is changed, a new index will be created.
 	Name pulumi.StringPtrInput
-	// The number of days before logs are deleted from this index.
+	// The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
 	RetentionDays pulumi.IntPtrInput
 }
 
@@ -189,9 +196,11 @@ type logsIndexArgs struct {
 	ExclusionFilters []LogsIndexExclusionFilter `pulumi:"exclusionFilters"`
 	// Logs filter
 	Filters []LogsIndexFilter `pulumi:"filters"`
+	// The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
+	FlexRetentionDays *int `pulumi:"flexRetentionDays"`
 	// The name of the index. Index names cannot be modified after creation. If this value is changed, a new index will be created.
 	Name string `pulumi:"name"`
-	// The number of days before logs are deleted from this index.
+	// The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
 	RetentionDays *int `pulumi:"retentionDays"`
 }
 
@@ -209,9 +218,11 @@ type LogsIndexArgs struct {
 	ExclusionFilters LogsIndexExclusionFilterArrayInput
 	// Logs filter
 	Filters LogsIndexFilterArrayInput
+	// The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
+	FlexRetentionDays pulumi.IntPtrInput
 	// The name of the index. Index names cannot be modified after creation. If this value is changed, a new index will be created.
 	Name pulumi.StringInput
-	// The number of days before logs are deleted from this index.
+	// The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
 	RetentionDays pulumi.IntPtrInput
 }
 
@@ -332,12 +343,17 @@ func (o LogsIndexOutput) Filters() LogsIndexFilterArrayOutput {
 	return o.ApplyT(func(v *LogsIndex) LogsIndexFilterArrayOutput { return v.Filters }).(LogsIndexFilterArrayOutput)
 }
 
+// The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
+func (o LogsIndexOutput) FlexRetentionDays() pulumi.IntOutput {
+	return o.ApplyT(func(v *LogsIndex) pulumi.IntOutput { return v.FlexRetentionDays }).(pulumi.IntOutput)
+}
+
 // The name of the index. Index names cannot be modified after creation. If this value is changed, a new index will be created.
 func (o LogsIndexOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogsIndex) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The number of days before logs are deleted from this index.
+// The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
 func (o LogsIndexOutput) RetentionDays() pulumi.IntOutput {
 	return o.ApplyT(func(v *LogsIndex) pulumi.IntOutput { return v.RetentionDays }).(pulumi.IntOutput)
 }

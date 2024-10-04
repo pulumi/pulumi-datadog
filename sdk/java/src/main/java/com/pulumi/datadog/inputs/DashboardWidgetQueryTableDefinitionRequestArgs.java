@@ -12,6 +12,7 @@ import com.pulumi.datadog.inputs.DashboardWidgetQueryTableDefinitionRequestCondi
 import com.pulumi.datadog.inputs.DashboardWidgetQueryTableDefinitionRequestFormulaArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetQueryTableDefinitionRequestProcessQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetQueryTableDefinitionRequestQueryArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetQueryTableDefinitionRequestTextFormatArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetRumQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetSecurityQueryArgs;
 import java.lang.Integer;
@@ -227,6 +228,21 @@ public final class DashboardWidgetQueryTableDefinitionRequestArgs extends com.pu
         return Optional.ofNullable(this.securityQuery);
     }
 
+    /**
+     * Text formats define how to format text in table widget content. Multiple `text_formats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
+     * 
+     */
+    @Import(name="textFormats")
+    private @Nullable Output<List<DashboardWidgetQueryTableDefinitionRequestTextFormatArgs>> textFormats;
+
+    /**
+     * @return Text formats define how to format text in table widget content. Multiple `text_formats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
+     * 
+     */
+    public Optional<Output<List<DashboardWidgetQueryTableDefinitionRequestTextFormatArgs>>> textFormats() {
+        return Optional.ofNullable(this.textFormats);
+    }
+
     private DashboardWidgetQueryTableDefinitionRequestArgs() {}
 
     private DashboardWidgetQueryTableDefinitionRequestArgs(DashboardWidgetQueryTableDefinitionRequestArgs $) {
@@ -245,6 +261,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestArgs extends com.pu
         this.queries = $.queries;
         this.rumQuery = $.rumQuery;
         this.securityQuery = $.securityQuery;
+        this.textFormats = $.textFormats;
     }
 
     public static Builder builder() {
@@ -570,6 +587,37 @@ public final class DashboardWidgetQueryTableDefinitionRequestArgs extends com.pu
          */
         public Builder securityQuery(DashboardWidgetSecurityQueryArgs securityQuery) {
             return securityQuery(Output.of(securityQuery));
+        }
+
+        /**
+         * @param textFormats Text formats define how to format text in table widget content. Multiple `text_formats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder textFormats(@Nullable Output<List<DashboardWidgetQueryTableDefinitionRequestTextFormatArgs>> textFormats) {
+            $.textFormats = textFormats;
+            return this;
+        }
+
+        /**
+         * @param textFormats Text formats define how to format text in table widget content. Multiple `text_formats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder textFormats(List<DashboardWidgetQueryTableDefinitionRequestTextFormatArgs> textFormats) {
+            return textFormats(Output.of(textFormats));
+        }
+
+        /**
+         * @param textFormats Text formats define how to format text in table widget content. Multiple `text_formats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder textFormats(DashboardWidgetQueryTableDefinitionRequestTextFormatArgs... textFormats) {
+            return textFormats(List.of(textFormats));
         }
 
         public DashboardWidgetQueryTableDefinitionRequestArgs build() {

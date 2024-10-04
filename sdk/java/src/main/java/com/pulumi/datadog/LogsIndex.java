@@ -60,6 +60,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .dailyLimitWarningThresholdPercentage(50)
  *             .retentionDays(7)
+ *             .flexRetentionDays(180)
  *             .filters(LogsIndexFilterArgs.builder()
  *                 .query("*")
  *                 .build())
@@ -182,6 +183,20 @@ public class LogsIndex extends com.pulumi.resources.CustomResource {
         return this.filters;
     }
     /**
+     * The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
+     * 
+     */
+    @Export(name="flexRetentionDays", refs={Integer.class}, tree="[0]")
+    private Output<Integer> flexRetentionDays;
+
+    /**
+     * @return The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
+     * 
+     */
+    public Output<Integer> flexRetentionDays() {
+        return this.flexRetentionDays;
+    }
+    /**
      * The name of the index. Index names cannot be modified after creation. If this value is changed, a new index will be created.
      * 
      */
@@ -196,14 +211,14 @@ public class LogsIndex extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The number of days before logs are deleted from this index.
+     * The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
      * 
      */
     @Export(name="retentionDays", refs={Integer.class}, tree="[0]")
     private Output<Integer> retentionDays;
 
     /**
-     * @return The number of days before logs are deleted from this index.
+     * @return The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
      * 
      */
     public Output<Integer> retentionDays() {

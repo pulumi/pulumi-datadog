@@ -13,6 +13,7 @@ import com.pulumi.datadog.outputs.PowerpackWidgetQueryTableDefinitionRequestProc
 import com.pulumi.datadog.outputs.PowerpackWidgetQueryTableDefinitionRequestQuery;
 import com.pulumi.datadog.outputs.PowerpackWidgetQueryTableDefinitionRequestRumQuery;
 import com.pulumi.datadog.outputs.PowerpackWidgetQueryTableDefinitionRequestSecurityQuery;
+import com.pulumi.datadog.outputs.PowerpackWidgetQueryTableDefinitionRequestTextFormat;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -85,6 +86,11 @@ public final class PowerpackWidgetQueryTableDefinitionRequest {
      * 
      */
     private @Nullable PowerpackWidgetQueryTableDefinitionRequestSecurityQuery securityQuery;
+    /**
+     * @return Text formats define how to format text in table widget content. Multiple `text_formats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
+     * 
+     */
+    private @Nullable List<PowerpackWidgetQueryTableDefinitionRequestTextFormat> textFormats;
 
     private PowerpackWidgetQueryTableDefinitionRequest() {}
     /**
@@ -180,6 +186,13 @@ public final class PowerpackWidgetQueryTableDefinitionRequest {
     public Optional<PowerpackWidgetQueryTableDefinitionRequestSecurityQuery> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
+    /**
+     * @return Text formats define how to format text in table widget content. Multiple `text_formats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
+     * 
+     */
+    public List<PowerpackWidgetQueryTableDefinitionRequestTextFormat> textFormats() {
+        return this.textFormats == null ? List.of() : this.textFormats;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -205,6 +218,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequest {
         private @Nullable List<PowerpackWidgetQueryTableDefinitionRequestQuery> queries;
         private @Nullable PowerpackWidgetQueryTableDefinitionRequestRumQuery rumQuery;
         private @Nullable PowerpackWidgetQueryTableDefinitionRequestSecurityQuery securityQuery;
+        private @Nullable List<PowerpackWidgetQueryTableDefinitionRequestTextFormat> textFormats;
         public Builder() {}
         public Builder(PowerpackWidgetQueryTableDefinitionRequest defaults) {
     	      Objects.requireNonNull(defaults);
@@ -223,6 +237,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequest {
     	      this.queries = defaults.queries;
     	      this.rumQuery = defaults.rumQuery;
     	      this.securityQuery = defaults.securityQuery;
+    	      this.textFormats = defaults.textFormats;
         }
 
         @CustomType.Setter
@@ -327,6 +342,15 @@ public final class PowerpackWidgetQueryTableDefinitionRequest {
             this.securityQuery = securityQuery;
             return this;
         }
+        @CustomType.Setter
+        public Builder textFormats(@Nullable List<PowerpackWidgetQueryTableDefinitionRequestTextFormat> textFormats) {
+
+            this.textFormats = textFormats;
+            return this;
+        }
+        public Builder textFormats(PowerpackWidgetQueryTableDefinitionRequestTextFormat... textFormats) {
+            return textFormats(List.of(textFormats));
+        }
         public PowerpackWidgetQueryTableDefinitionRequest build() {
             final var _resultValue = new PowerpackWidgetQueryTableDefinitionRequest();
             _resultValue.aggregator = aggregator;
@@ -344,6 +368,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequest {
             _resultValue.queries = queries;
             _resultValue.rumQuery = rumQuery;
             _resultValue.securityQuery = securityQuery;
+            _resultValue.textFormats = textFormats;
             return _resultValue;
         }
     }

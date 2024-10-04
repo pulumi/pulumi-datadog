@@ -42,12 +42,17 @@ public final class GetLogsIndexesLogsIndex {
      */
     private List<GetLogsIndexesLogsIndexFilter> filters;
     /**
+     * @return The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
+     * 
+     */
+    private Integer flexRetentionDays;
+    /**
      * @return The name of the index.
      * 
      */
     private String name;
     /**
-     * @return The number of days before logs are deleted from this index.
+     * @return The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
      * 
      */
     private Integer retentionDays;
@@ -89,6 +94,13 @@ public final class GetLogsIndexesLogsIndex {
         return this.filters;
     }
     /**
+     * @return The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
+     * 
+     */
+    public Integer flexRetentionDays() {
+        return this.flexRetentionDays;
+    }
+    /**
      * @return The name of the index.
      * 
      */
@@ -96,7 +108,7 @@ public final class GetLogsIndexesLogsIndex {
         return this.name;
     }
     /**
-     * @return The number of days before logs are deleted from this index.
+     * @return The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
      * 
      */
     public Integer retentionDays() {
@@ -117,6 +129,7 @@ public final class GetLogsIndexesLogsIndex {
         private Double dailyLimitWarningThresholdPercentage;
         private List<GetLogsIndexesLogsIndexExclusionFilter> exclusionFilters;
         private List<GetLogsIndexesLogsIndexFilter> filters;
+        private Integer flexRetentionDays;
         private String name;
         private Integer retentionDays;
         public Builder() {}
@@ -127,6 +140,7 @@ public final class GetLogsIndexesLogsIndex {
     	      this.dailyLimitWarningThresholdPercentage = defaults.dailyLimitWarningThresholdPercentage;
     	      this.exclusionFilters = defaults.exclusionFilters;
     	      this.filters = defaults.filters;
+    	      this.flexRetentionDays = defaults.flexRetentionDays;
     	      this.name = defaults.name;
     	      this.retentionDays = defaults.retentionDays;
         }
@@ -181,6 +195,14 @@ public final class GetLogsIndexesLogsIndex {
             return filters(List.of(filters));
         }
         @CustomType.Setter
+        public Builder flexRetentionDays(Integer flexRetentionDays) {
+            if (flexRetentionDays == null) {
+              throw new MissingRequiredPropertyException("GetLogsIndexesLogsIndex", "flexRetentionDays");
+            }
+            this.flexRetentionDays = flexRetentionDays;
+            return this;
+        }
+        @CustomType.Setter
         public Builder name(String name) {
             if (name == null) {
               throw new MissingRequiredPropertyException("GetLogsIndexesLogsIndex", "name");
@@ -203,6 +225,7 @@ public final class GetLogsIndexesLogsIndex {
             _resultValue.dailyLimitWarningThresholdPercentage = dailyLimitWarningThresholdPercentage;
             _resultValue.exclusionFilters = exclusionFilters;
             _resultValue.filters = filters;
+            _resultValue.flexRetentionDays = flexRetentionDays;
             _resultValue.name = name;
             _resultValue.retentionDays = retentionDays;
             return _resultValue;

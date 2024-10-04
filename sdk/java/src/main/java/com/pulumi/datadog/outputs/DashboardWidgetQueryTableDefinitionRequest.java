@@ -11,6 +11,7 @@ import com.pulumi.datadog.outputs.DashboardWidgetQueryTableDefinitionRequestCond
 import com.pulumi.datadog.outputs.DashboardWidgetQueryTableDefinitionRequestFormula;
 import com.pulumi.datadog.outputs.DashboardWidgetQueryTableDefinitionRequestProcessQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetQueryTableDefinitionRequestQuery;
+import com.pulumi.datadog.outputs.DashboardWidgetQueryTableDefinitionRequestTextFormat;
 import com.pulumi.datadog.outputs.DashboardWidgetRumQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetSecurityQuery;
 import java.lang.Integer;
@@ -85,6 +86,11 @@ public final class DashboardWidgetQueryTableDefinitionRequest {
      * 
      */
     private @Nullable DashboardWidgetSecurityQuery securityQuery;
+    /**
+     * @return Text formats define how to format text in table widget content. Multiple `text_formats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
+     * 
+     */
+    private @Nullable List<DashboardWidgetQueryTableDefinitionRequestTextFormat> textFormats;
 
     private DashboardWidgetQueryTableDefinitionRequest() {}
     /**
@@ -180,6 +186,13 @@ public final class DashboardWidgetQueryTableDefinitionRequest {
     public Optional<DashboardWidgetSecurityQuery> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
+    /**
+     * @return Text formats define how to format text in table widget content. Multiple `text_formats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
+     * 
+     */
+    public List<DashboardWidgetQueryTableDefinitionRequestTextFormat> textFormats() {
+        return this.textFormats == null ? List.of() : this.textFormats;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -205,6 +218,7 @@ public final class DashboardWidgetQueryTableDefinitionRequest {
         private @Nullable List<DashboardWidgetQueryTableDefinitionRequestQuery> queries;
         private @Nullable DashboardWidgetRumQuery rumQuery;
         private @Nullable DashboardWidgetSecurityQuery securityQuery;
+        private @Nullable List<DashboardWidgetQueryTableDefinitionRequestTextFormat> textFormats;
         public Builder() {}
         public Builder(DashboardWidgetQueryTableDefinitionRequest defaults) {
     	      Objects.requireNonNull(defaults);
@@ -223,6 +237,7 @@ public final class DashboardWidgetQueryTableDefinitionRequest {
     	      this.queries = defaults.queries;
     	      this.rumQuery = defaults.rumQuery;
     	      this.securityQuery = defaults.securityQuery;
+    	      this.textFormats = defaults.textFormats;
         }
 
         @CustomType.Setter
@@ -327,6 +342,15 @@ public final class DashboardWidgetQueryTableDefinitionRequest {
             this.securityQuery = securityQuery;
             return this;
         }
+        @CustomType.Setter
+        public Builder textFormats(@Nullable List<DashboardWidgetQueryTableDefinitionRequestTextFormat> textFormats) {
+
+            this.textFormats = textFormats;
+            return this;
+        }
+        public Builder textFormats(DashboardWidgetQueryTableDefinitionRequestTextFormat... textFormats) {
+            return textFormats(List.of(textFormats));
+        }
         public DashboardWidgetQueryTableDefinitionRequest build() {
             final var _resultValue = new DashboardWidgetQueryTableDefinitionRequest();
             _resultValue.aggregator = aggregator;
@@ -344,6 +368,7 @@ public final class DashboardWidgetQueryTableDefinitionRequest {
             _resultValue.queries = queries;
             _resultValue.rumQuery = rumQuery;
             _resultValue.securityQuery = securityQuery;
+            _resultValue.textFormats = textFormats;
             return _resultValue;
         }
     }

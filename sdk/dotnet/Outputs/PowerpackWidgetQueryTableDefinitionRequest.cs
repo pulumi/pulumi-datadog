@@ -64,6 +64,10 @@ namespace Pulumi.Datadog.Outputs
         /// The query to use for this widget.
         /// </summary>
         public readonly Outputs.PowerpackWidgetQueryTableDefinitionRequestSecurityQuery? SecurityQuery;
+        /// <summary>
+        /// Text formats define how to format text in table widget content. Multiple `text_formats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PowerpackWidgetQueryTableDefinitionRequestTextFormat> TextFormats;
 
         [OutputConstructor]
         private PowerpackWidgetQueryTableDefinitionRequest(
@@ -95,7 +99,9 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.PowerpackWidgetQueryTableDefinitionRequestRumQuery? rumQuery,
 
-            Outputs.PowerpackWidgetQueryTableDefinitionRequestSecurityQuery? securityQuery)
+            Outputs.PowerpackWidgetQueryTableDefinitionRequestSecurityQuery? securityQuery,
+
+            ImmutableArray<Outputs.PowerpackWidgetQueryTableDefinitionRequestTextFormat> textFormats)
         {
             Aggregator = aggregator;
             Alias = alias;
@@ -112,6 +118,7 @@ namespace Pulumi.Datadog.Outputs
             Queries = queries;
             RumQuery = rumQuery;
             SecurityQuery = securityQuery;
+            TextFormats = textFormats;
         }
     }
 }

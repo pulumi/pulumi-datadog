@@ -13,10 +13,16 @@ namespace Pulumi.Datadog.Inputs
     public sealed class SyntheticsTestApiStepAssertionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// If assertion type is `javascript`, this is the JavaScript code that performs the assertions.
+        /// </summary>
+        [Input("code")]
+        public Input<string>? Code { get; set; }
+
+        /// <summary>
         /// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
         /// </summary>
-        [Input("operator", required: true)]
-        public Input<string> Operator { get; set; } = null!;
+        [Input("operator")]
+        public Input<string>? Operator { get; set; }
 
         /// <summary>
         /// If assertion type is `header`, this is the header name.
@@ -55,7 +61,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? TimingsScope { get; set; }
 
         /// <summary>
-        /// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`.
+        /// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

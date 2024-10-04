@@ -6,6 +6,7 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetToplistDefinitionCustomLink;
 import com.pulumi.datadog.outputs.DashboardWidgetToplistDefinitionRequest;
+import com.pulumi.datadog.outputs.DashboardWidgetToplistDefinitionStyle;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -29,6 +30,11 @@ public final class DashboardWidgetToplistDefinition {
      * 
      */
     private @Nullable List<DashboardWidgetToplistDefinitionRequest> requests;
+    /**
+     * @return The style of the widget
+     * 
+     */
+    private @Nullable List<DashboardWidgetToplistDefinitionStyle> styles;
     /**
      * @return The title of the widget.
      * 
@@ -68,6 +74,13 @@ public final class DashboardWidgetToplistDefinition {
         return this.requests == null ? List.of() : this.requests;
     }
     /**
+     * @return The style of the widget
+     * 
+     */
+    public List<DashboardWidgetToplistDefinitionStyle> styles() {
+        return this.styles == null ? List.of() : this.styles;
+    }
+    /**
      * @return The title of the widget.
      * 
      */
@@ -101,6 +114,7 @@ public final class DashboardWidgetToplistDefinition {
         private @Nullable List<DashboardWidgetToplistDefinitionCustomLink> customLinks;
         private @Nullable String liveSpan;
         private @Nullable List<DashboardWidgetToplistDefinitionRequest> requests;
+        private @Nullable List<DashboardWidgetToplistDefinitionStyle> styles;
         private @Nullable String title;
         private @Nullable String titleAlign;
         private @Nullable String titleSize;
@@ -110,6 +124,7 @@ public final class DashboardWidgetToplistDefinition {
     	      this.customLinks = defaults.customLinks;
     	      this.liveSpan = defaults.liveSpan;
     	      this.requests = defaults.requests;
+    	      this.styles = defaults.styles;
     	      this.title = defaults.title;
     	      this.titleAlign = defaults.titleAlign;
     	      this.titleSize = defaults.titleSize;
@@ -140,6 +155,15 @@ public final class DashboardWidgetToplistDefinition {
             return requests(List.of(requests));
         }
         @CustomType.Setter
+        public Builder styles(@Nullable List<DashboardWidgetToplistDefinitionStyle> styles) {
+
+            this.styles = styles;
+            return this;
+        }
+        public Builder styles(DashboardWidgetToplistDefinitionStyle... styles) {
+            return styles(List.of(styles));
+        }
+        @CustomType.Setter
         public Builder title(@Nullable String title) {
 
             this.title = title;
@@ -162,6 +186,7 @@ public final class DashboardWidgetToplistDefinition {
             _resultValue.customLinks = customLinks;
             _resultValue.liveSpan = liveSpan;
             _resultValue.requests = requests;
+            _resultValue.styles = styles;
             _resultValue.title = title;
             _resultValue.titleAlign = titleAlign;
             _resultValue.titleSize = titleSize;

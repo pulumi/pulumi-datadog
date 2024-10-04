@@ -115,6 +115,18 @@ namespace Pulumi.Datadog.Inputs
         [Input("securityQuery")]
         public Input<Inputs.PowerpackWidgetQueryTableDefinitionRequestSecurityQueryArgs>? SecurityQuery { get; set; }
 
+        [Input("textFormats")]
+        private InputList<Inputs.PowerpackWidgetQueryTableDefinitionRequestTextFormatArgs>? _textFormats;
+
+        /// <summary>
+        /// Text formats define how to format text in table widget content. Multiple `text_formats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
+        /// </summary>
+        public InputList<Inputs.PowerpackWidgetQueryTableDefinitionRequestTextFormatArgs> TextFormats
+        {
+            get => _textFormats ?? (_textFormats = new InputList<Inputs.PowerpackWidgetQueryTableDefinitionRequestTextFormatArgs>());
+            set => _textFormats = value;
+        }
+
         public PowerpackWidgetQueryTableDefinitionRequestArgs()
         {
         }

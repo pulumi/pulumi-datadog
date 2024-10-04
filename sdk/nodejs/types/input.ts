@@ -3275,6 +3275,10 @@ export interface DashboardWidgetQueryTableDefinitionRequest {
      * The query to use for this widget.
      */
     securityQuery?: pulumi.Input<inputs.DashboardWidgetSecurityQuery>;
+    /**
+     * Text formats define how to format text in table widget content. Multiple `textFormats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
+     */
+    textFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestTextFormat>[]>;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestApmStatsQuery {
@@ -3807,6 +3811,62 @@ export interface DashboardWidgetQueryTableDefinitionRequestQuerySloQuery {
      * type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
      */
     sloQueryType?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestTextFormat {
+    /**
+     * The text format to apply to the items in a table widget column.
+     */
+    textFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormat>[]>;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormat {
+    /**
+     * The custom color palette to apply to the background.
+     */
+    customBgColor?: pulumi.Input<string>;
+    /**
+     * The custom color palette to apply to the foreground text.
+     */
+    customFgColor?: pulumi.Input<string>;
+    /**
+     * Match rule for the table widget text format.
+     */
+    match: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatMatch>;
+    /**
+     * The color palette to apply. Valid values are `whiteOnRed`, `whiteOnYellow`, `whiteOnGreen`, `blackOnLightRed`, `blackOnLightYellow`, `blackOnLightGreen`, `redOnWhite`, `yellowOnWhite`, `greenOnWhite`, `customBg`, `customText`.
+     */
+    palette?: pulumi.Input<string>;
+    /**
+     * Match rule for the table widget text format.
+     */
+    replace?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatReplace>;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatMatch {
+    /**
+     * Match or compare option. Valid values are `is`, `isNot`, `contains`, `doesNotContain`, `startsWith`, `endsWith`.
+     */
+    type: pulumi.Input<string>;
+    /**
+     * Table Widget Match String.
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatReplace {
+    /**
+     * Text that will be replaced. Must be used with type `substring`.
+     */
+    substring?: pulumi.Input<string>;
+    /**
+     * Table widget text format replace all type.
+     */
+    type: pulumi.Input<string>;
+    /**
+     * Table Widget Match String.
+     */
+    with: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetQueryValueDefinition {
@@ -7177,6 +7237,10 @@ export interface DashboardWidgetToplistDefinition {
      */
     requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequest>[]>;
     /**
+     * The style of the widget
+     */
+    styles?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetToplistDefinitionStyle>[]>;
+    /**
      * The title of the widget.
      */
     title?: pulumi.Input<string>;
@@ -7820,6 +7884,24 @@ export interface DashboardWidgetToplistDefinitionRequestStyle {
      * A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
      */
     palette?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetToplistDefinitionStyle {
+    /**
+     * The display mode for the widget.
+     */
+    displays?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetToplistDefinitionStyleDisplay>[]>;
+    /**
+     * The color palette for the widget.
+     */
+    palette?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetToplistDefinitionStyleDisplay {
+    /**
+     * The display type for the widget.
+     */
+    type: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetTopologyMapDefinition {
@@ -14308,6 +14390,10 @@ export interface PowerpackWidgetQueryTableDefinitionRequest {
      * The query to use for this widget.
      */
     securityQuery?: pulumi.Input<inputs.PowerpackWidgetQueryTableDefinitionRequestSecurityQuery>;
+    /**
+     * Text formats define how to format text in table widget content. Multiple `textFormats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
+     */
+    textFormats?: pulumi.Input<pulumi.Input<inputs.PowerpackWidgetQueryTableDefinitionRequestTextFormat>[]>;
 }
 
 export interface PowerpackWidgetQueryTableDefinitionRequestApmQuery {
@@ -15172,6 +15258,62 @@ export interface PowerpackWidgetQueryTableDefinitionRequestSecurityQueryMultiCom
      * Define the time interval in seconds.
      */
     interval?: pulumi.Input<number>;
+}
+
+export interface PowerpackWidgetQueryTableDefinitionRequestTextFormat {
+    /**
+     * The text format to apply to the items in a table widget column.
+     */
+    textFormats?: pulumi.Input<pulumi.Input<inputs.PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormat>[]>;
+}
+
+export interface PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormat {
+    /**
+     * The custom color palette to apply to the background.
+     */
+    customBgColor?: pulumi.Input<string>;
+    /**
+     * The custom color palette to apply to the foreground text.
+     */
+    customFgColor?: pulumi.Input<string>;
+    /**
+     * Match rule for the table widget text format.
+     */
+    match: pulumi.Input<inputs.PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatMatch>;
+    /**
+     * The color palette to apply. Valid values are `whiteOnRed`, `whiteOnYellow`, `whiteOnGreen`, `blackOnLightRed`, `blackOnLightYellow`, `blackOnLightGreen`, `redOnWhite`, `yellowOnWhite`, `greenOnWhite`, `customBg`, `customText`.
+     */
+    palette?: pulumi.Input<string>;
+    /**
+     * Match rule for the table widget text format.
+     */
+    replace?: pulumi.Input<inputs.PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatReplace>;
+}
+
+export interface PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatMatch {
+    /**
+     * Match or compare option. Valid values are `is`, `isNot`, `contains`, `doesNotContain`, `startsWith`, `endsWith`.
+     */
+    type: pulumi.Input<string>;
+    /**
+     * Table Widget Match String.
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatReplace {
+    /**
+     * Text that will be replaced. Must be used with type `substring`.
+     */
+    substring?: pulumi.Input<string>;
+    /**
+     * Table widget text format replace all type.
+     */
+    type: pulumi.Input<string>;
+    /**
+     * Table Widget Match String.
+     */
+    with: pulumi.Input<string>;
 }
 
 export interface PowerpackWidgetQueryValueDefinition {
@@ -19910,6 +20052,10 @@ export interface PowerpackWidgetToplistDefinition {
      */
     requests?: pulumi.Input<pulumi.Input<inputs.PowerpackWidgetToplistDefinitionRequest>[]>;
     /**
+     * The style of the widget
+     */
+    styles?: pulumi.Input<pulumi.Input<inputs.PowerpackWidgetToplistDefinitionStyle>[]>;
+    /**
      * The title of the widget.
      */
     title?: pulumi.Input<string>;
@@ -20885,6 +21031,24 @@ export interface PowerpackWidgetToplistDefinitionRequestStyle {
      * A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
      */
     palette?: pulumi.Input<string>;
+}
+
+export interface PowerpackWidgetToplistDefinitionStyle {
+    /**
+     * The display mode for the widget.
+     */
+    displays?: pulumi.Input<pulumi.Input<inputs.PowerpackWidgetToplistDefinitionStyleDisplay>[]>;
+    /**
+     * The color palette for the widget.
+     */
+    palette?: pulumi.Input<string>;
+}
+
+export interface PowerpackWidgetToplistDefinitionStyleDisplay {
+    /**
+     * The display type for the widget.
+     */
+    type: pulumi.Input<string>;
 }
 
 export interface PowerpackWidgetTopologyMapDefinition {
@@ -22051,9 +22215,13 @@ export interface SyntheticsTestApiStep {
 
 export interface SyntheticsTestApiStepAssertion {
     /**
+     * If assertion type is `javascript`, this is the JavaScript code that performs the assertions.
+     */
+    code?: pulumi.Input<string>;
+    /**
      * Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
      */
-    operator: pulumi.Input<string>;
+    operator?: pulumi.Input<string>;
     /**
      * If assertion type is `header`, this is the header name.
      */
@@ -22079,7 +22247,7 @@ export interface SyntheticsTestApiStepAssertion {
      */
     timingsScope?: pulumi.Input<string>;
     /**
-     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`.
+     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
      */
     type: pulumi.Input<string>;
 }
@@ -22403,9 +22571,13 @@ export interface SyntheticsTestApiStepRetry {
 
 export interface SyntheticsTestAssertion {
     /**
+     * If assertion type is `javascript`, this is the JavaScript code that performs the assertions.
+     */
+    code?: pulumi.Input<string>;
+    /**
      * Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
      */
-    operator: pulumi.Input<string>;
+    operator?: pulumi.Input<string>;
     /**
      * If assertion type is `header`, this is the header name.
      */
@@ -22431,7 +22603,7 @@ export interface SyntheticsTestAssertion {
      */
     timingsScope?: pulumi.Input<string>;
     /**
-     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`.
+     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
      */
     type: pulumi.Input<string>;
 }
@@ -22665,7 +22837,7 @@ export interface SyntheticsTestConfigVariable {
      */
     secure?: pulumi.Input<boolean>;
     /**
-     * Type of test configuration variable. Valid values are `global`, `text`.
+     * Type of test configuration variable. Valid values are `global`, `text`, `email`.
      */
     type: pulumi.Input<string>;
 }

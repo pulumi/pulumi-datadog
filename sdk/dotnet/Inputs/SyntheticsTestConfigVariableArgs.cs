@@ -37,7 +37,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<bool>? Secure { get; set; }
 
         /// <summary>
-        /// Type of test configuration variable. Valid values are `global`, `text`.
+        /// Type of test configuration variable. Valid values are `global`, `text`, `email`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

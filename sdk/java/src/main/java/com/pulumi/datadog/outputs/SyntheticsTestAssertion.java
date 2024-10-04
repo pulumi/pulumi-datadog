@@ -16,10 +16,15 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SyntheticsTestAssertion {
     /**
+     * @return If assertion type is `javascript`, this is the JavaScript code that performs the assertions.
+     * 
+     */
+    private @Nullable String code;
+    /**
      * @return Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
      * 
      */
-    private String operator;
+    private @Nullable String operator;
     /**
      * @return If assertion type is `header`, this is the header name.
      * 
@@ -51,18 +56,25 @@ public final class SyntheticsTestAssertion {
      */
     private @Nullable String timingsScope;
     /**
-     * @return Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`.
+     * @return Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
      * 
      */
     private String type;
 
     private SyntheticsTestAssertion() {}
     /**
+     * @return If assertion type is `javascript`, this is the JavaScript code that performs the assertions.
+     * 
+     */
+    public Optional<String> code() {
+        return Optional.ofNullable(this.code);
+    }
+    /**
      * @return Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
      * 
      */
-    public String operator() {
-        return this.operator;
+    public Optional<String> operator() {
+        return Optional.ofNullable(this.operator);
     }
     /**
      * @return If assertion type is `header`, this is the header name.
@@ -107,7 +119,7 @@ public final class SyntheticsTestAssertion {
         return Optional.ofNullable(this.timingsScope);
     }
     /**
-     * @return Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`.
+     * @return Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
      * 
      */
     public String type() {
@@ -123,7 +135,8 @@ public final class SyntheticsTestAssertion {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String operator;
+        private @Nullable String code;
+        private @Nullable String operator;
         private @Nullable String property;
         private @Nullable String target;
         private @Nullable SyntheticsTestAssertionTargetjsonpath targetjsonpath;
@@ -134,6 +147,7 @@ public final class SyntheticsTestAssertion {
         public Builder() {}
         public Builder(SyntheticsTestAssertion defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.code = defaults.code;
     	      this.operator = defaults.operator;
     	      this.property = defaults.property;
     	      this.target = defaults.target;
@@ -145,10 +159,14 @@ public final class SyntheticsTestAssertion {
         }
 
         @CustomType.Setter
-        public Builder operator(String operator) {
-            if (operator == null) {
-              throw new MissingRequiredPropertyException("SyntheticsTestAssertion", "operator");
-            }
+        public Builder code(@Nullable String code) {
+
+            this.code = code;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder operator(@Nullable String operator) {
+
             this.operator = operator;
             return this;
         }
@@ -198,6 +216,7 @@ public final class SyntheticsTestAssertion {
         }
         public SyntheticsTestAssertion build() {
             final var _resultValue = new SyntheticsTestAssertion();
+            _resultValue.code = code;
             _resultValue.operator = operator;
             _resultValue.property = property;
             _resultValue.target = target;

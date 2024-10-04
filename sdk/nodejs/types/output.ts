@@ -3275,6 +3275,10 @@ export interface DashboardWidgetQueryTableDefinitionRequest {
      * The query to use for this widget.
      */
     securityQuery?: outputs.DashboardWidgetSecurityQuery;
+    /**
+     * Text formats define how to format text in table widget content. Multiple `textFormats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
+     */
+    textFormats?: outputs.DashboardWidgetQueryTableDefinitionRequestTextFormat[];
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestApmStatsQuery {
@@ -3807,6 +3811,62 @@ export interface DashboardWidgetQueryTableDefinitionRequestQuerySloQuery {
      * type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
      */
     sloQueryType?: string;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestTextFormat {
+    /**
+     * The text format to apply to the items in a table widget column.
+     */
+    textFormats?: outputs.DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormat[];
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormat {
+    /**
+     * The custom color palette to apply to the background.
+     */
+    customBgColor?: string;
+    /**
+     * The custom color palette to apply to the foreground text.
+     */
+    customFgColor?: string;
+    /**
+     * Match rule for the table widget text format.
+     */
+    match: outputs.DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatMatch;
+    /**
+     * The color palette to apply. Valid values are `whiteOnRed`, `whiteOnYellow`, `whiteOnGreen`, `blackOnLightRed`, `blackOnLightYellow`, `blackOnLightGreen`, `redOnWhite`, `yellowOnWhite`, `greenOnWhite`, `customBg`, `customText`.
+     */
+    palette?: string;
+    /**
+     * Match rule for the table widget text format.
+     */
+    replace?: outputs.DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatReplace;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatMatch {
+    /**
+     * Match or compare option. Valid values are `is`, `isNot`, `contains`, `doesNotContain`, `startsWith`, `endsWith`.
+     */
+    type: string;
+    /**
+     * Table Widget Match String.
+     */
+    value: string;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatReplace {
+    /**
+     * Text that will be replaced. Must be used with type `substring`.
+     */
+    substring?: string;
+    /**
+     * Table widget text format replace all type.
+     */
+    type: string;
+    /**
+     * Table Widget Match String.
+     */
+    with: string;
 }
 
 export interface DashboardWidgetQueryValueDefinition {
@@ -7177,6 +7237,10 @@ export interface DashboardWidgetToplistDefinition {
      */
     requests?: outputs.DashboardWidgetToplistDefinitionRequest[];
     /**
+     * The style of the widget
+     */
+    styles?: outputs.DashboardWidgetToplistDefinitionStyle[];
+    /**
      * The title of the widget.
      */
     title?: string;
@@ -7820,6 +7884,24 @@ export interface DashboardWidgetToplistDefinitionRequestStyle {
      * A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
      */
     palette?: string;
+}
+
+export interface DashboardWidgetToplistDefinitionStyle {
+    /**
+     * The display mode for the widget.
+     */
+    displays?: outputs.DashboardWidgetToplistDefinitionStyleDisplay[];
+    /**
+     * The color palette for the widget.
+     */
+    palette?: string;
+}
+
+export interface DashboardWidgetToplistDefinitionStyleDisplay {
+    /**
+     * The display type for the widget.
+     */
+    type: string;
 }
 
 export interface DashboardWidgetTopologyMapDefinition {
@@ -8576,11 +8658,15 @@ export interface GetLogsIndexesLogsIndex {
      */
     filters: outputs.GetLogsIndexesLogsIndexFilter[];
     /**
+     * The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
+     */
+    flexRetentionDays: number;
+    /**
      * The name of the index.
      */
     name: string;
     /**
-     * The number of days before logs are deleted from this index.
+     * The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
      */
     retentionDays: number;
 }
@@ -14963,6 +15049,10 @@ export interface PowerpackWidgetQueryTableDefinitionRequest {
      * The query to use for this widget.
      */
     securityQuery?: outputs.PowerpackWidgetQueryTableDefinitionRequestSecurityQuery;
+    /**
+     * Text formats define how to format text in table widget content. Multiple `textFormats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
+     */
+    textFormats?: outputs.PowerpackWidgetQueryTableDefinitionRequestTextFormat[];
 }
 
 export interface PowerpackWidgetQueryTableDefinitionRequestApmQuery {
@@ -15827,6 +15917,62 @@ export interface PowerpackWidgetQueryTableDefinitionRequestSecurityQueryMultiCom
      * Define the time interval in seconds.
      */
     interval?: number;
+}
+
+export interface PowerpackWidgetQueryTableDefinitionRequestTextFormat {
+    /**
+     * The text format to apply to the items in a table widget column.
+     */
+    textFormats?: outputs.PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormat[];
+}
+
+export interface PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormat {
+    /**
+     * The custom color palette to apply to the background.
+     */
+    customBgColor?: string;
+    /**
+     * The custom color palette to apply to the foreground text.
+     */
+    customFgColor?: string;
+    /**
+     * Match rule for the table widget text format.
+     */
+    match: outputs.PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatMatch;
+    /**
+     * The color palette to apply. Valid values are `whiteOnRed`, `whiteOnYellow`, `whiteOnGreen`, `blackOnLightRed`, `blackOnLightYellow`, `blackOnLightGreen`, `redOnWhite`, `yellowOnWhite`, `greenOnWhite`, `customBg`, `customText`.
+     */
+    palette?: string;
+    /**
+     * Match rule for the table widget text format.
+     */
+    replace?: outputs.PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatReplace;
+}
+
+export interface PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatMatch {
+    /**
+     * Match or compare option. Valid values are `is`, `isNot`, `contains`, `doesNotContain`, `startsWith`, `endsWith`.
+     */
+    type: string;
+    /**
+     * Table Widget Match String.
+     */
+    value: string;
+}
+
+export interface PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatReplace {
+    /**
+     * Text that will be replaced. Must be used with type `substring`.
+     */
+    substring?: string;
+    /**
+     * Table widget text format replace all type.
+     */
+    type: string;
+    /**
+     * Table Widget Match String.
+     */
+    with: string;
 }
 
 export interface PowerpackWidgetQueryValueDefinition {
@@ -20565,6 +20711,10 @@ export interface PowerpackWidgetToplistDefinition {
      */
     requests?: outputs.PowerpackWidgetToplistDefinitionRequest[];
     /**
+     * The style of the widget
+     */
+    styles?: outputs.PowerpackWidgetToplistDefinitionStyle[];
+    /**
      * The title of the widget.
      */
     title?: string;
@@ -21540,6 +21690,24 @@ export interface PowerpackWidgetToplistDefinitionRequestStyle {
      * A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
      */
     palette?: string;
+}
+
+export interface PowerpackWidgetToplistDefinitionStyle {
+    /**
+     * The display mode for the widget.
+     */
+    displays?: outputs.PowerpackWidgetToplistDefinitionStyleDisplay[];
+    /**
+     * The color palette for the widget.
+     */
+    palette?: string;
+}
+
+export interface PowerpackWidgetToplistDefinitionStyleDisplay {
+    /**
+     * The display type for the widget.
+     */
+    type: string;
 }
 
 export interface PowerpackWidgetTopologyMapDefinition {
@@ -22699,9 +22867,13 @@ export interface SyntheticsTestApiStep {
 
 export interface SyntheticsTestApiStepAssertion {
     /**
+     * If assertion type is `javascript`, this is the JavaScript code that performs the assertions.
+     */
+    code?: string;
+    /**
      * Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
      */
-    operator: string;
+    operator?: string;
     /**
      * If assertion type is `header`, this is the header name.
      */
@@ -22727,7 +22899,7 @@ export interface SyntheticsTestApiStepAssertion {
      */
     timingsScope?: string;
     /**
-     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`.
+     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
      */
     type: string;
 }
@@ -23051,9 +23223,13 @@ export interface SyntheticsTestApiStepRetry {
 
 export interface SyntheticsTestAssertion {
     /**
+     * If assertion type is `javascript`, this is the JavaScript code that performs the assertions.
+     */
+    code?: string;
+    /**
      * Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
      */
-    operator: string;
+    operator?: string;
     /**
      * If assertion type is `header`, this is the header name.
      */
@@ -23079,7 +23255,7 @@ export interface SyntheticsTestAssertion {
      */
     timingsScope?: string;
     /**
-     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`.
+     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
      */
     type: string;
 }
@@ -23313,7 +23489,7 @@ export interface SyntheticsTestConfigVariable {
      */
     secure?: boolean;
     /**
-     * Type of test configuration variable. Valid values are `global`, `text`.
+     * Type of test configuration variable. Valid values are `global`, `text`, `email`.
      */
     type: string;
 }
