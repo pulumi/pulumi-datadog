@@ -4327,6 +4327,13 @@
                 "securityQuery": {
                     "$ref": "#/types/datadog:index/DashboardWidgetSecurityQuery:DashboardWidgetSecurityQuery",
                     "description": "The query to use for this widget.\n"
+                },
+                "textFormats": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetQueryTableDefinitionRequestTextFormat:DashboardWidgetQueryTableDefinitionRequestTextFormat"
+                    },
+                    "description": "Text formats define how to format text in table widget content. Multiple `text_formats` blocks are allowed using the structure below. This resource is in beta and is subject to change.\n"
                 }
             },
             "type": "object"
@@ -5003,6 +5010,84 @@
                 "dataSource",
                 "measure",
                 "sloId"
+            ]
+        },
+        "datadog:index/DashboardWidgetQueryTableDefinitionRequestTextFormat:DashboardWidgetQueryTableDefinitionRequestTextFormat": {
+            "properties": {
+                "textFormats": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormat:DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormat"
+                    },
+                    "description": "The text format to apply to the items in a table widget column.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormat:DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormat": {
+            "properties": {
+                "customBgColor": {
+                    "type": "string",
+                    "description": "The custom color palette to apply to the background.\n"
+                },
+                "customFgColor": {
+                    "type": "string",
+                    "description": "The custom color palette to apply to the foreground text.\n"
+                },
+                "match": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatMatch:DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatMatch",
+                    "description": "Match rule for the table widget text format.\n"
+                },
+                "palette": {
+                    "type": "string",
+                    "description": "The color palette to apply. Valid values are `white_on_red`, `white_on_yellow`, `white_on_green`, `black_on_light_red`, `black_on_light_yellow`, `black_on_light_green`, `red_on_white`, `yellow_on_white`, `green_on_white`, `custom_bg`, `custom_text`.\n"
+                },
+                "replace": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatReplace:DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatReplace",
+                    "description": "Match rule for the table widget text format.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "match"
+            ]
+        },
+        "datadog:index/DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatMatch:DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatMatch": {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "description": "Match or compare option. Valid values are `is`, `is_not`, `contains`, `does_not_contain`, `starts_with`, `ends_with`.\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Table Widget Match String.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "type",
+                "value"
+            ]
+        },
+        "datadog:index/DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatReplace:DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatReplace": {
+            "properties": {
+                "substring": {
+                    "type": "string",
+                    "description": "Text that will be replaced. Must be used with type `substring`.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Table widget text format replace all type.\n"
+                },
+                "with": {
+                    "type": "string",
+                    "description": "Table Widget Match String.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "type",
+                "with"
             ]
         },
         "datadog:index/DashboardWidgetQueryValueDefinition:DashboardWidgetQueryValueDefinition": {
@@ -9338,6 +9423,13 @@
                     },
                     "description": "A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the `request` block).\n"
                 },
+                "styles": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetToplistDefinitionStyle:DashboardWidgetToplistDefinitionStyle"
+                    },
+                    "description": "The style of the widget\n"
+                },
                 "title": {
                     "type": "string",
                     "description": "The title of the widget.\n"
@@ -10157,6 +10249,34 @@
                 }
             },
             "type": "object"
+        },
+        "datadog:index/DashboardWidgetToplistDefinitionStyle:DashboardWidgetToplistDefinitionStyle": {
+            "properties": {
+                "displays": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetToplistDefinitionStyleDisplay:DashboardWidgetToplistDefinitionStyleDisplay"
+                    },
+                    "description": "The display mode for the widget.\n"
+                },
+                "palette": {
+                    "type": "string",
+                    "description": "The color palette for the widget.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/DashboardWidgetToplistDefinitionStyleDisplay:DashboardWidgetToplistDefinitionStyleDisplay": {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "description": "The display type for the widget.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "type"
+            ]
         },
         "datadog:index/DashboardWidgetTopologyMapDefinition:DashboardWidgetTopologyMapDefinition": {
             "properties": {
@@ -18734,6 +18854,13 @@
                 "securityQuery": {
                     "$ref": "#/types/datadog:index/PowerpackWidgetQueryTableDefinitionRequestSecurityQuery:PowerpackWidgetQueryTableDefinitionRequestSecurityQuery",
                     "description": "The query to use for this widget.\n"
+                },
+                "textFormats": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/PowerpackWidgetQueryTableDefinitionRequestTextFormat:PowerpackWidgetQueryTableDefinitionRequestTextFormat"
+                    },
+                    "description": "Text formats define how to format text in table widget content. Multiple `text_formats` blocks are allowed using the structure below. This resource is in beta and is subject to change.\n"
                 }
             },
             "type": "object"
@@ -19858,6 +19985,84 @@
             "type": "object",
             "required": [
                 "aggregation"
+            ]
+        },
+        "datadog:index/PowerpackWidgetQueryTableDefinitionRequestTextFormat:PowerpackWidgetQueryTableDefinitionRequestTextFormat": {
+            "properties": {
+                "textFormats": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormat:PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormat"
+                    },
+                    "description": "The text format to apply to the items in a table widget column.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormat:PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormat": {
+            "properties": {
+                "customBgColor": {
+                    "type": "string",
+                    "description": "The custom color palette to apply to the background.\n"
+                },
+                "customFgColor": {
+                    "type": "string",
+                    "description": "The custom color palette to apply to the foreground text.\n"
+                },
+                "match": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatMatch:PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatMatch",
+                    "description": "Match rule for the table widget text format.\n"
+                },
+                "palette": {
+                    "type": "string",
+                    "description": "The color palette to apply. Valid values are `white_on_red`, `white_on_yellow`, `white_on_green`, `black_on_light_red`, `black_on_light_yellow`, `black_on_light_green`, `red_on_white`, `yellow_on_white`, `green_on_white`, `custom_bg`, `custom_text`.\n"
+                },
+                "replace": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatReplace:PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatReplace",
+                    "description": "Match rule for the table widget text format.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "match"
+            ]
+        },
+        "datadog:index/PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatMatch:PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatMatch": {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "description": "Match or compare option. Valid values are `is`, `is_not`, `contains`, `does_not_contain`, `starts_with`, `ends_with`.\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Table Widget Match String.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "type",
+                "value"
+            ]
+        },
+        "datadog:index/PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatReplace:PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatReplace": {
+            "properties": {
+                "substring": {
+                    "type": "string",
+                    "description": "Text that will be replaced. Must be used with type `substring`.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Table widget text format replace all type.\n"
+                },
+                "with": {
+                    "type": "string",
+                    "description": "Table Widget Match String.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "type",
+                "with"
             ]
         },
         "datadog:index/PowerpackWidgetQueryValueDefinition:PowerpackWidgetQueryValueDefinition": {
@@ -26029,6 +26234,13 @@
                     },
                     "description": "A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the `request` block).\n"
                 },
+                "styles": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/PowerpackWidgetToplistDefinitionStyle:PowerpackWidgetToplistDefinitionStyle"
+                    },
+                    "description": "The style of the widget\n"
+                },
                 "title": {
                     "type": "string",
                     "description": "The title of the widget.\n"
@@ -27296,6 +27508,34 @@
                 }
             },
             "type": "object"
+        },
+        "datadog:index/PowerpackWidgetToplistDefinitionStyle:PowerpackWidgetToplistDefinitionStyle": {
+            "properties": {
+                "displays": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/PowerpackWidgetToplistDefinitionStyleDisplay:PowerpackWidgetToplistDefinitionStyleDisplay"
+                    },
+                    "description": "The display mode for the widget.\n"
+                },
+                "palette": {
+                    "type": "string",
+                    "description": "The color palette for the widget.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/PowerpackWidgetToplistDefinitionStyleDisplay:PowerpackWidgetToplistDefinitionStyleDisplay": {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "description": "The display type for the widget.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "type"
+            ]
         },
         "datadog:index/PowerpackWidgetTopologyMapDefinition:PowerpackWidgetTopologyMapDefinition": {
             "properties": {
@@ -28922,6 +29162,10 @@
         },
         "datadog:index/SyntheticsTestApiStepAssertion:SyntheticsTestApiStepAssertion": {
             "properties": {
+                "code": {
+                    "type": "string",
+                    "description": "If assertion type is `javascript`, this is the JavaScript code that performs the assertions.\n"
+                },
                 "operator": {
                     "type": "string",
                     "description": "Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).\n"
@@ -28952,12 +29196,11 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`.\n"
+                    "description": "Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.\n"
                 }
             },
             "type": "object",
             "required": [
-                "operator",
                 "type"
             ]
         },
@@ -29372,6 +29615,10 @@
         },
         "datadog:index/SyntheticsTestAssertion:SyntheticsTestAssertion": {
             "properties": {
+                "code": {
+                    "type": "string",
+                    "description": "If assertion type is `javascript`, this is the JavaScript code that performs the assertions.\n"
+                },
                 "operator": {
                     "type": "string",
                     "description": "Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).\n"
@@ -29402,12 +29649,11 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`.\n"
+                    "description": "Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.\n"
                 }
             },
             "type": "object",
             "required": [
-                "operator",
                 "type"
             ]
         },
@@ -29697,7 +29943,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "Type of test configuration variable. Valid values are `global`, `text`.\n"
+                    "description": "Type of test configuration variable. Valid values are `global`, `text`, `email`.\n"
                 }
             },
             "type": "object",
@@ -30430,13 +30676,17 @@
                     },
                     "description": "Logs filter\n"
                 },
+                "flexRetentionDays": {
+                    "type": "integer",
+                    "description": "The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.\n"
+                },
                 "name": {
                     "type": "string",
                     "description": "The name of the index.\n"
                 },
                 "retentionDays": {
                     "type": "integer",
-                    "description": "The number of days before logs are deleted from this index.\n"
+                    "description": "The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.\n"
                 }
             },
             "type": "object",
@@ -30446,6 +30696,7 @@
                 "dailyLimitWarningThresholdPercentage",
                 "exclusionFilters",
                 "filters",
+                "flexRetentionDays",
                 "name",
                 "retentionDays"
             ],
@@ -34756,7 +35007,7 @@
             }
         },
         "datadog:index/logsIndex:LogsIndex": {
-            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// A sample Datadog logs index resource definition.\nconst sampleIndex = new datadog.LogsIndex(\"sample_index\", {\n    name: \"your index\",\n    dailyLimit: 200000,\n    dailyLimitReset: {\n        resetTime: \"14:00\",\n        resetUtcOffset: \"+02:00\",\n    },\n    dailyLimitWarningThresholdPercentage: 50,\n    retentionDays: 7,\n    filters: [{\n        query: \"*\",\n    }],\n    exclusionFilters: [\n        {\n            name: \"Filter coredns logs\",\n            isEnabled: true,\n            filters: [{\n                query: \"app:coredns\",\n                sampleRate: 0.97,\n            }],\n        },\n        {\n            name: \"Kubernetes apiserver\",\n            isEnabled: true,\n            filters: [{\n                query: \"service:kube_apiserver\",\n                sampleRate: 1,\n            }],\n        },\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# A sample Datadog logs index resource definition.\nsample_index = datadog.LogsIndex(\"sample_index\",\n    name=\"your index\",\n    daily_limit=200000,\n    daily_limit_reset={\n        \"reset_time\": \"14:00\",\n        \"reset_utc_offset\": \"+02:00\",\n    },\n    daily_limit_warning_threshold_percentage=50,\n    retention_days=7,\n    filters=[{\n        \"query\": \"*\",\n    }],\n    exclusion_filters=[\n        {\n            \"name\": \"Filter coredns logs\",\n            \"is_enabled\": True,\n            \"filters\": [{\n                \"query\": \"app:coredns\",\n                \"sample_rate\": 0.97,\n            }],\n        },\n        {\n            \"name\": \"Kubernetes apiserver\",\n            \"is_enabled\": True,\n            \"filters\": [{\n                \"query\": \"service:kube_apiserver\",\n                \"sample_rate\": 1,\n            }],\n        },\n    ])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // A sample Datadog logs index resource definition.\n    var sampleIndex = new Datadog.LogsIndex(\"sample_index\", new()\n    {\n        Name = \"your index\",\n        DailyLimit = 200000,\n        DailyLimitReset = new Datadog.Inputs.LogsIndexDailyLimitResetArgs\n        {\n            ResetTime = \"14:00\",\n            ResetUtcOffset = \"+02:00\",\n        },\n        DailyLimitWarningThresholdPercentage = 50,\n        RetentionDays = 7,\n        Filters = new[]\n        {\n            new Datadog.Inputs.LogsIndexFilterArgs\n            {\n                Query = \"*\",\n            },\n        },\n        ExclusionFilters = new[]\n        {\n            new Datadog.Inputs.LogsIndexExclusionFilterArgs\n            {\n                Name = \"Filter coredns logs\",\n                IsEnabled = true,\n                Filters = new[]\n                {\n                    new Datadog.Inputs.LogsIndexExclusionFilterFilterArgs\n                    {\n                        Query = \"app:coredns\",\n                        SampleRate = 0.97,\n                    },\n                },\n            },\n            new Datadog.Inputs.LogsIndexExclusionFilterArgs\n            {\n                Name = \"Kubernetes apiserver\",\n                IsEnabled = true,\n                Filters = new[]\n                {\n                    new Datadog.Inputs.LogsIndexExclusionFilterFilterArgs\n                    {\n                        Query = \"service:kube_apiserver\",\n                        SampleRate = 1,\n                    },\n                },\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t// A sample Datadog logs index resource definition.\n\t\t_, err := datadog.NewLogsIndex(ctx, \"sample_index\", \u0026datadog.LogsIndexArgs{\n\t\t\tName:       pulumi.String(\"your index\"),\n\t\t\tDailyLimit: pulumi.Int(200000),\n\t\t\tDailyLimitReset: \u0026datadog.LogsIndexDailyLimitResetArgs{\n\t\t\t\tResetTime:      pulumi.String(\"14:00\"),\n\t\t\t\tResetUtcOffset: pulumi.String(\"+02:00\"),\n\t\t\t},\n\t\t\tDailyLimitWarningThresholdPercentage: pulumi.Float64(50),\n\t\t\tRetentionDays:                        pulumi.Int(7),\n\t\t\tFilters: datadog.LogsIndexFilterArray{\n\t\t\t\t\u0026datadog.LogsIndexFilterArgs{\n\t\t\t\t\tQuery: pulumi.String(\"*\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tExclusionFilters: datadog.LogsIndexExclusionFilterArray{\n\t\t\t\t\u0026datadog.LogsIndexExclusionFilterArgs{\n\t\t\t\t\tName:      pulumi.String(\"Filter coredns logs\"),\n\t\t\t\t\tIsEnabled: pulumi.Bool(true),\n\t\t\t\t\tFilters: datadog.LogsIndexExclusionFilterFilterArray{\n\t\t\t\t\t\t\u0026datadog.LogsIndexExclusionFilterFilterArgs{\n\t\t\t\t\t\t\tQuery:      pulumi.String(\"app:coredns\"),\n\t\t\t\t\t\t\tSampleRate: pulumi.Float64(0.97),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026datadog.LogsIndexExclusionFilterArgs{\n\t\t\t\t\tName:      pulumi.String(\"Kubernetes apiserver\"),\n\t\t\t\t\tIsEnabled: pulumi.Bool(true),\n\t\t\t\t\tFilters: datadog.LogsIndexExclusionFilterFilterArray{\n\t\t\t\t\t\t\u0026datadog.LogsIndexExclusionFilterFilterArgs{\n\t\t\t\t\t\t\tQuery:      pulumi.String(\"service:kube_apiserver\"),\n\t\t\t\t\t\t\tSampleRate: pulumi.Float64(1),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.LogsIndex;\nimport com.pulumi.datadog.LogsIndexArgs;\nimport com.pulumi.datadog.inputs.LogsIndexDailyLimitResetArgs;\nimport com.pulumi.datadog.inputs.LogsIndexFilterArgs;\nimport com.pulumi.datadog.inputs.LogsIndexExclusionFilterArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // A sample Datadog logs index resource definition.\n        var sampleIndex = new LogsIndex(\"sampleIndex\", LogsIndexArgs.builder()\n            .name(\"your index\")\n            .dailyLimit(200000)\n            .dailyLimitReset(LogsIndexDailyLimitResetArgs.builder()\n                .resetTime(\"14:00\")\n                .resetUtcOffset(\"+02:00\")\n                .build())\n            .dailyLimitWarningThresholdPercentage(50)\n            .retentionDays(7)\n            .filters(LogsIndexFilterArgs.builder()\n                .query(\"*\")\n                .build())\n            .exclusionFilters(            \n                LogsIndexExclusionFilterArgs.builder()\n                    .name(\"Filter coredns logs\")\n                    .isEnabled(true)\n                    .filters(LogsIndexExclusionFilterFilterArgs.builder()\n                        .query(\"app:coredns\")\n                        .sampleRate(0.97)\n                        .build())\n                    .build(),\n                LogsIndexExclusionFilterArgs.builder()\n                    .name(\"Kubernetes apiserver\")\n                    .isEnabled(true)\n                    .filters(LogsIndexExclusionFilterFilterArgs.builder()\n                        .query(\"service:kube_apiserver\")\n                        .sampleRate(1)\n                        .build())\n                    .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # A sample Datadog logs index resource definition.\n  sampleIndex:\n    type: datadog:LogsIndex\n    name: sample_index\n    properties:\n      name: your index\n      dailyLimit: 200000\n      dailyLimitReset:\n        resetTime: 14:00\n        resetUtcOffset: +02:00\n      dailyLimitWarningThresholdPercentage: 50\n      retentionDays: 7\n      filters:\n        - query: '*'\n      exclusionFilters:\n        - name: Filter coredns logs\n          isEnabled: true\n          filters:\n            - query: app:coredns\n              sampleRate: 0.97\n        - name: Kubernetes apiserver\n          isEnabled: true\n          filters:\n            - query: service:kube_apiserver\n              sampleRate: 1\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import datadog:index/logsIndex:LogsIndex name\u003e \u003cindexName\u003e\n```\n\n",
+            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// A sample Datadog logs index resource definition.\nconst sampleIndex = new datadog.LogsIndex(\"sample_index\", {\n    name: \"your index\",\n    dailyLimit: 200000,\n    dailyLimitReset: {\n        resetTime: \"14:00\",\n        resetUtcOffset: \"+02:00\",\n    },\n    dailyLimitWarningThresholdPercentage: 50,\n    retentionDays: 7,\n    flexRetentionDays: 180,\n    filters: [{\n        query: \"*\",\n    }],\n    exclusionFilters: [\n        {\n            name: \"Filter coredns logs\",\n            isEnabled: true,\n            filters: [{\n                query: \"app:coredns\",\n                sampleRate: 0.97,\n            }],\n        },\n        {\n            name: \"Kubernetes apiserver\",\n            isEnabled: true,\n            filters: [{\n                query: \"service:kube_apiserver\",\n                sampleRate: 1,\n            }],\n        },\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# A sample Datadog logs index resource definition.\nsample_index = datadog.LogsIndex(\"sample_index\",\n    name=\"your index\",\n    daily_limit=200000,\n    daily_limit_reset={\n        \"reset_time\": \"14:00\",\n        \"reset_utc_offset\": \"+02:00\",\n    },\n    daily_limit_warning_threshold_percentage=50,\n    retention_days=7,\n    flex_retention_days=180,\n    filters=[{\n        \"query\": \"*\",\n    }],\n    exclusion_filters=[\n        {\n            \"name\": \"Filter coredns logs\",\n            \"is_enabled\": True,\n            \"filters\": [{\n                \"query\": \"app:coredns\",\n                \"sample_rate\": 0.97,\n            }],\n        },\n        {\n            \"name\": \"Kubernetes apiserver\",\n            \"is_enabled\": True,\n            \"filters\": [{\n                \"query\": \"service:kube_apiserver\",\n                \"sample_rate\": 1,\n            }],\n        },\n    ])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // A sample Datadog logs index resource definition.\n    var sampleIndex = new Datadog.LogsIndex(\"sample_index\", new()\n    {\n        Name = \"your index\",\n        DailyLimit = 200000,\n        DailyLimitReset = new Datadog.Inputs.LogsIndexDailyLimitResetArgs\n        {\n            ResetTime = \"14:00\",\n            ResetUtcOffset = \"+02:00\",\n        },\n        DailyLimitWarningThresholdPercentage = 50,\n        RetentionDays = 7,\n        FlexRetentionDays = 180,\n        Filters = new[]\n        {\n            new Datadog.Inputs.LogsIndexFilterArgs\n            {\n                Query = \"*\",\n            },\n        },\n        ExclusionFilters = new[]\n        {\n            new Datadog.Inputs.LogsIndexExclusionFilterArgs\n            {\n                Name = \"Filter coredns logs\",\n                IsEnabled = true,\n                Filters = new[]\n                {\n                    new Datadog.Inputs.LogsIndexExclusionFilterFilterArgs\n                    {\n                        Query = \"app:coredns\",\n                        SampleRate = 0.97,\n                    },\n                },\n            },\n            new Datadog.Inputs.LogsIndexExclusionFilterArgs\n            {\n                Name = \"Kubernetes apiserver\",\n                IsEnabled = true,\n                Filters = new[]\n                {\n                    new Datadog.Inputs.LogsIndexExclusionFilterFilterArgs\n                    {\n                        Query = \"service:kube_apiserver\",\n                        SampleRate = 1,\n                    },\n                },\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t// A sample Datadog logs index resource definition.\n\t\t_, err := datadog.NewLogsIndex(ctx, \"sample_index\", \u0026datadog.LogsIndexArgs{\n\t\t\tName:       pulumi.String(\"your index\"),\n\t\t\tDailyLimit: pulumi.Int(200000),\n\t\t\tDailyLimitReset: \u0026datadog.LogsIndexDailyLimitResetArgs{\n\t\t\t\tResetTime:      pulumi.String(\"14:00\"),\n\t\t\t\tResetUtcOffset: pulumi.String(\"+02:00\"),\n\t\t\t},\n\t\t\tDailyLimitWarningThresholdPercentage: pulumi.Float64(50),\n\t\t\tRetentionDays:                        pulumi.Int(7),\n\t\t\tFlexRetentionDays:                    pulumi.Int(180),\n\t\t\tFilters: datadog.LogsIndexFilterArray{\n\t\t\t\t\u0026datadog.LogsIndexFilterArgs{\n\t\t\t\t\tQuery: pulumi.String(\"*\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tExclusionFilters: datadog.LogsIndexExclusionFilterArray{\n\t\t\t\t\u0026datadog.LogsIndexExclusionFilterArgs{\n\t\t\t\t\tName:      pulumi.String(\"Filter coredns logs\"),\n\t\t\t\t\tIsEnabled: pulumi.Bool(true),\n\t\t\t\t\tFilters: datadog.LogsIndexExclusionFilterFilterArray{\n\t\t\t\t\t\t\u0026datadog.LogsIndexExclusionFilterFilterArgs{\n\t\t\t\t\t\t\tQuery:      pulumi.String(\"app:coredns\"),\n\t\t\t\t\t\t\tSampleRate: pulumi.Float64(0.97),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026datadog.LogsIndexExclusionFilterArgs{\n\t\t\t\t\tName:      pulumi.String(\"Kubernetes apiserver\"),\n\t\t\t\t\tIsEnabled: pulumi.Bool(true),\n\t\t\t\t\tFilters: datadog.LogsIndexExclusionFilterFilterArray{\n\t\t\t\t\t\t\u0026datadog.LogsIndexExclusionFilterFilterArgs{\n\t\t\t\t\t\t\tQuery:      pulumi.String(\"service:kube_apiserver\"),\n\t\t\t\t\t\t\tSampleRate: pulumi.Float64(1),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.LogsIndex;\nimport com.pulumi.datadog.LogsIndexArgs;\nimport com.pulumi.datadog.inputs.LogsIndexDailyLimitResetArgs;\nimport com.pulumi.datadog.inputs.LogsIndexFilterArgs;\nimport com.pulumi.datadog.inputs.LogsIndexExclusionFilterArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // A sample Datadog logs index resource definition.\n        var sampleIndex = new LogsIndex(\"sampleIndex\", LogsIndexArgs.builder()\n            .name(\"your index\")\n            .dailyLimit(200000)\n            .dailyLimitReset(LogsIndexDailyLimitResetArgs.builder()\n                .resetTime(\"14:00\")\n                .resetUtcOffset(\"+02:00\")\n                .build())\n            .dailyLimitWarningThresholdPercentage(50)\n            .retentionDays(7)\n            .flexRetentionDays(180)\n            .filters(LogsIndexFilterArgs.builder()\n                .query(\"*\")\n                .build())\n            .exclusionFilters(            \n                LogsIndexExclusionFilterArgs.builder()\n                    .name(\"Filter coredns logs\")\n                    .isEnabled(true)\n                    .filters(LogsIndexExclusionFilterFilterArgs.builder()\n                        .query(\"app:coredns\")\n                        .sampleRate(0.97)\n                        .build())\n                    .build(),\n                LogsIndexExclusionFilterArgs.builder()\n                    .name(\"Kubernetes apiserver\")\n                    .isEnabled(true)\n                    .filters(LogsIndexExclusionFilterFilterArgs.builder()\n                        .query(\"service:kube_apiserver\")\n                        .sampleRate(1)\n                        .build())\n                    .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # A sample Datadog logs index resource definition.\n  sampleIndex:\n    type: datadog:LogsIndex\n    name: sample_index\n    properties:\n      name: your index\n      dailyLimit: 200000\n      dailyLimitReset:\n        resetTime: 14:00\n        resetUtcOffset: +02:00\n      dailyLimitWarningThresholdPercentage: 50\n      retentionDays: 7\n      flexRetentionDays: 180\n      filters:\n        - query: '*'\n      exclusionFilters:\n        - name: Filter coredns logs\n          isEnabled: true\n          filters:\n            - query: app:coredns\n              sampleRate: 0.97\n        - name: Kubernetes apiserver\n          isEnabled: true\n          filters:\n            - query: service:kube_apiserver\n              sampleRate: 1\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import datadog:index/logsIndex:LogsIndex name\u003e \u003cindexName\u003e\n```\n\n",
             "properties": {
                 "dailyLimit": {
                     "type": "integer",
@@ -34788,13 +35039,17 @@
                     },
                     "description": "Logs filter\n"
                 },
+                "flexRetentionDays": {
+                    "type": "integer",
+                    "description": "The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.\n"
+                },
                 "name": {
                     "type": "string",
                     "description": "The name of the index. Index names cannot be modified after creation. If this value is changed, a new index will be created.\n"
                 },
                 "retentionDays": {
                     "type": "integer",
-                    "description": "The number of days before logs are deleted from this index.\n"
+                    "description": "The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.\n"
                 }
             },
             "required": [
@@ -34802,6 +35057,7 @@
                 "dailyLimitWarningThresholdPercentage",
                 "disableDailyLimit",
                 "filters",
+                "flexRetentionDays",
                 "name",
                 "retentionDays"
             ],
@@ -34836,6 +35092,10 @@
                     },
                     "description": "Logs filter\n"
                 },
+                "flexRetentionDays": {
+                    "type": "integer",
+                    "description": "The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.\n"
+                },
                 "name": {
                     "type": "string",
                     "description": "The name of the index. Index names cannot be modified after creation. If this value is changed, a new index will be created.\n",
@@ -34843,7 +35103,7 @@
                 },
                 "retentionDays": {
                     "type": "integer",
-                    "description": "The number of days before logs are deleted from this index.\n"
+                    "description": "The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.\n"
                 }
             },
             "requiredInputs": [
@@ -34883,6 +35143,10 @@
                         },
                         "description": "Logs filter\n"
                     },
+                    "flexRetentionDays": {
+                        "type": "integer",
+                        "description": "The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.\n"
+                    },
                     "name": {
                         "type": "string",
                         "description": "The name of the index. Index names cannot be modified after creation. If this value is changed, a new index will be created.\n",
@@ -34890,7 +35154,7 @@
                     },
                     "retentionDays": {
                         "type": "integer",
-                        "description": "The number of days before logs are deleted from this index.\n"
+                        "description": "The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.\n"
                     }
                 },
                 "type": "object"

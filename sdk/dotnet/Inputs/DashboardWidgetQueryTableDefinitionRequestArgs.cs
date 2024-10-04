@@ -115,6 +115,18 @@ namespace Pulumi.Datadog.Inputs
         [Input("securityQuery")]
         public Input<Inputs.DashboardWidgetSecurityQueryArgs>? SecurityQuery { get; set; }
 
+        [Input("textFormats")]
+        private InputList<Inputs.DashboardWidgetQueryTableDefinitionRequestTextFormatArgs>? _textFormats;
+
+        /// <summary>
+        /// Text formats define how to format text in table widget content. Multiple `text_formats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
+        /// </summary>
+        public InputList<Inputs.DashboardWidgetQueryTableDefinitionRequestTextFormatArgs> TextFormats
+        {
+            get => _textFormats ?? (_textFormats = new InputList<Inputs.DashboardWidgetQueryTableDefinitionRequestTextFormatArgs>());
+            set => _textFormats = value;
+        }
+
         public DashboardWidgetQueryTableDefinitionRequestArgs()
         {
         }

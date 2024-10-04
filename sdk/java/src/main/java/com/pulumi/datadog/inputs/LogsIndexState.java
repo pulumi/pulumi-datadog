@@ -113,6 +113,21 @@ public final class LogsIndexState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
+     * 
+     */
+    @Import(name="flexRetentionDays")
+    private @Nullable Output<Integer> flexRetentionDays;
+
+    /**
+     * @return The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
+     * 
+     */
+    public Optional<Output<Integer>> flexRetentionDays() {
+        return Optional.ofNullable(this.flexRetentionDays);
+    }
+
+    /**
      * The name of the index. Index names cannot be modified after creation. If this value is changed, a new index will be created.
      * 
      */
@@ -128,14 +143,14 @@ public final class LogsIndexState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of days before logs are deleted from this index.
+     * The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
      * 
      */
     @Import(name="retentionDays")
     private @Nullable Output<Integer> retentionDays;
 
     /**
-     * @return The number of days before logs are deleted from this index.
+     * @return The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
      * 
      */
     public Optional<Output<Integer>> retentionDays() {
@@ -151,6 +166,7 @@ public final class LogsIndexState extends com.pulumi.resources.ResourceArgs {
         this.disableDailyLimit = $.disableDailyLimit;
         this.exclusionFilters = $.exclusionFilters;
         this.filters = $.filters;
+        this.flexRetentionDays = $.flexRetentionDays;
         this.name = $.name;
         this.retentionDays = $.retentionDays;
     }
@@ -320,6 +336,27 @@ public final class LogsIndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param flexRetentionDays The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder flexRetentionDays(@Nullable Output<Integer> flexRetentionDays) {
+            $.flexRetentionDays = flexRetentionDays;
+            return this;
+        }
+
+        /**
+         * @param flexRetentionDays The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder flexRetentionDays(Integer flexRetentionDays) {
+            return flexRetentionDays(Output.of(flexRetentionDays));
+        }
+
+        /**
          * @param name The name of the index. Index names cannot be modified after creation. If this value is changed, a new index will be created.
          * 
          * @return builder
@@ -341,7 +378,7 @@ public final class LogsIndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retentionDays The number of days before logs are deleted from this index.
+         * @param retentionDays The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
          * 
          * @return builder
          * 
@@ -352,7 +389,7 @@ public final class LogsIndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retentionDays The number of days before logs are deleted from this index.
+         * @param retentionDays The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
          * 
          * @return builder
          * 

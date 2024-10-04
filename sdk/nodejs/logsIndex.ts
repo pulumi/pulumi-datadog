@@ -23,6 +23,7 @@ import * as utilities from "./utilities";
  *     },
  *     dailyLimitWarningThresholdPercentage: 50,
  *     retentionDays: 7,
+ *     flexRetentionDays: 180,
  *     filters: [{
  *         query: "*",
  *     }],
@@ -106,11 +107,15 @@ export class LogsIndex extends pulumi.CustomResource {
      */
     public readonly filters!: pulumi.Output<outputs.LogsIndexFilter[]>;
     /**
+     * The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
+     */
+    public readonly flexRetentionDays!: pulumi.Output<number>;
+    /**
      * The name of the index. Index names cannot be modified after creation. If this value is changed, a new index will be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The number of days before logs are deleted from this index.
+     * The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
      */
     public readonly retentionDays!: pulumi.Output<number>;
 
@@ -133,6 +138,7 @@ export class LogsIndex extends pulumi.CustomResource {
             resourceInputs["disableDailyLimit"] = state ? state.disableDailyLimit : undefined;
             resourceInputs["exclusionFilters"] = state ? state.exclusionFilters : undefined;
             resourceInputs["filters"] = state ? state.filters : undefined;
+            resourceInputs["flexRetentionDays"] = state ? state.flexRetentionDays : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["retentionDays"] = state ? state.retentionDays : undefined;
         } else {
@@ -149,6 +155,7 @@ export class LogsIndex extends pulumi.CustomResource {
             resourceInputs["disableDailyLimit"] = args ? args.disableDailyLimit : undefined;
             resourceInputs["exclusionFilters"] = args ? args.exclusionFilters : undefined;
             resourceInputs["filters"] = args ? args.filters : undefined;
+            resourceInputs["flexRetentionDays"] = args ? args.flexRetentionDays : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["retentionDays"] = args ? args.retentionDays : undefined;
         }
@@ -186,11 +193,15 @@ export interface LogsIndexState {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.LogsIndexFilter>[]>;
     /**
+     * The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
+     */
+    flexRetentionDays?: pulumi.Input<number>;
+    /**
      * The name of the index. Index names cannot be modified after creation. If this value is changed, a new index will be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * The number of days before logs are deleted from this index.
+     * The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
      */
     retentionDays?: pulumi.Input<number>;
 }
@@ -224,11 +235,15 @@ export interface LogsIndexArgs {
      */
     filters: pulumi.Input<pulumi.Input<inputs.LogsIndexFilter>[]>;
     /**
+     * The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
+     */
+    flexRetentionDays?: pulumi.Input<number>;
+    /**
      * The name of the index. Index names cannot be modified after creation. If this value is changed, a new index will be created.
      */
     name: pulumi.Input<string>;
     /**
-     * The number of days before logs are deleted from this index.
+     * The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
      */
     retentionDays?: pulumi.Input<number>;
 }

@@ -161,6 +161,10 @@ __all__ = [
     'DashboardWidgetQueryTableDefinitionRequestQueryMetricQuery',
     'DashboardWidgetQueryTableDefinitionRequestQueryProcessQuery',
     'DashboardWidgetQueryTableDefinitionRequestQuerySloQuery',
+    'DashboardWidgetQueryTableDefinitionRequestTextFormat',
+    'DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormat',
+    'DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatMatch',
+    'DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatReplace',
     'DashboardWidgetQueryValueDefinition',
     'DashboardWidgetQueryValueDefinitionCustomLink',
     'DashboardWidgetQueryValueDefinitionRequest',
@@ -336,6 +340,8 @@ __all__ = [
     'DashboardWidgetToplistDefinitionRequestQueryProcessQuery',
     'DashboardWidgetToplistDefinitionRequestQuerySloQuery',
     'DashboardWidgetToplistDefinitionRequestStyle',
+    'DashboardWidgetToplistDefinitionStyle',
+    'DashboardWidgetToplistDefinitionStyleDisplay',
     'DashboardWidgetTopologyMapDefinition',
     'DashboardWidgetTopologyMapDefinitionCustomLink',
     'DashboardWidgetTopologyMapDefinitionRequest',
@@ -693,6 +699,10 @@ __all__ = [
     'PowerpackWidgetQueryTableDefinitionRequestSecurityQueryGroupBy',
     'PowerpackWidgetQueryTableDefinitionRequestSecurityQueryGroupBySortQuery',
     'PowerpackWidgetQueryTableDefinitionRequestSecurityQueryMultiCompute',
+    'PowerpackWidgetQueryTableDefinitionRequestTextFormat',
+    'PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormat',
+    'PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatMatch',
+    'PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatReplace',
     'PowerpackWidgetQueryValueDefinition',
     'PowerpackWidgetQueryValueDefinitionCustomLink',
     'PowerpackWidgetQueryValueDefinitionRequest',
@@ -970,6 +980,8 @@ __all__ = [
     'PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQuery',
     'PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiCompute',
     'PowerpackWidgetToplistDefinitionRequestStyle',
+    'PowerpackWidgetToplistDefinitionStyle',
+    'PowerpackWidgetToplistDefinitionStyleDisplay',
     'PowerpackWidgetTopologyMapDefinition',
     'PowerpackWidgetTopologyMapDefinitionCustomLink',
     'PowerpackWidgetTopologyMapDefinitionRequest',
@@ -12511,6 +12523,8 @@ class DashboardWidgetQueryTableDefinitionRequest(dict):
             suggest = "rum_query"
         elif key == "securityQuery":
             suggest = "security_query"
+        elif key == "textFormats":
+            suggest = "text_formats"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetQueryTableDefinitionRequest. Access the value via the '{suggest}' property getter instead.")
@@ -12538,7 +12552,8 @@ class DashboardWidgetQueryTableDefinitionRequest(dict):
                  q: Optional[str] = None,
                  queries: Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestQuery']] = None,
                  rum_query: Optional['outputs.DashboardWidgetRumQuery'] = None,
-                 security_query: Optional['outputs.DashboardWidgetSecurityQuery'] = None):
+                 security_query: Optional['outputs.DashboardWidgetSecurityQuery'] = None,
+                 text_formats: Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestTextFormat']] = None):
         """
         :param str aggregator: The aggregator to use for time aggregation. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
         :param str alias: The alias for the column name (defaults to metric name).
@@ -12552,6 +12567,7 @@ class DashboardWidgetQueryTableDefinitionRequest(dict):
         :param str q: The metric query to use for this widget.
         :param 'DashboardWidgetRumQueryArgs' rum_query: The query to use for this widget.
         :param 'DashboardWidgetSecurityQueryArgs' security_query: The query to use for this widget.
+        :param Sequence['DashboardWidgetQueryTableDefinitionRequestTextFormatArgs'] text_formats: Text formats define how to format text in table widget content. Multiple `text_formats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
         """
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
@@ -12583,6 +12599,8 @@ class DashboardWidgetQueryTableDefinitionRequest(dict):
             pulumi.set(__self__, "rum_query", rum_query)
         if security_query is not None:
             pulumi.set(__self__, "security_query", security_query)
+        if text_formats is not None:
+            pulumi.set(__self__, "text_formats", text_formats)
 
     @property
     @pulumi.getter
@@ -12694,6 +12712,14 @@ class DashboardWidgetQueryTableDefinitionRequest(dict):
         The query to use for this widget.
         """
         return pulumi.get(self, "security_query")
+
+    @property
+    @pulumi.getter(name="textFormats")
+    def text_formats(self) -> Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestTextFormat']]:
+        """
+        Text formats define how to format text in table widget content. Multiple `text_formats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
+        """
+        return pulumi.get(self, "text_formats")
 
 
 @pulumi.output_type
@@ -14543,6 +14569,214 @@ class DashboardWidgetQueryTableDefinitionRequestQuerySloQuery(dict):
         type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `"metric"`.
         """
         return pulumi.get(self, "slo_query_type")
+
+
+@pulumi.output_type
+class DashboardWidgetQueryTableDefinitionRequestTextFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "textFormats":
+            suggest = "text_formats"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetQueryTableDefinitionRequestTextFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetQueryTableDefinitionRequestTextFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetQueryTableDefinitionRequestTextFormat.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 text_formats: Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormat']] = None):
+        """
+        :param Sequence['DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatArgs'] text_formats: The text format to apply to the items in a table widget column.
+        """
+        if text_formats is not None:
+            pulumi.set(__self__, "text_formats", text_formats)
+
+    @property
+    @pulumi.getter(name="textFormats")
+    def text_formats(self) -> Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormat']]:
+        """
+        The text format to apply to the items in a table widget column.
+        """
+        return pulumi.get(self, "text_formats")
+
+
+@pulumi.output_type
+class DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customBgColor":
+            suggest = "custom_bg_color"
+        elif key == "customFgColor":
+            suggest = "custom_fg_color"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormat.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match: 'outputs.DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatMatch',
+                 custom_bg_color: Optional[str] = None,
+                 custom_fg_color: Optional[str] = None,
+                 palette: Optional[str] = None,
+                 replace: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatReplace'] = None):
+        """
+        :param 'DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatMatchArgs' match: Match rule for the table widget text format.
+        :param str custom_bg_color: The custom color palette to apply to the background.
+        :param str custom_fg_color: The custom color palette to apply to the foreground text.
+        :param str palette: The color palette to apply. Valid values are `white_on_red`, `white_on_yellow`, `white_on_green`, `black_on_light_red`, `black_on_light_yellow`, `black_on_light_green`, `red_on_white`, `yellow_on_white`, `green_on_white`, `custom_bg`, `custom_text`.
+        :param 'DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatReplaceArgs' replace: Match rule for the table widget text format.
+        """
+        pulumi.set(__self__, "match", match)
+        if custom_bg_color is not None:
+            pulumi.set(__self__, "custom_bg_color", custom_bg_color)
+        if custom_fg_color is not None:
+            pulumi.set(__self__, "custom_fg_color", custom_fg_color)
+        if palette is not None:
+            pulumi.set(__self__, "palette", palette)
+        if replace is not None:
+            pulumi.set(__self__, "replace", replace)
+
+    @property
+    @pulumi.getter
+    def match(self) -> 'outputs.DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatMatch':
+        """
+        Match rule for the table widget text format.
+        """
+        return pulumi.get(self, "match")
+
+    @property
+    @pulumi.getter(name="customBgColor")
+    def custom_bg_color(self) -> Optional[str]:
+        """
+        The custom color palette to apply to the background.
+        """
+        return pulumi.get(self, "custom_bg_color")
+
+    @property
+    @pulumi.getter(name="customFgColor")
+    def custom_fg_color(self) -> Optional[str]:
+        """
+        The custom color palette to apply to the foreground text.
+        """
+        return pulumi.get(self, "custom_fg_color")
+
+    @property
+    @pulumi.getter
+    def palette(self) -> Optional[str]:
+        """
+        The color palette to apply. Valid values are `white_on_red`, `white_on_yellow`, `white_on_green`, `black_on_light_red`, `black_on_light_yellow`, `black_on_light_green`, `red_on_white`, `yellow_on_white`, `green_on_white`, `custom_bg`, `custom_text`.
+        """
+        return pulumi.get(self, "palette")
+
+    @property
+    @pulumi.getter
+    def replace(self) -> Optional['outputs.DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatReplace']:
+        """
+        Match rule for the table widget text format.
+        """
+        return pulumi.get(self, "replace")
+
+
+@pulumi.output_type
+class DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatMatch(dict):
+    def __init__(__self__, *,
+                 type: str,
+                 value: str):
+        """
+        :param str type: Match or compare option. Valid values are `is`, `is_not`, `contains`, `does_not_contain`, `starts_with`, `ends_with`.
+        :param str value: Table Widget Match String.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Match or compare option. Valid values are `is`, `is_not`, `contains`, `does_not_contain`, `starts_with`, `ends_with`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Table Widget Match String.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatReplace(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "with":
+            suggest = "with_"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatReplace. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatReplace.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatReplace.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 with_: str,
+                 substring: Optional[str] = None):
+        """
+        :param str type: Table widget text format replace all type.
+        :param str with_: Table Widget Match String.
+        :param str substring: Text that will be replaced. Must be used with type `substring`.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "with_", with_)
+        if substring is not None:
+            pulumi.set(__self__, "substring", substring)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Table widget text format replace all type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="with")
+    def with_(self) -> str:
+        """
+        Table Widget Match String.
+        """
+        return pulumi.get(self, "with_")
+
+    @property
+    @pulumi.getter
+    def substring(self) -> Optional[str]:
+        """
+        Text that will be replaced. Must be used with type `substring`.
+        """
+        return pulumi.get(self, "substring")
 
 
 @pulumi.output_type
@@ -26389,6 +26623,7 @@ class DashboardWidgetToplistDefinition(dict):
                  custom_links: Optional[Sequence['outputs.DashboardWidgetToplistDefinitionCustomLink']] = None,
                  live_span: Optional[str] = None,
                  requests: Optional[Sequence['outputs.DashboardWidgetToplistDefinitionRequest']] = None,
+                 styles: Optional[Sequence['outputs.DashboardWidgetToplistDefinitionStyle']] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
@@ -26396,6 +26631,7 @@ class DashboardWidgetToplistDefinition(dict):
         :param Sequence['DashboardWidgetToplistDefinitionCustomLinkArgs'] custom_links: A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
         :param str live_span: The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
         :param Sequence['DashboardWidgetToplistDefinitionRequestArgs'] requests: A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the `request` block).
+        :param Sequence['DashboardWidgetToplistDefinitionStyleArgs'] styles: The style of the widget
         :param str title: The title of the widget.
         :param str title_align: The alignment of the widget's title. Valid values are `center`, `left`, `right`.
         :param str title_size: The size of the widget's title (defaults to 16).
@@ -26406,6 +26642,8 @@ class DashboardWidgetToplistDefinition(dict):
             pulumi.set(__self__, "live_span", live_span)
         if requests is not None:
             pulumi.set(__self__, "requests", requests)
+        if styles is not None:
+            pulumi.set(__self__, "styles", styles)
         if title is not None:
             pulumi.set(__self__, "title", title)
         if title_align is not None:
@@ -26436,6 +26674,14 @@ class DashboardWidgetToplistDefinition(dict):
         A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the `request` block).
         """
         return pulumi.get(self, "requests")
+
+    @property
+    @pulumi.getter
+    def styles(self) -> Optional[Sequence['outputs.DashboardWidgetToplistDefinitionStyle']]:
+        """
+        The style of the widget
+        """
+        return pulumi.get(self, "styles")
 
     @property
     @pulumi.getter
@@ -28660,6 +28906,55 @@ class DashboardWidgetToplistDefinitionRequestStyle(dict):
         A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
         """
         return pulumi.get(self, "palette")
+
+
+@pulumi.output_type
+class DashboardWidgetToplistDefinitionStyle(dict):
+    def __init__(__self__, *,
+                 displays: Optional[Sequence['outputs.DashboardWidgetToplistDefinitionStyleDisplay']] = None,
+                 palette: Optional[str] = None):
+        """
+        :param Sequence['DashboardWidgetToplistDefinitionStyleDisplayArgs'] displays: The display mode for the widget.
+        :param str palette: The color palette for the widget.
+        """
+        if displays is not None:
+            pulumi.set(__self__, "displays", displays)
+        if palette is not None:
+            pulumi.set(__self__, "palette", palette)
+
+    @property
+    @pulumi.getter
+    def displays(self) -> Optional[Sequence['outputs.DashboardWidgetToplistDefinitionStyleDisplay']]:
+        """
+        The display mode for the widget.
+        """
+        return pulumi.get(self, "displays")
+
+    @property
+    @pulumi.getter
+    def palette(self) -> Optional[str]:
+        """
+        The color palette for the widget.
+        """
+        return pulumi.get(self, "palette")
+
+
+@pulumi.output_type
+class DashboardWidgetToplistDefinitionStyleDisplay(dict):
+    def __init__(__self__, *,
+                 type: str):
+        """
+        :param str type: The display type for the widget.
+        """
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The display type for the widget.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -51215,6 +51510,8 @@ class PowerpackWidgetQueryTableDefinitionRequest(dict):
             suggest = "rum_query"
         elif key == "securityQuery":
             suggest = "security_query"
+        elif key == "textFormats":
+            suggest = "text_formats"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetQueryTableDefinitionRequest. Access the value via the '{suggest}' property getter instead.")
@@ -51242,7 +51539,8 @@ class PowerpackWidgetQueryTableDefinitionRequest(dict):
                  q: Optional[str] = None,
                  queries: Optional[Sequence['outputs.PowerpackWidgetQueryTableDefinitionRequestQuery']] = None,
                  rum_query: Optional['outputs.PowerpackWidgetQueryTableDefinitionRequestRumQuery'] = None,
-                 security_query: Optional['outputs.PowerpackWidgetQueryTableDefinitionRequestSecurityQuery'] = None):
+                 security_query: Optional['outputs.PowerpackWidgetQueryTableDefinitionRequestSecurityQuery'] = None,
+                 text_formats: Optional[Sequence['outputs.PowerpackWidgetQueryTableDefinitionRequestTextFormat']] = None):
         """
         :param str aggregator: The aggregator to use for time aggregation. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
         :param str alias: The alias for the column name (defaults to metric name).
@@ -51256,6 +51554,7 @@ class PowerpackWidgetQueryTableDefinitionRequest(dict):
         :param str q: The metric query to use for this widget.
         :param 'PowerpackWidgetQueryTableDefinitionRequestRumQueryArgs' rum_query: The query to use for this widget.
         :param 'PowerpackWidgetQueryTableDefinitionRequestSecurityQueryArgs' security_query: The query to use for this widget.
+        :param Sequence['PowerpackWidgetQueryTableDefinitionRequestTextFormatArgs'] text_formats: Text formats define how to format text in table widget content. Multiple `text_formats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
         """
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
@@ -51287,6 +51586,8 @@ class PowerpackWidgetQueryTableDefinitionRequest(dict):
             pulumi.set(__self__, "rum_query", rum_query)
         if security_query is not None:
             pulumi.set(__self__, "security_query", security_query)
+        if text_formats is not None:
+            pulumi.set(__self__, "text_formats", text_formats)
 
     @property
     @pulumi.getter
@@ -51398,6 +51699,14 @@ class PowerpackWidgetQueryTableDefinitionRequest(dict):
         The query to use for this widget.
         """
         return pulumi.get(self, "security_query")
+
+    @property
+    @pulumi.getter(name="textFormats")
+    def text_formats(self) -> Optional[Sequence['outputs.PowerpackWidgetQueryTableDefinitionRequestTextFormat']]:
+        """
+        Text formats define how to format text in table widget content. Multiple `text_formats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
+        """
+        return pulumi.get(self, "text_formats")
 
 
 @pulumi.output_type
@@ -54343,6 +54652,214 @@ class PowerpackWidgetQueryTableDefinitionRequestSecurityQueryMultiCompute(dict):
         Define the time interval in seconds.
         """
         return pulumi.get(self, "interval")
+
+
+@pulumi.output_type
+class PowerpackWidgetQueryTableDefinitionRequestTextFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "textFormats":
+            suggest = "text_formats"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetQueryTableDefinitionRequestTextFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PowerpackWidgetQueryTableDefinitionRequestTextFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PowerpackWidgetQueryTableDefinitionRequestTextFormat.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 text_formats: Optional[Sequence['outputs.PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormat']] = None):
+        """
+        :param Sequence['PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatArgs'] text_formats: The text format to apply to the items in a table widget column.
+        """
+        if text_formats is not None:
+            pulumi.set(__self__, "text_formats", text_formats)
+
+    @property
+    @pulumi.getter(name="textFormats")
+    def text_formats(self) -> Optional[Sequence['outputs.PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormat']]:
+        """
+        The text format to apply to the items in a table widget column.
+        """
+        return pulumi.get(self, "text_formats")
+
+
+@pulumi.output_type
+class PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customBgColor":
+            suggest = "custom_bg_color"
+        elif key == "customFgColor":
+            suggest = "custom_fg_color"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormat.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match: 'outputs.PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatMatch',
+                 custom_bg_color: Optional[str] = None,
+                 custom_fg_color: Optional[str] = None,
+                 palette: Optional[str] = None,
+                 replace: Optional['outputs.PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatReplace'] = None):
+        """
+        :param 'PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatMatchArgs' match: Match rule for the table widget text format.
+        :param str custom_bg_color: The custom color palette to apply to the background.
+        :param str custom_fg_color: The custom color palette to apply to the foreground text.
+        :param str palette: The color palette to apply. Valid values are `white_on_red`, `white_on_yellow`, `white_on_green`, `black_on_light_red`, `black_on_light_yellow`, `black_on_light_green`, `red_on_white`, `yellow_on_white`, `green_on_white`, `custom_bg`, `custom_text`.
+        :param 'PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatReplaceArgs' replace: Match rule for the table widget text format.
+        """
+        pulumi.set(__self__, "match", match)
+        if custom_bg_color is not None:
+            pulumi.set(__self__, "custom_bg_color", custom_bg_color)
+        if custom_fg_color is not None:
+            pulumi.set(__self__, "custom_fg_color", custom_fg_color)
+        if palette is not None:
+            pulumi.set(__self__, "palette", palette)
+        if replace is not None:
+            pulumi.set(__self__, "replace", replace)
+
+    @property
+    @pulumi.getter
+    def match(self) -> 'outputs.PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatMatch':
+        """
+        Match rule for the table widget text format.
+        """
+        return pulumi.get(self, "match")
+
+    @property
+    @pulumi.getter(name="customBgColor")
+    def custom_bg_color(self) -> Optional[str]:
+        """
+        The custom color palette to apply to the background.
+        """
+        return pulumi.get(self, "custom_bg_color")
+
+    @property
+    @pulumi.getter(name="customFgColor")
+    def custom_fg_color(self) -> Optional[str]:
+        """
+        The custom color palette to apply to the foreground text.
+        """
+        return pulumi.get(self, "custom_fg_color")
+
+    @property
+    @pulumi.getter
+    def palette(self) -> Optional[str]:
+        """
+        The color palette to apply. Valid values are `white_on_red`, `white_on_yellow`, `white_on_green`, `black_on_light_red`, `black_on_light_yellow`, `black_on_light_green`, `red_on_white`, `yellow_on_white`, `green_on_white`, `custom_bg`, `custom_text`.
+        """
+        return pulumi.get(self, "palette")
+
+    @property
+    @pulumi.getter
+    def replace(self) -> Optional['outputs.PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatReplace']:
+        """
+        Match rule for the table widget text format.
+        """
+        return pulumi.get(self, "replace")
+
+
+@pulumi.output_type
+class PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatMatch(dict):
+    def __init__(__self__, *,
+                 type: str,
+                 value: str):
+        """
+        :param str type: Match or compare option. Valid values are `is`, `is_not`, `contains`, `does_not_contain`, `starts_with`, `ends_with`.
+        :param str value: Table Widget Match String.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Match or compare option. Valid values are `is`, `is_not`, `contains`, `does_not_contain`, `starts_with`, `ends_with`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Table Widget Match String.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatReplace(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "with":
+            suggest = "with_"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatReplace. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatReplace.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatReplace.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 with_: str,
+                 substring: Optional[str] = None):
+        """
+        :param str type: Table widget text format replace all type.
+        :param str with_: Table Widget Match String.
+        :param str substring: Text that will be replaced. Must be used with type `substring`.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "with_", with_)
+        if substring is not None:
+            pulumi.set(__self__, "substring", substring)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Table widget text format replace all type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="with")
+    def with_(self) -> str:
+        """
+        Table Widget Match String.
+        """
+        return pulumi.get(self, "with_")
+
+    @property
+    @pulumi.getter
+    def substring(self) -> Optional[str]:
+        """
+        Text that will be replaced. Must be used with type `substring`.
+        """
+        return pulumi.get(self, "substring")
 
 
 @pulumi.output_type
@@ -70634,6 +71151,7 @@ class PowerpackWidgetToplistDefinition(dict):
                  custom_links: Optional[Sequence['outputs.PowerpackWidgetToplistDefinitionCustomLink']] = None,
                  live_span: Optional[str] = None,
                  requests: Optional[Sequence['outputs.PowerpackWidgetToplistDefinitionRequest']] = None,
+                 styles: Optional[Sequence['outputs.PowerpackWidgetToplistDefinitionStyle']] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
@@ -70641,6 +71159,7 @@ class PowerpackWidgetToplistDefinition(dict):
         :param Sequence['PowerpackWidgetToplistDefinitionCustomLinkArgs'] custom_links: A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
         :param str live_span: The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
         :param Sequence['PowerpackWidgetToplistDefinitionRequestArgs'] requests: A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the `request` block).
+        :param Sequence['PowerpackWidgetToplistDefinitionStyleArgs'] styles: The style of the widget
         :param str title: The title of the widget.
         :param str title_align: The alignment of the widget's title. Valid values are `center`, `left`, `right`.
         :param str title_size: The size of the widget's title (defaults to 16).
@@ -70651,6 +71170,8 @@ class PowerpackWidgetToplistDefinition(dict):
             pulumi.set(__self__, "live_span", live_span)
         if requests is not None:
             pulumi.set(__self__, "requests", requests)
+        if styles is not None:
+            pulumi.set(__self__, "styles", styles)
         if title is not None:
             pulumi.set(__self__, "title", title)
         if title_align is not None:
@@ -70681,6 +71202,14 @@ class PowerpackWidgetToplistDefinition(dict):
         A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the `request` block).
         """
         return pulumi.get(self, "requests")
+
+    @property
+    @pulumi.getter
+    def styles(self) -> Optional[Sequence['outputs.PowerpackWidgetToplistDefinitionStyle']]:
+        """
+        The style of the widget
+        """
+        return pulumi.get(self, "styles")
 
     @property
     @pulumi.getter
@@ -74001,6 +74530,55 @@ class PowerpackWidgetToplistDefinitionRequestStyle(dict):
         A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
         """
         return pulumi.get(self, "palette")
+
+
+@pulumi.output_type
+class PowerpackWidgetToplistDefinitionStyle(dict):
+    def __init__(__self__, *,
+                 displays: Optional[Sequence['outputs.PowerpackWidgetToplistDefinitionStyleDisplay']] = None,
+                 palette: Optional[str] = None):
+        """
+        :param Sequence['PowerpackWidgetToplistDefinitionStyleDisplayArgs'] displays: The display mode for the widget.
+        :param str palette: The color palette for the widget.
+        """
+        if displays is not None:
+            pulumi.set(__self__, "displays", displays)
+        if palette is not None:
+            pulumi.set(__self__, "palette", palette)
+
+    @property
+    @pulumi.getter
+    def displays(self) -> Optional[Sequence['outputs.PowerpackWidgetToplistDefinitionStyleDisplay']]:
+        """
+        The display mode for the widget.
+        """
+        return pulumi.get(self, "displays")
+
+    @property
+    @pulumi.getter
+    def palette(self) -> Optional[str]:
+        """
+        The color palette for the widget.
+        """
+        return pulumi.get(self, "palette")
+
+
+@pulumi.output_type
+class PowerpackWidgetToplistDefinitionStyleDisplay(dict):
+    def __init__(__self__, *,
+                 type: str):
+        """
+        :param str type: The display type for the widget.
+        """
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The display type for the widget.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -78142,8 +78720,9 @@ class SyntheticsTestApiStepAssertion(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 operator: str,
                  type: str,
+                 code: Optional[str] = None,
+                 operator: Optional[str] = None,
                  property: Optional[str] = None,
                  target: Optional[str] = None,
                  targetjsonpath: Optional['outputs.SyntheticsTestApiStepAssertionTargetjsonpath'] = None,
@@ -78151,8 +78730,9 @@ class SyntheticsTestApiStepAssertion(dict):
                  targetxpath: Optional['outputs.SyntheticsTestApiStepAssertionTargetxpath'] = None,
                  timings_scope: Optional[str] = None):
         """
+        :param str type: Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
+        :param str code: If assertion type is `javascript`, this is the JavaScript code that performs the assertions.
         :param str operator: Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
-        :param str type: Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`.
         :param str property: If assertion type is `header`, this is the header name.
         :param str target: Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
         :param 'SyntheticsTestApiStepAssertionTargetjsonpathArgs' targetjsonpath: Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
@@ -78160,8 +78740,11 @@ class SyntheticsTestApiStepAssertion(dict):
         :param 'SyntheticsTestApiStepAssertionTargetxpathArgs' targetxpath: Expected structure if `operator` is `validatesXPath`. Exactly one nested block is allowed with the structure below.
         :param str timings_scope: Timings scope for response time assertions. Valid values are `all`, `withoutDNS`.
         """
-        pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "type", type)
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
         if property is not None:
             pulumi.set(__self__, "property", property)
         if target is not None:
@@ -78177,19 +78760,27 @@ class SyntheticsTestApiStepAssertion(dict):
 
     @property
     @pulumi.getter
-    def operator(self) -> str:
+    def type(self) -> str:
+        """
+        Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[str]:
+        """
+        If assertion type is `javascript`, this is the JavaScript code that performs the assertions.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> Optional[str]:
         """
         Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
         """
         return pulumi.get(self, "operator")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`.
-        """
-        return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
@@ -79274,8 +79865,9 @@ class SyntheticsTestAssertion(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 operator: str,
                  type: str,
+                 code: Optional[str] = None,
+                 operator: Optional[str] = None,
                  property: Optional[str] = None,
                  target: Optional[str] = None,
                  targetjsonpath: Optional['outputs.SyntheticsTestAssertionTargetjsonpath'] = None,
@@ -79283,8 +79875,9 @@ class SyntheticsTestAssertion(dict):
                  targetxpath: Optional['outputs.SyntheticsTestAssertionTargetxpath'] = None,
                  timings_scope: Optional[str] = None):
         """
+        :param str type: Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
+        :param str code: If assertion type is `javascript`, this is the JavaScript code that performs the assertions.
         :param str operator: Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
-        :param str type: Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`.
         :param str property: If assertion type is `header`, this is the header name.
         :param str target: Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
         :param 'SyntheticsTestAssertionTargetjsonpathArgs' targetjsonpath: Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
@@ -79292,8 +79885,11 @@ class SyntheticsTestAssertion(dict):
         :param 'SyntheticsTestAssertionTargetxpathArgs' targetxpath: Expected structure if `operator` is `validatesXPath`. Exactly one nested block is allowed with the structure below.
         :param str timings_scope: Timings scope for response time assertions. Valid values are `all`, `withoutDNS`.
         """
-        pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "type", type)
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
         if property is not None:
             pulumi.set(__self__, "property", property)
         if target is not None:
@@ -79309,19 +79905,27 @@ class SyntheticsTestAssertion(dict):
 
     @property
     @pulumi.getter
-    def operator(self) -> str:
+    def type(self) -> str:
+        """
+        Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[str]:
+        """
+        If assertion type is `javascript`, this is the JavaScript code that performs the assertions.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> Optional[str]:
         """
         Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
         """
         return pulumi.get(self, "operator")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`.
-        """
-        return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
@@ -80067,7 +80671,7 @@ class SyntheticsTestConfigVariable(dict):
                  secure: Optional[bool] = None):
         """
         :param str name: Name of the variable.
-        :param str type: Type of test configuration variable. Valid values are `global`, `text`.
+        :param str type: Type of test configuration variable. Valid values are `global`, `text`, `email`.
         :param str id: When type = `global`, ID of the global variable to use.
         :param bool secure: Whether the value of this variable will be obfuscated in test results. Defaults to `false`.
         """
@@ -80094,7 +80698,7 @@ class SyntheticsTestConfigVariable(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Type of test configuration variable. Valid values are `global`, `text`.
+        Type of test configuration variable. Valid values are `global`, `text`, `email`.
         """
         return pulumi.get(self, "type")
 
@@ -81727,6 +82331,7 @@ class GetLogsIndexesLogsIndexResult(dict):
                  daily_limit_warning_threshold_percentage: float,
                  exclusion_filters: Sequence['outputs.GetLogsIndexesLogsIndexExclusionFilterResult'],
                  filters: Sequence['outputs.GetLogsIndexesLogsIndexFilterResult'],
+                 flex_retention_days: int,
                  name: str,
                  retention_days: int):
         """
@@ -81735,14 +82340,16 @@ class GetLogsIndexesLogsIndexResult(dict):
         :param float daily_limit_warning_threshold_percentage: The percentage threshold of the daily quota at which a Datadog warning event is generated.
         :param Sequence['GetLogsIndexesLogsIndexExclusionFilterArgs'] exclusion_filters: List of exclusion filters.
         :param Sequence['GetLogsIndexesLogsIndexFilterArgs'] filters: Logs filter
+        :param int flex_retention_days: The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
         :param str name: The name of the index.
-        :param int retention_days: The number of days before logs are deleted from this index.
+        :param int retention_days: The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
         """
         pulumi.set(__self__, "daily_limit", daily_limit)
         pulumi.set(__self__, "daily_limit_resets", daily_limit_resets)
         pulumi.set(__self__, "daily_limit_warning_threshold_percentage", daily_limit_warning_threshold_percentage)
         pulumi.set(__self__, "exclusion_filters", exclusion_filters)
         pulumi.set(__self__, "filters", filters)
+        pulumi.set(__self__, "flex_retention_days", flex_retention_days)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "retention_days", retention_days)
 
@@ -81787,6 +82394,14 @@ class GetLogsIndexesLogsIndexResult(dict):
         return pulumi.get(self, "filters")
 
     @property
+    @pulumi.getter(name="flexRetentionDays")
+    def flex_retention_days(self) -> int:
+        """
+        The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
+        """
+        return pulumi.get(self, "flex_retention_days")
+
+    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -81798,7 +82413,7 @@ class GetLogsIndexesLogsIndexResult(dict):
     @pulumi.getter(name="retentionDays")
     def retention_days(self) -> int:
         """
-        The number of days before logs are deleted from this index.
+        The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
         """
         return pulumi.get(self, "retention_days")
 

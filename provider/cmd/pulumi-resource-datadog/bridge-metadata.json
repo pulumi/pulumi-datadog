@@ -2147,6 +2147,26 @@
                                                                                             }
                                                                                         }
                                                                                     }
+                                                                                },
+                                                                                "text_formats": {
+                                                                                    "maxItemsOne": false,
+                                                                                    "elem": {
+                                                                                        "fields": {
+                                                                                            "text_format": {
+                                                                                                "maxItemsOne": false,
+                                                                                                "elem": {
+                                                                                                    "fields": {
+                                                                                                        "match": {
+                                                                                                            "maxItemsOne": true
+                                                                                                        },
+                                                                                                        "replace": {
+                                                                                                            "maxItemsOne": true
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    }
                                                                                 }
                                                                             }
                                                                         }
@@ -3518,6 +3538,26 @@
                                                                                                                     },
                                                                                                                     "multi_compute": {
                                                                                                                         "maxItemsOne": false
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }
+                                                                                                        },
+                                                                                                        "text_formats": {
+                                                                                                            "maxItemsOne": false,
+                                                                                                            "elem": {
+                                                                                                                "fields": {
+                                                                                                                    "text_format": {
+                                                                                                                        "maxItemsOne": false,
+                                                                                                                        "elem": {
+                                                                                                                            "fields": {
+                                                                                                                                "match": {
+                                                                                                                                    "maxItemsOne": true
+                                                                                                                                },
+                                                                                                                                "replace": {
+                                                                                                                                    "maxItemsOne": true
+                                                                                                                                }
+                                                                                                                            }
+                                                                                                                        }
                                                                                                                     }
                                                                                                                 }
                                                                                                             }
@@ -5015,6 +5055,16 @@
                                                                                                         }
                                                                                                     }
                                                                                                 }
+                                                                                            },
+                                                                                            "style": {
+                                                                                                "maxItemsOne": false,
+                                                                                                "elem": {
+                                                                                                    "fields": {
+                                                                                                        "display": {
+                                                                                                            "maxItemsOne": false
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
                                                                                             }
                                                                                         }
                                                                                     }
@@ -6052,6 +6102,16 @@
                                                                                 }
                                                                             }
                                                                         }
+                                                                    },
+                                                                    "style": {
+                                                                        "maxItemsOne": false,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "display": {
+                                                                                    "maxItemsOne": false
+                                                                                }
+                                                                            }
+                                                                        }
                                                                     }
                                                                 }
                                                             }
@@ -7052,6 +7112,26 @@
                                                                     },
                                                                     "multi_compute": {
                                                                         "maxItemsOne": false
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "text_formats": {
+                                                            "maxItemsOne": false,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "text_format": {
+                                                                        "maxItemsOne": false,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "match": {
+                                                                                    "maxItemsOne": true
+                                                                                },
+                                                                                "replace": {
+                                                                                    "maxItemsOne": true
+                                                                                }
+                                                                            }
+                                                                        }
                                                                     }
                                                                 }
                                                             }
@@ -8426,6 +8506,26 @@
                                                                                             },
                                                                                             "multi_compute": {
                                                                                                 "maxItemsOne": false
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                "text_formats": {
+                                                                                    "maxItemsOne": false,
+                                                                                    "elem": {
+                                                                                        "fields": {
+                                                                                            "text_format": {
+                                                                                                "maxItemsOne": false,
+                                                                                                "elem": {
+                                                                                                    "fields": {
+                                                                                                        "match": {
+                                                                                                            "maxItemsOne": true
+                                                                                                        },
+                                                                                                        "replace": {
+                                                                                                            "maxItemsOne": true
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
                                                                                             }
                                                                                         }
                                                                                     }
@@ -9923,6 +10023,16 @@
                                                                                 }
                                                                             }
                                                                         }
+                                                                    },
+                                                                    "style": {
+                                                                        "maxItemsOne": false,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "display": {
+                                                                                    "maxItemsOne": false
+                                                                                }
+                                                                            }
+                                                                        }
                                                                     }
                                                                 }
                                                             }
@@ -10957,6 +11067,16 @@
                                                         },
                                                         "style": {
                                                             "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "style": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "display": {
+                                                            "maxItemsOne": false
                                                         }
                                                     }
                                                 }
@@ -13312,6 +13432,26 @@
                                                                     }
                                                                 }
                                                             }
+                                                        },
+                                                        "text_formats": {
+                                                            "maxItemsOne": false,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "text_format": {
+                                                                        "maxItemsOne": false,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "match": {
+                                                                                    "maxItemsOne": true
+                                                                                },
+                                                                                "replace": {
+                                                                                    "maxItemsOne": true
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
                                                         }
                                                     }
                                                 }
@@ -14863,6 +15003,16 @@
                                                         },
                                                         "style": {
                                                             "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "style": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "display": {
+                                                            "maxItemsOne": false
                                                         }
                                                     }
                                                 }

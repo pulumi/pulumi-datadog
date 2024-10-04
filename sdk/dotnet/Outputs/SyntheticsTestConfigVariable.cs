@@ -28,7 +28,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? Secure;
         /// <summary>
-        /// Type of test configuration variable. Valid values are `global`, `text`.
+        /// Type of test configuration variable. Valid values are `global`, `text`, `email`.
         /// </summary>
         public readonly string Type;
 

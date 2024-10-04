@@ -13,6 +13,1808 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type SecurityMonitoringDefaultRuleOptions struct {
+	// If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `logDetection`. Defaults to `false`.
+	DecreaseCriticalityBasedOnEnv *bool `pulumi:"decreaseCriticalityBasedOnEnv"`
+}
+
+// SecurityMonitoringDefaultRuleOptionsInput is an input type that accepts SecurityMonitoringDefaultRuleOptionsArgs and SecurityMonitoringDefaultRuleOptionsOutput values.
+// You can construct a concrete instance of `SecurityMonitoringDefaultRuleOptionsInput` via:
+//
+//	SecurityMonitoringDefaultRuleOptionsArgs{...}
+type SecurityMonitoringDefaultRuleOptionsInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringDefaultRuleOptionsOutput() SecurityMonitoringDefaultRuleOptionsOutput
+	ToSecurityMonitoringDefaultRuleOptionsOutputWithContext(context.Context) SecurityMonitoringDefaultRuleOptionsOutput
+}
+
+type SecurityMonitoringDefaultRuleOptionsArgs struct {
+	// If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `logDetection`. Defaults to `false`.
+	DecreaseCriticalityBasedOnEnv pulumi.BoolPtrInput `pulumi:"decreaseCriticalityBasedOnEnv"`
+}
+
+func (SecurityMonitoringDefaultRuleOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringDefaultRuleOptions)(nil)).Elem()
+}
+
+func (i SecurityMonitoringDefaultRuleOptionsArgs) ToSecurityMonitoringDefaultRuleOptionsOutput() SecurityMonitoringDefaultRuleOptionsOutput {
+	return i.ToSecurityMonitoringDefaultRuleOptionsOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringDefaultRuleOptionsArgs) ToSecurityMonitoringDefaultRuleOptionsOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringDefaultRuleOptionsOutput)
+}
+
+func (i SecurityMonitoringDefaultRuleOptionsArgs) ToSecurityMonitoringDefaultRuleOptionsPtrOutput() SecurityMonitoringDefaultRuleOptionsPtrOutput {
+	return i.ToSecurityMonitoringDefaultRuleOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringDefaultRuleOptionsArgs) ToSecurityMonitoringDefaultRuleOptionsPtrOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringDefaultRuleOptionsOutput).ToSecurityMonitoringDefaultRuleOptionsPtrOutputWithContext(ctx)
+}
+
+// SecurityMonitoringDefaultRuleOptionsPtrInput is an input type that accepts SecurityMonitoringDefaultRuleOptionsArgs, SecurityMonitoringDefaultRuleOptionsPtr and SecurityMonitoringDefaultRuleOptionsPtrOutput values.
+// You can construct a concrete instance of `SecurityMonitoringDefaultRuleOptionsPtrInput` via:
+//
+//	        SecurityMonitoringDefaultRuleOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type SecurityMonitoringDefaultRuleOptionsPtrInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringDefaultRuleOptionsPtrOutput() SecurityMonitoringDefaultRuleOptionsPtrOutput
+	ToSecurityMonitoringDefaultRuleOptionsPtrOutputWithContext(context.Context) SecurityMonitoringDefaultRuleOptionsPtrOutput
+}
+
+type securityMonitoringDefaultRuleOptionsPtrType SecurityMonitoringDefaultRuleOptionsArgs
+
+func SecurityMonitoringDefaultRuleOptionsPtr(v *SecurityMonitoringDefaultRuleOptionsArgs) SecurityMonitoringDefaultRuleOptionsPtrInput {
+	return (*securityMonitoringDefaultRuleOptionsPtrType)(v)
+}
+
+func (*securityMonitoringDefaultRuleOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityMonitoringDefaultRuleOptions)(nil)).Elem()
+}
+
+func (i *securityMonitoringDefaultRuleOptionsPtrType) ToSecurityMonitoringDefaultRuleOptionsPtrOutput() SecurityMonitoringDefaultRuleOptionsPtrOutput {
+	return i.ToSecurityMonitoringDefaultRuleOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *securityMonitoringDefaultRuleOptionsPtrType) ToSecurityMonitoringDefaultRuleOptionsPtrOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringDefaultRuleOptionsPtrOutput)
+}
+
+type SecurityMonitoringDefaultRuleOptionsOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringDefaultRuleOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringDefaultRuleOptions)(nil)).Elem()
+}
+
+func (o SecurityMonitoringDefaultRuleOptionsOutput) ToSecurityMonitoringDefaultRuleOptionsOutput() SecurityMonitoringDefaultRuleOptionsOutput {
+	return o
+}
+
+func (o SecurityMonitoringDefaultRuleOptionsOutput) ToSecurityMonitoringDefaultRuleOptionsOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleOptionsOutput {
+	return o
+}
+
+func (o SecurityMonitoringDefaultRuleOptionsOutput) ToSecurityMonitoringDefaultRuleOptionsPtrOutput() SecurityMonitoringDefaultRuleOptionsPtrOutput {
+	return o.ToSecurityMonitoringDefaultRuleOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityMonitoringDefaultRuleOptionsOutput) ToSecurityMonitoringDefaultRuleOptionsPtrOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityMonitoringDefaultRuleOptions) *SecurityMonitoringDefaultRuleOptions {
+		return &v
+	}).(SecurityMonitoringDefaultRuleOptionsPtrOutput)
+}
+
+// If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `logDetection`. Defaults to `false`.
+func (o SecurityMonitoringDefaultRuleOptionsOutput) DecreaseCriticalityBasedOnEnv() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SecurityMonitoringDefaultRuleOptions) *bool { return v.DecreaseCriticalityBasedOnEnv }).(pulumi.BoolPtrOutput)
+}
+
+type SecurityMonitoringDefaultRuleOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringDefaultRuleOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityMonitoringDefaultRuleOptions)(nil)).Elem()
+}
+
+func (o SecurityMonitoringDefaultRuleOptionsPtrOutput) ToSecurityMonitoringDefaultRuleOptionsPtrOutput() SecurityMonitoringDefaultRuleOptionsPtrOutput {
+	return o
+}
+
+func (o SecurityMonitoringDefaultRuleOptionsPtrOutput) ToSecurityMonitoringDefaultRuleOptionsPtrOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleOptionsPtrOutput {
+	return o
+}
+
+func (o SecurityMonitoringDefaultRuleOptionsPtrOutput) Elem() SecurityMonitoringDefaultRuleOptionsOutput {
+	return o.ApplyT(func(v *SecurityMonitoringDefaultRuleOptions) SecurityMonitoringDefaultRuleOptions {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityMonitoringDefaultRuleOptions
+		return ret
+	}).(SecurityMonitoringDefaultRuleOptionsOutput)
+}
+
+// If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `logDetection`. Defaults to `false`.
+func (o SecurityMonitoringDefaultRuleOptionsPtrOutput) DecreaseCriticalityBasedOnEnv() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecurityMonitoringDefaultRuleOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DecreaseCriticalityBasedOnEnv
+	}).(pulumi.BoolPtrOutput)
+}
+
+type SecurityMonitoringFilterExclusionFilter struct {
+	// Exclusion filter name.
+	Name string `pulumi:"name"`
+	// Exclusion filter query. Logs that match this query are excluded from the security filter.
+	Query string `pulumi:"query"`
+}
+
+// SecurityMonitoringFilterExclusionFilterInput is an input type that accepts SecurityMonitoringFilterExclusionFilterArgs and SecurityMonitoringFilterExclusionFilterOutput values.
+// You can construct a concrete instance of `SecurityMonitoringFilterExclusionFilterInput` via:
+//
+//	SecurityMonitoringFilterExclusionFilterArgs{...}
+type SecurityMonitoringFilterExclusionFilterInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringFilterExclusionFilterOutput() SecurityMonitoringFilterExclusionFilterOutput
+	ToSecurityMonitoringFilterExclusionFilterOutputWithContext(context.Context) SecurityMonitoringFilterExclusionFilterOutput
+}
+
+type SecurityMonitoringFilterExclusionFilterArgs struct {
+	// Exclusion filter name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Exclusion filter query. Logs that match this query are excluded from the security filter.
+	Query pulumi.StringInput `pulumi:"query"`
+}
+
+func (SecurityMonitoringFilterExclusionFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringFilterExclusionFilter)(nil)).Elem()
+}
+
+func (i SecurityMonitoringFilterExclusionFilterArgs) ToSecurityMonitoringFilterExclusionFilterOutput() SecurityMonitoringFilterExclusionFilterOutput {
+	return i.ToSecurityMonitoringFilterExclusionFilterOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringFilterExclusionFilterArgs) ToSecurityMonitoringFilterExclusionFilterOutputWithContext(ctx context.Context) SecurityMonitoringFilterExclusionFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringFilterExclusionFilterOutput)
+}
+
+// SecurityMonitoringFilterExclusionFilterArrayInput is an input type that accepts SecurityMonitoringFilterExclusionFilterArray and SecurityMonitoringFilterExclusionFilterArrayOutput values.
+// You can construct a concrete instance of `SecurityMonitoringFilterExclusionFilterArrayInput` via:
+//
+//	SecurityMonitoringFilterExclusionFilterArray{ SecurityMonitoringFilterExclusionFilterArgs{...} }
+type SecurityMonitoringFilterExclusionFilterArrayInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringFilterExclusionFilterArrayOutput() SecurityMonitoringFilterExclusionFilterArrayOutput
+	ToSecurityMonitoringFilterExclusionFilterArrayOutputWithContext(context.Context) SecurityMonitoringFilterExclusionFilterArrayOutput
+}
+
+type SecurityMonitoringFilterExclusionFilterArray []SecurityMonitoringFilterExclusionFilterInput
+
+func (SecurityMonitoringFilterExclusionFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityMonitoringFilterExclusionFilter)(nil)).Elem()
+}
+
+func (i SecurityMonitoringFilterExclusionFilterArray) ToSecurityMonitoringFilterExclusionFilterArrayOutput() SecurityMonitoringFilterExclusionFilterArrayOutput {
+	return i.ToSecurityMonitoringFilterExclusionFilterArrayOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringFilterExclusionFilterArray) ToSecurityMonitoringFilterExclusionFilterArrayOutputWithContext(ctx context.Context) SecurityMonitoringFilterExclusionFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringFilterExclusionFilterArrayOutput)
+}
+
+type SecurityMonitoringFilterExclusionFilterOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringFilterExclusionFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringFilterExclusionFilter)(nil)).Elem()
+}
+
+func (o SecurityMonitoringFilterExclusionFilterOutput) ToSecurityMonitoringFilterExclusionFilterOutput() SecurityMonitoringFilterExclusionFilterOutput {
+	return o
+}
+
+func (o SecurityMonitoringFilterExclusionFilterOutput) ToSecurityMonitoringFilterExclusionFilterOutputWithContext(ctx context.Context) SecurityMonitoringFilterExclusionFilterOutput {
+	return o
+}
+
+// Exclusion filter name.
+func (o SecurityMonitoringFilterExclusionFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityMonitoringFilterExclusionFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Exclusion filter query. Logs that match this query are excluded from the security filter.
+func (o SecurityMonitoringFilterExclusionFilterOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityMonitoringFilterExclusionFilter) string { return v.Query }).(pulumi.StringOutput)
+}
+
+type SecurityMonitoringFilterExclusionFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringFilterExclusionFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityMonitoringFilterExclusionFilter)(nil)).Elem()
+}
+
+func (o SecurityMonitoringFilterExclusionFilterArrayOutput) ToSecurityMonitoringFilterExclusionFilterArrayOutput() SecurityMonitoringFilterExclusionFilterArrayOutput {
+	return o
+}
+
+func (o SecurityMonitoringFilterExclusionFilterArrayOutput) ToSecurityMonitoringFilterExclusionFilterArrayOutputWithContext(ctx context.Context) SecurityMonitoringFilterExclusionFilterArrayOutput {
+	return o
+}
+
+func (o SecurityMonitoringFilterExclusionFilterArrayOutput) Index(i pulumi.IntInput) SecurityMonitoringFilterExclusionFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityMonitoringFilterExclusionFilter {
+		return vs[0].([]SecurityMonitoringFilterExclusionFilter)[vs[1].(int)]
+	}).(SecurityMonitoringFilterExclusionFilterOutput)
+}
+
+type SecurityMonitoringRuleCase struct {
+	// A rule case contains logical operations (`>`,`>=`, `&&`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries.
+	Condition *string `pulumi:"condition"`
+	// Name of the case.
+	Name *string `pulumi:"name"`
+	// Notification targets for each rule case.
+	Notifications []string `pulumi:"notifications"`
+	// Severity of the Security Signal. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+	Status string `pulumi:"status"`
+}
+
+// SecurityMonitoringRuleCaseInput is an input type that accepts SecurityMonitoringRuleCaseArgs and SecurityMonitoringRuleCaseOutput values.
+// You can construct a concrete instance of `SecurityMonitoringRuleCaseInput` via:
+//
+//	SecurityMonitoringRuleCaseArgs{...}
+type SecurityMonitoringRuleCaseInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringRuleCaseOutput() SecurityMonitoringRuleCaseOutput
+	ToSecurityMonitoringRuleCaseOutputWithContext(context.Context) SecurityMonitoringRuleCaseOutput
+}
+
+type SecurityMonitoringRuleCaseArgs struct {
+	// A rule case contains logical operations (`>`,`>=`, `&&`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries.
+	Condition pulumi.StringPtrInput `pulumi:"condition"`
+	// Name of the case.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Notification targets for each rule case.
+	Notifications pulumi.StringArrayInput `pulumi:"notifications"`
+	// Severity of the Security Signal. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (SecurityMonitoringRuleCaseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringRuleCase)(nil)).Elem()
+}
+
+func (i SecurityMonitoringRuleCaseArgs) ToSecurityMonitoringRuleCaseOutput() SecurityMonitoringRuleCaseOutput {
+	return i.ToSecurityMonitoringRuleCaseOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringRuleCaseArgs) ToSecurityMonitoringRuleCaseOutputWithContext(ctx context.Context) SecurityMonitoringRuleCaseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringRuleCaseOutput)
+}
+
+// SecurityMonitoringRuleCaseArrayInput is an input type that accepts SecurityMonitoringRuleCaseArray and SecurityMonitoringRuleCaseArrayOutput values.
+// You can construct a concrete instance of `SecurityMonitoringRuleCaseArrayInput` via:
+//
+//	SecurityMonitoringRuleCaseArray{ SecurityMonitoringRuleCaseArgs{...} }
+type SecurityMonitoringRuleCaseArrayInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringRuleCaseArrayOutput() SecurityMonitoringRuleCaseArrayOutput
+	ToSecurityMonitoringRuleCaseArrayOutputWithContext(context.Context) SecurityMonitoringRuleCaseArrayOutput
+}
+
+type SecurityMonitoringRuleCaseArray []SecurityMonitoringRuleCaseInput
+
+func (SecurityMonitoringRuleCaseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityMonitoringRuleCase)(nil)).Elem()
+}
+
+func (i SecurityMonitoringRuleCaseArray) ToSecurityMonitoringRuleCaseArrayOutput() SecurityMonitoringRuleCaseArrayOutput {
+	return i.ToSecurityMonitoringRuleCaseArrayOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringRuleCaseArray) ToSecurityMonitoringRuleCaseArrayOutputWithContext(ctx context.Context) SecurityMonitoringRuleCaseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringRuleCaseArrayOutput)
+}
+
+type SecurityMonitoringRuleCaseOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringRuleCaseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringRuleCase)(nil)).Elem()
+}
+
+func (o SecurityMonitoringRuleCaseOutput) ToSecurityMonitoringRuleCaseOutput() SecurityMonitoringRuleCaseOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleCaseOutput) ToSecurityMonitoringRuleCaseOutputWithContext(ctx context.Context) SecurityMonitoringRuleCaseOutput {
+	return o
+}
+
+// A rule case contains logical operations (`>`,`>=`, `&&`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries.
+func (o SecurityMonitoringRuleCaseOutput) Condition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleCase) *string { return v.Condition }).(pulumi.StringPtrOutput)
+}
+
+// Name of the case.
+func (o SecurityMonitoringRuleCaseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleCase) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Notification targets for each rule case.
+func (o SecurityMonitoringRuleCaseOutput) Notifications() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleCase) []string { return v.Notifications }).(pulumi.StringArrayOutput)
+}
+
+// Severity of the Security Signal. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+func (o SecurityMonitoringRuleCaseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleCase) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type SecurityMonitoringRuleCaseArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringRuleCaseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityMonitoringRuleCase)(nil)).Elem()
+}
+
+func (o SecurityMonitoringRuleCaseArrayOutput) ToSecurityMonitoringRuleCaseArrayOutput() SecurityMonitoringRuleCaseArrayOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleCaseArrayOutput) ToSecurityMonitoringRuleCaseArrayOutputWithContext(ctx context.Context) SecurityMonitoringRuleCaseArrayOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleCaseArrayOutput) Index(i pulumi.IntInput) SecurityMonitoringRuleCaseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityMonitoringRuleCase {
+		return vs[0].([]SecurityMonitoringRuleCase)[vs[1].(int)]
+	}).(SecurityMonitoringRuleCaseOutput)
+}
+
+type SecurityMonitoringRuleFilter struct {
+	// The type of filtering action. Valid values are `require`, `suppress`.
+	Action string `pulumi:"action"`
+	// Query for selecting logs to apply the filtering action.
+	Query string `pulumi:"query"`
+}
+
+// SecurityMonitoringRuleFilterInput is an input type that accepts SecurityMonitoringRuleFilterArgs and SecurityMonitoringRuleFilterOutput values.
+// You can construct a concrete instance of `SecurityMonitoringRuleFilterInput` via:
+//
+//	SecurityMonitoringRuleFilterArgs{...}
+type SecurityMonitoringRuleFilterInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringRuleFilterOutput() SecurityMonitoringRuleFilterOutput
+	ToSecurityMonitoringRuleFilterOutputWithContext(context.Context) SecurityMonitoringRuleFilterOutput
+}
+
+type SecurityMonitoringRuleFilterArgs struct {
+	// The type of filtering action. Valid values are `require`, `suppress`.
+	Action pulumi.StringInput `pulumi:"action"`
+	// Query for selecting logs to apply the filtering action.
+	Query pulumi.StringInput `pulumi:"query"`
+}
+
+func (SecurityMonitoringRuleFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringRuleFilter)(nil)).Elem()
+}
+
+func (i SecurityMonitoringRuleFilterArgs) ToSecurityMonitoringRuleFilterOutput() SecurityMonitoringRuleFilterOutput {
+	return i.ToSecurityMonitoringRuleFilterOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringRuleFilterArgs) ToSecurityMonitoringRuleFilterOutputWithContext(ctx context.Context) SecurityMonitoringRuleFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringRuleFilterOutput)
+}
+
+// SecurityMonitoringRuleFilterArrayInput is an input type that accepts SecurityMonitoringRuleFilterArray and SecurityMonitoringRuleFilterArrayOutput values.
+// You can construct a concrete instance of `SecurityMonitoringRuleFilterArrayInput` via:
+//
+//	SecurityMonitoringRuleFilterArray{ SecurityMonitoringRuleFilterArgs{...} }
+type SecurityMonitoringRuleFilterArrayInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringRuleFilterArrayOutput() SecurityMonitoringRuleFilterArrayOutput
+	ToSecurityMonitoringRuleFilterArrayOutputWithContext(context.Context) SecurityMonitoringRuleFilterArrayOutput
+}
+
+type SecurityMonitoringRuleFilterArray []SecurityMonitoringRuleFilterInput
+
+func (SecurityMonitoringRuleFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityMonitoringRuleFilter)(nil)).Elem()
+}
+
+func (i SecurityMonitoringRuleFilterArray) ToSecurityMonitoringRuleFilterArrayOutput() SecurityMonitoringRuleFilterArrayOutput {
+	return i.ToSecurityMonitoringRuleFilterArrayOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringRuleFilterArray) ToSecurityMonitoringRuleFilterArrayOutputWithContext(ctx context.Context) SecurityMonitoringRuleFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringRuleFilterArrayOutput)
+}
+
+type SecurityMonitoringRuleFilterOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringRuleFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringRuleFilter)(nil)).Elem()
+}
+
+func (o SecurityMonitoringRuleFilterOutput) ToSecurityMonitoringRuleFilterOutput() SecurityMonitoringRuleFilterOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleFilterOutput) ToSecurityMonitoringRuleFilterOutputWithContext(ctx context.Context) SecurityMonitoringRuleFilterOutput {
+	return o
+}
+
+// The type of filtering action. Valid values are `require`, `suppress`.
+func (o SecurityMonitoringRuleFilterOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleFilter) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// Query for selecting logs to apply the filtering action.
+func (o SecurityMonitoringRuleFilterOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleFilter) string { return v.Query }).(pulumi.StringOutput)
+}
+
+type SecurityMonitoringRuleFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringRuleFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityMonitoringRuleFilter)(nil)).Elem()
+}
+
+func (o SecurityMonitoringRuleFilterArrayOutput) ToSecurityMonitoringRuleFilterArrayOutput() SecurityMonitoringRuleFilterArrayOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleFilterArrayOutput) ToSecurityMonitoringRuleFilterArrayOutputWithContext(ctx context.Context) SecurityMonitoringRuleFilterArrayOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleFilterArrayOutput) Index(i pulumi.IntInput) SecurityMonitoringRuleFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityMonitoringRuleFilter {
+		return vs[0].([]SecurityMonitoringRuleFilter)[vs[1].(int)]
+	}).(SecurityMonitoringRuleFilterOutput)
+}
+
+type SecurityMonitoringRuleOptions struct {
+	// If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `logDetection`. Defaults to `false`.
+	DecreaseCriticalityBasedOnEnv *bool `pulumi:"decreaseCriticalityBasedOnEnv"`
+	// The detection method. Valid values are `threshold`, `newValue`, `anomalyDetection`, `impossibleTravel`, `hardcoded`, `thirdParty`, `anomalyThreshold`. Defaults to `"threshold"`.
+	DetectionMethod *string `pulumi:"detectionMethod"`
+	// A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`.
+	EvaluationWindow *int `pulumi:"evaluationWindow"`
+	// Options for rules using the impossible travel detection method.
+	ImpossibleTravelOptions *SecurityMonitoringRuleOptionsImpossibleTravelOptions `pulumi:"impossibleTravelOptions"`
+	// Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
+	KeepAlive *int `pulumi:"keepAlive"`
+	// A signal will “close” regardless of the query being matched once the time exceeds the maximum duration (in seconds). This time is calculated from the first seen timestamp. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
+	MaxSignalDuration *int `pulumi:"maxSignalDuration"`
+	// New value rules specific options.
+	NewValueOptions *SecurityMonitoringRuleOptionsNewValueOptions `pulumi:"newValueOptions"`
+	// Options for rules using the third-party detection method.
+	ThirdPartyRuleOptions *SecurityMonitoringRuleOptionsThirdPartyRuleOptions `pulumi:"thirdPartyRuleOptions"`
+}
+
+// SecurityMonitoringRuleOptionsInput is an input type that accepts SecurityMonitoringRuleOptionsArgs and SecurityMonitoringRuleOptionsOutput values.
+// You can construct a concrete instance of `SecurityMonitoringRuleOptionsInput` via:
+//
+//	SecurityMonitoringRuleOptionsArgs{...}
+type SecurityMonitoringRuleOptionsInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringRuleOptionsOutput() SecurityMonitoringRuleOptionsOutput
+	ToSecurityMonitoringRuleOptionsOutputWithContext(context.Context) SecurityMonitoringRuleOptionsOutput
+}
+
+type SecurityMonitoringRuleOptionsArgs struct {
+	// If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `logDetection`. Defaults to `false`.
+	DecreaseCriticalityBasedOnEnv pulumi.BoolPtrInput `pulumi:"decreaseCriticalityBasedOnEnv"`
+	// The detection method. Valid values are `threshold`, `newValue`, `anomalyDetection`, `impossibleTravel`, `hardcoded`, `thirdParty`, `anomalyThreshold`. Defaults to `"threshold"`.
+	DetectionMethod pulumi.StringPtrInput `pulumi:"detectionMethod"`
+	// A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`.
+	EvaluationWindow pulumi.IntPtrInput `pulumi:"evaluationWindow"`
+	// Options for rules using the impossible travel detection method.
+	ImpossibleTravelOptions SecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrInput `pulumi:"impossibleTravelOptions"`
+	// Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
+	KeepAlive pulumi.IntPtrInput `pulumi:"keepAlive"`
+	// A signal will “close” regardless of the query being matched once the time exceeds the maximum duration (in seconds). This time is calculated from the first seen timestamp. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
+	MaxSignalDuration pulumi.IntPtrInput `pulumi:"maxSignalDuration"`
+	// New value rules specific options.
+	NewValueOptions SecurityMonitoringRuleOptionsNewValueOptionsPtrInput `pulumi:"newValueOptions"`
+	// Options for rules using the third-party detection method.
+	ThirdPartyRuleOptions SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrInput `pulumi:"thirdPartyRuleOptions"`
+}
+
+func (SecurityMonitoringRuleOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringRuleOptions)(nil)).Elem()
+}
+
+func (i SecurityMonitoringRuleOptionsArgs) ToSecurityMonitoringRuleOptionsOutput() SecurityMonitoringRuleOptionsOutput {
+	return i.ToSecurityMonitoringRuleOptionsOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringRuleOptionsArgs) ToSecurityMonitoringRuleOptionsOutputWithContext(ctx context.Context) SecurityMonitoringRuleOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringRuleOptionsOutput)
+}
+
+func (i SecurityMonitoringRuleOptionsArgs) ToSecurityMonitoringRuleOptionsPtrOutput() SecurityMonitoringRuleOptionsPtrOutput {
+	return i.ToSecurityMonitoringRuleOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringRuleOptionsArgs) ToSecurityMonitoringRuleOptionsPtrOutputWithContext(ctx context.Context) SecurityMonitoringRuleOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringRuleOptionsOutput).ToSecurityMonitoringRuleOptionsPtrOutputWithContext(ctx)
+}
+
+// SecurityMonitoringRuleOptionsPtrInput is an input type that accepts SecurityMonitoringRuleOptionsArgs, SecurityMonitoringRuleOptionsPtr and SecurityMonitoringRuleOptionsPtrOutput values.
+// You can construct a concrete instance of `SecurityMonitoringRuleOptionsPtrInput` via:
+//
+//	        SecurityMonitoringRuleOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type SecurityMonitoringRuleOptionsPtrInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringRuleOptionsPtrOutput() SecurityMonitoringRuleOptionsPtrOutput
+	ToSecurityMonitoringRuleOptionsPtrOutputWithContext(context.Context) SecurityMonitoringRuleOptionsPtrOutput
+}
+
+type securityMonitoringRuleOptionsPtrType SecurityMonitoringRuleOptionsArgs
+
+func SecurityMonitoringRuleOptionsPtr(v *SecurityMonitoringRuleOptionsArgs) SecurityMonitoringRuleOptionsPtrInput {
+	return (*securityMonitoringRuleOptionsPtrType)(v)
+}
+
+func (*securityMonitoringRuleOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityMonitoringRuleOptions)(nil)).Elem()
+}
+
+func (i *securityMonitoringRuleOptionsPtrType) ToSecurityMonitoringRuleOptionsPtrOutput() SecurityMonitoringRuleOptionsPtrOutput {
+	return i.ToSecurityMonitoringRuleOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *securityMonitoringRuleOptionsPtrType) ToSecurityMonitoringRuleOptionsPtrOutputWithContext(ctx context.Context) SecurityMonitoringRuleOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringRuleOptionsPtrOutput)
+}
+
+type SecurityMonitoringRuleOptionsOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringRuleOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringRuleOptions)(nil)).Elem()
+}
+
+func (o SecurityMonitoringRuleOptionsOutput) ToSecurityMonitoringRuleOptionsOutput() SecurityMonitoringRuleOptionsOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleOptionsOutput) ToSecurityMonitoringRuleOptionsOutputWithContext(ctx context.Context) SecurityMonitoringRuleOptionsOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleOptionsOutput) ToSecurityMonitoringRuleOptionsPtrOutput() SecurityMonitoringRuleOptionsPtrOutput {
+	return o.ToSecurityMonitoringRuleOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityMonitoringRuleOptionsOutput) ToSecurityMonitoringRuleOptionsPtrOutputWithContext(ctx context.Context) SecurityMonitoringRuleOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityMonitoringRuleOptions) *SecurityMonitoringRuleOptions {
+		return &v
+	}).(SecurityMonitoringRuleOptionsPtrOutput)
+}
+
+// If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `logDetection`. Defaults to `false`.
+func (o SecurityMonitoringRuleOptionsOutput) DecreaseCriticalityBasedOnEnv() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleOptions) *bool { return v.DecreaseCriticalityBasedOnEnv }).(pulumi.BoolPtrOutput)
+}
+
+// The detection method. Valid values are `threshold`, `newValue`, `anomalyDetection`, `impossibleTravel`, `hardcoded`, `thirdParty`, `anomalyThreshold`. Defaults to `"threshold"`.
+func (o SecurityMonitoringRuleOptionsOutput) DetectionMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleOptions) *string { return v.DetectionMethod }).(pulumi.StringPtrOutput)
+}
+
+// A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`.
+func (o SecurityMonitoringRuleOptionsOutput) EvaluationWindow() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleOptions) *int { return v.EvaluationWindow }).(pulumi.IntPtrOutput)
+}
+
+// Options for rules using the impossible travel detection method.
+func (o SecurityMonitoringRuleOptionsOutput) ImpossibleTravelOptions() SecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleOptions) *SecurityMonitoringRuleOptionsImpossibleTravelOptions {
+		return v.ImpossibleTravelOptions
+	}).(SecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrOutput)
+}
+
+// Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
+func (o SecurityMonitoringRuleOptionsOutput) KeepAlive() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleOptions) *int { return v.KeepAlive }).(pulumi.IntPtrOutput)
+}
+
+// A signal will “close” regardless of the query being matched once the time exceeds the maximum duration (in seconds). This time is calculated from the first seen timestamp. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
+func (o SecurityMonitoringRuleOptionsOutput) MaxSignalDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleOptions) *int { return v.MaxSignalDuration }).(pulumi.IntPtrOutput)
+}
+
+// New value rules specific options.
+func (o SecurityMonitoringRuleOptionsOutput) NewValueOptions() SecurityMonitoringRuleOptionsNewValueOptionsPtrOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleOptions) *SecurityMonitoringRuleOptionsNewValueOptions {
+		return v.NewValueOptions
+	}).(SecurityMonitoringRuleOptionsNewValueOptionsPtrOutput)
+}
+
+// Options for rules using the third-party detection method.
+func (o SecurityMonitoringRuleOptionsOutput) ThirdPartyRuleOptions() SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleOptions) *SecurityMonitoringRuleOptionsThirdPartyRuleOptions {
+		return v.ThirdPartyRuleOptions
+	}).(SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput)
+}
+
+type SecurityMonitoringRuleOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringRuleOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityMonitoringRuleOptions)(nil)).Elem()
+}
+
+func (o SecurityMonitoringRuleOptionsPtrOutput) ToSecurityMonitoringRuleOptionsPtrOutput() SecurityMonitoringRuleOptionsPtrOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleOptionsPtrOutput) ToSecurityMonitoringRuleOptionsPtrOutputWithContext(ctx context.Context) SecurityMonitoringRuleOptionsPtrOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleOptionsPtrOutput) Elem() SecurityMonitoringRuleOptionsOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRuleOptions) SecurityMonitoringRuleOptions {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityMonitoringRuleOptions
+		return ret
+	}).(SecurityMonitoringRuleOptionsOutput)
+}
+
+// If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `logDetection`. Defaults to `false`.
+func (o SecurityMonitoringRuleOptionsPtrOutput) DecreaseCriticalityBasedOnEnv() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRuleOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DecreaseCriticalityBasedOnEnv
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The detection method. Valid values are `threshold`, `newValue`, `anomalyDetection`, `impossibleTravel`, `hardcoded`, `thirdParty`, `anomalyThreshold`. Defaults to `"threshold"`.
+func (o SecurityMonitoringRuleOptionsPtrOutput) DetectionMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRuleOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DetectionMethod
+	}).(pulumi.StringPtrOutput)
+}
+
+// A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`.
+func (o SecurityMonitoringRuleOptionsPtrOutput) EvaluationWindow() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRuleOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.EvaluationWindow
+	}).(pulumi.IntPtrOutput)
+}
+
+// Options for rules using the impossible travel detection method.
+func (o SecurityMonitoringRuleOptionsPtrOutput) ImpossibleTravelOptions() SecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRuleOptions) *SecurityMonitoringRuleOptionsImpossibleTravelOptions {
+		if v == nil {
+			return nil
+		}
+		return v.ImpossibleTravelOptions
+	}).(SecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrOutput)
+}
+
+// Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
+func (o SecurityMonitoringRuleOptionsPtrOutput) KeepAlive() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRuleOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.KeepAlive
+	}).(pulumi.IntPtrOutput)
+}
+
+// A signal will “close” regardless of the query being matched once the time exceeds the maximum duration (in seconds). This time is calculated from the first seen timestamp. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
+func (o SecurityMonitoringRuleOptionsPtrOutput) MaxSignalDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRuleOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxSignalDuration
+	}).(pulumi.IntPtrOutput)
+}
+
+// New value rules specific options.
+func (o SecurityMonitoringRuleOptionsPtrOutput) NewValueOptions() SecurityMonitoringRuleOptionsNewValueOptionsPtrOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRuleOptions) *SecurityMonitoringRuleOptionsNewValueOptions {
+		if v == nil {
+			return nil
+		}
+		return v.NewValueOptions
+	}).(SecurityMonitoringRuleOptionsNewValueOptionsPtrOutput)
+}
+
+// Options for rules using the third-party detection method.
+func (o SecurityMonitoringRuleOptionsPtrOutput) ThirdPartyRuleOptions() SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRuleOptions) *SecurityMonitoringRuleOptionsThirdPartyRuleOptions {
+		if v == nil {
+			return nil
+		}
+		return v.ThirdPartyRuleOptions
+	}).(SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput)
+}
+
+type SecurityMonitoringRuleOptionsImpossibleTravelOptions struct {
+	// If true, signals are suppressed for the first 24 hours. During that time, Datadog learns the user's regular access locations. This can be helpful to reduce noise and infer VPN usage or credentialed API access. Defaults to `false`.
+	BaselineUserLocations *bool `pulumi:"baselineUserLocations"`
+}
+
+// SecurityMonitoringRuleOptionsImpossibleTravelOptionsInput is an input type that accepts SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs and SecurityMonitoringRuleOptionsImpossibleTravelOptionsOutput values.
+// You can construct a concrete instance of `SecurityMonitoringRuleOptionsImpossibleTravelOptionsInput` via:
+//
+//	SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs{...}
+type SecurityMonitoringRuleOptionsImpossibleTravelOptionsInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringRuleOptionsImpossibleTravelOptionsOutput() SecurityMonitoringRuleOptionsImpossibleTravelOptionsOutput
+	ToSecurityMonitoringRuleOptionsImpossibleTravelOptionsOutputWithContext(context.Context) SecurityMonitoringRuleOptionsImpossibleTravelOptionsOutput
+}
+
+type SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs struct {
+	// If true, signals are suppressed for the first 24 hours. During that time, Datadog learns the user's regular access locations. This can be helpful to reduce noise and infer VPN usage or credentialed API access. Defaults to `false`.
+	BaselineUserLocations pulumi.BoolPtrInput `pulumi:"baselineUserLocations"`
+}
+
+func (SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringRuleOptionsImpossibleTravelOptions)(nil)).Elem()
+}
+
+func (i SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs) ToSecurityMonitoringRuleOptionsImpossibleTravelOptionsOutput() SecurityMonitoringRuleOptionsImpossibleTravelOptionsOutput {
+	return i.ToSecurityMonitoringRuleOptionsImpossibleTravelOptionsOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs) ToSecurityMonitoringRuleOptionsImpossibleTravelOptionsOutputWithContext(ctx context.Context) SecurityMonitoringRuleOptionsImpossibleTravelOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringRuleOptionsImpossibleTravelOptionsOutput)
+}
+
+func (i SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs) ToSecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrOutput() SecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrOutput {
+	return i.ToSecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs) ToSecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrOutputWithContext(ctx context.Context) SecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringRuleOptionsImpossibleTravelOptionsOutput).ToSecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrOutputWithContext(ctx)
+}
+
+// SecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrInput is an input type that accepts SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs, SecurityMonitoringRuleOptionsImpossibleTravelOptionsPtr and SecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrOutput values.
+// You can construct a concrete instance of `SecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrInput` via:
+//
+//	        SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type SecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrOutput() SecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrOutput
+	ToSecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrOutputWithContext(context.Context) SecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrOutput
+}
+
+type securityMonitoringRuleOptionsImpossibleTravelOptionsPtrType SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs
+
+func SecurityMonitoringRuleOptionsImpossibleTravelOptionsPtr(v *SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs) SecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrInput {
+	return (*securityMonitoringRuleOptionsImpossibleTravelOptionsPtrType)(v)
+}
+
+func (*securityMonitoringRuleOptionsImpossibleTravelOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityMonitoringRuleOptionsImpossibleTravelOptions)(nil)).Elem()
+}
+
+func (i *securityMonitoringRuleOptionsImpossibleTravelOptionsPtrType) ToSecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrOutput() SecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrOutput {
+	return i.ToSecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *securityMonitoringRuleOptionsImpossibleTravelOptionsPtrType) ToSecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrOutputWithContext(ctx context.Context) SecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrOutput)
+}
+
+type SecurityMonitoringRuleOptionsImpossibleTravelOptionsOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringRuleOptionsImpossibleTravelOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringRuleOptionsImpossibleTravelOptions)(nil)).Elem()
+}
+
+func (o SecurityMonitoringRuleOptionsImpossibleTravelOptionsOutput) ToSecurityMonitoringRuleOptionsImpossibleTravelOptionsOutput() SecurityMonitoringRuleOptionsImpossibleTravelOptionsOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleOptionsImpossibleTravelOptionsOutput) ToSecurityMonitoringRuleOptionsImpossibleTravelOptionsOutputWithContext(ctx context.Context) SecurityMonitoringRuleOptionsImpossibleTravelOptionsOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleOptionsImpossibleTravelOptionsOutput) ToSecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrOutput() SecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrOutput {
+	return o.ToSecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityMonitoringRuleOptionsImpossibleTravelOptionsOutput) ToSecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrOutputWithContext(ctx context.Context) SecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityMonitoringRuleOptionsImpossibleTravelOptions) *SecurityMonitoringRuleOptionsImpossibleTravelOptions {
+		return &v
+	}).(SecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrOutput)
+}
+
+// If true, signals are suppressed for the first 24 hours. During that time, Datadog learns the user's regular access locations. This can be helpful to reduce noise and infer VPN usage or credentialed API access. Defaults to `false`.
+func (o SecurityMonitoringRuleOptionsImpossibleTravelOptionsOutput) BaselineUserLocations() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleOptionsImpossibleTravelOptions) *bool { return v.BaselineUserLocations }).(pulumi.BoolPtrOutput)
+}
+
+type SecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityMonitoringRuleOptionsImpossibleTravelOptions)(nil)).Elem()
+}
+
+func (o SecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrOutput) ToSecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrOutput() SecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrOutput) ToSecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrOutputWithContext(ctx context.Context) SecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrOutput) Elem() SecurityMonitoringRuleOptionsImpossibleTravelOptionsOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRuleOptionsImpossibleTravelOptions) SecurityMonitoringRuleOptionsImpossibleTravelOptions {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityMonitoringRuleOptionsImpossibleTravelOptions
+		return ret
+	}).(SecurityMonitoringRuleOptionsImpossibleTravelOptionsOutput)
+}
+
+// If true, signals are suppressed for the first 24 hours. During that time, Datadog learns the user's regular access locations. This can be helpful to reduce noise and infer VPN usage or credentialed API access. Defaults to `false`.
+func (o SecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrOutput) BaselineUserLocations() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRuleOptionsImpossibleTravelOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.BaselineUserLocations
+	}).(pulumi.BoolPtrOutput)
+}
+
+type SecurityMonitoringRuleOptionsNewValueOptions struct {
+	// The duration in days after which a learned value is forgotten. Valid values are `1`, `2`, `7`, `14`, `21`, `28`.
+	ForgetAfter int `pulumi:"forgetAfter"`
+	// The duration in days during which values are learned, and after which signals will be generated for values that weren't learned. If set to 0, a signal will be generated for all new values after the first value is learned. Valid values are `0`, `1`, `7`. Defaults to `1`.
+	LearningDuration *int `pulumi:"learningDuration"`
+	// The learning method used to determine when signals should be generated for values that weren't learned. Valid values are `duration`, `threshold`. Defaults to `"duration"`.
+	LearningMethod *string `pulumi:"learningMethod"`
+	// A number of occurrences after which signals are generated for values that weren't learned. Valid values are `0`, `1`. Defaults to `0`.
+	LearningThreshold *int `pulumi:"learningThreshold"`
+}
+
+// SecurityMonitoringRuleOptionsNewValueOptionsInput is an input type that accepts SecurityMonitoringRuleOptionsNewValueOptionsArgs and SecurityMonitoringRuleOptionsNewValueOptionsOutput values.
+// You can construct a concrete instance of `SecurityMonitoringRuleOptionsNewValueOptionsInput` via:
+//
+//	SecurityMonitoringRuleOptionsNewValueOptionsArgs{...}
+type SecurityMonitoringRuleOptionsNewValueOptionsInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringRuleOptionsNewValueOptionsOutput() SecurityMonitoringRuleOptionsNewValueOptionsOutput
+	ToSecurityMonitoringRuleOptionsNewValueOptionsOutputWithContext(context.Context) SecurityMonitoringRuleOptionsNewValueOptionsOutput
+}
+
+type SecurityMonitoringRuleOptionsNewValueOptionsArgs struct {
+	// The duration in days after which a learned value is forgotten. Valid values are `1`, `2`, `7`, `14`, `21`, `28`.
+	ForgetAfter pulumi.IntInput `pulumi:"forgetAfter"`
+	// The duration in days during which values are learned, and after which signals will be generated for values that weren't learned. If set to 0, a signal will be generated for all new values after the first value is learned. Valid values are `0`, `1`, `7`. Defaults to `1`.
+	LearningDuration pulumi.IntPtrInput `pulumi:"learningDuration"`
+	// The learning method used to determine when signals should be generated for values that weren't learned. Valid values are `duration`, `threshold`. Defaults to `"duration"`.
+	LearningMethod pulumi.StringPtrInput `pulumi:"learningMethod"`
+	// A number of occurrences after which signals are generated for values that weren't learned. Valid values are `0`, `1`. Defaults to `0`.
+	LearningThreshold pulumi.IntPtrInput `pulumi:"learningThreshold"`
+}
+
+func (SecurityMonitoringRuleOptionsNewValueOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringRuleOptionsNewValueOptions)(nil)).Elem()
+}
+
+func (i SecurityMonitoringRuleOptionsNewValueOptionsArgs) ToSecurityMonitoringRuleOptionsNewValueOptionsOutput() SecurityMonitoringRuleOptionsNewValueOptionsOutput {
+	return i.ToSecurityMonitoringRuleOptionsNewValueOptionsOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringRuleOptionsNewValueOptionsArgs) ToSecurityMonitoringRuleOptionsNewValueOptionsOutputWithContext(ctx context.Context) SecurityMonitoringRuleOptionsNewValueOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringRuleOptionsNewValueOptionsOutput)
+}
+
+func (i SecurityMonitoringRuleOptionsNewValueOptionsArgs) ToSecurityMonitoringRuleOptionsNewValueOptionsPtrOutput() SecurityMonitoringRuleOptionsNewValueOptionsPtrOutput {
+	return i.ToSecurityMonitoringRuleOptionsNewValueOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringRuleOptionsNewValueOptionsArgs) ToSecurityMonitoringRuleOptionsNewValueOptionsPtrOutputWithContext(ctx context.Context) SecurityMonitoringRuleOptionsNewValueOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringRuleOptionsNewValueOptionsOutput).ToSecurityMonitoringRuleOptionsNewValueOptionsPtrOutputWithContext(ctx)
+}
+
+// SecurityMonitoringRuleOptionsNewValueOptionsPtrInput is an input type that accepts SecurityMonitoringRuleOptionsNewValueOptionsArgs, SecurityMonitoringRuleOptionsNewValueOptionsPtr and SecurityMonitoringRuleOptionsNewValueOptionsPtrOutput values.
+// You can construct a concrete instance of `SecurityMonitoringRuleOptionsNewValueOptionsPtrInput` via:
+//
+//	        SecurityMonitoringRuleOptionsNewValueOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type SecurityMonitoringRuleOptionsNewValueOptionsPtrInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringRuleOptionsNewValueOptionsPtrOutput() SecurityMonitoringRuleOptionsNewValueOptionsPtrOutput
+	ToSecurityMonitoringRuleOptionsNewValueOptionsPtrOutputWithContext(context.Context) SecurityMonitoringRuleOptionsNewValueOptionsPtrOutput
+}
+
+type securityMonitoringRuleOptionsNewValueOptionsPtrType SecurityMonitoringRuleOptionsNewValueOptionsArgs
+
+func SecurityMonitoringRuleOptionsNewValueOptionsPtr(v *SecurityMonitoringRuleOptionsNewValueOptionsArgs) SecurityMonitoringRuleOptionsNewValueOptionsPtrInput {
+	return (*securityMonitoringRuleOptionsNewValueOptionsPtrType)(v)
+}
+
+func (*securityMonitoringRuleOptionsNewValueOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityMonitoringRuleOptionsNewValueOptions)(nil)).Elem()
+}
+
+func (i *securityMonitoringRuleOptionsNewValueOptionsPtrType) ToSecurityMonitoringRuleOptionsNewValueOptionsPtrOutput() SecurityMonitoringRuleOptionsNewValueOptionsPtrOutput {
+	return i.ToSecurityMonitoringRuleOptionsNewValueOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *securityMonitoringRuleOptionsNewValueOptionsPtrType) ToSecurityMonitoringRuleOptionsNewValueOptionsPtrOutputWithContext(ctx context.Context) SecurityMonitoringRuleOptionsNewValueOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringRuleOptionsNewValueOptionsPtrOutput)
+}
+
+type SecurityMonitoringRuleOptionsNewValueOptionsOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringRuleOptionsNewValueOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringRuleOptionsNewValueOptions)(nil)).Elem()
+}
+
+func (o SecurityMonitoringRuleOptionsNewValueOptionsOutput) ToSecurityMonitoringRuleOptionsNewValueOptionsOutput() SecurityMonitoringRuleOptionsNewValueOptionsOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleOptionsNewValueOptionsOutput) ToSecurityMonitoringRuleOptionsNewValueOptionsOutputWithContext(ctx context.Context) SecurityMonitoringRuleOptionsNewValueOptionsOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleOptionsNewValueOptionsOutput) ToSecurityMonitoringRuleOptionsNewValueOptionsPtrOutput() SecurityMonitoringRuleOptionsNewValueOptionsPtrOutput {
+	return o.ToSecurityMonitoringRuleOptionsNewValueOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityMonitoringRuleOptionsNewValueOptionsOutput) ToSecurityMonitoringRuleOptionsNewValueOptionsPtrOutputWithContext(ctx context.Context) SecurityMonitoringRuleOptionsNewValueOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityMonitoringRuleOptionsNewValueOptions) *SecurityMonitoringRuleOptionsNewValueOptions {
+		return &v
+	}).(SecurityMonitoringRuleOptionsNewValueOptionsPtrOutput)
+}
+
+// The duration in days after which a learned value is forgotten. Valid values are `1`, `2`, `7`, `14`, `21`, `28`.
+func (o SecurityMonitoringRuleOptionsNewValueOptionsOutput) ForgetAfter() pulumi.IntOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleOptionsNewValueOptions) int { return v.ForgetAfter }).(pulumi.IntOutput)
+}
+
+// The duration in days during which values are learned, and after which signals will be generated for values that weren't learned. If set to 0, a signal will be generated for all new values after the first value is learned. Valid values are `0`, `1`, `7`. Defaults to `1`.
+func (o SecurityMonitoringRuleOptionsNewValueOptionsOutput) LearningDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleOptionsNewValueOptions) *int { return v.LearningDuration }).(pulumi.IntPtrOutput)
+}
+
+// The learning method used to determine when signals should be generated for values that weren't learned. Valid values are `duration`, `threshold`. Defaults to `"duration"`.
+func (o SecurityMonitoringRuleOptionsNewValueOptionsOutput) LearningMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleOptionsNewValueOptions) *string { return v.LearningMethod }).(pulumi.StringPtrOutput)
+}
+
+// A number of occurrences after which signals are generated for values that weren't learned. Valid values are `0`, `1`. Defaults to `0`.
+func (o SecurityMonitoringRuleOptionsNewValueOptionsOutput) LearningThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleOptionsNewValueOptions) *int { return v.LearningThreshold }).(pulumi.IntPtrOutput)
+}
+
+type SecurityMonitoringRuleOptionsNewValueOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringRuleOptionsNewValueOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityMonitoringRuleOptionsNewValueOptions)(nil)).Elem()
+}
+
+func (o SecurityMonitoringRuleOptionsNewValueOptionsPtrOutput) ToSecurityMonitoringRuleOptionsNewValueOptionsPtrOutput() SecurityMonitoringRuleOptionsNewValueOptionsPtrOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleOptionsNewValueOptionsPtrOutput) ToSecurityMonitoringRuleOptionsNewValueOptionsPtrOutputWithContext(ctx context.Context) SecurityMonitoringRuleOptionsNewValueOptionsPtrOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleOptionsNewValueOptionsPtrOutput) Elem() SecurityMonitoringRuleOptionsNewValueOptionsOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRuleOptionsNewValueOptions) SecurityMonitoringRuleOptionsNewValueOptions {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityMonitoringRuleOptionsNewValueOptions
+		return ret
+	}).(SecurityMonitoringRuleOptionsNewValueOptionsOutput)
+}
+
+// The duration in days after which a learned value is forgotten. Valid values are `1`, `2`, `7`, `14`, `21`, `28`.
+func (o SecurityMonitoringRuleOptionsNewValueOptionsPtrOutput) ForgetAfter() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRuleOptionsNewValueOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ForgetAfter
+	}).(pulumi.IntPtrOutput)
+}
+
+// The duration in days during which values are learned, and after which signals will be generated for values that weren't learned. If set to 0, a signal will be generated for all new values after the first value is learned. Valid values are `0`, `1`, `7`. Defaults to `1`.
+func (o SecurityMonitoringRuleOptionsNewValueOptionsPtrOutput) LearningDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRuleOptionsNewValueOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.LearningDuration
+	}).(pulumi.IntPtrOutput)
+}
+
+// The learning method used to determine when signals should be generated for values that weren't learned. Valid values are `duration`, `threshold`. Defaults to `"duration"`.
+func (o SecurityMonitoringRuleOptionsNewValueOptionsPtrOutput) LearningMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRuleOptionsNewValueOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LearningMethod
+	}).(pulumi.StringPtrOutput)
+}
+
+// A number of occurrences after which signals are generated for values that weren't learned. Valid values are `0`, `1`. Defaults to `0`.
+func (o SecurityMonitoringRuleOptionsNewValueOptionsPtrOutput) LearningThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRuleOptionsNewValueOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.LearningThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
+type SecurityMonitoringRuleOptionsThirdPartyRuleOptions struct {
+	// Notification targets for the default rule case, when none of the third-party cases match.
+	DefaultNotifications []string `pulumi:"defaultNotifications"`
+	// Severity of the default rule case, when none of the third-party cases match. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+	DefaultStatus string `pulumi:"defaultStatus"`
+	// Queries to be combined with third-party case queries. Each of them can have different group by fields, to aggregate differently based on the type of alert.
+	RootQueries []SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQuery `pulumi:"rootQueries"`
+	// A template for the signal title; if omitted, the title is generated based on the case name.
+	SignalTitleTemplate *string `pulumi:"signalTitleTemplate"`
+}
+
+// SecurityMonitoringRuleOptionsThirdPartyRuleOptionsInput is an input type that accepts SecurityMonitoringRuleOptionsThirdPartyRuleOptionsArgs and SecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput values.
+// You can construct a concrete instance of `SecurityMonitoringRuleOptionsThirdPartyRuleOptionsInput` via:
+//
+//	SecurityMonitoringRuleOptionsThirdPartyRuleOptionsArgs{...}
+type SecurityMonitoringRuleOptionsThirdPartyRuleOptionsInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput() SecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput
+	ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutputWithContext(context.Context) SecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput
+}
+
+type SecurityMonitoringRuleOptionsThirdPartyRuleOptionsArgs struct {
+	// Notification targets for the default rule case, when none of the third-party cases match.
+	DefaultNotifications pulumi.StringArrayInput `pulumi:"defaultNotifications"`
+	// Severity of the default rule case, when none of the third-party cases match. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+	DefaultStatus pulumi.StringInput `pulumi:"defaultStatus"`
+	// Queries to be combined with third-party case queries. Each of them can have different group by fields, to aggregate differently based on the type of alert.
+	RootQueries SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayInput `pulumi:"rootQueries"`
+	// A template for the signal title; if omitted, the title is generated based on the case name.
+	SignalTitleTemplate pulumi.StringPtrInput `pulumi:"signalTitleTemplate"`
+}
+
+func (SecurityMonitoringRuleOptionsThirdPartyRuleOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringRuleOptionsThirdPartyRuleOptions)(nil)).Elem()
+}
+
+func (i SecurityMonitoringRuleOptionsThirdPartyRuleOptionsArgs) ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput() SecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput {
+	return i.ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringRuleOptionsThirdPartyRuleOptionsArgs) ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutputWithContext(ctx context.Context) SecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput)
+}
+
+func (i SecurityMonitoringRuleOptionsThirdPartyRuleOptionsArgs) ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput() SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput {
+	return i.ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringRuleOptionsThirdPartyRuleOptionsArgs) ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutputWithContext(ctx context.Context) SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput).ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutputWithContext(ctx)
+}
+
+// SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrInput is an input type that accepts SecurityMonitoringRuleOptionsThirdPartyRuleOptionsArgs, SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtr and SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput values.
+// You can construct a concrete instance of `SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrInput` via:
+//
+//	        SecurityMonitoringRuleOptionsThirdPartyRuleOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput() SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput
+	ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutputWithContext(context.Context) SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput
+}
+
+type securityMonitoringRuleOptionsThirdPartyRuleOptionsPtrType SecurityMonitoringRuleOptionsThirdPartyRuleOptionsArgs
+
+func SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtr(v *SecurityMonitoringRuleOptionsThirdPartyRuleOptionsArgs) SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrInput {
+	return (*securityMonitoringRuleOptionsThirdPartyRuleOptionsPtrType)(v)
+}
+
+func (*securityMonitoringRuleOptionsThirdPartyRuleOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityMonitoringRuleOptionsThirdPartyRuleOptions)(nil)).Elem()
+}
+
+func (i *securityMonitoringRuleOptionsThirdPartyRuleOptionsPtrType) ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput() SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput {
+	return i.ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *securityMonitoringRuleOptionsThirdPartyRuleOptionsPtrType) ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutputWithContext(ctx context.Context) SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput)
+}
+
+type SecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringRuleOptionsThirdPartyRuleOptions)(nil)).Elem()
+}
+
+func (o SecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput) ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput() SecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput) ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutputWithContext(ctx context.Context) SecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput) ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput() SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput {
+	return o.ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput) ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutputWithContext(ctx context.Context) SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityMonitoringRuleOptionsThirdPartyRuleOptions) *SecurityMonitoringRuleOptionsThirdPartyRuleOptions {
+		return &v
+	}).(SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput)
+}
+
+// Notification targets for the default rule case, when none of the third-party cases match.
+func (o SecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput) DefaultNotifications() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleOptionsThirdPartyRuleOptions) []string { return v.DefaultNotifications }).(pulumi.StringArrayOutput)
+}
+
+// Severity of the default rule case, when none of the third-party cases match. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+func (o SecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput) DefaultStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleOptionsThirdPartyRuleOptions) string { return v.DefaultStatus }).(pulumi.StringOutput)
+}
+
+// Queries to be combined with third-party case queries. Each of them can have different group by fields, to aggregate differently based on the type of alert.
+func (o SecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput) RootQueries() SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleOptionsThirdPartyRuleOptions) []SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQuery {
+		return v.RootQueries
+	}).(SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput)
+}
+
+// A template for the signal title; if omitted, the title is generated based on the case name.
+func (o SecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput) SignalTitleTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleOptionsThirdPartyRuleOptions) *string { return v.SignalTitleTemplate }).(pulumi.StringPtrOutput)
+}
+
+type SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityMonitoringRuleOptionsThirdPartyRuleOptions)(nil)).Elem()
+}
+
+func (o SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput) ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput() SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput) ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutputWithContext(ctx context.Context) SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput) Elem() SecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRuleOptionsThirdPartyRuleOptions) SecurityMonitoringRuleOptionsThirdPartyRuleOptions {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityMonitoringRuleOptionsThirdPartyRuleOptions
+		return ret
+	}).(SecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput)
+}
+
+// Notification targets for the default rule case, when none of the third-party cases match.
+func (o SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput) DefaultNotifications() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRuleOptionsThirdPartyRuleOptions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultNotifications
+	}).(pulumi.StringArrayOutput)
+}
+
+// Severity of the default rule case, when none of the third-party cases match. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+func (o SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput) DefaultStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRuleOptionsThirdPartyRuleOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DefaultStatus
+	}).(pulumi.StringPtrOutput)
+}
+
+// Queries to be combined with third-party case queries. Each of them can have different group by fields, to aggregate differently based on the type of alert.
+func (o SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput) RootQueries() SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRuleOptionsThirdPartyRuleOptions) []SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQuery {
+		if v == nil {
+			return nil
+		}
+		return v.RootQueries
+	}).(SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput)
+}
+
+// A template for the signal title; if omitted, the title is generated based on the case name.
+func (o SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput) SignalTitleTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRuleOptionsThirdPartyRuleOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SignalTitleTemplate
+	}).(pulumi.StringPtrOutput)
+}
+
+type SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQuery struct {
+	// Fields to group by. If empty, each log triggers a signal.
+	GroupByFields []string `pulumi:"groupByFields"`
+	// Query to filter logs.
+	Query string `pulumi:"query"`
+}
+
+// SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryInput is an input type that accepts SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArgs and SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutput values.
+// You can construct a concrete instance of `SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryInput` via:
+//
+//	SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArgs{...}
+type SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutput() SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutput
+	ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutputWithContext(context.Context) SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutput
+}
+
+type SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArgs struct {
+	// Fields to group by. If empty, each log triggers a signal.
+	GroupByFields pulumi.StringArrayInput `pulumi:"groupByFields"`
+	// Query to filter logs.
+	Query pulumi.StringInput `pulumi:"query"`
+}
+
+func (SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQuery)(nil)).Elem()
+}
+
+func (i SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArgs) ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutput() SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutput {
+	return i.ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArgs) ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutputWithContext(ctx context.Context) SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutput)
+}
+
+// SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayInput is an input type that accepts SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArray and SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput values.
+// You can construct a concrete instance of `SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayInput` via:
+//
+//	SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArray{ SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArgs{...} }
+type SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput() SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput
+	ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutputWithContext(context.Context) SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput
+}
+
+type SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArray []SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryInput
+
+func (SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQuery)(nil)).Elem()
+}
+
+func (i SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArray) ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput() SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput {
+	return i.ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArray) ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutputWithContext(ctx context.Context) SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput)
+}
+
+type SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQuery)(nil)).Elem()
+}
+
+func (o SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutput) ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutput() SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutput) ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutputWithContext(ctx context.Context) SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutput {
+	return o
+}
+
+// Fields to group by. If empty, each log triggers a signal.
+func (o SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutput) GroupByFields() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQuery) []string { return v.GroupByFields }).(pulumi.StringArrayOutput)
+}
+
+// Query to filter logs.
+func (o SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQuery) string { return v.Query }).(pulumi.StringOutput)
+}
+
+type SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQuery)(nil)).Elem()
+}
+
+func (o SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput) ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput() SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput) ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutputWithContext(ctx context.Context) SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput) Index(i pulumi.IntInput) SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQuery {
+		return vs[0].([]SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQuery)[vs[1].(int)]
+	}).(SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutput)
+}
+
+type SecurityMonitoringRuleQuery struct {
+	// **Deprecated**. It won't be applied anymore. **Deprecated.** `agentRule` has been deprecated in favor of new Agent Rule resource.
+	//
+	// Deprecated: `agentRule` has been deprecated in favor of new Agent Rule resource.
+	AgentRules []SecurityMonitoringRuleQueryAgentRule `pulumi:"agentRules"`
+	// The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`. Defaults to `"count"`.
+	Aggregation *string `pulumi:"aggregation"`
+	// Field for which the cardinality is measured. Sent as an array.
+	DistinctFields []string `pulumi:"distinctFields"`
+	// Fields to group by.
+	GroupByFields []string `pulumi:"groupByFields"`
+	// The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+	//
+	// Deprecated: Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+	Metric *string `pulumi:"metric"`
+	// Group of target fields to aggregate over when using the `sum`, `max`, `geoData`, or `newValue` aggregations. The `sum`, `max`, and `geoData` aggregations only accept one value in this list, whereas the `newValue` aggregation accepts up to five values.
+	Metrics []string `pulumi:"metrics"`
+	// Name of the query. Not compatible with `newValue` aggregations.
+	Name *string `pulumi:"name"`
+	// Query to run on logs.
+	Query string `pulumi:"query"`
+}
+
+// SecurityMonitoringRuleQueryInput is an input type that accepts SecurityMonitoringRuleQueryArgs and SecurityMonitoringRuleQueryOutput values.
+// You can construct a concrete instance of `SecurityMonitoringRuleQueryInput` via:
+//
+//	SecurityMonitoringRuleQueryArgs{...}
+type SecurityMonitoringRuleQueryInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringRuleQueryOutput() SecurityMonitoringRuleQueryOutput
+	ToSecurityMonitoringRuleQueryOutputWithContext(context.Context) SecurityMonitoringRuleQueryOutput
+}
+
+type SecurityMonitoringRuleQueryArgs struct {
+	// **Deprecated**. It won't be applied anymore. **Deprecated.** `agentRule` has been deprecated in favor of new Agent Rule resource.
+	//
+	// Deprecated: `agentRule` has been deprecated in favor of new Agent Rule resource.
+	AgentRules SecurityMonitoringRuleQueryAgentRuleArrayInput `pulumi:"agentRules"`
+	// The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`. Defaults to `"count"`.
+	Aggregation pulumi.StringPtrInput `pulumi:"aggregation"`
+	// Field for which the cardinality is measured. Sent as an array.
+	DistinctFields pulumi.StringArrayInput `pulumi:"distinctFields"`
+	// Fields to group by.
+	GroupByFields pulumi.StringArrayInput `pulumi:"groupByFields"`
+	// The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+	//
+	// Deprecated: Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+	Metric pulumi.StringPtrInput `pulumi:"metric"`
+	// Group of target fields to aggregate over when using the `sum`, `max`, `geoData`, or `newValue` aggregations. The `sum`, `max`, and `geoData` aggregations only accept one value in this list, whereas the `newValue` aggregation accepts up to five values.
+	Metrics pulumi.StringArrayInput `pulumi:"metrics"`
+	// Name of the query. Not compatible with `newValue` aggregations.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Query to run on logs.
+	Query pulumi.StringInput `pulumi:"query"`
+}
+
+func (SecurityMonitoringRuleQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringRuleQuery)(nil)).Elem()
+}
+
+func (i SecurityMonitoringRuleQueryArgs) ToSecurityMonitoringRuleQueryOutput() SecurityMonitoringRuleQueryOutput {
+	return i.ToSecurityMonitoringRuleQueryOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringRuleQueryArgs) ToSecurityMonitoringRuleQueryOutputWithContext(ctx context.Context) SecurityMonitoringRuleQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringRuleQueryOutput)
+}
+
+// SecurityMonitoringRuleQueryArrayInput is an input type that accepts SecurityMonitoringRuleQueryArray and SecurityMonitoringRuleQueryArrayOutput values.
+// You can construct a concrete instance of `SecurityMonitoringRuleQueryArrayInput` via:
+//
+//	SecurityMonitoringRuleQueryArray{ SecurityMonitoringRuleQueryArgs{...} }
+type SecurityMonitoringRuleQueryArrayInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringRuleQueryArrayOutput() SecurityMonitoringRuleQueryArrayOutput
+	ToSecurityMonitoringRuleQueryArrayOutputWithContext(context.Context) SecurityMonitoringRuleQueryArrayOutput
+}
+
+type SecurityMonitoringRuleQueryArray []SecurityMonitoringRuleQueryInput
+
+func (SecurityMonitoringRuleQueryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityMonitoringRuleQuery)(nil)).Elem()
+}
+
+func (i SecurityMonitoringRuleQueryArray) ToSecurityMonitoringRuleQueryArrayOutput() SecurityMonitoringRuleQueryArrayOutput {
+	return i.ToSecurityMonitoringRuleQueryArrayOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringRuleQueryArray) ToSecurityMonitoringRuleQueryArrayOutputWithContext(ctx context.Context) SecurityMonitoringRuleQueryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringRuleQueryArrayOutput)
+}
+
+type SecurityMonitoringRuleQueryOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringRuleQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringRuleQuery)(nil)).Elem()
+}
+
+func (o SecurityMonitoringRuleQueryOutput) ToSecurityMonitoringRuleQueryOutput() SecurityMonitoringRuleQueryOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleQueryOutput) ToSecurityMonitoringRuleQueryOutputWithContext(ctx context.Context) SecurityMonitoringRuleQueryOutput {
+	return o
+}
+
+// **Deprecated**. It won't be applied anymore. **Deprecated.** `agentRule` has been deprecated in favor of new Agent Rule resource.
+//
+// Deprecated: `agentRule` has been deprecated in favor of new Agent Rule resource.
+func (o SecurityMonitoringRuleQueryOutput) AgentRules() SecurityMonitoringRuleQueryAgentRuleArrayOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleQuery) []SecurityMonitoringRuleQueryAgentRule { return v.AgentRules }).(SecurityMonitoringRuleQueryAgentRuleArrayOutput)
+}
+
+// The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`. Defaults to `"count"`.
+func (o SecurityMonitoringRuleQueryOutput) Aggregation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleQuery) *string { return v.Aggregation }).(pulumi.StringPtrOutput)
+}
+
+// Field for which the cardinality is measured. Sent as an array.
+func (o SecurityMonitoringRuleQueryOutput) DistinctFields() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleQuery) []string { return v.DistinctFields }).(pulumi.StringArrayOutput)
+}
+
+// Fields to group by.
+func (o SecurityMonitoringRuleQueryOutput) GroupByFields() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleQuery) []string { return v.GroupByFields }).(pulumi.StringArrayOutput)
+}
+
+// The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+//
+// Deprecated: Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+func (o SecurityMonitoringRuleQueryOutput) Metric() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleQuery) *string { return v.Metric }).(pulumi.StringPtrOutput)
+}
+
+// Group of target fields to aggregate over when using the `sum`, `max`, `geoData`, or `newValue` aggregations. The `sum`, `max`, and `geoData` aggregations only accept one value in this list, whereas the `newValue` aggregation accepts up to five values.
+func (o SecurityMonitoringRuleQueryOutput) Metrics() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleQuery) []string { return v.Metrics }).(pulumi.StringArrayOutput)
+}
+
+// Name of the query. Not compatible with `newValue` aggregations.
+func (o SecurityMonitoringRuleQueryOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleQuery) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Query to run on logs.
+func (o SecurityMonitoringRuleQueryOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleQuery) string { return v.Query }).(pulumi.StringOutput)
+}
+
+type SecurityMonitoringRuleQueryArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringRuleQueryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityMonitoringRuleQuery)(nil)).Elem()
+}
+
+func (o SecurityMonitoringRuleQueryArrayOutput) ToSecurityMonitoringRuleQueryArrayOutput() SecurityMonitoringRuleQueryArrayOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleQueryArrayOutput) ToSecurityMonitoringRuleQueryArrayOutputWithContext(ctx context.Context) SecurityMonitoringRuleQueryArrayOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleQueryArrayOutput) Index(i pulumi.IntInput) SecurityMonitoringRuleQueryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityMonitoringRuleQuery {
+		return vs[0].([]SecurityMonitoringRuleQuery)[vs[1].(int)]
+	}).(SecurityMonitoringRuleQueryOutput)
+}
+
+type SecurityMonitoringRuleQueryAgentRule struct {
+	// **Deprecated**. It won't be applied anymore.
+	AgentRuleId string `pulumi:"agentRuleId"`
+	// **Deprecated**. It won't be applied anymore.
+	Expression string `pulumi:"expression"`
+}
+
+// SecurityMonitoringRuleQueryAgentRuleInput is an input type that accepts SecurityMonitoringRuleQueryAgentRuleArgs and SecurityMonitoringRuleQueryAgentRuleOutput values.
+// You can construct a concrete instance of `SecurityMonitoringRuleQueryAgentRuleInput` via:
+//
+//	SecurityMonitoringRuleQueryAgentRuleArgs{...}
+type SecurityMonitoringRuleQueryAgentRuleInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringRuleQueryAgentRuleOutput() SecurityMonitoringRuleQueryAgentRuleOutput
+	ToSecurityMonitoringRuleQueryAgentRuleOutputWithContext(context.Context) SecurityMonitoringRuleQueryAgentRuleOutput
+}
+
+type SecurityMonitoringRuleQueryAgentRuleArgs struct {
+	// **Deprecated**. It won't be applied anymore.
+	AgentRuleId pulumi.StringInput `pulumi:"agentRuleId"`
+	// **Deprecated**. It won't be applied anymore.
+	Expression pulumi.StringInput `pulumi:"expression"`
+}
+
+func (SecurityMonitoringRuleQueryAgentRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringRuleQueryAgentRule)(nil)).Elem()
+}
+
+func (i SecurityMonitoringRuleQueryAgentRuleArgs) ToSecurityMonitoringRuleQueryAgentRuleOutput() SecurityMonitoringRuleQueryAgentRuleOutput {
+	return i.ToSecurityMonitoringRuleQueryAgentRuleOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringRuleQueryAgentRuleArgs) ToSecurityMonitoringRuleQueryAgentRuleOutputWithContext(ctx context.Context) SecurityMonitoringRuleQueryAgentRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringRuleQueryAgentRuleOutput)
+}
+
+// SecurityMonitoringRuleQueryAgentRuleArrayInput is an input type that accepts SecurityMonitoringRuleQueryAgentRuleArray and SecurityMonitoringRuleQueryAgentRuleArrayOutput values.
+// You can construct a concrete instance of `SecurityMonitoringRuleQueryAgentRuleArrayInput` via:
+//
+//	SecurityMonitoringRuleQueryAgentRuleArray{ SecurityMonitoringRuleQueryAgentRuleArgs{...} }
+type SecurityMonitoringRuleQueryAgentRuleArrayInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringRuleQueryAgentRuleArrayOutput() SecurityMonitoringRuleQueryAgentRuleArrayOutput
+	ToSecurityMonitoringRuleQueryAgentRuleArrayOutputWithContext(context.Context) SecurityMonitoringRuleQueryAgentRuleArrayOutput
+}
+
+type SecurityMonitoringRuleQueryAgentRuleArray []SecurityMonitoringRuleQueryAgentRuleInput
+
+func (SecurityMonitoringRuleQueryAgentRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityMonitoringRuleQueryAgentRule)(nil)).Elem()
+}
+
+func (i SecurityMonitoringRuleQueryAgentRuleArray) ToSecurityMonitoringRuleQueryAgentRuleArrayOutput() SecurityMonitoringRuleQueryAgentRuleArrayOutput {
+	return i.ToSecurityMonitoringRuleQueryAgentRuleArrayOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringRuleQueryAgentRuleArray) ToSecurityMonitoringRuleQueryAgentRuleArrayOutputWithContext(ctx context.Context) SecurityMonitoringRuleQueryAgentRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringRuleQueryAgentRuleArrayOutput)
+}
+
+type SecurityMonitoringRuleQueryAgentRuleOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringRuleQueryAgentRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringRuleQueryAgentRule)(nil)).Elem()
+}
+
+func (o SecurityMonitoringRuleQueryAgentRuleOutput) ToSecurityMonitoringRuleQueryAgentRuleOutput() SecurityMonitoringRuleQueryAgentRuleOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleQueryAgentRuleOutput) ToSecurityMonitoringRuleQueryAgentRuleOutputWithContext(ctx context.Context) SecurityMonitoringRuleQueryAgentRuleOutput {
+	return o
+}
+
+// **Deprecated**. It won't be applied anymore.
+func (o SecurityMonitoringRuleQueryAgentRuleOutput) AgentRuleId() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleQueryAgentRule) string { return v.AgentRuleId }).(pulumi.StringOutput)
+}
+
+// **Deprecated**. It won't be applied anymore.
+func (o SecurityMonitoringRuleQueryAgentRuleOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleQueryAgentRule) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+type SecurityMonitoringRuleQueryAgentRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringRuleQueryAgentRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityMonitoringRuleQueryAgentRule)(nil)).Elem()
+}
+
+func (o SecurityMonitoringRuleQueryAgentRuleArrayOutput) ToSecurityMonitoringRuleQueryAgentRuleArrayOutput() SecurityMonitoringRuleQueryAgentRuleArrayOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleQueryAgentRuleArrayOutput) ToSecurityMonitoringRuleQueryAgentRuleArrayOutputWithContext(ctx context.Context) SecurityMonitoringRuleQueryAgentRuleArrayOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleQueryAgentRuleArrayOutput) Index(i pulumi.IntInput) SecurityMonitoringRuleQueryAgentRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityMonitoringRuleQueryAgentRule {
+		return vs[0].([]SecurityMonitoringRuleQueryAgentRule)[vs[1].(int)]
+	}).(SecurityMonitoringRuleQueryAgentRuleOutput)
+}
+
+type SecurityMonitoringRuleSignalQuery struct {
+	// The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`. Defaults to `"eventCount"`.
+	Aggregation *string `pulumi:"aggregation"`
+	// Fields to correlate by.
+	CorrelatedByFields []string `pulumi:"correlatedByFields"`
+	// Index of the rule query used to retrieve the correlated field. An empty string applies correlation on the non-projected per query attributes of the rule. Defaults to `""`.
+	CorrelatedQueryIndex *string `pulumi:"correlatedQueryIndex"`
+	// Default Rule ID of the signal to correlate. This value is READ-ONLY.
+	DefaultRuleId *string `pulumi:"defaultRuleId"`
+	// Name of the query. Not compatible with `newValue` aggregations.
+	Name *string `pulumi:"name"`
+	// Rule ID of the signal to correlate.
+	RuleId string `pulumi:"ruleId"`
+}
+
+// SecurityMonitoringRuleSignalQueryInput is an input type that accepts SecurityMonitoringRuleSignalQueryArgs and SecurityMonitoringRuleSignalQueryOutput values.
+// You can construct a concrete instance of `SecurityMonitoringRuleSignalQueryInput` via:
+//
+//	SecurityMonitoringRuleSignalQueryArgs{...}
+type SecurityMonitoringRuleSignalQueryInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringRuleSignalQueryOutput() SecurityMonitoringRuleSignalQueryOutput
+	ToSecurityMonitoringRuleSignalQueryOutputWithContext(context.Context) SecurityMonitoringRuleSignalQueryOutput
+}
+
+type SecurityMonitoringRuleSignalQueryArgs struct {
+	// The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`. Defaults to `"eventCount"`.
+	Aggregation pulumi.StringPtrInput `pulumi:"aggregation"`
+	// Fields to correlate by.
+	CorrelatedByFields pulumi.StringArrayInput `pulumi:"correlatedByFields"`
+	// Index of the rule query used to retrieve the correlated field. An empty string applies correlation on the non-projected per query attributes of the rule. Defaults to `""`.
+	CorrelatedQueryIndex pulumi.StringPtrInput `pulumi:"correlatedQueryIndex"`
+	// Default Rule ID of the signal to correlate. This value is READ-ONLY.
+	DefaultRuleId pulumi.StringPtrInput `pulumi:"defaultRuleId"`
+	// Name of the query. Not compatible with `newValue` aggregations.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Rule ID of the signal to correlate.
+	RuleId pulumi.StringInput `pulumi:"ruleId"`
+}
+
+func (SecurityMonitoringRuleSignalQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringRuleSignalQuery)(nil)).Elem()
+}
+
+func (i SecurityMonitoringRuleSignalQueryArgs) ToSecurityMonitoringRuleSignalQueryOutput() SecurityMonitoringRuleSignalQueryOutput {
+	return i.ToSecurityMonitoringRuleSignalQueryOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringRuleSignalQueryArgs) ToSecurityMonitoringRuleSignalQueryOutputWithContext(ctx context.Context) SecurityMonitoringRuleSignalQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringRuleSignalQueryOutput)
+}
+
+// SecurityMonitoringRuleSignalQueryArrayInput is an input type that accepts SecurityMonitoringRuleSignalQueryArray and SecurityMonitoringRuleSignalQueryArrayOutput values.
+// You can construct a concrete instance of `SecurityMonitoringRuleSignalQueryArrayInput` via:
+//
+//	SecurityMonitoringRuleSignalQueryArray{ SecurityMonitoringRuleSignalQueryArgs{...} }
+type SecurityMonitoringRuleSignalQueryArrayInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringRuleSignalQueryArrayOutput() SecurityMonitoringRuleSignalQueryArrayOutput
+	ToSecurityMonitoringRuleSignalQueryArrayOutputWithContext(context.Context) SecurityMonitoringRuleSignalQueryArrayOutput
+}
+
+type SecurityMonitoringRuleSignalQueryArray []SecurityMonitoringRuleSignalQueryInput
+
+func (SecurityMonitoringRuleSignalQueryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityMonitoringRuleSignalQuery)(nil)).Elem()
+}
+
+func (i SecurityMonitoringRuleSignalQueryArray) ToSecurityMonitoringRuleSignalQueryArrayOutput() SecurityMonitoringRuleSignalQueryArrayOutput {
+	return i.ToSecurityMonitoringRuleSignalQueryArrayOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringRuleSignalQueryArray) ToSecurityMonitoringRuleSignalQueryArrayOutputWithContext(ctx context.Context) SecurityMonitoringRuleSignalQueryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringRuleSignalQueryArrayOutput)
+}
+
+type SecurityMonitoringRuleSignalQueryOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringRuleSignalQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringRuleSignalQuery)(nil)).Elem()
+}
+
+func (o SecurityMonitoringRuleSignalQueryOutput) ToSecurityMonitoringRuleSignalQueryOutput() SecurityMonitoringRuleSignalQueryOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleSignalQueryOutput) ToSecurityMonitoringRuleSignalQueryOutputWithContext(ctx context.Context) SecurityMonitoringRuleSignalQueryOutput {
+	return o
+}
+
+// The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`. Defaults to `"eventCount"`.
+func (o SecurityMonitoringRuleSignalQueryOutput) Aggregation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleSignalQuery) *string { return v.Aggregation }).(pulumi.StringPtrOutput)
+}
+
+// Fields to correlate by.
+func (o SecurityMonitoringRuleSignalQueryOutput) CorrelatedByFields() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleSignalQuery) []string { return v.CorrelatedByFields }).(pulumi.StringArrayOutput)
+}
+
+// Index of the rule query used to retrieve the correlated field. An empty string applies correlation on the non-projected per query attributes of the rule. Defaults to `""`.
+func (o SecurityMonitoringRuleSignalQueryOutput) CorrelatedQueryIndex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleSignalQuery) *string { return v.CorrelatedQueryIndex }).(pulumi.StringPtrOutput)
+}
+
+// Default Rule ID of the signal to correlate. This value is READ-ONLY.
+func (o SecurityMonitoringRuleSignalQueryOutput) DefaultRuleId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleSignalQuery) *string { return v.DefaultRuleId }).(pulumi.StringPtrOutput)
+}
+
+// Name of the query. Not compatible with `newValue` aggregations.
+func (o SecurityMonitoringRuleSignalQueryOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleSignalQuery) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Rule ID of the signal to correlate.
+func (o SecurityMonitoringRuleSignalQueryOutput) RuleId() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleSignalQuery) string { return v.RuleId }).(pulumi.StringOutput)
+}
+
+type SecurityMonitoringRuleSignalQueryArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringRuleSignalQueryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityMonitoringRuleSignalQuery)(nil)).Elem()
+}
+
+func (o SecurityMonitoringRuleSignalQueryArrayOutput) ToSecurityMonitoringRuleSignalQueryArrayOutput() SecurityMonitoringRuleSignalQueryArrayOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleSignalQueryArrayOutput) ToSecurityMonitoringRuleSignalQueryArrayOutputWithContext(ctx context.Context) SecurityMonitoringRuleSignalQueryArrayOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleSignalQueryArrayOutput) Index(i pulumi.IntInput) SecurityMonitoringRuleSignalQueryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityMonitoringRuleSignalQuery {
+		return vs[0].([]SecurityMonitoringRuleSignalQuery)[vs[1].(int)]
+	}).(SecurityMonitoringRuleSignalQueryOutput)
+}
+
 type SecurityMonitoringRuleThirdPartyCase struct {
 	// Name of the case.
 	Name *string `pulumi:"name"`
@@ -3232,8 +5034,10 @@ func (o SyntheticsTestApiStepArrayOutput) Index(i pulumi.IntInput) SyntheticsTes
 }
 
 type SyntheticsTestApiStepAssertion struct {
+	// If assertion type is `javascript`, this is the JavaScript code that performs the assertions.
+	Code *string `pulumi:"code"`
 	// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
-	Operator string `pulumi:"operator"`
+	Operator *string `pulumi:"operator"`
 	// If assertion type is `header`, this is the header name.
 	Property *string `pulumi:"property"`
 	// Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
@@ -3246,7 +5050,7 @@ type SyntheticsTestApiStepAssertion struct {
 	Targetxpath *SyntheticsTestApiStepAssertionTargetxpath `pulumi:"targetxpath"`
 	// Timings scope for response time assertions. Valid values are `all`, `withoutDNS`.
 	TimingsScope *string `pulumi:"timingsScope"`
-	// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`.
+	// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
 	Type string `pulumi:"type"`
 }
 
@@ -3262,8 +5066,10 @@ type SyntheticsTestApiStepAssertionInput interface {
 }
 
 type SyntheticsTestApiStepAssertionArgs struct {
+	// If assertion type is `javascript`, this is the JavaScript code that performs the assertions.
+	Code pulumi.StringPtrInput `pulumi:"code"`
 	// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
-	Operator pulumi.StringInput `pulumi:"operator"`
+	Operator pulumi.StringPtrInput `pulumi:"operator"`
 	// If assertion type is `header`, this is the header name.
 	Property pulumi.StringPtrInput `pulumi:"property"`
 	// Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
@@ -3276,7 +5082,7 @@ type SyntheticsTestApiStepAssertionArgs struct {
 	Targetxpath SyntheticsTestApiStepAssertionTargetxpathPtrInput `pulumi:"targetxpath"`
 	// Timings scope for response time assertions. Valid values are `all`, `withoutDNS`.
 	TimingsScope pulumi.StringPtrInput `pulumi:"timingsScope"`
-	// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`.
+	// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -3331,9 +5137,14 @@ func (o SyntheticsTestApiStepAssertionOutput) ToSyntheticsTestApiStepAssertionOu
 	return o
 }
 
+// If assertion type is `javascript`, this is the JavaScript code that performs the assertions.
+func (o SyntheticsTestApiStepAssertionOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepAssertion) *string { return v.Code }).(pulumi.StringPtrOutput)
+}
+
 // Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
-func (o SyntheticsTestApiStepAssertionOutput) Operator() pulumi.StringOutput {
-	return o.ApplyT(func(v SyntheticsTestApiStepAssertion) string { return v.Operator }).(pulumi.StringOutput)
+func (o SyntheticsTestApiStepAssertionOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepAssertion) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
 
 // If assertion type is `header`, this is the header name.
@@ -3372,7 +5183,7 @@ func (o SyntheticsTestApiStepAssertionOutput) TimingsScope() pulumi.StringPtrOut
 	return o.ApplyT(func(v SyntheticsTestApiStepAssertion) *string { return v.TimingsScope }).(pulumi.StringPtrOutput)
 }
 
-// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`.
+// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
 func (o SyntheticsTestApiStepAssertionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepAssertion) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -6033,8 +7844,10 @@ func (o SyntheticsTestApiStepRetryPtrOutput) Interval() pulumi.IntPtrOutput {
 }
 
 type SyntheticsTestAssertion struct {
+	// If assertion type is `javascript`, this is the JavaScript code that performs the assertions.
+	Code *string `pulumi:"code"`
 	// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
-	Operator string `pulumi:"operator"`
+	Operator *string `pulumi:"operator"`
 	// If assertion type is `header`, this is the header name.
 	Property *string `pulumi:"property"`
 	// Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
@@ -6047,7 +7860,7 @@ type SyntheticsTestAssertion struct {
 	Targetxpath *SyntheticsTestAssertionTargetxpath `pulumi:"targetxpath"`
 	// Timings scope for response time assertions. Valid values are `all`, `withoutDNS`.
 	TimingsScope *string `pulumi:"timingsScope"`
-	// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`.
+	// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
 	Type string `pulumi:"type"`
 }
 
@@ -6063,8 +7876,10 @@ type SyntheticsTestAssertionInput interface {
 }
 
 type SyntheticsTestAssertionArgs struct {
+	// If assertion type is `javascript`, this is the JavaScript code that performs the assertions.
+	Code pulumi.StringPtrInput `pulumi:"code"`
 	// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
-	Operator pulumi.StringInput `pulumi:"operator"`
+	Operator pulumi.StringPtrInput `pulumi:"operator"`
 	// If assertion type is `header`, this is the header name.
 	Property pulumi.StringPtrInput `pulumi:"property"`
 	// Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
@@ -6077,7 +7892,7 @@ type SyntheticsTestAssertionArgs struct {
 	Targetxpath SyntheticsTestAssertionTargetxpathPtrInput `pulumi:"targetxpath"`
 	// Timings scope for response time assertions. Valid values are `all`, `withoutDNS`.
 	TimingsScope pulumi.StringPtrInput `pulumi:"timingsScope"`
-	// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`.
+	// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -6132,9 +7947,14 @@ func (o SyntheticsTestAssertionOutput) ToSyntheticsTestAssertionOutputWithContex
 	return o
 }
 
+// If assertion type is `javascript`, this is the JavaScript code that performs the assertions.
+func (o SyntheticsTestAssertionOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestAssertion) *string { return v.Code }).(pulumi.StringPtrOutput)
+}
+
 // Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
-func (o SyntheticsTestAssertionOutput) Operator() pulumi.StringOutput {
-	return o.ApplyT(func(v SyntheticsTestAssertion) string { return v.Operator }).(pulumi.StringOutput)
+func (o SyntheticsTestAssertionOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestAssertion) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
 
 // If assertion type is `header`, this is the header name.
@@ -6167,7 +7987,7 @@ func (o SyntheticsTestAssertionOutput) TimingsScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestAssertion) *string { return v.TimingsScope }).(pulumi.StringPtrOutput)
 }
 
-// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`.
+// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
 func (o SyntheticsTestAssertionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SyntheticsTestAssertion) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -7706,7 +9526,7 @@ type SyntheticsTestConfigVariable struct {
 	Pattern *string `pulumi:"pattern"`
 	// Whether the value of this variable will be obfuscated in test results. Defaults to `false`.
 	Secure *bool `pulumi:"secure"`
-	// Type of test configuration variable. Valid values are `global`, `text`.
+	// Type of test configuration variable. Valid values are `global`, `text`, `email`.
 	Type string `pulumi:"type"`
 }
 
@@ -7730,7 +9550,7 @@ type SyntheticsTestConfigVariableArgs struct {
 	Pattern pulumi.StringPtrInput `pulumi:"pattern"`
 	// Whether the value of this variable will be obfuscated in test results. Defaults to `false`.
 	Secure pulumi.BoolPtrInput `pulumi:"secure"`
-	// Type of test configuration variable. Valid values are `global`, `text`.
+	// Type of test configuration variable. Valid values are `global`, `text`, `email`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -7808,7 +9628,7 @@ func (o SyntheticsTestConfigVariableOutput) Secure() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestConfigVariable) *bool { return v.Secure }).(pulumi.BoolPtrOutput)
 }
 
-// Type of test configuration variable. Valid values are `global`, `text`.
+// Type of test configuration variable. Valid values are `global`, `text`, `email`.
 func (o SyntheticsTestConfigVariableOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SyntheticsTestConfigVariable) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -11542,9 +13362,11 @@ type GetLogsIndexesLogsIndex struct {
 	ExclusionFilters []GetLogsIndexesLogsIndexExclusionFilter `pulumi:"exclusionFilters"`
 	// Logs filter
 	Filters []GetLogsIndexesLogsIndexFilter `pulumi:"filters"`
+	// The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
+	FlexRetentionDays int `pulumi:"flexRetentionDays"`
 	// The name of the index.
 	Name string `pulumi:"name"`
-	// The number of days before logs are deleted from this index.
+	// The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
 	RetentionDays int `pulumi:"retentionDays"`
 }
 
@@ -11570,9 +13392,11 @@ type GetLogsIndexesLogsIndexArgs struct {
 	ExclusionFilters GetLogsIndexesLogsIndexExclusionFilterArrayInput `pulumi:"exclusionFilters"`
 	// Logs filter
 	Filters GetLogsIndexesLogsIndexFilterArrayInput `pulumi:"filters"`
+	// The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
+	FlexRetentionDays pulumi.IntInput `pulumi:"flexRetentionDays"`
 	// The name of the index.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The number of days before logs are deleted from this index.
+	// The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
 	RetentionDays pulumi.IntInput `pulumi:"retentionDays"`
 }
 
@@ -11652,12 +13476,17 @@ func (o GetLogsIndexesLogsIndexOutput) Filters() GetLogsIndexesLogsIndexFilterAr
 	return o.ApplyT(func(v GetLogsIndexesLogsIndex) []GetLogsIndexesLogsIndexFilter { return v.Filters }).(GetLogsIndexesLogsIndexFilterArrayOutput)
 }
 
+// The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
+func (o GetLogsIndexesLogsIndexOutput) FlexRetentionDays() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLogsIndexesLogsIndex) int { return v.FlexRetentionDays }).(pulumi.IntOutput)
+}
+
 // The name of the index.
 func (o GetLogsIndexesLogsIndexOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLogsIndexesLogsIndex) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The number of days before logs are deleted from this index.
+// The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
 func (o GetLogsIndexesLogsIndexOutput) RetentionDays() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLogsIndexesLogsIndex) int { return v.RetentionDays }).(pulumi.IntOutput)
 }
@@ -16243,6 +18072,30 @@ func (o GetUsersUserArrayOutput) Index(i pulumi.IntInput) GetUsersUserOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringDefaultRuleOptionsInput)(nil)).Elem(), SecurityMonitoringDefaultRuleOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringDefaultRuleOptionsPtrInput)(nil)).Elem(), SecurityMonitoringDefaultRuleOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringFilterExclusionFilterInput)(nil)).Elem(), SecurityMonitoringFilterExclusionFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringFilterExclusionFilterArrayInput)(nil)).Elem(), SecurityMonitoringFilterExclusionFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleCaseInput)(nil)).Elem(), SecurityMonitoringRuleCaseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleCaseArrayInput)(nil)).Elem(), SecurityMonitoringRuleCaseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleFilterInput)(nil)).Elem(), SecurityMonitoringRuleFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleFilterArrayInput)(nil)).Elem(), SecurityMonitoringRuleFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleOptionsInput)(nil)).Elem(), SecurityMonitoringRuleOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleOptionsPtrInput)(nil)).Elem(), SecurityMonitoringRuleOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleOptionsImpossibleTravelOptionsInput)(nil)).Elem(), SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrInput)(nil)).Elem(), SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleOptionsNewValueOptionsInput)(nil)).Elem(), SecurityMonitoringRuleOptionsNewValueOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleOptionsNewValueOptionsPtrInput)(nil)).Elem(), SecurityMonitoringRuleOptionsNewValueOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleOptionsThirdPartyRuleOptionsInput)(nil)).Elem(), SecurityMonitoringRuleOptionsThirdPartyRuleOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrInput)(nil)).Elem(), SecurityMonitoringRuleOptionsThirdPartyRuleOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryInput)(nil)).Elem(), SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayInput)(nil)).Elem(), SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleQueryInput)(nil)).Elem(), SecurityMonitoringRuleQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleQueryArrayInput)(nil)).Elem(), SecurityMonitoringRuleQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleQueryAgentRuleInput)(nil)).Elem(), SecurityMonitoringRuleQueryAgentRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleQueryAgentRuleArrayInput)(nil)).Elem(), SecurityMonitoringRuleQueryAgentRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleSignalQueryInput)(nil)).Elem(), SecurityMonitoringRuleSignalQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleSignalQueryArrayInput)(nil)).Elem(), SecurityMonitoringRuleSignalQueryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleThirdPartyCaseInput)(nil)).Elem(), SecurityMonitoringRuleThirdPartyCaseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleThirdPartyCaseArrayInput)(nil)).Elem(), SecurityMonitoringRuleThirdPartyCaseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SensitiveDataScannerGroupFilterInput)(nil)).Elem(), SensitiveDataScannerGroupFilterArgs{})
@@ -16442,6 +18295,30 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamMembershipsTeamMembershipArrayInput)(nil)).Elem(), GetTeamMembershipsTeamMembershipArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserInput)(nil)).Elem(), GetUsersUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserArrayInput)(nil)).Elem(), GetUsersUserArray{})
+	pulumi.RegisterOutputType(SecurityMonitoringDefaultRuleOptionsOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringDefaultRuleOptionsPtrOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringFilterExclusionFilterOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringFilterExclusionFilterArrayOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringRuleCaseOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringRuleCaseArrayOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringRuleFilterOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringRuleFilterArrayOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringRuleOptionsOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringRuleOptionsPtrOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringRuleOptionsImpossibleTravelOptionsOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringRuleOptionsNewValueOptionsOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringRuleOptionsNewValueOptionsPtrOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringRuleQueryOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringRuleQueryArrayOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringRuleQueryAgentRuleOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringRuleQueryAgentRuleArrayOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringRuleSignalQueryOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringRuleSignalQueryArrayOutput{})
 	pulumi.RegisterOutputType(SecurityMonitoringRuleThirdPartyCaseOutput{})
 	pulumi.RegisterOutputType(SecurityMonitoringRuleThirdPartyCaseArrayOutput{})
 	pulumi.RegisterOutputType(SensitiveDataScannerGroupFilterOutput{})

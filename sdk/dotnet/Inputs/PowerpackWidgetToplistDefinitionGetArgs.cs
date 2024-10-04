@@ -42,6 +42,18 @@ namespace Pulumi.Datadog.Inputs
             set => _requests = value;
         }
 
+        [Input("styles")]
+        private InputList<Inputs.PowerpackWidgetToplistDefinitionStyleGetArgs>? _styles;
+
+        /// <summary>
+        /// The style of the widget
+        /// </summary>
+        public InputList<Inputs.PowerpackWidgetToplistDefinitionStyleGetArgs> Styles
+        {
+            get => _styles ?? (_styles = new InputList<Inputs.PowerpackWidgetToplistDefinitionStyleGetArgs>());
+            set => _styles = value;
+        }
+
         /// <summary>
         /// The title of the widget.
         /// </summary>

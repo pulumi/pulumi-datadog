@@ -31,7 +31,7 @@ public final class SyntheticsTestConfigVariable {
      */
     private @Nullable Boolean secure;
     /**
-     * @return Type of test configuration variable. Valid values are `global`, `text`.
+     * @return Type of test configuration variable. Valid values are `global`, `text`, `email`.
      * 
      */
     private String type;
@@ -65,7 +65,7 @@ public final class SyntheticsTestConfigVariable {
         return Optional.ofNullable(this.secure);
     }
     /**
-     * @return Type of test configuration variable. Valid values are `global`, `text`.
+     * @return Type of test configuration variable. Valid values are `global`, `text`, `email`.
      * 
      */
     public String type() {

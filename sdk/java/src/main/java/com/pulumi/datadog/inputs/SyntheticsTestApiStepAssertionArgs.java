@@ -20,18 +20,33 @@ public final class SyntheticsTestApiStepAssertionArgs extends com.pulumi.resourc
     public static final SyntheticsTestApiStepAssertionArgs Empty = new SyntheticsTestApiStepAssertionArgs();
 
     /**
+     * If assertion type is `javascript`, this is the JavaScript code that performs the assertions.
+     * 
+     */
+    @Import(name="code")
+    private @Nullable Output<String> code;
+
+    /**
+     * @return If assertion type is `javascript`, this is the JavaScript code that performs the assertions.
+     * 
+     */
+    public Optional<Output<String>> code() {
+        return Optional.ofNullable(this.code);
+    }
+
+    /**
      * Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
      * 
      */
-    @Import(name="operator", required=true)
-    private Output<String> operator;
+    @Import(name="operator")
+    private @Nullable Output<String> operator;
 
     /**
      * @return Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
      * 
      */
-    public Output<String> operator() {
-        return this.operator;
+    public Optional<Output<String>> operator() {
+        return Optional.ofNullable(this.operator);
     }
 
     /**
@@ -125,14 +140,14 @@ public final class SyntheticsTestApiStepAssertionArgs extends com.pulumi.resourc
     }
 
     /**
-     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`.
+     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`.
+     * @return Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
      * 
      */
     public Output<String> type() {
@@ -142,6 +157,7 @@ public final class SyntheticsTestApiStepAssertionArgs extends com.pulumi.resourc
     private SyntheticsTestApiStepAssertionArgs() {}
 
     private SyntheticsTestApiStepAssertionArgs(SyntheticsTestApiStepAssertionArgs $) {
+        this.code = $.code;
         this.operator = $.operator;
         this.property = $.property;
         this.target = $.target;
@@ -171,12 +187,33 @@ public final class SyntheticsTestApiStepAssertionArgs extends com.pulumi.resourc
         }
 
         /**
+         * @param code If assertion type is `javascript`, this is the JavaScript code that performs the assertions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder code(@Nullable Output<String> code) {
+            $.code = code;
+            return this;
+        }
+
+        /**
+         * @param code If assertion type is `javascript`, this is the JavaScript code that performs the assertions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder code(String code) {
+            return code(Output.of(code));
+        }
+
+        /**
          * @param operator Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
          * 
          * @return builder
          * 
          */
-        public Builder operator(Output<String> operator) {
+        public Builder operator(@Nullable Output<String> operator) {
             $.operator = operator;
             return this;
         }
@@ -318,7 +355,7 @@ public final class SyntheticsTestApiStepAssertionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param type Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`.
+         * @param type Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
          * 
          * @return builder
          * 
@@ -329,7 +366,7 @@ public final class SyntheticsTestApiStepAssertionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param type Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`.
+         * @param type Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
          * 
          * @return builder
          * 
@@ -339,9 +376,6 @@ public final class SyntheticsTestApiStepAssertionArgs extends com.pulumi.resourc
         }
 
         public SyntheticsTestApiStepAssertionArgs build() {
-            if ($.operator == null) {
-                throw new MissingRequiredPropertyException("SyntheticsTestApiStepAssertionArgs", "operator");
-            }
             if ($.type == null) {
                 throw new MissingRequiredPropertyException("SyntheticsTestApiStepAssertionArgs", "type");
             }

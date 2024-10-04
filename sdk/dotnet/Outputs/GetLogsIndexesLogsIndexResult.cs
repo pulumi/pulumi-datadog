@@ -34,11 +34,15 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLogsIndexesLogsIndexFilterResult> Filters;
         /// <summary>
+        /// The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
+        /// </summary>
+        public readonly int FlexRetentionDays;
+        /// <summary>
         /// The name of the index.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The number of days before logs are deleted from this index.
+        /// The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
         /// </summary>
         public readonly int RetentionDays;
 
@@ -54,6 +58,8 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.GetLogsIndexesLogsIndexFilterResult> filters,
 
+            int flexRetentionDays,
+
             string name,
 
             int retentionDays)
@@ -63,6 +69,7 @@ namespace Pulumi.Datadog.Outputs
             DailyLimitWarningThresholdPercentage = dailyLimitWarningThresholdPercentage;
             ExclusionFilters = exclusionFilters;
             Filters = filters;
+            FlexRetentionDays = flexRetentionDays;
             Name = name;
             RetentionDays = retentionDays;
         }

@@ -160,6 +160,10 @@ __all__ = [
     'DashboardWidgetQueryTableDefinitionRequestQueryMetricQueryArgs',
     'DashboardWidgetQueryTableDefinitionRequestQueryProcessQueryArgs',
     'DashboardWidgetQueryTableDefinitionRequestQuerySloQueryArgs',
+    'DashboardWidgetQueryTableDefinitionRequestTextFormatArgs',
+    'DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatArgs',
+    'DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatMatchArgs',
+    'DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatReplaceArgs',
     'DashboardWidgetQueryValueDefinitionArgs',
     'DashboardWidgetQueryValueDefinitionCustomLinkArgs',
     'DashboardWidgetQueryValueDefinitionRequestArgs',
@@ -335,6 +339,8 @@ __all__ = [
     'DashboardWidgetToplistDefinitionRequestQueryProcessQueryArgs',
     'DashboardWidgetToplistDefinitionRequestQuerySloQueryArgs',
     'DashboardWidgetToplistDefinitionRequestStyleArgs',
+    'DashboardWidgetToplistDefinitionStyleArgs',
+    'DashboardWidgetToplistDefinitionStyleDisplayArgs',
     'DashboardWidgetTopologyMapDefinitionArgs',
     'DashboardWidgetTopologyMapDefinitionCustomLinkArgs',
     'DashboardWidgetTopologyMapDefinitionRequestArgs',
@@ -692,6 +698,10 @@ __all__ = [
     'PowerpackWidgetQueryTableDefinitionRequestSecurityQueryGroupByArgs',
     'PowerpackWidgetQueryTableDefinitionRequestSecurityQueryGroupBySortQueryArgs',
     'PowerpackWidgetQueryTableDefinitionRequestSecurityQueryMultiComputeArgs',
+    'PowerpackWidgetQueryTableDefinitionRequestTextFormatArgs',
+    'PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatArgs',
+    'PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatMatchArgs',
+    'PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatReplaceArgs',
     'PowerpackWidgetQueryValueDefinitionArgs',
     'PowerpackWidgetQueryValueDefinitionCustomLinkArgs',
     'PowerpackWidgetQueryValueDefinitionRequestArgs',
@@ -969,6 +979,8 @@ __all__ = [
     'PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryArgs',
     'PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeArgs',
     'PowerpackWidgetToplistDefinitionRequestStyleArgs',
+    'PowerpackWidgetToplistDefinitionStyleArgs',
+    'PowerpackWidgetToplistDefinitionStyleDisplayArgs',
     'PowerpackWidgetTopologyMapDefinitionArgs',
     'PowerpackWidgetTopologyMapDefinitionCustomLinkArgs',
     'PowerpackWidgetTopologyMapDefinitionRequestArgs',
@@ -13198,7 +13210,8 @@ class DashboardWidgetQueryTableDefinitionRequestArgs:
                  q: Optional[pulumi.Input[str]] = None,
                  queries: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestQueryArgs']]]] = None,
                  rum_query: Optional[pulumi.Input['DashboardWidgetRumQueryArgs']] = None,
-                 security_query: Optional[pulumi.Input['DashboardWidgetSecurityQueryArgs']] = None):
+                 security_query: Optional[pulumi.Input['DashboardWidgetSecurityQueryArgs']] = None,
+                 text_formats: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestTextFormatArgs']]]] = None):
         """
         :param pulumi.Input[str] aggregator: The aggregator to use for time aggregation. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
         :param pulumi.Input[str] alias: The alias for the column name (defaults to metric name).
@@ -13212,6 +13225,7 @@ class DashboardWidgetQueryTableDefinitionRequestArgs:
         :param pulumi.Input[str] q: The metric query to use for this widget.
         :param pulumi.Input['DashboardWidgetRumQueryArgs'] rum_query: The query to use for this widget.
         :param pulumi.Input['DashboardWidgetSecurityQueryArgs'] security_query: The query to use for this widget.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestTextFormatArgs']]] text_formats: Text formats define how to format text in table widget content. Multiple `text_formats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
         """
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
@@ -13243,6 +13257,8 @@ class DashboardWidgetQueryTableDefinitionRequestArgs:
             pulumi.set(__self__, "rum_query", rum_query)
         if security_query is not None:
             pulumi.set(__self__, "security_query", security_query)
+        if text_formats is not None:
+            pulumi.set(__self__, "text_formats", text_formats)
 
     @property
     @pulumi.getter
@@ -13414,6 +13430,18 @@ class DashboardWidgetQueryTableDefinitionRequestArgs:
     @security_query.setter
     def security_query(self, value: Optional[pulumi.Input['DashboardWidgetSecurityQueryArgs']]):
         pulumi.set(self, "security_query", value)
+
+    @property
+    @pulumi.getter(name="textFormats")
+    def text_formats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestTextFormatArgs']]]]:
+        """
+        Text formats define how to format text in table widget content. Multiple `text_formats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
+        """
+        return pulumi.get(self, "text_formats")
+
+    @text_formats.setter
+    def text_formats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestTextFormatArgs']]]]):
+        pulumi.set(self, "text_formats", value)
 
 
 @pulumi.input_type
@@ -15398,6 +15426,205 @@ class DashboardWidgetQueryTableDefinitionRequestQuerySloQueryArgs:
     @slo_query_type.setter
     def slo_query_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "slo_query_type", value)
+
+
+@pulumi.input_type
+class DashboardWidgetQueryTableDefinitionRequestTextFormatArgs:
+    def __init__(__self__, *,
+                 text_formats: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatArgs']]] text_formats: The text format to apply to the items in a table widget column.
+        """
+        if text_formats is not None:
+            pulumi.set(__self__, "text_formats", text_formats)
+
+    @property
+    @pulumi.getter(name="textFormats")
+    def text_formats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatArgs']]]]:
+        """
+        The text format to apply to the items in a table widget column.
+        """
+        return pulumi.get(self, "text_formats")
+
+    @text_formats.setter
+    def text_formats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatArgs']]]]):
+        pulumi.set(self, "text_formats", value)
+
+
+@pulumi.input_type
+class DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatArgs:
+    def __init__(__self__, *,
+                 match: pulumi.Input['DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatMatchArgs'],
+                 custom_bg_color: Optional[pulumi.Input[str]] = None,
+                 custom_fg_color: Optional[pulumi.Input[str]] = None,
+                 palette: Optional[pulumi.Input[str]] = None,
+                 replace: Optional[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatReplaceArgs']] = None):
+        """
+        :param pulumi.Input['DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatMatchArgs'] match: Match rule for the table widget text format.
+        :param pulumi.Input[str] custom_bg_color: The custom color palette to apply to the background.
+        :param pulumi.Input[str] custom_fg_color: The custom color palette to apply to the foreground text.
+        :param pulumi.Input[str] palette: The color palette to apply. Valid values are `white_on_red`, `white_on_yellow`, `white_on_green`, `black_on_light_red`, `black_on_light_yellow`, `black_on_light_green`, `red_on_white`, `yellow_on_white`, `green_on_white`, `custom_bg`, `custom_text`.
+        :param pulumi.Input['DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatReplaceArgs'] replace: Match rule for the table widget text format.
+        """
+        pulumi.set(__self__, "match", match)
+        if custom_bg_color is not None:
+            pulumi.set(__self__, "custom_bg_color", custom_bg_color)
+        if custom_fg_color is not None:
+            pulumi.set(__self__, "custom_fg_color", custom_fg_color)
+        if palette is not None:
+            pulumi.set(__self__, "palette", palette)
+        if replace is not None:
+            pulumi.set(__self__, "replace", replace)
+
+    @property
+    @pulumi.getter
+    def match(self) -> pulumi.Input['DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatMatchArgs']:
+        """
+        Match rule for the table widget text format.
+        """
+        return pulumi.get(self, "match")
+
+    @match.setter
+    def match(self, value: pulumi.Input['DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatMatchArgs']):
+        pulumi.set(self, "match", value)
+
+    @property
+    @pulumi.getter(name="customBgColor")
+    def custom_bg_color(self) -> Optional[pulumi.Input[str]]:
+        """
+        The custom color palette to apply to the background.
+        """
+        return pulumi.get(self, "custom_bg_color")
+
+    @custom_bg_color.setter
+    def custom_bg_color(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_bg_color", value)
+
+    @property
+    @pulumi.getter(name="customFgColor")
+    def custom_fg_color(self) -> Optional[pulumi.Input[str]]:
+        """
+        The custom color palette to apply to the foreground text.
+        """
+        return pulumi.get(self, "custom_fg_color")
+
+    @custom_fg_color.setter
+    def custom_fg_color(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_fg_color", value)
+
+    @property
+    @pulumi.getter
+    def palette(self) -> Optional[pulumi.Input[str]]:
+        """
+        The color palette to apply. Valid values are `white_on_red`, `white_on_yellow`, `white_on_green`, `black_on_light_red`, `black_on_light_yellow`, `black_on_light_green`, `red_on_white`, `yellow_on_white`, `green_on_white`, `custom_bg`, `custom_text`.
+        """
+        return pulumi.get(self, "palette")
+
+    @palette.setter
+    def palette(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "palette", value)
+
+    @property
+    @pulumi.getter
+    def replace(self) -> Optional[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatReplaceArgs']]:
+        """
+        Match rule for the table widget text format.
+        """
+        return pulumi.get(self, "replace")
+
+    @replace.setter
+    def replace(self, value: Optional[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatReplaceArgs']]):
+        pulumi.set(self, "replace", value)
+
+
+@pulumi.input_type
+class DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatMatchArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] type: Match or compare option. Valid values are `is`, `is_not`, `contains`, `does_not_contain`, `starts_with`, `ends_with`.
+        :param pulumi.Input[str] value: Table Widget Match String.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Match or compare option. Valid values are `is`, `is_not`, `contains`, `does_not_contain`, `starts_with`, `ends_with`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        Table Widget Match String.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatReplaceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 with_: pulumi.Input[str],
+                 substring: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: Table widget text format replace all type.
+        :param pulumi.Input[str] with_: Table Widget Match String.
+        :param pulumi.Input[str] substring: Text that will be replaced. Must be used with type `substring`.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "with_", with_)
+        if substring is not None:
+            pulumi.set(__self__, "substring", substring)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Table widget text format replace all type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="with")
+    def with_(self) -> pulumi.Input[str]:
+        """
+        Table Widget Match String.
+        """
+        return pulumi.get(self, "with_")
+
+    @with_.setter
+    def with_(self, value: pulumi.Input[str]):
+        pulumi.set(self, "with_", value)
+
+    @property
+    @pulumi.getter
+    def substring(self) -> Optional[pulumi.Input[str]]:
+        """
+        Text that will be replaced. Must be used with type `substring`.
+        """
+        return pulumi.get(self, "substring")
+
+    @substring.setter
+    def substring(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "substring", value)
 
 
 @pulumi.input_type
@@ -27949,6 +28176,7 @@ class DashboardWidgetToplistDefinitionArgs:
                  custom_links: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionCustomLinkArgs']]]] = None,
                  live_span: Optional[pulumi.Input[str]] = None,
                  requests: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionRequestArgs']]]] = None,
+                 styles: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionStyleArgs']]]] = None,
                  title: Optional[pulumi.Input[str]] = None,
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
@@ -27956,6 +28184,7 @@ class DashboardWidgetToplistDefinitionArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionCustomLinkArgs']]] custom_links: A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
         :param pulumi.Input[str] live_span: The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionRequestArgs']]] requests: A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the `request` block).
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionStyleArgs']]] styles: The style of the widget
         :param pulumi.Input[str] title: The title of the widget.
         :param pulumi.Input[str] title_align: The alignment of the widget's title. Valid values are `center`, `left`, `right`.
         :param pulumi.Input[str] title_size: The size of the widget's title (defaults to 16).
@@ -27966,6 +28195,8 @@ class DashboardWidgetToplistDefinitionArgs:
             pulumi.set(__self__, "live_span", live_span)
         if requests is not None:
             pulumi.set(__self__, "requests", requests)
+        if styles is not None:
+            pulumi.set(__self__, "styles", styles)
         if title is not None:
             pulumi.set(__self__, "title", title)
         if title_align is not None:
@@ -28008,6 +28239,18 @@ class DashboardWidgetToplistDefinitionArgs:
     @requests.setter
     def requests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionRequestArgs']]]]):
         pulumi.set(self, "requests", value)
+
+    @property
+    @pulumi.getter
+    def styles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionStyleArgs']]]]:
+        """
+        The style of the widget
+        """
+        return pulumi.get(self, "styles")
+
+    @styles.setter
+    def styles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionStyleArgs']]]]):
+        pulumi.set(self, "styles", value)
 
     @property
     @pulumi.getter
@@ -30415,6 +30658,67 @@ class DashboardWidgetToplistDefinitionRequestStyleArgs:
     @palette.setter
     def palette(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "palette", value)
+
+
+@pulumi.input_type
+class DashboardWidgetToplistDefinitionStyleArgs:
+    def __init__(__self__, *,
+                 displays: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionStyleDisplayArgs']]]] = None,
+                 palette: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionStyleDisplayArgs']]] displays: The display mode for the widget.
+        :param pulumi.Input[str] palette: The color palette for the widget.
+        """
+        if displays is not None:
+            pulumi.set(__self__, "displays", displays)
+        if palette is not None:
+            pulumi.set(__self__, "palette", palette)
+
+    @property
+    @pulumi.getter
+    def displays(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionStyleDisplayArgs']]]]:
+        """
+        The display mode for the widget.
+        """
+        return pulumi.get(self, "displays")
+
+    @displays.setter
+    def displays(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionStyleDisplayArgs']]]]):
+        pulumi.set(self, "displays", value)
+
+    @property
+    @pulumi.getter
+    def palette(self) -> Optional[pulumi.Input[str]]:
+        """
+        The color palette for the widget.
+        """
+        return pulumi.get(self, "palette")
+
+    @palette.setter
+    def palette(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "palette", value)
+
+
+@pulumi.input_type
+class DashboardWidgetToplistDefinitionStyleDisplayArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] type: The display type for the widget.
+        """
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The display type for the widget.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
@@ -54320,7 +54624,8 @@ class PowerpackWidgetQueryTableDefinitionRequestArgs:
                  q: Optional[pulumi.Input[str]] = None,
                  queries: Optional[pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetQueryTableDefinitionRequestQueryArgs']]]] = None,
                  rum_query: Optional[pulumi.Input['PowerpackWidgetQueryTableDefinitionRequestRumQueryArgs']] = None,
-                 security_query: Optional[pulumi.Input['PowerpackWidgetQueryTableDefinitionRequestSecurityQueryArgs']] = None):
+                 security_query: Optional[pulumi.Input['PowerpackWidgetQueryTableDefinitionRequestSecurityQueryArgs']] = None,
+                 text_formats: Optional[pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetQueryTableDefinitionRequestTextFormatArgs']]]] = None):
         """
         :param pulumi.Input[str] aggregator: The aggregator to use for time aggregation. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
         :param pulumi.Input[str] alias: The alias for the column name (defaults to metric name).
@@ -54334,6 +54639,7 @@ class PowerpackWidgetQueryTableDefinitionRequestArgs:
         :param pulumi.Input[str] q: The metric query to use for this widget.
         :param pulumi.Input['PowerpackWidgetQueryTableDefinitionRequestRumQueryArgs'] rum_query: The query to use for this widget.
         :param pulumi.Input['PowerpackWidgetQueryTableDefinitionRequestSecurityQueryArgs'] security_query: The query to use for this widget.
+        :param pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetQueryTableDefinitionRequestTextFormatArgs']]] text_formats: Text formats define how to format text in table widget content. Multiple `text_formats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
         """
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
@@ -54365,6 +54671,8 @@ class PowerpackWidgetQueryTableDefinitionRequestArgs:
             pulumi.set(__self__, "rum_query", rum_query)
         if security_query is not None:
             pulumi.set(__self__, "security_query", security_query)
+        if text_formats is not None:
+            pulumi.set(__self__, "text_formats", text_formats)
 
     @property
     @pulumi.getter
@@ -54536,6 +54844,18 @@ class PowerpackWidgetQueryTableDefinitionRequestArgs:
     @security_query.setter
     def security_query(self, value: Optional[pulumi.Input['PowerpackWidgetQueryTableDefinitionRequestSecurityQueryArgs']]):
         pulumi.set(self, "security_query", value)
+
+    @property
+    @pulumi.getter(name="textFormats")
+    def text_formats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetQueryTableDefinitionRequestTextFormatArgs']]]]:
+        """
+        Text formats define how to format text in table widget content. Multiple `text_formats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
+        """
+        return pulumi.get(self, "text_formats")
+
+    @text_formats.setter
+    def text_formats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetQueryTableDefinitionRequestTextFormatArgs']]]]):
+        pulumi.set(self, "text_formats", value)
 
 
 @pulumi.input_type
@@ -57728,6 +58048,205 @@ class PowerpackWidgetQueryTableDefinitionRequestSecurityQueryMultiComputeArgs:
     @interval.setter
     def interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval", value)
+
+
+@pulumi.input_type
+class PowerpackWidgetQueryTableDefinitionRequestTextFormatArgs:
+    def __init__(__self__, *,
+                 text_formats: Optional[pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatArgs']]] text_formats: The text format to apply to the items in a table widget column.
+        """
+        if text_formats is not None:
+            pulumi.set(__self__, "text_formats", text_formats)
+
+    @property
+    @pulumi.getter(name="textFormats")
+    def text_formats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatArgs']]]]:
+        """
+        The text format to apply to the items in a table widget column.
+        """
+        return pulumi.get(self, "text_formats")
+
+    @text_formats.setter
+    def text_formats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatArgs']]]]):
+        pulumi.set(self, "text_formats", value)
+
+
+@pulumi.input_type
+class PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatArgs:
+    def __init__(__self__, *,
+                 match: pulumi.Input['PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatMatchArgs'],
+                 custom_bg_color: Optional[pulumi.Input[str]] = None,
+                 custom_fg_color: Optional[pulumi.Input[str]] = None,
+                 palette: Optional[pulumi.Input[str]] = None,
+                 replace: Optional[pulumi.Input['PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatReplaceArgs']] = None):
+        """
+        :param pulumi.Input['PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatMatchArgs'] match: Match rule for the table widget text format.
+        :param pulumi.Input[str] custom_bg_color: The custom color palette to apply to the background.
+        :param pulumi.Input[str] custom_fg_color: The custom color palette to apply to the foreground text.
+        :param pulumi.Input[str] palette: The color palette to apply. Valid values are `white_on_red`, `white_on_yellow`, `white_on_green`, `black_on_light_red`, `black_on_light_yellow`, `black_on_light_green`, `red_on_white`, `yellow_on_white`, `green_on_white`, `custom_bg`, `custom_text`.
+        :param pulumi.Input['PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatReplaceArgs'] replace: Match rule for the table widget text format.
+        """
+        pulumi.set(__self__, "match", match)
+        if custom_bg_color is not None:
+            pulumi.set(__self__, "custom_bg_color", custom_bg_color)
+        if custom_fg_color is not None:
+            pulumi.set(__self__, "custom_fg_color", custom_fg_color)
+        if palette is not None:
+            pulumi.set(__self__, "palette", palette)
+        if replace is not None:
+            pulumi.set(__self__, "replace", replace)
+
+    @property
+    @pulumi.getter
+    def match(self) -> pulumi.Input['PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatMatchArgs']:
+        """
+        Match rule for the table widget text format.
+        """
+        return pulumi.get(self, "match")
+
+    @match.setter
+    def match(self, value: pulumi.Input['PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatMatchArgs']):
+        pulumi.set(self, "match", value)
+
+    @property
+    @pulumi.getter(name="customBgColor")
+    def custom_bg_color(self) -> Optional[pulumi.Input[str]]:
+        """
+        The custom color palette to apply to the background.
+        """
+        return pulumi.get(self, "custom_bg_color")
+
+    @custom_bg_color.setter
+    def custom_bg_color(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_bg_color", value)
+
+    @property
+    @pulumi.getter(name="customFgColor")
+    def custom_fg_color(self) -> Optional[pulumi.Input[str]]:
+        """
+        The custom color palette to apply to the foreground text.
+        """
+        return pulumi.get(self, "custom_fg_color")
+
+    @custom_fg_color.setter
+    def custom_fg_color(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_fg_color", value)
+
+    @property
+    @pulumi.getter
+    def palette(self) -> Optional[pulumi.Input[str]]:
+        """
+        The color palette to apply. Valid values are `white_on_red`, `white_on_yellow`, `white_on_green`, `black_on_light_red`, `black_on_light_yellow`, `black_on_light_green`, `red_on_white`, `yellow_on_white`, `green_on_white`, `custom_bg`, `custom_text`.
+        """
+        return pulumi.get(self, "palette")
+
+    @palette.setter
+    def palette(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "palette", value)
+
+    @property
+    @pulumi.getter
+    def replace(self) -> Optional[pulumi.Input['PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatReplaceArgs']]:
+        """
+        Match rule for the table widget text format.
+        """
+        return pulumi.get(self, "replace")
+
+    @replace.setter
+    def replace(self, value: Optional[pulumi.Input['PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatReplaceArgs']]):
+        pulumi.set(self, "replace", value)
+
+
+@pulumi.input_type
+class PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatMatchArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] type: Match or compare option. Valid values are `is`, `is_not`, `contains`, `does_not_contain`, `starts_with`, `ends_with`.
+        :param pulumi.Input[str] value: Table Widget Match String.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Match or compare option. Valid values are `is`, `is_not`, `contains`, `does_not_contain`, `starts_with`, `ends_with`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        Table Widget Match String.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatReplaceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 with_: pulumi.Input[str],
+                 substring: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: Table widget text format replace all type.
+        :param pulumi.Input[str] with_: Table Widget Match String.
+        :param pulumi.Input[str] substring: Text that will be replaced. Must be used with type `substring`.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "with_", with_)
+        if substring is not None:
+            pulumi.set(__self__, "substring", substring)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Table widget text format replace all type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="with")
+    def with_(self) -> pulumi.Input[str]:
+        """
+        Table Widget Match String.
+        """
+        return pulumi.get(self, "with_")
+
+    @with_.setter
+    def with_(self, value: pulumi.Input[str]):
+        pulumi.set(self, "with_", value)
+
+    @property
+    @pulumi.getter
+    def substring(self) -> Optional[pulumi.Input[str]]:
+        """
+        Text that will be replaced. Must be used with type `substring`.
+        """
+        return pulumi.get(self, "substring")
+
+    @substring.setter
+    def substring(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "substring", value)
 
 
 @pulumi.input_type
@@ -75248,6 +75767,7 @@ class PowerpackWidgetToplistDefinitionArgs:
                  custom_links: Optional[pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetToplistDefinitionCustomLinkArgs']]]] = None,
                  live_span: Optional[pulumi.Input[str]] = None,
                  requests: Optional[pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetToplistDefinitionRequestArgs']]]] = None,
+                 styles: Optional[pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetToplistDefinitionStyleArgs']]]] = None,
                  title: Optional[pulumi.Input[str]] = None,
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
@@ -75255,6 +75775,7 @@ class PowerpackWidgetToplistDefinitionArgs:
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetToplistDefinitionCustomLinkArgs']]] custom_links: A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
         :param pulumi.Input[str] live_span: The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetToplistDefinitionRequestArgs']]] requests: A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the `request` block).
+        :param pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetToplistDefinitionStyleArgs']]] styles: The style of the widget
         :param pulumi.Input[str] title: The title of the widget.
         :param pulumi.Input[str] title_align: The alignment of the widget's title. Valid values are `center`, `left`, `right`.
         :param pulumi.Input[str] title_size: The size of the widget's title (defaults to 16).
@@ -75265,6 +75786,8 @@ class PowerpackWidgetToplistDefinitionArgs:
             pulumi.set(__self__, "live_span", live_span)
         if requests is not None:
             pulumi.set(__self__, "requests", requests)
+        if styles is not None:
+            pulumi.set(__self__, "styles", styles)
         if title is not None:
             pulumi.set(__self__, "title", title)
         if title_align is not None:
@@ -75307,6 +75830,18 @@ class PowerpackWidgetToplistDefinitionArgs:
     @requests.setter
     def requests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetToplistDefinitionRequestArgs']]]]):
         pulumi.set(self, "requests", value)
+
+    @property
+    @pulumi.getter
+    def styles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetToplistDefinitionStyleArgs']]]]:
+        """
+        The style of the widget
+        """
+        return pulumi.get(self, "styles")
+
+    @styles.setter
+    def styles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetToplistDefinitionStyleArgs']]]]):
+        pulumi.set(self, "styles", value)
 
     @property
     @pulumi.getter
@@ -78922,6 +79457,67 @@ class PowerpackWidgetToplistDefinitionRequestStyleArgs:
     @palette.setter
     def palette(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "palette", value)
+
+
+@pulumi.input_type
+class PowerpackWidgetToplistDefinitionStyleArgs:
+    def __init__(__self__, *,
+                 displays: Optional[pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetToplistDefinitionStyleDisplayArgs']]]] = None,
+                 palette: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetToplistDefinitionStyleDisplayArgs']]] displays: The display mode for the widget.
+        :param pulumi.Input[str] palette: The color palette for the widget.
+        """
+        if displays is not None:
+            pulumi.set(__self__, "displays", displays)
+        if palette is not None:
+            pulumi.set(__self__, "palette", palette)
+
+    @property
+    @pulumi.getter
+    def displays(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetToplistDefinitionStyleDisplayArgs']]]]:
+        """
+        The display mode for the widget.
+        """
+        return pulumi.get(self, "displays")
+
+    @displays.setter
+    def displays(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetToplistDefinitionStyleDisplayArgs']]]]):
+        pulumi.set(self, "displays", value)
+
+    @property
+    @pulumi.getter
+    def palette(self) -> Optional[pulumi.Input[str]]:
+        """
+        The color palette for the widget.
+        """
+        return pulumi.get(self, "palette")
+
+    @palette.setter
+    def palette(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "palette", value)
+
+
+@pulumi.input_type
+class PowerpackWidgetToplistDefinitionStyleDisplayArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] type: The display type for the widget.
+        """
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The display type for the widget.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
@@ -83196,8 +83792,9 @@ class SyntheticsTestApiStepArgs:
 @pulumi.input_type
 class SyntheticsTestApiStepAssertionArgs:
     def __init__(__self__, *,
-                 operator: pulumi.Input[str],
                  type: pulumi.Input[str],
+                 code: Optional[pulumi.Input[str]] = None,
+                 operator: Optional[pulumi.Input[str]] = None,
                  property: Optional[pulumi.Input[str]] = None,
                  target: Optional[pulumi.Input[str]] = None,
                  targetjsonpath: Optional[pulumi.Input['SyntheticsTestApiStepAssertionTargetjsonpathArgs']] = None,
@@ -83205,8 +83802,9 @@ class SyntheticsTestApiStepAssertionArgs:
                  targetxpath: Optional[pulumi.Input['SyntheticsTestApiStepAssertionTargetxpathArgs']] = None,
                  timings_scope: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] type: Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
+        :param pulumi.Input[str] code: If assertion type is `javascript`, this is the JavaScript code that performs the assertions.
         :param pulumi.Input[str] operator: Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
-        :param pulumi.Input[str] type: Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`.
         :param pulumi.Input[str] property: If assertion type is `header`, this is the header name.
         :param pulumi.Input[str] target: Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
         :param pulumi.Input['SyntheticsTestApiStepAssertionTargetjsonpathArgs'] targetjsonpath: Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
@@ -83214,8 +83812,11 @@ class SyntheticsTestApiStepAssertionArgs:
         :param pulumi.Input['SyntheticsTestApiStepAssertionTargetxpathArgs'] targetxpath: Expected structure if `operator` is `validatesXPath`. Exactly one nested block is allowed with the structure below.
         :param pulumi.Input[str] timings_scope: Timings scope for response time assertions. Valid values are `all`, `withoutDNS`.
         """
-        pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "type", type)
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
         if property is not None:
             pulumi.set(__self__, "property", property)
         if target is not None:
@@ -83231,27 +83832,39 @@ class SyntheticsTestApiStepAssertionArgs:
 
     @property
     @pulumi.getter
-    def operator(self) -> pulumi.Input[str]:
-        """
-        Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
-        """
-        return pulumi.get(self, "operator")
-
-    @operator.setter
-    def operator(self, value: pulumi.Input[str]):
-        pulumi.set(self, "operator", value)
-
-    @property
-    @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`.
+        Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[pulumi.Input[str]]:
+        """
+        If assertion type is `javascript`, this is the JavaScript code that performs the assertions.
+        """
+        return pulumi.get(self, "code")
+
+    @code.setter
+    def code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "code", value)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> Optional[pulumi.Input[str]]:
+        """
+        Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "operator", value)
 
     @property
     @pulumi.getter
@@ -84541,8 +85154,9 @@ class SyntheticsTestApiStepRetryArgs:
 @pulumi.input_type
 class SyntheticsTestAssertionArgs:
     def __init__(__self__, *,
-                 operator: pulumi.Input[str],
                  type: pulumi.Input[str],
+                 code: Optional[pulumi.Input[str]] = None,
+                 operator: Optional[pulumi.Input[str]] = None,
                  property: Optional[pulumi.Input[str]] = None,
                  target: Optional[pulumi.Input[str]] = None,
                  targetjsonpath: Optional[pulumi.Input['SyntheticsTestAssertionTargetjsonpathArgs']] = None,
@@ -84550,8 +85164,9 @@ class SyntheticsTestAssertionArgs:
                  targetxpath: Optional[pulumi.Input['SyntheticsTestAssertionTargetxpathArgs']] = None,
                  timings_scope: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] type: Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
+        :param pulumi.Input[str] code: If assertion type is `javascript`, this is the JavaScript code that performs the assertions.
         :param pulumi.Input[str] operator: Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
-        :param pulumi.Input[str] type: Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`.
         :param pulumi.Input[str] property: If assertion type is `header`, this is the header name.
         :param pulumi.Input[str] target: Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
         :param pulumi.Input['SyntheticsTestAssertionTargetjsonpathArgs'] targetjsonpath: Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
@@ -84559,8 +85174,11 @@ class SyntheticsTestAssertionArgs:
         :param pulumi.Input['SyntheticsTestAssertionTargetxpathArgs'] targetxpath: Expected structure if `operator` is `validatesXPath`. Exactly one nested block is allowed with the structure below.
         :param pulumi.Input[str] timings_scope: Timings scope for response time assertions. Valid values are `all`, `withoutDNS`.
         """
-        pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "type", type)
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
         if property is not None:
             pulumi.set(__self__, "property", property)
         if target is not None:
@@ -84576,27 +85194,39 @@ class SyntheticsTestAssertionArgs:
 
     @property
     @pulumi.getter
-    def operator(self) -> pulumi.Input[str]:
-        """
-        Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
-        """
-        return pulumi.get(self, "operator")
-
-    @operator.setter
-    def operator(self, value: pulumi.Input[str]):
-        pulumi.set(self, "operator", value)
-
-    @property
-    @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`.
+        Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[pulumi.Input[str]]:
+        """
+        If assertion type is `javascript`, this is the JavaScript code that performs the assertions.
+        """
+        return pulumi.get(self, "code")
+
+    @code.setter
+    def code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "code", value)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> Optional[pulumi.Input[str]]:
+        """
+        Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "operator", value)
 
     @property
     @pulumi.getter
@@ -85493,7 +86123,7 @@ class SyntheticsTestConfigVariableArgs:
                  secure: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] name: Name of the variable.
-        :param pulumi.Input[str] type: Type of test configuration variable. Valid values are `global`, `text`.
+        :param pulumi.Input[str] type: Type of test configuration variable. Valid values are `global`, `text`, `email`.
         :param pulumi.Input[str] id: When type = `global`, ID of the global variable to use.
         :param pulumi.Input[bool] secure: Whether the value of this variable will be obfuscated in test results. Defaults to `false`.
         """
@@ -85524,7 +86154,7 @@ class SyntheticsTestConfigVariableArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Type of test configuration variable. Valid values are `global`, `text`.
+        Type of test configuration variable. Valid values are `global`, `text`, `email`.
         """
         return pulumi.get(self, "type")
 

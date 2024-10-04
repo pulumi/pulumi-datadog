@@ -26,6 +26,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.PowerpackWidgetToplistDefinitionRequest> Requests;
         /// <summary>
+        /// The style of the widget
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PowerpackWidgetToplistDefinitionStyle> Styles;
+        /// <summary>
         /// The title of the widget.
         /// </summary>
         public readonly string? Title;
@@ -46,6 +50,8 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.PowerpackWidgetToplistDefinitionRequest> requests,
 
+            ImmutableArray<Outputs.PowerpackWidgetToplistDefinitionStyle> styles,
+
             string? title,
 
             string? titleAlign,
@@ -55,6 +61,7 @@ namespace Pulumi.Datadog.Outputs
             CustomLinks = customLinks;
             LiveSpan = liveSpan;
             Requests = requests;
+            Styles = styles;
             Title = title;
             TitleAlign = titleAlign;
             TitleSize = titleSize;

@@ -32,6 +32,7 @@ namespace Pulumi.Datadog
     ///         },
     ///         DailyLimitWarningThresholdPercentage = 50,
     ///         RetentionDays = 7,
+    ///         FlexRetentionDays = 180,
     ///         Filters = new[]
     ///         {
     ///             new Datadog.Inputs.LogsIndexFilterArgs
@@ -119,13 +120,19 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<Outputs.LogsIndexFilter>> Filters { get; private set; } = null!;
 
         /// <summary>
+        /// The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
+        /// </summary>
+        [Output("flexRetentionDays")]
+        public Output<int> FlexRetentionDays { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the index. Index names cannot be modified after creation. If this value is changed, a new index will be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The number of days before logs are deleted from this index.
+        /// The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
         /// </summary>
         [Output("retentionDays")]
         public Output<int> RetentionDays { get; private set; } = null!;
@@ -225,13 +232,19 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
+        /// The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
+        /// </summary>
+        [Input("flexRetentionDays")]
+        public Input<int>? FlexRetentionDays { get; set; }
+
+        /// <summary>
         /// The name of the index. Index names cannot be modified after creation. If this value is changed, a new index will be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The number of days before logs are deleted from this index.
+        /// The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
         /// </summary>
         [Input("retentionDays")]
         public Input<int>? RetentionDays { get; set; }
@@ -293,13 +306,19 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
+        /// The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
+        /// </summary>
+        [Input("flexRetentionDays")]
+        public Input<int>? FlexRetentionDays { get; set; }
+
+        /// <summary>
         /// The name of the index. Index names cannot be modified after creation. If this value is changed, a new index will be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The number of days before logs are deleted from this index.
+        /// The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
         /// </summary>
         [Input("retentionDays")]
         public Input<int>? RetentionDays { get; set; }
