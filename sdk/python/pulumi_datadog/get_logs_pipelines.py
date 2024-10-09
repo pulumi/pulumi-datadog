@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -100,9 +105,6 @@ def get_logs_pipelines(is_read_only: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         is_read_only=pulumi.get(__ret__, 'is_read_only'),
         logs_pipelines=pulumi.get(__ret__, 'logs_pipelines'))
-
-
-@_utilities.lift_output_func(get_logs_pipelines)
 def get_logs_pipelines_output(is_read_only: Optional[pulumi.Input[Optional[str]]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLogsPipelinesResult]:
     """
@@ -125,4 +127,11 @@ def get_logs_pipelines_output(is_read_only: Optional[pulumi.Input[Optional[str]]
 
     :param str is_read_only: Filter parameter for retrieved pipelines
     """
-    ...
+    __args__ = dict()
+    __args__['isReadOnly'] = is_read_only
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('datadog:index/getLogsPipelines:getLogsPipelines', __args__, opts=opts, typ=GetLogsPipelinesResult)
+    return __ret__.apply(lambda __response__: GetLogsPipelinesResult(
+        id=pulumi.get(__response__, 'id'),
+        is_read_only=pulumi.get(__response__, 'is_read_only'),
+        logs_pipelines=pulumi.get(__response__, 'logs_pipelines')))

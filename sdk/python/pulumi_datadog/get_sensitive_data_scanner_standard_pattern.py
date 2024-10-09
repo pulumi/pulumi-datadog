@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -124,9 +129,6 @@ def get_sensitive_data_scanner_standard_pattern(filter: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         pattern=pulumi.get(__ret__, 'pattern'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_sensitive_data_scanner_standard_pattern)
 def get_sensitive_data_scanner_standard_pattern_output(filter: Optional[pulumi.Input[str]] = None,
                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSensitiveDataScannerStandardPatternResult]:
     """
@@ -135,4 +137,14 @@ def get_sensitive_data_scanner_standard_pattern_output(filter: Optional[pulumi.I
 
     :param str filter: Filter all the Datadog standard patterns by name.
     """
-    ...
+    __args__ = dict()
+    __args__['filter'] = filter
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('datadog:index/getSensitiveDataScannerStandardPattern:getSensitiveDataScannerStandardPattern', __args__, opts=opts, typ=GetSensitiveDataScannerStandardPatternResult)
+    return __ret__.apply(lambda __response__: GetSensitiveDataScannerStandardPatternResult(
+        filter=pulumi.get(__response__, 'filter'),
+        id=pulumi.get(__response__, 'id'),
+        included_keywords=pulumi.get(__response__, 'included_keywords'),
+        name=pulumi.get(__response__, 'name'),
+        pattern=pulumi.get(__response__, 'pattern'),
+        tags=pulumi.get(__response__, 'tags')))
