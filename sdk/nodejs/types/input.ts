@@ -8640,6 +8640,10 @@ export interface LogsArchiveS3Archive {
      * Your AWS role name
      */
     roleName: pulumi.Input<string>;
+    /**
+     * Your AWS access key id
+     */
+    accessKeyId: pulumi.Input<string>;
 }
 
 export interface LogsCustomDestinationElasticsearchDestination {
