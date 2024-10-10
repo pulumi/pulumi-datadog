@@ -4,14 +4,43 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'ChannelDisplayArgs',
+    'ChannelDisplayArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ChannelDisplayArgsDict(TypedDict):
+        message: NotRequired[pulumi.Input[bool]]
+        """
+        Show the main body of the alert event. Defaults to `true`.
+        """
+        notified: NotRequired[pulumi.Input[bool]]
+        """
+        Show the list of @-handles in the alert event. Defaults to `true`.
+        """
+        snapshot: NotRequired[pulumi.Input[bool]]
+        """
+        Show the alert event's snapshot image. Defaults to `true`.
+        """
+        tags: NotRequired[pulumi.Input[bool]]
+        """
+        Show the scopes on which the monitor alerted. Defaults to `true`.
+        """
+elif False:
+    ChannelDisplayArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ChannelDisplayArgs:

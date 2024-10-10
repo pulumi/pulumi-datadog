@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -118,9 +123,6 @@ def get_monitors(monitor_tags_filters: Optional[Sequence[str]] = None,
         monitors=pulumi.get(__ret__, 'monitors'),
         name_filter=pulumi.get(__ret__, 'name_filter'),
         tags_filters=pulumi.get(__ret__, 'tags_filters'))
-
-
-@_utilities.lift_output_func(get_monitors)
 def get_monitors_output(monitor_tags_filters: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                         name_filter: Optional[pulumi.Input[Optional[str]]] = None,
                         tags_filters: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
@@ -133,4 +135,15 @@ def get_monitors_output(monitor_tags_filters: Optional[pulumi.Input[Optional[Seq
     :param str name_filter: A monitor name to limit the search.
     :param Sequence[str] tags_filters: A list of tags to limit the search. This filters on the monitor scope.
     """
-    ...
+    __args__ = dict()
+    __args__['monitorTagsFilters'] = monitor_tags_filters
+    __args__['nameFilter'] = name_filter
+    __args__['tagsFilters'] = tags_filters
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('datadog:index/getMonitors:getMonitors', __args__, opts=opts, typ=GetMonitorsResult)
+    return __ret__.apply(lambda __response__: GetMonitorsResult(
+        id=pulumi.get(__response__, 'id'),
+        monitor_tags_filters=pulumi.get(__response__, 'monitor_tags_filters'),
+        monitors=pulumi.get(__response__, 'monitors'),
+        name_filter=pulumi.get(__response__, 'name_filter'),
+        tags_filters=pulumi.get(__response__, 'tags_filters')))

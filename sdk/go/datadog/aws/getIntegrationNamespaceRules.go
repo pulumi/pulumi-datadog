@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.GetIntegrationNamespaceRules(ctx, nil, nil)
+//			_, err := aws.GetIntegrationNamespaceRules(ctx, map[string]interface{}{}, nil)
 //			if err != nil {
 //				return err
 //			}

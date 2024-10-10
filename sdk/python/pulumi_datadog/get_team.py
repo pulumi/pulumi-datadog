@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -175,9 +180,6 @@ def get_team(filter_keyword: Optional[str] = None,
         summary=pulumi.get(__ret__, 'summary'),
         team_id=pulumi.get(__ret__, 'team_id'),
         user_count=pulumi.get(__ret__, 'user_count'))
-
-
-@_utilities.lift_output_func(get_team)
 def get_team_output(filter_keyword: Optional[pulumi.Input[Optional[str]]] = None,
                     team_id: Optional[pulumi.Input[Optional[str]]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTeamResult]:
@@ -197,4 +199,18 @@ def get_team_output(filter_keyword: Optional[pulumi.Input[Optional[str]]] = None
     :param str filter_keyword: Search query. Can be team name, team handle, or email of team member.
     :param str team_id: The team's identifier.
     """
-    ...
+    __args__ = dict()
+    __args__['filterKeyword'] = filter_keyword
+    __args__['teamId'] = team_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('datadog:index/getTeam:getTeam', __args__, opts=opts, typ=GetTeamResult)
+    return __ret__.apply(lambda __response__: GetTeamResult(
+        description=pulumi.get(__response__, 'description'),
+        filter_keyword=pulumi.get(__response__, 'filter_keyword'),
+        handle=pulumi.get(__response__, 'handle'),
+        id=pulumi.get(__response__, 'id'),
+        link_count=pulumi.get(__response__, 'link_count'),
+        name=pulumi.get(__response__, 'name'),
+        summary=pulumi.get(__response__, 'summary'),
+        team_id=pulumi.get(__response__, 'team_id'),
+        user_count=pulumi.get(__response__, 'user_count')))

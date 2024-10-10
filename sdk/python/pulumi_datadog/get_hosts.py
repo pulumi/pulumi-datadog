@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -176,9 +181,6 @@ def get_hosts(filter: Optional[str] = None,
         sort_field=pulumi.get(__ret__, 'sort_field'),
         total_matching=pulumi.get(__ret__, 'total_matching'),
         total_returned=pulumi.get(__ret__, 'total_returned'))
-
-
-@_utilities.lift_output_func(get_hosts)
 def get_hosts_output(filter: Optional[pulumi.Input[Optional[str]]] = None,
                      from_: Optional[pulumi.Input[Optional[int]]] = None,
                      include_muted_hosts_data: Optional[pulumi.Input[Optional[bool]]] = None,
@@ -195,4 +197,21 @@ def get_hosts_output(filter: Optional[pulumi.Input[Optional[str]]] = None,
     :param str sort_dir: Direction of sort.
     :param str sort_field: Sort hosts by this field.
     """
-    ...
+    __args__ = dict()
+    __args__['filter'] = filter
+    __args__['from'] = from_
+    __args__['includeMutedHostsData'] = include_muted_hosts_data
+    __args__['sortDir'] = sort_dir
+    __args__['sortField'] = sort_field
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('datadog:index/getHosts:getHosts', __args__, opts=opts, typ=GetHostsResult)
+    return __ret__.apply(lambda __response__: GetHostsResult(
+        filter=pulumi.get(__response__, 'filter'),
+        from_=pulumi.get(__response__, 'from_'),
+        host_lists=pulumi.get(__response__, 'host_lists'),
+        id=pulumi.get(__response__, 'id'),
+        include_muted_hosts_data=pulumi.get(__response__, 'include_muted_hosts_data'),
+        sort_dir=pulumi.get(__response__, 'sort_dir'),
+        sort_field=pulumi.get(__response__, 'sort_field'),
+        total_matching=pulumi.get(__response__, 'total_matching'),
+        total_returned=pulumi.get(__response__, 'total_returned')))
