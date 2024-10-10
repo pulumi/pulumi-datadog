@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -67,11 +72,13 @@ def get_logs_archives_order(opts: Optional[pulumi.InvokeOptions] = None) -> Awai
     return AwaitableGetLogsArchivesOrderResult(
         archive_ids=pulumi.get(__ret__, 'archive_ids'),
         id=pulumi.get(__ret__, 'id'))
-
-
-@_utilities.lift_output_func(get_logs_archives_order)
 def get_logs_archives_order_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLogsArchivesOrderResult]:
     """
     Get the current order of your logs archives.
     """
-    ...
+    __args__ = dict()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('datadog:index/getLogsArchivesOrder:getLogsArchivesOrder', __args__, opts=opts, typ=GetLogsArchivesOrderResult)
+    return __ret__.apply(lambda __response__: GetLogsArchivesOrderResult(
+        archive_ids=pulumi.get(__response__, 'archive_ids'),
+        id=pulumi.get(__response__, 'id')))

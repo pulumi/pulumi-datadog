@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -175,9 +180,6 @@ def get_service_level_objectives(error_on_empty_result: Optional[bool] = None,
         query=pulumi.get(__ret__, 'query'),
         slos=pulumi.get(__ret__, 'slos'),
         tags_query=pulumi.get(__ret__, 'tags_query'))
-
-
-@_utilities.lift_output_func(get_service_level_objectives)
 def get_service_level_objectives_output(error_on_empty_result: Optional[pulumi.Input[Optional[bool]]] = None,
                                         ids: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                         metrics_query: Optional[pulumi.Input[Optional[str]]] = None,
@@ -205,4 +207,21 @@ def get_service_level_objectives_output(error_on_empty_result: Optional[pulumi.I
     :param str query: The query string to filter results based on SLO names. Some examples of queries include service:\\n\\n and \\n\\n.
     :param str tags_query: Filter results based on a single SLO tag.
     """
-    ...
+    __args__ = dict()
+    __args__['errorOnEmptyResult'] = error_on_empty_result
+    __args__['ids'] = ids
+    __args__['metricsQuery'] = metrics_query
+    __args__['nameQuery'] = name_query
+    __args__['query'] = query
+    __args__['tagsQuery'] = tags_query
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('datadog:index/getServiceLevelObjectives:getServiceLevelObjectives', __args__, opts=opts, typ=GetServiceLevelObjectivesResult)
+    return __ret__.apply(lambda __response__: GetServiceLevelObjectivesResult(
+        error_on_empty_result=pulumi.get(__response__, 'error_on_empty_result'),
+        id=pulumi.get(__response__, 'id'),
+        ids=pulumi.get(__response__, 'ids'),
+        metrics_query=pulumi.get(__response__, 'metrics_query'),
+        name_query=pulumi.get(__response__, 'name_query'),
+        query=pulumi.get(__response__, 'query'),
+        slos=pulumi.get(__response__, 'slos'),
+        tags_query=pulumi.get(__response__, 'tags_query')))

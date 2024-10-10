@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -112,9 +117,6 @@ def get_users(filter: Optional[str] = None,
         filter_status=pulumi.get(__ret__, 'filter_status'),
         id=pulumi.get(__ret__, 'id'),
         users=pulumi.get(__ret__, 'users'))
-
-
-@_utilities.lift_output_func(get_users)
 def get_users_output(filter: Optional[pulumi.Input[Optional[str]]] = None,
                      filter_status: Optional[pulumi.Input[Optional[str]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUsersResult]:
@@ -135,4 +137,13 @@ def get_users_output(filter: Optional[pulumi.Input[Optional[str]]] = None,
     :param str filter: Filter all users by the given string.
     :param str filter_status: Filter on status attribute. Comma-separated list with possible values of Active, Pending, and Disabled.
     """
-    ...
+    __args__ = dict()
+    __args__['filter'] = filter
+    __args__['filterStatus'] = filter_status
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('datadog:index/getUsers:getUsers', __args__, opts=opts, typ=GetUsersResult)
+    return __ret__.apply(lambda __response__: GetUsersResult(
+        filter=pulumi.get(__response__, 'filter'),
+        filter_status=pulumi.get(__response__, 'filter_status'),
+        id=pulumi.get(__response__, 'id'),
+        users=pulumi.get(__response__, 'users')))

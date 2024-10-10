@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -323,9 +328,6 @@ def get_ip_ranges(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIp
         synthetics_ipv6s=pulumi.get(__ret__, 'synthetics_ipv6s'),
         webhooks_ipv4s=pulumi.get(__ret__, 'webhooks_ipv4s'),
         webhooks_ipv6s=pulumi.get(__ret__, 'webhooks_ipv6s'))
-
-
-@_utilities.lift_output_func(get_ip_ranges)
 def get_ip_ranges_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpRangesResult]:
     """
     Use this data source to retrieve information about Datadog's IP addresses.
@@ -339,4 +341,28 @@ def get_ip_ranges_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.
     test = datadog.get_ip_ranges()
     ```
     """
-    ...
+    __args__ = dict()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('datadog:index/getIpRanges:getIpRanges', __args__, opts=opts, typ=GetIpRangesResult)
+    return __ret__.apply(lambda __response__: GetIpRangesResult(
+        agents_ipv4s=pulumi.get(__response__, 'agents_ipv4s'),
+        agents_ipv6s=pulumi.get(__response__, 'agents_ipv6s'),
+        api_ipv4s=pulumi.get(__response__, 'api_ipv4s'),
+        api_ipv6s=pulumi.get(__response__, 'api_ipv6s'),
+        apm_ipv4s=pulumi.get(__response__, 'apm_ipv4s'),
+        apm_ipv6s=pulumi.get(__response__, 'apm_ipv6s'),
+        global_ipv4s=pulumi.get(__response__, 'global_ipv4s'),
+        global_ipv6s=pulumi.get(__response__, 'global_ipv6s'),
+        id=pulumi.get(__response__, 'id'),
+        logs_ipv4s=pulumi.get(__response__, 'logs_ipv4s'),
+        logs_ipv6s=pulumi.get(__response__, 'logs_ipv6s'),
+        orchestrator_ipv4s=pulumi.get(__response__, 'orchestrator_ipv4s'),
+        orchestrator_ipv6s=pulumi.get(__response__, 'orchestrator_ipv6s'),
+        process_ipv4s=pulumi.get(__response__, 'process_ipv4s'),
+        process_ipv6s=pulumi.get(__response__, 'process_ipv6s'),
+        synthetics_ipv4_by_location=pulumi.get(__response__, 'synthetics_ipv4_by_location'),
+        synthetics_ipv4s=pulumi.get(__response__, 'synthetics_ipv4s'),
+        synthetics_ipv6_by_location=pulumi.get(__response__, 'synthetics_ipv6_by_location'),
+        synthetics_ipv6s=pulumi.get(__response__, 'synthetics_ipv6s'),
+        webhooks_ipv4s=pulumi.get(__response__, 'webhooks_ipv4s'),
+        webhooks_ipv6s=pulumi.get(__response__, 'webhooks_ipv6s')))
