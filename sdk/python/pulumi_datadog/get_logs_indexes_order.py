@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -76,9 +81,6 @@ def get_logs_indexes_order(opts: Optional[pulumi.InvokeOptions] = None) -> Await
     return AwaitableGetLogsIndexesOrderResult(
         id=pulumi.get(__ret__, 'id'),
         index_names=pulumi.get(__ret__, 'index_names'))
-
-
-@_utilities.lift_output_func(get_logs_indexes_order)
 def get_logs_indexes_order_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLogsIndexesOrderResult]:
     """
     Get the current order of your log indexes.
@@ -92,4 +94,9 @@ def get_logs_indexes_order_output(opts: Optional[pulumi.InvokeOptions] = None) -
     test = datadog.get_logs_indexes_order()
     ```
     """
-    ...
+    __args__ = dict()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('datadog:index/getLogsIndexesOrder:getLogsIndexesOrder', __args__, opts=opts, typ=GetLogsIndexesOrderResult)
+    return __ret__.apply(lambda __response__: GetLogsIndexesOrderResult(
+        id=pulumi.get(__response__, 'id'),
+        index_names=pulumi.get(__response__, 'index_names')))
