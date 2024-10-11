@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -90,9 +95,6 @@ def get_security_monitoring_filters(opts: Optional[pulumi.InvokeOptions] = None)
         filters=pulumi.get(__ret__, 'filters'),
         filters_ids=pulumi.get(__ret__, 'filters_ids'),
         id=pulumi.get(__ret__, 'id'))
-
-
-@_utilities.lift_output_func(get_security_monitoring_filters)
 def get_security_monitoring_filters_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityMonitoringFiltersResult]:
     """
     Use this data source to retrieve information about existing security monitoring filters for use in other resources.
@@ -106,4 +108,10 @@ def get_security_monitoring_filters_output(opts: Optional[pulumi.InvokeOptions] 
     test = datadog.get_security_monitoring_filters()
     ```
     """
-    ...
+    __args__ = dict()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('datadog:index/getSecurityMonitoringFilters:getSecurityMonitoringFilters', __args__, opts=opts, typ=GetSecurityMonitoringFiltersResult)
+    return __ret__.apply(lambda __response__: GetSecurityMonitoringFiltersResult(
+        filters=pulumi.get(__response__, 'filters'),
+        filters_ids=pulumi.get(__response__, 'filters_ids'),
+        id=pulumi.get(__response__, 'id')))

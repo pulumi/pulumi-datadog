@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -502,9 +507,6 @@ def get_monitor(monitor_tags_filters: Optional[Sequence[str]] = None,
         tags_filters=pulumi.get(__ret__, 'tags_filters'),
         timeout_h=pulumi.get(__ret__, 'timeout_h'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_monitor)
 def get_monitor_output(monitor_tags_filters: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                        name_filter: Optional[pulumi.Input[Optional[str]]] = None,
                        tags_filters: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
@@ -527,4 +529,44 @@ def get_monitor_output(monitor_tags_filters: Optional[pulumi.Input[Optional[Sequ
     :param str name_filter: A monitor name to limit the search.
     :param Sequence[str] tags_filters: A list of tags to limit the search. This filters on the monitor scope.
     """
-    ...
+    __args__ = dict()
+    __args__['monitorTagsFilters'] = monitor_tags_filters
+    __args__['nameFilter'] = name_filter
+    __args__['tagsFilters'] = tags_filters
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('datadog:index/getMonitor:getMonitor', __args__, opts=opts, typ=GetMonitorResult)
+    return __ret__.apply(lambda __response__: GetMonitorResult(
+        enable_logs_sample=pulumi.get(__response__, 'enable_logs_sample'),
+        enable_samples=pulumi.get(__response__, 'enable_samples'),
+        escalation_message=pulumi.get(__response__, 'escalation_message'),
+        evaluation_delay=pulumi.get(__response__, 'evaluation_delay'),
+        group_retention_duration=pulumi.get(__response__, 'group_retention_duration'),
+        groupby_simple_monitor=pulumi.get(__response__, 'groupby_simple_monitor'),
+        id=pulumi.get(__response__, 'id'),
+        include_tags=pulumi.get(__response__, 'include_tags'),
+        locked=pulumi.get(__response__, 'locked'),
+        message=pulumi.get(__response__, 'message'),
+        monitor_tags_filters=pulumi.get(__response__, 'monitor_tags_filters'),
+        monitor_threshold_windows=pulumi.get(__response__, 'monitor_threshold_windows'),
+        monitor_thresholds=pulumi.get(__response__, 'monitor_thresholds'),
+        name=pulumi.get(__response__, 'name'),
+        name_filter=pulumi.get(__response__, 'name_filter'),
+        new_group_delay=pulumi.get(__response__, 'new_group_delay'),
+        new_host_delay=pulumi.get(__response__, 'new_host_delay'),
+        no_data_timeframe=pulumi.get(__response__, 'no_data_timeframe'),
+        notification_preset_name=pulumi.get(__response__, 'notification_preset_name'),
+        notify_audit=pulumi.get(__response__, 'notify_audit'),
+        notify_bies=pulumi.get(__response__, 'notify_bies'),
+        notify_no_data=pulumi.get(__response__, 'notify_no_data'),
+        on_missing_data=pulumi.get(__response__, 'on_missing_data'),
+        query=pulumi.get(__response__, 'query'),
+        renotify_interval=pulumi.get(__response__, 'renotify_interval'),
+        renotify_occurrences=pulumi.get(__response__, 'renotify_occurrences'),
+        renotify_statuses=pulumi.get(__response__, 'renotify_statuses'),
+        require_full_window=pulumi.get(__response__, 'require_full_window'),
+        restricted_roles=pulumi.get(__response__, 'restricted_roles'),
+        scheduling_options=pulumi.get(__response__, 'scheduling_options'),
+        tags=pulumi.get(__response__, 'tags'),
+        tags_filters=pulumi.get(__response__, 'tags_filters'),
+        timeout_h=pulumi.get(__response__, 'timeout_h'),
+        type=pulumi.get(__response__, 'type')))

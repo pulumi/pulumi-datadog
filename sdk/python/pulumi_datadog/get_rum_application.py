@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -130,9 +135,6 @@ def get_rum_application(id: Optional[str] = None,
         name_filter=pulumi.get(__ret__, 'name_filter'),
         type=pulumi.get(__ret__, 'type'),
         type_filter=pulumi.get(__ret__, 'type_filter'))
-
-
-@_utilities.lift_output_func(get_rum_application)
 def get_rum_application_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                                name_filter: Optional[pulumi.Input[Optional[str]]] = None,
                                type_filter: Optional[pulumi.Input[Optional[str]]] = None,
@@ -145,4 +147,16 @@ def get_rum_application_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     :param str name_filter: The name used to search for a RUM application.
     :param str type_filter: The type used to search for a RUM application.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    __args__['nameFilter'] = name_filter
+    __args__['typeFilter'] = type_filter
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('datadog:index/getRumApplication:getRumApplication', __args__, opts=opts, typ=GetRumApplicationResult)
+    return __ret__.apply(lambda __response__: GetRumApplicationResult(
+        client_token=pulumi.get(__response__, 'client_token'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        name_filter=pulumi.get(__response__, 'name_filter'),
+        type=pulumi.get(__response__, 'type'),
+        type_filter=pulumi.get(__response__, 'type_filter')))

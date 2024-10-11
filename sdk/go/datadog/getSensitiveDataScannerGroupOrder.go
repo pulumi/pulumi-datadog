@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			foo, err := datadog.LookupSensitiveDataScannerGroupOrder(ctx, nil, nil)
+//			foo, err := datadog.LookupSensitiveDataScannerGroupOrder(ctx, map[string]interface{}{}, nil)
 //			if err != nil {
 //				return err
 //			}

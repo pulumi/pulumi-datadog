@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -210,9 +215,6 @@ def get_service_level_objective(id: Optional[str] = None,
         timeframe=pulumi.get(__ret__, 'timeframe'),
         type=pulumi.get(__ret__, 'type'),
         warning_threshold=pulumi.get(__ret__, 'warning_threshold'))
-
-
-@_utilities.lift_output_func(get_service_level_objective)
 def get_service_level_objective_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                                        metrics_query: Optional[pulumi.Input[Optional[str]]] = None,
                                        name_query: Optional[pulumi.Input[Optional[str]]] = None,
@@ -238,4 +240,22 @@ def get_service_level_objective_output(id: Optional[pulumi.Input[Optional[str]]]
     :param str name_query: Filter results based on SLO names.
     :param str tags_query: Filter results based on a single SLO tag.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    __args__['metricsQuery'] = metrics_query
+    __args__['nameQuery'] = name_query
+    __args__['tagsQuery'] = tags_query
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('datadog:index/getServiceLevelObjective:getServiceLevelObjective', __args__, opts=opts, typ=GetServiceLevelObjectiveResult)
+    return __ret__.apply(lambda __response__: GetServiceLevelObjectiveResult(
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        metrics_query=pulumi.get(__response__, 'metrics_query'),
+        name=pulumi.get(__response__, 'name'),
+        name_query=pulumi.get(__response__, 'name_query'),
+        queries=pulumi.get(__response__, 'queries'),
+        tags_query=pulumi.get(__response__, 'tags_query'),
+        target_threshold=pulumi.get(__response__, 'target_threshold'),
+        timeframe=pulumi.get(__response__, 'timeframe'),
+        type=pulumi.get(__response__, 'type'),
+        warning_threshold=pulumi.get(__response__, 'warning_threshold')))
