@@ -1074,8 +1074,8 @@ class SyntheticsTest(pulumi.CustomResource):
                         "url": "https://www.example.org",
                     },
                     "request_headers": {
-                        "content__type": "application/json",
-                        "authentication": "Token: 1234566789",
+                        "Content-Type": "application/json",
+                        "Authentication": "Token: 1234566789",
                     },
                 },
                 {
@@ -1177,11 +1177,11 @@ class SyntheticsTest(pulumi.CustomResource):
                     "params": {
                         "file": json.dumps({
                             "md5": "abcdef1234567890",
-                            "size_check": {
+                            "sizeCheck": {
                                 "type": "equals",
                                 "value": 1,
                             },
-                            "name_check": {
+                            "nameCheck": {
                                 "type": "contains",
                                 "value": ".xls",
                             },
@@ -1566,8 +1566,8 @@ class SyntheticsTest(pulumi.CustomResource):
                         "url": "https://www.example.org",
                     },
                     "request_headers": {
-                        "content__type": "application/json",
-                        "authentication": "Token: 1234566789",
+                        "Content-Type": "application/json",
+                        "Authentication": "Token: 1234566789",
                     },
                 },
                 {
@@ -1669,11 +1669,11 @@ class SyntheticsTest(pulumi.CustomResource):
                     "params": {
                         "file": json.dumps({
                             "md5": "abcdef1234567890",
-                            "size_check": {
+                            "sizeCheck": {
                                 "type": "equals",
                                 "value": 1,
                             },
-                            "name_check": {
+                            "nameCheck": {
                                 "type": "contains",
                                 "value": ".xls",
                             },
