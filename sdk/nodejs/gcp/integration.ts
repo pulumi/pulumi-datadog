@@ -56,6 +56,10 @@ export class Integration extends pulumi.CustomResource {
      */
     public readonly clientId!: pulumi.Output<string>;
     /**
+     * Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+     */
+    public readonly cloudRunRevisionFilters!: pulumi.Output<string[] | undefined>;
+    /**
      * Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled. Defaults to `false`.
      */
     public readonly cspmResourceCollectionEnabled!: pulumi.Output<boolean>;
@@ -63,6 +67,10 @@ export class Integration extends pulumi.CustomResource {
      * Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. Defaults to `""`.
      */
     public readonly hostFilters!: pulumi.Output<string>;
+    /**
+     * When enabled, Datadog scans for all resource change data in your Google Cloud environment.
+     */
+    public readonly isResourceChangeCollectionEnabled!: pulumi.Output<boolean>;
     /**
      * When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
      */
@@ -100,8 +108,10 @@ export class Integration extends pulumi.CustomResource {
             resourceInputs["automute"] = state ? state.automute : undefined;
             resourceInputs["clientEmail"] = state ? state.clientEmail : undefined;
             resourceInputs["clientId"] = state ? state.clientId : undefined;
+            resourceInputs["cloudRunRevisionFilters"] = state ? state.cloudRunRevisionFilters : undefined;
             resourceInputs["cspmResourceCollectionEnabled"] = state ? state.cspmResourceCollectionEnabled : undefined;
             resourceInputs["hostFilters"] = state ? state.hostFilters : undefined;
+            resourceInputs["isResourceChangeCollectionEnabled"] = state ? state.isResourceChangeCollectionEnabled : undefined;
             resourceInputs["isSecurityCommandCenterEnabled"] = state ? state.isSecurityCommandCenterEnabled : undefined;
             resourceInputs["privateKey"] = state ? state.privateKey : undefined;
             resourceInputs["privateKeyId"] = state ? state.privateKeyId : undefined;
@@ -127,8 +137,10 @@ export class Integration extends pulumi.CustomResource {
             resourceInputs["automute"] = args ? args.automute : undefined;
             resourceInputs["clientEmail"] = args ? args.clientEmail : undefined;
             resourceInputs["clientId"] = args ? args.clientId : undefined;
+            resourceInputs["cloudRunRevisionFilters"] = args ? args.cloudRunRevisionFilters : undefined;
             resourceInputs["cspmResourceCollectionEnabled"] = args ? args.cspmResourceCollectionEnabled : undefined;
             resourceInputs["hostFilters"] = args ? args.hostFilters : undefined;
+            resourceInputs["isResourceChangeCollectionEnabled"] = args ? args.isResourceChangeCollectionEnabled : undefined;
             resourceInputs["isSecurityCommandCenterEnabled"] = args ? args.isSecurityCommandCenterEnabled : undefined;
             resourceInputs["privateKey"] = args?.privateKey ? pulumi.secret(args.privateKey) : undefined;
             resourceInputs["privateKeyId"] = args ? args.privateKeyId : undefined;
@@ -159,6 +171,10 @@ export interface IntegrationState {
      */
     clientId?: pulumi.Input<string>;
     /**
+     * Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+     */
+    cloudRunRevisionFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled. Defaults to `false`.
      */
     cspmResourceCollectionEnabled?: pulumi.Input<boolean>;
@@ -166,6 +182,10 @@ export interface IntegrationState {
      * Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. Defaults to `""`.
      */
     hostFilters?: pulumi.Input<string>;
+    /**
+     * When enabled, Datadog scans for all resource change data in your Google Cloud environment.
+     */
+    isResourceChangeCollectionEnabled?: pulumi.Input<boolean>;
     /**
      * When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
      */
@@ -205,6 +225,10 @@ export interface IntegrationArgs {
      */
     clientId: pulumi.Input<string>;
     /**
+     * Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+     */
+    cloudRunRevisionFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled. Defaults to `false`.
      */
     cspmResourceCollectionEnabled?: pulumi.Input<boolean>;
@@ -212,6 +236,10 @@ export interface IntegrationArgs {
      * Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. Defaults to `""`.
      */
     hostFilters?: pulumi.Input<string>;
+    /**
+     * When enabled, Datadog scans for all resource change data in your Google Cloud environment.
+     */
+    isResourceChangeCollectionEnabled?: pulumi.Input<boolean>;
     /**
      * When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
      */

@@ -5,6 +5,8 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetDistributionDefinitionRequest;
+import com.pulumi.datadog.outputs.DashboardWidgetDistributionDefinitionXaxis;
+import com.pulumi.datadog.outputs.DashboardWidgetDistributionDefinitionYaxis;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -49,6 +51,16 @@ public final class DashboardWidgetDistributionDefinition {
      * 
      */
     private @Nullable String titleSize;
+    /**
+     * @return A nested block describing the X-Axis Controls. Exactly one nested block is allowed using the structure below.
+     * 
+     */
+    private @Nullable DashboardWidgetDistributionDefinitionXaxis xaxis;
+    /**
+     * @return A nested block describing the Y-Axis Controls. Exactly one nested block is allowed using the structure below.
+     * 
+     */
+    private @Nullable DashboardWidgetDistributionDefinitionYaxis yaxis;
 
     private DashboardWidgetDistributionDefinition() {}
     /**
@@ -100,6 +112,20 @@ public final class DashboardWidgetDistributionDefinition {
     public Optional<String> titleSize() {
         return Optional.ofNullable(this.titleSize);
     }
+    /**
+     * @return A nested block describing the X-Axis Controls. Exactly one nested block is allowed using the structure below.
+     * 
+     */
+    public Optional<DashboardWidgetDistributionDefinitionXaxis> xaxis() {
+        return Optional.ofNullable(this.xaxis);
+    }
+    /**
+     * @return A nested block describing the Y-Axis Controls. Exactly one nested block is allowed using the structure below.
+     * 
+     */
+    public Optional<DashboardWidgetDistributionDefinitionYaxis> yaxis() {
+        return Optional.ofNullable(this.yaxis);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -117,6 +143,8 @@ public final class DashboardWidgetDistributionDefinition {
         private @Nullable String title;
         private @Nullable String titleAlign;
         private @Nullable String titleSize;
+        private @Nullable DashboardWidgetDistributionDefinitionXaxis xaxis;
+        private @Nullable DashboardWidgetDistributionDefinitionYaxis yaxis;
         public Builder() {}
         public Builder(DashboardWidgetDistributionDefinition defaults) {
     	      Objects.requireNonNull(defaults);
@@ -127,6 +155,8 @@ public final class DashboardWidgetDistributionDefinition {
     	      this.title = defaults.title;
     	      this.titleAlign = defaults.titleAlign;
     	      this.titleSize = defaults.titleSize;
+    	      this.xaxis = defaults.xaxis;
+    	      this.yaxis = defaults.yaxis;
         }
 
         @CustomType.Setter
@@ -174,6 +204,18 @@ public final class DashboardWidgetDistributionDefinition {
             this.titleSize = titleSize;
             return this;
         }
+        @CustomType.Setter
+        public Builder xaxis(@Nullable DashboardWidgetDistributionDefinitionXaxis xaxis) {
+
+            this.xaxis = xaxis;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder yaxis(@Nullable DashboardWidgetDistributionDefinitionYaxis yaxis) {
+
+            this.yaxis = yaxis;
+            return this;
+        }
         public DashboardWidgetDistributionDefinition build() {
             final var _resultValue = new DashboardWidgetDistributionDefinition();
             _resultValue.legendSize = legendSize;
@@ -183,6 +225,8 @@ public final class DashboardWidgetDistributionDefinition {
             _resultValue.title = title;
             _resultValue.titleAlign = titleAlign;
             _resultValue.titleSize = titleSize;
+            _resultValue.xaxis = xaxis;
+            _resultValue.yaxis = yaxis;
             return _resultValue;
         }
     }

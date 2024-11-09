@@ -13,6 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['IntegrationStsArgs', 'IntegrationSts']
 
@@ -22,18 +24,24 @@ class IntegrationStsArgs:
                  client_email: pulumi.Input[str],
                  account_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  automute: Optional[pulumi.Input[bool]] = None,
+                 cloud_run_revision_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  host_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  is_cspm_enabled: Optional[pulumi.Input[bool]] = None,
+                 is_resource_change_collection_enabled: Optional[pulumi.Input[bool]] = None,
                  is_security_command_center_enabled: Optional[pulumi.Input[bool]] = None,
+                 metric_namespace_configs: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationStsMetricNamespaceConfigArgs']]]] = None,
                  resource_collection_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a IntegrationSts resource.
         :param pulumi.Input[str] client_email: Your service account email address.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] account_tags: Tags to be associated with GCP metrics and service checks from your account.
         :param pulumi.Input[bool] automute: Silence monitors for expected GCE instance shutdowns.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cloud_run_revision_filters: Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] host_filters: Your Host Filters.
         :param pulumi.Input[bool] is_cspm_enabled: Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled.
+        :param pulumi.Input[bool] is_resource_change_collection_enabled: When enabled, Datadog scans for all resource change data in your Google Cloud environment.
         :param pulumi.Input[bool] is_security_command_center_enabled: When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input['IntegrationStsMetricNamespaceConfigArgs']]] metric_namespace_configs: Configuration for a GCP metric namespace.
         :param pulumi.Input[bool] resource_collection_enabled: When enabled, Datadog scans for all resources in your GCP environment.
         """
         pulumi.set(__self__, "client_email", client_email)
@@ -41,12 +49,18 @@ class IntegrationStsArgs:
             pulumi.set(__self__, "account_tags", account_tags)
         if automute is not None:
             pulumi.set(__self__, "automute", automute)
+        if cloud_run_revision_filters is not None:
+            pulumi.set(__self__, "cloud_run_revision_filters", cloud_run_revision_filters)
         if host_filters is not None:
             pulumi.set(__self__, "host_filters", host_filters)
         if is_cspm_enabled is not None:
             pulumi.set(__self__, "is_cspm_enabled", is_cspm_enabled)
+        if is_resource_change_collection_enabled is not None:
+            pulumi.set(__self__, "is_resource_change_collection_enabled", is_resource_change_collection_enabled)
         if is_security_command_center_enabled is not None:
             pulumi.set(__self__, "is_security_command_center_enabled", is_security_command_center_enabled)
+        if metric_namespace_configs is not None:
+            pulumi.set(__self__, "metric_namespace_configs", metric_namespace_configs)
         if resource_collection_enabled is not None:
             pulumi.set(__self__, "resource_collection_enabled", resource_collection_enabled)
 
@@ -87,6 +101,18 @@ class IntegrationStsArgs:
         pulumi.set(self, "automute", value)
 
     @property
+    @pulumi.getter(name="cloudRunRevisionFilters")
+    def cloud_run_revision_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+        """
+        return pulumi.get(self, "cloud_run_revision_filters")
+
+    @cloud_run_revision_filters.setter
+    def cloud_run_revision_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "cloud_run_revision_filters", value)
+
+    @property
     @pulumi.getter(name="hostFilters")
     def host_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -111,6 +137,18 @@ class IntegrationStsArgs:
         pulumi.set(self, "is_cspm_enabled", value)
 
     @property
+    @pulumi.getter(name="isResourceChangeCollectionEnabled")
+    def is_resource_change_collection_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When enabled, Datadog scans for all resource change data in your Google Cloud environment.
+        """
+        return pulumi.get(self, "is_resource_change_collection_enabled")
+
+    @is_resource_change_collection_enabled.setter
+    def is_resource_change_collection_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_resource_change_collection_enabled", value)
+
+    @property
     @pulumi.getter(name="isSecurityCommandCenterEnabled")
     def is_security_command_center_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -121,6 +159,18 @@ class IntegrationStsArgs:
     @is_security_command_center_enabled.setter
     def is_security_command_center_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "is_security_command_center_enabled", value)
+
+    @property
+    @pulumi.getter(name="metricNamespaceConfigs")
+    def metric_namespace_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationStsMetricNamespaceConfigArgs']]]]:
+        """
+        Configuration for a GCP metric namespace.
+        """
+        return pulumi.get(self, "metric_namespace_configs")
+
+    @metric_namespace_configs.setter
+    def metric_namespace_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationStsMetricNamespaceConfigArgs']]]]):
+        pulumi.set(self, "metric_namespace_configs", value)
 
     @property
     @pulumi.getter(name="resourceCollectionEnabled")
@@ -141,20 +191,26 @@ class _IntegrationStsState:
                  account_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  automute: Optional[pulumi.Input[bool]] = None,
                  client_email: Optional[pulumi.Input[str]] = None,
+                 cloud_run_revision_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  delegate_account_email: Optional[pulumi.Input[str]] = None,
                  host_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  is_cspm_enabled: Optional[pulumi.Input[bool]] = None,
+                 is_resource_change_collection_enabled: Optional[pulumi.Input[bool]] = None,
                  is_security_command_center_enabled: Optional[pulumi.Input[bool]] = None,
+                 metric_namespace_configs: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationStsMetricNamespaceConfigArgs']]]] = None,
                  resource_collection_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering IntegrationSts resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] account_tags: Tags to be associated with GCP metrics and service checks from your account.
         :param pulumi.Input[bool] automute: Silence monitors for expected GCE instance shutdowns.
         :param pulumi.Input[str] client_email: Your service account email address.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cloud_run_revision_filters: Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
         :param pulumi.Input[str] delegate_account_email: Datadog's STS Delegate Email.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] host_filters: Your Host Filters.
         :param pulumi.Input[bool] is_cspm_enabled: Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled.
+        :param pulumi.Input[bool] is_resource_change_collection_enabled: When enabled, Datadog scans for all resource change data in your Google Cloud environment.
         :param pulumi.Input[bool] is_security_command_center_enabled: When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input['IntegrationStsMetricNamespaceConfigArgs']]] metric_namespace_configs: Configuration for a GCP metric namespace.
         :param pulumi.Input[bool] resource_collection_enabled: When enabled, Datadog scans for all resources in your GCP environment.
         """
         if account_tags is not None:
@@ -163,14 +219,20 @@ class _IntegrationStsState:
             pulumi.set(__self__, "automute", automute)
         if client_email is not None:
             pulumi.set(__self__, "client_email", client_email)
+        if cloud_run_revision_filters is not None:
+            pulumi.set(__self__, "cloud_run_revision_filters", cloud_run_revision_filters)
         if delegate_account_email is not None:
             pulumi.set(__self__, "delegate_account_email", delegate_account_email)
         if host_filters is not None:
             pulumi.set(__self__, "host_filters", host_filters)
         if is_cspm_enabled is not None:
             pulumi.set(__self__, "is_cspm_enabled", is_cspm_enabled)
+        if is_resource_change_collection_enabled is not None:
+            pulumi.set(__self__, "is_resource_change_collection_enabled", is_resource_change_collection_enabled)
         if is_security_command_center_enabled is not None:
             pulumi.set(__self__, "is_security_command_center_enabled", is_security_command_center_enabled)
+        if metric_namespace_configs is not None:
+            pulumi.set(__self__, "metric_namespace_configs", metric_namespace_configs)
         if resource_collection_enabled is not None:
             pulumi.set(__self__, "resource_collection_enabled", resource_collection_enabled)
 
@@ -211,6 +273,18 @@ class _IntegrationStsState:
         pulumi.set(self, "client_email", value)
 
     @property
+    @pulumi.getter(name="cloudRunRevisionFilters")
+    def cloud_run_revision_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+        """
+        return pulumi.get(self, "cloud_run_revision_filters")
+
+    @cloud_run_revision_filters.setter
+    def cloud_run_revision_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "cloud_run_revision_filters", value)
+
+    @property
     @pulumi.getter(name="delegateAccountEmail")
     def delegate_account_email(self) -> Optional[pulumi.Input[str]]:
         """
@@ -247,6 +321,18 @@ class _IntegrationStsState:
         pulumi.set(self, "is_cspm_enabled", value)
 
     @property
+    @pulumi.getter(name="isResourceChangeCollectionEnabled")
+    def is_resource_change_collection_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When enabled, Datadog scans for all resource change data in your Google Cloud environment.
+        """
+        return pulumi.get(self, "is_resource_change_collection_enabled")
+
+    @is_resource_change_collection_enabled.setter
+    def is_resource_change_collection_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_resource_change_collection_enabled", value)
+
+    @property
     @pulumi.getter(name="isSecurityCommandCenterEnabled")
     def is_security_command_center_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -257,6 +343,18 @@ class _IntegrationStsState:
     @is_security_command_center_enabled.setter
     def is_security_command_center_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "is_security_command_center_enabled", value)
+
+    @property
+    @pulumi.getter(name="metricNamespaceConfigs")
+    def metric_namespace_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationStsMetricNamespaceConfigArgs']]]]:
+        """
+        Configuration for a GCP metric namespace.
+        """
+        return pulumi.get(self, "metric_namespace_configs")
+
+    @metric_namespace_configs.setter
+    def metric_namespace_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationStsMetricNamespaceConfigArgs']]]]):
+        pulumi.set(self, "metric_namespace_configs", value)
 
     @property
     @pulumi.getter(name="resourceCollectionEnabled")
@@ -279,9 +377,12 @@ class IntegrationSts(pulumi.CustomResource):
                  account_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  automute: Optional[pulumi.Input[bool]] = None,
                  client_email: Optional[pulumi.Input[str]] = None,
+                 cloud_run_revision_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  host_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  is_cspm_enabled: Optional[pulumi.Input[bool]] = None,
+                 is_resource_change_collection_enabled: Optional[pulumi.Input[bool]] = None,
                  is_security_command_center_enabled: Optional[pulumi.Input[bool]] = None,
+                 metric_namespace_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationStsMetricNamespaceConfigArgs', 'IntegrationStsMetricNamespaceConfigArgsDict']]]]] = None,
                  resource_collection_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -298,9 +399,12 @@ class IntegrationSts(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] account_tags: Tags to be associated with GCP metrics and service checks from your account.
         :param pulumi.Input[bool] automute: Silence monitors for expected GCE instance shutdowns.
         :param pulumi.Input[str] client_email: Your service account email address.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cloud_run_revision_filters: Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] host_filters: Your Host Filters.
         :param pulumi.Input[bool] is_cspm_enabled: Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled.
+        :param pulumi.Input[bool] is_resource_change_collection_enabled: When enabled, Datadog scans for all resource change data in your Google Cloud environment.
         :param pulumi.Input[bool] is_security_command_center_enabled: When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IntegrationStsMetricNamespaceConfigArgs', 'IntegrationStsMetricNamespaceConfigArgsDict']]]] metric_namespace_configs: Configuration for a GCP metric namespace.
         :param pulumi.Input[bool] resource_collection_enabled: When enabled, Datadog scans for all resources in your GCP environment.
         """
         ...
@@ -336,9 +440,12 @@ class IntegrationSts(pulumi.CustomResource):
                  account_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  automute: Optional[pulumi.Input[bool]] = None,
                  client_email: Optional[pulumi.Input[str]] = None,
+                 cloud_run_revision_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  host_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  is_cspm_enabled: Optional[pulumi.Input[bool]] = None,
+                 is_resource_change_collection_enabled: Optional[pulumi.Input[bool]] = None,
                  is_security_command_center_enabled: Optional[pulumi.Input[bool]] = None,
+                 metric_namespace_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationStsMetricNamespaceConfigArgs', 'IntegrationStsMetricNamespaceConfigArgsDict']]]]] = None,
                  resource_collection_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -354,9 +461,12 @@ class IntegrationSts(pulumi.CustomResource):
             if client_email is None and not opts.urn:
                 raise TypeError("Missing required property 'client_email'")
             __props__.__dict__["client_email"] = client_email
+            __props__.__dict__["cloud_run_revision_filters"] = cloud_run_revision_filters
             __props__.__dict__["host_filters"] = host_filters
             __props__.__dict__["is_cspm_enabled"] = is_cspm_enabled
+            __props__.__dict__["is_resource_change_collection_enabled"] = is_resource_change_collection_enabled
             __props__.__dict__["is_security_command_center_enabled"] = is_security_command_center_enabled
+            __props__.__dict__["metric_namespace_configs"] = metric_namespace_configs
             __props__.__dict__["resource_collection_enabled"] = resource_collection_enabled
             __props__.__dict__["delegate_account_email"] = None
         super(IntegrationSts, __self__).__init__(
@@ -372,10 +482,13 @@ class IntegrationSts(pulumi.CustomResource):
             account_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             automute: Optional[pulumi.Input[bool]] = None,
             client_email: Optional[pulumi.Input[str]] = None,
+            cloud_run_revision_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             delegate_account_email: Optional[pulumi.Input[str]] = None,
             host_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             is_cspm_enabled: Optional[pulumi.Input[bool]] = None,
+            is_resource_change_collection_enabled: Optional[pulumi.Input[bool]] = None,
             is_security_command_center_enabled: Optional[pulumi.Input[bool]] = None,
+            metric_namespace_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationStsMetricNamespaceConfigArgs', 'IntegrationStsMetricNamespaceConfigArgsDict']]]]] = None,
             resource_collection_enabled: Optional[pulumi.Input[bool]] = None) -> 'IntegrationSts':
         """
         Get an existing IntegrationSts resource's state with the given name, id, and optional extra
@@ -387,10 +500,13 @@ class IntegrationSts(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] account_tags: Tags to be associated with GCP metrics and service checks from your account.
         :param pulumi.Input[bool] automute: Silence monitors for expected GCE instance shutdowns.
         :param pulumi.Input[str] client_email: Your service account email address.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cloud_run_revision_filters: Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
         :param pulumi.Input[str] delegate_account_email: Datadog's STS Delegate Email.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] host_filters: Your Host Filters.
         :param pulumi.Input[bool] is_cspm_enabled: Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled.
+        :param pulumi.Input[bool] is_resource_change_collection_enabled: When enabled, Datadog scans for all resource change data in your Google Cloud environment.
         :param pulumi.Input[bool] is_security_command_center_enabled: When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IntegrationStsMetricNamespaceConfigArgs', 'IntegrationStsMetricNamespaceConfigArgsDict']]]] metric_namespace_configs: Configuration for a GCP metric namespace.
         :param pulumi.Input[bool] resource_collection_enabled: When enabled, Datadog scans for all resources in your GCP environment.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -400,10 +516,13 @@ class IntegrationSts(pulumi.CustomResource):
         __props__.__dict__["account_tags"] = account_tags
         __props__.__dict__["automute"] = automute
         __props__.__dict__["client_email"] = client_email
+        __props__.__dict__["cloud_run_revision_filters"] = cloud_run_revision_filters
         __props__.__dict__["delegate_account_email"] = delegate_account_email
         __props__.__dict__["host_filters"] = host_filters
         __props__.__dict__["is_cspm_enabled"] = is_cspm_enabled
+        __props__.__dict__["is_resource_change_collection_enabled"] = is_resource_change_collection_enabled
         __props__.__dict__["is_security_command_center_enabled"] = is_security_command_center_enabled
+        __props__.__dict__["metric_namespace_configs"] = metric_namespace_configs
         __props__.__dict__["resource_collection_enabled"] = resource_collection_enabled
         return IntegrationSts(resource_name, opts=opts, __props__=__props__)
 
@@ -432,6 +551,14 @@ class IntegrationSts(pulumi.CustomResource):
         return pulumi.get(self, "client_email")
 
     @property
+    @pulumi.getter(name="cloudRunRevisionFilters")
+    def cloud_run_revision_filters(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+        """
+        return pulumi.get(self, "cloud_run_revision_filters")
+
+    @property
     @pulumi.getter(name="delegateAccountEmail")
     def delegate_account_email(self) -> pulumi.Output[str]:
         """
@@ -456,12 +583,28 @@ class IntegrationSts(pulumi.CustomResource):
         return pulumi.get(self, "is_cspm_enabled")
 
     @property
+    @pulumi.getter(name="isResourceChangeCollectionEnabled")
+    def is_resource_change_collection_enabled(self) -> pulumi.Output[bool]:
+        """
+        When enabled, Datadog scans for all resource change data in your Google Cloud environment.
+        """
+        return pulumi.get(self, "is_resource_change_collection_enabled")
+
+    @property
     @pulumi.getter(name="isSecurityCommandCenterEnabled")
     def is_security_command_center_enabled(self) -> pulumi.Output[bool]:
         """
         When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
         """
         return pulumi.get(self, "is_security_command_center_enabled")
+
+    @property
+    @pulumi.getter(name="metricNamespaceConfigs")
+    def metric_namespace_configs(self) -> pulumi.Output[Optional[Sequence['outputs.IntegrationStsMetricNamespaceConfig']]]:
+        """
+        Configuration for a GCP metric namespace.
+        """
+        return pulumi.get(self, "metric_namespace_configs")
 
     @property
     @pulumi.getter(name="resourceCollectionEnabled")

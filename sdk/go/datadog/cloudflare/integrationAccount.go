@@ -57,6 +57,8 @@ type IntegrationAccount struct {
 	Email pulumi.StringPtrOutput `pulumi:"email"`
 	// The name of the Cloudflare account.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// An allowlist of resources to restrict pulling metrics for including `web`, `dns`, `lb` (load balancer), `worker`)
+	Resources pulumi.StringArrayOutput `pulumi:"resources"`
 }
 
 // NewIntegrationAccount registers a new resource with the given unique name, arguments, and options.
@@ -108,6 +110,8 @@ type integrationAccountState struct {
 	Email *string `pulumi:"email"`
 	// The name of the Cloudflare account.
 	Name *string `pulumi:"name"`
+	// An allowlist of resources to restrict pulling metrics for including `web`, `dns`, `lb` (load balancer), `worker`)
+	Resources []string `pulumi:"resources"`
 }
 
 type IntegrationAccountState struct {
@@ -117,6 +121,8 @@ type IntegrationAccountState struct {
 	Email pulumi.StringPtrInput
 	// The name of the Cloudflare account.
 	Name pulumi.StringPtrInput
+	// An allowlist of resources to restrict pulling metrics for including `web`, `dns`, `lb` (load balancer), `worker`)
+	Resources pulumi.StringArrayInput
 }
 
 func (IntegrationAccountState) ElementType() reflect.Type {
@@ -130,6 +136,8 @@ type integrationAccountArgs struct {
 	Email *string `pulumi:"email"`
 	// The name of the Cloudflare account.
 	Name string `pulumi:"name"`
+	// An allowlist of resources to restrict pulling metrics for including `web`, `dns`, `lb` (load balancer), `worker`)
+	Resources []string `pulumi:"resources"`
 }
 
 // The set of arguments for constructing a IntegrationAccount resource.
@@ -140,6 +148,8 @@ type IntegrationAccountArgs struct {
 	Email pulumi.StringPtrInput
 	// The name of the Cloudflare account.
 	Name pulumi.StringInput
+	// An allowlist of resources to restrict pulling metrics for including `web`, `dns`, `lb` (load balancer), `worker`)
+	Resources pulumi.StringArrayInput
 }
 
 func (IntegrationAccountArgs) ElementType() reflect.Type {
@@ -242,6 +252,11 @@ func (o IntegrationAccountOutput) Email() pulumi.StringPtrOutput {
 // The name of the Cloudflare account.
 func (o IntegrationAccountOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *IntegrationAccount) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// An allowlist of resources to restrict pulling metrics for including `web`, `dns`, `lb` (load balancer), `worker`)
+func (o IntegrationAccountOutput) Resources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IntegrationAccount) pulumi.StringArrayOutput { return v.Resources }).(pulumi.StringArrayOutput)
 }
 
 type IntegrationAccountArrayOutput struct{ *pulumi.OutputState }

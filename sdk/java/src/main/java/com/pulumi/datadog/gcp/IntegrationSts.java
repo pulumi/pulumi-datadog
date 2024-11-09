@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.datadog.Utilities;
 import com.pulumi.datadog.gcp.IntegrationStsArgs;
 import com.pulumi.datadog.gcp.inputs.IntegrationStsState;
+import com.pulumi.datadog.gcp.outputs.IntegrationStsMetricNamespaceConfig;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -71,6 +72,20 @@ public class IntegrationSts extends com.pulumi.resources.CustomResource {
         return this.clientEmail;
     }
     /**
+     * Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+     * 
+     */
+    @Export(name="cloudRunRevisionFilters", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> cloudRunRevisionFilters;
+
+    /**
+     * @return Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+     * 
+     */
+    public Output<Optional<List<String>>> cloudRunRevisionFilters() {
+        return Codegen.optional(this.cloudRunRevisionFilters);
+    }
+    /**
      * Datadog&#39;s STS Delegate Email.
      * 
      */
@@ -113,6 +128,20 @@ public class IntegrationSts extends com.pulumi.resources.CustomResource {
         return this.isCspmEnabled;
     }
     /**
+     * When enabled, Datadog scans for all resource change data in your Google Cloud environment.
+     * 
+     */
+    @Export(name="isResourceChangeCollectionEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> isResourceChangeCollectionEnabled;
+
+    /**
+     * @return When enabled, Datadog scans for all resource change data in your Google Cloud environment.
+     * 
+     */
+    public Output<Boolean> isResourceChangeCollectionEnabled() {
+        return this.isResourceChangeCollectionEnabled;
+    }
+    /**
      * When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
      * 
      */
@@ -125,6 +154,20 @@ public class IntegrationSts extends com.pulumi.resources.CustomResource {
      */
     public Output<Boolean> isSecurityCommandCenterEnabled() {
         return this.isSecurityCommandCenterEnabled;
+    }
+    /**
+     * Configuration for a GCP metric namespace.
+     * 
+     */
+    @Export(name="metricNamespaceConfigs", refs={List.class,IntegrationStsMetricNamespaceConfig.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<IntegrationStsMetricNamespaceConfig>> metricNamespaceConfigs;
+
+    /**
+     * @return Configuration for a GCP metric namespace.
+     * 
+     */
+    public Output<Optional<List<IntegrationStsMetricNamespaceConfig>>> metricNamespaceConfigs() {
+        return Codegen.optional(this.metricNamespaceConfigs);
     }
     /**
      * When enabled, Datadog scans for all resources in your GCP environment.

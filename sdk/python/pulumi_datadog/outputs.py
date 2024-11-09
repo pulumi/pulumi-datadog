@@ -65,6 +65,8 @@ __all__ = [
     'DashboardWidgetDistributionDefinitionRequestApmStatsQueryColumn',
     'DashboardWidgetDistributionDefinitionRequestProcessQuery',
     'DashboardWidgetDistributionDefinitionRequestStyle',
+    'DashboardWidgetDistributionDefinitionXaxis',
+    'DashboardWidgetDistributionDefinitionYaxis',
     'DashboardWidgetEventStreamDefinition',
     'DashboardWidgetEventTimelineDefinition',
     'DashboardWidgetFreeTextDefinition',
@@ -525,6 +527,8 @@ __all__ = [
     'PowerpackWidgetDistributionDefinitionRequestSecurityQueryGroupBySortQuery',
     'PowerpackWidgetDistributionDefinitionRequestSecurityQueryMultiCompute',
     'PowerpackWidgetDistributionDefinitionRequestStyle',
+    'PowerpackWidgetDistributionDefinitionXaxis',
+    'PowerpackWidgetDistributionDefinitionYaxis',
     'PowerpackWidgetEventStreamDefinition',
     'PowerpackWidgetEventTimelineDefinition',
     'PowerpackWidgetFreeTextDefinition',
@@ -1026,6 +1030,7 @@ __all__ = [
     'SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQuery',
     'SecurityMonitoringRuleQuery',
     'SecurityMonitoringRuleQueryAgentRule',
+    'SecurityMonitoringRuleReferenceTable',
     'SecurityMonitoringRuleSignalQuery',
     'SecurityMonitoringRuleThirdPartyCase',
     'SensitiveDataScannerGroupFilter',
@@ -1122,6 +1127,7 @@ __all__ = [
     'GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryResult',
     'GetSecurityMonitoringRulesRuleQueryResult',
     'GetSecurityMonitoringRulesRuleQueryAgentRuleResult',
+    'GetSecurityMonitoringRulesRuleReferenceTableResult',
     'GetSecurityMonitoringRulesRuleSignalQueryResult',
     'GetSecurityMonitoringRulesRuleThirdPartyCaseResult',
     'GetSecurityMonitoringSuppressionsSuppressionResult',
@@ -4870,7 +4876,9 @@ class DashboardWidgetDistributionDefinition(dict):
                  show_legend: Optional[bool] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
-                 title_size: Optional[str] = None):
+                 title_size: Optional[str] = None,
+                 xaxis: Optional['outputs.DashboardWidgetDistributionDefinitionXaxis'] = None,
+                 yaxis: Optional['outputs.DashboardWidgetDistributionDefinitionYaxis'] = None):
         """
         :param str legend_size: The size of the legend displayed in the widget.
         :param str live_span: The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
@@ -4879,6 +4887,8 @@ class DashboardWidgetDistributionDefinition(dict):
         :param str title: The title of the widget.
         :param str title_align: The alignment of the widget's title. Valid values are `center`, `left`, `right`.
         :param str title_size: The size of the widget's title (defaults to 16).
+        :param 'DashboardWidgetDistributionDefinitionXaxisArgs' xaxis: A nested block describing the X-Axis Controls. Exactly one nested block is allowed using the structure below.
+        :param 'DashboardWidgetDistributionDefinitionYaxisArgs' yaxis: A nested block describing the Y-Axis Controls. Exactly one nested block is allowed using the structure below.
         """
         if legend_size is not None:
             pulumi.set(__self__, "legend_size", legend_size)
@@ -4894,6 +4904,10 @@ class DashboardWidgetDistributionDefinition(dict):
             pulumi.set(__self__, "title_align", title_align)
         if title_size is not None:
             pulumi.set(__self__, "title_size", title_size)
+        if xaxis is not None:
+            pulumi.set(__self__, "xaxis", xaxis)
+        if yaxis is not None:
+            pulumi.set(__self__, "yaxis", yaxis)
 
     @property
     @pulumi.getter(name="legendSize")
@@ -4950,6 +4964,22 @@ class DashboardWidgetDistributionDefinition(dict):
         The size of the widget's title (defaults to 16).
         """
         return pulumi.get(self, "title_size")
+
+    @property
+    @pulumi.getter
+    def xaxis(self) -> Optional['outputs.DashboardWidgetDistributionDefinitionXaxis']:
+        """
+        A nested block describing the X-Axis Controls. Exactly one nested block is allowed using the structure below.
+        """
+        return pulumi.get(self, "xaxis")
+
+    @property
+    @pulumi.getter
+    def yaxis(self) -> Optional['outputs.DashboardWidgetDistributionDefinitionYaxis']:
+        """
+        A nested block describing the Y-Axis Controls. Exactly one nested block is allowed using the structure below.
+        """
+        return pulumi.get(self, "yaxis")
 
 
 @pulumi.output_type
@@ -5344,6 +5374,162 @@ class DashboardWidgetDistributionDefinitionRequestStyle(dict):
         A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
         """
         return pulumi.get(self, "palette")
+
+
+@pulumi.output_type
+class DashboardWidgetDistributionDefinitionXaxis(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeZero":
+            suggest = "include_zero"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetDistributionDefinitionXaxis. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetDistributionDefinitionXaxis.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetDistributionDefinitionXaxis.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 include_zero: Optional[bool] = None,
+                 max: Optional[str] = None,
+                 min: Optional[str] = None,
+                 scale: Optional[str] = None):
+        """
+        :param bool include_zero: Always include zero or fit the axis to the data range.
+        :param str max: Specify the maximum value to show on the Y-axis.
+        :param str min: Specify the minimum value to show on the Y-axis.
+        :param str scale: Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+        """
+        if include_zero is not None:
+            pulumi.set(__self__, "include_zero", include_zero)
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+        if scale is not None:
+            pulumi.set(__self__, "scale", scale)
+
+    @property
+    @pulumi.getter(name="includeZero")
+    def include_zero(self) -> Optional[bool]:
+        """
+        Always include zero or fit the axis to the data range.
+        """
+        return pulumi.get(self, "include_zero")
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[str]:
+        """
+        Specify the maximum value to show on the Y-axis.
+        """
+        return pulumi.get(self, "max")
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[str]:
+        """
+        Specify the minimum value to show on the Y-axis.
+        """
+        return pulumi.get(self, "min")
+
+    @property
+    @pulumi.getter
+    def scale(self) -> Optional[str]:
+        """
+        Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+        """
+        return pulumi.get(self, "scale")
+
+
+@pulumi.output_type
+class DashboardWidgetDistributionDefinitionYaxis(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeZero":
+            suggest = "include_zero"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetDistributionDefinitionYaxis. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetDistributionDefinitionYaxis.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetDistributionDefinitionYaxis.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 include_zero: Optional[bool] = None,
+                 label: Optional[str] = None,
+                 max: Optional[str] = None,
+                 min: Optional[str] = None,
+                 scale: Optional[str] = None):
+        """
+        :param bool include_zero: Always include zero or fit the axis to the data range.
+        :param str label: The label of the axis to display on the graph.
+        :param str max: Specify the maximum value to show on the Y-axis.
+        :param str min: Specify the minimum value to show on the Y-axis.
+        :param str scale: Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+        """
+        if include_zero is not None:
+            pulumi.set(__self__, "include_zero", include_zero)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+        if scale is not None:
+            pulumi.set(__self__, "scale", scale)
+
+    @property
+    @pulumi.getter(name="includeZero")
+    def include_zero(self) -> Optional[bool]:
+        """
+        Always include zero or fit the axis to the data range.
+        """
+        return pulumi.get(self, "include_zero")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        """
+        The label of the axis to display on the graph.
+        """
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[str]:
+        """
+        Specify the maximum value to show on the Y-axis.
+        """
+        return pulumi.get(self, "max")
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[str]:
+        """
+        Specify the minimum value to show on the Y-axis.
+        """
+        return pulumi.get(self, "min")
+
+    @property
+    @pulumi.getter
+    def scale(self) -> Optional[str]:
+        """
+        Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+        """
+        return pulumi.get(self, "scale")
 
 
 @pulumi.output_type
@@ -11202,7 +11388,7 @@ class DashboardWidgetListStreamDefinitionRequestQuery(dict):
                  sort: Optional['outputs.DashboardWidgetListStreamDefinitionRequestQuerySort'] = None,
                  storage: Optional[str] = None):
         """
-        :param str data_source: Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`.
+        :param str data_source: Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`, `llm_observability_stream`.
         :param str event_size: Size of events displayed in widget. Required if `data_source` is `event_stream`. Valid values are `s`, `l`.
         :param Sequence[str] indexes: List of indexes.
         :param str query_string: Widget query.
@@ -11225,7 +11411,7 @@ class DashboardWidgetListStreamDefinitionRequestQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> str:
         """
-        Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`.
+        Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`, `llm_observability_stream`.
         """
         return pulumi.get(self, "data_source")
 
@@ -40111,7 +40297,9 @@ class PowerpackWidgetDistributionDefinition(dict):
                  show_legend: Optional[bool] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
-                 title_size: Optional[str] = None):
+                 title_size: Optional[str] = None,
+                 xaxis: Optional['outputs.PowerpackWidgetDistributionDefinitionXaxis'] = None,
+                 yaxis: Optional['outputs.PowerpackWidgetDistributionDefinitionYaxis'] = None):
         """
         :param str legend_size: The size of the legend displayed in the widget.
         :param str live_span: The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
@@ -40120,6 +40308,8 @@ class PowerpackWidgetDistributionDefinition(dict):
         :param str title: The title of the widget.
         :param str title_align: The alignment of the widget's title. Valid values are `center`, `left`, `right`.
         :param str title_size: The size of the widget's title (defaults to 16).
+        :param 'PowerpackWidgetDistributionDefinitionXaxisArgs' xaxis: A nested block describing the X-Axis Controls. Exactly one nested block is allowed using the structure below.
+        :param 'PowerpackWidgetDistributionDefinitionYaxisArgs' yaxis: A nested block describing the Y-Axis Controls. Exactly one nested block is allowed using the structure below.
         """
         if legend_size is not None:
             pulumi.set(__self__, "legend_size", legend_size)
@@ -40135,6 +40325,10 @@ class PowerpackWidgetDistributionDefinition(dict):
             pulumi.set(__self__, "title_align", title_align)
         if title_size is not None:
             pulumi.set(__self__, "title_size", title_size)
+        if xaxis is not None:
+            pulumi.set(__self__, "xaxis", xaxis)
+        if yaxis is not None:
+            pulumi.set(__self__, "yaxis", yaxis)
 
     @property
     @pulumi.getter(name="legendSize")
@@ -40191,6 +40385,22 @@ class PowerpackWidgetDistributionDefinition(dict):
         The size of the widget's title (defaults to 16).
         """
         return pulumi.get(self, "title_size")
+
+    @property
+    @pulumi.getter
+    def xaxis(self) -> Optional['outputs.PowerpackWidgetDistributionDefinitionXaxis']:
+        """
+        A nested block describing the X-Axis Controls. Exactly one nested block is allowed using the structure below.
+        """
+        return pulumi.get(self, "xaxis")
+
+    @property
+    @pulumi.getter
+    def yaxis(self) -> Optional['outputs.PowerpackWidgetDistributionDefinitionYaxis']:
+        """
+        A nested block describing the Y-Axis Controls. Exactly one nested block is allowed using the structure below.
+        """
+        return pulumi.get(self, "yaxis")
 
 
 @pulumi.output_type
@@ -41681,6 +41891,162 @@ class PowerpackWidgetDistributionDefinitionRequestStyle(dict):
         A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
         """
         return pulumi.get(self, "palette")
+
+
+@pulumi.output_type
+class PowerpackWidgetDistributionDefinitionXaxis(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeZero":
+            suggest = "include_zero"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetDistributionDefinitionXaxis. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PowerpackWidgetDistributionDefinitionXaxis.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PowerpackWidgetDistributionDefinitionXaxis.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 include_zero: Optional[bool] = None,
+                 max: Optional[str] = None,
+                 min: Optional[str] = None,
+                 scale: Optional[str] = None):
+        """
+        :param bool include_zero: Always include zero or fit the axis to the data range.
+        :param str max: Specify the maximum value to show on the Y-axis.
+        :param str min: Specify the minimum value to show on the Y-axis.
+        :param str scale: Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+        """
+        if include_zero is not None:
+            pulumi.set(__self__, "include_zero", include_zero)
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+        if scale is not None:
+            pulumi.set(__self__, "scale", scale)
+
+    @property
+    @pulumi.getter(name="includeZero")
+    def include_zero(self) -> Optional[bool]:
+        """
+        Always include zero or fit the axis to the data range.
+        """
+        return pulumi.get(self, "include_zero")
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[str]:
+        """
+        Specify the maximum value to show on the Y-axis.
+        """
+        return pulumi.get(self, "max")
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[str]:
+        """
+        Specify the minimum value to show on the Y-axis.
+        """
+        return pulumi.get(self, "min")
+
+    @property
+    @pulumi.getter
+    def scale(self) -> Optional[str]:
+        """
+        Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+        """
+        return pulumi.get(self, "scale")
+
+
+@pulumi.output_type
+class PowerpackWidgetDistributionDefinitionYaxis(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeZero":
+            suggest = "include_zero"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetDistributionDefinitionYaxis. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PowerpackWidgetDistributionDefinitionYaxis.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PowerpackWidgetDistributionDefinitionYaxis.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 include_zero: Optional[bool] = None,
+                 label: Optional[str] = None,
+                 max: Optional[str] = None,
+                 min: Optional[str] = None,
+                 scale: Optional[str] = None):
+        """
+        :param bool include_zero: Always include zero or fit the axis to the data range.
+        :param str label: The label of the axis to display on the graph.
+        :param str max: Specify the maximum value to show on the Y-axis.
+        :param str min: Specify the minimum value to show on the Y-axis.
+        :param str scale: Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+        """
+        if include_zero is not None:
+            pulumi.set(__self__, "include_zero", include_zero)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+        if scale is not None:
+            pulumi.set(__self__, "scale", scale)
+
+    @property
+    @pulumi.getter(name="includeZero")
+    def include_zero(self) -> Optional[bool]:
+        """
+        Always include zero or fit the axis to the data range.
+        """
+        return pulumi.get(self, "include_zero")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        """
+        The label of the axis to display on the graph.
+        """
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[str]:
+        """
+        Specify the maximum value to show on the Y-axis.
+        """
+        return pulumi.get(self, "max")
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[str]:
+        """
+        Specify the minimum value to show on the Y-axis.
+        """
+        return pulumi.get(self, "min")
+
+    @property
+    @pulumi.getter
+    def scale(self) -> Optional[str]:
+        """
+        Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+        """
+        return pulumi.get(self, "scale")
 
 
 @pulumi.output_type
@@ -50698,7 +51064,7 @@ class PowerpackWidgetListStreamDefinitionRequestQuery(dict):
                  sort: Optional['outputs.PowerpackWidgetListStreamDefinitionRequestQuerySort'] = None,
                  storage: Optional[str] = None):
         """
-        :param str data_source: Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`.
+        :param str data_source: Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`, `llm_observability_stream`.
         :param str event_size: Size of events displayed in widget. Required if `data_source` is `event_stream`. Valid values are `s`, `l`.
         :param Sequence[str] indexes: List of indexes.
         :param str query_string: Widget query.
@@ -50721,7 +51087,7 @@ class PowerpackWidgetListStreamDefinitionRequestQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> str:
         """
-        Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`.
+        Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`, `llm_observability_stream`.
         """
         return pulumi.get(self, "data_source")
 
@@ -76677,7 +77043,7 @@ class RestrictionPolicyBinding(dict):
                  principals: Sequence[str],
                  relation: str):
         """
-        :param Sequence[str] principals: An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `org`. The org ID can be obtained through the api/v2/users API.
+        :param Sequence[str] principals: An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role`, `team`, `user`, and `org`. Org ID can be obtained using a `GET /api/v2/current_user` API request. Find it in the `data.relationships.org.data.id` field.
         :param str relation: The role/level of access. See this page for more details https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources
         """
         pulumi.set(__self__, "principals", principals)
@@ -76687,7 +77053,7 @@ class RestrictionPolicyBinding(dict):
     @pulumi.getter
     def principals(self) -> Sequence[str]:
         """
-        An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `org`. The org ID can be obtained through the api/v2/users API.
+        An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role`, `team`, `user`, and `org`. Org ID can be obtained using a `GET /api/v2/current_user` API request. Find it in the `data.relationships.org.data.id` field.
         """
         return pulumi.get(self, "principals")
 
@@ -77475,6 +77841,93 @@ class SecurityMonitoringRuleQueryAgentRule(dict):
         **Deprecated**. It won't be applied anymore.
         """
         return pulumi.get(self, "expression")
+
+
+@pulumi.output_type
+class SecurityMonitoringRuleReferenceTable(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "checkPresence":
+            suggest = "check_presence"
+        elif key == "columnName":
+            suggest = "column_name"
+        elif key == "logFieldPath":
+            suggest = "log_field_path"
+        elif key == "ruleQueryName":
+            suggest = "rule_query_name"
+        elif key == "tableName":
+            suggest = "table_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityMonitoringRuleReferenceTable. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityMonitoringRuleReferenceTable.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityMonitoringRuleReferenceTable.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 check_presence: bool,
+                 column_name: str,
+                 log_field_path: str,
+                 rule_query_name: str,
+                 table_name: str):
+        """
+        :param bool check_presence: Whether to include or exclude logs that match the reference table.
+        :param str column_name: The name of the column in the reference table.
+        :param str log_field_path: The field in the log that should be matched against the reference table.
+        :param str rule_query_name: The name of the query to filter.
+        :param str table_name: The name of the reference table.
+        """
+        pulumi.set(__self__, "check_presence", check_presence)
+        pulumi.set(__self__, "column_name", column_name)
+        pulumi.set(__self__, "log_field_path", log_field_path)
+        pulumi.set(__self__, "rule_query_name", rule_query_name)
+        pulumi.set(__self__, "table_name", table_name)
+
+    @property
+    @pulumi.getter(name="checkPresence")
+    def check_presence(self) -> bool:
+        """
+        Whether to include or exclude logs that match the reference table.
+        """
+        return pulumi.get(self, "check_presence")
+
+    @property
+    @pulumi.getter(name="columnName")
+    def column_name(self) -> str:
+        """
+        The name of the column in the reference table.
+        """
+        return pulumi.get(self, "column_name")
+
+    @property
+    @pulumi.getter(name="logFieldPath")
+    def log_field_path(self) -> str:
+        """
+        The field in the log that should be matched against the reference table.
+        """
+        return pulumi.get(self, "log_field_path")
+
+    @property
+    @pulumi.getter(name="ruleQueryName")
+    def rule_query_name(self) -> str:
+        """
+        The name of the query to filter.
+        """
+        return pulumi.get(self, "rule_query_name")
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> str:
+        """
+        The name of the reference table.
+        """
+        return pulumi.get(self, "table_name")
 
 
 @pulumi.output_type
@@ -83114,6 +83567,7 @@ class GetSecurityMonitoringRulesRuleResult(dict):
                  has_extended_title: Optional[bool] = None,
                  options: Optional['outputs.GetSecurityMonitoringRulesRuleOptionsResult'] = None,
                  queries: Optional[Sequence['outputs.GetSecurityMonitoringRulesRuleQueryResult']] = None,
+                 reference_tables: Optional[Sequence['outputs.GetSecurityMonitoringRulesRuleReferenceTableResult']] = None,
                  signal_queries: Optional[Sequence['outputs.GetSecurityMonitoringRulesRuleSignalQueryResult']] = None,
                  tags: Optional[Sequence[str]] = None,
                  third_party_cases: Optional[Sequence['outputs.GetSecurityMonitoringRulesRuleThirdPartyCaseResult']] = None,
@@ -83127,6 +83581,7 @@ class GetSecurityMonitoringRulesRuleResult(dict):
         :param bool has_extended_title: Whether the notifications include the triggering group-by values in their title.
         :param 'GetSecurityMonitoringRulesRuleOptionsArgs' options: Options on rules.
         :param Sequence['GetSecurityMonitoringRulesRuleQueryArgs'] queries: Queries for selecting logs which are part of the rule.
+        :param Sequence['GetSecurityMonitoringRulesRuleReferenceTableArgs'] reference_tables: Reference tables for filtering query results.
         :param Sequence['GetSecurityMonitoringRulesRuleSignalQueryArgs'] signal_queries: Queries for selecting logs which are part of the rule.
         :param Sequence[str] tags: Tags for generated signals.
         :param Sequence['GetSecurityMonitoringRulesRuleThirdPartyCaseArgs'] third_party_cases: Cases for generating signals for third-party rules. Only required and accepted for third-party rules
@@ -83146,6 +83601,8 @@ class GetSecurityMonitoringRulesRuleResult(dict):
             pulumi.set(__self__, "options", options)
         if queries is not None:
             pulumi.set(__self__, "queries", queries)
+        if reference_tables is not None:
+            pulumi.set(__self__, "reference_tables", reference_tables)
         if signal_queries is not None:
             pulumi.set(__self__, "signal_queries", signal_queries)
         if tags is not None:
@@ -83218,6 +83675,14 @@ class GetSecurityMonitoringRulesRuleResult(dict):
         Queries for selecting logs which are part of the rule.
         """
         return pulumi.get(self, "queries")
+
+    @property
+    @pulumi.getter(name="referenceTables")
+    def reference_tables(self) -> Optional[Sequence['outputs.GetSecurityMonitoringRulesRuleReferenceTableResult']]:
+        """
+        Reference tables for filtering query results.
+        """
+        return pulumi.get(self, "reference_tables")
 
     @property
     @pulumi.getter(name="signalQueries")
@@ -83724,6 +84189,68 @@ class GetSecurityMonitoringRulesRuleQueryAgentRuleResult(dict):
         **Deprecated**. It won't be applied anymore.
         """
         return pulumi.get(self, "expression")
+
+
+@pulumi.output_type
+class GetSecurityMonitoringRulesRuleReferenceTableResult(dict):
+    def __init__(__self__, *,
+                 check_presence: bool,
+                 column_name: str,
+                 log_field_path: str,
+                 rule_query_name: str,
+                 table_name: str):
+        """
+        :param bool check_presence: Whether to include or exclude logs that match the reference table.
+        :param str column_name: The name of the column in the reference table.
+        :param str log_field_path: The field in the log that should be matched against the reference table.
+        :param str rule_query_name: The name of the query to filter.
+        :param str table_name: The name of the reference table.
+        """
+        pulumi.set(__self__, "check_presence", check_presence)
+        pulumi.set(__self__, "column_name", column_name)
+        pulumi.set(__self__, "log_field_path", log_field_path)
+        pulumi.set(__self__, "rule_query_name", rule_query_name)
+        pulumi.set(__self__, "table_name", table_name)
+
+    @property
+    @pulumi.getter(name="checkPresence")
+    def check_presence(self) -> bool:
+        """
+        Whether to include or exclude logs that match the reference table.
+        """
+        return pulumi.get(self, "check_presence")
+
+    @property
+    @pulumi.getter(name="columnName")
+    def column_name(self) -> str:
+        """
+        The name of the column in the reference table.
+        """
+        return pulumi.get(self, "column_name")
+
+    @property
+    @pulumi.getter(name="logFieldPath")
+    def log_field_path(self) -> str:
+        """
+        The field in the log that should be matched against the reference table.
+        """
+        return pulumi.get(self, "log_field_path")
+
+    @property
+    @pulumi.getter(name="ruleQueryName")
+    def rule_query_name(self) -> str:
+        """
+        The name of the query to filter.
+        """
+        return pulumi.get(self, "rule_query_name")
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> str:
+        """
+        The name of the reference table.
+        """
+        return pulumi.get(self, "table_name")
 
 
 @pulumi.output_type

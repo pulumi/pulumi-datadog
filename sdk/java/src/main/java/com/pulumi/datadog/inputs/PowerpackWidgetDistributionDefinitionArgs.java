@@ -6,6 +6,8 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.PowerpackWidgetDistributionDefinitionRequestArgs;
+import com.pulumi.datadog.inputs.PowerpackWidgetDistributionDefinitionXaxisArgs;
+import com.pulumi.datadog.inputs.PowerpackWidgetDistributionDefinitionYaxisArgs;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -123,6 +125,36 @@ public final class PowerpackWidgetDistributionDefinitionArgs extends com.pulumi.
         return Optional.ofNullable(this.titleSize);
     }
 
+    /**
+     * A nested block describing the X-Axis Controls. Exactly one nested block is allowed using the structure below.
+     * 
+     */
+    @Import(name="xaxis")
+    private @Nullable Output<PowerpackWidgetDistributionDefinitionXaxisArgs> xaxis;
+
+    /**
+     * @return A nested block describing the X-Axis Controls. Exactly one nested block is allowed using the structure below.
+     * 
+     */
+    public Optional<Output<PowerpackWidgetDistributionDefinitionXaxisArgs>> xaxis() {
+        return Optional.ofNullable(this.xaxis);
+    }
+
+    /**
+     * A nested block describing the Y-Axis Controls. Exactly one nested block is allowed using the structure below.
+     * 
+     */
+    @Import(name="yaxis")
+    private @Nullable Output<PowerpackWidgetDistributionDefinitionYaxisArgs> yaxis;
+
+    /**
+     * @return A nested block describing the Y-Axis Controls. Exactly one nested block is allowed using the structure below.
+     * 
+     */
+    public Optional<Output<PowerpackWidgetDistributionDefinitionYaxisArgs>> yaxis() {
+        return Optional.ofNullable(this.yaxis);
+    }
+
     private PowerpackWidgetDistributionDefinitionArgs() {}
 
     private PowerpackWidgetDistributionDefinitionArgs(PowerpackWidgetDistributionDefinitionArgs $) {
@@ -133,6 +165,8 @@ public final class PowerpackWidgetDistributionDefinitionArgs extends com.pulumi.
         this.title = $.title;
         this.titleAlign = $.titleAlign;
         this.titleSize = $.titleSize;
+        this.xaxis = $.xaxis;
+        this.yaxis = $.yaxis;
     }
 
     public static Builder builder() {
@@ -308,6 +342,48 @@ public final class PowerpackWidgetDistributionDefinitionArgs extends com.pulumi.
          */
         public Builder titleSize(String titleSize) {
             return titleSize(Output.of(titleSize));
+        }
+
+        /**
+         * @param xaxis A nested block describing the X-Axis Controls. Exactly one nested block is allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder xaxis(@Nullable Output<PowerpackWidgetDistributionDefinitionXaxisArgs> xaxis) {
+            $.xaxis = xaxis;
+            return this;
+        }
+
+        /**
+         * @param xaxis A nested block describing the X-Axis Controls. Exactly one nested block is allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder xaxis(PowerpackWidgetDistributionDefinitionXaxisArgs xaxis) {
+            return xaxis(Output.of(xaxis));
+        }
+
+        /**
+         * @param yaxis A nested block describing the Y-Axis Controls. Exactly one nested block is allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder yaxis(@Nullable Output<PowerpackWidgetDistributionDefinitionYaxisArgs> yaxis) {
+            $.yaxis = yaxis;
+            return this;
+        }
+
+        /**
+         * @param yaxis A nested block describing the Y-Axis Controls. Exactly one nested block is allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder yaxis(PowerpackWidgetDistributionDefinitionYaxisArgs yaxis) {
+            return yaxis(Output.of(yaxis));
         }
 
         public PowerpackWidgetDistributionDefinitionArgs build() {

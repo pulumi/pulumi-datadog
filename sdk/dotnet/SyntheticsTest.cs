@@ -777,7 +777,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Synthetics test type. Valid values are `api`, `browser`.
+        /// Synthetics test type. Valid values are `api`, `browser`, `mobile`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -1042,7 +1042,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// Synthetics test type. Valid values are `api`, `browser`.
+        /// Synthetics test type. Valid values are `api`, `browser`, `mobile`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -1275,7 +1275,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// Synthetics test type. Valid values are `api`, `browser`.
+        /// Synthetics test type. Valid values are `api`, `browser`, `mobile`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

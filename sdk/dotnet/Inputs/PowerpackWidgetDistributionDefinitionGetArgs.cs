@@ -60,6 +60,18 @@ namespace Pulumi.Datadog.Inputs
         [Input("titleSize")]
         public Input<string>? TitleSize { get; set; }
 
+        /// <summary>
+        /// A nested block describing the X-Axis Controls. Exactly one nested block is allowed using the structure below.
+        /// </summary>
+        [Input("xaxis")]
+        public Input<Inputs.PowerpackWidgetDistributionDefinitionXaxisGetArgs>? Xaxis { get; set; }
+
+        /// <summary>
+        /// A nested block describing the Y-Axis Controls. Exactly one nested block is allowed using the structure below.
+        /// </summary>
+        [Input("yaxis")]
+        public Input<Inputs.PowerpackWidgetDistributionDefinitionYaxisGetArgs>? Yaxis { get; set; }
+
         public PowerpackWidgetDistributionDefinitionGetArgs()
         {
         }

@@ -67,6 +67,10 @@ export class IntegrationAccount extends pulumi.CustomResource {
      * The name of the Cloudflare account.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * An allowlist of resources to restrict pulling metrics for including `web`, `dns`, `lb` (load balancer), `worker`)
+     */
+    public readonly resources!: pulumi.Output<string[]>;
 
     /**
      * Create a IntegrationAccount resource with the given unique name, arguments, and options.
@@ -84,6 +88,7 @@ export class IntegrationAccount extends pulumi.CustomResource {
             resourceInputs["apiKey"] = state ? state.apiKey : undefined;
             resourceInputs["email"] = state ? state.email : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resources"] = state ? state.resources : undefined;
         } else {
             const args = argsOrState as IntegrationAccountArgs | undefined;
             if ((!args || args.apiKey === undefined) && !opts.urn) {
@@ -95,6 +100,7 @@ export class IntegrationAccount extends pulumi.CustomResource {
             resourceInputs["apiKey"] = args?.apiKey ? pulumi.secret(args.apiKey) : undefined;
             resourceInputs["email"] = args ? args.email : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resources"] = args ? args.resources : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["apiKey"] };
@@ -119,6 +125,10 @@ export interface IntegrationAccountState {
      * The name of the Cloudflare account.
      */
     name?: pulumi.Input<string>;
+    /**
+     * An allowlist of resources to restrict pulling metrics for including `web`, `dns`, `lb` (load balancer), `worker`)
+     */
+    resources?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -137,4 +147,8 @@ export interface IntegrationAccountArgs {
      * The name of the Cloudflare account.
      */
     name: pulumi.Input<string>;
+    /**
+     * An allowlist of resources to restrict pulling metrics for including `web`, `dns`, `lb` (load balancer), `worker`)
+     */
+    resources?: pulumi.Input<pulumi.Input<string>[]>;
 }

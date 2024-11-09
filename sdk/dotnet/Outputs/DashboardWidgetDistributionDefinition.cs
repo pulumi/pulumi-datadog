@@ -41,6 +41,14 @@ namespace Pulumi.Datadog.Outputs
         /// The size of the widget's title (defaults to 16).
         /// </summary>
         public readonly string? TitleSize;
+        /// <summary>
+        /// A nested block describing the X-Axis Controls. Exactly one nested block is allowed using the structure below.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetDistributionDefinitionXaxis? Xaxis;
+        /// <summary>
+        /// A nested block describing the Y-Axis Controls. Exactly one nested block is allowed using the structure below.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetDistributionDefinitionYaxis? Yaxis;
 
         [OutputConstructor]
         private DashboardWidgetDistributionDefinition(
@@ -56,7 +64,11 @@ namespace Pulumi.Datadog.Outputs
 
             string? titleAlign,
 
-            string? titleSize)
+            string? titleSize,
+
+            Outputs.DashboardWidgetDistributionDefinitionXaxis? xaxis,
+
+            Outputs.DashboardWidgetDistributionDefinitionYaxis? yaxis)
         {
             LegendSize = legendSize;
             LiveSpan = liveSpan;
@@ -65,6 +77,8 @@ namespace Pulumi.Datadog.Outputs
             Title = title;
             TitleAlign = titleAlign;
             TitleSize = titleSize;
+            Xaxis = xaxis;
+            Yaxis = yaxis;
         }
     }
 }

@@ -1097,6 +1097,14 @@ export interface DashboardWidgetDistributionDefinition {
      * The size of the widget's title (defaults to 16).
      */
     titleSize?: pulumi.Input<string>;
+    /**
+     * A nested block describing the X-Axis Controls. Exactly one nested block is allowed using the structure below.
+     */
+    xaxis?: pulumi.Input<inputs.DashboardWidgetDistributionDefinitionXaxis>;
+    /**
+     * A nested block describing the Y-Axis Controls. Exactly one nested block is allowed using the structure below.
+     */
+    yaxis?: pulumi.Input<inputs.DashboardWidgetDistributionDefinitionYaxis>;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequest {
@@ -1205,6 +1213,48 @@ export interface DashboardWidgetDistributionDefinitionRequestStyle {
      * A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
      */
     palette?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetDistributionDefinitionXaxis {
+    /**
+     * Always include zero or fit the axis to the data range.
+     */
+    includeZero?: pulumi.Input<boolean>;
+    /**
+     * Specify the maximum value to show on the Y-axis.
+     */
+    max?: pulumi.Input<string>;
+    /**
+     * Specify the minimum value to show on the Y-axis.
+     */
+    min?: pulumi.Input<string>;
+    /**
+     * Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+     */
+    scale?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetDistributionDefinitionYaxis {
+    /**
+     * Always include zero or fit the axis to the data range.
+     */
+    includeZero?: pulumi.Input<boolean>;
+    /**
+     * The label of the axis to display on the graph.
+     */
+    label?: pulumi.Input<string>;
+    /**
+     * Specify the maximum value to show on the Y-axis.
+     */
+    max?: pulumi.Input<string>;
+    /**
+     * Specify the minimum value to show on the Y-axis.
+     */
+    min?: pulumi.Input<string>;
+    /**
+     * Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+     */
+    scale?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetEventStreamDefinition {
@@ -2842,7 +2892,7 @@ export interface DashboardWidgetListStreamDefinitionRequestColumn {
 
 export interface DashboardWidgetListStreamDefinitionRequestQuery {
     /**
-     * Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`.
+     * Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -11058,6 +11108,14 @@ export interface PowerpackWidgetDistributionDefinition {
      * The size of the widget's title (defaults to 16).
      */
     titleSize?: pulumi.Input<string>;
+    /**
+     * A nested block describing the X-Axis Controls. Exactly one nested block is allowed using the structure below.
+     */
+    xaxis?: pulumi.Input<inputs.PowerpackWidgetDistributionDefinitionXaxis>;
+    /**
+     * A nested block describing the Y-Axis Controls. Exactly one nested block is allowed using the structure below.
+     */
+    yaxis?: pulumi.Input<inputs.PowerpackWidgetDistributionDefinitionYaxis>;
 }
 
 export interface PowerpackWidgetDistributionDefinitionRequest {
@@ -11498,6 +11556,48 @@ export interface PowerpackWidgetDistributionDefinitionRequestStyle {
      * A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
      */
     palette?: pulumi.Input<string>;
+}
+
+export interface PowerpackWidgetDistributionDefinitionXaxis {
+    /**
+     * Always include zero or fit the axis to the data range.
+     */
+    includeZero?: pulumi.Input<boolean>;
+    /**
+     * Specify the maximum value to show on the Y-axis.
+     */
+    max?: pulumi.Input<string>;
+    /**
+     * Specify the minimum value to show on the Y-axis.
+     */
+    min?: pulumi.Input<string>;
+    /**
+     * Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+     */
+    scale?: pulumi.Input<string>;
+}
+
+export interface PowerpackWidgetDistributionDefinitionYaxis {
+    /**
+     * Always include zero or fit the axis to the data range.
+     */
+    includeZero?: pulumi.Input<boolean>;
+    /**
+     * The label of the axis to display on the graph.
+     */
+    label?: pulumi.Input<string>;
+    /**
+     * Specify the maximum value to show on the Y-axis.
+     */
+    max?: pulumi.Input<string>;
+    /**
+     * Specify the minimum value to show on the Y-axis.
+     */
+    min?: pulumi.Input<string>;
+    /**
+     * Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+     */
+    scale?: pulumi.Input<string>;
 }
 
 export interface PowerpackWidgetEventStreamDefinition {
@@ -14108,7 +14208,7 @@ export interface PowerpackWidgetListStreamDefinitionRequestColumn {
 
 export interface PowerpackWidgetListStreamDefinitionRequestQuery {
     /**
-     * Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`.
+     * Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -21654,7 +21754,7 @@ export interface ProviderDefaultTags {
 
 export interface RestrictionPolicyBinding {
     /**
-     * An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `org`. The org ID can be obtained through the api/v2/users API.
+     * An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role`, `team`, `user`, and `org`. Org ID can be obtained using a `GET /api/v2/current_user` API request. Find it in the `data.relationships.org.data.id` field.
      */
     principals: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -21883,6 +21983,29 @@ export interface SecurityMonitoringRuleQueryAgentRule {
      * **Deprecated**. It won't be applied anymore.
      */
     expression: pulumi.Input<string>;
+}
+
+export interface SecurityMonitoringRuleReferenceTable {
+    /**
+     * Whether to include or exclude logs that match the reference table.
+     */
+    checkPresence: pulumi.Input<boolean>;
+    /**
+     * The name of the column in the reference table.
+     */
+    columnName: pulumi.Input<string>;
+    /**
+     * The field in the log that should be matched against the reference table.
+     */
+    logFieldPath: pulumi.Input<string>;
+    /**
+     * The name of the query to filter.
+     */
+    ruleQueryName: pulumi.Input<string>;
+    /**
+     * The name of the reference table.
+     */
+    tableName: pulumi.Input<string>;
 }
 
 export interface SecurityMonitoringRuleSignalQuery {
@@ -23216,6 +23339,13 @@ export namespace aws {
 }
 
 export namespace config {
+}
+
+export namespace gcp {
+    export interface IntegrationStsMetricNamespaceConfig {
+        disabled: pulumi.Input<boolean>;
+        id: pulumi.Input<string>;
+    }
 }
 
 export namespace slack {

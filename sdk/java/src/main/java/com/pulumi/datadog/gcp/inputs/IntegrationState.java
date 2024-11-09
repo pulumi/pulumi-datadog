@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -62,6 +63,21 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+     * 
+     */
+    @Import(name="cloudRunRevisionFilters")
+    private @Nullable Output<List<String>> cloudRunRevisionFilters;
+
+    /**
+     * @return Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+     * 
+     */
+    public Optional<Output<List<String>>> cloudRunRevisionFilters() {
+        return Optional.ofNullable(this.cloudRunRevisionFilters);
+    }
+
+    /**
      * Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled. Defaults to `false`.
      * 
      */
@@ -89,6 +105,21 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> hostFilters() {
         return Optional.ofNullable(this.hostFilters);
+    }
+
+    /**
+     * When enabled, Datadog scans for all resource change data in your Google Cloud environment.
+     * 
+     */
+    @Import(name="isResourceChangeCollectionEnabled")
+    private @Nullable Output<Boolean> isResourceChangeCollectionEnabled;
+
+    /**
+     * @return When enabled, Datadog scans for all resource change data in your Google Cloud environment.
+     * 
+     */
+    public Optional<Output<Boolean>> isResourceChangeCollectionEnabled() {
+        return Optional.ofNullable(this.isResourceChangeCollectionEnabled);
     }
 
     /**
@@ -172,8 +203,10 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         this.automute = $.automute;
         this.clientEmail = $.clientEmail;
         this.clientId = $.clientId;
+        this.cloudRunRevisionFilters = $.cloudRunRevisionFilters;
         this.cspmResourceCollectionEnabled = $.cspmResourceCollectionEnabled;
         this.hostFilters = $.hostFilters;
+        this.isResourceChangeCollectionEnabled = $.isResourceChangeCollectionEnabled;
         this.isSecurityCommandCenterEnabled = $.isSecurityCommandCenterEnabled;
         this.privateKey = $.privateKey;
         this.privateKeyId = $.privateKeyId;
@@ -263,6 +296,37 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param cloudRunRevisionFilters Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cloudRunRevisionFilters(@Nullable Output<List<String>> cloudRunRevisionFilters) {
+            $.cloudRunRevisionFilters = cloudRunRevisionFilters;
+            return this;
+        }
+
+        /**
+         * @param cloudRunRevisionFilters Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cloudRunRevisionFilters(List<String> cloudRunRevisionFilters) {
+            return cloudRunRevisionFilters(Output.of(cloudRunRevisionFilters));
+        }
+
+        /**
+         * @param cloudRunRevisionFilters Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cloudRunRevisionFilters(String... cloudRunRevisionFilters) {
+            return cloudRunRevisionFilters(List.of(cloudRunRevisionFilters));
+        }
+
+        /**
          * @param cspmResourceCollectionEnabled Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled. Defaults to `false`.
          * 
          * @return builder
@@ -302,6 +366,27 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder hostFilters(String hostFilters) {
             return hostFilters(Output.of(hostFilters));
+        }
+
+        /**
+         * @param isResourceChangeCollectionEnabled When enabled, Datadog scans for all resource change data in your Google Cloud environment.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isResourceChangeCollectionEnabled(@Nullable Output<Boolean> isResourceChangeCollectionEnabled) {
+            $.isResourceChangeCollectionEnabled = isResourceChangeCollectionEnabled;
+            return this;
+        }
+
+        /**
+         * @param isResourceChangeCollectionEnabled When enabled, Datadog scans for all resource change data in your Google Cloud environment.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isResourceChangeCollectionEnabled(Boolean isResourceChangeCollectionEnabled) {
+            return isResourceChangeCollectionEnabled(Output.of(isResourceChangeCollectionEnabled));
         }
 
         /**
