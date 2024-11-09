@@ -135,6 +135,21 @@
             },
             "type": "object"
         },
+        "datadog:gcp/IntegrationStsMetricNamespaceConfig:IntegrationStsMetricNamespaceConfig": {
+            "properties": {
+                "disabled": {
+                    "type": "boolean"
+                },
+                "id": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "disabled",
+                "id"
+            ]
+        },
         "datadog:index/ApmRetentionFilterFilter:ApmRetentionFilterFilter": {
             "properties": {
                 "query": {
@@ -1575,6 +1590,14 @@
                 "titleSize": {
                     "type": "string",
                     "description": "The size of the widget's title (defaults to 16).\n"
+                },
+                "xaxis": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetDistributionDefinitionXaxis:DashboardWidgetDistributionDefinitionXaxis",
+                    "description": "A nested block describing the X-Axis Controls. Exactly one nested block is allowed using the structure below.\n"
+                },
+                "yaxis": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetDistributionDefinitionYaxis:DashboardWidgetDistributionDefinitionYaxis",
+                    "description": "A nested block describing the Y-Axis Controls. Exactly one nested block is allowed using the structure below.\n"
                 }
             },
             "type": "object"
@@ -1714,6 +1737,52 @@
                 "palette": {
                     "type": "string",
                     "description": "A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/DashboardWidgetDistributionDefinitionXaxis:DashboardWidgetDistributionDefinitionXaxis": {
+            "properties": {
+                "includeZero": {
+                    "type": "boolean",
+                    "description": "Always include zero or fit the axis to the data range.\n"
+                },
+                "max": {
+                    "type": "string",
+                    "description": "Specify the maximum value to show on the Y-axis.\n"
+                },
+                "min": {
+                    "type": "string",
+                    "description": "Specify the minimum value to show on the Y-axis.\n"
+                },
+                "scale": {
+                    "type": "string",
+                    "description": "Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/DashboardWidgetDistributionDefinitionYaxis:DashboardWidgetDistributionDefinitionYaxis": {
+            "properties": {
+                "includeZero": {
+                    "type": "boolean",
+                    "description": "Always include zero or fit the axis to the data range.\n"
+                },
+                "label": {
+                    "type": "string",
+                    "description": "The label of the axis to display on the graph.\n"
+                },
+                "max": {
+                    "type": "string",
+                    "description": "Specify the maximum value to show on the Y-axis.\n"
+                },
+                "min": {
+                    "type": "string",
+                    "description": "Specify the minimum value to show on the Y-axis.\n"
+                },
+                "scale": {
+                    "type": "string",
+                    "description": "Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.\n"
                 }
             },
             "type": "object"
@@ -3770,7 +3839,7 @@
             "properties": {
                 "dataSource": {
                     "type": "string",
-                    "description": "Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`.\n"
+                    "description": "Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`, `llm_observability_stream`.\n"
                 },
                 "eventSize": {
                     "type": "string",
@@ -14511,6 +14580,14 @@
                 "titleSize": {
                     "type": "string",
                     "description": "The size of the widget's title (defaults to 16).\n"
+                },
+                "xaxis": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetDistributionDefinitionXaxis:PowerpackWidgetDistributionDefinitionXaxis",
+                    "description": "A nested block describing the X-Axis Controls. Exactly one nested block is allowed using the structure below.\n"
+                },
+                "yaxis": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetDistributionDefinitionYaxis:PowerpackWidgetDistributionDefinitionYaxis",
+                    "description": "A nested block describing the Y-Axis Controls. Exactly one nested block is allowed using the structure below.\n"
                 }
             },
             "type": "object"
@@ -15098,6 +15175,52 @@
                 "palette": {
                     "type": "string",
                     "description": "A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/PowerpackWidgetDistributionDefinitionXaxis:PowerpackWidgetDistributionDefinitionXaxis": {
+            "properties": {
+                "includeZero": {
+                    "type": "boolean",
+                    "description": "Always include zero or fit the axis to the data range.\n"
+                },
+                "max": {
+                    "type": "string",
+                    "description": "Specify the maximum value to show on the Y-axis.\n"
+                },
+                "min": {
+                    "type": "string",
+                    "description": "Specify the minimum value to show on the Y-axis.\n"
+                },
+                "scale": {
+                    "type": "string",
+                    "description": "Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/PowerpackWidgetDistributionDefinitionYaxis:PowerpackWidgetDistributionDefinitionYaxis": {
+            "properties": {
+                "includeZero": {
+                    "type": "boolean",
+                    "description": "Always include zero or fit the axis to the data range.\n"
+                },
+                "label": {
+                    "type": "string",
+                    "description": "The label of the axis to display on the graph.\n"
+                },
+                "max": {
+                    "type": "string",
+                    "description": "Specify the maximum value to show on the Y-axis.\n"
+                },
+                "min": {
+                    "type": "string",
+                    "description": "Specify the minimum value to show on the Y-axis.\n"
+                },
+                "scale": {
+                    "type": "string",
+                    "description": "Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.\n"
                 }
             },
             "type": "object"
@@ -18508,7 +18631,7 @@
             "properties": {
                 "dataSource": {
                     "type": "string",
-                    "description": "Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`.\n"
+                    "description": "Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`, `llm_observability_stream`.\n"
                 },
                 "eventSize": {
                     "type": "string",
@@ -28321,7 +28444,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `org`. The org ID can be obtained through the api/v2/users API.\n"
+                    "description": "An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role`, `team`, `user`, and `org`. Org ID can be obtained using a `GET /api/v2/current_user` API request. Find it in the `data.relationships.org.data.id` field.\n"
                 },
                 "relation": {
                     "type": "string",
@@ -28662,6 +28785,38 @@
             "required": [
                 "agentRuleId",
                 "expression"
+            ]
+        },
+        "datadog:index/SecurityMonitoringRuleReferenceTable:SecurityMonitoringRuleReferenceTable": {
+            "properties": {
+                "checkPresence": {
+                    "type": "boolean",
+                    "description": "Whether to include or exclude logs that match the reference table.\n"
+                },
+                "columnName": {
+                    "type": "string",
+                    "description": "The name of the column in the reference table.\n"
+                },
+                "logFieldPath": {
+                    "type": "string",
+                    "description": "The field in the log that should be matched against the reference table.\n"
+                },
+                "ruleQueryName": {
+                    "type": "string",
+                    "description": "The name of the query to filter.\n"
+                },
+                "tableName": {
+                    "type": "string",
+                    "description": "The name of the reference table.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "checkPresence",
+                "columnName",
+                "logFieldPath",
+                "ruleQueryName",
+                "tableName"
             ]
         },
         "datadog:index/SecurityMonitoringRuleSignalQuery:SecurityMonitoringRuleSignalQuery": {
@@ -31254,6 +31409,13 @@
                     },
                     "description": "Queries for selecting logs which are part of the rule.\n"
                 },
+                "referenceTables": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/getSecurityMonitoringRulesRuleReferenceTable:getSecurityMonitoringRulesRuleReferenceTable"
+                    },
+                    "description": "Reference tables for filtering query results.\n"
+                },
                 "signalQueries": {
                     "type": "array",
                     "items": {
@@ -31555,6 +31717,43 @@
             "required": [
                 "agentRuleId",
                 "expression"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "datadog:index/getSecurityMonitoringRulesRuleReferenceTable:getSecurityMonitoringRulesRuleReferenceTable": {
+            "properties": {
+                "checkPresence": {
+                    "type": "boolean",
+                    "description": "Whether to include or exclude logs that match the reference table.\n"
+                },
+                "columnName": {
+                    "type": "string",
+                    "description": "The name of the column in the reference table.\n"
+                },
+                "logFieldPath": {
+                    "type": "string",
+                    "description": "The field in the log that should be matched against the reference table.\n"
+                },
+                "ruleQueryName": {
+                    "type": "string",
+                    "description": "The name of the query to filter.\n"
+                },
+                "tableName": {
+                    "type": "string",
+                    "description": "The name of the reference table.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "checkPresence",
+                "columnName",
+                "logFieldPath",
+                "ruleQueryName",
+                "tableName"
             ],
             "language": {
                 "nodejs": {
@@ -32511,11 +32710,19 @@
                 "name": {
                     "type": "string",
                     "description": "The name of the Cloudflare account.\n"
+                },
+                "resources": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An allowlist of resources to restrict pulling metrics for including `web`, `dns`, `lb` (load balancer), `worker`)\n"
                 }
             },
             "required": [
                 "apiKey",
-                "name"
+                "name",
+                "resources"
             ],
             "inputProperties": {
                 "apiKey": {
@@ -32530,6 +32737,13 @@
                 "name": {
                     "type": "string",
                     "description": "The name of the Cloudflare account.\n"
+                },
+                "resources": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An allowlist of resources to restrict pulling metrics for including `web`, `dns`, `lb` (load balancer), `worker`)\n"
                 }
             },
             "requiredInputs": [
@@ -32551,6 +32765,13 @@
                     "name": {
                         "type": "string",
                         "description": "The name of the Cloudflare account.\n"
+                    },
+                    "resources": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "An allowlist of resources to restrict pulling metrics for including `web`, `dns`, `lb` (load balancer), `worker`)\n"
                     }
                 },
                 "type": "object"
@@ -32840,6 +33061,13 @@
                     "type": "string",
                     "description": "Your ID found in your JSON service account key.\n"
                 },
+                "cloudRunRevisionFilters": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.\n"
+                },
                 "cspmResourceCollectionEnabled": {
                     "type": "boolean",
                     "description": "Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled. Defaults to `false`.\n"
@@ -32847,6 +33075,10 @@
                 "hostFilters": {
                     "type": "string",
                     "description": "Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. Defaults to `\"\"`.\n"
+                },
+                "isResourceChangeCollectionEnabled": {
+                    "type": "boolean",
+                    "description": "When enabled, Datadog scans for all resource change data in your Google Cloud environment.\n"
                 },
                 "isSecurityCommandCenterEnabled": {
                     "type": "boolean",
@@ -32876,6 +33108,7 @@
                 "clientId",
                 "cspmResourceCollectionEnabled",
                 "hostFilters",
+                "isResourceChangeCollectionEnabled",
                 "isSecurityCommandCenterEnabled",
                 "privateKey",
                 "privateKeyId",
@@ -32895,6 +33128,13 @@
                     "type": "string",
                     "description": "Your ID found in your JSON service account key.\n"
                 },
+                "cloudRunRevisionFilters": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.\n"
+                },
                 "cspmResourceCollectionEnabled": {
                     "type": "boolean",
                     "description": "Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled. Defaults to `false`.\n"
@@ -32902,6 +33142,10 @@
                 "hostFilters": {
                     "type": "string",
                     "description": "Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. Defaults to `\"\"`.\n"
+                },
+                "isResourceChangeCollectionEnabled": {
+                    "type": "boolean",
+                    "description": "When enabled, Datadog scans for all resource change data in your Google Cloud environment.\n"
                 },
                 "isSecurityCommandCenterEnabled": {
                     "type": "boolean",
@@ -32947,6 +33191,13 @@
                         "type": "string",
                         "description": "Your ID found in your JSON service account key.\n"
                     },
+                    "cloudRunRevisionFilters": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.\n"
+                    },
                     "cspmResourceCollectionEnabled": {
                         "type": "boolean",
                         "description": "Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled. Defaults to `false`.\n"
@@ -32954,6 +33205,10 @@
                     "hostFilters": {
                         "type": "string",
                         "description": "Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. Defaults to `\"\"`.\n"
+                    },
+                    "isResourceChangeCollectionEnabled": {
+                        "type": "boolean",
+                        "description": "When enabled, Datadog scans for all resource change data in your Google Cloud environment.\n"
                     },
                     "isSecurityCommandCenterEnabled": {
                         "type": "boolean",
@@ -32998,6 +33253,13 @@
                     "type": "string",
                     "description": "Your service account email address.\n"
                 },
+                "cloudRunRevisionFilters": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.\n"
+                },
                 "delegateAccountEmail": {
                     "type": "string",
                     "description": "Datadog's STS Delegate Email.\n"
@@ -33013,9 +33275,20 @@
                     "type": "boolean",
                     "description": "Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled.\n"
                 },
+                "isResourceChangeCollectionEnabled": {
+                    "type": "boolean",
+                    "description": "When enabled, Datadog scans for all resource change data in your Google Cloud environment.\n"
+                },
                 "isSecurityCommandCenterEnabled": {
                     "type": "boolean",
                     "description": "When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.\n"
+                },
+                "metricNamespaceConfigs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:gcp/IntegrationStsMetricNamespaceConfig:IntegrationStsMetricNamespaceConfig"
+                    },
+                    "description": "Configuration for a GCP metric namespace.\n"
                 },
                 "resourceCollectionEnabled": {
                     "type": "boolean",
@@ -33027,6 +33300,7 @@
                 "clientEmail",
                 "delegateAccountEmail",
                 "isCspmEnabled",
+                "isResourceChangeCollectionEnabled",
                 "isSecurityCommandCenterEnabled",
                 "resourceCollectionEnabled"
             ],
@@ -33046,6 +33320,13 @@
                     "type": "string",
                     "description": "Your service account email address.\n"
                 },
+                "cloudRunRevisionFilters": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.\n"
+                },
                 "hostFilters": {
                     "type": "array",
                     "items": {
@@ -33057,9 +33338,20 @@
                     "type": "boolean",
                     "description": "Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled.\n"
                 },
+                "isResourceChangeCollectionEnabled": {
+                    "type": "boolean",
+                    "description": "When enabled, Datadog scans for all resource change data in your Google Cloud environment.\n"
+                },
                 "isSecurityCommandCenterEnabled": {
                     "type": "boolean",
                     "description": "When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.\n"
+                },
+                "metricNamespaceConfigs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:gcp/IntegrationStsMetricNamespaceConfig:IntegrationStsMetricNamespaceConfig"
+                    },
+                    "description": "Configuration for a GCP metric namespace.\n"
                 },
                 "resourceCollectionEnabled": {
                     "type": "boolean",
@@ -33087,6 +33379,13 @@
                         "type": "string",
                         "description": "Your service account email address.\n"
                     },
+                    "cloudRunRevisionFilters": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.\n"
+                    },
                     "delegateAccountEmail": {
                         "type": "string",
                         "description": "Datadog's STS Delegate Email.\n"
@@ -33102,9 +33401,20 @@
                         "type": "boolean",
                         "description": "Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled.\n"
                     },
+                    "isResourceChangeCollectionEnabled": {
+                        "type": "boolean",
+                        "description": "When enabled, Datadog scans for all resource change data in your Google Cloud environment.\n"
+                    },
                     "isSecurityCommandCenterEnabled": {
                         "type": "boolean",
                         "description": "When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.\n"
+                    },
+                    "metricNamespaceConfigs": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/datadog:gcp/IntegrationStsMetricNamespaceConfig:IntegrationStsMetricNamespaceConfig"
+                        },
+                        "description": "Configuration for a GCP metric namespace.\n"
                     },
                     "resourceCollectionEnabled": {
                         "type": "boolean",
@@ -36844,6 +37154,13 @@
                     },
                     "description": "Queries for selecting logs which are part of the rule.\n"
                 },
+                "referenceTables": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/SecurityMonitoringRuleReferenceTable:SecurityMonitoringRuleReferenceTable"
+                    },
+                    "description": "Reference tables for filtering query results.\n"
+                },
                 "signalQueries": {
                     "type": "array",
                     "items": {
@@ -36919,6 +37236,13 @@
                         "$ref": "#/types/datadog:index/SecurityMonitoringRuleQuery:SecurityMonitoringRuleQuery"
                     },
                     "description": "Queries for selecting logs which are part of the rule.\n"
+                },
+                "referenceTables": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/SecurityMonitoringRuleReferenceTable:SecurityMonitoringRuleReferenceTable"
+                    },
+                    "description": "Reference tables for filtering query results.\n"
                 },
                 "signalQueries": {
                     "type": "array",
@@ -36997,6 +37321,13 @@
                             "$ref": "#/types/datadog:index/SecurityMonitoringRuleQuery:SecurityMonitoringRuleQuery"
                         },
                         "description": "Queries for selecting logs which are part of the rule.\n"
+                    },
+                    "referenceTables": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/datadog:index/SecurityMonitoringRuleReferenceTable:SecurityMonitoringRuleReferenceTable"
+                        },
+                        "description": "Reference tables for filtering query results.\n"
                     },
                     "signalQueries": {
                         "type": "array",
@@ -38505,7 +38836,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "Synthetics test type. Valid values are `api`, `browser`.\n"
+                    "description": "Synthetics test type. Valid values are `api`, `browser`, `mobile`.\n"
                 },
                 "variablesFromScript": {
                     "type": "string",
@@ -38649,7 +38980,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "Synthetics test type. Valid values are `api`, `browser`.\n"
+                    "description": "Synthetics test type. Valid values are `api`, `browser`, `mobile`.\n"
                 },
                 "variablesFromScript": {
                     "type": "string",
@@ -38798,7 +39129,7 @@
                     },
                     "type": {
                         "type": "string",
-                        "description": "Synthetics test type. Valid values are `api`, `browser`.\n"
+                        "description": "Synthetics test type. Valid values are `api`, `browser`, `mobile`.\n"
                     },
                     "variablesFromScript": {
                         "type": "string",

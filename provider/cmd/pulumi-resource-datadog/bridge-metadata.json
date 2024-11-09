@@ -530,6 +530,12 @@
                                                         }
                                                     }
                                                 }
+                                            },
+                                            "xaxis": {
+                                                "maxItemsOne": true
+                                            },
+                                            "yaxis": {
+                                                "maxItemsOne": true
                                             }
                                         }
                                     }
@@ -1119,6 +1125,12 @@
                                                                                 }
                                                                             }
                                                                         }
+                                                                    },
+                                                                    "xaxis": {
+                                                                        "maxItemsOne": true
+                                                                    },
+                                                                    "yaxis": {
+                                                                        "maxItemsOne": true
                                                                     }
                                                                 }
                                                             }
@@ -11365,7 +11377,12 @@
             },
             "datadog_integration_cloudflare_account": {
                 "current": "datadog:cloudflare/integrationAccount:IntegrationAccount",
-                "majorVersion": 4
+                "majorVersion": 4,
+                "fields": {
+                    "resources": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "datadog_integration_confluent_account": {
                 "current": "datadog:confluent/integrationAccount:IntegrationAccount",
@@ -11400,7 +11417,12 @@
             },
             "datadog_integration_gcp": {
                 "current": "datadog:gcp/integration:Integration",
-                "majorVersion": 4
+                "majorVersion": 4,
+                "fields": {
+                    "cloud_run_revision_filters": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "datadog_integration_gcp_sts": {
                 "current": "datadog:gcp/integrationSts:IntegrationSts",
@@ -11409,7 +11431,13 @@
                     "account_tags": {
                         "maxItemsOne": false
                     },
+                    "cloud_run_revision_filters": {
+                        "maxItemsOne": false
+                    },
                     "host_filters": {
+                        "maxItemsOne": false
+                    },
+                    "metric_namespace_configs": {
                         "maxItemsOne": false
                     }
                 }
@@ -12438,6 +12466,12 @@
                                                         }
                                                     }
                                                 }
+                                            },
+                                            "xaxis": {
+                                                "maxItemsOne": true
+                                            },
+                                            "yaxis": {
+                                                "maxItemsOne": true
                                             }
                                         }
                                     }
@@ -15322,6 +15356,9 @@
                             }
                         }
                     },
+                    "reference_tables": {
+                        "maxItemsOne": false
+                    },
                     "signal_query": {
                         "maxItemsOne": false,
                         "elem": {
@@ -16212,6 +16249,9 @@
                                             }
                                         }
                                     }
+                                },
+                                "reference_tables": {
+                                    "maxItemsOne": false
                                 },
                                 "signal_query": {
                                     "maxItemsOne": false,
