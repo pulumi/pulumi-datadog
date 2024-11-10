@@ -595,7 +595,7 @@ export class SyntheticsTest extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<string[] | undefined>;
     /**
-     * Synthetics test type. Valid values are `api`, `browser`.
+     * Synthetics test type. Valid values are `api`, `browser`, `mobile`.
      */
     public readonly type!: pulumi.Output<string>;
     /**
@@ -786,7 +786,7 @@ export interface SyntheticsTestState {
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Synthetics test type. Valid values are `api`, `browser`.
+     * Synthetics test type. Valid values are `api`, `browser`, `mobile`.
      */
     type?: pulumi.Input<string>;
     /**
@@ -889,7 +889,7 @@ export interface SyntheticsTestArgs {
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Synthetics test type. Valid values are `api`, `browser`.
+     * Synthetics test type. Valid values are `api`, `browser`, `mobile`.
      */
     type: pulumi.Input<string>;
     /**

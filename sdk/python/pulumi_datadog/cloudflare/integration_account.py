@@ -21,17 +21,21 @@ class IntegrationAccountArgs:
     def __init__(__self__, *,
                  api_key: pulumi.Input[str],
                  name: pulumi.Input[str],
-                 email: Optional[pulumi.Input[str]] = None):
+                 email: Optional[pulumi.Input[str]] = None,
+                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a IntegrationAccount resource.
         :param pulumi.Input[str] api_key: The API key (or token) for the Cloudflare account.
         :param pulumi.Input[str] name: The name of the Cloudflare account.
         :param pulumi.Input[str] email: The email associated with the Cloudflare account. If an API key is provided (and not a token), this field is also required.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: An allowlist of resources to restrict pulling metrics for including `web`, `dns`, `lb` (load balancer), `worker`)
         """
         pulumi.set(__self__, "api_key", api_key)
         pulumi.set(__self__, "name", name)
         if email is not None:
             pulumi.set(__self__, "email", email)
+        if resources is not None:
+            pulumi.set(__self__, "resources", resources)
 
     @property
     @pulumi.getter(name="apiKey")
@@ -69,18 +73,32 @@ class IntegrationAccountArgs:
     def email(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "email", value)
 
+    @property
+    @pulumi.getter
+    def resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        An allowlist of resources to restrict pulling metrics for including `web`, `dns`, `lb` (load balancer), `worker`)
+        """
+        return pulumi.get(self, "resources")
+
+    @resources.setter
+    def resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "resources", value)
+
 
 @pulumi.input_type
 class _IntegrationAccountState:
     def __init__(__self__, *,
                  api_key: Optional[pulumi.Input[str]] = None,
                  email: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering IntegrationAccount resources.
         :param pulumi.Input[str] api_key: The API key (or token) for the Cloudflare account.
         :param pulumi.Input[str] email: The email associated with the Cloudflare account. If an API key is provided (and not a token), this field is also required.
         :param pulumi.Input[str] name: The name of the Cloudflare account.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: An allowlist of resources to restrict pulling metrics for including `web`, `dns`, `lb` (load balancer), `worker`)
         """
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
@@ -88,6 +106,8 @@ class _IntegrationAccountState:
             pulumi.set(__self__, "email", email)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if resources is not None:
+            pulumi.set(__self__, "resources", resources)
 
     @property
     @pulumi.getter(name="apiKey")
@@ -125,6 +145,18 @@ class _IntegrationAccountState:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        An allowlist of resources to restrict pulling metrics for including `web`, `dns`, `lb` (load balancer), `worker`)
+        """
+        return pulumi.get(self, "resources")
+
+    @resources.setter
+    def resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "resources", value)
+
 
 class IntegrationAccount(pulumi.CustomResource):
     @overload
@@ -134,6 +166,7 @@ class IntegrationAccount(pulumi.CustomResource):
                  api_key: Optional[pulumi.Input[str]] = None,
                  email: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides a Datadog IntegrationCloudflareAccount resource. This can be used to create and manage Datadog integration_cloudflare_account.
@@ -162,6 +195,7 @@ class IntegrationAccount(pulumi.CustomResource):
         :param pulumi.Input[str] api_key: The API key (or token) for the Cloudflare account.
         :param pulumi.Input[str] email: The email associated with the Cloudflare account. If an API key is provided (and not a token), this field is also required.
         :param pulumi.Input[str] name: The name of the Cloudflare account.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: An allowlist of resources to restrict pulling metrics for including `web`, `dns`, `lb` (load balancer), `worker`)
         """
         ...
     @overload
@@ -209,6 +243,7 @@ class IntegrationAccount(pulumi.CustomResource):
                  api_key: Optional[pulumi.Input[str]] = None,
                  email: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -225,6 +260,7 @@ class IntegrationAccount(pulumi.CustomResource):
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
+            __props__.__dict__["resources"] = resources
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["apiKey"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(IntegrationAccount, __self__).__init__(
@@ -239,7 +275,8 @@ class IntegrationAccount(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             api_key: Optional[pulumi.Input[str]] = None,
             email: Optional[pulumi.Input[str]] = None,
-            name: Optional[pulumi.Input[str]] = None) -> 'IntegrationAccount':
+            name: Optional[pulumi.Input[str]] = None,
+            resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'IntegrationAccount':
         """
         Get an existing IntegrationAccount resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -250,6 +287,7 @@ class IntegrationAccount(pulumi.CustomResource):
         :param pulumi.Input[str] api_key: The API key (or token) for the Cloudflare account.
         :param pulumi.Input[str] email: The email associated with the Cloudflare account. If an API key is provided (and not a token), this field is also required.
         :param pulumi.Input[str] name: The name of the Cloudflare account.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: An allowlist of resources to restrict pulling metrics for including `web`, `dns`, `lb` (load balancer), `worker`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -258,6 +296,7 @@ class IntegrationAccount(pulumi.CustomResource):
         __props__.__dict__["api_key"] = api_key
         __props__.__dict__["email"] = email
         __props__.__dict__["name"] = name
+        __props__.__dict__["resources"] = resources
         return IntegrationAccount(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -283,4 +322,12 @@ class IntegrationAccount(pulumi.CustomResource):
         The name of the Cloudflare account.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def resources(self) -> pulumi.Output[Sequence[str]]:
+        """
+        An allowlist of resources to restrict pulling metrics for including `web`, `dns`, `lb` (load balancer), `worker`)
+        """
+        return pulumi.get(self, "resources")
 

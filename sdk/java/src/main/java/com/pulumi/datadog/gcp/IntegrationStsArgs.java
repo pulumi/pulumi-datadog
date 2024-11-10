@@ -5,6 +5,7 @@ package com.pulumi.datadog.gcp;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.gcp.inputs.IntegrationStsMetricNamespaceConfigArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
@@ -64,6 +65,21 @@ public final class IntegrationStsArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+     * 
+     */
+    @Import(name="cloudRunRevisionFilters")
+    private @Nullable Output<List<String>> cloudRunRevisionFilters;
+
+    /**
+     * @return Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+     * 
+     */
+    public Optional<Output<List<String>>> cloudRunRevisionFilters() {
+        return Optional.ofNullable(this.cloudRunRevisionFilters);
+    }
+
+    /**
      * Your Host Filters.
      * 
      */
@@ -94,6 +110,21 @@ public final class IntegrationStsArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * When enabled, Datadog scans for all resource change data in your Google Cloud environment.
+     * 
+     */
+    @Import(name="isResourceChangeCollectionEnabled")
+    private @Nullable Output<Boolean> isResourceChangeCollectionEnabled;
+
+    /**
+     * @return When enabled, Datadog scans for all resource change data in your Google Cloud environment.
+     * 
+     */
+    public Optional<Output<Boolean>> isResourceChangeCollectionEnabled() {
+        return Optional.ofNullable(this.isResourceChangeCollectionEnabled);
+    }
+
+    /**
      * When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
      * 
      */
@@ -106,6 +137,21 @@ public final class IntegrationStsArgs extends com.pulumi.resources.ResourceArgs 
      */
     public Optional<Output<Boolean>> isSecurityCommandCenterEnabled() {
         return Optional.ofNullable(this.isSecurityCommandCenterEnabled);
+    }
+
+    /**
+     * Configuration for a GCP metric namespace.
+     * 
+     */
+    @Import(name="metricNamespaceConfigs")
+    private @Nullable Output<List<IntegrationStsMetricNamespaceConfigArgs>> metricNamespaceConfigs;
+
+    /**
+     * @return Configuration for a GCP metric namespace.
+     * 
+     */
+    public Optional<Output<List<IntegrationStsMetricNamespaceConfigArgs>>> metricNamespaceConfigs() {
+        return Optional.ofNullable(this.metricNamespaceConfigs);
     }
 
     /**
@@ -129,9 +175,12 @@ public final class IntegrationStsArgs extends com.pulumi.resources.ResourceArgs 
         this.accountTags = $.accountTags;
         this.automute = $.automute;
         this.clientEmail = $.clientEmail;
+        this.cloudRunRevisionFilters = $.cloudRunRevisionFilters;
         this.hostFilters = $.hostFilters;
         this.isCspmEnabled = $.isCspmEnabled;
+        this.isResourceChangeCollectionEnabled = $.isResourceChangeCollectionEnabled;
         this.isSecurityCommandCenterEnabled = $.isSecurityCommandCenterEnabled;
+        this.metricNamespaceConfigs = $.metricNamespaceConfigs;
         this.resourceCollectionEnabled = $.resourceCollectionEnabled;
     }
 
@@ -227,6 +276,37 @@ public final class IntegrationStsArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
+         * @param cloudRunRevisionFilters Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cloudRunRevisionFilters(@Nullable Output<List<String>> cloudRunRevisionFilters) {
+            $.cloudRunRevisionFilters = cloudRunRevisionFilters;
+            return this;
+        }
+
+        /**
+         * @param cloudRunRevisionFilters Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cloudRunRevisionFilters(List<String> cloudRunRevisionFilters) {
+            return cloudRunRevisionFilters(Output.of(cloudRunRevisionFilters));
+        }
+
+        /**
+         * @param cloudRunRevisionFilters Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cloudRunRevisionFilters(String... cloudRunRevisionFilters) {
+            return cloudRunRevisionFilters(List.of(cloudRunRevisionFilters));
+        }
+
+        /**
          * @param hostFilters Your Host Filters.
          * 
          * @return builder
@@ -279,6 +359,27 @@ public final class IntegrationStsArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
+         * @param isResourceChangeCollectionEnabled When enabled, Datadog scans for all resource change data in your Google Cloud environment.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isResourceChangeCollectionEnabled(@Nullable Output<Boolean> isResourceChangeCollectionEnabled) {
+            $.isResourceChangeCollectionEnabled = isResourceChangeCollectionEnabled;
+            return this;
+        }
+
+        /**
+         * @param isResourceChangeCollectionEnabled When enabled, Datadog scans for all resource change data in your Google Cloud environment.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isResourceChangeCollectionEnabled(Boolean isResourceChangeCollectionEnabled) {
+            return isResourceChangeCollectionEnabled(Output.of(isResourceChangeCollectionEnabled));
+        }
+
+        /**
          * @param isSecurityCommandCenterEnabled When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
          * 
          * @return builder
@@ -297,6 +398,37 @@ public final class IntegrationStsArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder isSecurityCommandCenterEnabled(Boolean isSecurityCommandCenterEnabled) {
             return isSecurityCommandCenterEnabled(Output.of(isSecurityCommandCenterEnabled));
+        }
+
+        /**
+         * @param metricNamespaceConfigs Configuration for a GCP metric namespace.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metricNamespaceConfigs(@Nullable Output<List<IntegrationStsMetricNamespaceConfigArgs>> metricNamespaceConfigs) {
+            $.metricNamespaceConfigs = metricNamespaceConfigs;
+            return this;
+        }
+
+        /**
+         * @param metricNamespaceConfigs Configuration for a GCP metric namespace.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metricNamespaceConfigs(List<IntegrationStsMetricNamespaceConfigArgs> metricNamespaceConfigs) {
+            return metricNamespaceConfigs(Output.of(metricNamespaceConfigs));
+        }
+
+        /**
+         * @param metricNamespaceConfigs Configuration for a GCP metric namespace.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metricNamespaceConfigs(IntegrationStsMetricNamespaceConfigArgs... metricNamespaceConfigs) {
+            return metricNamespaceConfigs(List.of(metricNamespaceConfigs));
         }
 
         /**

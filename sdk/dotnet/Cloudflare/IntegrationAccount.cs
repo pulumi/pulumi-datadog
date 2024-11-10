@@ -60,6 +60,12 @@ namespace Pulumi.Datadog.Cloudflare
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// An allowlist of resources to restrict pulling metrics for including `web`, `dns`, `lb` (load balancer), `worker`)
+        /// </summary>
+        [Output("resources")]
+        public Output<ImmutableArray<string>> Resources { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a IntegrationAccount resource with the given unique name, arguments, and options.
@@ -138,6 +144,18 @@ namespace Pulumi.Datadog.Cloudflare
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("resources")]
+        private InputList<string>? _resources;
+
+        /// <summary>
+        /// An allowlist of resources to restrict pulling metrics for including `web`, `dns`, `lb` (load balancer), `worker`)
+        /// </summary>
+        public InputList<string> Resources
+        {
+            get => _resources ?? (_resources = new InputList<string>());
+            set => _resources = value;
+        }
+
         public IntegrationAccountArgs()
         {
         }
@@ -173,6 +191,18 @@ namespace Pulumi.Datadog.Cloudflare
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("resources")]
+        private InputList<string>? _resources;
+
+        /// <summary>
+        /// An allowlist of resources to restrict pulling metrics for including `web`, `dns`, `lb` (load balancer), `worker`)
+        /// </summary>
+        public InputList<string> Resources
+        {
+            get => _resources ?? (_resources = new InputList<string>());
+            set => _resources = value;
+        }
 
         public IntegrationAccountState()
         {

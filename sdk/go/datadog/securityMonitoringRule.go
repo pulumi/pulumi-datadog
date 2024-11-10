@@ -103,6 +103,8 @@ type SecurityMonitoringRule struct {
 	Options SecurityMonitoringRuleOptionsPtrOutput `pulumi:"options"`
 	// Queries for selecting logs which are part of the rule.
 	Queries SecurityMonitoringRuleQueryArrayOutput `pulumi:"queries"`
+	// Reference tables for filtering query results.
+	ReferenceTables SecurityMonitoringRuleReferenceTableArrayOutput `pulumi:"referenceTables"`
 	// Queries for selecting logs which are part of the rule.
 	SignalQueries SecurityMonitoringRuleSignalQueryArrayOutput `pulumi:"signalQueries"`
 	// Tags for generated signals.
@@ -167,6 +169,8 @@ type securityMonitoringRuleState struct {
 	Options *SecurityMonitoringRuleOptions `pulumi:"options"`
 	// Queries for selecting logs which are part of the rule.
 	Queries []SecurityMonitoringRuleQuery `pulumi:"queries"`
+	// Reference tables for filtering query results.
+	ReferenceTables []SecurityMonitoringRuleReferenceTable `pulumi:"referenceTables"`
 	// Queries for selecting logs which are part of the rule.
 	SignalQueries []SecurityMonitoringRuleSignalQuery `pulumi:"signalQueries"`
 	// Tags for generated signals.
@@ -196,6 +200,8 @@ type SecurityMonitoringRuleState struct {
 	Options SecurityMonitoringRuleOptionsPtrInput
 	// Queries for selecting logs which are part of the rule.
 	Queries SecurityMonitoringRuleQueryArrayInput
+	// Reference tables for filtering query results.
+	ReferenceTables SecurityMonitoringRuleReferenceTableArrayInput
 	// Queries for selecting logs which are part of the rule.
 	SignalQueries SecurityMonitoringRuleSignalQueryArrayInput
 	// Tags for generated signals.
@@ -229,6 +235,8 @@ type securityMonitoringRuleArgs struct {
 	Options *SecurityMonitoringRuleOptions `pulumi:"options"`
 	// Queries for selecting logs which are part of the rule.
 	Queries []SecurityMonitoringRuleQuery `pulumi:"queries"`
+	// Reference tables for filtering query results.
+	ReferenceTables []SecurityMonitoringRuleReferenceTable `pulumi:"referenceTables"`
 	// Queries for selecting logs which are part of the rule.
 	SignalQueries []SecurityMonitoringRuleSignalQuery `pulumi:"signalQueries"`
 	// Tags for generated signals.
@@ -259,6 +267,8 @@ type SecurityMonitoringRuleArgs struct {
 	Options SecurityMonitoringRuleOptionsPtrInput
 	// Queries for selecting logs which are part of the rule.
 	Queries SecurityMonitoringRuleQueryArrayInput
+	// Reference tables for filtering query results.
+	ReferenceTables SecurityMonitoringRuleReferenceTableArrayInput
 	// Queries for selecting logs which are part of the rule.
 	SignalQueries SecurityMonitoringRuleSignalQueryArrayInput
 	// Tags for generated signals.
@@ -396,6 +406,13 @@ func (o SecurityMonitoringRuleOutput) Options() SecurityMonitoringRuleOptionsPtr
 // Queries for selecting logs which are part of the rule.
 func (o SecurityMonitoringRuleOutput) Queries() SecurityMonitoringRuleQueryArrayOutput {
 	return o.ApplyT(func(v *SecurityMonitoringRule) SecurityMonitoringRuleQueryArrayOutput { return v.Queries }).(SecurityMonitoringRuleQueryArrayOutput)
+}
+
+// Reference tables for filtering query results.
+func (o SecurityMonitoringRuleOutput) ReferenceTables() SecurityMonitoringRuleReferenceTableArrayOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRule) SecurityMonitoringRuleReferenceTableArrayOutput {
+		return v.ReferenceTables
+	}).(SecurityMonitoringRuleReferenceTableArrayOutput)
 }
 
 // Queries for selecting logs which are part of the rule.
