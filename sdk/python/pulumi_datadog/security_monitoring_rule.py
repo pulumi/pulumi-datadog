@@ -29,6 +29,7 @@ class SecurityMonitoringRuleArgs:
                  has_extended_title: Optional[pulumi.Input[bool]] = None,
                  options: Optional[pulumi.Input['SecurityMonitoringRuleOptionsArgs']] = None,
                  queries: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleQueryArgs']]]] = None,
+                 reference_tables: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleReferenceTableArgs']]]] = None,
                  signal_queries: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleSignalQueryArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  third_party_cases: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleThirdPartyCaseArgs']]]] = None,
@@ -44,6 +45,7 @@ class SecurityMonitoringRuleArgs:
         :param pulumi.Input[bool] has_extended_title: Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
         :param pulumi.Input['SecurityMonitoringRuleOptionsArgs'] options: Options on rules.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleQueryArgs']]] queries: Queries for selecting logs which are part of the rule.
+        :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleReferenceTableArgs']]] reference_tables: Reference tables for filtering query results.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleSignalQueryArgs']]] signal_queries: Queries for selecting logs which are part of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags for generated signals.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleThirdPartyCaseArgs']]] third_party_cases: Cases for generating signals for third-party rules. Only required and accepted for third-party rules
@@ -64,6 +66,8 @@ class SecurityMonitoringRuleArgs:
             pulumi.set(__self__, "options", options)
         if queries is not None:
             pulumi.set(__self__, "queries", queries)
+        if reference_tables is not None:
+            pulumi.set(__self__, "reference_tables", reference_tables)
         if signal_queries is not None:
             pulumi.set(__self__, "signal_queries", signal_queries)
         if tags is not None:
@@ -172,6 +176,18 @@ class SecurityMonitoringRuleArgs:
         pulumi.set(self, "queries", value)
 
     @property
+    @pulumi.getter(name="referenceTables")
+    def reference_tables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleReferenceTableArgs']]]]:
+        """
+        Reference tables for filtering query results.
+        """
+        return pulumi.get(self, "reference_tables")
+
+    @reference_tables.setter
+    def reference_tables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleReferenceTableArgs']]]]):
+        pulumi.set(self, "reference_tables", value)
+
+    @property
     @pulumi.getter(name="signalQueries")
     def signal_queries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleSignalQueryArgs']]]]:
         """
@@ -243,6 +259,7 @@ class _SecurityMonitoringRuleState:
                  name: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input['SecurityMonitoringRuleOptionsArgs']] = None,
                  queries: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleQueryArgs']]]] = None,
+                 reference_tables: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleReferenceTableArgs']]]] = None,
                  signal_queries: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleSignalQueryArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  third_party_cases: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleThirdPartyCaseArgs']]]] = None,
@@ -258,6 +275,7 @@ class _SecurityMonitoringRuleState:
         :param pulumi.Input[str] name: The name of the rule.
         :param pulumi.Input['SecurityMonitoringRuleOptionsArgs'] options: Options on rules.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleQueryArgs']]] queries: Queries for selecting logs which are part of the rule.
+        :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleReferenceTableArgs']]] reference_tables: Reference tables for filtering query results.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleSignalQueryArgs']]] signal_queries: Queries for selecting logs which are part of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags for generated signals.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleThirdPartyCaseArgs']]] third_party_cases: Cases for generating signals for third-party rules. Only required and accepted for third-party rules
@@ -280,6 +298,8 @@ class _SecurityMonitoringRuleState:
             pulumi.set(__self__, "options", options)
         if queries is not None:
             pulumi.set(__self__, "queries", queries)
+        if reference_tables is not None:
+            pulumi.set(__self__, "reference_tables", reference_tables)
         if signal_queries is not None:
             pulumi.set(__self__, "signal_queries", signal_queries)
         if tags is not None:
@@ -388,6 +408,18 @@ class _SecurityMonitoringRuleState:
         pulumi.set(self, "queries", value)
 
     @property
+    @pulumi.getter(name="referenceTables")
+    def reference_tables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleReferenceTableArgs']]]]:
+        """
+        Reference tables for filtering query results.
+        """
+        return pulumi.get(self, "reference_tables")
+
+    @reference_tables.setter
+    def reference_tables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleReferenceTableArgs']]]]):
+        pulumi.set(self, "reference_tables", value)
+
+    @property
     @pulumi.getter(name="signalQueries")
     def signal_queries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleSignalQueryArgs']]]]:
         """
@@ -461,6 +493,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input[Union['SecurityMonitoringRuleOptionsArgs', 'SecurityMonitoringRuleOptionsArgsDict']]] = None,
                  queries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringRuleQueryArgs', 'SecurityMonitoringRuleQueryArgsDict']]]]] = None,
+                 reference_tables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringRuleReferenceTableArgs', 'SecurityMonitoringRuleReferenceTableArgsDict']]]]] = None,
                  signal_queries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringRuleSignalQueryArgs', 'SecurityMonitoringRuleSignalQueryArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  third_party_cases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringRuleThirdPartyCaseArgs', 'SecurityMonitoringRuleThirdPartyCaseArgsDict']]]]] = None,
@@ -525,6 +558,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the rule.
         :param pulumi.Input[Union['SecurityMonitoringRuleOptionsArgs', 'SecurityMonitoringRuleOptionsArgsDict']] options: Options on rules.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringRuleQueryArgs', 'SecurityMonitoringRuleQueryArgsDict']]]] queries: Queries for selecting logs which are part of the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringRuleReferenceTableArgs', 'SecurityMonitoringRuleReferenceTableArgsDict']]]] reference_tables: Reference tables for filtering query results.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringRuleSignalQueryArgs', 'SecurityMonitoringRuleSignalQueryArgsDict']]]] signal_queries: Queries for selecting logs which are part of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags for generated signals.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringRuleThirdPartyCaseArgs', 'SecurityMonitoringRuleThirdPartyCaseArgsDict']]]] third_party_cases: Cases for generating signals for third-party rules. Only required and accepted for third-party rules
@@ -608,6 +642,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input[Union['SecurityMonitoringRuleOptionsArgs', 'SecurityMonitoringRuleOptionsArgsDict']]] = None,
                  queries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringRuleQueryArgs', 'SecurityMonitoringRuleQueryArgsDict']]]]] = None,
+                 reference_tables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringRuleReferenceTableArgs', 'SecurityMonitoringRuleReferenceTableArgsDict']]]]] = None,
                  signal_queries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringRuleSignalQueryArgs', 'SecurityMonitoringRuleSignalQueryArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  third_party_cases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringRuleThirdPartyCaseArgs', 'SecurityMonitoringRuleThirdPartyCaseArgsDict']]]]] = None,
@@ -634,6 +669,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["options"] = options
             __props__.__dict__["queries"] = queries
+            __props__.__dict__["reference_tables"] = reference_tables
             __props__.__dict__["signal_queries"] = signal_queries
             __props__.__dict__["tags"] = tags
             __props__.__dict__["third_party_cases"] = third_party_cases
@@ -657,6 +693,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             options: Optional[pulumi.Input[Union['SecurityMonitoringRuleOptionsArgs', 'SecurityMonitoringRuleOptionsArgsDict']]] = None,
             queries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringRuleQueryArgs', 'SecurityMonitoringRuleQueryArgsDict']]]]] = None,
+            reference_tables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringRuleReferenceTableArgs', 'SecurityMonitoringRuleReferenceTableArgsDict']]]]] = None,
             signal_queries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringRuleSignalQueryArgs', 'SecurityMonitoringRuleSignalQueryArgsDict']]]]] = None,
             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             third_party_cases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringRuleThirdPartyCaseArgs', 'SecurityMonitoringRuleThirdPartyCaseArgsDict']]]]] = None,
@@ -677,6 +714,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the rule.
         :param pulumi.Input[Union['SecurityMonitoringRuleOptionsArgs', 'SecurityMonitoringRuleOptionsArgsDict']] options: Options on rules.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringRuleQueryArgs', 'SecurityMonitoringRuleQueryArgsDict']]]] queries: Queries for selecting logs which are part of the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringRuleReferenceTableArgs', 'SecurityMonitoringRuleReferenceTableArgsDict']]]] reference_tables: Reference tables for filtering query results.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringRuleSignalQueryArgs', 'SecurityMonitoringRuleSignalQueryArgsDict']]]] signal_queries: Queries for selecting logs which are part of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags for generated signals.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringRuleThirdPartyCaseArgs', 'SecurityMonitoringRuleThirdPartyCaseArgsDict']]]] third_party_cases: Cases for generating signals for third-party rules. Only required and accepted for third-party rules
@@ -695,6 +733,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["options"] = options
         __props__.__dict__["queries"] = queries
+        __props__.__dict__["reference_tables"] = reference_tables
         __props__.__dict__["signal_queries"] = signal_queries
         __props__.__dict__["tags"] = tags
         __props__.__dict__["third_party_cases"] = third_party_cases
@@ -765,6 +804,14 @@ class SecurityMonitoringRule(pulumi.CustomResource):
         Queries for selecting logs which are part of the rule.
         """
         return pulumi.get(self, "queries")
+
+    @property
+    @pulumi.getter(name="referenceTables")
+    def reference_tables(self) -> pulumi.Output[Optional[Sequence['outputs.SecurityMonitoringRuleReferenceTable']]]:
+        """
+        Reference tables for filtering query results.
+        """
+        return pulumi.get(self, "reference_tables")
 
     @property
     @pulumi.getter(name="signalQueries")

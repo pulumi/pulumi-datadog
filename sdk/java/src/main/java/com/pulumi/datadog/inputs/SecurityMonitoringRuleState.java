@@ -9,6 +9,7 @@ import com.pulumi.datadog.inputs.SecurityMonitoringRuleCaseArgs;
 import com.pulumi.datadog.inputs.SecurityMonitoringRuleFilterArgs;
 import com.pulumi.datadog.inputs.SecurityMonitoringRuleOptionsArgs;
 import com.pulumi.datadog.inputs.SecurityMonitoringRuleQueryArgs;
+import com.pulumi.datadog.inputs.SecurityMonitoringRuleReferenceTableArgs;
 import com.pulumi.datadog.inputs.SecurityMonitoringRuleSignalQueryArgs;
 import com.pulumi.datadog.inputs.SecurityMonitoringRuleThirdPartyCaseArgs;
 import java.lang.Boolean;
@@ -144,6 +145,21 @@ public final class SecurityMonitoringRuleState extends com.pulumi.resources.Reso
     }
 
     /**
+     * Reference tables for filtering query results.
+     * 
+     */
+    @Import(name="referenceTables")
+    private @Nullable Output<List<SecurityMonitoringRuleReferenceTableArgs>> referenceTables;
+
+    /**
+     * @return Reference tables for filtering query results.
+     * 
+     */
+    public Optional<Output<List<SecurityMonitoringRuleReferenceTableArgs>>> referenceTables() {
+        return Optional.ofNullable(this.referenceTables);
+    }
+
+    /**
      * Queries for selecting logs which are part of the rule.
      * 
      */
@@ -229,6 +245,7 @@ public final class SecurityMonitoringRuleState extends com.pulumi.resources.Reso
         this.name = $.name;
         this.options = $.options;
         this.queries = $.queries;
+        this.referenceTables = $.referenceTables;
         this.signalQueries = $.signalQueries;
         this.tags = $.tags;
         this.thirdPartyCases = $.thirdPartyCases;
@@ -450,6 +467,37 @@ public final class SecurityMonitoringRuleState extends com.pulumi.resources.Reso
          */
         public Builder queries(SecurityMonitoringRuleQueryArgs... queries) {
             return queries(List.of(queries));
+        }
+
+        /**
+         * @param referenceTables Reference tables for filtering query results.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder referenceTables(@Nullable Output<List<SecurityMonitoringRuleReferenceTableArgs>> referenceTables) {
+            $.referenceTables = referenceTables;
+            return this;
+        }
+
+        /**
+         * @param referenceTables Reference tables for filtering query results.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder referenceTables(List<SecurityMonitoringRuleReferenceTableArgs> referenceTables) {
+            return referenceTables(Output.of(referenceTables));
+        }
+
+        /**
+         * @param referenceTables Reference tables for filtering query results.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder referenceTables(SecurityMonitoringRuleReferenceTableArgs... referenceTables) {
+            return referenceTables(List.of(referenceTables));
         }
 
         /**

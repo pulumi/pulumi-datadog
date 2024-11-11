@@ -40,6 +40,12 @@ namespace Pulumi.Datadog.Gcp
         public Output<string> ClientEmail { get; private set; } = null!;
 
         /// <summary>
+        /// Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+        /// </summary>
+        [Output("cloudRunRevisionFilters")]
+        public Output<ImmutableArray<string>> CloudRunRevisionFilters { get; private set; } = null!;
+
+        /// <summary>
         /// Datadog's STS Delegate Email.
         /// </summary>
         [Output("delegateAccountEmail")]
@@ -58,10 +64,22 @@ namespace Pulumi.Datadog.Gcp
         public Output<bool> IsCspmEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// When enabled, Datadog scans for all resource change data in your Google Cloud environment.
+        /// </summary>
+        [Output("isResourceChangeCollectionEnabled")]
+        public Output<bool> IsResourceChangeCollectionEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
         /// </summary>
         [Output("isSecurityCommandCenterEnabled")]
         public Output<bool> IsSecurityCommandCenterEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration for a GCP metric namespace.
+        /// </summary>
+        [Output("metricNamespaceConfigs")]
+        public Output<ImmutableArray<Outputs.IntegrationStsMetricNamespaceConfig>> MetricNamespaceConfigs { get; private set; } = null!;
 
         /// <summary>
         /// When enabled, Datadog scans for all resources in your GCP environment.
@@ -139,6 +157,18 @@ namespace Pulumi.Datadog.Gcp
         [Input("clientEmail", required: true)]
         public Input<string> ClientEmail { get; set; } = null!;
 
+        [Input("cloudRunRevisionFilters")]
+        private InputList<string>? _cloudRunRevisionFilters;
+
+        /// <summary>
+        /// Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+        /// </summary>
+        public InputList<string> CloudRunRevisionFilters
+        {
+            get => _cloudRunRevisionFilters ?? (_cloudRunRevisionFilters = new InputList<string>());
+            set => _cloudRunRevisionFilters = value;
+        }
+
         [Input("hostFilters")]
         private InputList<string>? _hostFilters;
 
@@ -158,10 +188,28 @@ namespace Pulumi.Datadog.Gcp
         public Input<bool>? IsCspmEnabled { get; set; }
 
         /// <summary>
+        /// When enabled, Datadog scans for all resource change data in your Google Cloud environment.
+        /// </summary>
+        [Input("isResourceChangeCollectionEnabled")]
+        public Input<bool>? IsResourceChangeCollectionEnabled { get; set; }
+
+        /// <summary>
         /// When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
         /// </summary>
         [Input("isSecurityCommandCenterEnabled")]
         public Input<bool>? IsSecurityCommandCenterEnabled { get; set; }
+
+        [Input("metricNamespaceConfigs")]
+        private InputList<Inputs.IntegrationStsMetricNamespaceConfigArgs>? _metricNamespaceConfigs;
+
+        /// <summary>
+        /// Configuration for a GCP metric namespace.
+        /// </summary>
+        public InputList<Inputs.IntegrationStsMetricNamespaceConfigArgs> MetricNamespaceConfigs
+        {
+            get => _metricNamespaceConfigs ?? (_metricNamespaceConfigs = new InputList<Inputs.IntegrationStsMetricNamespaceConfigArgs>());
+            set => _metricNamespaceConfigs = value;
+        }
 
         /// <summary>
         /// When enabled, Datadog scans for all resources in your GCP environment.
@@ -201,6 +249,18 @@ namespace Pulumi.Datadog.Gcp
         [Input("clientEmail")]
         public Input<string>? ClientEmail { get; set; }
 
+        [Input("cloudRunRevisionFilters")]
+        private InputList<string>? _cloudRunRevisionFilters;
+
+        /// <summary>
+        /// Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+        /// </summary>
+        public InputList<string> CloudRunRevisionFilters
+        {
+            get => _cloudRunRevisionFilters ?? (_cloudRunRevisionFilters = new InputList<string>());
+            set => _cloudRunRevisionFilters = value;
+        }
+
         /// <summary>
         /// Datadog's STS Delegate Email.
         /// </summary>
@@ -226,10 +286,28 @@ namespace Pulumi.Datadog.Gcp
         public Input<bool>? IsCspmEnabled { get; set; }
 
         /// <summary>
+        /// When enabled, Datadog scans for all resource change data in your Google Cloud environment.
+        /// </summary>
+        [Input("isResourceChangeCollectionEnabled")]
+        public Input<bool>? IsResourceChangeCollectionEnabled { get; set; }
+
+        /// <summary>
         /// When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
         /// </summary>
         [Input("isSecurityCommandCenterEnabled")]
         public Input<bool>? IsSecurityCommandCenterEnabled { get; set; }
+
+        [Input("metricNamespaceConfigs")]
+        private InputList<Inputs.IntegrationStsMetricNamespaceConfigGetArgs>? _metricNamespaceConfigs;
+
+        /// <summary>
+        /// Configuration for a GCP metric namespace.
+        /// </summary>
+        public InputList<Inputs.IntegrationStsMetricNamespaceConfigGetArgs> MetricNamespaceConfigs
+        {
+            get => _metricNamespaceConfigs ?? (_metricNamespaceConfigs = new InputList<Inputs.IntegrationStsMetricNamespaceConfigGetArgs>());
+            set => _metricNamespaceConfigs = value;
+        }
 
         /// <summary>
         /// When enabled, Datadog scans for all resources in your GCP environment.

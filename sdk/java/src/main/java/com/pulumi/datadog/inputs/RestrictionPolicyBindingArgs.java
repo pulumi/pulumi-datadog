@@ -16,14 +16,14 @@ public final class RestrictionPolicyBindingArgs extends com.pulumi.resources.Res
     public static final RestrictionPolicyBindingArgs Empty = new RestrictionPolicyBindingArgs();
 
     /**
-     * An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `org`. The org ID can be obtained through the api/v2/users API.
+     * An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role`, `team`, `user`, and `org`. Org ID can be obtained using a `GET /api/v2/current_user` API request. Find it in the `data.relationships.org.data.id` field.
      * 
      */
     @Import(name="principals", required=true)
     private Output<List<String>> principals;
 
     /**
-     * @return An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `org`. The org ID can be obtained through the api/v2/users API.
+     * @return An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role`, `team`, `user`, and `org`. Org ID can be obtained using a `GET /api/v2/current_user` API request. Find it in the `data.relationships.org.data.id` field.
      * 
      */
     public Output<List<String>> principals() {
@@ -71,7 +71,7 @@ public final class RestrictionPolicyBindingArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param principals An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `org`. The org ID can be obtained through the api/v2/users API.
+         * @param principals An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role`, `team`, `user`, and `org`. Org ID can be obtained using a `GET /api/v2/current_user` API request. Find it in the `data.relationships.org.data.id` field.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class RestrictionPolicyBindingArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param principals An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `org`. The org ID can be obtained through the api/v2/users API.
+         * @param principals An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role`, `team`, `user`, and `org`. Org ID can be obtained using a `GET /api/v2/current_user` API request. Find it in the `data.relationships.org.data.id` field.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class RestrictionPolicyBindingArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param principals An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `org`. The org ID can be obtained through the api/v2/users API.
+         * @param principals An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role`, `team`, `user`, and `org`. Org ID can be obtained using a `GET /api/v2/current_user` API request. Find it in the `data.relationships.org.data.id` field.
          * 
          * @return builder
          * 
