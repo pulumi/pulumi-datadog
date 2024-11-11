@@ -120,7 +120,7 @@ config:
 - `validate` (String) Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, apiKey won't be checked.
 
 <a id="nestedblock--default_tags"></a>
-### Nested Configuration Reference for `defaultTags`
+### Nested Schema for `defaultTags`
 
 Optional:
 
