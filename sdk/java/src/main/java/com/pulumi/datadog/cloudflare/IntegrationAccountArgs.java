@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -61,12 +62,28 @@ public final class IntegrationAccountArgs extends com.pulumi.resources.ResourceA
         return this.name;
     }
 
+    /**
+     * An allowlist of resources to restrict pulling metrics for including `web`, `dns`, `lb` (load balancer), `worker`)
+     * 
+     */
+    @Import(name="resources")
+    private @Nullable Output<List<String>> resources;
+
+    /**
+     * @return An allowlist of resources to restrict pulling metrics for including `web`, `dns`, `lb` (load balancer), `worker`)
+     * 
+     */
+    public Optional<Output<List<String>>> resources() {
+        return Optional.ofNullable(this.resources);
+    }
+
     private IntegrationAccountArgs() {}
 
     private IntegrationAccountArgs(IntegrationAccountArgs $) {
         this.apiKey = $.apiKey;
         this.email = $.email;
         this.name = $.name;
+        this.resources = $.resources;
     }
 
     public static Builder builder() {
@@ -148,6 +165,37 @@ public final class IntegrationAccountArgs extends com.pulumi.resources.ResourceA
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param resources An allowlist of resources to restrict pulling metrics for including `web`, `dns`, `lb` (load balancer), `worker`)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resources(@Nullable Output<List<String>> resources) {
+            $.resources = resources;
+            return this;
+        }
+
+        /**
+         * @param resources An allowlist of resources to restrict pulling metrics for including `web`, `dns`, `lb` (load balancer), `worker`)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resources(List<String> resources) {
+            return resources(Output.of(resources));
+        }
+
+        /**
+         * @param resources An allowlist of resources to restrict pulling metrics for including `web`, `dns`, `lb` (load balancer), `worker`)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resources(String... resources) {
+            return resources(List.of(resources));
         }
 
         public IntegrationAccountArgs build() {

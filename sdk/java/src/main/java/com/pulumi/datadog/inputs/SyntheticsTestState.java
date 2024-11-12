@@ -383,14 +383,14 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Synthetics test type. Valid values are `api`, `browser`.
+     * Synthetics test type. Valid values are `api`, `browser`, `mobile`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Synthetics test type. Valid values are `api`, `browser`.
+     * @return Synthetics test type. Valid values are `api`, `browser`, `mobile`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -1044,7 +1044,7 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param type Synthetics test type. Valid values are `api`, `browser`.
+         * @param type Synthetics test type. Valid values are `api`, `browser`, `mobile`.
          * 
          * @return builder
          * 
@@ -1055,7 +1055,7 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param type Synthetics test type. Valid values are `api`, `browser`.
+         * @param type Synthetics test type. Valid values are `api`, `browser`, `mobile`.
          * 
          * @return builder
          * 

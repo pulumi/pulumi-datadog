@@ -858,14 +858,14 @@ public class SyntheticsTest extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * Synthetics test type. Valid values are `api`, `browser`.
+     * Synthetics test type. Valid values are `api`, `browser`, `mobile`.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return Synthetics test type. Valid values are `api`, `browser`.
+     * @return Synthetics test type. Valid values are `api`, `browser`, `mobile`.
      * 
      */
     public Output<String> type() {

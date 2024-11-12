@@ -46,6 +46,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetSecurityMonitoringRulesRuleQueryResult> Queries;
         /// <summary>
+        /// Reference tables for filtering query results.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetSecurityMonitoringRulesRuleReferenceTableResult> ReferenceTables;
+        /// <summary>
         /// Queries for selecting logs which are part of the rule.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetSecurityMonitoringRulesRuleSignalQueryResult> SignalQueries;
@@ -80,6 +84,8 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.GetSecurityMonitoringRulesRuleQueryResult> queries,
 
+            ImmutableArray<Outputs.GetSecurityMonitoringRulesRuleReferenceTableResult> referenceTables,
+
             ImmutableArray<Outputs.GetSecurityMonitoringRulesRuleSignalQueryResult> signalQueries,
 
             ImmutableArray<string> tags,
@@ -96,6 +102,7 @@ namespace Pulumi.Datadog.Outputs
             Name = name;
             Options = options;
             Queries = queries;
+            ReferenceTables = referenceTables;
             SignalQueries = signalQueries;
             Tags = tags;
             ThirdPartyCases = thirdPartyCases;

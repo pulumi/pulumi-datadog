@@ -28,14 +28,20 @@ type IntegrationSts struct {
 	Automute pulumi.BoolOutput `pulumi:"automute"`
 	// Your service account email address.
 	ClientEmail pulumi.StringOutput `pulumi:"clientEmail"`
+	// Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+	CloudRunRevisionFilters pulumi.StringArrayOutput `pulumi:"cloudRunRevisionFilters"`
 	// Datadog's STS Delegate Email.
 	DelegateAccountEmail pulumi.StringOutput `pulumi:"delegateAccountEmail"`
 	// Your Host Filters.
 	HostFilters pulumi.StringArrayOutput `pulumi:"hostFilters"`
 	// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled.
 	IsCspmEnabled pulumi.BoolOutput `pulumi:"isCspmEnabled"`
+	// When enabled, Datadog scans for all resource change data in your Google Cloud environment.
+	IsResourceChangeCollectionEnabled pulumi.BoolOutput `pulumi:"isResourceChangeCollectionEnabled"`
 	// When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
 	IsSecurityCommandCenterEnabled pulumi.BoolOutput `pulumi:"isSecurityCommandCenterEnabled"`
+	// Configuration for a GCP metric namespace.
+	MetricNamespaceConfigs IntegrationStsMetricNamespaceConfigArrayOutput `pulumi:"metricNamespaceConfigs"`
 	// When enabled, Datadog scans for all resources in your GCP environment.
 	ResourceCollectionEnabled pulumi.BoolOutput `pulumi:"resourceCollectionEnabled"`
 }
@@ -79,14 +85,20 @@ type integrationStsState struct {
 	Automute *bool `pulumi:"automute"`
 	// Your service account email address.
 	ClientEmail *string `pulumi:"clientEmail"`
+	// Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+	CloudRunRevisionFilters []string `pulumi:"cloudRunRevisionFilters"`
 	// Datadog's STS Delegate Email.
 	DelegateAccountEmail *string `pulumi:"delegateAccountEmail"`
 	// Your Host Filters.
 	HostFilters []string `pulumi:"hostFilters"`
 	// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled.
 	IsCspmEnabled *bool `pulumi:"isCspmEnabled"`
+	// When enabled, Datadog scans for all resource change data in your Google Cloud environment.
+	IsResourceChangeCollectionEnabled *bool `pulumi:"isResourceChangeCollectionEnabled"`
 	// When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
 	IsSecurityCommandCenterEnabled *bool `pulumi:"isSecurityCommandCenterEnabled"`
+	// Configuration for a GCP metric namespace.
+	MetricNamespaceConfigs []IntegrationStsMetricNamespaceConfig `pulumi:"metricNamespaceConfigs"`
 	// When enabled, Datadog scans for all resources in your GCP environment.
 	ResourceCollectionEnabled *bool `pulumi:"resourceCollectionEnabled"`
 }
@@ -98,14 +110,20 @@ type IntegrationStsState struct {
 	Automute pulumi.BoolPtrInput
 	// Your service account email address.
 	ClientEmail pulumi.StringPtrInput
+	// Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+	CloudRunRevisionFilters pulumi.StringArrayInput
 	// Datadog's STS Delegate Email.
 	DelegateAccountEmail pulumi.StringPtrInput
 	// Your Host Filters.
 	HostFilters pulumi.StringArrayInput
 	// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled.
 	IsCspmEnabled pulumi.BoolPtrInput
+	// When enabled, Datadog scans for all resource change data in your Google Cloud environment.
+	IsResourceChangeCollectionEnabled pulumi.BoolPtrInput
 	// When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
 	IsSecurityCommandCenterEnabled pulumi.BoolPtrInput
+	// Configuration for a GCP metric namespace.
+	MetricNamespaceConfigs IntegrationStsMetricNamespaceConfigArrayInput
 	// When enabled, Datadog scans for all resources in your GCP environment.
 	ResourceCollectionEnabled pulumi.BoolPtrInput
 }
@@ -121,12 +139,18 @@ type integrationStsArgs struct {
 	Automute *bool `pulumi:"automute"`
 	// Your service account email address.
 	ClientEmail string `pulumi:"clientEmail"`
+	// Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+	CloudRunRevisionFilters []string `pulumi:"cloudRunRevisionFilters"`
 	// Your Host Filters.
 	HostFilters []string `pulumi:"hostFilters"`
 	// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled.
 	IsCspmEnabled *bool `pulumi:"isCspmEnabled"`
+	// When enabled, Datadog scans for all resource change data in your Google Cloud environment.
+	IsResourceChangeCollectionEnabled *bool `pulumi:"isResourceChangeCollectionEnabled"`
 	// When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
 	IsSecurityCommandCenterEnabled *bool `pulumi:"isSecurityCommandCenterEnabled"`
+	// Configuration for a GCP metric namespace.
+	MetricNamespaceConfigs []IntegrationStsMetricNamespaceConfig `pulumi:"metricNamespaceConfigs"`
 	// When enabled, Datadog scans for all resources in your GCP environment.
 	ResourceCollectionEnabled *bool `pulumi:"resourceCollectionEnabled"`
 }
@@ -139,12 +163,18 @@ type IntegrationStsArgs struct {
 	Automute pulumi.BoolPtrInput
 	// Your service account email address.
 	ClientEmail pulumi.StringInput
+	// Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+	CloudRunRevisionFilters pulumi.StringArrayInput
 	// Your Host Filters.
 	HostFilters pulumi.StringArrayInput
 	// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled.
 	IsCspmEnabled pulumi.BoolPtrInput
+	// When enabled, Datadog scans for all resource change data in your Google Cloud environment.
+	IsResourceChangeCollectionEnabled pulumi.BoolPtrInput
 	// When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
 	IsSecurityCommandCenterEnabled pulumi.BoolPtrInput
+	// Configuration for a GCP metric namespace.
+	MetricNamespaceConfigs IntegrationStsMetricNamespaceConfigArrayInput
 	// When enabled, Datadog scans for all resources in your GCP environment.
 	ResourceCollectionEnabled pulumi.BoolPtrInput
 }
@@ -251,6 +281,11 @@ func (o IntegrationStsOutput) ClientEmail() pulumi.StringOutput {
 	return o.ApplyT(func(v *IntegrationSts) pulumi.StringOutput { return v.ClientEmail }).(pulumi.StringOutput)
 }
 
+// Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+func (o IntegrationStsOutput) CloudRunRevisionFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IntegrationSts) pulumi.StringArrayOutput { return v.CloudRunRevisionFilters }).(pulumi.StringArrayOutput)
+}
+
 // Datadog's STS Delegate Email.
 func (o IntegrationStsOutput) DelegateAccountEmail() pulumi.StringOutput {
 	return o.ApplyT(func(v *IntegrationSts) pulumi.StringOutput { return v.DelegateAccountEmail }).(pulumi.StringOutput)
@@ -266,9 +301,21 @@ func (o IntegrationStsOutput) IsCspmEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *IntegrationSts) pulumi.BoolOutput { return v.IsCspmEnabled }).(pulumi.BoolOutput)
 }
 
+// When enabled, Datadog scans for all resource change data in your Google Cloud environment.
+func (o IntegrationStsOutput) IsResourceChangeCollectionEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *IntegrationSts) pulumi.BoolOutput { return v.IsResourceChangeCollectionEnabled }).(pulumi.BoolOutput)
+}
+
 // When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
 func (o IntegrationStsOutput) IsSecurityCommandCenterEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *IntegrationSts) pulumi.BoolOutput { return v.IsSecurityCommandCenterEnabled }).(pulumi.BoolOutput)
+}
+
+// Configuration for a GCP metric namespace.
+func (o IntegrationStsOutput) MetricNamespaceConfigs() IntegrationStsMetricNamespaceConfigArrayOutput {
+	return o.ApplyT(func(v *IntegrationSts) IntegrationStsMetricNamespaceConfigArrayOutput {
+		return v.MetricNamespaceConfigs
+	}).(IntegrationStsMetricNamespaceConfigArrayOutput)
 }
 
 // When enabled, Datadog scans for all resources in your GCP environment.

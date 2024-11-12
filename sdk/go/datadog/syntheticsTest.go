@@ -623,7 +623,7 @@ type SyntheticsTest struct {
 	Subtype pulumi.StringPtrOutput `pulumi:"subtype"`
 	// A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
-	// Synthetics test type. Valid values are `api`, `browser`.
+	// Synthetics test type. Valid values are `api`, `browser`, `mobile`.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Variables defined from JavaScript code for API HTTP tests.
 	VariablesFromScript pulumi.StringPtrOutput `pulumi:"variablesFromScript"`
@@ -718,7 +718,7 @@ type syntheticsTestState struct {
 	Subtype *string `pulumi:"subtype"`
 	// A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
 	Tags []string `pulumi:"tags"`
-	// Synthetics test type. Valid values are `api`, `browser`.
+	// Synthetics test type. Valid values are `api`, `browser`, `mobile`.
 	Type *string `pulumi:"type"`
 	// Variables defined from JavaScript code for API HTTP tests.
 	VariablesFromScript *string `pulumi:"variablesFromScript"`
@@ -772,7 +772,7 @@ type SyntheticsTestState struct {
 	Subtype pulumi.StringPtrInput
 	// A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
 	Tags pulumi.StringArrayInput
-	// Synthetics test type. Valid values are `api`, `browser`.
+	// Synthetics test type. Valid values are `api`, `browser`, `mobile`.
 	Type pulumi.StringPtrInput
 	// Variables defined from JavaScript code for API HTTP tests.
 	VariablesFromScript pulumi.StringPtrInput
@@ -828,7 +828,7 @@ type syntheticsTestArgs struct {
 	Subtype *string `pulumi:"subtype"`
 	// A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
 	Tags []string `pulumi:"tags"`
-	// Synthetics test type. Valid values are `api`, `browser`.
+	// Synthetics test type. Valid values are `api`, `browser`, `mobile`.
 	Type string `pulumi:"type"`
 	// Variables defined from JavaScript code for API HTTP tests.
 	VariablesFromScript *string `pulumi:"variablesFromScript"`
@@ -881,7 +881,7 @@ type SyntheticsTestArgs struct {
 	Subtype pulumi.StringPtrInput
 	// A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
 	Tags pulumi.StringArrayInput
-	// Synthetics test type. Valid values are `api`, `browser`.
+	// Synthetics test type. Valid values are `api`, `browser`, `mobile`.
 	Type pulumi.StringInput
 	// Variables defined from JavaScript code for API HTTP tests.
 	VariablesFromScript pulumi.StringPtrInput
@@ -1095,7 +1095,7 @@ func (o SyntheticsTestOutput) Tags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SyntheticsTest) pulumi.StringArrayOutput { return v.Tags }).(pulumi.StringArrayOutput)
 }
 
-// Synthetics test type. Valid values are `api`, `browser`.
+// Synthetics test type. Valid values are `api`, `browser`, `mobile`.
 func (o SyntheticsTestOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *SyntheticsTest) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

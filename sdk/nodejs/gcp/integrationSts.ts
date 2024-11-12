@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -54,6 +56,10 @@ export class IntegrationSts extends pulumi.CustomResource {
      */
     public readonly clientEmail!: pulumi.Output<string>;
     /**
+     * Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+     */
+    public readonly cloudRunRevisionFilters!: pulumi.Output<string[] | undefined>;
+    /**
      * Datadog's STS Delegate Email.
      */
     public /*out*/ readonly delegateAccountEmail!: pulumi.Output<string>;
@@ -66,9 +72,17 @@ export class IntegrationSts extends pulumi.CustomResource {
      */
     public readonly isCspmEnabled!: pulumi.Output<boolean>;
     /**
+     * When enabled, Datadog scans for all resource change data in your Google Cloud environment.
+     */
+    public readonly isResourceChangeCollectionEnabled!: pulumi.Output<boolean>;
+    /**
      * When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
      */
     public readonly isSecurityCommandCenterEnabled!: pulumi.Output<boolean>;
+    /**
+     * Configuration for a GCP metric namespace.
+     */
+    public readonly metricNamespaceConfigs!: pulumi.Output<outputs.gcp.IntegrationStsMetricNamespaceConfig[] | undefined>;
     /**
      * When enabled, Datadog scans for all resources in your GCP environment.
      */
@@ -90,10 +104,13 @@ export class IntegrationSts extends pulumi.CustomResource {
             resourceInputs["accountTags"] = state ? state.accountTags : undefined;
             resourceInputs["automute"] = state ? state.automute : undefined;
             resourceInputs["clientEmail"] = state ? state.clientEmail : undefined;
+            resourceInputs["cloudRunRevisionFilters"] = state ? state.cloudRunRevisionFilters : undefined;
             resourceInputs["delegateAccountEmail"] = state ? state.delegateAccountEmail : undefined;
             resourceInputs["hostFilters"] = state ? state.hostFilters : undefined;
             resourceInputs["isCspmEnabled"] = state ? state.isCspmEnabled : undefined;
+            resourceInputs["isResourceChangeCollectionEnabled"] = state ? state.isResourceChangeCollectionEnabled : undefined;
             resourceInputs["isSecurityCommandCenterEnabled"] = state ? state.isSecurityCommandCenterEnabled : undefined;
+            resourceInputs["metricNamespaceConfigs"] = state ? state.metricNamespaceConfigs : undefined;
             resourceInputs["resourceCollectionEnabled"] = state ? state.resourceCollectionEnabled : undefined;
         } else {
             const args = argsOrState as IntegrationStsArgs | undefined;
@@ -103,9 +120,12 @@ export class IntegrationSts extends pulumi.CustomResource {
             resourceInputs["accountTags"] = args ? args.accountTags : undefined;
             resourceInputs["automute"] = args ? args.automute : undefined;
             resourceInputs["clientEmail"] = args ? args.clientEmail : undefined;
+            resourceInputs["cloudRunRevisionFilters"] = args ? args.cloudRunRevisionFilters : undefined;
             resourceInputs["hostFilters"] = args ? args.hostFilters : undefined;
             resourceInputs["isCspmEnabled"] = args ? args.isCspmEnabled : undefined;
+            resourceInputs["isResourceChangeCollectionEnabled"] = args ? args.isResourceChangeCollectionEnabled : undefined;
             resourceInputs["isSecurityCommandCenterEnabled"] = args ? args.isSecurityCommandCenterEnabled : undefined;
+            resourceInputs["metricNamespaceConfigs"] = args ? args.metricNamespaceConfigs : undefined;
             resourceInputs["resourceCollectionEnabled"] = args ? args.resourceCollectionEnabled : undefined;
             resourceInputs["delegateAccountEmail"] = undefined /*out*/;
         }
@@ -131,6 +151,10 @@ export interface IntegrationStsState {
      */
     clientEmail?: pulumi.Input<string>;
     /**
+     * Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+     */
+    cloudRunRevisionFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Datadog's STS Delegate Email.
      */
     delegateAccountEmail?: pulumi.Input<string>;
@@ -143,9 +167,17 @@ export interface IntegrationStsState {
      */
     isCspmEnabled?: pulumi.Input<boolean>;
     /**
+     * When enabled, Datadog scans for all resource change data in your Google Cloud environment.
+     */
+    isResourceChangeCollectionEnabled?: pulumi.Input<boolean>;
+    /**
      * When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
      */
     isSecurityCommandCenterEnabled?: pulumi.Input<boolean>;
+    /**
+     * Configuration for a GCP metric namespace.
+     */
+    metricNamespaceConfigs?: pulumi.Input<pulumi.Input<inputs.gcp.IntegrationStsMetricNamespaceConfig>[]>;
     /**
      * When enabled, Datadog scans for all resources in your GCP environment.
      */
@@ -169,6 +201,10 @@ export interface IntegrationStsArgs {
      */
     clientEmail: pulumi.Input<string>;
     /**
+     * Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+     */
+    cloudRunRevisionFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Your Host Filters.
      */
     hostFilters?: pulumi.Input<pulumi.Input<string>[]>;
@@ -177,9 +213,17 @@ export interface IntegrationStsArgs {
      */
     isCspmEnabled?: pulumi.Input<boolean>;
     /**
+     * When enabled, Datadog scans for all resource change data in your Google Cloud environment.
+     */
+    isResourceChangeCollectionEnabled?: pulumi.Input<boolean>;
+    /**
      * When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
      */
     isSecurityCommandCenterEnabled?: pulumi.Input<boolean>;
+    /**
+     * Configuration for a GCP metric namespace.
+     */
+    metricNamespaceConfigs?: pulumi.Input<pulumi.Input<inputs.gcp.IntegrationStsMetricNamespaceConfig>[]>;
     /**
      * When enabled, Datadog scans for all resources in your GCP environment.
      */

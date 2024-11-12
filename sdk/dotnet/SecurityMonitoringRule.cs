@@ -137,6 +137,12 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<Outputs.SecurityMonitoringRuleQuery>> Queries { get; private set; } = null!;
 
         /// <summary>
+        /// Reference tables for filtering query results.
+        /// </summary>
+        [Output("referenceTables")]
+        public Output<ImmutableArray<Outputs.SecurityMonitoringRuleReferenceTable>> ReferenceTables { get; private set; } = null!;
+
+        /// <summary>
         /// Queries for selecting logs which are part of the rule.
         /// </summary>
         [Output("signalQueries")]
@@ -278,6 +284,18 @@ namespace Pulumi.Datadog
             set => _queries = value;
         }
 
+        [Input("referenceTables")]
+        private InputList<Inputs.SecurityMonitoringRuleReferenceTableArgs>? _referenceTables;
+
+        /// <summary>
+        /// Reference tables for filtering query results.
+        /// </summary>
+        public InputList<Inputs.SecurityMonitoringRuleReferenceTableArgs> ReferenceTables
+        {
+            get => _referenceTables ?? (_referenceTables = new InputList<Inputs.SecurityMonitoringRuleReferenceTableArgs>());
+            set => _referenceTables = value;
+        }
+
         [Input("signalQueries")]
         private InputList<Inputs.SecurityMonitoringRuleSignalQueryArgs>? _signalQueries;
 
@@ -398,6 +416,18 @@ namespace Pulumi.Datadog
         {
             get => _queries ?? (_queries = new InputList<Inputs.SecurityMonitoringRuleQueryGetArgs>());
             set => _queries = value;
+        }
+
+        [Input("referenceTables")]
+        private InputList<Inputs.SecurityMonitoringRuleReferenceTableGetArgs>? _referenceTables;
+
+        /// <summary>
+        /// Reference tables for filtering query results.
+        /// </summary>
+        public InputList<Inputs.SecurityMonitoringRuleReferenceTableGetArgs> ReferenceTables
+        {
+            get => _referenceTables ?? (_referenceTables = new InputList<Inputs.SecurityMonitoringRuleReferenceTableGetArgs>());
+            set => _referenceTables = value;
         }
 
         [Input("signalQueries")]

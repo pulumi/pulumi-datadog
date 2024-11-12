@@ -1097,6 +1097,14 @@ export interface DashboardWidgetDistributionDefinition {
      * The size of the widget's title (defaults to 16).
      */
     titleSize?: string;
+    /**
+     * A nested block describing the X-Axis Controls. Exactly one nested block is allowed using the structure below.
+     */
+    xaxis?: outputs.DashboardWidgetDistributionDefinitionXaxis;
+    /**
+     * A nested block describing the Y-Axis Controls. Exactly one nested block is allowed using the structure below.
+     */
+    yaxis?: outputs.DashboardWidgetDistributionDefinitionYaxis;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequest {
@@ -1205,6 +1213,48 @@ export interface DashboardWidgetDistributionDefinitionRequestStyle {
      * A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
      */
     palette?: string;
+}
+
+export interface DashboardWidgetDistributionDefinitionXaxis {
+    /**
+     * Always include zero or fit the axis to the data range.
+     */
+    includeZero?: boolean;
+    /**
+     * Specify the maximum value to show on the Y-axis.
+     */
+    max?: string;
+    /**
+     * Specify the minimum value to show on the Y-axis.
+     */
+    min?: string;
+    /**
+     * Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+     */
+    scale?: string;
+}
+
+export interface DashboardWidgetDistributionDefinitionYaxis {
+    /**
+     * Always include zero or fit the axis to the data range.
+     */
+    includeZero?: boolean;
+    /**
+     * The label of the axis to display on the graph.
+     */
+    label?: string;
+    /**
+     * Specify the maximum value to show on the Y-axis.
+     */
+    max?: string;
+    /**
+     * Specify the minimum value to show on the Y-axis.
+     */
+    min?: string;
+    /**
+     * Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+     */
+    scale?: string;
 }
 
 export interface DashboardWidgetEventStreamDefinition {
@@ -2842,7 +2892,7 @@ export interface DashboardWidgetListStreamDefinitionRequestColumn {
 
 export interface DashboardWidgetListStreamDefinitionRequestQuery {
     /**
-     * Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`.
+     * Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`.
      */
     dataSource: string;
     /**
@@ -8945,6 +8995,10 @@ export interface GetSecurityMonitoringRulesRule {
      */
     queries?: outputs.GetSecurityMonitoringRulesRuleQuery[];
     /**
+     * Reference tables for filtering query results.
+     */
+    referenceTables?: outputs.GetSecurityMonitoringRulesRuleReferenceTable[];
+    /**
      * Queries for selecting logs which are part of the rule.
      */
     signalQueries?: outputs.GetSecurityMonitoringRulesRuleSignalQuery[];
@@ -9131,6 +9185,29 @@ export interface GetSecurityMonitoringRulesRuleQueryAgentRule {
      * **Deprecated**. It won't be applied anymore.
      */
     expression: string;
+}
+
+export interface GetSecurityMonitoringRulesRuleReferenceTable {
+    /**
+     * Whether to include or exclude logs that match the reference table.
+     */
+    checkPresence: boolean;
+    /**
+     * The name of the column in the reference table.
+     */
+    columnName: string;
+    /**
+     * The field in the log that should be matched against the reference table.
+     */
+    logFieldPath: string;
+    /**
+     * The name of the query to filter.
+     */
+    ruleQueryName: string;
+    /**
+     * The name of the reference table.
+     */
+    tableName: string;
 }
 
 export interface GetSecurityMonitoringRulesRuleSignalQuery {
@@ -11717,6 +11794,14 @@ export interface PowerpackWidgetDistributionDefinition {
      * The size of the widget's title (defaults to 16).
      */
     titleSize?: string;
+    /**
+     * A nested block describing the X-Axis Controls. Exactly one nested block is allowed using the structure below.
+     */
+    xaxis?: outputs.PowerpackWidgetDistributionDefinitionXaxis;
+    /**
+     * A nested block describing the Y-Axis Controls. Exactly one nested block is allowed using the structure below.
+     */
+    yaxis?: outputs.PowerpackWidgetDistributionDefinitionYaxis;
 }
 
 export interface PowerpackWidgetDistributionDefinitionRequest {
@@ -12157,6 +12242,48 @@ export interface PowerpackWidgetDistributionDefinitionRequestStyle {
      * A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
      */
     palette?: string;
+}
+
+export interface PowerpackWidgetDistributionDefinitionXaxis {
+    /**
+     * Always include zero or fit the axis to the data range.
+     */
+    includeZero?: boolean;
+    /**
+     * Specify the maximum value to show on the Y-axis.
+     */
+    max?: string;
+    /**
+     * Specify the minimum value to show on the Y-axis.
+     */
+    min?: string;
+    /**
+     * Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+     */
+    scale?: string;
+}
+
+export interface PowerpackWidgetDistributionDefinitionYaxis {
+    /**
+     * Always include zero or fit the axis to the data range.
+     */
+    includeZero?: boolean;
+    /**
+     * The label of the axis to display on the graph.
+     */
+    label?: string;
+    /**
+     * Specify the maximum value to show on the Y-axis.
+     */
+    max?: string;
+    /**
+     * Specify the minimum value to show on the Y-axis.
+     */
+    min?: string;
+    /**
+     * Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+     */
+    scale?: string;
 }
 
 export interface PowerpackWidgetEventStreamDefinition {
@@ -14767,7 +14894,7 @@ export interface PowerpackWidgetListStreamDefinitionRequestColumn {
 
 export interface PowerpackWidgetListStreamDefinitionRequestQuery {
     /**
-     * Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`.
+     * Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`.
      */
     dataSource: string;
     /**
@@ -22306,7 +22433,7 @@ export interface PowerpackWidgetWidgetLayout {
 
 export interface RestrictionPolicyBinding {
     /**
-     * An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `org`. The org ID can be obtained through the api/v2/users API.
+     * An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role`, `team`, `user`, and `org`. Org ID can be obtained using a `GET /api/v2/current_user` API request. Find it in the `data.relationships.org.data.id` field.
      */
     principals: string[];
     /**
@@ -22535,6 +22662,29 @@ export interface SecurityMonitoringRuleQueryAgentRule {
      * **Deprecated**. It won't be applied anymore.
      */
     expression: string;
+}
+
+export interface SecurityMonitoringRuleReferenceTable {
+    /**
+     * Whether to include or exclude logs that match the reference table.
+     */
+    checkPresence: boolean;
+    /**
+     * The name of the column in the reference table.
+     */
+    columnName: string;
+    /**
+     * The field in the log that should be matched against the reference table.
+     */
+    logFieldPath: string;
+    /**
+     * The name of the query to filter.
+     */
+    ruleQueryName: string;
+    /**
+     * The name of the reference table.
+     */
+    tableName: string;
 }
 
 export interface SecurityMonitoringRuleSignalQuery {
@@ -23885,6 +24035,14 @@ export namespace config {
          * [Experimental - Monitors only] Resource tags to be applied by default across all resources.
          */
         tags?: {[key: string]: string};
+    }
+
+}
+
+export namespace gcp {
+    export interface IntegrationStsMetricNamespaceConfig {
+        disabled: boolean;
+        id: string;
     }
 
 }

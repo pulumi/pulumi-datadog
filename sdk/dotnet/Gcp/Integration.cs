@@ -42,6 +42,12 @@ namespace Pulumi.Datadog.Gcp
         public Output<string> ClientId { get; private set; } = null!;
 
         /// <summary>
+        /// Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+        /// </summary>
+        [Output("cloudRunRevisionFilters")]
+        public Output<ImmutableArray<string>> CloudRunRevisionFilters { get; private set; } = null!;
+
+        /// <summary>
         /// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled. Defaults to `false`.
         /// </summary>
         [Output("cspmResourceCollectionEnabled")]
@@ -52,6 +58,12 @@ namespace Pulumi.Datadog.Gcp
         /// </summary>
         [Output("hostFilters")]
         public Output<string> HostFilters { get; private set; } = null!;
+
+        /// <summary>
+        /// When enabled, Datadog scans for all resource change data in your Google Cloud environment.
+        /// </summary>
+        [Output("isResourceChangeCollectionEnabled")]
+        public Output<bool> IsResourceChangeCollectionEnabled { get; private set; } = null!;
 
         /// <summary>
         /// When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
@@ -151,6 +163,18 @@ namespace Pulumi.Datadog.Gcp
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
 
+        [Input("cloudRunRevisionFilters")]
+        private InputList<string>? _cloudRunRevisionFilters;
+
+        /// <summary>
+        /// Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+        /// </summary>
+        public InputList<string> CloudRunRevisionFilters
+        {
+            get => _cloudRunRevisionFilters ?? (_cloudRunRevisionFilters = new InputList<string>());
+            set => _cloudRunRevisionFilters = value;
+        }
+
         /// <summary>
         /// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled. Defaults to `false`.
         /// </summary>
@@ -162,6 +186,12 @@ namespace Pulumi.Datadog.Gcp
         /// </summary>
         [Input("hostFilters")]
         public Input<string>? HostFilters { get; set; }
+
+        /// <summary>
+        /// When enabled, Datadog scans for all resource change data in your Google Cloud environment.
+        /// </summary>
+        [Input("isResourceChangeCollectionEnabled")]
+        public Input<bool>? IsResourceChangeCollectionEnabled { get; set; }
 
         /// <summary>
         /// When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
@@ -229,6 +259,18 @@ namespace Pulumi.Datadog.Gcp
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
 
+        [Input("cloudRunRevisionFilters")]
+        private InputList<string>? _cloudRunRevisionFilters;
+
+        /// <summary>
+        /// Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+        /// </summary>
+        public InputList<string> CloudRunRevisionFilters
+        {
+            get => _cloudRunRevisionFilters ?? (_cloudRunRevisionFilters = new InputList<string>());
+            set => _cloudRunRevisionFilters = value;
+        }
+
         /// <summary>
         /// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled. Defaults to `false`.
         /// </summary>
@@ -240,6 +282,12 @@ namespace Pulumi.Datadog.Gcp
         /// </summary>
         [Input("hostFilters")]
         public Input<string>? HostFilters { get; set; }
+
+        /// <summary>
+        /// When enabled, Datadog scans for all resource change data in your Google Cloud environment.
+        /// </summary>
+        [Input("isResourceChangeCollectionEnabled")]
+        public Input<bool>? IsResourceChangeCollectionEnabled { get; set; }
 
         /// <summary>
         /// When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
