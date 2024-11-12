@@ -116,6 +116,10 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
      */
     public readonly queries!: pulumi.Output<outputs.SecurityMonitoringRuleQuery[] | undefined>;
     /**
+     * Reference tables for filtering query results.
+     */
+    public readonly referenceTables!: pulumi.Output<outputs.SecurityMonitoringRuleReferenceTable[] | undefined>;
+    /**
      * Queries for selecting logs which are part of the rule.
      */
     public readonly signalQueries!: pulumi.Output<outputs.SecurityMonitoringRuleSignalQuery[] | undefined>;
@@ -157,6 +161,7 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["options"] = state ? state.options : undefined;
             resourceInputs["queries"] = state ? state.queries : undefined;
+            resourceInputs["referenceTables"] = state ? state.referenceTables : undefined;
             resourceInputs["signalQueries"] = state ? state.signalQueries : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["thirdPartyCases"] = state ? state.thirdPartyCases : undefined;
@@ -178,6 +183,7 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["options"] = args ? args.options : undefined;
             resourceInputs["queries"] = args ? args.queries : undefined;
+            resourceInputs["referenceTables"] = args ? args.referenceTables : undefined;
             resourceInputs["signalQueries"] = args ? args.signalQueries : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["thirdPartyCases"] = args ? args.thirdPartyCases : undefined;
@@ -225,6 +231,10 @@ export interface SecurityMonitoringRuleState {
      * Queries for selecting logs which are part of the rule.
      */
     queries?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleQuery>[]>;
+    /**
+     * Reference tables for filtering query results.
+     */
+    referenceTables?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleReferenceTable>[]>;
     /**
      * Queries for selecting logs which are part of the rule.
      */
@@ -283,6 +293,10 @@ export interface SecurityMonitoringRuleArgs {
      * Queries for selecting logs which are part of the rule.
      */
     queries?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleQuery>[]>;
+    /**
+     * Reference tables for filtering query results.
+     */
+    referenceTables?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleReferenceTable>[]>;
     /**
      * Queries for selecting logs which are part of the rule.
      */

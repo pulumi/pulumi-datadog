@@ -13,6 +13,430 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type RestrictionPolicyBinding struct {
+	// An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role`, `team`, `user`, and `org`. Org ID can be obtained using a `GET /api/v2/current_user` API request. Find it in the `data.relationships.org.data.id` field.
+	Principals []string `pulumi:"principals"`
+	// The role/level of access. See this page for more details https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources
+	Relation string `pulumi:"relation"`
+}
+
+// RestrictionPolicyBindingInput is an input type that accepts RestrictionPolicyBindingArgs and RestrictionPolicyBindingOutput values.
+// You can construct a concrete instance of `RestrictionPolicyBindingInput` via:
+//
+//	RestrictionPolicyBindingArgs{...}
+type RestrictionPolicyBindingInput interface {
+	pulumi.Input
+
+	ToRestrictionPolicyBindingOutput() RestrictionPolicyBindingOutput
+	ToRestrictionPolicyBindingOutputWithContext(context.Context) RestrictionPolicyBindingOutput
+}
+
+type RestrictionPolicyBindingArgs struct {
+	// An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role`, `team`, `user`, and `org`. Org ID can be obtained using a `GET /api/v2/current_user` API request. Find it in the `data.relationships.org.data.id` field.
+	Principals pulumi.StringArrayInput `pulumi:"principals"`
+	// The role/level of access. See this page for more details https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources
+	Relation pulumi.StringInput `pulumi:"relation"`
+}
+
+func (RestrictionPolicyBindingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestrictionPolicyBinding)(nil)).Elem()
+}
+
+func (i RestrictionPolicyBindingArgs) ToRestrictionPolicyBindingOutput() RestrictionPolicyBindingOutput {
+	return i.ToRestrictionPolicyBindingOutputWithContext(context.Background())
+}
+
+func (i RestrictionPolicyBindingArgs) ToRestrictionPolicyBindingOutputWithContext(ctx context.Context) RestrictionPolicyBindingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestrictionPolicyBindingOutput)
+}
+
+// RestrictionPolicyBindingArrayInput is an input type that accepts RestrictionPolicyBindingArray and RestrictionPolicyBindingArrayOutput values.
+// You can construct a concrete instance of `RestrictionPolicyBindingArrayInput` via:
+//
+//	RestrictionPolicyBindingArray{ RestrictionPolicyBindingArgs{...} }
+type RestrictionPolicyBindingArrayInput interface {
+	pulumi.Input
+
+	ToRestrictionPolicyBindingArrayOutput() RestrictionPolicyBindingArrayOutput
+	ToRestrictionPolicyBindingArrayOutputWithContext(context.Context) RestrictionPolicyBindingArrayOutput
+}
+
+type RestrictionPolicyBindingArray []RestrictionPolicyBindingInput
+
+func (RestrictionPolicyBindingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RestrictionPolicyBinding)(nil)).Elem()
+}
+
+func (i RestrictionPolicyBindingArray) ToRestrictionPolicyBindingArrayOutput() RestrictionPolicyBindingArrayOutput {
+	return i.ToRestrictionPolicyBindingArrayOutputWithContext(context.Background())
+}
+
+func (i RestrictionPolicyBindingArray) ToRestrictionPolicyBindingArrayOutputWithContext(ctx context.Context) RestrictionPolicyBindingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestrictionPolicyBindingArrayOutput)
+}
+
+type RestrictionPolicyBindingOutput struct{ *pulumi.OutputState }
+
+func (RestrictionPolicyBindingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestrictionPolicyBinding)(nil)).Elem()
+}
+
+func (o RestrictionPolicyBindingOutput) ToRestrictionPolicyBindingOutput() RestrictionPolicyBindingOutput {
+	return o
+}
+
+func (o RestrictionPolicyBindingOutput) ToRestrictionPolicyBindingOutputWithContext(ctx context.Context) RestrictionPolicyBindingOutput {
+	return o
+}
+
+// An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role`, `team`, `user`, and `org`. Org ID can be obtained using a `GET /api/v2/current_user` API request. Find it in the `data.relationships.org.data.id` field.
+func (o RestrictionPolicyBindingOutput) Principals() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RestrictionPolicyBinding) []string { return v.Principals }).(pulumi.StringArrayOutput)
+}
+
+// The role/level of access. See this page for more details https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources
+func (o RestrictionPolicyBindingOutput) Relation() pulumi.StringOutput {
+	return o.ApplyT(func(v RestrictionPolicyBinding) string { return v.Relation }).(pulumi.StringOutput)
+}
+
+type RestrictionPolicyBindingArrayOutput struct{ *pulumi.OutputState }
+
+func (RestrictionPolicyBindingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RestrictionPolicyBinding)(nil)).Elem()
+}
+
+func (o RestrictionPolicyBindingArrayOutput) ToRestrictionPolicyBindingArrayOutput() RestrictionPolicyBindingArrayOutput {
+	return o
+}
+
+func (o RestrictionPolicyBindingArrayOutput) ToRestrictionPolicyBindingArrayOutputWithContext(ctx context.Context) RestrictionPolicyBindingArrayOutput {
+	return o
+}
+
+func (o RestrictionPolicyBindingArrayOutput) Index(i pulumi.IntInput) RestrictionPolicyBindingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RestrictionPolicyBinding {
+		return vs[0].([]RestrictionPolicyBinding)[vs[1].(int)]
+	}).(RestrictionPolicyBindingOutput)
+}
+
+type RolePermission struct {
+	// ID of the permission to assign.
+	Id string `pulumi:"id"`
+	// Name of the permission.
+	Name *string `pulumi:"name"`
+}
+
+// RolePermissionInput is an input type that accepts RolePermissionArgs and RolePermissionOutput values.
+// You can construct a concrete instance of `RolePermissionInput` via:
+//
+//	RolePermissionArgs{...}
+type RolePermissionInput interface {
+	pulumi.Input
+
+	ToRolePermissionOutput() RolePermissionOutput
+	ToRolePermissionOutputWithContext(context.Context) RolePermissionOutput
+}
+
+type RolePermissionArgs struct {
+	// ID of the permission to assign.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Name of the permission.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (RolePermissionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RolePermission)(nil)).Elem()
+}
+
+func (i RolePermissionArgs) ToRolePermissionOutput() RolePermissionOutput {
+	return i.ToRolePermissionOutputWithContext(context.Background())
+}
+
+func (i RolePermissionArgs) ToRolePermissionOutputWithContext(ctx context.Context) RolePermissionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RolePermissionOutput)
+}
+
+// RolePermissionArrayInput is an input type that accepts RolePermissionArray and RolePermissionArrayOutput values.
+// You can construct a concrete instance of `RolePermissionArrayInput` via:
+//
+//	RolePermissionArray{ RolePermissionArgs{...} }
+type RolePermissionArrayInput interface {
+	pulumi.Input
+
+	ToRolePermissionArrayOutput() RolePermissionArrayOutput
+	ToRolePermissionArrayOutputWithContext(context.Context) RolePermissionArrayOutput
+}
+
+type RolePermissionArray []RolePermissionInput
+
+func (RolePermissionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RolePermission)(nil)).Elem()
+}
+
+func (i RolePermissionArray) ToRolePermissionArrayOutput() RolePermissionArrayOutput {
+	return i.ToRolePermissionArrayOutputWithContext(context.Background())
+}
+
+func (i RolePermissionArray) ToRolePermissionArrayOutputWithContext(ctx context.Context) RolePermissionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RolePermissionArrayOutput)
+}
+
+type RolePermissionOutput struct{ *pulumi.OutputState }
+
+func (RolePermissionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RolePermission)(nil)).Elem()
+}
+
+func (o RolePermissionOutput) ToRolePermissionOutput() RolePermissionOutput {
+	return o
+}
+
+func (o RolePermissionOutput) ToRolePermissionOutputWithContext(ctx context.Context) RolePermissionOutput {
+	return o
+}
+
+// ID of the permission to assign.
+func (o RolePermissionOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v RolePermission) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Name of the permission.
+func (o RolePermissionOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RolePermission) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type RolePermissionArrayOutput struct{ *pulumi.OutputState }
+
+func (RolePermissionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RolePermission)(nil)).Elem()
+}
+
+func (o RolePermissionArrayOutput) ToRolePermissionArrayOutput() RolePermissionArrayOutput {
+	return o
+}
+
+func (o RolePermissionArrayOutput) ToRolePermissionArrayOutputWithContext(ctx context.Context) RolePermissionArrayOutput {
+	return o
+}
+
+func (o RolePermissionArrayOutput) Index(i pulumi.IntInput) RolePermissionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RolePermission {
+		return vs[0].([]RolePermission)[vs[1].(int)]
+	}).(RolePermissionOutput)
+}
+
+type SecurityMonitoringDefaultRuleCase struct {
+	// Notification targets for each rule case.
+	Notifications []string `pulumi:"notifications"`
+	// Status of the rule case to match. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+	Status string `pulumi:"status"`
+}
+
+// SecurityMonitoringDefaultRuleCaseInput is an input type that accepts SecurityMonitoringDefaultRuleCaseArgs and SecurityMonitoringDefaultRuleCaseOutput values.
+// You can construct a concrete instance of `SecurityMonitoringDefaultRuleCaseInput` via:
+//
+//	SecurityMonitoringDefaultRuleCaseArgs{...}
+type SecurityMonitoringDefaultRuleCaseInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringDefaultRuleCaseOutput() SecurityMonitoringDefaultRuleCaseOutput
+	ToSecurityMonitoringDefaultRuleCaseOutputWithContext(context.Context) SecurityMonitoringDefaultRuleCaseOutput
+}
+
+type SecurityMonitoringDefaultRuleCaseArgs struct {
+	// Notification targets for each rule case.
+	Notifications pulumi.StringArrayInput `pulumi:"notifications"`
+	// Status of the rule case to match. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (SecurityMonitoringDefaultRuleCaseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringDefaultRuleCase)(nil)).Elem()
+}
+
+func (i SecurityMonitoringDefaultRuleCaseArgs) ToSecurityMonitoringDefaultRuleCaseOutput() SecurityMonitoringDefaultRuleCaseOutput {
+	return i.ToSecurityMonitoringDefaultRuleCaseOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringDefaultRuleCaseArgs) ToSecurityMonitoringDefaultRuleCaseOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleCaseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringDefaultRuleCaseOutput)
+}
+
+// SecurityMonitoringDefaultRuleCaseArrayInput is an input type that accepts SecurityMonitoringDefaultRuleCaseArray and SecurityMonitoringDefaultRuleCaseArrayOutput values.
+// You can construct a concrete instance of `SecurityMonitoringDefaultRuleCaseArrayInput` via:
+//
+//	SecurityMonitoringDefaultRuleCaseArray{ SecurityMonitoringDefaultRuleCaseArgs{...} }
+type SecurityMonitoringDefaultRuleCaseArrayInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringDefaultRuleCaseArrayOutput() SecurityMonitoringDefaultRuleCaseArrayOutput
+	ToSecurityMonitoringDefaultRuleCaseArrayOutputWithContext(context.Context) SecurityMonitoringDefaultRuleCaseArrayOutput
+}
+
+type SecurityMonitoringDefaultRuleCaseArray []SecurityMonitoringDefaultRuleCaseInput
+
+func (SecurityMonitoringDefaultRuleCaseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityMonitoringDefaultRuleCase)(nil)).Elem()
+}
+
+func (i SecurityMonitoringDefaultRuleCaseArray) ToSecurityMonitoringDefaultRuleCaseArrayOutput() SecurityMonitoringDefaultRuleCaseArrayOutput {
+	return i.ToSecurityMonitoringDefaultRuleCaseArrayOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringDefaultRuleCaseArray) ToSecurityMonitoringDefaultRuleCaseArrayOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleCaseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringDefaultRuleCaseArrayOutput)
+}
+
+type SecurityMonitoringDefaultRuleCaseOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringDefaultRuleCaseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringDefaultRuleCase)(nil)).Elem()
+}
+
+func (o SecurityMonitoringDefaultRuleCaseOutput) ToSecurityMonitoringDefaultRuleCaseOutput() SecurityMonitoringDefaultRuleCaseOutput {
+	return o
+}
+
+func (o SecurityMonitoringDefaultRuleCaseOutput) ToSecurityMonitoringDefaultRuleCaseOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleCaseOutput {
+	return o
+}
+
+// Notification targets for each rule case.
+func (o SecurityMonitoringDefaultRuleCaseOutput) Notifications() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityMonitoringDefaultRuleCase) []string { return v.Notifications }).(pulumi.StringArrayOutput)
+}
+
+// Status of the rule case to match. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+func (o SecurityMonitoringDefaultRuleCaseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityMonitoringDefaultRuleCase) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type SecurityMonitoringDefaultRuleCaseArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringDefaultRuleCaseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityMonitoringDefaultRuleCase)(nil)).Elem()
+}
+
+func (o SecurityMonitoringDefaultRuleCaseArrayOutput) ToSecurityMonitoringDefaultRuleCaseArrayOutput() SecurityMonitoringDefaultRuleCaseArrayOutput {
+	return o
+}
+
+func (o SecurityMonitoringDefaultRuleCaseArrayOutput) ToSecurityMonitoringDefaultRuleCaseArrayOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleCaseArrayOutput {
+	return o
+}
+
+func (o SecurityMonitoringDefaultRuleCaseArrayOutput) Index(i pulumi.IntInput) SecurityMonitoringDefaultRuleCaseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityMonitoringDefaultRuleCase {
+		return vs[0].([]SecurityMonitoringDefaultRuleCase)[vs[1].(int)]
+	}).(SecurityMonitoringDefaultRuleCaseOutput)
+}
+
+type SecurityMonitoringDefaultRuleFilter struct {
+	// The type of filtering action. Allowed enum values: require, suppress Valid values are `require`, `suppress`.
+	Action string `pulumi:"action"`
+	// Query for selecting logs to apply the filtering action.
+	Query string `pulumi:"query"`
+}
+
+// SecurityMonitoringDefaultRuleFilterInput is an input type that accepts SecurityMonitoringDefaultRuleFilterArgs and SecurityMonitoringDefaultRuleFilterOutput values.
+// You can construct a concrete instance of `SecurityMonitoringDefaultRuleFilterInput` via:
+//
+//	SecurityMonitoringDefaultRuleFilterArgs{...}
+type SecurityMonitoringDefaultRuleFilterInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringDefaultRuleFilterOutput() SecurityMonitoringDefaultRuleFilterOutput
+	ToSecurityMonitoringDefaultRuleFilterOutputWithContext(context.Context) SecurityMonitoringDefaultRuleFilterOutput
+}
+
+type SecurityMonitoringDefaultRuleFilterArgs struct {
+	// The type of filtering action. Allowed enum values: require, suppress Valid values are `require`, `suppress`.
+	Action pulumi.StringInput `pulumi:"action"`
+	// Query for selecting logs to apply the filtering action.
+	Query pulumi.StringInput `pulumi:"query"`
+}
+
+func (SecurityMonitoringDefaultRuleFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringDefaultRuleFilter)(nil)).Elem()
+}
+
+func (i SecurityMonitoringDefaultRuleFilterArgs) ToSecurityMonitoringDefaultRuleFilterOutput() SecurityMonitoringDefaultRuleFilterOutput {
+	return i.ToSecurityMonitoringDefaultRuleFilterOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringDefaultRuleFilterArgs) ToSecurityMonitoringDefaultRuleFilterOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringDefaultRuleFilterOutput)
+}
+
+// SecurityMonitoringDefaultRuleFilterArrayInput is an input type that accepts SecurityMonitoringDefaultRuleFilterArray and SecurityMonitoringDefaultRuleFilterArrayOutput values.
+// You can construct a concrete instance of `SecurityMonitoringDefaultRuleFilterArrayInput` via:
+//
+//	SecurityMonitoringDefaultRuleFilterArray{ SecurityMonitoringDefaultRuleFilterArgs{...} }
+type SecurityMonitoringDefaultRuleFilterArrayInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringDefaultRuleFilterArrayOutput() SecurityMonitoringDefaultRuleFilterArrayOutput
+	ToSecurityMonitoringDefaultRuleFilterArrayOutputWithContext(context.Context) SecurityMonitoringDefaultRuleFilterArrayOutput
+}
+
+type SecurityMonitoringDefaultRuleFilterArray []SecurityMonitoringDefaultRuleFilterInput
+
+func (SecurityMonitoringDefaultRuleFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityMonitoringDefaultRuleFilter)(nil)).Elem()
+}
+
+func (i SecurityMonitoringDefaultRuleFilterArray) ToSecurityMonitoringDefaultRuleFilterArrayOutput() SecurityMonitoringDefaultRuleFilterArrayOutput {
+	return i.ToSecurityMonitoringDefaultRuleFilterArrayOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringDefaultRuleFilterArray) ToSecurityMonitoringDefaultRuleFilterArrayOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringDefaultRuleFilterArrayOutput)
+}
+
+type SecurityMonitoringDefaultRuleFilterOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringDefaultRuleFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringDefaultRuleFilter)(nil)).Elem()
+}
+
+func (o SecurityMonitoringDefaultRuleFilterOutput) ToSecurityMonitoringDefaultRuleFilterOutput() SecurityMonitoringDefaultRuleFilterOutput {
+	return o
+}
+
+func (o SecurityMonitoringDefaultRuleFilterOutput) ToSecurityMonitoringDefaultRuleFilterOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleFilterOutput {
+	return o
+}
+
+// The type of filtering action. Allowed enum values: require, suppress Valid values are `require`, `suppress`.
+func (o SecurityMonitoringDefaultRuleFilterOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityMonitoringDefaultRuleFilter) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// Query for selecting logs to apply the filtering action.
+func (o SecurityMonitoringDefaultRuleFilterOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityMonitoringDefaultRuleFilter) string { return v.Query }).(pulumi.StringOutput)
+}
+
+type SecurityMonitoringDefaultRuleFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringDefaultRuleFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityMonitoringDefaultRuleFilter)(nil)).Elem()
+}
+
+func (o SecurityMonitoringDefaultRuleFilterArrayOutput) ToSecurityMonitoringDefaultRuleFilterArrayOutput() SecurityMonitoringDefaultRuleFilterArrayOutput {
+	return o
+}
+
+func (o SecurityMonitoringDefaultRuleFilterArrayOutput) ToSecurityMonitoringDefaultRuleFilterArrayOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleFilterArrayOutput {
+	return o
+}
+
+func (o SecurityMonitoringDefaultRuleFilterArrayOutput) Index(i pulumi.IntInput) SecurityMonitoringDefaultRuleFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityMonitoringDefaultRuleFilter {
+		return vs[0].([]SecurityMonitoringDefaultRuleFilter)[vs[1].(int)]
+	}).(SecurityMonitoringDefaultRuleFilterOutput)
+}
+
 type SecurityMonitoringDefaultRuleOptions struct {
 	// If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `logDetection`. Defaults to `false`.
 	DecreaseCriticalityBasedOnEnv *bool `pulumi:"decreaseCriticalityBasedOnEnv"`
@@ -1671,6 +2095,139 @@ func (o SecurityMonitoringRuleQueryAgentRuleArrayOutput) Index(i pulumi.IntInput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityMonitoringRuleQueryAgentRule {
 		return vs[0].([]SecurityMonitoringRuleQueryAgentRule)[vs[1].(int)]
 	}).(SecurityMonitoringRuleQueryAgentRuleOutput)
+}
+
+type SecurityMonitoringRuleReferenceTable struct {
+	// Whether to include or exclude logs that match the reference table.
+	CheckPresence bool `pulumi:"checkPresence"`
+	// The name of the column in the reference table.
+	ColumnName string `pulumi:"columnName"`
+	// The field in the log that should be matched against the reference table.
+	LogFieldPath string `pulumi:"logFieldPath"`
+	// The name of the query to filter.
+	RuleQueryName string `pulumi:"ruleQueryName"`
+	// The name of the reference table.
+	TableName string `pulumi:"tableName"`
+}
+
+// SecurityMonitoringRuleReferenceTableInput is an input type that accepts SecurityMonitoringRuleReferenceTableArgs and SecurityMonitoringRuleReferenceTableOutput values.
+// You can construct a concrete instance of `SecurityMonitoringRuleReferenceTableInput` via:
+//
+//	SecurityMonitoringRuleReferenceTableArgs{...}
+type SecurityMonitoringRuleReferenceTableInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringRuleReferenceTableOutput() SecurityMonitoringRuleReferenceTableOutput
+	ToSecurityMonitoringRuleReferenceTableOutputWithContext(context.Context) SecurityMonitoringRuleReferenceTableOutput
+}
+
+type SecurityMonitoringRuleReferenceTableArgs struct {
+	// Whether to include or exclude logs that match the reference table.
+	CheckPresence pulumi.BoolInput `pulumi:"checkPresence"`
+	// The name of the column in the reference table.
+	ColumnName pulumi.StringInput `pulumi:"columnName"`
+	// The field in the log that should be matched against the reference table.
+	LogFieldPath pulumi.StringInput `pulumi:"logFieldPath"`
+	// The name of the query to filter.
+	RuleQueryName pulumi.StringInput `pulumi:"ruleQueryName"`
+	// The name of the reference table.
+	TableName pulumi.StringInput `pulumi:"tableName"`
+}
+
+func (SecurityMonitoringRuleReferenceTableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringRuleReferenceTable)(nil)).Elem()
+}
+
+func (i SecurityMonitoringRuleReferenceTableArgs) ToSecurityMonitoringRuleReferenceTableOutput() SecurityMonitoringRuleReferenceTableOutput {
+	return i.ToSecurityMonitoringRuleReferenceTableOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringRuleReferenceTableArgs) ToSecurityMonitoringRuleReferenceTableOutputWithContext(ctx context.Context) SecurityMonitoringRuleReferenceTableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringRuleReferenceTableOutput)
+}
+
+// SecurityMonitoringRuleReferenceTableArrayInput is an input type that accepts SecurityMonitoringRuleReferenceTableArray and SecurityMonitoringRuleReferenceTableArrayOutput values.
+// You can construct a concrete instance of `SecurityMonitoringRuleReferenceTableArrayInput` via:
+//
+//	SecurityMonitoringRuleReferenceTableArray{ SecurityMonitoringRuleReferenceTableArgs{...} }
+type SecurityMonitoringRuleReferenceTableArrayInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringRuleReferenceTableArrayOutput() SecurityMonitoringRuleReferenceTableArrayOutput
+	ToSecurityMonitoringRuleReferenceTableArrayOutputWithContext(context.Context) SecurityMonitoringRuleReferenceTableArrayOutput
+}
+
+type SecurityMonitoringRuleReferenceTableArray []SecurityMonitoringRuleReferenceTableInput
+
+func (SecurityMonitoringRuleReferenceTableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityMonitoringRuleReferenceTable)(nil)).Elem()
+}
+
+func (i SecurityMonitoringRuleReferenceTableArray) ToSecurityMonitoringRuleReferenceTableArrayOutput() SecurityMonitoringRuleReferenceTableArrayOutput {
+	return i.ToSecurityMonitoringRuleReferenceTableArrayOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringRuleReferenceTableArray) ToSecurityMonitoringRuleReferenceTableArrayOutputWithContext(ctx context.Context) SecurityMonitoringRuleReferenceTableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringRuleReferenceTableArrayOutput)
+}
+
+type SecurityMonitoringRuleReferenceTableOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringRuleReferenceTableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringRuleReferenceTable)(nil)).Elem()
+}
+
+func (o SecurityMonitoringRuleReferenceTableOutput) ToSecurityMonitoringRuleReferenceTableOutput() SecurityMonitoringRuleReferenceTableOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleReferenceTableOutput) ToSecurityMonitoringRuleReferenceTableOutputWithContext(ctx context.Context) SecurityMonitoringRuleReferenceTableOutput {
+	return o
+}
+
+// Whether to include or exclude logs that match the reference table.
+func (o SecurityMonitoringRuleReferenceTableOutput) CheckPresence() pulumi.BoolOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleReferenceTable) bool { return v.CheckPresence }).(pulumi.BoolOutput)
+}
+
+// The name of the column in the reference table.
+func (o SecurityMonitoringRuleReferenceTableOutput) ColumnName() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleReferenceTable) string { return v.ColumnName }).(pulumi.StringOutput)
+}
+
+// The field in the log that should be matched against the reference table.
+func (o SecurityMonitoringRuleReferenceTableOutput) LogFieldPath() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleReferenceTable) string { return v.LogFieldPath }).(pulumi.StringOutput)
+}
+
+// The name of the query to filter.
+func (o SecurityMonitoringRuleReferenceTableOutput) RuleQueryName() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleReferenceTable) string { return v.RuleQueryName }).(pulumi.StringOutput)
+}
+
+// The name of the reference table.
+func (o SecurityMonitoringRuleReferenceTableOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleReferenceTable) string { return v.TableName }).(pulumi.StringOutput)
+}
+
+type SecurityMonitoringRuleReferenceTableArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringRuleReferenceTableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityMonitoringRuleReferenceTable)(nil)).Elem()
+}
+
+func (o SecurityMonitoringRuleReferenceTableArrayOutput) ToSecurityMonitoringRuleReferenceTableArrayOutput() SecurityMonitoringRuleReferenceTableArrayOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleReferenceTableArrayOutput) ToSecurityMonitoringRuleReferenceTableArrayOutputWithContext(ctx context.Context) SecurityMonitoringRuleReferenceTableArrayOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleReferenceTableArrayOutput) Index(i pulumi.IntInput) SecurityMonitoringRuleReferenceTableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityMonitoringRuleReferenceTable {
+		return vs[0].([]SecurityMonitoringRuleReferenceTable)[vs[1].(int)]
+	}).(SecurityMonitoringRuleReferenceTableOutput)
 }
 
 type SecurityMonitoringRuleSignalQuery struct {
@@ -15620,6 +16177,8 @@ type GetSecurityMonitoringRulesRule struct {
 	Options *GetSecurityMonitoringRulesRuleOptions `pulumi:"options"`
 	// Queries for selecting logs which are part of the rule.
 	Queries []GetSecurityMonitoringRulesRuleQuery `pulumi:"queries"`
+	// Reference tables for filtering query results.
+	ReferenceTables []GetSecurityMonitoringRulesRuleReferenceTable `pulumi:"referenceTables"`
 	// Queries for selecting logs which are part of the rule.
 	SignalQueries []GetSecurityMonitoringRulesRuleSignalQuery `pulumi:"signalQueries"`
 	// Tags for generated signals.
@@ -15658,6 +16217,8 @@ type GetSecurityMonitoringRulesRuleArgs struct {
 	Options GetSecurityMonitoringRulesRuleOptionsPtrInput `pulumi:"options"`
 	// Queries for selecting logs which are part of the rule.
 	Queries GetSecurityMonitoringRulesRuleQueryArrayInput `pulumi:"queries"`
+	// Reference tables for filtering query results.
+	ReferenceTables GetSecurityMonitoringRulesRuleReferenceTableArrayInput `pulumi:"referenceTables"`
 	// Queries for selecting logs which are part of the rule.
 	SignalQueries GetSecurityMonitoringRulesRuleSignalQueryArrayInput `pulumi:"signalQueries"`
 	// Tags for generated signals.
@@ -15757,6 +16318,13 @@ func (o GetSecurityMonitoringRulesRuleOutput) Options() GetSecurityMonitoringRul
 // Queries for selecting logs which are part of the rule.
 func (o GetSecurityMonitoringRulesRuleOutput) Queries() GetSecurityMonitoringRulesRuleQueryArrayOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRule) []GetSecurityMonitoringRulesRuleQuery { return v.Queries }).(GetSecurityMonitoringRulesRuleQueryArrayOutput)
+}
+
+// Reference tables for filtering query results.
+func (o GetSecurityMonitoringRulesRuleOutput) ReferenceTables() GetSecurityMonitoringRulesRuleReferenceTableArrayOutput {
+	return o.ApplyT(func(v GetSecurityMonitoringRulesRule) []GetSecurityMonitoringRulesRuleReferenceTable {
+		return v.ReferenceTables
+	}).(GetSecurityMonitoringRulesRuleReferenceTableArrayOutput)
 }
 
 // Queries for selecting logs which are part of the rule.
@@ -17230,6 +17798,139 @@ func (o GetSecurityMonitoringRulesRuleQueryAgentRuleArrayOutput) Index(i pulumi.
 	}).(GetSecurityMonitoringRulesRuleQueryAgentRuleOutput)
 }
 
+type GetSecurityMonitoringRulesRuleReferenceTable struct {
+	// Whether to include or exclude logs that match the reference table.
+	CheckPresence bool `pulumi:"checkPresence"`
+	// The name of the column in the reference table.
+	ColumnName string `pulumi:"columnName"`
+	// The field in the log that should be matched against the reference table.
+	LogFieldPath string `pulumi:"logFieldPath"`
+	// The name of the query to filter.
+	RuleQueryName string `pulumi:"ruleQueryName"`
+	// The name of the reference table.
+	TableName string `pulumi:"tableName"`
+}
+
+// GetSecurityMonitoringRulesRuleReferenceTableInput is an input type that accepts GetSecurityMonitoringRulesRuleReferenceTableArgs and GetSecurityMonitoringRulesRuleReferenceTableOutput values.
+// You can construct a concrete instance of `GetSecurityMonitoringRulesRuleReferenceTableInput` via:
+//
+//	GetSecurityMonitoringRulesRuleReferenceTableArgs{...}
+type GetSecurityMonitoringRulesRuleReferenceTableInput interface {
+	pulumi.Input
+
+	ToGetSecurityMonitoringRulesRuleReferenceTableOutput() GetSecurityMonitoringRulesRuleReferenceTableOutput
+	ToGetSecurityMonitoringRulesRuleReferenceTableOutputWithContext(context.Context) GetSecurityMonitoringRulesRuleReferenceTableOutput
+}
+
+type GetSecurityMonitoringRulesRuleReferenceTableArgs struct {
+	// Whether to include or exclude logs that match the reference table.
+	CheckPresence pulumi.BoolInput `pulumi:"checkPresence"`
+	// The name of the column in the reference table.
+	ColumnName pulumi.StringInput `pulumi:"columnName"`
+	// The field in the log that should be matched against the reference table.
+	LogFieldPath pulumi.StringInput `pulumi:"logFieldPath"`
+	// The name of the query to filter.
+	RuleQueryName pulumi.StringInput `pulumi:"ruleQueryName"`
+	// The name of the reference table.
+	TableName pulumi.StringInput `pulumi:"tableName"`
+}
+
+func (GetSecurityMonitoringRulesRuleReferenceTableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecurityMonitoringRulesRuleReferenceTable)(nil)).Elem()
+}
+
+func (i GetSecurityMonitoringRulesRuleReferenceTableArgs) ToGetSecurityMonitoringRulesRuleReferenceTableOutput() GetSecurityMonitoringRulesRuleReferenceTableOutput {
+	return i.ToGetSecurityMonitoringRulesRuleReferenceTableOutputWithContext(context.Background())
+}
+
+func (i GetSecurityMonitoringRulesRuleReferenceTableArgs) ToGetSecurityMonitoringRulesRuleReferenceTableOutputWithContext(ctx context.Context) GetSecurityMonitoringRulesRuleReferenceTableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSecurityMonitoringRulesRuleReferenceTableOutput)
+}
+
+// GetSecurityMonitoringRulesRuleReferenceTableArrayInput is an input type that accepts GetSecurityMonitoringRulesRuleReferenceTableArray and GetSecurityMonitoringRulesRuleReferenceTableArrayOutput values.
+// You can construct a concrete instance of `GetSecurityMonitoringRulesRuleReferenceTableArrayInput` via:
+//
+//	GetSecurityMonitoringRulesRuleReferenceTableArray{ GetSecurityMonitoringRulesRuleReferenceTableArgs{...} }
+type GetSecurityMonitoringRulesRuleReferenceTableArrayInput interface {
+	pulumi.Input
+
+	ToGetSecurityMonitoringRulesRuleReferenceTableArrayOutput() GetSecurityMonitoringRulesRuleReferenceTableArrayOutput
+	ToGetSecurityMonitoringRulesRuleReferenceTableArrayOutputWithContext(context.Context) GetSecurityMonitoringRulesRuleReferenceTableArrayOutput
+}
+
+type GetSecurityMonitoringRulesRuleReferenceTableArray []GetSecurityMonitoringRulesRuleReferenceTableInput
+
+func (GetSecurityMonitoringRulesRuleReferenceTableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSecurityMonitoringRulesRuleReferenceTable)(nil)).Elem()
+}
+
+func (i GetSecurityMonitoringRulesRuleReferenceTableArray) ToGetSecurityMonitoringRulesRuleReferenceTableArrayOutput() GetSecurityMonitoringRulesRuleReferenceTableArrayOutput {
+	return i.ToGetSecurityMonitoringRulesRuleReferenceTableArrayOutputWithContext(context.Background())
+}
+
+func (i GetSecurityMonitoringRulesRuleReferenceTableArray) ToGetSecurityMonitoringRulesRuleReferenceTableArrayOutputWithContext(ctx context.Context) GetSecurityMonitoringRulesRuleReferenceTableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSecurityMonitoringRulesRuleReferenceTableArrayOutput)
+}
+
+type GetSecurityMonitoringRulesRuleReferenceTableOutput struct{ *pulumi.OutputState }
+
+func (GetSecurityMonitoringRulesRuleReferenceTableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecurityMonitoringRulesRuleReferenceTable)(nil)).Elem()
+}
+
+func (o GetSecurityMonitoringRulesRuleReferenceTableOutput) ToGetSecurityMonitoringRulesRuleReferenceTableOutput() GetSecurityMonitoringRulesRuleReferenceTableOutput {
+	return o
+}
+
+func (o GetSecurityMonitoringRulesRuleReferenceTableOutput) ToGetSecurityMonitoringRulesRuleReferenceTableOutputWithContext(ctx context.Context) GetSecurityMonitoringRulesRuleReferenceTableOutput {
+	return o
+}
+
+// Whether to include or exclude logs that match the reference table.
+func (o GetSecurityMonitoringRulesRuleReferenceTableOutput) CheckPresence() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleReferenceTable) bool { return v.CheckPresence }).(pulumi.BoolOutput)
+}
+
+// The name of the column in the reference table.
+func (o GetSecurityMonitoringRulesRuleReferenceTableOutput) ColumnName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleReferenceTable) string { return v.ColumnName }).(pulumi.StringOutput)
+}
+
+// The field in the log that should be matched against the reference table.
+func (o GetSecurityMonitoringRulesRuleReferenceTableOutput) LogFieldPath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleReferenceTable) string { return v.LogFieldPath }).(pulumi.StringOutput)
+}
+
+// The name of the query to filter.
+func (o GetSecurityMonitoringRulesRuleReferenceTableOutput) RuleQueryName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleReferenceTable) string { return v.RuleQueryName }).(pulumi.StringOutput)
+}
+
+// The name of the reference table.
+func (o GetSecurityMonitoringRulesRuleReferenceTableOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleReferenceTable) string { return v.TableName }).(pulumi.StringOutput)
+}
+
+type GetSecurityMonitoringRulesRuleReferenceTableArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSecurityMonitoringRulesRuleReferenceTableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSecurityMonitoringRulesRuleReferenceTable)(nil)).Elem()
+}
+
+func (o GetSecurityMonitoringRulesRuleReferenceTableArrayOutput) ToGetSecurityMonitoringRulesRuleReferenceTableArrayOutput() GetSecurityMonitoringRulesRuleReferenceTableArrayOutput {
+	return o
+}
+
+func (o GetSecurityMonitoringRulesRuleReferenceTableArrayOutput) ToGetSecurityMonitoringRulesRuleReferenceTableArrayOutputWithContext(ctx context.Context) GetSecurityMonitoringRulesRuleReferenceTableArrayOutput {
+	return o
+}
+
+func (o GetSecurityMonitoringRulesRuleReferenceTableArrayOutput) Index(i pulumi.IntInput) GetSecurityMonitoringRulesRuleReferenceTableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSecurityMonitoringRulesRuleReferenceTable {
+		return vs[0].([]GetSecurityMonitoringRulesRuleReferenceTable)[vs[1].(int)]
+	}).(GetSecurityMonitoringRulesRuleReferenceTableOutput)
+}
+
 type GetSecurityMonitoringRulesRuleSignalQuery struct {
 	// The aggregation type. For Signal Correlation rules, it must be event_count.
 	Aggregation *string `pulumi:"aggregation"`
@@ -18072,6 +18773,14 @@ func (o GetUsersUserArrayOutput) Index(i pulumi.IntInput) GetUsersUserOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RestrictionPolicyBindingInput)(nil)).Elem(), RestrictionPolicyBindingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RestrictionPolicyBindingArrayInput)(nil)).Elem(), RestrictionPolicyBindingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RolePermissionInput)(nil)).Elem(), RolePermissionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RolePermissionArrayInput)(nil)).Elem(), RolePermissionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringDefaultRuleCaseInput)(nil)).Elem(), SecurityMonitoringDefaultRuleCaseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringDefaultRuleCaseArrayInput)(nil)).Elem(), SecurityMonitoringDefaultRuleCaseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringDefaultRuleFilterInput)(nil)).Elem(), SecurityMonitoringDefaultRuleFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringDefaultRuleFilterArrayInput)(nil)).Elem(), SecurityMonitoringDefaultRuleFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringDefaultRuleOptionsInput)(nil)).Elem(), SecurityMonitoringDefaultRuleOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringDefaultRuleOptionsPtrInput)(nil)).Elem(), SecurityMonitoringDefaultRuleOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringFilterExclusionFilterInput)(nil)).Elem(), SecurityMonitoringFilterExclusionFilterArgs{})
@@ -18094,6 +18803,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleQueryArrayInput)(nil)).Elem(), SecurityMonitoringRuleQueryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleQueryAgentRuleInput)(nil)).Elem(), SecurityMonitoringRuleQueryAgentRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleQueryAgentRuleArrayInput)(nil)).Elem(), SecurityMonitoringRuleQueryAgentRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleReferenceTableInput)(nil)).Elem(), SecurityMonitoringRuleReferenceTableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleReferenceTableArrayInput)(nil)).Elem(), SecurityMonitoringRuleReferenceTableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleSignalQueryInput)(nil)).Elem(), SecurityMonitoringRuleSignalQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleSignalQueryArrayInput)(nil)).Elem(), SecurityMonitoringRuleSignalQueryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleThirdPartyCaseInput)(nil)).Elem(), SecurityMonitoringRuleThirdPartyCaseArgs{})
@@ -18281,6 +18992,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityMonitoringRulesRuleQueryArrayInput)(nil)).Elem(), GetSecurityMonitoringRulesRuleQueryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityMonitoringRulesRuleQueryAgentRuleInput)(nil)).Elem(), GetSecurityMonitoringRulesRuleQueryAgentRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityMonitoringRulesRuleQueryAgentRuleArrayInput)(nil)).Elem(), GetSecurityMonitoringRulesRuleQueryAgentRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityMonitoringRulesRuleReferenceTableInput)(nil)).Elem(), GetSecurityMonitoringRulesRuleReferenceTableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityMonitoringRulesRuleReferenceTableArrayInput)(nil)).Elem(), GetSecurityMonitoringRulesRuleReferenceTableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityMonitoringRulesRuleSignalQueryInput)(nil)).Elem(), GetSecurityMonitoringRulesRuleSignalQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityMonitoringRulesRuleSignalQueryArrayInput)(nil)).Elem(), GetSecurityMonitoringRulesRuleSignalQueryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityMonitoringRulesRuleThirdPartyCaseInput)(nil)).Elem(), GetSecurityMonitoringRulesRuleThirdPartyCaseArgs{})
@@ -18295,6 +19008,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamMembershipsTeamMembershipArrayInput)(nil)).Elem(), GetTeamMembershipsTeamMembershipArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserInput)(nil)).Elem(), GetUsersUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserArrayInput)(nil)).Elem(), GetUsersUserArray{})
+	pulumi.RegisterOutputType(RestrictionPolicyBindingOutput{})
+	pulumi.RegisterOutputType(RestrictionPolicyBindingArrayOutput{})
+	pulumi.RegisterOutputType(RolePermissionOutput{})
+	pulumi.RegisterOutputType(RolePermissionArrayOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringDefaultRuleCaseOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringDefaultRuleCaseArrayOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringDefaultRuleFilterOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringDefaultRuleFilterArrayOutput{})
 	pulumi.RegisterOutputType(SecurityMonitoringDefaultRuleOptionsOutput{})
 	pulumi.RegisterOutputType(SecurityMonitoringDefaultRuleOptionsPtrOutput{})
 	pulumi.RegisterOutputType(SecurityMonitoringFilterExclusionFilterOutput{})
@@ -18317,6 +19038,8 @@ func init() {
 	pulumi.RegisterOutputType(SecurityMonitoringRuleQueryArrayOutput{})
 	pulumi.RegisterOutputType(SecurityMonitoringRuleQueryAgentRuleOutput{})
 	pulumi.RegisterOutputType(SecurityMonitoringRuleQueryAgentRuleArrayOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringRuleReferenceTableOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringRuleReferenceTableArrayOutput{})
 	pulumi.RegisterOutputType(SecurityMonitoringRuleSignalQueryOutput{})
 	pulumi.RegisterOutputType(SecurityMonitoringRuleSignalQueryArrayOutput{})
 	pulumi.RegisterOutputType(SecurityMonitoringRuleThirdPartyCaseOutput{})
@@ -18504,6 +19227,8 @@ func init() {
 	pulumi.RegisterOutputType(GetSecurityMonitoringRulesRuleQueryArrayOutput{})
 	pulumi.RegisterOutputType(GetSecurityMonitoringRulesRuleQueryAgentRuleOutput{})
 	pulumi.RegisterOutputType(GetSecurityMonitoringRulesRuleQueryAgentRuleArrayOutput{})
+	pulumi.RegisterOutputType(GetSecurityMonitoringRulesRuleReferenceTableOutput{})
+	pulumi.RegisterOutputType(GetSecurityMonitoringRulesRuleReferenceTableArrayOutput{})
 	pulumi.RegisterOutputType(GetSecurityMonitoringRulesRuleSignalQueryOutput{})
 	pulumi.RegisterOutputType(GetSecurityMonitoringRulesRuleSignalQueryArrayOutput{})
 	pulumi.RegisterOutputType(GetSecurityMonitoringRulesRuleThirdPartyCaseOutput{})

@@ -8,6 +8,7 @@ import com.pulumi.datadog.outputs.GetSecurityMonitoringRulesRuleCase;
 import com.pulumi.datadog.outputs.GetSecurityMonitoringRulesRuleFilter;
 import com.pulumi.datadog.outputs.GetSecurityMonitoringRulesRuleOptions;
 import com.pulumi.datadog.outputs.GetSecurityMonitoringRulesRuleQuery;
+import com.pulumi.datadog.outputs.GetSecurityMonitoringRulesRuleReferenceTable;
 import com.pulumi.datadog.outputs.GetSecurityMonitoringRulesRuleSignalQuery;
 import com.pulumi.datadog.outputs.GetSecurityMonitoringRulesRuleThirdPartyCase;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -60,6 +61,11 @@ public final class GetSecurityMonitoringRulesRule {
      * 
      */
     private @Nullable List<GetSecurityMonitoringRulesRuleQuery> queries;
+    /**
+     * @return Reference tables for filtering query results.
+     * 
+     */
+    private @Nullable List<GetSecurityMonitoringRulesRuleReferenceTable> referenceTables;
     /**
      * @return Queries for selecting logs which are part of the rule.
      * 
@@ -139,6 +145,13 @@ public final class GetSecurityMonitoringRulesRule {
         return this.queries == null ? List.of() : this.queries;
     }
     /**
+     * @return Reference tables for filtering query results.
+     * 
+     */
+    public List<GetSecurityMonitoringRulesRuleReferenceTable> referenceTables() {
+        return this.referenceTables == null ? List.of() : this.referenceTables;
+    }
+    /**
      * @return Queries for selecting logs which are part of the rule.
      * 
      */
@@ -184,6 +197,7 @@ public final class GetSecurityMonitoringRulesRule {
         private String name;
         private @Nullable GetSecurityMonitoringRulesRuleOptions options;
         private @Nullable List<GetSecurityMonitoringRulesRuleQuery> queries;
+        private @Nullable List<GetSecurityMonitoringRulesRuleReferenceTable> referenceTables;
         private @Nullable List<GetSecurityMonitoringRulesRuleSignalQuery> signalQueries;
         private @Nullable List<String> tags;
         private @Nullable List<GetSecurityMonitoringRulesRuleThirdPartyCase> thirdPartyCases;
@@ -199,6 +213,7 @@ public final class GetSecurityMonitoringRulesRule {
     	      this.name = defaults.name;
     	      this.options = defaults.options;
     	      this.queries = defaults.queries;
+    	      this.referenceTables = defaults.referenceTables;
     	      this.signalQueries = defaults.signalQueries;
     	      this.tags = defaults.tags;
     	      this.thirdPartyCases = defaults.thirdPartyCases;
@@ -267,6 +282,15 @@ public final class GetSecurityMonitoringRulesRule {
             return queries(List.of(queries));
         }
         @CustomType.Setter
+        public Builder referenceTables(@Nullable List<GetSecurityMonitoringRulesRuleReferenceTable> referenceTables) {
+
+            this.referenceTables = referenceTables;
+            return this;
+        }
+        public Builder referenceTables(GetSecurityMonitoringRulesRuleReferenceTable... referenceTables) {
+            return referenceTables(List.of(referenceTables));
+        }
+        @CustomType.Setter
         public Builder signalQueries(@Nullable List<GetSecurityMonitoringRulesRuleSignalQuery> signalQueries) {
 
             this.signalQueries = signalQueries;
@@ -309,6 +333,7 @@ public final class GetSecurityMonitoringRulesRule {
             _resultValue.name = name;
             _resultValue.options = options;
             _resultValue.queries = queries;
+            _resultValue.referenceTables = referenceTables;
             _resultValue.signalQueries = signalQueries;
             _resultValue.tags = tags;
             _resultValue.thirdPartyCases = thirdPartyCases;

@@ -13,6 +13,7 @@ import com.pulumi.datadog.gcp.inputs.IntegrationState;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -72,6 +73,20 @@ public class Integration extends com.pulumi.resources.CustomResource {
         return this.clientId;
     }
     /**
+     * Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+     * 
+     */
+    @Export(name="cloudRunRevisionFilters", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> cloudRunRevisionFilters;
+
+    /**
+     * @return Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+     * 
+     */
+    public Output<Optional<List<String>>> cloudRunRevisionFilters() {
+        return Codegen.optional(this.cloudRunRevisionFilters);
+    }
+    /**
      * Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled. Defaults to `false`.
      * 
      */
@@ -98,6 +113,20 @@ public class Integration extends com.pulumi.resources.CustomResource {
      */
     public Output<String> hostFilters() {
         return this.hostFilters;
+    }
+    /**
+     * When enabled, Datadog scans for all resource change data in your Google Cloud environment.
+     * 
+     */
+    @Export(name="isResourceChangeCollectionEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> isResourceChangeCollectionEnabled;
+
+    /**
+     * @return When enabled, Datadog scans for all resource change data in your Google Cloud environment.
+     * 
+     */
+    public Output<Boolean> isResourceChangeCollectionEnabled() {
+        return this.isResourceChangeCollectionEnabled;
     }
     /**
      * When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.

@@ -5,6 +5,8 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.PowerpackWidgetDistributionDefinitionRequest;
+import com.pulumi.datadog.outputs.PowerpackWidgetDistributionDefinitionXaxis;
+import com.pulumi.datadog.outputs.PowerpackWidgetDistributionDefinitionYaxis;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -49,6 +51,16 @@ public final class PowerpackWidgetDistributionDefinition {
      * 
      */
     private @Nullable String titleSize;
+    /**
+     * @return A nested block describing the X-Axis Controls. Exactly one nested block is allowed using the structure below.
+     * 
+     */
+    private @Nullable PowerpackWidgetDistributionDefinitionXaxis xaxis;
+    /**
+     * @return A nested block describing the Y-Axis Controls. Exactly one nested block is allowed using the structure below.
+     * 
+     */
+    private @Nullable PowerpackWidgetDistributionDefinitionYaxis yaxis;
 
     private PowerpackWidgetDistributionDefinition() {}
     /**
@@ -100,6 +112,20 @@ public final class PowerpackWidgetDistributionDefinition {
     public Optional<String> titleSize() {
         return Optional.ofNullable(this.titleSize);
     }
+    /**
+     * @return A nested block describing the X-Axis Controls. Exactly one nested block is allowed using the structure below.
+     * 
+     */
+    public Optional<PowerpackWidgetDistributionDefinitionXaxis> xaxis() {
+        return Optional.ofNullable(this.xaxis);
+    }
+    /**
+     * @return A nested block describing the Y-Axis Controls. Exactly one nested block is allowed using the structure below.
+     * 
+     */
+    public Optional<PowerpackWidgetDistributionDefinitionYaxis> yaxis() {
+        return Optional.ofNullable(this.yaxis);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -117,6 +143,8 @@ public final class PowerpackWidgetDistributionDefinition {
         private @Nullable String title;
         private @Nullable String titleAlign;
         private @Nullable String titleSize;
+        private @Nullable PowerpackWidgetDistributionDefinitionXaxis xaxis;
+        private @Nullable PowerpackWidgetDistributionDefinitionYaxis yaxis;
         public Builder() {}
         public Builder(PowerpackWidgetDistributionDefinition defaults) {
     	      Objects.requireNonNull(defaults);
@@ -127,6 +155,8 @@ public final class PowerpackWidgetDistributionDefinition {
     	      this.title = defaults.title;
     	      this.titleAlign = defaults.titleAlign;
     	      this.titleSize = defaults.titleSize;
+    	      this.xaxis = defaults.xaxis;
+    	      this.yaxis = defaults.yaxis;
         }
 
         @CustomType.Setter
@@ -174,6 +204,18 @@ public final class PowerpackWidgetDistributionDefinition {
             this.titleSize = titleSize;
             return this;
         }
+        @CustomType.Setter
+        public Builder xaxis(@Nullable PowerpackWidgetDistributionDefinitionXaxis xaxis) {
+
+            this.xaxis = xaxis;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder yaxis(@Nullable PowerpackWidgetDistributionDefinitionYaxis yaxis) {
+
+            this.yaxis = yaxis;
+            return this;
+        }
         public PowerpackWidgetDistributionDefinition build() {
             final var _resultValue = new PowerpackWidgetDistributionDefinition();
             _resultValue.legendSize = legendSize;
@@ -183,6 +225,8 @@ public final class PowerpackWidgetDistributionDefinition {
             _resultValue.title = title;
             _resultValue.titleAlign = titleAlign;
             _resultValue.titleSize = titleSize;
+            _resultValue.xaxis = xaxis;
+            _resultValue.yaxis = yaxis;
             return _resultValue;
         }
     }

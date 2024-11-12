@@ -14,6 +14,7 @@ import com.pulumi.datadog.outputs.SecurityMonitoringRuleCase;
 import com.pulumi.datadog.outputs.SecurityMonitoringRuleFilter;
 import com.pulumi.datadog.outputs.SecurityMonitoringRuleOptions;
 import com.pulumi.datadog.outputs.SecurityMonitoringRuleQuery;
+import com.pulumi.datadog.outputs.SecurityMonitoringRuleReferenceTable;
 import com.pulumi.datadog.outputs.SecurityMonitoringRuleSignalQuery;
 import com.pulumi.datadog.outputs.SecurityMonitoringRuleThirdPartyCase;
 import java.lang.Boolean;
@@ -211,6 +212,20 @@ public class SecurityMonitoringRule extends com.pulumi.resources.CustomResource 
      */
     public Output<Optional<List<SecurityMonitoringRuleQuery>>> queries() {
         return Codegen.optional(this.queries);
+    }
+    /**
+     * Reference tables for filtering query results.
+     * 
+     */
+    @Export(name="referenceTables", refs={List.class,SecurityMonitoringRuleReferenceTable.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<SecurityMonitoringRuleReferenceTable>> referenceTables;
+
+    /**
+     * @return Reference tables for filtering query results.
+     * 
+     */
+    public Output<Optional<List<SecurityMonitoringRuleReferenceTable>>> referenceTables() {
+        return Codegen.optional(this.referenceTables);
     }
     /**
      * Queries for selecting logs which are part of the rule.

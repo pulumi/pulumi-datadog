@@ -51,7 +51,7 @@ class SyntheticsTestArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
         :param pulumi.Input[str] name: Name of Datadog synthetics test.
         :param pulumi.Input[str] status: Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
-        :param pulumi.Input[str] type: Synthetics test type. Valid values are `api`, `browser`.
+        :param pulumi.Input[str] type: Synthetics test type. Valid values are `api`, `browser`, `mobile`.
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestApiStepArgs']]] api_steps: Steps for multi-step api tests
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestAssertionArgs']]] assertions: Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestBrowserStepArgs']]] browser_steps: Steps for browser tests.
@@ -160,7 +160,7 @@ class SyntheticsTestArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Synthetics test type. Valid values are `api`, `browser`.
+        Synthetics test type. Valid values are `api`, `browser`, `mobile`.
         """
         return pulumi.get(self, "type")
 
@@ -472,7 +472,7 @@ class _SyntheticsTestState:
         :param pulumi.Input[str] status: Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
         :param pulumi.Input[str] subtype: The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
-        :param pulumi.Input[str] type: Synthetics test type. Valid values are `api`, `browser`.
+        :param pulumi.Input[str] type: Synthetics test type. Valid values are `api`, `browser`, `mobile`.
         :param pulumi.Input[str] variables_from_script: Variables defined from JavaScript code for API HTTP tests.
         """
         if api_steps is not None:
@@ -817,7 +817,7 @@ class _SyntheticsTestState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Synthetics test type. Valid values are `api`, `browser`.
+        Synthetics test type. Valid values are `api`, `browser`, `mobile`.
         """
         return pulumi.get(self, "type")
 
@@ -1352,7 +1352,7 @@ class SyntheticsTest(pulumi.CustomResource):
         :param pulumi.Input[str] status: Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
         :param pulumi.Input[str] subtype: The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
-        :param pulumi.Input[str] type: Synthetics test type. Valid values are `api`, `browser`.
+        :param pulumi.Input[str] type: Synthetics test type. Valid values are `api`, `browser`, `mobile`.
         :param pulumi.Input[str] variables_from_script: Variables defined from JavaScript code for API HTTP tests.
         """
         ...
@@ -1969,7 +1969,7 @@ class SyntheticsTest(pulumi.CustomResource):
         :param pulumi.Input[str] status: Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
         :param pulumi.Input[str] subtype: The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
-        :param pulumi.Input[str] type: Synthetics test type. Valid values are `api`, `browser`.
+        :param pulumi.Input[str] type: Synthetics test type. Valid values are `api`, `browser`, `mobile`.
         :param pulumi.Input[str] variables_from_script: Variables defined from JavaScript code for API HTTP tests.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -2197,7 +2197,7 @@ class SyntheticsTest(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Synthetics test type. Valid values are `api`, `browser`.
+        Synthetics test type. Valid values are `api`, `browser`, `mobile`.
         """
         return pulumi.get(self, "type")
 

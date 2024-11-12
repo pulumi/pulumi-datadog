@@ -6,6 +6,8 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetDistributionDefinitionRequestArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetDistributionDefinitionXaxisArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetDistributionDefinitionYaxisArgs;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -123,6 +125,36 @@ public final class DashboardWidgetDistributionDefinitionArgs extends com.pulumi.
         return Optional.ofNullable(this.titleSize);
     }
 
+    /**
+     * A nested block describing the X-Axis Controls. Exactly one nested block is allowed using the structure below.
+     * 
+     */
+    @Import(name="xaxis")
+    private @Nullable Output<DashboardWidgetDistributionDefinitionXaxisArgs> xaxis;
+
+    /**
+     * @return A nested block describing the X-Axis Controls. Exactly one nested block is allowed using the structure below.
+     * 
+     */
+    public Optional<Output<DashboardWidgetDistributionDefinitionXaxisArgs>> xaxis() {
+        return Optional.ofNullable(this.xaxis);
+    }
+
+    /**
+     * A nested block describing the Y-Axis Controls. Exactly one nested block is allowed using the structure below.
+     * 
+     */
+    @Import(name="yaxis")
+    private @Nullable Output<DashboardWidgetDistributionDefinitionYaxisArgs> yaxis;
+
+    /**
+     * @return A nested block describing the Y-Axis Controls. Exactly one nested block is allowed using the structure below.
+     * 
+     */
+    public Optional<Output<DashboardWidgetDistributionDefinitionYaxisArgs>> yaxis() {
+        return Optional.ofNullable(this.yaxis);
+    }
+
     private DashboardWidgetDistributionDefinitionArgs() {}
 
     private DashboardWidgetDistributionDefinitionArgs(DashboardWidgetDistributionDefinitionArgs $) {
@@ -133,6 +165,8 @@ public final class DashboardWidgetDistributionDefinitionArgs extends com.pulumi.
         this.title = $.title;
         this.titleAlign = $.titleAlign;
         this.titleSize = $.titleSize;
+        this.xaxis = $.xaxis;
+        this.yaxis = $.yaxis;
     }
 
     public static Builder builder() {
@@ -308,6 +342,48 @@ public final class DashboardWidgetDistributionDefinitionArgs extends com.pulumi.
          */
         public Builder titleSize(String titleSize) {
             return titleSize(Output.of(titleSize));
+        }
+
+        /**
+         * @param xaxis A nested block describing the X-Axis Controls. Exactly one nested block is allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder xaxis(@Nullable Output<DashboardWidgetDistributionDefinitionXaxisArgs> xaxis) {
+            $.xaxis = xaxis;
+            return this;
+        }
+
+        /**
+         * @param xaxis A nested block describing the X-Axis Controls. Exactly one nested block is allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder xaxis(DashboardWidgetDistributionDefinitionXaxisArgs xaxis) {
+            return xaxis(Output.of(xaxis));
+        }
+
+        /**
+         * @param yaxis A nested block describing the Y-Axis Controls. Exactly one nested block is allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder yaxis(@Nullable Output<DashboardWidgetDistributionDefinitionYaxisArgs> yaxis) {
+            $.yaxis = yaxis;
+            return this;
+        }
+
+        /**
+         * @param yaxis A nested block describing the Y-Axis Controls. Exactly one nested block is allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder yaxis(DashboardWidgetDistributionDefinitionYaxisArgs yaxis) {
+            return yaxis(Output.of(yaxis));
         }
 
         public DashboardWidgetDistributionDefinitionArgs build() {
