@@ -33,7 +33,7 @@ public final class DashboardWidgetGeomapDefinitionRequestQuerySloQuery {
      */
     private @Nullable String groupMode;
     /**
-     * @return SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+     * @return SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
      * 
      */
     private String measure;
@@ -83,7 +83,7 @@ public final class DashboardWidgetGeomapDefinitionRequestQuerySloQuery {
         return Optional.ofNullable(this.groupMode);
     }
     /**
-     * @return SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+     * @return SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
      * 
      */
     public String measure() {

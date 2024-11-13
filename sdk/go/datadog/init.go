@@ -45,6 +45,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DashboardJson{}
 	case "datadog:index/dashboardList:DashboardList":
 		r = &DashboardList{}
+	case "datadog:index/domainAllowlist:DomainAllowlist":
+		r = &DomainAllowlist{}
 	case "datadog:index/downtime:Downtime":
 		r = &Downtime{}
 	case "datadog:index/downtimeSchedule:DowntimeSchedule":
@@ -232,6 +234,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/dashboardList",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/domainAllowlist",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

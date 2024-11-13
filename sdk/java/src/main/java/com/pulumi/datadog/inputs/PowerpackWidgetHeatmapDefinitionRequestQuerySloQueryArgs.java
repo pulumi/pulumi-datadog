@@ -77,14 +77,14 @@ public final class PowerpackWidgetHeatmapDefinitionRequestQuerySloQueryArgs exte
     }
 
     /**
-     * SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+     * SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
      * 
      */
     @Import(name="measure", required=true)
     private Output<String> measure;
 
     /**
-     * @return SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+     * @return SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
      * 
      */
     public Output<String> measure() {
@@ -252,7 +252,7 @@ public final class PowerpackWidgetHeatmapDefinitionRequestQuerySloQueryArgs exte
         }
 
         /**
-         * @param measure SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+         * @param measure SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class PowerpackWidgetHeatmapDefinitionRequestQuerySloQueryArgs exte
         }
 
         /**
-         * @param measure SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+         * @param measure SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
          * 
          * @return builder
          * 

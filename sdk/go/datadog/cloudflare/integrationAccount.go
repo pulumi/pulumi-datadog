@@ -57,7 +57,7 @@ type IntegrationAccount struct {
 	Email pulumi.StringPtrOutput `pulumi:"email"`
 	// The name of the Cloudflare account.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// An allowlist of resources to restrict pulling metrics for including `web`, `dns`, `lb` (load balancer), `worker`)
+	// An allowlist of resources to pull metrics for. Including, `web`, `dns`, `lb` (load balancer), and `worker`).
 	Resources pulumi.StringArrayOutput `pulumi:"resources"`
 }
 
@@ -110,7 +110,7 @@ type integrationAccountState struct {
 	Email *string `pulumi:"email"`
 	// The name of the Cloudflare account.
 	Name *string `pulumi:"name"`
-	// An allowlist of resources to restrict pulling metrics for including `web`, `dns`, `lb` (load balancer), `worker`)
+	// An allowlist of resources to pull metrics for. Including, `web`, `dns`, `lb` (load balancer), and `worker`).
 	Resources []string `pulumi:"resources"`
 }
 
@@ -121,7 +121,7 @@ type IntegrationAccountState struct {
 	Email pulumi.StringPtrInput
 	// The name of the Cloudflare account.
 	Name pulumi.StringPtrInput
-	// An allowlist of resources to restrict pulling metrics for including `web`, `dns`, `lb` (load balancer), `worker`)
+	// An allowlist of resources to pull metrics for. Including, `web`, `dns`, `lb` (load balancer), and `worker`).
 	Resources pulumi.StringArrayInput
 }
 
@@ -136,7 +136,7 @@ type integrationAccountArgs struct {
 	Email *string `pulumi:"email"`
 	// The name of the Cloudflare account.
 	Name string `pulumi:"name"`
-	// An allowlist of resources to restrict pulling metrics for including `web`, `dns`, `lb` (load balancer), `worker`)
+	// An allowlist of resources to pull metrics for. Including, `web`, `dns`, `lb` (load balancer), and `worker`).
 	Resources []string `pulumi:"resources"`
 }
 
@@ -148,7 +148,7 @@ type IntegrationAccountArgs struct {
 	Email pulumi.StringPtrInput
 	// The name of the Cloudflare account.
 	Name pulumi.StringInput
-	// An allowlist of resources to restrict pulling metrics for including `web`, `dns`, `lb` (load balancer), `worker`)
+	// An allowlist of resources to pull metrics for. Including, `web`, `dns`, `lb` (load balancer), and `worker`).
 	Resources pulumi.StringArrayInput
 }
 
@@ -254,7 +254,7 @@ func (o IntegrationAccountOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *IntegrationAccount) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// An allowlist of resources to restrict pulling metrics for including `web`, `dns`, `lb` (load balancer), `worker`)
+// An allowlist of resources to pull metrics for. Including, `web`, `dns`, `lb` (load balancer), and `worker`).
 func (o IntegrationAccountOutput) Resources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IntegrationAccount) pulumi.StringArrayOutput { return v.Resources }).(pulumi.StringArrayOutput)
 }
