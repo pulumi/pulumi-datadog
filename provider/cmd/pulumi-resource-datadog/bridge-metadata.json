@@ -11287,6 +11287,15 @@
                     }
                 }
             },
+            "datadog_domain_allowlist": {
+                "current": "datadog:index/domainAllowlist:DomainAllowlist",
+                "majorVersion": 4,
+                "fields": {
+                    "domains": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "datadog_downtime": {
                 "current": "datadog:index/downtime:Downtime",
                 "majorVersion": 4,
@@ -16435,6 +16444,7 @@
             "datadog:index/dashboard:Dashboard": 0,
             "datadog:index/dashboardJson:DashboardJson": 0,
             "datadog:index/dashboardList:DashboardList": 1,
+            "datadog:index/domainAllowlist:DomainAllowlist": 1,
             "datadog:index/downtime:Downtime": 0,
             "datadog:index/downtimeSchedule:DowntimeSchedule": 1,
             "datadog:index/ipAllowlist:IpAllowlist": 1,
