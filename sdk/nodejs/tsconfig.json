@@ -42,6 +42,7 @@
         "dashboard.ts",
         "dashboardJson.ts",
         "dashboardList.ts",
+        "domainAllowlist.ts",
         "downtime.ts",
         "downtimeSchedule.ts",
         "fastly/index.ts",

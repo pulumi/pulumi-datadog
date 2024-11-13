@@ -1012,7 +1012,7 @@ export interface DashboardWidgetChangeDefinitionRequestQuerySloQuery {
      */
     groupMode?: pulumi.Input<string>;
     /**
-     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `goodMinutes`, `badMinutes`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
      */
     measure: pulumi.Input<string>;
     /**
@@ -1812,7 +1812,7 @@ export interface DashboardWidgetGeomapDefinitionRequestQuerySloQuery {
      */
     groupMode?: pulumi.Input<string>;
     /**
-     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `goodMinutes`, `badMinutes`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
      */
     measure: pulumi.Input<string>;
     /**
@@ -2568,7 +2568,7 @@ export interface DashboardWidgetHeatmapDefinitionRequestQuerySloQuery {
      */
     groupMode?: pulumi.Input<string>;
     /**
-     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `goodMinutes`, `badMinutes`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
      */
     measure: pulumi.Input<string>;
     /**
@@ -3846,7 +3846,7 @@ export interface DashboardWidgetQueryTableDefinitionRequestQuerySloQuery {
      */
     groupMode?: pulumi.Input<string>;
     /**
-     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `goodMinutes`, `badMinutes`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
      */
     measure: pulumi.Input<string>;
     /**
@@ -4574,7 +4574,7 @@ export interface DashboardWidgetQueryValueDefinitionRequestQuerySloQuery {
      */
     groupMode?: pulumi.Input<string>;
     /**
-     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `goodMinutes`, `badMinutes`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
      */
     measure: pulumi.Input<string>;
     /**
@@ -5181,7 +5181,7 @@ export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuer
      */
     groupMode?: pulumi.Input<string>;
     /**
-     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `goodMinutes`, `badMinutes`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
      */
     measure: pulumi.Input<string>;
     /**
@@ -6411,7 +6411,7 @@ export interface DashboardWidgetSunburstDefinitionRequestQuerySloQuery {
      */
     groupMode?: pulumi.Input<string>;
     /**
-     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `goodMinutes`, `badMinutes`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
      */
     measure: pulumi.Input<string>;
     /**
@@ -7195,7 +7195,7 @@ export interface DashboardWidgetTimeseriesDefinitionRequestQuerySloQuery {
      */
     groupMode?: pulumi.Input<string>;
     /**
-     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `goodMinutes`, `badMinutes`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
      */
     measure: pulumi.Input<string>;
     /**
@@ -7912,7 +7912,7 @@ export interface DashboardWidgetToplistDefinitionRequestQuerySloQuery {
      */
     groupMode?: pulumi.Input<string>;
     /**
-     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `goodMinutes`, `badMinutes`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
      */
     measure: pulumi.Input<string>;
     /**
@@ -8508,7 +8508,7 @@ export interface DashboardWidgetTreemapDefinitionRequestQuerySloQuery {
      */
     groupMode?: pulumi.Input<string>;
     /**
-     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `goodMinutes`, `badMinutes`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
      */
     measure: pulumi.Input<string>;
     /**
@@ -10857,7 +10857,7 @@ export interface PowerpackWidgetChangeDefinitionRequestQuerySloQuery {
      */
     groupMode?: pulumi.Input<string>;
     /**
-     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `goodMinutes`, `badMinutes`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
      */
     measure: pulumi.Input<string>;
     /**
@@ -12238,7 +12238,7 @@ export interface PowerpackWidgetGeomapDefinitionRequestQuerySloQuery {
      */
     groupMode?: pulumi.Input<string>;
     /**
-     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `goodMinutes`, `badMinutes`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
      */
     measure: pulumi.Input<string>;
     /**
@@ -13054,7 +13054,7 @@ export interface PowerpackWidgetHeatmapDefinitionRequestQuerySloQuery {
      */
     groupMode?: pulumi.Input<string>;
     /**
-     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `goodMinutes`, `badMinutes`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
      */
     measure: pulumi.Input<string>;
     /**
@@ -15177,7 +15177,7 @@ export interface PowerpackWidgetQueryTableDefinitionRequestQuerySloQuery {
      */
     groupMode?: pulumi.Input<string>;
     /**
-     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `goodMinutes`, `badMinutes`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
      */
     measure: pulumi.Input<string>;
     /**
@@ -16237,7 +16237,7 @@ export interface PowerpackWidgetQueryValueDefinitionRequestQuerySloQuery {
      */
     groupMode?: pulumi.Input<string>;
     /**
-     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `goodMinutes`, `badMinutes`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
      */
     measure: pulumi.Input<string>;
     /**
@@ -16927,7 +16927,7 @@ export interface PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQuer
      */
     groupMode?: pulumi.Input<string>;
     /**
-     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `goodMinutes`, `badMinutes`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
      */
     measure: pulumi.Input<string>;
     /**
@@ -18778,7 +18778,7 @@ export interface PowerpackWidgetSunburstDefinitionRequestQuerySloQuery {
      */
     groupMode?: pulumi.Input<string>;
     /**
-     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `goodMinutes`, `badMinutes`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
      */
     measure: pulumi.Input<string>;
     /**
@@ -19894,7 +19894,7 @@ export interface PowerpackWidgetTimeseriesDefinitionRequestQuerySloQuery {
      */
     groupMode?: pulumi.Input<string>;
     /**
-     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `goodMinutes`, `badMinutes`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
      */
     measure: pulumi.Input<string>;
     /**
@@ -20943,7 +20943,7 @@ export interface PowerpackWidgetToplistDefinitionRequestQuerySloQuery {
      */
     groupMode?: pulumi.Input<string>;
     /**
-     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `goodMinutes`, `badMinutes`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
      */
     measure: pulumi.Input<string>;
     /**
@@ -21705,7 +21705,7 @@ export interface PowerpackWidgetTreemapDefinitionRequestQuerySloQuery {
      */
     groupMode?: pulumi.Input<string>;
     /**
-     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `goodMinutes`, `badMinutes`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
      */
     measure: pulumi.Input<string>;
     /**

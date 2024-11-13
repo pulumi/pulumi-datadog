@@ -1485,7 +1485,7 @@
                 },
                 "measure": {
                     "type": "string",
-                    "description": "SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.\n"
+                    "description": "SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.\n"
                 },
                 "name": {
                     "type": "string",
@@ -2487,7 +2487,7 @@
                 },
                 "measure": {
                     "type": "string",
-                    "description": "SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.\n"
+                    "description": "SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.\n"
                 },
                 "name": {
                     "type": "string",
@@ -3427,7 +3427,7 @@
                 },
                 "measure": {
                     "type": "string",
-                    "description": "SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.\n"
+                    "description": "SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.\n"
                 },
                 "name": {
                     "type": "string",
@@ -5059,7 +5059,7 @@
                 },
                 "measure": {
                     "type": "string",
-                    "description": "SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.\n"
+                    "description": "SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.\n"
                 },
                 "name": {
                     "type": "string",
@@ -5988,7 +5988,7 @@
                 },
                 "measure": {
                     "type": "string",
-                    "description": "SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.\n"
+                    "description": "SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.\n"
                 },
                 "name": {
                     "type": "string",
@@ -6780,7 +6780,7 @@
                 },
                 "measure": {
                     "type": "string",
-                    "description": "SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.\n"
+                    "description": "SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.\n"
                 },
                 "name": {
                     "type": "string",
@@ -8372,7 +8372,7 @@
                 },
                 "measure": {
                     "type": "string",
-                    "description": "SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.\n"
+                    "description": "SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.\n"
                 },
                 "name": {
                     "type": "string",
@@ -9383,7 +9383,7 @@
                 },
                 "measure": {
                     "type": "string",
-                    "description": "SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.\n"
+                    "description": "SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.\n"
                 },
                 "name": {
                     "type": "string",
@@ -10288,7 +10288,7 @@
                 },
                 "measure": {
                     "type": "string",
-                    "description": "SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.\n"
+                    "description": "SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.\n"
                 },
                 "name": {
                     "type": "string",
@@ -11059,7 +11059,7 @@
                 },
                 "measure": {
                     "type": "string",
-                    "description": "SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.\n"
+                    "description": "SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.\n"
                 },
                 "name": {
                     "type": "string",
@@ -14251,7 +14251,7 @@
                 },
                 "measure": {
                     "type": "string",
-                    "description": "SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.\n"
+                    "description": "SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.\n"
                 },
                 "name": {
                     "type": "string",
@@ -16037,7 +16037,7 @@
                 },
                 "measure": {
                     "type": "string",
-                    "description": "SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.\n"
+                    "description": "SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.\n"
                 },
                 "name": {
                     "type": "string",
@@ -17099,7 +17099,7 @@
                 },
                 "measure": {
                     "type": "string",
-                    "description": "SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.\n"
+                    "description": "SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.\n"
                 },
                 "name": {
                     "type": "string",
@@ -19864,7 +19864,7 @@
                 },
                 "measure": {
                     "type": "string",
-                    "description": "SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.\n"
+                    "description": "SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.\n"
                 },
                 "name": {
                     "type": "string",
@@ -21241,7 +21241,7 @@
                 },
                 "measure": {
                     "type": "string",
-                    "description": "SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.\n"
+                    "description": "SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.\n"
                 },
                 "name": {
                     "type": "string",
@@ -22145,7 +22145,7 @@
                 },
                 "measure": {
                     "type": "string",
-                    "description": "SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.\n"
+                    "description": "SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.\n"
                 },
                 "name": {
                     "type": "string",
@@ -24565,7 +24565,7 @@
                 },
                 "measure": {
                     "type": "string",
-                    "description": "SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.\n"
+                    "description": "SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.\n"
                 },
                 "name": {
                     "type": "string",
@@ -26024,7 +26024,7 @@
                 },
                 "measure": {
                     "type": "string",
-                    "description": "SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.\n"
+                    "description": "SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.\n"
                 },
                 "name": {
                     "type": "string",
@@ -27377,7 +27377,7 @@
                 },
                 "measure": {
                     "type": "string",
-                    "description": "SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.\n"
+                    "description": "SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.\n"
                 },
                 "name": {
                     "type": "string",
@@ -28372,7 +28372,7 @@
                 },
                 "measure": {
                     "type": "string",
-                    "description": "SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.\n"
+                    "description": "SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.\n"
                 },
                 "name": {
                     "type": "string",
@@ -32716,7 +32716,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "An allowlist of resources to restrict pulling metrics for including `web`, `dns`, `lb` (load balancer), `worker`)\n"
+                    "description": "An allowlist of resources to pull metrics for. Including, `web`, `dns`, `lb` (load balancer), and `worker`).\n"
                 }
             },
             "required": [
@@ -32743,7 +32743,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "An allowlist of resources to restrict pulling metrics for including `web`, `dns`, `lb` (load balancer), `worker`)\n"
+                    "description": "An allowlist of resources to pull metrics for. Including, `web`, `dns`, `lb` (load balancer), and `worker`).\n"
                 }
             },
             "requiredInputs": [
@@ -32771,7 +32771,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "An allowlist of resources to restrict pulling metrics for including `web`, `dns`, `lb` (load balancer), `worker`)\n"
+                        "description": "An allowlist of resources to pull metrics for. Including, `web`, `dns`, `lb` (load balancer), and `worker`).\n"
                     }
                 },
                 "type": "object"
@@ -34544,6 +34544,60 @@
                     "name": {
                         "type": "string",
                         "description": "The name of the Dashboard List\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "datadog:index/domainAllowlist:DomainAllowlist": {
+            "description": "Provides the Datadog Email Domain Allowlist resource. This can be used to manage the Datadog Email Domain Allowlist.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst example = new datadog.DomainAllowlist(\"example\", {\n    enabled: true,\n    domains: [\"@gmail.com\"],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nexample = datadog.DomainAllowlist(\"example\",\n    enabled=True,\n    domains=[\"@gmail.com\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Datadog.DomainAllowlist(\"example\", new()\n    {\n        Enabled = true,\n        Domains = new[]\n        {\n            \"@gmail.com\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewDomainAllowlist(ctx, \"example\", \u0026datadog.DomainAllowlistArgs{\n\t\t\tEnabled: pulumi.Bool(true),\n\t\t\tDomains: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"@gmail.com\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.DomainAllowlist;\nimport com.pulumi.datadog.DomainAllowlistArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new DomainAllowlist(\"example\", DomainAllowlistArgs.builder()\n            .enabled(true)\n            .domains(\"@gmail.com\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: datadog:DomainAllowlist\n    properties:\n      enabled: true\n      domains:\n        - '@gmail.com'\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "properties": {
+                "domains": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The domains within the domain allowlist.\n"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether the Email Domain Allowlist is enabled.\n"
+                }
+            },
+            "required": [
+                "domains",
+                "enabled"
+            ],
+            "inputProperties": {
+                "domains": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The domains within the domain allowlist.\n"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether the Email Domain Allowlist is enabled.\n"
+                }
+            },
+            "requiredInputs": [
+                "domains",
+                "enabled"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering DomainAllowlist resources.\n",
+                "properties": {
+                    "domains": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The domains within the domain allowlist.\n"
+                    },
+                    "enabled": {
+                        "type": "boolean",
+                        "description": "Whether the Email Domain Allowlist is enabled.\n"
                     }
                 },
                 "type": "object"

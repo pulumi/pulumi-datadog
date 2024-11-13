@@ -17,6 +17,7 @@ from .csm_threats_agent_rule import *
 from .dashboard import *
 from .dashboard_json import *
 from .dashboard_list import *
+from .domain_allowlist import *
 from .downtime import *
 from .downtime_schedule import *
 from .get_api_key import *
@@ -342,6 +343,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/dashboardList:DashboardList": "DashboardList"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/domainAllowlist",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/domainAllowlist:DomainAllowlist": "DomainAllowlist"
   }
  },
  {

@@ -4619,7 +4619,7 @@ class DashboardWidgetChangeDefinitionRequestQuerySloQuery(dict):
                  slo_query_type: Optional[str] = None):
         """
         :param str data_source: The data source for SLO queries. Valid values are `slo`.
-        :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+        :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         :param str slo_id: ID of an SLO to query.
         :param str additional_query_filters: Additional filters applied to the SLO query.
         :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
@@ -4653,7 +4653,7 @@ class DashboardWidgetChangeDefinitionRequestQuerySloQuery(dict):
     @pulumi.getter
     def measure(self) -> str:
         """
-        SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+        SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         """
         return pulumi.get(self, "measure")
 
@@ -7476,7 +7476,7 @@ class DashboardWidgetGeomapDefinitionRequestQuerySloQuery(dict):
                  slo_query_type: Optional[str] = None):
         """
         :param str data_source: The data source for SLO queries. Valid values are `slo`.
-        :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+        :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         :param str slo_id: ID of an SLO to query.
         :param str additional_query_filters: Additional filters applied to the SLO query.
         :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
@@ -7510,7 +7510,7 @@ class DashboardWidgetGeomapDefinitionRequestQuerySloQuery(dict):
     @pulumi.getter
     def measure(self) -> str:
         """
-        SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+        SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         """
         return pulumi.get(self, "measure")
 
@@ -10162,7 +10162,7 @@ class DashboardWidgetHeatmapDefinitionRequestQuerySloQuery(dict):
                  slo_query_type: Optional[str] = None):
         """
         :param str data_source: The data source for SLO queries. Valid values are `slo`.
-        :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+        :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         :param str slo_id: ID of an SLO to query.
         :param str additional_query_filters: Additional filters applied to the SLO query.
         :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
@@ -10196,7 +10196,7 @@ class DashboardWidgetHeatmapDefinitionRequestQuerySloQuery(dict):
     @pulumi.getter
     def measure(self) -> str:
         """
-        SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+        SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         """
         return pulumi.get(self, "measure")
 
@@ -14675,7 +14675,7 @@ class DashboardWidgetQueryTableDefinitionRequestQuerySloQuery(dict):
                  slo_query_type: Optional[str] = None):
         """
         :param str data_source: The data source for SLO queries. Valid values are `slo`.
-        :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+        :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         :param str slo_id: ID of an SLO to query.
         :param str additional_query_filters: Additional filters applied to the SLO query.
         :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
@@ -14709,7 +14709,7 @@ class DashboardWidgetQueryTableDefinitionRequestQuerySloQuery(dict):
     @pulumi.getter
     def measure(self) -> str:
         """
-        SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+        SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         """
         return pulumi.get(self, "measure")
 
@@ -17232,7 +17232,7 @@ class DashboardWidgetQueryValueDefinitionRequestQuerySloQuery(dict):
                  slo_query_type: Optional[str] = None):
         """
         :param str data_source: The data source for SLO queries. Valid values are `slo`.
-        :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+        :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         :param str slo_id: ID of an SLO to query.
         :param str additional_query_filters: Additional filters applied to the SLO query.
         :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
@@ -17266,7 +17266,7 @@ class DashboardWidgetQueryValueDefinitionRequestQuerySloQuery(dict):
     @pulumi.getter
     def measure(self) -> str:
         """
-        SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+        SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         """
         return pulumi.get(self, "measure")
 
@@ -19343,7 +19343,7 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery(d
                  slo_query_type: Optional[str] = None):
         """
         :param str data_source: The data source for SLO queries. Valid values are `slo`.
-        :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+        :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         :param str slo_id: ID of an SLO to query.
         :param str additional_query_filters: Additional filters applied to the SLO query.
         :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
@@ -19377,7 +19377,7 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery(d
     @pulumi.getter
     def measure(self) -> str:
         """
-        SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+        SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         """
         return pulumi.get(self, "measure")
 
@@ -23728,7 +23728,7 @@ class DashboardWidgetSunburstDefinitionRequestQuerySloQuery(dict):
                  slo_query_type: Optional[str] = None):
         """
         :param str data_source: The data source for SLO queries. Valid values are `slo`.
-        :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+        :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         :param str slo_id: ID of an SLO to query.
         :param str additional_query_filters: Additional filters applied to the SLO query.
         :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
@@ -23762,7 +23762,7 @@ class DashboardWidgetSunburstDefinitionRequestQuerySloQuery(dict):
     @pulumi.getter
     def measure(self) -> str:
         """
-        SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+        SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         """
         return pulumi.get(self, "measure")
 
@@ -26468,7 +26468,7 @@ class DashboardWidgetTimeseriesDefinitionRequestQuerySloQuery(dict):
                  slo_query_type: Optional[str] = None):
         """
         :param str data_source: The data source for SLO queries. Valid values are `slo`.
-        :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+        :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         :param str slo_id: ID of an SLO to query.
         :param str additional_query_filters: Additional filters applied to the SLO query.
         :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
@@ -26502,7 +26502,7 @@ class DashboardWidgetTimeseriesDefinitionRequestQuerySloQuery(dict):
     @pulumi.getter
     def measure(self) -> str:
         """
-        SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+        SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         """
         return pulumi.get(self, "measure")
 
@@ -28993,7 +28993,7 @@ class DashboardWidgetToplistDefinitionRequestQuerySloQuery(dict):
                  slo_query_type: Optional[str] = None):
         """
         :param str data_source: The data source for SLO queries. Valid values are `slo`.
-        :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+        :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         :param str slo_id: ID of an SLO to query.
         :param str additional_query_filters: Additional filters applied to the SLO query.
         :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
@@ -29027,7 +29027,7 @@ class DashboardWidgetToplistDefinitionRequestQuerySloQuery(dict):
     @pulumi.getter
     def measure(self) -> str:
         """
-        SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+        SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         """
         return pulumi.get(self, "measure")
 
@@ -31066,7 +31066,7 @@ class DashboardWidgetTreemapDefinitionRequestQuerySloQuery(dict):
                  slo_query_type: Optional[str] = None):
         """
         :param str data_source: The data source for SLO queries. Valid values are `slo`.
-        :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+        :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         :param str slo_id: ID of an SLO to query.
         :param str additional_query_filters: Additional filters applied to the SLO query.
         :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
@@ -31100,7 +31100,7 @@ class DashboardWidgetTreemapDefinitionRequestQuerySloQuery(dict):
     @pulumi.getter
     def measure(self) -> str:
         """
-        SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+        SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         """
         return pulumi.get(self, "measure")
 
@@ -39492,7 +39492,7 @@ class PowerpackWidgetChangeDefinitionRequestQuerySloQuery(dict):
                  slo_query_type: Optional[str] = None):
         """
         :param str data_source: The data source for SLO queries. Valid values are `slo`.
-        :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+        :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         :param str slo_id: ID of an SLO to query.
         :param str additional_query_filters: Additional filters applied to the SLO query.
         :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
@@ -39526,7 +39526,7 @@ class PowerpackWidgetChangeDefinitionRequestQuerySloQuery(dict):
     @pulumi.getter
     def measure(self) -> str:
         """
-        SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+        SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         """
         return pulumi.get(self, "measure")
 
@@ -44267,7 +44267,7 @@ class PowerpackWidgetGeomapDefinitionRequestQuerySloQuery(dict):
                  slo_query_type: Optional[str] = None):
         """
         :param str data_source: The data source for SLO queries. Valid values are `slo`.
-        :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+        :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         :param str slo_id: ID of an SLO to query.
         :param str additional_query_filters: Additional filters applied to the SLO query.
         :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
@@ -44301,7 +44301,7 @@ class PowerpackWidgetGeomapDefinitionRequestQuerySloQuery(dict):
     @pulumi.getter
     def measure(self) -> str:
         """
-        SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+        SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         """
         return pulumi.get(self, "measure")
 
@@ -47098,7 +47098,7 @@ class PowerpackWidgetHeatmapDefinitionRequestQuerySloQuery(dict):
                  slo_query_type: Optional[str] = None):
         """
         :param str data_source: The data source for SLO queries. Valid values are `slo`.
-        :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+        :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         :param str slo_id: ID of an SLO to query.
         :param str additional_query_filters: Additional filters applied to the SLO query.
         :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
@@ -47132,7 +47132,7 @@ class PowerpackWidgetHeatmapDefinitionRequestQuerySloQuery(dict):
     @pulumi.getter
     def measure(self) -> str:
         """
-        SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+        SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         """
         return pulumi.get(self, "measure")
 
@@ -54390,7 +54390,7 @@ class PowerpackWidgetQueryTableDefinitionRequestQuerySloQuery(dict):
                  slo_query_type: Optional[str] = None):
         """
         :param str data_source: The data source for SLO queries. Valid values are `slo`.
-        :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+        :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         :param str slo_id: ID of an SLO to query.
         :param str additional_query_filters: Additional filters applied to the SLO query.
         :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
@@ -54424,7 +54424,7 @@ class PowerpackWidgetQueryTableDefinitionRequestQuerySloQuery(dict):
     @pulumi.getter
     def measure(self) -> str:
         """
-        SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+        SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         """
         return pulumi.get(self, "measure")
 
@@ -58043,7 +58043,7 @@ class PowerpackWidgetQueryValueDefinitionRequestQuerySloQuery(dict):
                  slo_query_type: Optional[str] = None):
         """
         :param str data_source: The data source for SLO queries. Valid values are `slo`.
-        :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+        :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         :param str slo_id: ID of an SLO to query.
         :param str additional_query_filters: Additional filters applied to the SLO query.
         :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
@@ -58077,7 +58077,7 @@ class PowerpackWidgetQueryValueDefinitionRequestQuerySloQuery(dict):
     @pulumi.getter
     def measure(self) -> str:
         """
-        SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+        SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         """
         return pulumi.get(self, "measure")
 
@@ -60428,7 +60428,7 @@ class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery(d
                  slo_query_type: Optional[str] = None):
         """
         :param str data_source: The data source for SLO queries. Valid values are `slo`.
-        :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+        :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         :param str slo_id: ID of an SLO to query.
         :param str additional_query_filters: Additional filters applied to the SLO query.
         :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
@@ -60462,7 +60462,7 @@ class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery(d
     @pulumi.getter
     def measure(self) -> str:
         """
-        SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+        SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         """
         return pulumi.get(self, "measure")
 
@@ -66792,7 +66792,7 @@ class PowerpackWidgetSunburstDefinitionRequestQuerySloQuery(dict):
                  slo_query_type: Optional[str] = None):
         """
         :param str data_source: The data source for SLO queries. Valid values are `slo`.
-        :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+        :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         :param str slo_id: ID of an SLO to query.
         :param str additional_query_filters: Additional filters applied to the SLO query.
         :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
@@ -66826,7 +66826,7 @@ class PowerpackWidgetSunburstDefinitionRequestQuerySloQuery(dict):
     @pulumi.getter
     def measure(self) -> str:
         """
-        SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+        SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         """
         return pulumi.get(self, "measure")
 
@@ -70628,7 +70628,7 @@ class PowerpackWidgetTimeseriesDefinitionRequestQuerySloQuery(dict):
                  slo_query_type: Optional[str] = None):
         """
         :param str data_source: The data source for SLO queries. Valid values are `slo`.
-        :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+        :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         :param str slo_id: ID of an SLO to query.
         :param str additional_query_filters: Additional filters applied to the SLO query.
         :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
@@ -70662,7 +70662,7 @@ class PowerpackWidgetTimeseriesDefinitionRequestQuerySloQuery(dict):
     @pulumi.getter
     def measure(self) -> str:
         """
-        SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+        SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         """
         return pulumi.get(self, "measure")
 
@@ -74249,7 +74249,7 @@ class PowerpackWidgetToplistDefinitionRequestQuerySloQuery(dict):
                  slo_query_type: Optional[str] = None):
         """
         :param str data_source: The data source for SLO queries. Valid values are `slo`.
-        :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+        :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         :param str slo_id: ID of an SLO to query.
         :param str additional_query_filters: Additional filters applied to the SLO query.
         :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
@@ -74283,7 +74283,7 @@ class PowerpackWidgetToplistDefinitionRequestQuerySloQuery(dict):
     @pulumi.getter
     def measure(self) -> str:
         """
-        SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+        SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         """
         return pulumi.get(self, "measure")
 
@@ -76870,7 +76870,7 @@ class PowerpackWidgetTreemapDefinitionRequestQuerySloQuery(dict):
                  slo_query_type: Optional[str] = None):
         """
         :param str data_source: The data source for SLO queries. Valid values are `slo`.
-        :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+        :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         :param str slo_id: ID of an SLO to query.
         :param str additional_query_filters: Additional filters applied to the SLO query.
         :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
@@ -76904,7 +76904,7 @@ class PowerpackWidgetTreemapDefinitionRequestQuerySloQuery(dict):
     @pulumi.getter
     def measure(self) -> str:
         """
-        SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+        SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         """
         return pulumi.get(self, "measure")
 

@@ -62,14 +62,14 @@ public final class IntegrationAccountState extends com.pulumi.resources.Resource
     }
 
     /**
-     * An allowlist of resources to restrict pulling metrics for including `web`, `dns`, `lb` (load balancer), `worker`)
+     * An allowlist of resources to pull metrics for. Including, `web`, `dns`, `lb` (load balancer), and `worker`).
      * 
      */
     @Import(name="resources")
     private @Nullable Output<List<String>> resources;
 
     /**
-     * @return An allowlist of resources to restrict pulling metrics for including `web`, `dns`, `lb` (load balancer), `worker`)
+     * @return An allowlist of resources to pull metrics for. Including, `web`, `dns`, `lb` (load balancer), and `worker`).
      * 
      */
     public Optional<Output<List<String>>> resources() {
@@ -167,7 +167,7 @@ public final class IntegrationAccountState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param resources An allowlist of resources to restrict pulling metrics for including `web`, `dns`, `lb` (load balancer), `worker`)
+         * @param resources An allowlist of resources to pull metrics for. Including, `web`, `dns`, `lb` (load balancer), and `worker`).
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class IntegrationAccountState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param resources An allowlist of resources to restrict pulling metrics for including `web`, `dns`, `lb` (load balancer), `worker`)
+         * @param resources An allowlist of resources to pull metrics for. Including, `web`, `dns`, `lb` (load balancer), and `worker`).
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class IntegrationAccountState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param resources An allowlist of resources to restrict pulling metrics for including `web`, `dns`, `lb` (load balancer), `worker`)
+         * @param resources An allowlist of resources to pull metrics for. Including, `web`, `dns`, `lb` (load balancer), and `worker`).
          * 
          * @return builder
          * 

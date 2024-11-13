@@ -108,14 +108,14 @@ public class IntegrationAccount extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * An allowlist of resources to restrict pulling metrics for including `web`, `dns`, `lb` (load balancer), `worker`)
+     * An allowlist of resources to pull metrics for. Including, `web`, `dns`, `lb` (load balancer), and `worker`).
      * 
      */
     @Export(name="resources", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> resources;
 
     /**
-     * @return An allowlist of resources to restrict pulling metrics for including `web`, `dns`, `lb` (load balancer), `worker`)
+     * @return An allowlist of resources to pull metrics for. Including, `web`, `dns`, `lb` (load balancer), and `worker`).
      * 
      */
     public Output<List<String>> resources() {
