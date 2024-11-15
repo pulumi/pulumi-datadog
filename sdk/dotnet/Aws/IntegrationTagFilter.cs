@@ -51,7 +51,7 @@ namespace Pulumi.Datadog.Aws
         public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The namespace associated with the tag filter entry. Valid values are `elb`, `application_elb`, `sqs`, `rds`, `custom`, `network_elb`, `lambda`.
+        /// The namespace associated with the tag filter entry. Valid values are `elb`, `application_elb`, `sqs`, `rds`, `custom`, `network_elb`, `lambda`, `step_functions`.
         /// </summary>
         [Output("namespace")]
         public Output<string> Namespace { get; private set; } = null!;
@@ -115,7 +115,7 @@ namespace Pulumi.Datadog.Aws
         public Input<string> AccountId { get; set; } = null!;
 
         /// <summary>
-        /// The namespace associated with the tag filter entry. Valid values are `elb`, `application_elb`, `sqs`, `rds`, `custom`, `network_elb`, `lambda`.
+        /// The namespace associated with the tag filter entry. Valid values are `elb`, `application_elb`, `sqs`, `rds`, `custom`, `network_elb`, `lambda`, `step_functions`.
         /// </summary>
         [Input("namespace", required: true)]
         public Input<string> Namespace { get; set; } = null!;
@@ -141,7 +141,7 @@ namespace Pulumi.Datadog.Aws
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// The namespace associated with the tag filter entry. Valid values are `elb`, `application_elb`, `sqs`, `rds`, `custom`, `network_elb`, `lambda`.
+        /// The namespace associated with the tag filter entry. Valid values are `elb`, `application_elb`, `sqs`, `rds`, `custom`, `network_elb`, `lambda`, `step_functions`.
         /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }

@@ -30,14 +30,14 @@ public final class IntegrationTagFilterArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The namespace associated with the tag filter entry. Valid values are `elb`, `application_elb`, `sqs`, `rds`, `custom`, `network_elb`, `lambda`.
+     * The namespace associated with the tag filter entry. Valid values are `elb`, `application_elb`, `sqs`, `rds`, `custom`, `network_elb`, `lambda`, `step_functions`.
      * 
      */
     @Import(name="namespace", required=true)
     private Output<String> namespace;
 
     /**
-     * @return The namespace associated with the tag filter entry. Valid values are `elb`, `application_elb`, `sqs`, `rds`, `custom`, `network_elb`, `lambda`.
+     * @return The namespace associated with the tag filter entry. Valid values are `elb`, `application_elb`, `sqs`, `rds`, `custom`, `network_elb`, `lambda`, `step_functions`.
      * 
      */
     public Output<String> namespace() {
@@ -107,7 +107,7 @@ public final class IntegrationTagFilterArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param namespace The namespace associated with the tag filter entry. Valid values are `elb`, `application_elb`, `sqs`, `rds`, `custom`, `network_elb`, `lambda`.
+         * @param namespace The namespace associated with the tag filter entry. Valid values are `elb`, `application_elb`, `sqs`, `rds`, `custom`, `network_elb`, `lambda`, `step_functions`.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class IntegrationTagFilterArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param namespace The namespace associated with the tag filter entry. Valid values are `elb`, `application_elb`, `sqs`, `rds`, `custom`, `network_elb`, `lambda`.
+         * @param namespace The namespace associated with the tag filter entry. Valid values are `elb`, `application_elb`, `sqs`, `rds`, `custom`, `network_elb`, `lambda`, `step_functions`.
          * 
          * @return builder
          * 

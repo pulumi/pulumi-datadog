@@ -25,7 +25,7 @@ class IntegrationTagFilterArgs:
         """
         The set of arguments for constructing a IntegrationTagFilter resource.
         :param pulumi.Input[str] account_id: Your AWS Account ID without dashes.
-        :param pulumi.Input[str] namespace: The namespace associated with the tag filter entry. Valid values are `elb`, `application_elb`, `sqs`, `rds`, `custom`, `network_elb`, `lambda`.
+        :param pulumi.Input[str] namespace: The namespace associated with the tag filter entry. Valid values are `elb`, `application_elb`, `sqs`, `rds`, `custom`, `network_elb`, `lambda`, `step_functions`.
         :param pulumi.Input[str] tag_filter_str: The tag filter string.
         """
         pulumi.set(__self__, "account_id", account_id)
@@ -48,7 +48,7 @@ class IntegrationTagFilterArgs:
     @pulumi.getter
     def namespace(self) -> pulumi.Input[str]:
         """
-        The namespace associated with the tag filter entry. Valid values are `elb`, `application_elb`, `sqs`, `rds`, `custom`, `network_elb`, `lambda`.
+        The namespace associated with the tag filter entry. Valid values are `elb`, `application_elb`, `sqs`, `rds`, `custom`, `network_elb`, `lambda`, `step_functions`.
         """
         return pulumi.get(self, "namespace")
 
@@ -78,7 +78,7 @@ class _IntegrationTagFilterState:
         """
         Input properties used for looking up and filtering IntegrationTagFilter resources.
         :param pulumi.Input[str] account_id: Your AWS Account ID without dashes.
-        :param pulumi.Input[str] namespace: The namespace associated with the tag filter entry. Valid values are `elb`, `application_elb`, `sqs`, `rds`, `custom`, `network_elb`, `lambda`.
+        :param pulumi.Input[str] namespace: The namespace associated with the tag filter entry. Valid values are `elb`, `application_elb`, `sqs`, `rds`, `custom`, `network_elb`, `lambda`, `step_functions`.
         :param pulumi.Input[str] tag_filter_str: The tag filter string.
         """
         if account_id is not None:
@@ -104,7 +104,7 @@ class _IntegrationTagFilterState:
     @pulumi.getter
     def namespace(self) -> Optional[pulumi.Input[str]]:
         """
-        The namespace associated with the tag filter entry. Valid values are `elb`, `application_elb`, `sqs`, `rds`, `custom`, `network_elb`, `lambda`.
+        The namespace associated with the tag filter entry. Valid values are `elb`, `application_elb`, `sqs`, `rds`, `custom`, `network_elb`, `lambda`, `step_functions`.
         """
         return pulumi.get(self, "namespace")
 
@@ -161,7 +161,7 @@ class IntegrationTagFilter(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: Your AWS Account ID without dashes.
-        :param pulumi.Input[str] namespace: The namespace associated with the tag filter entry. Valid values are `elb`, `application_elb`, `sqs`, `rds`, `custom`, `network_elb`, `lambda`.
+        :param pulumi.Input[str] namespace: The namespace associated with the tag filter entry. Valid values are `elb`, `application_elb`, `sqs`, `rds`, `custom`, `network_elb`, `lambda`, `step_functions`.
         :param pulumi.Input[str] tag_filter_str: The tag filter string.
         """
         ...
@@ -251,7 +251,7 @@ class IntegrationTagFilter(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: Your AWS Account ID without dashes.
-        :param pulumi.Input[str] namespace: The namespace associated with the tag filter entry. Valid values are `elb`, `application_elb`, `sqs`, `rds`, `custom`, `network_elb`, `lambda`.
+        :param pulumi.Input[str] namespace: The namespace associated with the tag filter entry. Valid values are `elb`, `application_elb`, `sqs`, `rds`, `custom`, `network_elb`, `lambda`, `step_functions`.
         :param pulumi.Input[str] tag_filter_str: The tag filter string.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -275,7 +275,7 @@ class IntegrationTagFilter(pulumi.CustomResource):
     @pulumi.getter
     def namespace(self) -> pulumi.Output[str]:
         """
-        The namespace associated with the tag filter entry. Valid values are `elb`, `application_elb`, `sqs`, `rds`, `custom`, `network_elb`, `lambda`.
+        The namespace associated with the tag filter entry. Valid values are `elb`, `application_elb`, `sqs`, `rds`, `custom`, `network_elb`, `lambda`, `step_functions`.
         """
         return pulumi.get(self, "namespace")
 

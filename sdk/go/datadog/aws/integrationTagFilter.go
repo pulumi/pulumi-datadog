@@ -55,7 +55,7 @@ type IntegrationTagFilter struct {
 
 	// Your AWS Account ID without dashes.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// The namespace associated with the tag filter entry. Valid values are `elb`, `applicationElb`, `sqs`, `rds`, `custom`, `networkElb`, `lambda`.
+	// The namespace associated with the tag filter entry. Valid values are `elb`, `applicationElb`, `sqs`, `rds`, `custom`, `networkElb`, `lambda`, `stepFunctions`.
 	Namespace pulumi.StringOutput `pulumi:"namespace"`
 	// The tag filter string.
 	TagFilterStr pulumi.StringOutput `pulumi:"tagFilterStr"`
@@ -102,7 +102,7 @@ func GetIntegrationTagFilter(ctx *pulumi.Context,
 type integrationTagFilterState struct {
 	// Your AWS Account ID without dashes.
 	AccountId *string `pulumi:"accountId"`
-	// The namespace associated with the tag filter entry. Valid values are `elb`, `applicationElb`, `sqs`, `rds`, `custom`, `networkElb`, `lambda`.
+	// The namespace associated with the tag filter entry. Valid values are `elb`, `applicationElb`, `sqs`, `rds`, `custom`, `networkElb`, `lambda`, `stepFunctions`.
 	Namespace *string `pulumi:"namespace"`
 	// The tag filter string.
 	TagFilterStr *string `pulumi:"tagFilterStr"`
@@ -111,7 +111,7 @@ type integrationTagFilterState struct {
 type IntegrationTagFilterState struct {
 	// Your AWS Account ID without dashes.
 	AccountId pulumi.StringPtrInput
-	// The namespace associated with the tag filter entry. Valid values are `elb`, `applicationElb`, `sqs`, `rds`, `custom`, `networkElb`, `lambda`.
+	// The namespace associated with the tag filter entry. Valid values are `elb`, `applicationElb`, `sqs`, `rds`, `custom`, `networkElb`, `lambda`, `stepFunctions`.
 	Namespace pulumi.StringPtrInput
 	// The tag filter string.
 	TagFilterStr pulumi.StringPtrInput
@@ -124,7 +124,7 @@ func (IntegrationTagFilterState) ElementType() reflect.Type {
 type integrationTagFilterArgs struct {
 	// Your AWS Account ID without dashes.
 	AccountId string `pulumi:"accountId"`
-	// The namespace associated with the tag filter entry. Valid values are `elb`, `applicationElb`, `sqs`, `rds`, `custom`, `networkElb`, `lambda`.
+	// The namespace associated with the tag filter entry. Valid values are `elb`, `applicationElb`, `sqs`, `rds`, `custom`, `networkElb`, `lambda`, `stepFunctions`.
 	Namespace string `pulumi:"namespace"`
 	// The tag filter string.
 	TagFilterStr string `pulumi:"tagFilterStr"`
@@ -134,7 +134,7 @@ type integrationTagFilterArgs struct {
 type IntegrationTagFilterArgs struct {
 	// Your AWS Account ID without dashes.
 	AccountId pulumi.StringInput
-	// The namespace associated with the tag filter entry. Valid values are `elb`, `applicationElb`, `sqs`, `rds`, `custom`, `networkElb`, `lambda`.
+	// The namespace associated with the tag filter entry. Valid values are `elb`, `applicationElb`, `sqs`, `rds`, `custom`, `networkElb`, `lambda`, `stepFunctions`.
 	Namespace pulumi.StringInput
 	// The tag filter string.
 	TagFilterStr pulumi.StringInput
@@ -232,7 +232,7 @@ func (o IntegrationTagFilterOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *IntegrationTagFilter) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// The namespace associated with the tag filter entry. Valid values are `elb`, `applicationElb`, `sqs`, `rds`, `custom`, `networkElb`, `lambda`.
+// The namespace associated with the tag filter entry. Valid values are `elb`, `applicationElb`, `sqs`, `rds`, `custom`, `networkElb`, `lambda`, `stepFunctions`.
 func (o IntegrationTagFilterOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v *IntegrationTagFilter) pulumi.StringOutput { return v.Namespace }).(pulumi.StringOutput)
 }
