@@ -6,7 +6,7 @@ layout: package
 ---
 ## Installation
 
-The datadog provider is available as a package in all Pulumi languages:
+The Datadog provider is available as a package in all Pulumi languages:
 
 * JavaScript/TypeScript: [`@pulumi/datadog`](https://www.npmjs.com/package/@pulumi/datadog)
 * Python: [`pulumi-datadog`](https://pypi.org/project/pulumi-datadog/)
