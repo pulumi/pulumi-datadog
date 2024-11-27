@@ -11451,6 +11451,10 @@
                     }
                 }
             },
+            "datadog_integration_ms_teams_tenant_based_handle": {
+                "current": "datadog:ms/integrationTeamsTenantBasedHandle:IntegrationTeamsTenantBasedHandle",
+                "majorVersion": 4
+            },
             "datadog_integration_opsgenie_service_object": {
                 "current": "datadog:opsgenie/serviceObject:ServiceObject",
                 "majorVersion": 4
@@ -15262,6 +15266,15 @@
                 "current": "datadog:index/rumApplication:RumApplication",
                 "majorVersion": 4
             },
+            "datadog_rum_metric": {
+                "current": "datadog:index/rumMetric:RumMetric",
+                "majorVersion": 4,
+                "fields": {
+                    "group_by": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "datadog_security_monitoring_default_rule": {
                 "current": "datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule",
                 "majorVersion": 4,
@@ -16468,6 +16481,7 @@
             "datadog:index/restrictionPolicy:RestrictionPolicy": 1,
             "datadog:index/role:Role": 0,
             "datadog:index/rumApplication:RumApplication": 1,
+            "datadog:index/rumMetric:RumMetric": 1,
             "datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule": 0,
             "datadog:index/securityMonitoringFilter:SecurityMonitoringFilter": 0,
             "datadog:index/securityMonitoringRule:SecurityMonitoringRule": 0,
@@ -16494,6 +16508,7 @@
             "datadog:index/userRole:UserRole": 1,
             "datadog:index/webhook:Webhook": 1,
             "datadog:index/webhookCustomVariable:WebhookCustomVariable": 1,
+            "datadog:ms/integrationTeamsTenantBasedHandle:IntegrationTeamsTenantBasedHandle": 1,
             "datadog:opsgenie/serviceObject:ServiceObject": 0,
             "datadog:pagerduty/integration:Integration": 0,
             "datadog:pagerduty/serviceObject:ServiceObject": 0,

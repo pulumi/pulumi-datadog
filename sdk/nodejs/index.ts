@@ -375,6 +375,11 @@ export type RumApplication = import("./rumApplication").RumApplication;
 export const RumApplication: typeof import("./rumApplication").RumApplication = null as any;
 utilities.lazyLoad(exports, ["RumApplication"], () => require("./rumApplication"));
 
+export { RumMetricArgs, RumMetricState } from "./rumMetric";
+export type RumMetric = import("./rumMetric").RumMetric;
+export const RumMetric: typeof import("./rumMetric").RumMetric = null as any;
+utilities.lazyLoad(exports, ["RumMetric"], () => require("./rumMetric"));
+
 export { SecurityMonitoringDefaultRuleArgs, SecurityMonitoringDefaultRuleState } from "./securityMonitoringDefaultRule";
 export type SecurityMonitoringDefaultRule = import("./securityMonitoringDefaultRule").SecurityMonitoringDefaultRule;
 export const SecurityMonitoringDefaultRule: typeof import("./securityMonitoringDefaultRule").SecurityMonitoringDefaultRule = null as any;
@@ -514,6 +519,7 @@ import * as config from "./config";
 import * as confluent from "./confluent";
 import * as fastly from "./fastly";
 import * as gcp from "./gcp";
+import * as ms from "./ms";
 import * as opsgenie from "./opsgenie";
 import * as pagerduty from "./pagerduty";
 import * as slack from "./slack";
@@ -527,6 +533,7 @@ export {
     confluent,
     fastly,
     gcp,
+    ms,
     opsgenie,
     pagerduty,
     slack,
@@ -609,6 +616,8 @@ const _module = {
                 return new Role(name, <any>undefined, { urn })
             case "datadog:index/rumApplication:RumApplication":
                 return new RumApplication(name, <any>undefined, { urn })
+            case "datadog:index/rumMetric:RumMetric":
+                return new RumMetric(name, <any>undefined, { urn })
             case "datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule":
                 return new SecurityMonitoringDefaultRule(name, <any>undefined, { urn })
             case "datadog:index/securityMonitoringFilter:SecurityMonitoringFilter":
@@ -702,6 +711,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/powerpack", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/restrictionPolicy", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/role", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/rumApplication", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/rumMetric", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringDefaultRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringFilter", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringRule", _module)

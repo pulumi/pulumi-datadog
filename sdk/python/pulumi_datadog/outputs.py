@@ -1017,6 +1017,10 @@ __all__ = [
     'PowerpackWidgetWidgetLayout',
     'RestrictionPolicyBinding',
     'RolePermission',
+    'RumMetricCompute',
+    'RumMetricFilter',
+    'RumMetricGroupBy',
+    'RumMetricUniqueness',
     'SecurityMonitoringDefaultRuleCase',
     'SecurityMonitoringDefaultRuleFilter',
     'SecurityMonitoringDefaultRuleOptions',
@@ -77097,6 +77101,153 @@ class RolePermission(dict):
 
 
 @pulumi.output_type
+class RumMetricCompute(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aggregationType":
+            suggest = "aggregation_type"
+        elif key == "includePercentiles":
+            suggest = "include_percentiles"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RumMetricCompute. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RumMetricCompute.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RumMetricCompute.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aggregation_type: str,
+                 include_percentiles: Optional[bool] = None,
+                 path: Optional[str] = None):
+        """
+        :param str aggregation_type: The type of aggregation to use.
+        :param bool include_percentiles: Toggle to include or exclude percentile aggregations for distribution metrics. Only present when `aggregation_type` is `distribution`.
+        :param str path: The path to the value the RUM-based metric will aggregate on. Only present when `aggregation_type` is `distribution`.
+        """
+        pulumi.set(__self__, "aggregation_type", aggregation_type)
+        if include_percentiles is not None:
+            pulumi.set(__self__, "include_percentiles", include_percentiles)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter(name="aggregationType")
+    def aggregation_type(self) -> str:
+        """
+        The type of aggregation to use.
+        """
+        return pulumi.get(self, "aggregation_type")
+
+    @property
+    @pulumi.getter(name="includePercentiles")
+    def include_percentiles(self) -> Optional[bool]:
+        """
+        Toggle to include or exclude percentile aggregations for distribution metrics. Only present when `aggregation_type` is `distribution`.
+        """
+        return pulumi.get(self, "include_percentiles")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        """
+        The path to the value the RUM-based metric will aggregate on. Only present when `aggregation_type` is `distribution`.
+        """
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class RumMetricFilter(dict):
+    def __init__(__self__, *,
+                 query: Optional[str] = None):
+        """
+        :param str query: The search query. Follows RUM search syntax.
+        """
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[str]:
+        """
+        The search query. Follows RUM search syntax.
+        """
+        return pulumi.get(self, "query")
+
+
+@pulumi.output_type
+class RumMetricGroupBy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tagName":
+            suggest = "tag_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RumMetricGroupBy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RumMetricGroupBy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RumMetricGroupBy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 path: Optional[str] = None,
+                 tag_name: Optional[str] = None):
+        """
+        :param str path: The path to the value the RUM-based metric will be aggregated over.
+        :param str tag_name: Name of the tag that gets created. By default, `path` is used as the tag name.
+        """
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if tag_name is not None:
+            pulumi.set(__self__, "tag_name", tag_name)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        """
+        The path to the value the RUM-based metric will be aggregated over.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter(name="tagName")
+    def tag_name(self) -> Optional[str]:
+        """
+        Name of the tag that gets created. By default, `path` is used as the tag name.
+        """
+        return pulumi.get(self, "tag_name")
+
+
+@pulumi.output_type
+class RumMetricUniqueness(dict):
+    def __init__(__self__, *,
+                 when: Optional[str] = None):
+        """
+        :param str when: When to count updatable events. `match` when the event is first seen, or `end` when the event is complete.
+        """
+        if when is not None:
+            pulumi.set(__self__, "when", when)
+
+    @property
+    @pulumi.getter
+    def when(self) -> Optional[str]:
+        """
+        When to count updatable events. `match` when the event is first seen, or `end` when the event is complete.
+        """
+        return pulumi.get(self, "when")
+
+
+@pulumi.output_type
 class SecurityMonitoringDefaultRuleCase(dict):
     def __init__(__self__, *,
                  notifications: Sequence[str],
@@ -80565,6 +80716,10 @@ class SyntheticsTestBrowserStep(dict):
         suggest = None
         if key == "allowFailure":
             suggest = "allow_failure"
+        elif key == "alwaysExecute":
+            suggest = "always_execute"
+        elif key == "exitIfSucceed":
+            suggest = "exit_if_succeed"
         elif key == "forceElementUpdate":
             suggest = "force_element_update"
         elif key == "isCritical":
@@ -80588,6 +80743,8 @@ class SyntheticsTestBrowserStep(dict):
                  params: 'outputs.SyntheticsTestBrowserStepParams',
                  type: str,
                  allow_failure: Optional[bool] = None,
+                 always_execute: Optional[bool] = None,
+                 exit_if_succeed: Optional[bool] = None,
                  force_element_update: Optional[bool] = None,
                  is_critical: Optional[bool] = None,
                  no_screenshot: Optional[bool] = None,
@@ -80597,6 +80754,8 @@ class SyntheticsTestBrowserStep(dict):
         :param 'SyntheticsTestBrowserStepParamsArgs' params: Parameters for the step.
         :param str type: Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `click`, `extractFromJavascript`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `hover`, `playSubTest`, `pressKey`, `refresh`, `runApiTest`, `scroll`, `selectOption`, `typeText`, `uploadFiles`, `wait`.
         :param bool allow_failure: Determines if the step should be allowed to fail.
+        :param bool always_execute: Determines whether or not to always execute this step even if the previous step failed or was skipped.
+        :param bool exit_if_succeed: Determines whether or not to exit the test if the step succeeds.
         :param bool force_element_update: Force update of the "element" parameter for the step
         :param bool is_critical: Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
         :param bool no_screenshot: Prevents saving screenshots of the step.
@@ -80607,6 +80766,10 @@ class SyntheticsTestBrowserStep(dict):
         pulumi.set(__self__, "type", type)
         if allow_failure is not None:
             pulumi.set(__self__, "allow_failure", allow_failure)
+        if always_execute is not None:
+            pulumi.set(__self__, "always_execute", always_execute)
+        if exit_if_succeed is not None:
+            pulumi.set(__self__, "exit_if_succeed", exit_if_succeed)
         if force_element_update is not None:
             pulumi.set(__self__, "force_element_update", force_element_update)
         if is_critical is not None:
@@ -80647,6 +80810,22 @@ class SyntheticsTestBrowserStep(dict):
         Determines if the step should be allowed to fail.
         """
         return pulumi.get(self, "allow_failure")
+
+    @property
+    @pulumi.getter(name="alwaysExecute")
+    def always_execute(self) -> Optional[bool]:
+        """
+        Determines whether or not to always execute this step even if the previous step failed or was skipped.
+        """
+        return pulumi.get(self, "always_execute")
+
+    @property
+    @pulumi.getter(name="exitIfSucceed")
+    def exit_if_succeed(self) -> Optional[bool]:
+        """
+        Determines whether or not to exit the test if the step succeeds.
+        """
+        return pulumi.get(self, "exit_if_succeed")
 
     @property
     @pulumi.getter(name="forceElementUpdate")

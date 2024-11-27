@@ -79,6 +79,7 @@ from .provider import *
 from .restriction_policy import *
 from .role import *
 from .rum_application import *
+from .rum_metric import *
 from .security_monitoring_default_rule import *
 from .security_monitoring_filter import *
 from .security_monitoring_rule import *
@@ -124,6 +125,8 @@ if typing.TYPE_CHECKING:
     fastly = __fastly
     import pulumi_datadog.gcp as __gcp
     gcp = __gcp
+    import pulumi_datadog.ms as __ms
+    ms = __ms
     import pulumi_datadog.opsgenie as __opsgenie
     opsgenie = __opsgenie
     import pulumi_datadog.pagerduty as __pagerduty
@@ -138,6 +141,7 @@ else:
     confluent = _utilities.lazy_import('pulumi_datadog.confluent')
     fastly = _utilities.lazy_import('pulumi_datadog.fastly')
     gcp = _utilities.lazy_import('pulumi_datadog.gcp')
+    ms = _utilities.lazy_import('pulumi_datadog.ms')
     opsgenie = _utilities.lazy_import('pulumi_datadog.opsgenie')
     pagerduty = _utilities.lazy_import('pulumi_datadog.pagerduty')
     slack = _utilities.lazy_import('pulumi_datadog.slack')
@@ -539,6 +543,14 @@ _utilities.register(
  },
  {
   "pkg": "datadog",
+  "mod": "index/rumMetric",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/rumMetric:RumMetric": "RumMetric"
+  }
+ },
+ {
+  "pkg": "datadog",
   "mod": "index/securityMonitoringDefaultRule",
   "fqn": "pulumi_datadog",
   "classes": {
@@ -743,6 +755,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/webhookCustomVariable:WebhookCustomVariable": "WebhookCustomVariable"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "ms/integrationTeamsTenantBasedHandle",
+  "fqn": "pulumi_datadog.ms",
+  "classes": {
+   "datadog:ms/integrationTeamsTenantBasedHandle:IntegrationTeamsTenantBasedHandle": "IntegrationTeamsTenantBasedHandle"
   }
  },
  {

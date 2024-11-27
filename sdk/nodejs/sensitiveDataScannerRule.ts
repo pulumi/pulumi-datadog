@@ -56,7 +56,7 @@ export class SensitiveDataScannerRule extends pulumi.CustomResource {
      */
     public readonly groupId!: pulumi.Output<string>;
     /**
-     * Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. Setting the `createBeforeDestroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
+     * Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. If the rule has the `standardPatternId` field, then discarding this field will apply the recommended keywords. Setting the `createBeforeDestroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
      */
     public readonly includedKeywordConfiguration!: pulumi.Output<outputs.SensitiveDataScannerRuleIncludedKeywordConfiguration | undefined>;
     /**
@@ -157,7 +157,7 @@ export interface SensitiveDataScannerRuleState {
      */
     groupId?: pulumi.Input<string>;
     /**
-     * Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. Setting the `createBeforeDestroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
+     * Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. If the rule has the `standardPatternId` field, then discarding this field will apply the recommended keywords. Setting the `createBeforeDestroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
      */
     includedKeywordConfiguration?: pulumi.Input<inputs.SensitiveDataScannerRuleIncludedKeywordConfiguration>;
     /**
@@ -211,7 +211,7 @@ export interface SensitiveDataScannerRuleArgs {
      */
     groupId: pulumi.Input<string>;
     /**
-     * Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. Setting the `createBeforeDestroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
+     * Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. If the rule has the `standardPatternId` field, then discarding this field will apply the recommended keywords. Setting the `createBeforeDestroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
      */
     includedKeywordConfiguration?: pulumi.Input<inputs.SensitiveDataScannerRuleIncludedKeywordConfiguration>;
     /**

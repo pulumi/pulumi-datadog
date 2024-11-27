@@ -19,6 +19,18 @@ namespace Pulumi.Datadog.Inputs
         public Input<bool>? AllowFailure { get; set; }
 
         /// <summary>
+        /// Determines whether or not to always execute this step even if the previous step failed or was skipped.
+        /// </summary>
+        [Input("alwaysExecute")]
+        public Input<bool>? AlwaysExecute { get; set; }
+
+        /// <summary>
+        /// Determines whether or not to exit the test if the step succeeds.
+        /// </summary>
+        [Input("exitIfSucceed")]
+        public Input<bool>? ExitIfSucceed { get; set; }
+
+        /// <summary>
         /// Force update of the "element" parameter for the step
         /// </summary>
         [Input("forceElementUpdate")]
