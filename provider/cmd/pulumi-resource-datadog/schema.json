@@ -28481,6 +28481,57 @@
                 }
             }
         },
+        "datadog:index/RumMetricCompute:RumMetricCompute": {
+            "properties": {
+                "aggregationType": {
+                    "type": "string",
+                    "description": "The type of aggregation to use.\n"
+                },
+                "includePercentiles": {
+                    "type": "boolean",
+                    "description": "Toggle to include or exclude percentile aggregations for distribution metrics. Only present when `aggregation_type` is `distribution`.\n"
+                },
+                "path": {
+                    "type": "string",
+                    "description": "The path to the value the RUM-based metric will aggregate on. Only present when `aggregation_type` is `distribution`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "aggregationType"
+            ]
+        },
+        "datadog:index/RumMetricFilter:RumMetricFilter": {
+            "properties": {
+                "query": {
+                    "type": "string",
+                    "description": "The search query. Follows RUM search syntax.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/RumMetricGroupBy:RumMetricGroupBy": {
+            "properties": {
+                "path": {
+                    "type": "string",
+                    "description": "The path to the value the RUM-based metric will be aggregated over.\n"
+                },
+                "tagName": {
+                    "type": "string",
+                    "description": "Name of the tag that gets created. By default, `path` is used as the tag name.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/RumMetricUniqueness:RumMetricUniqueness": {
+            "properties": {
+                "when": {
+                    "type": "string",
+                    "description": "When to count updatable events. `match` when the event is first seen, or `end` when the event is complete.\n"
+                }
+            },
+            "type": "object"
+        },
         "datadog:index/SecurityMonitoringDefaultRuleCase:SecurityMonitoringDefaultRuleCase": {
             "properties": {
                 "notifications": {
@@ -29879,6 +29930,14 @@
                 "allowFailure": {
                     "type": "boolean",
                     "description": "Determines if the step should be allowed to fail.\n"
+                },
+                "alwaysExecute": {
+                    "type": "boolean",
+                    "description": "Determines whether or not to always execute this step even if the previous step failed or was skipped.\n"
+                },
+                "exitIfSucceed": {
+                    "type": "boolean",
+                    "description": "Determines whether or not to exit the test if the step succeeds.\n"
                 },
                 "forceElementUpdate": {
                     "type": "boolean",
@@ -36952,6 +37011,96 @@
                 "type": "object"
             }
         },
+        "datadog:index/rumMetric:RumMetric": {
+            "description": "Provides a Datadog RumMetric resource. This can be used to create and manage Datadog rum_metric.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.RumMetric;\nimport com.pulumi.datadog.RumMetricArgs;\nimport com.pulumi.datadog.inputs.RumMetricGroupByArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // Create new rum_metric resource\n        var testingRumMetric = new RumMetric(\"testingRumMetric\", RumMetricArgs.builder()\n            .name(\"testing.rum.metric\")\n            .compute(RumMetricComputeArgs.builder()\n                .aggregationType(\"distribution\")\n                .includePercentiles(true)\n                .path(\"@duration\")\n                .build())\n            .eventType(\"session\")\n            .filter(RumMetricFilterArgs.builder()\n                .query(\"@service:web-ui\")\n                .build())\n            .groupBies(RumMetricGroupByArgs.builder()\n                .path(\"@browser.name\")\n                .tagName(\"browser_name\")\n                .build())\n            .uniqueness(RumMetricUniquenessArgs.builder()\n                .when(\"match\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Create new rum_metric resource\n  testingRumMetric:\n    type: datadog:RumMetric\n    name: testing_rum_metric\n    properties:\n      name: testing.rum.metric\n      compute:\n        - aggregationType: distribution\n          includePercentiles: true\n          path: '@duration'\n      eventType: session\n      filter:\n        - query: '@service:web-ui'\n      groupBies:\n        - path: '@browser.name'\n          tagName: browser_name\n      uniqueness:\n        - when: match\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import datadog:index/rumMetric:RumMetric testing_rum_metric \"testing.rum.metric\"\n```\n\n",
+            "properties": {
+                "compute": {
+                    "$ref": "#/types/datadog:index/RumMetricCompute:RumMetricCompute"
+                },
+                "eventType": {
+                    "type": "string",
+                    "description": "The type of RUM events to filter on.\n"
+                },
+                "filter": {
+                    "$ref": "#/types/datadog:index/RumMetricFilter:RumMetricFilter"
+                },
+                "groupBies": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/RumMetricGroupBy:RumMetricGroupBy"
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the RUM-based metric. This field can't be updated after creation.\n"
+                },
+                "uniqueness": {
+                    "$ref": "#/types/datadog:index/RumMetricUniqueness:RumMetricUniqueness"
+                }
+            },
+            "required": [
+                "eventType",
+                "name"
+            ],
+            "inputProperties": {
+                "compute": {
+                    "$ref": "#/types/datadog:index/RumMetricCompute:RumMetricCompute"
+                },
+                "eventType": {
+                    "type": "string",
+                    "description": "The type of RUM events to filter on.\n"
+                },
+                "filter": {
+                    "$ref": "#/types/datadog:index/RumMetricFilter:RumMetricFilter"
+                },
+                "groupBies": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/RumMetricGroupBy:RumMetricGroupBy"
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the RUM-based metric. This field can't be updated after creation.\n"
+                },
+                "uniqueness": {
+                    "$ref": "#/types/datadog:index/RumMetricUniqueness:RumMetricUniqueness"
+                }
+            },
+            "requiredInputs": [
+                "eventType",
+                "name"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering RumMetric resources.\n",
+                "properties": {
+                    "compute": {
+                        "$ref": "#/types/datadog:index/RumMetricCompute:RumMetricCompute"
+                    },
+                    "eventType": {
+                        "type": "string",
+                        "description": "The type of RUM events to filter on.\n"
+                    },
+                    "filter": {
+                        "$ref": "#/types/datadog:index/RumMetricFilter:RumMetricFilter"
+                    },
+                    "groupBies": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/datadog:index/RumMetricGroupBy:RumMetricGroupBy"
+                        }
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the RUM-based metric. This field can't be updated after creation.\n"
+                    },
+                    "uniqueness": {
+                        "$ref": "#/types/datadog:index/RumMetricUniqueness:RumMetricUniqueness"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule": {
             "description": "Provides a Datadog Security Monitoring Rule API resource for default rules. It can only be imported, you can't create a default rule.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst adefaultrule = new datadog.SecurityMonitoringDefaultRule(\"adefaultrule\", {\n    enabled: true,\n    cases: [{\n        status: \"high\",\n        notifications: [\"@me\"],\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nadefaultrule = datadog.SecurityMonitoringDefaultRule(\"adefaultrule\",\n    enabled=True,\n    cases=[{\n        \"status\": \"high\",\n        \"notifications\": [\"@me\"],\n    }])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var adefaultrule = new Datadog.SecurityMonitoringDefaultRule(\"adefaultrule\", new()\n    {\n        Enabled = true,\n        Cases = new[]\n        {\n            new Datadog.Inputs.SecurityMonitoringDefaultRuleCaseArgs\n            {\n                Status = \"high\",\n                Notifications = new[]\n                {\n                    \"@me\",\n                },\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewSecurityMonitoringDefaultRule(ctx, \"adefaultrule\", \u0026datadog.SecurityMonitoringDefaultRuleArgs{\n\t\t\tEnabled: pulumi.Bool(true),\n\t\t\tCases: datadog.SecurityMonitoringDefaultRuleCaseArray{\n\t\t\t\t\u0026datadog.SecurityMonitoringDefaultRuleCaseArgs{\n\t\t\t\t\tStatus: pulumi.String(\"high\"),\n\t\t\t\t\tNotifications: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"@me\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.SecurityMonitoringDefaultRule;\nimport com.pulumi.datadog.SecurityMonitoringDefaultRuleArgs;\nimport com.pulumi.datadog.inputs.SecurityMonitoringDefaultRuleCaseArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var adefaultrule = new SecurityMonitoringDefaultRule(\"adefaultrule\", SecurityMonitoringDefaultRuleArgs.builder()\n            .enabled(true)\n            .cases(SecurityMonitoringDefaultRuleCaseArgs.builder()\n                .status(\"high\")\n                .notifications(\"@me\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  adefaultrule:\n    type: datadog:SecurityMonitoringDefaultRule\n    properties:\n      enabled: true # Change the notifications for the high case\n      cases:\n        - status: high\n          notifications:\n            - '@me'\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nDefault rules need to be imported using their ID before applying.\n\nresource \"datadog_security_monitoring_default_rule\" \"adefaultrule\" {\n\n}\n\n```sh\n$ pulumi import datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule adefaultrule m0o-hto-lkb\n```\n\n",
             "properties": {
@@ -37677,7 +37826,7 @@
                 },
                 "includedKeywordConfiguration": {
                     "$ref": "#/types/datadog:index/SensitiveDataScannerRuleIncludedKeywordConfiguration:SensitiveDataScannerRuleIncludedKeywordConfiguration",
-                    "description": "Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. Setting the `create_before_destroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.\n"
+                    "description": "Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. If the rule has the `standard_pattern_id` field, then discarding this field will apply the recommended keywords. Setting the `create_before_destroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.\n"
                 },
                 "isEnabled": {
                     "type": "boolean",
@@ -37741,7 +37890,7 @@
                 },
                 "includedKeywordConfiguration": {
                     "$ref": "#/types/datadog:index/SensitiveDataScannerRuleIncludedKeywordConfiguration:SensitiveDataScannerRuleIncludedKeywordConfiguration",
-                    "description": "Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. Setting the `create_before_destroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.\n",
+                    "description": "Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. If the rule has the `standard_pattern_id` field, then discarding this field will apply the recommended keywords. Setting the `create_before_destroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.\n",
                     "willReplaceOnChanges": true
                 },
                 "isEnabled": {
@@ -37808,7 +37957,7 @@
                     },
                     "includedKeywordConfiguration": {
                         "$ref": "#/types/datadog:index/SensitiveDataScannerRuleIncludedKeywordConfiguration:SensitiveDataScannerRuleIncludedKeywordConfiguration",
-                        "description": "Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. Setting the `create_before_destroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.\n",
+                        "description": "Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. If the rule has the `standard_pattern_id` field, then discarding this field will apply the recommended keywords. Setting the `create_before_destroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.\n",
                         "willReplaceOnChanges": true
                     },
                     "isEnabled": {
@@ -39759,6 +39908,79 @@
                         "type": "string",
                         "description": "The value of the custom variable.\n",
                         "secret": true
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "datadog:ms/integrationTeamsTenantBasedHandle:IntegrationTeamsTenantBasedHandle": {
+            "description": "Resource for interacting with Datadog Microsoft Teams Integration tenant-based handles.\n",
+            "properties": {
+                "channelName": {
+                    "type": "string",
+                    "description": "Your channel name.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Your tenant-based handle name.\n"
+                },
+                "teamName": {
+                    "type": "string",
+                    "description": "Your team name.\n"
+                },
+                "tenantName": {
+                    "type": "string",
+                    "description": "Your tenant name.\n"
+                }
+            },
+            "required": [
+                "channelName",
+                "name",
+                "teamName",
+                "tenantName"
+            ],
+            "inputProperties": {
+                "channelName": {
+                    "type": "string",
+                    "description": "Your channel name.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Your tenant-based handle name.\n"
+                },
+                "teamName": {
+                    "type": "string",
+                    "description": "Your team name.\n"
+                },
+                "tenantName": {
+                    "type": "string",
+                    "description": "Your tenant name.\n"
+                }
+            },
+            "requiredInputs": [
+                "channelName",
+                "name",
+                "teamName",
+                "tenantName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering IntegrationTeamsTenantBasedHandle resources.\n",
+                "properties": {
+                    "channelName": {
+                        "type": "string",
+                        "description": "Your channel name.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Your tenant-based handle name.\n"
+                    },
+                    "teamName": {
+                        "type": "string",
+                        "description": "Your team name.\n"
+                    },
+                    "tenantName": {
+                        "type": "string",
+                        "description": "Your tenant name.\n"
                     }
                 },
                 "type": "object"
