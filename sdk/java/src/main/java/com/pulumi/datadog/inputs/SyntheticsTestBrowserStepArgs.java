@@ -35,6 +35,36 @@ public final class SyntheticsTestBrowserStepArgs extends com.pulumi.resources.Re
     }
 
     /**
+     * Determines whether or not to always execute this step even if the previous step failed or was skipped.
+     * 
+     */
+    @Import(name="alwaysExecute")
+    private @Nullable Output<Boolean> alwaysExecute;
+
+    /**
+     * @return Determines whether or not to always execute this step even if the previous step failed or was skipped.
+     * 
+     */
+    public Optional<Output<Boolean>> alwaysExecute() {
+        return Optional.ofNullable(this.alwaysExecute);
+    }
+
+    /**
+     * Determines whether or not to exit the test if the step succeeds.
+     * 
+     */
+    @Import(name="exitIfSucceed")
+    private @Nullable Output<Boolean> exitIfSucceed;
+
+    /**
+     * @return Determines whether or not to exit the test if the step succeeds.
+     * 
+     */
+    public Optional<Output<Boolean>> exitIfSucceed() {
+        return Optional.ofNullable(this.exitIfSucceed);
+    }
+
+    /**
      * Force update of the &#34;element&#34; parameter for the step
      * 
      */
@@ -143,6 +173,8 @@ public final class SyntheticsTestBrowserStepArgs extends com.pulumi.resources.Re
 
     private SyntheticsTestBrowserStepArgs(SyntheticsTestBrowserStepArgs $) {
         this.allowFailure = $.allowFailure;
+        this.alwaysExecute = $.alwaysExecute;
+        this.exitIfSucceed = $.exitIfSucceed;
         this.forceElementUpdate = $.forceElementUpdate;
         this.isCritical = $.isCritical;
         this.name = $.name;
@@ -189,6 +221,48 @@ public final class SyntheticsTestBrowserStepArgs extends com.pulumi.resources.Re
          */
         public Builder allowFailure(Boolean allowFailure) {
             return allowFailure(Output.of(allowFailure));
+        }
+
+        /**
+         * @param alwaysExecute Determines whether or not to always execute this step even if the previous step failed or was skipped.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder alwaysExecute(@Nullable Output<Boolean> alwaysExecute) {
+            $.alwaysExecute = alwaysExecute;
+            return this;
+        }
+
+        /**
+         * @param alwaysExecute Determines whether or not to always execute this step even if the previous step failed or was skipped.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder alwaysExecute(Boolean alwaysExecute) {
+            return alwaysExecute(Output.of(alwaysExecute));
+        }
+
+        /**
+         * @param exitIfSucceed Determines whether or not to exit the test if the step succeeds.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder exitIfSucceed(@Nullable Output<Boolean> exitIfSucceed) {
+            $.exitIfSucceed = exitIfSucceed;
+            return this;
+        }
+
+        /**
+         * @param exitIfSucceed Determines whether or not to exit the test if the step succeeds.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder exitIfSucceed(Boolean exitIfSucceed) {
+            return exitIfSucceed(Output.of(exitIfSucceed));
         }
 
         /**

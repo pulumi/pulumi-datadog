@@ -21,6 +21,16 @@ public final class SyntheticsTestBrowserStep {
      */
     private @Nullable Boolean allowFailure;
     /**
+     * @return Determines whether or not to always execute this step even if the previous step failed or was skipped.
+     * 
+     */
+    private @Nullable Boolean alwaysExecute;
+    /**
+     * @return Determines whether or not to exit the test if the step succeeds.
+     * 
+     */
+    private @Nullable Boolean exitIfSucceed;
+    /**
      * @return Force update of the &#34;element&#34; parameter for the step
      * 
      */
@@ -63,6 +73,20 @@ public final class SyntheticsTestBrowserStep {
      */
     public Optional<Boolean> allowFailure() {
         return Optional.ofNullable(this.allowFailure);
+    }
+    /**
+     * @return Determines whether or not to always execute this step even if the previous step failed or was skipped.
+     * 
+     */
+    public Optional<Boolean> alwaysExecute() {
+        return Optional.ofNullable(this.alwaysExecute);
+    }
+    /**
+     * @return Determines whether or not to exit the test if the step succeeds.
+     * 
+     */
+    public Optional<Boolean> exitIfSucceed() {
+        return Optional.ofNullable(this.exitIfSucceed);
     }
     /**
      * @return Force update of the &#34;element&#34; parameter for the step
@@ -124,6 +148,8 @@ public final class SyntheticsTestBrowserStep {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean allowFailure;
+        private @Nullable Boolean alwaysExecute;
+        private @Nullable Boolean exitIfSucceed;
         private @Nullable Boolean forceElementUpdate;
         private @Nullable Boolean isCritical;
         private String name;
@@ -135,6 +161,8 @@ public final class SyntheticsTestBrowserStep {
         public Builder(SyntheticsTestBrowserStep defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowFailure = defaults.allowFailure;
+    	      this.alwaysExecute = defaults.alwaysExecute;
+    	      this.exitIfSucceed = defaults.exitIfSucceed;
     	      this.forceElementUpdate = defaults.forceElementUpdate;
     	      this.isCritical = defaults.isCritical;
     	      this.name = defaults.name;
@@ -148,6 +176,18 @@ public final class SyntheticsTestBrowserStep {
         public Builder allowFailure(@Nullable Boolean allowFailure) {
 
             this.allowFailure = allowFailure;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder alwaysExecute(@Nullable Boolean alwaysExecute) {
+
+            this.alwaysExecute = alwaysExecute;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder exitIfSucceed(@Nullable Boolean exitIfSucceed) {
+
+            this.exitIfSucceed = exitIfSucceed;
             return this;
         }
         @CustomType.Setter
@@ -201,6 +241,8 @@ public final class SyntheticsTestBrowserStep {
         public SyntheticsTestBrowserStep build() {
             final var _resultValue = new SyntheticsTestBrowserStep();
             _resultValue.allowFailure = allowFailure;
+            _resultValue.alwaysExecute = alwaysExecute;
+            _resultValue.exitIfSucceed = exitIfSucceed;
             _resultValue.forceElementUpdate = forceElementUpdate;
             _resultValue.isCritical = isCritical;
             _resultValue.name = name;

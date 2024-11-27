@@ -28,7 +28,7 @@ type SensitiveDataScannerRule struct {
 	ExcludedNamespaces pulumi.StringArrayOutput `pulumi:"excludedNamespaces"`
 	// Id of the scanning group the rule belongs to.
 	GroupId pulumi.StringOutput `pulumi:"groupId"`
-	// Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. Setting the `createBeforeDestroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
+	// Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. If the rule has the `standardPatternId` field, then discarding this field will apply the recommended keywords. Setting the `createBeforeDestroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
 	IncludedKeywordConfiguration SensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput `pulumi:"includedKeywordConfiguration"`
 	// Whether or not the rule is enabled.
 	IsEnabled pulumi.BoolPtrOutput `pulumi:"isEnabled"`
@@ -87,7 +87,7 @@ type sensitiveDataScannerRuleState struct {
 	ExcludedNamespaces []string `pulumi:"excludedNamespaces"`
 	// Id of the scanning group the rule belongs to.
 	GroupId *string `pulumi:"groupId"`
-	// Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. Setting the `createBeforeDestroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
+	// Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. If the rule has the `standardPatternId` field, then discarding this field will apply the recommended keywords. Setting the `createBeforeDestroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
 	IncludedKeywordConfiguration *SensitiveDataScannerRuleIncludedKeywordConfiguration `pulumi:"includedKeywordConfiguration"`
 	// Whether or not the rule is enabled.
 	IsEnabled *bool `pulumi:"isEnabled"`
@@ -114,7 +114,7 @@ type SensitiveDataScannerRuleState struct {
 	ExcludedNamespaces pulumi.StringArrayInput
 	// Id of the scanning group the rule belongs to.
 	GroupId pulumi.StringPtrInput
-	// Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. Setting the `createBeforeDestroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
+	// Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. If the rule has the `standardPatternId` field, then discarding this field will apply the recommended keywords. Setting the `createBeforeDestroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
 	IncludedKeywordConfiguration SensitiveDataScannerRuleIncludedKeywordConfigurationPtrInput
 	// Whether or not the rule is enabled.
 	IsEnabled pulumi.BoolPtrInput
@@ -145,7 +145,7 @@ type sensitiveDataScannerRuleArgs struct {
 	ExcludedNamespaces []string `pulumi:"excludedNamespaces"`
 	// Id of the scanning group the rule belongs to.
 	GroupId string `pulumi:"groupId"`
-	// Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. Setting the `createBeforeDestroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
+	// Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. If the rule has the `standardPatternId` field, then discarding this field will apply the recommended keywords. Setting the `createBeforeDestroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
 	IncludedKeywordConfiguration *SensitiveDataScannerRuleIncludedKeywordConfiguration `pulumi:"includedKeywordConfiguration"`
 	// Whether or not the rule is enabled.
 	IsEnabled *bool `pulumi:"isEnabled"`
@@ -173,7 +173,7 @@ type SensitiveDataScannerRuleArgs struct {
 	ExcludedNamespaces pulumi.StringArrayInput
 	// Id of the scanning group the rule belongs to.
 	GroupId pulumi.StringInput
-	// Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. Setting the `createBeforeDestroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
+	// Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. If the rule has the `standardPatternId` field, then discarding this field will apply the recommended keywords. Setting the `createBeforeDestroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
 	IncludedKeywordConfiguration SensitiveDataScannerRuleIncludedKeywordConfigurationPtrInput
 	// Whether or not the rule is enabled.
 	IsEnabled pulumi.BoolPtrInput
@@ -295,7 +295,7 @@ func (o SensitiveDataScannerRuleOutput) GroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SensitiveDataScannerRule) pulumi.StringOutput { return v.GroupId }).(pulumi.StringOutput)
 }
 
-// Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. Setting the `createBeforeDestroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
+// Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. If the rule has the `standardPatternId` field, then discarding this field will apply the recommended keywords. Setting the `createBeforeDestroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
 func (o SensitiveDataScannerRuleOutput) IncludedKeywordConfiguration() SensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput {
 	return o.ApplyT(func(v *SensitiveDataScannerRule) SensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput {
 		return v.IncludedKeywordConfiguration

@@ -18,6 +18,14 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? AllowFailure;
         /// <summary>
+        /// Determines whether or not to always execute this step even if the previous step failed or was skipped.
+        /// </summary>
+        public readonly bool? AlwaysExecute;
+        /// <summary>
+        /// Determines whether or not to exit the test if the step succeeds.
+        /// </summary>
+        public readonly bool? ExitIfSucceed;
+        /// <summary>
         /// Force update of the "element" parameter for the step
         /// </summary>
         public readonly bool? ForceElementUpdate;
@@ -50,6 +58,10 @@ namespace Pulumi.Datadog.Outputs
         private SyntheticsTestBrowserStep(
             bool? allowFailure,
 
+            bool? alwaysExecute,
+
+            bool? exitIfSucceed,
+
             bool? forceElementUpdate,
 
             bool? isCritical,
@@ -65,6 +77,8 @@ namespace Pulumi.Datadog.Outputs
             string type)
         {
             AllowFailure = allowFailure;
+            AlwaysExecute = alwaysExecute;
+            ExitIfSucceed = exitIfSucceed;
             ForceElementUpdate = forceElementUpdate;
             IsCritical = isCritical;
             Name = name;

@@ -225,6 +225,561 @@ func (o RolePermissionArrayOutput) Index(i pulumi.IntInput) RolePermissionOutput
 	}).(RolePermissionOutput)
 }
 
+type RumMetricCompute struct {
+	// The type of aggregation to use.
+	AggregationType string `pulumi:"aggregationType"`
+	// Toggle to include or exclude percentile aggregations for distribution metrics. Only present when `aggregationType` is `distribution`.
+	IncludePercentiles *bool `pulumi:"includePercentiles"`
+	// The path to the value the RUM-based metric will aggregate on. Only present when `aggregationType` is `distribution`.
+	Path *string `pulumi:"path"`
+}
+
+// RumMetricComputeInput is an input type that accepts RumMetricComputeArgs and RumMetricComputeOutput values.
+// You can construct a concrete instance of `RumMetricComputeInput` via:
+//
+//	RumMetricComputeArgs{...}
+type RumMetricComputeInput interface {
+	pulumi.Input
+
+	ToRumMetricComputeOutput() RumMetricComputeOutput
+	ToRumMetricComputeOutputWithContext(context.Context) RumMetricComputeOutput
+}
+
+type RumMetricComputeArgs struct {
+	// The type of aggregation to use.
+	AggregationType pulumi.StringInput `pulumi:"aggregationType"`
+	// Toggle to include or exclude percentile aggregations for distribution metrics. Only present when `aggregationType` is `distribution`.
+	IncludePercentiles pulumi.BoolPtrInput `pulumi:"includePercentiles"`
+	// The path to the value the RUM-based metric will aggregate on. Only present when `aggregationType` is `distribution`.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+}
+
+func (RumMetricComputeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RumMetricCompute)(nil)).Elem()
+}
+
+func (i RumMetricComputeArgs) ToRumMetricComputeOutput() RumMetricComputeOutput {
+	return i.ToRumMetricComputeOutputWithContext(context.Background())
+}
+
+func (i RumMetricComputeArgs) ToRumMetricComputeOutputWithContext(ctx context.Context) RumMetricComputeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RumMetricComputeOutput)
+}
+
+func (i RumMetricComputeArgs) ToRumMetricComputePtrOutput() RumMetricComputePtrOutput {
+	return i.ToRumMetricComputePtrOutputWithContext(context.Background())
+}
+
+func (i RumMetricComputeArgs) ToRumMetricComputePtrOutputWithContext(ctx context.Context) RumMetricComputePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RumMetricComputeOutput).ToRumMetricComputePtrOutputWithContext(ctx)
+}
+
+// RumMetricComputePtrInput is an input type that accepts RumMetricComputeArgs, RumMetricComputePtr and RumMetricComputePtrOutput values.
+// You can construct a concrete instance of `RumMetricComputePtrInput` via:
+//
+//	        RumMetricComputeArgs{...}
+//
+//	or:
+//
+//	        nil
+type RumMetricComputePtrInput interface {
+	pulumi.Input
+
+	ToRumMetricComputePtrOutput() RumMetricComputePtrOutput
+	ToRumMetricComputePtrOutputWithContext(context.Context) RumMetricComputePtrOutput
+}
+
+type rumMetricComputePtrType RumMetricComputeArgs
+
+func RumMetricComputePtr(v *RumMetricComputeArgs) RumMetricComputePtrInput {
+	return (*rumMetricComputePtrType)(v)
+}
+
+func (*rumMetricComputePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RumMetricCompute)(nil)).Elem()
+}
+
+func (i *rumMetricComputePtrType) ToRumMetricComputePtrOutput() RumMetricComputePtrOutput {
+	return i.ToRumMetricComputePtrOutputWithContext(context.Background())
+}
+
+func (i *rumMetricComputePtrType) ToRumMetricComputePtrOutputWithContext(ctx context.Context) RumMetricComputePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RumMetricComputePtrOutput)
+}
+
+type RumMetricComputeOutput struct{ *pulumi.OutputState }
+
+func (RumMetricComputeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RumMetricCompute)(nil)).Elem()
+}
+
+func (o RumMetricComputeOutput) ToRumMetricComputeOutput() RumMetricComputeOutput {
+	return o
+}
+
+func (o RumMetricComputeOutput) ToRumMetricComputeOutputWithContext(ctx context.Context) RumMetricComputeOutput {
+	return o
+}
+
+func (o RumMetricComputeOutput) ToRumMetricComputePtrOutput() RumMetricComputePtrOutput {
+	return o.ToRumMetricComputePtrOutputWithContext(context.Background())
+}
+
+func (o RumMetricComputeOutput) ToRumMetricComputePtrOutputWithContext(ctx context.Context) RumMetricComputePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RumMetricCompute) *RumMetricCompute {
+		return &v
+	}).(RumMetricComputePtrOutput)
+}
+
+// The type of aggregation to use.
+func (o RumMetricComputeOutput) AggregationType() pulumi.StringOutput {
+	return o.ApplyT(func(v RumMetricCompute) string { return v.AggregationType }).(pulumi.StringOutput)
+}
+
+// Toggle to include or exclude percentile aggregations for distribution metrics. Only present when `aggregationType` is `distribution`.
+func (o RumMetricComputeOutput) IncludePercentiles() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RumMetricCompute) *bool { return v.IncludePercentiles }).(pulumi.BoolPtrOutput)
+}
+
+// The path to the value the RUM-based metric will aggregate on. Only present when `aggregationType` is `distribution`.
+func (o RumMetricComputeOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RumMetricCompute) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+type RumMetricComputePtrOutput struct{ *pulumi.OutputState }
+
+func (RumMetricComputePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RumMetricCompute)(nil)).Elem()
+}
+
+func (o RumMetricComputePtrOutput) ToRumMetricComputePtrOutput() RumMetricComputePtrOutput {
+	return o
+}
+
+func (o RumMetricComputePtrOutput) ToRumMetricComputePtrOutputWithContext(ctx context.Context) RumMetricComputePtrOutput {
+	return o
+}
+
+func (o RumMetricComputePtrOutput) Elem() RumMetricComputeOutput {
+	return o.ApplyT(func(v *RumMetricCompute) RumMetricCompute {
+		if v != nil {
+			return *v
+		}
+		var ret RumMetricCompute
+		return ret
+	}).(RumMetricComputeOutput)
+}
+
+// The type of aggregation to use.
+func (o RumMetricComputePtrOutput) AggregationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RumMetricCompute) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AggregationType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Toggle to include or exclude percentile aggregations for distribution metrics. Only present when `aggregationType` is `distribution`.
+func (o RumMetricComputePtrOutput) IncludePercentiles() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RumMetricCompute) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludePercentiles
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The path to the value the RUM-based metric will aggregate on. Only present when `aggregationType` is `distribution`.
+func (o RumMetricComputePtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RumMetricCompute) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+type RumMetricFilter struct {
+	// The search query. Follows RUM search syntax.
+	Query *string `pulumi:"query"`
+}
+
+// RumMetricFilterInput is an input type that accepts RumMetricFilterArgs and RumMetricFilterOutput values.
+// You can construct a concrete instance of `RumMetricFilterInput` via:
+//
+//	RumMetricFilterArgs{...}
+type RumMetricFilterInput interface {
+	pulumi.Input
+
+	ToRumMetricFilterOutput() RumMetricFilterOutput
+	ToRumMetricFilterOutputWithContext(context.Context) RumMetricFilterOutput
+}
+
+type RumMetricFilterArgs struct {
+	// The search query. Follows RUM search syntax.
+	Query pulumi.StringPtrInput `pulumi:"query"`
+}
+
+func (RumMetricFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RumMetricFilter)(nil)).Elem()
+}
+
+func (i RumMetricFilterArgs) ToRumMetricFilterOutput() RumMetricFilterOutput {
+	return i.ToRumMetricFilterOutputWithContext(context.Background())
+}
+
+func (i RumMetricFilterArgs) ToRumMetricFilterOutputWithContext(ctx context.Context) RumMetricFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RumMetricFilterOutput)
+}
+
+func (i RumMetricFilterArgs) ToRumMetricFilterPtrOutput() RumMetricFilterPtrOutput {
+	return i.ToRumMetricFilterPtrOutputWithContext(context.Background())
+}
+
+func (i RumMetricFilterArgs) ToRumMetricFilterPtrOutputWithContext(ctx context.Context) RumMetricFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RumMetricFilterOutput).ToRumMetricFilterPtrOutputWithContext(ctx)
+}
+
+// RumMetricFilterPtrInput is an input type that accepts RumMetricFilterArgs, RumMetricFilterPtr and RumMetricFilterPtrOutput values.
+// You can construct a concrete instance of `RumMetricFilterPtrInput` via:
+//
+//	        RumMetricFilterArgs{...}
+//
+//	or:
+//
+//	        nil
+type RumMetricFilterPtrInput interface {
+	pulumi.Input
+
+	ToRumMetricFilterPtrOutput() RumMetricFilterPtrOutput
+	ToRumMetricFilterPtrOutputWithContext(context.Context) RumMetricFilterPtrOutput
+}
+
+type rumMetricFilterPtrType RumMetricFilterArgs
+
+func RumMetricFilterPtr(v *RumMetricFilterArgs) RumMetricFilterPtrInput {
+	return (*rumMetricFilterPtrType)(v)
+}
+
+func (*rumMetricFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RumMetricFilter)(nil)).Elem()
+}
+
+func (i *rumMetricFilterPtrType) ToRumMetricFilterPtrOutput() RumMetricFilterPtrOutput {
+	return i.ToRumMetricFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *rumMetricFilterPtrType) ToRumMetricFilterPtrOutputWithContext(ctx context.Context) RumMetricFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RumMetricFilterPtrOutput)
+}
+
+type RumMetricFilterOutput struct{ *pulumi.OutputState }
+
+func (RumMetricFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RumMetricFilter)(nil)).Elem()
+}
+
+func (o RumMetricFilterOutput) ToRumMetricFilterOutput() RumMetricFilterOutput {
+	return o
+}
+
+func (o RumMetricFilterOutput) ToRumMetricFilterOutputWithContext(ctx context.Context) RumMetricFilterOutput {
+	return o
+}
+
+func (o RumMetricFilterOutput) ToRumMetricFilterPtrOutput() RumMetricFilterPtrOutput {
+	return o.ToRumMetricFilterPtrOutputWithContext(context.Background())
+}
+
+func (o RumMetricFilterOutput) ToRumMetricFilterPtrOutputWithContext(ctx context.Context) RumMetricFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RumMetricFilter) *RumMetricFilter {
+		return &v
+	}).(RumMetricFilterPtrOutput)
+}
+
+// The search query. Follows RUM search syntax.
+func (o RumMetricFilterOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RumMetricFilter) *string { return v.Query }).(pulumi.StringPtrOutput)
+}
+
+type RumMetricFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (RumMetricFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RumMetricFilter)(nil)).Elem()
+}
+
+func (o RumMetricFilterPtrOutput) ToRumMetricFilterPtrOutput() RumMetricFilterPtrOutput {
+	return o
+}
+
+func (o RumMetricFilterPtrOutput) ToRumMetricFilterPtrOutputWithContext(ctx context.Context) RumMetricFilterPtrOutput {
+	return o
+}
+
+func (o RumMetricFilterPtrOutput) Elem() RumMetricFilterOutput {
+	return o.ApplyT(func(v *RumMetricFilter) RumMetricFilter {
+		if v != nil {
+			return *v
+		}
+		var ret RumMetricFilter
+		return ret
+	}).(RumMetricFilterOutput)
+}
+
+// The search query. Follows RUM search syntax.
+func (o RumMetricFilterPtrOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RumMetricFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Query
+	}).(pulumi.StringPtrOutput)
+}
+
+type RumMetricGroupBy struct {
+	// The path to the value the RUM-based metric will be aggregated over.
+	Path *string `pulumi:"path"`
+	// Name of the tag that gets created. By default, `path` is used as the tag name.
+	TagName *string `pulumi:"tagName"`
+}
+
+// RumMetricGroupByInput is an input type that accepts RumMetricGroupByArgs and RumMetricGroupByOutput values.
+// You can construct a concrete instance of `RumMetricGroupByInput` via:
+//
+//	RumMetricGroupByArgs{...}
+type RumMetricGroupByInput interface {
+	pulumi.Input
+
+	ToRumMetricGroupByOutput() RumMetricGroupByOutput
+	ToRumMetricGroupByOutputWithContext(context.Context) RumMetricGroupByOutput
+}
+
+type RumMetricGroupByArgs struct {
+	// The path to the value the RUM-based metric will be aggregated over.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// Name of the tag that gets created. By default, `path` is used as the tag name.
+	TagName pulumi.StringPtrInput `pulumi:"tagName"`
+}
+
+func (RumMetricGroupByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RumMetricGroupBy)(nil)).Elem()
+}
+
+func (i RumMetricGroupByArgs) ToRumMetricGroupByOutput() RumMetricGroupByOutput {
+	return i.ToRumMetricGroupByOutputWithContext(context.Background())
+}
+
+func (i RumMetricGroupByArgs) ToRumMetricGroupByOutputWithContext(ctx context.Context) RumMetricGroupByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RumMetricGroupByOutput)
+}
+
+// RumMetricGroupByArrayInput is an input type that accepts RumMetricGroupByArray and RumMetricGroupByArrayOutput values.
+// You can construct a concrete instance of `RumMetricGroupByArrayInput` via:
+//
+//	RumMetricGroupByArray{ RumMetricGroupByArgs{...} }
+type RumMetricGroupByArrayInput interface {
+	pulumi.Input
+
+	ToRumMetricGroupByArrayOutput() RumMetricGroupByArrayOutput
+	ToRumMetricGroupByArrayOutputWithContext(context.Context) RumMetricGroupByArrayOutput
+}
+
+type RumMetricGroupByArray []RumMetricGroupByInput
+
+func (RumMetricGroupByArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RumMetricGroupBy)(nil)).Elem()
+}
+
+func (i RumMetricGroupByArray) ToRumMetricGroupByArrayOutput() RumMetricGroupByArrayOutput {
+	return i.ToRumMetricGroupByArrayOutputWithContext(context.Background())
+}
+
+func (i RumMetricGroupByArray) ToRumMetricGroupByArrayOutputWithContext(ctx context.Context) RumMetricGroupByArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RumMetricGroupByArrayOutput)
+}
+
+type RumMetricGroupByOutput struct{ *pulumi.OutputState }
+
+func (RumMetricGroupByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RumMetricGroupBy)(nil)).Elem()
+}
+
+func (o RumMetricGroupByOutput) ToRumMetricGroupByOutput() RumMetricGroupByOutput {
+	return o
+}
+
+func (o RumMetricGroupByOutput) ToRumMetricGroupByOutputWithContext(ctx context.Context) RumMetricGroupByOutput {
+	return o
+}
+
+// The path to the value the RUM-based metric will be aggregated over.
+func (o RumMetricGroupByOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RumMetricGroupBy) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// Name of the tag that gets created. By default, `path` is used as the tag name.
+func (o RumMetricGroupByOutput) TagName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RumMetricGroupBy) *string { return v.TagName }).(pulumi.StringPtrOutput)
+}
+
+type RumMetricGroupByArrayOutput struct{ *pulumi.OutputState }
+
+func (RumMetricGroupByArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RumMetricGroupBy)(nil)).Elem()
+}
+
+func (o RumMetricGroupByArrayOutput) ToRumMetricGroupByArrayOutput() RumMetricGroupByArrayOutput {
+	return o
+}
+
+func (o RumMetricGroupByArrayOutput) ToRumMetricGroupByArrayOutputWithContext(ctx context.Context) RumMetricGroupByArrayOutput {
+	return o
+}
+
+func (o RumMetricGroupByArrayOutput) Index(i pulumi.IntInput) RumMetricGroupByOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RumMetricGroupBy {
+		return vs[0].([]RumMetricGroupBy)[vs[1].(int)]
+	}).(RumMetricGroupByOutput)
+}
+
+type RumMetricUniqueness struct {
+	// When to count updatable events. `match` when the event is first seen, or `end` when the event is complete.
+	When *string `pulumi:"when"`
+}
+
+// RumMetricUniquenessInput is an input type that accepts RumMetricUniquenessArgs and RumMetricUniquenessOutput values.
+// You can construct a concrete instance of `RumMetricUniquenessInput` via:
+//
+//	RumMetricUniquenessArgs{...}
+type RumMetricUniquenessInput interface {
+	pulumi.Input
+
+	ToRumMetricUniquenessOutput() RumMetricUniquenessOutput
+	ToRumMetricUniquenessOutputWithContext(context.Context) RumMetricUniquenessOutput
+}
+
+type RumMetricUniquenessArgs struct {
+	// When to count updatable events. `match` when the event is first seen, or `end` when the event is complete.
+	When pulumi.StringPtrInput `pulumi:"when"`
+}
+
+func (RumMetricUniquenessArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RumMetricUniqueness)(nil)).Elem()
+}
+
+func (i RumMetricUniquenessArgs) ToRumMetricUniquenessOutput() RumMetricUniquenessOutput {
+	return i.ToRumMetricUniquenessOutputWithContext(context.Background())
+}
+
+func (i RumMetricUniquenessArgs) ToRumMetricUniquenessOutputWithContext(ctx context.Context) RumMetricUniquenessOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RumMetricUniquenessOutput)
+}
+
+func (i RumMetricUniquenessArgs) ToRumMetricUniquenessPtrOutput() RumMetricUniquenessPtrOutput {
+	return i.ToRumMetricUniquenessPtrOutputWithContext(context.Background())
+}
+
+func (i RumMetricUniquenessArgs) ToRumMetricUniquenessPtrOutputWithContext(ctx context.Context) RumMetricUniquenessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RumMetricUniquenessOutput).ToRumMetricUniquenessPtrOutputWithContext(ctx)
+}
+
+// RumMetricUniquenessPtrInput is an input type that accepts RumMetricUniquenessArgs, RumMetricUniquenessPtr and RumMetricUniquenessPtrOutput values.
+// You can construct a concrete instance of `RumMetricUniquenessPtrInput` via:
+//
+//	        RumMetricUniquenessArgs{...}
+//
+//	or:
+//
+//	        nil
+type RumMetricUniquenessPtrInput interface {
+	pulumi.Input
+
+	ToRumMetricUniquenessPtrOutput() RumMetricUniquenessPtrOutput
+	ToRumMetricUniquenessPtrOutputWithContext(context.Context) RumMetricUniquenessPtrOutput
+}
+
+type rumMetricUniquenessPtrType RumMetricUniquenessArgs
+
+func RumMetricUniquenessPtr(v *RumMetricUniquenessArgs) RumMetricUniquenessPtrInput {
+	return (*rumMetricUniquenessPtrType)(v)
+}
+
+func (*rumMetricUniquenessPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RumMetricUniqueness)(nil)).Elem()
+}
+
+func (i *rumMetricUniquenessPtrType) ToRumMetricUniquenessPtrOutput() RumMetricUniquenessPtrOutput {
+	return i.ToRumMetricUniquenessPtrOutputWithContext(context.Background())
+}
+
+func (i *rumMetricUniquenessPtrType) ToRumMetricUniquenessPtrOutputWithContext(ctx context.Context) RumMetricUniquenessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RumMetricUniquenessPtrOutput)
+}
+
+type RumMetricUniquenessOutput struct{ *pulumi.OutputState }
+
+func (RumMetricUniquenessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RumMetricUniqueness)(nil)).Elem()
+}
+
+func (o RumMetricUniquenessOutput) ToRumMetricUniquenessOutput() RumMetricUniquenessOutput {
+	return o
+}
+
+func (o RumMetricUniquenessOutput) ToRumMetricUniquenessOutputWithContext(ctx context.Context) RumMetricUniquenessOutput {
+	return o
+}
+
+func (o RumMetricUniquenessOutput) ToRumMetricUniquenessPtrOutput() RumMetricUniquenessPtrOutput {
+	return o.ToRumMetricUniquenessPtrOutputWithContext(context.Background())
+}
+
+func (o RumMetricUniquenessOutput) ToRumMetricUniquenessPtrOutputWithContext(ctx context.Context) RumMetricUniquenessPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RumMetricUniqueness) *RumMetricUniqueness {
+		return &v
+	}).(RumMetricUniquenessPtrOutput)
+}
+
+// When to count updatable events. `match` when the event is first seen, or `end` when the event is complete.
+func (o RumMetricUniquenessOutput) When() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RumMetricUniqueness) *string { return v.When }).(pulumi.StringPtrOutput)
+}
+
+type RumMetricUniquenessPtrOutput struct{ *pulumi.OutputState }
+
+func (RumMetricUniquenessPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RumMetricUniqueness)(nil)).Elem()
+}
+
+func (o RumMetricUniquenessPtrOutput) ToRumMetricUniquenessPtrOutput() RumMetricUniquenessPtrOutput {
+	return o
+}
+
+func (o RumMetricUniquenessPtrOutput) ToRumMetricUniquenessPtrOutputWithContext(ctx context.Context) RumMetricUniquenessPtrOutput {
+	return o
+}
+
+func (o RumMetricUniquenessPtrOutput) Elem() RumMetricUniquenessOutput {
+	return o.ApplyT(func(v *RumMetricUniqueness) RumMetricUniqueness {
+		if v != nil {
+			return *v
+		}
+		var ret RumMetricUniqueness
+		return ret
+	}).(RumMetricUniquenessOutput)
+}
+
+// When to count updatable events. `match` when the event is first seen, or `end` when the event is complete.
+func (o RumMetricUniquenessPtrOutput) When() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RumMetricUniqueness) *string {
+		if v == nil {
+			return nil
+		}
+		return v.When
+	}).(pulumi.StringPtrOutput)
+}
+
 type SecurityMonitoringDefaultRuleCase struct {
 	// Notification targets for each rule case.
 	Notifications []string `pulumi:"notifications"`
@@ -9097,6 +9652,10 @@ func (o SyntheticsTestAssertionTargetxpathPtrOutput) Xpath() pulumi.StringPtrOut
 type SyntheticsTestBrowserStep struct {
 	// Determines if the step should be allowed to fail.
 	AllowFailure *bool `pulumi:"allowFailure"`
+	// Determines whether or not to always execute this step even if the previous step failed or was skipped.
+	AlwaysExecute *bool `pulumi:"alwaysExecute"`
+	// Determines whether or not to exit the test if the step succeeds.
+	ExitIfSucceed *bool `pulumi:"exitIfSucceed"`
 	// Force update of the "element" parameter for the step
 	ForceElementUpdate *bool `pulumi:"forceElementUpdate"`
 	// Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allowFailure` is `true`.
@@ -9127,6 +9686,10 @@ type SyntheticsTestBrowserStepInput interface {
 type SyntheticsTestBrowserStepArgs struct {
 	// Determines if the step should be allowed to fail.
 	AllowFailure pulumi.BoolPtrInput `pulumi:"allowFailure"`
+	// Determines whether or not to always execute this step even if the previous step failed or was skipped.
+	AlwaysExecute pulumi.BoolPtrInput `pulumi:"alwaysExecute"`
+	// Determines whether or not to exit the test if the step succeeds.
+	ExitIfSucceed pulumi.BoolPtrInput `pulumi:"exitIfSucceed"`
 	// Force update of the "element" parameter for the step
 	ForceElementUpdate pulumi.BoolPtrInput `pulumi:"forceElementUpdate"`
 	// Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allowFailure` is `true`.
@@ -9197,6 +9760,16 @@ func (o SyntheticsTestBrowserStepOutput) ToSyntheticsTestBrowserStepOutputWithCo
 // Determines if the step should be allowed to fail.
 func (o SyntheticsTestBrowserStepOutput) AllowFailure() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestBrowserStep) *bool { return v.AllowFailure }).(pulumi.BoolPtrOutput)
+}
+
+// Determines whether or not to always execute this step even if the previous step failed or was skipped.
+func (o SyntheticsTestBrowserStepOutput) AlwaysExecute() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserStep) *bool { return v.AlwaysExecute }).(pulumi.BoolPtrOutput)
+}
+
+// Determines whether or not to exit the test if the step succeeds.
+func (o SyntheticsTestBrowserStepOutput) ExitIfSucceed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserStep) *bool { return v.ExitIfSucceed }).(pulumi.BoolPtrOutput)
 }
 
 // Force update of the "element" parameter for the step
@@ -18777,6 +19350,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RestrictionPolicyBindingArrayInput)(nil)).Elem(), RestrictionPolicyBindingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RolePermissionInput)(nil)).Elem(), RolePermissionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RolePermissionArrayInput)(nil)).Elem(), RolePermissionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RumMetricComputeInput)(nil)).Elem(), RumMetricComputeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RumMetricComputePtrInput)(nil)).Elem(), RumMetricComputeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RumMetricFilterInput)(nil)).Elem(), RumMetricFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RumMetricFilterPtrInput)(nil)).Elem(), RumMetricFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RumMetricGroupByInput)(nil)).Elem(), RumMetricGroupByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RumMetricGroupByArrayInput)(nil)).Elem(), RumMetricGroupByArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RumMetricUniquenessInput)(nil)).Elem(), RumMetricUniquenessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RumMetricUniquenessPtrInput)(nil)).Elem(), RumMetricUniquenessArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringDefaultRuleCaseInput)(nil)).Elem(), SecurityMonitoringDefaultRuleCaseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringDefaultRuleCaseArrayInput)(nil)).Elem(), SecurityMonitoringDefaultRuleCaseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringDefaultRuleFilterInput)(nil)).Elem(), SecurityMonitoringDefaultRuleFilterArgs{})
@@ -19012,6 +19593,14 @@ func init() {
 	pulumi.RegisterOutputType(RestrictionPolicyBindingArrayOutput{})
 	pulumi.RegisterOutputType(RolePermissionOutput{})
 	pulumi.RegisterOutputType(RolePermissionArrayOutput{})
+	pulumi.RegisterOutputType(RumMetricComputeOutput{})
+	pulumi.RegisterOutputType(RumMetricComputePtrOutput{})
+	pulumi.RegisterOutputType(RumMetricFilterOutput{})
+	pulumi.RegisterOutputType(RumMetricFilterPtrOutput{})
+	pulumi.RegisterOutputType(RumMetricGroupByOutput{})
+	pulumi.RegisterOutputType(RumMetricGroupByArrayOutput{})
+	pulumi.RegisterOutputType(RumMetricUniquenessOutput{})
+	pulumi.RegisterOutputType(RumMetricUniquenessPtrOutput{})
 	pulumi.RegisterOutputType(SecurityMonitoringDefaultRuleCaseOutput{})
 	pulumi.RegisterOutputType(SecurityMonitoringDefaultRuleCaseArrayOutput{})
 	pulumi.RegisterOutputType(SecurityMonitoringDefaultRuleFilterOutput{})

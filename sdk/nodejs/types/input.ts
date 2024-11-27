@@ -21774,6 +21774,46 @@ export interface RolePermission {
     name?: pulumi.Input<string>;
 }
 
+export interface RumMetricCompute {
+    /**
+     * The type of aggregation to use.
+     */
+    aggregationType: pulumi.Input<string>;
+    /**
+     * Toggle to include or exclude percentile aggregations for distribution metrics. Only present when `aggregationType` is `distribution`.
+     */
+    includePercentiles?: pulumi.Input<boolean>;
+    /**
+     * The path to the value the RUM-based metric will aggregate on. Only present when `aggregationType` is `distribution`.
+     */
+    path?: pulumi.Input<string>;
+}
+
+export interface RumMetricFilter {
+    /**
+     * The search query. Follows RUM search syntax.
+     */
+    query?: pulumi.Input<string>;
+}
+
+export interface RumMetricGroupBy {
+    /**
+     * The path to the value the RUM-based metric will be aggregated over.
+     */
+    path?: pulumi.Input<string>;
+    /**
+     * Name of the tag that gets created. By default, `path` is used as the tag name.
+     */
+    tagName?: pulumi.Input<string>;
+}
+
+export interface RumMetricUniqueness {
+    /**
+     * When to count updatable events. `match` when the event is first seen, or `end` when the event is complete.
+     */
+    when?: pulumi.Input<string>;
+}
+
 export interface SecurityMonitoringDefaultRuleCase {
     /**
      * Notification targets for each rule case.
@@ -22781,6 +22821,14 @@ export interface SyntheticsTestBrowserStep {
      * Determines if the step should be allowed to fail.
      */
     allowFailure?: pulumi.Input<boolean>;
+    /**
+     * Determines whether or not to always execute this step even if the previous step failed or was skipped.
+     */
+    alwaysExecute?: pulumi.Input<boolean>;
+    /**
+     * Determines whether or not to exit the test if the step succeeds.
+     */
+    exitIfSucceed?: pulumi.Input<boolean>;
     /**
      * Force update of the "element" parameter for the step
      */
