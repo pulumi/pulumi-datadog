@@ -73,12 +73,12 @@ def get_integration_logs_services(opts: Optional[pulumi.InvokeOptions] = None) -
     return AwaitableGetIntegrationLogsServicesResult(
         aws_logs_services=pulumi.get(__ret__, 'aws_logs_services'),
         id=pulumi.get(__ret__, 'id'))
-def get_integration_logs_services_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationLogsServicesResult]:
+def get_integration_logs_services_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationLogsServicesResult]:
     """
     Use this data source to retrieve all AWS log ready services.
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('datadog:aws/getIntegrationLogsServices:getIntegrationLogsServices', __args__, opts=opts, typ=GetIntegrationLogsServicesResult)
     return __ret__.apply(lambda __response__: GetIntegrationLogsServicesResult(
         aws_logs_services=pulumi.get(__response__, 'aws_logs_services'),

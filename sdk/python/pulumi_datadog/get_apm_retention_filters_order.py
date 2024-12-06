@@ -81,7 +81,7 @@ def get_apm_retention_filters_order(opts: Optional[pulumi.InvokeOptions] = None)
     return AwaitableGetApmRetentionFiltersOrderResult(
         filter_ids=pulumi.get(__ret__, 'filter_ids'),
         id=pulumi.get(__ret__, 'id'))
-def get_apm_retention_filters_order_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApmRetentionFiltersOrderResult]:
+def get_apm_retention_filters_order_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApmRetentionFiltersOrderResult]:
     """
     Provides a Datadog [APM Retention Filters API](https://docs.datadoghq.com/api/v2/apm-retention-filters/) order datasource. This can be used to retrieve APM retention filters order.
 
@@ -95,7 +95,7 @@ def get_apm_retention_filters_order_output(opts: Optional[pulumi.InvokeOptions] 
     ```
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('datadog:index/getApmRetentionFiltersOrder:getApmRetentionFiltersOrder', __args__, opts=opts, typ=GetApmRetentionFiltersOrderResult)
     return __ret__.apply(lambda __response__: GetApmRetentionFiltersOrderResult(
         filter_ids=pulumi.get(__response__, 'filter_ids'),

@@ -31,7 +31,7 @@ export interface GetIntegrationLogsServicesResult {
 /**
  * Use this data source to retrieve all AWS log ready services.
  */
-export function getIntegrationLogsServicesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationLogsServicesResult> {
+export function getIntegrationLogsServicesOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIntegrationLogsServicesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("datadog:aws/getIntegrationLogsServices:getIntegrationLogsServices", {
     }, opts);

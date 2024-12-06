@@ -91,7 +91,7 @@ def get_synthetics_global_variable(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_synthetics_global_variable_output(name: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSyntheticsGlobalVariableResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSyntheticsGlobalVariableResult]:
     """
     Use this data source to retrieve a Datadog Synthetics global variable (to be used in Synthetics tests).
 
@@ -100,7 +100,7 @@ def get_synthetics_global_variable_output(name: Optional[pulumi.Input[str]] = No
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('datadog:index/getSyntheticsGlobalVariable:getSyntheticsGlobalVariable', __args__, opts=opts, typ=GetSyntheticsGlobalVariableResult)
     return __ret__.apply(lambda __response__: GetSyntheticsGlobalVariableResult(
         id=pulumi.get(__response__, 'id'),

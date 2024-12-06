@@ -106,7 +106,7 @@ def get_logs_pipelines(is_read_only: Optional[str] = None,
         is_read_only=pulumi.get(__ret__, 'is_read_only'),
         logs_pipelines=pulumi.get(__ret__, 'logs_pipelines'))
 def get_logs_pipelines_output(is_read_only: Optional[pulumi.Input[Optional[str]]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLogsPipelinesResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLogsPipelinesResult]:
     """
     Use this data source to list all existing logs pipelines for use in other resources.
 
@@ -129,7 +129,7 @@ def get_logs_pipelines_output(is_read_only: Optional[pulumi.Input[Optional[str]]
     """
     __args__ = dict()
     __args__['isReadOnly'] = is_read_only
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('datadog:index/getLogsPipelines:getLogsPipelines', __args__, opts=opts, typ=GetLogsPipelinesResult)
     return __ret__.apply(lambda __response__: GetLogsPipelinesResult(
         id=pulumi.get(__response__, 'id'),

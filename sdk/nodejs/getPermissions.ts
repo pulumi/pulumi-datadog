@@ -63,7 +63,7 @@ export interface GetPermissionsResult {
  * const permissions = datadog.getPermissions({});
  * ```
  */
-export function getPermissionsOutput(args?: GetPermissionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPermissionsResult> {
+export function getPermissionsOutput(args?: GetPermissionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPermissionsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("datadog:index/getPermissions:getPermissions", {

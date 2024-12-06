@@ -121,7 +121,7 @@ def get_application_key(exact_match: Optional[bool] = None,
 def get_application_key_output(exact_match: Optional[pulumi.Input[Optional[bool]]] = None,
                                id: Optional[pulumi.Input[Optional[str]]] = None,
                                name: Optional[pulumi.Input[Optional[str]]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationKeyResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationKeyResult]:
     """
     Use this data source to retrieve information about an existing application key. Deprecated. This will be removed in a future release with prior notice. Securely store your application keys using a secret management system or use the ApplicationKey resource to manage application keys in your Datadog account.
 
@@ -143,7 +143,7 @@ def get_application_key_output(exact_match: Optional[pulumi.Input[Optional[bool]
     __args__['exactMatch'] = exact_match
     __args__['id'] = id
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('datadog:index/getApplicationKey:getApplicationKey', __args__, opts=opts, typ=GetApplicationKeyResult)
     return __ret__.apply(lambda __response__: GetApplicationKeyResult(
         exact_match=pulumi.get(__response__, 'exact_match'),

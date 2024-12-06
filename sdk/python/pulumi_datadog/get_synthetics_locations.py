@@ -72,12 +72,12 @@ def get_synthetics_locations(opts: Optional[pulumi.InvokeOptions] = None) -> Awa
     return AwaitableGetSyntheticsLocationsResult(
         id=pulumi.get(__ret__, 'id'),
         locations=pulumi.get(__ret__, 'locations'))
-def get_synthetics_locations_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSyntheticsLocationsResult]:
+def get_synthetics_locations_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSyntheticsLocationsResult]:
     """
     Use this data source to retrieve Datadog's Synthetics Locations (to be used in Synthetics tests).
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('datadog:index/getSyntheticsLocations:getSyntheticsLocations', __args__, opts=opts, typ=GetSyntheticsLocationsResult)
     return __ret__.apply(lambda __response__: GetSyntheticsLocationsResult(
         id=pulumi.get(__response__, 'id'),

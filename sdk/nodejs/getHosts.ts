@@ -91,7 +91,7 @@ export interface GetHostsResult {
 /**
  * Use this data source to retrieve information about your live hosts in Datadog.
  */
-export function getHostsOutput(args?: GetHostsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostsResult> {
+export function getHostsOutput(args?: GetHostsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHostsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("datadog:index/getHosts:getHosts", {

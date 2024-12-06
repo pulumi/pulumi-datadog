@@ -117,7 +117,7 @@ def get_synthetics_test(test_id: Optional[str] = None,
         test_id=pulumi.get(__ret__, 'test_id'),
         url=pulumi.get(__ret__, 'url'))
 def get_synthetics_test_output(test_id: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSyntheticsTestResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSyntheticsTestResult]:
     """
     Use this data source to retrieve a Datadog Synthetic Test.
 
@@ -126,7 +126,7 @@ def get_synthetics_test_output(test_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['testId'] = test_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('datadog:index/getSyntheticsTest:getSyntheticsTest', __args__, opts=opts, typ=GetSyntheticsTestResult)
     return __ret__.apply(lambda __response__: GetSyntheticsTestResult(
         id=pulumi.get(__response__, 'id'),

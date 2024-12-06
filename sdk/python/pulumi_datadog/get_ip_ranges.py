@@ -328,7 +328,7 @@ def get_ip_ranges(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIp
         synthetics_ipv6s=pulumi.get(__ret__, 'synthetics_ipv6s'),
         webhooks_ipv4s=pulumi.get(__ret__, 'webhooks_ipv4s'),
         webhooks_ipv6s=pulumi.get(__ret__, 'webhooks_ipv6s'))
-def get_ip_ranges_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpRangesResult]:
+def get_ip_ranges_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIpRangesResult]:
     """
     Use this data source to retrieve information about Datadog's IP addresses.
 
@@ -342,7 +342,7 @@ def get_ip_ranges_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.
     ```
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('datadog:index/getIpRanges:getIpRanges', __args__, opts=opts, typ=GetIpRangesResult)
     return __ret__.apply(lambda __response__: GetIpRangesResult(
         agents_ipv4s=pulumi.get(__response__, 'agents_ipv4s'),
