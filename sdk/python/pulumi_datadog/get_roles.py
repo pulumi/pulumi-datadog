@@ -101,7 +101,7 @@ def get_roles(filter: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         roles=pulumi.get(__ret__, 'roles'))
 def get_roles_output(filter: Optional[pulumi.Input[Optional[str]]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRolesResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRolesResult]:
     """
     Use this data source to retrieve information about multiple roles for use in other resources.
 
@@ -119,7 +119,7 @@ def get_roles_output(filter: Optional[pulumi.Input[Optional[str]]] = None,
     """
     __args__ = dict()
     __args__['filter'] = filter
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('datadog:index/getRoles:getRoles', __args__, opts=opts, typ=GetRolesResult)
     return __ret__.apply(lambda __response__: GetRolesResult(
         filter=pulumi.get(__response__, 'filter'),

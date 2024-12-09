@@ -182,7 +182,7 @@ def get_team(filter_keyword: Optional[str] = None,
         user_count=pulumi.get(__ret__, 'user_count'))
 def get_team_output(filter_keyword: Optional[pulumi.Input[Optional[str]]] = None,
                     team_id: Optional[pulumi.Input[Optional[str]]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTeamResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTeamResult]:
     """
     Use this data source to retrieve information about an existing Datadog team.
 
@@ -202,7 +202,7 @@ def get_team_output(filter_keyword: Optional[pulumi.Input[Optional[str]]] = None
     __args__ = dict()
     __args__['filterKeyword'] = filter_keyword
     __args__['teamId'] = team_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('datadog:index/getTeam:getTeam', __args__, opts=opts, typ=GetTeamResult)
     return __ret__.apply(lambda __response__: GetTeamResult(
         description=pulumi.get(__response__, 'description'),

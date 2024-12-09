@@ -77,7 +77,7 @@ export interface GetLogsPipelinesResult {
  * });
  * ```
  */
-export function getLogsPipelinesOutput(args?: GetLogsPipelinesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogsPipelinesResult> {
+export function getLogsPipelinesOutput(args?: GetLogsPipelinesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLogsPipelinesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("datadog:index/getLogsPipelines:getLogsPipelines", {

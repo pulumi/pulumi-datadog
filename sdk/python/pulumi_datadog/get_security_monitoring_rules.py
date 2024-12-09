@@ -167,7 +167,7 @@ def get_security_monitoring_rules_output(default_only_filter: Optional[pulumi.In
                                          name_filter: Optional[pulumi.Input[Optional[str]]] = None,
                                          tags_filters: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                          user_only_filter: Optional[pulumi.Input[Optional[bool]]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityMonitoringRulesResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityMonitoringRulesResult]:
     """
     Use this data source to retrieve information about existing security monitoring rules for use in other resources.
 
@@ -193,7 +193,7 @@ def get_security_monitoring_rules_output(default_only_filter: Optional[pulumi.In
     __args__['nameFilter'] = name_filter
     __args__['tagsFilters'] = tags_filters
     __args__['userOnlyFilter'] = user_only_filter
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('datadog:index/getSecurityMonitoringRules:getSecurityMonitoringRules', __args__, opts=opts, typ=GetSecurityMonitoringRulesResult)
     return __ret__.apply(lambda __response__: GetSecurityMonitoringRulesResult(
         default_only_filter=pulumi.get(__response__, 'default_only_filter'),

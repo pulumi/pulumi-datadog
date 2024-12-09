@@ -52,7 +52,7 @@ export interface GetSyntheticsTestResult {
 /**
  * Use this data source to retrieve a Datadog Synthetic Test.
  */
-export function getSyntheticsTestOutput(args: GetSyntheticsTestOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyntheticsTestResult> {
+export function getSyntheticsTestOutput(args: GetSyntheticsTestOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSyntheticsTestResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("datadog:index/getSyntheticsTest:getSyntheticsTest", {
         "testId": args.testId,

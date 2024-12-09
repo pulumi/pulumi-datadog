@@ -86,12 +86,12 @@ def get_csm_threats_agent_rules(opts: Optional[pulumi.InvokeOptions] = None) -> 
         agent_rules=pulumi.get(__ret__, 'agent_rules'),
         agent_rules_ids=pulumi.get(__ret__, 'agent_rules_ids'),
         id=pulumi.get(__ret__, 'id'))
-def get_csm_threats_agent_rules_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCsmThreatsAgentRulesResult]:
+def get_csm_threats_agent_rules_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCsmThreatsAgentRulesResult]:
     """
     Use this data source to retrieve information about existing Agent rules.
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('datadog:index/getCsmThreatsAgentRules:getCsmThreatsAgentRules', __args__, opts=opts, typ=GetCsmThreatsAgentRulesResult)
     return __ret__.apply(lambda __response__: GetCsmThreatsAgentRulesResult(
         agent_rules=pulumi.get(__response__, 'agent_rules'),

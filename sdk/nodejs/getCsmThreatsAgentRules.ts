@@ -35,7 +35,7 @@ export interface GetCsmThreatsAgentRulesResult {
 /**
  * Use this data source to retrieve information about existing Agent rules.
  */
-export function getCsmThreatsAgentRulesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetCsmThreatsAgentRulesResult> {
+export function getCsmThreatsAgentRulesOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCsmThreatsAgentRulesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("datadog:index/getCsmThreatsAgentRules:getCsmThreatsAgentRules", {
     }, opts);
