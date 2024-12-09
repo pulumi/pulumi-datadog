@@ -86,12 +86,12 @@ def get_security_monitoring_suppressions(opts: Optional[pulumi.InvokeOptions] = 
         id=pulumi.get(__ret__, 'id'),
         suppression_ids=pulumi.get(__ret__, 'suppression_ids'),
         suppressions=pulumi.get(__ret__, 'suppressions'))
-def get_security_monitoring_suppressions_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityMonitoringSuppressionsResult]:
+def get_security_monitoring_suppressions_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityMonitoringSuppressionsResult]:
     """
     Use this data source to retrieve information about existing suppression rules, and use them in other resources.
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('datadog:index/getSecurityMonitoringSuppressions:getSecurityMonitoringSuppressions', __args__, opts=opts, typ=GetSecurityMonitoringSuppressionsResult)
     return __ret__.apply(lambda __response__: GetSecurityMonitoringSuppressionsResult(
         id=pulumi.get(__response__, 'id'),

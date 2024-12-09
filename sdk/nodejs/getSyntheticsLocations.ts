@@ -29,7 +29,7 @@ export interface GetSyntheticsLocationsResult {
 /**
  * Use this data source to retrieve Datadog's Synthetics Locations (to be used in Synthetics tests).
  */
-export function getSyntheticsLocationsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetSyntheticsLocationsResult> {
+export function getSyntheticsLocationsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSyntheticsLocationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("datadog:index/getSyntheticsLocations:getSyntheticsLocations", {
     }, opts);

@@ -64,7 +64,7 @@ export interface GetRoleUsersResult {
 /**
  * Use this data source to retrieve information about existing Datadog role users assignments. This data source is in beta and is subject to change.
  */
-export function getRoleUsersOutput(args: GetRoleUsersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleUsersResult> {
+export function getRoleUsersOutput(args: GetRoleUsersOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRoleUsersResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("datadog:index/getRoleUsers:getRoleUsers", {
         "exactMatch": args.exactMatch,

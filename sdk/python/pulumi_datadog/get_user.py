@@ -130,7 +130,7 @@ def get_user(exact_match: Optional[bool] = None,
         name=pulumi.get(__ret__, 'name'))
 def get_user_output(exact_match: Optional[pulumi.Input[Optional[bool]]] = None,
                     filter: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
     Use this data source to retrieve information about an existing user to use it in an other resources.
 
@@ -150,7 +150,7 @@ def get_user_output(exact_match: Optional[pulumi.Input[Optional[bool]]] = None,
     __args__ = dict()
     __args__['exactMatch'] = exact_match
     __args__['filter'] = filter
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('datadog:index/getUser:getUser', __args__, opts=opts, typ=GetUserResult)
     return __ret__.apply(lambda __response__: GetUserResult(
         email=pulumi.get(__response__, 'email'),

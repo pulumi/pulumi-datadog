@@ -119,7 +119,7 @@ def get_users(filter: Optional[str] = None,
         users=pulumi.get(__ret__, 'users'))
 def get_users_output(filter: Optional[pulumi.Input[Optional[str]]] = None,
                      filter_status: Optional[pulumi.Input[Optional[str]]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUsersResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUsersResult]:
     """
     Use this data source to retrieve information about existing users for use in other resources.
 
@@ -140,7 +140,7 @@ def get_users_output(filter: Optional[pulumi.Input[Optional[str]]] = None,
     __args__ = dict()
     __args__['filter'] = filter
     __args__['filterStatus'] = filter_status
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('datadog:index/getUsers:getUsers', __args__, opts=opts, typ=GetUsersResult)
     return __ret__.apply(lambda __response__: GetUsersResult(
         filter=pulumi.get(__response__, 'filter'),

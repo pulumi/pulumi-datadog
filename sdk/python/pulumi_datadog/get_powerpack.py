@@ -78,7 +78,7 @@ def get_powerpack(name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'))
 def get_powerpack_output(name: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPowerpackResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPowerpackResult]:
     """
     Use this data source to retrieve information about an existing Datadog Powerpack.
 
@@ -87,7 +87,7 @@ def get_powerpack_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('datadog:index/getPowerpack:getPowerpack', __args__, opts=opts, typ=GetPowerpackResult)
     return __ret__.apply(lambda __response__: GetPowerpackResult(
         id=pulumi.get(__response__, 'id'),

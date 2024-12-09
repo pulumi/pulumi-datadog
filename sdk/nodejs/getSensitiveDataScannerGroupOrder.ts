@@ -49,7 +49,7 @@ export interface GetSensitiveDataScannerGroupOrderResult {
  * const foobar = new datadog.SensitiveDataScannerGroupOrder("foobar", {groupIds: foo.then(foo => foo.groupIds)});
  * ```
  */
-export function getSensitiveDataScannerGroupOrderOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetSensitiveDataScannerGroupOrderResult> {
+export function getSensitiveDataScannerGroupOrderOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSensitiveDataScannerGroupOrderResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("datadog:index/getSensitiveDataScannerGroupOrder:getSensitiveDataScannerGroupOrder", {
     }, opts);

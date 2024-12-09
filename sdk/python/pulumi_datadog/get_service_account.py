@@ -233,7 +233,7 @@ def get_service_account_output(exact_match: Optional[pulumi.Input[Optional[bool]
                                filter: Optional[pulumi.Input[Optional[str]]] = None,
                                filter_status: Optional[pulumi.Input[Optional[str]]] = None,
                                id: Optional[pulumi.Input[Optional[str]]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceAccountResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceAccountResult]:
     """
     Use this data source to retrieve information about an existing Datadog service account.
 
@@ -248,7 +248,7 @@ def get_service_account_output(exact_match: Optional[pulumi.Input[Optional[bool]
     __args__['filter'] = filter
     __args__['filterStatus'] = filter_status
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('datadog:index/getServiceAccount:getServiceAccount', __args__, opts=opts, typ=GetServiceAccountResult)
     return __ret__.apply(lambda __response__: GetServiceAccountResult(
         disabled=pulumi.get(__response__, 'disabled'),

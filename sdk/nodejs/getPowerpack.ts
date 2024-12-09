@@ -40,7 +40,7 @@ export interface GetPowerpackResult {
 /**
  * Use this data source to retrieve information about an existing Datadog Powerpack.
  */
-export function getPowerpackOutput(args: GetPowerpackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPowerpackResult> {
+export function getPowerpackOutput(args: GetPowerpackOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPowerpackResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("datadog:index/getPowerpack:getPowerpack", {
         "name": args.name,

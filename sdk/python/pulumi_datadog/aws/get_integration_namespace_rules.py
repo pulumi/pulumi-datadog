@@ -81,7 +81,7 @@ def get_integration_namespace_rules(opts: Optional[pulumi.InvokeOptions] = None)
     return AwaitableGetIntegrationNamespaceRulesResult(
         id=pulumi.get(__ret__, 'id'),
         namespace_rules=pulumi.get(__ret__, 'namespace_rules'))
-def get_integration_namespace_rules_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationNamespaceRulesResult]:
+def get_integration_namespace_rules_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationNamespaceRulesResult]:
     """
     Provides a Datadog AWS Integration Namespace Rules data source. This can be used to retrieve all available namespace rules for a Datadog-AWS integration.
 
@@ -95,7 +95,7 @@ def get_integration_namespace_rules_output(opts: Optional[pulumi.InvokeOptions] 
     ```
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('datadog:aws/getIntegrationNamespaceRules:getIntegrationNamespaceRules', __args__, opts=opts, typ=GetIntegrationNamespaceRulesResult)
     return __ret__.apply(lambda __response__: GetIntegrationNamespaceRulesResult(
         id=pulumi.get(__response__, 'id'),
