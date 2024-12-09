@@ -44,7 +44,7 @@ export interface GetSyntheticsGlobalVariableResult {
 /**
  * Use this data source to retrieve a Datadog Synthetics global variable (to be used in Synthetics tests).
  */
-export function getSyntheticsGlobalVariableOutput(args: GetSyntheticsGlobalVariableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyntheticsGlobalVariableResult> {
+export function getSyntheticsGlobalVariableOutput(args: GetSyntheticsGlobalVariableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSyntheticsGlobalVariableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("datadog:index/getSyntheticsGlobalVariable:getSyntheticsGlobalVariable", {
         "name": args.name,

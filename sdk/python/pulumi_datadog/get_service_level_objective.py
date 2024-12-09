@@ -219,7 +219,7 @@ def get_service_level_objective_output(id: Optional[pulumi.Input[Optional[str]]]
                                        metrics_query: Optional[pulumi.Input[Optional[str]]] = None,
                                        name_query: Optional[pulumi.Input[Optional[str]]] = None,
                                        tags_query: Optional[pulumi.Input[Optional[str]]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceLevelObjectiveResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceLevelObjectiveResult]:
     """
     Use this data source to retrieve information about an existing SLO for use in other resources.
 
@@ -245,7 +245,7 @@ def get_service_level_objective_output(id: Optional[pulumi.Input[Optional[str]]]
     __args__['metricsQuery'] = metrics_query
     __args__['nameQuery'] = name_query
     __args__['tagsQuery'] = tags_query
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('datadog:index/getServiceLevelObjective:getServiceLevelObjective', __args__, opts=opts, typ=GetServiceLevelObjectiveResult)
     return __ret__.apply(lambda __response__: GetServiceLevelObjectiveResult(
         description=pulumi.get(__response__, 'description'),

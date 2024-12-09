@@ -82,7 +82,7 @@ def get_monitor_config_policies(opts: Optional[pulumi.InvokeOptions] = None) -> 
     return AwaitableGetMonitorConfigPoliciesResult(
         id=pulumi.get(__ret__, 'id'),
         monitor_config_policies=pulumi.get(__ret__, 'monitor_config_policies'))
-def get_monitor_config_policies_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMonitorConfigPoliciesResult]:
+def get_monitor_config_policies_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMonitorConfigPoliciesResult]:
     """
     Use this data source to list existing monitor config policies for use in other resources.
 
@@ -96,7 +96,7 @@ def get_monitor_config_policies_output(opts: Optional[pulumi.InvokeOptions] = No
     ```
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('datadog:index/getMonitorConfigPolicies:getMonitorConfigPolicies', __args__, opts=opts, typ=GetMonitorConfigPoliciesResult)
     return __ret__.apply(lambda __response__: GetMonitorConfigPoliciesResult(
         id=pulumi.get(__response__, 'id'),

@@ -186,7 +186,7 @@ def get_hosts_output(filter: Optional[pulumi.Input[Optional[str]]] = None,
                      include_muted_hosts_data: Optional[pulumi.Input[Optional[bool]]] = None,
                      sort_dir: Optional[pulumi.Input[Optional[str]]] = None,
                      sort_field: Optional[pulumi.Input[Optional[str]]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHostsResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHostsResult]:
     """
     Use this data source to retrieve information about your live hosts in Datadog.
 
@@ -203,7 +203,7 @@ def get_hosts_output(filter: Optional[pulumi.Input[Optional[str]]] = None,
     __args__['includeMutedHostsData'] = include_muted_hosts_data
     __args__['sortDir'] = sort_dir
     __args__['sortField'] = sort_field
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('datadog:index/getHosts:getHosts', __args__, opts=opts, typ=GetHostsResult)
     return __ret__.apply(lambda __response__: GetHostsResult(
         filter=pulumi.get(__response__, 'filter'),

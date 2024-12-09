@@ -72,12 +72,12 @@ def get_logs_archives_order(opts: Optional[pulumi.InvokeOptions] = None) -> Awai
     return AwaitableGetLogsArchivesOrderResult(
         archive_ids=pulumi.get(__ret__, 'archive_ids'),
         id=pulumi.get(__ret__, 'id'))
-def get_logs_archives_order_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLogsArchivesOrderResult]:
+def get_logs_archives_order_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLogsArchivesOrderResult]:
     """
     Get the current order of your logs archives.
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('datadog:index/getLogsArchivesOrder:getLogsArchivesOrder', __args__, opts=opts, typ=GetLogsArchivesOrderResult)
     return __ret__.apply(lambda __response__: GetLogsArchivesOrderResult(
         archive_ids=pulumi.get(__response__, 'archive_ids'),

@@ -53,7 +53,7 @@ export interface GetSecurityMonitoringFiltersResult {
  * const test = datadog.getSecurityMonitoringFilters({});
  * ```
  */
-export function getSecurityMonitoringFiltersOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityMonitoringFiltersResult> {
+export function getSecurityMonitoringFiltersOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecurityMonitoringFiltersResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("datadog:index/getSecurityMonitoringFilters:getSecurityMonitoringFilters", {
     }, opts);

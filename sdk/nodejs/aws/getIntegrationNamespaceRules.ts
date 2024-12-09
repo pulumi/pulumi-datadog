@@ -47,7 +47,7 @@ export interface GetIntegrationNamespaceRulesResult {
  * const rules = datadog.aws.getIntegrationNamespaceRules({});
  * ```
  */
-export function getIntegrationNamespaceRulesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationNamespaceRulesResult> {
+export function getIntegrationNamespaceRulesOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIntegrationNamespaceRulesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("datadog:aws/getIntegrationNamespaceRules:getIntegrationNamespaceRules", {
     }, opts);

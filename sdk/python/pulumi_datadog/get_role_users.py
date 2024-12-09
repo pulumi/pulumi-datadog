@@ -126,7 +126,7 @@ def get_role_users(exact_match: Optional[bool] = None,
 def get_role_users_output(exact_match: Optional[pulumi.Input[Optional[bool]]] = None,
                           filter: Optional[pulumi.Input[Optional[str]]] = None,
                           role_id: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoleUsersResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoleUsersResult]:
     """
     Use this data source to retrieve information about existing Datadog role users assignments. This data source is in beta and is subject to change.
 
@@ -139,7 +139,7 @@ def get_role_users_output(exact_match: Optional[pulumi.Input[Optional[bool]]] = 
     __args__['exactMatch'] = exact_match
     __args__['filter'] = filter
     __args__['roleId'] = role_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('datadog:index/getRoleUsers:getRoleUsers', __args__, opts=opts, typ=GetRoleUsersResult)
     return __ret__.apply(lambda __response__: GetRoleUsersResult(
         exact_match=pulumi.get(__response__, 'exact_match'),

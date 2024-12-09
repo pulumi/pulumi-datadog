@@ -121,7 +121,7 @@ def get_api_key(exact_match: Optional[bool] = None,
 def get_api_key_output(exact_match: Optional[pulumi.Input[Optional[bool]]] = None,
                        id: Optional[pulumi.Input[Optional[str]]] = None,
                        name: Optional[pulumi.Input[Optional[str]]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiKeyResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiKeyResult]:
     """
     Use this data source to retrieve information about an existing api key. Deprecated. This will be removed in a future release with prior notice. Securely store your API keys using a secret management system or use the ApiKey resource to manage API keys in your Datadog account.
 
@@ -143,7 +143,7 @@ def get_api_key_output(exact_match: Optional[pulumi.Input[Optional[bool]]] = Non
     __args__['exactMatch'] = exact_match
     __args__['id'] = id
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('datadog:index/getApiKey:getApiKey', __args__, opts=opts, typ=GetApiKeyResult)
     return __ret__.apply(lambda __response__: GetApiKeyResult(
         exact_match=pulumi.get(__response__, 'exact_match'),

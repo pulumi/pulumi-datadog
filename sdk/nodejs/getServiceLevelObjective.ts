@@ -124,7 +124,7 @@ export interface GetServiceLevelObjectiveResult {
  * });
  * ```
  */
-export function getServiceLevelObjectiveOutput(args?: GetServiceLevelObjectiveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceLevelObjectiveResult> {
+export function getServiceLevelObjectiveOutput(args?: GetServiceLevelObjectiveOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceLevelObjectiveResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("datadog:index/getServiceLevelObjective:getServiceLevelObjective", {
