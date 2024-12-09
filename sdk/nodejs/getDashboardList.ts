@@ -94,7 +94,7 @@ export interface GetDashboardListResult {
  * });
  * ```
  */
-export function getDashboardListOutput(args: GetDashboardListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDashboardListResult> {
+export function getDashboardListOutput(args: GetDashboardListOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDashboardListResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("datadog:index/getDashboardList:getDashboardList", {
         "name": args.name,

@@ -29,7 +29,7 @@ export interface GetLogsArchivesOrderResult {
 /**
  * Get the current order of your logs archives.
  */
-export function getLogsArchivesOrderOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetLogsArchivesOrderResult> {
+export function getLogsArchivesOrderOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLogsArchivesOrderResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("datadog:index/getLogsArchivesOrder:getLogsArchivesOrder", {
     }, opts);

@@ -186,7 +186,7 @@ def get_service_level_objectives_output(error_on_empty_result: Optional[pulumi.I
                                         name_query: Optional[pulumi.Input[Optional[str]]] = None,
                                         query: Optional[pulumi.Input[Optional[str]]] = None,
                                         tags_query: Optional[pulumi.Input[Optional[str]]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceLevelObjectivesResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceLevelObjectivesResult]:
     """
     Use this data source to retrieve information about multiple SLOs for use in other resources.
 
@@ -214,7 +214,7 @@ def get_service_level_objectives_output(error_on_empty_result: Optional[pulumi.I
     __args__['nameQuery'] = name_query
     __args__['query'] = query
     __args__['tagsQuery'] = tags_query
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('datadog:index/getServiceLevelObjectives:getServiceLevelObjectives', __args__, opts=opts, typ=GetServiceLevelObjectivesResult)
     return __ret__.apply(lambda __response__: GetServiceLevelObjectivesResult(
         error_on_empty_result=pulumi.get(__response__, 'error_on_empty_result'),

@@ -82,7 +82,7 @@ def get_logs_indexes(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGe
     return AwaitableGetLogsIndexesResult(
         id=pulumi.get(__ret__, 'id'),
         logs_indexes=pulumi.get(__ret__, 'logs_indexes'))
-def get_logs_indexes_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLogsIndexesResult]:
+def get_logs_indexes_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLogsIndexesResult]:
     """
     Use this data source to list several existing logs indexes for use in other resources.
 
@@ -96,7 +96,7 @@ def get_logs_indexes_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulu
     ```
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('datadog:index/getLogsIndexes:getLogsIndexes', __args__, opts=opts, typ=GetLogsIndexesResult)
     return __ret__.apply(lambda __response__: GetLogsIndexesResult(
         id=pulumi.get(__response__, 'id'),

@@ -113,7 +113,7 @@ def get_role(filter: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         user_count=pulumi.get(__ret__, 'user_count'))
 def get_role_output(filter: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoleResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoleResult]:
     """
     Use this data source to retrieve information about an existing role for use in other resources.
 
@@ -131,7 +131,7 @@ def get_role_output(filter: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['filter'] = filter
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('datadog:index/getRole:getRole', __args__, opts=opts, typ=GetRoleResult)
     return __ret__.apply(lambda __response__: GetRoleResult(
         filter=pulumi.get(__response__, 'filter'),

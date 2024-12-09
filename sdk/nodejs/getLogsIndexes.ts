@@ -49,7 +49,7 @@ export interface GetLogsIndexesResult {
  * const test = datadog.getLogsIndexes({});
  * ```
  */
-export function getLogsIndexesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetLogsIndexesResult> {
+export function getLogsIndexesOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLogsIndexesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("datadog:index/getLogsIndexes:getLogsIndexes", {
     }, opts);

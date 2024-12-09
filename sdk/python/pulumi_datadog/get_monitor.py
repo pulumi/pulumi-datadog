@@ -510,7 +510,7 @@ def get_monitor(monitor_tags_filters: Optional[Sequence[str]] = None,
 def get_monitor_output(monitor_tags_filters: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                        name_filter: Optional[pulumi.Input[Optional[str]]] = None,
                        tags_filters: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMonitorResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMonitorResult]:
     """
     Use this data source to retrieve information about an existing monitor for use in other resources.
 
@@ -533,7 +533,7 @@ def get_monitor_output(monitor_tags_filters: Optional[pulumi.Input[Optional[Sequ
     __args__['monitorTagsFilters'] = monitor_tags_filters
     __args__['nameFilter'] = name_filter
     __args__['tagsFilters'] = tags_filters
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('datadog:index/getMonitor:getMonitor', __args__, opts=opts, typ=GetMonitorResult)
     return __ret__.apply(lambda __response__: GetMonitorResult(
         enable_logs_sample=pulumi.get(__response__, 'enable_logs_sample'),

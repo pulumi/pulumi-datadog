@@ -49,7 +49,7 @@ export interface GetMonitorConfigPoliciesResult {
  * const test = datadog.getMonitorConfigPolicies({});
  * ```
  */
-export function getMonitorConfigPoliciesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitorConfigPoliciesResult> {
+export function getMonitorConfigPoliciesOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMonitorConfigPoliciesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("datadog:index/getMonitorConfigPolicies:getMonitorConfigPolicies", {
     }, opts);

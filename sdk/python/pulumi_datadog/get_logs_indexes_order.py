@@ -81,7 +81,7 @@ def get_logs_indexes_order(opts: Optional[pulumi.InvokeOptions] = None) -> Await
     return AwaitableGetLogsIndexesOrderResult(
         id=pulumi.get(__ret__, 'id'),
         index_names=pulumi.get(__ret__, 'index_names'))
-def get_logs_indexes_order_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLogsIndexesOrderResult]:
+def get_logs_indexes_order_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLogsIndexesOrderResult]:
     """
     Get the current order of your log indexes.
 
@@ -95,7 +95,7 @@ def get_logs_indexes_order_output(opts: Optional[pulumi.InvokeOptions] = None) -
     ```
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('datadog:index/getLogsIndexesOrder:getLogsIndexesOrder', __args__, opts=opts, typ=GetLogsIndexesOrderResult)
     return __ret__.apply(lambda __response__: GetLogsIndexesOrderResult(
         id=pulumi.get(__response__, 'id'),

@@ -81,7 +81,7 @@ export interface GetApplicationKeyResult {
  * });
  * ```
  */
-export function getApplicationKeyOutput(args?: GetApplicationKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationKeyResult> {
+export function getApplicationKeyOutput(args?: GetApplicationKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplicationKeyResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("datadog:index/getApplicationKey:getApplicationKey", {

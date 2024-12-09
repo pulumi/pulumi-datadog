@@ -56,7 +56,7 @@ export interface GetSensitiveDataScannerStandardPatternResult {
 /**
  * Use this data source to retrieve information about an existing sensitive data scanner standard pattern.
  */
-export function getSensitiveDataScannerStandardPatternOutput(args: GetSensitiveDataScannerStandardPatternOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSensitiveDataScannerStandardPatternResult> {
+export function getSensitiveDataScannerStandardPatternOutput(args: GetSensitiveDataScannerStandardPatternOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSensitiveDataScannerStandardPatternResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("datadog:index/getSensitiveDataScannerStandardPattern:getSensitiveDataScannerStandardPattern", {
         "filter": args.filter,

@@ -67,7 +67,7 @@ export interface GetRumApplicationResult {
 /**
  * Use this data source to retrieve a Datadog RUM Application.
  */
-export function getRumApplicationOutput(args?: GetRumApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRumApplicationResult> {
+export function getRumApplicationOutput(args?: GetRumApplicationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRumApplicationResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("datadog:index/getRumApplication:getRumApplication", {

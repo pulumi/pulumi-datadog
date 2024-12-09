@@ -138,7 +138,7 @@ def get_rum_application(id: Optional[str] = None,
 def get_rum_application_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                                name_filter: Optional[pulumi.Input[Optional[str]]] = None,
                                type_filter: Optional[pulumi.Input[Optional[str]]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRumApplicationResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRumApplicationResult]:
     """
     Use this data source to retrieve a Datadog RUM Application.
 
@@ -151,7 +151,7 @@ def get_rum_application_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     __args__['id'] = id
     __args__['nameFilter'] = name_filter
     __args__['typeFilter'] = type_filter
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('datadog:index/getRumApplication:getRumApplication', __args__, opts=opts, typ=GetRumApplicationResult)
     return __ret__.apply(lambda __response__: GetRumApplicationResult(
         client_token=pulumi.get(__response__, 'client_token'),

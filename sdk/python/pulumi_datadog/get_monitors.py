@@ -126,7 +126,7 @@ def get_monitors(monitor_tags_filters: Optional[Sequence[str]] = None,
 def get_monitors_output(monitor_tags_filters: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                         name_filter: Optional[pulumi.Input[Optional[str]]] = None,
                         tags_filters: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMonitorsResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMonitorsResult]:
     """
     Use this data source to list several existing monitors for use in other resources.
 
@@ -139,7 +139,7 @@ def get_monitors_output(monitor_tags_filters: Optional[pulumi.Input[Optional[Seq
     __args__['monitorTagsFilters'] = monitor_tags_filters
     __args__['nameFilter'] = name_filter
     __args__['tagsFilters'] = tags_filters
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('datadog:index/getMonitors:getMonitors', __args__, opts=opts, typ=GetMonitorsResult)
     return __ret__.apply(lambda __response__: GetMonitorsResult(
         id=pulumi.get(__response__, 'id'),
