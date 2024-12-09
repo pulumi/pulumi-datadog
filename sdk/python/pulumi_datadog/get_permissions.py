@@ -100,7 +100,7 @@ def get_permissions(include_restricted: Optional[bool] = None,
         include_restricted=pulumi.get(__ret__, 'include_restricted'),
         permissions=pulumi.get(__ret__, 'permissions'))
 def get_permissions_output(include_restricted: Optional[pulumi.Input[Optional[bool]]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPermissionsResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPermissionsResult]:
     """
     Use this data source to retrieve the list of Datadog permissions by name and their corresponding ID, for use in the role resource.
 
@@ -118,7 +118,7 @@ def get_permissions_output(include_restricted: Optional[pulumi.Input[Optional[bo
     """
     __args__ = dict()
     __args__['includeRestricted'] = include_restricted
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('datadog:index/getPermissions:getPermissions', __args__, opts=opts, typ=GetPermissionsResult)
     return __ret__.apply(lambda __response__: GetPermissionsResult(
         id=pulumi.get(__response__, 'id'),

@@ -45,7 +45,7 @@ export interface GetCloudWorkloadSecurityAgentRulesResult {
  * const test = datadog.getCloudWorkloadSecurityAgentRules({});
  * ```
  */
-export function getCloudWorkloadSecurityAgentRulesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudWorkloadSecurityAgentRulesResult> {
+export function getCloudWorkloadSecurityAgentRulesOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCloudWorkloadSecurityAgentRulesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("datadog:index/getCloudWorkloadSecurityAgentRules:getCloudWorkloadSecurityAgentRules", {
     }, opts);

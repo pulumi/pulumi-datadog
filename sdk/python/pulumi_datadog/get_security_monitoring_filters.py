@@ -95,7 +95,7 @@ def get_security_monitoring_filters(opts: Optional[pulumi.InvokeOptions] = None)
         filters=pulumi.get(__ret__, 'filters'),
         filters_ids=pulumi.get(__ret__, 'filters_ids'),
         id=pulumi.get(__ret__, 'id'))
-def get_security_monitoring_filters_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityMonitoringFiltersResult]:
+def get_security_monitoring_filters_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityMonitoringFiltersResult]:
     """
     Use this data source to retrieve information about existing security monitoring filters for use in other resources.
 
@@ -109,7 +109,7 @@ def get_security_monitoring_filters_output(opts: Optional[pulumi.InvokeOptions] 
     ```
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('datadog:index/getSecurityMonitoringFilters:getSecurityMonitoringFilters', __args__, opts=opts, typ=GetSecurityMonitoringFiltersResult)
     return __ret__.apply(lambda __response__: GetSecurityMonitoringFiltersResult(
         filters=pulumi.get(__response__, 'filters'),

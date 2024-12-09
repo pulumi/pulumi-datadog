@@ -35,7 +35,7 @@ export interface GetSecurityMonitoringSuppressionsResult {
 /**
  * Use this data source to retrieve information about existing suppression rules, and use them in other resources.
  */
-export function getSecurityMonitoringSuppressionsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityMonitoringSuppressionsResult> {
+export function getSecurityMonitoringSuppressionsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecurityMonitoringSuppressionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("datadog:index/getSecurityMonitoringSuppressions:getSecurityMonitoringSuppressions", {
     }, opts);

@@ -81,7 +81,7 @@ export interface GetApiKeyResult {
  * });
  * ```
  */
-export function getApiKeyOutput(args?: GetApiKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiKeyResult> {
+export function getApiKeyOutput(args?: GetApiKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApiKeyResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("datadog:index/getApiKey:getApiKey", {

@@ -80,7 +80,7 @@ def get_cloud_workload_security_agent_rules(opts: Optional[pulumi.InvokeOptions]
     return AwaitableGetCloudWorkloadSecurityAgentRulesResult(
         agent_rules=pulumi.get(__ret__, 'agent_rules'),
         id=pulumi.get(__ret__, 'id'))
-def get_cloud_workload_security_agent_rules_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCloudWorkloadSecurityAgentRulesResult]:
+def get_cloud_workload_security_agent_rules_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudWorkloadSecurityAgentRulesResult]:
     """
     ## Example Usage
 
@@ -92,7 +92,7 @@ def get_cloud_workload_security_agent_rules_output(opts: Optional[pulumi.InvokeO
     ```
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('datadog:index/getCloudWorkloadSecurityAgentRules:getCloudWorkloadSecurityAgentRules', __args__, opts=opts, typ=GetCloudWorkloadSecurityAgentRulesResult)
     return __ret__.apply(lambda __response__: GetCloudWorkloadSecurityAgentRulesResult(
         agent_rules=pulumi.get(__response__, 'agent_rules'),

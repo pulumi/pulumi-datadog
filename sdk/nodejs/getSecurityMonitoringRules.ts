@@ -104,7 +104,7 @@ export interface GetSecurityMonitoringRulesResult {
  * });
  * ```
  */
-export function getSecurityMonitoringRulesOutput(args?: GetSecurityMonitoringRulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityMonitoringRulesResult> {
+export function getSecurityMonitoringRulesOutput(args?: GetSecurityMonitoringRulesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecurityMonitoringRulesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("datadog:index/getSecurityMonitoringRules:getSecurityMonitoringRules", {

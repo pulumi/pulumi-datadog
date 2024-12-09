@@ -88,7 +88,7 @@ export interface GetTeamMembershipsResult {
  * });
  * ```
  */
-export function getTeamMembershipsOutput(args: GetTeamMembershipsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTeamMembershipsResult> {
+export function getTeamMembershipsOutput(args: GetTeamMembershipsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTeamMembershipsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("datadog:index/getTeamMemberships:getTeamMemberships", {
         "exactMatch": args.exactMatch,
