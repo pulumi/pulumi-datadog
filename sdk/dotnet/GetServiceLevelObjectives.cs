@@ -58,6 +58,30 @@ namespace Pulumi.Datadog
         /// </summary>
         public static Output<GetServiceLevelObjectivesResult> Invoke(GetServiceLevelObjectivesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceLevelObjectivesResult>("datadog:index/getServiceLevelObjectives:getServiceLevelObjectives", args ?? new GetServiceLevelObjectivesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to retrieve information about multiple SLOs for use in other resources.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Datadog = Pulumi.Datadog;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var ftFooSlos = Datadog.GetServiceLevelObjectives.Invoke(new()
+        ///     {
+        ///         TagsQuery = "owner:ft-foo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetServiceLevelObjectivesResult> Invoke(GetServiceLevelObjectivesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceLevelObjectivesResult>("datadog:index/getServiceLevelObjectives:getServiceLevelObjectives", args ?? new GetServiceLevelObjectivesInvokeArgs(), options.WithDefaults());
     }
 
 

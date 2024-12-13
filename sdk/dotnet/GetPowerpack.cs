@@ -22,6 +22,12 @@ namespace Pulumi.Datadog
         /// </summary>
         public static Output<GetPowerpackResult> Invoke(GetPowerpackInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPowerpackResult>("datadog:index/getPowerpack:getPowerpack", args ?? new GetPowerpackInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to retrieve information about an existing Datadog Powerpack.
+        /// </summary>
+        public static Output<GetPowerpackResult> Invoke(GetPowerpackInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPowerpackResult>("datadog:index/getPowerpack:getPowerpack", args ?? new GetPowerpackInvokeArgs(), options.WithDefaults());
     }
 
 

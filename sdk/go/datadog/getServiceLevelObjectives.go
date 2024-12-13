@@ -85,21 +85,11 @@ type GetServiceLevelObjectivesResult struct {
 }
 
 func GetServiceLevelObjectivesOutput(ctx *pulumi.Context, args GetServiceLevelObjectivesOutputArgs, opts ...pulumi.InvokeOption) GetServiceLevelObjectivesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetServiceLevelObjectivesResultOutput, error) {
 			args := v.(GetServiceLevelObjectivesArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetServiceLevelObjectivesResult
-			secret, err := ctx.InvokePackageRaw("datadog:index/getServiceLevelObjectives:getServiceLevelObjectives", args, &rv, "", opts...)
-			if err != nil {
-				return GetServiceLevelObjectivesResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetServiceLevelObjectivesResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetServiceLevelObjectivesResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("datadog:index/getServiceLevelObjectives:getServiceLevelObjectives", args, GetServiceLevelObjectivesResultOutput{}, options).(GetServiceLevelObjectivesResultOutput), nil
 		}).(GetServiceLevelObjectivesResultOutput)
 }
 

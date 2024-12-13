@@ -62,18 +62,8 @@ type LookupSensitiveDataScannerGroupOrderResult struct {
 
 func LookupSensitiveDataScannerGroupOrderOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) LookupSensitiveDataScannerGroupOrderResultOutput {
 	return pulumi.ToOutput(0).ApplyT(func(int) (LookupSensitiveDataScannerGroupOrderResultOutput, error) {
-		opts = internal.PkgInvokeDefaultOpts(opts)
-		var rv LookupSensitiveDataScannerGroupOrderResult
-		secret, err := ctx.InvokePackageRaw("datadog:index/getSensitiveDataScannerGroupOrder:getSensitiveDataScannerGroupOrder", nil, &rv, "", opts...)
-		if err != nil {
-			return LookupSensitiveDataScannerGroupOrderResultOutput{}, err
-		}
-
-		output := pulumi.ToOutput(rv).(LookupSensitiveDataScannerGroupOrderResultOutput)
-		if secret {
-			return pulumi.ToSecret(output).(LookupSensitiveDataScannerGroupOrderResultOutput), nil
-		}
-		return output, nil
+		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+		return ctx.InvokeOutput("datadog:index/getSensitiveDataScannerGroupOrder:getSensitiveDataScannerGroupOrder", nil, LookupSensitiveDataScannerGroupOrderResultOutput{}, options).(LookupSensitiveDataScannerGroupOrderResultOutput), nil
 	}).(LookupSensitiveDataScannerGroupOrderResultOutput)
 }
 

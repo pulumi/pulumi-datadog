@@ -22,6 +22,12 @@ namespace Pulumi.Datadog
         /// </summary>
         public static Output<GetMonitorsResult> Invoke(GetMonitorsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMonitorsResult>("datadog:index/getMonitors:getMonitors", args ?? new GetMonitorsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to list several existing monitors for use in other resources.
+        /// </summary>
+        public static Output<GetMonitorsResult> Invoke(GetMonitorsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMonitorsResult>("datadog:index/getMonitors:getMonitors", args ?? new GetMonitorsInvokeArgs(), options.WithDefaults());
     }
 
 

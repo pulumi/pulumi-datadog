@@ -39,21 +39,11 @@ type LookupSyntheticsGlobalVariableResult struct {
 }
 
 func LookupSyntheticsGlobalVariableOutput(ctx *pulumi.Context, args LookupSyntheticsGlobalVariableOutputArgs, opts ...pulumi.InvokeOption) LookupSyntheticsGlobalVariableResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSyntheticsGlobalVariableResultOutput, error) {
 			args := v.(LookupSyntheticsGlobalVariableArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupSyntheticsGlobalVariableResult
-			secret, err := ctx.InvokePackageRaw("datadog:index/getSyntheticsGlobalVariable:getSyntheticsGlobalVariable", args, &rv, "", opts...)
-			if err != nil {
-				return LookupSyntheticsGlobalVariableResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupSyntheticsGlobalVariableResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupSyntheticsGlobalVariableResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("datadog:index/getSyntheticsGlobalVariable:getSyntheticsGlobalVariable", args, LookupSyntheticsGlobalVariableResultOutput{}, options).(LookupSyntheticsGlobalVariableResultOutput), nil
 		}).(LookupSyntheticsGlobalVariableResultOutput)
 }
 

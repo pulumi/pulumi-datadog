@@ -22,6 +22,12 @@ namespace Pulumi.Datadog
         /// </summary>
         public static Output<GetHostsResult> Invoke(GetHostsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHostsResult>("datadog:index/getHosts:getHosts", args ?? new GetHostsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to retrieve information about your live hosts in Datadog.
+        /// </summary>
+        public static Output<GetHostsResult> Invoke(GetHostsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetHostsResult>("datadog:index/getHosts:getHosts", args ?? new GetHostsInvokeArgs(), options.WithDefaults());
     }
 
 
