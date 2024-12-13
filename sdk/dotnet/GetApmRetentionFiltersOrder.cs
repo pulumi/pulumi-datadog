@@ -52,6 +52,27 @@ namespace Pulumi.Datadog
         /// </summary>
         public static Output<GetApmRetentionFiltersOrderResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApmRetentionFiltersOrderResult>("datadog:index/getApmRetentionFiltersOrder:getApmRetentionFiltersOrder", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// Provides a Datadog [APM Retention Filters API](https://docs.datadoghq.com/api/v2/apm-retention-filters/) order datasource. This can be used to retrieve APM retention filters order.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Datadog = Pulumi.Datadog;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var foo = Datadog.GetApmRetentionFiltersOrder.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetApmRetentionFiltersOrderResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetApmRetentionFiltersOrderResult>("datadog:index/getApmRetentionFiltersOrder:getApmRetentionFiltersOrder", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

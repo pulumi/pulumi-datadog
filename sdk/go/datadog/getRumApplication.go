@@ -49,21 +49,11 @@ type LookupRumApplicationResult struct {
 }
 
 func LookupRumApplicationOutput(ctx *pulumi.Context, args LookupRumApplicationOutputArgs, opts ...pulumi.InvokeOption) LookupRumApplicationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupRumApplicationResultOutput, error) {
 			args := v.(LookupRumApplicationArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupRumApplicationResult
-			secret, err := ctx.InvokePackageRaw("datadog:index/getRumApplication:getRumApplication", args, &rv, "", opts...)
-			if err != nil {
-				return LookupRumApplicationResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupRumApplicationResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupRumApplicationResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("datadog:index/getRumApplication:getRumApplication", args, LookupRumApplicationResultOutput{}, options).(LookupRumApplicationResultOutput), nil
 		}).(LookupRumApplicationResultOutput)
 }
 

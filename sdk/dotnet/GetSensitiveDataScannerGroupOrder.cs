@@ -62,6 +62,32 @@ namespace Pulumi.Datadog
         /// </summary>
         public static Output<GetSensitiveDataScannerGroupOrderResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSensitiveDataScannerGroupOrderResult>("datadog:index/getSensitiveDataScannerGroupOrder:getSensitiveDataScannerGroupOrder", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// Provides a Datadog Sensitive Data Scanner Group Order API data source. This can be used to retrieve the order of Datadog Sensitive Data Scanner Groups.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Datadog = Pulumi.Datadog;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var foo = Datadog.GetSensitiveDataScannerGroupOrder.Invoke();
+        /// 
+        ///     var foobar = new Datadog.SensitiveDataScannerGroupOrder("foobar", new()
+        ///     {
+        ///         GroupIds = foo.Apply(getSensitiveDataScannerGroupOrderResult =&gt; getSensitiveDataScannerGroupOrderResult.GroupIds),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetSensitiveDataScannerGroupOrderResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSensitiveDataScannerGroupOrderResult>("datadog:index/getSensitiveDataScannerGroupOrder:getSensitiveDataScannerGroupOrder", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

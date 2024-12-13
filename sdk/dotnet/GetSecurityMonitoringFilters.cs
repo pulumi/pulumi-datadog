@@ -52,6 +52,27 @@ namespace Pulumi.Datadog
         /// </summary>
         public static Output<GetSecurityMonitoringFiltersResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityMonitoringFiltersResult>("datadog:index/getSecurityMonitoringFilters:getSecurityMonitoringFilters", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to retrieve information about existing security monitoring filters for use in other resources.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Datadog = Pulumi.Datadog;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Datadog.GetSecurityMonitoringFilters.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetSecurityMonitoringFiltersResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecurityMonitoringFiltersResult>("datadog:index/getSecurityMonitoringFilters:getSecurityMonitoringFilters", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

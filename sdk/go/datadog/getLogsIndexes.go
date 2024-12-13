@@ -56,18 +56,8 @@ type GetLogsIndexesResult struct {
 
 func GetLogsIndexesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetLogsIndexesResultOutput {
 	return pulumi.ToOutput(0).ApplyT(func(int) (GetLogsIndexesResultOutput, error) {
-		opts = internal.PkgInvokeDefaultOpts(opts)
-		var rv GetLogsIndexesResult
-		secret, err := ctx.InvokePackageRaw("datadog:index/getLogsIndexes:getLogsIndexes", nil, &rv, "", opts...)
-		if err != nil {
-			return GetLogsIndexesResultOutput{}, err
-		}
-
-		output := pulumi.ToOutput(rv).(GetLogsIndexesResultOutput)
-		if secret {
-			return pulumi.ToSecret(output).(GetLogsIndexesResultOutput), nil
-		}
-		return output, nil
+		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+		return ctx.InvokeOutput("datadog:index/getLogsIndexes:getLogsIndexes", nil, GetLogsIndexesResultOutput{}, options).(GetLogsIndexesResultOutput), nil
 	}).(GetLogsIndexesResultOutput)
 }
 

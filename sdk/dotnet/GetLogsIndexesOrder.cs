@@ -52,6 +52,27 @@ namespace Pulumi.Datadog
         /// </summary>
         public static Output<GetLogsIndexesOrderResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLogsIndexesOrderResult>("datadog:index/getLogsIndexesOrder:getLogsIndexesOrder", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// Get the current order of your log indexes.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Datadog = Pulumi.Datadog;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Datadog.GetLogsIndexesOrder.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLogsIndexesOrderResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLogsIndexesOrderResult>("datadog:index/getLogsIndexesOrder:getLogsIndexesOrder", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

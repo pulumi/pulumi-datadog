@@ -52,6 +52,27 @@ namespace Pulumi.Datadog
         /// </summary>
         public static Output<GetMonitorConfigPoliciesResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMonitorConfigPoliciesResult>("datadog:index/getMonitorConfigPolicies:getMonitorConfigPolicies", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to list existing monitor config policies for use in other resources.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Datadog = Pulumi.Datadog;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Datadog.GetMonitorConfigPolicies.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetMonitorConfigPoliciesResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMonitorConfigPoliciesResult>("datadog:index/getMonitorConfigPolicies:getMonitorConfigPolicies", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

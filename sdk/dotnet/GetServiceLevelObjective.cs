@@ -70,6 +70,36 @@ namespace Pulumi.Datadog
         /// </summary>
         public static Output<GetServiceLevelObjectiveResult> Invoke(GetServiceLevelObjectiveInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceLevelObjectiveResult>("datadog:index/getServiceLevelObjective:getServiceLevelObjective", args ?? new GetServiceLevelObjectiveInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to retrieve information about an existing SLO for use in other resources.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Datadog = Pulumi.Datadog;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Datadog.GetServiceLevelObjective.Invoke(new()
+        ///     {
+        ///         NameQuery = "My test SLO",
+        ///         TagsQuery = "foo:bar",
+        ///     });
+        /// 
+        ///     var apiSlo = Datadog.GetServiceLevelObjective.Invoke(new()
+        ///     {
+        ///         Id = api.Outputs.Slo,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetServiceLevelObjectiveResult> Invoke(GetServiceLevelObjectiveInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceLevelObjectiveResult>("datadog:index/getServiceLevelObjective:getServiceLevelObjective", args ?? new GetServiceLevelObjectiveInvokeArgs(), options.WithDefaults());
     }
 
 

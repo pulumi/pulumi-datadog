@@ -22,6 +22,12 @@ namespace Pulumi.Datadog
         /// </summary>
         public static Output<GetSecurityMonitoringSuppressionsResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityMonitoringSuppressionsResult>("datadog:index/getSecurityMonitoringSuppressions:getSecurityMonitoringSuppressions", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to retrieve information about existing suppression rules, and use them in other resources.
+        /// </summary>
+        public static Output<GetSecurityMonitoringSuppressionsResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecurityMonitoringSuppressionsResult>("datadog:index/getSecurityMonitoringSuppressions:getSecurityMonitoringSuppressions", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

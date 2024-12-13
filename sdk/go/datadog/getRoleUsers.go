@@ -47,21 +47,11 @@ type GetRoleUsersResult struct {
 }
 
 func GetRoleUsersOutput(ctx *pulumi.Context, args GetRoleUsersOutputArgs, opts ...pulumi.InvokeOption) GetRoleUsersResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetRoleUsersResultOutput, error) {
 			args := v.(GetRoleUsersArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetRoleUsersResult
-			secret, err := ctx.InvokePackageRaw("datadog:index/getRoleUsers:getRoleUsers", args, &rv, "", opts...)
-			if err != nil {
-				return GetRoleUsersResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetRoleUsersResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetRoleUsersResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("datadog:index/getRoleUsers:getRoleUsers", args, GetRoleUsersResultOutput{}, options).(GetRoleUsersResultOutput), nil
 		}).(GetRoleUsersResultOutput)
 }
 

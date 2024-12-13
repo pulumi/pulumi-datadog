@@ -22,6 +22,12 @@ namespace Pulumi.Datadog
         /// </summary>
         public static Output<GetSyntheticsGlobalVariableResult> Invoke(GetSyntheticsGlobalVariableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSyntheticsGlobalVariableResult>("datadog:index/getSyntheticsGlobalVariable:getSyntheticsGlobalVariable", args ?? new GetSyntheticsGlobalVariableInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to retrieve a Datadog Synthetics global variable (to be used in Synthetics tests).
+        /// </summary>
+        public static Output<GetSyntheticsGlobalVariableResult> Invoke(GetSyntheticsGlobalVariableInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSyntheticsGlobalVariableResult>("datadog:index/getSyntheticsGlobalVariable:getSyntheticsGlobalVariable", args ?? new GetSyntheticsGlobalVariableInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.Datadog.Aws
         /// </summary>
         public static Output<GetIntegrationLogsServicesResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationLogsServicesResult>("datadog:aws/getIntegrationLogsServices:getIntegrationLogsServices", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to retrieve all AWS log ready services.
+        /// </summary>
+        public static Output<GetIntegrationLogsServicesResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationLogsServicesResult>("datadog:aws/getIntegrationLogsServices:getIntegrationLogsServices", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

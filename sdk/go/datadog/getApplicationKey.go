@@ -71,21 +71,11 @@ type LookupApplicationKeyResult struct {
 }
 
 func LookupApplicationKeyOutput(ctx *pulumi.Context, args LookupApplicationKeyOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationKeyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupApplicationKeyResultOutput, error) {
 			args := v.(LookupApplicationKeyArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupApplicationKeyResult
-			secret, err := ctx.InvokePackageRaw("datadog:index/getApplicationKey:getApplicationKey", args, &rv, "", opts...)
-			if err != nil {
-				return LookupApplicationKeyResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupApplicationKeyResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupApplicationKeyResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("datadog:index/getApplicationKey:getApplicationKey", args, LookupApplicationKeyResultOutput{}, options).(LookupApplicationKeyResultOutput), nil
 		}).(LookupApplicationKeyResultOutput)
 }
 

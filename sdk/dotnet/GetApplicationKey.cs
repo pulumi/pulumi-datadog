@@ -58,6 +58,30 @@ namespace Pulumi.Datadog
         /// </summary>
         public static Output<GetApplicationKeyResult> Invoke(GetApplicationKeyInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationKeyResult>("datadog:index/getApplicationKey:getApplicationKey", args ?? new GetApplicationKeyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to retrieve information about an existing application key. Deprecated. This will be removed in a future release with prior notice. Securely store your application keys using a secret management system or use the datadog.ApplicationKey resource to manage application keys in your Datadog account.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Datadog = Pulumi.Datadog;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var foo = Datadog.GetApplicationKey.Invoke(new()
+        ///     {
+        ///         Name = "foo-application",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetApplicationKeyResult> Invoke(GetApplicationKeyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetApplicationKeyResult>("datadog:index/getApplicationKey:getApplicationKey", args ?? new GetApplicationKeyInvokeArgs(), options.WithDefaults());
     }
 
 

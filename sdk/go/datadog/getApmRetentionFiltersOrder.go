@@ -56,18 +56,8 @@ type GetApmRetentionFiltersOrderResult struct {
 
 func GetApmRetentionFiltersOrderOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetApmRetentionFiltersOrderResultOutput {
 	return pulumi.ToOutput(0).ApplyT(func(int) (GetApmRetentionFiltersOrderResultOutput, error) {
-		opts = internal.PkgInvokeDefaultOpts(opts)
-		var rv GetApmRetentionFiltersOrderResult
-		secret, err := ctx.InvokePackageRaw("datadog:index/getApmRetentionFiltersOrder:getApmRetentionFiltersOrder", nil, &rv, "", opts...)
-		if err != nil {
-			return GetApmRetentionFiltersOrderResultOutput{}, err
-		}
-
-		output := pulumi.ToOutput(rv).(GetApmRetentionFiltersOrderResultOutput)
-		if secret {
-			return pulumi.ToSecret(output).(GetApmRetentionFiltersOrderResultOutput), nil
-		}
-		return output, nil
+		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+		return ctx.InvokeOutput("datadog:index/getApmRetentionFiltersOrder:getApmRetentionFiltersOrder", nil, GetApmRetentionFiltersOrderResultOutput{}, options).(GetApmRetentionFiltersOrderResultOutput), nil
 	}).(GetApmRetentionFiltersOrderResultOutput)
 }
 

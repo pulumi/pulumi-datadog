@@ -32,18 +32,8 @@ type GetIntegrationLogsServicesResult struct {
 
 func GetIntegrationLogsServicesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetIntegrationLogsServicesResultOutput {
 	return pulumi.ToOutput(0).ApplyT(func(int) (GetIntegrationLogsServicesResultOutput, error) {
-		opts = internal.PkgInvokeDefaultOpts(opts)
-		var rv GetIntegrationLogsServicesResult
-		secret, err := ctx.InvokePackageRaw("datadog:aws/getIntegrationLogsServices:getIntegrationLogsServices", nil, &rv, "", opts...)
-		if err != nil {
-			return GetIntegrationLogsServicesResultOutput{}, err
-		}
-
-		output := pulumi.ToOutput(rv).(GetIntegrationLogsServicesResultOutput)
-		if secret {
-			return pulumi.ToSecret(output).(GetIntegrationLogsServicesResultOutput), nil
-		}
-		return output, nil
+		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+		return ctx.InvokeOutput("datadog:aws/getIntegrationLogsServices:getIntegrationLogsServices", nil, GetIntegrationLogsServicesResultOutput{}, options).(GetIntegrationLogsServicesResultOutput), nil
 	}).(GetIntegrationLogsServicesResultOutput)
 }
 

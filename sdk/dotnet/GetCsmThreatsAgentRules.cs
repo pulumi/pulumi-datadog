@@ -22,6 +22,12 @@ namespace Pulumi.Datadog
         /// </summary>
         public static Output<GetCsmThreatsAgentRulesResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCsmThreatsAgentRulesResult>("datadog:index/getCsmThreatsAgentRules:getCsmThreatsAgentRules", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to retrieve information about existing Agent rules.
+        /// </summary>
+        public static Output<GetCsmThreatsAgentRulesResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCsmThreatsAgentRulesResult>("datadog:index/getCsmThreatsAgentRules:getCsmThreatsAgentRules", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
