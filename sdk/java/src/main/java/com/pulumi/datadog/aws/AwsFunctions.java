@@ -10,6 +10,7 @@ import com.pulumi.datadog.aws.outputs.GetIntegrationLogsServicesResult;
 import com.pulumi.datadog.aws.outputs.GetIntegrationNamespaceRulesResult;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
@@ -47,6 +48,13 @@ public final class AwsFunctions {
      * 
      */
     public static Output<GetIntegrationLogsServicesResult> getIntegrationLogsServices(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:aws/getIntegrationLogsServices:getIntegrationLogsServices", TypeShape.of(GetIntegrationLogsServicesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve all AWS log ready services.
+     * 
+     */
+    public static Output<GetIntegrationLogsServicesResult> getIntegrationLogsServices(InvokeArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("datadog:aws/getIntegrationLogsServices:getIntegrationLogsServices", TypeShape.of(GetIntegrationLogsServicesResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -249,6 +257,45 @@ public final class AwsFunctions {
      * 
      */
     public static Output<GetIntegrationNamespaceRulesResult> getIntegrationNamespaceRules(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:aws/getIntegrationNamespaceRules:getIntegrationNamespaceRules", TypeShape.of(GetIntegrationNamespaceRulesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides a Datadog AWS Integration Namespace Rules data source. This can be used to retrieve all available namespace rules for a Datadog-AWS integration.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.aws.AwsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var rules = AwsFunctions.getIntegrationNamespaceRules();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetIntegrationNamespaceRulesResult> getIntegrationNamespaceRules(InvokeArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("datadog:aws/getIntegrationNamespaceRules:getIntegrationNamespaceRules", TypeShape.of(GetIntegrationNamespaceRulesResult.class), args, Utilities.withVersion(options));
     }
     /**

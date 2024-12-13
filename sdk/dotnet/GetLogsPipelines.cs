@@ -74,6 +74,38 @@ namespace Pulumi.Datadog
         /// </summary>
         public static Output<GetLogsPipelinesResult> Invoke(GetLogsPipelinesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLogsPipelinesResult>("datadog:index/getLogsPipelines:getLogsPipelines", args ?? new GetLogsPipelinesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to list all existing logs pipelines for use in other resources.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Datadog = Pulumi.Datadog;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Gets all pipelines
+        ///     var pipelines = Datadog.GetLogsPipelines.Invoke();
+        /// 
+        ///     // Using data source to set pipeline order
+        ///     var lpo = new Datadog.LogsPipelineOrder("lpo", new()
+        ///     {
+        ///         Name = "lpo",
+        ///         Pipelines = .Select(pipeline =&gt; 
+        ///         {
+        ///             return pipeline.Id;
+        ///         }).ToList(),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLogsPipelinesResult> Invoke(GetLogsPipelinesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLogsPipelinesResult>("datadog:index/getLogsPipelines:getLogsPipelines", args ?? new GetLogsPipelinesInvokeArgs(), options.WithDefaults());
     }
 
 

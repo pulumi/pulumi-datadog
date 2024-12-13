@@ -22,6 +22,12 @@ namespace Pulumi.Datadog
         /// </summary>
         public static Output<GetSyntheticsTestResult> Invoke(GetSyntheticsTestInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSyntheticsTestResult>("datadog:index/getSyntheticsTest:getSyntheticsTest", args ?? new GetSyntheticsTestInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to retrieve a Datadog Synthetic Test.
+        /// </summary>
+        public static Output<GetSyntheticsTestResult> Invoke(GetSyntheticsTestInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSyntheticsTestResult>("datadog:index/getSyntheticsTest:getSyntheticsTest", args ?? new GetSyntheticsTestInvokeArgs(), options.WithDefaults());
     }
 
 

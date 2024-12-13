@@ -45,21 +45,11 @@ type GetSensitiveDataScannerStandardPatternResult struct {
 }
 
 func GetSensitiveDataScannerStandardPatternOutput(ctx *pulumi.Context, args GetSensitiveDataScannerStandardPatternOutputArgs, opts ...pulumi.InvokeOption) GetSensitiveDataScannerStandardPatternResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetSensitiveDataScannerStandardPatternResultOutput, error) {
 			args := v.(GetSensitiveDataScannerStandardPatternArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetSensitiveDataScannerStandardPatternResult
-			secret, err := ctx.InvokePackageRaw("datadog:index/getSensitiveDataScannerStandardPattern:getSensitiveDataScannerStandardPattern", args, &rv, "", opts...)
-			if err != nil {
-				return GetSensitiveDataScannerStandardPatternResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetSensitiveDataScannerStandardPatternResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetSensitiveDataScannerStandardPatternResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("datadog:index/getSensitiveDataScannerStandardPattern:getSensitiveDataScannerStandardPattern", args, GetSensitiveDataScannerStandardPatternResultOutput{}, options).(GetSensitiveDataScannerStandardPatternResultOutput), nil
 		}).(GetSensitiveDataScannerStandardPatternResultOutput)
 }
 

@@ -22,6 +22,12 @@ namespace Pulumi.Datadog
         /// </summary>
         public static Output<GetRumApplicationResult> Invoke(GetRumApplicationInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRumApplicationResult>("datadog:index/getRumApplication:getRumApplication", args ?? new GetRumApplicationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to retrieve a Datadog RUM Application.
+        /// </summary>
+        public static Output<GetRumApplicationResult> Invoke(GetRumApplicationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRumApplicationResult>("datadog:index/getRumApplication:getRumApplication", args ?? new GetRumApplicationInvokeArgs(), options.WithDefaults());
     }
 
 

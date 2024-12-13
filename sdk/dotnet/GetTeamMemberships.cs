@@ -60,6 +60,31 @@ namespace Pulumi.Datadog
         /// </summary>
         public static Output<GetTeamMembershipsResult> Invoke(GetTeamMembershipsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTeamMembershipsResult>("datadog:index/getTeamMemberships:getTeamMemberships", args ?? new GetTeamMembershipsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to retrieve information about existing Datadog team memberships.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Datadog = Pulumi.Datadog;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var foo = Datadog.GetTeamMemberships.Invoke(new()
+        ///     {
+        ///         TeamId = "e6723c40-edb1-11ed-b816-da7ad0900002",
+        ///         FilterKeyword = "foo@example.com",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetTeamMembershipsResult> Invoke(GetTeamMembershipsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTeamMembershipsResult>("datadog:index/getTeamMemberships:getTeamMemberships", args ?? new GetTeamMembershipsInvokeArgs(), options.WithDefaults());
     }
 
 

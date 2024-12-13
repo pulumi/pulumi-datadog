@@ -22,6 +22,12 @@ namespace Pulumi.Datadog
         /// </summary>
         public static Output<GetRoleUsersResult> Invoke(GetRoleUsersInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoleUsersResult>("datadog:index/getRoleUsers:getRoleUsers", args ?? new GetRoleUsersInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to retrieve information about existing Datadog role users assignments. This data source is in beta and is subject to change.
+        /// </summary>
+        public static Output<GetRoleUsersResult> Invoke(GetRoleUsersInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRoleUsersResult>("datadog:index/getRoleUsers:getRoleUsers", args ?? new GetRoleUsersInvokeArgs(), options.WithDefaults());
     }
 
 

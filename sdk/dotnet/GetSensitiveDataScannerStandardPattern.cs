@@ -22,6 +22,12 @@ namespace Pulumi.Datadog
         /// </summary>
         public static Output<GetSensitiveDataScannerStandardPatternResult> Invoke(GetSensitiveDataScannerStandardPatternInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSensitiveDataScannerStandardPatternResult>("datadog:index/getSensitiveDataScannerStandardPattern:getSensitiveDataScannerStandardPattern", args ?? new GetSensitiveDataScannerStandardPatternInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to retrieve information about an existing sensitive data scanner standard pattern.
+        /// </summary>
+        public static Output<GetSensitiveDataScannerStandardPatternResult> Invoke(GetSensitiveDataScannerStandardPatternInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSensitiveDataScannerStandardPatternResult>("datadog:index/getSensitiveDataScannerStandardPattern:getSensitiveDataScannerStandardPattern", args ?? new GetSensitiveDataScannerStandardPatternInvokeArgs(), options.WithDefaults());
     }
 
 

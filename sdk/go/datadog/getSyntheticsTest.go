@@ -43,21 +43,11 @@ type LookupSyntheticsTestResult struct {
 }
 
 func LookupSyntheticsTestOutput(ctx *pulumi.Context, args LookupSyntheticsTestOutputArgs, opts ...pulumi.InvokeOption) LookupSyntheticsTestResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSyntheticsTestResultOutput, error) {
 			args := v.(LookupSyntheticsTestArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupSyntheticsTestResult
-			secret, err := ctx.InvokePackageRaw("datadog:index/getSyntheticsTest:getSyntheticsTest", args, &rv, "", opts...)
-			if err != nil {
-				return LookupSyntheticsTestResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupSyntheticsTestResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupSyntheticsTestResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("datadog:index/getSyntheticsTest:getSyntheticsTest", args, LookupSyntheticsTestResultOutput{}, options).(LookupSyntheticsTestResultOutput), nil
 		}).(LookupSyntheticsTestResultOutput)
 }
 

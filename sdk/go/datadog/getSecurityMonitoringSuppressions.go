@@ -34,18 +34,8 @@ type GetSecurityMonitoringSuppressionsResult struct {
 
 func GetSecurityMonitoringSuppressionsOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetSecurityMonitoringSuppressionsResultOutput {
 	return pulumi.ToOutput(0).ApplyT(func(int) (GetSecurityMonitoringSuppressionsResultOutput, error) {
-		opts = internal.PkgInvokeDefaultOpts(opts)
-		var rv GetSecurityMonitoringSuppressionsResult
-		secret, err := ctx.InvokePackageRaw("datadog:index/getSecurityMonitoringSuppressions:getSecurityMonitoringSuppressions", nil, &rv, "", opts...)
-		if err != nil {
-			return GetSecurityMonitoringSuppressionsResultOutput{}, err
-		}
-
-		output := pulumi.ToOutput(rv).(GetSecurityMonitoringSuppressionsResultOutput)
-		if secret {
-			return pulumi.ToSecret(output).(GetSecurityMonitoringSuppressionsResultOutput), nil
-		}
-		return output, nil
+		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+		return ctx.InvokeOutput("datadog:index/getSecurityMonitoringSuppressions:getSecurityMonitoringSuppressions", nil, GetSecurityMonitoringSuppressionsResultOutput{}, options).(GetSecurityMonitoringSuppressionsResultOutput), nil
 	}).(GetSecurityMonitoringSuppressionsResultOutput)
 }
 

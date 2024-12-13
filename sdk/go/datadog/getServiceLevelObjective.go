@@ -94,21 +94,11 @@ type LookupServiceLevelObjectiveResult struct {
 }
 
 func LookupServiceLevelObjectiveOutput(ctx *pulumi.Context, args LookupServiceLevelObjectiveOutputArgs, opts ...pulumi.InvokeOption) LookupServiceLevelObjectiveResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupServiceLevelObjectiveResultOutput, error) {
 			args := v.(LookupServiceLevelObjectiveArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupServiceLevelObjectiveResult
-			secret, err := ctx.InvokePackageRaw("datadog:index/getServiceLevelObjective:getServiceLevelObjective", args, &rv, "", opts...)
-			if err != nil {
-				return LookupServiceLevelObjectiveResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupServiceLevelObjectiveResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupServiceLevelObjectiveResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("datadog:index/getServiceLevelObjective:getServiceLevelObjective", args, LookupServiceLevelObjectiveResultOutput{}, options).(LookupServiceLevelObjectiveResultOutput), nil
 		}).(LookupServiceLevelObjectiveResultOutput)
 }
 

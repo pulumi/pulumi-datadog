@@ -63,21 +63,11 @@ type GetPermissionsResult struct {
 }
 
 func GetPermissionsOutput(ctx *pulumi.Context, args GetPermissionsOutputArgs, opts ...pulumi.InvokeOption) GetPermissionsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetPermissionsResultOutput, error) {
 			args := v.(GetPermissionsArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetPermissionsResult
-			secret, err := ctx.InvokePackageRaw("datadog:index/getPermissions:getPermissions", args, &rv, "", opts...)
-			if err != nil {
-				return GetPermissionsResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetPermissionsResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetPermissionsResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("datadog:index/getPermissions:getPermissions", args, GetPermissionsResultOutput{}, options).(GetPermissionsResultOutput), nil
 		}).(GetPermissionsResultOutput)
 }
 

@@ -95,6 +95,7 @@ import com.pulumi.datadog.outputs.GetUserResult;
 import com.pulumi.datadog.outputs.GetUsersResult;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
@@ -348,6 +349,48 @@ public final class DatadogFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetApiKeyResult> getApiKey(GetApiKeyArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getApiKey:getApiKey", TypeShape.of(GetApiKeyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing api key. Deprecated. This will be removed in a future release with prior notice. Securely store your API keys using a secret management system or use the datadog.ApiKey resource to manage API keys in your Datadog account.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetApiKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = DatadogFunctions.getApiKey(GetApiKeyArgs.builder()
+     *             .name("foo-application")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetApiKeyResult> getApiKeyPlain(GetApiKeyPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:index/getApiKey:getApiKey", TypeShape.of(GetApiKeyResult.class), args, Utilities.withVersion(options));
     }
@@ -544,6 +587,45 @@ public final class DatadogFunctions {
      * 
      */
     public static Output<GetApmRetentionFiltersOrderResult> getApmRetentionFiltersOrder(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getApmRetentionFiltersOrder:getApmRetentionFiltersOrder", TypeShape.of(GetApmRetentionFiltersOrderResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides a Datadog [APM Retention Filters API](https://docs.datadoghq.com/api/v2/apm-retention-filters/) order datasource. This can be used to retrieve APM retention filters order.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = DatadogFunctions.getApmRetentionFiltersOrder();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetApmRetentionFiltersOrderResult> getApmRetentionFiltersOrder(InvokeArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("datadog:index/getApmRetentionFiltersOrder:getApmRetentionFiltersOrder", TypeShape.of(GetApmRetentionFiltersOrderResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -834,6 +916,48 @@ public final class DatadogFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetApplicationKeyResult> getApplicationKey(GetApplicationKeyArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getApplicationKey:getApplicationKey", TypeShape.of(GetApplicationKeyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing application key. Deprecated. This will be removed in a future release with prior notice. Securely store your application keys using a secret management system or use the datadog.ApplicationKey resource to manage application keys in your Datadog account.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetApplicationKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = DatadogFunctions.getApplicationKey(GetApplicationKeyArgs.builder()
+     *             .name("foo-application")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetApplicationKeyResult> getApplicationKeyPlain(GetApplicationKeyPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:index/getApplicationKey:getApplicationKey", TypeShape.of(GetApplicationKeyResult.class), args, Utilities.withVersion(options));
     }
@@ -1056,6 +1180,43 @@ public final class DatadogFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetCloudWorkloadSecurityAgentRulesResult> getCloudWorkloadSecurityAgentRules(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getCloudWorkloadSecurityAgentRules:getCloudWorkloadSecurityAgentRules", TypeShape.of(GetCloudWorkloadSecurityAgentRulesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DatadogFunctions.getCloudWorkloadSecurityAgentRules();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetCloudWorkloadSecurityAgentRulesResult> getCloudWorkloadSecurityAgentRulesPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:index/getCloudWorkloadSecurityAgentRules:getCloudWorkloadSecurityAgentRules", TypeShape.of(GetCloudWorkloadSecurityAgentRulesResult.class), args, Utilities.withVersion(options));
     }
@@ -1092,6 +1253,13 @@ public final class DatadogFunctions {
      * 
      */
     public static Output<GetCsmThreatsAgentRulesResult> getCsmThreatsAgentRules(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getCsmThreatsAgentRules:getCsmThreatsAgentRules", TypeShape.of(GetCsmThreatsAgentRulesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about existing Agent rules.
+     * 
+     */
+    public static Output<GetCsmThreatsAgentRulesResult> getCsmThreatsAgentRules(InvokeArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("datadog:index/getCsmThreatsAgentRules:getCsmThreatsAgentRules", TypeShape.of(GetCsmThreatsAgentRulesResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1225,6 +1393,48 @@ public final class DatadogFunctions {
      * 
      */
     public static Output<GetDashboardResult> getDashboard(GetDashboardArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getDashboard:getDashboard", TypeShape.of(GetDashboardResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing dashboard, for use in other resources. In particular, it can be used in a monitor message to link to a specific dashboard.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetDashboardArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DatadogFunctions.getDashboard(GetDashboardArgs.builder()
+     *             .name("My super dashboard")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetDashboardResult> getDashboard(GetDashboardArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("datadog:index/getDashboard:getDashboard", TypeShape.of(GetDashboardResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1456,6 +1666,69 @@ public final class DatadogFunctions {
      * 
      */
     public static Output<GetDashboardListResult> getDashboardList(GetDashboardListArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getDashboardList:getDashboardList", TypeShape.of(GetDashboardListResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing dashboard list, for use in other resources. In particular, it can be used in a dashboard to register it in the list.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetDashboardListArgs;
+     * import com.pulumi.datadog.Dashboard;
+     * import com.pulumi.datadog.DashboardArgs;
+     * import com.pulumi.datadog.inputs.DashboardWidgetArgs;
+     * import com.pulumi.datadog.inputs.DashboardWidgetAlertGraphDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DatadogFunctions.getDashboardList(GetDashboardListArgs.builder()
+     *             .name("My super list")
+     *             .build());
+     * 
+     *         // Create a dashboard and register it in the list above.
+     *         var time = new Dashboard("time", DashboardArgs.builder()
+     *             .title("TF Test Layout Dashboard")
+     *             .description("Created using the Datadog provider in Pulumi")
+     *             .dashboardLists(test.applyValue(getDashboardListResult -> getDashboardListResult.id()))
+     *             .layoutType("ordered")
+     *             .isReadOnly(true)
+     *             .widgets(DashboardWidgetArgs.builder()
+     *                 .alertGraphDefinition(DashboardWidgetAlertGraphDefinitionArgs.builder()
+     *                     .alertId("1234")
+     *                     .vizType("timeseries")
+     *                     .title("Widget Title")
+     *                     .liveSpan("1h")
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetDashboardListResult> getDashboardList(GetDashboardListArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("datadog:index/getDashboardList:getDashboardList", TypeShape.of(GetDashboardListResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1776,6 +2049,49 @@ public final class DatadogFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetHostsResult> getHosts(GetHostsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getHosts:getHosts", TypeShape.of(GetHostsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about your live hosts in Datadog.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetHostsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = DatadogFunctions.getHosts(GetHostsArgs.builder()
+     *             .includeMutedHostsData(true)
+     *             .includeHostsMetadata(true)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetHostsResult> getHostsPlain(GetHostsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:index/getHosts:getHosts", TypeShape.of(GetHostsResult.class), args, Utilities.withVersion(options));
     }
@@ -2010,6 +2326,45 @@ public final class DatadogFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetIpRangesResult> getIpRanges(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getIpRanges:getIpRanges", TypeShape.of(GetIpRangesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about Datadog&#39;s IP addresses.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DatadogFunctions.getIpRanges();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetIpRangesResult> getIpRangesPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:index/getIpRanges:getIpRanges", TypeShape.of(GetIpRangesResult.class), args, Utilities.withVersion(options));
     }
@@ -2046,6 +2401,13 @@ public final class DatadogFunctions {
      * 
      */
     public static Output<GetLogsArchivesOrderResult> getLogsArchivesOrder(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getLogsArchivesOrder:getLogsArchivesOrder", TypeShape.of(GetLogsArchivesOrderResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get the current order of your logs archives.
+     * 
+     */
+    public static Output<GetLogsArchivesOrderResult> getLogsArchivesOrder(InvokeArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("datadog:index/getLogsArchivesOrder:getLogsArchivesOrder", TypeShape.of(GetLogsArchivesOrderResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -2248,6 +2610,45 @@ public final class DatadogFunctions {
      * 
      */
     public static Output<GetLogsIndexesResult> getLogsIndexes(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getLogsIndexes:getLogsIndexes", TypeShape.of(GetLogsIndexesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to list several existing logs indexes for use in other resources.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DatadogFunctions.getLogsIndexes();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetLogsIndexesResult> getLogsIndexes(InvokeArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("datadog:index/getLogsIndexes:getLogsIndexes", TypeShape.of(GetLogsIndexesResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -2520,6 +2921,45 @@ public final class DatadogFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetLogsIndexesOrderResult> getLogsIndexesOrder(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getLogsIndexesOrder:getLogsIndexesOrder", TypeShape.of(GetLogsIndexesOrderResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get the current order of your log indexes.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DatadogFunctions.getLogsIndexesOrder();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetLogsIndexesOrderResult> getLogsIndexesOrderPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:index/getLogsIndexesOrder:getLogsIndexesOrder", TypeShape.of(GetLogsIndexesOrderResult.class), args, Utilities.withVersion(options));
     }
@@ -2581,6 +3021,18 @@ public final class DatadogFunctions {
      * 
      */
     public static Output<GetLogsPipelinesResult> getLogsPipelines(GetLogsPipelinesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getLogsPipelines:getLogsPipelines", TypeShape.of(GetLogsPipelinesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to list all existing logs pipelines for use in other resources.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetLogsPipelinesResult> getLogsPipelines(GetLogsPipelinesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("datadog:index/getLogsPipelines:getLogsPipelines", TypeShape.of(GetLogsPipelinesResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -2808,6 +3260,49 @@ public final class DatadogFunctions {
      * 
      */
     public static Output<GetMonitorResult> getMonitor(GetMonitorArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getMonitor:getMonitor", TypeShape.of(GetMonitorResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing monitor for use in other resources.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetMonitorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DatadogFunctions.getMonitor(GetMonitorArgs.builder()
+     *             .nameFilter("My awesome monitor")
+     *             .monitorTagsFilters("foo:bar")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetMonitorResult> getMonitor(GetMonitorArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("datadog:index/getMonitor:getMonitor", TypeShape.of(GetMonitorResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -3084,6 +3579,45 @@ public final class DatadogFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetMonitorConfigPoliciesResult> getMonitorConfigPolicies(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getMonitorConfigPolicies:getMonitorConfigPolicies", TypeShape.of(GetMonitorConfigPoliciesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to list existing monitor config policies for use in other resources.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DatadogFunctions.getMonitorConfigPolicies();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetMonitorConfigPoliciesResult> getMonitorConfigPoliciesPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:index/getMonitorConfigPolicies:getMonitorConfigPolicies", TypeShape.of(GetMonitorConfigPoliciesResult.class), args, Utilities.withVersion(options));
     }
@@ -3120,6 +3654,13 @@ public final class DatadogFunctions {
      * 
      */
     public static Output<GetMonitorsResult> getMonitors(GetMonitorsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getMonitors:getMonitors", TypeShape.of(GetMonitorsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to list several existing monitors for use in other resources.
+     * 
+     */
+    public static Output<GetMonitorsResult> getMonitors(GetMonitorsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("datadog:index/getMonitors:getMonitors", TypeShape.of(GetMonitorsResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -3366,6 +3907,46 @@ public final class DatadogFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetPermissionsResult> getPermissions(GetPermissionsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getPermissions:getPermissions", TypeShape.of(GetPermissionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the list of Datadog permissions by name and their corresponding ID, for use in the role resource.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetPermissionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var permissions = DatadogFunctions.getPermissions();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetPermissionsResult> getPermissionsPlain(GetPermissionsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:index/getPermissions:getPermissions", TypeShape.of(GetPermissionsResult.class), args, Utilities.withVersion(options));
     }
@@ -3388,6 +3969,13 @@ public final class DatadogFunctions {
      * 
      */
     public static Output<GetPowerpackResult> getPowerpack(GetPowerpackArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getPowerpack:getPowerpack", TypeShape.of(GetPowerpackResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog Powerpack.
+     * 
+     */
+    public static Output<GetPowerpackResult> getPowerpack(GetPowerpackArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("datadog:index/getPowerpack:getPowerpack", TypeShape.of(GetPowerpackResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -3562,6 +4150,48 @@ public final class DatadogFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetRoleResult> getRole(GetRoleArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getRole:getRole", TypeShape.of(GetRoleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing role for use in other resources.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetRoleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DatadogFunctions.getRole(GetRoleArgs.builder()
+     *             .filter("Datadog Standard Role")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetRoleResult> getRolePlain(GetRolePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:index/getRole:getRole", TypeShape.of(GetRoleResult.class), args, Utilities.withVersion(options));
     }
@@ -3584,6 +4214,13 @@ public final class DatadogFunctions {
      * 
      */
     public static Output<GetRoleUsersResult> getRoleUsers(GetRoleUsersArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getRoleUsers:getRoleUsers", TypeShape.of(GetRoleUsersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about existing Datadog role users assignments. This data source is in beta and is subject to change.
+     * 
+     */
+    public static Output<GetRoleUsersResult> getRoleUsers(GetRoleUsersArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("datadog:index/getRoleUsers:getRoleUsers", TypeShape.of(GetRoleUsersResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -3842,6 +4479,48 @@ public final class DatadogFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetRolesResult> getRoles(GetRolesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getRoles:getRoles", TypeShape.of(GetRolesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about multiple roles for use in other resources.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetRolesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = DatadogFunctions.getRoles(GetRolesArgs.builder()
+     *             .filter("Datadog")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetRolesResult> getRolesPlain(GetRolesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:index/getRoles:getRoles", TypeShape.of(GetRolesResult.class), args, Utilities.withVersion(options));
     }
@@ -3878,6 +4557,13 @@ public final class DatadogFunctions {
      * 
      */
     public static Output<GetRumApplicationResult> getRumApplication(GetRumApplicationArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getRumApplication:getRumApplication", TypeShape.of(GetRumApplicationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve a Datadog RUM Application.
+     * 
+     */
+    public static Output<GetRumApplicationResult> getRumApplication(GetRumApplicationArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("datadog:index/getRumApplication:getRumApplication", TypeShape.of(GetRumApplicationResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -4080,6 +4766,45 @@ public final class DatadogFunctions {
      * 
      */
     public static Output<GetSecurityMonitoringFiltersResult> getSecurityMonitoringFilters(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getSecurityMonitoringFilters:getSecurityMonitoringFilters", TypeShape.of(GetSecurityMonitoringFiltersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about existing security monitoring filters for use in other resources.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DatadogFunctions.getSecurityMonitoringFilters();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetSecurityMonitoringFiltersResult> getSecurityMonitoringFilters(InvokeArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("datadog:index/getSecurityMonitoringFilters:getSecurityMonitoringFilters", TypeShape.of(GetSecurityMonitoringFiltersResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -4382,6 +5107,50 @@ public final class DatadogFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetSecurityMonitoringRulesResult> getSecurityMonitoringRules(GetSecurityMonitoringRulesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getSecurityMonitoringRules:getSecurityMonitoringRules", TypeShape.of(GetSecurityMonitoringRulesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about existing security monitoring rules for use in other resources.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetSecurityMonitoringRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DatadogFunctions.getSecurityMonitoringRules(GetSecurityMonitoringRulesArgs.builder()
+     *             .nameFilter("attack")
+     *             .tagsFilters("foo:bar")
+     *             .defaultOnlyFilter(true)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetSecurityMonitoringRulesResult> getSecurityMonitoringRulesPlain(GetSecurityMonitoringRulesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:index/getSecurityMonitoringRules:getSecurityMonitoringRules", TypeShape.of(GetSecurityMonitoringRulesResult.class), args, Utilities.withVersion(options));
     }
@@ -4418,6 +5187,13 @@ public final class DatadogFunctions {
      * 
      */
     public static Output<GetSecurityMonitoringSuppressionsResult> getSecurityMonitoringSuppressions(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getSecurityMonitoringSuppressions:getSecurityMonitoringSuppressions", TypeShape.of(GetSecurityMonitoringSuppressionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about existing suppression rules, and use them in other resources.
+     * 
+     */
+    public static Output<GetSecurityMonitoringSuppressionsResult> getSecurityMonitoringSuppressions(InvokeArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("datadog:index/getSecurityMonitoringSuppressions:getSecurityMonitoringSuppressions", TypeShape.of(GetSecurityMonitoringSuppressionsResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -4694,6 +5470,51 @@ public final class DatadogFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetSensitiveDataScannerGroupOrderResult> getSensitiveDataScannerGroupOrder(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getSensitiveDataScannerGroupOrder:getSensitiveDataScannerGroupOrder", TypeShape.of(GetSensitiveDataScannerGroupOrderResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides a Datadog Sensitive Data Scanner Group Order API data source. This can be used to retrieve the order of Datadog Sensitive Data Scanner Groups.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.SensitiveDataScannerGroupOrder;
+     * import com.pulumi.datadog.SensitiveDataScannerGroupOrderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = DatadogFunctions.getSensitiveDataScannerGroupOrder();
+     * 
+     *         var foobar = new SensitiveDataScannerGroupOrder("foobar", SensitiveDataScannerGroupOrderArgs.builder()
+     *             .groupIds(foo.applyValue(getSensitiveDataScannerGroupOrderResult -> getSensitiveDataScannerGroupOrderResult.groupIds()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetSensitiveDataScannerGroupOrderResult> getSensitiveDataScannerGroupOrderPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:index/getSensitiveDataScannerGroupOrder:getSensitiveDataScannerGroupOrder", TypeShape.of(GetSensitiveDataScannerGroupOrderResult.class), args, Utilities.withVersion(options));
     }
@@ -4716,6 +5537,13 @@ public final class DatadogFunctions {
      * 
      */
     public static Output<GetSensitiveDataScannerStandardPatternResult> getSensitiveDataScannerStandardPattern(GetSensitiveDataScannerStandardPatternArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getSensitiveDataScannerStandardPattern:getSensitiveDataScannerStandardPattern", TypeShape.of(GetSensitiveDataScannerStandardPatternResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing sensitive data scanner standard pattern.
+     * 
+     */
+    public static Output<GetSensitiveDataScannerStandardPatternResult> getSensitiveDataScannerStandardPattern(GetSensitiveDataScannerStandardPatternArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("datadog:index/getSensitiveDataScannerStandardPattern:getSensitiveDataScannerStandardPattern", TypeShape.of(GetSensitiveDataScannerStandardPatternResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -4758,6 +5586,13 @@ public final class DatadogFunctions {
      * 
      */
     public static Output<GetServiceAccountResult> getServiceAccount(GetServiceAccountArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getServiceAccount:getServiceAccount", TypeShape.of(GetServiceAccountResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog service account.
+     * 
+     */
+    public static Output<GetServiceAccountResult> getServiceAccount(GetServiceAccountArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("datadog:index/getServiceAccount:getServiceAccount", TypeShape.of(GetServiceAccountResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -5000,6 +5835,53 @@ public final class DatadogFunctions {
      * 
      */
     public static Output<GetServiceLevelObjectiveResult> getServiceLevelObjective(GetServiceLevelObjectiveArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getServiceLevelObjective:getServiceLevelObjective", TypeShape.of(GetServiceLevelObjectiveResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing SLO for use in other resources.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetServiceLevelObjectiveArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
+     *             .nameQuery("My test SLO")
+     *             .tagsQuery("foo:bar")
+     *             .build());
+     * 
+     *         final var apiSlo = DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
+     *             .id(api.outputs().slo())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetServiceLevelObjectiveResult> getServiceLevelObjective(GetServiceLevelObjectiveArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("datadog:index/getServiceLevelObjective:getServiceLevelObjective", TypeShape.of(GetServiceLevelObjectiveResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -5298,6 +6180,48 @@ public final class DatadogFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetServiceLevelObjectivesResult> getServiceLevelObjectives(GetServiceLevelObjectivesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getServiceLevelObjectives:getServiceLevelObjectives", TypeShape.of(GetServiceLevelObjectivesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about multiple SLOs for use in other resources.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetServiceLevelObjectivesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var ftFooSlos = DatadogFunctions.getServiceLevelObjectives(GetServiceLevelObjectivesArgs.builder()
+     *             .tagsQuery("owner:ft-foo")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetServiceLevelObjectivesResult> getServiceLevelObjectivesPlain(GetServiceLevelObjectivesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:index/getServiceLevelObjectives:getServiceLevelObjectives", TypeShape.of(GetServiceLevelObjectivesResult.class), args, Utilities.withVersion(options));
     }
@@ -5320,6 +6244,13 @@ public final class DatadogFunctions {
      * 
      */
     public static Output<GetSyntheticsGlobalVariableResult> getSyntheticsGlobalVariable(GetSyntheticsGlobalVariableArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getSyntheticsGlobalVariable:getSyntheticsGlobalVariable", TypeShape.of(GetSyntheticsGlobalVariableResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve a Datadog Synthetics global variable (to be used in Synthetics tests).
+     * 
+     */
+    public static Output<GetSyntheticsGlobalVariableResult> getSyntheticsGlobalVariable(GetSyntheticsGlobalVariableArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("datadog:index/getSyntheticsGlobalVariable:getSyntheticsGlobalVariable", TypeShape.of(GetSyntheticsGlobalVariableResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -5368,6 +6299,13 @@ public final class DatadogFunctions {
      * Use this data source to retrieve Datadog&#39;s Synthetics Locations (to be used in Synthetics tests).
      * 
      */
+    public static Output<GetSyntheticsLocationsResult> getSyntheticsLocations(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getSyntheticsLocations:getSyntheticsLocations", TypeShape.of(GetSyntheticsLocationsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve Datadog&#39;s Synthetics Locations (to be used in Synthetics tests).
+     * 
+     */
     public static CompletableFuture<GetSyntheticsLocationsResult> getSyntheticsLocationsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:index/getSyntheticsLocations:getSyntheticsLocations", TypeShape.of(GetSyntheticsLocationsResult.class), args, Utilities.withVersion(options));
     }
@@ -5390,6 +6328,13 @@ public final class DatadogFunctions {
      * 
      */
     public static Output<GetSyntheticsTestResult> getSyntheticsTest(GetSyntheticsTestArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getSyntheticsTest:getSyntheticsTest", TypeShape.of(GetSyntheticsTestResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve a Datadog Synthetic Test.
+     * 
+     */
+    public static Output<GetSyntheticsTestResult> getSyntheticsTest(GetSyntheticsTestArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("datadog:index/getSyntheticsTest:getSyntheticsTest", TypeShape.of(GetSyntheticsTestResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -5648,6 +6593,48 @@ public final class DatadogFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetTeamResult> getTeam(GetTeamArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getTeam:getTeam", TypeShape.of(GetTeamResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog team.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetTeamArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = DatadogFunctions.getTeam(GetTeamArgs.builder()
+     *             .teamId("e6723c40-edb1-11ed-b816-da7ad0900002")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetTeamResult> getTeamPlain(GetTeamPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:index/getTeam:getTeam", TypeShape.of(GetTeamResult.class), args, Utilities.withVersion(options));
     }
@@ -5820,6 +6807,49 @@ public final class DatadogFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetTeamMembershipsResult> getTeamMemberships(GetTeamMembershipsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getTeamMemberships:getTeamMemberships", TypeShape.of(GetTeamMembershipsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about existing Datadog team memberships.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetTeamMembershipsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         final var foo = DatadogFunctions.getTeamMemberships(GetTeamMembershipsArgs.builder()
+     *             .teamId("e6723c40-edb1-11ed-b816-da7ad0900002")
+     *             .filterKeyword("foo}{@literal @}{@code example.com")
+     *             .build());
+     * 
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetTeamMembershipsResult> getTeamMembershipsPlain(GetTeamMembershipsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:index/getTeamMemberships:getTeamMemberships", TypeShape.of(GetTeamMembershipsResult.class), args, Utilities.withVersion(options));
     }
@@ -5947,6 +6977,48 @@ public final class DatadogFunctions {
      * 
      */
     public static Output<GetUserResult> getUser(GetUserArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getUser:getUser", TypeShape.of(GetUserResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing user to use it in an other resources.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetUserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         final var test = DatadogFunctions.getUser(GetUserArgs.builder()
+     *             .filter("user.name}{@literal @}{@code company.com")
+     *             .build());
+     * 
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetUserResult> getUser(GetUserArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("datadog:index/getUser:getUser", TypeShape.of(GetUserResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -6204,6 +7276,49 @@ public final class DatadogFunctions {
      * 
      */
     public static Output<GetUsersResult> getUsers(GetUsersArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getUsers:getUsers", TypeShape.of(GetUsersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about existing users for use in other resources.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         final var test = DatadogFunctions.getUsers(GetUsersArgs.builder()
+     *             .filter("user.name}{@literal @}{@code company.com")
+     *             .filterStatus("Active,Pending")
+     *             .build());
+     * 
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetUsersResult> getUsers(GetUsersArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("datadog:index/getUsers:getUsers", TypeShape.of(GetUsersResult.class), args, Utilities.withVersion(options));
     }
     /**

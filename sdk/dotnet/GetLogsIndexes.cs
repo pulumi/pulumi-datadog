@@ -52,6 +52,27 @@ namespace Pulumi.Datadog
         /// </summary>
         public static Output<GetLogsIndexesResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLogsIndexesResult>("datadog:index/getLogsIndexes:getLogsIndexes", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to list several existing logs indexes for use in other resources.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Datadog = Pulumi.Datadog;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Datadog.GetLogsIndexes.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLogsIndexesResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLogsIndexesResult>("datadog:index/getLogsIndexes:getLogsIndexes", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
