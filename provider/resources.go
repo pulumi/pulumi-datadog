@@ -89,6 +89,7 @@ func Provider() tfbridge.ProviderInfo {
 	prov := tfbridge.ProviderInfo{
 		P:                   p,
 		Name:                "datadog",
+		DisplayName:         "Datadog",
 		Description:         "A Pulumi package for creating and managing Datadog resources.",
 		Keywords:            []string{"pulumi", "datadog"},
 		License:             "Apache-2.0",
