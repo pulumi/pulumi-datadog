@@ -30,6 +30,8 @@ type GetSensitiveDataScannerStandardPatternArgs struct {
 
 // A collection of values returned by getSensitiveDataScannerStandardPattern.
 type GetSensitiveDataScannerStandardPatternResult struct {
+	// Description of the standard pattern.
+	Description string `pulumi:"description"`
 	// Filter all the Datadog standard patterns by name.
 	Filter string `pulumi:"filter"`
 	// The provider-assigned unique ID for this managed resource.
@@ -38,7 +40,9 @@ type GetSensitiveDataScannerStandardPatternResult struct {
 	IncludedKeywords []string `pulumi:"includedKeywords"`
 	// Name of the standard pattern.
 	Name string `pulumi:"name"`
-	// Regex that the standard pattern applies.
+	// Regex to match, optionally documented for older standard rules.  **Deprecated.** Refer to the description field to understand what the rule does.
+	//
+	// Deprecated: Refer to the description field to understand what the rule does.
 	Pattern string `pulumi:"pattern"`
 	// List of tags.
 	Tags []string `pulumi:"tags"`
@@ -78,6 +82,11 @@ func (o GetSensitiveDataScannerStandardPatternResultOutput) ToGetSensitiveDataSc
 	return o
 }
 
+// Description of the standard pattern.
+func (o GetSensitiveDataScannerStandardPatternResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSensitiveDataScannerStandardPatternResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
 // Filter all the Datadog standard patterns by name.
 func (o GetSensitiveDataScannerStandardPatternResultOutput) Filter() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSensitiveDataScannerStandardPatternResult) string { return v.Filter }).(pulumi.StringOutput)
@@ -98,7 +107,9 @@ func (o GetSensitiveDataScannerStandardPatternResultOutput) Name() pulumi.String
 	return o.ApplyT(func(v GetSensitiveDataScannerStandardPatternResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Regex that the standard pattern applies.
+// Regex to match, optionally documented for older standard rules.  **Deprecated.** Refer to the description field to understand what the rule does.
+//
+// Deprecated: Refer to the description field to understand what the rule does.
 func (o GetSensitiveDataScannerStandardPatternResultOutput) Pattern() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSensitiveDataScannerStandardPatternResult) string { return v.Pattern }).(pulumi.StringOutput)
 }

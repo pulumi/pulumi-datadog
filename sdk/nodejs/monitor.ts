@@ -76,7 +76,7 @@ export class Monitor extends pulumi.CustomResource {
      * Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline
      * monitors.
      */
-    public /*out*/ readonly enableSamples!: pulumi.Output<boolean>;
+    public readonly enableSamples!: pulumi.Output<boolean | undefined>;
     /**
      * A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
      */
@@ -298,6 +298,7 @@ export class Monitor extends pulumi.CustomResource {
                 throw new Error("Missing required property 'type'");
             }
             resourceInputs["enableLogsSample"] = args ? args.enableLogsSample : undefined;
+            resourceInputs["enableSamples"] = args ? args.enableSamples : undefined;
             resourceInputs["escalationMessage"] = args ? args.escalationMessage : undefined;
             resourceInputs["evaluationDelay"] = args ? args.evaluationDelay : undefined;
             resourceInputs["forceDelete"] = args ? args.forceDelete : undefined;
@@ -330,7 +331,6 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["validate"] = args ? args.validate : undefined;
             resourceInputs["variables"] = args ? args.variables : undefined;
-            resourceInputs["enableSamples"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Monitor.__pulumiType, name, resourceInputs, opts);
@@ -520,6 +520,11 @@ export interface MonitorArgs {
      * monitors. Defaults to `false`.
      */
     enableLogsSample?: pulumi.Input<boolean>;
+    /**
+     * Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline
+     * monitors.
+     */
+    enableSamples?: pulumi.Input<boolean>;
     /**
      * A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
      */

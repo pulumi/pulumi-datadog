@@ -436,6 +436,166 @@ import (
 //	if err != nil {
 //		return err
 //	}
+//	// Example Usage (Synthetics Mobile test)
+//	// Create a new Datadog Synthetics Mobile test starting on https://www.example.org
+//	_, err = datadog.NewSyntheticsTest(ctx, "test_mobile", &datadog.SyntheticsTestArgs{
+//		Type:    pulumi.String("mobile"),
+//		Name:    pulumi.String("A Mobile test on example.org"),
+//		Status:  pulumi.String("paused"),
+//		Message: pulumi.String("Notify @datadog.user"),
+//		Tags: pulumi.StringArray{
+//			pulumi.String("foo:bar"),
+//			pulumi.String("baz"),
+//		},
+//		ConfigVariables: datadog.SyntheticsTestConfigVariableArray{
+//			&datadog.SyntheticsTestConfigVariableArgs{
+//				Example: pulumi.String("123"),
+//				Name:    pulumi.String("VARIABLE_NAME"),
+//				Pattern: pulumi.String("{{numeric(3)}}"),
+//				Type:    pulumi.String("text"),
+//				Secure:  pulumi.Bool(false),
+//			},
+//		},
+//		ConfigInitialApplicationArguments: pulumi.StringMap{
+//			"test_process_argument": pulumi.String("test1"),
+//		},
+//		DeviceIds: pulumi.StringArray{
+//			pulumi.String("synthetics:mobile:device:apple_iphone_14_plus_ios_16"),
+//		},
+//		Locations: pulumi.StringArray{
+//			pulumi.String("aws:eu-central-1"),
+//		},
+//		MobileOptionsList: &datadog.SyntheticsTestMobileOptionsListArgs{
+//			MinFailureDuration: pulumi.Int(0),
+//			Retry: &datadog.SyntheticsTestMobileOptionsListRetryArgs{
+//				Count:    pulumi.Int(0),
+//				Interval: pulumi.Int(300),
+//			},
+//			TickEvery: pulumi.Int(43200),
+//			Scheduling: &datadog.SyntheticsTestMobileOptionsListSchedulingArgs{
+//				Timeframes: datadog.SyntheticsTestMobileOptionsListSchedulingTimeframeArray{
+//					&datadog.SyntheticsTestMobileOptionsListSchedulingTimeframeArgs{
+//						Day:  pulumi.Int(5),
+//						From: pulumi.String("07:00"),
+//						To:   pulumi.String("16:00"),
+//					},
+//					&datadog.SyntheticsTestMobileOptionsListSchedulingTimeframeArgs{
+//						Day:  pulumi.Int(7),
+//						From: pulumi.String("07:00"),
+//						To:   pulumi.String("16:00"),
+//					},
+//				},
+//				Timezone: pulumi.String("UTC"),
+//			},
+//			MonitorName: pulumi.String("mobile-test-monitor"),
+//			MonitorOptions: &datadog.SyntheticsTestMobileOptionsListMonitorOptionsArgs{
+//				RenotifyInterval:       pulumi.Int(10),
+//				EscalationMessage:      pulumi.String("test escalation message"),
+//				RenotifyOccurrences:    pulumi.Int(3),
+//				NotificationPresetName: pulumi.String("show_all"),
+//			},
+//			MonitorPriority: pulumi.Int(5),
+//			RestrictedRoles: pulumi.StringArray{
+//				pulumi.String("role1"),
+//				pulumi.String("role2"),
+//			},
+//			Bindings: datadog.SyntheticsTestMobileOptionsListBindingArray{
+//				&datadog.SyntheticsTestMobileOptionsListBindingArgs{
+//					Principals: pulumi.StringArray{
+//						pulumi.String("org:8dee7c38-0000-aaaa-zzzz-8b5a08d3b091"),
+//						pulumi.String("team:3a0cdd74-0000-aaaa-zzzz-da7ad0900002"),
+//					},
+//					Relation: pulumi.String("editor"),
+//				},
+//			},
+//			Ci: &datadog.SyntheticsTestMobileOptionsListCiArgs{
+//				ExecutionRule: pulumi.String("blocking"),
+//			},
+//			DefaultStepTimeout: pulumi.Int(10),
+//			DeviceIds: pulumi.StringArray{
+//				pulumi.String("synthetics:mobile:device:apple_iphone_14_plus_ios_16"),
+//			},
+//			NoScreenshot:           pulumi.Bool(true),
+//			AllowApplicationCrash:  pulumi.Bool(false),
+//			DisableAutoAcceptAlert: pulumi.Bool(true),
+//			MobileApplication: &datadog.SyntheticsTestMobileOptionsListMobileApplicationArgs{
+//				ApplicationId: pulumi.String("5f055d15-0000-aaaa-zzzz-6739f83346aa"),
+//				ReferenceId:   pulumi.String("434d4719-0000-aaaa-zzzz-31082b544718"),
+//				ReferenceType: pulumi.String("version"),
+//			},
+//		},
+//		MobileSteps: datadog.SyntheticsTestMobileStepArray{
+//			&datadog.SyntheticsTestMobileStepArgs{
+//				Name: pulumi.String("Tap on StaticText \"Tap\""),
+//				Params: &datadog.SyntheticsTestMobileStepParamsArgs{
+//					Element: &datadog.SyntheticsTestMobileStepParamsElementArgs{
+//						Context:      pulumi.String("NATIVE_APP"),
+//						ViewName:     pulumi.String("StaticText"),
+//						ContextType:  pulumi.String("native"),
+//						TextContent:  pulumi.String("Tap"),
+//						MultiLocator: pulumi.StringMap{},
+//						RelativePosition: &datadog.SyntheticsTestMobileStepParamsElementRelativePositionArgs{
+//							X: pulumi.Float64(0.07256155303030302),
+//							Y: pulumi.Float64(0.41522381756756754),
+//						},
+//						UserLocator: &datadog.SyntheticsTestMobileStepParamsElementUserLocatorArgs{
+//							FailTestOnCannotLocate: pulumi.Bool(false),
+//							Values: datadog.SyntheticsTestMobileStepParamsElementUserLocatorValueArray{
+//								&datadog.SyntheticsTestMobileStepParamsElementUserLocatorValueArgs{
+//									Type:  pulumi.String("id"),
+//									Value: pulumi.String("some_id"),
+//								},
+//							},
+//						},
+//						ElementDescription: pulumi.String("<XCUIElementTypeStaticText value=\"Tap\" name=\"Tap\" label=\"Tap\">"),
+//					},
+//				},
+//				Timeout:           pulumi.Int(100),
+//				Type:              pulumi.String("tap"),
+//				AllowFailure:      pulumi.Bool(false),
+//				IsCritical:        pulumi.Bool(true),
+//				NoScreenshot:      pulumi.Bool(false),
+//				HasNewStepElement: pulumi.Bool(false),
+//			},
+//			&datadog.SyntheticsTestMobileStepArgs{
+//				Name: pulumi.String("Test View \"Tap\" content"),
+//				Params: &datadog.SyntheticsTestMobileStepParamsArgs{
+//					Check: pulumi.String("contains"),
+//					Value: pulumi.String("Tap"),
+//					Element: &datadog.SyntheticsTestMobileStepParamsElementArgs{
+//						Context:      pulumi.String("NATIVE_APP"),
+//						ViewName:     pulumi.String("View"),
+//						ContextType:  pulumi.String("native"),
+//						TextContent:  pulumi.String("Tap"),
+//						MultiLocator: pulumi.StringMap{},
+//						RelativePosition: &datadog.SyntheticsTestMobileStepParamsElementRelativePositionArgs{
+//							X: pulumi.Float64(0.27660448306074764),
+//							Y: pulumi.Float64(0.6841517857142857),
+//						},
+//						UserLocator: &datadog.SyntheticsTestMobileStepParamsElementUserLocatorArgs{
+//							FailTestOnCannotLocate: pulumi.Bool(false),
+//							Values: datadog.SyntheticsTestMobileStepParamsElementUserLocatorValueArray{
+//								&datadog.SyntheticsTestMobileStepParamsElementUserLocatorValueArgs{
+//									Type:  pulumi.String("id"),
+//									Value: pulumi.String("some_id"),
+//								},
+//							},
+//						},
+//						ElementDescription: pulumi.String("<XCUIElementTypeOther name=\"Tap\" label=\"Tap\">"),
+//					},
+//				},
+//				Timeout:           pulumi.Int(100),
+//				Type:              pulumi.String("assertElementContent"),
+//				AllowFailure:      pulumi.Bool(false),
+//				IsCritical:        pulumi.Bool(true),
+//				NoScreenshot:      pulumi.Bool(false),
+//				HasNewStepElement: pulumi.Bool(false),
+//			},
+//		},
+//	})
+//	if err != nil {
+//		return err
+//	}
 //	// Example Usage (GRPC API behavior check test)
 //	// Create a new Datadog GRPC API test calling host example.org on port 443
 //	// targeting service `greeter.Greeter` with the method `SayHello`
@@ -584,16 +744,21 @@ type SyntheticsTest struct {
 	BrowserSteps SyntheticsTestBrowserStepArrayOutput `pulumi:"browserSteps"`
 	// Variables used for a browser test steps. Multiple `variable` blocks are allowed with the structure below.
 	BrowserVariables SyntheticsTestBrowserVariableArrayOutput `pulumi:"browserVariables"`
+	// Initial application arguments for the mobile test.
+	ConfigInitialApplicationArguments pulumi.StringMapOutput `pulumi:"configInitialApplicationArguments"`
 	// Variables used for the test configuration. Multiple `configVariable` blocks are allowed with the structure below.
 	ConfigVariables SyntheticsTestConfigVariableArrayOutput `pulumi:"configVariables"`
-	// Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptopLarge`, `tablet`, `mobileSmall`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
+	// Required if `type = "browser"`. Array with the different device IDs used to run the test.
 	DeviceIds pulumi.StringArrayOutput `pulumi:"deviceIds"`
 	// A boolean indicating whether this synthetics test can be deleted even if it's referenced by other resources (for example, SLOs and composite monitors).
 	ForceDeleteDependencies pulumi.BoolPtrOutput `pulumi:"forceDeleteDependencies"`
 	// Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
 	Locations pulumi.StringArrayOutput `pulumi:"locations"`
 	// A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events. Defaults to `""`.
-	Message pulumi.StringPtrOutput `pulumi:"message"`
+	Message           pulumi.StringPtrOutput                   `pulumi:"message"`
+	MobileOptionsList SyntheticsTestMobileOptionsListPtrOutput `pulumi:"mobileOptionsList"`
+	// Steps for mobile tests
+	MobileSteps SyntheticsTestMobileStepArrayOutput `pulumi:"mobileSteps"`
 	// ID of the monitor associated with the Datadog synthetics test.
 	MonitorId pulumi.IntOutput `pulumi:"monitorId"`
 	// Name of Datadog synthetics test.
@@ -679,16 +844,21 @@ type syntheticsTestState struct {
 	BrowserSteps []SyntheticsTestBrowserStep `pulumi:"browserSteps"`
 	// Variables used for a browser test steps. Multiple `variable` blocks are allowed with the structure below.
 	BrowserVariables []SyntheticsTestBrowserVariable `pulumi:"browserVariables"`
+	// Initial application arguments for the mobile test.
+	ConfigInitialApplicationArguments map[string]string `pulumi:"configInitialApplicationArguments"`
 	// Variables used for the test configuration. Multiple `configVariable` blocks are allowed with the structure below.
 	ConfigVariables []SyntheticsTestConfigVariable `pulumi:"configVariables"`
-	// Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptopLarge`, `tablet`, `mobileSmall`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
+	// Required if `type = "browser"`. Array with the different device IDs used to run the test.
 	DeviceIds []string `pulumi:"deviceIds"`
 	// A boolean indicating whether this synthetics test can be deleted even if it's referenced by other resources (for example, SLOs and composite monitors).
 	ForceDeleteDependencies *bool `pulumi:"forceDeleteDependencies"`
 	// Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
 	Locations []string `pulumi:"locations"`
 	// A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events. Defaults to `""`.
-	Message *string `pulumi:"message"`
+	Message           *string                          `pulumi:"message"`
+	MobileOptionsList *SyntheticsTestMobileOptionsList `pulumi:"mobileOptionsList"`
+	// Steps for mobile tests
+	MobileSteps []SyntheticsTestMobileStep `pulumi:"mobileSteps"`
 	// ID of the monitor associated with the Datadog synthetics test.
 	MonitorId *int `pulumi:"monitorId"`
 	// Name of Datadog synthetics test.
@@ -733,16 +903,21 @@ type SyntheticsTestState struct {
 	BrowserSteps SyntheticsTestBrowserStepArrayInput
 	// Variables used for a browser test steps. Multiple `variable` blocks are allowed with the structure below.
 	BrowserVariables SyntheticsTestBrowserVariableArrayInput
+	// Initial application arguments for the mobile test.
+	ConfigInitialApplicationArguments pulumi.StringMapInput
 	// Variables used for the test configuration. Multiple `configVariable` blocks are allowed with the structure below.
 	ConfigVariables SyntheticsTestConfigVariableArrayInput
-	// Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptopLarge`, `tablet`, `mobileSmall`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
+	// Required if `type = "browser"`. Array with the different device IDs used to run the test.
 	DeviceIds pulumi.StringArrayInput
 	// A boolean indicating whether this synthetics test can be deleted even if it's referenced by other resources (for example, SLOs and composite monitors).
 	ForceDeleteDependencies pulumi.BoolPtrInput
 	// Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
 	Locations pulumi.StringArrayInput
 	// A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events. Defaults to `""`.
-	Message pulumi.StringPtrInput
+	Message           pulumi.StringPtrInput
+	MobileOptionsList SyntheticsTestMobileOptionsListPtrInput
+	// Steps for mobile tests
+	MobileSteps SyntheticsTestMobileStepArrayInput
 	// ID of the monitor associated with the Datadog synthetics test.
 	MonitorId pulumi.IntPtrInput
 	// Name of Datadog synthetics test.
@@ -791,16 +966,21 @@ type syntheticsTestArgs struct {
 	BrowserSteps []SyntheticsTestBrowserStep `pulumi:"browserSteps"`
 	// Variables used for a browser test steps. Multiple `variable` blocks are allowed with the structure below.
 	BrowserVariables []SyntheticsTestBrowserVariable `pulumi:"browserVariables"`
+	// Initial application arguments for the mobile test.
+	ConfigInitialApplicationArguments map[string]string `pulumi:"configInitialApplicationArguments"`
 	// Variables used for the test configuration. Multiple `configVariable` blocks are allowed with the structure below.
 	ConfigVariables []SyntheticsTestConfigVariable `pulumi:"configVariables"`
-	// Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptopLarge`, `tablet`, `mobileSmall`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
+	// Required if `type = "browser"`. Array with the different device IDs used to run the test.
 	DeviceIds []string `pulumi:"deviceIds"`
 	// A boolean indicating whether this synthetics test can be deleted even if it's referenced by other resources (for example, SLOs and composite monitors).
 	ForceDeleteDependencies *bool `pulumi:"forceDeleteDependencies"`
 	// Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
 	Locations []string `pulumi:"locations"`
 	// A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events. Defaults to `""`.
-	Message *string `pulumi:"message"`
+	Message           *string                          `pulumi:"message"`
+	MobileOptionsList *SyntheticsTestMobileOptionsList `pulumi:"mobileOptionsList"`
+	// Steps for mobile tests
+	MobileSteps []SyntheticsTestMobileStep `pulumi:"mobileSteps"`
 	// Name of Datadog synthetics test.
 	Name        string                     `pulumi:"name"`
 	OptionsList *SyntheticsTestOptionsList `pulumi:"optionsList"`
@@ -844,16 +1024,21 @@ type SyntheticsTestArgs struct {
 	BrowserSteps SyntheticsTestBrowserStepArrayInput
 	// Variables used for a browser test steps. Multiple `variable` blocks are allowed with the structure below.
 	BrowserVariables SyntheticsTestBrowserVariableArrayInput
+	// Initial application arguments for the mobile test.
+	ConfigInitialApplicationArguments pulumi.StringMapInput
 	// Variables used for the test configuration. Multiple `configVariable` blocks are allowed with the structure below.
 	ConfigVariables SyntheticsTestConfigVariableArrayInput
-	// Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptopLarge`, `tablet`, `mobileSmall`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
+	// Required if `type = "browser"`. Array with the different device IDs used to run the test.
 	DeviceIds pulumi.StringArrayInput
 	// A boolean indicating whether this synthetics test can be deleted even if it's referenced by other resources (for example, SLOs and composite monitors).
 	ForceDeleteDependencies pulumi.BoolPtrInput
 	// Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
 	Locations pulumi.StringArrayInput
 	// A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events. Defaults to `""`.
-	Message pulumi.StringPtrInput
+	Message           pulumi.StringPtrInput
+	MobileOptionsList SyntheticsTestMobileOptionsListPtrInput
+	// Steps for mobile tests
+	MobileSteps SyntheticsTestMobileStepArrayInput
 	// Name of Datadog synthetics test.
 	Name        pulumi.StringInput
 	OptionsList SyntheticsTestOptionsListPtrInput
@@ -994,12 +1179,17 @@ func (o SyntheticsTestOutput) BrowserVariables() SyntheticsTestBrowserVariableAr
 	return o.ApplyT(func(v *SyntheticsTest) SyntheticsTestBrowserVariableArrayOutput { return v.BrowserVariables }).(SyntheticsTestBrowserVariableArrayOutput)
 }
 
+// Initial application arguments for the mobile test.
+func (o SyntheticsTestOutput) ConfigInitialApplicationArguments() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SyntheticsTest) pulumi.StringMapOutput { return v.ConfigInitialApplicationArguments }).(pulumi.StringMapOutput)
+}
+
 // Variables used for the test configuration. Multiple `configVariable` blocks are allowed with the structure below.
 func (o SyntheticsTestOutput) ConfigVariables() SyntheticsTestConfigVariableArrayOutput {
 	return o.ApplyT(func(v *SyntheticsTest) SyntheticsTestConfigVariableArrayOutput { return v.ConfigVariables }).(SyntheticsTestConfigVariableArrayOutput)
 }
 
-// Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptopLarge`, `tablet`, `mobileSmall`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
+// Required if `type = "browser"`. Array with the different device IDs used to run the test.
 func (o SyntheticsTestOutput) DeviceIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SyntheticsTest) pulumi.StringArrayOutput { return v.DeviceIds }).(pulumi.StringArrayOutput)
 }
@@ -1017,6 +1207,15 @@ func (o SyntheticsTestOutput) Locations() pulumi.StringArrayOutput {
 // A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events. Defaults to `""`.
 func (o SyntheticsTestOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTest) pulumi.StringPtrOutput { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+func (o SyntheticsTestOutput) MobileOptionsList() SyntheticsTestMobileOptionsListPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTest) SyntheticsTestMobileOptionsListPtrOutput { return v.MobileOptionsList }).(SyntheticsTestMobileOptionsListPtrOutput)
+}
+
+// Steps for mobile tests
+func (o SyntheticsTestOutput) MobileSteps() SyntheticsTestMobileStepArrayOutput {
+	return o.ApplyT(func(v *SyntheticsTest) SyntheticsTestMobileStepArrayOutput { return v.MobileSteps }).(SyntheticsTestMobileStepArrayOutput)
 }
 
 // ID of the monitor associated with the Datadog synthetics test.

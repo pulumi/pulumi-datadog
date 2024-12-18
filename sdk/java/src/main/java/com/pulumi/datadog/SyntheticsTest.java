@@ -15,6 +15,8 @@ import com.pulumi.datadog.outputs.SyntheticsTestAssertion;
 import com.pulumi.datadog.outputs.SyntheticsTestBrowserStep;
 import com.pulumi.datadog.outputs.SyntheticsTestBrowserVariable;
 import com.pulumi.datadog.outputs.SyntheticsTestConfigVariable;
+import com.pulumi.datadog.outputs.SyntheticsTestMobileOptionsList;
+import com.pulumi.datadog.outputs.SyntheticsTestMobileStep;
 import com.pulumi.datadog.outputs.SyntheticsTestOptionsList;
 import com.pulumi.datadog.outputs.SyntheticsTestRequestBasicauth;
 import com.pulumi.datadog.outputs.SyntheticsTestRequestClientCertificate;
@@ -66,6 +68,17 @@ import javax.annotation.Nullable;
  * import com.pulumi.datadog.inputs.SyntheticsTestBrowserStepArgs;
  * import com.pulumi.datadog.inputs.SyntheticsTestBrowserStepParamsArgs;
  * import com.pulumi.datadog.inputs.SyntheticsTestBrowserVariableArgs;
+ * import com.pulumi.datadog.inputs.SyntheticsTestMobileOptionsListArgs;
+ * import com.pulumi.datadog.inputs.SyntheticsTestMobileOptionsListRetryArgs;
+ * import com.pulumi.datadog.inputs.SyntheticsTestMobileOptionsListSchedulingArgs;
+ * import com.pulumi.datadog.inputs.SyntheticsTestMobileOptionsListMonitorOptionsArgs;
+ * import com.pulumi.datadog.inputs.SyntheticsTestMobileOptionsListCiArgs;
+ * import com.pulumi.datadog.inputs.SyntheticsTestMobileOptionsListMobileApplicationArgs;
+ * import com.pulumi.datadog.inputs.SyntheticsTestMobileStepArgs;
+ * import com.pulumi.datadog.inputs.SyntheticsTestMobileStepParamsArgs;
+ * import com.pulumi.datadog.inputs.SyntheticsTestMobileStepParamsElementArgs;
+ * import com.pulumi.datadog.inputs.SyntheticsTestMobileStepParamsElementRelativePositionArgs;
+ * import com.pulumi.datadog.inputs.SyntheticsTestMobileStepParamsElementUserLocatorArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -406,6 +419,143 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // Example Usage (Synthetics Mobile test)
+ *         // Create a new Datadog Synthetics Mobile test starting on https://www.example.org
+ *         var testMobile = new SyntheticsTest("testMobile", SyntheticsTestArgs.builder()
+ *             .type("mobile")
+ *             .name("A Mobile test on example.org")
+ *             .status("paused")
+ *             .message("Notify }{@literal @}{@code datadog.user")
+ *             .tags(            
+ *                 "foo:bar",
+ *                 "baz")
+ *             .configVariables(SyntheticsTestConfigVariableArgs.builder()
+ *                 .example("123")
+ *                 .name("VARIABLE_NAME")
+ *                 .pattern("}{{{@code numeric(3)}}}{@code ")
+ *                 .type("text")
+ *                 .secure(false)
+ *                 .build())
+ *             .configInitialApplicationArguments(Map.of("test_process_argument", "test1"))
+ *             .deviceIds("synthetics:mobile:device:apple_iphone_14_plus_ios_16")
+ *             .locations("aws:eu-central-1")
+ *             .mobileOptionsList(SyntheticsTestMobileOptionsListArgs.builder()
+ *                 .minFailureDuration(0)
+ *                 .retry(SyntheticsTestMobileOptionsListRetryArgs.builder()
+ *                     .count(0)
+ *                     .interval(300)
+ *                     .build())
+ *                 .tickEvery(43200)
+ *                 .scheduling(SyntheticsTestMobileOptionsListSchedulingArgs.builder()
+ *                     .timeframes(                    
+ *                         SyntheticsTestMobileOptionsListSchedulingTimeframeArgs.builder()
+ *                             .day(5)
+ *                             .from("07:00")
+ *                             .to("16:00")
+ *                             .build(),
+ *                         SyntheticsTestMobileOptionsListSchedulingTimeframeArgs.builder()
+ *                             .day(7)
+ *                             .from("07:00")
+ *                             .to("16:00")
+ *                             .build())
+ *                     .timezone("UTC")
+ *                     .build())
+ *                 .monitorName("mobile-test-monitor")
+ *                 .monitorOptions(SyntheticsTestMobileOptionsListMonitorOptionsArgs.builder()
+ *                     .renotifyInterval(10)
+ *                     .escalationMessage("test escalation message")
+ *                     .renotifyOccurrences(3)
+ *                     .notificationPresetName("show_all")
+ *                     .build())
+ *                 .monitorPriority(5)
+ *                 .restrictedRoles(                
+ *                     "role1",
+ *                     "role2")
+ *                 .bindings(SyntheticsTestMobileOptionsListBindingArgs.builder()
+ *                     .principals(                    
+ *                         "org:8dee7c38-0000-aaaa-zzzz-8b5a08d3b091",
+ *                         "team:3a0cdd74-0000-aaaa-zzzz-da7ad0900002")
+ *                     .relation("editor")
+ *                     .build())
+ *                 .ci(SyntheticsTestMobileOptionsListCiArgs.builder()
+ *                     .executionRule("blocking")
+ *                     .build())
+ *                 .defaultStepTimeout(10)
+ *                 .deviceIds("synthetics:mobile:device:apple_iphone_14_plus_ios_16")
+ *                 .noScreenshot(true)
+ *                 .allowApplicationCrash(false)
+ *                 .disableAutoAcceptAlert(true)
+ *                 .mobileApplication(SyntheticsTestMobileOptionsListMobileApplicationArgs.builder()
+ *                     .applicationId("5f055d15-0000-aaaa-zzzz-6739f83346aa")
+ *                     .referenceId("434d4719-0000-aaaa-zzzz-31082b544718")
+ *                     .referenceType("version")
+ *                     .build())
+ *                 .build())
+ *             .mobileSteps(            
+ *                 SyntheticsTestMobileStepArgs.builder()
+ *                     .name("Tap on StaticText \"Tap\"")
+ *                     .params(SyntheticsTestMobileStepParamsArgs.builder()
+ *                         .element(SyntheticsTestMobileStepParamsElementArgs.builder()
+ *                             .context("NATIVE_APP")
+ *                             .viewName("StaticText")
+ *                             .contextType("native")
+ *                             .textContent("Tap")
+ *                             .multiLocator()
+ *                             .relativePosition(SyntheticsTestMobileStepParamsElementRelativePositionArgs.builder()
+ *                                 .x(0.07256155303030302)
+ *                                 .y(0.41522381756756754)
+ *                                 .build())
+ *                             .userLocator(SyntheticsTestMobileStepParamsElementUserLocatorArgs.builder()
+ *                                 .failTestOnCannotLocate(false)
+ *                                 .values(SyntheticsTestMobileStepParamsElementUserLocatorValueArgs.builder()
+ *                                     .type("id")
+ *                                     .value("some_id")
+ *                                     .build())
+ *                                 .build())
+ *                             .elementDescription("<XCUIElementTypeStaticText value=\"Tap\" name=\"Tap\" label=\"Tap\">")
+ *                             .build())
+ *                         .build())
+ *                     .timeout(100)
+ *                     .type("tap")
+ *                     .allowFailure(false)
+ *                     .isCritical(true)
+ *                     .noScreenshot(false)
+ *                     .hasNewStepElement(false)
+ *                     .build(),
+ *                 SyntheticsTestMobileStepArgs.builder()
+ *                     .name("Test View \"Tap\" content")
+ *                     .params(SyntheticsTestMobileStepParamsArgs.builder()
+ *                         .check("contains")
+ *                         .value("Tap")
+ *                         .element(SyntheticsTestMobileStepParamsElementArgs.builder()
+ *                             .context("NATIVE_APP")
+ *                             .viewName("View")
+ *                             .contextType("native")
+ *                             .textContent("Tap")
+ *                             .multiLocator()
+ *                             .relativePosition(SyntheticsTestMobileStepParamsElementRelativePositionArgs.builder()
+ *                                 .x(0.27660448306074764)
+ *                                 .y(0.6841517857142857)
+ *                                 .build())
+ *                             .userLocator(SyntheticsTestMobileStepParamsElementUserLocatorArgs.builder()
+ *                                 .failTestOnCannotLocate(false)
+ *                                 .values(SyntheticsTestMobileStepParamsElementUserLocatorValueArgs.builder()
+ *                                     .type("id")
+ *                                     .value("some_id")
+ *                                     .build())
+ *                                 .build())
+ *                             .elementDescription("<XCUIElementTypeOther name=\"Tap\" label=\"Tap\">")
+ *                             .build())
+ *                         .build())
+ *                     .timeout(100)
+ *                     .type("assertElementContent")
+ *                     .allowFailure(false)
+ *                     .isCritical(true)
+ *                     .noScreenshot(false)
+ *                     .hasNewStepElement(false)
+ *                     .build())
+ *             .build());
+ * 
  *         // Example Usage (GRPC API behavior check test)
  *         // Create a new Datadog GRPC API test calling host example.org on port 443
  *         // targeting service `greeter.Greeter` with the method `SayHello`
@@ -586,6 +736,20 @@ public class SyntheticsTest extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.browserVariables);
     }
     /**
+     * Initial application arguments for the mobile test.
+     * 
+     */
+    @Export(name="configInitialApplicationArguments", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> configInitialApplicationArguments;
+
+    /**
+     * @return Initial application arguments for the mobile test.
+     * 
+     */
+    public Output<Optional<Map<String,String>>> configInitialApplicationArguments() {
+        return Codegen.optional(this.configInitialApplicationArguments);
+    }
+    /**
      * Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
      * 
      */
@@ -600,14 +764,14 @@ public class SyntheticsTest extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.configVariables);
     }
     /**
-     * Required if `type = &#34;browser&#34;`. Array with the different device IDs used to run the test. Valid values are `laptop_large`, `tablet`, `mobile_small`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
+     * Required if `type = &#34;browser&#34;`. Array with the different device IDs used to run the test.
      * 
      */
     @Export(name="deviceIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> deviceIds;
 
     /**
-     * @return Required if `type = &#34;browser&#34;`. Array with the different device IDs used to run the test. Valid values are `laptop_large`, `tablet`, `mobile_small`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
+     * @return Required if `type = &#34;browser&#34;`. Array with the different device IDs used to run the test.
      * 
      */
     public Output<Optional<List<String>>> deviceIds() {
@@ -654,6 +818,26 @@ public class SyntheticsTest extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> message() {
         return Codegen.optional(this.message);
+    }
+    @Export(name="mobileOptionsList", refs={SyntheticsTestMobileOptionsList.class}, tree="[0]")
+    private Output</* @Nullable */ SyntheticsTestMobileOptionsList> mobileOptionsList;
+
+    public Output<Optional<SyntheticsTestMobileOptionsList>> mobileOptionsList() {
+        return Codegen.optional(this.mobileOptionsList);
+    }
+    /**
+     * Steps for mobile tests
+     * 
+     */
+    @Export(name="mobileSteps", refs={List.class,SyntheticsTestMobileStep.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<SyntheticsTestMobileStep>> mobileSteps;
+
+    /**
+     * @return Steps for mobile tests
+     * 
+     */
+    public Output<Optional<List<SyntheticsTestMobileStep>>> mobileSteps() {
+        return Codegen.optional(this.mobileSteps);
     }
     /**
      * ID of the monitor associated with the Datadog synthetics test.

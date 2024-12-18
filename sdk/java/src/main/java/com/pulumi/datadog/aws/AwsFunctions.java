@@ -6,6 +6,8 @@ package com.pulumi.datadog.aws;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.datadog.Utilities;
+import com.pulumi.datadog.aws.outputs.GetIntegrationAvailableLogsServicesResult;
+import com.pulumi.datadog.aws.outputs.GetIntegrationAvailableNamespacesResult;
 import com.pulumi.datadog.aws.outputs.GetIntegrationLogsServicesResult;
 import com.pulumi.datadog.aws.outputs.GetIntegrationNamespaceRulesResult;
 import com.pulumi.deployment.Deployment;
@@ -15,6 +17,104 @@ import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class AwsFunctions {
+    /**
+     * Use this data source to retrieve all AWS log ready services. This is the list of allowed values for `logs_config.lambda_forwarder.sources` in `datadog.aws.IntegrationAccount` resource.
+     * 
+     */
+    public static Output<GetIntegrationAvailableLogsServicesResult> getIntegrationAvailableLogsServices() {
+        return getIntegrationAvailableLogsServices(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve all AWS log ready services. This is the list of allowed values for `logs_config.lambda_forwarder.sources` in `datadog.aws.IntegrationAccount` resource.
+     * 
+     */
+    public static CompletableFuture<GetIntegrationAvailableLogsServicesResult> getIntegrationAvailableLogsServicesPlain() {
+        return getIntegrationAvailableLogsServicesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve all AWS log ready services. This is the list of allowed values for `logs_config.lambda_forwarder.sources` in `datadog.aws.IntegrationAccount` resource.
+     * 
+     */
+    public static Output<GetIntegrationAvailableLogsServicesResult> getIntegrationAvailableLogsServices(InvokeArgs args) {
+        return getIntegrationAvailableLogsServices(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve all AWS log ready services. This is the list of allowed values for `logs_config.lambda_forwarder.sources` in `datadog.aws.IntegrationAccount` resource.
+     * 
+     */
+    public static CompletableFuture<GetIntegrationAvailableLogsServicesResult> getIntegrationAvailableLogsServicesPlain(InvokeArgs args) {
+        return getIntegrationAvailableLogsServicesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve all AWS log ready services. This is the list of allowed values for `logs_config.lambda_forwarder.sources` in `datadog.aws.IntegrationAccount` resource.
+     * 
+     */
+    public static Output<GetIntegrationAvailableLogsServicesResult> getIntegrationAvailableLogsServices(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:aws/getIntegrationAvailableLogsServices:getIntegrationAvailableLogsServices", TypeShape.of(GetIntegrationAvailableLogsServicesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve all AWS log ready services. This is the list of allowed values for `logs_config.lambda_forwarder.sources` in `datadog.aws.IntegrationAccount` resource.
+     * 
+     */
+    public static Output<GetIntegrationAvailableLogsServicesResult> getIntegrationAvailableLogsServices(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:aws/getIntegrationAvailableLogsServices:getIntegrationAvailableLogsServices", TypeShape.of(GetIntegrationAvailableLogsServicesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve all AWS log ready services. This is the list of allowed values for `logs_config.lambda_forwarder.sources` in `datadog.aws.IntegrationAccount` resource.
+     * 
+     */
+    public static CompletableFuture<GetIntegrationAvailableLogsServicesResult> getIntegrationAvailableLogsServicesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:aws/getIntegrationAvailableLogsServices:getIntegrationAvailableLogsServices", TypeShape.of(GetIntegrationAvailableLogsServicesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve all available AWS namespaces. This is the list of allowed values for `metrics_config.namespace_filters` `include_only` or `exclude_only` in `datadog.aws.IntegrationAccount` resource.
+     * 
+     */
+    public static Output<GetIntegrationAvailableNamespacesResult> getIntegrationAvailableNamespaces() {
+        return getIntegrationAvailableNamespaces(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve all available AWS namespaces. This is the list of allowed values for `metrics_config.namespace_filters` `include_only` or `exclude_only` in `datadog.aws.IntegrationAccount` resource.
+     * 
+     */
+    public static CompletableFuture<GetIntegrationAvailableNamespacesResult> getIntegrationAvailableNamespacesPlain() {
+        return getIntegrationAvailableNamespacesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve all available AWS namespaces. This is the list of allowed values for `metrics_config.namespace_filters` `include_only` or `exclude_only` in `datadog.aws.IntegrationAccount` resource.
+     * 
+     */
+    public static Output<GetIntegrationAvailableNamespacesResult> getIntegrationAvailableNamespaces(InvokeArgs args) {
+        return getIntegrationAvailableNamespaces(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve all available AWS namespaces. This is the list of allowed values for `metrics_config.namespace_filters` `include_only` or `exclude_only` in `datadog.aws.IntegrationAccount` resource.
+     * 
+     */
+    public static CompletableFuture<GetIntegrationAvailableNamespacesResult> getIntegrationAvailableNamespacesPlain(InvokeArgs args) {
+        return getIntegrationAvailableNamespacesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve all available AWS namespaces. This is the list of allowed values for `metrics_config.namespace_filters` `include_only` or `exclude_only` in `datadog.aws.IntegrationAccount` resource.
+     * 
+     */
+    public static Output<GetIntegrationAvailableNamespacesResult> getIntegrationAvailableNamespaces(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:aws/getIntegrationAvailableNamespaces:getIntegrationAvailableNamespaces", TypeShape.of(GetIntegrationAvailableNamespacesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve all available AWS namespaces. This is the list of allowed values for `metrics_config.namespace_filters` `include_only` or `exclude_only` in `datadog.aws.IntegrationAccount` resource.
+     * 
+     */
+    public static Output<GetIntegrationAvailableNamespacesResult> getIntegrationAvailableNamespaces(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:aws/getIntegrationAvailableNamespaces:getIntegrationAvailableNamespaces", TypeShape.of(GetIntegrationAvailableNamespacesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve all available AWS namespaces. This is the list of allowed values for `metrics_config.namespace_filters` `include_only` or `exclude_only` in `datadog.aws.IntegrationAccount` resource.
+     * 
+     */
+    public static CompletableFuture<GetIntegrationAvailableNamespacesResult> getIntegrationAvailableNamespacesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:aws/getIntegrationAvailableNamespaces:getIntegrationAvailableNamespaces", TypeShape.of(GetIntegrationAvailableNamespacesResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Use this data source to retrieve all AWS log ready services.
      * 

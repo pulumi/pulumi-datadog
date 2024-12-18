@@ -66,7 +66,7 @@ namespace Pulumi.Datadog
         /// monitors.
         /// </summary>
         [Output("enableSamples")]
-        public Output<bool> EnableSamples { get; private set; } = null!;
+        public Output<bool?> EnableSamples { get; private set; } = null!;
 
         /// <summary>
         /// A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
@@ -338,6 +338,13 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("enableLogsSample")]
         public Input<bool>? EnableLogsSample { get; set; }
+
+        /// <summary>
+        /// Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline
+        /// monitors.
+        /// </summary>
+        [Input("enableSamples")]
+        public Input<bool>? EnableSamples { get; set; }
 
         /// <summary>
         /// A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.

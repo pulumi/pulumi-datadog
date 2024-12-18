@@ -10,6 +10,8 @@ import com.pulumi.datadog.inputs.SyntheticsTestAssertionArgs;
 import com.pulumi.datadog.inputs.SyntheticsTestBrowserStepArgs;
 import com.pulumi.datadog.inputs.SyntheticsTestBrowserVariableArgs;
 import com.pulumi.datadog.inputs.SyntheticsTestConfigVariableArgs;
+import com.pulumi.datadog.inputs.SyntheticsTestMobileOptionsListArgs;
+import com.pulumi.datadog.inputs.SyntheticsTestMobileStepArgs;
 import com.pulumi.datadog.inputs.SyntheticsTestOptionsListArgs;
 import com.pulumi.datadog.inputs.SyntheticsTestRequestBasicauthArgs;
 import com.pulumi.datadog.inputs.SyntheticsTestRequestClientCertificateArgs;
@@ -91,6 +93,21 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * Initial application arguments for the mobile test.
+     * 
+     */
+    @Import(name="configInitialApplicationArguments")
+    private @Nullable Output<Map<String,String>> configInitialApplicationArguments;
+
+    /**
+     * @return Initial application arguments for the mobile test.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> configInitialApplicationArguments() {
+        return Optional.ofNullable(this.configInitialApplicationArguments);
+    }
+
+    /**
      * Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
      * 
      */
@@ -106,14 +123,14 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Required if `type = &#34;browser&#34;`. Array with the different device IDs used to run the test. Valid values are `laptop_large`, `tablet`, `mobile_small`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
+     * Required if `type = &#34;browser&#34;`. Array with the different device IDs used to run the test.
      * 
      */
     @Import(name="deviceIds")
     private @Nullable Output<List<String>> deviceIds;
 
     /**
-     * @return Required if `type = &#34;browser&#34;`. Array with the different device IDs used to run the test. Valid values are `laptop_large`, `tablet`, `mobile_small`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
+     * @return Required if `type = &#34;browser&#34;`. Array with the different device IDs used to run the test.
      * 
      */
     public Optional<Output<List<String>>> deviceIds() {
@@ -163,6 +180,28 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
      */
     public Optional<Output<String>> message() {
         return Optional.ofNullable(this.message);
+    }
+
+    @Import(name="mobileOptionsList")
+    private @Nullable Output<SyntheticsTestMobileOptionsListArgs> mobileOptionsList;
+
+    public Optional<Output<SyntheticsTestMobileOptionsListArgs>> mobileOptionsList() {
+        return Optional.ofNullable(this.mobileOptionsList);
+    }
+
+    /**
+     * Steps for mobile tests
+     * 
+     */
+    @Import(name="mobileSteps")
+    private @Nullable Output<List<SyntheticsTestMobileStepArgs>> mobileSteps;
+
+    /**
+     * @return Steps for mobile tests
+     * 
+     */
+    public Optional<Output<List<SyntheticsTestMobileStepArgs>>> mobileSteps() {
+        return Optional.ofNullable(this.mobileSteps);
     }
 
     /**
@@ -419,11 +458,14 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         this.assertions = $.assertions;
         this.browserSteps = $.browserSteps;
         this.browserVariables = $.browserVariables;
+        this.configInitialApplicationArguments = $.configInitialApplicationArguments;
         this.configVariables = $.configVariables;
         this.deviceIds = $.deviceIds;
         this.forceDeleteDependencies = $.forceDeleteDependencies;
         this.locations = $.locations;
         this.message = $.message;
+        this.mobileOptionsList = $.mobileOptionsList;
+        this.mobileSteps = $.mobileSteps;
         this.monitorId = $.monitorId;
         this.name = $.name;
         this.optionsList = $.optionsList;
@@ -586,6 +628,27 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
+         * @param configInitialApplicationArguments Initial application arguments for the mobile test.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder configInitialApplicationArguments(@Nullable Output<Map<String,String>> configInitialApplicationArguments) {
+            $.configInitialApplicationArguments = configInitialApplicationArguments;
+            return this;
+        }
+
+        /**
+         * @param configInitialApplicationArguments Initial application arguments for the mobile test.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder configInitialApplicationArguments(Map<String,String> configInitialApplicationArguments) {
+            return configInitialApplicationArguments(Output.of(configInitialApplicationArguments));
+        }
+
+        /**
          * @param configVariables Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
          * 
          * @return builder
@@ -617,7 +680,7 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param deviceIds Required if `type = &#34;browser&#34;`. Array with the different device IDs used to run the test. Valid values are `laptop_large`, `tablet`, `mobile_small`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
+         * @param deviceIds Required if `type = &#34;browser&#34;`. Array with the different device IDs used to run the test.
          * 
          * @return builder
          * 
@@ -628,7 +691,7 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param deviceIds Required if `type = &#34;browser&#34;`. Array with the different device IDs used to run the test. Valid values are `laptop_large`, `tablet`, `mobile_small`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
+         * @param deviceIds Required if `type = &#34;browser&#34;`. Array with the different device IDs used to run the test.
          * 
          * @return builder
          * 
@@ -638,7 +701,7 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param deviceIds Required if `type = &#34;browser&#34;`. Array with the different device IDs used to run the test. Valid values are `laptop_large`, `tablet`, `mobile_small`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
+         * @param deviceIds Required if `type = &#34;browser&#34;`. Array with the different device IDs used to run the test.
          * 
          * @return builder
          * 
@@ -718,6 +781,46 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
          */
         public Builder message(String message) {
             return message(Output.of(message));
+        }
+
+        public Builder mobileOptionsList(@Nullable Output<SyntheticsTestMobileOptionsListArgs> mobileOptionsList) {
+            $.mobileOptionsList = mobileOptionsList;
+            return this;
+        }
+
+        public Builder mobileOptionsList(SyntheticsTestMobileOptionsListArgs mobileOptionsList) {
+            return mobileOptionsList(Output.of(mobileOptionsList));
+        }
+
+        /**
+         * @param mobileSteps Steps for mobile tests
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mobileSteps(@Nullable Output<List<SyntheticsTestMobileStepArgs>> mobileSteps) {
+            $.mobileSteps = mobileSteps;
+            return this;
+        }
+
+        /**
+         * @param mobileSteps Steps for mobile tests
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mobileSteps(List<SyntheticsTestMobileStepArgs> mobileSteps) {
+            return mobileSteps(Output.of(mobileSteps));
+        }
+
+        /**
+         * @param mobileSteps Steps for mobile tests
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mobileSteps(SyntheticsTestMobileStepArgs... mobileSteps) {
+            return mobileSteps(List.of(mobileSteps));
         }
 
         /**

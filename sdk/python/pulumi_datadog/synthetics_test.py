@@ -29,10 +29,13 @@ class SyntheticsTestArgs:
                  assertions: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestAssertionArgs']]]] = None,
                  browser_steps: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestBrowserStepArgs']]]] = None,
                  browser_variables: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestBrowserVariableArgs']]]] = None,
+                 config_initial_application_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  config_variables: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestConfigVariableArgs']]]] = None,
                  device_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  force_delete_dependencies: Optional[pulumi.Input[bool]] = None,
                  message: Optional[pulumi.Input[str]] = None,
+                 mobile_options_list: Optional[pulumi.Input['SyntheticsTestMobileOptionsListArgs']] = None,
+                 mobile_steps: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestMobileStepArgs']]]] = None,
                  options_list: Optional[pulumi.Input['SyntheticsTestOptionsListArgs']] = None,
                  request_basicauth: Optional[pulumi.Input['SyntheticsTestRequestBasicauthArgs']] = None,
                  request_client_certificate: Optional[pulumi.Input['SyntheticsTestRequestClientCertificateArgs']] = None,
@@ -56,10 +59,12 @@ class SyntheticsTestArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestAssertionArgs']]] assertions: Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestBrowserStepArgs']]] browser_steps: Steps for browser tests.
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestBrowserVariableArgs']]] browser_variables: Variables used for a browser test steps. Multiple `variable` blocks are allowed with the structure below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config_initial_application_arguments: Initial application arguments for the mobile test.
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestConfigVariableArgs']]] config_variables: Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] device_ids: Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptop_large`, `tablet`, `mobile_small`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] device_ids: Required if `type = "browser"`. Array with the different device IDs used to run the test.
         :param pulumi.Input[bool] force_delete_dependencies: A boolean indicating whether this synthetics test can be deleted even if it's referenced by other resources (for example, SLOs and composite monitors).
         :param pulumi.Input[str] message: A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events. Defaults to `""`.
+        :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestMobileStepArgs']]] mobile_steps: Steps for mobile tests
         :param pulumi.Input['SyntheticsTestRequestBasicauthArgs'] request_basicauth: The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
         :param pulumi.Input['SyntheticsTestRequestClientCertificateArgs'] request_client_certificate: Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
         :param pulumi.Input['SyntheticsTestRequestDefinitionArgs'] request_definition: Required if `type = "api"`. The synthetics test request.
@@ -85,6 +90,8 @@ class SyntheticsTestArgs:
             pulumi.set(__self__, "browser_steps", browser_steps)
         if browser_variables is not None:
             pulumi.set(__self__, "browser_variables", browser_variables)
+        if config_initial_application_arguments is not None:
+            pulumi.set(__self__, "config_initial_application_arguments", config_initial_application_arguments)
         if config_variables is not None:
             pulumi.set(__self__, "config_variables", config_variables)
         if device_ids is not None:
@@ -93,6 +100,10 @@ class SyntheticsTestArgs:
             pulumi.set(__self__, "force_delete_dependencies", force_delete_dependencies)
         if message is not None:
             pulumi.set(__self__, "message", message)
+        if mobile_options_list is not None:
+            pulumi.set(__self__, "mobile_options_list", mobile_options_list)
+        if mobile_steps is not None:
+            pulumi.set(__self__, "mobile_steps", mobile_steps)
         if options_list is not None:
             pulumi.set(__self__, "options_list", options_list)
         if request_basicauth is not None:
@@ -217,6 +228,18 @@ class SyntheticsTestArgs:
         pulumi.set(self, "browser_variables", value)
 
     @property
+    @pulumi.getter(name="configInitialApplicationArguments")
+    def config_initial_application_arguments(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Initial application arguments for the mobile test.
+        """
+        return pulumi.get(self, "config_initial_application_arguments")
+
+    @config_initial_application_arguments.setter
+    def config_initial_application_arguments(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "config_initial_application_arguments", value)
+
+    @property
     @pulumi.getter(name="configVariables")
     def config_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestConfigVariableArgs']]]]:
         """
@@ -232,7 +255,7 @@ class SyntheticsTestArgs:
     @pulumi.getter(name="deviceIds")
     def device_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptop_large`, `tablet`, `mobile_small`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
+        Required if `type = "browser"`. Array with the different device IDs used to run the test.
         """
         return pulumi.get(self, "device_ids")
 
@@ -263,6 +286,27 @@ class SyntheticsTestArgs:
     @message.setter
     def message(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "message", value)
+
+    @property
+    @pulumi.getter(name="mobileOptionsList")
+    def mobile_options_list(self) -> Optional[pulumi.Input['SyntheticsTestMobileOptionsListArgs']]:
+        return pulumi.get(self, "mobile_options_list")
+
+    @mobile_options_list.setter
+    def mobile_options_list(self, value: Optional[pulumi.Input['SyntheticsTestMobileOptionsListArgs']]):
+        pulumi.set(self, "mobile_options_list", value)
+
+    @property
+    @pulumi.getter(name="mobileSteps")
+    def mobile_steps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestMobileStepArgs']]]]:
+        """
+        Steps for mobile tests
+        """
+        return pulumi.get(self, "mobile_steps")
+
+    @mobile_steps.setter
+    def mobile_steps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestMobileStepArgs']]]]):
+        pulumi.set(self, "mobile_steps", value)
 
     @property
     @pulumi.getter(name="optionsList")
@@ -425,11 +469,14 @@ class _SyntheticsTestState:
                  assertions: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestAssertionArgs']]]] = None,
                  browser_steps: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestBrowserStepArgs']]]] = None,
                  browser_variables: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestBrowserVariableArgs']]]] = None,
+                 config_initial_application_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  config_variables: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestConfigVariableArgs']]]] = None,
                  device_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  force_delete_dependencies: Optional[pulumi.Input[bool]] = None,
                  locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  message: Optional[pulumi.Input[str]] = None,
+                 mobile_options_list: Optional[pulumi.Input['SyntheticsTestMobileOptionsListArgs']] = None,
+                 mobile_steps: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestMobileStepArgs']]]] = None,
                  monitor_id: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  options_list: Optional[pulumi.Input['SyntheticsTestOptionsListArgs']] = None,
@@ -453,11 +500,13 @@ class _SyntheticsTestState:
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestAssertionArgs']]] assertions: Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestBrowserStepArgs']]] browser_steps: Steps for browser tests.
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestBrowserVariableArgs']]] browser_variables: Variables used for a browser test steps. Multiple `variable` blocks are allowed with the structure below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config_initial_application_arguments: Initial application arguments for the mobile test.
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestConfigVariableArgs']]] config_variables: Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] device_ids: Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptop_large`, `tablet`, `mobile_small`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] device_ids: Required if `type = "browser"`. Array with the different device IDs used to run the test.
         :param pulumi.Input[bool] force_delete_dependencies: A boolean indicating whether this synthetics test can be deleted even if it's referenced by other resources (for example, SLOs and composite monitors).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
         :param pulumi.Input[str] message: A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events. Defaults to `""`.
+        :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestMobileStepArgs']]] mobile_steps: Steps for mobile tests
         :param pulumi.Input[int] monitor_id: ID of the monitor associated with the Datadog synthetics test.
         :param pulumi.Input[str] name: Name of Datadog synthetics test.
         :param pulumi.Input['SyntheticsTestRequestBasicauthArgs'] request_basicauth: The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
@@ -483,6 +532,8 @@ class _SyntheticsTestState:
             pulumi.set(__self__, "browser_steps", browser_steps)
         if browser_variables is not None:
             pulumi.set(__self__, "browser_variables", browser_variables)
+        if config_initial_application_arguments is not None:
+            pulumi.set(__self__, "config_initial_application_arguments", config_initial_application_arguments)
         if config_variables is not None:
             pulumi.set(__self__, "config_variables", config_variables)
         if device_ids is not None:
@@ -493,6 +544,10 @@ class _SyntheticsTestState:
             pulumi.set(__self__, "locations", locations)
         if message is not None:
             pulumi.set(__self__, "message", message)
+        if mobile_options_list is not None:
+            pulumi.set(__self__, "mobile_options_list", mobile_options_list)
+        if mobile_steps is not None:
+            pulumi.set(__self__, "mobile_steps", mobile_steps)
         if monitor_id is not None:
             pulumi.set(__self__, "monitor_id", monitor_id)
         if name is not None:
@@ -577,6 +632,18 @@ class _SyntheticsTestState:
         pulumi.set(self, "browser_variables", value)
 
     @property
+    @pulumi.getter(name="configInitialApplicationArguments")
+    def config_initial_application_arguments(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Initial application arguments for the mobile test.
+        """
+        return pulumi.get(self, "config_initial_application_arguments")
+
+    @config_initial_application_arguments.setter
+    def config_initial_application_arguments(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "config_initial_application_arguments", value)
+
+    @property
     @pulumi.getter(name="configVariables")
     def config_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestConfigVariableArgs']]]]:
         """
@@ -592,7 +659,7 @@ class _SyntheticsTestState:
     @pulumi.getter(name="deviceIds")
     def device_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptop_large`, `tablet`, `mobile_small`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
+        Required if `type = "browser"`. Array with the different device IDs used to run the test.
         """
         return pulumi.get(self, "device_ids")
 
@@ -635,6 +702,27 @@ class _SyntheticsTestState:
     @message.setter
     def message(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "message", value)
+
+    @property
+    @pulumi.getter(name="mobileOptionsList")
+    def mobile_options_list(self) -> Optional[pulumi.Input['SyntheticsTestMobileOptionsListArgs']]:
+        return pulumi.get(self, "mobile_options_list")
+
+    @mobile_options_list.setter
+    def mobile_options_list(self, value: Optional[pulumi.Input['SyntheticsTestMobileOptionsListArgs']]):
+        pulumi.set(self, "mobile_options_list", value)
+
+    @property
+    @pulumi.getter(name="mobileSteps")
+    def mobile_steps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestMobileStepArgs']]]]:
+        """
+        Steps for mobile tests
+        """
+        return pulumi.get(self, "mobile_steps")
+
+    @mobile_steps.setter
+    def mobile_steps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestMobileStepArgs']]]]):
+        pulumi.set(self, "mobile_steps", value)
 
     @property
     @pulumi.getter(name="monitorId")
@@ -847,11 +935,14 @@ class SyntheticsTest(pulumi.CustomResource):
                  assertions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestAssertionArgs', 'SyntheticsTestAssertionArgsDict']]]]] = None,
                  browser_steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestBrowserStepArgs', 'SyntheticsTestBrowserStepArgsDict']]]]] = None,
                  browser_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestBrowserVariableArgs', 'SyntheticsTestBrowserVariableArgsDict']]]]] = None,
+                 config_initial_application_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  config_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestConfigVariableArgs', 'SyntheticsTestConfigVariableArgsDict']]]]] = None,
                  device_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  force_delete_dependencies: Optional[pulumi.Input[bool]] = None,
                  locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  message: Optional[pulumi.Input[str]] = None,
+                 mobile_options_list: Optional[pulumi.Input[Union['SyntheticsTestMobileOptionsListArgs', 'SyntheticsTestMobileOptionsListArgsDict']]] = None,
+                 mobile_steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestMobileStepArgs', 'SyntheticsTestMobileStepArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  options_list: Optional[pulumi.Input[Union['SyntheticsTestOptionsListArgs', 'SyntheticsTestOptionsListArgsDict']]] = None,
                  request_basicauth: Optional[pulumi.Input[Union['SyntheticsTestRequestBasicauthArgs', 'SyntheticsTestRequestBasicauthArgsDict']]] = None,
@@ -1211,6 +1302,148 @@ class SyntheticsTest(pulumi.CustomResource):
             options_list={
                 "tick_every": 3600,
             })
+        # Example Usage (Synthetics Mobile test)
+        # Create a new Datadog Synthetics Mobile test starting on https://www.example.org
+        test_mobile = datadog.SyntheticsTest("test_mobile",
+            type="mobile",
+            name="A Mobile test on example.org",
+            status="paused",
+            message="Notify @datadog.user",
+            tags=[
+                "foo:bar",
+                "baz",
+            ],
+            config_variables=[{
+                "example": "123",
+                "name": "VARIABLE_NAME",
+                "pattern": "{{numeric(3)}}",
+                "type": "text",
+                "secure": False,
+            }],
+            config_initial_application_arguments={
+                "test_process_argument": "test1",
+            },
+            device_ids=["synthetics:mobile:device:apple_iphone_14_plus_ios_16"],
+            locations=["aws:eu-central-1"],
+            mobile_options_list={
+                "min_failure_duration": 0,
+                "retry": {
+                    "count": 0,
+                    "interval": 300,
+                },
+                "tick_every": 43200,
+                "scheduling": {
+                    "timeframes": [
+                        {
+                            "day": 5,
+                            "from_": "07:00",
+                            "to": "16:00",
+                        },
+                        {
+                            "day": 7,
+                            "from_": "07:00",
+                            "to": "16:00",
+                        },
+                    ],
+                    "timezone": "UTC",
+                },
+                "monitor_name": "mobile-test-monitor",
+                "monitor_options": {
+                    "renotify_interval": 10,
+                    "escalation_message": "test escalation message",
+                    "renotify_occurrences": 3,
+                    "notification_preset_name": "show_all",
+                },
+                "monitor_priority": 5,
+                "restricted_roles": [
+                    "role1",
+                    "role2",
+                ],
+                "bindings": [{
+                    "principals": [
+                        "org:8dee7c38-0000-aaaa-zzzz-8b5a08d3b091",
+                        "team:3a0cdd74-0000-aaaa-zzzz-da7ad0900002",
+                    ],
+                    "relation": "editor",
+                }],
+                "ci": {
+                    "execution_rule": "blocking",
+                },
+                "default_step_timeout": 10,
+                "device_ids": ["synthetics:mobile:device:apple_iphone_14_plus_ios_16"],
+                "no_screenshot": True,
+                "allow_application_crash": False,
+                "disable_auto_accept_alert": True,
+                "mobile_application": {
+                    "application_id": "5f055d15-0000-aaaa-zzzz-6739f83346aa",
+                    "reference_id": "434d4719-0000-aaaa-zzzz-31082b544718",
+                    "reference_type": "version",
+                },
+            },
+            mobile_steps=[
+                {
+                    "name": "Tap on StaticText \\"Tap\\"",
+                    "params": {
+                        "element": {
+                            "context": "NATIVE_APP",
+                            "view_name": "StaticText",
+                            "context_type": "native",
+                            "text_content": "Tap",
+                            "multi_locator": {},
+                            "relative_position": {
+                                "x": 0.07256155303030302,
+                                "y": 0.41522381756756754,
+                            },
+                            "user_locator": {
+                                "fail_test_on_cannot_locate": False,
+                                "values": [{
+                                    "type": "id",
+                                    "value": "some_id",
+                                }],
+                            },
+                            "element_description": "<XCUIElementTypeStaticText value=\\"Tap\\" name=\\"Tap\\" label=\\"Tap\\">",
+                        },
+                    },
+                    "timeout": 100,
+                    "type": "tap",
+                    "allow_failure": False,
+                    "is_critical": True,
+                    "no_screenshot": False,
+                    "has_new_step_element": False,
+                },
+                {
+                    "name": "Test View \\"Tap\\" content",
+                    "params": {
+                        "check": "contains",
+                        "value": "Tap",
+                        "element": {
+                            "context": "NATIVE_APP",
+                            "view_name": "View",
+                            "context_type": "native",
+                            "text_content": "Tap",
+                            "multi_locator": {},
+                            "relative_position": {
+                                "x": 0.27660448306074764,
+                                "y": 0.6841517857142857,
+                            },
+                            "user_locator": {
+                                "fail_test_on_cannot_locate": False,
+                                "values": [{
+                                    "type": "id",
+                                    "value": "some_id",
+                                }],
+                            },
+                            "element_description": "<XCUIElementTypeOther name=\\"Tap\\" label=\\"Tap\\">",
+                        },
+                    },
+                    "timeout": 100,
+                    "type": "assertElementContent",
+                    "allow_failure": False,
+                    "is_critical": True,
+                    "no_screenshot": False,
+                    "has_new_step_element": False,
+                },
+            ])
         # Example Usage (GRPC API behavior check test)
         # Create a new Datadog GRPC API test calling host example.org on port 443
         # targeting service `greeter.Greeter` with the method `SayHello`
@@ -1334,11 +1567,13 @@ class SyntheticsTest(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestAssertionArgs', 'SyntheticsTestAssertionArgsDict']]]] assertions: Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestBrowserStepArgs', 'SyntheticsTestBrowserStepArgsDict']]]] browser_steps: Steps for browser tests.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestBrowserVariableArgs', 'SyntheticsTestBrowserVariableArgsDict']]]] browser_variables: Variables used for a browser test steps. Multiple `variable` blocks are allowed with the structure below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config_initial_application_arguments: Initial application arguments for the mobile test.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestConfigVariableArgs', 'SyntheticsTestConfigVariableArgsDict']]]] config_variables: Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] device_ids: Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptop_large`, `tablet`, `mobile_small`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] device_ids: Required if `type = "browser"`. Array with the different device IDs used to run the test.
         :param pulumi.Input[bool] force_delete_dependencies: A boolean indicating whether this synthetics test can be deleted even if it's referenced by other resources (for example, SLOs and composite monitors).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
         :param pulumi.Input[str] message: A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events. Defaults to `""`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestMobileStepArgs', 'SyntheticsTestMobileStepArgsDict']]]] mobile_steps: Steps for mobile tests
         :param pulumi.Input[str] name: Name of Datadog synthetics test.
         :param pulumi.Input[Union['SyntheticsTestRequestBasicauthArgs', 'SyntheticsTestRequestBasicauthArgsDict']] request_basicauth: The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
         :param pulumi.Input[Union['SyntheticsTestRequestClientCertificateArgs', 'SyntheticsTestRequestClientCertificateArgsDict']] request_client_certificate: Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
@@ -1703,6 +1938,148 @@ class SyntheticsTest(pulumi.CustomResource):
             options_list={
                 "tick_every": 3600,
             })
+        # Example Usage (Synthetics Mobile test)
+        # Create a new Datadog Synthetics Mobile test starting on https://www.example.org
+        test_mobile = datadog.SyntheticsTest("test_mobile",
+            type="mobile",
+            name="A Mobile test on example.org",
+            status="paused",
+            message="Notify @datadog.user",
+            tags=[
+                "foo:bar",
+                "baz",
+            ],
+            config_variables=[{
+                "example": "123",
+                "name": "VARIABLE_NAME",
+                "pattern": "{{numeric(3)}}",
+                "type": "text",
+                "secure": False,
+            }],
+            config_initial_application_arguments={
+                "test_process_argument": "test1",
+            },
+            device_ids=["synthetics:mobile:device:apple_iphone_14_plus_ios_16"],
+            locations=["aws:eu-central-1"],
+            mobile_options_list={
+                "min_failure_duration": 0,
+                "retry": {
+                    "count": 0,
+                    "interval": 300,
+                },
+                "tick_every": 43200,
+                "scheduling": {
+                    "timeframes": [
+                        {
+                            "day": 5,
+                            "from_": "07:00",
+                            "to": "16:00",
+                        },
+                        {
+                            "day": 7,
+                            "from_": "07:00",
+                            "to": "16:00",
+                        },
+                    ],
+                    "timezone": "UTC",
+                },
+                "monitor_name": "mobile-test-monitor",
+                "monitor_options": {
+                    "renotify_interval": 10,
+                    "escalation_message": "test escalation message",
+                    "renotify_occurrences": 3,
+                    "notification_preset_name": "show_all",
+                },
+                "monitor_priority": 5,
+                "restricted_roles": [
+                    "role1",
+                    "role2",
+                ],
+                "bindings": [{
+                    "principals": [
+                        "org:8dee7c38-0000-aaaa-zzzz-8b5a08d3b091",
+                        "team:3a0cdd74-0000-aaaa-zzzz-da7ad0900002",
+                    ],
+                    "relation": "editor",
+                }],
+                "ci": {
+                    "execution_rule": "blocking",
+                },
+                "default_step_timeout": 10,
+                "device_ids": ["synthetics:mobile:device:apple_iphone_14_plus_ios_16"],
+                "no_screenshot": True,
+                "allow_application_crash": False,
+                "disable_auto_accept_alert": True,
+                "mobile_application": {
+                    "application_id": "5f055d15-0000-aaaa-zzzz-6739f83346aa",
+                    "reference_id": "434d4719-0000-aaaa-zzzz-31082b544718",
+                    "reference_type": "version",
+                },
+            },
+            mobile_steps=[
+                {
+                    "name": "Tap on StaticText \\"Tap\\"",
+                    "params": {
+                        "element": {
+                            "context": "NATIVE_APP",
+                            "view_name": "StaticText",
+                            "context_type": "native",
+                            "text_content": "Tap",
+                            "multi_locator": {},
+                            "relative_position": {
+                                "x": 0.07256155303030302,
+                                "y": 0.41522381756756754,
+                            },
+                            "user_locator": {
+                                "fail_test_on_cannot_locate": False,
+                                "values": [{
+                                    "type": "id",
+                                    "value": "some_id",
+                                }],
+                            },
+                            "element_description": "<XCUIElementTypeStaticText value=\\"Tap\\" name=\\"Tap\\" label=\\"Tap\\">",
+                        },
+                    },
+                    "timeout": 100,
+                    "type": "tap",
+                    "allow_failure": False,
+                    "is_critical": True,
+                    "no_screenshot": False,
+                    "has_new_step_element": False,
+                },
+                {
+                    "name": "Test View \\"Tap\\" content",
+                    "params": {
+                        "check": "contains",
+                        "value": "Tap",
+                        "element": {
+                            "context": "NATIVE_APP",
+                            "view_name": "View",
+                            "context_type": "native",
+                            "text_content": "Tap",
+                            "multi_locator": {},
+                            "relative_position": {
+                                "x": 0.27660448306074764,
+                                "y": 0.6841517857142857,
+                            },
+                            "user_locator": {
+                                "fail_test_on_cannot_locate": False,
+                                "values": [{
+                                    "type": "id",
+                                    "value": "some_id",
+                                }],
+                            },
+                            "element_description": "<XCUIElementTypeOther name=\\"Tap\\" label=\\"Tap\\">",
+                        },
+                    },
+                    "timeout": 100,
+                    "type": "assertElementContent",
+                    "allow_failure": False,
+                    "is_critical": True,
+                    "no_screenshot": False,
+                    "has_new_step_element": False,
+                },
+            ])
         # Example Usage (GRPC API behavior check test)
         # Create a new Datadog GRPC API test calling host example.org on port 443
         # targeting service `greeter.Greeter` with the method `SayHello`
@@ -1839,11 +2216,14 @@ class SyntheticsTest(pulumi.CustomResource):
                  assertions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestAssertionArgs', 'SyntheticsTestAssertionArgsDict']]]]] = None,
                  browser_steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestBrowserStepArgs', 'SyntheticsTestBrowserStepArgsDict']]]]] = None,
                  browser_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestBrowserVariableArgs', 'SyntheticsTestBrowserVariableArgsDict']]]]] = None,
+                 config_initial_application_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  config_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestConfigVariableArgs', 'SyntheticsTestConfigVariableArgsDict']]]]] = None,
                  device_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  force_delete_dependencies: Optional[pulumi.Input[bool]] = None,
                  locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  message: Optional[pulumi.Input[str]] = None,
+                 mobile_options_list: Optional[pulumi.Input[Union['SyntheticsTestMobileOptionsListArgs', 'SyntheticsTestMobileOptionsListArgsDict']]] = None,
+                 mobile_steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestMobileStepArgs', 'SyntheticsTestMobileStepArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  options_list: Optional[pulumi.Input[Union['SyntheticsTestOptionsListArgs', 'SyntheticsTestOptionsListArgsDict']]] = None,
                  request_basicauth: Optional[pulumi.Input[Union['SyntheticsTestRequestBasicauthArgs', 'SyntheticsTestRequestBasicauthArgsDict']]] = None,
@@ -1873,6 +2253,7 @@ class SyntheticsTest(pulumi.CustomResource):
             __props__.__dict__["assertions"] = assertions
             __props__.__dict__["browser_steps"] = browser_steps
             __props__.__dict__["browser_variables"] = browser_variables
+            __props__.__dict__["config_initial_application_arguments"] = config_initial_application_arguments
             __props__.__dict__["config_variables"] = config_variables
             __props__.__dict__["device_ids"] = device_ids
             __props__.__dict__["force_delete_dependencies"] = force_delete_dependencies
@@ -1880,6 +2261,8 @@ class SyntheticsTest(pulumi.CustomResource):
                 raise TypeError("Missing required property 'locations'")
             __props__.__dict__["locations"] = locations
             __props__.__dict__["message"] = message
+            __props__.__dict__["mobile_options_list"] = mobile_options_list
+            __props__.__dict__["mobile_steps"] = mobile_steps
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
@@ -1917,11 +2300,14 @@ class SyntheticsTest(pulumi.CustomResource):
             assertions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestAssertionArgs', 'SyntheticsTestAssertionArgsDict']]]]] = None,
             browser_steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestBrowserStepArgs', 'SyntheticsTestBrowserStepArgsDict']]]]] = None,
             browser_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestBrowserVariableArgs', 'SyntheticsTestBrowserVariableArgsDict']]]]] = None,
+            config_initial_application_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             config_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestConfigVariableArgs', 'SyntheticsTestConfigVariableArgsDict']]]]] = None,
             device_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             force_delete_dependencies: Optional[pulumi.Input[bool]] = None,
             locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             message: Optional[pulumi.Input[str]] = None,
+            mobile_options_list: Optional[pulumi.Input[Union['SyntheticsTestMobileOptionsListArgs', 'SyntheticsTestMobileOptionsListArgsDict']]] = None,
+            mobile_steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestMobileStepArgs', 'SyntheticsTestMobileStepArgsDict']]]]] = None,
             monitor_id: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             options_list: Optional[pulumi.Input[Union['SyntheticsTestOptionsListArgs', 'SyntheticsTestOptionsListArgsDict']]] = None,
@@ -1950,11 +2336,13 @@ class SyntheticsTest(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestAssertionArgs', 'SyntheticsTestAssertionArgsDict']]]] assertions: Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestBrowserStepArgs', 'SyntheticsTestBrowserStepArgsDict']]]] browser_steps: Steps for browser tests.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestBrowserVariableArgs', 'SyntheticsTestBrowserVariableArgsDict']]]] browser_variables: Variables used for a browser test steps. Multiple `variable` blocks are allowed with the structure below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config_initial_application_arguments: Initial application arguments for the mobile test.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestConfigVariableArgs', 'SyntheticsTestConfigVariableArgsDict']]]] config_variables: Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] device_ids: Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptop_large`, `tablet`, `mobile_small`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] device_ids: Required if `type = "browser"`. Array with the different device IDs used to run the test.
         :param pulumi.Input[bool] force_delete_dependencies: A boolean indicating whether this synthetics test can be deleted even if it's referenced by other resources (for example, SLOs and composite monitors).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
         :param pulumi.Input[str] message: A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events. Defaults to `""`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestMobileStepArgs', 'SyntheticsTestMobileStepArgsDict']]]] mobile_steps: Steps for mobile tests
         :param pulumi.Input[int] monitor_id: ID of the monitor associated with the Datadog synthetics test.
         :param pulumi.Input[str] name: Name of Datadog synthetics test.
         :param pulumi.Input[Union['SyntheticsTestRequestBasicauthArgs', 'SyntheticsTestRequestBasicauthArgsDict']] request_basicauth: The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
@@ -1980,11 +2368,14 @@ class SyntheticsTest(pulumi.CustomResource):
         __props__.__dict__["assertions"] = assertions
         __props__.__dict__["browser_steps"] = browser_steps
         __props__.__dict__["browser_variables"] = browser_variables
+        __props__.__dict__["config_initial_application_arguments"] = config_initial_application_arguments
         __props__.__dict__["config_variables"] = config_variables
         __props__.__dict__["device_ids"] = device_ids
         __props__.__dict__["force_delete_dependencies"] = force_delete_dependencies
         __props__.__dict__["locations"] = locations
         __props__.__dict__["message"] = message
+        __props__.__dict__["mobile_options_list"] = mobile_options_list
+        __props__.__dict__["mobile_steps"] = mobile_steps
         __props__.__dict__["monitor_id"] = monitor_id
         __props__.__dict__["name"] = name
         __props__.__dict__["options_list"] = options_list
@@ -2037,6 +2428,14 @@ class SyntheticsTest(pulumi.CustomResource):
         return pulumi.get(self, "browser_variables")
 
     @property
+    @pulumi.getter(name="configInitialApplicationArguments")
+    def config_initial_application_arguments(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Initial application arguments for the mobile test.
+        """
+        return pulumi.get(self, "config_initial_application_arguments")
+
+    @property
     @pulumi.getter(name="configVariables")
     def config_variables(self) -> pulumi.Output[Optional[Sequence['outputs.SyntheticsTestConfigVariable']]]:
         """
@@ -2048,7 +2447,7 @@ class SyntheticsTest(pulumi.CustomResource):
     @pulumi.getter(name="deviceIds")
     def device_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptop_large`, `tablet`, `mobile_small`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
+        Required if `type = "browser"`. Array with the different device IDs used to run the test.
         """
         return pulumi.get(self, "device_ids")
 
@@ -2075,6 +2474,19 @@ class SyntheticsTest(pulumi.CustomResource):
         A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events. Defaults to `""`.
         """
         return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter(name="mobileOptionsList")
+    def mobile_options_list(self) -> pulumi.Output[Optional['outputs.SyntheticsTestMobileOptionsList']]:
+        return pulumi.get(self, "mobile_options_list")
+
+    @property
+    @pulumi.getter(name="mobileSteps")
+    def mobile_steps(self) -> pulumi.Output[Optional[Sequence['outputs.SyntheticsTestMobileStep']]]:
+        """
+        Steps for mobile tests
+        """
+        return pulumi.get(self, "mobile_steps")
 
     @property
     @pulumi.getter(name="monitorId")

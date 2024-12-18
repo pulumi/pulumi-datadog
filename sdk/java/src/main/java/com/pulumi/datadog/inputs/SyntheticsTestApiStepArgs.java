@@ -59,6 +59,21 @@ public final class SyntheticsTestApiStepArgs extends com.pulumi.resources.Resour
     }
 
     /**
+     * Determines whether or not to exit the test if the step succeeds.
+     * 
+     */
+    @Import(name="exitIfSucceed")
+    private @Nullable Output<Boolean> exitIfSucceed;
+
+    /**
+     * @return Determines whether or not to exit the test if the step succeeds.
+     * 
+     */
+    public Optional<Output<Boolean>> exitIfSucceed() {
+        return Optional.ofNullable(this.exitIfSucceed);
+    }
+
+    /**
      * Values to parse and save as variables from the response.
      * 
      */
@@ -265,6 +280,7 @@ public final class SyntheticsTestApiStepArgs extends com.pulumi.resources.Resour
     private SyntheticsTestApiStepArgs(SyntheticsTestApiStepArgs $) {
         this.allowFailure = $.allowFailure;
         this.assertions = $.assertions;
+        this.exitIfSucceed = $.exitIfSucceed;
         this.extractedValues = $.extractedValues;
         this.isCritical = $.isCritical;
         this.name = $.name;
@@ -349,6 +365,27 @@ public final class SyntheticsTestApiStepArgs extends com.pulumi.resources.Resour
          */
         public Builder assertions(SyntheticsTestApiStepAssertionArgs... assertions) {
             return assertions(List.of(assertions));
+        }
+
+        /**
+         * @param exitIfSucceed Determines whether or not to exit the test if the step succeeds.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder exitIfSucceed(@Nullable Output<Boolean> exitIfSucceed) {
+            $.exitIfSucceed = exitIfSucceed;
+            return this;
+        }
+
+        /**
+         * @param exitIfSucceed Determines whether or not to exit the test if the step succeeds.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder exitIfSucceed(Boolean exitIfSucceed) {
+            return exitIfSucceed(Output.of(exitIfSucceed));
         }
 
         /**

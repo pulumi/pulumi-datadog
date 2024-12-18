@@ -68,7 +68,7 @@ export class IntegrationAccount extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * An allowlist of resources to pull metrics for. Including, `web`, `dns`, `lb` (load balancer), and `worker`).
+     * An allowlist of resources to pull metrics for. Includes `web`, `dns`, `lb` (load balancer), and `worker`).
      */
     public readonly resources!: pulumi.Output<string[]>;
 
@@ -126,7 +126,7 @@ export interface IntegrationAccountState {
      */
     name?: pulumi.Input<string>;
     /**
-     * An allowlist of resources to pull metrics for. Including, `web`, `dns`, `lb` (load balancer), and `worker`).
+     * An allowlist of resources to pull metrics for. Includes `web`, `dns`, `lb` (load balancer), and `worker`).
      */
     resources?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -148,7 +148,7 @@ export interface IntegrationAccountArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * An allowlist of resources to pull metrics for. Including, `web`, `dns`, `lb` (load balancer), and `worker`).
+     * An allowlist of resources to pull metrics for. Includes `web`, `dns`, `lb` (load balancer), and `worker`).
      */
     resources?: pulumi.Input<pulumi.Input<string>[]>;
 }

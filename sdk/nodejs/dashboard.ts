@@ -9,6 +9,8 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog dashboard resource. This can be used to create and manage Datadog dashboards.
  *
+ * !> The `isReadOnly` field is deprecated and non-functional. Use `restrictedRoles` instead to define which roles are required to edit the dashboard.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -800,9 +802,9 @@ export class Dashboard extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard. Defaults to `false`.
+     * Whether this dashboard is read-only. **Deprecated.** This field is deprecated and non-functional. Use `restrictedRoles` instead to define which roles are required to edit the dashboard. Defaults to `false`.
      *
-     * @deprecated Prefer using `restrictedRoles` to define which roles are required to edit the dashboard.
+     * @deprecated This field is deprecated and non-functional. Use `restrictedRoles` instead to define which roles are required to edit the dashboard.
      */
     public readonly isReadOnly!: pulumi.Output<boolean | undefined>;
     /**
@@ -915,9 +917,9 @@ export interface DashboardState {
      */
     description?: pulumi.Input<string>;
     /**
-     * Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard. Defaults to `false`.
+     * Whether this dashboard is read-only. **Deprecated.** This field is deprecated and non-functional. Use `restrictedRoles` instead to define which roles are required to edit the dashboard. Defaults to `false`.
      *
-     * @deprecated Prefer using `restrictedRoles` to define which roles are required to edit the dashboard.
+     * @deprecated This field is deprecated and non-functional. Use `restrictedRoles` instead to define which roles are required to edit the dashboard.
      */
     isReadOnly?: pulumi.Input<boolean>;
     /**
@@ -972,9 +974,9 @@ export interface DashboardArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard. Defaults to `false`.
+     * Whether this dashboard is read-only. **Deprecated.** This field is deprecated and non-functional. Use `restrictedRoles` instead to define which roles are required to edit the dashboard. Defaults to `false`.
      *
-     * @deprecated Prefer using `restrictedRoles` to define which roles are required to edit the dashboard.
+     * @deprecated This field is deprecated and non-functional. Use `restrictedRoles` instead to define which roles are required to edit the dashboard.
      */
     isReadOnly?: pulumi.Input<boolean>;
     /**

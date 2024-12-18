@@ -39,7 +39,7 @@ class DashboardArgs:
         :param pulumi.Input[str] layout_type: The layout type of the dashboard. Valid values are `ordered`, `free`.
         :param pulumi.Input[str] title: The title of the dashboard.
         :param pulumi.Input[str] description: The description of the dashboard.
-        :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard. Defaults to `false`.
+        :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only. **Deprecated.** This field is deprecated and non-functional. Use `restricted_roles` instead to define which roles are required to edit the dashboard. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_lists: The list of handles for the users to notify when changes are made to this dashboard.
         :param pulumi.Input[str] reflow_type: The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: UUIDs of roles whose associated users are authorized to edit the dashboard.
@@ -56,8 +56,8 @@ class DashboardArgs:
         if description is not None:
             pulumi.set(__self__, "description", description)
         if is_read_only is not None:
-            warnings.warn("""Prefer using `restricted_roles` to define which roles are required to edit the dashboard.""", DeprecationWarning)
-            pulumi.log.warn("""is_read_only is deprecated: Prefer using `restricted_roles` to define which roles are required to edit the dashboard.""")
+            warnings.warn("""This field is deprecated and non-functional. Use `restricted_roles` instead to define which roles are required to edit the dashboard.""", DeprecationWarning)
+            pulumi.log.warn("""is_read_only is deprecated: This field is deprecated and non-functional. Use `restricted_roles` instead to define which roles are required to edit the dashboard.""")
         if is_read_only is not None:
             pulumi.set(__self__, "is_read_only", is_read_only)
         if notify_lists is not None:
@@ -124,10 +124,10 @@ class DashboardArgs:
 
     @property
     @pulumi.getter(name="isReadOnly")
-    @_utilities.deprecated("""Prefer using `restricted_roles` to define which roles are required to edit the dashboard.""")
+    @_utilities.deprecated("""This field is deprecated and non-functional. Use `restricted_roles` instead to define which roles are required to edit the dashboard.""")
     def is_read_only(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard. Defaults to `false`.
+        Whether this dashboard is read-only. **Deprecated.** This field is deprecated and non-functional. Use `restricted_roles` instead to define which roles are required to edit the dashboard. Defaults to `false`.
         """
         return pulumi.get(self, "is_read_only")
 
@@ -253,7 +253,7 @@ class _DashboardState:
         Input properties used for looking up and filtering Dashboard resources.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists_removeds: A list of dashboard lists this dashboard should be removed from. Internal only.
         :param pulumi.Input[str] description: The description of the dashboard.
-        :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard. Defaults to `false`.
+        :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only. **Deprecated.** This field is deprecated and non-functional. Use `restricted_roles` instead to define which roles are required to edit the dashboard. Defaults to `false`.
         :param pulumi.Input[str] layout_type: The layout type of the dashboard. Valid values are `ordered`, `free`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_lists: The list of handles for the users to notify when changes are made to this dashboard.
         :param pulumi.Input[str] reflow_type: The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
@@ -272,8 +272,8 @@ class _DashboardState:
         if description is not None:
             pulumi.set(__self__, "description", description)
         if is_read_only is not None:
-            warnings.warn("""Prefer using `restricted_roles` to define which roles are required to edit the dashboard.""", DeprecationWarning)
-            pulumi.log.warn("""is_read_only is deprecated: Prefer using `restricted_roles` to define which roles are required to edit the dashboard.""")
+            warnings.warn("""This field is deprecated and non-functional. Use `restricted_roles` instead to define which roles are required to edit the dashboard.""", DeprecationWarning)
+            pulumi.log.warn("""is_read_only is deprecated: This field is deprecated and non-functional. Use `restricted_roles` instead to define which roles are required to edit the dashboard.""")
         if is_read_only is not None:
             pulumi.set(__self__, "is_read_only", is_read_only)
         if layout_type is not None:
@@ -332,10 +332,10 @@ class _DashboardState:
 
     @property
     @pulumi.getter(name="isReadOnly")
-    @_utilities.deprecated("""Prefer using `restricted_roles` to define which roles are required to edit the dashboard.""")
+    @_utilities.deprecated("""This field is deprecated and non-functional. Use `restricted_roles` instead to define which roles are required to edit the dashboard.""")
     def is_read_only(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard. Defaults to `false`.
+        Whether this dashboard is read-only. **Deprecated.** This field is deprecated and non-functional. Use `restricted_roles` instead to define which roles are required to edit the dashboard. Defaults to `false`.
         """
         return pulumi.get(self, "is_read_only")
 
@@ -485,6 +485,8 @@ class Dashboard(pulumi.CustomResource):
                  __props__=None):
         """
         Provides a Datadog dashboard resource. This can be used to create and manage Datadog dashboards.
+
+        !> The `is_read_only` field is deprecated and non-functional. Use `restricted_roles` instead to define which roles are required to edit the dashboard.
 
         ## Example Usage
 
@@ -1240,7 +1242,7 @@ class Dashboard(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the dashboard.
-        :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard. Defaults to `false`.
+        :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only. **Deprecated.** This field is deprecated and non-functional. Use `restricted_roles` instead to define which roles are required to edit the dashboard. Defaults to `false`.
         :param pulumi.Input[str] layout_type: The layout type of the dashboard. Valid values are `ordered`, `free`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_lists: The list of handles for the users to notify when changes are made to this dashboard.
         :param pulumi.Input[str] reflow_type: The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
@@ -1260,6 +1262,8 @@ class Dashboard(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog dashboard resource. This can be used to create and manage Datadog dashboards.
+
+        !> The `is_read_only` field is deprecated and non-functional. Use `restricted_roles` instead to define which roles are required to edit the dashboard.
 
         ## Example Usage
 
@@ -2100,7 +2104,7 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists_removeds: A list of dashboard lists this dashboard should be removed from. Internal only.
         :param pulumi.Input[str] description: The description of the dashboard.
-        :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard. Defaults to `false`.
+        :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only. **Deprecated.** This field is deprecated and non-functional. Use `restricted_roles` instead to define which roles are required to edit the dashboard. Defaults to `false`.
         :param pulumi.Input[str] layout_type: The layout type of the dashboard. Valid values are `ordered`, `free`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_lists: The list of handles for the users to notify when changes are made to this dashboard.
         :param pulumi.Input[str] reflow_type: The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
@@ -2155,10 +2159,10 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isReadOnly")
-    @_utilities.deprecated("""Prefer using `restricted_roles` to define which roles are required to edit the dashboard.""")
+    @_utilities.deprecated("""This field is deprecated and non-functional. Use `restricted_roles` instead to define which roles are required to edit the dashboard.""")
     def is_read_only(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard. Defaults to `false`.
+        Whether this dashboard is read-only. **Deprecated.** This field is deprecated and non-functional. Use `restricted_roles` instead to define which roles are required to edit the dashboard. Defaults to `false`.
         """
         return pulumi.get(self, "is_read_only")
 

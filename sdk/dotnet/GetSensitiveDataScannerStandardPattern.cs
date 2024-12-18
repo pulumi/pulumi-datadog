@@ -64,6 +64,10 @@ namespace Pulumi.Datadog
     public sealed class GetSensitiveDataScannerStandardPatternResult
     {
         /// <summary>
+        /// Description of the standard pattern.
+        /// </summary>
+        public readonly string Description;
+        /// <summary>
         /// Filter all the Datadog standard patterns by name.
         /// </summary>
         public readonly string Filter;
@@ -80,7 +84,7 @@ namespace Pulumi.Datadog
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Regex that the standard pattern applies.
+        /// Regex to match, optionally documented for older standard rules.  **Deprecated.** Refer to the description field to understand what the rule does.
         /// </summary>
         public readonly string Pattern;
         /// <summary>
@@ -90,6 +94,8 @@ namespace Pulumi.Datadog
 
         [OutputConstructor]
         private GetSensitiveDataScannerStandardPatternResult(
+            string description,
+
             string filter,
 
             string id,
@@ -102,6 +108,7 @@ namespace Pulumi.Datadog
 
             ImmutableArray<string> tags)
         {
+            Description = description;
             Filter = filter;
             Id = id;
             IncludedKeywords = includedKeywords;

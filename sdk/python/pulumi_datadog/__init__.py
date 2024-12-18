@@ -159,6 +159,14 @@ _utilities.register(
  },
  {
   "pkg": "datadog",
+  "mod": "aws/integrationAccount",
+  "fqn": "pulumi_datadog.aws",
+  "classes": {
+   "datadog:aws/integrationAccount:IntegrationAccount": "IntegrationAccount"
+  }
+ },
+ {
+  "pkg": "datadog",
   "mod": "aws/integrationEventBridge",
   "fqn": "pulumi_datadog.aws",
   "classes": {

@@ -35,6 +35,11 @@ public final class SyntheticsTestApiStep {
      */
     private @Nullable List<SyntheticsTestApiStepAssertion> assertions;
     /**
+     * @return Determines whether or not to exit the test if the step succeeds.
+     * 
+     */
+    private @Nullable Boolean exitIfSucceed;
+    /**
      * @return Values to parse and save as variables from the response.
      * 
      */
@@ -115,6 +120,13 @@ public final class SyntheticsTestApiStep {
      */
     public List<SyntheticsTestApiStepAssertion> assertions() {
         return this.assertions == null ? List.of() : this.assertions;
+    }
+    /**
+     * @return Determines whether or not to exit the test if the step succeeds.
+     * 
+     */
+    public Optional<Boolean> exitIfSucceed() {
+        return Optional.ofNullable(this.exitIfSucceed);
     }
     /**
      * @return Values to parse and save as variables from the response.
@@ -222,6 +234,7 @@ public final class SyntheticsTestApiStep {
     public static final class Builder {
         private @Nullable Boolean allowFailure;
         private @Nullable List<SyntheticsTestApiStepAssertion> assertions;
+        private @Nullable Boolean exitIfSucceed;
         private @Nullable List<SyntheticsTestApiStepExtractedValue> extractedValues;
         private @Nullable Boolean isCritical;
         private String name;
@@ -241,6 +254,7 @@ public final class SyntheticsTestApiStep {
     	      Objects.requireNonNull(defaults);
     	      this.allowFailure = defaults.allowFailure;
     	      this.assertions = defaults.assertions;
+    	      this.exitIfSucceed = defaults.exitIfSucceed;
     	      this.extractedValues = defaults.extractedValues;
     	      this.isCritical = defaults.isCritical;
     	      this.name = defaults.name;
@@ -271,6 +285,12 @@ public final class SyntheticsTestApiStep {
         }
         public Builder assertions(SyntheticsTestApiStepAssertion... assertions) {
             return assertions(List.of(assertions));
+        }
+        @CustomType.Setter
+        public Builder exitIfSucceed(@Nullable Boolean exitIfSucceed) {
+
+            this.exitIfSucceed = exitIfSucceed;
+            return this;
         }
         @CustomType.Setter
         public Builder extractedValues(@Nullable List<SyntheticsTestApiStepExtractedValue> extractedValues) {
@@ -368,6 +388,7 @@ public final class SyntheticsTestApiStep {
             final var _resultValue = new SyntheticsTestApiStep();
             _resultValue.allowFailure = allowFailure;
             _resultValue.assertions = assertions;
+            _resultValue.exitIfSucceed = exitIfSucceed;
             _resultValue.extractedValues = extractedValues;
             _resultValue.isCritical = isCritical;
             _resultValue.name = name;

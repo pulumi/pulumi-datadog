@@ -26,6 +26,7 @@ class MonitorArgs:
                  query: pulumi.Input[str],
                  type: pulumi.Input[str],
                  enable_logs_sample: Optional[pulumi.Input[bool]] = None,
+                 enable_samples: Optional[pulumi.Input[bool]] = None,
                  escalation_message: Optional[pulumi.Input[str]] = None,
                  evaluation_delay: Optional[pulumi.Input[int]] = None,
                  force_delete: Optional[pulumi.Input[bool]] = None,
@@ -63,6 +64,8 @@ class MonitorArgs:
                cannot be changed after a monitor is created.
         :param pulumi.Input[bool] enable_logs_sample: A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log
                monitors. Defaults to `false`.
+        :param pulumi.Input[bool] enable_samples: Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline
+               monitors.
         :param pulumi.Input[str] escalation_message: A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
         :param pulumi.Input[int] evaluation_delay: (Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer. For example, if the
                value is set to `300` (5min), the `timeframe` is set to `last_5m` and the time is 7:00, the monitor will evaluate data
@@ -127,6 +130,8 @@ class MonitorArgs:
         pulumi.set(__self__, "type", type)
         if enable_logs_sample is not None:
             pulumi.set(__self__, "enable_logs_sample", enable_logs_sample)
+        if enable_samples is not None:
+            pulumi.set(__self__, "enable_samples", enable_samples)
         if escalation_message is not None:
             pulumi.set(__self__, "escalation_message", escalation_message)
         if evaluation_delay is not None:
@@ -249,6 +254,19 @@ class MonitorArgs:
     @enable_logs_sample.setter
     def enable_logs_sample(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_logs_sample", value)
+
+    @property
+    @pulumi.getter(name="enableSamples")
+    def enable_samples(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline
+        monitors.
+        """
+        return pulumi.get(self, "enable_samples")
+
+    @enable_samples.setter
+    def enable_samples(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_samples", value)
 
     @property
     @pulumi.getter(name="escalationMessage")
@@ -1242,6 +1260,7 @@ class Monitor(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enable_logs_sample: Optional[pulumi.Input[bool]] = None,
+                 enable_samples: Optional[pulumi.Input[bool]] = None,
                  escalation_message: Optional[pulumi.Input[str]] = None,
                  evaluation_delay: Optional[pulumi.Input[int]] = None,
                  force_delete: Optional[pulumi.Input[bool]] = None,
@@ -1311,6 +1330,8 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enable_logs_sample: A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log
                monitors. Defaults to `false`.
+        :param pulumi.Input[bool] enable_samples: Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline
+               monitors.
         :param pulumi.Input[str] escalation_message: A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
         :param pulumi.Input[int] evaluation_delay: (Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer. For example, if the
                value is set to `300` (5min), the `timeframe` is set to `last_5m` and the time is 7:00, the monitor will evaluate data
@@ -1428,6 +1449,7 @@ class Monitor(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enable_logs_sample: Optional[pulumi.Input[bool]] = None,
+                 enable_samples: Optional[pulumi.Input[bool]] = None,
                  escalation_message: Optional[pulumi.Input[str]] = None,
                  evaluation_delay: Optional[pulumi.Input[int]] = None,
                  force_delete: Optional[pulumi.Input[bool]] = None,
@@ -1470,6 +1492,7 @@ class Monitor(pulumi.CustomResource):
             __props__ = MonitorArgs.__new__(MonitorArgs)
 
             __props__.__dict__["enable_logs_sample"] = enable_logs_sample
+            __props__.__dict__["enable_samples"] = enable_samples
             __props__.__dict__["escalation_message"] = escalation_message
             __props__.__dict__["evaluation_delay"] = evaluation_delay
             __props__.__dict__["force_delete"] = force_delete
@@ -1510,7 +1533,6 @@ class Monitor(pulumi.CustomResource):
             __props__.__dict__["type"] = type
             __props__.__dict__["validate"] = validate
             __props__.__dict__["variables"] = variables
-            __props__.__dict__["enable_samples"] = None
         super(Monitor, __self__).__init__(
             'datadog:index/monitor:Monitor',
             resource_name,
@@ -1680,7 +1702,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableSamples")
-    def enable_samples(self) -> pulumi.Output[bool]:
+    def enable_samples(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline
         monitors.
