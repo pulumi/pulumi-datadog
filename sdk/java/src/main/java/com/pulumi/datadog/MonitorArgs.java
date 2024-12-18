@@ -41,6 +41,23 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline
+     * monitors.
+     * 
+     */
+    @Import(name="enableSamples")
+    private @Nullable Output<Boolean> enableSamples;
+
+    /**
+     * @return Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline
+     * monitors.
+     * 
+     */
+    public Optional<Output<Boolean>> enableSamples() {
+        return Optional.ofNullable(this.enableSamples);
+    }
+
+    /**
      * A message to include with a re-notification. Supports the `{@literal @}username` notification allowed elsewhere.
      * 
      */
@@ -588,6 +605,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
 
     private MonitorArgs(MonitorArgs $) {
         this.enableLogsSample = $.enableLogsSample;
+        this.enableSamples = $.enableSamples;
         this.escalationMessage = $.escalationMessage;
         this.evaluationDelay = $.evaluationDelay;
         this.forceDelete = $.forceDelete;
@@ -661,6 +679,29 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder enableLogsSample(Boolean enableLogsSample) {
             return enableLogsSample(Output.of(enableLogsSample));
+        }
+
+        /**
+         * @param enableSamples Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline
+         * monitors.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableSamples(@Nullable Output<Boolean> enableSamples) {
+            $.enableSamples = enableSamples;
+            return this;
+        }
+
+        /**
+         * @param enableSamples Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline
+         * monitors.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableSamples(Boolean enableSamples) {
+            return enableSamples(Output.of(enableSamples));
         }
 
         /**

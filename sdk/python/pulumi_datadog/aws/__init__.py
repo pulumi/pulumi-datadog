@@ -5,11 +5,15 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .get_integration_available_logs_services import *
+from .get_integration_available_namespaces import *
 from .get_integration_logs_services import *
 from .get_integration_namespace_rules import *
 from .integration import *
+from .integration_account import *
 from .integration_event_bridge import *
 from .integration_lambda_arn import *
 from .integration_log_collection import *
 from .integration_tag_filter import *
+from ._inputs import *
 from . import outputs

@@ -26,7 +26,10 @@ class GetSensitiveDataScannerStandardPatternResult:
     """
     A collection of values returned by getSensitiveDataScannerStandardPattern.
     """
-    def __init__(__self__, filter=None, id=None, included_keywords=None, name=None, pattern=None, tags=None):
+    def __init__(__self__, description=None, filter=None, id=None, included_keywords=None, name=None, pattern=None, tags=None):
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
         if filter and not isinstance(filter, str):
             raise TypeError("Expected argument 'filter' to be a str")
         pulumi.set(__self__, "filter", filter)
@@ -45,6 +48,14 @@ class GetSensitiveDataScannerStandardPatternResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the standard pattern.
+        """
+        return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
@@ -80,9 +91,10 @@ class GetSensitiveDataScannerStandardPatternResult:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Refer to the description field to understand what the rule does.""")
     def pattern(self) -> str:
         """
-        Regex that the standard pattern applies.
+        Regex to match, optionally documented for older standard rules.  **Deprecated.** Refer to the description field to understand what the rule does.
         """
         return pulumi.get(self, "pattern")
 
@@ -101,6 +113,7 @@ class AwaitableGetSensitiveDataScannerStandardPatternResult(GetSensitiveDataScan
         if False:
             yield self
         return GetSensitiveDataScannerStandardPatternResult(
+            description=self.description,
             filter=self.filter,
             id=self.id,
             included_keywords=self.included_keywords,
@@ -123,6 +136,7 @@ def get_sensitive_data_scanner_standard_pattern(filter: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('datadog:index/getSensitiveDataScannerStandardPattern:getSensitiveDataScannerStandardPattern', __args__, opts=opts, typ=GetSensitiveDataScannerStandardPatternResult).value
 
     return AwaitableGetSensitiveDataScannerStandardPatternResult(
+        description=pulumi.get(__ret__, 'description'),
         filter=pulumi.get(__ret__, 'filter'),
         id=pulumi.get(__ret__, 'id'),
         included_keywords=pulumi.get(__ret__, 'included_keywords'),
@@ -142,6 +156,7 @@ def get_sensitive_data_scanner_standard_pattern_output(filter: Optional[pulumi.I
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('datadog:index/getSensitiveDataScannerStandardPattern:getSensitiveDataScannerStandardPattern', __args__, opts=opts, typ=GetSensitiveDataScannerStandardPatternResult)
     return __ret__.apply(lambda __response__: GetSensitiveDataScannerStandardPatternResult(
+        description=pulumi.get(__response__, 'description'),
         filter=pulumi.get(__response__, 'filter'),
         id=pulumi.get(__response__, 'id'),
         included_keywords=pulumi.get(__response__, 'included_keywords'),

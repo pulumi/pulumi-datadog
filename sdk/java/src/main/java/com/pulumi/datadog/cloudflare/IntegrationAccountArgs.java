@@ -63,14 +63,14 @@ public final class IntegrationAccountArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * An allowlist of resources to pull metrics for. Including, `web`, `dns`, `lb` (load balancer), and `worker`).
+     * An allowlist of resources to pull metrics for. Includes `web`, `dns`, `lb` (load balancer), and `worker`).
      * 
      */
     @Import(name="resources")
     private @Nullable Output<List<String>> resources;
 
     /**
-     * @return An allowlist of resources to pull metrics for. Including, `web`, `dns`, `lb` (load balancer), and `worker`).
+     * @return An allowlist of resources to pull metrics for. Includes `web`, `dns`, `lb` (load balancer), and `worker`).
      * 
      */
     public Optional<Output<List<String>>> resources() {
@@ -168,7 +168,7 @@ public final class IntegrationAccountArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param resources An allowlist of resources to pull metrics for. Including, `web`, `dns`, `lb` (load balancer), and `worker`).
+         * @param resources An allowlist of resources to pull metrics for. Includes `web`, `dns`, `lb` (load balancer), and `worker`).
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class IntegrationAccountArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param resources An allowlist of resources to pull metrics for. Including, `web`, `dns`, `lb` (load balancer), and `worker`).
+         * @param resources An allowlist of resources to pull metrics for. Includes `web`, `dns`, `lb` (load balancer), and `worker`).
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class IntegrationAccountArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param resources An allowlist of resources to pull metrics for. Including, `web`, `dns`, `lb` (load balancer), and `worker`).
+         * @param resources An allowlist of resources to pull metrics for. Includes `web`, `dns`, `lb` (load balancer), and `worker`).
          * 
          * @return builder
          * 

@@ -12,6 +12,11 @@ import java.util.Objects;
 @CustomType
 public final class GetSensitiveDataScannerStandardPatternResult {
     /**
+     * @return Description of the standard pattern.
+     * 
+     */
+    private String description;
+    /**
      * @return Filter all the Datadog standard patterns by name.
      * 
      */
@@ -32,9 +37,13 @@ public final class GetSensitiveDataScannerStandardPatternResult {
      */
     private String name;
     /**
-     * @return Regex that the standard pattern applies.
+     * @return Regex to match, optionally documented for older standard rules.  **Deprecated.** Refer to the description field to understand what the rule does.
+     * 
+     * @deprecated
+     * Refer to the description field to understand what the rule does.
      * 
      */
+    @Deprecated /* Refer to the description field to understand what the rule does. */
     private String pattern;
     /**
      * @return List of tags.
@@ -43,6 +52,13 @@ public final class GetSensitiveDataScannerStandardPatternResult {
     private List<String> tags;
 
     private GetSensitiveDataScannerStandardPatternResult() {}
+    /**
+     * @return Description of the standard pattern.
+     * 
+     */
+    public String description() {
+        return this.description;
+    }
     /**
      * @return Filter all the Datadog standard patterns by name.
      * 
@@ -72,9 +88,13 @@ public final class GetSensitiveDataScannerStandardPatternResult {
         return this.name;
     }
     /**
-     * @return Regex that the standard pattern applies.
+     * @return Regex to match, optionally documented for older standard rules.  **Deprecated.** Refer to the description field to understand what the rule does.
+     * 
+     * @deprecated
+     * Refer to the description field to understand what the rule does.
      * 
      */
+    @Deprecated /* Refer to the description field to understand what the rule does. */
     public String pattern() {
         return this.pattern;
     }
@@ -95,6 +115,7 @@ public final class GetSensitiveDataScannerStandardPatternResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String description;
         private String filter;
         private String id;
         private List<String> includedKeywords;
@@ -104,6 +125,7 @@ public final class GetSensitiveDataScannerStandardPatternResult {
         public Builder() {}
         public Builder(GetSensitiveDataScannerStandardPatternResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.description = defaults.description;
     	      this.filter = defaults.filter;
     	      this.id = defaults.id;
     	      this.includedKeywords = defaults.includedKeywords;
@@ -112,6 +134,14 @@ public final class GetSensitiveDataScannerStandardPatternResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
+        public Builder description(String description) {
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetSensitiveDataScannerStandardPatternResult", "description");
+            }
+            this.description = description;
+            return this;
+        }
         @CustomType.Setter
         public Builder filter(String filter) {
             if (filter == null) {
@@ -168,6 +198,7 @@ public final class GetSensitiveDataScannerStandardPatternResult {
         }
         public GetSensitiveDataScannerStandardPatternResult build() {
             final var _resultValue = new GetSensitiveDataScannerStandardPatternResult();
+            _resultValue.description = description;
             _resultValue.filter = filter;
             _resultValue.id = id;
             _resultValue.includedKeywords = includedKeywords;

@@ -16,14 +16,14 @@ public final class SyntheticsTestOptionsListRetryArgs extends com.pulumi.resourc
     public static final SyntheticsTestOptionsListRetryArgs Empty = new SyntheticsTestOptionsListRetryArgs();
 
     /**
-     * Number of retries needed to consider a location as failed before sending a notification alert. Defaults to `0`.
+     * Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
      * 
      */
     @Import(name="count")
     private @Nullable Output<Integer> count;
 
     /**
-     * @return Number of retries needed to consider a location as failed before sending a notification alert. Defaults to `0`.
+     * @return Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
      * 
      */
     public Optional<Output<Integer>> count() {
@@ -31,14 +31,14 @@ public final class SyntheticsTestOptionsListRetryArgs extends com.pulumi.resourc
     }
 
     /**
-     * Interval between a failed test and the next retry in milliseconds. Defaults to `300`.
+     * Interval between a failed test and the next retry in milliseconds. Maximum value: `5000`. Defaults to `300`.
      * 
      */
     @Import(name="interval")
     private @Nullable Output<Integer> interval;
 
     /**
-     * @return Interval between a failed test and the next retry in milliseconds. Defaults to `300`.
+     * @return Interval between a failed test and the next retry in milliseconds. Maximum value: `5000`. Defaults to `300`.
      * 
      */
     public Optional<Output<Integer>> interval() {
@@ -71,7 +71,7 @@ public final class SyntheticsTestOptionsListRetryArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param count Number of retries needed to consider a location as failed before sending a notification alert. Defaults to `0`.
+         * @param count Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class SyntheticsTestOptionsListRetryArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param count Number of retries needed to consider a location as failed before sending a notification alert. Defaults to `0`.
+         * @param count Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class SyntheticsTestOptionsListRetryArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param interval Interval between a failed test and the next retry in milliseconds. Defaults to `300`.
+         * @param interval Interval between a failed test and the next retry in milliseconds. Maximum value: `5000`. Defaults to `300`.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class SyntheticsTestOptionsListRetryArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param interval Interval between a failed test and the next retry in milliseconds. Defaults to `300`.
+         * @param interval Interval between a failed test and the next retry in milliseconds. Maximum value: `5000`. Defaults to `300`.
          * 
          * @return builder
          * 

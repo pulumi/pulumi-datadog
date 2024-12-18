@@ -22322,6 +22322,10 @@ export interface SyntheticsTestApiStep {
      */
     assertions?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestApiStepAssertion>[]>;
     /**
+     * Determines whether or not to exit the test if the step succeeds.
+     */
+    exitIfSucceed?: pulumi.Input<boolean>;
+    /**
      * Values to parse and save as variables from the response.
      */
     extractedValues?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestApiStepExtractedValue>[]>;
@@ -22723,11 +22727,11 @@ export interface SyntheticsTestApiStepRequestProxy {
 
 export interface SyntheticsTestApiStepRetry {
     /**
-     * Number of retries needed to consider a location as failed before sending a notification alert. Defaults to `0`.
+     * Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
      */
     count?: pulumi.Input<number>;
     /**
-     * Interval between a failed test and the next retry in milliseconds. Defaults to `300`.
+     * Interval between a failed test and the next retry in milliseconds. Maximum value: `5000`. Defaults to `300`.
      */
     interval?: pulumi.Input<number>;
 }
@@ -23013,6 +23017,251 @@ export interface SyntheticsTestConfigVariable {
     type: pulumi.Input<string>;
 }
 
+export interface SyntheticsTestMobileOptionsList {
+    allowApplicationCrash?: pulumi.Input<boolean>;
+    bindings?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestMobileOptionsListBinding>[]>;
+    /**
+     * CI/CD options for a Synthetic test.
+     */
+    ci?: pulumi.Input<inputs.SyntheticsTestMobileOptionsListCi>;
+    defaultStepTimeout?: pulumi.Input<number>;
+    deviceIds: pulumi.Input<pulumi.Input<string>[]>;
+    disableAutoAcceptAlert?: pulumi.Input<boolean>;
+    /**
+     * Minimum amount of time in failure required to trigger an alert (in seconds). Default is `0`.
+     */
+    minFailureDuration?: pulumi.Input<number>;
+    mobileApplication: pulumi.Input<inputs.SyntheticsTestMobileOptionsListMobileApplication>;
+    /**
+     * The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
+     */
+    monitorName?: pulumi.Input<string>;
+    monitorOptions?: pulumi.Input<inputs.SyntheticsTestMobileOptionsListMonitorOptions>;
+    monitorPriority?: pulumi.Input<number>;
+    /**
+     * Prevents saving screenshots of the steps.
+     */
+    noScreenshot?: pulumi.Input<boolean>;
+    /**
+     * A list of role identifiers pulled from the Roles API to restrict read and write access.
+     */
+    restrictedRoles?: pulumi.Input<pulumi.Input<string>[]>;
+    retry?: pulumi.Input<inputs.SyntheticsTestMobileOptionsListRetry>;
+    /**
+     * Object containing timeframes and timezone used for advanced scheduling.
+     */
+    scheduling?: pulumi.Input<inputs.SyntheticsTestMobileOptionsListScheduling>;
+    /**
+     * How often the test should run (in seconds).
+     */
+    tickEvery: pulumi.Input<number>;
+    verbosity?: pulumi.Input<number>;
+}
+
+export interface SyntheticsTestMobileOptionsListBinding {
+    principals?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Valid values are `editor`, `viewer`.
+     */
+    relation?: pulumi.Input<string>;
+}
+
+export interface SyntheticsTestMobileOptionsListCi {
+    /**
+     * Execution rule for a Synthetics test. Valid values are `blocking`, `nonBlocking`, `skipped`.
+     */
+    executionRule: pulumi.Input<string>;
+}
+
+export interface SyntheticsTestMobileOptionsListMobileApplication {
+    applicationId: pulumi.Input<string>;
+    referenceId: pulumi.Input<string>;
+    /**
+     * Valid values are `latest`, `version`.
+     */
+    referenceType: pulumi.Input<string>;
+}
+
+export interface SyntheticsTestMobileOptionsListMonitorOptions {
+    escalationMessage?: pulumi.Input<string>;
+    /**
+     * Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`.
+     */
+    notificationPresetName?: pulumi.Input<string>;
+    /**
+     * Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
+     */
+    renotifyInterval?: pulumi.Input<number>;
+    renotifyOccurrences?: pulumi.Input<number>;
+}
+
+export interface SyntheticsTestMobileOptionsListRetry {
+    /**
+     * Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
+     */
+    count?: pulumi.Input<number>;
+    /**
+     * Interval between a failed test and the next retry in milliseconds. Maximum value: `5000`. Defaults to `300`.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface SyntheticsTestMobileOptionsListScheduling {
+    /**
+     * Array containing objects describing the scheduling pattern to apply to each day.
+     */
+    timeframes: pulumi.Input<pulumi.Input<inputs.SyntheticsTestMobileOptionsListSchedulingTimeframe>[]>;
+    /**
+     * Timezone in which the timeframe is based.
+     */
+    timezone: pulumi.Input<string>;
+}
+
+export interface SyntheticsTestMobileOptionsListSchedulingTimeframe {
+    /**
+     * Number representing the day of the week
+     */
+    day: pulumi.Input<number>;
+    /**
+     * The hour of the day on which scheduling starts.
+     */
+    from: pulumi.Input<string>;
+    /**
+     * The hour of the day on which scheduling ends.
+     */
+    to: pulumi.Input<string>;
+}
+
+export interface SyntheticsTestMobileStep {
+    /**
+     * A boolean set to allow this step to fail.
+     */
+    allowFailure?: pulumi.Input<boolean>;
+    /**
+     * A boolean set to determine if the step has a new step element.
+     */
+    hasNewStepElement?: pulumi.Input<boolean>;
+    /**
+     * A boolean to use in addition to `allowFailure` to determine if the test should be marked as failed when the step fails.
+     */
+    isCritical?: pulumi.Input<boolean>;
+    /**
+     * The name of the step.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * A boolean set to not take a screenshot for the step.
+     */
+    noScreenshot?: pulumi.Input<boolean>;
+    /**
+     * Parameters for the step.
+     */
+    params: pulumi.Input<inputs.SyntheticsTestMobileStepParams>;
+    /**
+     * The public ID of the step.
+     */
+    publicId?: pulumi.Input<string>;
+    /**
+     * The time before declaring a step failed.
+     */
+    timeout?: pulumi.Input<number>;
+    /**
+     * The type of the step. Valid values are `assertElementContent`, `assertScreenContains`, `assertScreenLacks`, `doubleTap`, `extractVariable`, `flick`, `openDeeplink`, `playSubTest`, `pressBack`, `restartApplication`, `rotate`, `scroll`, `scrollToElement`, `tap`, `toggleWiFi`, `typeText`, `wait`.
+     */
+    type: pulumi.Input<string>;
+}
+
+export interface SyntheticsTestMobileStepParams {
+    /**
+     * Check type to use for an assertion step. Valid values are `equals`, `notEquals`, `contains`, `notContains`, `startsWith`, `notStartsWith`, `greater`, `lower`, `greaterEquals`, `lowerEquals`, `matchRegex`, `between`, `isEmpty`, `notIsEmpty`.
+     */
+    check?: pulumi.Input<string>;
+    /**
+     * Delay between each key stroke for a "type test" step.
+     */
+    delay?: pulumi.Input<number>;
+    /**
+     * Valid values are `up`, `down`, `left`, `right`.
+     */
+    direction?: pulumi.Input<string>;
+    /**
+     * Element to use for the step, JSON encoded string.
+     */
+    element?: pulumi.Input<inputs.SyntheticsTestMobileStepParamsElement>;
+    enable?: pulumi.Input<boolean>;
+    maxScrolls?: pulumi.Input<number>;
+    positions?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestMobileStepParamsPosition>[]>;
+    /**
+     * ID of the Synthetics test to use as subtest.
+     */
+    subtestPublicId?: pulumi.Input<string>;
+    /**
+     * Value of the step.
+     */
+    value?: pulumi.Input<string>;
+    /**
+     * Details of the variable to extract.
+     */
+    variable?: pulumi.Input<inputs.SyntheticsTestMobileStepParamsVariable>;
+    withEnter?: pulumi.Input<boolean>;
+    /**
+     * X coordinates for a "scroll step".
+     */
+    x?: pulumi.Input<number>;
+    /**
+     * Y coordinates for a "scroll step".
+     */
+    y?: pulumi.Input<number>;
+}
+
+export interface SyntheticsTestMobileStepParamsElement {
+    context?: pulumi.Input<string>;
+    /**
+     * Valid values are `native`, `web`.
+     */
+    contextType?: pulumi.Input<string>;
+    elementDescription?: pulumi.Input<string>;
+    multiLocator?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    relativePosition?: pulumi.Input<inputs.SyntheticsTestMobileStepParamsElementRelativePosition>;
+    textContent?: pulumi.Input<string>;
+    userLocator?: pulumi.Input<inputs.SyntheticsTestMobileStepParamsElementUserLocator>;
+    viewName?: pulumi.Input<string>;
+}
+
+export interface SyntheticsTestMobileStepParamsElementRelativePosition {
+    x?: pulumi.Input<number>;
+    y?: pulumi.Input<number>;
+}
+
+export interface SyntheticsTestMobileStepParamsElementUserLocator {
+    failTestOnCannotLocate?: pulumi.Input<boolean>;
+    values?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestMobileStepParamsElementUserLocatorValue>[]>;
+}
+
+export interface SyntheticsTestMobileStepParamsElementUserLocatorValue {
+    /**
+     * Valid values are `accessibility-id`, `id`, `ios-predicate-string`, `ios-class-chain`, `xpath`.
+     */
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface SyntheticsTestMobileStepParamsPosition {
+    x?: pulumi.Input<number>;
+    y?: pulumi.Input<number>;
+}
+
+export interface SyntheticsTestMobileStepParamsVariable {
+    /**
+     * Example of the extracted variable. Defaults to `""`.
+     */
+    example?: pulumi.Input<string>;
+    /**
+     * Name of the extracted variable.
+     */
+    name: pulumi.Input<string>;
+}
+
 export interface SyntheticsTestOptionsList {
     /**
      * For SSL test, whether or not the test should allow self signed certificates.
@@ -23107,11 +23356,11 @@ export interface SyntheticsTestOptionsListMonitorOptions {
 
 export interface SyntheticsTestOptionsListRetry {
     /**
-     * Number of retries needed to consider a location as failed before sending a notification alert. Defaults to `0`.
+     * Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
      */
     count?: pulumi.Input<number>;
     /**
-     * Interval between a failed test and the next retry in milliseconds. Defaults to `300`.
+     * Interval between a failed test and the next retry in milliseconds. Maximum value: `5000`. Defaults to `300`.
      */
     interval?: pulumi.Input<number>;
 }
@@ -23384,6 +23633,130 @@ export interface SyntheticsTestRequestProxy {
     url: pulumi.Input<string>;
 }
 export namespace aws {
+    export interface IntegrationAccountAuthConfig {
+        awsAuthConfigKeys?: pulumi.Input<inputs.aws.IntegrationAccountAuthConfigAwsAuthConfigKeys>;
+        awsAuthConfigRole?: pulumi.Input<inputs.aws.IntegrationAccountAuthConfigAwsAuthConfigRole>;
+    }
+
+    export interface IntegrationAccountAuthConfigAwsAuthConfigKeys {
+        /**
+         * AWS Access Key ID
+         */
+        accessKeyId?: pulumi.Input<string>;
+        secretAccessKey?: pulumi.Input<string>;
+    }
+
+    export interface IntegrationAccountAuthConfigAwsAuthConfigRole {
+        /**
+         * AWS IAM External ID for associated role
+         */
+        externalId?: pulumi.Input<string>;
+        /**
+         * AWS IAM Role name
+         */
+        roleName?: pulumi.Input<string>;
+    }
+
+    export interface IntegrationAccountAwsRegions {
+        /**
+         * Include all regions. Defaults to `true`.
+         */
+        includeAll?: pulumi.Input<boolean>;
+        /**
+         * Include only these regions.
+         */
+        includeOnlies?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface IntegrationAccountLogsConfig {
+        lambdaForwarder?: pulumi.Input<inputs.aws.IntegrationAccountLogsConfigLambdaForwarder>;
+    }
+
+    export interface IntegrationAccountLogsConfigLambdaForwarder {
+        /**
+         * List of Datadog Lambda Log Forwarder ARNs in your AWS account.
+         */
+        lambdas?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * List of service IDs set to enable automatic log collection. Use `datadog.aws.getIntegrationAvailableLogsServices` data source to get allowed values.
+         */
+        sources?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface IntegrationAccountMetricsConfig {
+        /**
+         * Enable EC2 automute for AWS metrics Defaults to `true`.
+         */
+        automuteEnabled?: pulumi.Input<boolean>;
+        /**
+         * Enable CloudWatch alarms collection Defaults to `false`.
+         */
+        collectCloudwatchAlarms?: pulumi.Input<boolean>;
+        /**
+         * Enable custom metrics collection Defaults to `false`.
+         */
+        collectCustomMetrics?: pulumi.Input<boolean>;
+        /**
+         * Enable AWS metrics collection Defaults to `true`.
+         */
+        enabled?: pulumi.Input<boolean>;
+        namespaceFilters?: pulumi.Input<inputs.aws.IntegrationAccountMetricsConfigNamespaceFilters>;
+        /**
+         * AWS Metrics Collection tag filters list. The array of custom AWS resource tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from a specified service. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For EC2, only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. For example, `env:production,instance-type:c?.*,!region:us-east-1`.
+         */
+        tagFilters?: pulumi.Input<pulumi.Input<inputs.aws.IntegrationAccountMetricsConfigTagFilter>[]>;
+    }
+
+    export interface IntegrationAccountMetricsConfigNamespaceFilters {
+        /**
+         * Exclude only these namespaces from metrics collection. Use `datadog.aws.getIntegrationAvailableNamespaces` data source to get allowed values. Defaults to `["AWS/SQS", "AWS/ElasticMapReduce"]`. `AWS/SQS` and `AWS/ElasticMapReduce` are excluded by default to reduce your AWS CloudWatch costs from `GetMetricData` API calls.
+         */
+        excludeOnlies?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Include only these namespaces for metrics collection. Use `datadog.aws.getIntegrationAvailableNamespaces` data source to get allowed values.
+         */
+        includeOnlies?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface IntegrationAccountMetricsConfigTagFilter {
+        /**
+         * The AWS service for which the tag filters defined in `tags` will be applied.
+         */
+        namespace: pulumi.Input<string>;
+        /**
+         * The AWS resource tags to filter on for the service specified by `namespace`.
+         */
+        tags?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface IntegrationAccountResourcesConfig {
+        /**
+         * Enable Cloud Security Management to scan AWS resources for vulnerabilities, misconfigurations, identity risks, and compliance violations. Requires `extendedCollection` to be set to `true`. Defaults to `false`.
+         */
+        cloudSecurityPostureManagementCollection?: pulumi.Input<boolean>;
+        /**
+         * Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cloudSecurityPostureManagementCollection`. Defaults to `true`.
+         */
+        extendedCollection?: pulumi.Input<boolean>;
+    }
+
+    export interface IntegrationAccountTracesConfig {
+        /**
+         * AWS X-Ray services to collect traces from.
+         */
+        xrayServices?: pulumi.Input<inputs.aws.IntegrationAccountTracesConfigXrayServices>;
+    }
+
+    export interface IntegrationAccountTracesConfigXrayServices {
+        /**
+         * Include all services
+         */
+        includeAll?: pulumi.Input<boolean>;
+        /**
+         * Include only these services
+         */
+        includeOnlies?: pulumi.Input<pulumi.Input<string>[]>;
+    }
 }
 
 export namespace config {

@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
 /**
  * Provides a Datadog dashboard resource. This can be used to create and manage Datadog dashboards.
  * 
+ * !&gt; The `is_read_only` field is deprecated and non-functional. Use `restricted_roles` instead to define which roles are required to edit the dashboard.
+ * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
@@ -852,18 +854,18 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard. Defaults to `false`.
+     * Whether this dashboard is read-only. **Deprecated.** This field is deprecated and non-functional. Use `restricted_roles` instead to define which roles are required to edit the dashboard. Defaults to `false`.
      * 
      * @deprecated
-     * Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
+     * This field is deprecated and non-functional. Use `restricted_roles` instead to define which roles are required to edit the dashboard.
      * 
      */
-    @Deprecated /* Prefer using `restricted_roles` to define which roles are required to edit the dashboard. */
+    @Deprecated /* This field is deprecated and non-functional. Use `restricted_roles` instead to define which roles are required to edit the dashboard. */
     @Export(name="isReadOnly", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isReadOnly;
 
     /**
-     * @return Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard. Defaults to `false`.
+     * @return Whether this dashboard is read-only. **Deprecated.** This field is deprecated and non-functional. Use `restricted_roles` instead to define which roles are required to edit the dashboard. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> isReadOnly() {

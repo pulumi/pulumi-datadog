@@ -5919,6 +5919,8 @@ type SyntheticsTestApiStep struct {
 	AllowFailure *bool `pulumi:"allowFailure"`
 	// Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
 	Assertions []SyntheticsTestApiStepAssertion `pulumi:"assertions"`
+	// Determines whether or not to exit the test if the step succeeds.
+	ExitIfSucceed *bool `pulumi:"exitIfSucceed"`
 	// Values to parse and save as variables from the response.
 	ExtractedValues []SyntheticsTestApiStepExtractedValue `pulumi:"extractedValues"`
 	// Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allowFailure` is `true`.
@@ -5964,6 +5966,8 @@ type SyntheticsTestApiStepArgs struct {
 	AllowFailure pulumi.BoolPtrInput `pulumi:"allowFailure"`
 	// Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
 	Assertions SyntheticsTestApiStepAssertionArrayInput `pulumi:"assertions"`
+	// Determines whether or not to exit the test if the step succeeds.
+	ExitIfSucceed pulumi.BoolPtrInput `pulumi:"exitIfSucceed"`
 	// Values to parse and save as variables from the response.
 	ExtractedValues SyntheticsTestApiStepExtractedValueArrayInput `pulumi:"extractedValues"`
 	// Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allowFailure` is `true`.
@@ -6052,6 +6056,11 @@ func (o SyntheticsTestApiStepOutput) AllowFailure() pulumi.BoolPtrOutput {
 // Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
 func (o SyntheticsTestApiStepOutput) Assertions() SyntheticsTestApiStepAssertionArrayOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStep) []SyntheticsTestApiStepAssertion { return v.Assertions }).(SyntheticsTestApiStepAssertionArrayOutput)
+}
+
+// Determines whether or not to exit the test if the step succeeds.
+func (o SyntheticsTestApiStepOutput) ExitIfSucceed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStep) *bool { return v.ExitIfSucceed }).(pulumi.BoolPtrOutput)
 }
 
 // Values to parse and save as variables from the response.
@@ -8800,9 +8809,9 @@ func (o SyntheticsTestApiStepRequestProxyPtrOutput) Url() pulumi.StringPtrOutput
 }
 
 type SyntheticsTestApiStepRetry struct {
-	// Number of retries needed to consider a location as failed before sending a notification alert. Defaults to `0`.
+	// Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
 	Count *int `pulumi:"count"`
-	// Interval between a failed test and the next retry in milliseconds. Defaults to `300`.
+	// Interval between a failed test and the next retry in milliseconds. Maximum value: `5000`. Defaults to `300`.
 	Interval *int `pulumi:"interval"`
 }
 
@@ -8818,9 +8827,9 @@ type SyntheticsTestApiStepRetryInput interface {
 }
 
 type SyntheticsTestApiStepRetryArgs struct {
-	// Number of retries needed to consider a location as failed before sending a notification alert. Defaults to `0`.
+	// Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
 	Count pulumi.IntPtrInput `pulumi:"count"`
-	// Interval between a failed test and the next retry in milliseconds. Defaults to `300`.
+	// Interval between a failed test and the next retry in milliseconds. Maximum value: `5000`. Defaults to `300`.
 	Interval pulumi.IntPtrInput `pulumi:"interval"`
 }
 
@@ -8901,12 +8910,12 @@ func (o SyntheticsTestApiStepRetryOutput) ToSyntheticsTestApiStepRetryPtrOutputW
 	}).(SyntheticsTestApiStepRetryPtrOutput)
 }
 
-// Number of retries needed to consider a location as failed before sending a notification alert. Defaults to `0`.
+// Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
 func (o SyntheticsTestApiStepRetryOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepRetry) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
-// Interval between a failed test and the next retry in milliseconds. Defaults to `300`.
+// Interval between a failed test and the next retry in milliseconds. Maximum value: `5000`. Defaults to `300`.
 func (o SyntheticsTestApiStepRetryOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepRetry) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
@@ -8935,7 +8944,7 @@ func (o SyntheticsTestApiStepRetryPtrOutput) Elem() SyntheticsTestApiStepRetryOu
 	}).(SyntheticsTestApiStepRetryOutput)
 }
 
-// Number of retries needed to consider a location as failed before sending a notification alert. Defaults to `0`.
+// Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
 func (o SyntheticsTestApiStepRetryPtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestApiStepRetry) *int {
 		if v == nil {
@@ -8945,7 +8954,7 @@ func (o SyntheticsTestApiStepRetryPtrOutput) Count() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Interval between a failed test and the next retry in milliseconds. Defaults to `300`.
+// Interval between a failed test and the next retry in milliseconds. Maximum value: `5000`. Defaults to `300`.
 func (o SyntheticsTestApiStepRetryPtrOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestApiStepRetry) *int {
 		if v == nil {
@@ -10783,6 +10792,2655 @@ func (o SyntheticsTestConfigVariableArrayOutput) Index(i pulumi.IntInput) Synthe
 	}).(SyntheticsTestConfigVariableOutput)
 }
 
+type SyntheticsTestMobileOptionsList struct {
+	AllowApplicationCrash *bool                                    `pulumi:"allowApplicationCrash"`
+	Bindings              []SyntheticsTestMobileOptionsListBinding `pulumi:"bindings"`
+	// CI/CD options for a Synthetic test.
+	Ci                     *SyntheticsTestMobileOptionsListCi `pulumi:"ci"`
+	DefaultStepTimeout     *int                               `pulumi:"defaultStepTimeout"`
+	DeviceIds              []string                           `pulumi:"deviceIds"`
+	DisableAutoAcceptAlert *bool                              `pulumi:"disableAutoAcceptAlert"`
+	// Minimum amount of time in failure required to trigger an alert (in seconds). Default is `0`.
+	MinFailureDuration *int                                             `pulumi:"minFailureDuration"`
+	MobileApplication  SyntheticsTestMobileOptionsListMobileApplication `pulumi:"mobileApplication"`
+	// The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
+	MonitorName     *string                                        `pulumi:"monitorName"`
+	MonitorOptions  *SyntheticsTestMobileOptionsListMonitorOptions `pulumi:"monitorOptions"`
+	MonitorPriority *int                                           `pulumi:"monitorPriority"`
+	// Prevents saving screenshots of the steps.
+	NoScreenshot *bool `pulumi:"noScreenshot"`
+	// A list of role identifiers pulled from the Roles API to restrict read and write access.
+	RestrictedRoles []string                              `pulumi:"restrictedRoles"`
+	Retry           *SyntheticsTestMobileOptionsListRetry `pulumi:"retry"`
+	// Object containing timeframes and timezone used for advanced scheduling.
+	Scheduling *SyntheticsTestMobileOptionsListScheduling `pulumi:"scheduling"`
+	// How often the test should run (in seconds).
+	TickEvery int  `pulumi:"tickEvery"`
+	Verbosity *int `pulumi:"verbosity"`
+}
+
+// SyntheticsTestMobileOptionsListInput is an input type that accepts SyntheticsTestMobileOptionsListArgs and SyntheticsTestMobileOptionsListOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileOptionsListInput` via:
+//
+//	SyntheticsTestMobileOptionsListArgs{...}
+type SyntheticsTestMobileOptionsListInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileOptionsListOutput() SyntheticsTestMobileOptionsListOutput
+	ToSyntheticsTestMobileOptionsListOutputWithContext(context.Context) SyntheticsTestMobileOptionsListOutput
+}
+
+type SyntheticsTestMobileOptionsListArgs struct {
+	AllowApplicationCrash pulumi.BoolPtrInput                              `pulumi:"allowApplicationCrash"`
+	Bindings              SyntheticsTestMobileOptionsListBindingArrayInput `pulumi:"bindings"`
+	// CI/CD options for a Synthetic test.
+	Ci                     SyntheticsTestMobileOptionsListCiPtrInput `pulumi:"ci"`
+	DefaultStepTimeout     pulumi.IntPtrInput                        `pulumi:"defaultStepTimeout"`
+	DeviceIds              pulumi.StringArrayInput                   `pulumi:"deviceIds"`
+	DisableAutoAcceptAlert pulumi.BoolPtrInput                       `pulumi:"disableAutoAcceptAlert"`
+	// Minimum amount of time in failure required to trigger an alert (in seconds). Default is `0`.
+	MinFailureDuration pulumi.IntPtrInput                                    `pulumi:"minFailureDuration"`
+	MobileApplication  SyntheticsTestMobileOptionsListMobileApplicationInput `pulumi:"mobileApplication"`
+	// The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
+	MonitorName     pulumi.StringPtrInput                                 `pulumi:"monitorName"`
+	MonitorOptions  SyntheticsTestMobileOptionsListMonitorOptionsPtrInput `pulumi:"monitorOptions"`
+	MonitorPriority pulumi.IntPtrInput                                    `pulumi:"monitorPriority"`
+	// Prevents saving screenshots of the steps.
+	NoScreenshot pulumi.BoolPtrInput `pulumi:"noScreenshot"`
+	// A list of role identifiers pulled from the Roles API to restrict read and write access.
+	RestrictedRoles pulumi.StringArrayInput                      `pulumi:"restrictedRoles"`
+	Retry           SyntheticsTestMobileOptionsListRetryPtrInput `pulumi:"retry"`
+	// Object containing timeframes and timezone used for advanced scheduling.
+	Scheduling SyntheticsTestMobileOptionsListSchedulingPtrInput `pulumi:"scheduling"`
+	// How often the test should run (in seconds).
+	TickEvery pulumi.IntInput    `pulumi:"tickEvery"`
+	Verbosity pulumi.IntPtrInput `pulumi:"verbosity"`
+}
+
+func (SyntheticsTestMobileOptionsListArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileOptionsList)(nil)).Elem()
+}
+
+func (i SyntheticsTestMobileOptionsListArgs) ToSyntheticsTestMobileOptionsListOutput() SyntheticsTestMobileOptionsListOutput {
+	return i.ToSyntheticsTestMobileOptionsListOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileOptionsListArgs) ToSyntheticsTestMobileOptionsListOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileOptionsListOutput)
+}
+
+func (i SyntheticsTestMobileOptionsListArgs) ToSyntheticsTestMobileOptionsListPtrOutput() SyntheticsTestMobileOptionsListPtrOutput {
+	return i.ToSyntheticsTestMobileOptionsListPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileOptionsListArgs) ToSyntheticsTestMobileOptionsListPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileOptionsListOutput).ToSyntheticsTestMobileOptionsListPtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestMobileOptionsListPtrInput is an input type that accepts SyntheticsTestMobileOptionsListArgs, SyntheticsTestMobileOptionsListPtr and SyntheticsTestMobileOptionsListPtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileOptionsListPtrInput` via:
+//
+//	        SyntheticsTestMobileOptionsListArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestMobileOptionsListPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileOptionsListPtrOutput() SyntheticsTestMobileOptionsListPtrOutput
+	ToSyntheticsTestMobileOptionsListPtrOutputWithContext(context.Context) SyntheticsTestMobileOptionsListPtrOutput
+}
+
+type syntheticsTestMobileOptionsListPtrType SyntheticsTestMobileOptionsListArgs
+
+func SyntheticsTestMobileOptionsListPtr(v *SyntheticsTestMobileOptionsListArgs) SyntheticsTestMobileOptionsListPtrInput {
+	return (*syntheticsTestMobileOptionsListPtrType)(v)
+}
+
+func (*syntheticsTestMobileOptionsListPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestMobileOptionsList)(nil)).Elem()
+}
+
+func (i *syntheticsTestMobileOptionsListPtrType) ToSyntheticsTestMobileOptionsListPtrOutput() SyntheticsTestMobileOptionsListPtrOutput {
+	return i.ToSyntheticsTestMobileOptionsListPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestMobileOptionsListPtrType) ToSyntheticsTestMobileOptionsListPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileOptionsListPtrOutput)
+}
+
+type SyntheticsTestMobileOptionsListOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileOptionsListOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileOptionsList)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileOptionsListOutput) ToSyntheticsTestMobileOptionsListOutput() SyntheticsTestMobileOptionsListOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListOutput) ToSyntheticsTestMobileOptionsListOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListOutput) ToSyntheticsTestMobileOptionsListPtrOutput() SyntheticsTestMobileOptionsListPtrOutput {
+	return o.ToSyntheticsTestMobileOptionsListPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestMobileOptionsListOutput) ToSyntheticsTestMobileOptionsListPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestMobileOptionsList) *SyntheticsTestMobileOptionsList {
+		return &v
+	}).(SyntheticsTestMobileOptionsListPtrOutput)
+}
+
+func (o SyntheticsTestMobileOptionsListOutput) AllowApplicationCrash() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsList) *bool { return v.AllowApplicationCrash }).(pulumi.BoolPtrOutput)
+}
+
+func (o SyntheticsTestMobileOptionsListOutput) Bindings() SyntheticsTestMobileOptionsListBindingArrayOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsList) []SyntheticsTestMobileOptionsListBinding { return v.Bindings }).(SyntheticsTestMobileOptionsListBindingArrayOutput)
+}
+
+// CI/CD options for a Synthetic test.
+func (o SyntheticsTestMobileOptionsListOutput) Ci() SyntheticsTestMobileOptionsListCiPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsList) *SyntheticsTestMobileOptionsListCi { return v.Ci }).(SyntheticsTestMobileOptionsListCiPtrOutput)
+}
+
+func (o SyntheticsTestMobileOptionsListOutput) DefaultStepTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsList) *int { return v.DefaultStepTimeout }).(pulumi.IntPtrOutput)
+}
+
+func (o SyntheticsTestMobileOptionsListOutput) DeviceIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsList) []string { return v.DeviceIds }).(pulumi.StringArrayOutput)
+}
+
+func (o SyntheticsTestMobileOptionsListOutput) DisableAutoAcceptAlert() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsList) *bool { return v.DisableAutoAcceptAlert }).(pulumi.BoolPtrOutput)
+}
+
+// Minimum amount of time in failure required to trigger an alert (in seconds). Default is `0`.
+func (o SyntheticsTestMobileOptionsListOutput) MinFailureDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsList) *int { return v.MinFailureDuration }).(pulumi.IntPtrOutput)
+}
+
+func (o SyntheticsTestMobileOptionsListOutput) MobileApplication() SyntheticsTestMobileOptionsListMobileApplicationOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsList) SyntheticsTestMobileOptionsListMobileApplication {
+		return v.MobileApplication
+	}).(SyntheticsTestMobileOptionsListMobileApplicationOutput)
+}
+
+// The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
+func (o SyntheticsTestMobileOptionsListOutput) MonitorName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsList) *string { return v.MonitorName }).(pulumi.StringPtrOutput)
+}
+
+func (o SyntheticsTestMobileOptionsListOutput) MonitorOptions() SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsList) *SyntheticsTestMobileOptionsListMonitorOptions {
+		return v.MonitorOptions
+	}).(SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput)
+}
+
+func (o SyntheticsTestMobileOptionsListOutput) MonitorPriority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsList) *int { return v.MonitorPriority }).(pulumi.IntPtrOutput)
+}
+
+// Prevents saving screenshots of the steps.
+func (o SyntheticsTestMobileOptionsListOutput) NoScreenshot() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsList) *bool { return v.NoScreenshot }).(pulumi.BoolPtrOutput)
+}
+
+// A list of role identifiers pulled from the Roles API to restrict read and write access.
+func (o SyntheticsTestMobileOptionsListOutput) RestrictedRoles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsList) []string { return v.RestrictedRoles }).(pulumi.StringArrayOutput)
+}
+
+func (o SyntheticsTestMobileOptionsListOutput) Retry() SyntheticsTestMobileOptionsListRetryPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsList) *SyntheticsTestMobileOptionsListRetry { return v.Retry }).(SyntheticsTestMobileOptionsListRetryPtrOutput)
+}
+
+// Object containing timeframes and timezone used for advanced scheduling.
+func (o SyntheticsTestMobileOptionsListOutput) Scheduling() SyntheticsTestMobileOptionsListSchedulingPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsList) *SyntheticsTestMobileOptionsListScheduling {
+		return v.Scheduling
+	}).(SyntheticsTestMobileOptionsListSchedulingPtrOutput)
+}
+
+// How often the test should run (in seconds).
+func (o SyntheticsTestMobileOptionsListOutput) TickEvery() pulumi.IntOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsList) int { return v.TickEvery }).(pulumi.IntOutput)
+}
+
+func (o SyntheticsTestMobileOptionsListOutput) Verbosity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsList) *int { return v.Verbosity }).(pulumi.IntPtrOutput)
+}
+
+type SyntheticsTestMobileOptionsListPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileOptionsListPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestMobileOptionsList)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileOptionsListPtrOutput) ToSyntheticsTestMobileOptionsListPtrOutput() SyntheticsTestMobileOptionsListPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListPtrOutput) ToSyntheticsTestMobileOptionsListPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListPtrOutput) Elem() SyntheticsTestMobileOptionsListOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsList) SyntheticsTestMobileOptionsList {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestMobileOptionsList
+		return ret
+	}).(SyntheticsTestMobileOptionsListOutput)
+}
+
+func (o SyntheticsTestMobileOptionsListPtrOutput) AllowApplicationCrash() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsList) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowApplicationCrash
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o SyntheticsTestMobileOptionsListPtrOutput) Bindings() SyntheticsTestMobileOptionsListBindingArrayOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsList) []SyntheticsTestMobileOptionsListBinding {
+		if v == nil {
+			return nil
+		}
+		return v.Bindings
+	}).(SyntheticsTestMobileOptionsListBindingArrayOutput)
+}
+
+// CI/CD options for a Synthetic test.
+func (o SyntheticsTestMobileOptionsListPtrOutput) Ci() SyntheticsTestMobileOptionsListCiPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsList) *SyntheticsTestMobileOptionsListCi {
+		if v == nil {
+			return nil
+		}
+		return v.Ci
+	}).(SyntheticsTestMobileOptionsListCiPtrOutput)
+}
+
+func (o SyntheticsTestMobileOptionsListPtrOutput) DefaultStepTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsList) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultStepTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o SyntheticsTestMobileOptionsListPtrOutput) DeviceIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsList) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DeviceIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o SyntheticsTestMobileOptionsListPtrOutput) DisableAutoAcceptAlert() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsList) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DisableAutoAcceptAlert
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Minimum amount of time in failure required to trigger an alert (in seconds). Default is `0`.
+func (o SyntheticsTestMobileOptionsListPtrOutput) MinFailureDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsList) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinFailureDuration
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o SyntheticsTestMobileOptionsListPtrOutput) MobileApplication() SyntheticsTestMobileOptionsListMobileApplicationPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsList) *SyntheticsTestMobileOptionsListMobileApplication {
+		if v == nil {
+			return nil
+		}
+		return &v.MobileApplication
+	}).(SyntheticsTestMobileOptionsListMobileApplicationPtrOutput)
+}
+
+// The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
+func (o SyntheticsTestMobileOptionsListPtrOutput) MonitorName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsList) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MonitorName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SyntheticsTestMobileOptionsListPtrOutput) MonitorOptions() SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsList) *SyntheticsTestMobileOptionsListMonitorOptions {
+		if v == nil {
+			return nil
+		}
+		return v.MonitorOptions
+	}).(SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput)
+}
+
+func (o SyntheticsTestMobileOptionsListPtrOutput) MonitorPriority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsList) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MonitorPriority
+	}).(pulumi.IntPtrOutput)
+}
+
+// Prevents saving screenshots of the steps.
+func (o SyntheticsTestMobileOptionsListPtrOutput) NoScreenshot() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsList) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.NoScreenshot
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A list of role identifiers pulled from the Roles API to restrict read and write access.
+func (o SyntheticsTestMobileOptionsListPtrOutput) RestrictedRoles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsList) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RestrictedRoles
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o SyntheticsTestMobileOptionsListPtrOutput) Retry() SyntheticsTestMobileOptionsListRetryPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsList) *SyntheticsTestMobileOptionsListRetry {
+		if v == nil {
+			return nil
+		}
+		return v.Retry
+	}).(SyntheticsTestMobileOptionsListRetryPtrOutput)
+}
+
+// Object containing timeframes and timezone used for advanced scheduling.
+func (o SyntheticsTestMobileOptionsListPtrOutput) Scheduling() SyntheticsTestMobileOptionsListSchedulingPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsList) *SyntheticsTestMobileOptionsListScheduling {
+		if v == nil {
+			return nil
+		}
+		return v.Scheduling
+	}).(SyntheticsTestMobileOptionsListSchedulingPtrOutput)
+}
+
+// How often the test should run (in seconds).
+func (o SyntheticsTestMobileOptionsListPtrOutput) TickEvery() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsList) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.TickEvery
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o SyntheticsTestMobileOptionsListPtrOutput) Verbosity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsList) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Verbosity
+	}).(pulumi.IntPtrOutput)
+}
+
+type SyntheticsTestMobileOptionsListBinding struct {
+	Principals []string `pulumi:"principals"`
+	// Valid values are `editor`, `viewer`.
+	Relation *string `pulumi:"relation"`
+}
+
+// SyntheticsTestMobileOptionsListBindingInput is an input type that accepts SyntheticsTestMobileOptionsListBindingArgs and SyntheticsTestMobileOptionsListBindingOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileOptionsListBindingInput` via:
+//
+//	SyntheticsTestMobileOptionsListBindingArgs{...}
+type SyntheticsTestMobileOptionsListBindingInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileOptionsListBindingOutput() SyntheticsTestMobileOptionsListBindingOutput
+	ToSyntheticsTestMobileOptionsListBindingOutputWithContext(context.Context) SyntheticsTestMobileOptionsListBindingOutput
+}
+
+type SyntheticsTestMobileOptionsListBindingArgs struct {
+	Principals pulumi.StringArrayInput `pulumi:"principals"`
+	// Valid values are `editor`, `viewer`.
+	Relation pulumi.StringPtrInput `pulumi:"relation"`
+}
+
+func (SyntheticsTestMobileOptionsListBindingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileOptionsListBinding)(nil)).Elem()
+}
+
+func (i SyntheticsTestMobileOptionsListBindingArgs) ToSyntheticsTestMobileOptionsListBindingOutput() SyntheticsTestMobileOptionsListBindingOutput {
+	return i.ToSyntheticsTestMobileOptionsListBindingOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileOptionsListBindingArgs) ToSyntheticsTestMobileOptionsListBindingOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListBindingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileOptionsListBindingOutput)
+}
+
+// SyntheticsTestMobileOptionsListBindingArrayInput is an input type that accepts SyntheticsTestMobileOptionsListBindingArray and SyntheticsTestMobileOptionsListBindingArrayOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileOptionsListBindingArrayInput` via:
+//
+//	SyntheticsTestMobileOptionsListBindingArray{ SyntheticsTestMobileOptionsListBindingArgs{...} }
+type SyntheticsTestMobileOptionsListBindingArrayInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileOptionsListBindingArrayOutput() SyntheticsTestMobileOptionsListBindingArrayOutput
+	ToSyntheticsTestMobileOptionsListBindingArrayOutputWithContext(context.Context) SyntheticsTestMobileOptionsListBindingArrayOutput
+}
+
+type SyntheticsTestMobileOptionsListBindingArray []SyntheticsTestMobileOptionsListBindingInput
+
+func (SyntheticsTestMobileOptionsListBindingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyntheticsTestMobileOptionsListBinding)(nil)).Elem()
+}
+
+func (i SyntheticsTestMobileOptionsListBindingArray) ToSyntheticsTestMobileOptionsListBindingArrayOutput() SyntheticsTestMobileOptionsListBindingArrayOutput {
+	return i.ToSyntheticsTestMobileOptionsListBindingArrayOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileOptionsListBindingArray) ToSyntheticsTestMobileOptionsListBindingArrayOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListBindingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileOptionsListBindingArrayOutput)
+}
+
+type SyntheticsTestMobileOptionsListBindingOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileOptionsListBindingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileOptionsListBinding)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileOptionsListBindingOutput) ToSyntheticsTestMobileOptionsListBindingOutput() SyntheticsTestMobileOptionsListBindingOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListBindingOutput) ToSyntheticsTestMobileOptionsListBindingOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListBindingOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListBindingOutput) Principals() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsListBinding) []string { return v.Principals }).(pulumi.StringArrayOutput)
+}
+
+// Valid values are `editor`, `viewer`.
+func (o SyntheticsTestMobileOptionsListBindingOutput) Relation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsListBinding) *string { return v.Relation }).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestMobileOptionsListBindingArrayOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileOptionsListBindingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyntheticsTestMobileOptionsListBinding)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileOptionsListBindingArrayOutput) ToSyntheticsTestMobileOptionsListBindingArrayOutput() SyntheticsTestMobileOptionsListBindingArrayOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListBindingArrayOutput) ToSyntheticsTestMobileOptionsListBindingArrayOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListBindingArrayOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListBindingArrayOutput) Index(i pulumi.IntInput) SyntheticsTestMobileOptionsListBindingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SyntheticsTestMobileOptionsListBinding {
+		return vs[0].([]SyntheticsTestMobileOptionsListBinding)[vs[1].(int)]
+	}).(SyntheticsTestMobileOptionsListBindingOutput)
+}
+
+type SyntheticsTestMobileOptionsListCi struct {
+	// Execution rule for a Synthetics test. Valid values are `blocking`, `nonBlocking`, `skipped`.
+	ExecutionRule string `pulumi:"executionRule"`
+}
+
+// SyntheticsTestMobileOptionsListCiInput is an input type that accepts SyntheticsTestMobileOptionsListCiArgs and SyntheticsTestMobileOptionsListCiOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileOptionsListCiInput` via:
+//
+//	SyntheticsTestMobileOptionsListCiArgs{...}
+type SyntheticsTestMobileOptionsListCiInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileOptionsListCiOutput() SyntheticsTestMobileOptionsListCiOutput
+	ToSyntheticsTestMobileOptionsListCiOutputWithContext(context.Context) SyntheticsTestMobileOptionsListCiOutput
+}
+
+type SyntheticsTestMobileOptionsListCiArgs struct {
+	// Execution rule for a Synthetics test. Valid values are `blocking`, `nonBlocking`, `skipped`.
+	ExecutionRule pulumi.StringInput `pulumi:"executionRule"`
+}
+
+func (SyntheticsTestMobileOptionsListCiArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileOptionsListCi)(nil)).Elem()
+}
+
+func (i SyntheticsTestMobileOptionsListCiArgs) ToSyntheticsTestMobileOptionsListCiOutput() SyntheticsTestMobileOptionsListCiOutput {
+	return i.ToSyntheticsTestMobileOptionsListCiOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileOptionsListCiArgs) ToSyntheticsTestMobileOptionsListCiOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListCiOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileOptionsListCiOutput)
+}
+
+func (i SyntheticsTestMobileOptionsListCiArgs) ToSyntheticsTestMobileOptionsListCiPtrOutput() SyntheticsTestMobileOptionsListCiPtrOutput {
+	return i.ToSyntheticsTestMobileOptionsListCiPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileOptionsListCiArgs) ToSyntheticsTestMobileOptionsListCiPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListCiPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileOptionsListCiOutput).ToSyntheticsTestMobileOptionsListCiPtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestMobileOptionsListCiPtrInput is an input type that accepts SyntheticsTestMobileOptionsListCiArgs, SyntheticsTestMobileOptionsListCiPtr and SyntheticsTestMobileOptionsListCiPtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileOptionsListCiPtrInput` via:
+//
+//	        SyntheticsTestMobileOptionsListCiArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestMobileOptionsListCiPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileOptionsListCiPtrOutput() SyntheticsTestMobileOptionsListCiPtrOutput
+	ToSyntheticsTestMobileOptionsListCiPtrOutputWithContext(context.Context) SyntheticsTestMobileOptionsListCiPtrOutput
+}
+
+type syntheticsTestMobileOptionsListCiPtrType SyntheticsTestMobileOptionsListCiArgs
+
+func SyntheticsTestMobileOptionsListCiPtr(v *SyntheticsTestMobileOptionsListCiArgs) SyntheticsTestMobileOptionsListCiPtrInput {
+	return (*syntheticsTestMobileOptionsListCiPtrType)(v)
+}
+
+func (*syntheticsTestMobileOptionsListCiPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestMobileOptionsListCi)(nil)).Elem()
+}
+
+func (i *syntheticsTestMobileOptionsListCiPtrType) ToSyntheticsTestMobileOptionsListCiPtrOutput() SyntheticsTestMobileOptionsListCiPtrOutput {
+	return i.ToSyntheticsTestMobileOptionsListCiPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestMobileOptionsListCiPtrType) ToSyntheticsTestMobileOptionsListCiPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListCiPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileOptionsListCiPtrOutput)
+}
+
+type SyntheticsTestMobileOptionsListCiOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileOptionsListCiOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileOptionsListCi)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileOptionsListCiOutput) ToSyntheticsTestMobileOptionsListCiOutput() SyntheticsTestMobileOptionsListCiOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListCiOutput) ToSyntheticsTestMobileOptionsListCiOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListCiOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListCiOutput) ToSyntheticsTestMobileOptionsListCiPtrOutput() SyntheticsTestMobileOptionsListCiPtrOutput {
+	return o.ToSyntheticsTestMobileOptionsListCiPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestMobileOptionsListCiOutput) ToSyntheticsTestMobileOptionsListCiPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListCiPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestMobileOptionsListCi) *SyntheticsTestMobileOptionsListCi {
+		return &v
+	}).(SyntheticsTestMobileOptionsListCiPtrOutput)
+}
+
+// Execution rule for a Synthetics test. Valid values are `blocking`, `nonBlocking`, `skipped`.
+func (o SyntheticsTestMobileOptionsListCiOutput) ExecutionRule() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsListCi) string { return v.ExecutionRule }).(pulumi.StringOutput)
+}
+
+type SyntheticsTestMobileOptionsListCiPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileOptionsListCiPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestMobileOptionsListCi)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileOptionsListCiPtrOutput) ToSyntheticsTestMobileOptionsListCiPtrOutput() SyntheticsTestMobileOptionsListCiPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListCiPtrOutput) ToSyntheticsTestMobileOptionsListCiPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListCiPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListCiPtrOutput) Elem() SyntheticsTestMobileOptionsListCiOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsListCi) SyntheticsTestMobileOptionsListCi {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestMobileOptionsListCi
+		return ret
+	}).(SyntheticsTestMobileOptionsListCiOutput)
+}
+
+// Execution rule for a Synthetics test. Valid values are `blocking`, `nonBlocking`, `skipped`.
+func (o SyntheticsTestMobileOptionsListCiPtrOutput) ExecutionRule() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsListCi) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ExecutionRule
+	}).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestMobileOptionsListMobileApplication struct {
+	ApplicationId string `pulumi:"applicationId"`
+	ReferenceId   string `pulumi:"referenceId"`
+	// Valid values are `latest`, `version`.
+	ReferenceType string `pulumi:"referenceType"`
+}
+
+// SyntheticsTestMobileOptionsListMobileApplicationInput is an input type that accepts SyntheticsTestMobileOptionsListMobileApplicationArgs and SyntheticsTestMobileOptionsListMobileApplicationOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileOptionsListMobileApplicationInput` via:
+//
+//	SyntheticsTestMobileOptionsListMobileApplicationArgs{...}
+type SyntheticsTestMobileOptionsListMobileApplicationInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileOptionsListMobileApplicationOutput() SyntheticsTestMobileOptionsListMobileApplicationOutput
+	ToSyntheticsTestMobileOptionsListMobileApplicationOutputWithContext(context.Context) SyntheticsTestMobileOptionsListMobileApplicationOutput
+}
+
+type SyntheticsTestMobileOptionsListMobileApplicationArgs struct {
+	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
+	ReferenceId   pulumi.StringInput `pulumi:"referenceId"`
+	// Valid values are `latest`, `version`.
+	ReferenceType pulumi.StringInput `pulumi:"referenceType"`
+}
+
+func (SyntheticsTestMobileOptionsListMobileApplicationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileOptionsListMobileApplication)(nil)).Elem()
+}
+
+func (i SyntheticsTestMobileOptionsListMobileApplicationArgs) ToSyntheticsTestMobileOptionsListMobileApplicationOutput() SyntheticsTestMobileOptionsListMobileApplicationOutput {
+	return i.ToSyntheticsTestMobileOptionsListMobileApplicationOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileOptionsListMobileApplicationArgs) ToSyntheticsTestMobileOptionsListMobileApplicationOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListMobileApplicationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileOptionsListMobileApplicationOutput)
+}
+
+func (i SyntheticsTestMobileOptionsListMobileApplicationArgs) ToSyntheticsTestMobileOptionsListMobileApplicationPtrOutput() SyntheticsTestMobileOptionsListMobileApplicationPtrOutput {
+	return i.ToSyntheticsTestMobileOptionsListMobileApplicationPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileOptionsListMobileApplicationArgs) ToSyntheticsTestMobileOptionsListMobileApplicationPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListMobileApplicationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileOptionsListMobileApplicationOutput).ToSyntheticsTestMobileOptionsListMobileApplicationPtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestMobileOptionsListMobileApplicationPtrInput is an input type that accepts SyntheticsTestMobileOptionsListMobileApplicationArgs, SyntheticsTestMobileOptionsListMobileApplicationPtr and SyntheticsTestMobileOptionsListMobileApplicationPtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileOptionsListMobileApplicationPtrInput` via:
+//
+//	        SyntheticsTestMobileOptionsListMobileApplicationArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestMobileOptionsListMobileApplicationPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileOptionsListMobileApplicationPtrOutput() SyntheticsTestMobileOptionsListMobileApplicationPtrOutput
+	ToSyntheticsTestMobileOptionsListMobileApplicationPtrOutputWithContext(context.Context) SyntheticsTestMobileOptionsListMobileApplicationPtrOutput
+}
+
+type syntheticsTestMobileOptionsListMobileApplicationPtrType SyntheticsTestMobileOptionsListMobileApplicationArgs
+
+func SyntheticsTestMobileOptionsListMobileApplicationPtr(v *SyntheticsTestMobileOptionsListMobileApplicationArgs) SyntheticsTestMobileOptionsListMobileApplicationPtrInput {
+	return (*syntheticsTestMobileOptionsListMobileApplicationPtrType)(v)
+}
+
+func (*syntheticsTestMobileOptionsListMobileApplicationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestMobileOptionsListMobileApplication)(nil)).Elem()
+}
+
+func (i *syntheticsTestMobileOptionsListMobileApplicationPtrType) ToSyntheticsTestMobileOptionsListMobileApplicationPtrOutput() SyntheticsTestMobileOptionsListMobileApplicationPtrOutput {
+	return i.ToSyntheticsTestMobileOptionsListMobileApplicationPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestMobileOptionsListMobileApplicationPtrType) ToSyntheticsTestMobileOptionsListMobileApplicationPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListMobileApplicationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileOptionsListMobileApplicationPtrOutput)
+}
+
+type SyntheticsTestMobileOptionsListMobileApplicationOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileOptionsListMobileApplicationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileOptionsListMobileApplication)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileOptionsListMobileApplicationOutput) ToSyntheticsTestMobileOptionsListMobileApplicationOutput() SyntheticsTestMobileOptionsListMobileApplicationOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListMobileApplicationOutput) ToSyntheticsTestMobileOptionsListMobileApplicationOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListMobileApplicationOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListMobileApplicationOutput) ToSyntheticsTestMobileOptionsListMobileApplicationPtrOutput() SyntheticsTestMobileOptionsListMobileApplicationPtrOutput {
+	return o.ToSyntheticsTestMobileOptionsListMobileApplicationPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestMobileOptionsListMobileApplicationOutput) ToSyntheticsTestMobileOptionsListMobileApplicationPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListMobileApplicationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestMobileOptionsListMobileApplication) *SyntheticsTestMobileOptionsListMobileApplication {
+		return &v
+	}).(SyntheticsTestMobileOptionsListMobileApplicationPtrOutput)
+}
+
+func (o SyntheticsTestMobileOptionsListMobileApplicationOutput) ApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsListMobileApplication) string { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+func (o SyntheticsTestMobileOptionsListMobileApplicationOutput) ReferenceId() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsListMobileApplication) string { return v.ReferenceId }).(pulumi.StringOutput)
+}
+
+// Valid values are `latest`, `version`.
+func (o SyntheticsTestMobileOptionsListMobileApplicationOutput) ReferenceType() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsListMobileApplication) string { return v.ReferenceType }).(pulumi.StringOutput)
+}
+
+type SyntheticsTestMobileOptionsListMobileApplicationPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileOptionsListMobileApplicationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestMobileOptionsListMobileApplication)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileOptionsListMobileApplicationPtrOutput) ToSyntheticsTestMobileOptionsListMobileApplicationPtrOutput() SyntheticsTestMobileOptionsListMobileApplicationPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListMobileApplicationPtrOutput) ToSyntheticsTestMobileOptionsListMobileApplicationPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListMobileApplicationPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListMobileApplicationPtrOutput) Elem() SyntheticsTestMobileOptionsListMobileApplicationOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsListMobileApplication) SyntheticsTestMobileOptionsListMobileApplication {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestMobileOptionsListMobileApplication
+		return ret
+	}).(SyntheticsTestMobileOptionsListMobileApplicationOutput)
+}
+
+func (o SyntheticsTestMobileOptionsListMobileApplicationPtrOutput) ApplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsListMobileApplication) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ApplicationId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SyntheticsTestMobileOptionsListMobileApplicationPtrOutput) ReferenceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsListMobileApplication) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ReferenceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Valid values are `latest`, `version`.
+func (o SyntheticsTestMobileOptionsListMobileApplicationPtrOutput) ReferenceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsListMobileApplication) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ReferenceType
+	}).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestMobileOptionsListMonitorOptions struct {
+	EscalationMessage *string `pulumi:"escalationMessage"`
+	// Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`.
+	NotificationPresetName *string `pulumi:"notificationPresetName"`
+	// Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
+	RenotifyInterval    *int `pulumi:"renotifyInterval"`
+	RenotifyOccurrences *int `pulumi:"renotifyOccurrences"`
+}
+
+// SyntheticsTestMobileOptionsListMonitorOptionsInput is an input type that accepts SyntheticsTestMobileOptionsListMonitorOptionsArgs and SyntheticsTestMobileOptionsListMonitorOptionsOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileOptionsListMonitorOptionsInput` via:
+//
+//	SyntheticsTestMobileOptionsListMonitorOptionsArgs{...}
+type SyntheticsTestMobileOptionsListMonitorOptionsInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileOptionsListMonitorOptionsOutput() SyntheticsTestMobileOptionsListMonitorOptionsOutput
+	ToSyntheticsTestMobileOptionsListMonitorOptionsOutputWithContext(context.Context) SyntheticsTestMobileOptionsListMonitorOptionsOutput
+}
+
+type SyntheticsTestMobileOptionsListMonitorOptionsArgs struct {
+	EscalationMessage pulumi.StringPtrInput `pulumi:"escalationMessage"`
+	// Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`.
+	NotificationPresetName pulumi.StringPtrInput `pulumi:"notificationPresetName"`
+	// Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
+	RenotifyInterval    pulumi.IntPtrInput `pulumi:"renotifyInterval"`
+	RenotifyOccurrences pulumi.IntPtrInput `pulumi:"renotifyOccurrences"`
+}
+
+func (SyntheticsTestMobileOptionsListMonitorOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileOptionsListMonitorOptions)(nil)).Elem()
+}
+
+func (i SyntheticsTestMobileOptionsListMonitorOptionsArgs) ToSyntheticsTestMobileOptionsListMonitorOptionsOutput() SyntheticsTestMobileOptionsListMonitorOptionsOutput {
+	return i.ToSyntheticsTestMobileOptionsListMonitorOptionsOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileOptionsListMonitorOptionsArgs) ToSyntheticsTestMobileOptionsListMonitorOptionsOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListMonitorOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileOptionsListMonitorOptionsOutput)
+}
+
+func (i SyntheticsTestMobileOptionsListMonitorOptionsArgs) ToSyntheticsTestMobileOptionsListMonitorOptionsPtrOutput() SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput {
+	return i.ToSyntheticsTestMobileOptionsListMonitorOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileOptionsListMonitorOptionsArgs) ToSyntheticsTestMobileOptionsListMonitorOptionsPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileOptionsListMonitorOptionsOutput).ToSyntheticsTestMobileOptionsListMonitorOptionsPtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestMobileOptionsListMonitorOptionsPtrInput is an input type that accepts SyntheticsTestMobileOptionsListMonitorOptionsArgs, SyntheticsTestMobileOptionsListMonitorOptionsPtr and SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileOptionsListMonitorOptionsPtrInput` via:
+//
+//	        SyntheticsTestMobileOptionsListMonitorOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestMobileOptionsListMonitorOptionsPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileOptionsListMonitorOptionsPtrOutput() SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput
+	ToSyntheticsTestMobileOptionsListMonitorOptionsPtrOutputWithContext(context.Context) SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput
+}
+
+type syntheticsTestMobileOptionsListMonitorOptionsPtrType SyntheticsTestMobileOptionsListMonitorOptionsArgs
+
+func SyntheticsTestMobileOptionsListMonitorOptionsPtr(v *SyntheticsTestMobileOptionsListMonitorOptionsArgs) SyntheticsTestMobileOptionsListMonitorOptionsPtrInput {
+	return (*syntheticsTestMobileOptionsListMonitorOptionsPtrType)(v)
+}
+
+func (*syntheticsTestMobileOptionsListMonitorOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestMobileOptionsListMonitorOptions)(nil)).Elem()
+}
+
+func (i *syntheticsTestMobileOptionsListMonitorOptionsPtrType) ToSyntheticsTestMobileOptionsListMonitorOptionsPtrOutput() SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput {
+	return i.ToSyntheticsTestMobileOptionsListMonitorOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestMobileOptionsListMonitorOptionsPtrType) ToSyntheticsTestMobileOptionsListMonitorOptionsPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput)
+}
+
+type SyntheticsTestMobileOptionsListMonitorOptionsOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileOptionsListMonitorOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileOptionsListMonitorOptions)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileOptionsListMonitorOptionsOutput) ToSyntheticsTestMobileOptionsListMonitorOptionsOutput() SyntheticsTestMobileOptionsListMonitorOptionsOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListMonitorOptionsOutput) ToSyntheticsTestMobileOptionsListMonitorOptionsOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListMonitorOptionsOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListMonitorOptionsOutput) ToSyntheticsTestMobileOptionsListMonitorOptionsPtrOutput() SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput {
+	return o.ToSyntheticsTestMobileOptionsListMonitorOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestMobileOptionsListMonitorOptionsOutput) ToSyntheticsTestMobileOptionsListMonitorOptionsPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestMobileOptionsListMonitorOptions) *SyntheticsTestMobileOptionsListMonitorOptions {
+		return &v
+	}).(SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput)
+}
+
+func (o SyntheticsTestMobileOptionsListMonitorOptionsOutput) EscalationMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsListMonitorOptions) *string { return v.EscalationMessage }).(pulumi.StringPtrOutput)
+}
+
+// Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`.
+func (o SyntheticsTestMobileOptionsListMonitorOptionsOutput) NotificationPresetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsListMonitorOptions) *string { return v.NotificationPresetName }).(pulumi.StringPtrOutput)
+}
+
+// Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
+func (o SyntheticsTestMobileOptionsListMonitorOptionsOutput) RenotifyInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsListMonitorOptions) *int { return v.RenotifyInterval }).(pulumi.IntPtrOutput)
+}
+
+func (o SyntheticsTestMobileOptionsListMonitorOptionsOutput) RenotifyOccurrences() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsListMonitorOptions) *int { return v.RenotifyOccurrences }).(pulumi.IntPtrOutput)
+}
+
+type SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestMobileOptionsListMonitorOptions)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput) ToSyntheticsTestMobileOptionsListMonitorOptionsPtrOutput() SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput) ToSyntheticsTestMobileOptionsListMonitorOptionsPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput) Elem() SyntheticsTestMobileOptionsListMonitorOptionsOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsListMonitorOptions) SyntheticsTestMobileOptionsListMonitorOptions {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestMobileOptionsListMonitorOptions
+		return ret
+	}).(SyntheticsTestMobileOptionsListMonitorOptionsOutput)
+}
+
+func (o SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput) EscalationMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsListMonitorOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EscalationMessage
+	}).(pulumi.StringPtrOutput)
+}
+
+// Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`.
+func (o SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput) NotificationPresetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsListMonitorOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NotificationPresetName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
+func (o SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput) RenotifyInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsListMonitorOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RenotifyInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput) RenotifyOccurrences() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsListMonitorOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RenotifyOccurrences
+	}).(pulumi.IntPtrOutput)
+}
+
+type SyntheticsTestMobileOptionsListRetry struct {
+	// Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
+	Count *int `pulumi:"count"`
+	// Interval between a failed test and the next retry in milliseconds. Maximum value: `5000`. Defaults to `300`.
+	Interval *int `pulumi:"interval"`
+}
+
+// SyntheticsTestMobileOptionsListRetryInput is an input type that accepts SyntheticsTestMobileOptionsListRetryArgs and SyntheticsTestMobileOptionsListRetryOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileOptionsListRetryInput` via:
+//
+//	SyntheticsTestMobileOptionsListRetryArgs{...}
+type SyntheticsTestMobileOptionsListRetryInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileOptionsListRetryOutput() SyntheticsTestMobileOptionsListRetryOutput
+	ToSyntheticsTestMobileOptionsListRetryOutputWithContext(context.Context) SyntheticsTestMobileOptionsListRetryOutput
+}
+
+type SyntheticsTestMobileOptionsListRetryArgs struct {
+	// Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
+	Count pulumi.IntPtrInput `pulumi:"count"`
+	// Interval between a failed test and the next retry in milliseconds. Maximum value: `5000`. Defaults to `300`.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
+}
+
+func (SyntheticsTestMobileOptionsListRetryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileOptionsListRetry)(nil)).Elem()
+}
+
+func (i SyntheticsTestMobileOptionsListRetryArgs) ToSyntheticsTestMobileOptionsListRetryOutput() SyntheticsTestMobileOptionsListRetryOutput {
+	return i.ToSyntheticsTestMobileOptionsListRetryOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileOptionsListRetryArgs) ToSyntheticsTestMobileOptionsListRetryOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListRetryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileOptionsListRetryOutput)
+}
+
+func (i SyntheticsTestMobileOptionsListRetryArgs) ToSyntheticsTestMobileOptionsListRetryPtrOutput() SyntheticsTestMobileOptionsListRetryPtrOutput {
+	return i.ToSyntheticsTestMobileOptionsListRetryPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileOptionsListRetryArgs) ToSyntheticsTestMobileOptionsListRetryPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListRetryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileOptionsListRetryOutput).ToSyntheticsTestMobileOptionsListRetryPtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestMobileOptionsListRetryPtrInput is an input type that accepts SyntheticsTestMobileOptionsListRetryArgs, SyntheticsTestMobileOptionsListRetryPtr and SyntheticsTestMobileOptionsListRetryPtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileOptionsListRetryPtrInput` via:
+//
+//	        SyntheticsTestMobileOptionsListRetryArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestMobileOptionsListRetryPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileOptionsListRetryPtrOutput() SyntheticsTestMobileOptionsListRetryPtrOutput
+	ToSyntheticsTestMobileOptionsListRetryPtrOutputWithContext(context.Context) SyntheticsTestMobileOptionsListRetryPtrOutput
+}
+
+type syntheticsTestMobileOptionsListRetryPtrType SyntheticsTestMobileOptionsListRetryArgs
+
+func SyntheticsTestMobileOptionsListRetryPtr(v *SyntheticsTestMobileOptionsListRetryArgs) SyntheticsTestMobileOptionsListRetryPtrInput {
+	return (*syntheticsTestMobileOptionsListRetryPtrType)(v)
+}
+
+func (*syntheticsTestMobileOptionsListRetryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestMobileOptionsListRetry)(nil)).Elem()
+}
+
+func (i *syntheticsTestMobileOptionsListRetryPtrType) ToSyntheticsTestMobileOptionsListRetryPtrOutput() SyntheticsTestMobileOptionsListRetryPtrOutput {
+	return i.ToSyntheticsTestMobileOptionsListRetryPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestMobileOptionsListRetryPtrType) ToSyntheticsTestMobileOptionsListRetryPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListRetryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileOptionsListRetryPtrOutput)
+}
+
+type SyntheticsTestMobileOptionsListRetryOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileOptionsListRetryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileOptionsListRetry)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileOptionsListRetryOutput) ToSyntheticsTestMobileOptionsListRetryOutput() SyntheticsTestMobileOptionsListRetryOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListRetryOutput) ToSyntheticsTestMobileOptionsListRetryOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListRetryOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListRetryOutput) ToSyntheticsTestMobileOptionsListRetryPtrOutput() SyntheticsTestMobileOptionsListRetryPtrOutput {
+	return o.ToSyntheticsTestMobileOptionsListRetryPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestMobileOptionsListRetryOutput) ToSyntheticsTestMobileOptionsListRetryPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListRetryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestMobileOptionsListRetry) *SyntheticsTestMobileOptionsListRetry {
+		return &v
+	}).(SyntheticsTestMobileOptionsListRetryPtrOutput)
+}
+
+// Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
+func (o SyntheticsTestMobileOptionsListRetryOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsListRetry) *int { return v.Count }).(pulumi.IntPtrOutput)
+}
+
+// Interval between a failed test and the next retry in milliseconds. Maximum value: `5000`. Defaults to `300`.
+func (o SyntheticsTestMobileOptionsListRetryOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsListRetry) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+type SyntheticsTestMobileOptionsListRetryPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileOptionsListRetryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestMobileOptionsListRetry)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileOptionsListRetryPtrOutput) ToSyntheticsTestMobileOptionsListRetryPtrOutput() SyntheticsTestMobileOptionsListRetryPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListRetryPtrOutput) ToSyntheticsTestMobileOptionsListRetryPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListRetryPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListRetryPtrOutput) Elem() SyntheticsTestMobileOptionsListRetryOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsListRetry) SyntheticsTestMobileOptionsListRetry {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestMobileOptionsListRetry
+		return ret
+	}).(SyntheticsTestMobileOptionsListRetryOutput)
+}
+
+// Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
+func (o SyntheticsTestMobileOptionsListRetryPtrOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsListRetry) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Count
+	}).(pulumi.IntPtrOutput)
+}
+
+// Interval between a failed test and the next retry in milliseconds. Maximum value: `5000`. Defaults to `300`.
+func (o SyntheticsTestMobileOptionsListRetryPtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsListRetry) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Interval
+	}).(pulumi.IntPtrOutput)
+}
+
+type SyntheticsTestMobileOptionsListScheduling struct {
+	// Array containing objects describing the scheduling pattern to apply to each day.
+	Timeframes []SyntheticsTestMobileOptionsListSchedulingTimeframe `pulumi:"timeframes"`
+	// Timezone in which the timeframe is based.
+	Timezone string `pulumi:"timezone"`
+}
+
+// SyntheticsTestMobileOptionsListSchedulingInput is an input type that accepts SyntheticsTestMobileOptionsListSchedulingArgs and SyntheticsTestMobileOptionsListSchedulingOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileOptionsListSchedulingInput` via:
+//
+//	SyntheticsTestMobileOptionsListSchedulingArgs{...}
+type SyntheticsTestMobileOptionsListSchedulingInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileOptionsListSchedulingOutput() SyntheticsTestMobileOptionsListSchedulingOutput
+	ToSyntheticsTestMobileOptionsListSchedulingOutputWithContext(context.Context) SyntheticsTestMobileOptionsListSchedulingOutput
+}
+
+type SyntheticsTestMobileOptionsListSchedulingArgs struct {
+	// Array containing objects describing the scheduling pattern to apply to each day.
+	Timeframes SyntheticsTestMobileOptionsListSchedulingTimeframeArrayInput `pulumi:"timeframes"`
+	// Timezone in which the timeframe is based.
+	Timezone pulumi.StringInput `pulumi:"timezone"`
+}
+
+func (SyntheticsTestMobileOptionsListSchedulingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileOptionsListScheduling)(nil)).Elem()
+}
+
+func (i SyntheticsTestMobileOptionsListSchedulingArgs) ToSyntheticsTestMobileOptionsListSchedulingOutput() SyntheticsTestMobileOptionsListSchedulingOutput {
+	return i.ToSyntheticsTestMobileOptionsListSchedulingOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileOptionsListSchedulingArgs) ToSyntheticsTestMobileOptionsListSchedulingOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListSchedulingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileOptionsListSchedulingOutput)
+}
+
+func (i SyntheticsTestMobileOptionsListSchedulingArgs) ToSyntheticsTestMobileOptionsListSchedulingPtrOutput() SyntheticsTestMobileOptionsListSchedulingPtrOutput {
+	return i.ToSyntheticsTestMobileOptionsListSchedulingPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileOptionsListSchedulingArgs) ToSyntheticsTestMobileOptionsListSchedulingPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListSchedulingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileOptionsListSchedulingOutput).ToSyntheticsTestMobileOptionsListSchedulingPtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestMobileOptionsListSchedulingPtrInput is an input type that accepts SyntheticsTestMobileOptionsListSchedulingArgs, SyntheticsTestMobileOptionsListSchedulingPtr and SyntheticsTestMobileOptionsListSchedulingPtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileOptionsListSchedulingPtrInput` via:
+//
+//	        SyntheticsTestMobileOptionsListSchedulingArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestMobileOptionsListSchedulingPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileOptionsListSchedulingPtrOutput() SyntheticsTestMobileOptionsListSchedulingPtrOutput
+	ToSyntheticsTestMobileOptionsListSchedulingPtrOutputWithContext(context.Context) SyntheticsTestMobileOptionsListSchedulingPtrOutput
+}
+
+type syntheticsTestMobileOptionsListSchedulingPtrType SyntheticsTestMobileOptionsListSchedulingArgs
+
+func SyntheticsTestMobileOptionsListSchedulingPtr(v *SyntheticsTestMobileOptionsListSchedulingArgs) SyntheticsTestMobileOptionsListSchedulingPtrInput {
+	return (*syntheticsTestMobileOptionsListSchedulingPtrType)(v)
+}
+
+func (*syntheticsTestMobileOptionsListSchedulingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestMobileOptionsListScheduling)(nil)).Elem()
+}
+
+func (i *syntheticsTestMobileOptionsListSchedulingPtrType) ToSyntheticsTestMobileOptionsListSchedulingPtrOutput() SyntheticsTestMobileOptionsListSchedulingPtrOutput {
+	return i.ToSyntheticsTestMobileOptionsListSchedulingPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestMobileOptionsListSchedulingPtrType) ToSyntheticsTestMobileOptionsListSchedulingPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListSchedulingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileOptionsListSchedulingPtrOutput)
+}
+
+type SyntheticsTestMobileOptionsListSchedulingOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileOptionsListSchedulingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileOptionsListScheduling)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileOptionsListSchedulingOutput) ToSyntheticsTestMobileOptionsListSchedulingOutput() SyntheticsTestMobileOptionsListSchedulingOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListSchedulingOutput) ToSyntheticsTestMobileOptionsListSchedulingOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListSchedulingOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListSchedulingOutput) ToSyntheticsTestMobileOptionsListSchedulingPtrOutput() SyntheticsTestMobileOptionsListSchedulingPtrOutput {
+	return o.ToSyntheticsTestMobileOptionsListSchedulingPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestMobileOptionsListSchedulingOutput) ToSyntheticsTestMobileOptionsListSchedulingPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListSchedulingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestMobileOptionsListScheduling) *SyntheticsTestMobileOptionsListScheduling {
+		return &v
+	}).(SyntheticsTestMobileOptionsListSchedulingPtrOutput)
+}
+
+// Array containing objects describing the scheduling pattern to apply to each day.
+func (o SyntheticsTestMobileOptionsListSchedulingOutput) Timeframes() SyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsListScheduling) []SyntheticsTestMobileOptionsListSchedulingTimeframe {
+		return v.Timeframes
+	}).(SyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput)
+}
+
+// Timezone in which the timeframe is based.
+func (o SyntheticsTestMobileOptionsListSchedulingOutput) Timezone() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsListScheduling) string { return v.Timezone }).(pulumi.StringOutput)
+}
+
+type SyntheticsTestMobileOptionsListSchedulingPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileOptionsListSchedulingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestMobileOptionsListScheduling)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileOptionsListSchedulingPtrOutput) ToSyntheticsTestMobileOptionsListSchedulingPtrOutput() SyntheticsTestMobileOptionsListSchedulingPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListSchedulingPtrOutput) ToSyntheticsTestMobileOptionsListSchedulingPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListSchedulingPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListSchedulingPtrOutput) Elem() SyntheticsTestMobileOptionsListSchedulingOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsListScheduling) SyntheticsTestMobileOptionsListScheduling {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestMobileOptionsListScheduling
+		return ret
+	}).(SyntheticsTestMobileOptionsListSchedulingOutput)
+}
+
+// Array containing objects describing the scheduling pattern to apply to each day.
+func (o SyntheticsTestMobileOptionsListSchedulingPtrOutput) Timeframes() SyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsListScheduling) []SyntheticsTestMobileOptionsListSchedulingTimeframe {
+		if v == nil {
+			return nil
+		}
+		return v.Timeframes
+	}).(SyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput)
+}
+
+// Timezone in which the timeframe is based.
+func (o SyntheticsTestMobileOptionsListSchedulingPtrOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsListScheduling) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Timezone
+	}).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestMobileOptionsListSchedulingTimeframe struct {
+	// Number representing the day of the week
+	Day int `pulumi:"day"`
+	// The hour of the day on which scheduling starts.
+	From string `pulumi:"from"`
+	// The hour of the day on which scheduling ends.
+	To string `pulumi:"to"`
+}
+
+// SyntheticsTestMobileOptionsListSchedulingTimeframeInput is an input type that accepts SyntheticsTestMobileOptionsListSchedulingTimeframeArgs and SyntheticsTestMobileOptionsListSchedulingTimeframeOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileOptionsListSchedulingTimeframeInput` via:
+//
+//	SyntheticsTestMobileOptionsListSchedulingTimeframeArgs{...}
+type SyntheticsTestMobileOptionsListSchedulingTimeframeInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileOptionsListSchedulingTimeframeOutput() SyntheticsTestMobileOptionsListSchedulingTimeframeOutput
+	ToSyntheticsTestMobileOptionsListSchedulingTimeframeOutputWithContext(context.Context) SyntheticsTestMobileOptionsListSchedulingTimeframeOutput
+}
+
+type SyntheticsTestMobileOptionsListSchedulingTimeframeArgs struct {
+	// Number representing the day of the week
+	Day pulumi.IntInput `pulumi:"day"`
+	// The hour of the day on which scheduling starts.
+	From pulumi.StringInput `pulumi:"from"`
+	// The hour of the day on which scheduling ends.
+	To pulumi.StringInput `pulumi:"to"`
+}
+
+func (SyntheticsTestMobileOptionsListSchedulingTimeframeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileOptionsListSchedulingTimeframe)(nil)).Elem()
+}
+
+func (i SyntheticsTestMobileOptionsListSchedulingTimeframeArgs) ToSyntheticsTestMobileOptionsListSchedulingTimeframeOutput() SyntheticsTestMobileOptionsListSchedulingTimeframeOutput {
+	return i.ToSyntheticsTestMobileOptionsListSchedulingTimeframeOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileOptionsListSchedulingTimeframeArgs) ToSyntheticsTestMobileOptionsListSchedulingTimeframeOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListSchedulingTimeframeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileOptionsListSchedulingTimeframeOutput)
+}
+
+// SyntheticsTestMobileOptionsListSchedulingTimeframeArrayInput is an input type that accepts SyntheticsTestMobileOptionsListSchedulingTimeframeArray and SyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileOptionsListSchedulingTimeframeArrayInput` via:
+//
+//	SyntheticsTestMobileOptionsListSchedulingTimeframeArray{ SyntheticsTestMobileOptionsListSchedulingTimeframeArgs{...} }
+type SyntheticsTestMobileOptionsListSchedulingTimeframeArrayInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput() SyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput
+	ToSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutputWithContext(context.Context) SyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput
+}
+
+type SyntheticsTestMobileOptionsListSchedulingTimeframeArray []SyntheticsTestMobileOptionsListSchedulingTimeframeInput
+
+func (SyntheticsTestMobileOptionsListSchedulingTimeframeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyntheticsTestMobileOptionsListSchedulingTimeframe)(nil)).Elem()
+}
+
+func (i SyntheticsTestMobileOptionsListSchedulingTimeframeArray) ToSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput() SyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput {
+	return i.ToSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileOptionsListSchedulingTimeframeArray) ToSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput)
+}
+
+type SyntheticsTestMobileOptionsListSchedulingTimeframeOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileOptionsListSchedulingTimeframeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileOptionsListSchedulingTimeframe)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileOptionsListSchedulingTimeframeOutput) ToSyntheticsTestMobileOptionsListSchedulingTimeframeOutput() SyntheticsTestMobileOptionsListSchedulingTimeframeOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListSchedulingTimeframeOutput) ToSyntheticsTestMobileOptionsListSchedulingTimeframeOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListSchedulingTimeframeOutput {
+	return o
+}
+
+// Number representing the day of the week
+func (o SyntheticsTestMobileOptionsListSchedulingTimeframeOutput) Day() pulumi.IntOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsListSchedulingTimeframe) int { return v.Day }).(pulumi.IntOutput)
+}
+
+// The hour of the day on which scheduling starts.
+func (o SyntheticsTestMobileOptionsListSchedulingTimeframeOutput) From() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsListSchedulingTimeframe) string { return v.From }).(pulumi.StringOutput)
+}
+
+// The hour of the day on which scheduling ends.
+func (o SyntheticsTestMobileOptionsListSchedulingTimeframeOutput) To() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsListSchedulingTimeframe) string { return v.To }).(pulumi.StringOutput)
+}
+
+type SyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyntheticsTestMobileOptionsListSchedulingTimeframe)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput) ToSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput() SyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput) ToSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput) Index(i pulumi.IntInput) SyntheticsTestMobileOptionsListSchedulingTimeframeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SyntheticsTestMobileOptionsListSchedulingTimeframe {
+		return vs[0].([]SyntheticsTestMobileOptionsListSchedulingTimeframe)[vs[1].(int)]
+	}).(SyntheticsTestMobileOptionsListSchedulingTimeframeOutput)
+}
+
+type SyntheticsTestMobileStep struct {
+	// A boolean set to allow this step to fail.
+	AllowFailure *bool `pulumi:"allowFailure"`
+	// A boolean set to determine if the step has a new step element.
+	HasNewStepElement *bool `pulumi:"hasNewStepElement"`
+	// A boolean to use in addition to `allowFailure` to determine if the test should be marked as failed when the step fails.
+	IsCritical *bool `pulumi:"isCritical"`
+	// The name of the step.
+	Name string `pulumi:"name"`
+	// A boolean set to not take a screenshot for the step.
+	NoScreenshot *bool `pulumi:"noScreenshot"`
+	// Parameters for the step.
+	Params SyntheticsTestMobileStepParams `pulumi:"params"`
+	// The public ID of the step.
+	PublicId *string `pulumi:"publicId"`
+	// The time before declaring a step failed.
+	Timeout *int `pulumi:"timeout"`
+	// The type of the step. Valid values are `assertElementContent`, `assertScreenContains`, `assertScreenLacks`, `doubleTap`, `extractVariable`, `flick`, `openDeeplink`, `playSubTest`, `pressBack`, `restartApplication`, `rotate`, `scroll`, `scrollToElement`, `tap`, `toggleWiFi`, `typeText`, `wait`.
+	Type string `pulumi:"type"`
+}
+
+// SyntheticsTestMobileStepInput is an input type that accepts SyntheticsTestMobileStepArgs and SyntheticsTestMobileStepOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileStepInput` via:
+//
+//	SyntheticsTestMobileStepArgs{...}
+type SyntheticsTestMobileStepInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileStepOutput() SyntheticsTestMobileStepOutput
+	ToSyntheticsTestMobileStepOutputWithContext(context.Context) SyntheticsTestMobileStepOutput
+}
+
+type SyntheticsTestMobileStepArgs struct {
+	// A boolean set to allow this step to fail.
+	AllowFailure pulumi.BoolPtrInput `pulumi:"allowFailure"`
+	// A boolean set to determine if the step has a new step element.
+	HasNewStepElement pulumi.BoolPtrInput `pulumi:"hasNewStepElement"`
+	// A boolean to use in addition to `allowFailure` to determine if the test should be marked as failed when the step fails.
+	IsCritical pulumi.BoolPtrInput `pulumi:"isCritical"`
+	// The name of the step.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A boolean set to not take a screenshot for the step.
+	NoScreenshot pulumi.BoolPtrInput `pulumi:"noScreenshot"`
+	// Parameters for the step.
+	Params SyntheticsTestMobileStepParamsInput `pulumi:"params"`
+	// The public ID of the step.
+	PublicId pulumi.StringPtrInput `pulumi:"publicId"`
+	// The time before declaring a step failed.
+	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
+	// The type of the step. Valid values are `assertElementContent`, `assertScreenContains`, `assertScreenLacks`, `doubleTap`, `extractVariable`, `flick`, `openDeeplink`, `playSubTest`, `pressBack`, `restartApplication`, `rotate`, `scroll`, `scrollToElement`, `tap`, `toggleWiFi`, `typeText`, `wait`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (SyntheticsTestMobileStepArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileStep)(nil)).Elem()
+}
+
+func (i SyntheticsTestMobileStepArgs) ToSyntheticsTestMobileStepOutput() SyntheticsTestMobileStepOutput {
+	return i.ToSyntheticsTestMobileStepOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileStepArgs) ToSyntheticsTestMobileStepOutputWithContext(ctx context.Context) SyntheticsTestMobileStepOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileStepOutput)
+}
+
+// SyntheticsTestMobileStepArrayInput is an input type that accepts SyntheticsTestMobileStepArray and SyntheticsTestMobileStepArrayOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileStepArrayInput` via:
+//
+//	SyntheticsTestMobileStepArray{ SyntheticsTestMobileStepArgs{...} }
+type SyntheticsTestMobileStepArrayInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileStepArrayOutput() SyntheticsTestMobileStepArrayOutput
+	ToSyntheticsTestMobileStepArrayOutputWithContext(context.Context) SyntheticsTestMobileStepArrayOutput
+}
+
+type SyntheticsTestMobileStepArray []SyntheticsTestMobileStepInput
+
+func (SyntheticsTestMobileStepArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyntheticsTestMobileStep)(nil)).Elem()
+}
+
+func (i SyntheticsTestMobileStepArray) ToSyntheticsTestMobileStepArrayOutput() SyntheticsTestMobileStepArrayOutput {
+	return i.ToSyntheticsTestMobileStepArrayOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileStepArray) ToSyntheticsTestMobileStepArrayOutputWithContext(ctx context.Context) SyntheticsTestMobileStepArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileStepArrayOutput)
+}
+
+type SyntheticsTestMobileStepOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileStepOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileStep)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileStepOutput) ToSyntheticsTestMobileStepOutput() SyntheticsTestMobileStepOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepOutput) ToSyntheticsTestMobileStepOutputWithContext(ctx context.Context) SyntheticsTestMobileStepOutput {
+	return o
+}
+
+// A boolean set to allow this step to fail.
+func (o SyntheticsTestMobileStepOutput) AllowFailure() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStep) *bool { return v.AllowFailure }).(pulumi.BoolPtrOutput)
+}
+
+// A boolean set to determine if the step has a new step element.
+func (o SyntheticsTestMobileStepOutput) HasNewStepElement() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStep) *bool { return v.HasNewStepElement }).(pulumi.BoolPtrOutput)
+}
+
+// A boolean to use in addition to `allowFailure` to determine if the test should be marked as failed when the step fails.
+func (o SyntheticsTestMobileStepOutput) IsCritical() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStep) *bool { return v.IsCritical }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the step.
+func (o SyntheticsTestMobileStepOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStep) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A boolean set to not take a screenshot for the step.
+func (o SyntheticsTestMobileStepOutput) NoScreenshot() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStep) *bool { return v.NoScreenshot }).(pulumi.BoolPtrOutput)
+}
+
+// Parameters for the step.
+func (o SyntheticsTestMobileStepOutput) Params() SyntheticsTestMobileStepParamsOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStep) SyntheticsTestMobileStepParams { return v.Params }).(SyntheticsTestMobileStepParamsOutput)
+}
+
+// The public ID of the step.
+func (o SyntheticsTestMobileStepOutput) PublicId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStep) *string { return v.PublicId }).(pulumi.StringPtrOutput)
+}
+
+// The time before declaring a step failed.
+func (o SyntheticsTestMobileStepOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStep) *int { return v.Timeout }).(pulumi.IntPtrOutput)
+}
+
+// The type of the step. Valid values are `assertElementContent`, `assertScreenContains`, `assertScreenLacks`, `doubleTap`, `extractVariable`, `flick`, `openDeeplink`, `playSubTest`, `pressBack`, `restartApplication`, `rotate`, `scroll`, `scrollToElement`, `tap`, `toggleWiFi`, `typeText`, `wait`.
+func (o SyntheticsTestMobileStepOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStep) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type SyntheticsTestMobileStepArrayOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileStepArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyntheticsTestMobileStep)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileStepArrayOutput) ToSyntheticsTestMobileStepArrayOutput() SyntheticsTestMobileStepArrayOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepArrayOutput) ToSyntheticsTestMobileStepArrayOutputWithContext(ctx context.Context) SyntheticsTestMobileStepArrayOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepArrayOutput) Index(i pulumi.IntInput) SyntheticsTestMobileStepOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SyntheticsTestMobileStep {
+		return vs[0].([]SyntheticsTestMobileStep)[vs[1].(int)]
+	}).(SyntheticsTestMobileStepOutput)
+}
+
+type SyntheticsTestMobileStepParams struct {
+	// Check type to use for an assertion step. Valid values are `equals`, `notEquals`, `contains`, `notContains`, `startsWith`, `notStartsWith`, `greater`, `lower`, `greaterEquals`, `lowerEquals`, `matchRegex`, `between`, `isEmpty`, `notIsEmpty`.
+	Check *string `pulumi:"check"`
+	// Delay between each key stroke for a "type test" step.
+	Delay *int `pulumi:"delay"`
+	// Valid values are `up`, `down`, `left`, `right`.
+	Direction *string `pulumi:"direction"`
+	// Element to use for the step, JSON encoded string.
+	Element    *SyntheticsTestMobileStepParamsElement   `pulumi:"element"`
+	Enable     *bool                                    `pulumi:"enable"`
+	MaxScrolls *int                                     `pulumi:"maxScrolls"`
+	Positions  []SyntheticsTestMobileStepParamsPosition `pulumi:"positions"`
+	// ID of the Synthetics test to use as subtest.
+	SubtestPublicId *string `pulumi:"subtestPublicId"`
+	// Value of the step.
+	Value *string `pulumi:"value"`
+	// Details of the variable to extract.
+	Variable  *SyntheticsTestMobileStepParamsVariable `pulumi:"variable"`
+	WithEnter *bool                                   `pulumi:"withEnter"`
+	// X coordinates for a "scroll step".
+	X *float64 `pulumi:"x"`
+	// Y coordinates for a "scroll step".
+	Y *float64 `pulumi:"y"`
+}
+
+// SyntheticsTestMobileStepParamsInput is an input type that accepts SyntheticsTestMobileStepParamsArgs and SyntheticsTestMobileStepParamsOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileStepParamsInput` via:
+//
+//	SyntheticsTestMobileStepParamsArgs{...}
+type SyntheticsTestMobileStepParamsInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileStepParamsOutput() SyntheticsTestMobileStepParamsOutput
+	ToSyntheticsTestMobileStepParamsOutputWithContext(context.Context) SyntheticsTestMobileStepParamsOutput
+}
+
+type SyntheticsTestMobileStepParamsArgs struct {
+	// Check type to use for an assertion step. Valid values are `equals`, `notEquals`, `contains`, `notContains`, `startsWith`, `notStartsWith`, `greater`, `lower`, `greaterEquals`, `lowerEquals`, `matchRegex`, `between`, `isEmpty`, `notIsEmpty`.
+	Check pulumi.StringPtrInput `pulumi:"check"`
+	// Delay between each key stroke for a "type test" step.
+	Delay pulumi.IntPtrInput `pulumi:"delay"`
+	// Valid values are `up`, `down`, `left`, `right`.
+	Direction pulumi.StringPtrInput `pulumi:"direction"`
+	// Element to use for the step, JSON encoded string.
+	Element    SyntheticsTestMobileStepParamsElementPtrInput    `pulumi:"element"`
+	Enable     pulumi.BoolPtrInput                              `pulumi:"enable"`
+	MaxScrolls pulumi.IntPtrInput                               `pulumi:"maxScrolls"`
+	Positions  SyntheticsTestMobileStepParamsPositionArrayInput `pulumi:"positions"`
+	// ID of the Synthetics test to use as subtest.
+	SubtestPublicId pulumi.StringPtrInput `pulumi:"subtestPublicId"`
+	// Value of the step.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+	// Details of the variable to extract.
+	Variable  SyntheticsTestMobileStepParamsVariablePtrInput `pulumi:"variable"`
+	WithEnter pulumi.BoolPtrInput                            `pulumi:"withEnter"`
+	// X coordinates for a "scroll step".
+	X pulumi.Float64PtrInput `pulumi:"x"`
+	// Y coordinates for a "scroll step".
+	Y pulumi.Float64PtrInput `pulumi:"y"`
+}
+
+func (SyntheticsTestMobileStepParamsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileStepParams)(nil)).Elem()
+}
+
+func (i SyntheticsTestMobileStepParamsArgs) ToSyntheticsTestMobileStepParamsOutput() SyntheticsTestMobileStepParamsOutput {
+	return i.ToSyntheticsTestMobileStepParamsOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileStepParamsArgs) ToSyntheticsTestMobileStepParamsOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileStepParamsOutput)
+}
+
+type SyntheticsTestMobileStepParamsOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileStepParamsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileStepParams)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileStepParamsOutput) ToSyntheticsTestMobileStepParamsOutput() SyntheticsTestMobileStepParamsOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepParamsOutput) ToSyntheticsTestMobileStepParamsOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsOutput {
+	return o
+}
+
+// Check type to use for an assertion step. Valid values are `equals`, `notEquals`, `contains`, `notContains`, `startsWith`, `notStartsWith`, `greater`, `lower`, `greaterEquals`, `lowerEquals`, `matchRegex`, `between`, `isEmpty`, `notIsEmpty`.
+func (o SyntheticsTestMobileStepParamsOutput) Check() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParams) *string { return v.Check }).(pulumi.StringPtrOutput)
+}
+
+// Delay between each key stroke for a "type test" step.
+func (o SyntheticsTestMobileStepParamsOutput) Delay() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParams) *int { return v.Delay }).(pulumi.IntPtrOutput)
+}
+
+// Valid values are `up`, `down`, `left`, `right`.
+func (o SyntheticsTestMobileStepParamsOutput) Direction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParams) *string { return v.Direction }).(pulumi.StringPtrOutput)
+}
+
+// Element to use for the step, JSON encoded string.
+func (o SyntheticsTestMobileStepParamsOutput) Element() SyntheticsTestMobileStepParamsElementPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParams) *SyntheticsTestMobileStepParamsElement { return v.Element }).(SyntheticsTestMobileStepParamsElementPtrOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParams) *bool { return v.Enable }).(pulumi.BoolPtrOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsOutput) MaxScrolls() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParams) *int { return v.MaxScrolls }).(pulumi.IntPtrOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsOutput) Positions() SyntheticsTestMobileStepParamsPositionArrayOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParams) []SyntheticsTestMobileStepParamsPosition { return v.Positions }).(SyntheticsTestMobileStepParamsPositionArrayOutput)
+}
+
+// ID of the Synthetics test to use as subtest.
+func (o SyntheticsTestMobileStepParamsOutput) SubtestPublicId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParams) *string { return v.SubtestPublicId }).(pulumi.StringPtrOutput)
+}
+
+// Value of the step.
+func (o SyntheticsTestMobileStepParamsOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParams) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+// Details of the variable to extract.
+func (o SyntheticsTestMobileStepParamsOutput) Variable() SyntheticsTestMobileStepParamsVariablePtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParams) *SyntheticsTestMobileStepParamsVariable { return v.Variable }).(SyntheticsTestMobileStepParamsVariablePtrOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsOutput) WithEnter() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParams) *bool { return v.WithEnter }).(pulumi.BoolPtrOutput)
+}
+
+// X coordinates for a "scroll step".
+func (o SyntheticsTestMobileStepParamsOutput) X() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParams) *float64 { return v.X }).(pulumi.Float64PtrOutput)
+}
+
+// Y coordinates for a "scroll step".
+func (o SyntheticsTestMobileStepParamsOutput) Y() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParams) *float64 { return v.Y }).(pulumi.Float64PtrOutput)
+}
+
+type SyntheticsTestMobileStepParamsElement struct {
+	Context *string `pulumi:"context"`
+	// Valid values are `native`, `web`.
+	ContextType        *string                                                `pulumi:"contextType"`
+	ElementDescription *string                                                `pulumi:"elementDescription"`
+	MultiLocator       map[string]string                                      `pulumi:"multiLocator"`
+	RelativePosition   *SyntheticsTestMobileStepParamsElementRelativePosition `pulumi:"relativePosition"`
+	TextContent        *string                                                `pulumi:"textContent"`
+	UserLocator        *SyntheticsTestMobileStepParamsElementUserLocator      `pulumi:"userLocator"`
+	ViewName           *string                                                `pulumi:"viewName"`
+}
+
+// SyntheticsTestMobileStepParamsElementInput is an input type that accepts SyntheticsTestMobileStepParamsElementArgs and SyntheticsTestMobileStepParamsElementOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileStepParamsElementInput` via:
+//
+//	SyntheticsTestMobileStepParamsElementArgs{...}
+type SyntheticsTestMobileStepParamsElementInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileStepParamsElementOutput() SyntheticsTestMobileStepParamsElementOutput
+	ToSyntheticsTestMobileStepParamsElementOutputWithContext(context.Context) SyntheticsTestMobileStepParamsElementOutput
+}
+
+type SyntheticsTestMobileStepParamsElementArgs struct {
+	Context pulumi.StringPtrInput `pulumi:"context"`
+	// Valid values are `native`, `web`.
+	ContextType        pulumi.StringPtrInput                                         `pulumi:"contextType"`
+	ElementDescription pulumi.StringPtrInput                                         `pulumi:"elementDescription"`
+	MultiLocator       pulumi.StringMapInput                                         `pulumi:"multiLocator"`
+	RelativePosition   SyntheticsTestMobileStepParamsElementRelativePositionPtrInput `pulumi:"relativePosition"`
+	TextContent        pulumi.StringPtrInput                                         `pulumi:"textContent"`
+	UserLocator        SyntheticsTestMobileStepParamsElementUserLocatorPtrInput      `pulumi:"userLocator"`
+	ViewName           pulumi.StringPtrInput                                         `pulumi:"viewName"`
+}
+
+func (SyntheticsTestMobileStepParamsElementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileStepParamsElement)(nil)).Elem()
+}
+
+func (i SyntheticsTestMobileStepParamsElementArgs) ToSyntheticsTestMobileStepParamsElementOutput() SyntheticsTestMobileStepParamsElementOutput {
+	return i.ToSyntheticsTestMobileStepParamsElementOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileStepParamsElementArgs) ToSyntheticsTestMobileStepParamsElementOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsElementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileStepParamsElementOutput)
+}
+
+func (i SyntheticsTestMobileStepParamsElementArgs) ToSyntheticsTestMobileStepParamsElementPtrOutput() SyntheticsTestMobileStepParamsElementPtrOutput {
+	return i.ToSyntheticsTestMobileStepParamsElementPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileStepParamsElementArgs) ToSyntheticsTestMobileStepParamsElementPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsElementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileStepParamsElementOutput).ToSyntheticsTestMobileStepParamsElementPtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestMobileStepParamsElementPtrInput is an input type that accepts SyntheticsTestMobileStepParamsElementArgs, SyntheticsTestMobileStepParamsElementPtr and SyntheticsTestMobileStepParamsElementPtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileStepParamsElementPtrInput` via:
+//
+//	        SyntheticsTestMobileStepParamsElementArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestMobileStepParamsElementPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileStepParamsElementPtrOutput() SyntheticsTestMobileStepParamsElementPtrOutput
+	ToSyntheticsTestMobileStepParamsElementPtrOutputWithContext(context.Context) SyntheticsTestMobileStepParamsElementPtrOutput
+}
+
+type syntheticsTestMobileStepParamsElementPtrType SyntheticsTestMobileStepParamsElementArgs
+
+func SyntheticsTestMobileStepParamsElementPtr(v *SyntheticsTestMobileStepParamsElementArgs) SyntheticsTestMobileStepParamsElementPtrInput {
+	return (*syntheticsTestMobileStepParamsElementPtrType)(v)
+}
+
+func (*syntheticsTestMobileStepParamsElementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestMobileStepParamsElement)(nil)).Elem()
+}
+
+func (i *syntheticsTestMobileStepParamsElementPtrType) ToSyntheticsTestMobileStepParamsElementPtrOutput() SyntheticsTestMobileStepParamsElementPtrOutput {
+	return i.ToSyntheticsTestMobileStepParamsElementPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestMobileStepParamsElementPtrType) ToSyntheticsTestMobileStepParamsElementPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsElementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileStepParamsElementPtrOutput)
+}
+
+type SyntheticsTestMobileStepParamsElementOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileStepParamsElementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileStepParamsElement)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileStepParamsElementOutput) ToSyntheticsTestMobileStepParamsElementOutput() SyntheticsTestMobileStepParamsElementOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepParamsElementOutput) ToSyntheticsTestMobileStepParamsElementOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsElementOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepParamsElementOutput) ToSyntheticsTestMobileStepParamsElementPtrOutput() SyntheticsTestMobileStepParamsElementPtrOutput {
+	return o.ToSyntheticsTestMobileStepParamsElementPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestMobileStepParamsElementOutput) ToSyntheticsTestMobileStepParamsElementPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsElementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestMobileStepParamsElement) *SyntheticsTestMobileStepParamsElement {
+		return &v
+	}).(SyntheticsTestMobileStepParamsElementPtrOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsElementOutput) Context() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParamsElement) *string { return v.Context }).(pulumi.StringPtrOutput)
+}
+
+// Valid values are `native`, `web`.
+func (o SyntheticsTestMobileStepParamsElementOutput) ContextType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParamsElement) *string { return v.ContextType }).(pulumi.StringPtrOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsElementOutput) ElementDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParamsElement) *string { return v.ElementDescription }).(pulumi.StringPtrOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsElementOutput) MultiLocator() pulumi.StringMapOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParamsElement) map[string]string { return v.MultiLocator }).(pulumi.StringMapOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsElementOutput) RelativePosition() SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParamsElement) *SyntheticsTestMobileStepParamsElementRelativePosition {
+		return v.RelativePosition
+	}).(SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsElementOutput) TextContent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParamsElement) *string { return v.TextContent }).(pulumi.StringPtrOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsElementOutput) UserLocator() SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParamsElement) *SyntheticsTestMobileStepParamsElementUserLocator {
+		return v.UserLocator
+	}).(SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsElementOutput) ViewName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParamsElement) *string { return v.ViewName }).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestMobileStepParamsElementPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileStepParamsElementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestMobileStepParamsElement)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileStepParamsElementPtrOutput) ToSyntheticsTestMobileStepParamsElementPtrOutput() SyntheticsTestMobileStepParamsElementPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepParamsElementPtrOutput) ToSyntheticsTestMobileStepParamsElementPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsElementPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepParamsElementPtrOutput) Elem() SyntheticsTestMobileStepParamsElementOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileStepParamsElement) SyntheticsTestMobileStepParamsElement {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestMobileStepParamsElement
+		return ret
+	}).(SyntheticsTestMobileStepParamsElementOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsElementPtrOutput) Context() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileStepParamsElement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Context
+	}).(pulumi.StringPtrOutput)
+}
+
+// Valid values are `native`, `web`.
+func (o SyntheticsTestMobileStepParamsElementPtrOutput) ContextType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileStepParamsElement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContextType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsElementPtrOutput) ElementDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileStepParamsElement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ElementDescription
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsElementPtrOutput) MultiLocator() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileStepParamsElement) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.MultiLocator
+	}).(pulumi.StringMapOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsElementPtrOutput) RelativePosition() SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileStepParamsElement) *SyntheticsTestMobileStepParamsElementRelativePosition {
+		if v == nil {
+			return nil
+		}
+		return v.RelativePosition
+	}).(SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsElementPtrOutput) TextContent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileStepParamsElement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TextContent
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsElementPtrOutput) UserLocator() SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileStepParamsElement) *SyntheticsTestMobileStepParamsElementUserLocator {
+		if v == nil {
+			return nil
+		}
+		return v.UserLocator
+	}).(SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsElementPtrOutput) ViewName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileStepParamsElement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ViewName
+	}).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestMobileStepParamsElementRelativePosition struct {
+	X *float64 `pulumi:"x"`
+	Y *float64 `pulumi:"y"`
+}
+
+// SyntheticsTestMobileStepParamsElementRelativePositionInput is an input type that accepts SyntheticsTestMobileStepParamsElementRelativePositionArgs and SyntheticsTestMobileStepParamsElementRelativePositionOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileStepParamsElementRelativePositionInput` via:
+//
+//	SyntheticsTestMobileStepParamsElementRelativePositionArgs{...}
+type SyntheticsTestMobileStepParamsElementRelativePositionInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileStepParamsElementRelativePositionOutput() SyntheticsTestMobileStepParamsElementRelativePositionOutput
+	ToSyntheticsTestMobileStepParamsElementRelativePositionOutputWithContext(context.Context) SyntheticsTestMobileStepParamsElementRelativePositionOutput
+}
+
+type SyntheticsTestMobileStepParamsElementRelativePositionArgs struct {
+	X pulumi.Float64PtrInput `pulumi:"x"`
+	Y pulumi.Float64PtrInput `pulumi:"y"`
+}
+
+func (SyntheticsTestMobileStepParamsElementRelativePositionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileStepParamsElementRelativePosition)(nil)).Elem()
+}
+
+func (i SyntheticsTestMobileStepParamsElementRelativePositionArgs) ToSyntheticsTestMobileStepParamsElementRelativePositionOutput() SyntheticsTestMobileStepParamsElementRelativePositionOutput {
+	return i.ToSyntheticsTestMobileStepParamsElementRelativePositionOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileStepParamsElementRelativePositionArgs) ToSyntheticsTestMobileStepParamsElementRelativePositionOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsElementRelativePositionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileStepParamsElementRelativePositionOutput)
+}
+
+func (i SyntheticsTestMobileStepParamsElementRelativePositionArgs) ToSyntheticsTestMobileStepParamsElementRelativePositionPtrOutput() SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput {
+	return i.ToSyntheticsTestMobileStepParamsElementRelativePositionPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileStepParamsElementRelativePositionArgs) ToSyntheticsTestMobileStepParamsElementRelativePositionPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileStepParamsElementRelativePositionOutput).ToSyntheticsTestMobileStepParamsElementRelativePositionPtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestMobileStepParamsElementRelativePositionPtrInput is an input type that accepts SyntheticsTestMobileStepParamsElementRelativePositionArgs, SyntheticsTestMobileStepParamsElementRelativePositionPtr and SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileStepParamsElementRelativePositionPtrInput` via:
+//
+//	        SyntheticsTestMobileStepParamsElementRelativePositionArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestMobileStepParamsElementRelativePositionPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileStepParamsElementRelativePositionPtrOutput() SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput
+	ToSyntheticsTestMobileStepParamsElementRelativePositionPtrOutputWithContext(context.Context) SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput
+}
+
+type syntheticsTestMobileStepParamsElementRelativePositionPtrType SyntheticsTestMobileStepParamsElementRelativePositionArgs
+
+func SyntheticsTestMobileStepParamsElementRelativePositionPtr(v *SyntheticsTestMobileStepParamsElementRelativePositionArgs) SyntheticsTestMobileStepParamsElementRelativePositionPtrInput {
+	return (*syntheticsTestMobileStepParamsElementRelativePositionPtrType)(v)
+}
+
+func (*syntheticsTestMobileStepParamsElementRelativePositionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestMobileStepParamsElementRelativePosition)(nil)).Elem()
+}
+
+func (i *syntheticsTestMobileStepParamsElementRelativePositionPtrType) ToSyntheticsTestMobileStepParamsElementRelativePositionPtrOutput() SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput {
+	return i.ToSyntheticsTestMobileStepParamsElementRelativePositionPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestMobileStepParamsElementRelativePositionPtrType) ToSyntheticsTestMobileStepParamsElementRelativePositionPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput)
+}
+
+type SyntheticsTestMobileStepParamsElementRelativePositionOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileStepParamsElementRelativePositionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileStepParamsElementRelativePosition)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileStepParamsElementRelativePositionOutput) ToSyntheticsTestMobileStepParamsElementRelativePositionOutput() SyntheticsTestMobileStepParamsElementRelativePositionOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepParamsElementRelativePositionOutput) ToSyntheticsTestMobileStepParamsElementRelativePositionOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsElementRelativePositionOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepParamsElementRelativePositionOutput) ToSyntheticsTestMobileStepParamsElementRelativePositionPtrOutput() SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput {
+	return o.ToSyntheticsTestMobileStepParamsElementRelativePositionPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestMobileStepParamsElementRelativePositionOutput) ToSyntheticsTestMobileStepParamsElementRelativePositionPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestMobileStepParamsElementRelativePosition) *SyntheticsTestMobileStepParamsElementRelativePosition {
+		return &v
+	}).(SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsElementRelativePositionOutput) X() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParamsElementRelativePosition) *float64 { return v.X }).(pulumi.Float64PtrOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsElementRelativePositionOutput) Y() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParamsElementRelativePosition) *float64 { return v.Y }).(pulumi.Float64PtrOutput)
+}
+
+type SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestMobileStepParamsElementRelativePosition)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput) ToSyntheticsTestMobileStepParamsElementRelativePositionPtrOutput() SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput) ToSyntheticsTestMobileStepParamsElementRelativePositionPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput) Elem() SyntheticsTestMobileStepParamsElementRelativePositionOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileStepParamsElementRelativePosition) SyntheticsTestMobileStepParamsElementRelativePosition {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestMobileStepParamsElementRelativePosition
+		return ret
+	}).(SyntheticsTestMobileStepParamsElementRelativePositionOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput) X() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileStepParamsElementRelativePosition) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.X
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput) Y() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileStepParamsElementRelativePosition) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Y
+	}).(pulumi.Float64PtrOutput)
+}
+
+type SyntheticsTestMobileStepParamsElementUserLocator struct {
+	FailTestOnCannotLocate *bool                                                   `pulumi:"failTestOnCannotLocate"`
+	Values                 []SyntheticsTestMobileStepParamsElementUserLocatorValue `pulumi:"values"`
+}
+
+// SyntheticsTestMobileStepParamsElementUserLocatorInput is an input type that accepts SyntheticsTestMobileStepParamsElementUserLocatorArgs and SyntheticsTestMobileStepParamsElementUserLocatorOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileStepParamsElementUserLocatorInput` via:
+//
+//	SyntheticsTestMobileStepParamsElementUserLocatorArgs{...}
+type SyntheticsTestMobileStepParamsElementUserLocatorInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileStepParamsElementUserLocatorOutput() SyntheticsTestMobileStepParamsElementUserLocatorOutput
+	ToSyntheticsTestMobileStepParamsElementUserLocatorOutputWithContext(context.Context) SyntheticsTestMobileStepParamsElementUserLocatorOutput
+}
+
+type SyntheticsTestMobileStepParamsElementUserLocatorArgs struct {
+	FailTestOnCannotLocate pulumi.BoolPtrInput                                             `pulumi:"failTestOnCannotLocate"`
+	Values                 SyntheticsTestMobileStepParamsElementUserLocatorValueArrayInput `pulumi:"values"`
+}
+
+func (SyntheticsTestMobileStepParamsElementUserLocatorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileStepParamsElementUserLocator)(nil)).Elem()
+}
+
+func (i SyntheticsTestMobileStepParamsElementUserLocatorArgs) ToSyntheticsTestMobileStepParamsElementUserLocatorOutput() SyntheticsTestMobileStepParamsElementUserLocatorOutput {
+	return i.ToSyntheticsTestMobileStepParamsElementUserLocatorOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileStepParamsElementUserLocatorArgs) ToSyntheticsTestMobileStepParamsElementUserLocatorOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsElementUserLocatorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileStepParamsElementUserLocatorOutput)
+}
+
+func (i SyntheticsTestMobileStepParamsElementUserLocatorArgs) ToSyntheticsTestMobileStepParamsElementUserLocatorPtrOutput() SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput {
+	return i.ToSyntheticsTestMobileStepParamsElementUserLocatorPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileStepParamsElementUserLocatorArgs) ToSyntheticsTestMobileStepParamsElementUserLocatorPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileStepParamsElementUserLocatorOutput).ToSyntheticsTestMobileStepParamsElementUserLocatorPtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestMobileStepParamsElementUserLocatorPtrInput is an input type that accepts SyntheticsTestMobileStepParamsElementUserLocatorArgs, SyntheticsTestMobileStepParamsElementUserLocatorPtr and SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileStepParamsElementUserLocatorPtrInput` via:
+//
+//	        SyntheticsTestMobileStepParamsElementUserLocatorArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestMobileStepParamsElementUserLocatorPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileStepParamsElementUserLocatorPtrOutput() SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput
+	ToSyntheticsTestMobileStepParamsElementUserLocatorPtrOutputWithContext(context.Context) SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput
+}
+
+type syntheticsTestMobileStepParamsElementUserLocatorPtrType SyntheticsTestMobileStepParamsElementUserLocatorArgs
+
+func SyntheticsTestMobileStepParamsElementUserLocatorPtr(v *SyntheticsTestMobileStepParamsElementUserLocatorArgs) SyntheticsTestMobileStepParamsElementUserLocatorPtrInput {
+	return (*syntheticsTestMobileStepParamsElementUserLocatorPtrType)(v)
+}
+
+func (*syntheticsTestMobileStepParamsElementUserLocatorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestMobileStepParamsElementUserLocator)(nil)).Elem()
+}
+
+func (i *syntheticsTestMobileStepParamsElementUserLocatorPtrType) ToSyntheticsTestMobileStepParamsElementUserLocatorPtrOutput() SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput {
+	return i.ToSyntheticsTestMobileStepParamsElementUserLocatorPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestMobileStepParamsElementUserLocatorPtrType) ToSyntheticsTestMobileStepParamsElementUserLocatorPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput)
+}
+
+type SyntheticsTestMobileStepParamsElementUserLocatorOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileStepParamsElementUserLocatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileStepParamsElementUserLocator)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileStepParamsElementUserLocatorOutput) ToSyntheticsTestMobileStepParamsElementUserLocatorOutput() SyntheticsTestMobileStepParamsElementUserLocatorOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepParamsElementUserLocatorOutput) ToSyntheticsTestMobileStepParamsElementUserLocatorOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsElementUserLocatorOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepParamsElementUserLocatorOutput) ToSyntheticsTestMobileStepParamsElementUserLocatorPtrOutput() SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput {
+	return o.ToSyntheticsTestMobileStepParamsElementUserLocatorPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestMobileStepParamsElementUserLocatorOutput) ToSyntheticsTestMobileStepParamsElementUserLocatorPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestMobileStepParamsElementUserLocator) *SyntheticsTestMobileStepParamsElementUserLocator {
+		return &v
+	}).(SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsElementUserLocatorOutput) FailTestOnCannotLocate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParamsElementUserLocator) *bool { return v.FailTestOnCannotLocate }).(pulumi.BoolPtrOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsElementUserLocatorOutput) Values() SyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParamsElementUserLocator) []SyntheticsTestMobileStepParamsElementUserLocatorValue {
+		return v.Values
+	}).(SyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutput)
+}
+
+type SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestMobileStepParamsElementUserLocator)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput) ToSyntheticsTestMobileStepParamsElementUserLocatorPtrOutput() SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput) ToSyntheticsTestMobileStepParamsElementUserLocatorPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput) Elem() SyntheticsTestMobileStepParamsElementUserLocatorOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileStepParamsElementUserLocator) SyntheticsTestMobileStepParamsElementUserLocator {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestMobileStepParamsElementUserLocator
+		return ret
+	}).(SyntheticsTestMobileStepParamsElementUserLocatorOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput) FailTestOnCannotLocate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileStepParamsElementUserLocator) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.FailTestOnCannotLocate
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput) Values() SyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileStepParamsElementUserLocator) []SyntheticsTestMobileStepParamsElementUserLocatorValue {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(SyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutput)
+}
+
+type SyntheticsTestMobileStepParamsElementUserLocatorValue struct {
+	// Valid values are `accessibility-id`, `id`, `ios-predicate-string`, `ios-class-chain`, `xpath`.
+	Type  *string `pulumi:"type"`
+	Value *string `pulumi:"value"`
+}
+
+// SyntheticsTestMobileStepParamsElementUserLocatorValueInput is an input type that accepts SyntheticsTestMobileStepParamsElementUserLocatorValueArgs and SyntheticsTestMobileStepParamsElementUserLocatorValueOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileStepParamsElementUserLocatorValueInput` via:
+//
+//	SyntheticsTestMobileStepParamsElementUserLocatorValueArgs{...}
+type SyntheticsTestMobileStepParamsElementUserLocatorValueInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileStepParamsElementUserLocatorValueOutput() SyntheticsTestMobileStepParamsElementUserLocatorValueOutput
+	ToSyntheticsTestMobileStepParamsElementUserLocatorValueOutputWithContext(context.Context) SyntheticsTestMobileStepParamsElementUserLocatorValueOutput
+}
+
+type SyntheticsTestMobileStepParamsElementUserLocatorValueArgs struct {
+	// Valid values are `accessibility-id`, `id`, `ios-predicate-string`, `ios-class-chain`, `xpath`.
+	Type  pulumi.StringPtrInput `pulumi:"type"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (SyntheticsTestMobileStepParamsElementUserLocatorValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileStepParamsElementUserLocatorValue)(nil)).Elem()
+}
+
+func (i SyntheticsTestMobileStepParamsElementUserLocatorValueArgs) ToSyntheticsTestMobileStepParamsElementUserLocatorValueOutput() SyntheticsTestMobileStepParamsElementUserLocatorValueOutput {
+	return i.ToSyntheticsTestMobileStepParamsElementUserLocatorValueOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileStepParamsElementUserLocatorValueArgs) ToSyntheticsTestMobileStepParamsElementUserLocatorValueOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsElementUserLocatorValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileStepParamsElementUserLocatorValueOutput)
+}
+
+// SyntheticsTestMobileStepParamsElementUserLocatorValueArrayInput is an input type that accepts SyntheticsTestMobileStepParamsElementUserLocatorValueArray and SyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileStepParamsElementUserLocatorValueArrayInput` via:
+//
+//	SyntheticsTestMobileStepParamsElementUserLocatorValueArray{ SyntheticsTestMobileStepParamsElementUserLocatorValueArgs{...} }
+type SyntheticsTestMobileStepParamsElementUserLocatorValueArrayInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutput() SyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutput
+	ToSyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutputWithContext(context.Context) SyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutput
+}
+
+type SyntheticsTestMobileStepParamsElementUserLocatorValueArray []SyntheticsTestMobileStepParamsElementUserLocatorValueInput
+
+func (SyntheticsTestMobileStepParamsElementUserLocatorValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyntheticsTestMobileStepParamsElementUserLocatorValue)(nil)).Elem()
+}
+
+func (i SyntheticsTestMobileStepParamsElementUserLocatorValueArray) ToSyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutput() SyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutput {
+	return i.ToSyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileStepParamsElementUserLocatorValueArray) ToSyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutput)
+}
+
+type SyntheticsTestMobileStepParamsElementUserLocatorValueOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileStepParamsElementUserLocatorValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileStepParamsElementUserLocatorValue)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileStepParamsElementUserLocatorValueOutput) ToSyntheticsTestMobileStepParamsElementUserLocatorValueOutput() SyntheticsTestMobileStepParamsElementUserLocatorValueOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepParamsElementUserLocatorValueOutput) ToSyntheticsTestMobileStepParamsElementUserLocatorValueOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsElementUserLocatorValueOutput {
+	return o
+}
+
+// Valid values are `accessibility-id`, `id`, `ios-predicate-string`, `ios-class-chain`, `xpath`.
+func (o SyntheticsTestMobileStepParamsElementUserLocatorValueOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParamsElementUserLocatorValue) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsElementUserLocatorValueOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParamsElementUserLocatorValue) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyntheticsTestMobileStepParamsElementUserLocatorValue)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutput) ToSyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutput() SyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutput) ToSyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutput) Index(i pulumi.IntInput) SyntheticsTestMobileStepParamsElementUserLocatorValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SyntheticsTestMobileStepParamsElementUserLocatorValue {
+		return vs[0].([]SyntheticsTestMobileStepParamsElementUserLocatorValue)[vs[1].(int)]
+	}).(SyntheticsTestMobileStepParamsElementUserLocatorValueOutput)
+}
+
+type SyntheticsTestMobileStepParamsPosition struct {
+	X *float64 `pulumi:"x"`
+	Y *float64 `pulumi:"y"`
+}
+
+// SyntheticsTestMobileStepParamsPositionInput is an input type that accepts SyntheticsTestMobileStepParamsPositionArgs and SyntheticsTestMobileStepParamsPositionOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileStepParamsPositionInput` via:
+//
+//	SyntheticsTestMobileStepParamsPositionArgs{...}
+type SyntheticsTestMobileStepParamsPositionInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileStepParamsPositionOutput() SyntheticsTestMobileStepParamsPositionOutput
+	ToSyntheticsTestMobileStepParamsPositionOutputWithContext(context.Context) SyntheticsTestMobileStepParamsPositionOutput
+}
+
+type SyntheticsTestMobileStepParamsPositionArgs struct {
+	X pulumi.Float64PtrInput `pulumi:"x"`
+	Y pulumi.Float64PtrInput `pulumi:"y"`
+}
+
+func (SyntheticsTestMobileStepParamsPositionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileStepParamsPosition)(nil)).Elem()
+}
+
+func (i SyntheticsTestMobileStepParamsPositionArgs) ToSyntheticsTestMobileStepParamsPositionOutput() SyntheticsTestMobileStepParamsPositionOutput {
+	return i.ToSyntheticsTestMobileStepParamsPositionOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileStepParamsPositionArgs) ToSyntheticsTestMobileStepParamsPositionOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsPositionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileStepParamsPositionOutput)
+}
+
+// SyntheticsTestMobileStepParamsPositionArrayInput is an input type that accepts SyntheticsTestMobileStepParamsPositionArray and SyntheticsTestMobileStepParamsPositionArrayOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileStepParamsPositionArrayInput` via:
+//
+//	SyntheticsTestMobileStepParamsPositionArray{ SyntheticsTestMobileStepParamsPositionArgs{...} }
+type SyntheticsTestMobileStepParamsPositionArrayInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileStepParamsPositionArrayOutput() SyntheticsTestMobileStepParamsPositionArrayOutput
+	ToSyntheticsTestMobileStepParamsPositionArrayOutputWithContext(context.Context) SyntheticsTestMobileStepParamsPositionArrayOutput
+}
+
+type SyntheticsTestMobileStepParamsPositionArray []SyntheticsTestMobileStepParamsPositionInput
+
+func (SyntheticsTestMobileStepParamsPositionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyntheticsTestMobileStepParamsPosition)(nil)).Elem()
+}
+
+func (i SyntheticsTestMobileStepParamsPositionArray) ToSyntheticsTestMobileStepParamsPositionArrayOutput() SyntheticsTestMobileStepParamsPositionArrayOutput {
+	return i.ToSyntheticsTestMobileStepParamsPositionArrayOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileStepParamsPositionArray) ToSyntheticsTestMobileStepParamsPositionArrayOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsPositionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileStepParamsPositionArrayOutput)
+}
+
+type SyntheticsTestMobileStepParamsPositionOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileStepParamsPositionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileStepParamsPosition)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileStepParamsPositionOutput) ToSyntheticsTestMobileStepParamsPositionOutput() SyntheticsTestMobileStepParamsPositionOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepParamsPositionOutput) ToSyntheticsTestMobileStepParamsPositionOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsPositionOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepParamsPositionOutput) X() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParamsPosition) *float64 { return v.X }).(pulumi.Float64PtrOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsPositionOutput) Y() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParamsPosition) *float64 { return v.Y }).(pulumi.Float64PtrOutput)
+}
+
+type SyntheticsTestMobileStepParamsPositionArrayOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileStepParamsPositionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyntheticsTestMobileStepParamsPosition)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileStepParamsPositionArrayOutput) ToSyntheticsTestMobileStepParamsPositionArrayOutput() SyntheticsTestMobileStepParamsPositionArrayOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepParamsPositionArrayOutput) ToSyntheticsTestMobileStepParamsPositionArrayOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsPositionArrayOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepParamsPositionArrayOutput) Index(i pulumi.IntInput) SyntheticsTestMobileStepParamsPositionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SyntheticsTestMobileStepParamsPosition {
+		return vs[0].([]SyntheticsTestMobileStepParamsPosition)[vs[1].(int)]
+	}).(SyntheticsTestMobileStepParamsPositionOutput)
+}
+
+type SyntheticsTestMobileStepParamsVariable struct {
+	// Example of the extracted variable. Defaults to `""`.
+	Example *string `pulumi:"example"`
+	// Name of the extracted variable.
+	Name string `pulumi:"name"`
+}
+
+// SyntheticsTestMobileStepParamsVariableInput is an input type that accepts SyntheticsTestMobileStepParamsVariableArgs and SyntheticsTestMobileStepParamsVariableOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileStepParamsVariableInput` via:
+//
+//	SyntheticsTestMobileStepParamsVariableArgs{...}
+type SyntheticsTestMobileStepParamsVariableInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileStepParamsVariableOutput() SyntheticsTestMobileStepParamsVariableOutput
+	ToSyntheticsTestMobileStepParamsVariableOutputWithContext(context.Context) SyntheticsTestMobileStepParamsVariableOutput
+}
+
+type SyntheticsTestMobileStepParamsVariableArgs struct {
+	// Example of the extracted variable. Defaults to `""`.
+	Example pulumi.StringPtrInput `pulumi:"example"`
+	// Name of the extracted variable.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (SyntheticsTestMobileStepParamsVariableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileStepParamsVariable)(nil)).Elem()
+}
+
+func (i SyntheticsTestMobileStepParamsVariableArgs) ToSyntheticsTestMobileStepParamsVariableOutput() SyntheticsTestMobileStepParamsVariableOutput {
+	return i.ToSyntheticsTestMobileStepParamsVariableOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileStepParamsVariableArgs) ToSyntheticsTestMobileStepParamsVariableOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsVariableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileStepParamsVariableOutput)
+}
+
+func (i SyntheticsTestMobileStepParamsVariableArgs) ToSyntheticsTestMobileStepParamsVariablePtrOutput() SyntheticsTestMobileStepParamsVariablePtrOutput {
+	return i.ToSyntheticsTestMobileStepParamsVariablePtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileStepParamsVariableArgs) ToSyntheticsTestMobileStepParamsVariablePtrOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsVariablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileStepParamsVariableOutput).ToSyntheticsTestMobileStepParamsVariablePtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestMobileStepParamsVariablePtrInput is an input type that accepts SyntheticsTestMobileStepParamsVariableArgs, SyntheticsTestMobileStepParamsVariablePtr and SyntheticsTestMobileStepParamsVariablePtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileStepParamsVariablePtrInput` via:
+//
+//	        SyntheticsTestMobileStepParamsVariableArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestMobileStepParamsVariablePtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileStepParamsVariablePtrOutput() SyntheticsTestMobileStepParamsVariablePtrOutput
+	ToSyntheticsTestMobileStepParamsVariablePtrOutputWithContext(context.Context) SyntheticsTestMobileStepParamsVariablePtrOutput
+}
+
+type syntheticsTestMobileStepParamsVariablePtrType SyntheticsTestMobileStepParamsVariableArgs
+
+func SyntheticsTestMobileStepParamsVariablePtr(v *SyntheticsTestMobileStepParamsVariableArgs) SyntheticsTestMobileStepParamsVariablePtrInput {
+	return (*syntheticsTestMobileStepParamsVariablePtrType)(v)
+}
+
+func (*syntheticsTestMobileStepParamsVariablePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestMobileStepParamsVariable)(nil)).Elem()
+}
+
+func (i *syntheticsTestMobileStepParamsVariablePtrType) ToSyntheticsTestMobileStepParamsVariablePtrOutput() SyntheticsTestMobileStepParamsVariablePtrOutput {
+	return i.ToSyntheticsTestMobileStepParamsVariablePtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestMobileStepParamsVariablePtrType) ToSyntheticsTestMobileStepParamsVariablePtrOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsVariablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileStepParamsVariablePtrOutput)
+}
+
+type SyntheticsTestMobileStepParamsVariableOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileStepParamsVariableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileStepParamsVariable)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileStepParamsVariableOutput) ToSyntheticsTestMobileStepParamsVariableOutput() SyntheticsTestMobileStepParamsVariableOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepParamsVariableOutput) ToSyntheticsTestMobileStepParamsVariableOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsVariableOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepParamsVariableOutput) ToSyntheticsTestMobileStepParamsVariablePtrOutput() SyntheticsTestMobileStepParamsVariablePtrOutput {
+	return o.ToSyntheticsTestMobileStepParamsVariablePtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestMobileStepParamsVariableOutput) ToSyntheticsTestMobileStepParamsVariablePtrOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsVariablePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestMobileStepParamsVariable) *SyntheticsTestMobileStepParamsVariable {
+		return &v
+	}).(SyntheticsTestMobileStepParamsVariablePtrOutput)
+}
+
+// Example of the extracted variable. Defaults to `""`.
+func (o SyntheticsTestMobileStepParamsVariableOutput) Example() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParamsVariable) *string { return v.Example }).(pulumi.StringPtrOutput)
+}
+
+// Name of the extracted variable.
+func (o SyntheticsTestMobileStepParamsVariableOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParamsVariable) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type SyntheticsTestMobileStepParamsVariablePtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileStepParamsVariablePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestMobileStepParamsVariable)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileStepParamsVariablePtrOutput) ToSyntheticsTestMobileStepParamsVariablePtrOutput() SyntheticsTestMobileStepParamsVariablePtrOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepParamsVariablePtrOutput) ToSyntheticsTestMobileStepParamsVariablePtrOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsVariablePtrOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepParamsVariablePtrOutput) Elem() SyntheticsTestMobileStepParamsVariableOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileStepParamsVariable) SyntheticsTestMobileStepParamsVariable {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestMobileStepParamsVariable
+		return ret
+	}).(SyntheticsTestMobileStepParamsVariableOutput)
+}
+
+// Example of the extracted variable. Defaults to `""`.
+func (o SyntheticsTestMobileStepParamsVariablePtrOutput) Example() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileStepParamsVariable) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Example
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the extracted variable.
+func (o SyntheticsTestMobileStepParamsVariablePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileStepParamsVariable) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
 type SyntheticsTestOptionsList struct {
 	// For SSL test, whether or not the test should allow self signed certificates.
 	AcceptSelfSigned *bool `pulumi:"acceptSelfSigned"`
@@ -11563,9 +14221,9 @@ func (o SyntheticsTestOptionsListMonitorOptionsPtrOutput) RenotifyInterval() pul
 }
 
 type SyntheticsTestOptionsListRetry struct {
-	// Number of retries needed to consider a location as failed before sending a notification alert. Defaults to `0`.
+	// Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
 	Count *int `pulumi:"count"`
-	// Interval between a failed test and the next retry in milliseconds. Defaults to `300`.
+	// Interval between a failed test and the next retry in milliseconds. Maximum value: `5000`. Defaults to `300`.
 	Interval *int `pulumi:"interval"`
 }
 
@@ -11581,9 +14239,9 @@ type SyntheticsTestOptionsListRetryInput interface {
 }
 
 type SyntheticsTestOptionsListRetryArgs struct {
-	// Number of retries needed to consider a location as failed before sending a notification alert. Defaults to `0`.
+	// Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
 	Count pulumi.IntPtrInput `pulumi:"count"`
-	// Interval between a failed test and the next retry in milliseconds. Defaults to `300`.
+	// Interval between a failed test and the next retry in milliseconds. Maximum value: `5000`. Defaults to `300`.
 	Interval pulumi.IntPtrInput `pulumi:"interval"`
 }
 
@@ -11664,12 +14322,12 @@ func (o SyntheticsTestOptionsListRetryOutput) ToSyntheticsTestOptionsListRetryPt
 	}).(SyntheticsTestOptionsListRetryPtrOutput)
 }
 
-// Number of retries needed to consider a location as failed before sending a notification alert. Defaults to `0`.
+// Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
 func (o SyntheticsTestOptionsListRetryOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestOptionsListRetry) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
-// Interval between a failed test and the next retry in milliseconds. Defaults to `300`.
+// Interval between a failed test and the next retry in milliseconds. Maximum value: `5000`. Defaults to `300`.
 func (o SyntheticsTestOptionsListRetryOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestOptionsListRetry) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
@@ -11698,7 +14356,7 @@ func (o SyntheticsTestOptionsListRetryPtrOutput) Elem() SyntheticsTestOptionsLis
 	}).(SyntheticsTestOptionsListRetryOutput)
 }
 
-// Number of retries needed to consider a location as failed before sending a notification alert. Defaults to `0`.
+// Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
 func (o SyntheticsTestOptionsListRetryPtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestOptionsListRetry) *int {
 		if v == nil {
@@ -11708,7 +14366,7 @@ func (o SyntheticsTestOptionsListRetryPtrOutput) Count() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Interval between a failed test and the next retry in milliseconds. Defaults to `300`.
+// Interval between a failed test and the next retry in milliseconds. Maximum value: `5000`. Defaults to `300`.
 func (o SyntheticsTestOptionsListRetryPtrOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestOptionsListRetry) *int {
 		if v == nil {
@@ -19478,6 +22136,37 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestBrowserVariableArrayInput)(nil)).Elem(), SyntheticsTestBrowserVariableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestConfigVariableInput)(nil)).Elem(), SyntheticsTestConfigVariableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestConfigVariableArrayInput)(nil)).Elem(), SyntheticsTestConfigVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileOptionsListInput)(nil)).Elem(), SyntheticsTestMobileOptionsListArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileOptionsListPtrInput)(nil)).Elem(), SyntheticsTestMobileOptionsListArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileOptionsListBindingInput)(nil)).Elem(), SyntheticsTestMobileOptionsListBindingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileOptionsListBindingArrayInput)(nil)).Elem(), SyntheticsTestMobileOptionsListBindingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileOptionsListCiInput)(nil)).Elem(), SyntheticsTestMobileOptionsListCiArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileOptionsListCiPtrInput)(nil)).Elem(), SyntheticsTestMobileOptionsListCiArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileOptionsListMobileApplicationInput)(nil)).Elem(), SyntheticsTestMobileOptionsListMobileApplicationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileOptionsListMobileApplicationPtrInput)(nil)).Elem(), SyntheticsTestMobileOptionsListMobileApplicationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileOptionsListMonitorOptionsInput)(nil)).Elem(), SyntheticsTestMobileOptionsListMonitorOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileOptionsListMonitorOptionsPtrInput)(nil)).Elem(), SyntheticsTestMobileOptionsListMonitorOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileOptionsListRetryInput)(nil)).Elem(), SyntheticsTestMobileOptionsListRetryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileOptionsListRetryPtrInput)(nil)).Elem(), SyntheticsTestMobileOptionsListRetryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileOptionsListSchedulingInput)(nil)).Elem(), SyntheticsTestMobileOptionsListSchedulingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileOptionsListSchedulingPtrInput)(nil)).Elem(), SyntheticsTestMobileOptionsListSchedulingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileOptionsListSchedulingTimeframeInput)(nil)).Elem(), SyntheticsTestMobileOptionsListSchedulingTimeframeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileOptionsListSchedulingTimeframeArrayInput)(nil)).Elem(), SyntheticsTestMobileOptionsListSchedulingTimeframeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileStepInput)(nil)).Elem(), SyntheticsTestMobileStepArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileStepArrayInput)(nil)).Elem(), SyntheticsTestMobileStepArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileStepParamsInput)(nil)).Elem(), SyntheticsTestMobileStepParamsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileStepParamsElementInput)(nil)).Elem(), SyntheticsTestMobileStepParamsElementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileStepParamsElementPtrInput)(nil)).Elem(), SyntheticsTestMobileStepParamsElementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileStepParamsElementRelativePositionInput)(nil)).Elem(), SyntheticsTestMobileStepParamsElementRelativePositionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileStepParamsElementRelativePositionPtrInput)(nil)).Elem(), SyntheticsTestMobileStepParamsElementRelativePositionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileStepParamsElementUserLocatorInput)(nil)).Elem(), SyntheticsTestMobileStepParamsElementUserLocatorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileStepParamsElementUserLocatorPtrInput)(nil)).Elem(), SyntheticsTestMobileStepParamsElementUserLocatorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileStepParamsElementUserLocatorValueInput)(nil)).Elem(), SyntheticsTestMobileStepParamsElementUserLocatorValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileStepParamsElementUserLocatorValueArrayInput)(nil)).Elem(), SyntheticsTestMobileStepParamsElementUserLocatorValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileStepParamsPositionInput)(nil)).Elem(), SyntheticsTestMobileStepParamsPositionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileStepParamsPositionArrayInput)(nil)).Elem(), SyntheticsTestMobileStepParamsPositionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileStepParamsVariableInput)(nil)).Elem(), SyntheticsTestMobileStepParamsVariableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileStepParamsVariablePtrInput)(nil)).Elem(), SyntheticsTestMobileStepParamsVariableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestOptionsListInput)(nil)).Elem(), SyntheticsTestOptionsListArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestOptionsListPtrInput)(nil)).Elem(), SyntheticsTestOptionsListArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestOptionsListCiInput)(nil)).Elem(), SyntheticsTestOptionsListCiArgs{})
@@ -19721,6 +22410,37 @@ func init() {
 	pulumi.RegisterOutputType(SyntheticsTestBrowserVariableArrayOutput{})
 	pulumi.RegisterOutputType(SyntheticsTestConfigVariableOutput{})
 	pulumi.RegisterOutputType(SyntheticsTestConfigVariableArrayOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileOptionsListOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileOptionsListPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileOptionsListBindingOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileOptionsListBindingArrayOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileOptionsListCiOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileOptionsListCiPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileOptionsListMobileApplicationOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileOptionsListMobileApplicationPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileOptionsListMonitorOptionsOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileOptionsListRetryOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileOptionsListRetryPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileOptionsListSchedulingOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileOptionsListSchedulingPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileOptionsListSchedulingTimeframeOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileStepOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileStepArrayOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileStepParamsOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileStepParamsElementOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileStepParamsElementPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileStepParamsElementRelativePositionOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileStepParamsElementUserLocatorOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileStepParamsElementUserLocatorValueOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileStepParamsPositionOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileStepParamsPositionArrayOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileStepParamsVariableOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileStepParamsVariablePtrOutput{})
 	pulumi.RegisterOutputType(SyntheticsTestOptionsListOutput{})
 	pulumi.RegisterOutputType(SyntheticsTestOptionsListPtrOutput{})
 	pulumi.RegisterOutputType(SyntheticsTestOptionsListCiOutput{})

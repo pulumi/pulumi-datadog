@@ -103,15 +103,15 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="enableSamples", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> enableSamples;
+    private Output</* @Nullable */ Boolean> enableSamples;
 
     /**
      * @return Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline
      * monitors.
      * 
      */
-    public Output<Boolean> enableSamples() {
-        return this.enableSamples;
+    public Output<Optional<Boolean>> enableSamples() {
+        return Codegen.optional(this.enableSamples);
     }
     /**
      * A message to include with a re-notification. Supports the `{@literal @}username` notification allowed elsewhere.

@@ -22,6 +22,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.SyntheticsTestApiStepAssertion> Assertions;
         /// <summary>
+        /// Determines whether or not to exit the test if the step succeeds.
+        /// </summary>
+        public readonly bool? ExitIfSucceed;
+        /// <summary>
         /// Values to parse and save as variables from the response.
         /// </summary>
         public readonly ImmutableArray<Outputs.SyntheticsTestApiStepExtractedValue> ExtractedValues;
@@ -81,6 +85,8 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.SyntheticsTestApiStepAssertion> assertions,
 
+            bool? exitIfSucceed,
+
             ImmutableArray<Outputs.SyntheticsTestApiStepExtractedValue> extractedValues,
 
             bool? isCritical,
@@ -111,6 +117,7 @@ namespace Pulumi.Datadog.Outputs
         {
             AllowFailure = allowFailure;
             Assertions = assertions;
+            ExitIfSucceed = exitIfSucceed;
             ExtractedValues = extractedValues;
             IsCritical = isCritical;
             Name = name;

@@ -61,7 +61,7 @@ namespace Pulumi.Datadog.Cloudflare
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// An allowlist of resources to pull metrics for. Including, `web`, `dns`, `lb` (load balancer), and `worker`).
+        /// An allowlist of resources to pull metrics for. Includes `web`, `dns`, `lb` (load balancer), and `worker`).
         /// </summary>
         [Output("resources")]
         public Output<ImmutableArray<string>> Resources { get; private set; } = null!;
@@ -148,7 +148,7 @@ namespace Pulumi.Datadog.Cloudflare
         private InputList<string>? _resources;
 
         /// <summary>
-        /// An allowlist of resources to pull metrics for. Including, `web`, `dns`, `lb` (load balancer), and `worker`).
+        /// An allowlist of resources to pull metrics for. Includes `web`, `dns`, `lb` (load balancer), and `worker`).
         /// </summary>
         public InputList<string> Resources
         {
@@ -196,7 +196,7 @@ namespace Pulumi.Datadog.Cloudflare
         private InputList<string>? _resources;
 
         /// <summary>
-        /// An allowlist of resources to pull metrics for. Including, `web`, `dns`, `lb` (load balancer), and `worker`).
+        /// An allowlist of resources to pull metrics for. Includes `web`, `dns`, `lb` (load balancer), and `worker`).
         /// </summary>
         public InputList<string> Resources
         {

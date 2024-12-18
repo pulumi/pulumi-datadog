@@ -13,6 +13,1858 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type IntegrationAccountAuthConfig struct {
+	AwsAuthConfigKeys *IntegrationAccountAuthConfigAwsAuthConfigKeys `pulumi:"awsAuthConfigKeys"`
+	AwsAuthConfigRole *IntegrationAccountAuthConfigAwsAuthConfigRole `pulumi:"awsAuthConfigRole"`
+}
+
+// IntegrationAccountAuthConfigInput is an input type that accepts IntegrationAccountAuthConfigArgs and IntegrationAccountAuthConfigOutput values.
+// You can construct a concrete instance of `IntegrationAccountAuthConfigInput` via:
+//
+//	IntegrationAccountAuthConfigArgs{...}
+type IntegrationAccountAuthConfigInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountAuthConfigOutput() IntegrationAccountAuthConfigOutput
+	ToIntegrationAccountAuthConfigOutputWithContext(context.Context) IntegrationAccountAuthConfigOutput
+}
+
+type IntegrationAccountAuthConfigArgs struct {
+	AwsAuthConfigKeys IntegrationAccountAuthConfigAwsAuthConfigKeysPtrInput `pulumi:"awsAuthConfigKeys"`
+	AwsAuthConfigRole IntegrationAccountAuthConfigAwsAuthConfigRolePtrInput `pulumi:"awsAuthConfigRole"`
+}
+
+func (IntegrationAccountAuthConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountAuthConfig)(nil)).Elem()
+}
+
+func (i IntegrationAccountAuthConfigArgs) ToIntegrationAccountAuthConfigOutput() IntegrationAccountAuthConfigOutput {
+	return i.ToIntegrationAccountAuthConfigOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountAuthConfigArgs) ToIntegrationAccountAuthConfigOutputWithContext(ctx context.Context) IntegrationAccountAuthConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountAuthConfigOutput)
+}
+
+func (i IntegrationAccountAuthConfigArgs) ToIntegrationAccountAuthConfigPtrOutput() IntegrationAccountAuthConfigPtrOutput {
+	return i.ToIntegrationAccountAuthConfigPtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountAuthConfigArgs) ToIntegrationAccountAuthConfigPtrOutputWithContext(ctx context.Context) IntegrationAccountAuthConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountAuthConfigOutput).ToIntegrationAccountAuthConfigPtrOutputWithContext(ctx)
+}
+
+// IntegrationAccountAuthConfigPtrInput is an input type that accepts IntegrationAccountAuthConfigArgs, IntegrationAccountAuthConfigPtr and IntegrationAccountAuthConfigPtrOutput values.
+// You can construct a concrete instance of `IntegrationAccountAuthConfigPtrInput` via:
+//
+//	        IntegrationAccountAuthConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type IntegrationAccountAuthConfigPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountAuthConfigPtrOutput() IntegrationAccountAuthConfigPtrOutput
+	ToIntegrationAccountAuthConfigPtrOutputWithContext(context.Context) IntegrationAccountAuthConfigPtrOutput
+}
+
+type integrationAccountAuthConfigPtrType IntegrationAccountAuthConfigArgs
+
+func IntegrationAccountAuthConfigPtr(v *IntegrationAccountAuthConfigArgs) IntegrationAccountAuthConfigPtrInput {
+	return (*integrationAccountAuthConfigPtrType)(v)
+}
+
+func (*integrationAccountAuthConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationAccountAuthConfig)(nil)).Elem()
+}
+
+func (i *integrationAccountAuthConfigPtrType) ToIntegrationAccountAuthConfigPtrOutput() IntegrationAccountAuthConfigPtrOutput {
+	return i.ToIntegrationAccountAuthConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationAccountAuthConfigPtrType) ToIntegrationAccountAuthConfigPtrOutputWithContext(ctx context.Context) IntegrationAccountAuthConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountAuthConfigPtrOutput)
+}
+
+type IntegrationAccountAuthConfigOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountAuthConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountAuthConfig)(nil)).Elem()
+}
+
+func (o IntegrationAccountAuthConfigOutput) ToIntegrationAccountAuthConfigOutput() IntegrationAccountAuthConfigOutput {
+	return o
+}
+
+func (o IntegrationAccountAuthConfigOutput) ToIntegrationAccountAuthConfigOutputWithContext(ctx context.Context) IntegrationAccountAuthConfigOutput {
+	return o
+}
+
+func (o IntegrationAccountAuthConfigOutput) ToIntegrationAccountAuthConfigPtrOutput() IntegrationAccountAuthConfigPtrOutput {
+	return o.ToIntegrationAccountAuthConfigPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationAccountAuthConfigOutput) ToIntegrationAccountAuthConfigPtrOutputWithContext(ctx context.Context) IntegrationAccountAuthConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationAccountAuthConfig) *IntegrationAccountAuthConfig {
+		return &v
+	}).(IntegrationAccountAuthConfigPtrOutput)
+}
+
+func (o IntegrationAccountAuthConfigOutput) AwsAuthConfigKeys() IntegrationAccountAuthConfigAwsAuthConfigKeysPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountAuthConfig) *IntegrationAccountAuthConfigAwsAuthConfigKeys {
+		return v.AwsAuthConfigKeys
+	}).(IntegrationAccountAuthConfigAwsAuthConfigKeysPtrOutput)
+}
+
+func (o IntegrationAccountAuthConfigOutput) AwsAuthConfigRole() IntegrationAccountAuthConfigAwsAuthConfigRolePtrOutput {
+	return o.ApplyT(func(v IntegrationAccountAuthConfig) *IntegrationAccountAuthConfigAwsAuthConfigRole {
+		return v.AwsAuthConfigRole
+	}).(IntegrationAccountAuthConfigAwsAuthConfigRolePtrOutput)
+}
+
+type IntegrationAccountAuthConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountAuthConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationAccountAuthConfig)(nil)).Elem()
+}
+
+func (o IntegrationAccountAuthConfigPtrOutput) ToIntegrationAccountAuthConfigPtrOutput() IntegrationAccountAuthConfigPtrOutput {
+	return o
+}
+
+func (o IntegrationAccountAuthConfigPtrOutput) ToIntegrationAccountAuthConfigPtrOutputWithContext(ctx context.Context) IntegrationAccountAuthConfigPtrOutput {
+	return o
+}
+
+func (o IntegrationAccountAuthConfigPtrOutput) Elem() IntegrationAccountAuthConfigOutput {
+	return o.ApplyT(func(v *IntegrationAccountAuthConfig) IntegrationAccountAuthConfig {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationAccountAuthConfig
+		return ret
+	}).(IntegrationAccountAuthConfigOutput)
+}
+
+func (o IntegrationAccountAuthConfigPtrOutput) AwsAuthConfigKeys() IntegrationAccountAuthConfigAwsAuthConfigKeysPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountAuthConfig) *IntegrationAccountAuthConfigAwsAuthConfigKeys {
+		if v == nil {
+			return nil
+		}
+		return v.AwsAuthConfigKeys
+	}).(IntegrationAccountAuthConfigAwsAuthConfigKeysPtrOutput)
+}
+
+func (o IntegrationAccountAuthConfigPtrOutput) AwsAuthConfigRole() IntegrationAccountAuthConfigAwsAuthConfigRolePtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountAuthConfig) *IntegrationAccountAuthConfigAwsAuthConfigRole {
+		if v == nil {
+			return nil
+		}
+		return v.AwsAuthConfigRole
+	}).(IntegrationAccountAuthConfigAwsAuthConfigRolePtrOutput)
+}
+
+type IntegrationAccountAuthConfigAwsAuthConfigKeys struct {
+	// AWS Access Key ID
+	AccessKeyId     *string `pulumi:"accessKeyId"`
+	SecretAccessKey *string `pulumi:"secretAccessKey"`
+}
+
+// IntegrationAccountAuthConfigAwsAuthConfigKeysInput is an input type that accepts IntegrationAccountAuthConfigAwsAuthConfigKeysArgs and IntegrationAccountAuthConfigAwsAuthConfigKeysOutput values.
+// You can construct a concrete instance of `IntegrationAccountAuthConfigAwsAuthConfigKeysInput` via:
+//
+//	IntegrationAccountAuthConfigAwsAuthConfigKeysArgs{...}
+type IntegrationAccountAuthConfigAwsAuthConfigKeysInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountAuthConfigAwsAuthConfigKeysOutput() IntegrationAccountAuthConfigAwsAuthConfigKeysOutput
+	ToIntegrationAccountAuthConfigAwsAuthConfigKeysOutputWithContext(context.Context) IntegrationAccountAuthConfigAwsAuthConfigKeysOutput
+}
+
+type IntegrationAccountAuthConfigAwsAuthConfigKeysArgs struct {
+	// AWS Access Key ID
+	AccessKeyId     pulumi.StringPtrInput `pulumi:"accessKeyId"`
+	SecretAccessKey pulumi.StringPtrInput `pulumi:"secretAccessKey"`
+}
+
+func (IntegrationAccountAuthConfigAwsAuthConfigKeysArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountAuthConfigAwsAuthConfigKeys)(nil)).Elem()
+}
+
+func (i IntegrationAccountAuthConfigAwsAuthConfigKeysArgs) ToIntegrationAccountAuthConfigAwsAuthConfigKeysOutput() IntegrationAccountAuthConfigAwsAuthConfigKeysOutput {
+	return i.ToIntegrationAccountAuthConfigAwsAuthConfigKeysOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountAuthConfigAwsAuthConfigKeysArgs) ToIntegrationAccountAuthConfigAwsAuthConfigKeysOutputWithContext(ctx context.Context) IntegrationAccountAuthConfigAwsAuthConfigKeysOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountAuthConfigAwsAuthConfigKeysOutput)
+}
+
+func (i IntegrationAccountAuthConfigAwsAuthConfigKeysArgs) ToIntegrationAccountAuthConfigAwsAuthConfigKeysPtrOutput() IntegrationAccountAuthConfigAwsAuthConfigKeysPtrOutput {
+	return i.ToIntegrationAccountAuthConfigAwsAuthConfigKeysPtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountAuthConfigAwsAuthConfigKeysArgs) ToIntegrationAccountAuthConfigAwsAuthConfigKeysPtrOutputWithContext(ctx context.Context) IntegrationAccountAuthConfigAwsAuthConfigKeysPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountAuthConfigAwsAuthConfigKeysOutput).ToIntegrationAccountAuthConfigAwsAuthConfigKeysPtrOutputWithContext(ctx)
+}
+
+// IntegrationAccountAuthConfigAwsAuthConfigKeysPtrInput is an input type that accepts IntegrationAccountAuthConfigAwsAuthConfigKeysArgs, IntegrationAccountAuthConfigAwsAuthConfigKeysPtr and IntegrationAccountAuthConfigAwsAuthConfigKeysPtrOutput values.
+// You can construct a concrete instance of `IntegrationAccountAuthConfigAwsAuthConfigKeysPtrInput` via:
+//
+//	        IntegrationAccountAuthConfigAwsAuthConfigKeysArgs{...}
+//
+//	or:
+//
+//	        nil
+type IntegrationAccountAuthConfigAwsAuthConfigKeysPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountAuthConfigAwsAuthConfigKeysPtrOutput() IntegrationAccountAuthConfigAwsAuthConfigKeysPtrOutput
+	ToIntegrationAccountAuthConfigAwsAuthConfigKeysPtrOutputWithContext(context.Context) IntegrationAccountAuthConfigAwsAuthConfigKeysPtrOutput
+}
+
+type integrationAccountAuthConfigAwsAuthConfigKeysPtrType IntegrationAccountAuthConfigAwsAuthConfigKeysArgs
+
+func IntegrationAccountAuthConfigAwsAuthConfigKeysPtr(v *IntegrationAccountAuthConfigAwsAuthConfigKeysArgs) IntegrationAccountAuthConfigAwsAuthConfigKeysPtrInput {
+	return (*integrationAccountAuthConfigAwsAuthConfigKeysPtrType)(v)
+}
+
+func (*integrationAccountAuthConfigAwsAuthConfigKeysPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationAccountAuthConfigAwsAuthConfigKeys)(nil)).Elem()
+}
+
+func (i *integrationAccountAuthConfigAwsAuthConfigKeysPtrType) ToIntegrationAccountAuthConfigAwsAuthConfigKeysPtrOutput() IntegrationAccountAuthConfigAwsAuthConfigKeysPtrOutput {
+	return i.ToIntegrationAccountAuthConfigAwsAuthConfigKeysPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationAccountAuthConfigAwsAuthConfigKeysPtrType) ToIntegrationAccountAuthConfigAwsAuthConfigKeysPtrOutputWithContext(ctx context.Context) IntegrationAccountAuthConfigAwsAuthConfigKeysPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountAuthConfigAwsAuthConfigKeysPtrOutput)
+}
+
+type IntegrationAccountAuthConfigAwsAuthConfigKeysOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountAuthConfigAwsAuthConfigKeysOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountAuthConfigAwsAuthConfigKeys)(nil)).Elem()
+}
+
+func (o IntegrationAccountAuthConfigAwsAuthConfigKeysOutput) ToIntegrationAccountAuthConfigAwsAuthConfigKeysOutput() IntegrationAccountAuthConfigAwsAuthConfigKeysOutput {
+	return o
+}
+
+func (o IntegrationAccountAuthConfigAwsAuthConfigKeysOutput) ToIntegrationAccountAuthConfigAwsAuthConfigKeysOutputWithContext(ctx context.Context) IntegrationAccountAuthConfigAwsAuthConfigKeysOutput {
+	return o
+}
+
+func (o IntegrationAccountAuthConfigAwsAuthConfigKeysOutput) ToIntegrationAccountAuthConfigAwsAuthConfigKeysPtrOutput() IntegrationAccountAuthConfigAwsAuthConfigKeysPtrOutput {
+	return o.ToIntegrationAccountAuthConfigAwsAuthConfigKeysPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationAccountAuthConfigAwsAuthConfigKeysOutput) ToIntegrationAccountAuthConfigAwsAuthConfigKeysPtrOutputWithContext(ctx context.Context) IntegrationAccountAuthConfigAwsAuthConfigKeysPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationAccountAuthConfigAwsAuthConfigKeys) *IntegrationAccountAuthConfigAwsAuthConfigKeys {
+		return &v
+	}).(IntegrationAccountAuthConfigAwsAuthConfigKeysPtrOutput)
+}
+
+// AWS Access Key ID
+func (o IntegrationAccountAuthConfigAwsAuthConfigKeysOutput) AccessKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountAuthConfigAwsAuthConfigKeys) *string { return v.AccessKeyId }).(pulumi.StringPtrOutput)
+}
+
+func (o IntegrationAccountAuthConfigAwsAuthConfigKeysOutput) SecretAccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountAuthConfigAwsAuthConfigKeys) *string { return v.SecretAccessKey }).(pulumi.StringPtrOutput)
+}
+
+type IntegrationAccountAuthConfigAwsAuthConfigKeysPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountAuthConfigAwsAuthConfigKeysPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationAccountAuthConfigAwsAuthConfigKeys)(nil)).Elem()
+}
+
+func (o IntegrationAccountAuthConfigAwsAuthConfigKeysPtrOutput) ToIntegrationAccountAuthConfigAwsAuthConfigKeysPtrOutput() IntegrationAccountAuthConfigAwsAuthConfigKeysPtrOutput {
+	return o
+}
+
+func (o IntegrationAccountAuthConfigAwsAuthConfigKeysPtrOutput) ToIntegrationAccountAuthConfigAwsAuthConfigKeysPtrOutputWithContext(ctx context.Context) IntegrationAccountAuthConfigAwsAuthConfigKeysPtrOutput {
+	return o
+}
+
+func (o IntegrationAccountAuthConfigAwsAuthConfigKeysPtrOutput) Elem() IntegrationAccountAuthConfigAwsAuthConfigKeysOutput {
+	return o.ApplyT(func(v *IntegrationAccountAuthConfigAwsAuthConfigKeys) IntegrationAccountAuthConfigAwsAuthConfigKeys {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationAccountAuthConfigAwsAuthConfigKeys
+		return ret
+	}).(IntegrationAccountAuthConfigAwsAuthConfigKeysOutput)
+}
+
+// AWS Access Key ID
+func (o IntegrationAccountAuthConfigAwsAuthConfigKeysPtrOutput) AccessKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountAuthConfigAwsAuthConfigKeys) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccessKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o IntegrationAccountAuthConfigAwsAuthConfigKeysPtrOutput) SecretAccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountAuthConfigAwsAuthConfigKeys) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretAccessKey
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntegrationAccountAuthConfigAwsAuthConfigRole struct {
+	// AWS IAM External ID for associated role
+	ExternalId *string `pulumi:"externalId"`
+	// AWS IAM Role name
+	RoleName *string `pulumi:"roleName"`
+}
+
+// IntegrationAccountAuthConfigAwsAuthConfigRoleInput is an input type that accepts IntegrationAccountAuthConfigAwsAuthConfigRoleArgs and IntegrationAccountAuthConfigAwsAuthConfigRoleOutput values.
+// You can construct a concrete instance of `IntegrationAccountAuthConfigAwsAuthConfigRoleInput` via:
+//
+//	IntegrationAccountAuthConfigAwsAuthConfigRoleArgs{...}
+type IntegrationAccountAuthConfigAwsAuthConfigRoleInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountAuthConfigAwsAuthConfigRoleOutput() IntegrationAccountAuthConfigAwsAuthConfigRoleOutput
+	ToIntegrationAccountAuthConfigAwsAuthConfigRoleOutputWithContext(context.Context) IntegrationAccountAuthConfigAwsAuthConfigRoleOutput
+}
+
+type IntegrationAccountAuthConfigAwsAuthConfigRoleArgs struct {
+	// AWS IAM External ID for associated role
+	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
+	// AWS IAM Role name
+	RoleName pulumi.StringPtrInput `pulumi:"roleName"`
+}
+
+func (IntegrationAccountAuthConfigAwsAuthConfigRoleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountAuthConfigAwsAuthConfigRole)(nil)).Elem()
+}
+
+func (i IntegrationAccountAuthConfigAwsAuthConfigRoleArgs) ToIntegrationAccountAuthConfigAwsAuthConfigRoleOutput() IntegrationAccountAuthConfigAwsAuthConfigRoleOutput {
+	return i.ToIntegrationAccountAuthConfigAwsAuthConfigRoleOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountAuthConfigAwsAuthConfigRoleArgs) ToIntegrationAccountAuthConfigAwsAuthConfigRoleOutputWithContext(ctx context.Context) IntegrationAccountAuthConfigAwsAuthConfigRoleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountAuthConfigAwsAuthConfigRoleOutput)
+}
+
+func (i IntegrationAccountAuthConfigAwsAuthConfigRoleArgs) ToIntegrationAccountAuthConfigAwsAuthConfigRolePtrOutput() IntegrationAccountAuthConfigAwsAuthConfigRolePtrOutput {
+	return i.ToIntegrationAccountAuthConfigAwsAuthConfigRolePtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountAuthConfigAwsAuthConfigRoleArgs) ToIntegrationAccountAuthConfigAwsAuthConfigRolePtrOutputWithContext(ctx context.Context) IntegrationAccountAuthConfigAwsAuthConfigRolePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountAuthConfigAwsAuthConfigRoleOutput).ToIntegrationAccountAuthConfigAwsAuthConfigRolePtrOutputWithContext(ctx)
+}
+
+// IntegrationAccountAuthConfigAwsAuthConfigRolePtrInput is an input type that accepts IntegrationAccountAuthConfigAwsAuthConfigRoleArgs, IntegrationAccountAuthConfigAwsAuthConfigRolePtr and IntegrationAccountAuthConfigAwsAuthConfigRolePtrOutput values.
+// You can construct a concrete instance of `IntegrationAccountAuthConfigAwsAuthConfigRolePtrInput` via:
+//
+//	        IntegrationAccountAuthConfigAwsAuthConfigRoleArgs{...}
+//
+//	or:
+//
+//	        nil
+type IntegrationAccountAuthConfigAwsAuthConfigRolePtrInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountAuthConfigAwsAuthConfigRolePtrOutput() IntegrationAccountAuthConfigAwsAuthConfigRolePtrOutput
+	ToIntegrationAccountAuthConfigAwsAuthConfigRolePtrOutputWithContext(context.Context) IntegrationAccountAuthConfigAwsAuthConfigRolePtrOutput
+}
+
+type integrationAccountAuthConfigAwsAuthConfigRolePtrType IntegrationAccountAuthConfigAwsAuthConfigRoleArgs
+
+func IntegrationAccountAuthConfigAwsAuthConfigRolePtr(v *IntegrationAccountAuthConfigAwsAuthConfigRoleArgs) IntegrationAccountAuthConfigAwsAuthConfigRolePtrInput {
+	return (*integrationAccountAuthConfigAwsAuthConfigRolePtrType)(v)
+}
+
+func (*integrationAccountAuthConfigAwsAuthConfigRolePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationAccountAuthConfigAwsAuthConfigRole)(nil)).Elem()
+}
+
+func (i *integrationAccountAuthConfigAwsAuthConfigRolePtrType) ToIntegrationAccountAuthConfigAwsAuthConfigRolePtrOutput() IntegrationAccountAuthConfigAwsAuthConfigRolePtrOutput {
+	return i.ToIntegrationAccountAuthConfigAwsAuthConfigRolePtrOutputWithContext(context.Background())
+}
+
+func (i *integrationAccountAuthConfigAwsAuthConfigRolePtrType) ToIntegrationAccountAuthConfigAwsAuthConfigRolePtrOutputWithContext(ctx context.Context) IntegrationAccountAuthConfigAwsAuthConfigRolePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountAuthConfigAwsAuthConfigRolePtrOutput)
+}
+
+type IntegrationAccountAuthConfigAwsAuthConfigRoleOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountAuthConfigAwsAuthConfigRoleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountAuthConfigAwsAuthConfigRole)(nil)).Elem()
+}
+
+func (o IntegrationAccountAuthConfigAwsAuthConfigRoleOutput) ToIntegrationAccountAuthConfigAwsAuthConfigRoleOutput() IntegrationAccountAuthConfigAwsAuthConfigRoleOutput {
+	return o
+}
+
+func (o IntegrationAccountAuthConfigAwsAuthConfigRoleOutput) ToIntegrationAccountAuthConfigAwsAuthConfigRoleOutputWithContext(ctx context.Context) IntegrationAccountAuthConfigAwsAuthConfigRoleOutput {
+	return o
+}
+
+func (o IntegrationAccountAuthConfigAwsAuthConfigRoleOutput) ToIntegrationAccountAuthConfigAwsAuthConfigRolePtrOutput() IntegrationAccountAuthConfigAwsAuthConfigRolePtrOutput {
+	return o.ToIntegrationAccountAuthConfigAwsAuthConfigRolePtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationAccountAuthConfigAwsAuthConfigRoleOutput) ToIntegrationAccountAuthConfigAwsAuthConfigRolePtrOutputWithContext(ctx context.Context) IntegrationAccountAuthConfigAwsAuthConfigRolePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationAccountAuthConfigAwsAuthConfigRole) *IntegrationAccountAuthConfigAwsAuthConfigRole {
+		return &v
+	}).(IntegrationAccountAuthConfigAwsAuthConfigRolePtrOutput)
+}
+
+// AWS IAM External ID for associated role
+func (o IntegrationAccountAuthConfigAwsAuthConfigRoleOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountAuthConfigAwsAuthConfigRole) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
+}
+
+// AWS IAM Role name
+func (o IntegrationAccountAuthConfigAwsAuthConfigRoleOutput) RoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountAuthConfigAwsAuthConfigRole) *string { return v.RoleName }).(pulumi.StringPtrOutput)
+}
+
+type IntegrationAccountAuthConfigAwsAuthConfigRolePtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountAuthConfigAwsAuthConfigRolePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationAccountAuthConfigAwsAuthConfigRole)(nil)).Elem()
+}
+
+func (o IntegrationAccountAuthConfigAwsAuthConfigRolePtrOutput) ToIntegrationAccountAuthConfigAwsAuthConfigRolePtrOutput() IntegrationAccountAuthConfigAwsAuthConfigRolePtrOutput {
+	return o
+}
+
+func (o IntegrationAccountAuthConfigAwsAuthConfigRolePtrOutput) ToIntegrationAccountAuthConfigAwsAuthConfigRolePtrOutputWithContext(ctx context.Context) IntegrationAccountAuthConfigAwsAuthConfigRolePtrOutput {
+	return o
+}
+
+func (o IntegrationAccountAuthConfigAwsAuthConfigRolePtrOutput) Elem() IntegrationAccountAuthConfigAwsAuthConfigRoleOutput {
+	return o.ApplyT(func(v *IntegrationAccountAuthConfigAwsAuthConfigRole) IntegrationAccountAuthConfigAwsAuthConfigRole {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationAccountAuthConfigAwsAuthConfigRole
+		return ret
+	}).(IntegrationAccountAuthConfigAwsAuthConfigRoleOutput)
+}
+
+// AWS IAM External ID for associated role
+func (o IntegrationAccountAuthConfigAwsAuthConfigRolePtrOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountAuthConfigAwsAuthConfigRole) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExternalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// AWS IAM Role name
+func (o IntegrationAccountAuthConfigAwsAuthConfigRolePtrOutput) RoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountAuthConfigAwsAuthConfigRole) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoleName
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntegrationAccountAwsRegions struct {
+	// Include all regions. Defaults to `true`.
+	IncludeAll *bool `pulumi:"includeAll"`
+	// Include only these regions.
+	IncludeOnlies []string `pulumi:"includeOnlies"`
+}
+
+// IntegrationAccountAwsRegionsInput is an input type that accepts IntegrationAccountAwsRegionsArgs and IntegrationAccountAwsRegionsOutput values.
+// You can construct a concrete instance of `IntegrationAccountAwsRegionsInput` via:
+//
+//	IntegrationAccountAwsRegionsArgs{...}
+type IntegrationAccountAwsRegionsInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountAwsRegionsOutput() IntegrationAccountAwsRegionsOutput
+	ToIntegrationAccountAwsRegionsOutputWithContext(context.Context) IntegrationAccountAwsRegionsOutput
+}
+
+type IntegrationAccountAwsRegionsArgs struct {
+	// Include all regions. Defaults to `true`.
+	IncludeAll pulumi.BoolPtrInput `pulumi:"includeAll"`
+	// Include only these regions.
+	IncludeOnlies pulumi.StringArrayInput `pulumi:"includeOnlies"`
+}
+
+func (IntegrationAccountAwsRegionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountAwsRegions)(nil)).Elem()
+}
+
+func (i IntegrationAccountAwsRegionsArgs) ToIntegrationAccountAwsRegionsOutput() IntegrationAccountAwsRegionsOutput {
+	return i.ToIntegrationAccountAwsRegionsOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountAwsRegionsArgs) ToIntegrationAccountAwsRegionsOutputWithContext(ctx context.Context) IntegrationAccountAwsRegionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountAwsRegionsOutput)
+}
+
+func (i IntegrationAccountAwsRegionsArgs) ToIntegrationAccountAwsRegionsPtrOutput() IntegrationAccountAwsRegionsPtrOutput {
+	return i.ToIntegrationAccountAwsRegionsPtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountAwsRegionsArgs) ToIntegrationAccountAwsRegionsPtrOutputWithContext(ctx context.Context) IntegrationAccountAwsRegionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountAwsRegionsOutput).ToIntegrationAccountAwsRegionsPtrOutputWithContext(ctx)
+}
+
+// IntegrationAccountAwsRegionsPtrInput is an input type that accepts IntegrationAccountAwsRegionsArgs, IntegrationAccountAwsRegionsPtr and IntegrationAccountAwsRegionsPtrOutput values.
+// You can construct a concrete instance of `IntegrationAccountAwsRegionsPtrInput` via:
+//
+//	        IntegrationAccountAwsRegionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type IntegrationAccountAwsRegionsPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountAwsRegionsPtrOutput() IntegrationAccountAwsRegionsPtrOutput
+	ToIntegrationAccountAwsRegionsPtrOutputWithContext(context.Context) IntegrationAccountAwsRegionsPtrOutput
+}
+
+type integrationAccountAwsRegionsPtrType IntegrationAccountAwsRegionsArgs
+
+func IntegrationAccountAwsRegionsPtr(v *IntegrationAccountAwsRegionsArgs) IntegrationAccountAwsRegionsPtrInput {
+	return (*integrationAccountAwsRegionsPtrType)(v)
+}
+
+func (*integrationAccountAwsRegionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationAccountAwsRegions)(nil)).Elem()
+}
+
+func (i *integrationAccountAwsRegionsPtrType) ToIntegrationAccountAwsRegionsPtrOutput() IntegrationAccountAwsRegionsPtrOutput {
+	return i.ToIntegrationAccountAwsRegionsPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationAccountAwsRegionsPtrType) ToIntegrationAccountAwsRegionsPtrOutputWithContext(ctx context.Context) IntegrationAccountAwsRegionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountAwsRegionsPtrOutput)
+}
+
+type IntegrationAccountAwsRegionsOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountAwsRegionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountAwsRegions)(nil)).Elem()
+}
+
+func (o IntegrationAccountAwsRegionsOutput) ToIntegrationAccountAwsRegionsOutput() IntegrationAccountAwsRegionsOutput {
+	return o
+}
+
+func (o IntegrationAccountAwsRegionsOutput) ToIntegrationAccountAwsRegionsOutputWithContext(ctx context.Context) IntegrationAccountAwsRegionsOutput {
+	return o
+}
+
+func (o IntegrationAccountAwsRegionsOutput) ToIntegrationAccountAwsRegionsPtrOutput() IntegrationAccountAwsRegionsPtrOutput {
+	return o.ToIntegrationAccountAwsRegionsPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationAccountAwsRegionsOutput) ToIntegrationAccountAwsRegionsPtrOutputWithContext(ctx context.Context) IntegrationAccountAwsRegionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationAccountAwsRegions) *IntegrationAccountAwsRegions {
+		return &v
+	}).(IntegrationAccountAwsRegionsPtrOutput)
+}
+
+// Include all regions. Defaults to `true`.
+func (o IntegrationAccountAwsRegionsOutput) IncludeAll() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountAwsRegions) *bool { return v.IncludeAll }).(pulumi.BoolPtrOutput)
+}
+
+// Include only these regions.
+func (o IntegrationAccountAwsRegionsOutput) IncludeOnlies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IntegrationAccountAwsRegions) []string { return v.IncludeOnlies }).(pulumi.StringArrayOutput)
+}
+
+type IntegrationAccountAwsRegionsPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountAwsRegionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationAccountAwsRegions)(nil)).Elem()
+}
+
+func (o IntegrationAccountAwsRegionsPtrOutput) ToIntegrationAccountAwsRegionsPtrOutput() IntegrationAccountAwsRegionsPtrOutput {
+	return o
+}
+
+func (o IntegrationAccountAwsRegionsPtrOutput) ToIntegrationAccountAwsRegionsPtrOutputWithContext(ctx context.Context) IntegrationAccountAwsRegionsPtrOutput {
+	return o
+}
+
+func (o IntegrationAccountAwsRegionsPtrOutput) Elem() IntegrationAccountAwsRegionsOutput {
+	return o.ApplyT(func(v *IntegrationAccountAwsRegions) IntegrationAccountAwsRegions {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationAccountAwsRegions
+		return ret
+	}).(IntegrationAccountAwsRegionsOutput)
+}
+
+// Include all regions. Defaults to `true`.
+func (o IntegrationAccountAwsRegionsPtrOutput) IncludeAll() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountAwsRegions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeAll
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Include only these regions.
+func (o IntegrationAccountAwsRegionsPtrOutput) IncludeOnlies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IntegrationAccountAwsRegions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeOnlies
+	}).(pulumi.StringArrayOutput)
+}
+
+type IntegrationAccountLogsConfig struct {
+	LambdaForwarder *IntegrationAccountLogsConfigLambdaForwarder `pulumi:"lambdaForwarder"`
+}
+
+// IntegrationAccountLogsConfigInput is an input type that accepts IntegrationAccountLogsConfigArgs and IntegrationAccountLogsConfigOutput values.
+// You can construct a concrete instance of `IntegrationAccountLogsConfigInput` via:
+//
+//	IntegrationAccountLogsConfigArgs{...}
+type IntegrationAccountLogsConfigInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountLogsConfigOutput() IntegrationAccountLogsConfigOutput
+	ToIntegrationAccountLogsConfigOutputWithContext(context.Context) IntegrationAccountLogsConfigOutput
+}
+
+type IntegrationAccountLogsConfigArgs struct {
+	LambdaForwarder IntegrationAccountLogsConfigLambdaForwarderPtrInput `pulumi:"lambdaForwarder"`
+}
+
+func (IntegrationAccountLogsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountLogsConfig)(nil)).Elem()
+}
+
+func (i IntegrationAccountLogsConfigArgs) ToIntegrationAccountLogsConfigOutput() IntegrationAccountLogsConfigOutput {
+	return i.ToIntegrationAccountLogsConfigOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountLogsConfigArgs) ToIntegrationAccountLogsConfigOutputWithContext(ctx context.Context) IntegrationAccountLogsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountLogsConfigOutput)
+}
+
+func (i IntegrationAccountLogsConfigArgs) ToIntegrationAccountLogsConfigPtrOutput() IntegrationAccountLogsConfigPtrOutput {
+	return i.ToIntegrationAccountLogsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountLogsConfigArgs) ToIntegrationAccountLogsConfigPtrOutputWithContext(ctx context.Context) IntegrationAccountLogsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountLogsConfigOutput).ToIntegrationAccountLogsConfigPtrOutputWithContext(ctx)
+}
+
+// IntegrationAccountLogsConfigPtrInput is an input type that accepts IntegrationAccountLogsConfigArgs, IntegrationAccountLogsConfigPtr and IntegrationAccountLogsConfigPtrOutput values.
+// You can construct a concrete instance of `IntegrationAccountLogsConfigPtrInput` via:
+//
+//	        IntegrationAccountLogsConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type IntegrationAccountLogsConfigPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountLogsConfigPtrOutput() IntegrationAccountLogsConfigPtrOutput
+	ToIntegrationAccountLogsConfigPtrOutputWithContext(context.Context) IntegrationAccountLogsConfigPtrOutput
+}
+
+type integrationAccountLogsConfigPtrType IntegrationAccountLogsConfigArgs
+
+func IntegrationAccountLogsConfigPtr(v *IntegrationAccountLogsConfigArgs) IntegrationAccountLogsConfigPtrInput {
+	return (*integrationAccountLogsConfigPtrType)(v)
+}
+
+func (*integrationAccountLogsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationAccountLogsConfig)(nil)).Elem()
+}
+
+func (i *integrationAccountLogsConfigPtrType) ToIntegrationAccountLogsConfigPtrOutput() IntegrationAccountLogsConfigPtrOutput {
+	return i.ToIntegrationAccountLogsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationAccountLogsConfigPtrType) ToIntegrationAccountLogsConfigPtrOutputWithContext(ctx context.Context) IntegrationAccountLogsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountLogsConfigPtrOutput)
+}
+
+type IntegrationAccountLogsConfigOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountLogsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountLogsConfig)(nil)).Elem()
+}
+
+func (o IntegrationAccountLogsConfigOutput) ToIntegrationAccountLogsConfigOutput() IntegrationAccountLogsConfigOutput {
+	return o
+}
+
+func (o IntegrationAccountLogsConfigOutput) ToIntegrationAccountLogsConfigOutputWithContext(ctx context.Context) IntegrationAccountLogsConfigOutput {
+	return o
+}
+
+func (o IntegrationAccountLogsConfigOutput) ToIntegrationAccountLogsConfigPtrOutput() IntegrationAccountLogsConfigPtrOutput {
+	return o.ToIntegrationAccountLogsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationAccountLogsConfigOutput) ToIntegrationAccountLogsConfigPtrOutputWithContext(ctx context.Context) IntegrationAccountLogsConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationAccountLogsConfig) *IntegrationAccountLogsConfig {
+		return &v
+	}).(IntegrationAccountLogsConfigPtrOutput)
+}
+
+func (o IntegrationAccountLogsConfigOutput) LambdaForwarder() IntegrationAccountLogsConfigLambdaForwarderPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountLogsConfig) *IntegrationAccountLogsConfigLambdaForwarder {
+		return v.LambdaForwarder
+	}).(IntegrationAccountLogsConfigLambdaForwarderPtrOutput)
+}
+
+type IntegrationAccountLogsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountLogsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationAccountLogsConfig)(nil)).Elem()
+}
+
+func (o IntegrationAccountLogsConfigPtrOutput) ToIntegrationAccountLogsConfigPtrOutput() IntegrationAccountLogsConfigPtrOutput {
+	return o
+}
+
+func (o IntegrationAccountLogsConfigPtrOutput) ToIntegrationAccountLogsConfigPtrOutputWithContext(ctx context.Context) IntegrationAccountLogsConfigPtrOutput {
+	return o
+}
+
+func (o IntegrationAccountLogsConfigPtrOutput) Elem() IntegrationAccountLogsConfigOutput {
+	return o.ApplyT(func(v *IntegrationAccountLogsConfig) IntegrationAccountLogsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationAccountLogsConfig
+		return ret
+	}).(IntegrationAccountLogsConfigOutput)
+}
+
+func (o IntegrationAccountLogsConfigPtrOutput) LambdaForwarder() IntegrationAccountLogsConfigLambdaForwarderPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountLogsConfig) *IntegrationAccountLogsConfigLambdaForwarder {
+		if v == nil {
+			return nil
+		}
+		return v.LambdaForwarder
+	}).(IntegrationAccountLogsConfigLambdaForwarderPtrOutput)
+}
+
+type IntegrationAccountLogsConfigLambdaForwarder struct {
+	// List of Datadog Lambda Log Forwarder ARNs in your AWS account.
+	Lambdas []string `pulumi:"lambdas"`
+	// List of service IDs set to enable automatic log collection. Use `aws.getIntegrationAvailableLogsServices` data source to get allowed values.
+	Sources []string `pulumi:"sources"`
+}
+
+// IntegrationAccountLogsConfigLambdaForwarderInput is an input type that accepts IntegrationAccountLogsConfigLambdaForwarderArgs and IntegrationAccountLogsConfigLambdaForwarderOutput values.
+// You can construct a concrete instance of `IntegrationAccountLogsConfigLambdaForwarderInput` via:
+//
+//	IntegrationAccountLogsConfigLambdaForwarderArgs{...}
+type IntegrationAccountLogsConfigLambdaForwarderInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountLogsConfigLambdaForwarderOutput() IntegrationAccountLogsConfigLambdaForwarderOutput
+	ToIntegrationAccountLogsConfigLambdaForwarderOutputWithContext(context.Context) IntegrationAccountLogsConfigLambdaForwarderOutput
+}
+
+type IntegrationAccountLogsConfigLambdaForwarderArgs struct {
+	// List of Datadog Lambda Log Forwarder ARNs in your AWS account.
+	Lambdas pulumi.StringArrayInput `pulumi:"lambdas"`
+	// List of service IDs set to enable automatic log collection. Use `aws.getIntegrationAvailableLogsServices` data source to get allowed values.
+	Sources pulumi.StringArrayInput `pulumi:"sources"`
+}
+
+func (IntegrationAccountLogsConfigLambdaForwarderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountLogsConfigLambdaForwarder)(nil)).Elem()
+}
+
+func (i IntegrationAccountLogsConfigLambdaForwarderArgs) ToIntegrationAccountLogsConfigLambdaForwarderOutput() IntegrationAccountLogsConfigLambdaForwarderOutput {
+	return i.ToIntegrationAccountLogsConfigLambdaForwarderOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountLogsConfigLambdaForwarderArgs) ToIntegrationAccountLogsConfigLambdaForwarderOutputWithContext(ctx context.Context) IntegrationAccountLogsConfigLambdaForwarderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountLogsConfigLambdaForwarderOutput)
+}
+
+func (i IntegrationAccountLogsConfigLambdaForwarderArgs) ToIntegrationAccountLogsConfigLambdaForwarderPtrOutput() IntegrationAccountLogsConfigLambdaForwarderPtrOutput {
+	return i.ToIntegrationAccountLogsConfigLambdaForwarderPtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountLogsConfigLambdaForwarderArgs) ToIntegrationAccountLogsConfigLambdaForwarderPtrOutputWithContext(ctx context.Context) IntegrationAccountLogsConfigLambdaForwarderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountLogsConfigLambdaForwarderOutput).ToIntegrationAccountLogsConfigLambdaForwarderPtrOutputWithContext(ctx)
+}
+
+// IntegrationAccountLogsConfigLambdaForwarderPtrInput is an input type that accepts IntegrationAccountLogsConfigLambdaForwarderArgs, IntegrationAccountLogsConfigLambdaForwarderPtr and IntegrationAccountLogsConfigLambdaForwarderPtrOutput values.
+// You can construct a concrete instance of `IntegrationAccountLogsConfigLambdaForwarderPtrInput` via:
+//
+//	        IntegrationAccountLogsConfigLambdaForwarderArgs{...}
+//
+//	or:
+//
+//	        nil
+type IntegrationAccountLogsConfigLambdaForwarderPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountLogsConfigLambdaForwarderPtrOutput() IntegrationAccountLogsConfigLambdaForwarderPtrOutput
+	ToIntegrationAccountLogsConfigLambdaForwarderPtrOutputWithContext(context.Context) IntegrationAccountLogsConfigLambdaForwarderPtrOutput
+}
+
+type integrationAccountLogsConfigLambdaForwarderPtrType IntegrationAccountLogsConfigLambdaForwarderArgs
+
+func IntegrationAccountLogsConfigLambdaForwarderPtr(v *IntegrationAccountLogsConfigLambdaForwarderArgs) IntegrationAccountLogsConfigLambdaForwarderPtrInput {
+	return (*integrationAccountLogsConfigLambdaForwarderPtrType)(v)
+}
+
+func (*integrationAccountLogsConfigLambdaForwarderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationAccountLogsConfigLambdaForwarder)(nil)).Elem()
+}
+
+func (i *integrationAccountLogsConfigLambdaForwarderPtrType) ToIntegrationAccountLogsConfigLambdaForwarderPtrOutput() IntegrationAccountLogsConfigLambdaForwarderPtrOutput {
+	return i.ToIntegrationAccountLogsConfigLambdaForwarderPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationAccountLogsConfigLambdaForwarderPtrType) ToIntegrationAccountLogsConfigLambdaForwarderPtrOutputWithContext(ctx context.Context) IntegrationAccountLogsConfigLambdaForwarderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountLogsConfigLambdaForwarderPtrOutput)
+}
+
+type IntegrationAccountLogsConfigLambdaForwarderOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountLogsConfigLambdaForwarderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountLogsConfigLambdaForwarder)(nil)).Elem()
+}
+
+func (o IntegrationAccountLogsConfigLambdaForwarderOutput) ToIntegrationAccountLogsConfigLambdaForwarderOutput() IntegrationAccountLogsConfigLambdaForwarderOutput {
+	return o
+}
+
+func (o IntegrationAccountLogsConfigLambdaForwarderOutput) ToIntegrationAccountLogsConfigLambdaForwarderOutputWithContext(ctx context.Context) IntegrationAccountLogsConfigLambdaForwarderOutput {
+	return o
+}
+
+func (o IntegrationAccountLogsConfigLambdaForwarderOutput) ToIntegrationAccountLogsConfigLambdaForwarderPtrOutput() IntegrationAccountLogsConfigLambdaForwarderPtrOutput {
+	return o.ToIntegrationAccountLogsConfigLambdaForwarderPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationAccountLogsConfigLambdaForwarderOutput) ToIntegrationAccountLogsConfigLambdaForwarderPtrOutputWithContext(ctx context.Context) IntegrationAccountLogsConfigLambdaForwarderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationAccountLogsConfigLambdaForwarder) *IntegrationAccountLogsConfigLambdaForwarder {
+		return &v
+	}).(IntegrationAccountLogsConfigLambdaForwarderPtrOutput)
+}
+
+// List of Datadog Lambda Log Forwarder ARNs in your AWS account.
+func (o IntegrationAccountLogsConfigLambdaForwarderOutput) Lambdas() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IntegrationAccountLogsConfigLambdaForwarder) []string { return v.Lambdas }).(pulumi.StringArrayOutput)
+}
+
+// List of service IDs set to enable automatic log collection. Use `aws.getIntegrationAvailableLogsServices` data source to get allowed values.
+func (o IntegrationAccountLogsConfigLambdaForwarderOutput) Sources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IntegrationAccountLogsConfigLambdaForwarder) []string { return v.Sources }).(pulumi.StringArrayOutput)
+}
+
+type IntegrationAccountLogsConfigLambdaForwarderPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountLogsConfigLambdaForwarderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationAccountLogsConfigLambdaForwarder)(nil)).Elem()
+}
+
+func (o IntegrationAccountLogsConfigLambdaForwarderPtrOutput) ToIntegrationAccountLogsConfigLambdaForwarderPtrOutput() IntegrationAccountLogsConfigLambdaForwarderPtrOutput {
+	return o
+}
+
+func (o IntegrationAccountLogsConfigLambdaForwarderPtrOutput) ToIntegrationAccountLogsConfigLambdaForwarderPtrOutputWithContext(ctx context.Context) IntegrationAccountLogsConfigLambdaForwarderPtrOutput {
+	return o
+}
+
+func (o IntegrationAccountLogsConfigLambdaForwarderPtrOutput) Elem() IntegrationAccountLogsConfigLambdaForwarderOutput {
+	return o.ApplyT(func(v *IntegrationAccountLogsConfigLambdaForwarder) IntegrationAccountLogsConfigLambdaForwarder {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationAccountLogsConfigLambdaForwarder
+		return ret
+	}).(IntegrationAccountLogsConfigLambdaForwarderOutput)
+}
+
+// List of Datadog Lambda Log Forwarder ARNs in your AWS account.
+func (o IntegrationAccountLogsConfigLambdaForwarderPtrOutput) Lambdas() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IntegrationAccountLogsConfigLambdaForwarder) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Lambdas
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of service IDs set to enable automatic log collection. Use `aws.getIntegrationAvailableLogsServices` data source to get allowed values.
+func (o IntegrationAccountLogsConfigLambdaForwarderPtrOutput) Sources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IntegrationAccountLogsConfigLambdaForwarder) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Sources
+	}).(pulumi.StringArrayOutput)
+}
+
+type IntegrationAccountMetricsConfig struct {
+	// Enable EC2 automute for AWS metrics Defaults to `true`.
+	AutomuteEnabled *bool `pulumi:"automuteEnabled"`
+	// Enable CloudWatch alarms collection Defaults to `false`.
+	CollectCloudwatchAlarms *bool `pulumi:"collectCloudwatchAlarms"`
+	// Enable custom metrics collection Defaults to `false`.
+	CollectCustomMetrics *bool `pulumi:"collectCustomMetrics"`
+	// Enable AWS metrics collection Defaults to `true`.
+	Enabled          *bool                                            `pulumi:"enabled"`
+	NamespaceFilters *IntegrationAccountMetricsConfigNamespaceFilters `pulumi:"namespaceFilters"`
+	// AWS Metrics Collection tag filters list. The array of custom AWS resource tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from a specified service. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For EC2, only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. For example, `env:production,instance-type:c?.*,!region:us-east-1`.
+	TagFilters []IntegrationAccountMetricsConfigTagFilter `pulumi:"tagFilters"`
+}
+
+// IntegrationAccountMetricsConfigInput is an input type that accepts IntegrationAccountMetricsConfigArgs and IntegrationAccountMetricsConfigOutput values.
+// You can construct a concrete instance of `IntegrationAccountMetricsConfigInput` via:
+//
+//	IntegrationAccountMetricsConfigArgs{...}
+type IntegrationAccountMetricsConfigInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountMetricsConfigOutput() IntegrationAccountMetricsConfigOutput
+	ToIntegrationAccountMetricsConfigOutputWithContext(context.Context) IntegrationAccountMetricsConfigOutput
+}
+
+type IntegrationAccountMetricsConfigArgs struct {
+	// Enable EC2 automute for AWS metrics Defaults to `true`.
+	AutomuteEnabled pulumi.BoolPtrInput `pulumi:"automuteEnabled"`
+	// Enable CloudWatch alarms collection Defaults to `false`.
+	CollectCloudwatchAlarms pulumi.BoolPtrInput `pulumi:"collectCloudwatchAlarms"`
+	// Enable custom metrics collection Defaults to `false`.
+	CollectCustomMetrics pulumi.BoolPtrInput `pulumi:"collectCustomMetrics"`
+	// Enable AWS metrics collection Defaults to `true`.
+	Enabled          pulumi.BoolPtrInput                                     `pulumi:"enabled"`
+	NamespaceFilters IntegrationAccountMetricsConfigNamespaceFiltersPtrInput `pulumi:"namespaceFilters"`
+	// AWS Metrics Collection tag filters list. The array of custom AWS resource tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from a specified service. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For EC2, only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. For example, `env:production,instance-type:c?.*,!region:us-east-1`.
+	TagFilters IntegrationAccountMetricsConfigTagFilterArrayInput `pulumi:"tagFilters"`
+}
+
+func (IntegrationAccountMetricsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountMetricsConfig)(nil)).Elem()
+}
+
+func (i IntegrationAccountMetricsConfigArgs) ToIntegrationAccountMetricsConfigOutput() IntegrationAccountMetricsConfigOutput {
+	return i.ToIntegrationAccountMetricsConfigOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountMetricsConfigArgs) ToIntegrationAccountMetricsConfigOutputWithContext(ctx context.Context) IntegrationAccountMetricsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMetricsConfigOutput)
+}
+
+func (i IntegrationAccountMetricsConfigArgs) ToIntegrationAccountMetricsConfigPtrOutput() IntegrationAccountMetricsConfigPtrOutput {
+	return i.ToIntegrationAccountMetricsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountMetricsConfigArgs) ToIntegrationAccountMetricsConfigPtrOutputWithContext(ctx context.Context) IntegrationAccountMetricsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMetricsConfigOutput).ToIntegrationAccountMetricsConfigPtrOutputWithContext(ctx)
+}
+
+// IntegrationAccountMetricsConfigPtrInput is an input type that accepts IntegrationAccountMetricsConfigArgs, IntegrationAccountMetricsConfigPtr and IntegrationAccountMetricsConfigPtrOutput values.
+// You can construct a concrete instance of `IntegrationAccountMetricsConfigPtrInput` via:
+//
+//	        IntegrationAccountMetricsConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type IntegrationAccountMetricsConfigPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountMetricsConfigPtrOutput() IntegrationAccountMetricsConfigPtrOutput
+	ToIntegrationAccountMetricsConfigPtrOutputWithContext(context.Context) IntegrationAccountMetricsConfigPtrOutput
+}
+
+type integrationAccountMetricsConfigPtrType IntegrationAccountMetricsConfigArgs
+
+func IntegrationAccountMetricsConfigPtr(v *IntegrationAccountMetricsConfigArgs) IntegrationAccountMetricsConfigPtrInput {
+	return (*integrationAccountMetricsConfigPtrType)(v)
+}
+
+func (*integrationAccountMetricsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationAccountMetricsConfig)(nil)).Elem()
+}
+
+func (i *integrationAccountMetricsConfigPtrType) ToIntegrationAccountMetricsConfigPtrOutput() IntegrationAccountMetricsConfigPtrOutput {
+	return i.ToIntegrationAccountMetricsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationAccountMetricsConfigPtrType) ToIntegrationAccountMetricsConfigPtrOutputWithContext(ctx context.Context) IntegrationAccountMetricsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMetricsConfigPtrOutput)
+}
+
+type IntegrationAccountMetricsConfigOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountMetricsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountMetricsConfig)(nil)).Elem()
+}
+
+func (o IntegrationAccountMetricsConfigOutput) ToIntegrationAccountMetricsConfigOutput() IntegrationAccountMetricsConfigOutput {
+	return o
+}
+
+func (o IntegrationAccountMetricsConfigOutput) ToIntegrationAccountMetricsConfigOutputWithContext(ctx context.Context) IntegrationAccountMetricsConfigOutput {
+	return o
+}
+
+func (o IntegrationAccountMetricsConfigOutput) ToIntegrationAccountMetricsConfigPtrOutput() IntegrationAccountMetricsConfigPtrOutput {
+	return o.ToIntegrationAccountMetricsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationAccountMetricsConfigOutput) ToIntegrationAccountMetricsConfigPtrOutputWithContext(ctx context.Context) IntegrationAccountMetricsConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationAccountMetricsConfig) *IntegrationAccountMetricsConfig {
+		return &v
+	}).(IntegrationAccountMetricsConfigPtrOutput)
+}
+
+// Enable EC2 automute for AWS metrics Defaults to `true`.
+func (o IntegrationAccountMetricsConfigOutput) AutomuteEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountMetricsConfig) *bool { return v.AutomuteEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Enable CloudWatch alarms collection Defaults to `false`.
+func (o IntegrationAccountMetricsConfigOutput) CollectCloudwatchAlarms() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountMetricsConfig) *bool { return v.CollectCloudwatchAlarms }).(pulumi.BoolPtrOutput)
+}
+
+// Enable custom metrics collection Defaults to `false`.
+func (o IntegrationAccountMetricsConfigOutput) CollectCustomMetrics() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountMetricsConfig) *bool { return v.CollectCustomMetrics }).(pulumi.BoolPtrOutput)
+}
+
+// Enable AWS metrics collection Defaults to `true`.
+func (o IntegrationAccountMetricsConfigOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountMetricsConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o IntegrationAccountMetricsConfigOutput) NamespaceFilters() IntegrationAccountMetricsConfigNamespaceFiltersPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountMetricsConfig) *IntegrationAccountMetricsConfigNamespaceFilters {
+		return v.NamespaceFilters
+	}).(IntegrationAccountMetricsConfigNamespaceFiltersPtrOutput)
+}
+
+// AWS Metrics Collection tag filters list. The array of custom AWS resource tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from a specified service. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For EC2, only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. For example, `env:production,instance-type:c?.*,!region:us-east-1`.
+func (o IntegrationAccountMetricsConfigOutput) TagFilters() IntegrationAccountMetricsConfigTagFilterArrayOutput {
+	return o.ApplyT(func(v IntegrationAccountMetricsConfig) []IntegrationAccountMetricsConfigTagFilter {
+		return v.TagFilters
+	}).(IntegrationAccountMetricsConfigTagFilterArrayOutput)
+}
+
+type IntegrationAccountMetricsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountMetricsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationAccountMetricsConfig)(nil)).Elem()
+}
+
+func (o IntegrationAccountMetricsConfigPtrOutput) ToIntegrationAccountMetricsConfigPtrOutput() IntegrationAccountMetricsConfigPtrOutput {
+	return o
+}
+
+func (o IntegrationAccountMetricsConfigPtrOutput) ToIntegrationAccountMetricsConfigPtrOutputWithContext(ctx context.Context) IntegrationAccountMetricsConfigPtrOutput {
+	return o
+}
+
+func (o IntegrationAccountMetricsConfigPtrOutput) Elem() IntegrationAccountMetricsConfigOutput {
+	return o.ApplyT(func(v *IntegrationAccountMetricsConfig) IntegrationAccountMetricsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationAccountMetricsConfig
+		return ret
+	}).(IntegrationAccountMetricsConfigOutput)
+}
+
+// Enable EC2 automute for AWS metrics Defaults to `true`.
+func (o IntegrationAccountMetricsConfigPtrOutput) AutomuteEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountMetricsConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutomuteEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Enable CloudWatch alarms collection Defaults to `false`.
+func (o IntegrationAccountMetricsConfigPtrOutput) CollectCloudwatchAlarms() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountMetricsConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CollectCloudwatchAlarms
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Enable custom metrics collection Defaults to `false`.
+func (o IntegrationAccountMetricsConfigPtrOutput) CollectCustomMetrics() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountMetricsConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CollectCustomMetrics
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Enable AWS metrics collection Defaults to `true`.
+func (o IntegrationAccountMetricsConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountMetricsConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o IntegrationAccountMetricsConfigPtrOutput) NamespaceFilters() IntegrationAccountMetricsConfigNamespaceFiltersPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountMetricsConfig) *IntegrationAccountMetricsConfigNamespaceFilters {
+		if v == nil {
+			return nil
+		}
+		return v.NamespaceFilters
+	}).(IntegrationAccountMetricsConfigNamespaceFiltersPtrOutput)
+}
+
+// AWS Metrics Collection tag filters list. The array of custom AWS resource tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from a specified service. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For EC2, only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. For example, `env:production,instance-type:c?.*,!region:us-east-1`.
+func (o IntegrationAccountMetricsConfigPtrOutput) TagFilters() IntegrationAccountMetricsConfigTagFilterArrayOutput {
+	return o.ApplyT(func(v *IntegrationAccountMetricsConfig) []IntegrationAccountMetricsConfigTagFilter {
+		if v == nil {
+			return nil
+		}
+		return v.TagFilters
+	}).(IntegrationAccountMetricsConfigTagFilterArrayOutput)
+}
+
+type IntegrationAccountMetricsConfigNamespaceFilters struct {
+	// Exclude only these namespaces from metrics collection. Use `aws.getIntegrationAvailableNamespaces` data source to get allowed values. Defaults to `["AWS/SQS", "AWS/ElasticMapReduce"]`. `AWS/SQS` and `AWS/ElasticMapReduce` are excluded by default to reduce your AWS CloudWatch costs from `GetMetricData` API calls.
+	ExcludeOnlies []string `pulumi:"excludeOnlies"`
+	// Include only these namespaces for metrics collection. Use `aws.getIntegrationAvailableNamespaces` data source to get allowed values.
+	IncludeOnlies []string `pulumi:"includeOnlies"`
+}
+
+// IntegrationAccountMetricsConfigNamespaceFiltersInput is an input type that accepts IntegrationAccountMetricsConfigNamespaceFiltersArgs and IntegrationAccountMetricsConfigNamespaceFiltersOutput values.
+// You can construct a concrete instance of `IntegrationAccountMetricsConfigNamespaceFiltersInput` via:
+//
+//	IntegrationAccountMetricsConfigNamespaceFiltersArgs{...}
+type IntegrationAccountMetricsConfigNamespaceFiltersInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountMetricsConfigNamespaceFiltersOutput() IntegrationAccountMetricsConfigNamespaceFiltersOutput
+	ToIntegrationAccountMetricsConfigNamespaceFiltersOutputWithContext(context.Context) IntegrationAccountMetricsConfigNamespaceFiltersOutput
+}
+
+type IntegrationAccountMetricsConfigNamespaceFiltersArgs struct {
+	// Exclude only these namespaces from metrics collection. Use `aws.getIntegrationAvailableNamespaces` data source to get allowed values. Defaults to `["AWS/SQS", "AWS/ElasticMapReduce"]`. `AWS/SQS` and `AWS/ElasticMapReduce` are excluded by default to reduce your AWS CloudWatch costs from `GetMetricData` API calls.
+	ExcludeOnlies pulumi.StringArrayInput `pulumi:"excludeOnlies"`
+	// Include only these namespaces for metrics collection. Use `aws.getIntegrationAvailableNamespaces` data source to get allowed values.
+	IncludeOnlies pulumi.StringArrayInput `pulumi:"includeOnlies"`
+}
+
+func (IntegrationAccountMetricsConfigNamespaceFiltersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountMetricsConfigNamespaceFilters)(nil)).Elem()
+}
+
+func (i IntegrationAccountMetricsConfigNamespaceFiltersArgs) ToIntegrationAccountMetricsConfigNamespaceFiltersOutput() IntegrationAccountMetricsConfigNamespaceFiltersOutput {
+	return i.ToIntegrationAccountMetricsConfigNamespaceFiltersOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountMetricsConfigNamespaceFiltersArgs) ToIntegrationAccountMetricsConfigNamespaceFiltersOutputWithContext(ctx context.Context) IntegrationAccountMetricsConfigNamespaceFiltersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMetricsConfigNamespaceFiltersOutput)
+}
+
+func (i IntegrationAccountMetricsConfigNamespaceFiltersArgs) ToIntegrationAccountMetricsConfigNamespaceFiltersPtrOutput() IntegrationAccountMetricsConfigNamespaceFiltersPtrOutput {
+	return i.ToIntegrationAccountMetricsConfigNamespaceFiltersPtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountMetricsConfigNamespaceFiltersArgs) ToIntegrationAccountMetricsConfigNamespaceFiltersPtrOutputWithContext(ctx context.Context) IntegrationAccountMetricsConfigNamespaceFiltersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMetricsConfigNamespaceFiltersOutput).ToIntegrationAccountMetricsConfigNamespaceFiltersPtrOutputWithContext(ctx)
+}
+
+// IntegrationAccountMetricsConfigNamespaceFiltersPtrInput is an input type that accepts IntegrationAccountMetricsConfigNamespaceFiltersArgs, IntegrationAccountMetricsConfigNamespaceFiltersPtr and IntegrationAccountMetricsConfigNamespaceFiltersPtrOutput values.
+// You can construct a concrete instance of `IntegrationAccountMetricsConfigNamespaceFiltersPtrInput` via:
+//
+//	        IntegrationAccountMetricsConfigNamespaceFiltersArgs{...}
+//
+//	or:
+//
+//	        nil
+type IntegrationAccountMetricsConfigNamespaceFiltersPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountMetricsConfigNamespaceFiltersPtrOutput() IntegrationAccountMetricsConfigNamespaceFiltersPtrOutput
+	ToIntegrationAccountMetricsConfigNamespaceFiltersPtrOutputWithContext(context.Context) IntegrationAccountMetricsConfigNamespaceFiltersPtrOutput
+}
+
+type integrationAccountMetricsConfigNamespaceFiltersPtrType IntegrationAccountMetricsConfigNamespaceFiltersArgs
+
+func IntegrationAccountMetricsConfigNamespaceFiltersPtr(v *IntegrationAccountMetricsConfigNamespaceFiltersArgs) IntegrationAccountMetricsConfigNamespaceFiltersPtrInput {
+	return (*integrationAccountMetricsConfigNamespaceFiltersPtrType)(v)
+}
+
+func (*integrationAccountMetricsConfigNamespaceFiltersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationAccountMetricsConfigNamespaceFilters)(nil)).Elem()
+}
+
+func (i *integrationAccountMetricsConfigNamespaceFiltersPtrType) ToIntegrationAccountMetricsConfigNamespaceFiltersPtrOutput() IntegrationAccountMetricsConfigNamespaceFiltersPtrOutput {
+	return i.ToIntegrationAccountMetricsConfigNamespaceFiltersPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationAccountMetricsConfigNamespaceFiltersPtrType) ToIntegrationAccountMetricsConfigNamespaceFiltersPtrOutputWithContext(ctx context.Context) IntegrationAccountMetricsConfigNamespaceFiltersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMetricsConfigNamespaceFiltersPtrOutput)
+}
+
+type IntegrationAccountMetricsConfigNamespaceFiltersOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountMetricsConfigNamespaceFiltersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountMetricsConfigNamespaceFilters)(nil)).Elem()
+}
+
+func (o IntegrationAccountMetricsConfigNamespaceFiltersOutput) ToIntegrationAccountMetricsConfigNamespaceFiltersOutput() IntegrationAccountMetricsConfigNamespaceFiltersOutput {
+	return o
+}
+
+func (o IntegrationAccountMetricsConfigNamespaceFiltersOutput) ToIntegrationAccountMetricsConfigNamespaceFiltersOutputWithContext(ctx context.Context) IntegrationAccountMetricsConfigNamespaceFiltersOutput {
+	return o
+}
+
+func (o IntegrationAccountMetricsConfigNamespaceFiltersOutput) ToIntegrationAccountMetricsConfigNamespaceFiltersPtrOutput() IntegrationAccountMetricsConfigNamespaceFiltersPtrOutput {
+	return o.ToIntegrationAccountMetricsConfigNamespaceFiltersPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationAccountMetricsConfigNamespaceFiltersOutput) ToIntegrationAccountMetricsConfigNamespaceFiltersPtrOutputWithContext(ctx context.Context) IntegrationAccountMetricsConfigNamespaceFiltersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationAccountMetricsConfigNamespaceFilters) *IntegrationAccountMetricsConfigNamespaceFilters {
+		return &v
+	}).(IntegrationAccountMetricsConfigNamespaceFiltersPtrOutput)
+}
+
+// Exclude only these namespaces from metrics collection. Use `aws.getIntegrationAvailableNamespaces` data source to get allowed values. Defaults to `["AWS/SQS", "AWS/ElasticMapReduce"]`. `AWS/SQS` and `AWS/ElasticMapReduce` are excluded by default to reduce your AWS CloudWatch costs from `GetMetricData` API calls.
+func (o IntegrationAccountMetricsConfigNamespaceFiltersOutput) ExcludeOnlies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IntegrationAccountMetricsConfigNamespaceFilters) []string { return v.ExcludeOnlies }).(pulumi.StringArrayOutput)
+}
+
+// Include only these namespaces for metrics collection. Use `aws.getIntegrationAvailableNamespaces` data source to get allowed values.
+func (o IntegrationAccountMetricsConfigNamespaceFiltersOutput) IncludeOnlies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IntegrationAccountMetricsConfigNamespaceFilters) []string { return v.IncludeOnlies }).(pulumi.StringArrayOutput)
+}
+
+type IntegrationAccountMetricsConfigNamespaceFiltersPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountMetricsConfigNamespaceFiltersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationAccountMetricsConfigNamespaceFilters)(nil)).Elem()
+}
+
+func (o IntegrationAccountMetricsConfigNamespaceFiltersPtrOutput) ToIntegrationAccountMetricsConfigNamespaceFiltersPtrOutput() IntegrationAccountMetricsConfigNamespaceFiltersPtrOutput {
+	return o
+}
+
+func (o IntegrationAccountMetricsConfigNamespaceFiltersPtrOutput) ToIntegrationAccountMetricsConfigNamespaceFiltersPtrOutputWithContext(ctx context.Context) IntegrationAccountMetricsConfigNamespaceFiltersPtrOutput {
+	return o
+}
+
+func (o IntegrationAccountMetricsConfigNamespaceFiltersPtrOutput) Elem() IntegrationAccountMetricsConfigNamespaceFiltersOutput {
+	return o.ApplyT(func(v *IntegrationAccountMetricsConfigNamespaceFilters) IntegrationAccountMetricsConfigNamespaceFilters {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationAccountMetricsConfigNamespaceFilters
+		return ret
+	}).(IntegrationAccountMetricsConfigNamespaceFiltersOutput)
+}
+
+// Exclude only these namespaces from metrics collection. Use `aws.getIntegrationAvailableNamespaces` data source to get allowed values. Defaults to `["AWS/SQS", "AWS/ElasticMapReduce"]`. `AWS/SQS` and `AWS/ElasticMapReduce` are excluded by default to reduce your AWS CloudWatch costs from `GetMetricData` API calls.
+func (o IntegrationAccountMetricsConfigNamespaceFiltersPtrOutput) ExcludeOnlies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IntegrationAccountMetricsConfigNamespaceFilters) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludeOnlies
+	}).(pulumi.StringArrayOutput)
+}
+
+// Include only these namespaces for metrics collection. Use `aws.getIntegrationAvailableNamespaces` data source to get allowed values.
+func (o IntegrationAccountMetricsConfigNamespaceFiltersPtrOutput) IncludeOnlies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IntegrationAccountMetricsConfigNamespaceFilters) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeOnlies
+	}).(pulumi.StringArrayOutput)
+}
+
+type IntegrationAccountMetricsConfigTagFilter struct {
+	// The AWS service for which the tag filters defined in `tags` will be applied.
+	Namespace string `pulumi:"namespace"`
+	// The AWS resource tags to filter on for the service specified by `namespace`.
+	Tags []string `pulumi:"tags"`
+}
+
+// IntegrationAccountMetricsConfigTagFilterInput is an input type that accepts IntegrationAccountMetricsConfigTagFilterArgs and IntegrationAccountMetricsConfigTagFilterOutput values.
+// You can construct a concrete instance of `IntegrationAccountMetricsConfigTagFilterInput` via:
+//
+//	IntegrationAccountMetricsConfigTagFilterArgs{...}
+type IntegrationAccountMetricsConfigTagFilterInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountMetricsConfigTagFilterOutput() IntegrationAccountMetricsConfigTagFilterOutput
+	ToIntegrationAccountMetricsConfigTagFilterOutputWithContext(context.Context) IntegrationAccountMetricsConfigTagFilterOutput
+}
+
+type IntegrationAccountMetricsConfigTagFilterArgs struct {
+	// The AWS service for which the tag filters defined in `tags` will be applied.
+	Namespace pulumi.StringInput `pulumi:"namespace"`
+	// The AWS resource tags to filter on for the service specified by `namespace`.
+	Tags pulumi.StringArrayInput `pulumi:"tags"`
+}
+
+func (IntegrationAccountMetricsConfigTagFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountMetricsConfigTagFilter)(nil)).Elem()
+}
+
+func (i IntegrationAccountMetricsConfigTagFilterArgs) ToIntegrationAccountMetricsConfigTagFilterOutput() IntegrationAccountMetricsConfigTagFilterOutput {
+	return i.ToIntegrationAccountMetricsConfigTagFilterOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountMetricsConfigTagFilterArgs) ToIntegrationAccountMetricsConfigTagFilterOutputWithContext(ctx context.Context) IntegrationAccountMetricsConfigTagFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMetricsConfigTagFilterOutput)
+}
+
+// IntegrationAccountMetricsConfigTagFilterArrayInput is an input type that accepts IntegrationAccountMetricsConfigTagFilterArray and IntegrationAccountMetricsConfigTagFilterArrayOutput values.
+// You can construct a concrete instance of `IntegrationAccountMetricsConfigTagFilterArrayInput` via:
+//
+//	IntegrationAccountMetricsConfigTagFilterArray{ IntegrationAccountMetricsConfigTagFilterArgs{...} }
+type IntegrationAccountMetricsConfigTagFilterArrayInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountMetricsConfigTagFilterArrayOutput() IntegrationAccountMetricsConfigTagFilterArrayOutput
+	ToIntegrationAccountMetricsConfigTagFilterArrayOutputWithContext(context.Context) IntegrationAccountMetricsConfigTagFilterArrayOutput
+}
+
+type IntegrationAccountMetricsConfigTagFilterArray []IntegrationAccountMetricsConfigTagFilterInput
+
+func (IntegrationAccountMetricsConfigTagFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntegrationAccountMetricsConfigTagFilter)(nil)).Elem()
+}
+
+func (i IntegrationAccountMetricsConfigTagFilterArray) ToIntegrationAccountMetricsConfigTagFilterArrayOutput() IntegrationAccountMetricsConfigTagFilterArrayOutput {
+	return i.ToIntegrationAccountMetricsConfigTagFilterArrayOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountMetricsConfigTagFilterArray) ToIntegrationAccountMetricsConfigTagFilterArrayOutputWithContext(ctx context.Context) IntegrationAccountMetricsConfigTagFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMetricsConfigTagFilterArrayOutput)
+}
+
+type IntegrationAccountMetricsConfigTagFilterOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountMetricsConfigTagFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountMetricsConfigTagFilter)(nil)).Elem()
+}
+
+func (o IntegrationAccountMetricsConfigTagFilterOutput) ToIntegrationAccountMetricsConfigTagFilterOutput() IntegrationAccountMetricsConfigTagFilterOutput {
+	return o
+}
+
+func (o IntegrationAccountMetricsConfigTagFilterOutput) ToIntegrationAccountMetricsConfigTagFilterOutputWithContext(ctx context.Context) IntegrationAccountMetricsConfigTagFilterOutput {
+	return o
+}
+
+// The AWS service for which the tag filters defined in `tags` will be applied.
+func (o IntegrationAccountMetricsConfigTagFilterOutput) Namespace() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationAccountMetricsConfigTagFilter) string { return v.Namespace }).(pulumi.StringOutput)
+}
+
+// The AWS resource tags to filter on for the service specified by `namespace`.
+func (o IntegrationAccountMetricsConfigTagFilterOutput) Tags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IntegrationAccountMetricsConfigTagFilter) []string { return v.Tags }).(pulumi.StringArrayOutput)
+}
+
+type IntegrationAccountMetricsConfigTagFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountMetricsConfigTagFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntegrationAccountMetricsConfigTagFilter)(nil)).Elem()
+}
+
+func (o IntegrationAccountMetricsConfigTagFilterArrayOutput) ToIntegrationAccountMetricsConfigTagFilterArrayOutput() IntegrationAccountMetricsConfigTagFilterArrayOutput {
+	return o
+}
+
+func (o IntegrationAccountMetricsConfigTagFilterArrayOutput) ToIntegrationAccountMetricsConfigTagFilterArrayOutputWithContext(ctx context.Context) IntegrationAccountMetricsConfigTagFilterArrayOutput {
+	return o
+}
+
+func (o IntegrationAccountMetricsConfigTagFilterArrayOutput) Index(i pulumi.IntInput) IntegrationAccountMetricsConfigTagFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntegrationAccountMetricsConfigTagFilter {
+		return vs[0].([]IntegrationAccountMetricsConfigTagFilter)[vs[1].(int)]
+	}).(IntegrationAccountMetricsConfigTagFilterOutput)
+}
+
+type IntegrationAccountResourcesConfig struct {
+	// Enable Cloud Security Management to scan AWS resources for vulnerabilities, misconfigurations, identity risks, and compliance violations. Requires `extendedCollection` to be set to `true`. Defaults to `false`.
+	CloudSecurityPostureManagementCollection *bool `pulumi:"cloudSecurityPostureManagementCollection"`
+	// Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cloudSecurityPostureManagementCollection`. Defaults to `true`.
+	ExtendedCollection *bool `pulumi:"extendedCollection"`
+}
+
+// IntegrationAccountResourcesConfigInput is an input type that accepts IntegrationAccountResourcesConfigArgs and IntegrationAccountResourcesConfigOutput values.
+// You can construct a concrete instance of `IntegrationAccountResourcesConfigInput` via:
+//
+//	IntegrationAccountResourcesConfigArgs{...}
+type IntegrationAccountResourcesConfigInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountResourcesConfigOutput() IntegrationAccountResourcesConfigOutput
+	ToIntegrationAccountResourcesConfigOutputWithContext(context.Context) IntegrationAccountResourcesConfigOutput
+}
+
+type IntegrationAccountResourcesConfigArgs struct {
+	// Enable Cloud Security Management to scan AWS resources for vulnerabilities, misconfigurations, identity risks, and compliance violations. Requires `extendedCollection` to be set to `true`. Defaults to `false`.
+	CloudSecurityPostureManagementCollection pulumi.BoolPtrInput `pulumi:"cloudSecurityPostureManagementCollection"`
+	// Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cloudSecurityPostureManagementCollection`. Defaults to `true`.
+	ExtendedCollection pulumi.BoolPtrInput `pulumi:"extendedCollection"`
+}
+
+func (IntegrationAccountResourcesConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountResourcesConfig)(nil)).Elem()
+}
+
+func (i IntegrationAccountResourcesConfigArgs) ToIntegrationAccountResourcesConfigOutput() IntegrationAccountResourcesConfigOutput {
+	return i.ToIntegrationAccountResourcesConfigOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountResourcesConfigArgs) ToIntegrationAccountResourcesConfigOutputWithContext(ctx context.Context) IntegrationAccountResourcesConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountResourcesConfigOutput)
+}
+
+func (i IntegrationAccountResourcesConfigArgs) ToIntegrationAccountResourcesConfigPtrOutput() IntegrationAccountResourcesConfigPtrOutput {
+	return i.ToIntegrationAccountResourcesConfigPtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountResourcesConfigArgs) ToIntegrationAccountResourcesConfigPtrOutputWithContext(ctx context.Context) IntegrationAccountResourcesConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountResourcesConfigOutput).ToIntegrationAccountResourcesConfigPtrOutputWithContext(ctx)
+}
+
+// IntegrationAccountResourcesConfigPtrInput is an input type that accepts IntegrationAccountResourcesConfigArgs, IntegrationAccountResourcesConfigPtr and IntegrationAccountResourcesConfigPtrOutput values.
+// You can construct a concrete instance of `IntegrationAccountResourcesConfigPtrInput` via:
+//
+//	        IntegrationAccountResourcesConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type IntegrationAccountResourcesConfigPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountResourcesConfigPtrOutput() IntegrationAccountResourcesConfigPtrOutput
+	ToIntegrationAccountResourcesConfigPtrOutputWithContext(context.Context) IntegrationAccountResourcesConfigPtrOutput
+}
+
+type integrationAccountResourcesConfigPtrType IntegrationAccountResourcesConfigArgs
+
+func IntegrationAccountResourcesConfigPtr(v *IntegrationAccountResourcesConfigArgs) IntegrationAccountResourcesConfigPtrInput {
+	return (*integrationAccountResourcesConfigPtrType)(v)
+}
+
+func (*integrationAccountResourcesConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationAccountResourcesConfig)(nil)).Elem()
+}
+
+func (i *integrationAccountResourcesConfigPtrType) ToIntegrationAccountResourcesConfigPtrOutput() IntegrationAccountResourcesConfigPtrOutput {
+	return i.ToIntegrationAccountResourcesConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationAccountResourcesConfigPtrType) ToIntegrationAccountResourcesConfigPtrOutputWithContext(ctx context.Context) IntegrationAccountResourcesConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountResourcesConfigPtrOutput)
+}
+
+type IntegrationAccountResourcesConfigOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountResourcesConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountResourcesConfig)(nil)).Elem()
+}
+
+func (o IntegrationAccountResourcesConfigOutput) ToIntegrationAccountResourcesConfigOutput() IntegrationAccountResourcesConfigOutput {
+	return o
+}
+
+func (o IntegrationAccountResourcesConfigOutput) ToIntegrationAccountResourcesConfigOutputWithContext(ctx context.Context) IntegrationAccountResourcesConfigOutput {
+	return o
+}
+
+func (o IntegrationAccountResourcesConfigOutput) ToIntegrationAccountResourcesConfigPtrOutput() IntegrationAccountResourcesConfigPtrOutput {
+	return o.ToIntegrationAccountResourcesConfigPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationAccountResourcesConfigOutput) ToIntegrationAccountResourcesConfigPtrOutputWithContext(ctx context.Context) IntegrationAccountResourcesConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationAccountResourcesConfig) *IntegrationAccountResourcesConfig {
+		return &v
+	}).(IntegrationAccountResourcesConfigPtrOutput)
+}
+
+// Enable Cloud Security Management to scan AWS resources for vulnerabilities, misconfigurations, identity risks, and compliance violations. Requires `extendedCollection` to be set to `true`. Defaults to `false`.
+func (o IntegrationAccountResourcesConfigOutput) CloudSecurityPostureManagementCollection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountResourcesConfig) *bool { return v.CloudSecurityPostureManagementCollection }).(pulumi.BoolPtrOutput)
+}
+
+// Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cloudSecurityPostureManagementCollection`. Defaults to `true`.
+func (o IntegrationAccountResourcesConfigOutput) ExtendedCollection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountResourcesConfig) *bool { return v.ExtendedCollection }).(pulumi.BoolPtrOutput)
+}
+
+type IntegrationAccountResourcesConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountResourcesConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationAccountResourcesConfig)(nil)).Elem()
+}
+
+func (o IntegrationAccountResourcesConfigPtrOutput) ToIntegrationAccountResourcesConfigPtrOutput() IntegrationAccountResourcesConfigPtrOutput {
+	return o
+}
+
+func (o IntegrationAccountResourcesConfigPtrOutput) ToIntegrationAccountResourcesConfigPtrOutputWithContext(ctx context.Context) IntegrationAccountResourcesConfigPtrOutput {
+	return o
+}
+
+func (o IntegrationAccountResourcesConfigPtrOutput) Elem() IntegrationAccountResourcesConfigOutput {
+	return o.ApplyT(func(v *IntegrationAccountResourcesConfig) IntegrationAccountResourcesConfig {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationAccountResourcesConfig
+		return ret
+	}).(IntegrationAccountResourcesConfigOutput)
+}
+
+// Enable Cloud Security Management to scan AWS resources for vulnerabilities, misconfigurations, identity risks, and compliance violations. Requires `extendedCollection` to be set to `true`. Defaults to `false`.
+func (o IntegrationAccountResourcesConfigPtrOutput) CloudSecurityPostureManagementCollection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountResourcesConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CloudSecurityPostureManagementCollection
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cloudSecurityPostureManagementCollection`. Defaults to `true`.
+func (o IntegrationAccountResourcesConfigPtrOutput) ExtendedCollection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountResourcesConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ExtendedCollection
+	}).(pulumi.BoolPtrOutput)
+}
+
+type IntegrationAccountTracesConfig struct {
+	// AWS X-Ray services to collect traces from.
+	XrayServices *IntegrationAccountTracesConfigXrayServices `pulumi:"xrayServices"`
+}
+
+// IntegrationAccountTracesConfigInput is an input type that accepts IntegrationAccountTracesConfigArgs and IntegrationAccountTracesConfigOutput values.
+// You can construct a concrete instance of `IntegrationAccountTracesConfigInput` via:
+//
+//	IntegrationAccountTracesConfigArgs{...}
+type IntegrationAccountTracesConfigInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountTracesConfigOutput() IntegrationAccountTracesConfigOutput
+	ToIntegrationAccountTracesConfigOutputWithContext(context.Context) IntegrationAccountTracesConfigOutput
+}
+
+type IntegrationAccountTracesConfigArgs struct {
+	// AWS X-Ray services to collect traces from.
+	XrayServices IntegrationAccountTracesConfigXrayServicesPtrInput `pulumi:"xrayServices"`
+}
+
+func (IntegrationAccountTracesConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountTracesConfig)(nil)).Elem()
+}
+
+func (i IntegrationAccountTracesConfigArgs) ToIntegrationAccountTracesConfigOutput() IntegrationAccountTracesConfigOutput {
+	return i.ToIntegrationAccountTracesConfigOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountTracesConfigArgs) ToIntegrationAccountTracesConfigOutputWithContext(ctx context.Context) IntegrationAccountTracesConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountTracesConfigOutput)
+}
+
+func (i IntegrationAccountTracesConfigArgs) ToIntegrationAccountTracesConfigPtrOutput() IntegrationAccountTracesConfigPtrOutput {
+	return i.ToIntegrationAccountTracesConfigPtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountTracesConfigArgs) ToIntegrationAccountTracesConfigPtrOutputWithContext(ctx context.Context) IntegrationAccountTracesConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountTracesConfigOutput).ToIntegrationAccountTracesConfigPtrOutputWithContext(ctx)
+}
+
+// IntegrationAccountTracesConfigPtrInput is an input type that accepts IntegrationAccountTracesConfigArgs, IntegrationAccountTracesConfigPtr and IntegrationAccountTracesConfigPtrOutput values.
+// You can construct a concrete instance of `IntegrationAccountTracesConfigPtrInput` via:
+//
+//	        IntegrationAccountTracesConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type IntegrationAccountTracesConfigPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountTracesConfigPtrOutput() IntegrationAccountTracesConfigPtrOutput
+	ToIntegrationAccountTracesConfigPtrOutputWithContext(context.Context) IntegrationAccountTracesConfigPtrOutput
+}
+
+type integrationAccountTracesConfigPtrType IntegrationAccountTracesConfigArgs
+
+func IntegrationAccountTracesConfigPtr(v *IntegrationAccountTracesConfigArgs) IntegrationAccountTracesConfigPtrInput {
+	return (*integrationAccountTracesConfigPtrType)(v)
+}
+
+func (*integrationAccountTracesConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationAccountTracesConfig)(nil)).Elem()
+}
+
+func (i *integrationAccountTracesConfigPtrType) ToIntegrationAccountTracesConfigPtrOutput() IntegrationAccountTracesConfigPtrOutput {
+	return i.ToIntegrationAccountTracesConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationAccountTracesConfigPtrType) ToIntegrationAccountTracesConfigPtrOutputWithContext(ctx context.Context) IntegrationAccountTracesConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountTracesConfigPtrOutput)
+}
+
+type IntegrationAccountTracesConfigOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountTracesConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountTracesConfig)(nil)).Elem()
+}
+
+func (o IntegrationAccountTracesConfigOutput) ToIntegrationAccountTracesConfigOutput() IntegrationAccountTracesConfigOutput {
+	return o
+}
+
+func (o IntegrationAccountTracesConfigOutput) ToIntegrationAccountTracesConfigOutputWithContext(ctx context.Context) IntegrationAccountTracesConfigOutput {
+	return o
+}
+
+func (o IntegrationAccountTracesConfigOutput) ToIntegrationAccountTracesConfigPtrOutput() IntegrationAccountTracesConfigPtrOutput {
+	return o.ToIntegrationAccountTracesConfigPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationAccountTracesConfigOutput) ToIntegrationAccountTracesConfigPtrOutputWithContext(ctx context.Context) IntegrationAccountTracesConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationAccountTracesConfig) *IntegrationAccountTracesConfig {
+		return &v
+	}).(IntegrationAccountTracesConfigPtrOutput)
+}
+
+// AWS X-Ray services to collect traces from.
+func (o IntegrationAccountTracesConfigOutput) XrayServices() IntegrationAccountTracesConfigXrayServicesPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountTracesConfig) *IntegrationAccountTracesConfigXrayServices {
+		return v.XrayServices
+	}).(IntegrationAccountTracesConfigXrayServicesPtrOutput)
+}
+
+type IntegrationAccountTracesConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountTracesConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationAccountTracesConfig)(nil)).Elem()
+}
+
+func (o IntegrationAccountTracesConfigPtrOutput) ToIntegrationAccountTracesConfigPtrOutput() IntegrationAccountTracesConfigPtrOutput {
+	return o
+}
+
+func (o IntegrationAccountTracesConfigPtrOutput) ToIntegrationAccountTracesConfigPtrOutputWithContext(ctx context.Context) IntegrationAccountTracesConfigPtrOutput {
+	return o
+}
+
+func (o IntegrationAccountTracesConfigPtrOutput) Elem() IntegrationAccountTracesConfigOutput {
+	return o.ApplyT(func(v *IntegrationAccountTracesConfig) IntegrationAccountTracesConfig {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationAccountTracesConfig
+		return ret
+	}).(IntegrationAccountTracesConfigOutput)
+}
+
+// AWS X-Ray services to collect traces from.
+func (o IntegrationAccountTracesConfigPtrOutput) XrayServices() IntegrationAccountTracesConfigXrayServicesPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountTracesConfig) *IntegrationAccountTracesConfigXrayServices {
+		if v == nil {
+			return nil
+		}
+		return v.XrayServices
+	}).(IntegrationAccountTracesConfigXrayServicesPtrOutput)
+}
+
+type IntegrationAccountTracesConfigXrayServices struct {
+	// Include all services
+	IncludeAll *bool `pulumi:"includeAll"`
+	// Include only these services
+	IncludeOnlies []string `pulumi:"includeOnlies"`
+}
+
+// IntegrationAccountTracesConfigXrayServicesInput is an input type that accepts IntegrationAccountTracesConfigXrayServicesArgs and IntegrationAccountTracesConfigXrayServicesOutput values.
+// You can construct a concrete instance of `IntegrationAccountTracesConfigXrayServicesInput` via:
+//
+//	IntegrationAccountTracesConfigXrayServicesArgs{...}
+type IntegrationAccountTracesConfigXrayServicesInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountTracesConfigXrayServicesOutput() IntegrationAccountTracesConfigXrayServicesOutput
+	ToIntegrationAccountTracesConfigXrayServicesOutputWithContext(context.Context) IntegrationAccountTracesConfigXrayServicesOutput
+}
+
+type IntegrationAccountTracesConfigXrayServicesArgs struct {
+	// Include all services
+	IncludeAll pulumi.BoolPtrInput `pulumi:"includeAll"`
+	// Include only these services
+	IncludeOnlies pulumi.StringArrayInput `pulumi:"includeOnlies"`
+}
+
+func (IntegrationAccountTracesConfigXrayServicesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountTracesConfigXrayServices)(nil)).Elem()
+}
+
+func (i IntegrationAccountTracesConfigXrayServicesArgs) ToIntegrationAccountTracesConfigXrayServicesOutput() IntegrationAccountTracesConfigXrayServicesOutput {
+	return i.ToIntegrationAccountTracesConfigXrayServicesOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountTracesConfigXrayServicesArgs) ToIntegrationAccountTracesConfigXrayServicesOutputWithContext(ctx context.Context) IntegrationAccountTracesConfigXrayServicesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountTracesConfigXrayServicesOutput)
+}
+
+func (i IntegrationAccountTracesConfigXrayServicesArgs) ToIntegrationAccountTracesConfigXrayServicesPtrOutput() IntegrationAccountTracesConfigXrayServicesPtrOutput {
+	return i.ToIntegrationAccountTracesConfigXrayServicesPtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountTracesConfigXrayServicesArgs) ToIntegrationAccountTracesConfigXrayServicesPtrOutputWithContext(ctx context.Context) IntegrationAccountTracesConfigXrayServicesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountTracesConfigXrayServicesOutput).ToIntegrationAccountTracesConfigXrayServicesPtrOutputWithContext(ctx)
+}
+
+// IntegrationAccountTracesConfigXrayServicesPtrInput is an input type that accepts IntegrationAccountTracesConfigXrayServicesArgs, IntegrationAccountTracesConfigXrayServicesPtr and IntegrationAccountTracesConfigXrayServicesPtrOutput values.
+// You can construct a concrete instance of `IntegrationAccountTracesConfigXrayServicesPtrInput` via:
+//
+//	        IntegrationAccountTracesConfigXrayServicesArgs{...}
+//
+//	or:
+//
+//	        nil
+type IntegrationAccountTracesConfigXrayServicesPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountTracesConfigXrayServicesPtrOutput() IntegrationAccountTracesConfigXrayServicesPtrOutput
+	ToIntegrationAccountTracesConfigXrayServicesPtrOutputWithContext(context.Context) IntegrationAccountTracesConfigXrayServicesPtrOutput
+}
+
+type integrationAccountTracesConfigXrayServicesPtrType IntegrationAccountTracesConfigXrayServicesArgs
+
+func IntegrationAccountTracesConfigXrayServicesPtr(v *IntegrationAccountTracesConfigXrayServicesArgs) IntegrationAccountTracesConfigXrayServicesPtrInput {
+	return (*integrationAccountTracesConfigXrayServicesPtrType)(v)
+}
+
+func (*integrationAccountTracesConfigXrayServicesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationAccountTracesConfigXrayServices)(nil)).Elem()
+}
+
+func (i *integrationAccountTracesConfigXrayServicesPtrType) ToIntegrationAccountTracesConfigXrayServicesPtrOutput() IntegrationAccountTracesConfigXrayServicesPtrOutput {
+	return i.ToIntegrationAccountTracesConfigXrayServicesPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationAccountTracesConfigXrayServicesPtrType) ToIntegrationAccountTracesConfigXrayServicesPtrOutputWithContext(ctx context.Context) IntegrationAccountTracesConfigXrayServicesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountTracesConfigXrayServicesPtrOutput)
+}
+
+type IntegrationAccountTracesConfigXrayServicesOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountTracesConfigXrayServicesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountTracesConfigXrayServices)(nil)).Elem()
+}
+
+func (o IntegrationAccountTracesConfigXrayServicesOutput) ToIntegrationAccountTracesConfigXrayServicesOutput() IntegrationAccountTracesConfigXrayServicesOutput {
+	return o
+}
+
+func (o IntegrationAccountTracesConfigXrayServicesOutput) ToIntegrationAccountTracesConfigXrayServicesOutputWithContext(ctx context.Context) IntegrationAccountTracesConfigXrayServicesOutput {
+	return o
+}
+
+func (o IntegrationAccountTracesConfigXrayServicesOutput) ToIntegrationAccountTracesConfigXrayServicesPtrOutput() IntegrationAccountTracesConfigXrayServicesPtrOutput {
+	return o.ToIntegrationAccountTracesConfigXrayServicesPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationAccountTracesConfigXrayServicesOutput) ToIntegrationAccountTracesConfigXrayServicesPtrOutputWithContext(ctx context.Context) IntegrationAccountTracesConfigXrayServicesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationAccountTracesConfigXrayServices) *IntegrationAccountTracesConfigXrayServices {
+		return &v
+	}).(IntegrationAccountTracesConfigXrayServicesPtrOutput)
+}
+
+// Include all services
+func (o IntegrationAccountTracesConfigXrayServicesOutput) IncludeAll() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountTracesConfigXrayServices) *bool { return v.IncludeAll }).(pulumi.BoolPtrOutput)
+}
+
+// Include only these services
+func (o IntegrationAccountTracesConfigXrayServicesOutput) IncludeOnlies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IntegrationAccountTracesConfigXrayServices) []string { return v.IncludeOnlies }).(pulumi.StringArrayOutput)
+}
+
+type IntegrationAccountTracesConfigXrayServicesPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountTracesConfigXrayServicesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationAccountTracesConfigXrayServices)(nil)).Elem()
+}
+
+func (o IntegrationAccountTracesConfigXrayServicesPtrOutput) ToIntegrationAccountTracesConfigXrayServicesPtrOutput() IntegrationAccountTracesConfigXrayServicesPtrOutput {
+	return o
+}
+
+func (o IntegrationAccountTracesConfigXrayServicesPtrOutput) ToIntegrationAccountTracesConfigXrayServicesPtrOutputWithContext(ctx context.Context) IntegrationAccountTracesConfigXrayServicesPtrOutput {
+	return o
+}
+
+func (o IntegrationAccountTracesConfigXrayServicesPtrOutput) Elem() IntegrationAccountTracesConfigXrayServicesOutput {
+	return o.ApplyT(func(v *IntegrationAccountTracesConfigXrayServices) IntegrationAccountTracesConfigXrayServices {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationAccountTracesConfigXrayServices
+		return ret
+	}).(IntegrationAccountTracesConfigXrayServicesOutput)
+}
+
+// Include all services
+func (o IntegrationAccountTracesConfigXrayServicesPtrOutput) IncludeAll() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountTracesConfigXrayServices) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeAll
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Include only these services
+func (o IntegrationAccountTracesConfigXrayServicesPtrOutput) IncludeOnlies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IntegrationAccountTracesConfigXrayServices) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeOnlies
+	}).(pulumi.StringArrayOutput)
+}
+
 type GetIntegrationLogsServicesAwsLogsService struct {
 	// The id of the AWS log service.
 	Id string `pulumi:"id"`
@@ -120,8 +1972,56 @@ func (o GetIntegrationLogsServicesAwsLogsServiceArrayOutput) Index(i pulumi.IntI
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountAuthConfigInput)(nil)).Elem(), IntegrationAccountAuthConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountAuthConfigPtrInput)(nil)).Elem(), IntegrationAccountAuthConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountAuthConfigAwsAuthConfigKeysInput)(nil)).Elem(), IntegrationAccountAuthConfigAwsAuthConfigKeysArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountAuthConfigAwsAuthConfigKeysPtrInput)(nil)).Elem(), IntegrationAccountAuthConfigAwsAuthConfigKeysArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountAuthConfigAwsAuthConfigRoleInput)(nil)).Elem(), IntegrationAccountAuthConfigAwsAuthConfigRoleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountAuthConfigAwsAuthConfigRolePtrInput)(nil)).Elem(), IntegrationAccountAuthConfigAwsAuthConfigRoleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountAwsRegionsInput)(nil)).Elem(), IntegrationAccountAwsRegionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountAwsRegionsPtrInput)(nil)).Elem(), IntegrationAccountAwsRegionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountLogsConfigInput)(nil)).Elem(), IntegrationAccountLogsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountLogsConfigPtrInput)(nil)).Elem(), IntegrationAccountLogsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountLogsConfigLambdaForwarderInput)(nil)).Elem(), IntegrationAccountLogsConfigLambdaForwarderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountLogsConfigLambdaForwarderPtrInput)(nil)).Elem(), IntegrationAccountLogsConfigLambdaForwarderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountMetricsConfigInput)(nil)).Elem(), IntegrationAccountMetricsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountMetricsConfigPtrInput)(nil)).Elem(), IntegrationAccountMetricsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountMetricsConfigNamespaceFiltersInput)(nil)).Elem(), IntegrationAccountMetricsConfigNamespaceFiltersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountMetricsConfigNamespaceFiltersPtrInput)(nil)).Elem(), IntegrationAccountMetricsConfigNamespaceFiltersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountMetricsConfigTagFilterInput)(nil)).Elem(), IntegrationAccountMetricsConfigTagFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountMetricsConfigTagFilterArrayInput)(nil)).Elem(), IntegrationAccountMetricsConfigTagFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountResourcesConfigInput)(nil)).Elem(), IntegrationAccountResourcesConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountResourcesConfigPtrInput)(nil)).Elem(), IntegrationAccountResourcesConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountTracesConfigInput)(nil)).Elem(), IntegrationAccountTracesConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountTracesConfigPtrInput)(nil)).Elem(), IntegrationAccountTracesConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountTracesConfigXrayServicesInput)(nil)).Elem(), IntegrationAccountTracesConfigXrayServicesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountTracesConfigXrayServicesPtrInput)(nil)).Elem(), IntegrationAccountTracesConfigXrayServicesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetIntegrationLogsServicesAwsLogsServiceInput)(nil)).Elem(), GetIntegrationLogsServicesAwsLogsServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetIntegrationLogsServicesAwsLogsServiceArrayInput)(nil)).Elem(), GetIntegrationLogsServicesAwsLogsServiceArray{})
+	pulumi.RegisterOutputType(IntegrationAccountAuthConfigOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountAuthConfigPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountAuthConfigAwsAuthConfigKeysOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountAuthConfigAwsAuthConfigKeysPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountAuthConfigAwsAuthConfigRoleOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountAuthConfigAwsAuthConfigRolePtrOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountAwsRegionsOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountAwsRegionsPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountLogsConfigOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountLogsConfigPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountLogsConfigLambdaForwarderOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountLogsConfigLambdaForwarderPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountMetricsConfigOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountMetricsConfigPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountMetricsConfigNamespaceFiltersOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountMetricsConfigNamespaceFiltersPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountMetricsConfigTagFilterOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountMetricsConfigTagFilterArrayOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountResourcesConfigOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountResourcesConfigPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountTracesConfigOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountTracesConfigPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountTracesConfigXrayServicesOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountTracesConfigXrayServicesPtrOutput{})
 	pulumi.RegisterOutputType(GetIntegrationLogsServicesAwsLogsServiceOutput{})
 	pulumi.RegisterOutputType(GetIntegrationLogsServicesAwsLogsServiceArrayOutput{})
 }

@@ -30,6 +30,12 @@ namespace Pulumi.Datadog.Inputs
             set => _assertions = value;
         }
 
+        /// <summary>
+        /// Determines whether or not to exit the test if the step succeeds.
+        /// </summary>
+        [Input("exitIfSucceed")]
+        public Input<bool>? ExitIfSucceed { get; set; }
+
         [Input("extractedValues")]
         private InputList<Inputs.SyntheticsTestApiStepExtractedValueArgs>? _extractedValues;
 

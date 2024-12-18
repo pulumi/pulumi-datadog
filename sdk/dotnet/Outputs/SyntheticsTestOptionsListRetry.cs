@@ -14,11 +14,11 @@ namespace Pulumi.Datadog.Outputs
     public sealed class SyntheticsTestOptionsListRetry
     {
         /// <summary>
-        /// Number of retries needed to consider a location as failed before sending a notification alert. Defaults to `0`.
+        /// Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
         /// </summary>
         public readonly int? Count;
         /// <summary>
-        /// Interval between a failed test and the next retry in milliseconds. Defaults to `300`.
+        /// Interval between a failed test and the next retry in milliseconds. Maximum value: `5000`. Defaults to `300`.
         /// </summary>
         public readonly int? Interval;
 

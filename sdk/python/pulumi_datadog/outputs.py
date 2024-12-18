@@ -1082,6 +1082,22 @@ __all__ = [
     'SyntheticsTestBrowserStepParamsVariable',
     'SyntheticsTestBrowserVariable',
     'SyntheticsTestConfigVariable',
+    'SyntheticsTestMobileOptionsList',
+    'SyntheticsTestMobileOptionsListBinding',
+    'SyntheticsTestMobileOptionsListCi',
+    'SyntheticsTestMobileOptionsListMobileApplication',
+    'SyntheticsTestMobileOptionsListMonitorOptions',
+    'SyntheticsTestMobileOptionsListRetry',
+    'SyntheticsTestMobileOptionsListScheduling',
+    'SyntheticsTestMobileOptionsListSchedulingTimeframe',
+    'SyntheticsTestMobileStep',
+    'SyntheticsTestMobileStepParams',
+    'SyntheticsTestMobileStepParamsElement',
+    'SyntheticsTestMobileStepParamsElementRelativePosition',
+    'SyntheticsTestMobileStepParamsElementUserLocator',
+    'SyntheticsTestMobileStepParamsElementUserLocatorValue',
+    'SyntheticsTestMobileStepParamsPosition',
+    'SyntheticsTestMobileStepParamsVariable',
     'SyntheticsTestOptionsList',
     'SyntheticsTestOptionsListCi',
     'SyntheticsTestOptionsListMonitorOptions',
@@ -79085,6 +79101,8 @@ class SyntheticsTestApiStep(dict):
         suggest = None
         if key == "allowFailure":
             suggest = "allow_failure"
+        elif key == "exitIfSucceed":
+            suggest = "exit_if_succeed"
         elif key == "extractedValues":
             suggest = "extracted_values"
         elif key == "isCritical":
@@ -79121,6 +79139,7 @@ class SyntheticsTestApiStep(dict):
                  name: str,
                  allow_failure: Optional[bool] = None,
                  assertions: Optional[Sequence['outputs.SyntheticsTestApiStepAssertion']] = None,
+                 exit_if_succeed: Optional[bool] = None,
                  extracted_values: Optional[Sequence['outputs.SyntheticsTestApiStepExtractedValue']] = None,
                  is_critical: Optional[bool] = None,
                  request_basicauth: Optional['outputs.SyntheticsTestApiStepRequestBasicauth'] = None,
@@ -79138,6 +79157,7 @@ class SyntheticsTestApiStep(dict):
         :param str name: The name of the step.
         :param bool allow_failure: Determines whether or not to continue with test if this step fails.
         :param Sequence['SyntheticsTestApiStepAssertionArgs'] assertions: Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
+        :param bool exit_if_succeed: Determines whether or not to exit the test if the step succeeds.
         :param Sequence['SyntheticsTestApiStepExtractedValueArgs'] extracted_values: Values to parse and save as variables from the response.
         :param bool is_critical: Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
         :param 'SyntheticsTestApiStepRequestBasicauthArgs' request_basicauth: The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
@@ -79156,6 +79176,8 @@ class SyntheticsTestApiStep(dict):
             pulumi.set(__self__, "allow_failure", allow_failure)
         if assertions is not None:
             pulumi.set(__self__, "assertions", assertions)
+        if exit_if_succeed is not None:
+            pulumi.set(__self__, "exit_if_succeed", exit_if_succeed)
         if extracted_values is not None:
             pulumi.set(__self__, "extracted_values", extracted_values)
         if is_critical is not None:
@@ -79206,6 +79228,14 @@ class SyntheticsTestApiStep(dict):
         Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
         """
         return pulumi.get(self, "assertions")
+
+    @property
+    @pulumi.getter(name="exitIfSucceed")
+    def exit_if_succeed(self) -> Optional[bool]:
+        """
+        Determines whether or not to exit the test if the step succeeds.
+        """
+        return pulumi.get(self, "exit_if_succeed")
 
     @property
     @pulumi.getter(name="extractedValues")
@@ -80429,8 +80459,8 @@ class SyntheticsTestApiStepRetry(dict):
                  count: Optional[int] = None,
                  interval: Optional[int] = None):
         """
-        :param int count: Number of retries needed to consider a location as failed before sending a notification alert. Defaults to `0`.
-        :param int interval: Interval between a failed test and the next retry in milliseconds. Defaults to `300`.
+        :param int count: Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
+        :param int interval: Interval between a failed test and the next retry in milliseconds. Maximum value: `5000`. Defaults to `300`.
         """
         if count is not None:
             pulumi.set(__self__, "count", count)
@@ -80441,7 +80471,7 @@ class SyntheticsTestApiStepRetry(dict):
     @pulumi.getter
     def count(self) -> Optional[int]:
         """
-        Number of retries needed to consider a location as failed before sending a notification alert. Defaults to `0`.
+        Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
         """
         return pulumi.get(self, "count")
 
@@ -80449,7 +80479,7 @@ class SyntheticsTestApiStepRetry(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         """
-        Interval between a failed test and the next retry in milliseconds. Defaults to `300`.
+        Interval between a failed test and the next retry in milliseconds. Maximum value: `5000`. Defaults to `300`.
         """
         return pulumi.get(self, "interval")
 
@@ -81367,6 +81397,1061 @@ class SyntheticsTestConfigVariable(dict):
 
 
 @pulumi.output_type
+class SyntheticsTestMobileOptionsList(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deviceIds":
+            suggest = "device_ids"
+        elif key == "mobileApplication":
+            suggest = "mobile_application"
+        elif key == "tickEvery":
+            suggest = "tick_every"
+        elif key == "allowApplicationCrash":
+            suggest = "allow_application_crash"
+        elif key == "defaultStepTimeout":
+            suggest = "default_step_timeout"
+        elif key == "disableAutoAcceptAlert":
+            suggest = "disable_auto_accept_alert"
+        elif key == "minFailureDuration":
+            suggest = "min_failure_duration"
+        elif key == "monitorName":
+            suggest = "monitor_name"
+        elif key == "monitorOptions":
+            suggest = "monitor_options"
+        elif key == "monitorPriority":
+            suggest = "monitor_priority"
+        elif key == "noScreenshot":
+            suggest = "no_screenshot"
+        elif key == "restrictedRoles":
+            suggest = "restricted_roles"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SyntheticsTestMobileOptionsList. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SyntheticsTestMobileOptionsList.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SyntheticsTestMobileOptionsList.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 device_ids: Sequence[str],
+                 mobile_application: 'outputs.SyntheticsTestMobileOptionsListMobileApplication',
+                 tick_every: int,
+                 allow_application_crash: Optional[bool] = None,
+                 bindings: Optional[Sequence['outputs.SyntheticsTestMobileOptionsListBinding']] = None,
+                 ci: Optional['outputs.SyntheticsTestMobileOptionsListCi'] = None,
+                 default_step_timeout: Optional[int] = None,
+                 disable_auto_accept_alert: Optional[bool] = None,
+                 min_failure_duration: Optional[int] = None,
+                 monitor_name: Optional[str] = None,
+                 monitor_options: Optional['outputs.SyntheticsTestMobileOptionsListMonitorOptions'] = None,
+                 monitor_priority: Optional[int] = None,
+                 no_screenshot: Optional[bool] = None,
+                 restricted_roles: Optional[Sequence[str]] = None,
+                 retry: Optional['outputs.SyntheticsTestMobileOptionsListRetry'] = None,
+                 scheduling: Optional['outputs.SyntheticsTestMobileOptionsListScheduling'] = None,
+                 verbosity: Optional[int] = None):
+        """
+        :param int tick_every: How often the test should run (in seconds).
+        :param 'SyntheticsTestMobileOptionsListCiArgs' ci: CI/CD options for a Synthetic test.
+        :param int min_failure_duration: Minimum amount of time in failure required to trigger an alert (in seconds). Default is `0`.
+        :param str monitor_name: The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
+        :param bool no_screenshot: Prevents saving screenshots of the steps.
+        :param Sequence[str] restricted_roles: A list of role identifiers pulled from the Roles API to restrict read and write access.
+        :param 'SyntheticsTestMobileOptionsListSchedulingArgs' scheduling: Object containing timeframes and timezone used for advanced scheduling.
+        """
+        pulumi.set(__self__, "device_ids", device_ids)
+        pulumi.set(__self__, "mobile_application", mobile_application)
+        pulumi.set(__self__, "tick_every", tick_every)
+        if allow_application_crash is not None:
+            pulumi.set(__self__, "allow_application_crash", allow_application_crash)
+        if bindings is not None:
+            pulumi.set(__self__, "bindings", bindings)
+        if ci is not None:
+            pulumi.set(__self__, "ci", ci)
+        if default_step_timeout is not None:
+            pulumi.set(__self__, "default_step_timeout", default_step_timeout)
+        if disable_auto_accept_alert is not None:
+            pulumi.set(__self__, "disable_auto_accept_alert", disable_auto_accept_alert)
+        if min_failure_duration is not None:
+            pulumi.set(__self__, "min_failure_duration", min_failure_duration)
+        if monitor_name is not None:
+            pulumi.set(__self__, "monitor_name", monitor_name)
+        if monitor_options is not None:
+            pulumi.set(__self__, "monitor_options", monitor_options)
+        if monitor_priority is not None:
+            pulumi.set(__self__, "monitor_priority", monitor_priority)
+        if no_screenshot is not None:
+            pulumi.set(__self__, "no_screenshot", no_screenshot)
+        if restricted_roles is not None:
+            pulumi.set(__self__, "restricted_roles", restricted_roles)
+        if retry is not None:
+            pulumi.set(__self__, "retry", retry)
+        if scheduling is not None:
+            pulumi.set(__self__, "scheduling", scheduling)
+        if verbosity is not None:
+            pulumi.set(__self__, "verbosity", verbosity)
+
+    @property
+    @pulumi.getter(name="deviceIds")
+    def device_ids(self) -> Sequence[str]:
+        return pulumi.get(self, "device_ids")
+
+    @property
+    @pulumi.getter(name="mobileApplication")
+    def mobile_application(self) -> 'outputs.SyntheticsTestMobileOptionsListMobileApplication':
+        return pulumi.get(self, "mobile_application")
+
+    @property
+    @pulumi.getter(name="tickEvery")
+    def tick_every(self) -> int:
+        """
+        How often the test should run (in seconds).
+        """
+        return pulumi.get(self, "tick_every")
+
+    @property
+    @pulumi.getter(name="allowApplicationCrash")
+    def allow_application_crash(self) -> Optional[bool]:
+        return pulumi.get(self, "allow_application_crash")
+
+    @property
+    @pulumi.getter
+    def bindings(self) -> Optional[Sequence['outputs.SyntheticsTestMobileOptionsListBinding']]:
+        return pulumi.get(self, "bindings")
+
+    @property
+    @pulumi.getter
+    def ci(self) -> Optional['outputs.SyntheticsTestMobileOptionsListCi']:
+        """
+        CI/CD options for a Synthetic test.
+        """
+        return pulumi.get(self, "ci")
+
+    @property
+    @pulumi.getter(name="defaultStepTimeout")
+    def default_step_timeout(self) -> Optional[int]:
+        return pulumi.get(self, "default_step_timeout")
+
+    @property
+    @pulumi.getter(name="disableAutoAcceptAlert")
+    def disable_auto_accept_alert(self) -> Optional[bool]:
+        return pulumi.get(self, "disable_auto_accept_alert")
+
+    @property
+    @pulumi.getter(name="minFailureDuration")
+    def min_failure_duration(self) -> Optional[int]:
+        """
+        Minimum amount of time in failure required to trigger an alert (in seconds). Default is `0`.
+        """
+        return pulumi.get(self, "min_failure_duration")
+
+    @property
+    @pulumi.getter(name="monitorName")
+    def monitor_name(self) -> Optional[str]:
+        """
+        The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
+        """
+        return pulumi.get(self, "monitor_name")
+
+    @property
+    @pulumi.getter(name="monitorOptions")
+    def monitor_options(self) -> Optional['outputs.SyntheticsTestMobileOptionsListMonitorOptions']:
+        return pulumi.get(self, "monitor_options")
+
+    @property
+    @pulumi.getter(name="monitorPriority")
+    def monitor_priority(self) -> Optional[int]:
+        return pulumi.get(self, "monitor_priority")
+
+    @property
+    @pulumi.getter(name="noScreenshot")
+    def no_screenshot(self) -> Optional[bool]:
+        """
+        Prevents saving screenshots of the steps.
+        """
+        return pulumi.get(self, "no_screenshot")
+
+    @property
+    @pulumi.getter(name="restrictedRoles")
+    def restricted_roles(self) -> Optional[Sequence[str]]:
+        """
+        A list of role identifiers pulled from the Roles API to restrict read and write access.
+        """
+        return pulumi.get(self, "restricted_roles")
+
+    @property
+    @pulumi.getter
+    def retry(self) -> Optional['outputs.SyntheticsTestMobileOptionsListRetry']:
+        return pulumi.get(self, "retry")
+
+    @property
+    @pulumi.getter
+    def scheduling(self) -> Optional['outputs.SyntheticsTestMobileOptionsListScheduling']:
+        """
+        Object containing timeframes and timezone used for advanced scheduling.
+        """
+        return pulumi.get(self, "scheduling")
+
+    @property
+    @pulumi.getter
+    def verbosity(self) -> Optional[int]:
+        return pulumi.get(self, "verbosity")
+
+
+@pulumi.output_type
+class SyntheticsTestMobileOptionsListBinding(dict):
+    def __init__(__self__, *,
+                 principals: Optional[Sequence[str]] = None,
+                 relation: Optional[str] = None):
+        """
+        :param str relation: Valid values are `editor`, `viewer`.
+        """
+        if principals is not None:
+            pulumi.set(__self__, "principals", principals)
+        if relation is not None:
+            pulumi.set(__self__, "relation", relation)
+
+    @property
+    @pulumi.getter
+    def principals(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "principals")
+
+    @property
+    @pulumi.getter
+    def relation(self) -> Optional[str]:
+        """
+        Valid values are `editor`, `viewer`.
+        """
+        return pulumi.get(self, "relation")
+
+
+@pulumi.output_type
+class SyntheticsTestMobileOptionsListCi(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "executionRule":
+            suggest = "execution_rule"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SyntheticsTestMobileOptionsListCi. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SyntheticsTestMobileOptionsListCi.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SyntheticsTestMobileOptionsListCi.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 execution_rule: str):
+        """
+        :param str execution_rule: Execution rule for a Synthetics test. Valid values are `blocking`, `non_blocking`, `skipped`.
+        """
+        pulumi.set(__self__, "execution_rule", execution_rule)
+
+    @property
+    @pulumi.getter(name="executionRule")
+    def execution_rule(self) -> str:
+        """
+        Execution rule for a Synthetics test. Valid values are `blocking`, `non_blocking`, `skipped`.
+        """
+        return pulumi.get(self, "execution_rule")
+
+
+@pulumi.output_type
+class SyntheticsTestMobileOptionsListMobileApplication(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationId":
+            suggest = "application_id"
+        elif key == "referenceId":
+            suggest = "reference_id"
+        elif key == "referenceType":
+            suggest = "reference_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SyntheticsTestMobileOptionsListMobileApplication. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SyntheticsTestMobileOptionsListMobileApplication.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SyntheticsTestMobileOptionsListMobileApplication.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 application_id: str,
+                 reference_id: str,
+                 reference_type: str):
+        """
+        :param str reference_type: Valid values are `latest`, `version`.
+        """
+        pulumi.set(__self__, "application_id", application_id)
+        pulumi.set(__self__, "reference_id", reference_id)
+        pulumi.set(__self__, "reference_type", reference_type)
+
+    @property
+    @pulumi.getter(name="applicationId")
+    def application_id(self) -> str:
+        return pulumi.get(self, "application_id")
+
+    @property
+    @pulumi.getter(name="referenceId")
+    def reference_id(self) -> str:
+        return pulumi.get(self, "reference_id")
+
+    @property
+    @pulumi.getter(name="referenceType")
+    def reference_type(self) -> str:
+        """
+        Valid values are `latest`, `version`.
+        """
+        return pulumi.get(self, "reference_type")
+
+
+@pulumi.output_type
+class SyntheticsTestMobileOptionsListMonitorOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "escalationMessage":
+            suggest = "escalation_message"
+        elif key == "notificationPresetName":
+            suggest = "notification_preset_name"
+        elif key == "renotifyInterval":
+            suggest = "renotify_interval"
+        elif key == "renotifyOccurrences":
+            suggest = "renotify_occurrences"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SyntheticsTestMobileOptionsListMonitorOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SyntheticsTestMobileOptionsListMonitorOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SyntheticsTestMobileOptionsListMonitorOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 escalation_message: Optional[str] = None,
+                 notification_preset_name: Optional[str] = None,
+                 renotify_interval: Optional[int] = None,
+                 renotify_occurrences: Optional[int] = None):
+        """
+        :param str notification_preset_name: Valid values are `show_all`, `hide_all`, `hide_query`, `hide_handles`.
+        :param int renotify_interval: Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
+        """
+        if escalation_message is not None:
+            pulumi.set(__self__, "escalation_message", escalation_message)
+        if notification_preset_name is not None:
+            pulumi.set(__self__, "notification_preset_name", notification_preset_name)
+        if renotify_interval is not None:
+            pulumi.set(__self__, "renotify_interval", renotify_interval)
+        if renotify_occurrences is not None:
+            pulumi.set(__self__, "renotify_occurrences", renotify_occurrences)
+
+    @property
+    @pulumi.getter(name="escalationMessage")
+    def escalation_message(self) -> Optional[str]:
+        return pulumi.get(self, "escalation_message")
+
+    @property
+    @pulumi.getter(name="notificationPresetName")
+    def notification_preset_name(self) -> Optional[str]:
+        """
+        Valid values are `show_all`, `hide_all`, `hide_query`, `hide_handles`.
+        """
+        return pulumi.get(self, "notification_preset_name")
+
+    @property
+    @pulumi.getter(name="renotifyInterval")
+    def renotify_interval(self) -> Optional[int]:
+        """
+        Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
+        """
+        return pulumi.get(self, "renotify_interval")
+
+    @property
+    @pulumi.getter(name="renotifyOccurrences")
+    def renotify_occurrences(self) -> Optional[int]:
+        return pulumi.get(self, "renotify_occurrences")
+
+
+@pulumi.output_type
+class SyntheticsTestMobileOptionsListRetry(dict):
+    def __init__(__self__, *,
+                 count: Optional[int] = None,
+                 interval: Optional[int] = None):
+        """
+        :param int count: Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
+        :param int interval: Interval between a failed test and the next retry in milliseconds. Maximum value: `5000`. Defaults to `300`.
+        """
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[int]:
+        """
+        Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
+        """
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        """
+        Interval between a failed test and the next retry in milliseconds. Maximum value: `5000`. Defaults to `300`.
+        """
+        return pulumi.get(self, "interval")
+
+
+@pulumi.output_type
+class SyntheticsTestMobileOptionsListScheduling(dict):
+    def __init__(__self__, *,
+                 timeframes: Sequence['outputs.SyntheticsTestMobileOptionsListSchedulingTimeframe'],
+                 timezone: str):
+        """
+        :param Sequence['SyntheticsTestMobileOptionsListSchedulingTimeframeArgs'] timeframes: Array containing objects describing the scheduling pattern to apply to each day.
+        :param str timezone: Timezone in which the timeframe is based.
+        """
+        pulumi.set(__self__, "timeframes", timeframes)
+        pulumi.set(__self__, "timezone", timezone)
+
+    @property
+    @pulumi.getter
+    def timeframes(self) -> Sequence['outputs.SyntheticsTestMobileOptionsListSchedulingTimeframe']:
+        """
+        Array containing objects describing the scheduling pattern to apply to each day.
+        """
+        return pulumi.get(self, "timeframes")
+
+    @property
+    @pulumi.getter
+    def timezone(self) -> str:
+        """
+        Timezone in which the timeframe is based.
+        """
+        return pulumi.get(self, "timezone")
+
+
+@pulumi.output_type
+class SyntheticsTestMobileOptionsListSchedulingTimeframe(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "from":
+            suggest = "from_"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SyntheticsTestMobileOptionsListSchedulingTimeframe. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SyntheticsTestMobileOptionsListSchedulingTimeframe.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SyntheticsTestMobileOptionsListSchedulingTimeframe.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 day: int,
+                 from_: str,
+                 to: str):
+        """
+        :param int day: Number representing the day of the week
+        :param str from_: The hour of the day on which scheduling starts.
+        :param str to: The hour of the day on which scheduling ends.
+        """
+        pulumi.set(__self__, "day", day)
+        pulumi.set(__self__, "from_", from_)
+        pulumi.set(__self__, "to", to)
+
+    @property
+    @pulumi.getter
+    def day(self) -> int:
+        """
+        Number representing the day of the week
+        """
+        return pulumi.get(self, "day")
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> str:
+        """
+        The hour of the day on which scheduling starts.
+        """
+        return pulumi.get(self, "from_")
+
+    @property
+    @pulumi.getter
+    def to(self) -> str:
+        """
+        The hour of the day on which scheduling ends.
+        """
+        return pulumi.get(self, "to")
+
+
+@pulumi.output_type
+class SyntheticsTestMobileStep(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowFailure":
+            suggest = "allow_failure"
+        elif key == "hasNewStepElement":
+            suggest = "has_new_step_element"
+        elif key == "isCritical":
+            suggest = "is_critical"
+        elif key == "noScreenshot":
+            suggest = "no_screenshot"
+        elif key == "publicId":
+            suggest = "public_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SyntheticsTestMobileStep. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SyntheticsTestMobileStep.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SyntheticsTestMobileStep.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 params: 'outputs.SyntheticsTestMobileStepParams',
+                 type: str,
+                 allow_failure: Optional[bool] = None,
+                 has_new_step_element: Optional[bool] = None,
+                 is_critical: Optional[bool] = None,
+                 no_screenshot: Optional[bool] = None,
+                 public_id: Optional[str] = None,
+                 timeout: Optional[int] = None):
+        """
+        :param str name: The name of the step.
+        :param 'SyntheticsTestMobileStepParamsArgs' params: Parameters for the step.
+        :param str type: The type of the step. Valid values are `assertElementContent`, `assertScreenContains`, `assertScreenLacks`, `doubleTap`, `extractVariable`, `flick`, `openDeeplink`, `playSubTest`, `pressBack`, `restartApplication`, `rotate`, `scroll`, `scrollToElement`, `tap`, `toggleWiFi`, `typeText`, `wait`.
+        :param bool allow_failure: A boolean set to allow this step to fail.
+        :param bool has_new_step_element: A boolean set to determine if the step has a new step element.
+        :param bool is_critical: A boolean to use in addition to `allowFailure` to determine if the test should be marked as failed when the step fails.
+        :param bool no_screenshot: A boolean set to not take a screenshot for the step.
+        :param str public_id: The public ID of the step.
+        :param int timeout: The time before declaring a step failed.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "params", params)
+        pulumi.set(__self__, "type", type)
+        if allow_failure is not None:
+            pulumi.set(__self__, "allow_failure", allow_failure)
+        if has_new_step_element is not None:
+            pulumi.set(__self__, "has_new_step_element", has_new_step_element)
+        if is_critical is not None:
+            pulumi.set(__self__, "is_critical", is_critical)
+        if no_screenshot is not None:
+            pulumi.set(__self__, "no_screenshot", no_screenshot)
+        if public_id is not None:
+            pulumi.set(__self__, "public_id", public_id)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the step.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def params(self) -> 'outputs.SyntheticsTestMobileStepParams':
+        """
+        Parameters for the step.
+        """
+        return pulumi.get(self, "params")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the step. Valid values are `assertElementContent`, `assertScreenContains`, `assertScreenLacks`, `doubleTap`, `extractVariable`, `flick`, `openDeeplink`, `playSubTest`, `pressBack`, `restartApplication`, `rotate`, `scroll`, `scrollToElement`, `tap`, `toggleWiFi`, `typeText`, `wait`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="allowFailure")
+    def allow_failure(self) -> Optional[bool]:
+        """
+        A boolean set to allow this step to fail.
+        """
+        return pulumi.get(self, "allow_failure")
+
+    @property
+    @pulumi.getter(name="hasNewStepElement")
+    def has_new_step_element(self) -> Optional[bool]:
+        """
+        A boolean set to determine if the step has a new step element.
+        """
+        return pulumi.get(self, "has_new_step_element")
+
+    @property
+    @pulumi.getter(name="isCritical")
+    def is_critical(self) -> Optional[bool]:
+        """
+        A boolean to use in addition to `allowFailure` to determine if the test should be marked as failed when the step fails.
+        """
+        return pulumi.get(self, "is_critical")
+
+    @property
+    @pulumi.getter(name="noScreenshot")
+    def no_screenshot(self) -> Optional[bool]:
+        """
+        A boolean set to not take a screenshot for the step.
+        """
+        return pulumi.get(self, "no_screenshot")
+
+    @property
+    @pulumi.getter(name="publicId")
+    def public_id(self) -> Optional[str]:
+        """
+        The public ID of the step.
+        """
+        return pulumi.get(self, "public_id")
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[int]:
+        """
+        The time before declaring a step failed.
+        """
+        return pulumi.get(self, "timeout")
+
+
+@pulumi.output_type
+class SyntheticsTestMobileStepParams(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxScrolls":
+            suggest = "max_scrolls"
+        elif key == "subtestPublicId":
+            suggest = "subtest_public_id"
+        elif key == "withEnter":
+            suggest = "with_enter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SyntheticsTestMobileStepParams. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SyntheticsTestMobileStepParams.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SyntheticsTestMobileStepParams.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 check: Optional[str] = None,
+                 delay: Optional[int] = None,
+                 direction: Optional[str] = None,
+                 element: Optional['outputs.SyntheticsTestMobileStepParamsElement'] = None,
+                 enable: Optional[bool] = None,
+                 max_scrolls: Optional[int] = None,
+                 positions: Optional[Sequence['outputs.SyntheticsTestMobileStepParamsPosition']] = None,
+                 subtest_public_id: Optional[str] = None,
+                 value: Optional[str] = None,
+                 variable: Optional['outputs.SyntheticsTestMobileStepParamsVariable'] = None,
+                 with_enter: Optional[bool] = None,
+                 x: Optional[float] = None,
+                 y: Optional[float] = None):
+        """
+        :param str check: Check type to use for an assertion step. Valid values are `equals`, `notEquals`, `contains`, `notContains`, `startsWith`, `notStartsWith`, `greater`, `lower`, `greaterEquals`, `lowerEquals`, `matchRegex`, `between`, `isEmpty`, `notIsEmpty`.
+        :param int delay: Delay between each key stroke for a "type test" step.
+        :param str direction: Valid values are `up`, `down`, `left`, `right`.
+        :param 'SyntheticsTestMobileStepParamsElementArgs' element: Element to use for the step, JSON encoded string.
+        :param str subtest_public_id: ID of the Synthetics test to use as subtest.
+        :param str value: Value of the step.
+        :param 'SyntheticsTestMobileStepParamsVariableArgs' variable: Details of the variable to extract.
+        :param float x: X coordinates for a "scroll step".
+        :param float y: Y coordinates for a "scroll step".
+        """
+        if check is not None:
+            pulumi.set(__self__, "check", check)
+        if delay is not None:
+            pulumi.set(__self__, "delay", delay)
+        if direction is not None:
+            pulumi.set(__self__, "direction", direction)
+        if element is not None:
+            pulumi.set(__self__, "element", element)
+        if enable is not None:
+            pulumi.set(__self__, "enable", enable)
+        if max_scrolls is not None:
+            pulumi.set(__self__, "max_scrolls", max_scrolls)
+        if positions is not None:
+            pulumi.set(__self__, "positions", positions)
+        if subtest_public_id is not None:
+            pulumi.set(__self__, "subtest_public_id", subtest_public_id)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if variable is not None:
+            pulumi.set(__self__, "variable", variable)
+        if with_enter is not None:
+            pulumi.set(__self__, "with_enter", with_enter)
+        if x is not None:
+            pulumi.set(__self__, "x", x)
+        if y is not None:
+            pulumi.set(__self__, "y", y)
+
+    @property
+    @pulumi.getter
+    def check(self) -> Optional[str]:
+        """
+        Check type to use for an assertion step. Valid values are `equals`, `notEquals`, `contains`, `notContains`, `startsWith`, `notStartsWith`, `greater`, `lower`, `greaterEquals`, `lowerEquals`, `matchRegex`, `between`, `isEmpty`, `notIsEmpty`.
+        """
+        return pulumi.get(self, "check")
+
+    @property
+    @pulumi.getter
+    def delay(self) -> Optional[int]:
+        """
+        Delay between each key stroke for a "type test" step.
+        """
+        return pulumi.get(self, "delay")
+
+    @property
+    @pulumi.getter
+    def direction(self) -> Optional[str]:
+        """
+        Valid values are `up`, `down`, `left`, `right`.
+        """
+        return pulumi.get(self, "direction")
+
+    @property
+    @pulumi.getter
+    def element(self) -> Optional['outputs.SyntheticsTestMobileStepParamsElement']:
+        """
+        Element to use for the step, JSON encoded string.
+        """
+        return pulumi.get(self, "element")
+
+    @property
+    @pulumi.getter
+    def enable(self) -> Optional[bool]:
+        return pulumi.get(self, "enable")
+
+    @property
+    @pulumi.getter(name="maxScrolls")
+    def max_scrolls(self) -> Optional[int]:
+        return pulumi.get(self, "max_scrolls")
+
+    @property
+    @pulumi.getter
+    def positions(self) -> Optional[Sequence['outputs.SyntheticsTestMobileStepParamsPosition']]:
+        return pulumi.get(self, "positions")
+
+    @property
+    @pulumi.getter(name="subtestPublicId")
+    def subtest_public_id(self) -> Optional[str]:
+        """
+        ID of the Synthetics test to use as subtest.
+        """
+        return pulumi.get(self, "subtest_public_id")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        Value of the step.
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def variable(self) -> Optional['outputs.SyntheticsTestMobileStepParamsVariable']:
+        """
+        Details of the variable to extract.
+        """
+        return pulumi.get(self, "variable")
+
+    @property
+    @pulumi.getter(name="withEnter")
+    def with_enter(self) -> Optional[bool]:
+        return pulumi.get(self, "with_enter")
+
+    @property
+    @pulumi.getter
+    def x(self) -> Optional[float]:
+        """
+        X coordinates for a "scroll step".
+        """
+        return pulumi.get(self, "x")
+
+    @property
+    @pulumi.getter
+    def y(self) -> Optional[float]:
+        """
+        Y coordinates for a "scroll step".
+        """
+        return pulumi.get(self, "y")
+
+
+@pulumi.output_type
+class SyntheticsTestMobileStepParamsElement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contextType":
+            suggest = "context_type"
+        elif key == "elementDescription":
+            suggest = "element_description"
+        elif key == "multiLocator":
+            suggest = "multi_locator"
+        elif key == "relativePosition":
+            suggest = "relative_position"
+        elif key == "textContent":
+            suggest = "text_content"
+        elif key == "userLocator":
+            suggest = "user_locator"
+        elif key == "viewName":
+            suggest = "view_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SyntheticsTestMobileStepParamsElement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SyntheticsTestMobileStepParamsElement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SyntheticsTestMobileStepParamsElement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 context: Optional[str] = None,
+                 context_type: Optional[str] = None,
+                 element_description: Optional[str] = None,
+                 multi_locator: Optional[Mapping[str, str]] = None,
+                 relative_position: Optional['outputs.SyntheticsTestMobileStepParamsElementRelativePosition'] = None,
+                 text_content: Optional[str] = None,
+                 user_locator: Optional['outputs.SyntheticsTestMobileStepParamsElementUserLocator'] = None,
+                 view_name: Optional[str] = None):
+        """
+        :param str context_type: Valid values are `native`, `web`.
+        """
+        if context is not None:
+            pulumi.set(__self__, "context", context)
+        if context_type is not None:
+            pulumi.set(__self__, "context_type", context_type)
+        if element_description is not None:
+            pulumi.set(__self__, "element_description", element_description)
+        if multi_locator is not None:
+            pulumi.set(__self__, "multi_locator", multi_locator)
+        if relative_position is not None:
+            pulumi.set(__self__, "relative_position", relative_position)
+        if text_content is not None:
+            pulumi.set(__self__, "text_content", text_content)
+        if user_locator is not None:
+            pulumi.set(__self__, "user_locator", user_locator)
+        if view_name is not None:
+            pulumi.set(__self__, "view_name", view_name)
+
+    @property
+    @pulumi.getter
+    def context(self) -> Optional[str]:
+        return pulumi.get(self, "context")
+
+    @property
+    @pulumi.getter(name="contextType")
+    def context_type(self) -> Optional[str]:
+        """
+        Valid values are `native`, `web`.
+        """
+        return pulumi.get(self, "context_type")
+
+    @property
+    @pulumi.getter(name="elementDescription")
+    def element_description(self) -> Optional[str]:
+        return pulumi.get(self, "element_description")
+
+    @property
+    @pulumi.getter(name="multiLocator")
+    def multi_locator(self) -> Optional[Mapping[str, str]]:
+        return pulumi.get(self, "multi_locator")
+
+    @property
+    @pulumi.getter(name="relativePosition")
+    def relative_position(self) -> Optional['outputs.SyntheticsTestMobileStepParamsElementRelativePosition']:
+        return pulumi.get(self, "relative_position")
+
+    @property
+    @pulumi.getter(name="textContent")
+    def text_content(self) -> Optional[str]:
+        return pulumi.get(self, "text_content")
+
+    @property
+    @pulumi.getter(name="userLocator")
+    def user_locator(self) -> Optional['outputs.SyntheticsTestMobileStepParamsElementUserLocator']:
+        return pulumi.get(self, "user_locator")
+
+    @property
+    @pulumi.getter(name="viewName")
+    def view_name(self) -> Optional[str]:
+        return pulumi.get(self, "view_name")
+
+
+@pulumi.output_type
+class SyntheticsTestMobileStepParamsElementRelativePosition(dict):
+    def __init__(__self__, *,
+                 x: Optional[float] = None,
+                 y: Optional[float] = None):
+        if x is not None:
+            pulumi.set(__self__, "x", x)
+        if y is not None:
+            pulumi.set(__self__, "y", y)
+
+    @property
+    @pulumi.getter
+    def x(self) -> Optional[float]:
+        return pulumi.get(self, "x")
+
+    @property
+    @pulumi.getter
+    def y(self) -> Optional[float]:
+        return pulumi.get(self, "y")
+
+
+@pulumi.output_type
+class SyntheticsTestMobileStepParamsElementUserLocator(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failTestOnCannotLocate":
+            suggest = "fail_test_on_cannot_locate"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SyntheticsTestMobileStepParamsElementUserLocator. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SyntheticsTestMobileStepParamsElementUserLocator.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SyntheticsTestMobileStepParamsElementUserLocator.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fail_test_on_cannot_locate: Optional[bool] = None,
+                 values: Optional[Sequence['outputs.SyntheticsTestMobileStepParamsElementUserLocatorValue']] = None):
+        if fail_test_on_cannot_locate is not None:
+            pulumi.set(__self__, "fail_test_on_cannot_locate", fail_test_on_cannot_locate)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="failTestOnCannotLocate")
+    def fail_test_on_cannot_locate(self) -> Optional[bool]:
+        return pulumi.get(self, "fail_test_on_cannot_locate")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[Sequence['outputs.SyntheticsTestMobileStepParamsElementUserLocatorValue']]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class SyntheticsTestMobileStepParamsElementUserLocatorValue(dict):
+    def __init__(__self__, *,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        :param str type: Valid values are `accessibility-id`, `id`, `ios-predicate-string`, `ios-class-chain`, `xpath`.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Valid values are `accessibility-id`, `id`, `ios-predicate-string`, `ios-class-chain`, `xpath`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class SyntheticsTestMobileStepParamsPosition(dict):
+    def __init__(__self__, *,
+                 x: Optional[float] = None,
+                 y: Optional[float] = None):
+        if x is not None:
+            pulumi.set(__self__, "x", x)
+        if y is not None:
+            pulumi.set(__self__, "y", y)
+
+    @property
+    @pulumi.getter
+    def x(self) -> Optional[float]:
+        return pulumi.get(self, "x")
+
+    @property
+    @pulumi.getter
+    def y(self) -> Optional[float]:
+        return pulumi.get(self, "y")
+
+
+@pulumi.output_type
+class SyntheticsTestMobileStepParamsVariable(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 example: Optional[str] = None):
+        """
+        :param str name: Name of the extracted variable.
+        :param str example: Example of the extracted variable. Defaults to `""`.
+        """
+        pulumi.set(__self__, "name", name)
+        if example is not None:
+            pulumi.set(__self__, "example", example)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the extracted variable.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def example(self) -> Optional[str]:
+        """
+        Example of the extracted variable. Defaults to `""`.
+        """
+        return pulumi.get(self, "example")
+
+
+@pulumi.output_type
 class SyntheticsTestOptionsList(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -81741,8 +82826,8 @@ class SyntheticsTestOptionsListRetry(dict):
                  count: Optional[int] = None,
                  interval: Optional[int] = None):
         """
-        :param int count: Number of retries needed to consider a location as failed before sending a notification alert. Defaults to `0`.
-        :param int interval: Interval between a failed test and the next retry in milliseconds. Defaults to `300`.
+        :param int count: Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
+        :param int interval: Interval between a failed test and the next retry in milliseconds. Maximum value: `5000`. Defaults to `300`.
         """
         if count is not None:
             pulumi.set(__self__, "count", count)
@@ -81753,7 +82838,7 @@ class SyntheticsTestOptionsListRetry(dict):
     @pulumi.getter
     def count(self) -> Optional[int]:
         """
-        Number of retries needed to consider a location as failed before sending a notification alert. Defaults to `0`.
+        Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
         """
         return pulumi.get(self, "count")
 
@@ -81761,7 +82846,7 @@ class SyntheticsTestOptionsListRetry(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         """
-        Interval between a failed test and the next retry in milliseconds. Defaults to `300`.
+        Interval between a failed test and the next retry in milliseconds. Maximum value: `5000`. Defaults to `300`.
         """
         return pulumi.get(self, "interval")
 

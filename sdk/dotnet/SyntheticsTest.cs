@@ -487,6 +487,200 @@ namespace Pulumi.Datadog
     ///         },
     ///     });
     /// 
+    ///     // Example Usage (Synthetics Mobile test)
+    ///     // Create a new Datadog Synthetics Mobile test starting on https://www.example.org
+    ///     var testMobile = new Datadog.SyntheticsTest("test_mobile", new()
+    ///     {
+    ///         Type = "mobile",
+    ///         Name = "A Mobile test on example.org",
+    ///         Status = "paused",
+    ///         Message = "Notify @datadog.user",
+    ///         Tags = new[]
+    ///         {
+    ///             "foo:bar",
+    ///             "baz",
+    ///         },
+    ///         ConfigVariables = new[]
+    ///         {
+    ///             new Datadog.Inputs.SyntheticsTestConfigVariableArgs
+    ///             {
+    ///                 Example = "123",
+    ///                 Name = "VARIABLE_NAME",
+    ///                 Pattern = "{{numeric(3)}}",
+    ///                 Type = "text",
+    ///                 Secure = false,
+    ///             },
+    ///         },
+    ///         ConfigInitialApplicationArguments = 
+    ///         {
+    ///             { "test_process_argument", "test1" },
+    ///         },
+    ///         DeviceIds = new[]
+    ///         {
+    ///             "synthetics:mobile:device:apple_iphone_14_plus_ios_16",
+    ///         },
+    ///         Locations = new[]
+    ///         {
+    ///             "aws:eu-central-1",
+    ///         },
+    ///         MobileOptionsList = new Datadog.Inputs.SyntheticsTestMobileOptionsListArgs
+    ///         {
+    ///             MinFailureDuration = 0,
+    ///             Retry = new Datadog.Inputs.SyntheticsTestMobileOptionsListRetryArgs
+    ///             {
+    ///                 Count = 0,
+    ///                 Interval = 300,
+    ///             },
+    ///             TickEvery = 43200,
+    ///             Scheduling = new Datadog.Inputs.SyntheticsTestMobileOptionsListSchedulingArgs
+    ///             {
+    ///                 Timeframes = new[]
+    ///                 {
+    ///                     new Datadog.Inputs.SyntheticsTestMobileOptionsListSchedulingTimeframeArgs
+    ///                     {
+    ///                         Day = 5,
+    ///                         From = "07:00",
+    ///                         To = "16:00",
+    ///                     },
+    ///                     new Datadog.Inputs.SyntheticsTestMobileOptionsListSchedulingTimeframeArgs
+    ///                     {
+    ///                         Day = 7,
+    ///                         From = "07:00",
+    ///                         To = "16:00",
+    ///                     },
+    ///                 },
+    ///                 Timezone = "UTC",
+    ///             },
+    ///             MonitorName = "mobile-test-monitor",
+    ///             MonitorOptions = new Datadog.Inputs.SyntheticsTestMobileOptionsListMonitorOptionsArgs
+    ///             {
+    ///                 RenotifyInterval = 10,
+    ///                 EscalationMessage = "test escalation message",
+    ///                 RenotifyOccurrences = 3,
+    ///                 NotificationPresetName = "show_all",
+    ///             },
+    ///             MonitorPriority = 5,
+    ///             RestrictedRoles = new[]
+    ///             {
+    ///                 "role1",
+    ///                 "role2",
+    ///             },
+    ///             Bindings = new[]
+    ///             {
+    ///                 new Datadog.Inputs.SyntheticsTestMobileOptionsListBindingArgs
+    ///                 {
+    ///                     Principals = new[]
+    ///                     {
+    ///                         "org:8dee7c38-0000-aaaa-zzzz-8b5a08d3b091",
+    ///                         "team:3a0cdd74-0000-aaaa-zzzz-da7ad0900002",
+    ///                     },
+    ///                     Relation = "editor",
+    ///                 },
+    ///             },
+    ///             Ci = new Datadog.Inputs.SyntheticsTestMobileOptionsListCiArgs
+    ///             {
+    ///                 ExecutionRule = "blocking",
+    ///             },
+    ///             DefaultStepTimeout = 10,
+    ///             DeviceIds = new[]
+    ///             {
+    ///                 "synthetics:mobile:device:apple_iphone_14_plus_ios_16",
+    ///             },
+    ///             NoScreenshot = true,
+    ///             AllowApplicationCrash = false,
+    ///             DisableAutoAcceptAlert = true,
+    ///             MobileApplication = new Datadog.Inputs.SyntheticsTestMobileOptionsListMobileApplicationArgs
+    ///             {
+    ///                 ApplicationId = "5f055d15-0000-aaaa-zzzz-6739f83346aa",
+    ///                 ReferenceId = "434d4719-0000-aaaa-zzzz-31082b544718",
+    ///                 ReferenceType = "version",
+    ///             },
+    ///         },
+    ///         MobileSteps = new[]
+    ///         {
+    ///             new Datadog.Inputs.SyntheticsTestMobileStepArgs
+    ///             {
+    ///                 Name = "Tap on StaticText \"Tap\"",
+    ///                 Params = new Datadog.Inputs.SyntheticsTestMobileStepParamsArgs
+    ///                 {
+    ///                     Element = new Datadog.Inputs.SyntheticsTestMobileStepParamsElementArgs
+    ///                     {
+    ///                         Context = "NATIVE_APP",
+    ///                         ViewName = "StaticText",
+    ///                         ContextType = "native",
+    ///                         TextContent = "Tap",
+    ///                         MultiLocator = null,
+    ///                         RelativePosition = new Datadog.Inputs.SyntheticsTestMobileStepParamsElementRelativePositionArgs
+    ///                         {
+    ///                             X = 0.07256155303030302,
+    ///                             Y = 0.41522381756756754,
+    ///                         },
+    ///                         UserLocator = new Datadog.Inputs.SyntheticsTestMobileStepParamsElementUserLocatorArgs
+    ///                         {
+    ///                             FailTestOnCannotLocate = false,
+    ///                             Values = new[]
+    ///                             {
+    ///                                 new Datadog.Inputs.SyntheticsTestMobileStepParamsElementUserLocatorValueArgs
+    ///                                 {
+    ///                                     Type = "id",
+    ///                                     Value = "some_id",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         ElementDescription = "&lt;XCUIElementTypeStaticText value=\"Tap\" name=\"Tap\" label=\"Tap\"&gt;",
+    ///                     },
+    ///                 },
+    ///                 Timeout = 100,
+    ///                 Type = "tap",
+    ///                 AllowFailure = false,
+    ///                 IsCritical = true,
+    ///                 NoScreenshot = false,
+    ///                 HasNewStepElement = false,
+    ///             },
+    ///             new Datadog.Inputs.SyntheticsTestMobileStepArgs
+    ///             {
+    ///                 Name = "Test View \"Tap\" content",
+    ///                 Params = new Datadog.Inputs.SyntheticsTestMobileStepParamsArgs
+    ///                 {
+    ///                     Check = "contains",
+    ///                     Value = "Tap",
+    ///                     Element = new Datadog.Inputs.SyntheticsTestMobileStepParamsElementArgs
+    ///                     {
+    ///                         Context = "NATIVE_APP",
+    ///                         ViewName = "View",
+    ///                         ContextType = "native",
+    ///                         TextContent = "Tap",
+    ///                         MultiLocator = null,
+    ///                         RelativePosition = new Datadog.Inputs.SyntheticsTestMobileStepParamsElementRelativePositionArgs
+    ///                         {
+    ///                             X = 0.27660448306074764,
+    ///                             Y = 0.6841517857142857,
+    ///                         },
+    ///                         UserLocator = new Datadog.Inputs.SyntheticsTestMobileStepParamsElementUserLocatorArgs
+    ///                         {
+    ///                             FailTestOnCannotLocate = false,
+    ///                             Values = new[]
+    ///                             {
+    ///                                 new Datadog.Inputs.SyntheticsTestMobileStepParamsElementUserLocatorValueArgs
+    ///                                 {
+    ///                                     Type = "id",
+    ///                                     Value = "some_id",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         ElementDescription = "&lt;XCUIElementTypeOther name=\"Tap\" label=\"Tap\"&gt;",
+    ///                     },
+    ///                 },
+    ///                 Timeout = 100,
+    ///                 Type = "assertElementContent",
+    ///                 AllowFailure = false,
+    ///                 IsCritical = true,
+    ///                 NoScreenshot = false,
+    ///                 HasNewStepElement = false,
+    ///             },
+    ///         },
+    ///     });
+    /// 
     ///     // Example Usage (GRPC API behavior check test)
     ///     // Create a new Datadog GRPC API test calling host example.org on port 443
     ///     // targeting service `greeter.Greeter` with the method `SayHello`
@@ -660,13 +854,19 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<Outputs.SyntheticsTestBrowserVariable>> BrowserVariables { get; private set; } = null!;
 
         /// <summary>
+        /// Initial application arguments for the mobile test.
+        /// </summary>
+        [Output("configInitialApplicationArguments")]
+        public Output<ImmutableDictionary<string, string>?> ConfigInitialApplicationArguments { get; private set; } = null!;
+
+        /// <summary>
         /// Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
         /// </summary>
         [Output("configVariables")]
         public Output<ImmutableArray<Outputs.SyntheticsTestConfigVariable>> ConfigVariables { get; private set; } = null!;
 
         /// <summary>
-        /// Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptop_large`, `tablet`, `mobile_small`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
+        /// Required if `type = "browser"`. Array with the different device IDs used to run the test.
         /// </summary>
         [Output("deviceIds")]
         public Output<ImmutableArray<string>> DeviceIds { get; private set; } = null!;
@@ -688,6 +888,15 @@ namespace Pulumi.Datadog
         /// </summary>
         [Output("message")]
         public Output<string?> Message { get; private set; } = null!;
+
+        [Output("mobileOptionsList")]
+        public Output<Outputs.SyntheticsTestMobileOptionsList?> MobileOptionsList { get; private set; } = null!;
+
+        /// <summary>
+        /// Steps for mobile tests
+        /// </summary>
+        [Output("mobileSteps")]
+        public Output<ImmutableArray<Outputs.SyntheticsTestMobileStep>> MobileSteps { get; private set; } = null!;
 
         /// <summary>
         /// ID of the monitor associated with the Datadog synthetics test.
@@ -882,6 +1091,18 @@ namespace Pulumi.Datadog
             set => _browserVariables = value;
         }
 
+        [Input("configInitialApplicationArguments")]
+        private InputMap<string>? _configInitialApplicationArguments;
+
+        /// <summary>
+        /// Initial application arguments for the mobile test.
+        /// </summary>
+        public InputMap<string> ConfigInitialApplicationArguments
+        {
+            get => _configInitialApplicationArguments ?? (_configInitialApplicationArguments = new InputMap<string>());
+            set => _configInitialApplicationArguments = value;
+        }
+
         [Input("configVariables")]
         private InputList<Inputs.SyntheticsTestConfigVariableArgs>? _configVariables;
 
@@ -898,7 +1119,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _deviceIds;
 
         /// <summary>
-        /// Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptop_large`, `tablet`, `mobile_small`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
+        /// Required if `type = "browser"`. Array with the different device IDs used to run the test.
         /// </summary>
         public InputList<string> DeviceIds
         {
@@ -929,6 +1150,21 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("message")]
         public Input<string>? Message { get; set; }
+
+        [Input("mobileOptionsList")]
+        public Input<Inputs.SyntheticsTestMobileOptionsListArgs>? MobileOptionsList { get; set; }
+
+        [Input("mobileSteps")]
+        private InputList<Inputs.SyntheticsTestMobileStepArgs>? _mobileSteps;
+
+        /// <summary>
+        /// Steps for mobile tests
+        /// </summary>
+        public InputList<Inputs.SyntheticsTestMobileStepArgs> MobileSteps
+        {
+            get => _mobileSteps ?? (_mobileSteps = new InputList<Inputs.SyntheticsTestMobileStepArgs>());
+            set => _mobileSteps = value;
+        }
 
         /// <summary>
         /// Name of Datadog synthetics test.
@@ -1109,6 +1345,18 @@ namespace Pulumi.Datadog
             set => _browserVariables = value;
         }
 
+        [Input("configInitialApplicationArguments")]
+        private InputMap<string>? _configInitialApplicationArguments;
+
+        /// <summary>
+        /// Initial application arguments for the mobile test.
+        /// </summary>
+        public InputMap<string> ConfigInitialApplicationArguments
+        {
+            get => _configInitialApplicationArguments ?? (_configInitialApplicationArguments = new InputMap<string>());
+            set => _configInitialApplicationArguments = value;
+        }
+
         [Input("configVariables")]
         private InputList<Inputs.SyntheticsTestConfigVariableGetArgs>? _configVariables;
 
@@ -1125,7 +1373,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _deviceIds;
 
         /// <summary>
-        /// Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptop_large`, `tablet`, `mobile_small`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
+        /// Required if `type = "browser"`. Array with the different device IDs used to run the test.
         /// </summary>
         public InputList<string> DeviceIds
         {
@@ -1156,6 +1404,21 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("message")]
         public Input<string>? Message { get; set; }
+
+        [Input("mobileOptionsList")]
+        public Input<Inputs.SyntheticsTestMobileOptionsListGetArgs>? MobileOptionsList { get; set; }
+
+        [Input("mobileSteps")]
+        private InputList<Inputs.SyntheticsTestMobileStepGetArgs>? _mobileSteps;
+
+        /// <summary>
+        /// Steps for mobile tests
+        /// </summary>
+        public InputList<Inputs.SyntheticsTestMobileStepGetArgs> MobileSteps
+        {
+            get => _mobileSteps ?? (_mobileSteps = new InputList<Inputs.SyntheticsTestMobileStepGetArgs>());
+            set => _mobileSteps = value;
+        }
 
         /// <summary>
         /// ID of the monitor associated with the Datadog synthetics test.

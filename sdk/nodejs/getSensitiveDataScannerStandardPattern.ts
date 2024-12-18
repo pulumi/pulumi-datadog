@@ -29,6 +29,10 @@ export interface GetSensitiveDataScannerStandardPatternArgs {
  */
 export interface GetSensitiveDataScannerStandardPatternResult {
     /**
+     * Description of the standard pattern.
+     */
+    readonly description: string;
+    /**
      * Filter all the Datadog standard patterns by name.
      */
     readonly filter: string;
@@ -45,7 +49,9 @@ export interface GetSensitiveDataScannerStandardPatternResult {
      */
     readonly name: string;
     /**
-     * Regex that the standard pattern applies.
+     * Regex to match, optionally documented for older standard rules.  **Deprecated.** Refer to the description field to understand what the rule does.
+     *
+     * @deprecated Refer to the description field to understand what the rule does.
      */
     readonly pattern: string;
     /**

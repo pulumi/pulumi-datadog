@@ -5,6 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GetIntegrationAvailableLogsServicesResult } from "./getIntegrationAvailableLogsServices";
+export const getIntegrationAvailableLogsServices: typeof import("./getIntegrationAvailableLogsServices").getIntegrationAvailableLogsServices = null as any;
+export const getIntegrationAvailableLogsServicesOutput: typeof import("./getIntegrationAvailableLogsServices").getIntegrationAvailableLogsServicesOutput = null as any;
+utilities.lazyLoad(exports, ["getIntegrationAvailableLogsServices","getIntegrationAvailableLogsServicesOutput"], () => require("./getIntegrationAvailableLogsServices"));
+
+export { GetIntegrationAvailableNamespacesResult } from "./getIntegrationAvailableNamespaces";
+export const getIntegrationAvailableNamespaces: typeof import("./getIntegrationAvailableNamespaces").getIntegrationAvailableNamespaces = null as any;
+export const getIntegrationAvailableNamespacesOutput: typeof import("./getIntegrationAvailableNamespaces").getIntegrationAvailableNamespacesOutput = null as any;
+utilities.lazyLoad(exports, ["getIntegrationAvailableNamespaces","getIntegrationAvailableNamespacesOutput"], () => require("./getIntegrationAvailableNamespaces"));
+
 export { GetIntegrationLogsServicesResult } from "./getIntegrationLogsServices";
 export const getIntegrationLogsServices: typeof import("./getIntegrationLogsServices").getIntegrationLogsServices = null as any;
 export const getIntegrationLogsServicesOutput: typeof import("./getIntegrationLogsServices").getIntegrationLogsServicesOutput = null as any;
@@ -19,6 +29,11 @@ export { IntegrationArgs, IntegrationState } from "./integration";
 export type Integration = import("./integration").Integration;
 export const Integration: typeof import("./integration").Integration = null as any;
 utilities.lazyLoad(exports, ["Integration"], () => require("./integration"));
+
+export { IntegrationAccountArgs, IntegrationAccountState } from "./integrationAccount";
+export type IntegrationAccount = import("./integrationAccount").IntegrationAccount;
+export const IntegrationAccount: typeof import("./integrationAccount").IntegrationAccount = null as any;
+utilities.lazyLoad(exports, ["IntegrationAccount"], () => require("./integrationAccount"));
 
 export { IntegrationEventBridgeArgs, IntegrationEventBridgeState } from "./integrationEventBridge";
 export type IntegrationEventBridge = import("./integrationEventBridge").IntegrationEventBridge;
@@ -47,6 +62,8 @@ const _module = {
         switch (type) {
             case "datadog:aws/integration:Integration":
                 return new Integration(name, <any>undefined, { urn })
+            case "datadog:aws/integrationAccount:IntegrationAccount":
+                return new IntegrationAccount(name, <any>undefined, { urn })
             case "datadog:aws/integrationEventBridge:IntegrationEventBridge":
                 return new IntegrationEventBridge(name, <any>undefined, { urn })
             case "datadog:aws/integrationLambdaArn:IntegrationLambdaArn":
@@ -61,6 +78,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("datadog", "aws/integration", _module)
+pulumi.runtime.registerResourceModule("datadog", "aws/integrationAccount", _module)
 pulumi.runtime.registerResourceModule("datadog", "aws/integrationEventBridge", _module)
 pulumi.runtime.registerResourceModule("datadog", "aws/integrationLambdaArn", _module)
 pulumi.runtime.registerResourceModule("datadog", "aws/integrationLogCollection", _module)

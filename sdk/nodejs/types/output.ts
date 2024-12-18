@@ -23001,6 +23001,10 @@ export interface SyntheticsTestApiStep {
      */
     assertions?: outputs.SyntheticsTestApiStepAssertion[];
     /**
+     * Determines whether or not to exit the test if the step succeeds.
+     */
+    exitIfSucceed?: boolean;
+    /**
      * Values to parse and save as variables from the response.
      */
     extractedValues?: outputs.SyntheticsTestApiStepExtractedValue[];
@@ -23402,11 +23406,11 @@ export interface SyntheticsTestApiStepRequestProxy {
 
 export interface SyntheticsTestApiStepRetry {
     /**
-     * Number of retries needed to consider a location as failed before sending a notification alert. Defaults to `0`.
+     * Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
      */
     count?: number;
     /**
-     * Interval between a failed test and the next retry in milliseconds. Defaults to `300`.
+     * Interval between a failed test and the next retry in milliseconds. Maximum value: `5000`. Defaults to `300`.
      */
     interval?: number;
 }
@@ -23692,6 +23696,251 @@ export interface SyntheticsTestConfigVariable {
     type: string;
 }
 
+export interface SyntheticsTestMobileOptionsList {
+    allowApplicationCrash?: boolean;
+    bindings?: outputs.SyntheticsTestMobileOptionsListBinding[];
+    /**
+     * CI/CD options for a Synthetic test.
+     */
+    ci?: outputs.SyntheticsTestMobileOptionsListCi;
+    defaultStepTimeout?: number;
+    deviceIds: string[];
+    disableAutoAcceptAlert?: boolean;
+    /**
+     * Minimum amount of time in failure required to trigger an alert (in seconds). Default is `0`.
+     */
+    minFailureDuration?: number;
+    mobileApplication: outputs.SyntheticsTestMobileOptionsListMobileApplication;
+    /**
+     * The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
+     */
+    monitorName?: string;
+    monitorOptions?: outputs.SyntheticsTestMobileOptionsListMonitorOptions;
+    monitorPriority?: number;
+    /**
+     * Prevents saving screenshots of the steps.
+     */
+    noScreenshot?: boolean;
+    /**
+     * A list of role identifiers pulled from the Roles API to restrict read and write access.
+     */
+    restrictedRoles?: string[];
+    retry?: outputs.SyntheticsTestMobileOptionsListRetry;
+    /**
+     * Object containing timeframes and timezone used for advanced scheduling.
+     */
+    scheduling?: outputs.SyntheticsTestMobileOptionsListScheduling;
+    /**
+     * How often the test should run (in seconds).
+     */
+    tickEvery: number;
+    verbosity?: number;
+}
+
+export interface SyntheticsTestMobileOptionsListBinding {
+    principals?: string[];
+    /**
+     * Valid values are `editor`, `viewer`.
+     */
+    relation?: string;
+}
+
+export interface SyntheticsTestMobileOptionsListCi {
+    /**
+     * Execution rule for a Synthetics test. Valid values are `blocking`, `nonBlocking`, `skipped`.
+     */
+    executionRule: string;
+}
+
+export interface SyntheticsTestMobileOptionsListMobileApplication {
+    applicationId: string;
+    referenceId: string;
+    /**
+     * Valid values are `latest`, `version`.
+     */
+    referenceType: string;
+}
+
+export interface SyntheticsTestMobileOptionsListMonitorOptions {
+    escalationMessage?: string;
+    /**
+     * Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`.
+     */
+    notificationPresetName?: string;
+    /**
+     * Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
+     */
+    renotifyInterval?: number;
+    renotifyOccurrences?: number;
+}
+
+export interface SyntheticsTestMobileOptionsListRetry {
+    /**
+     * Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
+     */
+    count?: number;
+    /**
+     * Interval between a failed test and the next retry in milliseconds. Maximum value: `5000`. Defaults to `300`.
+     */
+    interval?: number;
+}
+
+export interface SyntheticsTestMobileOptionsListScheduling {
+    /**
+     * Array containing objects describing the scheduling pattern to apply to each day.
+     */
+    timeframes: outputs.SyntheticsTestMobileOptionsListSchedulingTimeframe[];
+    /**
+     * Timezone in which the timeframe is based.
+     */
+    timezone: string;
+}
+
+export interface SyntheticsTestMobileOptionsListSchedulingTimeframe {
+    /**
+     * Number representing the day of the week
+     */
+    day: number;
+    /**
+     * The hour of the day on which scheduling starts.
+     */
+    from: string;
+    /**
+     * The hour of the day on which scheduling ends.
+     */
+    to: string;
+}
+
+export interface SyntheticsTestMobileStep {
+    /**
+     * A boolean set to allow this step to fail.
+     */
+    allowFailure?: boolean;
+    /**
+     * A boolean set to determine if the step has a new step element.
+     */
+    hasNewStepElement?: boolean;
+    /**
+     * A boolean to use in addition to `allowFailure` to determine if the test should be marked as failed when the step fails.
+     */
+    isCritical?: boolean;
+    /**
+     * The name of the step.
+     */
+    name: string;
+    /**
+     * A boolean set to not take a screenshot for the step.
+     */
+    noScreenshot?: boolean;
+    /**
+     * Parameters for the step.
+     */
+    params: outputs.SyntheticsTestMobileStepParams;
+    /**
+     * The public ID of the step.
+     */
+    publicId?: string;
+    /**
+     * The time before declaring a step failed.
+     */
+    timeout?: number;
+    /**
+     * The type of the step. Valid values are `assertElementContent`, `assertScreenContains`, `assertScreenLacks`, `doubleTap`, `extractVariable`, `flick`, `openDeeplink`, `playSubTest`, `pressBack`, `restartApplication`, `rotate`, `scroll`, `scrollToElement`, `tap`, `toggleWiFi`, `typeText`, `wait`.
+     */
+    type: string;
+}
+
+export interface SyntheticsTestMobileStepParams {
+    /**
+     * Check type to use for an assertion step. Valid values are `equals`, `notEquals`, `contains`, `notContains`, `startsWith`, `notStartsWith`, `greater`, `lower`, `greaterEquals`, `lowerEquals`, `matchRegex`, `between`, `isEmpty`, `notIsEmpty`.
+     */
+    check?: string;
+    /**
+     * Delay between each key stroke for a "type test" step.
+     */
+    delay?: number;
+    /**
+     * Valid values are `up`, `down`, `left`, `right`.
+     */
+    direction?: string;
+    /**
+     * Element to use for the step, JSON encoded string.
+     */
+    element?: outputs.SyntheticsTestMobileStepParamsElement;
+    enable?: boolean;
+    maxScrolls?: number;
+    positions?: outputs.SyntheticsTestMobileStepParamsPosition[];
+    /**
+     * ID of the Synthetics test to use as subtest.
+     */
+    subtestPublicId?: string;
+    /**
+     * Value of the step.
+     */
+    value?: string;
+    /**
+     * Details of the variable to extract.
+     */
+    variable?: outputs.SyntheticsTestMobileStepParamsVariable;
+    withEnter?: boolean;
+    /**
+     * X coordinates for a "scroll step".
+     */
+    x?: number;
+    /**
+     * Y coordinates for a "scroll step".
+     */
+    y?: number;
+}
+
+export interface SyntheticsTestMobileStepParamsElement {
+    context?: string;
+    /**
+     * Valid values are `native`, `web`.
+     */
+    contextType?: string;
+    elementDescription?: string;
+    multiLocator?: {[key: string]: string};
+    relativePosition?: outputs.SyntheticsTestMobileStepParamsElementRelativePosition;
+    textContent?: string;
+    userLocator?: outputs.SyntheticsTestMobileStepParamsElementUserLocator;
+    viewName?: string;
+}
+
+export interface SyntheticsTestMobileStepParamsElementRelativePosition {
+    x?: number;
+    y?: number;
+}
+
+export interface SyntheticsTestMobileStepParamsElementUserLocator {
+    failTestOnCannotLocate?: boolean;
+    values?: outputs.SyntheticsTestMobileStepParamsElementUserLocatorValue[];
+}
+
+export interface SyntheticsTestMobileStepParamsElementUserLocatorValue {
+    /**
+     * Valid values are `accessibility-id`, `id`, `ios-predicate-string`, `ios-class-chain`, `xpath`.
+     */
+    type?: string;
+    value?: string;
+}
+
+export interface SyntheticsTestMobileStepParamsPosition {
+    x?: number;
+    y?: number;
+}
+
+export interface SyntheticsTestMobileStepParamsVariable {
+    /**
+     * Example of the extracted variable. Defaults to `""`.
+     */
+    example?: string;
+    /**
+     * Name of the extracted variable.
+     */
+    name: string;
+}
+
 export interface SyntheticsTestOptionsList {
     /**
      * For SSL test, whether or not the test should allow self signed certificates.
@@ -23786,11 +24035,11 @@ export interface SyntheticsTestOptionsListMonitorOptions {
 
 export interface SyntheticsTestOptionsListRetry {
     /**
-     * Number of retries needed to consider a location as failed before sending a notification alert. Defaults to `0`.
+     * Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
      */
     count?: number;
     /**
-     * Interval between a failed test and the next retry in milliseconds. Defaults to `300`.
+     * Interval between a failed test and the next retry in milliseconds. Maximum value: `5000`. Defaults to `300`.
      */
     interval?: number;
 }
@@ -24073,6 +24322,131 @@ export namespace aws {
          * The name of the AWS log service.
          */
         label: string;
+    }
+
+    export interface IntegrationAccountAuthConfig {
+        awsAuthConfigKeys?: outputs.aws.IntegrationAccountAuthConfigAwsAuthConfigKeys;
+        awsAuthConfigRole?: outputs.aws.IntegrationAccountAuthConfigAwsAuthConfigRole;
+    }
+
+    export interface IntegrationAccountAuthConfigAwsAuthConfigKeys {
+        /**
+         * AWS Access Key ID
+         */
+        accessKeyId?: string;
+        secretAccessKey?: string;
+    }
+
+    export interface IntegrationAccountAuthConfigAwsAuthConfigRole {
+        /**
+         * AWS IAM External ID for associated role
+         */
+        externalId: string;
+        /**
+         * AWS IAM Role name
+         */
+        roleName?: string;
+    }
+
+    export interface IntegrationAccountAwsRegions {
+        /**
+         * Include all regions. Defaults to `true`.
+         */
+        includeAll: boolean;
+        /**
+         * Include only these regions.
+         */
+        includeOnlies?: string[];
+    }
+
+    export interface IntegrationAccountLogsConfig {
+        lambdaForwarder?: outputs.aws.IntegrationAccountLogsConfigLambdaForwarder;
+    }
+
+    export interface IntegrationAccountLogsConfigLambdaForwarder {
+        /**
+         * List of Datadog Lambda Log Forwarder ARNs in your AWS account.
+         */
+        lambdas: string[];
+        /**
+         * List of service IDs set to enable automatic log collection. Use `datadog.aws.getIntegrationAvailableLogsServices` data source to get allowed values.
+         */
+        sources: string[];
+    }
+
+    export interface IntegrationAccountMetricsConfig {
+        /**
+         * Enable EC2 automute for AWS metrics Defaults to `true`.
+         */
+        automuteEnabled: boolean;
+        /**
+         * Enable CloudWatch alarms collection Defaults to `false`.
+         */
+        collectCloudwatchAlarms: boolean;
+        /**
+         * Enable custom metrics collection Defaults to `false`.
+         */
+        collectCustomMetrics: boolean;
+        /**
+         * Enable AWS metrics collection Defaults to `true`.
+         */
+        enabled: boolean;
+        namespaceFilters?: outputs.aws.IntegrationAccountMetricsConfigNamespaceFilters;
+        /**
+         * AWS Metrics Collection tag filters list. The array of custom AWS resource tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from a specified service. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For EC2, only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. For example, `env:production,instance-type:c?.*,!region:us-east-1`.
+         */
+        tagFilters?: outputs.aws.IntegrationAccountMetricsConfigTagFilter[];
+    }
+
+    export interface IntegrationAccountMetricsConfigNamespaceFilters {
+        /**
+         * Exclude only these namespaces from metrics collection. Use `datadog.aws.getIntegrationAvailableNamespaces` data source to get allowed values. Defaults to `["AWS/SQS", "AWS/ElasticMapReduce"]`. `AWS/SQS` and `AWS/ElasticMapReduce` are excluded by default to reduce your AWS CloudWatch costs from `GetMetricData` API calls.
+         */
+        excludeOnlies: string[];
+        /**
+         * Include only these namespaces for metrics collection. Use `datadog.aws.getIntegrationAvailableNamespaces` data source to get allowed values.
+         */
+        includeOnlies?: string[];
+    }
+
+    export interface IntegrationAccountMetricsConfigTagFilter {
+        /**
+         * The AWS service for which the tag filters defined in `tags` will be applied.
+         */
+        namespace: string;
+        /**
+         * The AWS resource tags to filter on for the service specified by `namespace`.
+         */
+        tags: string[];
+    }
+
+    export interface IntegrationAccountResourcesConfig {
+        /**
+         * Enable Cloud Security Management to scan AWS resources for vulnerabilities, misconfigurations, identity risks, and compliance violations. Requires `extendedCollection` to be set to `true`. Defaults to `false`.
+         */
+        cloudSecurityPostureManagementCollection: boolean;
+        /**
+         * Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cloudSecurityPostureManagementCollection`. Defaults to `true`.
+         */
+        extendedCollection: boolean;
+    }
+
+    export interface IntegrationAccountTracesConfig {
+        /**
+         * AWS X-Ray services to collect traces from.
+         */
+        xrayServices?: outputs.aws.IntegrationAccountTracesConfigXrayServices;
+    }
+
+    export interface IntegrationAccountTracesConfigXrayServices {
+        /**
+         * Include all services
+         */
+        includeAll?: boolean;
+        /**
+         * Include only these services
+         */
+        includeOnlies: string[];
     }
 
 }

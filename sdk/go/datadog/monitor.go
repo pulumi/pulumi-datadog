@@ -66,7 +66,7 @@ type Monitor struct {
 	EnableLogsSample pulumi.BoolPtrOutput `pulumi:"enableLogsSample"`
 	// Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline
 	// monitors.
-	EnableSamples pulumi.BoolOutput `pulumi:"enableSamples"`
+	EnableSamples pulumi.BoolPtrOutput `pulumi:"enableSamples"`
 	// A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
 	EscalationMessage pulumi.StringPtrOutput `pulumi:"escalationMessage"`
 	// (Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer. For example, if the
@@ -430,6 +430,9 @@ type monitorArgs struct {
 	// A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log
 	// monitors. Defaults to `false`.
 	EnableLogsSample *bool `pulumi:"enableLogsSample"`
+	// Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline
+	// monitors.
+	EnableSamples *bool `pulumi:"enableSamples"`
 	// A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
 	EscalationMessage *string `pulumi:"escalationMessage"`
 	// (Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer. For example, if the
@@ -535,6 +538,9 @@ type MonitorArgs struct {
 	// A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log
 	// monitors. Defaults to `false`.
 	EnableLogsSample pulumi.BoolPtrInput
+	// Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline
+	// monitors.
+	EnableSamples pulumi.BoolPtrInput
 	// A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
 	EscalationMessage pulumi.StringPtrInput
 	// (Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer. For example, if the
@@ -730,8 +736,8 @@ func (o MonitorOutput) EnableLogsSample() pulumi.BoolPtrOutput {
 
 // Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline
 // monitors.
-func (o MonitorOutput) EnableSamples() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Monitor) pulumi.BoolOutput { return v.EnableSamples }).(pulumi.BoolOutput)
+func (o MonitorOutput) EnableSamples() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.BoolPtrOutput { return v.EnableSamples }).(pulumi.BoolPtrOutput)
 }
 
 // A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
