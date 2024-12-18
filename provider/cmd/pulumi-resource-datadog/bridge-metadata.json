@@ -11359,6 +11359,71 @@
                     }
                 }
             },
+            "datadog_integration_aws_account": {
+                "current": "datadog:aws/integrationAccount:IntegrationAccount",
+                "majorVersion": 4,
+                "fields": {
+                    "account_tags": {
+                        "maxItemsOne": false
+                    },
+                    "aws_regions": {
+                        "fields": {
+                            "include_only": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "logs_config": {
+                        "fields": {
+                            "lambda_forwarder": {
+                                "fields": {
+                                    "lambdas": {
+                                        "maxItemsOne": false
+                                    },
+                                    "sources": {
+                                        "maxItemsOne": false
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "metrics_config": {
+                        "fields": {
+                            "namespace_filters": {
+                                "fields": {
+                                    "exclude_only": {
+                                        "maxItemsOne": false
+                                    },
+                                    "include_only": {
+                                        "maxItemsOne": false
+                                    }
+                                }
+                            },
+                            "tag_filters": {
+                                "maxItemsOne": false,
+                                "elem": {
+                                    "fields": {
+                                        "tags": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "traces_config": {
+                        "fields": {
+                            "xray_services": {
+                                "fields": {
+                                    "include_only": {
+                                        "maxItemsOne": false
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "datadog_integration_aws_event_bridge": {
                 "current": "datadog:aws/integrationEventBridge:IntegrationEventBridge",
                 "majorVersion": 4
@@ -15733,6 +15798,91 @@
                     "locations": {
                         "maxItemsOne": false
                     },
+                    "mobile_options_list": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "bindings": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "principals": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "ci": {
+                                    "maxItemsOne": true
+                                },
+                                "device_ids": {
+                                    "maxItemsOne": false
+                                },
+                                "mobile_application": {
+                                    "maxItemsOne": true
+                                },
+                                "monitor_options": {
+                                    "maxItemsOne": true
+                                },
+                                "restricted_roles": {
+                                    "maxItemsOne": false
+                                },
+                                "retry": {
+                                    "maxItemsOne": true
+                                },
+                                "scheduling": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "timeframes": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "mobile_step": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "params": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "element": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "relative_position": {
+                                                            "maxItemsOne": true
+                                                        },
+                                                        "user_locator": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "values": {
+                                                                        "maxItemsOne": false
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "positions": {
+                                                "maxItemsOne": false
+                                            },
+                                            "variable": {
+                                                "maxItemsOne": true
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
                     "options_list": {
                         "maxItemsOne": true,
                         "elem": {
@@ -15911,6 +16061,24 @@
                                 }
                             }
                         }
+                    }
+                }
+            },
+            "datadog_integration_aws_available_logs_services": {
+                "current": "datadog:aws/getIntegrationAvailableLogsServices:getIntegrationAvailableLogsServices",
+                "majorVersion": 4,
+                "fields": {
+                    "aws_logs_services": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "datadog_integration_aws_available_namespaces": {
+                "current": "datadog:aws/getIntegrationAvailableNamespaces:getIntegrationAvailableNamespaces",
+                "majorVersion": 4,
+                "fields": {
+                    "aws_namespaces": {
+                        "maxItemsOne": false
                     }
                 }
             },
@@ -16433,6 +16601,7 @@
     "mux": {
         "resources": {
             "datadog:aws/integration:Integration": 0,
+            "datadog:aws/integrationAccount:IntegrationAccount": 1,
             "datadog:aws/integrationEventBridge:IntegrationEventBridge": 1,
             "datadog:aws/integrationLambdaArn:IntegrationLambdaArn": 0,
             "datadog:aws/integrationLogCollection:IntegrationLogCollection": 0,
@@ -16515,6 +16684,8 @@
             "datadog:slack/channel:Channel": 0
         },
         "functions": {
+            "datadog:aws/getIntegrationAvailableLogsServices:getIntegrationAvailableLogsServices": 1,
+            "datadog:aws/getIntegrationAvailableNamespaces:getIntegrationAvailableNamespaces": 1,
             "datadog:aws/getIntegrationLogsServices:getIntegrationLogsServices": 0,
             "datadog:aws/getIntegrationNamespaceRules:getIntegrationNamespaceRules": 1,
             "datadog:index/getApiKey:getApiKey": 1,
