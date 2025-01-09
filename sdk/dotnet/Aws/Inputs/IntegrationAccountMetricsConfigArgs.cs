@@ -36,6 +36,9 @@ namespace Pulumi.Datadog.Aws.Inputs
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// AWS metrics namespace filters. Defaults to a pre-set `exclude_only` list if block is empty.
+        /// </summary>
         [Input("namespaceFilters")]
         public Input<Inputs.IntegrationAccountMetricsConfigNamespaceFiltersArgs>? NamespaceFilters { get; set; }
 

@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Aws.Inputs
         private InputList<string>? _lambdas;
 
         /// <summary>
-        /// List of Datadog Lambda Log Forwarder ARNs in your AWS account.
+        /// List of Datadog Lambda Log Forwarder ARNs in your AWS account. Defaults to `[]`.
         /// </summary>
         public InputList<string> Lambdas
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Datadog.Aws.Inputs
         private InputList<string>? _sources;
 
         /// <summary>
-        /// List of service IDs set to enable automatic log collection. Use `datadog.aws.getIntegrationAvailableLogsServices` data source to get allowed values.
+        /// List of service IDs set to enable automatic log collection. Use `datadog.aws.getIntegrationAvailableLogsServices` data source to get allowed values. Defaults to `[]`.
         /// </summary>
         public InputList<string> Sources
         {

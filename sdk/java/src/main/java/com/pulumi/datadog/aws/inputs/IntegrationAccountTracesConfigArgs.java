@@ -16,14 +16,14 @@ public final class IntegrationAccountTracesConfigArgs extends com.pulumi.resourc
     public static final IntegrationAccountTracesConfigArgs Empty = new IntegrationAccountTracesConfigArgs();
 
     /**
-     * AWS X-Ray services to collect traces from.
+     * AWS X-Ray services to collect traces from. Defaults to `include_only`.
      * 
      */
     @Import(name="xrayServices")
     private @Nullable Output<IntegrationAccountTracesConfigXrayServicesArgs> xrayServices;
 
     /**
-     * @return AWS X-Ray services to collect traces from.
+     * @return AWS X-Ray services to collect traces from. Defaults to `include_only`.
      * 
      */
     public Optional<Output<IntegrationAccountTracesConfigXrayServicesArgs>> xrayServices() {
@@ -55,7 +55,7 @@ public final class IntegrationAccountTracesConfigArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param xrayServices AWS X-Ray services to collect traces from.
+         * @param xrayServices AWS X-Ray services to collect traces from. Defaults to `include_only`.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class IntegrationAccountTracesConfigArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param xrayServices AWS X-Ray services to collect traces from.
+         * @param xrayServices AWS X-Ray services to collect traces from. Defaults to `include_only`.
          * 
          * @return builder
          * 

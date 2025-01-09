@@ -16223,6 +16223,15 @@
                     }
                 }
             },
+            "datadog_logs_pipelines_order": {
+                "current": "datadog:index/getLogsPipelinesOrder:getLogsPipelinesOrder",
+                "majorVersion": 4,
+                "fields": {
+                    "pipeline_ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "datadog_monitor": {
                 "current": "datadog:index/getMonitor:getMonitor",
                 "majorVersion": 4,
@@ -16701,6 +16710,7 @@
             "datadog:index/getLogsIndexes:getLogsIndexes": 0,
             "datadog:index/getLogsIndexesOrder:getLogsIndexesOrder": 0,
             "datadog:index/getLogsPipelines:getLogsPipelines": 0,
+            "datadog:index/getLogsPipelinesOrder:getLogsPipelinesOrder": 1,
             "datadog:index/getMonitor:getMonitor": 0,
             "datadog:index/getMonitorConfigPolicies:getMonitorConfigPolicies": 0,
             "datadog:index/getMonitors:getMonitors": 0,

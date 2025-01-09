@@ -16,9 +16,17 @@ public final class IntegrationAccountAuthConfigArgs extends com.pulumi.resources
 
     public static final IntegrationAccountAuthConfigArgs Empty = new IntegrationAccountAuthConfigArgs();
 
+    /**
+     * Datadog will use the provided AWS Access Key ID and Secret Access Key to authenticate to your account.
+     * 
+     */
     @Import(name="awsAuthConfigKeys")
     private @Nullable Output<IntegrationAccountAuthConfigAwsAuthConfigKeysArgs> awsAuthConfigKeys;
 
+    /**
+     * @return Datadog will use the provided AWS Access Key ID and Secret Access Key to authenticate to your account.
+     * 
+     */
     public Optional<Output<IntegrationAccountAuthConfigAwsAuthConfigKeysArgs>> awsAuthConfigKeys() {
         return Optional.ofNullable(this.awsAuthConfigKeys);
     }
@@ -55,11 +63,23 @@ public final class IntegrationAccountAuthConfigArgs extends com.pulumi.resources
             $ = new IntegrationAccountAuthConfigArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param awsAuthConfigKeys Datadog will use the provided AWS Access Key ID and Secret Access Key to authenticate to your account.
+         * 
+         * @return builder
+         * 
+         */
         public Builder awsAuthConfigKeys(@Nullable Output<IntegrationAccountAuthConfigAwsAuthConfigKeysArgs> awsAuthConfigKeys) {
             $.awsAuthConfigKeys = awsAuthConfigKeys;
             return this;
         }
 
+        /**
+         * @param awsAuthConfigKeys Datadog will use the provided AWS Access Key ID and Secret Access Key to authenticate to your account.
+         * 
+         * @return builder
+         * 
+         */
         public Builder awsAuthConfigKeys(IntegrationAccountAuthConfigAwsAuthConfigKeysArgs awsAuthConfigKeys) {
             return awsAuthConfigKeys(Output.of(awsAuthConfigKeys));
         }

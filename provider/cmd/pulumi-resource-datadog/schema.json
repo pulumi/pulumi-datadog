@@ -105,7 +105,8 @@
         "datadog:aws/IntegrationAccountAuthConfig:IntegrationAccountAuthConfig": {
             "properties": {
                 "awsAuthConfigKeys": {
-                    "$ref": "#/types/datadog:aws/IntegrationAccountAuthConfigAwsAuthConfigKeys:IntegrationAccountAuthConfigAwsAuthConfigKeys"
+                    "$ref": "#/types/datadog:aws/IntegrationAccountAuthConfigAwsAuthConfigKeys:IntegrationAccountAuthConfigAwsAuthConfigKeys",
+                    "description": "Datadog will use the provided AWS Access Key ID and Secret Access Key to authenticate to your account.\n"
                 },
                 "awsAuthConfigRole": {
                     "$ref": "#/types/datadog:aws/IntegrationAccountAuthConfigAwsAuthConfigRole:IntegrationAccountAuthConfigAwsAuthConfigRole"
@@ -130,11 +131,11 @@
             "properties": {
                 "externalId": {
                     "type": "string",
-                    "description": "AWS IAM External ID for associated role\n"
+                    "description": "AWS IAM external ID for associated role. If omitted, one is generated.\n"
                 },
                 "roleName": {
                     "type": "string",
-                    "description": "AWS IAM Role name\n"
+                    "description": "AWS IAM role name.\n"
                 }
             },
             "type": "object",
@@ -172,7 +173,8 @@
         "datadog:aws/IntegrationAccountLogsConfig:IntegrationAccountLogsConfig": {
             "properties": {
                 "lambdaForwarder": {
-                    "$ref": "#/types/datadog:aws/IntegrationAccountLogsConfigLambdaForwarder:IntegrationAccountLogsConfigLambdaForwarder"
+                    "$ref": "#/types/datadog:aws/IntegrationAccountLogsConfigLambdaForwarder:IntegrationAccountLogsConfigLambdaForwarder",
+                    "description": "Leave empty to omit logs config.\n"
                 }
             },
             "type": "object"
@@ -184,14 +186,14 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of Datadog Lambda Log Forwarder ARNs in your AWS account.\n"
+                    "description": "List of Datadog Lambda Log Forwarder ARNs in your AWS account. Defaults to `[]`.\n"
                 },
                 "sources": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of service IDs set to enable automatic log collection. Use `datadog.aws.getIntegrationAvailableLogsServices` data source to get allowed values.\n"
+                    "description": "List of service IDs set to enable automatic log collection. Use `datadog.aws.getIntegrationAvailableLogsServices` data source to get allowed values. Defaults to `[]`.\n"
                 }
             },
             "type": "object",
@@ -223,7 +225,8 @@
                     "description": "Enable AWS metrics collection Defaults to `true`.\n"
                 },
                 "namespaceFilters": {
-                    "$ref": "#/types/datadog:aws/IntegrationAccountMetricsConfigNamespaceFilters:IntegrationAccountMetricsConfigNamespaceFilters"
+                    "$ref": "#/types/datadog:aws/IntegrationAccountMetricsConfigNamespaceFilters:IntegrationAccountMetricsConfigNamespaceFilters",
+                    "description": "AWS metrics namespace filters. Defaults to a pre-set `exclude_only` list if block is empty.\n"
                 },
                 "tagFilters": {
                     "type": "array",
@@ -282,7 +285,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "The AWS resource tags to filter on for the service specified by `namespace`.\n"
+                    "description": "The AWS resource tags to filter on for the service specified by `namespace`. Defaults to `[]`.\n"
                 }
             },
             "type": "object",
@@ -323,7 +326,7 @@
             "properties": {
                 "xrayServices": {
                     "$ref": "#/types/datadog:aws/IntegrationAccountTracesConfigXrayServices:IntegrationAccountTracesConfigXrayServices",
-                    "description": "AWS X-Ray services to collect traces from.\n"
+                    "description": "AWS X-Ray services to collect traces from. Defaults to `include_only`.\n"
                 }
             },
             "type": "object"
@@ -332,14 +335,14 @@
             "properties": {
                 "includeAll": {
                     "type": "boolean",
-                    "description": "Include all services\n"
+                    "description": "Include all services.\n"
                 },
                 "includeOnlies": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Include only these services\n"
+                    "description": "Include only these services. Defaults to `[]`.\n"
                 }
             },
             "type": "object",
@@ -30201,6 +30204,10 @@
                     "type": "boolean",
                     "description": "Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.\n"
                 },
+                "localKey": {
+                    "type": "string",
+                    "description": "A unique identifier used to track steps after reordering.\n"
+                },
                 "name": {
                     "type": "string",
                     "description": "Name of the step.\n"
@@ -30212,6 +30219,10 @@
                 "params": {
                     "$ref": "#/types/datadog:index/SyntheticsTestBrowserStepParams:SyntheticsTestBrowserStepParams",
                     "description": "Parameters for the step.\n"
+                },
+                "publicId": {
+                    "type": "string",
+                    "description": "The identifier of the step on the backend.\n"
                 },
                 "timeout": {
                     "type": "integer",
@@ -30227,7 +30238,17 @@
                 "name",
                 "params",
                 "type"
-            ]
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "name",
+                        "params",
+                        "publicId",
+                        "type"
+                    ]
+                }
+            }
         },
         "datadog:index/SyntheticsTestBrowserStepParams:SyntheticsTestBrowserStepParams": {
             "properties": {
@@ -33015,17 +33036,18 @@
             }
         },
         "datadog:aws/integrationAccount:IntegrationAccount": {
-            "description": "\n\n## Import\n\n```sh\n$ pulumi import datadog:aws/integrationAccount:IntegrationAccount example \"\u003cdatadog-aws-account-config-id\u003e\"\n```\n\n AWS Account Config ID can be retrieved by using the [List all AWS integrations](https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations) endpoint and querying by AWS Account ID, or by accessing the `id` field of an existing `datadog_integration_aws` resource.\n\n",
+            "description": "\n\n## Import\n\n```sh\n$ pulumi import datadog:aws/integrationAccount:IntegrationAccount example \"\u003cdatadog-aws-account-config-id\u003e\"\n```\n\n AWS Account Config ID can be retrieved by using the [List all AWS integrations](https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations) endpoint and querying by AWS Account ID.\n\n",
             "properties": {
                 "accountTags": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Tags to apply to all metrics in the account\n"
+                    "description": "Tags to apply to all metrics in the account. Defaults to `[]`.\n"
                 },
                 "authConfig": {
-                    "$ref": "#/types/datadog:aws/IntegrationAccountAuthConfig:IntegrationAccountAuthConfig"
+                    "$ref": "#/types/datadog:aws/IntegrationAccountAuthConfig:IntegrationAccountAuthConfig",
+                    "description": "Configure how Datadog authenticates to your AWS account. Either `aws_auth_config_keys` or `aws_auth_config_role` block is required within.\n"
                 },
                 "awsAccountId": {
                     "type": "string",
@@ -33033,24 +33055,27 @@
                 },
                 "awsPartition": {
                     "type": "string",
-                    "description": "AWS Account partition\n"
+                    "description": "AWS Account partition.\n"
                 },
                 "awsRegions": {
                     "$ref": "#/types/datadog:aws/IntegrationAccountAwsRegions:IntegrationAccountAwsRegions",
-                    "description": "AWS Regions to collect data from.\n"
+                    "description": "AWS regions to collect data from. Defaults to `include_all` if block is empty.\n"
                 },
                 "logsConfig": {
-                    "$ref": "#/types/datadog:aws/IntegrationAccountLogsConfig:IntegrationAccountLogsConfig"
+                    "$ref": "#/types/datadog:aws/IntegrationAccountLogsConfig:IntegrationAccountLogsConfig",
+                    "description": "Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_fowarder` block is required within, but may be empty to use defaults.\n"
                 },
                 "metricsConfig": {
-                    "$ref": "#/types/datadog:aws/IntegrationAccountMetricsConfig:IntegrationAccountMetricsConfig"
+                    "$ref": "#/types/datadog:aws/IntegrationAccountMetricsConfig:IntegrationAccountMetricsConfig",
+                    "description": "Configure metrics collection from AWS CloudWatch. The `namespace_filters` block is required within, but may be empty to use defaults.\n"
                 },
                 "resourcesConfig": {
-                    "$ref": "#/types/datadog:aws/IntegrationAccountResourcesConfig:IntegrationAccountResourcesConfig"
+                    "$ref": "#/types/datadog:aws/IntegrationAccountResourcesConfig:IntegrationAccountResourcesConfig",
+                    "description": "AWS resources collection config. May be empty to use defaults.\n"
                 },
                 "tracesConfig": {
                     "$ref": "#/types/datadog:aws/IntegrationAccountTracesConfig:IntegrationAccountTracesConfig",
-                    "description": "AWS Traces Collection config.\n"
+                    "description": "AWS traces collection config. The `xray_services` block is required within, but may be empty to use defaults.\n"
                 }
             },
             "required": [
@@ -33064,10 +33089,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Tags to apply to all metrics in the account\n"
+                    "description": "Tags to apply to all metrics in the account. Defaults to `[]`.\n"
                 },
                 "authConfig": {
-                    "$ref": "#/types/datadog:aws/IntegrationAccountAuthConfig:IntegrationAccountAuthConfig"
+                    "$ref": "#/types/datadog:aws/IntegrationAccountAuthConfig:IntegrationAccountAuthConfig",
+                    "description": "Configure how Datadog authenticates to your AWS account. Either `aws_auth_config_keys` or `aws_auth_config_role` block is required within.\n"
                 },
                 "awsAccountId": {
                     "type": "string",
@@ -33075,24 +33101,27 @@
                 },
                 "awsPartition": {
                     "type": "string",
-                    "description": "AWS Account partition\n"
+                    "description": "AWS Account partition.\n"
                 },
                 "awsRegions": {
                     "$ref": "#/types/datadog:aws/IntegrationAccountAwsRegions:IntegrationAccountAwsRegions",
-                    "description": "AWS Regions to collect data from.\n"
+                    "description": "AWS regions to collect data from. Defaults to `include_all` if block is empty.\n"
                 },
                 "logsConfig": {
-                    "$ref": "#/types/datadog:aws/IntegrationAccountLogsConfig:IntegrationAccountLogsConfig"
+                    "$ref": "#/types/datadog:aws/IntegrationAccountLogsConfig:IntegrationAccountLogsConfig",
+                    "description": "Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_fowarder` block is required within, but may be empty to use defaults.\n"
                 },
                 "metricsConfig": {
-                    "$ref": "#/types/datadog:aws/IntegrationAccountMetricsConfig:IntegrationAccountMetricsConfig"
+                    "$ref": "#/types/datadog:aws/IntegrationAccountMetricsConfig:IntegrationAccountMetricsConfig",
+                    "description": "Configure metrics collection from AWS CloudWatch. The `namespace_filters` block is required within, but may be empty to use defaults.\n"
                 },
                 "resourcesConfig": {
-                    "$ref": "#/types/datadog:aws/IntegrationAccountResourcesConfig:IntegrationAccountResourcesConfig"
+                    "$ref": "#/types/datadog:aws/IntegrationAccountResourcesConfig:IntegrationAccountResourcesConfig",
+                    "description": "AWS resources collection config. May be empty to use defaults.\n"
                 },
                 "tracesConfig": {
                     "$ref": "#/types/datadog:aws/IntegrationAccountTracesConfig:IntegrationAccountTracesConfig",
-                    "description": "AWS Traces Collection config.\n"
+                    "description": "AWS traces collection config. The `xray_services` block is required within, but may be empty to use defaults.\n"
                 }
             },
             "requiredInputs": [
@@ -33107,10 +33136,11 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "Tags to apply to all metrics in the account\n"
+                        "description": "Tags to apply to all metrics in the account. Defaults to `[]`.\n"
                     },
                     "authConfig": {
-                        "$ref": "#/types/datadog:aws/IntegrationAccountAuthConfig:IntegrationAccountAuthConfig"
+                        "$ref": "#/types/datadog:aws/IntegrationAccountAuthConfig:IntegrationAccountAuthConfig",
+                        "description": "Configure how Datadog authenticates to your AWS account. Either `aws_auth_config_keys` or `aws_auth_config_role` block is required within.\n"
                     },
                     "awsAccountId": {
                         "type": "string",
@@ -33118,24 +33148,27 @@
                     },
                     "awsPartition": {
                         "type": "string",
-                        "description": "AWS Account partition\n"
+                        "description": "AWS Account partition.\n"
                     },
                     "awsRegions": {
                         "$ref": "#/types/datadog:aws/IntegrationAccountAwsRegions:IntegrationAccountAwsRegions",
-                        "description": "AWS Regions to collect data from.\n"
+                        "description": "AWS regions to collect data from. Defaults to `include_all` if block is empty.\n"
                     },
                     "logsConfig": {
-                        "$ref": "#/types/datadog:aws/IntegrationAccountLogsConfig:IntegrationAccountLogsConfig"
+                        "$ref": "#/types/datadog:aws/IntegrationAccountLogsConfig:IntegrationAccountLogsConfig",
+                        "description": "Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_fowarder` block is required within, but may be empty to use defaults.\n"
                     },
                     "metricsConfig": {
-                        "$ref": "#/types/datadog:aws/IntegrationAccountMetricsConfig:IntegrationAccountMetricsConfig"
+                        "$ref": "#/types/datadog:aws/IntegrationAccountMetricsConfig:IntegrationAccountMetricsConfig",
+                        "description": "Configure metrics collection from AWS CloudWatch. The `namespace_filters` block is required within, but may be empty to use defaults.\n"
                     },
                     "resourcesConfig": {
-                        "$ref": "#/types/datadog:aws/IntegrationAccountResourcesConfig:IntegrationAccountResourcesConfig"
+                        "$ref": "#/types/datadog:aws/IntegrationAccountResourcesConfig:IntegrationAccountResourcesConfig",
+                        "description": "AWS resources collection config. May be empty to use defaults.\n"
                     },
                     "tracesConfig": {
                         "$ref": "#/types/datadog:aws/IntegrationAccountTracesConfig:IntegrationAccountTracesConfig",
-                        "description": "AWS Traces Collection config.\n"
+                        "description": "AWS traces collection config. The `xray_services` block is required within, but may be empty to use defaults.\n"
                     }
                 },
                 "type": "object"
@@ -37669,6 +37702,9 @@
         "datadog:index/role:Role": {
             "description": "Provides a Datadog role resource. This can be used to create and manage Datadog roles.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Source the permissions\nconst bar = datadog.getPermissions({});\n// Create a new Datadog role\nconst foo = new datadog.Role(\"foo\", {\n    name: \"foo\",\n    permissions: [\n        {\n            id: bar.then(bar =\u003e bar.permissions?.monitorsDowntime),\n        },\n        {\n            id: bar.then(bar =\u003e bar.permissions?.monitorsWrite),\n        },\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Source the permissions\nbar = datadog.get_permissions()\n# Create a new Datadog role\nfoo = datadog.Role(\"foo\",\n    name=\"foo\",\n    permissions=[\n        {\n            \"id\": bar.permissions[\"monitorsDowntime\"],\n        },\n        {\n            \"id\": bar.permissions[\"monitorsWrite\"],\n        },\n    ])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Source the permissions\n    var bar = Datadog.GetPermissions.Invoke();\n\n    // Create a new Datadog role\n    var foo = new Datadog.Role(\"foo\", new()\n    {\n        Name = \"foo\",\n        Permissions = new[]\n        {\n            new Datadog.Inputs.RolePermissionArgs\n            {\n                Id = bar.Apply(getPermissionsResult =\u003e getPermissionsResult.Permissions?.MonitorsDowntime),\n            },\n            new Datadog.Inputs.RolePermissionArgs\n            {\n                Id = bar.Apply(getPermissionsResult =\u003e getPermissionsResult.Permissions?.MonitorsWrite),\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t// Source the permissions\n\t\tbar, err := datadog.GetPermissions(ctx, \u0026datadog.GetPermissionsArgs{}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t// Create a new Datadog role\n\t\t_, err = datadog.NewRole(ctx, \"foo\", \u0026datadog.RoleArgs{\n\t\t\tName: pulumi.String(\"foo\"),\n\t\t\tPermissions: datadog.RolePermissionArray{\n\t\t\t\t\u0026datadog.RolePermissionArgs{\n\t\t\t\t\tId: pulumi.String(bar.Permissions.MonitorsDowntime),\n\t\t\t\t},\n\t\t\t\t\u0026datadog.RolePermissionArgs{\n\t\t\t\t\tId: pulumi.String(bar.Permissions.MonitorsWrite),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.DatadogFunctions;\nimport com.pulumi.datadog.inputs.GetPermissionsArgs;\nimport com.pulumi.datadog.Role;\nimport com.pulumi.datadog.RoleArgs;\nimport com.pulumi.datadog.inputs.RolePermissionArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // Source the permissions\n        final var bar = DatadogFunctions.getPermissions();\n\n        // Create a new Datadog role\n        var foo = new Role(\"foo\", RoleArgs.builder()\n            .name(\"foo\")\n            .permissions(            \n                RolePermissionArgs.builder()\n                    .id(bar.applyValue(getPermissionsResult -\u003e getPermissionsResult.permissions().monitorsDowntime()))\n                    .build(),\n                RolePermissionArgs.builder()\n                    .id(bar.applyValue(getPermissionsResult -\u003e getPermissionsResult.permissions().monitorsWrite()))\n                    .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Create a new Datadog role\n  foo:\n    type: datadog:Role\n    properties:\n      name: foo\n      permissions:\n        - id: ${bar.permissions.monitorsDowntime}\n        - id: ${bar.permissions.monitorsWrite}\nvariables:\n  # Source the permissions\n  bar:\n    fn::invoke:\n      function: datadog:getPermissions\n      arguments: {}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nRoles can be imported using their ID, e.g.\n\n```sh\n$ pulumi import datadog:index/role:Role example_role 000000-0000-0000-0000-000000000000\n```\n\n",
             "properties": {
+                "defaultPermissionsOptOut": {
+                    "type": "boolean"
+                },
                 "name": {
                     "type": "string",
                     "description": "Name of the role.\n"
@@ -37694,6 +37730,9 @@
                 "userCount"
             ],
             "inputProperties": {
+                "defaultPermissionsOptOut": {
+                    "type": "boolean"
+                },
                 "name": {
                     "type": "string",
                     "description": "Name of the role.\n"
@@ -37716,6 +37755,9 @@
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering Role resources.\n",
                 "properties": {
+                    "defaultPermissionsOptOut": {
+                        "type": "boolean"
+                    },
                     "name": {
                         "type": "string",
                         "description": "Name of the role.\n"
@@ -41776,6 +41818,30 @@
                 "required": [
                     "logsPipelines",
                     "id"
+                ],
+                "type": "object"
+            }
+        },
+        "datadog:index/getLogsPipelinesOrder:getLogsPipelinesOrder": {
+            "description": "Use this data source to retrieve the current order of your log pipelines.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst test = datadog.getLogsPipelinesOrder({});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\ntest = datadog.get_logs_pipelines_order()\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test = Datadog.GetLogsPipelinesOrder.Invoke();\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.GetLogsPipelinesOrder(ctx, map[string]interface{}{}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.DatadogFunctions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var test = DatadogFunctions.getLogsPipelinesOrder();\n\n    }\n}\n```\n```yaml\nvariables:\n  test:\n    fn::invoke:\n      function: datadog:getLogsPipelinesOrder\n      arguments: {}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "outputs": {
+                "description": "A collection of values returned by getLogsPipelinesOrder.\n",
+                "properties": {
+                    "id": {
+                        "description": "The ID of this resource.\n",
+                        "type": "string"
+                    },
+                    "pipelineIds": {
+                        "description": "Array of strings identifying by their id(s) the pipeline(s) of your organization. For each pipeline, following the order of the array, logs are tested against the query filter and processed if matching.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "id",
+                    "pipelineIds"
                 ],
                 "type": "object"
             }

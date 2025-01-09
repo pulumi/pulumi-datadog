@@ -67,6 +67,7 @@ export class Role extends pulumi.CustomResource {
         return obj['__pulumiType'] === Role.__pulumiType;
     }
 
+    public readonly defaultPermissionsOptOut!: pulumi.Output<boolean | undefined>;
     /**
      * Name of the role.
      */
@@ -97,6 +98,7 @@ export class Role extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RoleState | undefined;
+            resourceInputs["defaultPermissionsOptOut"] = state ? state.defaultPermissionsOptOut : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["permissions"] = state ? state.permissions : undefined;
             resourceInputs["userCount"] = state ? state.userCount : undefined;
@@ -106,6 +108,7 @@ export class Role extends pulumi.CustomResource {
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
+            resourceInputs["defaultPermissionsOptOut"] = args ? args.defaultPermissionsOptOut : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["permissions"] = args ? args.permissions : undefined;
             resourceInputs["validate"] = args ? args.validate : undefined;
@@ -120,6 +123,7 @@ export class Role extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Role resources.
  */
 export interface RoleState {
+    defaultPermissionsOptOut?: pulumi.Input<boolean>;
     /**
      * Name of the role.
      */
@@ -142,6 +146,7 @@ export interface RoleState {
  * The set of arguments for constructing a Role resource.
  */
 export interface RoleArgs {
+    defaultPermissionsOptOut?: pulumi.Input<boolean>;
     /**
      * Name of the role.
      */

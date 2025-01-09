@@ -17,14 +17,14 @@ public final class IntegrationAccountLogsConfigLambdaForwarderArgs extends com.p
     public static final IntegrationAccountLogsConfigLambdaForwarderArgs Empty = new IntegrationAccountLogsConfigLambdaForwarderArgs();
 
     /**
-     * List of Datadog Lambda Log Forwarder ARNs in your AWS account.
+     * List of Datadog Lambda Log Forwarder ARNs in your AWS account. Defaults to `[]`.
      * 
      */
     @Import(name="lambdas")
     private @Nullable Output<List<String>> lambdas;
 
     /**
-     * @return List of Datadog Lambda Log Forwarder ARNs in your AWS account.
+     * @return List of Datadog Lambda Log Forwarder ARNs in your AWS account. Defaults to `[]`.
      * 
      */
     public Optional<Output<List<String>>> lambdas() {
@@ -32,14 +32,14 @@ public final class IntegrationAccountLogsConfigLambdaForwarderArgs extends com.p
     }
 
     /**
-     * List of service IDs set to enable automatic log collection. Use `datadog.aws.getIntegrationAvailableLogsServices` data source to get allowed values.
+     * List of service IDs set to enable automatic log collection. Use `datadog.aws.getIntegrationAvailableLogsServices` data source to get allowed values. Defaults to `[]`.
      * 
      */
     @Import(name="sources")
     private @Nullable Output<List<String>> sources;
 
     /**
-     * @return List of service IDs set to enable automatic log collection. Use `datadog.aws.getIntegrationAvailableLogsServices` data source to get allowed values.
+     * @return List of service IDs set to enable automatic log collection. Use `datadog.aws.getIntegrationAvailableLogsServices` data source to get allowed values. Defaults to `[]`.
      * 
      */
     public Optional<Output<List<String>>> sources() {
@@ -72,7 +72,7 @@ public final class IntegrationAccountLogsConfigLambdaForwarderArgs extends com.p
         }
 
         /**
-         * @param lambdas List of Datadog Lambda Log Forwarder ARNs in your AWS account.
+         * @param lambdas List of Datadog Lambda Log Forwarder ARNs in your AWS account. Defaults to `[]`.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class IntegrationAccountLogsConfigLambdaForwarderArgs extends com.p
         }
 
         /**
-         * @param lambdas List of Datadog Lambda Log Forwarder ARNs in your AWS account.
+         * @param lambdas List of Datadog Lambda Log Forwarder ARNs in your AWS account. Defaults to `[]`.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class IntegrationAccountLogsConfigLambdaForwarderArgs extends com.p
         }
 
         /**
-         * @param lambdas List of Datadog Lambda Log Forwarder ARNs in your AWS account.
+         * @param lambdas List of Datadog Lambda Log Forwarder ARNs in your AWS account. Defaults to `[]`.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class IntegrationAccountLogsConfigLambdaForwarderArgs extends com.p
         }
 
         /**
-         * @param sources List of service IDs set to enable automatic log collection. Use `datadog.aws.getIntegrationAvailableLogsServices` data source to get allowed values.
+         * @param sources List of service IDs set to enable automatic log collection. Use `datadog.aws.getIntegrationAvailableLogsServices` data source to get allowed values. Defaults to `[]`.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class IntegrationAccountLogsConfigLambdaForwarderArgs extends com.p
         }
 
         /**
-         * @param sources List of service IDs set to enable automatic log collection. Use `datadog.aws.getIntegrationAvailableLogsServices` data source to get allowed values.
+         * @param sources List of service IDs set to enable automatic log collection. Use `datadog.aws.getIntegrationAvailableLogsServices` data source to get allowed values. Defaults to `[]`.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class IntegrationAccountLogsConfigLambdaForwarderArgs extends com.p
         }
 
         /**
-         * @param sources List of service IDs set to enable automatic log collection. Use `datadog.aws.getIntegrationAvailableLogsServices` data source to get allowed values.
+         * @param sources List of service IDs set to enable automatic log collection. Use `datadog.aws.getIntegrationAvailableLogsServices` data source to get allowed values. Defaults to `[]`.
          * 
          * @return builder
          * 

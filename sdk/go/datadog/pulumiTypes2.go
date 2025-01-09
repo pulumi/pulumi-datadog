@@ -9669,12 +9669,16 @@ type SyntheticsTestBrowserStep struct {
 	ForceElementUpdate *bool `pulumi:"forceElementUpdate"`
 	// Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allowFailure` is `true`.
 	IsCritical *bool `pulumi:"isCritical"`
+	// A unique identifier used to track steps after reordering.
+	LocalKey *string `pulumi:"localKey"`
 	// Name of the step.
 	Name string `pulumi:"name"`
 	// Prevents saving screenshots of the step.
 	NoScreenshot *bool `pulumi:"noScreenshot"`
 	// Parameters for the step.
 	Params SyntheticsTestBrowserStepParams `pulumi:"params"`
+	// The identifier of the step on the backend.
+	PublicId *string `pulumi:"publicId"`
 	// Used to override the default timeout of a step.
 	Timeout *int `pulumi:"timeout"`
 	// Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `click`, `extractFromJavascript`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `hover`, `playSubTest`, `pressKey`, `refresh`, `runApiTest`, `scroll`, `selectOption`, `typeText`, `uploadFiles`, `wait`.
@@ -9703,12 +9707,16 @@ type SyntheticsTestBrowserStepArgs struct {
 	ForceElementUpdate pulumi.BoolPtrInput `pulumi:"forceElementUpdate"`
 	// Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allowFailure` is `true`.
 	IsCritical pulumi.BoolPtrInput `pulumi:"isCritical"`
+	// A unique identifier used to track steps after reordering.
+	LocalKey pulumi.StringPtrInput `pulumi:"localKey"`
 	// Name of the step.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Prevents saving screenshots of the step.
 	NoScreenshot pulumi.BoolPtrInput `pulumi:"noScreenshot"`
 	// Parameters for the step.
 	Params SyntheticsTestBrowserStepParamsInput `pulumi:"params"`
+	// The identifier of the step on the backend.
+	PublicId pulumi.StringPtrInput `pulumi:"publicId"`
 	// Used to override the default timeout of a step.
 	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
 	// Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `click`, `extractFromJavascript`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `hover`, `playSubTest`, `pressKey`, `refresh`, `runApiTest`, `scroll`, `selectOption`, `typeText`, `uploadFiles`, `wait`.
@@ -9791,6 +9799,11 @@ func (o SyntheticsTestBrowserStepOutput) IsCritical() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestBrowserStep) *bool { return v.IsCritical }).(pulumi.BoolPtrOutput)
 }
 
+// A unique identifier used to track steps after reordering.
+func (o SyntheticsTestBrowserStepOutput) LocalKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserStep) *string { return v.LocalKey }).(pulumi.StringPtrOutput)
+}
+
 // Name of the step.
 func (o SyntheticsTestBrowserStepOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SyntheticsTestBrowserStep) string { return v.Name }).(pulumi.StringOutput)
@@ -9804,6 +9817,11 @@ func (o SyntheticsTestBrowserStepOutput) NoScreenshot() pulumi.BoolPtrOutput {
 // Parameters for the step.
 func (o SyntheticsTestBrowserStepOutput) Params() SyntheticsTestBrowserStepParamsOutput {
 	return o.ApplyT(func(v SyntheticsTestBrowserStep) SyntheticsTestBrowserStepParams { return v.Params }).(SyntheticsTestBrowserStepParamsOutput)
+}
+
+// The identifier of the step on the backend.
+func (o SyntheticsTestBrowserStepOutput) PublicId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserStep) *string { return v.PublicId }).(pulumi.StringPtrOutput)
 }
 
 // Used to override the default timeout of a step.

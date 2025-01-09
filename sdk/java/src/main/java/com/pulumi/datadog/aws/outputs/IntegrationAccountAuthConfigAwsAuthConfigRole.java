@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class IntegrationAccountAuthConfigAwsAuthConfigRole {
     /**
-     * @return AWS IAM External ID for associated role
+     * @return AWS IAM external ID for associated role. If omitted, one is generated.
      * 
      */
     private @Nullable String externalId;
     /**
-     * @return AWS IAM Role name
+     * @return AWS IAM role name.
      * 
      */
     private @Nullable String roleName;
 
     private IntegrationAccountAuthConfigAwsAuthConfigRole() {}
     /**
-     * @return AWS IAM External ID for associated role
+     * @return AWS IAM external ID for associated role. If omitted, one is generated.
      * 
      */
     public Optional<String> externalId() {
         return Optional.ofNullable(this.externalId);
     }
     /**
-     * @return AWS IAM Role name
+     * @return AWS IAM role name.
      * 
      */
     public Optional<String> roleName() {

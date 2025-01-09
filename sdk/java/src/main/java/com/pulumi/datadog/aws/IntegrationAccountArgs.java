@@ -24,23 +24,31 @@ public final class IntegrationAccountArgs extends com.pulumi.resources.ResourceA
     public static final IntegrationAccountArgs Empty = new IntegrationAccountArgs();
 
     /**
-     * Tags to apply to all metrics in the account
+     * Tags to apply to all metrics in the account. Defaults to `[]`.
      * 
      */
     @Import(name="accountTags")
     private @Nullable Output<List<String>> accountTags;
 
     /**
-     * @return Tags to apply to all metrics in the account
+     * @return Tags to apply to all metrics in the account. Defaults to `[]`.
      * 
      */
     public Optional<Output<List<String>>> accountTags() {
         return Optional.ofNullable(this.accountTags);
     }
 
+    /**
+     * Configure how Datadog authenticates to your AWS account. Either `aws_auth_config_keys` or `aws_auth_config_role` block is required within.
+     * 
+     */
     @Import(name="authConfig")
     private @Nullable Output<IntegrationAccountAuthConfigArgs> authConfig;
 
+    /**
+     * @return Configure how Datadog authenticates to your AWS account. Either `aws_auth_config_keys` or `aws_auth_config_role` block is required within.
+     * 
+     */
     public Optional<Output<IntegrationAccountAuthConfigArgs>> authConfig() {
         return Optional.ofNullable(this.authConfig);
     }
@@ -61,14 +69,14 @@ public final class IntegrationAccountArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * AWS Account partition
+     * AWS Account partition.
      * 
      */
     @Import(name="awsPartition", required=true)
     private Output<String> awsPartition;
 
     /**
-     * @return AWS Account partition
+     * @return AWS Account partition.
      * 
      */
     public Output<String> awsPartition() {
@@ -76,50 +84,74 @@ public final class IntegrationAccountArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * AWS Regions to collect data from.
+     * AWS regions to collect data from. Defaults to `include_all` if block is empty.
      * 
      */
     @Import(name="awsRegions")
     private @Nullable Output<IntegrationAccountAwsRegionsArgs> awsRegions;
 
     /**
-     * @return AWS Regions to collect data from.
+     * @return AWS regions to collect data from. Defaults to `include_all` if block is empty.
      * 
      */
     public Optional<Output<IntegrationAccountAwsRegionsArgs>> awsRegions() {
         return Optional.ofNullable(this.awsRegions);
     }
 
+    /**
+     * Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_fowarder` block is required within, but may be empty to use defaults.
+     * 
+     */
     @Import(name="logsConfig")
     private @Nullable Output<IntegrationAccountLogsConfigArgs> logsConfig;
 
+    /**
+     * @return Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_fowarder` block is required within, but may be empty to use defaults.
+     * 
+     */
     public Optional<Output<IntegrationAccountLogsConfigArgs>> logsConfig() {
         return Optional.ofNullable(this.logsConfig);
     }
 
+    /**
+     * Configure metrics collection from AWS CloudWatch. The `namespace_filters` block is required within, but may be empty to use defaults.
+     * 
+     */
     @Import(name="metricsConfig")
     private @Nullable Output<IntegrationAccountMetricsConfigArgs> metricsConfig;
 
+    /**
+     * @return Configure metrics collection from AWS CloudWatch. The `namespace_filters` block is required within, but may be empty to use defaults.
+     * 
+     */
     public Optional<Output<IntegrationAccountMetricsConfigArgs>> metricsConfig() {
         return Optional.ofNullable(this.metricsConfig);
     }
 
+    /**
+     * AWS resources collection config. May be empty to use defaults.
+     * 
+     */
     @Import(name="resourcesConfig")
     private @Nullable Output<IntegrationAccountResourcesConfigArgs> resourcesConfig;
 
+    /**
+     * @return AWS resources collection config. May be empty to use defaults.
+     * 
+     */
     public Optional<Output<IntegrationAccountResourcesConfigArgs>> resourcesConfig() {
         return Optional.ofNullable(this.resourcesConfig);
     }
 
     /**
-     * AWS Traces Collection config.
+     * AWS traces collection config. The `xray_services` block is required within, but may be empty to use defaults.
      * 
      */
     @Import(name="tracesConfig")
     private @Nullable Output<IntegrationAccountTracesConfigArgs> tracesConfig;
 
     /**
-     * @return AWS Traces Collection config.
+     * @return AWS traces collection config. The `xray_services` block is required within, but may be empty to use defaults.
      * 
      */
     public Optional<Output<IntegrationAccountTracesConfigArgs>> tracesConfig() {
@@ -159,7 +191,7 @@ public final class IntegrationAccountArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param accountTags Tags to apply to all metrics in the account
+         * @param accountTags Tags to apply to all metrics in the account. Defaults to `[]`.
          * 
          * @return builder
          * 
@@ -170,7 +202,7 @@ public final class IntegrationAccountArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param accountTags Tags to apply to all metrics in the account
+         * @param accountTags Tags to apply to all metrics in the account. Defaults to `[]`.
          * 
          * @return builder
          * 
@@ -180,7 +212,7 @@ public final class IntegrationAccountArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param accountTags Tags to apply to all metrics in the account
+         * @param accountTags Tags to apply to all metrics in the account. Defaults to `[]`.
          * 
          * @return builder
          * 
@@ -189,11 +221,23 @@ public final class IntegrationAccountArgs extends com.pulumi.resources.ResourceA
             return accountTags(List.of(accountTags));
         }
 
+        /**
+         * @param authConfig Configure how Datadog authenticates to your AWS account. Either `aws_auth_config_keys` or `aws_auth_config_role` block is required within.
+         * 
+         * @return builder
+         * 
+         */
         public Builder authConfig(@Nullable Output<IntegrationAccountAuthConfigArgs> authConfig) {
             $.authConfig = authConfig;
             return this;
         }
 
+        /**
+         * @param authConfig Configure how Datadog authenticates to your AWS account. Either `aws_auth_config_keys` or `aws_auth_config_role` block is required within.
+         * 
+         * @return builder
+         * 
+         */
         public Builder authConfig(IntegrationAccountAuthConfigArgs authConfig) {
             return authConfig(Output.of(authConfig));
         }
@@ -220,7 +264,7 @@ public final class IntegrationAccountArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param awsPartition AWS Account partition
+         * @param awsPartition AWS Account partition.
          * 
          * @return builder
          * 
@@ -231,7 +275,7 @@ public final class IntegrationAccountArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param awsPartition AWS Account partition
+         * @param awsPartition AWS Account partition.
          * 
          * @return builder
          * 
@@ -241,7 +285,7 @@ public final class IntegrationAccountArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param awsRegions AWS Regions to collect data from.
+         * @param awsRegions AWS regions to collect data from. Defaults to `include_all` if block is empty.
          * 
          * @return builder
          * 
@@ -252,7 +296,7 @@ public final class IntegrationAccountArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param awsRegions AWS Regions to collect data from.
+         * @param awsRegions AWS regions to collect data from. Defaults to `include_all` if block is empty.
          * 
          * @return builder
          * 
@@ -261,35 +305,71 @@ public final class IntegrationAccountArgs extends com.pulumi.resources.ResourceA
             return awsRegions(Output.of(awsRegions));
         }
 
+        /**
+         * @param logsConfig Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_fowarder` block is required within, but may be empty to use defaults.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logsConfig(@Nullable Output<IntegrationAccountLogsConfigArgs> logsConfig) {
             $.logsConfig = logsConfig;
             return this;
         }
 
+        /**
+         * @param logsConfig Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_fowarder` block is required within, but may be empty to use defaults.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logsConfig(IntegrationAccountLogsConfigArgs logsConfig) {
             return logsConfig(Output.of(logsConfig));
         }
 
+        /**
+         * @param metricsConfig Configure metrics collection from AWS CloudWatch. The `namespace_filters` block is required within, but may be empty to use defaults.
+         * 
+         * @return builder
+         * 
+         */
         public Builder metricsConfig(@Nullable Output<IntegrationAccountMetricsConfigArgs> metricsConfig) {
             $.metricsConfig = metricsConfig;
             return this;
         }
 
+        /**
+         * @param metricsConfig Configure metrics collection from AWS CloudWatch. The `namespace_filters` block is required within, but may be empty to use defaults.
+         * 
+         * @return builder
+         * 
+         */
         public Builder metricsConfig(IntegrationAccountMetricsConfigArgs metricsConfig) {
             return metricsConfig(Output.of(metricsConfig));
         }
 
+        /**
+         * @param resourcesConfig AWS resources collection config. May be empty to use defaults.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourcesConfig(@Nullable Output<IntegrationAccountResourcesConfigArgs> resourcesConfig) {
             $.resourcesConfig = resourcesConfig;
             return this;
         }
 
+        /**
+         * @param resourcesConfig AWS resources collection config. May be empty to use defaults.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourcesConfig(IntegrationAccountResourcesConfigArgs resourcesConfig) {
             return resourcesConfig(Output.of(resourcesConfig));
         }
 
         /**
-         * @param tracesConfig AWS Traces Collection config.
+         * @param tracesConfig AWS traces collection config. The `xray_services` block is required within, but may be empty to use defaults.
          * 
          * @return builder
          * 
@@ -300,7 +380,7 @@ public final class IntegrationAccountArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tracesConfig AWS Traces Collection config.
+         * @param tracesConfig AWS traces collection config. The `xray_services` block is required within, but may be empty to use defaults.
          * 
          * @return builder
          * 

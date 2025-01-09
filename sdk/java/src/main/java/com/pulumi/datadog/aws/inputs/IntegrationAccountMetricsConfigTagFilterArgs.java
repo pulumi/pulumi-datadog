@@ -33,14 +33,14 @@ public final class IntegrationAccountMetricsConfigTagFilterArgs extends com.pulu
     }
 
     /**
-     * The AWS resource tags to filter on for the service specified by `namespace`.
+     * The AWS resource tags to filter on for the service specified by `namespace`. Defaults to `[]`.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<List<String>> tags;
 
     /**
-     * @return The AWS resource tags to filter on for the service specified by `namespace`.
+     * @return The AWS resource tags to filter on for the service specified by `namespace`. Defaults to `[]`.
      * 
      */
     public Optional<Output<List<String>>> tags() {
@@ -94,7 +94,7 @@ public final class IntegrationAccountMetricsConfigTagFilterArgs extends com.pulu
         }
 
         /**
-         * @param tags The AWS resource tags to filter on for the service specified by `namespace`.
+         * @param tags The AWS resource tags to filter on for the service specified by `namespace`. Defaults to `[]`.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class IntegrationAccountMetricsConfigTagFilterArgs extends com.pulu
         }
 
         /**
-         * @param tags The AWS resource tags to filter on for the service specified by `namespace`.
+         * @param tags The AWS resource tags to filter on for the service specified by `namespace`. Defaults to `[]`.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class IntegrationAccountMetricsConfigTagFilterArgs extends com.pulu
         }
 
         /**
-         * @param tags The AWS resource tags to filter on for the service specified by `namespace`.
+         * @param tags The AWS resource tags to filter on for the service specified by `namespace`. Defaults to `[]`.
          * 
          * @return builder
          * 

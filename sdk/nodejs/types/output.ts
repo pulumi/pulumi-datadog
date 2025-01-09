@@ -23521,6 +23521,10 @@ export interface SyntheticsTestBrowserStep {
      */
     isCritical?: boolean;
     /**
+     * A unique identifier used to track steps after reordering.
+     */
+    localKey?: string;
+    /**
      * Name of the step.
      */
     name: string;
@@ -23532,6 +23536,10 @@ export interface SyntheticsTestBrowserStep {
      * Parameters for the step.
      */
     params: outputs.SyntheticsTestBrowserStepParams;
+    /**
+     * The identifier of the step on the backend.
+     */
+    publicId: string;
     /**
      * Used to override the default timeout of a step.
      */
@@ -24325,6 +24333,9 @@ export namespace aws {
     }
 
     export interface IntegrationAccountAuthConfig {
+        /**
+         * Datadog will use the provided AWS Access Key ID and Secret Access Key to authenticate to your account.
+         */
         awsAuthConfigKeys?: outputs.aws.IntegrationAccountAuthConfigAwsAuthConfigKeys;
         awsAuthConfigRole?: outputs.aws.IntegrationAccountAuthConfigAwsAuthConfigRole;
     }
@@ -24339,11 +24350,11 @@ export namespace aws {
 
     export interface IntegrationAccountAuthConfigAwsAuthConfigRole {
         /**
-         * AWS IAM External ID for associated role
+         * AWS IAM external ID for associated role. If omitted, one is generated.
          */
         externalId: string;
         /**
-         * AWS IAM Role name
+         * AWS IAM role name.
          */
         roleName?: string;
     }
@@ -24360,16 +24371,19 @@ export namespace aws {
     }
 
     export interface IntegrationAccountLogsConfig {
+        /**
+         * Leave empty to omit logs config.
+         */
         lambdaForwarder?: outputs.aws.IntegrationAccountLogsConfigLambdaForwarder;
     }
 
     export interface IntegrationAccountLogsConfigLambdaForwarder {
         /**
-         * List of Datadog Lambda Log Forwarder ARNs in your AWS account.
+         * List of Datadog Lambda Log Forwarder ARNs in your AWS account. Defaults to `[]`.
          */
         lambdas: string[];
         /**
-         * List of service IDs set to enable automatic log collection. Use `datadog.aws.getIntegrationAvailableLogsServices` data source to get allowed values.
+         * List of service IDs set to enable automatic log collection. Use `datadog.aws.getIntegrationAvailableLogsServices` data source to get allowed values. Defaults to `[]`.
          */
         sources: string[];
     }
@@ -24391,6 +24405,9 @@ export namespace aws {
          * Enable AWS metrics collection Defaults to `true`.
          */
         enabled: boolean;
+        /**
+         * AWS metrics namespace filters. Defaults to a pre-set `excludeOnly` list if block is empty.
+         */
         namespaceFilters?: outputs.aws.IntegrationAccountMetricsConfigNamespaceFilters;
         /**
          * AWS Metrics Collection tag filters list. The array of custom AWS resource tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from a specified service. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For EC2, only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. For example, `env:production,instance-type:c?.*,!region:us-east-1`.
@@ -24415,7 +24432,7 @@ export namespace aws {
          */
         namespace: string;
         /**
-         * The AWS resource tags to filter on for the service specified by `namespace`.
+         * The AWS resource tags to filter on for the service specified by `namespace`. Defaults to `[]`.
          */
         tags: string[];
     }
@@ -24433,18 +24450,18 @@ export namespace aws {
 
     export interface IntegrationAccountTracesConfig {
         /**
-         * AWS X-Ray services to collect traces from.
+         * AWS X-Ray services to collect traces from. Defaults to `includeOnly`.
          */
         xrayServices?: outputs.aws.IntegrationAccountTracesConfigXrayServices;
     }
 
     export interface IntegrationAccountTracesConfigXrayServices {
         /**
-         * Include all services
+         * Include all services.
          */
         includeAll?: boolean;
         /**
-         * Include only these services
+         * Include only these services. Defaults to `[]`.
          */
         includeOnlies: string[];
     }

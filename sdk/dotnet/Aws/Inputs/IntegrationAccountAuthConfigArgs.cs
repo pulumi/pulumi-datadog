@@ -12,6 +12,9 @@ namespace Pulumi.Datadog.Aws.Inputs
 
     public sealed class IntegrationAccountAuthConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Datadog will use the provided AWS Access Key ID and Secret Access Key to authenticate to your account.
+        /// </summary>
         [Input("awsAuthConfigKeys")]
         public Input<Inputs.IntegrationAccountAuthConfigAwsAuthConfigKeysArgs>? AwsAuthConfigKeys { get; set; }
 

@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Aws.Outputs
         /// </summary>
         public readonly string Namespace;
         /// <summary>
-        /// The AWS resource tags to filter on for the service specified by `namespace`.
+        /// The AWS resource tags to filter on for the service specified by `namespace`. Defaults to `[]`.
         /// </summary>
         public readonly ImmutableArray<string> Tags;
 

@@ -12,6 +12,9 @@ namespace Pulumi.Datadog.Aws.Inputs
 
     public sealed class IntegrationAccountLogsConfigGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Leave empty to omit logs config.
+        /// </summary>
         [Input("lambdaForwarder")]
         public Input<Inputs.IntegrationAccountLogsConfigLambdaForwarderGetArgs>? LambdaForwarder { get; set; }
 

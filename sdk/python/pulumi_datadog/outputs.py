@@ -80754,8 +80754,12 @@ class SyntheticsTestBrowserStep(dict):
             suggest = "force_element_update"
         elif key == "isCritical":
             suggest = "is_critical"
+        elif key == "localKey":
+            suggest = "local_key"
         elif key == "noScreenshot":
             suggest = "no_screenshot"
+        elif key == "publicId":
+            suggest = "public_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SyntheticsTestBrowserStep. Access the value via the '{suggest}' property getter instead.")
@@ -80777,7 +80781,9 @@ class SyntheticsTestBrowserStep(dict):
                  exit_if_succeed: Optional[bool] = None,
                  force_element_update: Optional[bool] = None,
                  is_critical: Optional[bool] = None,
+                 local_key: Optional[str] = None,
                  no_screenshot: Optional[bool] = None,
+                 public_id: Optional[str] = None,
                  timeout: Optional[int] = None):
         """
         :param str name: Name of the step.
@@ -80788,7 +80794,9 @@ class SyntheticsTestBrowserStep(dict):
         :param bool exit_if_succeed: Determines whether or not to exit the test if the step succeeds.
         :param bool force_element_update: Force update of the "element" parameter for the step
         :param bool is_critical: Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
+        :param str local_key: A unique identifier used to track steps after reordering.
         :param bool no_screenshot: Prevents saving screenshots of the step.
+        :param str public_id: The identifier of the step on the backend.
         :param int timeout: Used to override the default timeout of a step.
         """
         pulumi.set(__self__, "name", name)
@@ -80804,8 +80812,12 @@ class SyntheticsTestBrowserStep(dict):
             pulumi.set(__self__, "force_element_update", force_element_update)
         if is_critical is not None:
             pulumi.set(__self__, "is_critical", is_critical)
+        if local_key is not None:
+            pulumi.set(__self__, "local_key", local_key)
         if no_screenshot is not None:
             pulumi.set(__self__, "no_screenshot", no_screenshot)
+        if public_id is not None:
+            pulumi.set(__self__, "public_id", public_id)
         if timeout is not None:
             pulumi.set(__self__, "timeout", timeout)
 
@@ -80874,12 +80886,28 @@ class SyntheticsTestBrowserStep(dict):
         return pulumi.get(self, "is_critical")
 
     @property
+    @pulumi.getter(name="localKey")
+    def local_key(self) -> Optional[str]:
+        """
+        A unique identifier used to track steps after reordering.
+        """
+        return pulumi.get(self, "local_key")
+
+    @property
     @pulumi.getter(name="noScreenshot")
     def no_screenshot(self) -> Optional[bool]:
         """
         Prevents saving screenshots of the step.
         """
         return pulumi.get(self, "no_screenshot")
+
+    @property
+    @pulumi.getter(name="publicId")
+    def public_id(self) -> Optional[str]:
+        """
+        The identifier of the step on the backend.
+        """
+        return pulumi.get(self, "public_id")
 
     @property
     @pulumi.getter

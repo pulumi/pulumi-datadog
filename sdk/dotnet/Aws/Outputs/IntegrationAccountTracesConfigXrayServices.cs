@@ -14,11 +14,11 @@ namespace Pulumi.Datadog.Aws.Outputs
     public sealed class IntegrationAccountTracesConfigXrayServices
     {
         /// <summary>
-        /// Include all services
+        /// Include all services.
         /// </summary>
         public readonly bool? IncludeAll;
         /// <summary>
-        /// Include only these services
+        /// Include only these services. Defaults to `[]`.
         /// </summary>
         public readonly ImmutableArray<string> IncludeOnlies;
 

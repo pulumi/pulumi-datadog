@@ -145,6 +145,11 @@ export const getLogsPipelines: typeof import("./getLogsPipelines").getLogsPipeli
 export const getLogsPipelinesOutput: typeof import("./getLogsPipelines").getLogsPipelinesOutput = null as any;
 utilities.lazyLoad(exports, ["getLogsPipelines","getLogsPipelinesOutput"], () => require("./getLogsPipelines"));
 
+export { GetLogsPipelinesOrderResult } from "./getLogsPipelinesOrder";
+export const getLogsPipelinesOrder: typeof import("./getLogsPipelinesOrder").getLogsPipelinesOrder = null as any;
+export const getLogsPipelinesOrderOutput: typeof import("./getLogsPipelinesOrder").getLogsPipelinesOrderOutput = null as any;
+utilities.lazyLoad(exports, ["getLogsPipelinesOrder","getLogsPipelinesOrderOutput"], () => require("./getLogsPipelinesOrder"));
+
 export { GetMonitorArgs, GetMonitorResult, GetMonitorOutputArgs } from "./getMonitor";
 export const getMonitor: typeof import("./getMonitor").getMonitor = null as any;
 export const getMonitorOutput: typeof import("./getMonitor").getMonitorOutput = null as any;

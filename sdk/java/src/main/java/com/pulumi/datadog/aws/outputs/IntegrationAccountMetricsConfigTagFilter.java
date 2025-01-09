@@ -18,7 +18,7 @@ public final class IntegrationAccountMetricsConfigTagFilter {
      */
     private String namespace;
     /**
-     * @return The AWS resource tags to filter on for the service specified by `namespace`.
+     * @return The AWS resource tags to filter on for the service specified by `namespace`. Defaults to `[]`.
      * 
      */
     private @Nullable List<String> tags;
@@ -32,7 +32,7 @@ public final class IntegrationAccountMetricsConfigTagFilter {
         return this.namespace;
     }
     /**
-     * @return The AWS resource tags to filter on for the service specified by `namespace`.
+     * @return The AWS resource tags to filter on for the service specified by `namespace`. Defaults to `[]`.
      * 
      */
     public List<String> tags() {

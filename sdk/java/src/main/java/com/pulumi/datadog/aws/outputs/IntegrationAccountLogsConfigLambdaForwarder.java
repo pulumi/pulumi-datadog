@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class IntegrationAccountLogsConfigLambdaForwarder {
     /**
-     * @return List of Datadog Lambda Log Forwarder ARNs in your AWS account.
+     * @return List of Datadog Lambda Log Forwarder ARNs in your AWS account. Defaults to `[]`.
      * 
      */
     private @Nullable List<String> lambdas;
     /**
-     * @return List of service IDs set to enable automatic log collection. Use `datadog.aws.getIntegrationAvailableLogsServices` data source to get allowed values.
+     * @return List of service IDs set to enable automatic log collection. Use `datadog.aws.getIntegrationAvailableLogsServices` data source to get allowed values. Defaults to `[]`.
      * 
      */
     private @Nullable List<String> sources;
 
     private IntegrationAccountLogsConfigLambdaForwarder() {}
     /**
-     * @return List of Datadog Lambda Log Forwarder ARNs in your AWS account.
+     * @return List of Datadog Lambda Log Forwarder ARNs in your AWS account. Defaults to `[]`.
      * 
      */
     public List<String> lambdas() {
         return this.lambdas == null ? List.of() : this.lambdas;
     }
     /**
-     * @return List of service IDs set to enable automatic log collection. Use `datadog.aws.getIntegrationAvailableLogsServices` data source to get allowed values.
+     * @return List of service IDs set to enable automatic log collection. Use `datadog.aws.getIntegrationAvailableLogsServices` data source to get allowed values. Defaults to `[]`.
      * 
      */
     public List<String> sources() {

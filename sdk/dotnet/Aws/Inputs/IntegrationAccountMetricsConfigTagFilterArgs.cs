@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Aws.Inputs
         private InputList<string>? _tags;
 
         /// <summary>
-        /// The AWS resource tags to filter on for the service specified by `namespace`.
+        /// The AWS resource tags to filter on for the service specified by `namespace`. Defaults to `[]`.
         /// </summary>
         public InputList<string> Tags
         {

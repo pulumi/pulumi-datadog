@@ -14,11 +14,11 @@ namespace Pulumi.Datadog.Aws.Outputs
     public sealed class IntegrationAccountAuthConfigAwsAuthConfigRole
     {
         /// <summary>
-        /// AWS IAM External ID for associated role
+        /// AWS IAM external ID for associated role. If omitted, one is generated.
         /// </summary>
         public readonly string? ExternalId;
         /// <summary>
-        /// AWS IAM Role name
+        /// AWS IAM role name.
         /// </summary>
         public readonly string? RoleName;
 

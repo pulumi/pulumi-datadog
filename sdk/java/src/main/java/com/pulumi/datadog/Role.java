@@ -81,6 +81,12 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="datadog:index/role:Role")
 public class Role extends com.pulumi.resources.CustomResource {
+    @Export(name="defaultPermissionsOptOut", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> defaultPermissionsOptOut;
+
+    public Output<Optional<Boolean>> defaultPermissionsOptOut() {
+        return Codegen.optional(this.defaultPermissionsOptOut);
+    }
     /**
      * Name of the role.
      * 
