@@ -64,6 +64,7 @@ import (
 type Role struct {
 	pulumi.CustomResourceState
 
+	DefaultPermissionsOptOut pulumi.BoolPtrOutput `pulumi:"defaultPermissionsOptOut"`
 	// Name of the role.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Set of objects containing the permission ID and the name of the permissions granted to this role.
@@ -107,6 +108,7 @@ func GetRole(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Role resources.
 type roleState struct {
+	DefaultPermissionsOptOut *bool `pulumi:"defaultPermissionsOptOut"`
 	// Name of the role.
 	Name *string `pulumi:"name"`
 	// Set of objects containing the permission ID and the name of the permissions granted to this role.
@@ -118,6 +120,7 @@ type roleState struct {
 }
 
 type RoleState struct {
+	DefaultPermissionsOptOut pulumi.BoolPtrInput
 	// Name of the role.
 	Name pulumi.StringPtrInput
 	// Set of objects containing the permission ID and the name of the permissions granted to this role.
@@ -133,6 +136,7 @@ func (RoleState) ElementType() reflect.Type {
 }
 
 type roleArgs struct {
+	DefaultPermissionsOptOut *bool `pulumi:"defaultPermissionsOptOut"`
 	// Name of the role.
 	Name string `pulumi:"name"`
 	// Set of objects containing the permission ID and the name of the permissions granted to this role.
@@ -143,6 +147,7 @@ type roleArgs struct {
 
 // The set of arguments for constructing a Role resource.
 type RoleArgs struct {
+	DefaultPermissionsOptOut pulumi.BoolPtrInput
 	// Name of the role.
 	Name pulumi.StringInput
 	// Set of objects containing the permission ID and the name of the permissions granted to this role.
@@ -236,6 +241,10 @@ func (o RoleOutput) ToRoleOutput() RoleOutput {
 
 func (o RoleOutput) ToRoleOutputWithContext(ctx context.Context) RoleOutput {
 	return o
+}
+
+func (o RoleOutput) DefaultPermissionsOptOut() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Role) pulumi.BoolPtrOutput { return v.DefaultPermissionsOptOut }).(pulumi.BoolPtrOutput)
 }
 
 // Name of the role.

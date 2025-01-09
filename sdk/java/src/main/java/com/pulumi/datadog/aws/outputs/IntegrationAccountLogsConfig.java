@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class IntegrationAccountLogsConfig {
+    /**
+     * @return Leave empty to omit logs config.
+     * 
+     */
     private @Nullable IntegrationAccountLogsConfigLambdaForwarder lambdaForwarder;
 
     private IntegrationAccountLogsConfig() {}
+    /**
+     * @return Leave empty to omit logs config.
+     * 
+     */
     public Optional<IntegrationAccountLogsConfigLambdaForwarder> lambdaForwarder() {
         return Optional.ofNullable(this.lambdaForwarder);
     }

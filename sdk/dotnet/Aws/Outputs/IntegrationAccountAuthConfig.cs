@@ -13,6 +13,9 @@ namespace Pulumi.Datadog.Aws.Outputs
     [OutputType]
     public sealed class IntegrationAccountAuthConfig
     {
+        /// <summary>
+        /// Datadog will use the provided AWS Access Key ID and Secret Access Key to authenticate to your account.
+        /// </summary>
         public readonly Outputs.IntegrationAccountAuthConfigAwsAuthConfigKeys? AwsAuthConfigKeys;
         public readonly Outputs.IntegrationAccountAuthConfigAwsAuthConfigRole? AwsAuthConfigRole;
 

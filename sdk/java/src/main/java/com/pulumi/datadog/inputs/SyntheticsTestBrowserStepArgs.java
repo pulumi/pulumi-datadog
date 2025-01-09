@@ -95,6 +95,21 @@ public final class SyntheticsTestBrowserStepArgs extends com.pulumi.resources.Re
     }
 
     /**
+     * A unique identifier used to track steps after reordering.
+     * 
+     */
+    @Import(name="localKey")
+    private @Nullable Output<String> localKey;
+
+    /**
+     * @return A unique identifier used to track steps after reordering.
+     * 
+     */
+    public Optional<Output<String>> localKey() {
+        return Optional.ofNullable(this.localKey);
+    }
+
+    /**
      * Name of the step.
      * 
      */
@@ -140,6 +155,21 @@ public final class SyntheticsTestBrowserStepArgs extends com.pulumi.resources.Re
     }
 
     /**
+     * The identifier of the step on the backend.
+     * 
+     */
+    @Import(name="publicId")
+    private @Nullable Output<String> publicId;
+
+    /**
+     * @return The identifier of the step on the backend.
+     * 
+     */
+    public Optional<Output<String>> publicId() {
+        return Optional.ofNullable(this.publicId);
+    }
+
+    /**
      * Used to override the default timeout of a step.
      * 
      */
@@ -177,9 +207,11 @@ public final class SyntheticsTestBrowserStepArgs extends com.pulumi.resources.Re
         this.exitIfSucceed = $.exitIfSucceed;
         this.forceElementUpdate = $.forceElementUpdate;
         this.isCritical = $.isCritical;
+        this.localKey = $.localKey;
         this.name = $.name;
         this.noScreenshot = $.noScreenshot;
         this.params = $.params;
+        this.publicId = $.publicId;
         this.timeout = $.timeout;
         this.type = $.type;
     }
@@ -308,6 +340,27 @@ public final class SyntheticsTestBrowserStepArgs extends com.pulumi.resources.Re
         }
 
         /**
+         * @param localKey A unique identifier used to track steps after reordering.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder localKey(@Nullable Output<String> localKey) {
+            $.localKey = localKey;
+            return this;
+        }
+
+        /**
+         * @param localKey A unique identifier used to track steps after reordering.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder localKey(String localKey) {
+            return localKey(Output.of(localKey));
+        }
+
+        /**
          * @param name Name of the step.
          * 
          * @return builder
@@ -368,6 +421,27 @@ public final class SyntheticsTestBrowserStepArgs extends com.pulumi.resources.Re
          */
         public Builder params(SyntheticsTestBrowserStepParamsArgs params) {
             return params(Output.of(params));
+        }
+
+        /**
+         * @param publicId The identifier of the step on the backend.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicId(@Nullable Output<String> publicId) {
+            $.publicId = publicId;
+            return this;
+        }
+
+        /**
+         * @param publicId The identifier of the step on the backend.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicId(String publicId) {
+            return publicId(Output.of(publicId));
         }
 
         /**

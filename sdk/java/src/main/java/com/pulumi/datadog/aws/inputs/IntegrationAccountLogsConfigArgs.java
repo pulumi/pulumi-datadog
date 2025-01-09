@@ -15,9 +15,17 @@ public final class IntegrationAccountLogsConfigArgs extends com.pulumi.resources
 
     public static final IntegrationAccountLogsConfigArgs Empty = new IntegrationAccountLogsConfigArgs();
 
+    /**
+     * Leave empty to omit logs config.
+     * 
+     */
     @Import(name="lambdaForwarder")
     private @Nullable Output<IntegrationAccountLogsConfigLambdaForwarderArgs> lambdaForwarder;
 
+    /**
+     * @return Leave empty to omit logs config.
+     * 
+     */
     public Optional<Output<IntegrationAccountLogsConfigLambdaForwarderArgs>> lambdaForwarder() {
         return Optional.ofNullable(this.lambdaForwarder);
     }
@@ -46,11 +54,23 @@ public final class IntegrationAccountLogsConfigArgs extends com.pulumi.resources
             $ = new IntegrationAccountLogsConfigArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param lambdaForwarder Leave empty to omit logs config.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lambdaForwarder(@Nullable Output<IntegrationAccountLogsConfigLambdaForwarderArgs> lambdaForwarder) {
             $.lambdaForwarder = lambdaForwarder;
             return this;
         }
 
+        /**
+         * @param lambdaForwarder Leave empty to omit logs config.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lambdaForwarder(IntegrationAccountLogsConfigLambdaForwarderArgs lambdaForwarder) {
             return lambdaForwarder(Output.of(lambdaForwarder));
         }

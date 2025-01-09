@@ -67,6 +67,7 @@
         "getLogsIndexes.ts",
         "getLogsIndexesOrder.ts",
         "getLogsPipelines.ts",
+        "getLogsPipelinesOrder.ts",
         "getMonitor.ts",
         "getMonitorConfigPolicies.ts",
         "getMonitors.ts",

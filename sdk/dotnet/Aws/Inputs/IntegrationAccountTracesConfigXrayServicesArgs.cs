@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Aws.Inputs
     public sealed class IntegrationAccountTracesConfigXrayServicesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Include all services
+        /// Include all services.
         /// </summary>
         [Input("includeAll")]
         public Input<bool>? IncludeAll { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Aws.Inputs
         private InputList<string>? _includeOnlies;
 
         /// <summary>
-        /// Include only these services
+        /// Include only these services. Defaults to `[]`.
         /// </summary>
         public InputList<string> IncludeOnlies
         {

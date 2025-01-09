@@ -28,28 +28,36 @@ import javax.annotation.Nullable;
  * $ pulumi import datadog:aws/integrationAccount:IntegrationAccount example &#34;&lt;datadog-aws-account-config-id&gt;&#34;
  * ```
  * 
- *  AWS Account Config ID can be retrieved by using the [List all AWS integrations](https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations) endpoint and querying by AWS Account ID, or by accessing the `id` field of an existing `datadog_integration_aws` resource.
+ *  AWS Account Config ID can be retrieved by using the [List all AWS integrations](https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations) endpoint and querying by AWS Account ID.
  * 
  */
 @ResourceType(type="datadog:aws/integrationAccount:IntegrationAccount")
 public class IntegrationAccount extends com.pulumi.resources.CustomResource {
     /**
-     * Tags to apply to all metrics in the account
+     * Tags to apply to all metrics in the account. Defaults to `[]`.
      * 
      */
     @Export(name="accountTags", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> accountTags;
 
     /**
-     * @return Tags to apply to all metrics in the account
+     * @return Tags to apply to all metrics in the account. Defaults to `[]`.
      * 
      */
     public Output<List<String>> accountTags() {
         return this.accountTags;
     }
+    /**
+     * Configure how Datadog authenticates to your AWS account. Either `aws_auth_config_keys` or `aws_auth_config_role` block is required within.
+     * 
+     */
     @Export(name="authConfig", refs={IntegrationAccountAuthConfig.class}, tree="[0]")
     private Output</* @Nullable */ IntegrationAccountAuthConfig> authConfig;
 
+    /**
+     * @return Configure how Datadog authenticates to your AWS account. Either `aws_auth_config_keys` or `aws_auth_config_role` block is required within.
+     * 
+     */
     public Output<Optional<IntegrationAccountAuthConfig>> authConfig() {
         return Codegen.optional(this.authConfig);
     }
@@ -68,60 +76,84 @@ public class IntegrationAccount extends com.pulumi.resources.CustomResource {
         return this.awsAccountId;
     }
     /**
-     * AWS Account partition
+     * AWS Account partition.
      * 
      */
     @Export(name="awsPartition", refs={String.class}, tree="[0]")
     private Output<String> awsPartition;
 
     /**
-     * @return AWS Account partition
+     * @return AWS Account partition.
      * 
      */
     public Output<String> awsPartition() {
         return this.awsPartition;
     }
     /**
-     * AWS Regions to collect data from.
+     * AWS regions to collect data from. Defaults to `include_all` if block is empty.
      * 
      */
     @Export(name="awsRegions", refs={IntegrationAccountAwsRegions.class}, tree="[0]")
     private Output</* @Nullable */ IntegrationAccountAwsRegions> awsRegions;
 
     /**
-     * @return AWS Regions to collect data from.
+     * @return AWS regions to collect data from. Defaults to `include_all` if block is empty.
      * 
      */
     public Output<Optional<IntegrationAccountAwsRegions>> awsRegions() {
         return Codegen.optional(this.awsRegions);
     }
+    /**
+     * Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_fowarder` block is required within, but may be empty to use defaults.
+     * 
+     */
     @Export(name="logsConfig", refs={IntegrationAccountLogsConfig.class}, tree="[0]")
     private Output</* @Nullable */ IntegrationAccountLogsConfig> logsConfig;
 
+    /**
+     * @return Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_fowarder` block is required within, but may be empty to use defaults.
+     * 
+     */
     public Output<Optional<IntegrationAccountLogsConfig>> logsConfig() {
         return Codegen.optional(this.logsConfig);
     }
+    /**
+     * Configure metrics collection from AWS CloudWatch. The `namespace_filters` block is required within, but may be empty to use defaults.
+     * 
+     */
     @Export(name="metricsConfig", refs={IntegrationAccountMetricsConfig.class}, tree="[0]")
     private Output</* @Nullable */ IntegrationAccountMetricsConfig> metricsConfig;
 
+    /**
+     * @return Configure metrics collection from AWS CloudWatch. The `namespace_filters` block is required within, but may be empty to use defaults.
+     * 
+     */
     public Output<Optional<IntegrationAccountMetricsConfig>> metricsConfig() {
         return Codegen.optional(this.metricsConfig);
     }
+    /**
+     * AWS resources collection config. May be empty to use defaults.
+     * 
+     */
     @Export(name="resourcesConfig", refs={IntegrationAccountResourcesConfig.class}, tree="[0]")
     private Output</* @Nullable */ IntegrationAccountResourcesConfig> resourcesConfig;
 
+    /**
+     * @return AWS resources collection config. May be empty to use defaults.
+     * 
+     */
     public Output<Optional<IntegrationAccountResourcesConfig>> resourcesConfig() {
         return Codegen.optional(this.resourcesConfig);
     }
     /**
-     * AWS Traces Collection config.
+     * AWS traces collection config. The `xray_services` block is required within, but may be empty to use defaults.
      * 
      */
     @Export(name="tracesConfig", refs={IntegrationAccountTracesConfig.class}, tree="[0]")
     private Output</* @Nullable */ IntegrationAccountTracesConfig> tracesConfig;
 
     /**
-     * @return AWS Traces Collection config.
+     * @return AWS traces collection config. The `xray_services` block is required within, but may be empty to use defaults.
      * 
      */
     public Output<Optional<IntegrationAccountTracesConfig>> tracesConfig() {

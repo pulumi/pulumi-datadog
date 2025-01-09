@@ -78,9 +78,17 @@ public final class IntegrationAccountMetricsConfigArgs extends com.pulumi.resour
         return Optional.ofNullable(this.enabled);
     }
 
+    /**
+     * AWS metrics namespace filters. Defaults to a pre-set `exclude_only` list if block is empty.
+     * 
+     */
     @Import(name="namespaceFilters")
     private @Nullable Output<IntegrationAccountMetricsConfigNamespaceFiltersArgs> namespaceFilters;
 
+    /**
+     * @return AWS metrics namespace filters. Defaults to a pre-set `exclude_only` list if block is empty.
+     * 
+     */
     public Optional<Output<IntegrationAccountMetricsConfigNamespaceFiltersArgs>> namespaceFilters() {
         return Optional.ofNullable(this.namespaceFilters);
     }
@@ -213,11 +221,23 @@ public final class IntegrationAccountMetricsConfigArgs extends com.pulumi.resour
             return enabled(Output.of(enabled));
         }
 
+        /**
+         * @param namespaceFilters AWS metrics namespace filters. Defaults to a pre-set `exclude_only` list if block is empty.
+         * 
+         * @return builder
+         * 
+         */
         public Builder namespaceFilters(@Nullable Output<IntegrationAccountMetricsConfigNamespaceFiltersArgs> namespaceFilters) {
             $.namespaceFilters = namespaceFilters;
             return this;
         }
 
+        /**
+         * @param namespaceFilters AWS metrics namespace filters. Defaults to a pre-set `exclude_only` list if block is empty.
+         * 
+         * @return builder
+         * 
+         */
         public Builder namespaceFilters(IntegrationAccountMetricsConfigNamespaceFiltersArgs namespaceFilters) {
             return namespaceFilters(Output.of(namespaceFilters));
         }

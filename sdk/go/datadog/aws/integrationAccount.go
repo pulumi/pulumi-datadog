@@ -18,23 +18,27 @@ import (
 // $ pulumi import datadog:aws/integrationAccount:IntegrationAccount example "<datadog-aws-account-config-id>"
 // ```
 //
-//	AWS Account Config ID can be retrieved by using the [List all AWS integrations](https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations) endpoint and querying by AWS Account ID, or by accessing the `id` field of an existing `datadog_integration_aws` resource.
+//	AWS Account Config ID can be retrieved by using the [List all AWS integrations](https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations) endpoint and querying by AWS Account ID.
 type IntegrationAccount struct {
 	pulumi.CustomResourceState
 
-	// Tags to apply to all metrics in the account
-	AccountTags pulumi.StringArrayOutput              `pulumi:"accountTags"`
-	AuthConfig  IntegrationAccountAuthConfigPtrOutput `pulumi:"authConfig"`
+	// Tags to apply to all metrics in the account. Defaults to `[]`.
+	AccountTags pulumi.StringArrayOutput `pulumi:"accountTags"`
+	// Configure how Datadog authenticates to your AWS account. Either `awsAuthConfigKeys` or `awsAuthConfigRole` block is required within.
+	AuthConfig IntegrationAccountAuthConfigPtrOutput `pulumi:"authConfig"`
 	// Your AWS Account ID without dashes.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
-	// AWS Account partition
+	// AWS Account partition.
 	AwsPartition pulumi.StringOutput `pulumi:"awsPartition"`
-	// AWS Regions to collect data from.
-	AwsRegions      IntegrationAccountAwsRegionsPtrOutput      `pulumi:"awsRegions"`
-	LogsConfig      IntegrationAccountLogsConfigPtrOutput      `pulumi:"logsConfig"`
-	MetricsConfig   IntegrationAccountMetricsConfigPtrOutput   `pulumi:"metricsConfig"`
+	// AWS regions to collect data from. Defaults to `includeAll` if block is empty.
+	AwsRegions IntegrationAccountAwsRegionsPtrOutput `pulumi:"awsRegions"`
+	// Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambdaFowarder` block is required within, but may be empty to use defaults.
+	LogsConfig IntegrationAccountLogsConfigPtrOutput `pulumi:"logsConfig"`
+	// Configure metrics collection from AWS CloudWatch. The `namespaceFilters` block is required within, but may be empty to use defaults.
+	MetricsConfig IntegrationAccountMetricsConfigPtrOutput `pulumi:"metricsConfig"`
+	// AWS resources collection config. May be empty to use defaults.
 	ResourcesConfig IntegrationAccountResourcesConfigPtrOutput `pulumi:"resourcesConfig"`
-	// AWS Traces Collection config.
+	// AWS traces collection config. The `xrayServices` block is required within, but may be empty to use defaults.
 	TracesConfig IntegrationAccountTracesConfigPtrOutput `pulumi:"tracesConfig"`
 }
 
@@ -74,36 +78,44 @@ func GetIntegrationAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IntegrationAccount resources.
 type integrationAccountState struct {
-	// Tags to apply to all metrics in the account
-	AccountTags []string                      `pulumi:"accountTags"`
-	AuthConfig  *IntegrationAccountAuthConfig `pulumi:"authConfig"`
+	// Tags to apply to all metrics in the account. Defaults to `[]`.
+	AccountTags []string `pulumi:"accountTags"`
+	// Configure how Datadog authenticates to your AWS account. Either `awsAuthConfigKeys` or `awsAuthConfigRole` block is required within.
+	AuthConfig *IntegrationAccountAuthConfig `pulumi:"authConfig"`
 	// Your AWS Account ID without dashes.
 	AwsAccountId *string `pulumi:"awsAccountId"`
-	// AWS Account partition
+	// AWS Account partition.
 	AwsPartition *string `pulumi:"awsPartition"`
-	// AWS Regions to collect data from.
-	AwsRegions      *IntegrationAccountAwsRegions      `pulumi:"awsRegions"`
-	LogsConfig      *IntegrationAccountLogsConfig      `pulumi:"logsConfig"`
-	MetricsConfig   *IntegrationAccountMetricsConfig   `pulumi:"metricsConfig"`
+	// AWS regions to collect data from. Defaults to `includeAll` if block is empty.
+	AwsRegions *IntegrationAccountAwsRegions `pulumi:"awsRegions"`
+	// Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambdaFowarder` block is required within, but may be empty to use defaults.
+	LogsConfig *IntegrationAccountLogsConfig `pulumi:"logsConfig"`
+	// Configure metrics collection from AWS CloudWatch. The `namespaceFilters` block is required within, but may be empty to use defaults.
+	MetricsConfig *IntegrationAccountMetricsConfig `pulumi:"metricsConfig"`
+	// AWS resources collection config. May be empty to use defaults.
 	ResourcesConfig *IntegrationAccountResourcesConfig `pulumi:"resourcesConfig"`
-	// AWS Traces Collection config.
+	// AWS traces collection config. The `xrayServices` block is required within, but may be empty to use defaults.
 	TracesConfig *IntegrationAccountTracesConfig `pulumi:"tracesConfig"`
 }
 
 type IntegrationAccountState struct {
-	// Tags to apply to all metrics in the account
+	// Tags to apply to all metrics in the account. Defaults to `[]`.
 	AccountTags pulumi.StringArrayInput
-	AuthConfig  IntegrationAccountAuthConfigPtrInput
+	// Configure how Datadog authenticates to your AWS account. Either `awsAuthConfigKeys` or `awsAuthConfigRole` block is required within.
+	AuthConfig IntegrationAccountAuthConfigPtrInput
 	// Your AWS Account ID without dashes.
 	AwsAccountId pulumi.StringPtrInput
-	// AWS Account partition
+	// AWS Account partition.
 	AwsPartition pulumi.StringPtrInput
-	// AWS Regions to collect data from.
-	AwsRegions      IntegrationAccountAwsRegionsPtrInput
-	LogsConfig      IntegrationAccountLogsConfigPtrInput
-	MetricsConfig   IntegrationAccountMetricsConfigPtrInput
+	// AWS regions to collect data from. Defaults to `includeAll` if block is empty.
+	AwsRegions IntegrationAccountAwsRegionsPtrInput
+	// Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambdaFowarder` block is required within, but may be empty to use defaults.
+	LogsConfig IntegrationAccountLogsConfigPtrInput
+	// Configure metrics collection from AWS CloudWatch. The `namespaceFilters` block is required within, but may be empty to use defaults.
+	MetricsConfig IntegrationAccountMetricsConfigPtrInput
+	// AWS resources collection config. May be empty to use defaults.
 	ResourcesConfig IntegrationAccountResourcesConfigPtrInput
-	// AWS Traces Collection config.
+	// AWS traces collection config. The `xrayServices` block is required within, but may be empty to use defaults.
 	TracesConfig IntegrationAccountTracesConfigPtrInput
 }
 
@@ -112,37 +124,45 @@ func (IntegrationAccountState) ElementType() reflect.Type {
 }
 
 type integrationAccountArgs struct {
-	// Tags to apply to all metrics in the account
-	AccountTags []string                      `pulumi:"accountTags"`
-	AuthConfig  *IntegrationAccountAuthConfig `pulumi:"authConfig"`
+	// Tags to apply to all metrics in the account. Defaults to `[]`.
+	AccountTags []string `pulumi:"accountTags"`
+	// Configure how Datadog authenticates to your AWS account. Either `awsAuthConfigKeys` or `awsAuthConfigRole` block is required within.
+	AuthConfig *IntegrationAccountAuthConfig `pulumi:"authConfig"`
 	// Your AWS Account ID without dashes.
 	AwsAccountId string `pulumi:"awsAccountId"`
-	// AWS Account partition
+	// AWS Account partition.
 	AwsPartition string `pulumi:"awsPartition"`
-	// AWS Regions to collect data from.
-	AwsRegions      *IntegrationAccountAwsRegions      `pulumi:"awsRegions"`
-	LogsConfig      *IntegrationAccountLogsConfig      `pulumi:"logsConfig"`
-	MetricsConfig   *IntegrationAccountMetricsConfig   `pulumi:"metricsConfig"`
+	// AWS regions to collect data from. Defaults to `includeAll` if block is empty.
+	AwsRegions *IntegrationAccountAwsRegions `pulumi:"awsRegions"`
+	// Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambdaFowarder` block is required within, but may be empty to use defaults.
+	LogsConfig *IntegrationAccountLogsConfig `pulumi:"logsConfig"`
+	// Configure metrics collection from AWS CloudWatch. The `namespaceFilters` block is required within, but may be empty to use defaults.
+	MetricsConfig *IntegrationAccountMetricsConfig `pulumi:"metricsConfig"`
+	// AWS resources collection config. May be empty to use defaults.
 	ResourcesConfig *IntegrationAccountResourcesConfig `pulumi:"resourcesConfig"`
-	// AWS Traces Collection config.
+	// AWS traces collection config. The `xrayServices` block is required within, but may be empty to use defaults.
 	TracesConfig *IntegrationAccountTracesConfig `pulumi:"tracesConfig"`
 }
 
 // The set of arguments for constructing a IntegrationAccount resource.
 type IntegrationAccountArgs struct {
-	// Tags to apply to all metrics in the account
+	// Tags to apply to all metrics in the account. Defaults to `[]`.
 	AccountTags pulumi.StringArrayInput
-	AuthConfig  IntegrationAccountAuthConfigPtrInput
+	// Configure how Datadog authenticates to your AWS account. Either `awsAuthConfigKeys` or `awsAuthConfigRole` block is required within.
+	AuthConfig IntegrationAccountAuthConfigPtrInput
 	// Your AWS Account ID without dashes.
 	AwsAccountId pulumi.StringInput
-	// AWS Account partition
+	// AWS Account partition.
 	AwsPartition pulumi.StringInput
-	// AWS Regions to collect data from.
-	AwsRegions      IntegrationAccountAwsRegionsPtrInput
-	LogsConfig      IntegrationAccountLogsConfigPtrInput
-	MetricsConfig   IntegrationAccountMetricsConfigPtrInput
+	// AWS regions to collect data from. Defaults to `includeAll` if block is empty.
+	AwsRegions IntegrationAccountAwsRegionsPtrInput
+	// Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambdaFowarder` block is required within, but may be empty to use defaults.
+	LogsConfig IntegrationAccountLogsConfigPtrInput
+	// Configure metrics collection from AWS CloudWatch. The `namespaceFilters` block is required within, but may be empty to use defaults.
+	MetricsConfig IntegrationAccountMetricsConfigPtrInput
+	// AWS resources collection config. May be empty to use defaults.
 	ResourcesConfig IntegrationAccountResourcesConfigPtrInput
-	// AWS Traces Collection config.
+	// AWS traces collection config. The `xrayServices` block is required within, but may be empty to use defaults.
 	TracesConfig IntegrationAccountTracesConfigPtrInput
 }
 
@@ -233,11 +253,12 @@ func (o IntegrationAccountOutput) ToIntegrationAccountOutputWithContext(ctx cont
 	return o
 }
 
-// Tags to apply to all metrics in the account
+// Tags to apply to all metrics in the account. Defaults to `[]`.
 func (o IntegrationAccountOutput) AccountTags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IntegrationAccount) pulumi.StringArrayOutput { return v.AccountTags }).(pulumi.StringArrayOutput)
 }
 
+// Configure how Datadog authenticates to your AWS account. Either `awsAuthConfigKeys` or `awsAuthConfigRole` block is required within.
 func (o IntegrationAccountOutput) AuthConfig() IntegrationAccountAuthConfigPtrOutput {
 	return o.ApplyT(func(v *IntegrationAccount) IntegrationAccountAuthConfigPtrOutput { return v.AuthConfig }).(IntegrationAccountAuthConfigPtrOutput)
 }
@@ -247,29 +268,32 @@ func (o IntegrationAccountOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *IntegrationAccount) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
-// AWS Account partition
+// AWS Account partition.
 func (o IntegrationAccountOutput) AwsPartition() pulumi.StringOutput {
 	return o.ApplyT(func(v *IntegrationAccount) pulumi.StringOutput { return v.AwsPartition }).(pulumi.StringOutput)
 }
 
-// AWS Regions to collect data from.
+// AWS regions to collect data from. Defaults to `includeAll` if block is empty.
 func (o IntegrationAccountOutput) AwsRegions() IntegrationAccountAwsRegionsPtrOutput {
 	return o.ApplyT(func(v *IntegrationAccount) IntegrationAccountAwsRegionsPtrOutput { return v.AwsRegions }).(IntegrationAccountAwsRegionsPtrOutput)
 }
 
+// Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambdaFowarder` block is required within, but may be empty to use defaults.
 func (o IntegrationAccountOutput) LogsConfig() IntegrationAccountLogsConfigPtrOutput {
 	return o.ApplyT(func(v *IntegrationAccount) IntegrationAccountLogsConfigPtrOutput { return v.LogsConfig }).(IntegrationAccountLogsConfigPtrOutput)
 }
 
+// Configure metrics collection from AWS CloudWatch. The `namespaceFilters` block is required within, but may be empty to use defaults.
 func (o IntegrationAccountOutput) MetricsConfig() IntegrationAccountMetricsConfigPtrOutput {
 	return o.ApplyT(func(v *IntegrationAccount) IntegrationAccountMetricsConfigPtrOutput { return v.MetricsConfig }).(IntegrationAccountMetricsConfigPtrOutput)
 }
 
+// AWS resources collection config. May be empty to use defaults.
 func (o IntegrationAccountOutput) ResourcesConfig() IntegrationAccountResourcesConfigPtrOutput {
 	return o.ApplyT(func(v *IntegrationAccount) IntegrationAccountResourcesConfigPtrOutput { return v.ResourcesConfig }).(IntegrationAccountResourcesConfigPtrOutput)
 }
 
-// AWS Traces Collection config.
+// AWS traces collection config. The `xrayServices` block is required within, but may be empty to use defaults.
 func (o IntegrationAccountOutput) TracesConfig() IntegrationAccountTracesConfigPtrOutput {
 	return o.ApplyT(func(v *IntegrationAccount) IntegrationAccountTracesConfigPtrOutput { return v.TracesConfig }).(IntegrationAccountTracesConfigPtrOutput)
 }

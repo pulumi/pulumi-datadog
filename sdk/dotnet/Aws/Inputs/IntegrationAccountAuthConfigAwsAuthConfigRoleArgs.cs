@@ -13,13 +13,13 @@ namespace Pulumi.Datadog.Aws.Inputs
     public sealed class IntegrationAccountAuthConfigAwsAuthConfigRoleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// AWS IAM External ID for associated role
+        /// AWS IAM external ID for associated role. If omitted, one is generated.
         /// </summary>
         [Input("externalId")]
         public Input<string>? ExternalId { get; set; }
 
         /// <summary>
-        /// AWS IAM Role name
+        /// AWS IAM role name.
         /// </summary>
         [Input("roleName")]
         public Input<string>? RoleName { get; set; }

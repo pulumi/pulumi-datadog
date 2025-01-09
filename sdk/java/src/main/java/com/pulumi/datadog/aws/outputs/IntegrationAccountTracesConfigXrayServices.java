@@ -14,26 +14,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class IntegrationAccountTracesConfigXrayServices {
     /**
-     * @return Include all services
+     * @return Include all services.
      * 
      */
     private @Nullable Boolean includeAll;
     /**
-     * @return Include only these services
+     * @return Include only these services. Defaults to `[]`.
      * 
      */
     private @Nullable List<String> includeOnlies;
 
     private IntegrationAccountTracesConfigXrayServices() {}
     /**
-     * @return Include all services
+     * @return Include all services.
      * 
      */
     public Optional<Boolean> includeAll() {
         return Optional.ofNullable(this.includeAll);
     }
     /**
-     * @return Include only these services
+     * @return Include only these services. Defaults to `[]`.
      * 
      */
     public List<String> includeOnlies() {

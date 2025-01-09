@@ -56,6 +56,9 @@ namespace Pulumi.Datadog
     [DatadogResourceType("datadog:index/role:Role")]
     public partial class Role : global::Pulumi.CustomResource
     {
+        [Output("defaultPermissionsOptOut")]
+        public Output<bool?> DefaultPermissionsOptOut { get; private set; } = null!;
+
         /// <summary>
         /// Name of the role.
         /// </summary>
@@ -126,6 +129,9 @@ namespace Pulumi.Datadog
 
     public sealed class RoleArgs : global::Pulumi.ResourceArgs
     {
+        [Input("defaultPermissionsOptOut")]
+        public Input<bool>? DefaultPermissionsOptOut { get; set; }
+
         /// <summary>
         /// Name of the role.
         /// </summary>
@@ -158,6 +164,9 @@ namespace Pulumi.Datadog
 
     public sealed class RoleState : global::Pulumi.ResourceArgs
     {
+        [Input("defaultPermissionsOptOut")]
+        public Input<bool>? DefaultPermissionsOptOut { get; set; }
+
         /// <summary>
         /// Name of the role.
         /// </summary>

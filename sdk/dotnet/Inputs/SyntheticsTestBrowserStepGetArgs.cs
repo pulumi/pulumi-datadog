@@ -43,6 +43,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<bool>? IsCritical { get; set; }
 
         /// <summary>
+        /// A unique identifier used to track steps after reordering.
+        /// </summary>
+        [Input("localKey")]
+        public Input<string>? LocalKey { get; set; }
+
+        /// <summary>
         /// Name of the step.
         /// </summary>
         [Input("name", required: true)]
@@ -59,6 +65,12 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("params", required: true)]
         public Input<Inputs.SyntheticsTestBrowserStepParamsGetArgs> Params { get; set; } = null!;
+
+        /// <summary>
+        /// The identifier of the step on the backend.
+        /// </summary>
+        [Input("publicId")]
+        public Input<string>? PublicId { get; set; }
 
         /// <summary>
         /// Used to override the default timeout of a step.

@@ -12,10 +12,18 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class IntegrationAccountAuthConfig {
+    /**
+     * @return Datadog will use the provided AWS Access Key ID and Secret Access Key to authenticate to your account.
+     * 
+     */
     private @Nullable IntegrationAccountAuthConfigAwsAuthConfigKeys awsAuthConfigKeys;
     private @Nullable IntegrationAccountAuthConfigAwsAuthConfigRole awsAuthConfigRole;
 
     private IntegrationAccountAuthConfig() {}
+    /**
+     * @return Datadog will use the provided AWS Access Key ID and Secret Access Key to authenticate to your account.
+     * 
+     */
     public Optional<IntegrationAccountAuthConfigAwsAuthConfigKeys> awsAuthConfigKeys() {
         return Optional.ofNullable(this.awsAuthConfigKeys);
     }

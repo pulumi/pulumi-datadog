@@ -14,11 +14,11 @@ namespace Pulumi.Datadog.Aws.Outputs
     public sealed class IntegrationAccountLogsConfigLambdaForwarder
     {
         /// <summary>
-        /// List of Datadog Lambda Log Forwarder ARNs in your AWS account.
+        /// List of Datadog Lambda Log Forwarder ARNs in your AWS account. Defaults to `[]`.
         /// </summary>
         public readonly ImmutableArray<string> Lambdas;
         /// <summary>
-        /// List of service IDs set to enable automatic log collection. Use `datadog.aws.getIntegrationAvailableLogsServices` data source to get allowed values.
+        /// List of service IDs set to enable automatic log collection. Use `datadog.aws.getIntegrationAvailableLogsServices` data source to get allowed values. Defaults to `[]`.
         /// </summary>
         public readonly ImmutableArray<string> Sources;
 

@@ -41,6 +41,11 @@ public final class SyntheticsTestBrowserStep {
      */
     private @Nullable Boolean isCritical;
     /**
+     * @return A unique identifier used to track steps after reordering.
+     * 
+     */
+    private @Nullable String localKey;
+    /**
      * @return Name of the step.
      * 
      */
@@ -55,6 +60,11 @@ public final class SyntheticsTestBrowserStep {
      * 
      */
     private SyntheticsTestBrowserStepParams params;
+    /**
+     * @return The identifier of the step on the backend.
+     * 
+     */
+    private @Nullable String publicId;
     /**
      * @return Used to override the default timeout of a step.
      * 
@@ -103,6 +113,13 @@ public final class SyntheticsTestBrowserStep {
         return Optional.ofNullable(this.isCritical);
     }
     /**
+     * @return A unique identifier used to track steps after reordering.
+     * 
+     */
+    public Optional<String> localKey() {
+        return Optional.ofNullable(this.localKey);
+    }
+    /**
      * @return Name of the step.
      * 
      */
@@ -122,6 +139,13 @@ public final class SyntheticsTestBrowserStep {
      */
     public SyntheticsTestBrowserStepParams params() {
         return this.params;
+    }
+    /**
+     * @return The identifier of the step on the backend.
+     * 
+     */
+    public Optional<String> publicId() {
+        return Optional.ofNullable(this.publicId);
     }
     /**
      * @return Used to override the default timeout of a step.
@@ -152,9 +176,11 @@ public final class SyntheticsTestBrowserStep {
         private @Nullable Boolean exitIfSucceed;
         private @Nullable Boolean forceElementUpdate;
         private @Nullable Boolean isCritical;
+        private @Nullable String localKey;
         private String name;
         private @Nullable Boolean noScreenshot;
         private SyntheticsTestBrowserStepParams params;
+        private @Nullable String publicId;
         private @Nullable Integer timeout;
         private String type;
         public Builder() {}
@@ -165,9 +191,11 @@ public final class SyntheticsTestBrowserStep {
     	      this.exitIfSucceed = defaults.exitIfSucceed;
     	      this.forceElementUpdate = defaults.forceElementUpdate;
     	      this.isCritical = defaults.isCritical;
+    	      this.localKey = defaults.localKey;
     	      this.name = defaults.name;
     	      this.noScreenshot = defaults.noScreenshot;
     	      this.params = defaults.params;
+    	      this.publicId = defaults.publicId;
     	      this.timeout = defaults.timeout;
     	      this.type = defaults.type;
         }
@@ -203,6 +231,12 @@ public final class SyntheticsTestBrowserStep {
             return this;
         }
         @CustomType.Setter
+        public Builder localKey(@Nullable String localKey) {
+
+            this.localKey = localKey;
+            return this;
+        }
+        @CustomType.Setter
         public Builder name(String name) {
             if (name == null) {
               throw new MissingRequiredPropertyException("SyntheticsTestBrowserStep", "name");
@@ -222,6 +256,12 @@ public final class SyntheticsTestBrowserStep {
               throw new MissingRequiredPropertyException("SyntheticsTestBrowserStep", "params");
             }
             this.params = params;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder publicId(@Nullable String publicId) {
+
+            this.publicId = publicId;
             return this;
         }
         @CustomType.Setter
@@ -245,9 +285,11 @@ public final class SyntheticsTestBrowserStep {
             _resultValue.exitIfSucceed = exitIfSucceed;
             _resultValue.forceElementUpdate = forceElementUpdate;
             _resultValue.isCritical = isCritical;
+            _resultValue.localKey = localKey;
             _resultValue.name = name;
             _resultValue.noScreenshot = noScreenshot;
             _resultValue.params = params;
+            _resultValue.publicId = publicId;
             _resultValue.timeout = timeout;
             _resultValue.type = type;
             return _resultValue;

@@ -34,6 +34,10 @@ public final class IntegrationAccountMetricsConfig {
      * 
      */
     private @Nullable Boolean enabled;
+    /**
+     * @return AWS metrics namespace filters. Defaults to a pre-set `exclude_only` list if block is empty.
+     * 
+     */
     private @Nullable IntegrationAccountMetricsConfigNamespaceFilters namespaceFilters;
     /**
      * @return AWS Metrics Collection tag filters list. The array of custom AWS resource tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from a specified service. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For EC2, only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. For example, `env:production,instance-type:c?.*,!region:us-east-1`.
@@ -70,6 +74,10 @@ public final class IntegrationAccountMetricsConfig {
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
+    /**
+     * @return AWS metrics namespace filters. Defaults to a pre-set `exclude_only` list if block is empty.
+     * 
+     */
     public Optional<IntegrationAccountMetricsConfigNamespaceFilters> namespaceFilters() {
         return Optional.ofNullable(this.namespaceFilters);
     }

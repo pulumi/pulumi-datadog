@@ -18,14 +18,14 @@ public final class IntegrationAccountTracesConfigXrayServicesArgs extends com.pu
     public static final IntegrationAccountTracesConfigXrayServicesArgs Empty = new IntegrationAccountTracesConfigXrayServicesArgs();
 
     /**
-     * Include all services
+     * Include all services.
      * 
      */
     @Import(name="includeAll")
     private @Nullable Output<Boolean> includeAll;
 
     /**
-     * @return Include all services
+     * @return Include all services.
      * 
      */
     public Optional<Output<Boolean>> includeAll() {
@@ -33,14 +33,14 @@ public final class IntegrationAccountTracesConfigXrayServicesArgs extends com.pu
     }
 
     /**
-     * Include only these services
+     * Include only these services. Defaults to `[]`.
      * 
      */
     @Import(name="includeOnlies")
     private @Nullable Output<List<String>> includeOnlies;
 
     /**
-     * @return Include only these services
+     * @return Include only these services. Defaults to `[]`.
      * 
      */
     public Optional<Output<List<String>>> includeOnlies() {
@@ -73,7 +73,7 @@ public final class IntegrationAccountTracesConfigXrayServicesArgs extends com.pu
         }
 
         /**
-         * @param includeAll Include all services
+         * @param includeAll Include all services.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class IntegrationAccountTracesConfigXrayServicesArgs extends com.pu
         }
 
         /**
-         * @param includeAll Include all services
+         * @param includeAll Include all services.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class IntegrationAccountTracesConfigXrayServicesArgs extends com.pu
         }
 
         /**
-         * @param includeOnlies Include only these services
+         * @param includeOnlies Include only these services. Defaults to `[]`.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class IntegrationAccountTracesConfigXrayServicesArgs extends com.pu
         }
 
         /**
-         * @param includeOnlies Include only these services
+         * @param includeOnlies Include only these services. Defaults to `[]`.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class IntegrationAccountTracesConfigXrayServicesArgs extends com.pu
         }
 
         /**
-         * @param includeOnlies Include only these services
+         * @param includeOnlies Include only these services. Defaults to `[]`.
          * 
          * @return builder
          * 

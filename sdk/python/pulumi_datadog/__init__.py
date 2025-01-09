@@ -33,6 +33,7 @@ from .get_logs_archives_order import *
 from .get_logs_indexes import *
 from .get_logs_indexes_order import *
 from .get_logs_pipelines import *
+from .get_logs_pipelines_order import *
 from .get_monitor import *
 from .get_monitor_config_policies import *
 from .get_monitors import *

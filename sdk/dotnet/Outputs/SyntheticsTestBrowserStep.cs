@@ -34,6 +34,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? IsCritical;
         /// <summary>
+        /// A unique identifier used to track steps after reordering.
+        /// </summary>
+        public readonly string? LocalKey;
+        /// <summary>
         /// Name of the step.
         /// </summary>
         public readonly string Name;
@@ -45,6 +49,10 @@ namespace Pulumi.Datadog.Outputs
         /// Parameters for the step.
         /// </summary>
         public readonly Outputs.SyntheticsTestBrowserStepParams Params;
+        /// <summary>
+        /// The identifier of the step on the backend.
+        /// </summary>
+        public readonly string? PublicId;
         /// <summary>
         /// Used to override the default timeout of a step.
         /// </summary>
@@ -66,11 +74,15 @@ namespace Pulumi.Datadog.Outputs
 
             bool? isCritical,
 
+            string? localKey,
+
             string name,
 
             bool? noScreenshot,
 
             Outputs.SyntheticsTestBrowserStepParams @params,
+
+            string? publicId,
 
             int? timeout,
 
@@ -81,9 +93,11 @@ namespace Pulumi.Datadog.Outputs
             ExitIfSucceed = exitIfSucceed;
             ForceElementUpdate = forceElementUpdate;
             IsCritical = isCritical;
+            LocalKey = localKey;
             Name = name;
             NoScreenshot = noScreenshot;
             Params = @params;
+            PublicId = publicId;
             Timeout = timeout;
             Type = type;
         }

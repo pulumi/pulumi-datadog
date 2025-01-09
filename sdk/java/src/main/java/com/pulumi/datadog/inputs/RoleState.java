@@ -19,6 +19,13 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
 
     public static final RoleState Empty = new RoleState();
 
+    @Import(name="defaultPermissionsOptOut")
+    private @Nullable Output<Boolean> defaultPermissionsOptOut;
+
+    public Optional<Output<Boolean>> defaultPermissionsOptOut() {
+        return Optional.ofNullable(this.defaultPermissionsOptOut);
+    }
+
     /**
      * Name of the role.
      * 
@@ -82,6 +89,7 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
     private RoleState() {}
 
     private RoleState(RoleState $) {
+        this.defaultPermissionsOptOut = $.defaultPermissionsOptOut;
         this.name = $.name;
         this.permissions = $.permissions;
         this.userCount = $.userCount;
@@ -104,6 +112,15 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
 
         public Builder(RoleState defaults) {
             $ = new RoleState(Objects.requireNonNull(defaults));
+        }
+
+        public Builder defaultPermissionsOptOut(@Nullable Output<Boolean> defaultPermissionsOptOut) {
+            $.defaultPermissionsOptOut = defaultPermissionsOptOut;
+            return this;
+        }
+
+        public Builder defaultPermissionsOptOut(Boolean defaultPermissionsOptOut) {
+            return defaultPermissionsOptOut(Output.of(defaultPermissionsOptOut));
         }
 
         /**

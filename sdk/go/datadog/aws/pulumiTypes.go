@@ -14,6 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type IntegrationAccountAuthConfig struct {
+	// Datadog will use the provided AWS Access Key ID and Secret Access Key to authenticate to your account.
 	AwsAuthConfigKeys *IntegrationAccountAuthConfigAwsAuthConfigKeys `pulumi:"awsAuthConfigKeys"`
 	AwsAuthConfigRole *IntegrationAccountAuthConfigAwsAuthConfigRole `pulumi:"awsAuthConfigRole"`
 }
@@ -30,6 +31,7 @@ type IntegrationAccountAuthConfigInput interface {
 }
 
 type IntegrationAccountAuthConfigArgs struct {
+	// Datadog will use the provided AWS Access Key ID and Secret Access Key to authenticate to your account.
 	AwsAuthConfigKeys IntegrationAccountAuthConfigAwsAuthConfigKeysPtrInput `pulumi:"awsAuthConfigKeys"`
 	AwsAuthConfigRole IntegrationAccountAuthConfigAwsAuthConfigRolePtrInput `pulumi:"awsAuthConfigRole"`
 }
@@ -111,6 +113,7 @@ func (o IntegrationAccountAuthConfigOutput) ToIntegrationAccountAuthConfigPtrOut
 	}).(IntegrationAccountAuthConfigPtrOutput)
 }
 
+// Datadog will use the provided AWS Access Key ID and Secret Access Key to authenticate to your account.
 func (o IntegrationAccountAuthConfigOutput) AwsAuthConfigKeys() IntegrationAccountAuthConfigAwsAuthConfigKeysPtrOutput {
 	return o.ApplyT(func(v IntegrationAccountAuthConfig) *IntegrationAccountAuthConfigAwsAuthConfigKeys {
 		return v.AwsAuthConfigKeys
@@ -147,6 +150,7 @@ func (o IntegrationAccountAuthConfigPtrOutput) Elem() IntegrationAccountAuthConf
 	}).(IntegrationAccountAuthConfigOutput)
 }
 
+// Datadog will use the provided AWS Access Key ID and Secret Access Key to authenticate to your account.
 func (o IntegrationAccountAuthConfigPtrOutput) AwsAuthConfigKeys() IntegrationAccountAuthConfigAwsAuthConfigKeysPtrOutput {
 	return o.ApplyT(func(v *IntegrationAccountAuthConfig) *IntegrationAccountAuthConfigAwsAuthConfigKeys {
 		if v == nil {
@@ -318,9 +322,9 @@ func (o IntegrationAccountAuthConfigAwsAuthConfigKeysPtrOutput) SecretAccessKey(
 }
 
 type IntegrationAccountAuthConfigAwsAuthConfigRole struct {
-	// AWS IAM External ID for associated role
+	// AWS IAM external ID for associated role. If omitted, one is generated.
 	ExternalId *string `pulumi:"externalId"`
-	// AWS IAM Role name
+	// AWS IAM role name.
 	RoleName *string `pulumi:"roleName"`
 }
 
@@ -336,9 +340,9 @@ type IntegrationAccountAuthConfigAwsAuthConfigRoleInput interface {
 }
 
 type IntegrationAccountAuthConfigAwsAuthConfigRoleArgs struct {
-	// AWS IAM External ID for associated role
+	// AWS IAM external ID for associated role. If omitted, one is generated.
 	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
-	// AWS IAM Role name
+	// AWS IAM role name.
 	RoleName pulumi.StringPtrInput `pulumi:"roleName"`
 }
 
@@ -419,12 +423,12 @@ func (o IntegrationAccountAuthConfigAwsAuthConfigRoleOutput) ToIntegrationAccoun
 	}).(IntegrationAccountAuthConfigAwsAuthConfigRolePtrOutput)
 }
 
-// AWS IAM External ID for associated role
+// AWS IAM external ID for associated role. If omitted, one is generated.
 func (o IntegrationAccountAuthConfigAwsAuthConfigRoleOutput) ExternalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationAccountAuthConfigAwsAuthConfigRole) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
 }
 
-// AWS IAM Role name
+// AWS IAM role name.
 func (o IntegrationAccountAuthConfigAwsAuthConfigRoleOutput) RoleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationAccountAuthConfigAwsAuthConfigRole) *string { return v.RoleName }).(pulumi.StringPtrOutput)
 }
@@ -453,7 +457,7 @@ func (o IntegrationAccountAuthConfigAwsAuthConfigRolePtrOutput) Elem() Integrati
 	}).(IntegrationAccountAuthConfigAwsAuthConfigRoleOutput)
 }
 
-// AWS IAM External ID for associated role
+// AWS IAM external ID for associated role. If omitted, one is generated.
 func (o IntegrationAccountAuthConfigAwsAuthConfigRolePtrOutput) ExternalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationAccountAuthConfigAwsAuthConfigRole) *string {
 		if v == nil {
@@ -463,7 +467,7 @@ func (o IntegrationAccountAuthConfigAwsAuthConfigRolePtrOutput) ExternalId() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// AWS IAM Role name
+// AWS IAM role name.
 func (o IntegrationAccountAuthConfigAwsAuthConfigRolePtrOutput) RoleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationAccountAuthConfigAwsAuthConfigRole) *string {
 		if v == nil {
@@ -630,6 +634,7 @@ func (o IntegrationAccountAwsRegionsPtrOutput) IncludeOnlies() pulumi.StringArra
 }
 
 type IntegrationAccountLogsConfig struct {
+	// Leave empty to omit logs config.
 	LambdaForwarder *IntegrationAccountLogsConfigLambdaForwarder `pulumi:"lambdaForwarder"`
 }
 
@@ -645,6 +650,7 @@ type IntegrationAccountLogsConfigInput interface {
 }
 
 type IntegrationAccountLogsConfigArgs struct {
+	// Leave empty to omit logs config.
 	LambdaForwarder IntegrationAccountLogsConfigLambdaForwarderPtrInput `pulumi:"lambdaForwarder"`
 }
 
@@ -725,6 +731,7 @@ func (o IntegrationAccountLogsConfigOutput) ToIntegrationAccountLogsConfigPtrOut
 	}).(IntegrationAccountLogsConfigPtrOutput)
 }
 
+// Leave empty to omit logs config.
 func (o IntegrationAccountLogsConfigOutput) LambdaForwarder() IntegrationAccountLogsConfigLambdaForwarderPtrOutput {
 	return o.ApplyT(func(v IntegrationAccountLogsConfig) *IntegrationAccountLogsConfigLambdaForwarder {
 		return v.LambdaForwarder
@@ -755,6 +762,7 @@ func (o IntegrationAccountLogsConfigPtrOutput) Elem() IntegrationAccountLogsConf
 	}).(IntegrationAccountLogsConfigOutput)
 }
 
+// Leave empty to omit logs config.
 func (o IntegrationAccountLogsConfigPtrOutput) LambdaForwarder() IntegrationAccountLogsConfigLambdaForwarderPtrOutput {
 	return o.ApplyT(func(v *IntegrationAccountLogsConfig) *IntegrationAccountLogsConfigLambdaForwarder {
 		if v == nil {
@@ -765,9 +773,9 @@ func (o IntegrationAccountLogsConfigPtrOutput) LambdaForwarder() IntegrationAcco
 }
 
 type IntegrationAccountLogsConfigLambdaForwarder struct {
-	// List of Datadog Lambda Log Forwarder ARNs in your AWS account.
+	// List of Datadog Lambda Log Forwarder ARNs in your AWS account. Defaults to `[]`.
 	Lambdas []string `pulumi:"lambdas"`
-	// List of service IDs set to enable automatic log collection. Use `aws.getIntegrationAvailableLogsServices` data source to get allowed values.
+	// List of service IDs set to enable automatic log collection. Use `aws.getIntegrationAvailableLogsServices` data source to get allowed values. Defaults to `[]`.
 	Sources []string `pulumi:"sources"`
 }
 
@@ -783,9 +791,9 @@ type IntegrationAccountLogsConfigLambdaForwarderInput interface {
 }
 
 type IntegrationAccountLogsConfigLambdaForwarderArgs struct {
-	// List of Datadog Lambda Log Forwarder ARNs in your AWS account.
+	// List of Datadog Lambda Log Forwarder ARNs in your AWS account. Defaults to `[]`.
 	Lambdas pulumi.StringArrayInput `pulumi:"lambdas"`
-	// List of service IDs set to enable automatic log collection. Use `aws.getIntegrationAvailableLogsServices` data source to get allowed values.
+	// List of service IDs set to enable automatic log collection. Use `aws.getIntegrationAvailableLogsServices` data source to get allowed values. Defaults to `[]`.
 	Sources pulumi.StringArrayInput `pulumi:"sources"`
 }
 
@@ -866,12 +874,12 @@ func (o IntegrationAccountLogsConfigLambdaForwarderOutput) ToIntegrationAccountL
 	}).(IntegrationAccountLogsConfigLambdaForwarderPtrOutput)
 }
 
-// List of Datadog Lambda Log Forwarder ARNs in your AWS account.
+// List of Datadog Lambda Log Forwarder ARNs in your AWS account. Defaults to `[]`.
 func (o IntegrationAccountLogsConfigLambdaForwarderOutput) Lambdas() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IntegrationAccountLogsConfigLambdaForwarder) []string { return v.Lambdas }).(pulumi.StringArrayOutput)
 }
 
-// List of service IDs set to enable automatic log collection. Use `aws.getIntegrationAvailableLogsServices` data source to get allowed values.
+// List of service IDs set to enable automatic log collection. Use `aws.getIntegrationAvailableLogsServices` data source to get allowed values. Defaults to `[]`.
 func (o IntegrationAccountLogsConfigLambdaForwarderOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IntegrationAccountLogsConfigLambdaForwarder) []string { return v.Sources }).(pulumi.StringArrayOutput)
 }
@@ -900,7 +908,7 @@ func (o IntegrationAccountLogsConfigLambdaForwarderPtrOutput) Elem() Integration
 	}).(IntegrationAccountLogsConfigLambdaForwarderOutput)
 }
 
-// List of Datadog Lambda Log Forwarder ARNs in your AWS account.
+// List of Datadog Lambda Log Forwarder ARNs in your AWS account. Defaults to `[]`.
 func (o IntegrationAccountLogsConfigLambdaForwarderPtrOutput) Lambdas() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IntegrationAccountLogsConfigLambdaForwarder) []string {
 		if v == nil {
@@ -910,7 +918,7 @@ func (o IntegrationAccountLogsConfigLambdaForwarderPtrOutput) Lambdas() pulumi.S
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of service IDs set to enable automatic log collection. Use `aws.getIntegrationAvailableLogsServices` data source to get allowed values.
+// List of service IDs set to enable automatic log collection. Use `aws.getIntegrationAvailableLogsServices` data source to get allowed values. Defaults to `[]`.
 func (o IntegrationAccountLogsConfigLambdaForwarderPtrOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IntegrationAccountLogsConfigLambdaForwarder) []string {
 		if v == nil {
@@ -928,7 +936,8 @@ type IntegrationAccountMetricsConfig struct {
 	// Enable custom metrics collection Defaults to `false`.
 	CollectCustomMetrics *bool `pulumi:"collectCustomMetrics"`
 	// Enable AWS metrics collection Defaults to `true`.
-	Enabled          *bool                                            `pulumi:"enabled"`
+	Enabled *bool `pulumi:"enabled"`
+	// AWS metrics namespace filters. Defaults to a pre-set `excludeOnly` list if block is empty.
 	NamespaceFilters *IntegrationAccountMetricsConfigNamespaceFilters `pulumi:"namespaceFilters"`
 	// AWS Metrics Collection tag filters list. The array of custom AWS resource tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from a specified service. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For EC2, only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. For example, `env:production,instance-type:c?.*,!region:us-east-1`.
 	TagFilters []IntegrationAccountMetricsConfigTagFilter `pulumi:"tagFilters"`
@@ -953,7 +962,8 @@ type IntegrationAccountMetricsConfigArgs struct {
 	// Enable custom metrics collection Defaults to `false`.
 	CollectCustomMetrics pulumi.BoolPtrInput `pulumi:"collectCustomMetrics"`
 	// Enable AWS metrics collection Defaults to `true`.
-	Enabled          pulumi.BoolPtrInput                                     `pulumi:"enabled"`
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// AWS metrics namespace filters. Defaults to a pre-set `excludeOnly` list if block is empty.
 	NamespaceFilters IntegrationAccountMetricsConfigNamespaceFiltersPtrInput `pulumi:"namespaceFilters"`
 	// AWS Metrics Collection tag filters list. The array of custom AWS resource tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from a specified service. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For EC2, only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. For example, `env:production,instance-type:c?.*,!region:us-east-1`.
 	TagFilters IntegrationAccountMetricsConfigTagFilterArrayInput `pulumi:"tagFilters"`
@@ -1056,6 +1066,7 @@ func (o IntegrationAccountMetricsConfigOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v IntegrationAccountMetricsConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// AWS metrics namespace filters. Defaults to a pre-set `excludeOnly` list if block is empty.
 func (o IntegrationAccountMetricsConfigOutput) NamespaceFilters() IntegrationAccountMetricsConfigNamespaceFiltersPtrOutput {
 	return o.ApplyT(func(v IntegrationAccountMetricsConfig) *IntegrationAccountMetricsConfigNamespaceFilters {
 		return v.NamespaceFilters
@@ -1133,6 +1144,7 @@ func (o IntegrationAccountMetricsConfigPtrOutput) Enabled() pulumi.BoolPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
+// AWS metrics namespace filters. Defaults to a pre-set `excludeOnly` list if block is empty.
 func (o IntegrationAccountMetricsConfigPtrOutput) NamespaceFilters() IntegrationAccountMetricsConfigNamespaceFiltersPtrOutput {
 	return o.ApplyT(func(v *IntegrationAccountMetricsConfig) *IntegrationAccountMetricsConfigNamespaceFilters {
 		if v == nil {
@@ -1311,7 +1323,7 @@ func (o IntegrationAccountMetricsConfigNamespaceFiltersPtrOutput) IncludeOnlies(
 type IntegrationAccountMetricsConfigTagFilter struct {
 	// The AWS service for which the tag filters defined in `tags` will be applied.
 	Namespace string `pulumi:"namespace"`
-	// The AWS resource tags to filter on for the service specified by `namespace`.
+	// The AWS resource tags to filter on for the service specified by `namespace`. Defaults to `[]`.
 	Tags []string `pulumi:"tags"`
 }
 
@@ -1329,7 +1341,7 @@ type IntegrationAccountMetricsConfigTagFilterInput interface {
 type IntegrationAccountMetricsConfigTagFilterArgs struct {
 	// The AWS service for which the tag filters defined in `tags` will be applied.
 	Namespace pulumi.StringInput `pulumi:"namespace"`
-	// The AWS resource tags to filter on for the service specified by `namespace`.
+	// The AWS resource tags to filter on for the service specified by `namespace`. Defaults to `[]`.
 	Tags pulumi.StringArrayInput `pulumi:"tags"`
 }
 
@@ -1389,7 +1401,7 @@ func (o IntegrationAccountMetricsConfigTagFilterOutput) Namespace() pulumi.Strin
 	return o.ApplyT(func(v IntegrationAccountMetricsConfigTagFilter) string { return v.Namespace }).(pulumi.StringOutput)
 }
 
-// The AWS resource tags to filter on for the service specified by `namespace`.
+// The AWS resource tags to filter on for the service specified by `namespace`. Defaults to `[]`.
 func (o IntegrationAccountMetricsConfigTagFilterOutput) Tags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IntegrationAccountMetricsConfigTagFilter) []string { return v.Tags }).(pulumi.StringArrayOutput)
 }
@@ -1571,7 +1583,7 @@ func (o IntegrationAccountResourcesConfigPtrOutput) ExtendedCollection() pulumi.
 }
 
 type IntegrationAccountTracesConfig struct {
-	// AWS X-Ray services to collect traces from.
+	// AWS X-Ray services to collect traces from. Defaults to `includeOnly`.
 	XrayServices *IntegrationAccountTracesConfigXrayServices `pulumi:"xrayServices"`
 }
 
@@ -1587,7 +1599,7 @@ type IntegrationAccountTracesConfigInput interface {
 }
 
 type IntegrationAccountTracesConfigArgs struct {
-	// AWS X-Ray services to collect traces from.
+	// AWS X-Ray services to collect traces from. Defaults to `includeOnly`.
 	XrayServices IntegrationAccountTracesConfigXrayServicesPtrInput `pulumi:"xrayServices"`
 }
 
@@ -1668,7 +1680,7 @@ func (o IntegrationAccountTracesConfigOutput) ToIntegrationAccountTracesConfigPt
 	}).(IntegrationAccountTracesConfigPtrOutput)
 }
 
-// AWS X-Ray services to collect traces from.
+// AWS X-Ray services to collect traces from. Defaults to `includeOnly`.
 func (o IntegrationAccountTracesConfigOutput) XrayServices() IntegrationAccountTracesConfigXrayServicesPtrOutput {
 	return o.ApplyT(func(v IntegrationAccountTracesConfig) *IntegrationAccountTracesConfigXrayServices {
 		return v.XrayServices
@@ -1699,7 +1711,7 @@ func (o IntegrationAccountTracesConfigPtrOutput) Elem() IntegrationAccountTraces
 	}).(IntegrationAccountTracesConfigOutput)
 }
 
-// AWS X-Ray services to collect traces from.
+// AWS X-Ray services to collect traces from. Defaults to `includeOnly`.
 func (o IntegrationAccountTracesConfigPtrOutput) XrayServices() IntegrationAccountTracesConfigXrayServicesPtrOutput {
 	return o.ApplyT(func(v *IntegrationAccountTracesConfig) *IntegrationAccountTracesConfigXrayServices {
 		if v == nil {
@@ -1710,9 +1722,9 @@ func (o IntegrationAccountTracesConfigPtrOutput) XrayServices() IntegrationAccou
 }
 
 type IntegrationAccountTracesConfigXrayServices struct {
-	// Include all services
+	// Include all services.
 	IncludeAll *bool `pulumi:"includeAll"`
-	// Include only these services
+	// Include only these services. Defaults to `[]`.
 	IncludeOnlies []string `pulumi:"includeOnlies"`
 }
 
@@ -1728,9 +1740,9 @@ type IntegrationAccountTracesConfigXrayServicesInput interface {
 }
 
 type IntegrationAccountTracesConfigXrayServicesArgs struct {
-	// Include all services
+	// Include all services.
 	IncludeAll pulumi.BoolPtrInput `pulumi:"includeAll"`
-	// Include only these services
+	// Include only these services. Defaults to `[]`.
 	IncludeOnlies pulumi.StringArrayInput `pulumi:"includeOnlies"`
 }
 
@@ -1811,12 +1823,12 @@ func (o IntegrationAccountTracesConfigXrayServicesOutput) ToIntegrationAccountTr
 	}).(IntegrationAccountTracesConfigXrayServicesPtrOutput)
 }
 
-// Include all services
+// Include all services.
 func (o IntegrationAccountTracesConfigXrayServicesOutput) IncludeAll() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v IntegrationAccountTracesConfigXrayServices) *bool { return v.IncludeAll }).(pulumi.BoolPtrOutput)
 }
 
-// Include only these services
+// Include only these services. Defaults to `[]`.
 func (o IntegrationAccountTracesConfigXrayServicesOutput) IncludeOnlies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IntegrationAccountTracesConfigXrayServices) []string { return v.IncludeOnlies }).(pulumi.StringArrayOutput)
 }
@@ -1845,7 +1857,7 @@ func (o IntegrationAccountTracesConfigXrayServicesPtrOutput) Elem() IntegrationA
 	}).(IntegrationAccountTracesConfigXrayServicesOutput)
 }
 
-// Include all services
+// Include all services.
 func (o IntegrationAccountTracesConfigXrayServicesPtrOutput) IncludeAll() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *IntegrationAccountTracesConfigXrayServices) *bool {
 		if v == nil {
@@ -1855,7 +1867,7 @@ func (o IntegrationAccountTracesConfigXrayServicesPtrOutput) IncludeAll() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Include only these services
+// Include only these services. Defaults to `[]`.
 func (o IntegrationAccountTracesConfigXrayServicesPtrOutput) IncludeOnlies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IntegrationAccountTracesConfigXrayServices) []string {
 		if v == nil {

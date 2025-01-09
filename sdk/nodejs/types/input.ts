@@ -22842,6 +22842,10 @@ export interface SyntheticsTestBrowserStep {
      */
     isCritical?: pulumi.Input<boolean>;
     /**
+     * A unique identifier used to track steps after reordering.
+     */
+    localKey?: pulumi.Input<string>;
+    /**
      * Name of the step.
      */
     name: pulumi.Input<string>;
@@ -22853,6 +22857,10 @@ export interface SyntheticsTestBrowserStep {
      * Parameters for the step.
      */
     params: pulumi.Input<inputs.SyntheticsTestBrowserStepParams>;
+    /**
+     * The identifier of the step on the backend.
+     */
+    publicId?: pulumi.Input<string>;
     /**
      * Used to override the default timeout of a step.
      */
@@ -23634,6 +23642,9 @@ export interface SyntheticsTestRequestProxy {
 }
 export namespace aws {
     export interface IntegrationAccountAuthConfig {
+        /**
+         * Datadog will use the provided AWS Access Key ID and Secret Access Key to authenticate to your account.
+         */
         awsAuthConfigKeys?: pulumi.Input<inputs.aws.IntegrationAccountAuthConfigAwsAuthConfigKeys>;
         awsAuthConfigRole?: pulumi.Input<inputs.aws.IntegrationAccountAuthConfigAwsAuthConfigRole>;
     }
@@ -23648,11 +23659,11 @@ export namespace aws {
 
     export interface IntegrationAccountAuthConfigAwsAuthConfigRole {
         /**
-         * AWS IAM External ID for associated role
+         * AWS IAM external ID for associated role. If omitted, one is generated.
          */
         externalId?: pulumi.Input<string>;
         /**
-         * AWS IAM Role name
+         * AWS IAM role name.
          */
         roleName?: pulumi.Input<string>;
     }
@@ -23669,16 +23680,19 @@ export namespace aws {
     }
 
     export interface IntegrationAccountLogsConfig {
+        /**
+         * Leave empty to omit logs config.
+         */
         lambdaForwarder?: pulumi.Input<inputs.aws.IntegrationAccountLogsConfigLambdaForwarder>;
     }
 
     export interface IntegrationAccountLogsConfigLambdaForwarder {
         /**
-         * List of Datadog Lambda Log Forwarder ARNs in your AWS account.
+         * List of Datadog Lambda Log Forwarder ARNs in your AWS account. Defaults to `[]`.
          */
         lambdas?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * List of service IDs set to enable automatic log collection. Use `datadog.aws.getIntegrationAvailableLogsServices` data source to get allowed values.
+         * List of service IDs set to enable automatic log collection. Use `datadog.aws.getIntegrationAvailableLogsServices` data source to get allowed values. Defaults to `[]`.
          */
         sources?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -23700,6 +23714,9 @@ export namespace aws {
          * Enable AWS metrics collection Defaults to `true`.
          */
         enabled?: pulumi.Input<boolean>;
+        /**
+         * AWS metrics namespace filters. Defaults to a pre-set `excludeOnly` list if block is empty.
+         */
         namespaceFilters?: pulumi.Input<inputs.aws.IntegrationAccountMetricsConfigNamespaceFilters>;
         /**
          * AWS Metrics Collection tag filters list. The array of custom AWS resource tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from a specified service. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For EC2, only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. For example, `env:production,instance-type:c?.*,!region:us-east-1`.
@@ -23724,7 +23741,7 @@ export namespace aws {
          */
         namespace: pulumi.Input<string>;
         /**
-         * The AWS resource tags to filter on for the service specified by `namespace`.
+         * The AWS resource tags to filter on for the service specified by `namespace`. Defaults to `[]`.
          */
         tags?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -23742,18 +23759,18 @@ export namespace aws {
 
     export interface IntegrationAccountTracesConfig {
         /**
-         * AWS X-Ray services to collect traces from.
+         * AWS X-Ray services to collect traces from. Defaults to `includeOnly`.
          */
         xrayServices?: pulumi.Input<inputs.aws.IntegrationAccountTracesConfigXrayServices>;
     }
 
     export interface IntegrationAccountTracesConfigXrayServices {
         /**
-         * Include all services
+         * Include all services.
          */
         includeAll?: pulumi.Input<boolean>;
         /**
-         * Include only these services
+         * Include only these services. Defaults to `[]`.
          */
         includeOnlies?: pulumi.Input<pulumi.Input<string>[]>;
     }

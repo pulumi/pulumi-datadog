@@ -29,6 +29,9 @@ namespace Pulumi.Datadog.Aws.Outputs
         /// Enable AWS metrics collection Defaults to `true`.
         /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// AWS metrics namespace filters. Defaults to a pre-set `exclude_only` list if block is empty.
+        /// </summary>
         public readonly Outputs.IntegrationAccountMetricsConfigNamespaceFilters? NamespaceFilters;
         /// <summary>
         /// AWS Metrics Collection tag filters list. The array of custom AWS resource tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from a specified service. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For EC2, only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. For example, `env:production,instance-type:c?.*,!region:us-east-1`.

@@ -16,14 +16,14 @@ public final class IntegrationAccountAuthConfigAwsAuthConfigRoleArgs extends com
     public static final IntegrationAccountAuthConfigAwsAuthConfigRoleArgs Empty = new IntegrationAccountAuthConfigAwsAuthConfigRoleArgs();
 
     /**
-     * AWS IAM External ID for associated role
+     * AWS IAM external ID for associated role. If omitted, one is generated.
      * 
      */
     @Import(name="externalId")
     private @Nullable Output<String> externalId;
 
     /**
-     * @return AWS IAM External ID for associated role
+     * @return AWS IAM external ID for associated role. If omitted, one is generated.
      * 
      */
     public Optional<Output<String>> externalId() {
@@ -31,14 +31,14 @@ public final class IntegrationAccountAuthConfigAwsAuthConfigRoleArgs extends com
     }
 
     /**
-     * AWS IAM Role name
+     * AWS IAM role name.
      * 
      */
     @Import(name="roleName")
     private @Nullable Output<String> roleName;
 
     /**
-     * @return AWS IAM Role name
+     * @return AWS IAM role name.
      * 
      */
     public Optional<Output<String>> roleName() {
@@ -71,7 +71,7 @@ public final class IntegrationAccountAuthConfigAwsAuthConfigRoleArgs extends com
         }
 
         /**
-         * @param externalId AWS IAM External ID for associated role
+         * @param externalId AWS IAM external ID for associated role. If omitted, one is generated.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class IntegrationAccountAuthConfigAwsAuthConfigRoleArgs extends com
         }
 
         /**
-         * @param externalId AWS IAM External ID for associated role
+         * @param externalId AWS IAM external ID for associated role. If omitted, one is generated.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class IntegrationAccountAuthConfigAwsAuthConfigRoleArgs extends com
         }
 
         /**
-         * @param roleName AWS IAM Role name
+         * @param roleName AWS IAM role name.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class IntegrationAccountAuthConfigAwsAuthConfigRoleArgs extends com
         }
 
         /**
-         * @param roleName AWS IAM Role name
+         * @param roleName AWS IAM role name.
          * 
          * @return builder
          * 

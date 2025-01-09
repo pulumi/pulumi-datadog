@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Aws.Outputs
     public sealed class IntegrationAccountTracesConfig
     {
         /// <summary>
-        /// AWS X-Ray services to collect traces from.
+        /// AWS X-Ray services to collect traces from. Defaults to `include_only`.
         /// </summary>
         public readonly Outputs.IntegrationAccountTracesConfigXrayServices? XrayServices;
 

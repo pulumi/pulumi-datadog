@@ -22,6 +22,7 @@ __all__ = ['RoleArgs', 'Role']
 class RoleArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
+                 default_permissions_opt_out: Optional[pulumi.Input[bool]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input['RolePermissionArgs']]]] = None,
                  validate: Optional[pulumi.Input[bool]] = None):
         """
@@ -31,6 +32,8 @@ class RoleArgs:
         :param pulumi.Input[bool] validate: If set to `false`, skip the validation call done during plan.
         """
         pulumi.set(__self__, "name", name)
+        if default_permissions_opt_out is not None:
+            pulumi.set(__self__, "default_permissions_opt_out", default_permissions_opt_out)
         if permissions is not None:
             pulumi.set(__self__, "permissions", permissions)
         if validate is not None:
@@ -47,6 +50,15 @@ class RoleArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="defaultPermissionsOptOut")
+    def default_permissions_opt_out(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "default_permissions_opt_out")
+
+    @default_permissions_opt_out.setter
+    def default_permissions_opt_out(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "default_permissions_opt_out", value)
 
     @property
     @pulumi.getter
@@ -76,6 +88,7 @@ class RoleArgs:
 @pulumi.input_type
 class _RoleState:
     def __init__(__self__, *,
+                 default_permissions_opt_out: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input['RolePermissionArgs']]]] = None,
                  user_count: Optional[pulumi.Input[int]] = None,
@@ -87,6 +100,8 @@ class _RoleState:
         :param pulumi.Input[int] user_count: Number of users that have this role.
         :param pulumi.Input[bool] validate: If set to `false`, skip the validation call done during plan.
         """
+        if default_permissions_opt_out is not None:
+            pulumi.set(__self__, "default_permissions_opt_out", default_permissions_opt_out)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if permissions is not None:
@@ -95,6 +110,15 @@ class _RoleState:
             pulumi.set(__self__, "user_count", user_count)
         if validate is not None:
             pulumi.set(__self__, "validate", validate)
+
+    @property
+    @pulumi.getter(name="defaultPermissionsOptOut")
+    def default_permissions_opt_out(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "default_permissions_opt_out")
+
+    @default_permissions_opt_out.setter
+    def default_permissions_opt_out(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "default_permissions_opt_out", value)
 
     @property
     @pulumi.getter
@@ -150,6 +174,7 @@ class Role(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 default_permissions_opt_out: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RolePermissionArgs', 'RolePermissionArgsDict']]]]] = None,
                  validate: Optional[pulumi.Input[bool]] = None,
@@ -245,6 +270,7 @@ class Role(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 default_permissions_opt_out: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RolePermissionArgs', 'RolePermissionArgsDict']]]]] = None,
                  validate: Optional[pulumi.Input[bool]] = None,
@@ -257,6 +283,7 @@ class Role(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RoleArgs.__new__(RoleArgs)
 
+            __props__.__dict__["default_permissions_opt_out"] = default_permissions_opt_out
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
@@ -273,6 +300,7 @@ class Role(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            default_permissions_opt_out: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RolePermissionArgs', 'RolePermissionArgsDict']]]]] = None,
             user_count: Optional[pulumi.Input[int]] = None,
@@ -293,11 +321,17 @@ class Role(pulumi.CustomResource):
 
         __props__ = _RoleState.__new__(_RoleState)
 
+        __props__.__dict__["default_permissions_opt_out"] = default_permissions_opt_out
         __props__.__dict__["name"] = name
         __props__.__dict__["permissions"] = permissions
         __props__.__dict__["user_count"] = user_count
         __props__.__dict__["validate"] = validate
         return Role(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="defaultPermissionsOptOut")
+    def default_permissions_opt_out(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "default_permissions_opt_out")
 
     @property
     @pulumi.getter
