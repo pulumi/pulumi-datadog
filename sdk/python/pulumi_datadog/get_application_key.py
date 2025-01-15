@@ -26,7 +26,7 @@ class GetApplicationKeyResult:
     """
     A collection of values returned by getApplicationKey.
     """
-    def __init__(__self__, exact_match=None, id=None, key=None, name=None):
+    def __init__(__self__, exact_match=None, id=None, key=None, name=None, scopes=None):
         if exact_match and not isinstance(exact_match, bool):
             raise TypeError("Expected argument 'exact_match' to be a bool")
         pulumi.set(__self__, "exact_match", exact_match)
@@ -39,6 +39,9 @@ class GetApplicationKeyResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if scopes and not isinstance(scopes, list):
+            raise TypeError("Expected argument 'scopes' to be a list")
+        pulumi.set(__self__, "scopes", scopes)
 
     @property
     @pulumi.getter(name="exactMatch")
@@ -72,6 +75,14 @@ class GetApplicationKeyResult:
         """
         return pulumi.get(self, "name")
 
+    @property
+    @pulumi.getter
+    def scopes(self) -> Optional[Sequence[str]]:
+        """
+        Authorization scopes for the Application Key.
+        """
+        return pulumi.get(self, "scopes")
+
 
 class AwaitableGetApplicationKeyResult(GetApplicationKeyResult):
     # pylint: disable=using-constant-test
@@ -82,12 +93,14 @@ class AwaitableGetApplicationKeyResult(GetApplicationKeyResult):
             exact_match=self.exact_match,
             id=self.id,
             key=self.key,
-            name=self.name)
+            name=self.name,
+            scopes=self.scopes)
 
 
 def get_application_key(exact_match: Optional[bool] = None,
                         id: Optional[str] = None,
                         name: Optional[str] = None,
+                        scopes: Optional[Sequence[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationKeyResult:
     """
     Use this data source to retrieve information about an existing application key. Deprecated. This will be removed in a future release with prior notice. Securely store your application keys using a secret management system or use the ApplicationKey resource to manage application keys in your Datadog account.
@@ -105,11 +118,13 @@ def get_application_key(exact_match: Optional[bool] = None,
     :param bool exact_match: Whether to use exact match when searching by name.
     :param str id: Id for Application Key.
     :param str name: Name for Application Key.
+    :param Sequence[str] scopes: Authorization scopes for the Application Key.
     """
     __args__ = dict()
     __args__['exactMatch'] = exact_match
     __args__['id'] = id
     __args__['name'] = name
+    __args__['scopes'] = scopes
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('datadog:index/getApplicationKey:getApplicationKey', __args__, opts=opts, typ=GetApplicationKeyResult).value
 
@@ -117,10 +132,12 @@ def get_application_key(exact_match: Optional[bool] = None,
         exact_match=pulumi.get(__ret__, 'exact_match'),
         id=pulumi.get(__ret__, 'id'),
         key=pulumi.get(__ret__, 'key'),
-        name=pulumi.get(__ret__, 'name'))
+        name=pulumi.get(__ret__, 'name'),
+        scopes=pulumi.get(__ret__, 'scopes'))
 def get_application_key_output(exact_match: Optional[pulumi.Input[Optional[bool]]] = None,
                                id: Optional[pulumi.Input[Optional[str]]] = None,
                                name: Optional[pulumi.Input[Optional[str]]] = None,
+                               scopes: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationKeyResult]:
     """
     Use this data source to retrieve information about an existing application key. Deprecated. This will be removed in a future release with prior notice. Securely store your application keys using a secret management system or use the ApplicationKey resource to manage application keys in your Datadog account.
@@ -138,15 +155,18 @@ def get_application_key_output(exact_match: Optional[pulumi.Input[Optional[bool]
     :param bool exact_match: Whether to use exact match when searching by name.
     :param str id: Id for Application Key.
     :param str name: Name for Application Key.
+    :param Sequence[str] scopes: Authorization scopes for the Application Key.
     """
     __args__ = dict()
     __args__['exactMatch'] = exact_match
     __args__['id'] = id
     __args__['name'] = name
+    __args__['scopes'] = scopes
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('datadog:index/getApplicationKey:getApplicationKey', __args__, opts=opts, typ=GetApplicationKeyResult)
     return __ret__.apply(lambda __response__: GetApplicationKeyResult(
         exact_match=pulumi.get(__response__, 'exact_match'),
         id=pulumi.get(__response__, 'id'),
         key=pulumi.get(__response__, 'key'),
-        name=pulumi.get(__response__, 'name')))
+        name=pulumi.get(__response__, 'name'),
+        scopes=pulumi.get(__response__, 'scopes')))

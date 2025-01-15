@@ -56,6 +56,8 @@ type LookupApplicationKeyArgs struct {
 	Id *string `pulumi:"id"`
 	// Name for Application Key.
 	Name *string `pulumi:"name"`
+	// Authorization scopes for the Application Key.
+	Scopes []string `pulumi:"scopes"`
 }
 
 // A collection of values returned by getApplicationKey.
@@ -68,6 +70,8 @@ type LookupApplicationKeyResult struct {
 	Key string `pulumi:"key"`
 	// Name for Application Key.
 	Name *string `pulumi:"name"`
+	// Authorization scopes for the Application Key.
+	Scopes []string `pulumi:"scopes"`
 }
 
 func LookupApplicationKeyOutput(ctx *pulumi.Context, args LookupApplicationKeyOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationKeyResultOutput {
@@ -87,6 +91,8 @@ type LookupApplicationKeyOutputArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name for Application Key.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Authorization scopes for the Application Key.
+	Scopes pulumi.StringArrayInput `pulumi:"scopes"`
 }
 
 func (LookupApplicationKeyOutputArgs) ElementType() reflect.Type {
@@ -126,6 +132,11 @@ func (o LookupApplicationKeyResultOutput) Key() pulumi.StringOutput {
 // Name for Application Key.
 func (o LookupApplicationKeyResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationKeyResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Authorization scopes for the Application Key.
+func (o LookupApplicationKeyResultOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupApplicationKeyResult) []string { return v.Scopes }).(pulumi.StringArrayOutput)
 }
 
 func init() {

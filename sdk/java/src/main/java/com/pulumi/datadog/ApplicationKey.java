@@ -12,6 +12,7 @@ import com.pulumi.datadog.Utilities;
 import com.pulumi.datadog.inputs.ApplicationKeyState;
 import java.lang.String;
 import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -89,6 +90,20 @@ public class ApplicationKey extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
+     * 
+     */
+    @Export(name="scopes", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> scopes;
+
+    /**
+     * @return Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
+     * 
+     */
+    public Output<Optional<List<String>>> scopes() {
+        return Codegen.optional(this.scopes);
     }
 
     /**

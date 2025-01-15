@@ -52,6 +52,12 @@ namespace Pulumi.Datadog
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
+        /// </summary>
+        [Output("scopes")]
+        public Output<ImmutableArray<string>> Scopes { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a ApplicationKey resource with the given unique name, arguments, and options.
@@ -108,6 +114,18 @@ namespace Pulumi.Datadog
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("scopes")]
+        private InputList<string>? _scopes;
+
+        /// <summary>
+        /// Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
+        /// </summary>
+        public InputList<string> Scopes
+        {
+            get => _scopes ?? (_scopes = new InputList<string>());
+            set => _scopes = value;
+        }
+
         public ApplicationKeyArgs()
         {
         }
@@ -137,6 +155,18 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("scopes")]
+        private InputList<string>? _scopes;
+
+        /// <summary>
+        /// Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
+        /// </summary>
+        public InputList<string> Scopes
+        {
+            get => _scopes ?? (_scopes = new InputList<string>());
+            set => _scopes = value;
+        }
 
         public ApplicationKeyState()
         {

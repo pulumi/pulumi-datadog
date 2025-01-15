@@ -59,6 +59,10 @@ export class ApplicationKey extends pulumi.CustomResource {
      * Name for Application Key.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
+     */
+    public readonly scopes!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a ApplicationKey resource with the given unique name, arguments, and options.
@@ -75,12 +79,14 @@ export class ApplicationKey extends pulumi.CustomResource {
             const state = argsOrState as ApplicationKeyState | undefined;
             resourceInputs["key"] = state ? state.key : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["scopes"] = state ? state.scopes : undefined;
         } else {
             const args = argsOrState as ApplicationKeyArgs | undefined;
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["scopes"] = args ? args.scopes : undefined;
             resourceInputs["key"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -102,6 +108,10 @@ export interface ApplicationKeyState {
      * Name for Application Key.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
+     */
+    scopes?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -112,4 +122,8 @@ export interface ApplicationKeyArgs {
      * Name for Application Key.
      */
     name: pulumi.Input<string>;
+    /**
+     * Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
+     */
+    scopes?: pulumi.Input<pulumi.Input<string>[]>;
 }
