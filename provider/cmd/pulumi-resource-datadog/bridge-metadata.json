@@ -20,7 +20,12 @@
             },
             "datadog_application_key": {
                 "current": "datadog:index/applicationKey:ApplicationKey",
-                "majorVersion": 4
+                "majorVersion": 4,
+                "fields": {
+                    "scopes": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "datadog_authn_mapping": {
                 "current": "datadog:index/authnMapping:AuthnMapping",
@@ -16006,7 +16011,12 @@
             },
             "datadog_application_key": {
                 "current": "datadog:index/getApplicationKey:getApplicationKey",
-                "majorVersion": 4
+                "majorVersion": 4,
+                "fields": {
+                    "scopes": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "datadog_cloud_workload_security_agent_rules": {
                 "current": "datadog:index/getCloudWorkloadSecurityAgentRules:getCloudWorkloadSecurityAgentRules",
