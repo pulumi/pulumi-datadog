@@ -19,12 +19,16 @@ __all__ = ['ApplicationKeyArgs', 'ApplicationKey']
 @pulumi.input_type
 class ApplicationKeyArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str]):
+                 name: pulumi.Input[str],
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ApplicationKey resource.
         :param pulumi.Input[str] name: Name for Application Key.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
         """
         pulumi.set(__self__, "name", name)
+        if scopes is not None:
+            pulumi.set(__self__, "scopes", scopes)
 
     @property
     @pulumi.getter
@@ -38,21 +42,37 @@ class ApplicationKeyArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
+        """
+        return pulumi.get(self, "scopes")
+
+    @scopes.setter
+    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "scopes", value)
+
 
 @pulumi.input_type
 class _ApplicationKeyState:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering ApplicationKey resources.
         :param pulumi.Input[str] key: The value of the Application Key.
         :param pulumi.Input[str] name: Name for Application Key.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if scopes is not None:
+            pulumi.set(__self__, "scopes", scopes)
 
     @property
     @pulumi.getter
@@ -78,6 +98,18 @@ class _ApplicationKeyState:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
+        """
+        return pulumi.get(self, "scopes")
+
+    @scopes.setter
+    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "scopes", value)
+
 
 class ApplicationKey(pulumi.CustomResource):
     @overload
@@ -85,6 +117,7 @@ class ApplicationKey(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides a Datadog Application Key resource. This can be used to create and manage Datadog Application Keys. Import functionality for this resource is deprecated and will be removed in a future release with prior notice. Securely store your application keys using a secret management system or use this resource to create and manage new application keys.
@@ -108,6 +141,7 @@ class ApplicationKey(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Name for Application Key.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
         """
         ...
     @overload
@@ -150,6 +184,7 @@ class ApplicationKey(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -162,6 +197,7 @@ class ApplicationKey(pulumi.CustomResource):
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
+            __props__.__dict__["scopes"] = scopes
             __props__.__dict__["key"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["key"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
@@ -176,7 +212,8 @@ class ApplicationKey(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             key: Optional[pulumi.Input[str]] = None,
-            name: Optional[pulumi.Input[str]] = None) -> 'ApplicationKey':
+            name: Optional[pulumi.Input[str]] = None,
+            scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'ApplicationKey':
         """
         Get an existing ApplicationKey resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -186,6 +223,7 @@ class ApplicationKey(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] key: The value of the Application Key.
         :param pulumi.Input[str] name: Name for Application Key.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -193,6 +231,7 @@ class ApplicationKey(pulumi.CustomResource):
 
         __props__.__dict__["key"] = key
         __props__.__dict__["name"] = name
+        __props__.__dict__["scopes"] = scopes
         return ApplicationKey(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -210,4 +249,12 @@ class ApplicationKey(pulumi.CustomResource):
         Name for Application Key.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
+        """
+        return pulumi.get(self, "scopes")
 

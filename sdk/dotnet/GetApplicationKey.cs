@@ -105,6 +105,18 @@ namespace Pulumi.Datadog
         [Input("name")]
         public string? Name { get; set; }
 
+        [Input("scopes")]
+        private List<string>? _scopes;
+
+        /// <summary>
+        /// Authorization scopes for the Application Key.
+        /// </summary>
+        public List<string> Scopes
+        {
+            get => _scopes ?? (_scopes = new List<string>());
+            set => _scopes = value;
+        }
+
         public GetApplicationKeyArgs()
         {
         }
@@ -130,6 +142,18 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("scopes")]
+        private InputList<string>? _scopes;
+
+        /// <summary>
+        /// Authorization scopes for the Application Key.
+        /// </summary>
+        public InputList<string> Scopes
+        {
+            get => _scopes ?? (_scopes = new InputList<string>());
+            set => _scopes = value;
+        }
 
         public GetApplicationKeyInvokeArgs()
         {
@@ -157,6 +181,10 @@ namespace Pulumi.Datadog
         /// Name for Application Key.
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Authorization scopes for the Application Key.
+        /// </summary>
+        public readonly ImmutableArray<string> Scopes;
 
         [OutputConstructor]
         private GetApplicationKeyResult(
@@ -166,12 +194,15 @@ namespace Pulumi.Datadog
 
             string key,
 
-            string? name)
+            string? name,
+
+            ImmutableArray<string> scopes)
         {
             ExactMatch = exactMatch;
             Id = id;
             Key = key;
             Name = name;
+            Scopes = scopes;
         }
     }
 }

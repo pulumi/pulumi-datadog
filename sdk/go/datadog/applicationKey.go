@@ -53,6 +53,8 @@ type ApplicationKey struct {
 	Key pulumi.StringOutput `pulumi:"key"`
 	// Name for Application Key.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
+	Scopes pulumi.StringArrayOutput `pulumi:"scopes"`
 }
 
 // NewApplicationKey registers a new resource with the given unique name, arguments, and options.
@@ -96,6 +98,8 @@ type applicationKeyState struct {
 	Key *string `pulumi:"key"`
 	// Name for Application Key.
 	Name *string `pulumi:"name"`
+	// Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
+	Scopes []string `pulumi:"scopes"`
 }
 
 type ApplicationKeyState struct {
@@ -103,6 +107,8 @@ type ApplicationKeyState struct {
 	Key pulumi.StringPtrInput
 	// Name for Application Key.
 	Name pulumi.StringPtrInput
+	// Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
+	Scopes pulumi.StringArrayInput
 }
 
 func (ApplicationKeyState) ElementType() reflect.Type {
@@ -112,12 +118,16 @@ func (ApplicationKeyState) ElementType() reflect.Type {
 type applicationKeyArgs struct {
 	// Name for Application Key.
 	Name string `pulumi:"name"`
+	// Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
+	Scopes []string `pulumi:"scopes"`
 }
 
 // The set of arguments for constructing a ApplicationKey resource.
 type ApplicationKeyArgs struct {
 	// Name for Application Key.
 	Name pulumi.StringInput
+	// Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
+	Scopes pulumi.StringArrayInput
 }
 
 func (ApplicationKeyArgs) ElementType() reflect.Type {
@@ -215,6 +225,11 @@ func (o ApplicationKeyOutput) Key() pulumi.StringOutput {
 // Name for Application Key.
 func (o ApplicationKeyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationKey) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
+func (o ApplicationKeyOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ApplicationKey) pulumi.StringArrayOutput { return v.Scopes }).(pulumi.StringArrayOutput)
 }
 
 type ApplicationKeyArrayOutput struct{ *pulumi.OutputState }

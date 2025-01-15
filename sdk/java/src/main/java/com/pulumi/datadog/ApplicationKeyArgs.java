@@ -7,7 +7,10 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ApplicationKeyArgs extends com.pulumi.resources.ResourceArgs {
@@ -29,10 +32,26 @@ public final class ApplicationKeyArgs extends com.pulumi.resources.ResourceArgs 
         return this.name;
     }
 
+    /**
+     * Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
+     * 
+     */
+    @Import(name="scopes")
+    private @Nullable Output<List<String>> scopes;
+
+    /**
+     * @return Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
+     * 
+     */
+    public Optional<Output<List<String>>> scopes() {
+        return Optional.ofNullable(this.scopes);
+    }
+
     private ApplicationKeyArgs() {}
 
     private ApplicationKeyArgs(ApplicationKeyArgs $) {
         this.name = $.name;
+        this.scopes = $.scopes;
     }
 
     public static Builder builder() {
@@ -72,6 +91,37 @@ public final class ApplicationKeyArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param scopes Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scopes(@Nullable Output<List<String>> scopes) {
+            $.scopes = scopes;
+            return this;
+        }
+
+        /**
+         * @param scopes Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scopes(List<String> scopes) {
+            return scopes(Output.of(scopes));
+        }
+
+        /**
+         * @param scopes Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scopes(String... scopes) {
+            return scopes(List.of(scopes));
         }
 
         public ApplicationKeyArgs build() {

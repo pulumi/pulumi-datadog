@@ -34472,6 +34472,13 @@
                 "name": {
                     "type": "string",
                     "description": "Name for Application Key.\n"
+                },
+                "scopes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.\n"
                 }
             },
             "required": [
@@ -34482,6 +34489,13 @@
                 "name": {
                     "type": "string",
                     "description": "Name for Application Key.\n"
+                },
+                "scopes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.\n"
                 }
             },
             "requiredInputs": [
@@ -34498,6 +34512,13 @@
                     "name": {
                         "type": "string",
                         "description": "Name for Application Key.\n"
+                    },
+                    "scopes": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.\n"
                     }
                 },
                 "type": "object"
@@ -41291,6 +41312,13 @@
                     "name": {
                         "type": "string",
                         "description": "Name for Application Key.\n"
+                    },
+                    "scopes": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Authorization scopes for the Application Key.\n"
                     }
                 },
                 "type": "object"
@@ -41314,6 +41342,13 @@
                     "name": {
                         "description": "Name for Application Key.\n",
                         "type": "string"
+                    },
+                    "scopes": {
+                        "description": "Authorization scopes for the Application Key.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
                     }
                 },
                 "required": [
