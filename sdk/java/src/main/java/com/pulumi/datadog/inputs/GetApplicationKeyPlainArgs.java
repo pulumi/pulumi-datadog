@@ -6,7 +6,6 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -61,28 +60,12 @@ public final class GetApplicationKeyPlainArgs extends com.pulumi.resources.Invok
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Authorization scopes for the Application Key.
-     * 
-     */
-    @Import(name="scopes")
-    private @Nullable List<String> scopes;
-
-    /**
-     * @return Authorization scopes for the Application Key.
-     * 
-     */
-    public Optional<List<String>> scopes() {
-        return Optional.ofNullable(this.scopes);
-    }
-
     private GetApplicationKeyPlainArgs() {}
 
     private GetApplicationKeyPlainArgs(GetApplicationKeyPlainArgs $) {
         this.exactMatch = $.exactMatch;
         this.id = $.id;
         this.name = $.name;
-        this.scopes = $.scopes;
     }
 
     public static Builder builder() {
@@ -134,27 +117,6 @@ public final class GetApplicationKeyPlainArgs extends com.pulumi.resources.Invok
         public Builder name(@Nullable String name) {
             $.name = name;
             return this;
-        }
-
-        /**
-         * @param scopes Authorization scopes for the Application Key.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder scopes(@Nullable List<String> scopes) {
-            $.scopes = scopes;
-            return this;
-        }
-
-        /**
-         * @param scopes Authorization scopes for the Application Key.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder scopes(String... scopes) {
-            return scopes(List.of(scopes));
         }
 
         public GetApplicationKeyPlainArgs build() {

@@ -25,7 +25,6 @@ export function getApplicationKey(args?: GetApplicationKeyArgs, opts?: pulumi.In
         "exactMatch": args.exactMatch,
         "id": args.id,
         "name": args.name,
-        "scopes": args.scopes,
     }, opts);
 }
 
@@ -45,10 +44,6 @@ export interface GetApplicationKeyArgs {
      * Name for Application Key.
      */
     name?: string;
-    /**
-     * Authorization scopes for the Application Key.
-     */
-    scopes?: string[];
 }
 
 /**
@@ -71,10 +66,6 @@ export interface GetApplicationKeyResult {
      * Name for Application Key.
      */
     readonly name?: string;
-    /**
-     * Authorization scopes for the Application Key.
-     */
-    readonly scopes?: string[];
 }
 /**
  * Use this data source to retrieve information about an existing application key. Deprecated. This will be removed in a future release with prior notice. Securely store your application keys using a secret management system or use the datadog.ApplicationKey resource to manage application keys in your Datadog account.
@@ -97,7 +88,6 @@ export function getApplicationKeyOutput(args?: GetApplicationKeyOutputArgs, opts
         "exactMatch": args.exactMatch,
         "id": args.id,
         "name": args.name,
-        "scopes": args.scopes,
     }, opts);
 }
 
@@ -117,8 +107,4 @@ export interface GetApplicationKeyOutputArgs {
      * Name for Application Key.
      */
     name?: pulumi.Input<string>;
-    /**
-     * Authorization scopes for the Application Key.
-     */
-    scopes?: pulumi.Input<pulumi.Input<string>[]>;
 }

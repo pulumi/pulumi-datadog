@@ -7,7 +7,6 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -34,11 +33,6 @@ public final class GetApplicationKeyResult {
      * 
      */
     private @Nullable String name;
-    /**
-     * @return Authorization scopes for the Application Key.
-     * 
-     */
-    private @Nullable List<String> scopes;
 
     private GetApplicationKeyResult() {}
     /**
@@ -69,13 +63,6 @@ public final class GetApplicationKeyResult {
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
-    /**
-     * @return Authorization scopes for the Application Key.
-     * 
-     */
-    public List<String> scopes() {
-        return this.scopes == null ? List.of() : this.scopes;
-    }
 
     public static Builder builder() {
         return new Builder();
@@ -90,7 +77,6 @@ public final class GetApplicationKeyResult {
         private @Nullable String id;
         private String key;
         private @Nullable String name;
-        private @Nullable List<String> scopes;
         public Builder() {}
         public Builder(GetApplicationKeyResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -98,7 +84,6 @@ public final class GetApplicationKeyResult {
     	      this.id = defaults.id;
     	      this.key = defaults.key;
     	      this.name = defaults.name;
-    	      this.scopes = defaults.scopes;
         }
 
         @CustomType.Setter
@@ -127,22 +112,12 @@ public final class GetApplicationKeyResult {
             this.name = name;
             return this;
         }
-        @CustomType.Setter
-        public Builder scopes(@Nullable List<String> scopes) {
-
-            this.scopes = scopes;
-            return this;
-        }
-        public Builder scopes(String... scopes) {
-            return scopes(List.of(scopes));
-        }
         public GetApplicationKeyResult build() {
             final var _resultValue = new GetApplicationKeyResult();
             _resultValue.exactMatch = exactMatch;
             _resultValue.id = id;
             _resultValue.key = key;
             _resultValue.name = name;
-            _resultValue.scopes = scopes;
             return _resultValue;
         }
     }
