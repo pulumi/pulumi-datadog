@@ -166,6 +166,7 @@ func Provider() tfbridge.ProviderInfo {
 			Namespaces: namespaceMap,
 		},
 		EnableZeroDefaultSchemaVersion: true,
+		EnableAccurateBridgePreview:    true,
 	}
 
 	strategy := tks.KnownModules("datadog_", mainMod, []string{
