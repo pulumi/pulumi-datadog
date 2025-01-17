@@ -7,7 +7,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -62,28 +61,12 @@ public final class GetApplicationKeyArgs extends com.pulumi.resources.InvokeArgs
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Authorization scopes for the Application Key.
-     * 
-     */
-    @Import(name="scopes")
-    private @Nullable Output<List<String>> scopes;
-
-    /**
-     * @return Authorization scopes for the Application Key.
-     * 
-     */
-    public Optional<Output<List<String>>> scopes() {
-        return Optional.ofNullable(this.scopes);
-    }
-
     private GetApplicationKeyArgs() {}
 
     private GetApplicationKeyArgs(GetApplicationKeyArgs $) {
         this.exactMatch = $.exactMatch;
         this.id = $.id;
         this.name = $.name;
-        this.scopes = $.scopes;
     }
 
     public static Builder builder() {
@@ -165,37 +148,6 @@ public final class GetApplicationKeyArgs extends com.pulumi.resources.InvokeArgs
          */
         public Builder name(String name) {
             return name(Output.of(name));
-        }
-
-        /**
-         * @param scopes Authorization scopes for the Application Key.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder scopes(@Nullable Output<List<String>> scopes) {
-            $.scopes = scopes;
-            return this;
-        }
-
-        /**
-         * @param scopes Authorization scopes for the Application Key.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder scopes(List<String> scopes) {
-            return scopes(Output.of(scopes));
-        }
-
-        /**
-         * @param scopes Authorization scopes for the Application Key.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder scopes(String... scopes) {
-            return scopes(List.of(scopes));
         }
 
         public GetApplicationKeyArgs build() {

@@ -41312,13 +41312,6 @@
                     "name": {
                         "type": "string",
                         "description": "Name for Application Key.\n"
-                    },
-                    "scopes": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        },
-                        "description": "Authorization scopes for the Application Key.\n"
                     }
                 },
                 "type": "object"
@@ -41342,13 +41335,6 @@
                     "name": {
                         "description": "Name for Application Key.\n",
                         "type": "string"
-                    },
-                    "scopes": {
-                        "description": "Authorization scopes for the Application Key.\n",
-                        "items": {
-                            "type": "string"
-                        },
-                        "type": "array"
                     }
                 },
                 "required": [

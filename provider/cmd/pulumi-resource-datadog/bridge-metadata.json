@@ -16011,12 +16011,7 @@
             },
             "datadog_application_key": {
                 "current": "datadog:index/getApplicationKey:getApplicationKey",
-                "majorVersion": 4,
-                "fields": {
-                    "scopes": {
-                        "maxItemsOne": false
-                    }
-                }
+                "majorVersion": 4
             },
             "datadog_cloud_workload_security_agent_rules": {
                 "current": "datadog:index/getCloudWorkloadSecurityAgentRules:getCloudWorkloadSecurityAgentRules",
