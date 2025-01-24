@@ -11452,7 +11452,12 @@
             },
             "datadog_integration_azure": {
                 "current": "datadog:azure/integration:Integration",
-                "majorVersion": 4
+                "majorVersion": 4,
+                "fields": {
+                    "resource_provider_configs": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "datadog_integration_cloudflare_account": {
                 "current": "datadog:cloudflare/integrationAccount:IntegrationAccount",
