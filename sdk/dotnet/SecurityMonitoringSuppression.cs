@@ -30,6 +30,7 @@ namespace Pulumi.Datadog
     ///         RuleQuery = "severity:low source:cloudtrail",
     ///         SuppressionQuery = "@usr.id:john.doe",
     ///         DataExclusionQuery = "env:test",
+    ///         StartDate = "2024-12-01T16:00:00Z",
     ///         ExpirationDate = "2024-12-31T12:00:00Z",
     ///     });
     /// 
@@ -82,6 +83,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Output("ruleQuery")]
         public Output<string> RuleQuery { get; private set; } = null!;
+
+        /// <summary>
+        /// A RFC3339 timestamp giving a start date for the suppression rule. Before this date, it doesn't suppress signals.
+        /// </summary>
+        [Output("startDate")]
+        public Output<string?> StartDate { get; private set; } = null!;
 
         /// <summary>
         /// The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
@@ -172,6 +179,12 @@ namespace Pulumi.Datadog
         public Input<string> RuleQuery { get; set; } = null!;
 
         /// <summary>
+        /// A RFC3339 timestamp giving a start date for the suppression rule. Before this date, it doesn't suppress signals.
+        /// </summary>
+        [Input("startDate")]
+        public Input<string>? StartDate { get; set; }
+
+        /// <summary>
         /// The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
         /// </summary>
         [Input("suppressionQuery")]
@@ -220,6 +233,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("ruleQuery")]
         public Input<string>? RuleQuery { get; set; }
+
+        /// <summary>
+        /// A RFC3339 timestamp giving a start date for the suppression rule. Before this date, it doesn't suppress signals.
+        /// </summary>
+        [Input("startDate")]
+        public Input<string>? StartDate { get; set; }
 
         /// <summary>
         /// The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.

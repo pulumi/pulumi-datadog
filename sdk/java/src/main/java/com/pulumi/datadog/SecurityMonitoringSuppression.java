@@ -50,6 +50,7 @@ import javax.annotation.Nullable;
  *             .ruleQuery("severity:low source:cloudtrail")
  *             .suppressionQuery("}{@literal @}{@code usr.id:john.doe")
  *             .dataExclusionQuery("env:test")
+ *             .startDate("2024-12-01T16:00:00Z")
  *             .expirationDate("2024-12-31T12:00:00Z")
  *             .build());
  * 
@@ -153,6 +154,20 @@ public class SecurityMonitoringSuppression extends com.pulumi.resources.CustomRe
      */
     public Output<String> ruleQuery() {
         return this.ruleQuery;
+    }
+    /**
+     * A RFC3339 timestamp giving a start date for the suppression rule. Before this date, it doesn&#39;t suppress signals.
+     * 
+     */
+    @Export(name="startDate", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> startDate;
+
+    /**
+     * @return A RFC3339 timestamp giving a start date for the suppression rule. Before this date, it doesn&#39;t suppress signals.
+     * 
+     */
+    public Output<Optional<String>> startDate() {
+        return Codegen.optional(this.startDate);
     }
     /**
      * The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.

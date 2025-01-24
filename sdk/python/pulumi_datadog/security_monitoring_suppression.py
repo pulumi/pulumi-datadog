@@ -25,6 +25,7 @@ class SecurityMonitoringSuppressionArgs:
                  data_exclusion_query: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  expiration_date: Optional[pulumi.Input[str]] = None,
+                 start_date: Optional[pulumi.Input[str]] = None,
                  suppression_query: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SecurityMonitoringSuppression resource.
@@ -34,6 +35,7 @@ class SecurityMonitoringSuppressionArgs:
         :param pulumi.Input[str] data_exclusion_query: An exclusion query on the input data of the security rules, which could be logs, Agent events, or other types of data based on the security rule. Events matching this query are ignored by any detection rules referenced in the suppression rule.
         :param pulumi.Input[str] description: A description for the suppression rule.
         :param pulumi.Input[str] expiration_date: A RFC3339 timestamp giving an expiration date for the suppression rule. After this date, it won't suppress signals anymore.
+        :param pulumi.Input[str] start_date: A RFC3339 timestamp giving a start date for the suppression rule. Before this date, it doesn't suppress signals.
         :param pulumi.Input[str] suppression_query: The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -45,6 +47,8 @@ class SecurityMonitoringSuppressionArgs:
             pulumi.set(__self__, "description", description)
         if expiration_date is not None:
             pulumi.set(__self__, "expiration_date", expiration_date)
+        if start_date is not None:
+            pulumi.set(__self__, "start_date", start_date)
         if suppression_query is not None:
             pulumi.set(__self__, "suppression_query", suppression_query)
 
@@ -121,6 +125,18 @@ class SecurityMonitoringSuppressionArgs:
         pulumi.set(self, "expiration_date", value)
 
     @property
+    @pulumi.getter(name="startDate")
+    def start_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        A RFC3339 timestamp giving a start date for the suppression rule. Before this date, it doesn't suppress signals.
+        """
+        return pulumi.get(self, "start_date")
+
+    @start_date.setter
+    def start_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_date", value)
+
+    @property
     @pulumi.getter(name="suppressionQuery")
     def suppression_query(self) -> Optional[pulumi.Input[str]]:
         """
@@ -142,6 +158,7 @@ class _SecurityMonitoringSuppressionState:
                  expiration_date: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rule_query: Optional[pulumi.Input[str]] = None,
+                 start_date: Optional[pulumi.Input[str]] = None,
                  suppression_query: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SecurityMonitoringSuppression resources.
@@ -151,6 +168,7 @@ class _SecurityMonitoringSuppressionState:
         :param pulumi.Input[str] expiration_date: A RFC3339 timestamp giving an expiration date for the suppression rule. After this date, it won't suppress signals anymore.
         :param pulumi.Input[str] name: The name of the suppression rule.
         :param pulumi.Input[str] rule_query: The rule query of the suppression rule, with the same syntax as the search bar for detection rules.
+        :param pulumi.Input[str] start_date: A RFC3339 timestamp giving a start date for the suppression rule. Before this date, it doesn't suppress signals.
         :param pulumi.Input[str] suppression_query: The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
         """
         if data_exclusion_query is not None:
@@ -165,6 +183,8 @@ class _SecurityMonitoringSuppressionState:
             pulumi.set(__self__, "name", name)
         if rule_query is not None:
             pulumi.set(__self__, "rule_query", rule_query)
+        if start_date is not None:
+            pulumi.set(__self__, "start_date", start_date)
         if suppression_query is not None:
             pulumi.set(__self__, "suppression_query", suppression_query)
 
@@ -241,6 +261,18 @@ class _SecurityMonitoringSuppressionState:
         pulumi.set(self, "rule_query", value)
 
     @property
+    @pulumi.getter(name="startDate")
+    def start_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        A RFC3339 timestamp giving a start date for the suppression rule. Before this date, it doesn't suppress signals.
+        """
+        return pulumi.get(self, "start_date")
+
+    @start_date.setter
+    def start_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_date", value)
+
+    @property
     @pulumi.getter(name="suppressionQuery")
     def suppression_query(self) -> Optional[pulumi.Input[str]]:
         """
@@ -264,6 +296,7 @@ class SecurityMonitoringSuppression(pulumi.CustomResource):
                  expiration_date: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rule_query: Optional[pulumi.Input[str]] = None,
+                 start_date: Optional[pulumi.Input[str]] = None,
                  suppression_query: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -282,6 +315,7 @@ class SecurityMonitoringSuppression(pulumi.CustomResource):
             rule_query="severity:low source:cloudtrail",
             suppression_query="@usr.id:john.doe",
             data_exclusion_query="env:test",
+            start_date="2024-12-01T16:00:00Z",
             expiration_date="2024-12-31T12:00:00Z")
         ```
 
@@ -301,6 +335,7 @@ class SecurityMonitoringSuppression(pulumi.CustomResource):
         :param pulumi.Input[str] expiration_date: A RFC3339 timestamp giving an expiration date for the suppression rule. After this date, it won't suppress signals anymore.
         :param pulumi.Input[str] name: The name of the suppression rule.
         :param pulumi.Input[str] rule_query: The rule query of the suppression rule, with the same syntax as the search bar for detection rules.
+        :param pulumi.Input[str] start_date: A RFC3339 timestamp giving a start date for the suppression rule. Before this date, it doesn't suppress signals.
         :param pulumi.Input[str] suppression_query: The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
         """
         ...
@@ -325,6 +360,7 @@ class SecurityMonitoringSuppression(pulumi.CustomResource):
             rule_query="severity:low source:cloudtrail",
             suppression_query="@usr.id:john.doe",
             data_exclusion_query="env:test",
+            start_date="2024-12-01T16:00:00Z",
             expiration_date="2024-12-31T12:00:00Z")
         ```
 
@@ -357,6 +393,7 @@ class SecurityMonitoringSuppression(pulumi.CustomResource):
                  expiration_date: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rule_query: Optional[pulumi.Input[str]] = None,
+                 start_date: Optional[pulumi.Input[str]] = None,
                  suppression_query: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -379,6 +416,7 @@ class SecurityMonitoringSuppression(pulumi.CustomResource):
             if rule_query is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_query'")
             __props__.__dict__["rule_query"] = rule_query
+            __props__.__dict__["start_date"] = start_date
             __props__.__dict__["suppression_query"] = suppression_query
         super(SecurityMonitoringSuppression, __self__).__init__(
             'datadog:index/securityMonitoringSuppression:SecurityMonitoringSuppression',
@@ -396,6 +434,7 @@ class SecurityMonitoringSuppression(pulumi.CustomResource):
             expiration_date: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             rule_query: Optional[pulumi.Input[str]] = None,
+            start_date: Optional[pulumi.Input[str]] = None,
             suppression_query: Optional[pulumi.Input[str]] = None) -> 'SecurityMonitoringSuppression':
         """
         Get an existing SecurityMonitoringSuppression resource's state with the given name, id, and optional extra
@@ -410,6 +449,7 @@ class SecurityMonitoringSuppression(pulumi.CustomResource):
         :param pulumi.Input[str] expiration_date: A RFC3339 timestamp giving an expiration date for the suppression rule. After this date, it won't suppress signals anymore.
         :param pulumi.Input[str] name: The name of the suppression rule.
         :param pulumi.Input[str] rule_query: The rule query of the suppression rule, with the same syntax as the search bar for detection rules.
+        :param pulumi.Input[str] start_date: A RFC3339 timestamp giving a start date for the suppression rule. Before this date, it doesn't suppress signals.
         :param pulumi.Input[str] suppression_query: The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -422,6 +462,7 @@ class SecurityMonitoringSuppression(pulumi.CustomResource):
         __props__.__dict__["expiration_date"] = expiration_date
         __props__.__dict__["name"] = name
         __props__.__dict__["rule_query"] = rule_query
+        __props__.__dict__["start_date"] = start_date
         __props__.__dict__["suppression_query"] = suppression_query
         return SecurityMonitoringSuppression(resource_name, opts=opts, __props__=__props__)
 
@@ -472,6 +513,14 @@ class SecurityMonitoringSuppression(pulumi.CustomResource):
         The rule query of the suppression rule, with the same syntax as the search bar for detection rules.
         """
         return pulumi.get(self, "rule_query")
+
+    @property
+    @pulumi.getter(name="startDate")
+    def start_date(self) -> pulumi.Output[Optional[str]]:
+        """
+        A RFC3339 timestamp giving a start date for the suppression rule. Before this date, it doesn't suppress signals.
+        """
+        return pulumi.get(self, "start_date")
 
     @property
     @pulumi.getter(name="suppressionQuery")

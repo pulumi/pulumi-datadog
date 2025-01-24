@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -97,13 +99,29 @@ export class Integration extends pulumi.CustomResource {
      */
     public readonly hostFilters!: pulumi.Output<string>;
     /**
+     * Enable Azure metrics for your organization. Defaults to `true`.
+     */
+    public readonly metricsEnabled!: pulumi.Output<boolean>;
+    /**
+     * Enable Azure metrics for your organization for resource providers where no resource provider config is specified. Defaults to `true`.
+     */
+    public readonly metricsEnabledDefault!: pulumi.Output<boolean>;
+    /**
      * When enabled, Datadog collects metadata and configuration info from cloud resources (such as compute instances, databases, and load balancers) monitored by this app registration.
      */
     public readonly resourceCollectionEnabled!: pulumi.Output<boolean>;
     /**
+     * Configuration settings applied to resources from the specified Azure resource providers.
+     */
+    public readonly resourceProviderConfigs!: pulumi.Output<outputs.azure.IntegrationResourceProviderConfig[]>;
+    /**
      * Your Azure Active Directory ID.
      */
     public readonly tenantName!: pulumi.Output<string>;
+    /**
+     * Enable azure.usage metrics for your organization. Defaults to `true`.
+     */
+    public readonly usageMetricsEnabled!: pulumi.Output<boolean>;
 
     /**
      * Create a Integration resource with the given unique name, arguments, and options.
@@ -126,8 +144,12 @@ export class Integration extends pulumi.CustomResource {
             resourceInputs["cspmEnabled"] = state ? state.cspmEnabled : undefined;
             resourceInputs["customMetricsEnabled"] = state ? state.customMetricsEnabled : undefined;
             resourceInputs["hostFilters"] = state ? state.hostFilters : undefined;
+            resourceInputs["metricsEnabled"] = state ? state.metricsEnabled : undefined;
+            resourceInputs["metricsEnabledDefault"] = state ? state.metricsEnabledDefault : undefined;
             resourceInputs["resourceCollectionEnabled"] = state ? state.resourceCollectionEnabled : undefined;
+            resourceInputs["resourceProviderConfigs"] = state ? state.resourceProviderConfigs : undefined;
             resourceInputs["tenantName"] = state ? state.tenantName : undefined;
+            resourceInputs["usageMetricsEnabled"] = state ? state.usageMetricsEnabled : undefined;
         } else {
             const args = argsOrState as IntegrationArgs | undefined;
             if ((!args || args.clientId === undefined) && !opts.urn) {
@@ -147,8 +169,12 @@ export class Integration extends pulumi.CustomResource {
             resourceInputs["cspmEnabled"] = args ? args.cspmEnabled : undefined;
             resourceInputs["customMetricsEnabled"] = args ? args.customMetricsEnabled : undefined;
             resourceInputs["hostFilters"] = args ? args.hostFilters : undefined;
+            resourceInputs["metricsEnabled"] = args ? args.metricsEnabled : undefined;
+            resourceInputs["metricsEnabledDefault"] = args ? args.metricsEnabledDefault : undefined;
             resourceInputs["resourceCollectionEnabled"] = args ? args.resourceCollectionEnabled : undefined;
+            resourceInputs["resourceProviderConfigs"] = args ? args.resourceProviderConfigs : undefined;
             resourceInputs["tenantName"] = args ? args.tenantName : undefined;
+            resourceInputs["usageMetricsEnabled"] = args ? args.usageMetricsEnabled : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["clientSecret"] };
@@ -195,13 +221,29 @@ export interface IntegrationState {
      */
     hostFilters?: pulumi.Input<string>;
     /**
+     * Enable Azure metrics for your organization. Defaults to `true`.
+     */
+    metricsEnabled?: pulumi.Input<boolean>;
+    /**
+     * Enable Azure metrics for your organization for resource providers where no resource provider config is specified. Defaults to `true`.
+     */
+    metricsEnabledDefault?: pulumi.Input<boolean>;
+    /**
      * When enabled, Datadog collects metadata and configuration info from cloud resources (such as compute instances, databases, and load balancers) monitored by this app registration.
      */
     resourceCollectionEnabled?: pulumi.Input<boolean>;
     /**
+     * Configuration settings applied to resources from the specified Azure resource providers.
+     */
+    resourceProviderConfigs?: pulumi.Input<pulumi.Input<inputs.azure.IntegrationResourceProviderConfig>[]>;
+    /**
      * Your Azure Active Directory ID.
      */
     tenantName?: pulumi.Input<string>;
+    /**
+     * Enable azure.usage metrics for your organization. Defaults to `true`.
+     */
+    usageMetricsEnabled?: pulumi.Input<boolean>;
 }
 
 /**
@@ -242,11 +284,27 @@ export interface IntegrationArgs {
      */
     hostFilters?: pulumi.Input<string>;
     /**
+     * Enable Azure metrics for your organization. Defaults to `true`.
+     */
+    metricsEnabled?: pulumi.Input<boolean>;
+    /**
+     * Enable Azure metrics for your organization for resource providers where no resource provider config is specified. Defaults to `true`.
+     */
+    metricsEnabledDefault?: pulumi.Input<boolean>;
+    /**
      * When enabled, Datadog collects metadata and configuration info from cloud resources (such as compute instances, databases, and load balancers) monitored by this app registration.
      */
     resourceCollectionEnabled?: pulumi.Input<boolean>;
     /**
+     * Configuration settings applied to resources from the specified Azure resource providers.
+     */
+    resourceProviderConfigs?: pulumi.Input<pulumi.Input<inputs.azure.IntegrationResourceProviderConfig>[]>;
+    /**
      * Your Azure Active Directory ID.
      */
     tenantName: pulumi.Input<string>;
+    /**
+     * Enable azure.usage metrics for your organization. Defaults to `true`.
+     */
+    usageMetricsEnabled?: pulumi.Input<boolean>;
 }

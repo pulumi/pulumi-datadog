@@ -5,8 +5,10 @@ package com.pulumi.datadog.azure.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.azure.inputs.IntegrationResourceProviderConfigArgs;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -139,6 +141,36 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Enable Azure metrics for your organization. Defaults to `true`.
+     * 
+     */
+    @Import(name="metricsEnabled")
+    private @Nullable Output<Boolean> metricsEnabled;
+
+    /**
+     * @return Enable Azure metrics for your organization. Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> metricsEnabled() {
+        return Optional.ofNullable(this.metricsEnabled);
+    }
+
+    /**
+     * Enable Azure metrics for your organization for resource providers where no resource provider config is specified. Defaults to `true`.
+     * 
+     */
+    @Import(name="metricsEnabledDefault")
+    private @Nullable Output<Boolean> metricsEnabledDefault;
+
+    /**
+     * @return Enable Azure metrics for your organization for resource providers where no resource provider config is specified. Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> metricsEnabledDefault() {
+        return Optional.ofNullable(this.metricsEnabledDefault);
+    }
+
+    /**
      * When enabled, Datadog collects metadata and configuration info from cloud resources (such as compute instances, databases, and load balancers) monitored by this app registration.
      * 
      */
@@ -151,6 +183,21 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> resourceCollectionEnabled() {
         return Optional.ofNullable(this.resourceCollectionEnabled);
+    }
+
+    /**
+     * Configuration settings applied to resources from the specified Azure resource providers.
+     * 
+     */
+    @Import(name="resourceProviderConfigs")
+    private @Nullable Output<List<IntegrationResourceProviderConfigArgs>> resourceProviderConfigs;
+
+    /**
+     * @return Configuration settings applied to resources from the specified Azure resource providers.
+     * 
+     */
+    public Optional<Output<List<IntegrationResourceProviderConfigArgs>>> resourceProviderConfigs() {
+        return Optional.ofNullable(this.resourceProviderConfigs);
     }
 
     /**
@@ -168,6 +215,21 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tenantName);
     }
 
+    /**
+     * Enable azure.usage metrics for your organization. Defaults to `true`.
+     * 
+     */
+    @Import(name="usageMetricsEnabled")
+    private @Nullable Output<Boolean> usageMetricsEnabled;
+
+    /**
+     * @return Enable azure.usage metrics for your organization. Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> usageMetricsEnabled() {
+        return Optional.ofNullable(this.usageMetricsEnabled);
+    }
+
     private IntegrationState() {}
 
     private IntegrationState(IntegrationState $) {
@@ -179,8 +241,12 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         this.cspmEnabled = $.cspmEnabled;
         this.customMetricsEnabled = $.customMetricsEnabled;
         this.hostFilters = $.hostFilters;
+        this.metricsEnabled = $.metricsEnabled;
+        this.metricsEnabledDefault = $.metricsEnabledDefault;
         this.resourceCollectionEnabled = $.resourceCollectionEnabled;
+        this.resourceProviderConfigs = $.resourceProviderConfigs;
         this.tenantName = $.tenantName;
+        this.usageMetricsEnabled = $.usageMetricsEnabled;
     }
 
     public static Builder builder() {
@@ -372,6 +438,48 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param metricsEnabled Enable Azure metrics for your organization. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metricsEnabled(@Nullable Output<Boolean> metricsEnabled) {
+            $.metricsEnabled = metricsEnabled;
+            return this;
+        }
+
+        /**
+         * @param metricsEnabled Enable Azure metrics for your organization. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metricsEnabled(Boolean metricsEnabled) {
+            return metricsEnabled(Output.of(metricsEnabled));
+        }
+
+        /**
+         * @param metricsEnabledDefault Enable Azure metrics for your organization for resource providers where no resource provider config is specified. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metricsEnabledDefault(@Nullable Output<Boolean> metricsEnabledDefault) {
+            $.metricsEnabledDefault = metricsEnabledDefault;
+            return this;
+        }
+
+        /**
+         * @param metricsEnabledDefault Enable Azure metrics for your organization for resource providers where no resource provider config is specified. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metricsEnabledDefault(Boolean metricsEnabledDefault) {
+            return metricsEnabledDefault(Output.of(metricsEnabledDefault));
+        }
+
+        /**
          * @param resourceCollectionEnabled When enabled, Datadog collects metadata and configuration info from cloud resources (such as compute instances, databases, and load balancers) monitored by this app registration.
          * 
          * @return builder
@@ -393,6 +501,37 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param resourceProviderConfigs Configuration settings applied to resources from the specified Azure resource providers.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceProviderConfigs(@Nullable Output<List<IntegrationResourceProviderConfigArgs>> resourceProviderConfigs) {
+            $.resourceProviderConfigs = resourceProviderConfigs;
+            return this;
+        }
+
+        /**
+         * @param resourceProviderConfigs Configuration settings applied to resources from the specified Azure resource providers.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceProviderConfigs(List<IntegrationResourceProviderConfigArgs> resourceProviderConfigs) {
+            return resourceProviderConfigs(Output.of(resourceProviderConfigs));
+        }
+
+        /**
+         * @param resourceProviderConfigs Configuration settings applied to resources from the specified Azure resource providers.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceProviderConfigs(IntegrationResourceProviderConfigArgs... resourceProviderConfigs) {
+            return resourceProviderConfigs(List.of(resourceProviderConfigs));
+        }
+
+        /**
          * @param tenantName Your Azure Active Directory ID.
          * 
          * @return builder
@@ -411,6 +550,27 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tenantName(String tenantName) {
             return tenantName(Output.of(tenantName));
+        }
+
+        /**
+         * @param usageMetricsEnabled Enable azure.usage metrics for your organization. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder usageMetricsEnabled(@Nullable Output<Boolean> usageMetricsEnabled) {
+            $.usageMetricsEnabled = usageMetricsEnabled;
+            return this;
+        }
+
+        /**
+         * @param usageMetricsEnabled Enable azure.usage metrics for your organization. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder usageMetricsEnabled(Boolean usageMetricsEnabled) {
+            return usageMetricsEnabled(Output.of(usageMetricsEnabled));
         }
 
         public IntegrationState build() {

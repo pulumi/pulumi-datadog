@@ -21454,6 +21454,7 @@ type GetSecurityMonitoringSuppressionsSuppression struct {
 	Id                 string `pulumi:"id"`
 	Name               string `pulumi:"name"`
 	RuleQuery          string `pulumi:"ruleQuery"`
+	StartDate          string `pulumi:"startDate"`
 	SuppressionQuery   string `pulumi:"suppressionQuery"`
 }
 
@@ -21476,6 +21477,7 @@ type GetSecurityMonitoringSuppressionsSuppressionArgs struct {
 	Id                 pulumi.StringInput `pulumi:"id"`
 	Name               pulumi.StringInput `pulumi:"name"`
 	RuleQuery          pulumi.StringInput `pulumi:"ruleQuery"`
+	StartDate          pulumi.StringInput `pulumi:"startDate"`
 	SuppressionQuery   pulumi.StringInput `pulumi:"suppressionQuery"`
 }
 
@@ -21556,6 +21558,10 @@ func (o GetSecurityMonitoringSuppressionsSuppressionOutput) Name() pulumi.String
 
 func (o GetSecurityMonitoringSuppressionsSuppressionOutput) RuleQuery() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringSuppressionsSuppression) string { return v.RuleQuery }).(pulumi.StringOutput)
+}
+
+func (o GetSecurityMonitoringSuppressionsSuppressionOutput) StartDate() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityMonitoringSuppressionsSuppression) string { return v.StartDate }).(pulumi.StringOutput)
 }
 
 func (o GetSecurityMonitoringSuppressionsSuppressionOutput) SuppressionQuery() pulumi.StringOutput {

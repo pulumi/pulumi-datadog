@@ -100,16 +100,40 @@ namespace Pulumi.Datadog.Azure
         public Output<string> HostFilters { get; private set; } = null!;
 
         /// <summary>
+        /// Enable Azure metrics for your organization. Defaults to `true`.
+        /// </summary>
+        [Output("metricsEnabled")]
+        public Output<bool> MetricsEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Enable Azure metrics for your organization for resource providers where no resource provider config is specified. Defaults to `true`.
+        /// </summary>
+        [Output("metricsEnabledDefault")]
+        public Output<bool> MetricsEnabledDefault { get; private set; } = null!;
+
+        /// <summary>
         /// When enabled, Datadog collects metadata and configuration info from cloud resources (such as compute instances, databases, and load balancers) monitored by this app registration.
         /// </summary>
         [Output("resourceCollectionEnabled")]
         public Output<bool> ResourceCollectionEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration settings applied to resources from the specified Azure resource providers.
+        /// </summary>
+        [Output("resourceProviderConfigs")]
+        public Output<ImmutableArray<Outputs.IntegrationResourceProviderConfig>> ResourceProviderConfigs { get; private set; } = null!;
+
+        /// <summary>
         /// Your Azure Active Directory ID.
         /// </summary>
         [Output("tenantName")]
         public Output<string> TenantName { get; private set; } = null!;
+
+        /// <summary>
+        /// Enable azure.usage metrics for your organization. Defaults to `true`.
+        /// </summary>
+        [Output("usageMetricsEnabled")]
+        public Output<bool> UsageMetricsEnabled { get; private set; } = null!;
 
 
         /// <summary>
@@ -221,16 +245,46 @@ namespace Pulumi.Datadog.Azure
         public Input<string>? HostFilters { get; set; }
 
         /// <summary>
+        /// Enable Azure metrics for your organization. Defaults to `true`.
+        /// </summary>
+        [Input("metricsEnabled")]
+        public Input<bool>? MetricsEnabled { get; set; }
+
+        /// <summary>
+        /// Enable Azure metrics for your organization for resource providers where no resource provider config is specified. Defaults to `true`.
+        /// </summary>
+        [Input("metricsEnabledDefault")]
+        public Input<bool>? MetricsEnabledDefault { get; set; }
+
+        /// <summary>
         /// When enabled, Datadog collects metadata and configuration info from cloud resources (such as compute instances, databases, and load balancers) monitored by this app registration.
         /// </summary>
         [Input("resourceCollectionEnabled")]
         public Input<bool>? ResourceCollectionEnabled { get; set; }
+
+        [Input("resourceProviderConfigs")]
+        private InputList<Inputs.IntegrationResourceProviderConfigArgs>? _resourceProviderConfigs;
+
+        /// <summary>
+        /// Configuration settings applied to resources from the specified Azure resource providers.
+        /// </summary>
+        public InputList<Inputs.IntegrationResourceProviderConfigArgs> ResourceProviderConfigs
+        {
+            get => _resourceProviderConfigs ?? (_resourceProviderConfigs = new InputList<Inputs.IntegrationResourceProviderConfigArgs>());
+            set => _resourceProviderConfigs = value;
+        }
 
         /// <summary>
         /// Your Azure Active Directory ID.
         /// </summary>
         [Input("tenantName", required: true)]
         public Input<string> TenantName { get; set; } = null!;
+
+        /// <summary>
+        /// Enable azure.usage metrics for your organization. Defaults to `true`.
+        /// </summary>
+        [Input("usageMetricsEnabled")]
+        public Input<bool>? UsageMetricsEnabled { get; set; }
 
         public IntegrationArgs()
         {
@@ -300,16 +354,46 @@ namespace Pulumi.Datadog.Azure
         public Input<string>? HostFilters { get; set; }
 
         /// <summary>
+        /// Enable Azure metrics for your organization. Defaults to `true`.
+        /// </summary>
+        [Input("metricsEnabled")]
+        public Input<bool>? MetricsEnabled { get; set; }
+
+        /// <summary>
+        /// Enable Azure metrics for your organization for resource providers where no resource provider config is specified. Defaults to `true`.
+        /// </summary>
+        [Input("metricsEnabledDefault")]
+        public Input<bool>? MetricsEnabledDefault { get; set; }
+
+        /// <summary>
         /// When enabled, Datadog collects metadata and configuration info from cloud resources (such as compute instances, databases, and load balancers) monitored by this app registration.
         /// </summary>
         [Input("resourceCollectionEnabled")]
         public Input<bool>? ResourceCollectionEnabled { get; set; }
+
+        [Input("resourceProviderConfigs")]
+        private InputList<Inputs.IntegrationResourceProviderConfigGetArgs>? _resourceProviderConfigs;
+
+        /// <summary>
+        /// Configuration settings applied to resources from the specified Azure resource providers.
+        /// </summary>
+        public InputList<Inputs.IntegrationResourceProviderConfigGetArgs> ResourceProviderConfigs
+        {
+            get => _resourceProviderConfigs ?? (_resourceProviderConfigs = new InputList<Inputs.IntegrationResourceProviderConfigGetArgs>());
+            set => _resourceProviderConfigs = value;
+        }
 
         /// <summary>
         /// Your Azure Active Directory ID.
         /// </summary>
         [Input("tenantName")]
         public Input<string>? TenantName { get; set; }
+
+        /// <summary>
+        /// Enable azure.usage metrics for your organization. Defaults to `true`.
+        /// </summary>
+        [Input("usageMetricsEnabled")]
+        public Input<bool>? UsageMetricsEnabled { get; set; }
 
         public IntegrationState()
         {

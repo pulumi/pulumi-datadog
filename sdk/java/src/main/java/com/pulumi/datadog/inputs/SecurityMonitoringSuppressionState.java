@@ -107,6 +107,21 @@ public final class SecurityMonitoringSuppressionState extends com.pulumi.resourc
     }
 
     /**
+     * A RFC3339 timestamp giving a start date for the suppression rule. Before this date, it doesn&#39;t suppress signals.
+     * 
+     */
+    @Import(name="startDate")
+    private @Nullable Output<String> startDate;
+
+    /**
+     * @return A RFC3339 timestamp giving a start date for the suppression rule. Before this date, it doesn&#39;t suppress signals.
+     * 
+     */
+    public Optional<Output<String>> startDate() {
+        return Optional.ofNullable(this.startDate);
+    }
+
+    /**
      * The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
      * 
      */
@@ -130,6 +145,7 @@ public final class SecurityMonitoringSuppressionState extends com.pulumi.resourc
         this.expirationDate = $.expirationDate;
         this.name = $.name;
         this.ruleQuery = $.ruleQuery;
+        this.startDate = $.startDate;
         this.suppressionQuery = $.suppressionQuery;
     }
 
@@ -275,6 +291,27 @@ public final class SecurityMonitoringSuppressionState extends com.pulumi.resourc
          */
         public Builder ruleQuery(String ruleQuery) {
             return ruleQuery(Output.of(ruleQuery));
+        }
+
+        /**
+         * @param startDate A RFC3339 timestamp giving a start date for the suppression rule. Before this date, it doesn&#39;t suppress signals.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder startDate(@Nullable Output<String> startDate) {
+            $.startDate = startDate;
+            return this;
+        }
+
+        /**
+         * @param startDate A RFC3339 timestamp giving a start date for the suppression rule. Before this date, it doesn&#39;t suppress signals.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder startDate(String startDate) {
+            return startDate(Output.of(startDate));
         }
 
         /**

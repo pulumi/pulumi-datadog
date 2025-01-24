@@ -85687,6 +85687,7 @@ class GetSecurityMonitoringSuppressionsSuppressionResult(dict):
                  id: str,
                  name: str,
                  rule_query: str,
+                 start_date: str,
                  suppression_query: str):
         pulumi.set(__self__, "data_exclusion_query", data_exclusion_query)
         pulumi.set(__self__, "description", description)
@@ -85695,6 +85696,7 @@ class GetSecurityMonitoringSuppressionsSuppressionResult(dict):
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "rule_query", rule_query)
+        pulumi.set(__self__, "start_date", start_date)
         pulumi.set(__self__, "suppression_query", suppression_query)
 
     @property
@@ -85731,6 +85733,11 @@ class GetSecurityMonitoringSuppressionsSuppressionResult(dict):
     @pulumi.getter(name="ruleQuery")
     def rule_query(self) -> str:
         return pulumi.get(self, "rule_query")
+
+    @property
+    @pulumi.getter(name="startDate")
+    def start_date(self) -> str:
+        return pulumi.get(self, "start_date")
 
     @property
     @pulumi.getter(name="suppressionQuery")

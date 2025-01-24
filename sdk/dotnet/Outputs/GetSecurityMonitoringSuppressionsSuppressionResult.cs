@@ -20,6 +20,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly string Id;
         public readonly string Name;
         public readonly string RuleQuery;
+        public readonly string StartDate;
         public readonly string SuppressionQuery;
 
         [OutputConstructor]
@@ -38,6 +39,8 @@ namespace Pulumi.Datadog.Outputs
 
             string ruleQuery,
 
+            string startDate,
+
             string suppressionQuery)
         {
             DataExclusionQuery = dataExclusionQuery;
@@ -47,6 +50,7 @@ namespace Pulumi.Datadog.Outputs
             Id = id;
             Name = name;
             RuleQuery = ruleQuery;
+            StartDate = startDate;
             SuppressionQuery = suppressionQuery;
         }
     }
