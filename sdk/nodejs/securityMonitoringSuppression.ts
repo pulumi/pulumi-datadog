@@ -20,6 +20,7 @@ import * as utilities from "./utilities";
  *     ruleQuery: "severity:low source:cloudtrail",
  *     suppressionQuery: "@usr.id:john.doe",
  *     dataExclusionQuery: "env:test",
+ *     startDate: "2024-12-01T16:00:00Z",
  *     expirationDate: "2024-12-31T12:00:00Z",
  * });
  * ```
@@ -85,6 +86,10 @@ export class SecurityMonitoringSuppression extends pulumi.CustomResource {
      */
     public readonly ruleQuery!: pulumi.Output<string>;
     /**
+     * A RFC3339 timestamp giving a start date for the suppression rule. Before this date, it doesn't suppress signals.
+     */
+    public readonly startDate!: pulumi.Output<string | undefined>;
+    /**
      * The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
      */
     public readonly suppressionQuery!: pulumi.Output<string | undefined>;
@@ -108,6 +113,7 @@ export class SecurityMonitoringSuppression extends pulumi.CustomResource {
             resourceInputs["expirationDate"] = state ? state.expirationDate : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["ruleQuery"] = state ? state.ruleQuery : undefined;
+            resourceInputs["startDate"] = state ? state.startDate : undefined;
             resourceInputs["suppressionQuery"] = state ? state.suppressionQuery : undefined;
         } else {
             const args = argsOrState as SecurityMonitoringSuppressionArgs | undefined;
@@ -126,6 +132,7 @@ export class SecurityMonitoringSuppression extends pulumi.CustomResource {
             resourceInputs["expirationDate"] = args ? args.expirationDate : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["ruleQuery"] = args ? args.ruleQuery : undefined;
+            resourceInputs["startDate"] = args ? args.startDate : undefined;
             resourceInputs["suppressionQuery"] = args ? args.suppressionQuery : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -162,6 +169,10 @@ export interface SecurityMonitoringSuppressionState {
      */
     ruleQuery?: pulumi.Input<string>;
     /**
+     * A RFC3339 timestamp giving a start date for the suppression rule. Before this date, it doesn't suppress signals.
+     */
+    startDate?: pulumi.Input<string>;
+    /**
      * The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
      */
     suppressionQuery?: pulumi.Input<string>;
@@ -195,6 +206,10 @@ export interface SecurityMonitoringSuppressionArgs {
      * The rule query of the suppression rule, with the same syntax as the search bar for detection rules.
      */
     ruleQuery: pulumi.Input<string>;
+    /**
+     * A RFC3339 timestamp giving a start date for the suppression rule. Before this date, it doesn't suppress signals.
+     */
+    startDate?: pulumi.Input<string>;
     /**
      * The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
      */

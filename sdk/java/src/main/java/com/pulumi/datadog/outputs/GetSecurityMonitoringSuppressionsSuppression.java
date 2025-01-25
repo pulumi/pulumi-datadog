@@ -18,6 +18,7 @@ public final class GetSecurityMonitoringSuppressionsSuppression {
     private String id;
     private String name;
     private String ruleQuery;
+    private String startDate;
     private String suppressionQuery;
 
     private GetSecurityMonitoringSuppressionsSuppression() {}
@@ -42,6 +43,9 @@ public final class GetSecurityMonitoringSuppressionsSuppression {
     public String ruleQuery() {
         return this.ruleQuery;
     }
+    public String startDate() {
+        return this.startDate;
+    }
     public String suppressionQuery() {
         return this.suppressionQuery;
     }
@@ -62,6 +66,7 @@ public final class GetSecurityMonitoringSuppressionsSuppression {
         private String id;
         private String name;
         private String ruleQuery;
+        private String startDate;
         private String suppressionQuery;
         public Builder() {}
         public Builder(GetSecurityMonitoringSuppressionsSuppression defaults) {
@@ -73,6 +78,7 @@ public final class GetSecurityMonitoringSuppressionsSuppression {
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.ruleQuery = defaults.ruleQuery;
+    	      this.startDate = defaults.startDate;
     	      this.suppressionQuery = defaults.suppressionQuery;
         }
 
@@ -133,6 +139,14 @@ public final class GetSecurityMonitoringSuppressionsSuppression {
             return this;
         }
         @CustomType.Setter
+        public Builder startDate(String startDate) {
+            if (startDate == null) {
+              throw new MissingRequiredPropertyException("GetSecurityMonitoringSuppressionsSuppression", "startDate");
+            }
+            this.startDate = startDate;
+            return this;
+        }
+        @CustomType.Setter
         public Builder suppressionQuery(String suppressionQuery) {
             if (suppressionQuery == null) {
               throw new MissingRequiredPropertyException("GetSecurityMonitoringSuppressionsSuppression", "suppressionQuery");
@@ -149,6 +163,7 @@ public final class GetSecurityMonitoringSuppressionsSuppression {
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.ruleQuery = ruleQuery;
+            _resultValue.startDate = startDate;
             _resultValue.suppressionQuery = suppressionQuery;
             return _resultValue;
         }

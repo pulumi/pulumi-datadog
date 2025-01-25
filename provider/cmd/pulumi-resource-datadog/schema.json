@@ -376,6 +376,21 @@
                 }
             }
         },
+        "datadog:azure/IntegrationResourceProviderConfig:IntegrationResourceProviderConfig": {
+            "properties": {
+                "metricsEnabled": {
+                    "type": "boolean"
+                },
+                "namespace": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "metricsEnabled",
+                "namespace"
+            ]
+        },
         "datadog:config/defaultTags:defaultTags": {
             "properties": {
                 "tags": {
@@ -32587,6 +32602,9 @@
                 "ruleQuery": {
                     "type": "string"
                 },
+                "startDate": {
+                    "type": "string"
+                },
                 "suppressionQuery": {
                     "type": "string"
                 }
@@ -32600,6 +32618,7 @@
                 "id",
                 "name",
                 "ruleQuery",
+                "startDate",
                 "suppressionQuery"
             ],
             "language": {
@@ -33448,13 +33467,32 @@
                     "type": "string",
                     "description": "String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red` Defaults to `\"\"`.\n"
                 },
+                "metricsEnabled": {
+                    "type": "boolean",
+                    "description": "Enable Azure metrics for your organization. Defaults to `true`.\n"
+                },
+                "metricsEnabledDefault": {
+                    "type": "boolean",
+                    "description": "Enable Azure metrics for your organization for resource providers where no resource provider config is specified. Defaults to `true`.\n"
+                },
                 "resourceCollectionEnabled": {
                     "type": "boolean",
                     "description": "When enabled, Datadog collects metadata and configuration info from cloud resources (such as compute instances, databases, and load balancers) monitored by this app registration.\n"
                 },
+                "resourceProviderConfigs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:azure/IntegrationResourceProviderConfig:IntegrationResourceProviderConfig"
+                    },
+                    "description": "Configuration settings applied to resources from the specified Azure resource providers.\n"
+                },
                 "tenantName": {
                     "type": "string",
                     "description": "Your Azure Active Directory ID.\n"
+                },
+                "usageMetricsEnabled": {
+                    "type": "boolean",
+                    "description": "Enable azure.usage metrics for your organization. Defaults to `true`.\n"
                 }
             },
             "required": [
@@ -33466,8 +33504,12 @@
                 "cspmEnabled",
                 "customMetricsEnabled",
                 "hostFilters",
+                "metricsEnabled",
+                "metricsEnabledDefault",
                 "resourceCollectionEnabled",
-                "tenantName"
+                "resourceProviderConfigs",
+                "tenantName",
+                "usageMetricsEnabled"
             ],
             "inputProperties": {
                 "appServicePlanFilters": {
@@ -33503,13 +33545,32 @@
                     "type": "string",
                     "description": "String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red` Defaults to `\"\"`.\n"
                 },
+                "metricsEnabled": {
+                    "type": "boolean",
+                    "description": "Enable Azure metrics for your organization. Defaults to `true`.\n"
+                },
+                "metricsEnabledDefault": {
+                    "type": "boolean",
+                    "description": "Enable Azure metrics for your organization for resource providers where no resource provider config is specified. Defaults to `true`.\n"
+                },
                 "resourceCollectionEnabled": {
                     "type": "boolean",
                     "description": "When enabled, Datadog collects metadata and configuration info from cloud resources (such as compute instances, databases, and load balancers) monitored by this app registration.\n"
                 },
+                "resourceProviderConfigs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:azure/IntegrationResourceProviderConfig:IntegrationResourceProviderConfig"
+                    },
+                    "description": "Configuration settings applied to resources from the specified Azure resource providers.\n"
+                },
                 "tenantName": {
                     "type": "string",
                     "description": "Your Azure Active Directory ID.\n"
+                },
+                "usageMetricsEnabled": {
+                    "type": "boolean",
+                    "description": "Enable azure.usage metrics for your organization. Defaults to `true`.\n"
                 }
             },
             "requiredInputs": [
@@ -33553,13 +33614,32 @@
                         "type": "string",
                         "description": "String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red` Defaults to `\"\"`.\n"
                     },
+                    "metricsEnabled": {
+                        "type": "boolean",
+                        "description": "Enable Azure metrics for your organization. Defaults to `true`.\n"
+                    },
+                    "metricsEnabledDefault": {
+                        "type": "boolean",
+                        "description": "Enable Azure metrics for your organization for resource providers where no resource provider config is specified. Defaults to `true`.\n"
+                    },
                     "resourceCollectionEnabled": {
                         "type": "boolean",
                         "description": "When enabled, Datadog collects metadata and configuration info from cloud resources (such as compute instances, databases, and load balancers) monitored by this app registration.\n"
                     },
+                    "resourceProviderConfigs": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/datadog:azure/IntegrationResourceProviderConfig:IntegrationResourceProviderConfig"
+                        },
+                        "description": "Configuration settings applied to resources from the specified Azure resource providers.\n"
+                    },
                     "tenantName": {
                         "type": "string",
                         "description": "Your Azure Active Directory ID.\n"
+                    },
+                    "usageMetricsEnabled": {
+                        "type": "boolean",
+                        "description": "Enable azure.usage metrics for your organization. Defaults to `true`.\n"
                     }
                 },
                 "type": "object"
@@ -38410,7 +38490,7 @@
             }
         },
         "datadog:index/securityMonitoringSuppression:SecurityMonitoringSuppression": {
-            "description": "Provides a Datadog Security Monitoring Suppression API resource. It can be used to create and manage Datadog security monitoring suppression rules.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst mySuppression = new datadog.SecurityMonitoringSuppression(\"my_suppression\", {\n    name: \"My suppression\",\n    description: \"Suppression for low severity CloudTrail signals from John Doe, excluding test environments from analysis, limited to 2024\",\n    enabled: true,\n    ruleQuery: \"severity:low source:cloudtrail\",\n    suppressionQuery: \"@usr.id:john.doe\",\n    dataExclusionQuery: \"env:test\",\n    expirationDate: \"2024-12-31T12:00:00Z\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nmy_suppression = datadog.SecurityMonitoringSuppression(\"my_suppression\",\n    name=\"My suppression\",\n    description=\"Suppression for low severity CloudTrail signals from John Doe, excluding test environments from analysis, limited to 2024\",\n    enabled=True,\n    rule_query=\"severity:low source:cloudtrail\",\n    suppression_query=\"@usr.id:john.doe\",\n    data_exclusion_query=\"env:test\",\n    expiration_date=\"2024-12-31T12:00:00Z\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var mySuppression = new Datadog.SecurityMonitoringSuppression(\"my_suppression\", new()\n    {\n        Name = \"My suppression\",\n        Description = \"Suppression for low severity CloudTrail signals from John Doe, excluding test environments from analysis, limited to 2024\",\n        Enabled = true,\n        RuleQuery = \"severity:low source:cloudtrail\",\n        SuppressionQuery = \"@usr.id:john.doe\",\n        DataExclusionQuery = \"env:test\",\n        ExpirationDate = \"2024-12-31T12:00:00Z\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewSecurityMonitoringSuppression(ctx, \"my_suppression\", \u0026datadog.SecurityMonitoringSuppressionArgs{\n\t\t\tName:               pulumi.String(\"My suppression\"),\n\t\t\tDescription:        pulumi.String(\"Suppression for low severity CloudTrail signals from John Doe, excluding test environments from analysis, limited to 2024\"),\n\t\t\tEnabled:            pulumi.Bool(true),\n\t\t\tRuleQuery:          pulumi.String(\"severity:low source:cloudtrail\"),\n\t\t\tSuppressionQuery:   pulumi.String(\"@usr.id:john.doe\"),\n\t\t\tDataExclusionQuery: pulumi.String(\"env:test\"),\n\t\t\tExpirationDate:     pulumi.String(\"2024-12-31T12:00:00Z\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.SecurityMonitoringSuppression;\nimport com.pulumi.datadog.SecurityMonitoringSuppressionArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var mySuppression = new SecurityMonitoringSuppression(\"mySuppression\", SecurityMonitoringSuppressionArgs.builder()\n            .name(\"My suppression\")\n            .description(\"Suppression for low severity CloudTrail signals from John Doe, excluding test environments from analysis, limited to 2024\")\n            .enabled(true)\n            .ruleQuery(\"severity:low source:cloudtrail\")\n            .suppressionQuery(\"@usr.id:john.doe\")\n            .dataExclusionQuery(\"env:test\")\n            .expirationDate(\"2024-12-31T12:00:00Z\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  mySuppression:\n    type: datadog:SecurityMonitoringSuppression\n    name: my_suppression\n    properties:\n      name: My suppression\n      description: Suppression for low severity CloudTrail signals from John Doe, excluding test environments from analysis, limited to 2024\n      enabled: true\n      ruleQuery: severity:low source:cloudtrail\n      suppressionQuery: '@usr.id:john.doe'\n      dataExclusionQuery: env:test\n      expirationDate: 2024-12-31T12:00:00Z\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nSecurity monitoring suppressions can be imported using ID, for example:\n\n```sh\n$ pulumi import datadog:index/securityMonitoringSuppression:SecurityMonitoringSuppression my_suppression m0o-hto-lkb\n```\n\n",
+            "description": "Provides a Datadog Security Monitoring Suppression API resource. It can be used to create and manage Datadog security monitoring suppression rules.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst mySuppression = new datadog.SecurityMonitoringSuppression(\"my_suppression\", {\n    name: \"My suppression\",\n    description: \"Suppression for low severity CloudTrail signals from John Doe, excluding test environments from analysis, limited to 2024\",\n    enabled: true,\n    ruleQuery: \"severity:low source:cloudtrail\",\n    suppressionQuery: \"@usr.id:john.doe\",\n    dataExclusionQuery: \"env:test\",\n    startDate: \"2024-12-01T16:00:00Z\",\n    expirationDate: \"2024-12-31T12:00:00Z\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nmy_suppression = datadog.SecurityMonitoringSuppression(\"my_suppression\",\n    name=\"My suppression\",\n    description=\"Suppression for low severity CloudTrail signals from John Doe, excluding test environments from analysis, limited to 2024\",\n    enabled=True,\n    rule_query=\"severity:low source:cloudtrail\",\n    suppression_query=\"@usr.id:john.doe\",\n    data_exclusion_query=\"env:test\",\n    start_date=\"2024-12-01T16:00:00Z\",\n    expiration_date=\"2024-12-31T12:00:00Z\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var mySuppression = new Datadog.SecurityMonitoringSuppression(\"my_suppression\", new()\n    {\n        Name = \"My suppression\",\n        Description = \"Suppression for low severity CloudTrail signals from John Doe, excluding test environments from analysis, limited to 2024\",\n        Enabled = true,\n        RuleQuery = \"severity:low source:cloudtrail\",\n        SuppressionQuery = \"@usr.id:john.doe\",\n        DataExclusionQuery = \"env:test\",\n        StartDate = \"2024-12-01T16:00:00Z\",\n        ExpirationDate = \"2024-12-31T12:00:00Z\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewSecurityMonitoringSuppression(ctx, \"my_suppression\", \u0026datadog.SecurityMonitoringSuppressionArgs{\n\t\t\tName:               pulumi.String(\"My suppression\"),\n\t\t\tDescription:        pulumi.String(\"Suppression for low severity CloudTrail signals from John Doe, excluding test environments from analysis, limited to 2024\"),\n\t\t\tEnabled:            pulumi.Bool(true),\n\t\t\tRuleQuery:          pulumi.String(\"severity:low source:cloudtrail\"),\n\t\t\tSuppressionQuery:   pulumi.String(\"@usr.id:john.doe\"),\n\t\t\tDataExclusionQuery: pulumi.String(\"env:test\"),\n\t\t\tStartDate:          pulumi.String(\"2024-12-01T16:00:00Z\"),\n\t\t\tExpirationDate:     pulumi.String(\"2024-12-31T12:00:00Z\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.SecurityMonitoringSuppression;\nimport com.pulumi.datadog.SecurityMonitoringSuppressionArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var mySuppression = new SecurityMonitoringSuppression(\"mySuppression\", SecurityMonitoringSuppressionArgs.builder()\n            .name(\"My suppression\")\n            .description(\"Suppression for low severity CloudTrail signals from John Doe, excluding test environments from analysis, limited to 2024\")\n            .enabled(true)\n            .ruleQuery(\"severity:low source:cloudtrail\")\n            .suppressionQuery(\"@usr.id:john.doe\")\n            .dataExclusionQuery(\"env:test\")\n            .startDate(\"2024-12-01T16:00:00Z\")\n            .expirationDate(\"2024-12-31T12:00:00Z\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  mySuppression:\n    type: datadog:SecurityMonitoringSuppression\n    name: my_suppression\n    properties:\n      name: My suppression\n      description: Suppression for low severity CloudTrail signals from John Doe, excluding test environments from analysis, limited to 2024\n      enabled: true\n      ruleQuery: severity:low source:cloudtrail\n      suppressionQuery: '@usr.id:john.doe'\n      dataExclusionQuery: env:test\n      startDate: 2024-12-01T16:00:00Z\n      expirationDate: 2024-12-31T12:00:00Z\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nSecurity monitoring suppressions can be imported using ID, for example:\n\n```sh\n$ pulumi import datadog:index/securityMonitoringSuppression:SecurityMonitoringSuppression my_suppression m0o-hto-lkb\n```\n\n",
             "properties": {
                 "dataExclusionQuery": {
                     "type": "string",
@@ -38435,6 +38515,10 @@
                 "ruleQuery": {
                     "type": "string",
                     "description": "The rule query of the suppression rule, with the same syntax as the search bar for detection rules.\n"
+                },
+                "startDate": {
+                    "type": "string",
+                    "description": "A RFC3339 timestamp giving a start date for the suppression rule. Before this date, it doesn't suppress signals.\n"
                 },
                 "suppressionQuery": {
                     "type": "string",
@@ -38470,6 +38554,10 @@
                 "ruleQuery": {
                     "type": "string",
                     "description": "The rule query of the suppression rule, with the same syntax as the search bar for detection rules.\n"
+                },
+                "startDate": {
+                    "type": "string",
+                    "description": "A RFC3339 timestamp giving a start date for the suppression rule. Before this date, it doesn't suppress signals.\n"
                 },
                 "suppressionQuery": {
                     "type": "string",
@@ -38507,6 +38595,10 @@
                     "ruleQuery": {
                         "type": "string",
                         "description": "The rule query of the suppression rule, with the same syntax as the search bar for detection rules.\n"
+                    },
+                    "startDate": {
+                        "type": "string",
+                        "description": "A RFC3339 timestamp giving a start date for the suppression rule. Before this date, it doesn't suppress signals.\n"
                     },
                     "suppressionQuery": {
                         "type": "string",

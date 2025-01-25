@@ -76,10 +76,18 @@ type Integration struct {
 	CustomMetricsEnabled pulumi.BoolOutput `pulumi:"customMetricsEnabled"`
 	// String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red` Defaults to `""`.
 	HostFilters pulumi.StringOutput `pulumi:"hostFilters"`
+	// Enable Azure metrics for your organization. Defaults to `true`.
+	MetricsEnabled pulumi.BoolOutput `pulumi:"metricsEnabled"`
+	// Enable Azure metrics for your organization for resource providers where no resource provider config is specified. Defaults to `true`.
+	MetricsEnabledDefault pulumi.BoolOutput `pulumi:"metricsEnabledDefault"`
 	// When enabled, Datadog collects metadata and configuration info from cloud resources (such as compute instances, databases, and load balancers) monitored by this app registration.
 	ResourceCollectionEnabled pulumi.BoolOutput `pulumi:"resourceCollectionEnabled"`
+	// Configuration settings applied to resources from the specified Azure resource providers.
+	ResourceProviderConfigs IntegrationResourceProviderConfigArrayOutput `pulumi:"resourceProviderConfigs"`
 	// Your Azure Active Directory ID.
 	TenantName pulumi.StringOutput `pulumi:"tenantName"`
+	// Enable azure.usage metrics for your organization. Defaults to `true`.
+	UsageMetricsEnabled pulumi.BoolOutput `pulumi:"usageMetricsEnabled"`
 }
 
 // NewIntegration registers a new resource with the given unique name, arguments, and options.
@@ -145,10 +153,18 @@ type integrationState struct {
 	CustomMetricsEnabled *bool `pulumi:"customMetricsEnabled"`
 	// String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red` Defaults to `""`.
 	HostFilters *string `pulumi:"hostFilters"`
+	// Enable Azure metrics for your organization. Defaults to `true`.
+	MetricsEnabled *bool `pulumi:"metricsEnabled"`
+	// Enable Azure metrics for your organization for resource providers where no resource provider config is specified. Defaults to `true`.
+	MetricsEnabledDefault *bool `pulumi:"metricsEnabledDefault"`
 	// When enabled, Datadog collects metadata and configuration info from cloud resources (such as compute instances, databases, and load balancers) monitored by this app registration.
 	ResourceCollectionEnabled *bool `pulumi:"resourceCollectionEnabled"`
+	// Configuration settings applied to resources from the specified Azure resource providers.
+	ResourceProviderConfigs []IntegrationResourceProviderConfig `pulumi:"resourceProviderConfigs"`
 	// Your Azure Active Directory ID.
 	TenantName *string `pulumi:"tenantName"`
+	// Enable azure.usage metrics for your organization. Defaults to `true`.
+	UsageMetricsEnabled *bool `pulumi:"usageMetricsEnabled"`
 }
 
 type IntegrationState struct {
@@ -169,10 +185,18 @@ type IntegrationState struct {
 	CustomMetricsEnabled pulumi.BoolPtrInput
 	// String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red` Defaults to `""`.
 	HostFilters pulumi.StringPtrInput
+	// Enable Azure metrics for your organization. Defaults to `true`.
+	MetricsEnabled pulumi.BoolPtrInput
+	// Enable Azure metrics for your organization for resource providers where no resource provider config is specified. Defaults to `true`.
+	MetricsEnabledDefault pulumi.BoolPtrInput
 	// When enabled, Datadog collects metadata and configuration info from cloud resources (such as compute instances, databases, and load balancers) monitored by this app registration.
 	ResourceCollectionEnabled pulumi.BoolPtrInput
+	// Configuration settings applied to resources from the specified Azure resource providers.
+	ResourceProviderConfigs IntegrationResourceProviderConfigArrayInput
 	// Your Azure Active Directory ID.
 	TenantName pulumi.StringPtrInput
+	// Enable azure.usage metrics for your organization. Defaults to `true`.
+	UsageMetricsEnabled pulumi.BoolPtrInput
 }
 
 func (IntegrationState) ElementType() reflect.Type {
@@ -197,10 +221,18 @@ type integrationArgs struct {
 	CustomMetricsEnabled *bool `pulumi:"customMetricsEnabled"`
 	// String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red` Defaults to `""`.
 	HostFilters *string `pulumi:"hostFilters"`
+	// Enable Azure metrics for your organization. Defaults to `true`.
+	MetricsEnabled *bool `pulumi:"metricsEnabled"`
+	// Enable Azure metrics for your organization for resource providers where no resource provider config is specified. Defaults to `true`.
+	MetricsEnabledDefault *bool `pulumi:"metricsEnabledDefault"`
 	// When enabled, Datadog collects metadata and configuration info from cloud resources (such as compute instances, databases, and load balancers) monitored by this app registration.
 	ResourceCollectionEnabled *bool `pulumi:"resourceCollectionEnabled"`
+	// Configuration settings applied to resources from the specified Azure resource providers.
+	ResourceProviderConfigs []IntegrationResourceProviderConfig `pulumi:"resourceProviderConfigs"`
 	// Your Azure Active Directory ID.
 	TenantName string `pulumi:"tenantName"`
+	// Enable azure.usage metrics for your organization. Defaults to `true`.
+	UsageMetricsEnabled *bool `pulumi:"usageMetricsEnabled"`
 }
 
 // The set of arguments for constructing a Integration resource.
@@ -222,10 +254,18 @@ type IntegrationArgs struct {
 	CustomMetricsEnabled pulumi.BoolPtrInput
 	// String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red` Defaults to `""`.
 	HostFilters pulumi.StringPtrInput
+	// Enable Azure metrics for your organization. Defaults to `true`.
+	MetricsEnabled pulumi.BoolPtrInput
+	// Enable Azure metrics for your organization for resource providers where no resource provider config is specified. Defaults to `true`.
+	MetricsEnabledDefault pulumi.BoolPtrInput
 	// When enabled, Datadog collects metadata and configuration info from cloud resources (such as compute instances, databases, and load balancers) monitored by this app registration.
 	ResourceCollectionEnabled pulumi.BoolPtrInput
+	// Configuration settings applied to resources from the specified Azure resource providers.
+	ResourceProviderConfigs IntegrationResourceProviderConfigArrayInput
 	// Your Azure Active Directory ID.
 	TenantName pulumi.StringInput
+	// Enable azure.usage metrics for your organization. Defaults to `true`.
+	UsageMetricsEnabled pulumi.BoolPtrInput
 }
 
 func (IntegrationArgs) ElementType() reflect.Type {
@@ -356,14 +396,34 @@ func (o IntegrationOutput) HostFilters() pulumi.StringOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.HostFilters }).(pulumi.StringOutput)
 }
 
+// Enable Azure metrics for your organization. Defaults to `true`.
+func (o IntegrationOutput) MetricsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Integration) pulumi.BoolOutput { return v.MetricsEnabled }).(pulumi.BoolOutput)
+}
+
+// Enable Azure metrics for your organization for resource providers where no resource provider config is specified. Defaults to `true`.
+func (o IntegrationOutput) MetricsEnabledDefault() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Integration) pulumi.BoolOutput { return v.MetricsEnabledDefault }).(pulumi.BoolOutput)
+}
+
 // When enabled, Datadog collects metadata and configuration info from cloud resources (such as compute instances, databases, and load balancers) monitored by this app registration.
 func (o IntegrationOutput) ResourceCollectionEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Integration) pulumi.BoolOutput { return v.ResourceCollectionEnabled }).(pulumi.BoolOutput)
 }
 
+// Configuration settings applied to resources from the specified Azure resource providers.
+func (o IntegrationOutput) ResourceProviderConfigs() IntegrationResourceProviderConfigArrayOutput {
+	return o.ApplyT(func(v *Integration) IntegrationResourceProviderConfigArrayOutput { return v.ResourceProviderConfigs }).(IntegrationResourceProviderConfigArrayOutput)
+}
+
 // Your Azure Active Directory ID.
 func (o IntegrationOutput) TenantName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.TenantName }).(pulumi.StringOutput)
+}
+
+// Enable azure.usage metrics for your organization. Defaults to `true`.
+func (o IntegrationOutput) UsageMetricsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Integration) pulumi.BoolOutput { return v.UsageMetricsEnabled }).(pulumi.BoolOutput)
 }
 
 type IntegrationArrayOutput struct{ *pulumi.OutputState }

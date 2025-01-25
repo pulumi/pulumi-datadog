@@ -13,6 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['IntegrationArgs', 'Integration']
 
@@ -28,7 +30,11 @@ class IntegrationArgs:
                  cspm_enabled: Optional[pulumi.Input[bool]] = None,
                  custom_metrics_enabled: Optional[pulumi.Input[bool]] = None,
                  host_filters: Optional[pulumi.Input[str]] = None,
-                 resource_collection_enabled: Optional[pulumi.Input[bool]] = None):
+                 metrics_enabled: Optional[pulumi.Input[bool]] = None,
+                 metrics_enabled_default: Optional[pulumi.Input[bool]] = None,
+                 resource_collection_enabled: Optional[pulumi.Input[bool]] = None,
+                 resource_provider_configs: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationResourceProviderConfigArgs']]]] = None,
+                 usage_metrics_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Integration resource.
         :param pulumi.Input[str] client_id: Your Azure web application ID.
@@ -41,7 +47,11 @@ class IntegrationArgs:
                Note: This requires `resource_collection_enabled` to be set to true. Defaults to `false`.
         :param pulumi.Input[bool] custom_metrics_enabled: Enable custom metrics for your organization. Defaults to `false`.
         :param pulumi.Input[str] host_filters: String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red` Defaults to `""`.
+        :param pulumi.Input[bool] metrics_enabled: Enable Azure metrics for your organization. Defaults to `true`.
+        :param pulumi.Input[bool] metrics_enabled_default: Enable Azure metrics for your organization for resource providers where no resource provider config is specified. Defaults to `true`.
         :param pulumi.Input[bool] resource_collection_enabled: When enabled, Datadog collects metadata and configuration info from cloud resources (such as compute instances, databases, and load balancers) monitored by this app registration.
+        :param pulumi.Input[Sequence[pulumi.Input['IntegrationResourceProviderConfigArgs']]] resource_provider_configs: Configuration settings applied to resources from the specified Azure resource providers.
+        :param pulumi.Input[bool] usage_metrics_enabled: Enable azure.usage metrics for your organization. Defaults to `true`.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret", client_secret)
@@ -58,8 +68,16 @@ class IntegrationArgs:
             pulumi.set(__self__, "custom_metrics_enabled", custom_metrics_enabled)
         if host_filters is not None:
             pulumi.set(__self__, "host_filters", host_filters)
+        if metrics_enabled is not None:
+            pulumi.set(__self__, "metrics_enabled", metrics_enabled)
+        if metrics_enabled_default is not None:
+            pulumi.set(__self__, "metrics_enabled_default", metrics_enabled_default)
         if resource_collection_enabled is not None:
             pulumi.set(__self__, "resource_collection_enabled", resource_collection_enabled)
+        if resource_provider_configs is not None:
+            pulumi.set(__self__, "resource_provider_configs", resource_provider_configs)
+        if usage_metrics_enabled is not None:
+            pulumi.set(__self__, "usage_metrics_enabled", usage_metrics_enabled)
 
     @property
     @pulumi.getter(name="clientId")
@@ -171,6 +189,30 @@ class IntegrationArgs:
         pulumi.set(self, "host_filters", value)
 
     @property
+    @pulumi.getter(name="metricsEnabled")
+    def metrics_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable Azure metrics for your organization. Defaults to `true`.
+        """
+        return pulumi.get(self, "metrics_enabled")
+
+    @metrics_enabled.setter
+    def metrics_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "metrics_enabled", value)
+
+    @property
+    @pulumi.getter(name="metricsEnabledDefault")
+    def metrics_enabled_default(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable Azure metrics for your organization for resource providers where no resource provider config is specified. Defaults to `true`.
+        """
+        return pulumi.get(self, "metrics_enabled_default")
+
+    @metrics_enabled_default.setter
+    def metrics_enabled_default(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "metrics_enabled_default", value)
+
+    @property
     @pulumi.getter(name="resourceCollectionEnabled")
     def resource_collection_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -181,6 +223,30 @@ class IntegrationArgs:
     @resource_collection_enabled.setter
     def resource_collection_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "resource_collection_enabled", value)
+
+    @property
+    @pulumi.getter(name="resourceProviderConfigs")
+    def resource_provider_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationResourceProviderConfigArgs']]]]:
+        """
+        Configuration settings applied to resources from the specified Azure resource providers.
+        """
+        return pulumi.get(self, "resource_provider_configs")
+
+    @resource_provider_configs.setter
+    def resource_provider_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationResourceProviderConfigArgs']]]]):
+        pulumi.set(self, "resource_provider_configs", value)
+
+    @property
+    @pulumi.getter(name="usageMetricsEnabled")
+    def usage_metrics_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable azure.usage metrics for your organization. Defaults to `true`.
+        """
+        return pulumi.get(self, "usage_metrics_enabled")
+
+    @usage_metrics_enabled.setter
+    def usage_metrics_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "usage_metrics_enabled", value)
 
 
 @pulumi.input_type
@@ -194,8 +260,12 @@ class _IntegrationState:
                  cspm_enabled: Optional[pulumi.Input[bool]] = None,
                  custom_metrics_enabled: Optional[pulumi.Input[bool]] = None,
                  host_filters: Optional[pulumi.Input[str]] = None,
+                 metrics_enabled: Optional[pulumi.Input[bool]] = None,
+                 metrics_enabled_default: Optional[pulumi.Input[bool]] = None,
                  resource_collection_enabled: Optional[pulumi.Input[bool]] = None,
-                 tenant_name: Optional[pulumi.Input[str]] = None):
+                 resource_provider_configs: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationResourceProviderConfigArgs']]]] = None,
+                 tenant_name: Optional[pulumi.Input[str]] = None,
+                 usage_metrics_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering Integration resources.
         :param pulumi.Input[str] app_service_plan_filters: This comma-separated list of tags (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure App Service Plans. Only App Service Plans that match one of the defined tags are imported into Datadog. The rest, including the apps and functions running on them, are ignored. This also filters the metrics for any App or Function running on the App Service Plan(s). Defaults to `""`.
@@ -207,8 +277,12 @@ class _IntegrationState:
                Note: This requires `resource_collection_enabled` to be set to true. Defaults to `false`.
         :param pulumi.Input[bool] custom_metrics_enabled: Enable custom metrics for your organization. Defaults to `false`.
         :param pulumi.Input[str] host_filters: String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red` Defaults to `""`.
+        :param pulumi.Input[bool] metrics_enabled: Enable Azure metrics for your organization. Defaults to `true`.
+        :param pulumi.Input[bool] metrics_enabled_default: Enable Azure metrics for your organization for resource providers where no resource provider config is specified. Defaults to `true`.
         :param pulumi.Input[bool] resource_collection_enabled: When enabled, Datadog collects metadata and configuration info from cloud resources (such as compute instances, databases, and load balancers) monitored by this app registration.
+        :param pulumi.Input[Sequence[pulumi.Input['IntegrationResourceProviderConfigArgs']]] resource_provider_configs: Configuration settings applied to resources from the specified Azure resource providers.
         :param pulumi.Input[str] tenant_name: Your Azure Active Directory ID.
+        :param pulumi.Input[bool] usage_metrics_enabled: Enable azure.usage metrics for your organization. Defaults to `true`.
         """
         if app_service_plan_filters is not None:
             pulumi.set(__self__, "app_service_plan_filters", app_service_plan_filters)
@@ -226,10 +300,18 @@ class _IntegrationState:
             pulumi.set(__self__, "custom_metrics_enabled", custom_metrics_enabled)
         if host_filters is not None:
             pulumi.set(__self__, "host_filters", host_filters)
+        if metrics_enabled is not None:
+            pulumi.set(__self__, "metrics_enabled", metrics_enabled)
+        if metrics_enabled_default is not None:
+            pulumi.set(__self__, "metrics_enabled_default", metrics_enabled_default)
         if resource_collection_enabled is not None:
             pulumi.set(__self__, "resource_collection_enabled", resource_collection_enabled)
+        if resource_provider_configs is not None:
+            pulumi.set(__self__, "resource_provider_configs", resource_provider_configs)
         if tenant_name is not None:
             pulumi.set(__self__, "tenant_name", tenant_name)
+        if usage_metrics_enabled is not None:
+            pulumi.set(__self__, "usage_metrics_enabled", usage_metrics_enabled)
 
     @property
     @pulumi.getter(name="appServicePlanFilters")
@@ -329,6 +411,30 @@ class _IntegrationState:
         pulumi.set(self, "host_filters", value)
 
     @property
+    @pulumi.getter(name="metricsEnabled")
+    def metrics_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable Azure metrics for your organization. Defaults to `true`.
+        """
+        return pulumi.get(self, "metrics_enabled")
+
+    @metrics_enabled.setter
+    def metrics_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "metrics_enabled", value)
+
+    @property
+    @pulumi.getter(name="metricsEnabledDefault")
+    def metrics_enabled_default(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable Azure metrics for your organization for resource providers where no resource provider config is specified. Defaults to `true`.
+        """
+        return pulumi.get(self, "metrics_enabled_default")
+
+    @metrics_enabled_default.setter
+    def metrics_enabled_default(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "metrics_enabled_default", value)
+
+    @property
     @pulumi.getter(name="resourceCollectionEnabled")
     def resource_collection_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -341,6 +447,18 @@ class _IntegrationState:
         pulumi.set(self, "resource_collection_enabled", value)
 
     @property
+    @pulumi.getter(name="resourceProviderConfigs")
+    def resource_provider_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationResourceProviderConfigArgs']]]]:
+        """
+        Configuration settings applied to resources from the specified Azure resource providers.
+        """
+        return pulumi.get(self, "resource_provider_configs")
+
+    @resource_provider_configs.setter
+    def resource_provider_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationResourceProviderConfigArgs']]]]):
+        pulumi.set(self, "resource_provider_configs", value)
+
+    @property
     @pulumi.getter(name="tenantName")
     def tenant_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -351,6 +469,18 @@ class _IntegrationState:
     @tenant_name.setter
     def tenant_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_name", value)
+
+    @property
+    @pulumi.getter(name="usageMetricsEnabled")
+    def usage_metrics_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable azure.usage metrics for your organization. Defaults to `true`.
+        """
+        return pulumi.get(self, "usage_metrics_enabled")
+
+    @usage_metrics_enabled.setter
+    def usage_metrics_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "usage_metrics_enabled", value)
 
 
 class Integration(pulumi.CustomResource):
@@ -366,8 +496,12 @@ class Integration(pulumi.CustomResource):
                  cspm_enabled: Optional[pulumi.Input[bool]] = None,
                  custom_metrics_enabled: Optional[pulumi.Input[bool]] = None,
                  host_filters: Optional[pulumi.Input[str]] = None,
+                 metrics_enabled: Optional[pulumi.Input[bool]] = None,
+                 metrics_enabled_default: Optional[pulumi.Input[bool]] = None,
                  resource_collection_enabled: Optional[pulumi.Input[bool]] = None,
+                 resource_provider_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationResourceProviderConfigArgs', 'IntegrationResourceProviderConfigArgsDict']]]]] = None,
                  tenant_name: Optional[pulumi.Input[str]] = None,
+                 usage_metrics_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         Provides a Datadog - Microsoft Azure integration resource. This can be used to create and manage the integrations.
@@ -410,8 +544,12 @@ class Integration(pulumi.CustomResource):
                Note: This requires `resource_collection_enabled` to be set to true. Defaults to `false`.
         :param pulumi.Input[bool] custom_metrics_enabled: Enable custom metrics for your organization. Defaults to `false`.
         :param pulumi.Input[str] host_filters: String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red` Defaults to `""`.
+        :param pulumi.Input[bool] metrics_enabled: Enable Azure metrics for your organization. Defaults to `true`.
+        :param pulumi.Input[bool] metrics_enabled_default: Enable Azure metrics for your organization for resource providers where no resource provider config is specified. Defaults to `true`.
         :param pulumi.Input[bool] resource_collection_enabled: When enabled, Datadog collects metadata and configuration info from cloud resources (such as compute instances, databases, and load balancers) monitored by this app registration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IntegrationResourceProviderConfigArgs', 'IntegrationResourceProviderConfigArgsDict']]]] resource_provider_configs: Configuration settings applied to resources from the specified Azure resource providers.
         :param pulumi.Input[str] tenant_name: Your Azure Active Directory ID.
+        :param pulumi.Input[bool] usage_metrics_enabled: Enable azure.usage metrics for your organization. Defaults to `true`.
         """
         ...
     @overload
@@ -472,8 +610,12 @@ class Integration(pulumi.CustomResource):
                  cspm_enabled: Optional[pulumi.Input[bool]] = None,
                  custom_metrics_enabled: Optional[pulumi.Input[bool]] = None,
                  host_filters: Optional[pulumi.Input[str]] = None,
+                 metrics_enabled: Optional[pulumi.Input[bool]] = None,
+                 metrics_enabled_default: Optional[pulumi.Input[bool]] = None,
                  resource_collection_enabled: Optional[pulumi.Input[bool]] = None,
+                 resource_provider_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationResourceProviderConfigArgs', 'IntegrationResourceProviderConfigArgsDict']]]]] = None,
                  tenant_name: Optional[pulumi.Input[str]] = None,
+                 usage_metrics_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -495,10 +637,14 @@ class Integration(pulumi.CustomResource):
             __props__.__dict__["cspm_enabled"] = cspm_enabled
             __props__.__dict__["custom_metrics_enabled"] = custom_metrics_enabled
             __props__.__dict__["host_filters"] = host_filters
+            __props__.__dict__["metrics_enabled"] = metrics_enabled
+            __props__.__dict__["metrics_enabled_default"] = metrics_enabled_default
             __props__.__dict__["resource_collection_enabled"] = resource_collection_enabled
+            __props__.__dict__["resource_provider_configs"] = resource_provider_configs
             if tenant_name is None and not opts.urn:
                 raise TypeError("Missing required property 'tenant_name'")
             __props__.__dict__["tenant_name"] = tenant_name
+            __props__.__dict__["usage_metrics_enabled"] = usage_metrics_enabled
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["clientSecret"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Integration, __self__).__init__(
@@ -519,8 +665,12 @@ class Integration(pulumi.CustomResource):
             cspm_enabled: Optional[pulumi.Input[bool]] = None,
             custom_metrics_enabled: Optional[pulumi.Input[bool]] = None,
             host_filters: Optional[pulumi.Input[str]] = None,
+            metrics_enabled: Optional[pulumi.Input[bool]] = None,
+            metrics_enabled_default: Optional[pulumi.Input[bool]] = None,
             resource_collection_enabled: Optional[pulumi.Input[bool]] = None,
-            tenant_name: Optional[pulumi.Input[str]] = None) -> 'Integration':
+            resource_provider_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationResourceProviderConfigArgs', 'IntegrationResourceProviderConfigArgsDict']]]]] = None,
+            tenant_name: Optional[pulumi.Input[str]] = None,
+            usage_metrics_enabled: Optional[pulumi.Input[bool]] = None) -> 'Integration':
         """
         Get an existing Integration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -537,8 +687,12 @@ class Integration(pulumi.CustomResource):
                Note: This requires `resource_collection_enabled` to be set to true. Defaults to `false`.
         :param pulumi.Input[bool] custom_metrics_enabled: Enable custom metrics for your organization. Defaults to `false`.
         :param pulumi.Input[str] host_filters: String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red` Defaults to `""`.
+        :param pulumi.Input[bool] metrics_enabled: Enable Azure metrics for your organization. Defaults to `true`.
+        :param pulumi.Input[bool] metrics_enabled_default: Enable Azure metrics for your organization for resource providers where no resource provider config is specified. Defaults to `true`.
         :param pulumi.Input[bool] resource_collection_enabled: When enabled, Datadog collects metadata and configuration info from cloud resources (such as compute instances, databases, and load balancers) monitored by this app registration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IntegrationResourceProviderConfigArgs', 'IntegrationResourceProviderConfigArgsDict']]]] resource_provider_configs: Configuration settings applied to resources from the specified Azure resource providers.
         :param pulumi.Input[str] tenant_name: Your Azure Active Directory ID.
+        :param pulumi.Input[bool] usage_metrics_enabled: Enable azure.usage metrics for your organization. Defaults to `true`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -552,8 +706,12 @@ class Integration(pulumi.CustomResource):
         __props__.__dict__["cspm_enabled"] = cspm_enabled
         __props__.__dict__["custom_metrics_enabled"] = custom_metrics_enabled
         __props__.__dict__["host_filters"] = host_filters
+        __props__.__dict__["metrics_enabled"] = metrics_enabled
+        __props__.__dict__["metrics_enabled_default"] = metrics_enabled_default
         __props__.__dict__["resource_collection_enabled"] = resource_collection_enabled
+        __props__.__dict__["resource_provider_configs"] = resource_provider_configs
         __props__.__dict__["tenant_name"] = tenant_name
+        __props__.__dict__["usage_metrics_enabled"] = usage_metrics_enabled
         return Integration(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -622,6 +780,22 @@ class Integration(pulumi.CustomResource):
         return pulumi.get(self, "host_filters")
 
     @property
+    @pulumi.getter(name="metricsEnabled")
+    def metrics_enabled(self) -> pulumi.Output[bool]:
+        """
+        Enable Azure metrics for your organization. Defaults to `true`.
+        """
+        return pulumi.get(self, "metrics_enabled")
+
+    @property
+    @pulumi.getter(name="metricsEnabledDefault")
+    def metrics_enabled_default(self) -> pulumi.Output[bool]:
+        """
+        Enable Azure metrics for your organization for resource providers where no resource provider config is specified. Defaults to `true`.
+        """
+        return pulumi.get(self, "metrics_enabled_default")
+
+    @property
     @pulumi.getter(name="resourceCollectionEnabled")
     def resource_collection_enabled(self) -> pulumi.Output[bool]:
         """
@@ -630,10 +804,26 @@ class Integration(pulumi.CustomResource):
         return pulumi.get(self, "resource_collection_enabled")
 
     @property
+    @pulumi.getter(name="resourceProviderConfigs")
+    def resource_provider_configs(self) -> pulumi.Output[Sequence['outputs.IntegrationResourceProviderConfig']]:
+        """
+        Configuration settings applied to resources from the specified Azure resource providers.
+        """
+        return pulumi.get(self, "resource_provider_configs")
+
+    @property
     @pulumi.getter(name="tenantName")
     def tenant_name(self) -> pulumi.Output[str]:
         """
         Your Azure Active Directory ID.
         """
         return pulumi.get(self, "tenant_name")
+
+    @property
+    @pulumi.getter(name="usageMetricsEnabled")
+    def usage_metrics_enabled(self) -> pulumi.Output[bool]:
+        """
+        Enable azure.usage metrics for your organization. Defaults to `true`.
+        """
+        return pulumi.get(self, "usage_metrics_enabled")
 

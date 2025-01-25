@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.datadog.Utilities;
 import com.pulumi.datadog.azure.IntegrationArgs;
 import com.pulumi.datadog.azure.inputs.IntegrationState;
+import com.pulumi.datadog.azure.outputs.IntegrationResourceProviderConfig;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -188,6 +189,34 @@ public class Integration extends com.pulumi.resources.CustomResource {
         return this.hostFilters;
     }
     /**
+     * Enable Azure metrics for your organization. Defaults to `true`.
+     * 
+     */
+    @Export(name="metricsEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> metricsEnabled;
+
+    /**
+     * @return Enable Azure metrics for your organization. Defaults to `true`.
+     * 
+     */
+    public Output<Boolean> metricsEnabled() {
+        return this.metricsEnabled;
+    }
+    /**
+     * Enable Azure metrics for your organization for resource providers where no resource provider config is specified. Defaults to `true`.
+     * 
+     */
+    @Export(name="metricsEnabledDefault", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> metricsEnabledDefault;
+
+    /**
+     * @return Enable Azure metrics for your organization for resource providers where no resource provider config is specified. Defaults to `true`.
+     * 
+     */
+    public Output<Boolean> metricsEnabledDefault() {
+        return this.metricsEnabledDefault;
+    }
+    /**
      * When enabled, Datadog collects metadata and configuration info from cloud resources (such as compute instances, databases, and load balancers) monitored by this app registration.
      * 
      */
@@ -202,6 +231,20 @@ public class Integration extends com.pulumi.resources.CustomResource {
         return this.resourceCollectionEnabled;
     }
     /**
+     * Configuration settings applied to resources from the specified Azure resource providers.
+     * 
+     */
+    @Export(name="resourceProviderConfigs", refs={List.class,IntegrationResourceProviderConfig.class}, tree="[0,1]")
+    private Output<List<IntegrationResourceProviderConfig>> resourceProviderConfigs;
+
+    /**
+     * @return Configuration settings applied to resources from the specified Azure resource providers.
+     * 
+     */
+    public Output<List<IntegrationResourceProviderConfig>> resourceProviderConfigs() {
+        return this.resourceProviderConfigs;
+    }
+    /**
      * Your Azure Active Directory ID.
      * 
      */
@@ -214,6 +257,20 @@ public class Integration extends com.pulumi.resources.CustomResource {
      */
     public Output<String> tenantName() {
         return this.tenantName;
+    }
+    /**
+     * Enable azure.usage metrics for your organization. Defaults to `true`.
+     * 
+     */
+    @Export(name="usageMetricsEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> usageMetricsEnabled;
+
+    /**
+     * @return Enable azure.usage metrics for your organization. Defaults to `true`.
+     * 
+     */
+    public Output<Boolean> usageMetricsEnabled() {
+        return this.usageMetricsEnabled;
     }
 
     /**

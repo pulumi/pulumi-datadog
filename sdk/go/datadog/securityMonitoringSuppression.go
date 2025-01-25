@@ -35,6 +35,7 @@ import (
 //				RuleQuery:          pulumi.String("severity:low source:cloudtrail"),
 //				SuppressionQuery:   pulumi.String("@usr.id:john.doe"),
 //				DataExclusionQuery: pulumi.String("env:test"),
+//				StartDate:          pulumi.String("2024-12-01T16:00:00Z"),
 //				ExpirationDate:     pulumi.String("2024-12-31T12:00:00Z"),
 //			})
 //			if err != nil {
@@ -68,6 +69,8 @@ type SecurityMonitoringSuppression struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The rule query of the suppression rule, with the same syntax as the search bar for detection rules.
 	RuleQuery pulumi.StringOutput `pulumi:"ruleQuery"`
+	// A RFC3339 timestamp giving a start date for the suppression rule. Before this date, it doesn't suppress signals.
+	StartDate pulumi.StringPtrOutput `pulumi:"startDate"`
 	// The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
 	SuppressionQuery pulumi.StringPtrOutput `pulumi:"suppressionQuery"`
 }
@@ -123,6 +126,8 @@ type securityMonitoringSuppressionState struct {
 	Name *string `pulumi:"name"`
 	// The rule query of the suppression rule, with the same syntax as the search bar for detection rules.
 	RuleQuery *string `pulumi:"ruleQuery"`
+	// A RFC3339 timestamp giving a start date for the suppression rule. Before this date, it doesn't suppress signals.
+	StartDate *string `pulumi:"startDate"`
 	// The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
 	SuppressionQuery *string `pulumi:"suppressionQuery"`
 }
@@ -140,6 +145,8 @@ type SecurityMonitoringSuppressionState struct {
 	Name pulumi.StringPtrInput
 	// The rule query of the suppression rule, with the same syntax as the search bar for detection rules.
 	RuleQuery pulumi.StringPtrInput
+	// A RFC3339 timestamp giving a start date for the suppression rule. Before this date, it doesn't suppress signals.
+	StartDate pulumi.StringPtrInput
 	// The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
 	SuppressionQuery pulumi.StringPtrInput
 }
@@ -161,6 +168,8 @@ type securityMonitoringSuppressionArgs struct {
 	Name string `pulumi:"name"`
 	// The rule query of the suppression rule, with the same syntax as the search bar for detection rules.
 	RuleQuery string `pulumi:"ruleQuery"`
+	// A RFC3339 timestamp giving a start date for the suppression rule. Before this date, it doesn't suppress signals.
+	StartDate *string `pulumi:"startDate"`
 	// The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
 	SuppressionQuery *string `pulumi:"suppressionQuery"`
 }
@@ -179,6 +188,8 @@ type SecurityMonitoringSuppressionArgs struct {
 	Name pulumi.StringInput
 	// The rule query of the suppression rule, with the same syntax as the search bar for detection rules.
 	RuleQuery pulumi.StringInput
+	// A RFC3339 timestamp giving a start date for the suppression rule. Before this date, it doesn't suppress signals.
+	StartDate pulumi.StringPtrInput
 	// The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
 	SuppressionQuery pulumi.StringPtrInput
 }
@@ -298,6 +309,11 @@ func (o SecurityMonitoringSuppressionOutput) Name() pulumi.StringOutput {
 // The rule query of the suppression rule, with the same syntax as the search bar for detection rules.
 func (o SecurityMonitoringSuppressionOutput) RuleQuery() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityMonitoringSuppression) pulumi.StringOutput { return v.RuleQuery }).(pulumi.StringOutput)
+}
+
+// A RFC3339 timestamp giving a start date for the suppression rule. Before this date, it doesn't suppress signals.
+func (o SecurityMonitoringSuppressionOutput) StartDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityMonitoringSuppression) pulumi.StringPtrOutput { return v.StartDate }).(pulumi.StringPtrOutput)
 }
 
 // The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.

@@ -23776,6 +23776,13 @@ export namespace aws {
     }
 }
 
+export namespace azure {
+    export interface IntegrationResourceProviderConfig {
+        metricsEnabled: pulumi.Input<boolean>;
+        namespace: pulumi.Input<string>;
+    }
+}
+
 export namespace config {
 }
 

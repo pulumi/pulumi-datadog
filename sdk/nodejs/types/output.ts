@@ -9264,6 +9264,7 @@ export interface GetSecurityMonitoringSuppressionsSuppression {
     id: string;
     name: string;
     ruleQuery: string;
+    startDate: string;
     suppressionQuery: string;
 }
 
@@ -24464,6 +24465,14 @@ export namespace aws {
          * Include only these services. Defaults to `[]`.
          */
         includeOnlies: string[];
+    }
+
+}
+
+export namespace azure {
+    export interface IntegrationResourceProviderConfig {
+        metricsEnabled: boolean;
+        namespace: string;
     }
 
 }
