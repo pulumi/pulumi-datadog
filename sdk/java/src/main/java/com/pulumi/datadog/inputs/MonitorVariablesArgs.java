@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.MonitorVariablesCloudCostQueryArgs;
 import com.pulumi.datadog.inputs.MonitorVariablesEventQueryArgs;
 import java.util.List;
 import java.util.Objects;
@@ -15,6 +16,21 @@ import javax.annotation.Nullable;
 public final class MonitorVariablesArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final MonitorVariablesArgs Empty = new MonitorVariablesArgs();
+
+    /**
+     * The Cloud Cost query using formulas and functions.
+     * 
+     */
+    @Import(name="cloudCostQueries")
+    private @Nullable Output<List<MonitorVariablesCloudCostQueryArgs>> cloudCostQueries;
+
+    /**
+     * @return The Cloud Cost query using formulas and functions.
+     * 
+     */
+    public Optional<Output<List<MonitorVariablesCloudCostQueryArgs>>> cloudCostQueries() {
+        return Optional.ofNullable(this.cloudCostQueries);
+    }
 
     /**
      * A timeseries formula and functions events query.
@@ -34,6 +50,7 @@ public final class MonitorVariablesArgs extends com.pulumi.resources.ResourceArg
     private MonitorVariablesArgs() {}
 
     private MonitorVariablesArgs(MonitorVariablesArgs $) {
+        this.cloudCostQueries = $.cloudCostQueries;
         this.eventQueries = $.eventQueries;
     }
 
@@ -53,6 +70,37 @@ public final class MonitorVariablesArgs extends com.pulumi.resources.ResourceArg
 
         public Builder(MonitorVariablesArgs defaults) {
             $ = new MonitorVariablesArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param cloudCostQueries The Cloud Cost query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cloudCostQueries(@Nullable Output<List<MonitorVariablesCloudCostQueryArgs>> cloudCostQueries) {
+            $.cloudCostQueries = cloudCostQueries;
+            return this;
+        }
+
+        /**
+         * @param cloudCostQueries The Cloud Cost query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cloudCostQueries(List<MonitorVariablesCloudCostQueryArgs> cloudCostQueries) {
+            return cloudCostQueries(Output.of(cloudCostQueries));
+        }
+
+        /**
+         * @param cloudCostQueries The Cloud Cost query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cloudCostQueries(MonitorVariablesCloudCostQueryArgs... cloudCostQueries) {
+            return cloudCostQueries(List.of(cloudCostQueries));
         }
 
         /**

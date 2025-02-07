@@ -22,6 +22,14 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Bucket;
         /// <summary>
+        /// The AWS KMS encryption key.
+        /// </summary>
+        public readonly string? EncryptionKey;
+        /// <summary>
+        /// The type of encryption on your archive. Valid values are `NO_OVERRIDE`, `SSE_S3`, `SSE_KMS`. Defaults to `"NO_OVERRIDE"`.
+        /// </summary>
+        public readonly string? EncryptionType;
+        /// <summary>
         /// Path where the archive is stored.
         /// </summary>
         public readonly string? Path;
@@ -36,12 +44,18 @@ namespace Pulumi.Datadog.Outputs
 
             string bucket,
 
+            string? encryptionKey,
+
+            string? encryptionType,
+
             string? path,
 
             string roleName)
         {
             AccountId = accountId;
             Bucket = bucket;
+            EncryptionKey = encryptionKey;
+            EncryptionType = encryptionType;
             Path = path;
             RoleName = roleName;
         }

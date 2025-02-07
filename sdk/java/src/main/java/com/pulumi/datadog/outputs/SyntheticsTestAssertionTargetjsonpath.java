@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SyntheticsTestAssertionTargetjsonpath {
     /**
-     * @return The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `firstElementMatches`. Defaults to `&#34;firstElementMatches&#34;`.
+     * @return The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `&#34;firstElementMatches&#34;`.
      * 
      */
     private @Nullable String elementsoperator;
@@ -35,7 +35,7 @@ public final class SyntheticsTestAssertionTargetjsonpath {
 
     private SyntheticsTestAssertionTargetjsonpath() {}
     /**
-     * @return The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `firstElementMatches`. Defaults to `&#34;firstElementMatches&#34;`.
+     * @return The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `&#34;firstElementMatches&#34;`.
      * 
      */
     public Optional<String> elementsoperator() {

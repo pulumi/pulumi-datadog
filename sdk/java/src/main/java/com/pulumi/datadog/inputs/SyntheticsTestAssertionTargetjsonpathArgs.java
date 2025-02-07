@@ -17,14 +17,14 @@ public final class SyntheticsTestAssertionTargetjsonpathArgs extends com.pulumi.
     public static final SyntheticsTestAssertionTargetjsonpathArgs Empty = new SyntheticsTestAssertionTargetjsonpathArgs();
 
     /**
-     * The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `firstElementMatches`. Defaults to `&#34;firstElementMatches&#34;`.
+     * The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `&#34;firstElementMatches&#34;`.
      * 
      */
     @Import(name="elementsoperator")
     private @Nullable Output<String> elementsoperator;
 
     /**
-     * @return The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `firstElementMatches`. Defaults to `&#34;firstElementMatches&#34;`.
+     * @return The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `&#34;firstElementMatches&#34;`.
      * 
      */
     public Optional<Output<String>> elementsoperator() {
@@ -104,7 +104,7 @@ public final class SyntheticsTestAssertionTargetjsonpathArgs extends com.pulumi.
         }
 
         /**
-         * @param elementsoperator The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `firstElementMatches`. Defaults to `&#34;firstElementMatches&#34;`.
+         * @param elementsoperator The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `&#34;firstElementMatches&#34;`.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class SyntheticsTestAssertionTargetjsonpathArgs extends com.pulumi.
         }
 
         /**
-         * @param elementsoperator The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `firstElementMatches`. Defaults to `&#34;firstElementMatches&#34;`.
+         * @param elementsoperator The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `&#34;firstElementMatches&#34;`.
          * 
          * @return builder
          * 

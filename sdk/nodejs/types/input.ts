@@ -8683,6 +8683,14 @@ export interface LogsArchiveS3Archive {
      */
     bucket: pulumi.Input<string>;
     /**
+     * The AWS KMS encryption key.
+     */
+    encryptionKey?: pulumi.Input<string>;
+    /**
+     * The type of encryption on your archive. Valid values are `NO_OVERRIDE`, `SSE_S3`, `SSE_KMS`. Defaults to `"NO_OVERRIDE"`.
+     */
+    encryptionType?: pulumi.Input<string>;
+    /**
      * Path where the archive is stored.
      */
     path?: pulumi.Input<string>;
@@ -9050,10 +9058,12 @@ export interface LogsCustomPipelineProcessorMessageRemapper {
 }
 
 export interface LogsCustomPipelineProcessorPipeline {
+    description?: pulumi.Input<string>;
     filters: pulumi.Input<pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineFilter>[]>;
     isEnabled?: pulumi.Input<boolean>;
     name: pulumi.Input<string>;
     processors?: pulumi.Input<pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessor>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface LogsCustomPipelineProcessorPipelineFilter {
@@ -9788,9 +9798,32 @@ export interface MonitorSchedulingOptionEvaluationWindow {
 
 export interface MonitorVariables {
     /**
+     * The Cloud Cost query using formulas and functions.
+     */
+    cloudCostQueries?: pulumi.Input<pulumi.Input<inputs.MonitorVariablesCloudCostQuery>[]>;
+    /**
      * A timeseries formula and functions events query.
      */
     eventQueries?: pulumi.Input<pulumi.Input<inputs.MonitorVariablesEventQuery>[]>;
+}
+
+export interface MonitorVariablesCloudCostQuery {
+    /**
+     * The aggregation methods available for cloud cost queries. Valid values are `avg`, `sum`, `max`, `min`, `last`, `area`, `l2norm`, `percentile`, `stddev`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * The data source for cloud cost queries. Valid values are `metrics`, `cloudCost`, `datadogUsage`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * The name of the query for use in formulas.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
+    query: pulumi.Input<string>;
 }
 
 export interface MonitorVariablesEventQuery {
@@ -22421,7 +22454,7 @@ export interface SyntheticsTestApiStepAssertion {
 
 export interface SyntheticsTestApiStepAssertionTargetjsonpath {
     /**
-     * The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `firstElementMatches`. Defaults to `"firstElementMatches"`.
+     * The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `"firstElementMatches"`.
      */
     elementsoperator?: pulumi.Input<string>;
     /**
@@ -22777,7 +22810,7 @@ export interface SyntheticsTestAssertion {
 
 export interface SyntheticsTestAssertionTargetjsonpath {
     /**
-     * The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `firstElementMatches`. Defaults to `"firstElementMatches"`.
+     * The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `"firstElementMatches"`.
      */
     elementsoperator?: pulumi.Input<string>;
     /**

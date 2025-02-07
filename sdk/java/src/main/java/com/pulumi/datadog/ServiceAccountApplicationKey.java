@@ -12,6 +12,7 @@ import com.pulumi.datadog.Utilities;
 import com.pulumi.datadog.inputs.ServiceAccountApplicationKeyState;
 import java.lang.String;
 import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -120,6 +121,20 @@ public class ServiceAccountApplicationKey extends com.pulumi.resources.CustomRes
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
+     * 
+     */
+    @Export(name="scopes", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> scopes;
+
+    /**
+     * @return Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
+     * 
+     */
+    public Output<Optional<List<String>>> scopes() {
+        return Codegen.optional(this.scopes);
     }
     /**
      * ID of the service account that owns this key.

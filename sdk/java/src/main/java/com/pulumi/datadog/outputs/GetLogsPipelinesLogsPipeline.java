@@ -14,6 +14,11 @@ import java.util.Objects;
 @CustomType
 public final class GetLogsPipelinesLogsPipeline {
     /**
+     * @return Description of the pipeline
+     * 
+     */
+    private String description;
+    /**
      * @return Pipelines filter
      * 
      */
@@ -39,12 +44,24 @@ public final class GetLogsPipelinesLogsPipeline {
      */
     private String name;
     /**
+     * @return Tags of the pipeline
+     * 
+     */
+    private List<String> tags;
+    /**
      * @return Whether or not the pipeline can be edited.
      * 
      */
     private String type;
 
     private GetLogsPipelinesLogsPipeline() {}
+    /**
+     * @return Description of the pipeline
+     * 
+     */
+    public String description() {
+        return this.description;
+    }
     /**
      * @return Pipelines filter
      * 
@@ -81,6 +98,13 @@ public final class GetLogsPipelinesLogsPipeline {
         return this.name;
     }
     /**
+     * @return Tags of the pipeline
+     * 
+     */
+    public List<String> tags() {
+        return this.tags;
+    }
+    /**
      * @return Whether or not the pipeline can be edited.
      * 
      */
@@ -97,23 +121,35 @@ public final class GetLogsPipelinesLogsPipeline {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String description;
         private List<GetLogsPipelinesLogsPipelineFilter> filters;
         private String id;
         private Boolean isEnabled;
         private Boolean isReadOnly;
         private String name;
+        private List<String> tags;
         private String type;
         public Builder() {}
         public Builder(GetLogsPipelinesLogsPipeline defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.description = defaults.description;
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
     	      this.isEnabled = defaults.isEnabled;
     	      this.isReadOnly = defaults.isReadOnly;
     	      this.name = defaults.name;
+    	      this.tags = defaults.tags;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
+        public Builder description(String description) {
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetLogsPipelinesLogsPipeline", "description");
+            }
+            this.description = description;
+            return this;
+        }
         @CustomType.Setter
         public Builder filters(List<GetLogsPipelinesLogsPipelineFilter> filters) {
             if (filters == null) {
@@ -158,6 +194,17 @@ public final class GetLogsPipelinesLogsPipeline {
             return this;
         }
         @CustomType.Setter
+        public Builder tags(List<String> tags) {
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetLogsPipelinesLogsPipeline", "tags");
+            }
+            this.tags = tags;
+            return this;
+        }
+        public Builder tags(String... tags) {
+            return tags(List.of(tags));
+        }
+        @CustomType.Setter
         public Builder type(String type) {
             if (type == null) {
               throw new MissingRequiredPropertyException("GetLogsPipelinesLogsPipeline", "type");
@@ -167,11 +214,13 @@ public final class GetLogsPipelinesLogsPipeline {
         }
         public GetLogsPipelinesLogsPipeline build() {
             final var _resultValue = new GetLogsPipelinesLogsPipeline();
+            _resultValue.description = description;
             _resultValue.filters = filters;
             _resultValue.id = id;
             _resultValue.isEnabled = isEnabled;
             _resultValue.isReadOnly = isReadOnly;
             _resultValue.name = name;
+            _resultValue.tags = tags;
             _resultValue.type = type;
             return _resultValue;
         }

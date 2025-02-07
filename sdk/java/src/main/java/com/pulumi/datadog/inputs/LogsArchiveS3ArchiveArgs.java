@@ -47,6 +47,36 @@ public final class LogsArchiveS3ArchiveArgs extends com.pulumi.resources.Resourc
     }
 
     /**
+     * The AWS KMS encryption key.
+     * 
+     */
+    @Import(name="encryptionKey")
+    private @Nullable Output<String> encryptionKey;
+
+    /**
+     * @return The AWS KMS encryption key.
+     * 
+     */
+    public Optional<Output<String>> encryptionKey() {
+        return Optional.ofNullable(this.encryptionKey);
+    }
+
+    /**
+     * The type of encryption on your archive. Valid values are `NO_OVERRIDE`, `SSE_S3`, `SSE_KMS`. Defaults to `&#34;NO_OVERRIDE&#34;`.
+     * 
+     */
+    @Import(name="encryptionType")
+    private @Nullable Output<String> encryptionType;
+
+    /**
+     * @return The type of encryption on your archive. Valid values are `NO_OVERRIDE`, `SSE_S3`, `SSE_KMS`. Defaults to `&#34;NO_OVERRIDE&#34;`.
+     * 
+     */
+    public Optional<Output<String>> encryptionType() {
+        return Optional.ofNullable(this.encryptionType);
+    }
+
+    /**
      * Path where the archive is stored.
      * 
      */
@@ -81,6 +111,8 @@ public final class LogsArchiveS3ArchiveArgs extends com.pulumi.resources.Resourc
     private LogsArchiveS3ArchiveArgs(LogsArchiveS3ArchiveArgs $) {
         this.accountId = $.accountId;
         this.bucket = $.bucket;
+        this.encryptionKey = $.encryptionKey;
+        this.encryptionType = $.encryptionType;
         this.path = $.path;
         this.roleName = $.roleName;
     }
@@ -143,6 +175,48 @@ public final class LogsArchiveS3ArchiveArgs extends com.pulumi.resources.Resourc
          */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
+        }
+
+        /**
+         * @param encryptionKey The AWS KMS encryption key.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionKey(@Nullable Output<String> encryptionKey) {
+            $.encryptionKey = encryptionKey;
+            return this;
+        }
+
+        /**
+         * @param encryptionKey The AWS KMS encryption key.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionKey(String encryptionKey) {
+            return encryptionKey(Output.of(encryptionKey));
+        }
+
+        /**
+         * @param encryptionType The type of encryption on your archive. Valid values are `NO_OVERRIDE`, `SSE_S3`, `SSE_KMS`. Defaults to `&#34;NO_OVERRIDE&#34;`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionType(@Nullable Output<String> encryptionType) {
+            $.encryptionType = encryptionType;
+            return this;
+        }
+
+        /**
+         * @param encryptionType The type of encryption on your archive. Valid values are `NO_OVERRIDE`, `SSE_S3`, `SSE_KMS`. Defaults to `&#34;NO_OVERRIDE&#34;`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionType(String encryptionType) {
+            return encryptionType(Output.of(encryptionType));
         }
 
         /**

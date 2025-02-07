@@ -14,13 +14,21 @@ namespace Pulumi.Datadog.Outputs
     public sealed class MonitorVariables
     {
         /// <summary>
+        /// The Cloud Cost query using formulas and functions.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.MonitorVariablesCloudCostQuery> CloudCostQueries;
+        /// <summary>
         /// A timeseries formula and functions events query.
         /// </summary>
         public readonly ImmutableArray<Outputs.MonitorVariablesEventQuery> EventQueries;
 
         [OutputConstructor]
-        private MonitorVariables(ImmutableArray<Outputs.MonitorVariablesEventQuery> eventQueries)
+        private MonitorVariables(
+            ImmutableArray<Outputs.MonitorVariablesCloudCostQuery> cloudCostQueries,
+
+            ImmutableArray<Outputs.MonitorVariablesEventQuery> eventQueries)
         {
+            CloudCostQueries = cloudCostQueries;
             EventQueries = eventQueries;
         }
     }

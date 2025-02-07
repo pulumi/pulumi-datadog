@@ -16,12 +16,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LogsCustomPipelineProcessorPipeline {
+    private @Nullable String description;
     private List<LogsCustomPipelineProcessorPipelineFilter> filters;
     private @Nullable Boolean isEnabled;
     private String name;
     private @Nullable List<LogsCustomPipelineProcessorPipelineProcessor> processors;
+    private @Nullable List<String> tags;
 
     private LogsCustomPipelineProcessorPipeline() {}
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
+    }
     public List<LogsCustomPipelineProcessorPipelineFilter> filters() {
         return this.filters;
     }
@@ -34,6 +39,9 @@ public final class LogsCustomPipelineProcessorPipeline {
     public List<LogsCustomPipelineProcessorPipelineProcessor> processors() {
         return this.processors == null ? List.of() : this.processors;
     }
+    public List<String> tags() {
+        return this.tags == null ? List.of() : this.tags;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -44,19 +52,29 @@ public final class LogsCustomPipelineProcessorPipeline {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String description;
         private List<LogsCustomPipelineProcessorPipelineFilter> filters;
         private @Nullable Boolean isEnabled;
         private String name;
         private @Nullable List<LogsCustomPipelineProcessorPipelineProcessor> processors;
+        private @Nullable List<String> tags;
         public Builder() {}
         public Builder(LogsCustomPipelineProcessorPipeline defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.description = defaults.description;
     	      this.filters = defaults.filters;
     	      this.isEnabled = defaults.isEnabled;
     	      this.name = defaults.name;
     	      this.processors = defaults.processors;
+    	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
+        public Builder description(@Nullable String description) {
+
+            this.description = description;
+            return this;
+        }
         @CustomType.Setter
         public Builder filters(List<LogsCustomPipelineProcessorPipelineFilter> filters) {
             if (filters == null) {
@@ -91,12 +109,23 @@ public final class LogsCustomPipelineProcessorPipeline {
         public Builder processors(LogsCustomPipelineProcessorPipelineProcessor... processors) {
             return processors(List.of(processors));
         }
+        @CustomType.Setter
+        public Builder tags(@Nullable List<String> tags) {
+
+            this.tags = tags;
+            return this;
+        }
+        public Builder tags(String... tags) {
+            return tags(List.of(tags));
+        }
         public LogsCustomPipelineProcessorPipeline build() {
             final var _resultValue = new LogsCustomPipelineProcessorPipeline();
+            _resultValue.description = description;
             _resultValue.filters = filters;
             _resultValue.isEnabled = isEnabled;
             _resultValue.name = name;
             _resultValue.processors = processors;
+            _resultValue.tags = tags;
             return _resultValue;
         }
     }

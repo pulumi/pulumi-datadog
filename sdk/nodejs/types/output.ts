@@ -8764,6 +8764,10 @@ export interface GetLogsIndexesLogsIndexFilter {
 
 export interface GetLogsPipelinesLogsPipeline {
     /**
+     * Description of the pipeline
+     */
+    description: string;
+    /**
      * Pipelines filter
      */
     filters: outputs.GetLogsPipelinesLogsPipelineFilter[];
@@ -8783,6 +8787,10 @@ export interface GetLogsPipelinesLogsPipeline {
      * The name of the pipeline.
      */
     name: string;
+    /**
+     * Tags of the pipeline
+     */
+    tags: string[];
     /**
      * Whether or not the pipeline can be edited.
      */
@@ -9370,6 +9378,14 @@ export interface LogsArchiveS3Archive {
      */
     bucket: string;
     /**
+     * The AWS KMS encryption key.
+     */
+    encryptionKey?: string;
+    /**
+     * The type of encryption on your archive. Valid values are `NO_OVERRIDE`, `SSE_S3`, `SSE_KMS`. Defaults to `"NO_OVERRIDE"`.
+     */
+    encryptionType?: string;
+    /**
      * Path where the archive is stored.
      */
     path?: string;
@@ -9737,10 +9753,12 @@ export interface LogsCustomPipelineProcessorMessageRemapper {
 }
 
 export interface LogsCustomPipelineProcessorPipeline {
+    description?: string;
     filters: outputs.LogsCustomPipelineProcessorPipelineFilter[];
     isEnabled?: boolean;
     name: string;
     processors?: outputs.LogsCustomPipelineProcessorPipelineProcessor[];
+    tags?: string[];
 }
 
 export interface LogsCustomPipelineProcessorPipelineFilter {
@@ -10475,9 +10493,32 @@ export interface MonitorSchedulingOptionEvaluationWindow {
 
 export interface MonitorVariables {
     /**
+     * The Cloud Cost query using formulas and functions.
+     */
+    cloudCostQueries?: outputs.MonitorVariablesCloudCostQuery[];
+    /**
      * A timeseries formula and functions events query.
      */
     eventQueries?: outputs.MonitorVariablesEventQuery[];
+}
+
+export interface MonitorVariablesCloudCostQuery {
+    /**
+     * The aggregation methods available for cloud cost queries. Valid values are `avg`, `sum`, `max`, `min`, `last`, `area`, `l2norm`, `percentile`, `stddev`.
+     */
+    aggregator?: string;
+    /**
+     * The data source for cloud cost queries. Valid values are `metrics`, `cloudCost`, `datadogUsage`.
+     */
+    dataSource: string;
+    /**
+     * The name of the query for use in formulas.
+     */
+    name: string;
+    /**
+     * The cloud cost query definition.
+     */
+    query: string;
 }
 
 export interface MonitorVariablesEventQuery {
@@ -22915,7 +22956,7 @@ export interface SpansMetricCompute {
     /**
      * Toggle to include or exclude percentile aggregations for distribution metrics. Only present when the `aggregationType` is `distribution`.
      */
-    includePercentiles?: boolean;
+    includePercentiles: boolean;
     /**
      * The path to the value the span-based metric will aggregate on (only used if the aggregation type is a "distribution"). This field can't be updated after creation.
      */
@@ -23101,7 +23142,7 @@ export interface SyntheticsTestApiStepAssertion {
 
 export interface SyntheticsTestApiStepAssertionTargetjsonpath {
     /**
-     * The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `firstElementMatches`. Defaults to `"firstElementMatches"`.
+     * The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `"firstElementMatches"`.
      */
     elementsoperator?: string;
     /**
@@ -23457,7 +23498,7 @@ export interface SyntheticsTestAssertion {
 
 export interface SyntheticsTestAssertionTargetjsonpath {
     /**
-     * The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `firstElementMatches`. Defaults to `"firstElementMatches"`.
+     * The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `"firstElementMatches"`.
      */
     elementsoperator?: string;
     /**

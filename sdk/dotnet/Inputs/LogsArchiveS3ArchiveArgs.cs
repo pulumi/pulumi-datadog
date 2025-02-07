@@ -25,6 +25,18 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> Bucket { get; set; } = null!;
 
         /// <summary>
+        /// The AWS KMS encryption key.
+        /// </summary>
+        [Input("encryptionKey")]
+        public Input<string>? EncryptionKey { get; set; }
+
+        /// <summary>
+        /// The type of encryption on your archive. Valid values are `NO_OVERRIDE`, `SSE_S3`, `SSE_KMS`. Defaults to `"NO_OVERRIDE"`.
+        /// </summary>
+        [Input("encryptionType")]
+        public Input<string>? EncryptionType { get; set; }
+
+        /// <summary>
         /// Path where the archive is stored.
         /// </summary>
         [Input("path")]

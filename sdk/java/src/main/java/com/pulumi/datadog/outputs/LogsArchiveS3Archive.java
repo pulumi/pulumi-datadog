@@ -23,6 +23,16 @@ public final class LogsArchiveS3Archive {
      */
     private String bucket;
     /**
+     * @return The AWS KMS encryption key.
+     * 
+     */
+    private @Nullable String encryptionKey;
+    /**
+     * @return The type of encryption on your archive. Valid values are `NO_OVERRIDE`, `SSE_S3`, `SSE_KMS`. Defaults to `&#34;NO_OVERRIDE&#34;`.
+     * 
+     */
+    private @Nullable String encryptionType;
+    /**
      * @return Path where the archive is stored.
      * 
      */
@@ -47,6 +57,20 @@ public final class LogsArchiveS3Archive {
      */
     public String bucket() {
         return this.bucket;
+    }
+    /**
+     * @return The AWS KMS encryption key.
+     * 
+     */
+    public Optional<String> encryptionKey() {
+        return Optional.ofNullable(this.encryptionKey);
+    }
+    /**
+     * @return The type of encryption on your archive. Valid values are `NO_OVERRIDE`, `SSE_S3`, `SSE_KMS`. Defaults to `&#34;NO_OVERRIDE&#34;`.
+     * 
+     */
+    public Optional<String> encryptionType() {
+        return Optional.ofNullable(this.encryptionType);
     }
     /**
      * @return Path where the archive is stored.
@@ -74,6 +98,8 @@ public final class LogsArchiveS3Archive {
     public static final class Builder {
         private String accountId;
         private String bucket;
+        private @Nullable String encryptionKey;
+        private @Nullable String encryptionType;
         private @Nullable String path;
         private String roleName;
         public Builder() {}
@@ -81,6 +107,8 @@ public final class LogsArchiveS3Archive {
     	      Objects.requireNonNull(defaults);
     	      this.accountId = defaults.accountId;
     	      this.bucket = defaults.bucket;
+    	      this.encryptionKey = defaults.encryptionKey;
+    	      this.encryptionType = defaults.encryptionType;
     	      this.path = defaults.path;
     	      this.roleName = defaults.roleName;
         }
@@ -102,6 +130,18 @@ public final class LogsArchiveS3Archive {
             return this;
         }
         @CustomType.Setter
+        public Builder encryptionKey(@Nullable String encryptionKey) {
+
+            this.encryptionKey = encryptionKey;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder encryptionType(@Nullable String encryptionType) {
+
+            this.encryptionType = encryptionType;
+            return this;
+        }
+        @CustomType.Setter
         public Builder path(@Nullable String path) {
 
             this.path = path;
@@ -119,6 +159,8 @@ public final class LogsArchiveS3Archive {
             final var _resultValue = new LogsArchiveS3Archive();
             _resultValue.accountId = accountId;
             _resultValue.bucket = bucket;
+            _resultValue.encryptionKey = encryptionKey;
+            _resultValue.encryptionType = encryptionType;
             _resultValue.path = path;
             _resultValue.roleName = roleName;
             return _resultValue;

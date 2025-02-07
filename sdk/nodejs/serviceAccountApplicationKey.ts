@@ -73,6 +73,10 @@ export class ServiceAccountApplicationKey extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
+     */
+    public readonly scopes!: pulumi.Output<string[] | undefined>;
+    /**
      * ID of the service account that owns this key.
      */
     public readonly serviceAccountId!: pulumi.Output<string>;
@@ -94,6 +98,7 @@ export class ServiceAccountApplicationKey extends pulumi.CustomResource {
             resourceInputs["key"] = state ? state.key : undefined;
             resourceInputs["last4"] = state ? state.last4 : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["scopes"] = state ? state.scopes : undefined;
             resourceInputs["serviceAccountId"] = state ? state.serviceAccountId : undefined;
         } else {
             const args = argsOrState as ServiceAccountApplicationKeyArgs | undefined;
@@ -104,6 +109,7 @@ export class ServiceAccountApplicationKey extends pulumi.CustomResource {
                 throw new Error("Missing required property 'serviceAccountId'");
             }
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["scopes"] = args ? args.scopes : undefined;
             resourceInputs["serviceAccountId"] = args ? args.serviceAccountId : undefined;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["key"] = undefined /*out*/;
@@ -137,6 +143,10 @@ export interface ServiceAccountApplicationKeyState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
+     */
+    scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * ID of the service account that owns this key.
      */
     serviceAccountId?: pulumi.Input<string>;
@@ -150,6 +160,10 @@ export interface ServiceAccountApplicationKeyArgs {
      * Name of the application key.
      */
     name: pulumi.Input<string>;
+    /**
+     * Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
+     */
+    scopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * ID of the service account that owns this key.
      */

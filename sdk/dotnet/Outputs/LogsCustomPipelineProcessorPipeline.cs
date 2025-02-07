@@ -13,25 +13,33 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class LogsCustomPipelineProcessorPipeline
     {
+        public readonly string? Description;
         public readonly ImmutableArray<Outputs.LogsCustomPipelineProcessorPipelineFilter> Filters;
         public readonly bool? IsEnabled;
         public readonly string Name;
         public readonly ImmutableArray<Outputs.LogsCustomPipelineProcessorPipelineProcessor> Processors;
+        public readonly ImmutableArray<string> Tags;
 
         [OutputConstructor]
         private LogsCustomPipelineProcessorPipeline(
+            string? description,
+
             ImmutableArray<Outputs.LogsCustomPipelineProcessorPipelineFilter> filters,
 
             bool? isEnabled,
 
             string name,
 
-            ImmutableArray<Outputs.LogsCustomPipelineProcessorPipelineProcessor> processors)
+            ImmutableArray<Outputs.LogsCustomPipelineProcessorPipelineProcessor> processors,
+
+            ImmutableArray<string> tags)
         {
+            Description = description;
             Filters = filters;
             IsEnabled = isEnabled;
             Name = name;
             Processors = processors;
+            Tags = tags;
         }
     }
 }

@@ -233,10 +233,12 @@ import (
 type LogsCustomPipeline struct {
 	pulumi.CustomResourceState
 
-	Filters    LogsCustomPipelineFilterArrayOutput    `pulumi:"filters"`
-	IsEnabled  pulumi.BoolPtrOutput                   `pulumi:"isEnabled"`
-	Name       pulumi.StringOutput                    `pulumi:"name"`
-	Processors LogsCustomPipelineProcessorArrayOutput `pulumi:"processors"`
+	Description pulumi.StringPtrOutput                 `pulumi:"description"`
+	Filters     LogsCustomPipelineFilterArrayOutput    `pulumi:"filters"`
+	IsEnabled   pulumi.BoolPtrOutput                   `pulumi:"isEnabled"`
+	Name        pulumi.StringOutput                    `pulumi:"name"`
+	Processors  LogsCustomPipelineProcessorArrayOutput `pulumi:"processors"`
+	Tags        pulumi.StringArrayOutput               `pulumi:"tags"`
 }
 
 // NewLogsCustomPipeline registers a new resource with the given unique name, arguments, and options.
@@ -275,17 +277,21 @@ func GetLogsCustomPipeline(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LogsCustomPipeline resources.
 type logsCustomPipelineState struct {
-	Filters    []LogsCustomPipelineFilter    `pulumi:"filters"`
-	IsEnabled  *bool                         `pulumi:"isEnabled"`
-	Name       *string                       `pulumi:"name"`
-	Processors []LogsCustomPipelineProcessor `pulumi:"processors"`
+	Description *string                       `pulumi:"description"`
+	Filters     []LogsCustomPipelineFilter    `pulumi:"filters"`
+	IsEnabled   *bool                         `pulumi:"isEnabled"`
+	Name        *string                       `pulumi:"name"`
+	Processors  []LogsCustomPipelineProcessor `pulumi:"processors"`
+	Tags        []string                      `pulumi:"tags"`
 }
 
 type LogsCustomPipelineState struct {
-	Filters    LogsCustomPipelineFilterArrayInput
-	IsEnabled  pulumi.BoolPtrInput
-	Name       pulumi.StringPtrInput
-	Processors LogsCustomPipelineProcessorArrayInput
+	Description pulumi.StringPtrInput
+	Filters     LogsCustomPipelineFilterArrayInput
+	IsEnabled   pulumi.BoolPtrInput
+	Name        pulumi.StringPtrInput
+	Processors  LogsCustomPipelineProcessorArrayInput
+	Tags        pulumi.StringArrayInput
 }
 
 func (LogsCustomPipelineState) ElementType() reflect.Type {
@@ -293,18 +299,22 @@ func (LogsCustomPipelineState) ElementType() reflect.Type {
 }
 
 type logsCustomPipelineArgs struct {
-	Filters    []LogsCustomPipelineFilter    `pulumi:"filters"`
-	IsEnabled  *bool                         `pulumi:"isEnabled"`
-	Name       string                        `pulumi:"name"`
-	Processors []LogsCustomPipelineProcessor `pulumi:"processors"`
+	Description *string                       `pulumi:"description"`
+	Filters     []LogsCustomPipelineFilter    `pulumi:"filters"`
+	IsEnabled   *bool                         `pulumi:"isEnabled"`
+	Name        string                        `pulumi:"name"`
+	Processors  []LogsCustomPipelineProcessor `pulumi:"processors"`
+	Tags        []string                      `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LogsCustomPipeline resource.
 type LogsCustomPipelineArgs struct {
-	Filters    LogsCustomPipelineFilterArrayInput
-	IsEnabled  pulumi.BoolPtrInput
-	Name       pulumi.StringInput
-	Processors LogsCustomPipelineProcessorArrayInput
+	Description pulumi.StringPtrInput
+	Filters     LogsCustomPipelineFilterArrayInput
+	IsEnabled   pulumi.BoolPtrInput
+	Name        pulumi.StringInput
+	Processors  LogsCustomPipelineProcessorArrayInput
+	Tags        pulumi.StringArrayInput
 }
 
 func (LogsCustomPipelineArgs) ElementType() reflect.Type {
@@ -394,6 +404,10 @@ func (o LogsCustomPipelineOutput) ToLogsCustomPipelineOutputWithContext(ctx cont
 	return o
 }
 
+func (o LogsCustomPipelineOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogsCustomPipeline) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
 func (o LogsCustomPipelineOutput) Filters() LogsCustomPipelineFilterArrayOutput {
 	return o.ApplyT(func(v *LogsCustomPipeline) LogsCustomPipelineFilterArrayOutput { return v.Filters }).(LogsCustomPipelineFilterArrayOutput)
 }
@@ -408,6 +422,10 @@ func (o LogsCustomPipelineOutput) Name() pulumi.StringOutput {
 
 func (o LogsCustomPipelineOutput) Processors() LogsCustomPipelineProcessorArrayOutput {
 	return o.ApplyT(func(v *LogsCustomPipeline) LogsCustomPipelineProcessorArrayOutput { return v.Processors }).(LogsCustomPipelineProcessorArrayOutput)
+}
+
+func (o LogsCustomPipelineOutput) Tags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LogsCustomPipeline) pulumi.StringArrayOutput { return v.Tags }).(pulumi.StringArrayOutput)
 }
 
 type LogsCustomPipelineArrayOutput struct{ *pulumi.OutputState }
