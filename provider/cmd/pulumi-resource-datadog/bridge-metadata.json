@@ -11873,6 +11873,9 @@
                                                         }
                                                     }
                                                 }
+                                            },
+                                            "tags": {
+                                                "maxItemsOne": false
                                             }
                                         }
                                     }
@@ -11935,6 +11938,9 @@
                                 }
                             }
                         }
+                    },
+                    "tags": {
+                        "maxItemsOne": false
                     }
                 }
             },
@@ -12059,6 +12065,9 @@
                         "maxItemsOne": true,
                         "elem": {
                             "fields": {
+                                "cloud_cost_query": {
+                                    "maxItemsOne": false
+                                },
                                 "event_query": {
                                     "maxItemsOne": false,
                                     "elem": {
@@ -15545,7 +15554,12 @@
             },
             "datadog_service_account_application_key": {
                 "current": "datadog:index/serviceAccountApplicationKey:ServiceAccountApplicationKey",
-                "majorVersion": 4
+                "majorVersion": 4,
+                "fields": {
+                    "scopes": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "datadog_service_definition_yaml": {
                 "current": "datadog:index/serviceDefinitionYaml:ServiceDefinitionYaml",
@@ -16226,6 +16240,9 @@
                         "elem": {
                             "fields": {
                                 "filter": {
+                                    "maxItemsOne": false
+                                },
+                                "tags": {
                                     "maxItemsOne": false
                                 }
                             }

@@ -277,6 +277,9 @@ namespace Pulumi.Datadog
     [DatadogResourceType("datadog:index/logsCustomPipeline:LogsCustomPipeline")]
     public partial class LogsCustomPipeline : global::Pulumi.CustomResource
     {
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
         [Output("filters")]
         public Output<ImmutableArray<Outputs.LogsCustomPipelineFilter>> Filters { get; private set; } = null!;
 
@@ -288,6 +291,9 @@ namespace Pulumi.Datadog
 
         [Output("processors")]
         public Output<ImmutableArray<Outputs.LogsCustomPipelineProcessor>> Processors { get; private set; } = null!;
+
+        [Output("tags")]
+        public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -335,6 +341,9 @@ namespace Pulumi.Datadog
 
     public sealed class LogsCustomPipelineArgs : global::Pulumi.ResourceArgs
     {
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
         [Input("filters", required: true)]
         private InputList<Inputs.LogsCustomPipelineFilterArgs>? _filters;
         public InputList<Inputs.LogsCustomPipelineFilterArgs> Filters
@@ -357,6 +366,14 @@ namespace Pulumi.Datadog
             set => _processors = value;
         }
 
+        [Input("tags")]
+        private InputList<string>? _tags;
+        public InputList<string> Tags
+        {
+            get => _tags ?? (_tags = new InputList<string>());
+            set => _tags = value;
+        }
+
         public LogsCustomPipelineArgs()
         {
         }
@@ -365,6 +382,9 @@ namespace Pulumi.Datadog
 
     public sealed class LogsCustomPipelineState : global::Pulumi.ResourceArgs
     {
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
         [Input("filters")]
         private InputList<Inputs.LogsCustomPipelineFilterGetArgs>? _filters;
         public InputList<Inputs.LogsCustomPipelineFilterGetArgs> Filters
@@ -385,6 +405,14 @@ namespace Pulumi.Datadog
         {
             get => _processors ?? (_processors = new InputList<Inputs.LogsCustomPipelineProcessorGetArgs>());
             set => _processors = value;
+        }
+
+        [Input("tags")]
+        private InputList<string>? _tags;
+        public InputList<string> Tags
+        {
+            get => _tags ?? (_tags = new InputList<string>());
+            set => _tags = value;
         }
 
         public LogsCustomPipelineState()

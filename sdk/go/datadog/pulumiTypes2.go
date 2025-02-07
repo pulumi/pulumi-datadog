@@ -13,6 +13,143 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type ProviderDefaultTags struct {
+	// [Experimental - Monitors only] Resource tags to be applied by default across all resources.
+	Tags map[string]string `pulumi:"tags"`
+}
+
+// ProviderDefaultTagsInput is an input type that accepts ProviderDefaultTagsArgs and ProviderDefaultTagsOutput values.
+// You can construct a concrete instance of `ProviderDefaultTagsInput` via:
+//
+//	ProviderDefaultTagsArgs{...}
+type ProviderDefaultTagsInput interface {
+	pulumi.Input
+
+	ToProviderDefaultTagsOutput() ProviderDefaultTagsOutput
+	ToProviderDefaultTagsOutputWithContext(context.Context) ProviderDefaultTagsOutput
+}
+
+type ProviderDefaultTagsArgs struct {
+	// [Experimental - Monitors only] Resource tags to be applied by default across all resources.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (ProviderDefaultTagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderDefaultTags)(nil)).Elem()
+}
+
+func (i ProviderDefaultTagsArgs) ToProviderDefaultTagsOutput() ProviderDefaultTagsOutput {
+	return i.ToProviderDefaultTagsOutputWithContext(context.Background())
+}
+
+func (i ProviderDefaultTagsArgs) ToProviderDefaultTagsOutputWithContext(ctx context.Context) ProviderDefaultTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderDefaultTagsOutput)
+}
+
+func (i ProviderDefaultTagsArgs) ToProviderDefaultTagsPtrOutput() ProviderDefaultTagsPtrOutput {
+	return i.ToProviderDefaultTagsPtrOutputWithContext(context.Background())
+}
+
+func (i ProviderDefaultTagsArgs) ToProviderDefaultTagsPtrOutputWithContext(ctx context.Context) ProviderDefaultTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderDefaultTagsOutput).ToProviderDefaultTagsPtrOutputWithContext(ctx)
+}
+
+// ProviderDefaultTagsPtrInput is an input type that accepts ProviderDefaultTagsArgs, ProviderDefaultTagsPtr and ProviderDefaultTagsPtrOutput values.
+// You can construct a concrete instance of `ProviderDefaultTagsPtrInput` via:
+//
+//	        ProviderDefaultTagsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProviderDefaultTagsPtrInput interface {
+	pulumi.Input
+
+	ToProviderDefaultTagsPtrOutput() ProviderDefaultTagsPtrOutput
+	ToProviderDefaultTagsPtrOutputWithContext(context.Context) ProviderDefaultTagsPtrOutput
+}
+
+type providerDefaultTagsPtrType ProviderDefaultTagsArgs
+
+func ProviderDefaultTagsPtr(v *ProviderDefaultTagsArgs) ProviderDefaultTagsPtrInput {
+	return (*providerDefaultTagsPtrType)(v)
+}
+
+func (*providerDefaultTagsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderDefaultTags)(nil)).Elem()
+}
+
+func (i *providerDefaultTagsPtrType) ToProviderDefaultTagsPtrOutput() ProviderDefaultTagsPtrOutput {
+	return i.ToProviderDefaultTagsPtrOutputWithContext(context.Background())
+}
+
+func (i *providerDefaultTagsPtrType) ToProviderDefaultTagsPtrOutputWithContext(ctx context.Context) ProviderDefaultTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderDefaultTagsPtrOutput)
+}
+
+type ProviderDefaultTagsOutput struct{ *pulumi.OutputState }
+
+func (ProviderDefaultTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderDefaultTags)(nil)).Elem()
+}
+
+func (o ProviderDefaultTagsOutput) ToProviderDefaultTagsOutput() ProviderDefaultTagsOutput {
+	return o
+}
+
+func (o ProviderDefaultTagsOutput) ToProviderDefaultTagsOutputWithContext(ctx context.Context) ProviderDefaultTagsOutput {
+	return o
+}
+
+func (o ProviderDefaultTagsOutput) ToProviderDefaultTagsPtrOutput() ProviderDefaultTagsPtrOutput {
+	return o.ToProviderDefaultTagsPtrOutputWithContext(context.Background())
+}
+
+func (o ProviderDefaultTagsOutput) ToProviderDefaultTagsPtrOutputWithContext(ctx context.Context) ProviderDefaultTagsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderDefaultTags) *ProviderDefaultTags {
+		return &v
+	}).(ProviderDefaultTagsPtrOutput)
+}
+
+// [Experimental - Monitors only] Resource tags to be applied by default across all resources.
+func (o ProviderDefaultTagsOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ProviderDefaultTags) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+type ProviderDefaultTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (ProviderDefaultTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderDefaultTags)(nil)).Elem()
+}
+
+func (o ProviderDefaultTagsPtrOutput) ToProviderDefaultTagsPtrOutput() ProviderDefaultTagsPtrOutput {
+	return o
+}
+
+func (o ProviderDefaultTagsPtrOutput) ToProviderDefaultTagsPtrOutputWithContext(ctx context.Context) ProviderDefaultTagsPtrOutput {
+	return o
+}
+
+func (o ProviderDefaultTagsPtrOutput) Elem() ProviderDefaultTagsOutput {
+	return o.ApplyT(func(v *ProviderDefaultTags) ProviderDefaultTags {
+		if v != nil {
+			return *v
+		}
+		var ret ProviderDefaultTags
+		return ret
+	}).(ProviderDefaultTagsOutput)
+}
+
+// [Experimental - Monitors only] Resource tags to be applied by default across all resources.
+func (o ProviderDefaultTagsPtrOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ProviderDefaultTags) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(pulumi.StringMapOutput)
+}
+
 type RestrictionPolicyBinding struct {
 	// An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role`, `team`, `user`, and `org`. Org ID can be obtained using a `GET /api/v2/current_user` API request. Find it in the `data.relationships.org.data.id` field.
 	Principals []string `pulumi:"principals"`
@@ -6330,7 +6467,7 @@ func (o SyntheticsTestApiStepAssertionArrayOutput) Index(i pulumi.IntInput) Synt
 }
 
 type SyntheticsTestApiStepAssertionTargetjsonpath struct {
-	// The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `firstElementMatches`. Defaults to `"firstElementMatches"`.
+	// The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `"firstElementMatches"`.
 	Elementsoperator *string `pulumi:"elementsoperator"`
 	// The JSON path to assert.
 	Jsonpath string `pulumi:"jsonpath"`
@@ -6352,7 +6489,7 @@ type SyntheticsTestApiStepAssertionTargetjsonpathInput interface {
 }
 
 type SyntheticsTestApiStepAssertionTargetjsonpathArgs struct {
-	// The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `firstElementMatches`. Defaults to `"firstElementMatches"`.
+	// The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `"firstElementMatches"`.
 	Elementsoperator pulumi.StringPtrInput `pulumi:"elementsoperator"`
 	// The JSON path to assert.
 	Jsonpath pulumi.StringInput `pulumi:"jsonpath"`
@@ -6439,7 +6576,7 @@ func (o SyntheticsTestApiStepAssertionTargetjsonpathOutput) ToSyntheticsTestApiS
 	}).(SyntheticsTestApiStepAssertionTargetjsonpathPtrOutput)
 }
 
-// The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `firstElementMatches`. Defaults to `"firstElementMatches"`.
+// The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `"firstElementMatches"`.
 func (o SyntheticsTestApiStepAssertionTargetjsonpathOutput) Elementsoperator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepAssertionTargetjsonpath) *string { return v.Elementsoperator }).(pulumi.StringPtrOutput)
 }
@@ -6483,7 +6620,7 @@ func (o SyntheticsTestApiStepAssertionTargetjsonpathPtrOutput) Elem() Synthetics
 	}).(SyntheticsTestApiStepAssertionTargetjsonpathOutput)
 }
 
-// The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `firstElementMatches`. Defaults to `"firstElementMatches"`.
+// The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `"firstElementMatches"`.
 func (o SyntheticsTestApiStepAssertionTargetjsonpathPtrOutput) Elementsoperator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestApiStepAssertionTargetjsonpath) *string {
 		if v == nil {
@@ -9134,7 +9271,7 @@ func (o SyntheticsTestAssertionArrayOutput) Index(i pulumi.IntInput) SyntheticsT
 }
 
 type SyntheticsTestAssertionTargetjsonpath struct {
-	// The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `firstElementMatches`. Defaults to `"firstElementMatches"`.
+	// The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `"firstElementMatches"`.
 	Elementsoperator *string `pulumi:"elementsoperator"`
 	// The JSON path to assert.
 	Jsonpath string `pulumi:"jsonpath"`
@@ -9156,7 +9293,7 @@ type SyntheticsTestAssertionTargetjsonpathInput interface {
 }
 
 type SyntheticsTestAssertionTargetjsonpathArgs struct {
-	// The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `firstElementMatches`. Defaults to `"firstElementMatches"`.
+	// The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `"firstElementMatches"`.
 	Elementsoperator pulumi.StringPtrInput `pulumi:"elementsoperator"`
 	// The JSON path to assert.
 	Jsonpath pulumi.StringInput `pulumi:"jsonpath"`
@@ -9243,7 +9380,7 @@ func (o SyntheticsTestAssertionTargetjsonpathOutput) ToSyntheticsTestAssertionTa
 	}).(SyntheticsTestAssertionTargetjsonpathPtrOutput)
 }
 
-// The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `firstElementMatches`. Defaults to `"firstElementMatches"`.
+// The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `"firstElementMatches"`.
 func (o SyntheticsTestAssertionTargetjsonpathOutput) Elementsoperator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestAssertionTargetjsonpath) *string { return v.Elementsoperator }).(pulumi.StringPtrOutput)
 }
@@ -9287,7 +9424,7 @@ func (o SyntheticsTestAssertionTargetjsonpathPtrOutput) Elem() SyntheticsTestAss
 	}).(SyntheticsTestAssertionTargetjsonpathOutput)
 }
 
-// The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `firstElementMatches`. Defaults to `"firstElementMatches"`.
+// The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `"firstElementMatches"`.
 func (o SyntheticsTestAssertionTargetjsonpathPtrOutput) Elementsoperator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestAssertionTargetjsonpath) *string {
 		if v == nil {
@@ -17741,6 +17878,8 @@ func (o GetLogsIndexesLogsIndexFilterArrayOutput) Index(i pulumi.IntInput) GetLo
 }
 
 type GetLogsPipelinesLogsPipeline struct {
+	// Description of the pipeline
+	Description string `pulumi:"description"`
 	// Pipelines filter
 	Filters []GetLogsPipelinesLogsPipelineFilter `pulumi:"filters"`
 	// ID of the pipeline
@@ -17751,6 +17890,8 @@ type GetLogsPipelinesLogsPipeline struct {
 	IsReadOnly bool `pulumi:"isReadOnly"`
 	// The name of the pipeline.
 	Name string `pulumi:"name"`
+	// Tags of the pipeline
+	Tags []string `pulumi:"tags"`
 	// Whether or not the pipeline can be edited.
 	Type string `pulumi:"type"`
 }
@@ -17767,6 +17908,8 @@ type GetLogsPipelinesLogsPipelineInput interface {
 }
 
 type GetLogsPipelinesLogsPipelineArgs struct {
+	// Description of the pipeline
+	Description pulumi.StringInput `pulumi:"description"`
 	// Pipelines filter
 	Filters GetLogsPipelinesLogsPipelineFilterArrayInput `pulumi:"filters"`
 	// ID of the pipeline
@@ -17777,6 +17920,8 @@ type GetLogsPipelinesLogsPipelineArgs struct {
 	IsReadOnly pulumi.BoolInput `pulumi:"isReadOnly"`
 	// The name of the pipeline.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Tags of the pipeline
+	Tags pulumi.StringArrayInput `pulumi:"tags"`
 	// Whether or not the pipeline can be edited.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -17832,6 +17977,11 @@ func (o GetLogsPipelinesLogsPipelineOutput) ToGetLogsPipelinesLogsPipelineOutput
 	return o
 }
 
+// Description of the pipeline
+func (o GetLogsPipelinesLogsPipelineOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLogsPipelinesLogsPipeline) string { return v.Description }).(pulumi.StringOutput)
+}
+
 // Pipelines filter
 func (o GetLogsPipelinesLogsPipelineOutput) Filters() GetLogsPipelinesLogsPipelineFilterArrayOutput {
 	return o.ApplyT(func(v GetLogsPipelinesLogsPipeline) []GetLogsPipelinesLogsPipelineFilter { return v.Filters }).(GetLogsPipelinesLogsPipelineFilterArrayOutput)
@@ -17855,6 +18005,11 @@ func (o GetLogsPipelinesLogsPipelineOutput) IsReadOnly() pulumi.BoolOutput {
 // The name of the pipeline.
 func (o GetLogsPipelinesLogsPipelineOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLogsPipelinesLogsPipeline) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Tags of the pipeline
+func (o GetLogsPipelinesLogsPipelineOutput) Tags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLogsPipelinesLogsPipeline) []string { return v.Tags }).(pulumi.StringArrayOutput)
 }
 
 // Whether or not the pipeline can be edited.
@@ -22028,6 +22183,8 @@ func (o GetUsersUserArrayOutput) Index(i pulumi.IntInput) GetUsersUserOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderDefaultTagsInput)(nil)).Elem(), ProviderDefaultTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderDefaultTagsPtrInput)(nil)).Elem(), ProviderDefaultTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RestrictionPolicyBindingInput)(nil)).Elem(), RestrictionPolicyBindingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RestrictionPolicyBindingArrayInput)(nil)).Elem(), RestrictionPolicyBindingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RolePermissionInput)(nil)).Elem(), RolePermissionArgs{})
@@ -22302,6 +22459,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamMembershipsTeamMembershipArrayInput)(nil)).Elem(), GetTeamMembershipsTeamMembershipArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserInput)(nil)).Elem(), GetUsersUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserArrayInput)(nil)).Elem(), GetUsersUserArray{})
+	pulumi.RegisterOutputType(ProviderDefaultTagsOutput{})
+	pulumi.RegisterOutputType(ProviderDefaultTagsPtrOutput{})
 	pulumi.RegisterOutputType(RestrictionPolicyBindingOutput{})
 	pulumi.RegisterOutputType(RestrictionPolicyBindingArrayOutput{})
 	pulumi.RegisterOutputType(RolePermissionOutput{})

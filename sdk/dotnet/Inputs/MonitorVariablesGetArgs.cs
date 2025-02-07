@@ -12,6 +12,18 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class MonitorVariablesGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("cloudCostQueries")]
+        private InputList<Inputs.MonitorVariablesCloudCostQueryGetArgs>? _cloudCostQueries;
+
+        /// <summary>
+        /// The Cloud Cost query using formulas and functions.
+        /// </summary>
+        public InputList<Inputs.MonitorVariablesCloudCostQueryGetArgs> CloudCostQueries
+        {
+            get => _cloudCostQueries ?? (_cloudCostQueries = new InputList<Inputs.MonitorVariablesCloudCostQueryGetArgs>());
+            set => _cloudCostQueries = value;
+        }
+
         [Input("eventQueries")]
         private InputList<Inputs.MonitorVariablesEventQueryGetArgs>? _eventQueries;
 

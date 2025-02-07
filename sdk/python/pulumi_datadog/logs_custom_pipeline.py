@@ -23,17 +23,23 @@ class LogsCustomPipelineArgs:
     def __init__(__self__, *,
                  filters: pulumi.Input[Sequence[pulumi.Input['LogsCustomPipelineFilterArgs']]],
                  name: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
-                 processors: Optional[pulumi.Input[Sequence[pulumi.Input['LogsCustomPipelineProcessorArgs']]]] = None):
+                 processors: Optional[pulumi.Input[Sequence[pulumi.Input['LogsCustomPipelineProcessorArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a LogsCustomPipeline resource.
         """
         pulumi.set(__self__, "filters", filters)
         pulumi.set(__self__, "name", name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if is_enabled is not None:
             pulumi.set(__self__, "is_enabled", is_enabled)
         if processors is not None:
             pulumi.set(__self__, "processors", processors)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -54,6 +60,15 @@ class LogsCustomPipelineArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
     @pulumi.getter(name="isEnabled")
     def is_enabled(self) -> Optional[pulumi.Input[bool]]:
         return pulumi.get(self, "is_enabled")
@@ -71,17 +86,30 @@ class LogsCustomPipelineArgs:
     def processors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LogsCustomPipelineProcessorArgs']]]]):
         pulumi.set(self, "processors", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.input_type
 class _LogsCustomPipelineState:
     def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input['LogsCustomPipelineFilterArgs']]]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 processors: Optional[pulumi.Input[Sequence[pulumi.Input['LogsCustomPipelineProcessorArgs']]]] = None):
+                 processors: Optional[pulumi.Input[Sequence[pulumi.Input['LogsCustomPipelineProcessorArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering LogsCustomPipeline resources.
         """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if filters is not None:
             pulumi.set(__self__, "filters", filters)
         if is_enabled is not None:
@@ -90,6 +118,17 @@ class _LogsCustomPipelineState:
             pulumi.set(__self__, "name", name)
         if processors is not None:
             pulumi.set(__self__, "processors", processors)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -127,16 +166,27 @@ class _LogsCustomPipelineState:
     def processors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LogsCustomPipelineProcessorArgs']]]]):
         pulumi.set(self, "processors", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
 
 class LogsCustomPipeline(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogsCustomPipelineFilterArgs', 'LogsCustomPipelineFilterArgsDict']]]]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  processors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogsCustomPipelineProcessorArgs', 'LogsCustomPipelineProcessorArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides a Datadog [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/) resource, which is used to create and manage Datadog logs custom pipelines. Each `LogsCustomPipeline` resource defines a complete pipeline. The order of the pipelines is maintained in a different resource: `LogsPipelineOrder`. When creating a new pipeline, you need to **explicitly** add this pipeline to the `LogsPipelineOrder` resource to track the pipeline. Similarly, when a pipeline needs to be destroyed, remove its references from the `LogsPipelineOrder` resource.
@@ -530,10 +580,12 @@ class LogsCustomPipeline(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogsCustomPipelineFilterArgs', 'LogsCustomPipelineFilterArgsDict']]]]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  processors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogsCustomPipelineProcessorArgs', 'LogsCustomPipelineProcessorArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -543,6 +595,7 @@ class LogsCustomPipeline(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LogsCustomPipelineArgs.__new__(LogsCustomPipelineArgs)
 
+            __props__.__dict__["description"] = description
             if filters is None and not opts.urn:
                 raise TypeError("Missing required property 'filters'")
             __props__.__dict__["filters"] = filters
@@ -551,6 +604,7 @@ class LogsCustomPipeline(pulumi.CustomResource):
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["processors"] = processors
+            __props__.__dict__["tags"] = tags
         super(LogsCustomPipeline, __self__).__init__(
             'datadog:index/logsCustomPipeline:LogsCustomPipeline',
             resource_name,
@@ -561,10 +615,12 @@ class LogsCustomPipeline(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            description: Optional[pulumi.Input[str]] = None,
             filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogsCustomPipelineFilterArgs', 'LogsCustomPipelineFilterArgsDict']]]]] = None,
             is_enabled: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            processors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogsCustomPipelineProcessorArgs', 'LogsCustomPipelineProcessorArgsDict']]]]] = None) -> 'LogsCustomPipeline':
+            processors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogsCustomPipelineProcessorArgs', 'LogsCustomPipelineProcessorArgsDict']]]]] = None,
+            tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'LogsCustomPipeline':
         """
         Get an existing LogsCustomPipeline resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -577,11 +633,18 @@ class LogsCustomPipeline(pulumi.CustomResource):
 
         __props__ = _LogsCustomPipelineState.__new__(_LogsCustomPipelineState)
 
+        __props__.__dict__["description"] = description
         __props__.__dict__["filters"] = filters
         __props__.__dict__["is_enabled"] = is_enabled
         __props__.__dict__["name"] = name
         __props__.__dict__["processors"] = processors
+        __props__.__dict__["tags"] = tags
         return LogsCustomPipeline(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def description(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
@@ -602,4 +665,9 @@ class LogsCustomPipeline(pulumi.CustomResource):
     @pulumi.getter
     def processors(self) -> pulumi.Output[Optional[Sequence['outputs.LogsCustomPipelineProcessor']]]:
         return pulumi.get(self, "processors")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        return pulumi.get(self, "tags")
 

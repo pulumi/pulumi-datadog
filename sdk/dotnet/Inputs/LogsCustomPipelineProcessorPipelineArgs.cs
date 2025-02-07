@@ -12,6 +12,9 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class LogsCustomPipelineProcessorPipelineArgs : global::Pulumi.ResourceArgs
     {
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
         [Input("filters", required: true)]
         private InputList<Inputs.LogsCustomPipelineProcessorPipelineFilterArgs>? _filters;
         public InputList<Inputs.LogsCustomPipelineProcessorPipelineFilterArgs> Filters
@@ -32,6 +35,14 @@ namespace Pulumi.Datadog.Inputs
         {
             get => _processors ?? (_processors = new InputList<Inputs.LogsCustomPipelineProcessorPipelineProcessorArgs>());
             set => _processors = value;
+        }
+
+        [Input("tags")]
+        private InputList<string>? _tags;
+        public InputList<string> Tags
+        {
+            get => _tags ?? (_tags = new InputList<string>());
+            set => _tags = value;
         }
 
         public LogsCustomPipelineProcessorPipelineArgs()

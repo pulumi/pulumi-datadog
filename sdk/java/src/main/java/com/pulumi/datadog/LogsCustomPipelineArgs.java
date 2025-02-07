@@ -20,6 +20,13 @@ public final class LogsCustomPipelineArgs extends com.pulumi.resources.ResourceA
 
     public static final LogsCustomPipelineArgs Empty = new LogsCustomPipelineArgs();
 
+    @Import(name="description")
+    private @Nullable Output<String> description;
+
+    public Optional<Output<String>> description() {
+        return Optional.ofNullable(this.description);
+    }
+
     @Import(name="filters", required=true)
     private Output<List<LogsCustomPipelineFilterArgs>> filters;
 
@@ -48,13 +55,22 @@ public final class LogsCustomPipelineArgs extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.processors);
     }
 
+    @Import(name="tags")
+    private @Nullable Output<List<String>> tags;
+
+    public Optional<Output<List<String>>> tags() {
+        return Optional.ofNullable(this.tags);
+    }
+
     private LogsCustomPipelineArgs() {}
 
     private LogsCustomPipelineArgs(LogsCustomPipelineArgs $) {
+        this.description = $.description;
         this.filters = $.filters;
         this.isEnabled = $.isEnabled;
         this.name = $.name;
         this.processors = $.processors;
+        this.tags = $.tags;
     }
 
     public static Builder builder() {
@@ -73,6 +89,15 @@ public final class LogsCustomPipelineArgs extends com.pulumi.resources.ResourceA
 
         public Builder(LogsCustomPipelineArgs defaults) {
             $ = new LogsCustomPipelineArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder description(@Nullable Output<String> description) {
+            $.description = description;
+            return this;
+        }
+
+        public Builder description(String description) {
+            return description(Output.of(description));
         }
 
         public Builder filters(Output<List<LogsCustomPipelineFilterArgs>> filters) {
@@ -117,6 +142,19 @@ public final class LogsCustomPipelineArgs extends com.pulumi.resources.ResourceA
 
         public Builder processors(LogsCustomPipelineProcessorArgs... processors) {
             return processors(List.of(processors));
+        }
+
+        public Builder tags(@Nullable Output<List<String>> tags) {
+            $.tags = tags;
+            return this;
+        }
+
+        public Builder tags(List<String> tags) {
+            return tags(Output.of(tags));
+        }
+
+        public Builder tags(String... tags) {
+            return tags(List.of(tags));
         }
 
         public LogsCustomPipelineArgs build() {

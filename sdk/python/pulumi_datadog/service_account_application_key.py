@@ -20,14 +20,18 @@ __all__ = ['ServiceAccountApplicationKeyArgs', 'ServiceAccountApplicationKey']
 class ServiceAccountApplicationKeyArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 service_account_id: pulumi.Input[str]):
+                 service_account_id: pulumi.Input[str],
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ServiceAccountApplicationKey resource.
         :param pulumi.Input[str] name: Name of the application key.
         :param pulumi.Input[str] service_account_id: ID of the service account that owns this key.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "service_account_id", service_account_id)
+        if scopes is not None:
+            pulumi.set(__self__, "scopes", scopes)
 
     @property
     @pulumi.getter
@@ -53,6 +57,18 @@ class ServiceAccountApplicationKeyArgs:
     def service_account_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "service_account_id", value)
 
+    @property
+    @pulumi.getter
+    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
+        """
+        return pulumi.get(self, "scopes")
+
+    @scopes.setter
+    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "scopes", value)
+
 
 @pulumi.input_type
 class _ServiceAccountApplicationKeyState:
@@ -61,6 +77,7 @@ class _ServiceAccountApplicationKeyState:
                  key: Optional[pulumi.Input[str]] = None,
                  last4: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  service_account_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ServiceAccountApplicationKey resources.
@@ -68,6 +85,7 @@ class _ServiceAccountApplicationKeyState:
         :param pulumi.Input[str] key: The value of the service account application key. This value cannot be imported.
         :param pulumi.Input[str] last4: The last four characters of the application key.
         :param pulumi.Input[str] name: Name of the application key.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
         :param pulumi.Input[str] service_account_id: ID of the service account that owns this key.
         """
         if created_at is not None:
@@ -78,6 +96,8 @@ class _ServiceAccountApplicationKeyState:
             pulumi.set(__self__, "last4", last4)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if scopes is not None:
+            pulumi.set(__self__, "scopes", scopes)
         if service_account_id is not None:
             pulumi.set(__self__, "service_account_id", service_account_id)
 
@@ -130,6 +150,18 @@ class _ServiceAccountApplicationKeyState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
+        """
+        return pulumi.get(self, "scopes")
+
+    @scopes.setter
+    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "scopes", value)
+
+    @property
     @pulumi.getter(name="serviceAccountId")
     def service_account_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -148,6 +180,7 @@ class ServiceAccountApplicationKey(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  service_account_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -176,6 +209,7 @@ class ServiceAccountApplicationKey(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Name of the application key.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
         :param pulumi.Input[str] service_account_id: ID of the service account that owns this key.
         """
         ...
@@ -223,6 +257,7 @@ class ServiceAccountApplicationKey(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  service_account_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -236,6 +271,7 @@ class ServiceAccountApplicationKey(pulumi.CustomResource):
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
+            __props__.__dict__["scopes"] = scopes
             if service_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'service_account_id'")
             __props__.__dict__["service_account_id"] = service_account_id
@@ -258,6 +294,7 @@ class ServiceAccountApplicationKey(pulumi.CustomResource):
             key: Optional[pulumi.Input[str]] = None,
             last4: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             service_account_id: Optional[pulumi.Input[str]] = None) -> 'ServiceAccountApplicationKey':
         """
         Get an existing ServiceAccountApplicationKey resource's state with the given name, id, and optional extra
@@ -270,6 +307,7 @@ class ServiceAccountApplicationKey(pulumi.CustomResource):
         :param pulumi.Input[str] key: The value of the service account application key. This value cannot be imported.
         :param pulumi.Input[str] last4: The last four characters of the application key.
         :param pulumi.Input[str] name: Name of the application key.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
         :param pulumi.Input[str] service_account_id: ID of the service account that owns this key.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -280,6 +318,7 @@ class ServiceAccountApplicationKey(pulumi.CustomResource):
         __props__.__dict__["key"] = key
         __props__.__dict__["last4"] = last4
         __props__.__dict__["name"] = name
+        __props__.__dict__["scopes"] = scopes
         __props__.__dict__["service_account_id"] = service_account_id
         return ServiceAccountApplicationKey(resource_name, opts=opts, __props__=__props__)
 
@@ -314,6 +353,14 @@ class ServiceAccountApplicationKey(pulumi.CustomResource):
         Name of the application key.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
+        """
+        return pulumi.get(self, "scopes")
 
     @property
     @pulumi.getter(name="serviceAccountId")

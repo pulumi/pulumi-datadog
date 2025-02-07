@@ -241,6 +241,12 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="datadog:index/logsCustomPipeline:LogsCustomPipeline")
 public class LogsCustomPipeline extends com.pulumi.resources.CustomResource {
+    @Export(name="description", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> description;
+
+    public Output<Optional<String>> description() {
+        return Codegen.optional(this.description);
+    }
     @Export(name="filters", refs={List.class,LogsCustomPipelineFilter.class}, tree="[0,1]")
     private Output<List<LogsCustomPipelineFilter>> filters;
 
@@ -264,6 +270,12 @@ public class LogsCustomPipeline extends com.pulumi.resources.CustomResource {
 
     public Output<Optional<List<LogsCustomPipelineProcessor>>> processors() {
         return Codegen.optional(this.processors);
+    }
+    @Export(name="tags", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> tags;
+
+    public Output<Optional<List<String>>> tags() {
+        return Codegen.optional(this.tags);
     }
 
     /**

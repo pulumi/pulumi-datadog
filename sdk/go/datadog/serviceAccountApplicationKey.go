@@ -60,6 +60,8 @@ type ServiceAccountApplicationKey struct {
 	Last4 pulumi.StringOutput `pulumi:"last4"`
 	// Name of the application key.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
+	Scopes pulumi.StringArrayOutput `pulumi:"scopes"`
 	// ID of the service account that owns this key.
 	ServiceAccountId pulumi.StringOutput `pulumi:"serviceAccountId"`
 }
@@ -112,6 +114,8 @@ type serviceAccountApplicationKeyState struct {
 	Last4 *string `pulumi:"last4"`
 	// Name of the application key.
 	Name *string `pulumi:"name"`
+	// Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
+	Scopes []string `pulumi:"scopes"`
 	// ID of the service account that owns this key.
 	ServiceAccountId *string `pulumi:"serviceAccountId"`
 }
@@ -125,6 +129,8 @@ type ServiceAccountApplicationKeyState struct {
 	Last4 pulumi.StringPtrInput
 	// Name of the application key.
 	Name pulumi.StringPtrInput
+	// Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
+	Scopes pulumi.StringArrayInput
 	// ID of the service account that owns this key.
 	ServiceAccountId pulumi.StringPtrInput
 }
@@ -136,6 +142,8 @@ func (ServiceAccountApplicationKeyState) ElementType() reflect.Type {
 type serviceAccountApplicationKeyArgs struct {
 	// Name of the application key.
 	Name string `pulumi:"name"`
+	// Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
+	Scopes []string `pulumi:"scopes"`
 	// ID of the service account that owns this key.
 	ServiceAccountId string `pulumi:"serviceAccountId"`
 }
@@ -144,6 +152,8 @@ type serviceAccountApplicationKeyArgs struct {
 type ServiceAccountApplicationKeyArgs struct {
 	// Name of the application key.
 	Name pulumi.StringInput
+	// Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
+	Scopes pulumi.StringArrayInput
 	// ID of the service account that owns this key.
 	ServiceAccountId pulumi.StringInput
 }
@@ -253,6 +263,11 @@ func (o ServiceAccountApplicationKeyOutput) Last4() pulumi.StringOutput {
 // Name of the application key.
 func (o ServiceAccountApplicationKeyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceAccountApplicationKey) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
+func (o ServiceAccountApplicationKeyOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ServiceAccountApplicationKey) pulumi.StringArrayOutput { return v.Scopes }).(pulumi.StringArrayOutput)
 }
 
 // ID of the service account that owns this key.

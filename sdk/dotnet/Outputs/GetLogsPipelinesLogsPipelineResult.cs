@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class GetLogsPipelinesLogsPipelineResult
     {
         /// <summary>
+        /// Description of the pipeline
+        /// </summary>
+        public readonly string Description;
+        /// <summary>
         /// Pipelines filter
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLogsPipelinesLogsPipelineFilterResult> Filters;
@@ -34,12 +38,18 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Tags of the pipeline
+        /// </summary>
+        public readonly ImmutableArray<string> Tags;
+        /// <summary>
         /// Whether or not the pipeline can be edited.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetLogsPipelinesLogsPipelineResult(
+            string description,
+
             ImmutableArray<Outputs.GetLogsPipelinesLogsPipelineFilterResult> filters,
 
             string id,
@@ -50,13 +60,17 @@ namespace Pulumi.Datadog.Outputs
 
             string name,
 
+            ImmutableArray<string> tags,
+
             string type)
         {
+            Description = description;
             Filters = filters;
             Id = id;
             IsEnabled = isEnabled;
             IsReadOnly = isReadOnly;
             Name = name;
+            Tags = tags;
             Type = type;
         }
     }

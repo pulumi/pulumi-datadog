@@ -445,6 +445,7 @@ __all__ = [
     'MonitorSchedulingOptionCustomScheduleRecurrence',
     'MonitorSchedulingOptionEvaluationWindow',
     'MonitorVariables',
+    'MonitorVariablesCloudCostQuery',
     'MonitorVariablesEventQuery',
     'MonitorVariablesEventQueryCompute',
     'MonitorVariablesEventQueryGroupBy',
@@ -31713,6 +31714,10 @@ class LogsArchiveS3Archive(dict):
             suggest = "account_id"
         elif key == "roleName":
             suggest = "role_name"
+        elif key == "encryptionKey":
+            suggest = "encryption_key"
+        elif key == "encryptionType":
+            suggest = "encryption_type"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in LogsArchiveS3Archive. Access the value via the '{suggest}' property getter instead.")
@@ -31729,16 +31734,24 @@ class LogsArchiveS3Archive(dict):
                  account_id: str,
                  bucket: str,
                  role_name: str,
+                 encryption_key: Optional[str] = None,
+                 encryption_type: Optional[str] = None,
                  path: Optional[str] = None):
         """
         :param str account_id: Your AWS account id.
         :param str bucket: Name of your s3 bucket.
         :param str role_name: Your AWS role name
+        :param str encryption_key: The AWS KMS encryption key.
+        :param str encryption_type: The type of encryption on your archive. Valid values are `NO_OVERRIDE`, `SSE_S3`, `SSE_KMS`. Defaults to `"NO_OVERRIDE"`.
         :param str path: Path where the archive is stored.
         """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "role_name", role_name)
+        if encryption_key is not None:
+            pulumi.set(__self__, "encryption_key", encryption_key)
+        if encryption_type is not None:
+            pulumi.set(__self__, "encryption_type", encryption_type)
         if path is not None:
             pulumi.set(__self__, "path", path)
 
@@ -31765,6 +31778,22 @@ class LogsArchiveS3Archive(dict):
         Your AWS role name
         """
         return pulumi.get(self, "role_name")
+
+    @property
+    @pulumi.getter(name="encryptionKey")
+    def encryption_key(self) -> Optional[str]:
+        """
+        The AWS KMS encryption key.
+        """
+        return pulumi.get(self, "encryption_key")
+
+    @property
+    @pulumi.getter(name="encryptionType")
+    def encryption_type(self) -> Optional[str]:
+        """
+        The type of encryption on your archive. Valid values are `NO_OVERRIDE`, `SSE_S3`, `SSE_KMS`. Defaults to `"NO_OVERRIDE"`.
+        """
+        return pulumi.get(self, "encryption_type")
 
     @property
     @pulumi.getter
@@ -33097,14 +33126,20 @@ class LogsCustomPipelineProcessorPipeline(dict):
     def __init__(__self__, *,
                  filters: Sequence['outputs.LogsCustomPipelineProcessorPipelineFilter'],
                  name: str,
+                 description: Optional[str] = None,
                  is_enabled: Optional[bool] = None,
-                 processors: Optional[Sequence['outputs.LogsCustomPipelineProcessorPipelineProcessor']] = None):
+                 processors: Optional[Sequence['outputs.LogsCustomPipelineProcessorPipelineProcessor']] = None,
+                 tags: Optional[Sequence[str]] = None):
         pulumi.set(__self__, "filters", filters)
         pulumi.set(__self__, "name", name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if is_enabled is not None:
             pulumi.set(__self__, "is_enabled", is_enabled)
         if processors is not None:
             pulumi.set(__self__, "processors", processors)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -33117,6 +33152,11 @@ class LogsCustomPipelineProcessorPipeline(dict):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
     @pulumi.getter(name="isEnabled")
     def is_enabled(self) -> Optional[bool]:
         return pulumi.get(self, "is_enabled")
@@ -33125,6 +33165,11 @@ class LogsCustomPipelineProcessorPipeline(dict):
     @pulumi.getter
     def processors(self) -> Optional[Sequence['outputs.LogsCustomPipelineProcessorPipelineProcessor']]:
         return pulumi.get(self, "processors")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "tags")
 
 
 @pulumi.output_type
@@ -35852,7 +35897,9 @@ class MonitorVariables(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "eventQueries":
+        if key == "cloudCostQueries":
+            suggest = "cloud_cost_queries"
+        elif key == "eventQueries":
             suggest = "event_queries"
 
         if suggest:
@@ -35867,12 +35914,24 @@ class MonitorVariables(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 cloud_cost_queries: Optional[Sequence['outputs.MonitorVariablesCloudCostQuery']] = None,
                  event_queries: Optional[Sequence['outputs.MonitorVariablesEventQuery']] = None):
         """
+        :param Sequence['MonitorVariablesCloudCostQueryArgs'] cloud_cost_queries: The Cloud Cost query using formulas and functions.
         :param Sequence['MonitorVariablesEventQueryArgs'] event_queries: A timeseries formula and functions events query.
         """
+        if cloud_cost_queries is not None:
+            pulumi.set(__self__, "cloud_cost_queries", cloud_cost_queries)
         if event_queries is not None:
             pulumi.set(__self__, "event_queries", event_queries)
+
+    @property
+    @pulumi.getter(name="cloudCostQueries")
+    def cloud_cost_queries(self) -> Optional[Sequence['outputs.MonitorVariablesCloudCostQuery']]:
+        """
+        The Cloud Cost query using formulas and functions.
+        """
+        return pulumi.get(self, "cloud_cost_queries")
 
     @property
     @pulumi.getter(name="eventQueries")
@@ -35881,6 +35940,75 @@ class MonitorVariables(dict):
         A timeseries formula and functions events query.
         """
         return pulumi.get(self, "event_queries")
+
+
+@pulumi.output_type
+class MonitorVariablesCloudCostQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSource":
+            suggest = "data_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitorVariablesCloudCostQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitorVariablesCloudCostQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitorVariablesCloudCostQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_source: str,
+                 name: str,
+                 query: str,
+                 aggregator: Optional[str] = None):
+        """
+        :param str data_source: The data source for cloud cost queries. Valid values are `metrics`, `cloud_cost`, `datadog_usage`.
+        :param str name: The name of the query for use in formulas.
+        :param str query: The cloud cost query definition.
+        :param str aggregator: The aggregation methods available for cloud cost queries. Valid values are `avg`, `sum`, `max`, `min`, `last`, `area`, `l2norm`, `percentile`, `stddev`.
+        """
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "query", query)
+        if aggregator is not None:
+            pulumi.set(__self__, "aggregator", aggregator)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> str:
+        """
+        The data source for cloud cost queries. Valid values are `metrics`, `cloud_cost`, `datadog_usage`.
+        """
+        return pulumi.get(self, "data_source")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the query for use in formulas.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def query(self) -> str:
+        """
+        The cloud cost query definition.
+        """
+        return pulumi.get(self, "query")
+
+    @property
+    @pulumi.getter
+    def aggregator(self) -> Optional[str]:
+        """
+        The aggregation methods available for cloud cost queries. Valid values are `avg`, `sum`, `max`, `min`, `last`, `area`, `l2norm`, `percentile`, `stddev`.
+        """
+        return pulumi.get(self, "aggregator")
 
 
 @pulumi.output_type
@@ -79480,7 +79608,7 @@ class SyntheticsTestApiStepAssertionTargetjsonpath(dict):
         """
         :param str jsonpath: The JSON path to assert.
         :param str operator: The specific operator to use on the path.
-        :param str elementsoperator: The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `firstElementMatches`. Defaults to `"firstElementMatches"`.
+        :param str elementsoperator: The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `"firstElementMatches"`.
         :param str targetvalue: Expected matching value.
         """
         pulumi.set(__self__, "jsonpath", jsonpath)
@@ -79510,7 +79638,7 @@ class SyntheticsTestApiStepAssertionTargetjsonpath(dict):
     @pulumi.getter
     def elementsoperator(self) -> Optional[str]:
         """
-        The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `firstElementMatches`. Defaults to `"firstElementMatches"`.
+        The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `"firstElementMatches"`.
         """
         return pulumi.get(self, "elementsoperator")
 
@@ -80625,7 +80753,7 @@ class SyntheticsTestAssertionTargetjsonpath(dict):
         """
         :param str jsonpath: The JSON path to assert.
         :param str operator: The specific operator to use on the path.
-        :param str elementsoperator: The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `firstElementMatches`. Defaults to `"firstElementMatches"`.
+        :param str elementsoperator: The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `"firstElementMatches"`.
         :param str targetvalue: Expected matching value.
         """
         pulumi.set(__self__, "jsonpath", jsonpath)
@@ -80655,7 +80783,7 @@ class SyntheticsTestAssertionTargetjsonpath(dict):
     @pulumi.getter
     def elementsoperator(self) -> Optional[str]:
         """
-        The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `firstElementMatches`. Defaults to `"firstElementMatches"`.
+        The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `"firstElementMatches"`.
         """
         return pulumi.get(self, "elementsoperator")
 
@@ -84284,26 +84412,40 @@ class GetLogsIndexesLogsIndexFilterResult(dict):
 @pulumi.output_type
 class GetLogsPipelinesLogsPipelineResult(dict):
     def __init__(__self__, *,
+                 description: str,
                  filters: Sequence['outputs.GetLogsPipelinesLogsPipelineFilterResult'],
                  id: str,
                  is_enabled: bool,
                  is_read_only: bool,
                  name: str,
+                 tags: Sequence[str],
                  type: str):
         """
+        :param str description: Description of the pipeline
         :param Sequence['GetLogsPipelinesLogsPipelineFilterArgs'] filters: Pipelines filter
         :param str id: ID of the pipeline
         :param bool is_enabled: Whether or not the pipeline is enabled.
         :param bool is_read_only: Whether or not the pipeline can be edited.
         :param str name: The name of the pipeline.
+        :param Sequence[str] tags: Tags of the pipeline
         :param str type: Whether or not the pipeline can be edited.
         """
+        pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "filters", filters)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "is_enabled", is_enabled)
         pulumi.set(__self__, "is_read_only", is_read_only)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "tags", tags)
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the pipeline
+        """
+        return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
@@ -84344,6 +84486,14 @@ class GetLogsPipelinesLogsPipelineResult(dict):
         The name of the pipeline.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Sequence[str]:
+        """
+        Tags of the pipeline
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
