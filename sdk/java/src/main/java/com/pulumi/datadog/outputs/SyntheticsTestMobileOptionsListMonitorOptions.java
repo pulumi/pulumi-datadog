@@ -23,6 +23,10 @@ public final class SyntheticsTestMobileOptionsListMonitorOptions {
      * 
      */
     private @Nullable Integer renotifyInterval;
+    /**
+     * @return The number of times a monitor renotifies. It can only be set if `renotify_interval` is set.
+     * 
+     */
     private @Nullable Integer renotifyOccurrences;
 
     private SyntheticsTestMobileOptionsListMonitorOptions() {}
@@ -43,6 +47,10 @@ public final class SyntheticsTestMobileOptionsListMonitorOptions {
     public Optional<Integer> renotifyInterval() {
         return Optional.ofNullable(this.renotifyInterval);
     }
+    /**
+     * @return The number of times a monitor renotifies. It can only be set if `renotify_interval` is set.
+     * 
+     */
     public Optional<Integer> renotifyOccurrences() {
         return Optional.ofNullable(this.renotifyOccurrences);
     }

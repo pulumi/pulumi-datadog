@@ -63,8 +63,8 @@ type User struct {
 	Disabled pulumi.BoolPtrOutput `pulumi:"disabled"`
 	// Email address for user.
 	Email pulumi.StringOutput `pulumi:"email"`
-	// Name for user.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// User's name. Should be set only for password authentication, as it is overridden by Google or SAML authentication.
+	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of role IDs to assign to the user.
 	Roles pulumi.StringArrayOutput `pulumi:"roles"`
 	// Whether an invitation email should be sent when the user is created. Defaults to `true`.
@@ -112,7 +112,7 @@ type userState struct {
 	Disabled *bool `pulumi:"disabled"`
 	// Email address for user.
 	Email *string `pulumi:"email"`
-	// Name for user.
+	// User's name. Should be set only for password authentication, as it is overridden by Google or SAML authentication.
 	Name *string `pulumi:"name"`
 	// A list of role IDs to assign to the user.
 	Roles []string `pulumi:"roles"`
@@ -129,7 +129,7 @@ type UserState struct {
 	Disabled pulumi.BoolPtrInput
 	// Email address for user.
 	Email pulumi.StringPtrInput
-	// Name for user.
+	// User's name. Should be set only for password authentication, as it is overridden by Google or SAML authentication.
 	Name pulumi.StringPtrInput
 	// A list of role IDs to assign to the user.
 	Roles pulumi.StringArrayInput
@@ -150,7 +150,7 @@ type userArgs struct {
 	Disabled *bool `pulumi:"disabled"`
 	// Email address for user.
 	Email string `pulumi:"email"`
-	// Name for user.
+	// User's name. Should be set only for password authentication, as it is overridden by Google or SAML authentication.
 	Name *string `pulumi:"name"`
 	// A list of role IDs to assign to the user.
 	Roles []string `pulumi:"roles"`
@@ -164,7 +164,7 @@ type UserArgs struct {
 	Disabled pulumi.BoolPtrInput
 	// Email address for user.
 	Email pulumi.StringInput
-	// Name for user.
+	// User's name. Should be set only for password authentication, as it is overridden by Google or SAML authentication.
 	Name pulumi.StringPtrInput
 	// A list of role IDs to assign to the user.
 	Roles pulumi.StringArrayInput
@@ -269,9 +269,9 @@ func (o UserOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Email }).(pulumi.StringOutput)
 }
 
-// Name for user.
-func (o UserOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+// User's name. Should be set only for password authentication, as it is overridden by Google or SAML authentication.
+func (o UserOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
 // A list of role IDs to assign to the user.

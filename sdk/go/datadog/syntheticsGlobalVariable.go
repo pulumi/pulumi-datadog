@@ -58,6 +58,8 @@ type SyntheticsGlobalVariable struct {
 
 	// Description of the global variable.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// If set to true, the global variable is a TOTP variable. Defaults to `false`.
+	IsTotp pulumi.BoolPtrOutput `pulumi:"isTotp"`
 	// Synthetics global variable name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Additional options for the variable, such as a MFA token.
@@ -68,7 +70,7 @@ type SyntheticsGlobalVariable struct {
 	ParseTestOptions SyntheticsGlobalVariableParseTestOptionsPtrOutput `pulumi:"parseTestOptions"`
 	// A list of role identifiers to associate with the Synthetics global variable.
 	RestrictedRoles pulumi.StringArrayOutput `pulumi:"restrictedRoles"`
-	// If set to true, the value of the global variable is hidden. Defaults to `false`.
+	// If set to true, the value of the global variable is hidden. This setting is ignored if `isTotp` is set to `true`. Defaults to `false`.
 	Secure pulumi.BoolPtrOutput `pulumi:"secure"`
 	// A list of tags to associate with your synthetics global variable.
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
@@ -121,6 +123,8 @@ func GetSyntheticsGlobalVariable(ctx *pulumi.Context,
 type syntheticsGlobalVariableState struct {
 	// Description of the global variable.
 	Description *string `pulumi:"description"`
+	// If set to true, the global variable is a TOTP variable. Defaults to `false`.
+	IsTotp *bool `pulumi:"isTotp"`
 	// Synthetics global variable name.
 	Name *string `pulumi:"name"`
 	// Additional options for the variable, such as a MFA token.
@@ -131,7 +135,7 @@ type syntheticsGlobalVariableState struct {
 	ParseTestOptions *SyntheticsGlobalVariableParseTestOptions `pulumi:"parseTestOptions"`
 	// A list of role identifiers to associate with the Synthetics global variable.
 	RestrictedRoles []string `pulumi:"restrictedRoles"`
-	// If set to true, the value of the global variable is hidden. Defaults to `false`.
+	// If set to true, the value of the global variable is hidden. This setting is ignored if `isTotp` is set to `true`. Defaults to `false`.
 	Secure *bool `pulumi:"secure"`
 	// A list of tags to associate with your synthetics global variable.
 	Tags []string `pulumi:"tags"`
@@ -142,6 +146,8 @@ type syntheticsGlobalVariableState struct {
 type SyntheticsGlobalVariableState struct {
 	// Description of the global variable.
 	Description pulumi.StringPtrInput
+	// If set to true, the global variable is a TOTP variable. Defaults to `false`.
+	IsTotp pulumi.BoolPtrInput
 	// Synthetics global variable name.
 	Name pulumi.StringPtrInput
 	// Additional options for the variable, such as a MFA token.
@@ -152,7 +158,7 @@ type SyntheticsGlobalVariableState struct {
 	ParseTestOptions SyntheticsGlobalVariableParseTestOptionsPtrInput
 	// A list of role identifiers to associate with the Synthetics global variable.
 	RestrictedRoles pulumi.StringArrayInput
-	// If set to true, the value of the global variable is hidden. Defaults to `false`.
+	// If set to true, the value of the global variable is hidden. This setting is ignored if `isTotp` is set to `true`. Defaults to `false`.
 	Secure pulumi.BoolPtrInput
 	// A list of tags to associate with your synthetics global variable.
 	Tags pulumi.StringArrayInput
@@ -167,6 +173,8 @@ func (SyntheticsGlobalVariableState) ElementType() reflect.Type {
 type syntheticsGlobalVariableArgs struct {
 	// Description of the global variable.
 	Description *string `pulumi:"description"`
+	// If set to true, the global variable is a TOTP variable. Defaults to `false`.
+	IsTotp *bool `pulumi:"isTotp"`
 	// Synthetics global variable name.
 	Name string `pulumi:"name"`
 	// Additional options for the variable, such as a MFA token.
@@ -177,7 +185,7 @@ type syntheticsGlobalVariableArgs struct {
 	ParseTestOptions *SyntheticsGlobalVariableParseTestOptions `pulumi:"parseTestOptions"`
 	// A list of role identifiers to associate with the Synthetics global variable.
 	RestrictedRoles []string `pulumi:"restrictedRoles"`
-	// If set to true, the value of the global variable is hidden. Defaults to `false`.
+	// If set to true, the value of the global variable is hidden. This setting is ignored if `isTotp` is set to `true`. Defaults to `false`.
 	Secure *bool `pulumi:"secure"`
 	// A list of tags to associate with your synthetics global variable.
 	Tags []string `pulumi:"tags"`
@@ -189,6 +197,8 @@ type syntheticsGlobalVariableArgs struct {
 type SyntheticsGlobalVariableArgs struct {
 	// Description of the global variable.
 	Description pulumi.StringPtrInput
+	// If set to true, the global variable is a TOTP variable. Defaults to `false`.
+	IsTotp pulumi.BoolPtrInput
 	// Synthetics global variable name.
 	Name pulumi.StringInput
 	// Additional options for the variable, such as a MFA token.
@@ -199,7 +209,7 @@ type SyntheticsGlobalVariableArgs struct {
 	ParseTestOptions SyntheticsGlobalVariableParseTestOptionsPtrInput
 	// A list of role identifiers to associate with the Synthetics global variable.
 	RestrictedRoles pulumi.StringArrayInput
-	// If set to true, the value of the global variable is hidden. Defaults to `false`.
+	// If set to true, the value of the global variable is hidden. This setting is ignored if `isTotp` is set to `true`. Defaults to `false`.
 	Secure pulumi.BoolPtrInput
 	// A list of tags to associate with your synthetics global variable.
 	Tags pulumi.StringArrayInput
@@ -299,6 +309,11 @@ func (o SyntheticsGlobalVariableOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsGlobalVariable) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// If set to true, the global variable is a TOTP variable. Defaults to `false`.
+func (o SyntheticsGlobalVariableOutput) IsTotp() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SyntheticsGlobalVariable) pulumi.BoolPtrOutput { return v.IsTotp }).(pulumi.BoolPtrOutput)
+}
+
 // Synthetics global variable name.
 func (o SyntheticsGlobalVariableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SyntheticsGlobalVariable) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
@@ -326,7 +341,7 @@ func (o SyntheticsGlobalVariableOutput) RestrictedRoles() pulumi.StringArrayOutp
 	return o.ApplyT(func(v *SyntheticsGlobalVariable) pulumi.StringArrayOutput { return v.RestrictedRoles }).(pulumi.StringArrayOutput)
 }
 
-// If set to true, the value of the global variable is hidden. Defaults to `false`.
+// If set to true, the value of the global variable is hidden. This setting is ignored if `isTotp` is set to `true`. Defaults to `false`.
 func (o SyntheticsGlobalVariableOutput) Secure() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SyntheticsGlobalVariable) pulumi.BoolPtrOutput { return v.Secure }).(pulumi.BoolPtrOutput)
 }

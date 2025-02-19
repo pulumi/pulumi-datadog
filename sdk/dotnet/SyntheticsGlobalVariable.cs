@@ -55,6 +55,12 @@ namespace Pulumi.Datadog
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// If set to true, the global variable is a TOTP variable. Defaults to `false`.
+        /// </summary>
+        [Output("isTotp")]
+        public Output<bool?> IsTotp { get; private set; } = null!;
+
+        /// <summary>
         /// Synthetics global variable name.
         /// </summary>
         [Output("name")]
@@ -85,7 +91,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<string>> RestrictedRoles { get; private set; } = null!;
 
         /// <summary>
-        /// If set to true, the value of the global variable is hidden. Defaults to `false`.
+        /// If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` is set to `true`. Defaults to `false`.
         /// </summary>
         [Output("secure")]
         public Output<bool?> Secure { get; private set; } = null!;
@@ -159,6 +165,12 @@ namespace Pulumi.Datadog
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// If set to true, the global variable is a TOTP variable. Defaults to `false`.
+        /// </summary>
+        [Input("isTotp")]
+        public Input<bool>? IsTotp { get; set; }
+
+        /// <summary>
         /// Synthetics global variable name.
         /// </summary>
         [Input("name", required: true)]
@@ -195,7 +207,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// If set to true, the value of the global variable is hidden. Defaults to `false`.
+        /// If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` is set to `true`. Defaults to `false`.
         /// </summary>
         [Input("secure")]
         public Input<bool>? Secure { get; set; }
@@ -243,6 +255,12 @@ namespace Pulumi.Datadog
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// If set to true, the global variable is a TOTP variable. Defaults to `false`.
+        /// </summary>
+        [Input("isTotp")]
+        public Input<bool>? IsTotp { get; set; }
+
+        /// <summary>
         /// Synthetics global variable name.
         /// </summary>
         [Input("name")]
@@ -279,7 +297,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// If set to true, the value of the global variable is hidden. Defaults to `false`.
+        /// If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` is set to `true`. Defaults to `false`.
         /// </summary>
         [Input("secure")]
         public Input<bool>? Secure { get; set; }

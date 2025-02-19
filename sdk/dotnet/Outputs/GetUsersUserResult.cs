@@ -13,21 +13,61 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class GetUsersUserResult
     {
+        public readonly string CreatedAt;
+        public readonly bool Disabled;
         public readonly string Email;
+        public readonly string Handle;
+        public readonly string Icon;
         public readonly string Id;
+        public readonly bool MfaEnabled;
+        public readonly string ModifiedAt;
         public readonly string Name;
+        public readonly bool ServiceAccount;
+        public readonly string Status;
+        public readonly string Title;
+        public readonly bool Verified;
 
         [OutputConstructor]
         private GetUsersUserResult(
+            string createdAt,
+
+            bool disabled,
+
             string email,
+
+            string handle,
+
+            string icon,
 
             string id,
 
-            string name)
+            bool mfaEnabled,
+
+            string modifiedAt,
+
+            string name,
+
+            bool serviceAccount,
+
+            string status,
+
+            string title,
+
+            bool verified)
         {
+            CreatedAt = createdAt;
+            Disabled = disabled;
             Email = email;
+            Handle = handle;
+            Icon = icon;
             Id = id;
+            MfaEnabled = mfaEnabled;
+            ModifiedAt = modifiedAt;
             Name = name;
+            ServiceAccount = serviceAccount;
+            Status = status;
+            Title = title;
+            Verified = verified;
         }
     }
 }

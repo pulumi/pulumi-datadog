@@ -35,6 +35,21 @@ public final class SyntheticsGlobalVariableState extends com.pulumi.resources.Re
     }
 
     /**
+     * If set to true, the global variable is a TOTP variable. Defaults to `false`.
+     * 
+     */
+    @Import(name="isTotp")
+    private @Nullable Output<Boolean> isTotp;
+
+    /**
+     * @return If set to true, the global variable is a TOTP variable. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> isTotp() {
+        return Optional.ofNullable(this.isTotp);
+    }
+
+    /**
      * Synthetics global variable name.
      * 
      */
@@ -110,14 +125,14 @@ public final class SyntheticsGlobalVariableState extends com.pulumi.resources.Re
     }
 
     /**
-     * If set to true, the value of the global variable is hidden. Defaults to `false`.
+     * If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` is set to `true`. Defaults to `false`.
      * 
      */
     @Import(name="secure")
     private @Nullable Output<Boolean> secure;
 
     /**
-     * @return If set to true, the value of the global variable is hidden. Defaults to `false`.
+     * @return If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` is set to `true`. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> secure() {
@@ -158,6 +173,7 @@ public final class SyntheticsGlobalVariableState extends com.pulumi.resources.Re
 
     private SyntheticsGlobalVariableState(SyntheticsGlobalVariableState $) {
         this.description = $.description;
+        this.isTotp = $.isTotp;
         this.name = $.name;
         this.options = $.options;
         this.parseTestId = $.parseTestId;
@@ -205,6 +221,27 @@ public final class SyntheticsGlobalVariableState extends com.pulumi.resources.Re
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param isTotp If set to true, the global variable is a TOTP variable. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isTotp(@Nullable Output<Boolean> isTotp) {
+            $.isTotp = isTotp;
+            return this;
+        }
+
+        /**
+         * @param isTotp If set to true, the global variable is a TOTP variable. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isTotp(Boolean isTotp) {
+            return isTotp(Output.of(isTotp));
         }
 
         /**
@@ -323,7 +360,7 @@ public final class SyntheticsGlobalVariableState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param secure If set to true, the value of the global variable is hidden. Defaults to `false`.
+         * @param secure If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` is set to `true`. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -334,7 +371,7 @@ public final class SyntheticsGlobalVariableState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param secure If set to true, the value of the global variable is hidden. Defaults to `false`.
+         * @param secure If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` is set to `true`. Defaults to `false`.
          * 
          * @return builder
          * 

@@ -17,11 +17,19 @@ namespace Pulumi.Datadog.Outputs
         /// Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
         /// </summary>
         public readonly int? RenotifyInterval;
+        /// <summary>
+        /// The number of times a monitor renotifies. It can only be set if `renotify_interval` is set.
+        /// </summary>
+        public readonly int? RenotifyOccurrences;
 
         [OutputConstructor]
-        private SyntheticsTestOptionsListMonitorOptions(int? renotifyInterval)
+        private SyntheticsTestOptionsListMonitorOptions(
+            int? renotifyInterval,
+
+            int? renotifyOccurrences)
         {
             RenotifyInterval = renotifyInterval;
+            RenotifyOccurrences = renotifyOccurrences;
         }
     }
 }

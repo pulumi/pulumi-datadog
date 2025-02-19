@@ -3188,6 +3188,200 @@ func (o SecurityMonitoringRuleThirdPartyCaseArrayOutput) Index(i pulumi.IntInput
 	}).(SecurityMonitoringRuleThirdPartyCaseOutput)
 }
 
+type SecurityNotificationRuleSelectors struct {
+	// Comprises one or several key:value pairs for filtering security issues based on tags and attributes. Defaults to `""`.
+	Query *string `pulumi:"query"`
+	// Specifies security rule types for filtering signals and vulnerabilities that generate notifications.
+	RuleTypes []string `pulumi:"ruleTypes"`
+	// The security rules severities to consider.
+	Severities []string `pulumi:"severities"`
+	// The type of security issues the rule applies to. Use `securitySignals` for rules based on security signals and `securityFindings` for those based on vulnerabilities.
+	TriggerSource string `pulumi:"triggerSource"`
+}
+
+// SecurityNotificationRuleSelectorsInput is an input type that accepts SecurityNotificationRuleSelectorsArgs and SecurityNotificationRuleSelectorsOutput values.
+// You can construct a concrete instance of `SecurityNotificationRuleSelectorsInput` via:
+//
+//	SecurityNotificationRuleSelectorsArgs{...}
+type SecurityNotificationRuleSelectorsInput interface {
+	pulumi.Input
+
+	ToSecurityNotificationRuleSelectorsOutput() SecurityNotificationRuleSelectorsOutput
+	ToSecurityNotificationRuleSelectorsOutputWithContext(context.Context) SecurityNotificationRuleSelectorsOutput
+}
+
+type SecurityNotificationRuleSelectorsArgs struct {
+	// Comprises one or several key:value pairs for filtering security issues based on tags and attributes. Defaults to `""`.
+	Query pulumi.StringPtrInput `pulumi:"query"`
+	// Specifies security rule types for filtering signals and vulnerabilities that generate notifications.
+	RuleTypes pulumi.StringArrayInput `pulumi:"ruleTypes"`
+	// The security rules severities to consider.
+	Severities pulumi.StringArrayInput `pulumi:"severities"`
+	// The type of security issues the rule applies to. Use `securitySignals` for rules based on security signals and `securityFindings` for those based on vulnerabilities.
+	TriggerSource pulumi.StringInput `pulumi:"triggerSource"`
+}
+
+func (SecurityNotificationRuleSelectorsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityNotificationRuleSelectors)(nil)).Elem()
+}
+
+func (i SecurityNotificationRuleSelectorsArgs) ToSecurityNotificationRuleSelectorsOutput() SecurityNotificationRuleSelectorsOutput {
+	return i.ToSecurityNotificationRuleSelectorsOutputWithContext(context.Background())
+}
+
+func (i SecurityNotificationRuleSelectorsArgs) ToSecurityNotificationRuleSelectorsOutputWithContext(ctx context.Context) SecurityNotificationRuleSelectorsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityNotificationRuleSelectorsOutput)
+}
+
+func (i SecurityNotificationRuleSelectorsArgs) ToSecurityNotificationRuleSelectorsPtrOutput() SecurityNotificationRuleSelectorsPtrOutput {
+	return i.ToSecurityNotificationRuleSelectorsPtrOutputWithContext(context.Background())
+}
+
+func (i SecurityNotificationRuleSelectorsArgs) ToSecurityNotificationRuleSelectorsPtrOutputWithContext(ctx context.Context) SecurityNotificationRuleSelectorsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityNotificationRuleSelectorsOutput).ToSecurityNotificationRuleSelectorsPtrOutputWithContext(ctx)
+}
+
+// SecurityNotificationRuleSelectorsPtrInput is an input type that accepts SecurityNotificationRuleSelectorsArgs, SecurityNotificationRuleSelectorsPtr and SecurityNotificationRuleSelectorsPtrOutput values.
+// You can construct a concrete instance of `SecurityNotificationRuleSelectorsPtrInput` via:
+//
+//	        SecurityNotificationRuleSelectorsArgs{...}
+//
+//	or:
+//
+//	        nil
+type SecurityNotificationRuleSelectorsPtrInput interface {
+	pulumi.Input
+
+	ToSecurityNotificationRuleSelectorsPtrOutput() SecurityNotificationRuleSelectorsPtrOutput
+	ToSecurityNotificationRuleSelectorsPtrOutputWithContext(context.Context) SecurityNotificationRuleSelectorsPtrOutput
+}
+
+type securityNotificationRuleSelectorsPtrType SecurityNotificationRuleSelectorsArgs
+
+func SecurityNotificationRuleSelectorsPtr(v *SecurityNotificationRuleSelectorsArgs) SecurityNotificationRuleSelectorsPtrInput {
+	return (*securityNotificationRuleSelectorsPtrType)(v)
+}
+
+func (*securityNotificationRuleSelectorsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityNotificationRuleSelectors)(nil)).Elem()
+}
+
+func (i *securityNotificationRuleSelectorsPtrType) ToSecurityNotificationRuleSelectorsPtrOutput() SecurityNotificationRuleSelectorsPtrOutput {
+	return i.ToSecurityNotificationRuleSelectorsPtrOutputWithContext(context.Background())
+}
+
+func (i *securityNotificationRuleSelectorsPtrType) ToSecurityNotificationRuleSelectorsPtrOutputWithContext(ctx context.Context) SecurityNotificationRuleSelectorsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityNotificationRuleSelectorsPtrOutput)
+}
+
+type SecurityNotificationRuleSelectorsOutput struct{ *pulumi.OutputState }
+
+func (SecurityNotificationRuleSelectorsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityNotificationRuleSelectors)(nil)).Elem()
+}
+
+func (o SecurityNotificationRuleSelectorsOutput) ToSecurityNotificationRuleSelectorsOutput() SecurityNotificationRuleSelectorsOutput {
+	return o
+}
+
+func (o SecurityNotificationRuleSelectorsOutput) ToSecurityNotificationRuleSelectorsOutputWithContext(ctx context.Context) SecurityNotificationRuleSelectorsOutput {
+	return o
+}
+
+func (o SecurityNotificationRuleSelectorsOutput) ToSecurityNotificationRuleSelectorsPtrOutput() SecurityNotificationRuleSelectorsPtrOutput {
+	return o.ToSecurityNotificationRuleSelectorsPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityNotificationRuleSelectorsOutput) ToSecurityNotificationRuleSelectorsPtrOutputWithContext(ctx context.Context) SecurityNotificationRuleSelectorsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityNotificationRuleSelectors) *SecurityNotificationRuleSelectors {
+		return &v
+	}).(SecurityNotificationRuleSelectorsPtrOutput)
+}
+
+// Comprises one or several key:value pairs for filtering security issues based on tags and attributes. Defaults to `""`.
+func (o SecurityNotificationRuleSelectorsOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityNotificationRuleSelectors) *string { return v.Query }).(pulumi.StringPtrOutput)
+}
+
+// Specifies security rule types for filtering signals and vulnerabilities that generate notifications.
+func (o SecurityNotificationRuleSelectorsOutput) RuleTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityNotificationRuleSelectors) []string { return v.RuleTypes }).(pulumi.StringArrayOutput)
+}
+
+// The security rules severities to consider.
+func (o SecurityNotificationRuleSelectorsOutput) Severities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityNotificationRuleSelectors) []string { return v.Severities }).(pulumi.StringArrayOutput)
+}
+
+// The type of security issues the rule applies to. Use `securitySignals` for rules based on security signals and `securityFindings` for those based on vulnerabilities.
+func (o SecurityNotificationRuleSelectorsOutput) TriggerSource() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityNotificationRuleSelectors) string { return v.TriggerSource }).(pulumi.StringOutput)
+}
+
+type SecurityNotificationRuleSelectorsPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityNotificationRuleSelectorsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityNotificationRuleSelectors)(nil)).Elem()
+}
+
+func (o SecurityNotificationRuleSelectorsPtrOutput) ToSecurityNotificationRuleSelectorsPtrOutput() SecurityNotificationRuleSelectorsPtrOutput {
+	return o
+}
+
+func (o SecurityNotificationRuleSelectorsPtrOutput) ToSecurityNotificationRuleSelectorsPtrOutputWithContext(ctx context.Context) SecurityNotificationRuleSelectorsPtrOutput {
+	return o
+}
+
+func (o SecurityNotificationRuleSelectorsPtrOutput) Elem() SecurityNotificationRuleSelectorsOutput {
+	return o.ApplyT(func(v *SecurityNotificationRuleSelectors) SecurityNotificationRuleSelectors {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityNotificationRuleSelectors
+		return ret
+	}).(SecurityNotificationRuleSelectorsOutput)
+}
+
+// Comprises one or several key:value pairs for filtering security issues based on tags and attributes. Defaults to `""`.
+func (o SecurityNotificationRuleSelectorsPtrOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityNotificationRuleSelectors) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Query
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies security rule types for filtering signals and vulnerabilities that generate notifications.
+func (o SecurityNotificationRuleSelectorsPtrOutput) RuleTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SecurityNotificationRuleSelectors) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RuleTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// The security rules severities to consider.
+func (o SecurityNotificationRuleSelectorsPtrOutput) Severities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SecurityNotificationRuleSelectors) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Severities
+	}).(pulumi.StringArrayOutput)
+}
+
+// The type of security issues the rule applies to. Use `securitySignals` for rules based on security signals and `securityFindings` for those based on vulnerabilities.
+func (o SecurityNotificationRuleSelectorsPtrOutput) TriggerSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityNotificationRuleSelectors) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TriggerSource
+	}).(pulumi.StringPtrOutput)
+}
+
 type SensitiveDataScannerGroupFilter struct {
 	// Query to filter the events.
 	Query string `pulumi:"query"`
@@ -10518,6 +10712,8 @@ type SyntheticsTestBrowserStepParamsVariable struct {
 	Example *string `pulumi:"example"`
 	// Name of the extracted variable.
 	Name *string `pulumi:"name"`
+	// Whether the value of this variable will be obfuscated in test results. Defaults to `false`.
+	Secure *bool `pulumi:"secure"`
 }
 
 // SyntheticsTestBrowserStepParamsVariableInput is an input type that accepts SyntheticsTestBrowserStepParamsVariableArgs and SyntheticsTestBrowserStepParamsVariableOutput values.
@@ -10536,6 +10732,8 @@ type SyntheticsTestBrowserStepParamsVariableArgs struct {
 	Example pulumi.StringPtrInput `pulumi:"example"`
 	// Name of the extracted variable.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Whether the value of this variable will be obfuscated in test results. Defaults to `false`.
+	Secure pulumi.BoolPtrInput `pulumi:"secure"`
 }
 
 func (SyntheticsTestBrowserStepParamsVariableArgs) ElementType() reflect.Type {
@@ -10625,6 +10823,11 @@ func (o SyntheticsTestBrowserStepParamsVariableOutput) Name() pulumi.StringPtrOu
 	return o.ApplyT(func(v SyntheticsTestBrowserStepParamsVariable) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Whether the value of this variable will be obfuscated in test results. Defaults to `false`.
+func (o SyntheticsTestBrowserStepParamsVariableOutput) Secure() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserStepParamsVariable) *bool { return v.Secure }).(pulumi.BoolPtrOutput)
+}
+
 type SyntheticsTestBrowserStepParamsVariablePtrOutput struct{ *pulumi.OutputState }
 
 func (SyntheticsTestBrowserStepParamsVariablePtrOutput) ElementType() reflect.Type {
@@ -10667,6 +10870,16 @@ func (o SyntheticsTestBrowserStepParamsVariablePtrOutput) Name() pulumi.StringPt
 		}
 		return v.Name
 	}).(pulumi.StringPtrOutput)
+}
+
+// Whether the value of this variable will be obfuscated in test results. Defaults to `false`.
+func (o SyntheticsTestBrowserStepParamsVariablePtrOutput) Secure() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestBrowserStepParamsVariable) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Secure
+	}).(pulumi.BoolPtrOutput)
 }
 
 type SyntheticsTestBrowserVariable struct {
@@ -11766,7 +11979,8 @@ type SyntheticsTestMobileOptionsListMonitorOptions struct {
 	// Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`.
 	NotificationPresetName *string `pulumi:"notificationPresetName"`
 	// Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
-	RenotifyInterval    *int `pulumi:"renotifyInterval"`
+	RenotifyInterval *int `pulumi:"renotifyInterval"`
+	// The number of times a monitor renotifies. It can only be set if `renotifyInterval` is set.
 	RenotifyOccurrences *int `pulumi:"renotifyOccurrences"`
 }
 
@@ -11786,7 +12000,8 @@ type SyntheticsTestMobileOptionsListMonitorOptionsArgs struct {
 	// Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`.
 	NotificationPresetName pulumi.StringPtrInput `pulumi:"notificationPresetName"`
 	// Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
-	RenotifyInterval    pulumi.IntPtrInput `pulumi:"renotifyInterval"`
+	RenotifyInterval pulumi.IntPtrInput `pulumi:"renotifyInterval"`
+	// The number of times a monitor renotifies. It can only be set if `renotifyInterval` is set.
 	RenotifyOccurrences pulumi.IntPtrInput `pulumi:"renotifyOccurrences"`
 }
 
@@ -11881,6 +12096,7 @@ func (o SyntheticsTestMobileOptionsListMonitorOptionsOutput) RenotifyInterval() 
 	return o.ApplyT(func(v SyntheticsTestMobileOptionsListMonitorOptions) *int { return v.RenotifyInterval }).(pulumi.IntPtrOutput)
 }
 
+// The number of times a monitor renotifies. It can only be set if `renotifyInterval` is set.
 func (o SyntheticsTestMobileOptionsListMonitorOptionsOutput) RenotifyOccurrences() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestMobileOptionsListMonitorOptions) *int { return v.RenotifyOccurrences }).(pulumi.IntPtrOutput)
 }
@@ -11938,6 +12154,7 @@ func (o SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput) RenotifyInterval
 	}).(pulumi.IntPtrOutput)
 }
 
+// The number of times a monitor renotifies. It can only be set if `renotifyInterval` is set.
 func (o SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput) RenotifyOccurrences() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestMobileOptionsListMonitorOptions) *int {
 		if v == nil {
@@ -14241,6 +14458,8 @@ func (o SyntheticsTestOptionsListCiPtrOutput) ExecutionRule() pulumi.StringPtrOu
 type SyntheticsTestOptionsListMonitorOptions struct {
 	// Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
 	RenotifyInterval *int `pulumi:"renotifyInterval"`
+	// The number of times a monitor renotifies. It can only be set if `renotifyInterval` is set.
+	RenotifyOccurrences *int `pulumi:"renotifyOccurrences"`
 }
 
 // SyntheticsTestOptionsListMonitorOptionsInput is an input type that accepts SyntheticsTestOptionsListMonitorOptionsArgs and SyntheticsTestOptionsListMonitorOptionsOutput values.
@@ -14257,6 +14476,8 @@ type SyntheticsTestOptionsListMonitorOptionsInput interface {
 type SyntheticsTestOptionsListMonitorOptionsArgs struct {
 	// Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
 	RenotifyInterval pulumi.IntPtrInput `pulumi:"renotifyInterval"`
+	// The number of times a monitor renotifies. It can only be set if `renotifyInterval` is set.
+	RenotifyOccurrences pulumi.IntPtrInput `pulumi:"renotifyOccurrences"`
 }
 
 func (SyntheticsTestOptionsListMonitorOptionsArgs) ElementType() reflect.Type {
@@ -14341,6 +14562,11 @@ func (o SyntheticsTestOptionsListMonitorOptionsOutput) RenotifyInterval() pulumi
 	return o.ApplyT(func(v SyntheticsTestOptionsListMonitorOptions) *int { return v.RenotifyInterval }).(pulumi.IntPtrOutput)
 }
 
+// The number of times a monitor renotifies. It can only be set if `renotifyInterval` is set.
+func (o SyntheticsTestOptionsListMonitorOptionsOutput) RenotifyOccurrences() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsListMonitorOptions) *int { return v.RenotifyOccurrences }).(pulumi.IntPtrOutput)
+}
+
 type SyntheticsTestOptionsListMonitorOptionsPtrOutput struct{ *pulumi.OutputState }
 
 func (SyntheticsTestOptionsListMonitorOptionsPtrOutput) ElementType() reflect.Type {
@@ -14372,6 +14598,16 @@ func (o SyntheticsTestOptionsListMonitorOptionsPtrOutput) RenotifyInterval() pul
 			return nil
 		}
 		return v.RenotifyInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+// The number of times a monitor renotifies. It can only be set if `renotifyInterval` is set.
+func (o SyntheticsTestOptionsListMonitorOptionsPtrOutput) RenotifyOccurrences() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsListMonitorOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RenotifyOccurrences
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -22076,10 +22312,171 @@ func (o GetTeamMembershipsTeamMembershipArrayOutput) Index(i pulumi.IntInput) Ge
 	}).(GetTeamMembershipsTeamMembershipOutput)
 }
 
+type GetTeamsTeam struct {
+	// Free-form markdown description/content for the team's homepage.
+	Description string `pulumi:"description"`
+	// The team's handle.
+	Handle string `pulumi:"handle"`
+	// The team's identifier.
+	Id string `pulumi:"id"`
+	// The number of links belonging to the team.
+	LinkCount int `pulumi:"linkCount"`
+	// The name of the team.
+	Name string `pulumi:"name"`
+	// A brief summary of the team, derived from the `description`.
+	Summary string `pulumi:"summary"`
+	// The number of users belonging to the team.
+	UserCount int `pulumi:"userCount"`
+}
+
+// GetTeamsTeamInput is an input type that accepts GetTeamsTeamArgs and GetTeamsTeamOutput values.
+// You can construct a concrete instance of `GetTeamsTeamInput` via:
+//
+//	GetTeamsTeamArgs{...}
+type GetTeamsTeamInput interface {
+	pulumi.Input
+
+	ToGetTeamsTeamOutput() GetTeamsTeamOutput
+	ToGetTeamsTeamOutputWithContext(context.Context) GetTeamsTeamOutput
+}
+
+type GetTeamsTeamArgs struct {
+	// Free-form markdown description/content for the team's homepage.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The team's handle.
+	Handle pulumi.StringInput `pulumi:"handle"`
+	// The team's identifier.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The number of links belonging to the team.
+	LinkCount pulumi.IntInput `pulumi:"linkCount"`
+	// The name of the team.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A brief summary of the team, derived from the `description`.
+	Summary pulumi.StringInput `pulumi:"summary"`
+	// The number of users belonging to the team.
+	UserCount pulumi.IntInput `pulumi:"userCount"`
+}
+
+func (GetTeamsTeamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTeamsTeam)(nil)).Elem()
+}
+
+func (i GetTeamsTeamArgs) ToGetTeamsTeamOutput() GetTeamsTeamOutput {
+	return i.ToGetTeamsTeamOutputWithContext(context.Background())
+}
+
+func (i GetTeamsTeamArgs) ToGetTeamsTeamOutputWithContext(ctx context.Context) GetTeamsTeamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTeamsTeamOutput)
+}
+
+// GetTeamsTeamArrayInput is an input type that accepts GetTeamsTeamArray and GetTeamsTeamArrayOutput values.
+// You can construct a concrete instance of `GetTeamsTeamArrayInput` via:
+//
+//	GetTeamsTeamArray{ GetTeamsTeamArgs{...} }
+type GetTeamsTeamArrayInput interface {
+	pulumi.Input
+
+	ToGetTeamsTeamArrayOutput() GetTeamsTeamArrayOutput
+	ToGetTeamsTeamArrayOutputWithContext(context.Context) GetTeamsTeamArrayOutput
+}
+
+type GetTeamsTeamArray []GetTeamsTeamInput
+
+func (GetTeamsTeamArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTeamsTeam)(nil)).Elem()
+}
+
+func (i GetTeamsTeamArray) ToGetTeamsTeamArrayOutput() GetTeamsTeamArrayOutput {
+	return i.ToGetTeamsTeamArrayOutputWithContext(context.Background())
+}
+
+func (i GetTeamsTeamArray) ToGetTeamsTeamArrayOutputWithContext(ctx context.Context) GetTeamsTeamArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTeamsTeamArrayOutput)
+}
+
+type GetTeamsTeamOutput struct{ *pulumi.OutputState }
+
+func (GetTeamsTeamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTeamsTeam)(nil)).Elem()
+}
+
+func (o GetTeamsTeamOutput) ToGetTeamsTeamOutput() GetTeamsTeamOutput {
+	return o
+}
+
+func (o GetTeamsTeamOutput) ToGetTeamsTeamOutputWithContext(ctx context.Context) GetTeamsTeamOutput {
+	return o
+}
+
+// Free-form markdown description/content for the team's homepage.
+func (o GetTeamsTeamOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTeamsTeam) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The team's handle.
+func (o GetTeamsTeamOutput) Handle() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTeamsTeam) string { return v.Handle }).(pulumi.StringOutput)
+}
+
+// The team's identifier.
+func (o GetTeamsTeamOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTeamsTeam) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The number of links belonging to the team.
+func (o GetTeamsTeamOutput) LinkCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTeamsTeam) int { return v.LinkCount }).(pulumi.IntOutput)
+}
+
+// The name of the team.
+func (o GetTeamsTeamOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTeamsTeam) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A brief summary of the team, derived from the `description`.
+func (o GetTeamsTeamOutput) Summary() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTeamsTeam) string { return v.Summary }).(pulumi.StringOutput)
+}
+
+// The number of users belonging to the team.
+func (o GetTeamsTeamOutput) UserCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTeamsTeam) int { return v.UserCount }).(pulumi.IntOutput)
+}
+
+type GetTeamsTeamArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTeamsTeamArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTeamsTeam)(nil)).Elem()
+}
+
+func (o GetTeamsTeamArrayOutput) ToGetTeamsTeamArrayOutput() GetTeamsTeamArrayOutput {
+	return o
+}
+
+func (o GetTeamsTeamArrayOutput) ToGetTeamsTeamArrayOutputWithContext(ctx context.Context) GetTeamsTeamArrayOutput {
+	return o
+}
+
+func (o GetTeamsTeamArrayOutput) Index(i pulumi.IntInput) GetTeamsTeamOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTeamsTeam {
+		return vs[0].([]GetTeamsTeam)[vs[1].(int)]
+	}).(GetTeamsTeamOutput)
+}
+
 type GetUsersUser struct {
-	Email string `pulumi:"email"`
-	Id    string `pulumi:"id"`
-	Name  string `pulumi:"name"`
+	CreatedAt      string `pulumi:"createdAt"`
+	Disabled       bool   `pulumi:"disabled"`
+	Email          string `pulumi:"email"`
+	Handle         string `pulumi:"handle"`
+	Icon           string `pulumi:"icon"`
+	Id             string `pulumi:"id"`
+	MfaEnabled     bool   `pulumi:"mfaEnabled"`
+	ModifiedAt     string `pulumi:"modifiedAt"`
+	Name           string `pulumi:"name"`
+	ServiceAccount bool   `pulumi:"serviceAccount"`
+	Status         string `pulumi:"status"`
+	Title          string `pulumi:"title"`
+	Verified       bool   `pulumi:"verified"`
 }
 
 // GetUsersUserInput is an input type that accepts GetUsersUserArgs and GetUsersUserOutput values.
@@ -22094,9 +22491,19 @@ type GetUsersUserInput interface {
 }
 
 type GetUsersUserArgs struct {
-	Email pulumi.StringInput `pulumi:"email"`
-	Id    pulumi.StringInput `pulumi:"id"`
-	Name  pulumi.StringInput `pulumi:"name"`
+	CreatedAt      pulumi.StringInput `pulumi:"createdAt"`
+	Disabled       pulumi.BoolInput   `pulumi:"disabled"`
+	Email          pulumi.StringInput `pulumi:"email"`
+	Handle         pulumi.StringInput `pulumi:"handle"`
+	Icon           pulumi.StringInput `pulumi:"icon"`
+	Id             pulumi.StringInput `pulumi:"id"`
+	MfaEnabled     pulumi.BoolInput   `pulumi:"mfaEnabled"`
+	ModifiedAt     pulumi.StringInput `pulumi:"modifiedAt"`
+	Name           pulumi.StringInput `pulumi:"name"`
+	ServiceAccount pulumi.BoolInput   `pulumi:"serviceAccount"`
+	Status         pulumi.StringInput `pulumi:"status"`
+	Title          pulumi.StringInput `pulumi:"title"`
+	Verified       pulumi.BoolInput   `pulumi:"verified"`
 }
 
 func (GetUsersUserArgs) ElementType() reflect.Type {
@@ -22150,16 +22557,56 @@ func (o GetUsersUserOutput) ToGetUsersUserOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o GetUsersUserOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUsersUser) string { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+func (o GetUsersUserOutput) Disabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetUsersUser) bool { return v.Disabled }).(pulumi.BoolOutput)
+}
+
 func (o GetUsersUserOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.Email }).(pulumi.StringOutput)
+}
+
+func (o GetUsersUserOutput) Handle() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUsersUser) string { return v.Handle }).(pulumi.StringOutput)
+}
+
+func (o GetUsersUserOutput) Icon() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUsersUser) string { return v.Icon }).(pulumi.StringOutput)
 }
 
 func (o GetUsersUserOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.Id }).(pulumi.StringOutput)
 }
 
+func (o GetUsersUserOutput) MfaEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetUsersUser) bool { return v.MfaEnabled }).(pulumi.BoolOutput)
+}
+
+func (o GetUsersUserOutput) ModifiedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUsersUser) string { return v.ModifiedAt }).(pulumi.StringOutput)
+}
+
 func (o GetUsersUserOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetUsersUserOutput) ServiceAccount() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetUsersUser) bool { return v.ServiceAccount }).(pulumi.BoolOutput)
+}
+
+func (o GetUsersUserOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUsersUser) string { return v.Status }).(pulumi.StringOutput)
+}
+
+func (o GetUsersUserOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUsersUser) string { return v.Title }).(pulumi.StringOutput)
+}
+
+func (o GetUsersUserOutput) Verified() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetUsersUser) bool { return v.Verified }).(pulumi.BoolOutput)
 }
 
 type GetUsersUserArrayOutput struct{ *pulumi.OutputState }
@@ -22229,6 +22676,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleSignalQueryArrayInput)(nil)).Elem(), SecurityMonitoringRuleSignalQueryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleThirdPartyCaseInput)(nil)).Elem(), SecurityMonitoringRuleThirdPartyCaseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleThirdPartyCaseArrayInput)(nil)).Elem(), SecurityMonitoringRuleThirdPartyCaseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityNotificationRuleSelectorsInput)(nil)).Elem(), SecurityNotificationRuleSelectorsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityNotificationRuleSelectorsPtrInput)(nil)).Elem(), SecurityNotificationRuleSelectorsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SensitiveDataScannerGroupFilterInput)(nil)).Elem(), SensitiveDataScannerGroupFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SensitiveDataScannerGroupFilterPtrInput)(nil)).Elem(), SensitiveDataScannerGroupFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SensitiveDataScannerRuleIncludedKeywordConfigurationInput)(nil)).Elem(), SensitiveDataScannerRuleIncludedKeywordConfigurationArgs{})
@@ -22457,6 +22906,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceLevelObjectivesSloArrayInput)(nil)).Elem(), GetServiceLevelObjectivesSloArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamMembershipsTeamMembershipInput)(nil)).Elem(), GetTeamMembershipsTeamMembershipArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamMembershipsTeamMembershipArrayInput)(nil)).Elem(), GetTeamMembershipsTeamMembershipArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamsTeamInput)(nil)).Elem(), GetTeamsTeamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamsTeamArrayInput)(nil)).Elem(), GetTeamsTeamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserInput)(nil)).Elem(), GetUsersUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserArrayInput)(nil)).Elem(), GetUsersUserArray{})
 	pulumi.RegisterOutputType(ProviderDefaultTagsOutput{})
@@ -22505,6 +22956,8 @@ func init() {
 	pulumi.RegisterOutputType(SecurityMonitoringRuleSignalQueryArrayOutput{})
 	pulumi.RegisterOutputType(SecurityMonitoringRuleThirdPartyCaseOutput{})
 	pulumi.RegisterOutputType(SecurityMonitoringRuleThirdPartyCaseArrayOutput{})
+	pulumi.RegisterOutputType(SecurityNotificationRuleSelectorsOutput{})
+	pulumi.RegisterOutputType(SecurityNotificationRuleSelectorsPtrOutput{})
 	pulumi.RegisterOutputType(SensitiveDataScannerGroupFilterOutput{})
 	pulumi.RegisterOutputType(SensitiveDataScannerGroupFilterPtrOutput{})
 	pulumi.RegisterOutputType(SensitiveDataScannerRuleIncludedKeywordConfigurationOutput{})
@@ -22733,6 +23186,8 @@ func init() {
 	pulumi.RegisterOutputType(GetServiceLevelObjectivesSloArrayOutput{})
 	pulumi.RegisterOutputType(GetTeamMembershipsTeamMembershipOutput{})
 	pulumi.RegisterOutputType(GetTeamMembershipsTeamMembershipArrayOutput{})
+	pulumi.RegisterOutputType(GetTeamsTeamOutput{})
+	pulumi.RegisterOutputType(GetTeamsTeamArrayOutput{})
 	pulumi.RegisterOutputType(GetUsersUserOutput{})
 	pulumi.RegisterOutputType(GetUsersUserArrayOutput{})
 }

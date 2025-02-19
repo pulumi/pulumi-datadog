@@ -24,6 +24,12 @@ namespace Pulumi.Datadog.Inputs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Whether the value of this variable will be obfuscated in test results. Defaults to `false`.
+        /// </summary>
+        [Input("secure")]
+        public Input<bool>? Secure { get; set; }
+
         public SyntheticsTestBrowserStepParamsVariableGetArgs()
         {
         }

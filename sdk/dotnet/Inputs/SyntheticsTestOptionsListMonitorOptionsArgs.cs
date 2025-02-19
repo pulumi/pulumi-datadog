@@ -18,6 +18,12 @@ namespace Pulumi.Datadog.Inputs
         [Input("renotifyInterval")]
         public Input<int>? RenotifyInterval { get; set; }
 
+        /// <summary>
+        /// The number of times a monitor renotifies. It can only be set if `renotify_interval` is set.
+        /// </summary>
+        [Input("renotifyOccurrences")]
+        public Input<int>? RenotifyOccurrences { get; set; }
+
         public SyntheticsTestOptionsListMonitorOptionsArgs()
         {
         }

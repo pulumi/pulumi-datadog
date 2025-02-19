@@ -9309,10 +9309,51 @@ export interface GetTeamMembershipsTeamMembership {
     userId: string;
 }
 
-export interface GetUsersUser {
-    email: string;
+export interface GetTeamsTeam {
+    /**
+     * Free-form markdown description/content for the team's homepage.
+     */
+    description: string;
+    /**
+     * The team's handle.
+     */
+    handle: string;
+    /**
+     * The team's identifier.
+     */
     id: string;
+    /**
+     * The number of links belonging to the team.
+     */
+    linkCount: number;
+    /**
+     * The name of the team.
+     */
     name: string;
+    /**
+     * A brief summary of the team, derived from the `description`.
+     */
+    summary: string;
+    /**
+     * The number of users belonging to the team.
+     */
+    userCount: number;
+}
+
+export interface GetUsersUser {
+    createdAt: string;
+    disabled: boolean;
+    email: string;
+    handle: string;
+    icon: string;
+    id: string;
+    mfaEnabled: boolean;
+    modifiedAt: string;
+    name: string;
+    serviceAccount: boolean;
+    status: string;
+    title: string;
+    verified: boolean;
 }
 
 export interface IpAllowlistEntry {
@@ -22815,6 +22856,25 @@ export interface SecurityMonitoringRuleThirdPartyCase {
     status: string;
 }
 
+export interface SecurityNotificationRuleSelectors {
+    /**
+     * Comprises one or several key:value pairs for filtering security issues based on tags and attributes. Defaults to `""`.
+     */
+    query: string;
+    /**
+     * Specifies security rule types for filtering signals and vulnerabilities that generate notifications.
+     */
+    ruleTypes: string[];
+    /**
+     * The security rules severities to consider.
+     */
+    severities: string[];
+    /**
+     * The type of security issues the rule applies to. Use `securitySignals` for rules based on security signals and `securityFindings` for those based on vulnerabilities.
+     */
+    triggerSource: string;
+}
+
 export interface SensitiveDataScannerGroupFilter {
     /**
      * Query to filter the events.
@@ -23696,6 +23756,10 @@ export interface SyntheticsTestBrowserStepParamsVariable {
      * Name of the extracted variable.
      */
     name?: string;
+    /**
+     * Whether the value of this variable will be obfuscated in test results. Defaults to `false`.
+     */
+    secure?: boolean;
 }
 
 export interface SyntheticsTestBrowserVariable {
@@ -23821,6 +23885,9 @@ export interface SyntheticsTestMobileOptionsListMonitorOptions {
      * Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
      */
     renotifyInterval?: number;
+    /**
+     * The number of times a monitor renotifies. It can only be set if `renotifyInterval` is set.
+     */
     renotifyOccurrences?: number;
 }
 
@@ -24081,6 +24148,10 @@ export interface SyntheticsTestOptionsListMonitorOptions {
      * Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
      */
     renotifyInterval?: number;
+    /**
+     * The number of times a monitor renotifies. It can only be set if `renotifyInterval` is set.
+     */
+    renotifyOccurrences?: number;
 }
 
 export interface SyntheticsTestOptionsListRetry {

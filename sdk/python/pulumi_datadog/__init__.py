@@ -56,6 +56,7 @@ from .get_synthetics_locations import *
 from .get_synthetics_test import *
 from .get_team import *
 from .get_team_memberships import *
+from .get_teams import *
 from .get_user import *
 from .get_users import *
 from .ip_allowlist import *
@@ -85,6 +86,7 @@ from .security_monitoring_default_rule import *
 from .security_monitoring_filter import *
 from .security_monitoring_rule import *
 from .security_monitoring_suppression import *
+from .security_notification_rule import *
 from .sensitive_data_scanner_group import *
 from .sensitive_data_scanner_group_order import *
 from .sensitive_data_scanner_rule import *
@@ -588,6 +590,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/securityMonitoringSuppression:SecurityMonitoringSuppression": "SecurityMonitoringSuppression"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/securityNotificationRule",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/securityNotificationRule:SecurityNotificationRule": "SecurityNotificationRule"
   }
  },
  {

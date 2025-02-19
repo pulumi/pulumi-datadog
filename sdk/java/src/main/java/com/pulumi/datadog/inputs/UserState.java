@@ -48,14 +48,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name for user.
+     * User&#39;s name. Should be set only for password authentication, as it is overridden by Google or SAML authentication.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name for user.
+     * @return User&#39;s name. Should be set only for password authentication, as it is overridden by Google or SAML authentication.
      * 
      */
     public Optional<Output<String>> name() {
@@ -195,7 +195,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name for user.
+         * @param name User&#39;s name. Should be set only for password authentication, as it is overridden by Google or SAML authentication.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name for user.
+         * @param name User&#39;s name. Should be set only for password authentication, as it is overridden by Google or SAML authentication.
          * 
          * @return builder
          * 

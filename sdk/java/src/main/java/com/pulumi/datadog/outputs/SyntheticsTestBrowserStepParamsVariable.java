@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -21,6 +22,11 @@ public final class SyntheticsTestBrowserStepParamsVariable {
      * 
      */
     private @Nullable String name;
+    /**
+     * @return Whether the value of this variable will be obfuscated in test results. Defaults to `false`.
+     * 
+     */
+    private @Nullable Boolean secure;
 
     private SyntheticsTestBrowserStepParamsVariable() {}
     /**
@@ -37,6 +43,13 @@ public final class SyntheticsTestBrowserStepParamsVariable {
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
+    /**
+     * @return Whether the value of this variable will be obfuscated in test results. Defaults to `false`.
+     * 
+     */
+    public Optional<Boolean> secure() {
+        return Optional.ofNullable(this.secure);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -49,11 +62,13 @@ public final class SyntheticsTestBrowserStepParamsVariable {
     public static final class Builder {
         private @Nullable String example;
         private @Nullable String name;
+        private @Nullable Boolean secure;
         public Builder() {}
         public Builder(SyntheticsTestBrowserStepParamsVariable defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.example = defaults.example;
     	      this.name = defaults.name;
+    	      this.secure = defaults.secure;
         }
 
         @CustomType.Setter
@@ -68,10 +83,17 @@ public final class SyntheticsTestBrowserStepParamsVariable {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
+        public Builder secure(@Nullable Boolean secure) {
+
+            this.secure = secure;
+            return this;
+        }
         public SyntheticsTestBrowserStepParamsVariable build() {
             final var _resultValue = new SyntheticsTestBrowserStepParamsVariable();
             _resultValue.example = example;
             _resultValue.name = name;
+            _resultValue.secure = secure;
             return _resultValue;
         }
     }

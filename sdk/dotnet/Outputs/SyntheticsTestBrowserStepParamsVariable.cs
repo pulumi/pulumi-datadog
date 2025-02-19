@@ -21,15 +21,22 @@ namespace Pulumi.Datadog.Outputs
         /// Name of the extracted variable.
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Whether the value of this variable will be obfuscated in test results. Defaults to `false`.
+        /// </summary>
+        public readonly bool? Secure;
 
         [OutputConstructor]
         private SyntheticsTestBrowserStepParamsVariable(
             string? example,
 
-            string? name)
+            string? name,
+
+            bool? secure)
         {
             Example = example;
             Name = name;
+            Secure = secure;
         }
     }
 }

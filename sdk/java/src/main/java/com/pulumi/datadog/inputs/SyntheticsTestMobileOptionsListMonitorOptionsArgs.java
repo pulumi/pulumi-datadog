@@ -53,9 +53,17 @@ public final class SyntheticsTestMobileOptionsListMonitorOptionsArgs extends com
         return Optional.ofNullable(this.renotifyInterval);
     }
 
+    /**
+     * The number of times a monitor renotifies. It can only be set if `renotify_interval` is set.
+     * 
+     */
     @Import(name="renotifyOccurrences")
     private @Nullable Output<Integer> renotifyOccurrences;
 
+    /**
+     * @return The number of times a monitor renotifies. It can only be set if `renotify_interval` is set.
+     * 
+     */
     public Optional<Output<Integer>> renotifyOccurrences() {
         return Optional.ofNullable(this.renotifyOccurrences);
     }
@@ -138,11 +146,23 @@ public final class SyntheticsTestMobileOptionsListMonitorOptionsArgs extends com
             return renotifyInterval(Output.of(renotifyInterval));
         }
 
+        /**
+         * @param renotifyOccurrences The number of times a monitor renotifies. It can only be set if `renotify_interval` is set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder renotifyOccurrences(@Nullable Output<Integer> renotifyOccurrences) {
             $.renotifyOccurrences = renotifyOccurrences;
             return this;
         }
 
+        /**
+         * @param renotifyOccurrences The number of times a monitor renotifies. It can only be set if `renotify_interval` is set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder renotifyOccurrences(Integer renotifyOccurrences) {
             return renotifyOccurrences(Output.of(renotifyOccurrences));
         }

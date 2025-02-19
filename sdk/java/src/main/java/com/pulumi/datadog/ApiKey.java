@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.datadog.ApiKeyArgs;
 import com.pulumi.datadog.Utilities;
 import com.pulumi.datadog.inputs.ApiKeyState;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -89,6 +90,20 @@ public class ApiKey extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * Whether the API key is used for remote config. Warning : default value is true for backwards compatibility Defaults to `true`.
+     * 
+     */
+    @Export(name="remoteConfigReadEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> remoteConfigReadEnabled;
+
+    /**
+     * @return Whether the API key is used for remote config. Warning : default value is true for backwards compatibility Defaults to `true`.
+     * 
+     */
+    public Output<Boolean> remoteConfigReadEnabled() {
+        return this.remoteConfigReadEnabled;
     }
 
     /**

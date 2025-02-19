@@ -103,6 +103,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SecurityMonitoringRule{}
 	case "datadog:index/securityMonitoringSuppression:SecurityMonitoringSuppression":
 		r = &SecurityMonitoringSuppression{}
+	case "datadog:index/securityNotificationRule:SecurityNotificationRule":
+		r = &SecurityNotificationRule{}
 	case "datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup":
 		r = &SensitiveDataScannerGroup{}
 	case "datadog:index/sensitiveDataScannerGroupOrder:SensitiveDataScannerGroupOrder":
@@ -381,6 +383,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/securityMonitoringSuppression",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/securityNotificationRule",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

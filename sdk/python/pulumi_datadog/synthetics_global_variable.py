@@ -24,6 +24,7 @@ class SyntheticsGlobalVariableArgs:
                  name: pulumi.Input[str],
                  value: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 is_totp: Optional[pulumi.Input[bool]] = None,
                  options: Optional[pulumi.Input['SyntheticsGlobalVariableOptionsArgs']] = None,
                  parse_test_id: Optional[pulumi.Input[str]] = None,
                  parse_test_options: Optional[pulumi.Input['SyntheticsGlobalVariableParseTestOptionsArgs']] = None,
@@ -35,17 +36,20 @@ class SyntheticsGlobalVariableArgs:
         :param pulumi.Input[str] name: Synthetics global variable name.
         :param pulumi.Input[str] value: The value of the global variable.
         :param pulumi.Input[str] description: Description of the global variable.
+        :param pulumi.Input[bool] is_totp: If set to true, the global variable is a TOTP variable. Defaults to `false`.
         :param pulumi.Input['SyntheticsGlobalVariableOptionsArgs'] options: Additional options for the variable, such as a MFA token.
         :param pulumi.Input[str] parse_test_id: Id of the Synthetics test to use for a variable from test.
         :param pulumi.Input['SyntheticsGlobalVariableParseTestOptionsArgs'] parse_test_options: ID of the Synthetics test to use a source of the global variable value.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: A list of role identifiers to associate with the Synthetics global variable.
-        :param pulumi.Input[bool] secure: If set to true, the value of the global variable is hidden. Defaults to `false`.
+        :param pulumi.Input[bool] secure: If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` is set to `true`. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics global variable.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if is_totp is not None:
+            pulumi.set(__self__, "is_totp", is_totp)
         if options is not None:
             pulumi.set(__self__, "options", options)
         if parse_test_id is not None:
@@ -94,6 +98,18 @@ class SyntheticsGlobalVariableArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="isTotp")
+    def is_totp(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If set to true, the global variable is a TOTP variable. Defaults to `false`.
+        """
+        return pulumi.get(self, "is_totp")
+
+    @is_totp.setter
+    def is_totp(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_totp", value)
 
     @property
     @pulumi.getter
@@ -147,7 +163,7 @@ class SyntheticsGlobalVariableArgs:
     @pulumi.getter
     def secure(self) -> Optional[pulumi.Input[bool]]:
         """
-        If set to true, the value of the global variable is hidden. Defaults to `false`.
+        If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` is set to `true`. Defaults to `false`.
         """
         return pulumi.get(self, "secure")
 
@@ -172,6 +188,7 @@ class SyntheticsGlobalVariableArgs:
 class _SyntheticsGlobalVariableState:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
+                 is_totp: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input['SyntheticsGlobalVariableOptionsArgs']] = None,
                  parse_test_id: Optional[pulumi.Input[str]] = None,
@@ -183,17 +200,20 @@ class _SyntheticsGlobalVariableState:
         """
         Input properties used for looking up and filtering SyntheticsGlobalVariable resources.
         :param pulumi.Input[str] description: Description of the global variable.
+        :param pulumi.Input[bool] is_totp: If set to true, the global variable is a TOTP variable. Defaults to `false`.
         :param pulumi.Input[str] name: Synthetics global variable name.
         :param pulumi.Input['SyntheticsGlobalVariableOptionsArgs'] options: Additional options for the variable, such as a MFA token.
         :param pulumi.Input[str] parse_test_id: Id of the Synthetics test to use for a variable from test.
         :param pulumi.Input['SyntheticsGlobalVariableParseTestOptionsArgs'] parse_test_options: ID of the Synthetics test to use a source of the global variable value.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: A list of role identifiers to associate with the Synthetics global variable.
-        :param pulumi.Input[bool] secure: If set to true, the value of the global variable is hidden. Defaults to `false`.
+        :param pulumi.Input[bool] secure: If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` is set to `true`. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics global variable.
         :param pulumi.Input[str] value: The value of the global variable.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if is_totp is not None:
+            pulumi.set(__self__, "is_totp", is_totp)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if options is not None:
@@ -222,6 +242,18 @@ class _SyntheticsGlobalVariableState:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="isTotp")
+    def is_totp(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If set to true, the global variable is a TOTP variable. Defaults to `false`.
+        """
+        return pulumi.get(self, "is_totp")
+
+    @is_totp.setter
+    def is_totp(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_totp", value)
 
     @property
     @pulumi.getter
@@ -287,7 +319,7 @@ class _SyntheticsGlobalVariableState:
     @pulumi.getter
     def secure(self) -> Optional[pulumi.Input[bool]]:
         """
-        If set to true, the value of the global variable is hidden. Defaults to `false`.
+        If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` is set to `true`. Defaults to `false`.
         """
         return pulumi.get(self, "secure")
 
@@ -326,6 +358,7 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 is_totp: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input[Union['SyntheticsGlobalVariableOptionsArgs', 'SyntheticsGlobalVariableOptionsArgsDict']]] = None,
                  parse_test_id: Optional[pulumi.Input[str]] = None,
@@ -365,12 +398,13 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the global variable.
+        :param pulumi.Input[bool] is_totp: If set to true, the global variable is a TOTP variable. Defaults to `false`.
         :param pulumi.Input[str] name: Synthetics global variable name.
         :param pulumi.Input[Union['SyntheticsGlobalVariableOptionsArgs', 'SyntheticsGlobalVariableOptionsArgsDict']] options: Additional options for the variable, such as a MFA token.
         :param pulumi.Input[str] parse_test_id: Id of the Synthetics test to use for a variable from test.
         :param pulumi.Input[Union['SyntheticsGlobalVariableParseTestOptionsArgs', 'SyntheticsGlobalVariableParseTestOptionsArgsDict']] parse_test_options: ID of the Synthetics test to use a source of the global variable value.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: A list of role identifiers to associate with the Synthetics global variable.
-        :param pulumi.Input[bool] secure: If set to true, the value of the global variable is hidden. Defaults to `false`.
+        :param pulumi.Input[bool] secure: If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` is set to `true`. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics global variable.
         :param pulumi.Input[str] value: The value of the global variable.
         """
@@ -423,6 +457,7 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 is_totp: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input[Union['SyntheticsGlobalVariableOptionsArgs', 'SyntheticsGlobalVariableOptionsArgsDict']]] = None,
                  parse_test_id: Optional[pulumi.Input[str]] = None,
@@ -441,6 +476,7 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
             __props__ = SyntheticsGlobalVariableArgs.__new__(SyntheticsGlobalVariableArgs)
 
             __props__.__dict__["description"] = description
+            __props__.__dict__["is_totp"] = is_totp
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
@@ -466,6 +502,7 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             description: Optional[pulumi.Input[str]] = None,
+            is_totp: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             options: Optional[pulumi.Input[Union['SyntheticsGlobalVariableOptionsArgs', 'SyntheticsGlobalVariableOptionsArgsDict']]] = None,
             parse_test_id: Optional[pulumi.Input[str]] = None,
@@ -482,12 +519,13 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the global variable.
+        :param pulumi.Input[bool] is_totp: If set to true, the global variable is a TOTP variable. Defaults to `false`.
         :param pulumi.Input[str] name: Synthetics global variable name.
         :param pulumi.Input[Union['SyntheticsGlobalVariableOptionsArgs', 'SyntheticsGlobalVariableOptionsArgsDict']] options: Additional options for the variable, such as a MFA token.
         :param pulumi.Input[str] parse_test_id: Id of the Synthetics test to use for a variable from test.
         :param pulumi.Input[Union['SyntheticsGlobalVariableParseTestOptionsArgs', 'SyntheticsGlobalVariableParseTestOptionsArgsDict']] parse_test_options: ID of the Synthetics test to use a source of the global variable value.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: A list of role identifiers to associate with the Synthetics global variable.
-        :param pulumi.Input[bool] secure: If set to true, the value of the global variable is hidden. Defaults to `false`.
+        :param pulumi.Input[bool] secure: If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` is set to `true`. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics global variable.
         :param pulumi.Input[str] value: The value of the global variable.
         """
@@ -496,6 +534,7 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
         __props__ = _SyntheticsGlobalVariableState.__new__(_SyntheticsGlobalVariableState)
 
         __props__.__dict__["description"] = description
+        __props__.__dict__["is_totp"] = is_totp
         __props__.__dict__["name"] = name
         __props__.__dict__["options"] = options
         __props__.__dict__["parse_test_id"] = parse_test_id
@@ -513,6 +552,14 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
         Description of the global variable.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="isTotp")
+    def is_totp(self) -> pulumi.Output[Optional[bool]]:
+        """
+        If set to true, the global variable is a TOTP variable. Defaults to `false`.
+        """
+        return pulumi.get(self, "is_totp")
 
     @property
     @pulumi.getter
@@ -558,7 +605,7 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
     @pulumi.getter
     def secure(self) -> pulumi.Output[Optional[bool]]:
         """
-        If set to true, the value of the global variable is hidden. Defaults to `false`.
+        If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` is set to `true`. Defaults to `false`.
         """
         return pulumi.get(self, "secure")
 

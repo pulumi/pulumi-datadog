@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -45,11 +46,27 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Whether the API key is used for remote config. Warning : default value is true for backwards compatibility Defaults to `true`.
+     * 
+     */
+    @Import(name="remoteConfigReadEnabled")
+    private @Nullable Output<Boolean> remoteConfigReadEnabled;
+
+    /**
+     * @return Whether the API key is used for remote config. Warning : default value is true for backwards compatibility Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> remoteConfigReadEnabled() {
+        return Optional.ofNullable(this.remoteConfigReadEnabled);
+    }
+
     private ApiKeyState() {}
 
     private ApiKeyState(ApiKeyState $) {
         this.key = $.key;
         this.name = $.name;
+        this.remoteConfigReadEnabled = $.remoteConfigReadEnabled;
     }
 
     public static Builder builder() {
@@ -110,6 +127,27 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param remoteConfigReadEnabled Whether the API key is used for remote config. Warning : default value is true for backwards compatibility Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder remoteConfigReadEnabled(@Nullable Output<Boolean> remoteConfigReadEnabled) {
+            $.remoteConfigReadEnabled = remoteConfigReadEnabled;
+            return this;
+        }
+
+        /**
+         * @param remoteConfigReadEnabled Whether the API key is used for remote config. Warning : default value is true for backwards compatibility Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder remoteConfigReadEnabled(Boolean remoteConfigReadEnabled) {
+            return remoteConfigReadEnabled(Output.of(remoteConfigReadEnabled));
         }
 
         public ApiKeyState build() {

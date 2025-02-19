@@ -59,6 +59,10 @@ export class ApiKey extends pulumi.CustomResource {
      * Name for API Key.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Whether the API key is used for remote config. Warning : default value is true for backwards compatibility Defaults to `true`.
+     */
+    public readonly remoteConfigReadEnabled!: pulumi.Output<boolean>;
 
     /**
      * Create a ApiKey resource with the given unique name, arguments, and options.
@@ -75,12 +79,14 @@ export class ApiKey extends pulumi.CustomResource {
             const state = argsOrState as ApiKeyState | undefined;
             resourceInputs["key"] = state ? state.key : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["remoteConfigReadEnabled"] = state ? state.remoteConfigReadEnabled : undefined;
         } else {
             const args = argsOrState as ApiKeyArgs | undefined;
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["remoteConfigReadEnabled"] = args ? args.remoteConfigReadEnabled : undefined;
             resourceInputs["key"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -102,6 +108,10 @@ export interface ApiKeyState {
      * Name for API Key.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Whether the API key is used for remote config. Warning : default value is true for backwards compatibility Defaults to `true`.
+     */
+    remoteConfigReadEnabled?: pulumi.Input<boolean>;
 }
 
 /**
@@ -112,4 +122,8 @@ export interface ApiKeyArgs {
      * Name for API Key.
      */
     name: pulumi.Input<string>;
+    /**
+     * Whether the API key is used for remote config. Warning : default value is true for backwards compatibility Defaults to `true`.
+     */
+    remoteConfigReadEnabled?: pulumi.Input<boolean>;
 }

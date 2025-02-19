@@ -16,6 +16,11 @@ public final class SyntheticsTestOptionsListMonitorOptions {
      * 
      */
     private @Nullable Integer renotifyInterval;
+    /**
+     * @return The number of times a monitor renotifies. It can only be set if `renotify_interval` is set.
+     * 
+     */
+    private @Nullable Integer renotifyOccurrences;
 
     private SyntheticsTestOptionsListMonitorOptions() {}
     /**
@@ -24,6 +29,13 @@ public final class SyntheticsTestOptionsListMonitorOptions {
      */
     public Optional<Integer> renotifyInterval() {
         return Optional.ofNullable(this.renotifyInterval);
+    }
+    /**
+     * @return The number of times a monitor renotifies. It can only be set if `renotify_interval` is set.
+     * 
+     */
+    public Optional<Integer> renotifyOccurrences() {
+        return Optional.ofNullable(this.renotifyOccurrences);
     }
 
     public static Builder builder() {
@@ -36,10 +48,12 @@ public final class SyntheticsTestOptionsListMonitorOptions {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer renotifyInterval;
+        private @Nullable Integer renotifyOccurrences;
         public Builder() {}
         public Builder(SyntheticsTestOptionsListMonitorOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.renotifyInterval = defaults.renotifyInterval;
+    	      this.renotifyOccurrences = defaults.renotifyOccurrences;
         }
 
         @CustomType.Setter
@@ -48,9 +62,16 @@ public final class SyntheticsTestOptionsListMonitorOptions {
             this.renotifyInterval = renotifyInterval;
             return this;
         }
+        @CustomType.Setter
+        public Builder renotifyOccurrences(@Nullable Integer renotifyOccurrences) {
+
+            this.renotifyOccurrences = renotifyOccurrences;
+            return this;
+        }
         public SyntheticsTestOptionsListMonitorOptions build() {
             final var _resultValue = new SyntheticsTestOptionsListMonitorOptions();
             _resultValue.renotifyInterval = renotifyInterval;
+            _resultValue.renotifyOccurrences = renotifyOccurrences;
             return _resultValue;
         }
     }

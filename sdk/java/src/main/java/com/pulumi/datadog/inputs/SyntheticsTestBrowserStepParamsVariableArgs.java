@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -45,11 +46,27 @@ public final class SyntheticsTestBrowserStepParamsVariableArgs extends com.pulum
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Whether the value of this variable will be obfuscated in test results. Defaults to `false`.
+     * 
+     */
+    @Import(name="secure")
+    private @Nullable Output<Boolean> secure;
+
+    /**
+     * @return Whether the value of this variable will be obfuscated in test results. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> secure() {
+        return Optional.ofNullable(this.secure);
+    }
+
     private SyntheticsTestBrowserStepParamsVariableArgs() {}
 
     private SyntheticsTestBrowserStepParamsVariableArgs(SyntheticsTestBrowserStepParamsVariableArgs $) {
         this.example = $.example;
         this.name = $.name;
+        this.secure = $.secure;
     }
 
     public static Builder builder() {
@@ -110,6 +127,27 @@ public final class SyntheticsTestBrowserStepParamsVariableArgs extends com.pulum
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param secure Whether the value of this variable will be obfuscated in test results. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secure(@Nullable Output<Boolean> secure) {
+            $.secure = secure;
+            return this;
+        }
+
+        /**
+         * @param secure Whether the value of this variable will be obfuscated in test results. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secure(Boolean secure) {
+            return secure(Output.of(secure));
         }
 
         public SyntheticsTestBrowserStepParamsVariableArgs build() {

@@ -67,9 +67,9 @@ export class User extends pulumi.CustomResource {
      */
     public readonly email!: pulumi.Output<string>;
     /**
-     * Name for user.
+     * User's name. Should be set only for password authentication, as it is overridden by Google or SAML authentication.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A list of role IDs to assign to the user.
      */
@@ -138,7 +138,7 @@ export interface UserState {
      */
     email?: pulumi.Input<string>;
     /**
-     * Name for user.
+     * User's name. Should be set only for password authentication, as it is overridden by Google or SAML authentication.
      */
     name?: pulumi.Input<string>;
     /**
@@ -172,7 +172,7 @@ export interface UserArgs {
      */
     email: pulumi.Input<string>;
     /**
-     * Name for user.
+     * User's name. Should be set only for password authentication, as it is overridden by Google or SAML authentication.
      */
     name?: pulumi.Input<string>;
     /**

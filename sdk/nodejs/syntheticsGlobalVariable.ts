@@ -67,6 +67,10 @@ export class SyntheticsGlobalVariable extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * If set to true, the global variable is a TOTP variable. Defaults to `false`.
+     */
+    public readonly isTotp!: pulumi.Output<boolean | undefined>;
+    /**
      * Synthetics global variable name.
      */
     public readonly name!: pulumi.Output<string>;
@@ -87,7 +91,7 @@ export class SyntheticsGlobalVariable extends pulumi.CustomResource {
      */
     public readonly restrictedRoles!: pulumi.Output<string[] | undefined>;
     /**
-     * If set to true, the value of the global variable is hidden. Defaults to `false`.
+     * If set to true, the value of the global variable is hidden. This setting is ignored if `isTotp` is set to `true`. Defaults to `false`.
      */
     public readonly secure!: pulumi.Output<boolean | undefined>;
     /**
@@ -113,6 +117,7 @@ export class SyntheticsGlobalVariable extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as SyntheticsGlobalVariableState | undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["isTotp"] = state ? state.isTotp : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["options"] = state ? state.options : undefined;
             resourceInputs["parseTestId"] = state ? state.parseTestId : undefined;
@@ -130,6 +135,7 @@ export class SyntheticsGlobalVariable extends pulumi.CustomResource {
                 throw new Error("Missing required property 'value'");
             }
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["isTotp"] = args ? args.isTotp : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["options"] = args ? args.options : undefined;
             resourceInputs["parseTestId"] = args ? args.parseTestId : undefined;
@@ -155,6 +161,10 @@ export interface SyntheticsGlobalVariableState {
      */
     description?: pulumi.Input<string>;
     /**
+     * If set to true, the global variable is a TOTP variable. Defaults to `false`.
+     */
+    isTotp?: pulumi.Input<boolean>;
+    /**
      * Synthetics global variable name.
      */
     name?: pulumi.Input<string>;
@@ -175,7 +185,7 @@ export interface SyntheticsGlobalVariableState {
      */
     restrictedRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * If set to true, the value of the global variable is hidden. Defaults to `false`.
+     * If set to true, the value of the global variable is hidden. This setting is ignored if `isTotp` is set to `true`. Defaults to `false`.
      */
     secure?: pulumi.Input<boolean>;
     /**
@@ -197,6 +207,10 @@ export interface SyntheticsGlobalVariableArgs {
      */
     description?: pulumi.Input<string>;
     /**
+     * If set to true, the global variable is a TOTP variable. Defaults to `false`.
+     */
+    isTotp?: pulumi.Input<boolean>;
+    /**
      * Synthetics global variable name.
      */
     name: pulumi.Input<string>;
@@ -217,7 +231,7 @@ export interface SyntheticsGlobalVariableArgs {
      */
     restrictedRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * If set to true, the value of the global variable is hidden. Defaults to `false`.
+     * If set to true, the value of the global variable is hidden. This setting is ignored if `isTotp` is set to `true`. Defaults to `false`.
      */
     secure?: pulumi.Input<boolean>;
     /**
