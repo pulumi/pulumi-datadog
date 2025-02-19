@@ -15494,6 +15494,25 @@
                 "current": "datadog:index/securityMonitoringSuppression:SecurityMonitoringSuppression",
                 "majorVersion": 4
             },
+            "datadog_security_notification_rule": {
+                "current": "datadog:index/securityNotificationRule:SecurityNotificationRule",
+                "majorVersion": 4,
+                "fields": {
+                    "selectors": {
+                        "fields": {
+                            "rule_types": {
+                                "maxItemsOne": false
+                            },
+                            "severities": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "targets": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "datadog_sensitive_data_scanner_group": {
                 "current": "datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup",
                 "majorVersion": 4,
@@ -16608,6 +16627,15 @@
                     }
                 }
             },
+            "datadog_teams": {
+                "current": "datadog:index/getTeams:getTeams",
+                "majorVersion": 4,
+                "fields": {
+                    "teams": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "datadog_user": {
                 "current": "datadog:index/getUser:getUser",
                 "majorVersion": 4
@@ -16691,6 +16719,7 @@
             "datadog:index/securityMonitoringFilter:SecurityMonitoringFilter": 0,
             "datadog:index/securityMonitoringRule:SecurityMonitoringRule": 0,
             "datadog:index/securityMonitoringSuppression:SecurityMonitoringSuppression": 1,
+            "datadog:index/securityNotificationRule:SecurityNotificationRule": 1,
             "datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup": 0,
             "datadog:index/sensitiveDataScannerGroupOrder:SensitiveDataScannerGroupOrder": 1,
             "datadog:index/sensitiveDataScannerRule:SensitiveDataScannerRule": 0,
@@ -16760,6 +16789,7 @@
             "datadog:index/getSyntheticsTest:getSyntheticsTest": 0,
             "datadog:index/getTeam:getTeam": 1,
             "datadog:index/getTeamMemberships:getTeamMemberships": 1,
+            "datadog:index/getTeams:getTeams": 1,
             "datadog:index/getUser:getUser": 0,
             "datadog:index/getUsers:getUsers": 1
         }

@@ -29250,6 +29250,47 @@
                 "status"
             ]
         },
+        "datadog:index/SecurityNotificationRuleSelectors:SecurityNotificationRuleSelectors": {
+            "properties": {
+                "query": {
+                    "type": "string",
+                    "description": "Comprises one or several key:value pairs for filtering security issues based on tags and attributes. Defaults to `\"\"`.\n"
+                },
+                "ruleTypes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specifies security rule types for filtering signals and vulnerabilities that generate notifications.\n"
+                },
+                "severities": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The security rules severities to consider.\n"
+                },
+                "triggerSource": {
+                    "type": "string",
+                    "description": "The type of security issues the rule applies to. Use `security_signals` for rules based on security signals and `security_findings` for those based on vulnerabilities.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "ruleTypes",
+                "triggerSource"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "query",
+                        "ruleTypes",
+                        "severities",
+                        "triggerSource"
+                    ]
+                }
+            }
+        },
         "datadog:index/SensitiveDataScannerGroupFilter:SensitiveDataScannerGroupFilter": {
             "properties": {
                 "query": {
@@ -30446,6 +30487,10 @@
                 "name": {
                     "type": "string",
                     "description": "Name of the extracted variable.\n"
+                },
+                "secure": {
+                    "type": "boolean",
+                    "description": "Whether the value of this variable will be obfuscated in test results. Defaults to `false`.\n"
                 }
             },
             "type": "object"
@@ -30652,7 +30697,8 @@
                     "description": "Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.\n"
                 },
                 "renotifyOccurrences": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The number of times a monitor renotifies. It can only be set if `renotify_interval` is set.\n"
                 }
             },
             "type": "object"
@@ -31017,6 +31063,10 @@
                 "renotifyInterval": {
                     "type": "integer",
                     "description": "Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.\n"
+                },
+                "renotifyOccurrences": {
+                    "type": "integer",
+                    "description": "The number of times a monitor renotifies. It can only be set if `renotify_interval` is set.\n"
                 }
             },
             "type": "object"
@@ -32775,23 +32825,110 @@
                 }
             }
         },
+        "datadog:index/getTeamsTeam:getTeamsTeam": {
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "Free-form markdown description/content for the team's homepage.\n"
+                },
+                "handle": {
+                    "type": "string",
+                    "description": "The team's handle.\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The team's identifier.\n"
+                },
+                "linkCount": {
+                    "type": "integer",
+                    "description": "The number of links belonging to the team.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the team.\n"
+                },
+                "summary": {
+                    "type": "string",
+                    "description": "A brief summary of the team, derived from the `description`.\n"
+                },
+                "userCount": {
+                    "type": "integer",
+                    "description": "The number of users belonging to the team.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "description",
+                "handle",
+                "id",
+                "linkCount",
+                "name",
+                "summary",
+                "userCount"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "datadog:index/getUsersUser:getUsersUser": {
             "properties": {
+                "createdAt": {
+                    "type": "string"
+                },
+                "disabled": {
+                    "type": "boolean"
+                },
                 "email": {
+                    "type": "string"
+                },
+                "handle": {
+                    "type": "string"
+                },
+                "icon": {
                     "type": "string"
                 },
                 "id": {
                     "type": "string"
                 },
+                "mfaEnabled": {
+                    "type": "boolean"
+                },
+                "modifiedAt": {
+                    "type": "string"
+                },
                 "name": {
                     "type": "string"
+                },
+                "serviceAccount": {
+                    "type": "boolean"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "verified": {
+                    "type": "boolean"
                 }
             },
             "type": "object",
             "required": [
+                "createdAt",
+                "disabled",
                 "email",
+                "handle",
+                "icon",
                 "id",
-                "name"
+                "mfaEnabled",
+                "modifiedAt",
+                "name",
+                "serviceAccount",
+                "status",
+                "title",
+                "verified"
             ],
             "language": {
                 "nodejs": {
@@ -34456,16 +34593,25 @@
                 "name": {
                     "type": "string",
                     "description": "Name for API Key.\n"
+                },
+                "remoteConfigReadEnabled": {
+                    "type": "boolean",
+                    "description": "Whether the API key is used for remote config. Warning : default value is true for backwards compatibility Defaults to `true`.\n"
                 }
             },
             "required": [
                 "key",
-                "name"
+                "name",
+                "remoteConfigReadEnabled"
             ],
             "inputProperties": {
                 "name": {
                     "type": "string",
                     "description": "Name for API Key.\n"
+                },
+                "remoteConfigReadEnabled": {
+                    "type": "boolean",
+                    "description": "Whether the API key is used for remote config. Warning : default value is true for backwards compatibility Defaults to `true`.\n"
                 }
             },
             "requiredInputs": [
@@ -34482,6 +34628,10 @@
                     "name": {
                         "type": "string",
                         "description": "Name for API Key.\n"
+                    },
+                    "remoteConfigReadEnabled": {
+                        "type": "boolean",
+                        "description": "Whether the API key is used for remote config. Warning : default value is true for backwards compatibility Defaults to `true`.\n"
                     }
                 },
                 "type": "object"
@@ -38706,6 +38856,161 @@
                 "type": "object"
             }
         },
+        "datadog:index/securityNotificationRule:SecurityNotificationRule": {
+            "description": "Provides a Datadog Security Monitoring Notification Rule API resource for creating and managing Datadog security notification rules.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.SecurityNotificationRule;\nimport com.pulumi.datadog.SecurityNotificationRuleArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var signalRule = new SecurityNotificationRule(\"signalRule\", SecurityNotificationRuleArgs.builder()\n            .name(\"My signal notification rule\")\n            .selectors(SecurityNotificationRuleSelectorsArgs.builder()\n                .triggerSource(\"security_signals\")\n                .ruleTypes(\"workload_security\")\n                .query(\"env:prod\")\n                .build())\n            .enabled(false)\n            .targets(            \n                \"bob@email.com\",\n                \"alice@email.com\")\n            .build());\n\n        var vulnerabilityRule = new SecurityNotificationRule(\"vulnerabilityRule\", SecurityNotificationRuleArgs.builder()\n            .name(\"My vulnerability notification rule\")\n            .selectors(SecurityNotificationRuleSelectorsArgs.builder()\n                .triggerSource(\"security_findings\")\n                .ruleTypes(                \n                    \"application_library_vulnerability\",\n                    \"identity_risk\")\n                .severities(                \n                    \"critical\",\n                    \"high\")\n                .build())\n            .timeAggregation(36000)\n            .targets(\"john@email.com\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  signalRule:\n    type: datadog:SecurityNotificationRule\n    name: signal_rule\n    properties:\n      name: My signal notification rule\n      selectors:\n        - triggerSource: security_signals\n          ruleTypes:\n            - workload_security\n          query: env:prod\n      enabled: false\n      targets:\n        - bob@email.com\n        - alice@email.com\n  vulnerabilityRule:\n    type: datadog:SecurityNotificationRule\n    name: vulnerability_rule\n    properties:\n      name: My vulnerability notification rule\n      selectors:\n        - triggerSource: security_findings\n          ruleTypes:\n            - application_library_vulnerability\n            - identity_risk\n          severities:\n            - critical\n            - high\n      timeAggregation: 36000\n      targets:\n        - john@email.com\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import datadog:index/securityNotificationRule:SecurityNotificationRule signal_rule yq9-t9l-bso\n```\n\n",
+            "properties": {
+                "createdAt": {
+                    "type": "integer",
+                    "description": "Indicates when this rule was created.\n"
+                },
+                "createdByHandle": {
+                    "type": "string",
+                    "description": "The handle of the rule creator.\n"
+                },
+                "createdByName": {
+                    "type": "string",
+                    "description": "The name of the rule creator.\n"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Indicates whether the rule is enabled. Defaults to `true`.\n"
+                },
+                "modifiedAt": {
+                    "type": "integer",
+                    "description": "Indicates when this rule was last modified.\n"
+                },
+                "modifiedByHandle": {
+                    "type": "string",
+                    "description": "The handle of the rule last modifier.\n"
+                },
+                "modifiedByName": {
+                    "type": "string",
+                    "description": "The name of the rule last modifier.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the rule (must be unique).\n"
+                },
+                "selectors": {
+                    "$ref": "#/types/datadog:index/SecurityNotificationRuleSelectors:SecurityNotificationRuleSelectors",
+                    "description": "Defines selectors to filter security issues that generate notifications.\n"
+                },
+                "targets": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The list of handle targets for the notifications.\n"
+                },
+                "timeAggregation": {
+                    "type": "integer",
+                    "description": "Specifies the time period, in seconds, used to aggregate the notification. Defaults to `0`.\n"
+                },
+                "version": {
+                    "type": "integer",
+                    "description": "The rule version (incremented at each update).\n"
+                }
+            },
+            "required": [
+                "createdAt",
+                "createdByHandle",
+                "createdByName",
+                "enabled",
+                "modifiedAt",
+                "modifiedByHandle",
+                "modifiedByName",
+                "name",
+                "targets",
+                "timeAggregation",
+                "version"
+            ],
+            "inputProperties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Indicates whether the rule is enabled. Defaults to `true`.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the rule (must be unique).\n"
+                },
+                "selectors": {
+                    "$ref": "#/types/datadog:index/SecurityNotificationRuleSelectors:SecurityNotificationRuleSelectors",
+                    "description": "Defines selectors to filter security issues that generate notifications.\n"
+                },
+                "targets": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The list of handle targets for the notifications.\n"
+                },
+                "timeAggregation": {
+                    "type": "integer",
+                    "description": "Specifies the time period, in seconds, used to aggregate the notification. Defaults to `0`.\n"
+                }
+            },
+            "requiredInputs": [
+                "name",
+                "targets"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering SecurityNotificationRule resources.\n",
+                "properties": {
+                    "createdAt": {
+                        "type": "integer",
+                        "description": "Indicates when this rule was created.\n"
+                    },
+                    "createdByHandle": {
+                        "type": "string",
+                        "description": "The handle of the rule creator.\n"
+                    },
+                    "createdByName": {
+                        "type": "string",
+                        "description": "The name of the rule creator.\n"
+                    },
+                    "enabled": {
+                        "type": "boolean",
+                        "description": "Indicates whether the rule is enabled. Defaults to `true`.\n"
+                    },
+                    "modifiedAt": {
+                        "type": "integer",
+                        "description": "Indicates when this rule was last modified.\n"
+                    },
+                    "modifiedByHandle": {
+                        "type": "string",
+                        "description": "The handle of the rule last modifier.\n"
+                    },
+                    "modifiedByName": {
+                        "type": "string",
+                        "description": "The name of the rule last modifier.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the rule (must be unique).\n"
+                    },
+                    "selectors": {
+                        "$ref": "#/types/datadog:index/SecurityNotificationRuleSelectors:SecurityNotificationRuleSelectors",
+                        "description": "Defines selectors to filter security issues that generate notifications.\n"
+                    },
+                    "targets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The list of handle targets for the notifications.\n"
+                    },
+                    "timeAggregation": {
+                        "type": "integer",
+                        "description": "Specifies the time period, in seconds, used to aggregate the notification. Defaults to `0`.\n"
+                    },
+                    "version": {
+                        "type": "integer",
+                        "description": "The rule version (incremented at each update).\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup": {
             "description": "Provides a Sensitive Data Scanner group resource.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Create new sensitive_data_scanner_group resource\nconst mygroup = new datadog.SensitiveDataScannerGroup(\"mygroup\", {\n    name: \"My new scanning group\",\n    description: \"A relevant description\",\n    filter: {\n        query: \"service:my-service\",\n    },\n    isEnabled: true,\n    productLists: [\"apm\"],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Create new sensitive_data_scanner_group resource\nmygroup = datadog.SensitiveDataScannerGroup(\"mygroup\",\n    name=\"My new scanning group\",\n    description=\"A relevant description\",\n    filter={\n        \"query\": \"service:my-service\",\n    },\n    is_enabled=True,\n    product_lists=[\"apm\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Create new sensitive_data_scanner_group resource\n    var mygroup = new Datadog.SensitiveDataScannerGroup(\"mygroup\", new()\n    {\n        Name = \"My new scanning group\",\n        Description = \"A relevant description\",\n        Filter = new Datadog.Inputs.SensitiveDataScannerGroupFilterArgs\n        {\n            Query = \"service:my-service\",\n        },\n        IsEnabled = true,\n        ProductLists = new[]\n        {\n            \"apm\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t// Create new sensitive_data_scanner_group resource\n\t\t_, err := datadog.NewSensitiveDataScannerGroup(ctx, \"mygroup\", \u0026datadog.SensitiveDataScannerGroupArgs{\n\t\t\tName:        pulumi.String(\"My new scanning group\"),\n\t\t\tDescription: pulumi.String(\"A relevant description\"),\n\t\t\tFilter: \u0026datadog.SensitiveDataScannerGroupFilterArgs{\n\t\t\t\tQuery: pulumi.String(\"service:my-service\"),\n\t\t\t},\n\t\t\tIsEnabled: pulumi.Bool(true),\n\t\t\tProductLists: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"apm\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.SensitiveDataScannerGroup;\nimport com.pulumi.datadog.SensitiveDataScannerGroupArgs;\nimport com.pulumi.datadog.inputs.SensitiveDataScannerGroupFilterArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // Create new sensitive_data_scanner_group resource\n        var mygroup = new SensitiveDataScannerGroup(\"mygroup\", SensitiveDataScannerGroupArgs.builder()\n            .name(\"My new scanning group\")\n            .description(\"A relevant description\")\n            .filter(SensitiveDataScannerGroupFilterArgs.builder()\n                .query(\"service:my-service\")\n                .build())\n            .isEnabled(true)\n            .productLists(\"apm\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Create new sensitive_data_scanner_group resource\n  mygroup:\n    type: datadog:SensitiveDataScannerGroup\n    properties:\n      name: My new scanning group\n      description: A relevant description\n      filter:\n        query: service:my-service\n      isEnabled: true\n      productLists:\n        - apm\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup new_list \"\u003cgroup_id\u003e\"\n```\n\n",
             "properties": {
@@ -39728,6 +40033,10 @@
                     "type": "string",
                     "description": "Description of the global variable.\n"
                 },
+                "isTotp": {
+                    "type": "boolean",
+                    "description": "If set to true, the global variable is a TOTP variable. Defaults to `false`.\n"
+                },
                 "name": {
                     "type": "string",
                     "description": "Synthetics global variable name.\n"
@@ -39753,7 +40062,7 @@
                 },
                 "secure": {
                     "type": "boolean",
-                    "description": "If set to true, the value of the global variable is hidden. Defaults to `false`.\n"
+                    "description": "If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` is set to `true`. Defaults to `false`.\n"
                 },
                 "tags": {
                     "type": "array",
@@ -39777,6 +40086,10 @@
                     "type": "string",
                     "description": "Description of the global variable.\n"
                 },
+                "isTotp": {
+                    "type": "boolean",
+                    "description": "If set to true, the global variable is a TOTP variable. Defaults to `false`.\n"
+                },
                 "name": {
                     "type": "string",
                     "description": "Synthetics global variable name.\n"
@@ -39802,7 +40115,7 @@
                 },
                 "secure": {
                     "type": "boolean",
-                    "description": "If set to true, the value of the global variable is hidden. Defaults to `false`.\n"
+                    "description": "If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` is set to `true`. Defaults to `false`.\n"
                 },
                 "tags": {
                     "type": "array",
@@ -39827,6 +40140,10 @@
                     "description": {
                         "type": "string",
                         "description": "Description of the global variable.\n"
+                    },
+                    "isTotp": {
+                        "type": "boolean",
+                        "description": "If set to true, the global variable is a TOTP variable. Defaults to `false`.\n"
                     },
                     "name": {
                         "type": "string",
@@ -39853,7 +40170,7 @@
                     },
                     "secure": {
                         "type": "boolean",
-                        "description": "If set to true, the value of the global variable is hidden. Defaults to `false`.\n"
+                        "description": "If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` is set to `true`. Defaults to `false`.\n"
                     },
                     "tags": {
                         "type": "array",
@@ -40735,7 +41052,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Name for user.\n"
+                    "description": "User's name. Should be set only for password authentication, as it is overridden by Google or SAML authentication.\n"
                 },
                 "roles": {
                     "type": "array",
@@ -40759,6 +41076,7 @@
             },
             "required": [
                 "email",
+                "name",
                 "roles",
                 "userInvitationId",
                 "verified"
@@ -40774,7 +41092,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Name for user.\n"
+                    "description": "User's name. Should be set only for password authentication, as it is overridden by Google or SAML authentication.\n"
                 },
                 "roles": {
                     "type": "array",
@@ -40804,7 +41122,7 @@
                     },
                     "name": {
                         "type": "string",
-                        "description": "Name for user.\n"
+                        "description": "User's name. Should be set only for password authentication, as it is overridden by Google or SAML authentication.\n"
                     },
                     "roles": {
                         "type": "array",
@@ -41475,10 +41793,15 @@
                     "name": {
                         "description": "Name for API Key.\n",
                         "type": "string"
+                    },
+                    "remoteConfigReadEnabled": {
+                        "description": "Whether the API key is used for remote config.\n",
+                        "type": "boolean"
                     }
                 },
                 "required": [
-                    "key"
+                    "key",
+                    "remoteConfigReadEnabled"
                 ],
                 "type": "object"
             }
@@ -43405,6 +43728,58 @@
                     "id",
                     "teamId",
                     "teamMemberships"
+                ],
+                "type": "object"
+            }
+        },
+        "datadog:index/getTeams:getTeams": {
+            "description": "Use this data source to retrieve information about existing teams for use in other resources.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst example = datadog.getTeams({\n    filterKeyword: \"team-member@company.com\",\n    filterMe: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nexample = datadog.get_teams(filter_keyword=\"team-member@company.com\",\n    filter_me=True)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Datadog.GetTeams.Invoke(new()\n    {\n        FilterKeyword = \"team-member@company.com\",\n        FilterMe = true,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.GetTeams(ctx, \u0026datadog.GetTeamsArgs{\n\t\t\tFilterKeyword: pulumi.StringRef(\"team-member@company.com\"),\n\t\t\tFilterMe:      pulumi.BoolRef(true),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.DatadogFunctions;\nimport com.pulumi.datadog.inputs.GetTeamsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = DatadogFunctions.getTeams(GetTeamsArgs.builder()\n            .filterKeyword(\"team-member@company.com\")\n            .filterMe(true)\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      function: datadog:getTeams\n      arguments:\n        filterKeyword: team-member@company.com\n        filterMe: true\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getTeams.\n",
+                "properties": {
+                    "filterKeyword": {
+                        "type": "string",
+                        "description": "Search query. Can be team name, team handle, or email of team member.\n"
+                    },
+                    "filterMe": {
+                        "type": "boolean",
+                        "description": "When true, only returns teams the current user belongs to.\n"
+                    },
+                    "teams": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/datadog:index/getTeamsTeam:getTeamsTeam"
+                        },
+                        "description": "List of teams\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getTeams.\n",
+                "properties": {
+                    "filterKeyword": {
+                        "description": "Search query. Can be team name, team handle, or email of team member.\n",
+                        "type": "string"
+                    },
+                    "filterMe": {
+                        "description": "When true, only returns teams the current user belongs to.\n",
+                        "type": "boolean"
+                    },
+                    "id": {
+                        "description": "The ID of this resource.\n",
+                        "type": "string"
+                    },
+                    "teams": {
+                        "description": "List of teams\n",
+                        "items": {
+                            "$ref": "#/types/datadog:index/getTeamsTeam:getTeamsTeam"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "id"
                 ],
                 "type": "object"
             }
