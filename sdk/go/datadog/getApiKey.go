@@ -68,6 +68,8 @@ type LookupApiKeyResult struct {
 	Key string `pulumi:"key"`
 	// Name for API Key.
 	Name *string `pulumi:"name"`
+	// Whether the API key is used for remote config.
+	RemoteConfigReadEnabled bool `pulumi:"remoteConfigReadEnabled"`
 }
 
 func LookupApiKeyOutput(ctx *pulumi.Context, args LookupApiKeyOutputArgs, opts ...pulumi.InvokeOption) LookupApiKeyResultOutput {
@@ -126,6 +128,11 @@ func (o LookupApiKeyResultOutput) Key() pulumi.StringOutput {
 // Name for API Key.
 func (o LookupApiKeyResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApiKeyResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Whether the API key is used for remote config.
+func (o LookupApiKeyResultOutput) RemoteConfigReadEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupApiKeyResult) bool { return v.RemoteConfigReadEnabled }).(pulumi.BoolOutput)
 }
 
 func init() {

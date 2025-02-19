@@ -30,10 +30,26 @@ public final class SyntheticsTestOptionsListMonitorOptionsArgs extends com.pulum
         return Optional.ofNullable(this.renotifyInterval);
     }
 
+    /**
+     * The number of times a monitor renotifies. It can only be set if `renotify_interval` is set.
+     * 
+     */
+    @Import(name="renotifyOccurrences")
+    private @Nullable Output<Integer> renotifyOccurrences;
+
+    /**
+     * @return The number of times a monitor renotifies. It can only be set if `renotify_interval` is set.
+     * 
+     */
+    public Optional<Output<Integer>> renotifyOccurrences() {
+        return Optional.ofNullable(this.renotifyOccurrences);
+    }
+
     private SyntheticsTestOptionsListMonitorOptionsArgs() {}
 
     private SyntheticsTestOptionsListMonitorOptionsArgs(SyntheticsTestOptionsListMonitorOptionsArgs $) {
         this.renotifyInterval = $.renotifyInterval;
+        this.renotifyOccurrences = $.renotifyOccurrences;
     }
 
     public static Builder builder() {
@@ -73,6 +89,27 @@ public final class SyntheticsTestOptionsListMonitorOptionsArgs extends com.pulum
          */
         public Builder renotifyInterval(Integer renotifyInterval) {
             return renotifyInterval(Output.of(renotifyInterval));
+        }
+
+        /**
+         * @param renotifyOccurrences The number of times a monitor renotifies. It can only be set if `renotify_interval` is set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder renotifyOccurrences(@Nullable Output<Integer> renotifyOccurrences) {
+            $.renotifyOccurrences = renotifyOccurrences;
+            return this;
+        }
+
+        /**
+         * @param renotifyOccurrences The number of times a monitor renotifies. It can only be set if `renotify_interval` is set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder renotifyOccurrences(Integer renotifyOccurrences) {
+            return renotifyOccurrences(Output.of(renotifyOccurrences));
         }
 
         public SyntheticsTestOptionsListMonitorOptionsArgs build() {

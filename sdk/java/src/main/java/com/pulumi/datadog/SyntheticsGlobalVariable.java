@@ -87,6 +87,20 @@ public class SyntheticsGlobalVariable extends com.pulumi.resources.CustomResourc
         return Codegen.optional(this.description);
     }
     /**
+     * If set to true, the global variable is a TOTP variable. Defaults to `false`.
+     * 
+     */
+    @Export(name="isTotp", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> isTotp;
+
+    /**
+     * @return If set to true, the global variable is a TOTP variable. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> isTotp() {
+        return Codegen.optional(this.isTotp);
+    }
+    /**
      * Synthetics global variable name.
      * 
      */
@@ -157,14 +171,14 @@ public class SyntheticsGlobalVariable extends com.pulumi.resources.CustomResourc
         return Codegen.optional(this.restrictedRoles);
     }
     /**
-     * If set to true, the value of the global variable is hidden. Defaults to `false`.
+     * If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` is set to `true`. Defaults to `false`.
      * 
      */
     @Export(name="secure", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> secure;
 
     /**
-     * @return If set to true, the value of the global variable is hidden. Defaults to `false`.
+     * @return If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` is set to `true`. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> secure() {

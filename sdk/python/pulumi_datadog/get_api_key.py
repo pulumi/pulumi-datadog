@@ -26,7 +26,7 @@ class GetApiKeyResult:
     """
     A collection of values returned by getApiKey.
     """
-    def __init__(__self__, exact_match=None, id=None, key=None, name=None):
+    def __init__(__self__, exact_match=None, id=None, key=None, name=None, remote_config_read_enabled=None):
         if exact_match and not isinstance(exact_match, bool):
             raise TypeError("Expected argument 'exact_match' to be a bool")
         pulumi.set(__self__, "exact_match", exact_match)
@@ -39,6 +39,9 @@ class GetApiKeyResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if remote_config_read_enabled and not isinstance(remote_config_read_enabled, bool):
+            raise TypeError("Expected argument 'remote_config_read_enabled' to be a bool")
+        pulumi.set(__self__, "remote_config_read_enabled", remote_config_read_enabled)
 
     @property
     @pulumi.getter(name="exactMatch")
@@ -72,6 +75,14 @@ class GetApiKeyResult:
         """
         return pulumi.get(self, "name")
 
+    @property
+    @pulumi.getter(name="remoteConfigReadEnabled")
+    def remote_config_read_enabled(self) -> bool:
+        """
+        Whether the API key is used for remote config.
+        """
+        return pulumi.get(self, "remote_config_read_enabled")
+
 
 class AwaitableGetApiKeyResult(GetApiKeyResult):
     # pylint: disable=using-constant-test
@@ -82,7 +93,8 @@ class AwaitableGetApiKeyResult(GetApiKeyResult):
             exact_match=self.exact_match,
             id=self.id,
             key=self.key,
-            name=self.name)
+            name=self.name,
+            remote_config_read_enabled=self.remote_config_read_enabled)
 
 
 def get_api_key(exact_match: Optional[bool] = None,
@@ -117,7 +129,8 @@ def get_api_key(exact_match: Optional[bool] = None,
         exact_match=pulumi.get(__ret__, 'exact_match'),
         id=pulumi.get(__ret__, 'id'),
         key=pulumi.get(__ret__, 'key'),
-        name=pulumi.get(__ret__, 'name'))
+        name=pulumi.get(__ret__, 'name'),
+        remote_config_read_enabled=pulumi.get(__ret__, 'remote_config_read_enabled'))
 def get_api_key_output(exact_match: Optional[pulumi.Input[Optional[bool]]] = None,
                        id: Optional[pulumi.Input[Optional[str]]] = None,
                        name: Optional[pulumi.Input[Optional[str]]] = None,
@@ -149,4 +162,5 @@ def get_api_key_output(exact_match: Optional[pulumi.Input[Optional[bool]]] = Non
         exact_match=pulumi.get(__response__, 'exact_match'),
         id=pulumi.get(__response__, 'id'),
         key=pulumi.get(__response__, 'key'),
-        name=pulumi.get(__response__, 'name')))
+        name=pulumi.get(__response__, 'name'),
+        remote_config_read_enabled=pulumi.get(__response__, 'remote_config_read_enabled')))

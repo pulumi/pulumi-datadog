@@ -52,6 +52,8 @@ import com.pulumi.datadog.inputs.GetTeamArgs;
 import com.pulumi.datadog.inputs.GetTeamMembershipsArgs;
 import com.pulumi.datadog.inputs.GetTeamMembershipsPlainArgs;
 import com.pulumi.datadog.inputs.GetTeamPlainArgs;
+import com.pulumi.datadog.inputs.GetTeamsArgs;
+import com.pulumi.datadog.inputs.GetTeamsPlainArgs;
 import com.pulumi.datadog.inputs.GetUserArgs;
 import com.pulumi.datadog.inputs.GetUserPlainArgs;
 import com.pulumi.datadog.inputs.GetUsersArgs;
@@ -92,6 +94,7 @@ import com.pulumi.datadog.outputs.GetSyntheticsLocationsResult;
 import com.pulumi.datadog.outputs.GetSyntheticsTestResult;
 import com.pulumi.datadog.outputs.GetTeamMembershipsResult;
 import com.pulumi.datadog.outputs.GetTeamResult;
+import com.pulumi.datadog.outputs.GetTeamsResult;
 import com.pulumi.datadog.outputs.GetUserResult;
 import com.pulumi.datadog.outputs.GetUsersResult;
 import com.pulumi.deployment.Deployment;
@@ -7126,6 +7129,307 @@ public final class DatadogFunctions {
      */
     public static CompletableFuture<GetTeamMembershipsResult> getTeamMembershipsPlain(GetTeamMembershipsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:index/getTeamMemberships:getTeamMemberships", TypeShape.of(GetTeamMembershipsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about existing teams for use in other resources.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetTeamsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         final var example = DatadogFunctions.getTeams(GetTeamsArgs.builder()
+     *             .filterKeyword("team-member}{@literal @}{@code company.com")
+     *             .filterMe(true)
+     *             .build());
+     * 
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetTeamsResult> getTeams() {
+        return getTeams(GetTeamsArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about existing teams for use in other resources.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetTeamsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         final var example = DatadogFunctions.getTeams(GetTeamsArgs.builder()
+     *             .filterKeyword("team-member}{@literal @}{@code company.com")
+     *             .filterMe(true)
+     *             .build());
+     * 
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetTeamsResult> getTeamsPlain() {
+        return getTeamsPlain(GetTeamsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about existing teams for use in other resources.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetTeamsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         final var example = DatadogFunctions.getTeams(GetTeamsArgs.builder()
+     *             .filterKeyword("team-member}{@literal @}{@code company.com")
+     *             .filterMe(true)
+     *             .build());
+     * 
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetTeamsResult> getTeams(GetTeamsArgs args) {
+        return getTeams(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about existing teams for use in other resources.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetTeamsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         final var example = DatadogFunctions.getTeams(GetTeamsArgs.builder()
+     *             .filterKeyword("team-member}{@literal @}{@code company.com")
+     *             .filterMe(true)
+     *             .build());
+     * 
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetTeamsResult> getTeamsPlain(GetTeamsPlainArgs args) {
+        return getTeamsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about existing teams for use in other resources.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetTeamsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         final var example = DatadogFunctions.getTeams(GetTeamsArgs.builder()
+     *             .filterKeyword("team-member}{@literal @}{@code company.com")
+     *             .filterMe(true)
+     *             .build());
+     * 
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetTeamsResult> getTeams(GetTeamsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getTeams:getTeams", TypeShape.of(GetTeamsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about existing teams for use in other resources.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetTeamsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         final var example = DatadogFunctions.getTeams(GetTeamsArgs.builder()
+     *             .filterKeyword("team-member}{@literal @}{@code company.com")
+     *             .filterMe(true)
+     *             .build());
+     * 
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetTeamsResult> getTeams(GetTeamsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getTeams:getTeams", TypeShape.of(GetTeamsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about existing teams for use in other resources.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetTeamsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         final var example = DatadogFunctions.getTeams(GetTeamsArgs.builder()
+     *             .filterKeyword("team-member}{@literal @}{@code company.com")
+     *             .filterMe(true)
+     *             .build());
+     * 
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetTeamsResult> getTeamsPlain(GetTeamsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getTeams:getTeams", TypeShape.of(GetTeamsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve information about an existing user to use it in an other resources.

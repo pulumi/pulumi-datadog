@@ -101,18 +101,18 @@ public class User extends com.pulumi.resources.CustomResource {
         return this.email;
     }
     /**
-     * Name for user.
+     * User&#39;s name. Should be set only for password authentication, as it is overridden by Google or SAML authentication.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> name;
+    private Output<String> name;
 
     /**
-     * @return Name for user.
+     * @return User&#39;s name. Should be set only for password authentication, as it is overridden by Google or SAML authentication.
      * 
      */
-    public Output<Optional<String>> name() {
-        return Codegen.optional(this.name);
+    public Output<String> name() {
+        return this.name;
     }
     /**
      * A list of role IDs to assign to the user.

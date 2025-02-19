@@ -260,6 +260,11 @@ export const getTeamMemberships: typeof import("./getTeamMemberships").getTeamMe
 export const getTeamMembershipsOutput: typeof import("./getTeamMemberships").getTeamMembershipsOutput = null as any;
 utilities.lazyLoad(exports, ["getTeamMemberships","getTeamMembershipsOutput"], () => require("./getTeamMemberships"));
 
+export { GetTeamsArgs, GetTeamsResult, GetTeamsOutputArgs } from "./getTeams";
+export const getTeams: typeof import("./getTeams").getTeams = null as any;
+export const getTeamsOutput: typeof import("./getTeams").getTeamsOutput = null as any;
+utilities.lazyLoad(exports, ["getTeams","getTeamsOutput"], () => require("./getTeams"));
+
 export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
 export const getUser: typeof import("./getUser").getUser = null as any;
 export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;
@@ -404,6 +409,11 @@ export { SecurityMonitoringSuppressionArgs, SecurityMonitoringSuppressionState }
 export type SecurityMonitoringSuppression = import("./securityMonitoringSuppression").SecurityMonitoringSuppression;
 export const SecurityMonitoringSuppression: typeof import("./securityMonitoringSuppression").SecurityMonitoringSuppression = null as any;
 utilities.lazyLoad(exports, ["SecurityMonitoringSuppression"], () => require("./securityMonitoringSuppression"));
+
+export { SecurityNotificationRuleArgs, SecurityNotificationRuleState } from "./securityNotificationRule";
+export type SecurityNotificationRule = import("./securityNotificationRule").SecurityNotificationRule;
+export const SecurityNotificationRule: typeof import("./securityNotificationRule").SecurityNotificationRule = null as any;
+utilities.lazyLoad(exports, ["SecurityNotificationRule"], () => require("./securityNotificationRule"));
 
 export { SensitiveDataScannerGroupArgs, SensitiveDataScannerGroupState } from "./sensitiveDataScannerGroup";
 export type SensitiveDataScannerGroup = import("./sensitiveDataScannerGroup").SensitiveDataScannerGroup;
@@ -631,6 +641,8 @@ const _module = {
                 return new SecurityMonitoringRule(name, <any>undefined, { urn })
             case "datadog:index/securityMonitoringSuppression:SecurityMonitoringSuppression":
                 return new SecurityMonitoringSuppression(name, <any>undefined, { urn })
+            case "datadog:index/securityNotificationRule:SecurityNotificationRule":
+                return new SecurityNotificationRule(name, <any>undefined, { urn })
             case "datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup":
                 return new SensitiveDataScannerGroup(name, <any>undefined, { urn })
             case "datadog:index/sensitiveDataScannerGroupOrder:SensitiveDataScannerGroupOrder":
@@ -721,6 +733,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringDefaul
 pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringFilter", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringSuppression", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/securityNotificationRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/sensitiveDataScannerGroup", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/sensitiveDataScannerGroupOrder", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/sensitiveDataScannerRule", _module)

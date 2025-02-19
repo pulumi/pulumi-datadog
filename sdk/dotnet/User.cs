@@ -63,10 +63,10 @@ namespace Pulumi.Datadog
         public Output<string> Email { get; private set; } = null!;
 
         /// <summary>
-        /// Name for user.
+        /// User's name. Should be set only for password authentication, as it is overridden by Google or SAML authentication.
         /// </summary>
         [Output("name")]
-        public Output<string?> Name { get; private set; } = null!;
+        public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
         /// A list of role IDs to assign to the user.
@@ -151,7 +151,7 @@ namespace Pulumi.Datadog
         public Input<string> Email { get; set; } = null!;
 
         /// <summary>
-        /// Name for user.
+        /// User's name. Should be set only for password authentication, as it is overridden by Google or SAML authentication.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -195,7 +195,7 @@ namespace Pulumi.Datadog
         public Input<string>? Email { get; set; }
 
         /// <summary>
-        /// Name for user.
+        /// User's name. Should be set only for password authentication, as it is overridden by Google or SAML authentication.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

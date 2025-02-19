@@ -52,6 +52,12 @@ namespace Pulumi.Datadog
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether the API key is used for remote config. Warning : default value is true for backwards compatibility Defaults to `true`.
+        /// </summary>
+        [Output("remoteConfigReadEnabled")]
+        public Output<bool> RemoteConfigReadEnabled { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a ApiKey resource with the given unique name, arguments, and options.
@@ -108,6 +114,12 @@ namespace Pulumi.Datadog
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Whether the API key is used for remote config. Warning : default value is true for backwards compatibility Defaults to `true`.
+        /// </summary>
+        [Input("remoteConfigReadEnabled")]
+        public Input<bool>? RemoteConfigReadEnabled { get; set; }
+
         public ApiKeyArgs()
         {
         }
@@ -137,6 +149,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Whether the API key is used for remote config. Warning : default value is true for backwards compatibility Defaults to `true`.
+        /// </summary>
+        [Input("remoteConfigReadEnabled")]
+        public Input<bool>? RemoteConfigReadEnabled { get; set; }
 
         public ApiKeyState()
         {

@@ -8620,6 +8620,68 @@ export interface DowntimeScheduleRecurringScheduleRecurrence {
     start?: pulumi.Input<string>;
 }
 
+export interface GetTeamsTeam {
+    /**
+     * Free-form markdown description/content for the team's homepage.
+     */
+    description?: string;
+    /**
+     * The team's handle.
+     */
+    handle?: string;
+    /**
+     * The team's identifier.
+     */
+    id?: string;
+    /**
+     * The number of links belonging to the team.
+     */
+    linkCount?: number;
+    /**
+     * The name of the team.
+     */
+    name?: string;
+    /**
+     * A brief summary of the team, derived from the `description`.
+     */
+    summary?: string;
+    /**
+     * The number of users belonging to the team.
+     */
+    userCount?: number;
+}
+
+export interface GetTeamsTeamArgs {
+    /**
+     * Free-form markdown description/content for the team's homepage.
+     */
+    description?: pulumi.Input<string>;
+    /**
+     * The team's handle.
+     */
+    handle?: pulumi.Input<string>;
+    /**
+     * The team's identifier.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * The number of links belonging to the team.
+     */
+    linkCount?: pulumi.Input<number>;
+    /**
+     * The name of the team.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * A brief summary of the team, derived from the `description`.
+     */
+    summary?: pulumi.Input<string>;
+    /**
+     * The number of users belonging to the team.
+     */
+    userCount?: pulumi.Input<number>;
+}
+
 export interface IpAllowlistEntry {
     /**
      * IP address or range of addresses.
@@ -22127,6 +22189,25 @@ export interface SecurityMonitoringRuleThirdPartyCase {
     status: pulumi.Input<string>;
 }
 
+export interface SecurityNotificationRuleSelectors {
+    /**
+     * Comprises one or several key:value pairs for filtering security issues based on tags and attributes. Defaults to `""`.
+     */
+    query?: pulumi.Input<string>;
+    /**
+     * Specifies security rule types for filtering signals and vulnerabilities that generate notifications.
+     */
+    ruleTypes: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The security rules severities to consider.
+     */
+    severities?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The type of security issues the rule applies to. Use `securitySignals` for rules based on security signals and `securityFindings` for those based on vulnerabilities.
+     */
+    triggerSource: pulumi.Input<string>;
+}
+
 export interface SensitiveDataScannerGroupFilter {
     /**
      * Query to filter the events.
@@ -23008,6 +23089,10 @@ export interface SyntheticsTestBrowserStepParamsVariable {
      * Name of the extracted variable.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Whether the value of this variable will be obfuscated in test results. Defaults to `false`.
+     */
+    secure?: pulumi.Input<boolean>;
 }
 
 export interface SyntheticsTestBrowserVariable {
@@ -23133,6 +23218,9 @@ export interface SyntheticsTestMobileOptionsListMonitorOptions {
      * Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
      */
     renotifyInterval?: pulumi.Input<number>;
+    /**
+     * The number of times a monitor renotifies. It can only be set if `renotifyInterval` is set.
+     */
     renotifyOccurrences?: pulumi.Input<number>;
 }
 
@@ -23393,6 +23481,10 @@ export interface SyntheticsTestOptionsListMonitorOptions {
      * Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
      */
     renotifyInterval?: pulumi.Input<number>;
+    /**
+     * The number of times a monitor renotifies. It can only be set if `renotifyInterval` is set.
+     */
+    renotifyOccurrences?: pulumi.Input<number>;
 }
 
 export interface SyntheticsTestOptionsListRetry {

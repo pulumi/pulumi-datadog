@@ -157,6 +157,10 @@ namespace Pulumi.Datadog
         /// Name for API Key.
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Whether the API key is used for remote config.
+        /// </summary>
+        public readonly bool RemoteConfigReadEnabled;
 
         [OutputConstructor]
         private GetApiKeyResult(
@@ -166,12 +170,15 @@ namespace Pulumi.Datadog
 
             string key,
 
-            string? name)
+            string? name,
+
+            bool remoteConfigReadEnabled)
         {
             ExactMatch = exactMatch;
             Id = id;
             Key = key;
             Name = name;
+            RemoteConfigReadEnabled = remoteConfigReadEnabled;
         }
     }
 }

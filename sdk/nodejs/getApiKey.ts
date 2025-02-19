@@ -66,6 +66,10 @@ export interface GetApiKeyResult {
      * Name for API Key.
      */
     readonly name?: string;
+    /**
+     * Whether the API key is used for remote config.
+     */
+    readonly remoteConfigReadEnabled: boolean;
 }
 /**
  * Use this data source to retrieve information about an existing api key. Deprecated. This will be removed in a future release with prior notice. Securely store your API keys using a secret management system or use the datadog.ApiKey resource to manage API keys in your Datadog account.

@@ -28,7 +28,7 @@ class UserArgs:
         The set of arguments for constructing a User resource.
         :param pulumi.Input[str] email: Email address for user.
         :param pulumi.Input[bool] disabled: Whether the user is disabled. Defaults to `false`.
-        :param pulumi.Input[str] name: Name for user.
+        :param pulumi.Input[str] name: User's name. Should be set only for password authentication, as it is overridden by Google or SAML authentication.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: A list of role IDs to assign to the user.
         :param pulumi.Input[bool] send_user_invitation: Whether an invitation email should be sent when the user is created. Defaults to `true`.
         """
@@ -70,7 +70,7 @@ class UserArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name for user.
+        User's name. Should be set only for password authentication, as it is overridden by Google or SAML authentication.
         """
         return pulumi.get(self, "name")
 
@@ -117,7 +117,7 @@ class _UserState:
         Input properties used for looking up and filtering User resources.
         :param pulumi.Input[bool] disabled: Whether the user is disabled. Defaults to `false`.
         :param pulumi.Input[str] email: Email address for user.
-        :param pulumi.Input[str] name: Name for user.
+        :param pulumi.Input[str] name: User's name. Should be set only for password authentication, as it is overridden by Google or SAML authentication.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: A list of role IDs to assign to the user.
         :param pulumi.Input[bool] send_user_invitation: Whether an invitation email should be sent when the user is created. Defaults to `true`.
         :param pulumi.Input[str] user_invitation_id: The ID of the user invitation that was sent when creating the user.
@@ -166,7 +166,7 @@ class _UserState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name for user.
+        User's name. Should be set only for password authentication, as it is overridden by Google or SAML authentication.
         """
         return pulumi.get(self, "name")
 
@@ -261,7 +261,7 @@ class User(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] disabled: Whether the user is disabled. Defaults to `false`.
         :param pulumi.Input[str] email: Email address for user.
-        :param pulumi.Input[str] name: Name for user.
+        :param pulumi.Input[str] name: User's name. Should be set only for password authentication, as it is overridden by Google or SAML authentication.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: A list of role IDs to assign to the user.
         :param pulumi.Input[bool] send_user_invitation: Whether an invitation email should be sent when the user is created. Defaults to `true`.
         """
@@ -358,7 +358,7 @@ class User(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] disabled: Whether the user is disabled. Defaults to `false`.
         :param pulumi.Input[str] email: Email address for user.
-        :param pulumi.Input[str] name: Name for user.
+        :param pulumi.Input[str] name: User's name. Should be set only for password authentication, as it is overridden by Google or SAML authentication.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: A list of role IDs to assign to the user.
         :param pulumi.Input[bool] send_user_invitation: Whether an invitation email should be sent when the user is created. Defaults to `true`.
         :param pulumi.Input[str] user_invitation_id: The ID of the user invitation that was sent when creating the user.
@@ -395,9 +395,9 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[Optional[str]]:
+    def name(self) -> pulumi.Output[str]:
         """
-        Name for user.
+        User's name. Should be set only for password authentication, as it is overridden by Google or SAML authentication.
         """
         return pulumi.get(self, "name")
 

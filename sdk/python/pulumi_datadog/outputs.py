@@ -1038,6 +1038,7 @@ __all__ = [
     'SecurityMonitoringRuleReferenceTable',
     'SecurityMonitoringRuleSignalQuery',
     'SecurityMonitoringRuleThirdPartyCase',
+    'SecurityNotificationRuleSelectors',
     'SensitiveDataScannerGroupFilter',
     'SensitiveDataScannerRuleIncludedKeywordConfiguration',
     'SensitiveDataScannerRuleTextReplacement',
@@ -1155,6 +1156,7 @@ __all__ = [
     'GetServiceLevelObjectiveQueryResult',
     'GetServiceLevelObjectivesSloResult',
     'GetTeamMembershipsTeamMembershipResult',
+    'GetTeamsTeamResult',
     'GetUsersUserResult',
 ]
 
@@ -78381,6 +78383,78 @@ class SecurityMonitoringRuleThirdPartyCase(dict):
 
 
 @pulumi.output_type
+class SecurityNotificationRuleSelectors(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleTypes":
+            suggest = "rule_types"
+        elif key == "triggerSource":
+            suggest = "trigger_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityNotificationRuleSelectors. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityNotificationRuleSelectors.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityNotificationRuleSelectors.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 rule_types: Sequence[str],
+                 trigger_source: str,
+                 query: Optional[str] = None,
+                 severities: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] rule_types: Specifies security rule types for filtering signals and vulnerabilities that generate notifications.
+        :param str trigger_source: The type of security issues the rule applies to. Use `security_signals` for rules based on security signals and `security_findings` for those based on vulnerabilities.
+        :param str query: Comprises one or several key:value pairs for filtering security issues based on tags and attributes. Defaults to `""`.
+        :param Sequence[str] severities: The security rules severities to consider.
+        """
+        pulumi.set(__self__, "rule_types", rule_types)
+        pulumi.set(__self__, "trigger_source", trigger_source)
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if severities is not None:
+            pulumi.set(__self__, "severities", severities)
+
+    @property
+    @pulumi.getter(name="ruleTypes")
+    def rule_types(self) -> Sequence[str]:
+        """
+        Specifies security rule types for filtering signals and vulnerabilities that generate notifications.
+        """
+        return pulumi.get(self, "rule_types")
+
+    @property
+    @pulumi.getter(name="triggerSource")
+    def trigger_source(self) -> str:
+        """
+        The type of security issues the rule applies to. Use `security_signals` for rules based on security signals and `security_findings` for those based on vulnerabilities.
+        """
+        return pulumi.get(self, "trigger_source")
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[str]:
+        """
+        Comprises one or several key:value pairs for filtering security issues based on tags and attributes. Defaults to `""`.
+        """
+        return pulumi.get(self, "query")
+
+    @property
+    @pulumi.getter
+    def severities(self) -> Optional[Sequence[str]]:
+        """
+        The security rules severities to consider.
+        """
+        return pulumi.get(self, "severities")
+
+
+@pulumi.output_type
 class SensitiveDataScannerGroupFilter(dict):
     def __init__(__self__, *,
                  query: str):
@@ -81379,15 +81453,19 @@ class SyntheticsTestBrowserStepParamsElementUserLocatorValue(dict):
 class SyntheticsTestBrowserStepParamsVariable(dict):
     def __init__(__self__, *,
                  example: Optional[str] = None,
-                 name: Optional[str] = None):
+                 name: Optional[str] = None,
+                 secure: Optional[bool] = None):
         """
         :param str example: Example of the extracted variable. Defaults to `""`.
         :param str name: Name of the extracted variable.
+        :param bool secure: Whether the value of this variable will be obfuscated in test results. Defaults to `false`.
         """
         if example is not None:
             pulumi.set(__self__, "example", example)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if secure is not None:
+            pulumi.set(__self__, "secure", secure)
 
     @property
     @pulumi.getter
@@ -81404,6 +81482,14 @@ class SyntheticsTestBrowserStepParamsVariable(dict):
         Name of the extracted variable.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def secure(self) -> Optional[bool]:
+        """
+        Whether the value of this variable will be obfuscated in test results. Defaults to `false`.
+        """
+        return pulumi.get(self, "secure")
 
 
 @pulumi.output_type
@@ -81907,6 +81993,7 @@ class SyntheticsTestMobileOptionsListMonitorOptions(dict):
         """
         :param str notification_preset_name: Valid values are `show_all`, `hide_all`, `hide_query`, `hide_handles`.
         :param int renotify_interval: Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
+        :param int renotify_occurrences: The number of times a monitor renotifies. It can only be set if `renotify_interval` is set.
         """
         if escalation_message is not None:
             pulumi.set(__self__, "escalation_message", escalation_message)
@@ -81941,6 +82028,9 @@ class SyntheticsTestMobileOptionsListMonitorOptions(dict):
     @property
     @pulumi.getter(name="renotifyOccurrences")
     def renotify_occurrences(self) -> Optional[int]:
+        """
+        The number of times a monitor renotifies. It can only be set if `renotify_interval` is set.
+        """
         return pulumi.get(self, "renotify_occurrences")
 
 
@@ -82947,6 +83037,8 @@ class SyntheticsTestOptionsListMonitorOptions(dict):
         suggest = None
         if key == "renotifyInterval":
             suggest = "renotify_interval"
+        elif key == "renotifyOccurrences":
+            suggest = "renotify_occurrences"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SyntheticsTestOptionsListMonitorOptions. Access the value via the '{suggest}' property getter instead.")
@@ -82960,12 +83052,16 @@ class SyntheticsTestOptionsListMonitorOptions(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 renotify_interval: Optional[int] = None):
+                 renotify_interval: Optional[int] = None,
+                 renotify_occurrences: Optional[int] = None):
         """
         :param int renotify_interval: Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
+        :param int renotify_occurrences: The number of times a monitor renotifies. It can only be set if `renotify_interval` is set.
         """
         if renotify_interval is not None:
             pulumi.set(__self__, "renotify_interval", renotify_interval)
+        if renotify_occurrences is not None:
+            pulumi.set(__self__, "renotify_occurrences", renotify_occurrences)
 
     @property
     @pulumi.getter(name="renotifyInterval")
@@ -82974,6 +83070,14 @@ class SyntheticsTestOptionsListMonitorOptions(dict):
         Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
         """
         return pulumi.get(self, "renotify_interval")
+
+    @property
+    @pulumi.getter(name="renotifyOccurrences")
+    def renotify_occurrences(self) -> Optional[int]:
+        """
+        The number of times a monitor renotifies. It can only be set if `renotify_interval` is set.
+        """
+        return pulumi.get(self, "renotify_occurrences")
 
 
 @pulumi.output_type
@@ -85998,14 +86102,128 @@ class GetTeamMembershipsTeamMembershipResult(dict):
 
 
 @pulumi.output_type
+class GetTeamsTeamResult(dict):
+    def __init__(__self__, *,
+                 description: str,
+                 handle: str,
+                 id: str,
+                 link_count: int,
+                 name: str,
+                 summary: str,
+                 user_count: int):
+        """
+        :param str description: Free-form markdown description/content for the team's homepage.
+        :param str handle: The team's handle.
+        :param str id: The team's identifier.
+        :param int link_count: The number of links belonging to the team.
+        :param str name: The name of the team.
+        :param str summary: A brief summary of the team, derived from the `description`.
+        :param int user_count: The number of users belonging to the team.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "handle", handle)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "link_count", link_count)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "summary", summary)
+        pulumi.set(__self__, "user_count", user_count)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Free-form markdown description/content for the team's homepage.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def handle(self) -> str:
+        """
+        The team's handle.
+        """
+        return pulumi.get(self, "handle")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The team's identifier.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="linkCount")
+    def link_count(self) -> int:
+        """
+        The number of links belonging to the team.
+        """
+        return pulumi.get(self, "link_count")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the team.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def summary(self) -> str:
+        """
+        A brief summary of the team, derived from the `description`.
+        """
+        return pulumi.get(self, "summary")
+
+    @property
+    @pulumi.getter(name="userCount")
+    def user_count(self) -> int:
+        """
+        The number of users belonging to the team.
+        """
+        return pulumi.get(self, "user_count")
+
+
+@pulumi.output_type
 class GetUsersUserResult(dict):
     def __init__(__self__, *,
+                 created_at: str,
+                 disabled: bool,
                  email: str,
+                 handle: str,
+                 icon: str,
                  id: str,
-                 name: str):
+                 mfa_enabled: bool,
+                 modified_at: str,
+                 name: str,
+                 service_account: bool,
+                 status: str,
+                 title: str,
+                 verified: bool):
+        pulumi.set(__self__, "created_at", created_at)
+        pulumi.set(__self__, "disabled", disabled)
         pulumi.set(__self__, "email", email)
+        pulumi.set(__self__, "handle", handle)
+        pulumi.set(__self__, "icon", icon)
         pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "mfa_enabled", mfa_enabled)
+        pulumi.set(__self__, "modified_at", modified_at)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "service_account", service_account)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "title", title)
+        pulumi.set(__self__, "verified", verified)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> str:
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter
+    def disabled(self) -> bool:
+        return pulumi.get(self, "disabled")
 
     @property
     @pulumi.getter
@@ -86014,12 +86232,52 @@ class GetUsersUserResult(dict):
 
     @property
     @pulumi.getter
+    def handle(self) -> str:
+        return pulumi.get(self, "handle")
+
+    @property
+    @pulumi.getter
+    def icon(self) -> str:
+        return pulumi.get(self, "icon")
+
+    @property
+    @pulumi.getter
     def id(self) -> str:
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="mfaEnabled")
+    def mfa_enabled(self) -> bool:
+        return pulumi.get(self, "mfa_enabled")
+
+    @property
+    @pulumi.getter(name="modifiedAt")
+    def modified_at(self) -> str:
+        return pulumi.get(self, "modified_at")
 
     @property
     @pulumi.getter
     def name(self) -> str:
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="serviceAccount")
+    def service_account(self) -> bool:
+        return pulumi.get(self, "service_account")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def title(self) -> str:
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter
+    def verified(self) -> bool:
+        return pulumi.get(self, "verified")
 
 

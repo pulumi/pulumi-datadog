@@ -33,6 +33,11 @@ public final class GetApiKeyResult {
      * 
      */
     private @Nullable String name;
+    /**
+     * @return Whether the API key is used for remote config.
+     * 
+     */
+    private Boolean remoteConfigReadEnabled;
 
     private GetApiKeyResult() {}
     /**
@@ -63,6 +68,13 @@ public final class GetApiKeyResult {
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
+    /**
+     * @return Whether the API key is used for remote config.
+     * 
+     */
+    public Boolean remoteConfigReadEnabled() {
+        return this.remoteConfigReadEnabled;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -77,6 +89,7 @@ public final class GetApiKeyResult {
         private @Nullable String id;
         private String key;
         private @Nullable String name;
+        private Boolean remoteConfigReadEnabled;
         public Builder() {}
         public Builder(GetApiKeyResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -84,6 +97,7 @@ public final class GetApiKeyResult {
     	      this.id = defaults.id;
     	      this.key = defaults.key;
     	      this.name = defaults.name;
+    	      this.remoteConfigReadEnabled = defaults.remoteConfigReadEnabled;
         }
 
         @CustomType.Setter
@@ -112,12 +126,21 @@ public final class GetApiKeyResult {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
+        public Builder remoteConfigReadEnabled(Boolean remoteConfigReadEnabled) {
+            if (remoteConfigReadEnabled == null) {
+              throw new MissingRequiredPropertyException("GetApiKeyResult", "remoteConfigReadEnabled");
+            }
+            this.remoteConfigReadEnabled = remoteConfigReadEnabled;
+            return this;
+        }
         public GetApiKeyResult build() {
             final var _resultValue = new GetApiKeyResult();
             _resultValue.exactMatch = exactMatch;
             _resultValue.id = id;
             _resultValue.key = key;
             _resultValue.name = name;
+            _resultValue.remoteConfigReadEnabled = remoteConfigReadEnabled;
             return _resultValue;
         }
     }
