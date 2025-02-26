@@ -73,7 +73,7 @@
             },
             "defaultTags": {
                 "$ref": "#/types/datadog:config/defaultTags:defaultTags",
-                "description": "[Experimental - Monitors only] Configuration block containing settings to apply default resource tags across all\nresources.\n"
+                "description": "[Experimental - Monitors and Logs Pipelines only] Configuration block containing settings to apply default resource tags\nacross all resources.\n"
             },
             "httpClientRetryBackoffBase": {
                 "type": "integer",
@@ -398,7 +398,7 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "[Experimental - Monitors only] Resource tags to be applied by default across all resources.\n"
+                    "description": "[Experimental - Monitors and Logs Pipelines only] Resource tags to be applied by default across all resources.\n"
                 }
             },
             "type": "object"
@@ -1222,7 +1222,7 @@
                 },
                 "cellDisplayMode": {
                     "type": "string",
-                    "description": "A list of display modes for each table cell. Valid values are `number`, `bar`.\n"
+                    "description": "A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.\n"
                 },
                 "conditionalFormats": {
                     "type": "array",
@@ -1238,6 +1238,10 @@
                 "limit": {
                     "$ref": "#/types/datadog:index/DashboardWidgetChangeDefinitionRequestFormulaLimit:DashboardWidgetChangeDefinitionRequestFormulaLimit",
                     "description": "The options for limiting results returned.\n"
+                },
+                "numberFormat": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetChangeDefinitionRequestFormulaNumberFormat:DashboardWidgetChangeDefinitionRequestFormulaNumberFormat",
+                    "description": "Number formatting options for the formula.\n"
                 },
                 "style": {
                     "$ref": "#/types/datadog:index/DashboardWidgetChangeDefinitionRequestFormulaStyle:DashboardWidgetChangeDefinitionRequestFormulaStyle",
@@ -1307,6 +1311,73 @@
                 }
             },
             "type": "object"
+        },
+        "datadog:index/DashboardWidgetChangeDefinitionRequestFormulaNumberFormat:DashboardWidgetChangeDefinitionRequestFormulaNumberFormat": {
+            "properties": {
+                "unit": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnit:DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnit",
+                    "description": "Unit of the number format.\n"
+                },
+                "unitScale": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitScale:DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitScale"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unit"
+            ]
+        },
+        "datadog:index/DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnit:DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnit": {
+            "properties": {
+                "canonical": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitCanonical:DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitCanonical",
+                    "description": "Canonical Units\n"
+                },
+                "custom": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitCustom:DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitCustom",
+                    "description": "Use custom (non canonical metrics)\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitCanonical:DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitCanonical": {
+            "properties": {
+                "perUnitName": {
+                    "type": "string",
+                    "description": "per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'\n"
+                },
+                "unitName": {
+                    "type": "string",
+                    "description": "Unit name. It should be in singular form ('megabyte' and not 'megabytes')\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unitName"
+            ]
+        },
+        "datadog:index/DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitCustom:DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitCustom": {
+            "properties": {
+                "label": {
+                    "type": "string",
+                    "description": "Unit label\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "label"
+            ]
+        },
+        "datadog:index/DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitScale:DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitScale": {
+            "properties": {
+                "unitName": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unitName"
+            ]
         },
         "datadog:index/DashboardWidgetChangeDefinitionRequestFormulaStyle:DashboardWidgetChangeDefinitionRequestFormulaStyle": {
             "properties": {
@@ -1957,7 +2028,7 @@
                 },
                 "cellDisplayMode": {
                     "type": "string",
-                    "description": "A list of display modes for each table cell. Valid values are `number`, `bar`.\n"
+                    "description": "A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.\n"
                 },
                 "name": {
                     "type": "string",
@@ -2251,7 +2322,7 @@
                 },
                 "cellDisplayMode": {
                     "type": "string",
-                    "description": "A list of display modes for each table cell. Valid values are `number`, `bar`.\n"
+                    "description": "A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.\n"
                 },
                 "conditionalFormats": {
                     "type": "array",
@@ -2267,6 +2338,10 @@
                 "limit": {
                     "$ref": "#/types/datadog:index/DashboardWidgetGeomapDefinitionRequestFormulaLimit:DashboardWidgetGeomapDefinitionRequestFormulaLimit",
                     "description": "The options for limiting results returned.\n"
+                },
+                "numberFormat": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGeomapDefinitionRequestFormulaNumberFormat:DashboardWidgetGeomapDefinitionRequestFormulaNumberFormat",
+                    "description": "Number formatting options for the formula.\n"
                 },
                 "style": {
                     "$ref": "#/types/datadog:index/DashboardWidgetGeomapDefinitionRequestFormulaStyle:DashboardWidgetGeomapDefinitionRequestFormulaStyle",
@@ -2336,6 +2411,73 @@
                 }
             },
             "type": "object"
+        },
+        "datadog:index/DashboardWidgetGeomapDefinitionRequestFormulaNumberFormat:DashboardWidgetGeomapDefinitionRequestFormulaNumberFormat": {
+            "properties": {
+                "unit": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnit:DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnit",
+                    "description": "Unit of the number format.\n"
+                },
+                "unitScale": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScale:DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScale"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unit"
+            ]
+        },
+        "datadog:index/DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnit:DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnit": {
+            "properties": {
+                "canonical": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonical:DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonical",
+                    "description": "Canonical Units\n"
+                },
+                "custom": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustom:DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustom",
+                    "description": "Use custom (non canonical metrics)\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonical:DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonical": {
+            "properties": {
+                "perUnitName": {
+                    "type": "string",
+                    "description": "per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'\n"
+                },
+                "unitName": {
+                    "type": "string",
+                    "description": "Unit name. It should be in singular form ('megabyte' and not 'megabytes')\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unitName"
+            ]
+        },
+        "datadog:index/DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustom:DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustom": {
+            "properties": {
+                "label": {
+                    "type": "string",
+                    "description": "Unit label\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "label"
+            ]
+        },
+        "datadog:index/DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScale:DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScale": {
+            "properties": {
+                "unitName": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unitName"
+            ]
         },
         "datadog:index/DashboardWidgetGeomapDefinitionRequestFormulaStyle:DashboardWidgetGeomapDefinitionRequestFormulaStyle": {
             "properties": {
@@ -3164,7 +3306,7 @@
                 },
                 "cellDisplayMode": {
                     "type": "string",
-                    "description": "A list of display modes for each table cell. Valid values are `number`, `bar`.\n"
+                    "description": "A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.\n"
                 },
                 "conditionalFormats": {
                     "type": "array",
@@ -3180,6 +3322,10 @@
                 "limit": {
                     "$ref": "#/types/datadog:index/DashboardWidgetHeatmapDefinitionRequestFormulaLimit:DashboardWidgetHeatmapDefinitionRequestFormulaLimit",
                     "description": "The options for limiting results returned.\n"
+                },
+                "numberFormat": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormat:DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormat",
+                    "description": "Number formatting options for the formula.\n"
                 },
                 "style": {
                     "$ref": "#/types/datadog:index/DashboardWidgetHeatmapDefinitionRequestFormulaStyle:DashboardWidgetHeatmapDefinitionRequestFormulaStyle",
@@ -3249,6 +3395,73 @@
                 }
             },
             "type": "object"
+        },
+        "datadog:index/DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormat:DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormat": {
+            "properties": {
+                "unit": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnit:DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnit",
+                    "description": "Unit of the number format.\n"
+                },
+                "unitScale": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitScale:DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitScale"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unit"
+            ]
+        },
+        "datadog:index/DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnit:DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnit": {
+            "properties": {
+                "canonical": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCanonical:DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCanonical",
+                    "description": "Canonical Units\n"
+                },
+                "custom": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCustom:DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCustom",
+                    "description": "Use custom (non canonical metrics)\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCanonical:DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCanonical": {
+            "properties": {
+                "perUnitName": {
+                    "type": "string",
+                    "description": "per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'\n"
+                },
+                "unitName": {
+                    "type": "string",
+                    "description": "Unit name. It should be in singular form ('megabyte' and not 'megabytes')\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unitName"
+            ]
+        },
+        "datadog:index/DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCustom:DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCustom": {
+            "properties": {
+                "label": {
+                    "type": "string",
+                    "description": "Unit label\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "label"
+            ]
+        },
+        "datadog:index/DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitScale:DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitScale": {
+            "properties": {
+                "unitName": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unitName"
+            ]
         },
         "datadog:index/DashboardWidgetHeatmapDefinitionRequestFormulaStyle:DashboardWidgetHeatmapDefinitionRequestFormulaStyle": {
             "properties": {
@@ -4616,7 +4829,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`.\n"
+                    "description": "A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`, `trend`.\n"
                 },
                 "conditionalFormats": {
                     "type": "array",
@@ -4726,7 +4939,7 @@
                 },
                 "cellDisplayMode": {
                     "type": "string",
-                    "description": "A list of display modes for each table cell. Valid values are `number`, `bar`.\n"
+                    "description": "A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.\n"
                 },
                 "name": {
                     "type": "string",
@@ -4796,7 +5009,7 @@
                 },
                 "cellDisplayMode": {
                     "type": "string",
-                    "description": "A list of display modes for each table cell. Valid values are `number`, `bar`.\n"
+                    "description": "A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.\n"
                 },
                 "conditionalFormats": {
                     "type": "array",
@@ -4812,6 +5025,10 @@
                 "limit": {
                     "$ref": "#/types/datadog:index/DashboardWidgetQueryTableDefinitionRequestFormulaLimit:DashboardWidgetQueryTableDefinitionRequestFormulaLimit",
                     "description": "The options for limiting results returned.\n"
+                },
+                "numberFormat": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormat:DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormat",
+                    "description": "Number formatting options for the formula.\n"
                 },
                 "style": {
                     "$ref": "#/types/datadog:index/DashboardWidgetQueryTableDefinitionRequestFormulaStyle:DashboardWidgetQueryTableDefinitionRequestFormulaStyle",
@@ -4881,6 +5098,73 @@
                 }
             },
             "type": "object"
+        },
+        "datadog:index/DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormat:DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormat": {
+            "properties": {
+                "unit": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnit:DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnit",
+                    "description": "Unit of the number format.\n"
+                },
+                "unitScale": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitScale:DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitScale"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unit"
+            ]
+        },
+        "datadog:index/DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnit:DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnit": {
+            "properties": {
+                "canonical": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCanonical:DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCanonical",
+                    "description": "Canonical Units\n"
+                },
+                "custom": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCustom:DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCustom",
+                    "description": "Use custom (non canonical metrics)\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCanonical:DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCanonical": {
+            "properties": {
+                "perUnitName": {
+                    "type": "string",
+                    "description": "per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'\n"
+                },
+                "unitName": {
+                    "type": "string",
+                    "description": "Unit name. It should be in singular form ('megabyte' and not 'megabytes')\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unitName"
+            ]
+        },
+        "datadog:index/DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCustom:DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCustom": {
+            "properties": {
+                "label": {
+                    "type": "string",
+                    "description": "Unit label\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "label"
+            ]
+        },
+        "datadog:index/DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitScale:DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitScale": {
+            "properties": {
+                "unitName": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unitName"
+            ]
         },
         "datadog:index/DashboardWidgetQueryTableDefinitionRequestFormulaStyle:DashboardWidgetQueryTableDefinitionRequestFormulaStyle": {
             "properties": {
@@ -5725,7 +6009,7 @@
                 },
                 "cellDisplayMode": {
                     "type": "string",
-                    "description": "A list of display modes for each table cell. Valid values are `number`, `bar`.\n"
+                    "description": "A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.\n"
                 },
                 "conditionalFormats": {
                     "type": "array",
@@ -5741,6 +6025,10 @@
                 "limit": {
                     "$ref": "#/types/datadog:index/DashboardWidgetQueryValueDefinitionRequestFormulaLimit:DashboardWidgetQueryValueDefinitionRequestFormulaLimit",
                     "description": "The options for limiting results returned.\n"
+                },
+                "numberFormat": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormat:DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormat",
+                    "description": "Number formatting options for the formula.\n"
                 },
                 "style": {
                     "$ref": "#/types/datadog:index/DashboardWidgetQueryValueDefinitionRequestFormulaStyle:DashboardWidgetQueryValueDefinitionRequestFormulaStyle",
@@ -5810,6 +6098,73 @@
                 }
             },
             "type": "object"
+        },
+        "datadog:index/DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormat:DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormat": {
+            "properties": {
+                "unit": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnit:DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnit",
+                    "description": "Unit of the number format.\n"
+                },
+                "unitScale": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScale:DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScale"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unit"
+            ]
+        },
+        "datadog:index/DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnit:DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnit": {
+            "properties": {
+                "canonical": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCanonical:DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCanonical",
+                    "description": "Canonical Units\n"
+                },
+                "custom": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustom:DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustom",
+                    "description": "Use custom (non canonical metrics)\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCanonical:DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCanonical": {
+            "properties": {
+                "perUnitName": {
+                    "type": "string",
+                    "description": "per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'\n"
+                },
+                "unitName": {
+                    "type": "string",
+                    "description": "Unit name. It should be in singular form ('megabyte' and not 'megabytes')\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unitName"
+            ]
+        },
+        "datadog:index/DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustom:DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustom": {
+            "properties": {
+                "label": {
+                    "type": "string",
+                    "description": "Unit label\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "label"
+            ]
+        },
+        "datadog:index/DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScale:DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScale": {
+            "properties": {
+                "unitName": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unitName"
+            ]
         },
         "datadog:index/DashboardWidgetQueryValueDefinitionRequestFormulaStyle:DashboardWidgetQueryValueDefinitionRequestFormulaStyle": {
             "properties": {
@@ -7997,7 +8352,7 @@
                 },
                 "cellDisplayMode": {
                     "type": "string",
-                    "description": "A list of display modes for each table cell. Valid values are `number`, `bar`.\n"
+                    "description": "A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.\n"
                 },
                 "conditionalFormats": {
                     "type": "array",
@@ -8013,6 +8368,10 @@
                 "limit": {
                     "$ref": "#/types/datadog:index/DashboardWidgetSunburstDefinitionRequestFormulaLimit:DashboardWidgetSunburstDefinitionRequestFormulaLimit",
                     "description": "The options for limiting results returned.\n"
+                },
+                "numberFormat": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetSunburstDefinitionRequestFormulaNumberFormat:DashboardWidgetSunburstDefinitionRequestFormulaNumberFormat",
+                    "description": "Number formatting options for the formula.\n"
                 },
                 "style": {
                     "$ref": "#/types/datadog:index/DashboardWidgetSunburstDefinitionRequestFormulaStyle:DashboardWidgetSunburstDefinitionRequestFormulaStyle",
@@ -8082,6 +8441,73 @@
                 }
             },
             "type": "object"
+        },
+        "datadog:index/DashboardWidgetSunburstDefinitionRequestFormulaNumberFormat:DashboardWidgetSunburstDefinitionRequestFormulaNumberFormat": {
+            "properties": {
+                "unit": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnit:DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnit",
+                    "description": "Unit of the number format.\n"
+                },
+                "unitScale": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitScale:DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitScale"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unit"
+            ]
+        },
+        "datadog:index/DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnit:DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnit": {
+            "properties": {
+                "canonical": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCanonical:DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCanonical",
+                    "description": "Canonical Units\n"
+                },
+                "custom": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCustom:DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCustom",
+                    "description": "Use custom (non canonical metrics)\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCanonical:DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCanonical": {
+            "properties": {
+                "perUnitName": {
+                    "type": "string",
+                    "description": "per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'\n"
+                },
+                "unitName": {
+                    "type": "string",
+                    "description": "Unit name. It should be in singular form ('megabyte' and not 'megabytes')\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unitName"
+            ]
+        },
+        "datadog:index/DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCustom:DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCustom": {
+            "properties": {
+                "label": {
+                    "type": "string",
+                    "description": "Unit label\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "label"
+            ]
+        },
+        "datadog:index/DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitScale:DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitScale": {
+            "properties": {
+                "unitName": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unitName"
+            ]
         },
         "datadog:index/DashboardWidgetSunburstDefinitionRequestFormulaStyle:DashboardWidgetSunburstDefinitionRequestFormulaStyle": {
             "properties": {
@@ -8992,7 +9418,7 @@
                 },
                 "cellDisplayMode": {
                     "type": "string",
-                    "description": "A list of display modes for each table cell. Valid values are `number`, `bar`.\n"
+                    "description": "A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.\n"
                 },
                 "conditionalFormats": {
                     "type": "array",
@@ -9008,6 +9434,10 @@
                 "limit": {
                     "$ref": "#/types/datadog:index/DashboardWidgetTimeseriesDefinitionRequestFormulaLimit:DashboardWidgetTimeseriesDefinitionRequestFormulaLimit",
                     "description": "The options for limiting results returned.\n"
+                },
+                "numberFormat": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormat:DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormat",
+                    "description": "Number formatting options for the formula.\n"
                 },
                 "style": {
                     "$ref": "#/types/datadog:index/DashboardWidgetTimeseriesDefinitionRequestFormulaStyle:DashboardWidgetTimeseriesDefinitionRequestFormulaStyle",
@@ -9077,6 +9507,73 @@
                 }
             },
             "type": "object"
+        },
+        "datadog:index/DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormat:DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormat": {
+            "properties": {
+                "unit": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnit:DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnit",
+                    "description": "Unit of the number format.\n"
+                },
+                "unitScale": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScale:DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScale"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unit"
+            ]
+        },
+        "datadog:index/DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnit:DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnit": {
+            "properties": {
+                "canonical": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical:DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical",
+                    "description": "Canonical Units\n"
+                },
+                "custom": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustom:DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustom",
+                    "description": "Use custom (non canonical metrics)\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical:DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical": {
+            "properties": {
+                "perUnitName": {
+                    "type": "string",
+                    "description": "per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'\n"
+                },
+                "unitName": {
+                    "type": "string",
+                    "description": "Unit name. It should be in singular form ('megabyte' and not 'megabytes')\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unitName"
+            ]
+        },
+        "datadog:index/DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustom:DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustom": {
+            "properties": {
+                "label": {
+                    "type": "string",
+                    "description": "Unit label\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "label"
+            ]
+        },
+        "datadog:index/DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScale:DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScale": {
+            "properties": {
+                "unitName": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unitName"
+            ]
         },
         "datadog:index/DashboardWidgetTimeseriesDefinitionRequestFormulaStyle:DashboardWidgetTimeseriesDefinitionRequestFormulaStyle": {
             "properties": {
@@ -10025,7 +10522,7 @@
                 },
                 "cellDisplayMode": {
                     "type": "string",
-                    "description": "A list of display modes for each table cell. Valid values are `number`, `bar`.\n"
+                    "description": "A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.\n"
                 },
                 "conditionalFormats": {
                     "type": "array",
@@ -10041,6 +10538,10 @@
                 "limit": {
                     "$ref": "#/types/datadog:index/DashboardWidgetToplistDefinitionRequestFormulaLimit:DashboardWidgetToplistDefinitionRequestFormulaLimit",
                     "description": "The options for limiting results returned.\n"
+                },
+                "numberFormat": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetToplistDefinitionRequestFormulaNumberFormat:DashboardWidgetToplistDefinitionRequestFormulaNumberFormat",
+                    "description": "Number formatting options for the formula.\n"
                 },
                 "style": {
                     "$ref": "#/types/datadog:index/DashboardWidgetToplistDefinitionRequestFormulaStyle:DashboardWidgetToplistDefinitionRequestFormulaStyle",
@@ -10110,6 +10611,73 @@
                 }
             },
             "type": "object"
+        },
+        "datadog:index/DashboardWidgetToplistDefinitionRequestFormulaNumberFormat:DashboardWidgetToplistDefinitionRequestFormulaNumberFormat": {
+            "properties": {
+                "unit": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnit:DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnit",
+                    "description": "Unit of the number format.\n"
+                },
+                "unitScale": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitScale:DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitScale"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unit"
+            ]
+        },
+        "datadog:index/DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnit:DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnit": {
+            "properties": {
+                "canonical": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonical:DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonical",
+                    "description": "Canonical Units\n"
+                },
+                "custom": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustom:DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustom",
+                    "description": "Use custom (non canonical metrics)\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonical:DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonical": {
+            "properties": {
+                "perUnitName": {
+                    "type": "string",
+                    "description": "per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'\n"
+                },
+                "unitName": {
+                    "type": "string",
+                    "description": "Unit name. It should be in singular form ('megabyte' and not 'megabytes')\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unitName"
+            ]
+        },
+        "datadog:index/DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustom:DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustom": {
+            "properties": {
+                "label": {
+                    "type": "string",
+                    "description": "Unit label\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "label"
+            ]
+        },
+        "datadog:index/DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitScale:DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitScale": {
+            "properties": {
+                "unitName": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unitName"
+            ]
         },
         "datadog:index/DashboardWidgetToplistDefinitionRequestFormulaStyle:DashboardWidgetToplistDefinitionRequestFormulaStyle": {
             "properties": {
@@ -10599,9 +11167,20 @@
                 "palette": {
                     "type": "string",
                     "description": "The color palette for the widget.\n"
+                },
+                "scaling": {
+                    "type": "string",
+                    "description": "The scaling mode for the widget. Valid values are `absolute`, `relative`.\n"
                 }
             },
-            "type": "object"
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "scaling"
+                    ]
+                }
+            }
         },
         "datadog:index/DashboardWidgetToplistDefinitionStyleDisplay:DashboardWidgetToplistDefinitionStyleDisplay": {
             "properties": {
@@ -10823,7 +11402,7 @@
                 },
                 "cellDisplayMode": {
                     "type": "string",
-                    "description": "A list of display modes for each table cell. Valid values are `number`, `bar`.\n"
+                    "description": "A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.\n"
                 },
                 "conditionalFormats": {
                     "type": "array",
@@ -10839,6 +11418,10 @@
                 "limit": {
                     "$ref": "#/types/datadog:index/DashboardWidgetTreemapDefinitionRequestFormulaLimit:DashboardWidgetTreemapDefinitionRequestFormulaLimit",
                     "description": "The options for limiting results returned.\n"
+                },
+                "numberFormat": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetTreemapDefinitionRequestFormulaNumberFormat:DashboardWidgetTreemapDefinitionRequestFormulaNumberFormat",
+                    "description": "Number formatting options for the formula.\n"
                 },
                 "style": {
                     "$ref": "#/types/datadog:index/DashboardWidgetTreemapDefinitionRequestFormulaStyle:DashboardWidgetTreemapDefinitionRequestFormulaStyle",
@@ -10908,6 +11491,73 @@
                 }
             },
             "type": "object"
+        },
+        "datadog:index/DashboardWidgetTreemapDefinitionRequestFormulaNumberFormat:DashboardWidgetTreemapDefinitionRequestFormulaNumberFormat": {
+            "properties": {
+                "unit": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnit:DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnit",
+                    "description": "Unit of the number format.\n"
+                },
+                "unitScale": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale:DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unit"
+            ]
+        },
+        "datadog:index/DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnit:DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnit": {
+            "properties": {
+                "canonical": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonical:DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonical",
+                    "description": "Canonical Units\n"
+                },
+                "custom": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom:DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom",
+                    "description": "Use custom (non canonical metrics)\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonical:DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonical": {
+            "properties": {
+                "perUnitName": {
+                    "type": "string",
+                    "description": "per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'\n"
+                },
+                "unitName": {
+                    "type": "string",
+                    "description": "Unit name. It should be in singular form ('megabyte' and not 'megabytes')\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unitName"
+            ]
+        },
+        "datadog:index/DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom:DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom": {
+            "properties": {
+                "label": {
+                    "type": "string",
+                    "description": "Unit label\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "label"
+            ]
+        },
+        "datadog:index/DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale:DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale": {
+            "properties": {
+                "unitName": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unitName"
+            ]
         },
         "datadog:index/DashboardWidgetTreemapDefinitionRequestFormulaStyle:DashboardWidgetTreemapDefinitionRequestFormulaStyle": {
             "properties": {
@@ -11786,6 +12436,10 @@
                     "$ref": "#/types/datadog:index/LogsCustomPipelineProcessorServiceRemapper:LogsCustomPipelineProcessorServiceRemapper",
                     "description": "Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)\n"
                 },
+                "spanIdRemapper": {
+                    "$ref": "#/types/datadog:index/LogsCustomPipelineProcessorSpanIdRemapper:LogsCustomPipelineProcessorSpanIdRemapper",
+                    "description": "Span ID Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#span-remapper)\n"
+                },
                 "statusRemapper": {
                     "$ref": "#/types/datadog:index/LogsCustomPipelineProcessorStatusRemapper:LogsCustomPipelineProcessorStatusRemapper",
                     "description": "Status Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-status-remapper)\n"
@@ -12136,7 +12790,16 @@
             "required": [
                 "filters",
                 "name"
-            ]
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "filters",
+                        "name",
+                        "tags"
+                    ]
+                }
+            }
         },
         "datadog:index/LogsCustomPipelineProcessorPipelineFilter:LogsCustomPipelineProcessorPipelineFilter": {
             "properties": {
@@ -12191,6 +12854,10 @@
                 "serviceRemapper": {
                     "$ref": "#/types/datadog:index/LogsCustomPipelineProcessorPipelineProcessorServiceRemapper:LogsCustomPipelineProcessorPipelineProcessorServiceRemapper",
                     "description": "Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)\n"
+                },
+                "spanIdRemapper": {
+                    "$ref": "#/types/datadog:index/LogsCustomPipelineProcessorPipelineProcessorSpanIdRemapper:LogsCustomPipelineProcessorPipelineProcessorSpanIdRemapper",
+                    "description": "Span ID Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#span-remapper)\n"
                 },
                 "statusRemapper": {
                     "$ref": "#/types/datadog:index/LogsCustomPipelineProcessorPipelineProcessorStatusRemapper:LogsCustomPipelineProcessorPipelineProcessorStatusRemapper",
@@ -12561,6 +13228,29 @@
                 "sources"
             ]
         },
+        "datadog:index/LogsCustomPipelineProcessorPipelineProcessorSpanIdRemapper:LogsCustomPipelineProcessorPipelineProcessorSpanIdRemapper": {
+            "properties": {
+                "isEnabled": {
+                    "type": "boolean",
+                    "description": "If the processor is enabled or not.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the processor.\n"
+                },
+                "sources": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of source attributes.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "sources"
+            ]
+        },
         "datadog:index/LogsCustomPipelineProcessorPipelineProcessorStatusRemapper:LogsCustomPipelineProcessorPipelineProcessorStatusRemapper": {
             "properties": {
                 "isEnabled": {
@@ -12731,6 +13421,29 @@
             ]
         },
         "datadog:index/LogsCustomPipelineProcessorServiceRemapper:LogsCustomPipelineProcessorServiceRemapper": {
+            "properties": {
+                "isEnabled": {
+                    "type": "boolean",
+                    "description": "If the processor is enabled or not.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the processor.\n"
+                },
+                "sources": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of source attributes.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "sources"
+            ]
+        },
+        "datadog:index/LogsCustomPipelineProcessorSpanIdRemapper:LogsCustomPipelineProcessorSpanIdRemapper": {
             "properties": {
                 "isEnabled": {
                     "type": "boolean",
@@ -13926,7 +14639,7 @@
                 },
                 "cellDisplayMode": {
                     "type": "string",
-                    "description": "A list of display modes for each table cell. Valid values are `number`, `bar`.\n"
+                    "description": "A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.\n"
                 },
                 "conditionalFormats": {
                     "type": "array",
@@ -13942,6 +14655,10 @@
                 "limit": {
                     "$ref": "#/types/datadog:index/PowerpackWidgetChangeDefinitionRequestFormulaLimit:PowerpackWidgetChangeDefinitionRequestFormulaLimit",
                     "description": "The options for limiting results returned.\n"
+                },
+                "numberFormat": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetChangeDefinitionRequestFormulaNumberFormat:PowerpackWidgetChangeDefinitionRequestFormulaNumberFormat",
+                    "description": "Number formatting options for the formula.\n"
                 },
                 "style": {
                     "$ref": "#/types/datadog:index/PowerpackWidgetChangeDefinitionRequestFormulaStyle:PowerpackWidgetChangeDefinitionRequestFormulaStyle",
@@ -14011,6 +14728,73 @@
                 }
             },
             "type": "object"
+        },
+        "datadog:index/PowerpackWidgetChangeDefinitionRequestFormulaNumberFormat:PowerpackWidgetChangeDefinitionRequestFormulaNumberFormat": {
+            "properties": {
+                "unit": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnit:PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnit",
+                    "description": "Unit of the number format.\n"
+                },
+                "unitScale": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnitScale:PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnitScale"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unit"
+            ]
+        },
+        "datadog:index/PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnit:PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnit": {
+            "properties": {
+                "canonical": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnitCanonical:PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnitCanonical",
+                    "description": "Canonical Units\n"
+                },
+                "custom": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnitCustom:PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnitCustom",
+                    "description": "Use custom (non canonical metrics)\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnitCanonical:PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnitCanonical": {
+            "properties": {
+                "perUnitName": {
+                    "type": "string",
+                    "description": "per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'\n"
+                },
+                "unitName": {
+                    "type": "string",
+                    "description": "Unit name. It should be in singular form ('megabyte' and not 'megabytes')\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unitName"
+            ]
+        },
+        "datadog:index/PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnitCustom:PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnitCustom": {
+            "properties": {
+                "label": {
+                    "type": "string",
+                    "description": "Unit label\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "label"
+            ]
+        },
+        "datadog:index/PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnitScale:PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnitScale": {
+            "properties": {
+                "unitName": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unitName"
+            ]
         },
         "datadog:index/PowerpackWidgetChangeDefinitionRequestFormulaStyle:PowerpackWidgetChangeDefinitionRequestFormulaStyle": {
             "properties": {
@@ -15109,7 +15893,7 @@
                 },
                 "cellDisplayMode": {
                     "type": "string",
-                    "description": "A list of display modes for each table cell. Valid values are `number`, `bar`.\n"
+                    "description": "A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.\n"
                 },
                 "name": {
                     "type": "string",
@@ -15739,7 +16523,7 @@
                 },
                 "cellDisplayMode": {
                     "type": "string",
-                    "description": "A list of display modes for each table cell. Valid values are `number`, `bar`.\n"
+                    "description": "A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.\n"
                 },
                 "conditionalFormats": {
                     "type": "array",
@@ -15755,6 +16539,10 @@
                 "limit": {
                     "$ref": "#/types/datadog:index/PowerpackWidgetGeomapDefinitionRequestFormulaLimit:PowerpackWidgetGeomapDefinitionRequestFormulaLimit",
                     "description": "The options for limiting results returned.\n"
+                },
+                "numberFormat": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormat:PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormat",
+                    "description": "Number formatting options for the formula.\n"
                 },
                 "style": {
                     "$ref": "#/types/datadog:index/PowerpackWidgetGeomapDefinitionRequestFormulaStyle:PowerpackWidgetGeomapDefinitionRequestFormulaStyle",
@@ -15824,6 +16612,73 @@
                 }
             },
             "type": "object"
+        },
+        "datadog:index/PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormat:PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormat": {
+            "properties": {
+                "unit": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnit:PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnit",
+                    "description": "Unit of the number format.\n"
+                },
+                "unitScale": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScale:PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScale"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unit"
+            ]
+        },
+        "datadog:index/PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnit:PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnit": {
+            "properties": {
+                "canonical": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonical:PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonical",
+                    "description": "Canonical Units\n"
+                },
+                "custom": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustom:PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustom",
+                    "description": "Use custom (non canonical metrics)\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonical:PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonical": {
+            "properties": {
+                "perUnitName": {
+                    "type": "string",
+                    "description": "per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'\n"
+                },
+                "unitName": {
+                    "type": "string",
+                    "description": "Unit name. It should be in singular form ('megabyte' and not 'megabytes')\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unitName"
+            ]
+        },
+        "datadog:index/PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustom:PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustom": {
+            "properties": {
+                "label": {
+                    "type": "string",
+                    "description": "Unit label\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "label"
+            ]
+        },
+        "datadog:index/PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScale:PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScale": {
+            "properties": {
+                "unitName": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unitName"
+            ]
         },
         "datadog:index/PowerpackWidgetGeomapDefinitionRequestFormulaStyle:PowerpackWidgetGeomapDefinitionRequestFormulaStyle": {
             "properties": {
@@ -16774,7 +17629,7 @@
                 },
                 "cellDisplayMode": {
                     "type": "string",
-                    "description": "A list of display modes for each table cell. Valid values are `number`, `bar`.\n"
+                    "description": "A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.\n"
                 },
                 "conditionalFormats": {
                     "type": "array",
@@ -16790,6 +17645,10 @@
                 "limit": {
                     "$ref": "#/types/datadog:index/PowerpackWidgetHeatmapDefinitionRequestFormulaLimit:PowerpackWidgetHeatmapDefinitionRequestFormulaLimit",
                     "description": "The options for limiting results returned.\n"
+                },
+                "numberFormat": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormat:PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormat",
+                    "description": "Number formatting options for the formula.\n"
                 },
                 "style": {
                     "$ref": "#/types/datadog:index/PowerpackWidgetHeatmapDefinitionRequestFormulaStyle:PowerpackWidgetHeatmapDefinitionRequestFormulaStyle",
@@ -16859,6 +17718,73 @@
                 }
             },
             "type": "object"
+        },
+        "datadog:index/PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormat:PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormat": {
+            "properties": {
+                "unit": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnit:PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnit",
+                    "description": "Unit of the number format.\n"
+                },
+                "unitScale": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitScale:PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitScale"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unit"
+            ]
+        },
+        "datadog:index/PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnit:PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnit": {
+            "properties": {
+                "canonical": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCanonical:PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCanonical",
+                    "description": "Canonical Units\n"
+                },
+                "custom": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCustom:PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCustom",
+                    "description": "Use custom (non canonical metrics)\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCanonical:PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCanonical": {
+            "properties": {
+                "perUnitName": {
+                    "type": "string",
+                    "description": "per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'\n"
+                },
+                "unitName": {
+                    "type": "string",
+                    "description": "Unit name. It should be in singular form ('megabyte' and not 'megabytes')\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unitName"
+            ]
+        },
+        "datadog:index/PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCustom:PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCustom": {
+            "properties": {
+                "label": {
+                    "type": "string",
+                    "description": "Unit label\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "label"
+            ]
+        },
+        "datadog:index/PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitScale:PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitScale": {
+            "properties": {
+                "unitName": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unitName"
+            ]
         },
         "datadog:index/PowerpackWidgetHeatmapDefinitionRequestFormulaStyle:PowerpackWidgetHeatmapDefinitionRequestFormulaStyle": {
             "properties": {
@@ -19247,7 +20173,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`.\n"
+                    "description": "A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`, `trend`.\n"
                 },
                 "conditionalFormats": {
                     "type": "array",
@@ -19469,7 +20395,7 @@
                 },
                 "cellDisplayMode": {
                     "type": "string",
-                    "description": "A list of display modes for each table cell. Valid values are `number`, `bar`.\n"
+                    "description": "A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.\n"
                 },
                 "name": {
                     "type": "string",
@@ -19539,7 +20465,7 @@
                 },
                 "cellDisplayMode": {
                     "type": "string",
-                    "description": "A list of display modes for each table cell. Valid values are `number`, `bar`.\n"
+                    "description": "A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.\n"
                 },
                 "conditionalFormats": {
                     "type": "array",
@@ -19555,6 +20481,10 @@
                 "limit": {
                     "$ref": "#/types/datadog:index/PowerpackWidgetQueryTableDefinitionRequestFormulaLimit:PowerpackWidgetQueryTableDefinitionRequestFormulaLimit",
                     "description": "The options for limiting results returned.\n"
+                },
+                "numberFormat": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormat:PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormat",
+                    "description": "Number formatting options for the formula.\n"
                 },
                 "style": {
                     "$ref": "#/types/datadog:index/PowerpackWidgetQueryTableDefinitionRequestFormulaStyle:PowerpackWidgetQueryTableDefinitionRequestFormulaStyle",
@@ -19624,6 +20554,73 @@
                 }
             },
             "type": "object"
+        },
+        "datadog:index/PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormat:PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormat": {
+            "properties": {
+                "unit": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnit:PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnit",
+                    "description": "Unit of the number format.\n"
+                },
+                "unitScale": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitScale:PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitScale"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unit"
+            ]
+        },
+        "datadog:index/PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnit:PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnit": {
+            "properties": {
+                "canonical": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCanonical:PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCanonical",
+                    "description": "Canonical Units\n"
+                },
+                "custom": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCustom:PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCustom",
+                    "description": "Use custom (non canonical metrics)\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCanonical:PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCanonical": {
+            "properties": {
+                "perUnitName": {
+                    "type": "string",
+                    "description": "per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'\n"
+                },
+                "unitName": {
+                    "type": "string",
+                    "description": "Unit name. It should be in singular form ('megabyte' and not 'megabytes')\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unitName"
+            ]
+        },
+        "datadog:index/PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCustom:PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCustom": {
+            "properties": {
+                "label": {
+                    "type": "string",
+                    "description": "Unit label\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "label"
+            ]
+        },
+        "datadog:index/PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitScale:PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitScale": {
+            "properties": {
+                "unitName": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unitName"
+            ]
         },
         "datadog:index/PowerpackWidgetQueryTableDefinitionRequestFormulaStyle:PowerpackWidgetQueryTableDefinitionRequestFormulaStyle": {
             "properties": {
@@ -20916,7 +21913,7 @@
                 },
                 "cellDisplayMode": {
                     "type": "string",
-                    "description": "A list of display modes for each table cell. Valid values are `number`, `bar`.\n"
+                    "description": "A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.\n"
                 },
                 "conditionalFormats": {
                     "type": "array",
@@ -20932,6 +21929,10 @@
                 "limit": {
                     "$ref": "#/types/datadog:index/PowerpackWidgetQueryValueDefinitionRequestFormulaLimit:PowerpackWidgetQueryValueDefinitionRequestFormulaLimit",
                     "description": "The options for limiting results returned.\n"
+                },
+                "numberFormat": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormat:PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormat",
+                    "description": "Number formatting options for the formula.\n"
                 },
                 "style": {
                     "$ref": "#/types/datadog:index/PowerpackWidgetQueryValueDefinitionRequestFormulaStyle:PowerpackWidgetQueryValueDefinitionRequestFormulaStyle",
@@ -21001,6 +22002,73 @@
                 }
             },
             "type": "object"
+        },
+        "datadog:index/PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormat:PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormat": {
+            "properties": {
+                "unit": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnit:PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnit",
+                    "description": "Unit of the number format.\n"
+                },
+                "unitScale": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScale:PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScale"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unit"
+            ]
+        },
+        "datadog:index/PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnit:PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnit": {
+            "properties": {
+                "canonical": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCanonical:PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCanonical",
+                    "description": "Canonical Units\n"
+                },
+                "custom": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustom:PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustom",
+                    "description": "Use custom (non canonical metrics)\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCanonical:PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCanonical": {
+            "properties": {
+                "perUnitName": {
+                    "type": "string",
+                    "description": "per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'\n"
+                },
+                "unitName": {
+                    "type": "string",
+                    "description": "Unit name. It should be in singular form ('megabyte' and not 'megabytes')\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unitName"
+            ]
+        },
+        "datadog:index/PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustom:PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustom": {
+            "properties": {
+                "label": {
+                    "type": "string",
+                    "description": "Unit label\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "label"
+            ]
+        },
+        "datadog:index/PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScale:PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScale": {
+            "properties": {
+                "unitName": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unitName"
+            ]
         },
         "datadog:index/PowerpackWidgetQueryValueDefinitionRequestFormulaStyle:PowerpackWidgetQueryValueDefinitionRequestFormulaStyle": {
             "properties": {
@@ -24128,7 +25196,7 @@
                 },
                 "cellDisplayMode": {
                     "type": "string",
-                    "description": "A list of display modes for each table cell. Valid values are `number`, `bar`.\n"
+                    "description": "A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.\n"
                 },
                 "conditionalFormats": {
                     "type": "array",
@@ -24144,6 +25212,10 @@
                 "limit": {
                     "$ref": "#/types/datadog:index/PowerpackWidgetSunburstDefinitionRequestFormulaLimit:PowerpackWidgetSunburstDefinitionRequestFormulaLimit",
                     "description": "The options for limiting results returned.\n"
+                },
+                "numberFormat": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormat:PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormat",
+                    "description": "Number formatting options for the formula.\n"
                 },
                 "style": {
                     "$ref": "#/types/datadog:index/PowerpackWidgetSunburstDefinitionRequestFormulaStyle:PowerpackWidgetSunburstDefinitionRequestFormulaStyle",
@@ -24213,6 +25285,73 @@
                 }
             },
             "type": "object"
+        },
+        "datadog:index/PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormat:PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormat": {
+            "properties": {
+                "unit": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnit:PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnit",
+                    "description": "Unit of the number format.\n"
+                },
+                "unitScale": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnitScale:PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnitScale"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unit"
+            ]
+        },
+        "datadog:index/PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnit:PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnit": {
+            "properties": {
+                "canonical": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCanonical:PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCanonical",
+                    "description": "Canonical Units\n"
+                },
+                "custom": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCustom:PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCustom",
+                    "description": "Use custom (non canonical metrics)\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCanonical:PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCanonical": {
+            "properties": {
+                "perUnitName": {
+                    "type": "string",
+                    "description": "per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'\n"
+                },
+                "unitName": {
+                    "type": "string",
+                    "description": "Unit name. It should be in singular form ('megabyte' and not 'megabytes')\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unitName"
+            ]
+        },
+        "datadog:index/PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCustom:PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCustom": {
+            "properties": {
+                "label": {
+                    "type": "string",
+                    "description": "Unit label\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "label"
+            ]
+        },
+        "datadog:index/PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnitScale:PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnitScale": {
+            "properties": {
+                "unitName": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unitName"
+            ]
         },
         "datadog:index/PowerpackWidgetSunburstDefinitionRequestFormulaStyle:PowerpackWidgetSunburstDefinitionRequestFormulaStyle": {
             "properties": {
@@ -25571,7 +26710,7 @@
                 },
                 "cellDisplayMode": {
                     "type": "string",
-                    "description": "A list of display modes for each table cell. Valid values are `number`, `bar`.\n"
+                    "description": "A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.\n"
                 },
                 "conditionalFormats": {
                     "type": "array",
@@ -25587,6 +26726,10 @@
                 "limit": {
                     "$ref": "#/types/datadog:index/PowerpackWidgetTimeseriesDefinitionRequestFormulaLimit:PowerpackWidgetTimeseriesDefinitionRequestFormulaLimit",
                     "description": "The options for limiting results returned.\n"
+                },
+                "numberFormat": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormat:PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormat",
+                    "description": "Number formatting options for the formula.\n"
                 },
                 "style": {
                     "$ref": "#/types/datadog:index/PowerpackWidgetTimeseriesDefinitionRequestFormulaStyle:PowerpackWidgetTimeseriesDefinitionRequestFormulaStyle",
@@ -25656,6 +26799,73 @@
                 }
             },
             "type": "object"
+        },
+        "datadog:index/PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormat:PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormat": {
+            "properties": {
+                "unit": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnit:PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnit",
+                    "description": "Unit of the number format.\n"
+                },
+                "unitScale": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScale:PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScale"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unit"
+            ]
+        },
+        "datadog:index/PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnit:PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnit": {
+            "properties": {
+                "canonical": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical:PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical",
+                    "description": "Canonical Units\n"
+                },
+                "custom": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustom:PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustom",
+                    "description": "Use custom (non canonical metrics)\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical:PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical": {
+            "properties": {
+                "perUnitName": {
+                    "type": "string",
+                    "description": "per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'\n"
+                },
+                "unitName": {
+                    "type": "string",
+                    "description": "Unit name. It should be in singular form ('megabyte' and not 'megabytes')\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unitName"
+            ]
+        },
+        "datadog:index/PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustom:PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustom": {
+            "properties": {
+                "label": {
+                    "type": "string",
+                    "description": "Unit label\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "label"
+            ]
+        },
+        "datadog:index/PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScale:PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScale": {
+            "properties": {
+                "unitName": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unitName"
+            ]
         },
         "datadog:index/PowerpackWidgetTimeseriesDefinitionRequestFormulaStyle:PowerpackWidgetTimeseriesDefinitionRequestFormulaStyle": {
             "properties": {
@@ -27052,7 +28262,7 @@
                 },
                 "cellDisplayMode": {
                     "type": "string",
-                    "description": "A list of display modes for each table cell. Valid values are `number`, `bar`.\n"
+                    "description": "A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.\n"
                 },
                 "conditionalFormats": {
                     "type": "array",
@@ -27068,6 +28278,10 @@
                 "limit": {
                     "$ref": "#/types/datadog:index/PowerpackWidgetToplistDefinitionRequestFormulaLimit:PowerpackWidgetToplistDefinitionRequestFormulaLimit",
                     "description": "The options for limiting results returned.\n"
+                },
+                "numberFormat": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetToplistDefinitionRequestFormulaNumberFormat:PowerpackWidgetToplistDefinitionRequestFormulaNumberFormat",
+                    "description": "Number formatting options for the formula.\n"
                 },
                 "style": {
                     "$ref": "#/types/datadog:index/PowerpackWidgetToplistDefinitionRequestFormulaStyle:PowerpackWidgetToplistDefinitionRequestFormulaStyle",
@@ -27137,6 +28351,73 @@
                 }
             },
             "type": "object"
+        },
+        "datadog:index/PowerpackWidgetToplistDefinitionRequestFormulaNumberFormat:PowerpackWidgetToplistDefinitionRequestFormulaNumberFormat": {
+            "properties": {
+                "unit": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnit:PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnit",
+                    "description": "Unit of the number format.\n"
+                },
+                "unitScale": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScale:PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScale"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unit"
+            ]
+        },
+        "datadog:index/PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnit:PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnit": {
+            "properties": {
+                "canonical": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonical:PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonical",
+                    "description": "Canonical Units\n"
+                },
+                "custom": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustom:PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustom",
+                    "description": "Use custom (non canonical metrics)\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonical:PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonical": {
+            "properties": {
+                "perUnitName": {
+                    "type": "string",
+                    "description": "per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'\n"
+                },
+                "unitName": {
+                    "type": "string",
+                    "description": "Unit name. It should be in singular form ('megabyte' and not 'megabytes')\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unitName"
+            ]
+        },
+        "datadog:index/PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustom:PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustom": {
+            "properties": {
+                "label": {
+                    "type": "string",
+                    "description": "Unit label\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "label"
+            ]
+        },
+        "datadog:index/PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScale:PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScale": {
+            "properties": {
+                "unitName": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unitName"
+            ]
         },
         "datadog:index/PowerpackWidgetToplistDefinitionRequestFormulaStyle:PowerpackWidgetToplistDefinitionRequestFormulaStyle": {
             "properties": {
@@ -27962,9 +29243,20 @@
                 "palette": {
                     "type": "string",
                     "description": "The color palette for the widget.\n"
+                },
+                "scaling": {
+                    "type": "string",
+                    "description": "The scaling mode for the widget. Valid values are `absolute`, `relative`.\n"
                 }
             },
-            "type": "object"
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "scaling"
+                    ]
+                }
+            }
         },
         "datadog:index/PowerpackWidgetToplistDefinitionStyleDisplay:PowerpackWidgetToplistDefinitionStyleDisplay": {
             "properties": {
@@ -28186,7 +29478,7 @@
                 },
                 "cellDisplayMode": {
                     "type": "string",
-                    "description": "A list of display modes for each table cell. Valid values are `number`, `bar`.\n"
+                    "description": "A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.\n"
                 },
                 "conditionalFormats": {
                     "type": "array",
@@ -28202,6 +29494,10 @@
                 "limit": {
                     "$ref": "#/types/datadog:index/PowerpackWidgetTreemapDefinitionRequestFormulaLimit:PowerpackWidgetTreemapDefinitionRequestFormulaLimit",
                     "description": "The options for limiting results returned.\n"
+                },
+                "numberFormat": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormat:PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormat",
+                    "description": "Number formatting options for the formula.\n"
                 },
                 "style": {
                     "$ref": "#/types/datadog:index/PowerpackWidgetTreemapDefinitionRequestFormulaStyle:PowerpackWidgetTreemapDefinitionRequestFormulaStyle",
@@ -28271,6 +29567,73 @@
                 }
             },
             "type": "object"
+        },
+        "datadog:index/PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormat:PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormat": {
+            "properties": {
+                "unit": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnit:PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnit",
+                    "description": "Unit of the number format.\n"
+                },
+                "unitScale": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale:PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unit"
+            ]
+        },
+        "datadog:index/PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnit:PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnit": {
+            "properties": {
+                "canonical": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonical:PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonical",
+                    "description": "Canonical Units\n"
+                },
+                "custom": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom:PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom",
+                    "description": "Use custom (non canonical metrics)\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonical:PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonical": {
+            "properties": {
+                "perUnitName": {
+                    "type": "string",
+                    "description": "per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'\n"
+                },
+                "unitName": {
+                    "type": "string",
+                    "description": "Unit name. It should be in singular form ('megabyte' and not 'megabytes')\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unitName"
+            ]
+        },
+        "datadog:index/PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom:PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom": {
+            "properties": {
+                "label": {
+                    "type": "string",
+                    "description": "Unit label\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "label"
+            ]
+        },
+        "datadog:index/PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale:PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale": {
+            "properties": {
+                "unitName": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "unitName"
+            ]
         },
         "datadog:index/PowerpackWidgetTreemapDefinitionRequestFormulaStyle:PowerpackWidgetTreemapDefinitionRequestFormulaStyle": {
             "properties": {
@@ -28750,7 +30113,7 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "[Experimental - Monitors only] Resource tags to be applied by default across all resources.\n"
+                    "description": "[Experimental - Monitors and Logs Pipelines only] Resource tags to be applied by default across all resources.\n"
                 }
             },
             "type": "object"
@@ -28969,7 +30332,7 @@
                 },
                 "evaluationWindow": {
                     "type": "integer",
-                    "description": "A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`.\n"
+                    "description": "A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.\n"
                 },
                 "impossibleTravelOptions": {
                     "$ref": "#/types/datadog:index/SecurityMonitoringRuleOptionsImpossibleTravelOptions:SecurityMonitoringRuleOptionsImpossibleTravelOptions",
@@ -28977,7 +30340,7 @@
                 },
                 "keepAlive": {
                     "type": "integer",
-                    "description": "Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.\n"
+                    "description": "Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.\n"
                 },
                 "maxSignalDuration": {
                     "type": "integer",
@@ -30519,7 +31882,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "Type of browser test variable. Valid values are `element`, `email`, `global`, `javascript`, `text`.\n"
+                    "description": "Type of browser test variable. Valid values are `element`, `email`, `global`, `text`.\n"
                 }
             },
             "type": "object",
@@ -32977,7 +34340,7 @@
             },
             "defaultTags": {
                 "$ref": "#/types/datadog:index/ProviderDefaultTags:ProviderDefaultTags",
-                "description": "[Experimental - Monitors only] Configuration block containing settings to apply default resource tags across all\nresources.\n"
+                "description": "[Experimental - Monitors and Logs Pipelines only] Configuration block containing settings to apply default resource tags\nacross all resources.\n"
             },
             "httpClientRetryBackoffBase": {
                 "type": "integer",
@@ -33021,7 +34384,7 @@
             },
             "defaultTags": {
                 "$ref": "#/types/datadog:index/ProviderDefaultTags:ProviderDefaultTags",
-                "description": "[Experimental - Monitors only] Configuration block containing settings to apply default resource tags across all\nresources.\n"
+                "description": "[Experimental - Monitors and Logs Pipelines only] Configuration block containing settings to apply default resource tags\nacross all resources.\n"
             },
             "httpClientRetryBackoffBase": {
                 "type": "integer",
@@ -34596,7 +35959,7 @@
                 },
                 "remoteConfigReadEnabled": {
                     "type": "boolean",
-                    "description": "Whether the API key is used for remote config. Warning : default value is true for backwards compatibility Defaults to `true`.\n"
+                    "description": "Whether the API key is used for remote config. Set to true only if remote config is enabled in `/organization-settings/remote-config`.\n"
                 }
             },
             "required": [
@@ -34611,7 +35974,7 @@
                 },
                 "remoteConfigReadEnabled": {
                     "type": "boolean",
-                    "description": "Whether the API key is used for remote config. Warning : default value is true for backwards compatibility Defaults to `true`.\n"
+                    "description": "Whether the API key is used for remote config. Set to true only if remote config is enabled in `/organization-settings/remote-config`.\n"
                 }
             },
             "requiredInputs": [
@@ -34631,7 +35994,7 @@
                     },
                     "remoteConfigReadEnabled": {
                         "type": "boolean",
-                        "description": "Whether the API key is used for remote config. Warning : default value is true for backwards compatibility Defaults to `true`.\n"
+                        "description": "Whether the API key is used for remote config. Set to true only if remote config is enabled in `/organization-settings/remote-config`.\n"
                     }
                 },
                 "type": "object"
@@ -36520,7 +37883,8 @@
             },
             "required": [
                 "filters",
-                "name"
+                "name",
+                "tags"
             ],
             "inputProperties": {
                 "description": {
@@ -37750,7 +39114,7 @@
             }
         },
         "datadog:index/openapiApi:OpenapiApi": {
-            "description": "Provides a Datadog OpenAPI resource. This can be used to synchronize Datadog's [API catalog](https://docs.datadoghq.com/api_catalog/) with an [OpenAPI](https://www.openapis.org/) specifications file.\n\n## Import\n\n```sh\n$ pulumi import datadog:index/openapiApi:OpenapiApi new_list \"90646597-5fdb-4a17-a240-647003f8c028\"\n```\n\n",
+            "description": "Deprecated: use the `datadog.SoftwareCatalog` resource instead. Provides a Datadog OpenAPI resource. This can be used to synchronize Datadog's [API catalog](https://docs.datadoghq.com/api_catalog/) with an [OpenAPI](https://www.openapis.org/) specifications file.\n\n## Import\n\n```sh\n$ pulumi import datadog:index/openapiApi:OpenapiApi new_list \"90646597-5fdb-4a17-a240-647003f8c028\"\n```\n\n",
             "properties": {
                 "spec": {
                     "type": "string",
@@ -38857,7 +40221,7 @@
             }
         },
         "datadog:index/securityNotificationRule:SecurityNotificationRule": {
-            "description": "Provides a Datadog Security Monitoring Notification Rule API resource for creating and managing Datadog security notification rules.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.SecurityNotificationRule;\nimport com.pulumi.datadog.SecurityNotificationRuleArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var signalRule = new SecurityNotificationRule(\"signalRule\", SecurityNotificationRuleArgs.builder()\n            .name(\"My signal notification rule\")\n            .selectors(SecurityNotificationRuleSelectorsArgs.builder()\n                .triggerSource(\"security_signals\")\n                .ruleTypes(\"workload_security\")\n                .query(\"env:prod\")\n                .build())\n            .enabled(false)\n            .targets(            \n                \"bob@email.com\",\n                \"alice@email.com\")\n            .build());\n\n        var vulnerabilityRule = new SecurityNotificationRule(\"vulnerabilityRule\", SecurityNotificationRuleArgs.builder()\n            .name(\"My vulnerability notification rule\")\n            .selectors(SecurityNotificationRuleSelectorsArgs.builder()\n                .triggerSource(\"security_findings\")\n                .ruleTypes(                \n                    \"application_library_vulnerability\",\n                    \"identity_risk\")\n                .severities(                \n                    \"critical\",\n                    \"high\")\n                .build())\n            .timeAggregation(36000)\n            .targets(\"john@email.com\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  signalRule:\n    type: datadog:SecurityNotificationRule\n    name: signal_rule\n    properties:\n      name: My signal notification rule\n      selectors:\n        - triggerSource: security_signals\n          ruleTypes:\n            - workload_security\n          query: env:prod\n      enabled: false\n      targets:\n        - bob@email.com\n        - alice@email.com\n  vulnerabilityRule:\n    type: datadog:SecurityNotificationRule\n    name: vulnerability_rule\n    properties:\n      name: My vulnerability notification rule\n      selectors:\n        - triggerSource: security_findings\n          ruleTypes:\n            - application_library_vulnerability\n            - identity_risk\n          severities:\n            - critical\n            - high\n      timeAggregation: 36000\n      targets:\n        - john@email.com\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import datadog:index/securityNotificationRule:SecurityNotificationRule signal_rule yq9-t9l-bso\n```\n\n",
+            "description": "Provides a Datadog Security Monitoring Notification Rule API resource for creating and managing Datadog security notification rules.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.SecurityNotificationRule;\nimport com.pulumi.datadog.SecurityNotificationRuleArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var signalRule = new SecurityNotificationRule(\"signalRule\", SecurityNotificationRuleArgs.builder()\n            .name(\"My signal notification rule\")\n            .selectors(SecurityNotificationRuleSelectorsArgs.builder()\n                .triggerSource(\"security_signals\")\n                .ruleTypes(\"workload_security\")\n                .query(\"env:prod\")\n                .build())\n            .enabled(false)\n            .targets(            \n                \"@bob@email.com\",\n                \"@alice@email.com\")\n            .build());\n\n        var vulnerabilityRule = new SecurityNotificationRule(\"vulnerabilityRule\", SecurityNotificationRuleArgs.builder()\n            .name(\"My vulnerability notification rule\")\n            .selectors(SecurityNotificationRuleSelectorsArgs.builder()\n                .triggerSource(\"security_findings\")\n                .ruleTypes(                \n                    \"application_library_vulnerability\",\n                    \"identity_risk\")\n                .severities(                \n                    \"critical\",\n                    \"high\")\n                .build())\n            .timeAggregation(36000)\n            .targets(\"@john@email.com\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  signalRule:\n    type: datadog:SecurityNotificationRule\n    name: signal_rule\n    properties:\n      name: My signal notification rule\n      selectors:\n        - triggerSource: security_signals\n          ruleTypes:\n            - workload_security\n          query: env:prod\n      enabled: false\n      targets:\n        - '@bob@email.com'\n        - '@alice@email.com'\n  vulnerabilityRule:\n    type: datadog:SecurityNotificationRule\n    name: vulnerability_rule\n    properties:\n      name: My vulnerability notification rule\n      selectors:\n        - triggerSource: security_findings\n          ruleTypes:\n            - application_library_vulnerability\n            - identity_risk\n          severities:\n            - critical\n            - high\n      timeAggregation: 36000\n      targets:\n        - '@john@email.com'\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import datadog:index/securityNotificationRule:SecurityNotificationRule signal_rule yq9-t9l-bso\n```\n\n",
             "properties": {
                 "createdAt": {
                     "type": "integer",
@@ -38900,7 +40264,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "The list of handle targets for the notifications.\n"
+                    "description": "The list of handle targets for the notifications. A target must be prefixed with an @. It can be an email address (@bob@email.com), or any installed integration. For example, a Slack recipient (@slack-ops), or a Teams recipient (@teams-ops).\n"
                 },
                 "timeAggregation": {
                     "type": "integer",
@@ -38942,7 +40306,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "The list of handle targets for the notifications.\n"
+                    "description": "The list of handle targets for the notifications. A target must be prefixed with an @. It can be an email address (@bob@email.com), or any installed integration. For example, a Slack recipient (@slack-ops), or a Teams recipient (@teams-ops).\n"
                 },
                 "timeAggregation": {
                     "type": "integer",
@@ -38997,7 +40361,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "The list of handle targets for the notifications.\n"
+                        "description": "The list of handle targets for the notifications. A target must be prefixed with an @. It can be an email address (@bob@email.com), or any installed integration. For example, a Slack recipient (@slack-ops), or a Teams recipient (@teams-ops).\n"
                     },
                     "timeAggregation": {
                         "type": "integer",
@@ -40033,6 +41397,10 @@
                     "type": "string",
                     "description": "Description of the global variable.\n"
                 },
+                "isFido": {
+                    "type": "boolean",
+                    "description": "If set to true, the global variable is a FIDO variable. Defaults to `false`.\n"
+                },
                 "isTotp": {
                     "type": "boolean",
                     "description": "If set to true, the global variable is a TOTP variable. Defaults to `false`.\n"
@@ -40062,7 +41430,7 @@
                 },
                 "secure": {
                     "type": "boolean",
-                    "description": "If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` is set to `true`. Defaults to `false`.\n"
+                    "description": "If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` or `is_fido` is set to `true`. Defaults to `false`.\n"
                 },
                 "tags": {
                     "type": "array",
@@ -40073,19 +41441,22 @@
                 },
                 "value": {
                     "type": "string",
-                    "description": "The value of the global variable.\n",
+                    "description": "The value of the global variable. This setting is ignored if `is_fido` is set to `true` and required otherwise.\n",
                     "secret": true
                 }
             },
             "required": [
-                "name",
-                "value"
+                "name"
             ],
             "inputProperties": {
                 "description": {
                     "type": "string",
                     "description": "Description of the global variable.\n"
                 },
+                "isFido": {
+                    "type": "boolean",
+                    "description": "If set to true, the global variable is a FIDO variable. Defaults to `false`.\n"
+                },
                 "isTotp": {
                     "type": "boolean",
                     "description": "If set to true, the global variable is a TOTP variable. Defaults to `false`.\n"
@@ -40115,7 +41486,7 @@
                 },
                 "secure": {
                     "type": "boolean",
-                    "description": "If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` is set to `true`. Defaults to `false`.\n"
+                    "description": "If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` or `is_fido` is set to `true`. Defaults to `false`.\n"
                 },
                 "tags": {
                     "type": "array",
@@ -40126,13 +41497,12 @@
                 },
                 "value": {
                     "type": "string",
-                    "description": "The value of the global variable.\n",
+                    "description": "The value of the global variable. This setting is ignored if `is_fido` is set to `true` and required otherwise.\n",
                     "secret": true
                 }
             },
             "requiredInputs": [
-                "name",
-                "value"
+                "name"
             ],
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering SyntheticsGlobalVariable resources.\n",
@@ -40140,6 +41510,10 @@
                     "description": {
                         "type": "string",
                         "description": "Description of the global variable.\n"
+                    },
+                    "isFido": {
+                        "type": "boolean",
+                        "description": "If set to true, the global variable is a FIDO variable. Defaults to `false`.\n"
                     },
                     "isTotp": {
                         "type": "boolean",
@@ -40170,7 +41544,7 @@
                     },
                     "secure": {
                         "type": "boolean",
-                        "description": "If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` is set to `true`. Defaults to `false`.\n"
+                        "description": "If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` or `is_fido` is set to `true`. Defaults to `false`.\n"
                     },
                     "tags": {
                         "type": "array",
@@ -40181,7 +41555,7 @@
                     },
                     "value": {
                         "type": "string",
-                        "description": "The value of the global variable.\n",
+                        "description": "The value of the global variable. This setting is ignored if `is_fido` is set to `true` and required otherwise.\n",
                         "secret": true
                     }
                 },
@@ -43806,6 +45180,14 @@
             "outputs": {
                 "description": "A collection of values returned by getUser.\n",
                 "properties": {
+                    "createdAt": {
+                        "description": "The time when the user was created (RFC3339 format).\n",
+                        "type": "string"
+                    },
+                    "disabled": {
+                        "description": "Indicates whether the user is disabled.\n",
+                        "type": "boolean"
+                    },
                     "email": {
                         "description": "Email of the user.\n",
                         "type": "string"
@@ -43818,19 +45200,61 @@
                         "description": "Filter all users by the given string.\n",
                         "type": "string"
                     },
+                    "handle": {
+                        "description": "The user's handle.\n",
+                        "type": "string"
+                    },
+                    "icon": {
+                        "description": "The URL where the user's icon is located.\n",
+                        "type": "string"
+                    },
                     "id": {
                         "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "mfaEnabled": {
+                        "description": "Indicates whether the user has enabled MFA.\n",
+                        "type": "boolean"
+                    },
+                    "modifiedAt": {
+                        "description": "The time at which the user was last updated (RFC3339 format).\n",
                         "type": "string"
                     },
                     "name": {
                         "description": "Name of the user.\n",
                         "type": "string"
+                    },
+                    "serviceAccount": {
+                        "description": "Indicates whether the user is a service account.\n",
+                        "type": "boolean"
+                    },
+                    "status": {
+                        "description": "The user's status.\n",
+                        "type": "string"
+                    },
+                    "title": {
+                        "description": "The user's title.\n",
+                        "type": "string"
+                    },
+                    "verified": {
+                        "description": "Indicates whether the user is verified.\n",
+                        "type": "boolean"
                     }
                 },
                 "required": [
+                    "createdAt",
+                    "disabled",
                     "email",
                     "filter",
+                    "handle",
+                    "icon",
+                    "mfaEnabled",
+                    "modifiedAt",
                     "name",
+                    "serviceAccount",
+                    "status",
+                    "title",
+                    "verified",
                     "id"
                 ],
                 "type": "object"
