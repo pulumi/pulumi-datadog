@@ -47,11 +47,27 @@ public final class DashboardWidgetToplistDefinitionStyleArgs extends com.pulumi.
         return Optional.ofNullable(this.palette);
     }
 
+    /**
+     * The scaling mode for the widget. Valid values are `absolute`, `relative`.
+     * 
+     */
+    @Import(name="scaling")
+    private @Nullable Output<String> scaling;
+
+    /**
+     * @return The scaling mode for the widget. Valid values are `absolute`, `relative`.
+     * 
+     */
+    public Optional<Output<String>> scaling() {
+        return Optional.ofNullable(this.scaling);
+    }
+
     private DashboardWidgetToplistDefinitionStyleArgs() {}
 
     private DashboardWidgetToplistDefinitionStyleArgs(DashboardWidgetToplistDefinitionStyleArgs $) {
         this.displays = $.displays;
         this.palette = $.palette;
+        this.scaling = $.scaling;
     }
 
     public static Builder builder() {
@@ -122,6 +138,27 @@ public final class DashboardWidgetToplistDefinitionStyleArgs extends com.pulumi.
          */
         public Builder palette(String palette) {
             return palette(Output.of(palette));
+        }
+
+        /**
+         * @param scaling The scaling mode for the widget. Valid values are `absolute`, `relative`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scaling(@Nullable Output<String> scaling) {
+            $.scaling = scaling;
+            return this;
+        }
+
+        /**
+         * @param scaling The scaling mode for the widget. Valid values are `absolute`, `relative`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scaling(String scaling) {
+            return scaling(Output.of(scaling));
         }
 
         public DashboardWidgetToplistDefinitionStyleArgs build() {

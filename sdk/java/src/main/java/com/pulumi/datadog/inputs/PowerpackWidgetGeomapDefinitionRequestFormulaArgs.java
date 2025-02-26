@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatArgs;
 import com.pulumi.datadog.inputs.PowerpackWidgetGeomapDefinitionRequestFormulaLimitArgs;
+import com.pulumi.datadog.inputs.PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatArgs;
 import com.pulumi.datadog.inputs.PowerpackWidgetGeomapDefinitionRequestFormulaStyleArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -36,14 +37,14 @@ public final class PowerpackWidgetGeomapDefinitionRequestFormulaArgs extends com
     }
 
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      * 
      */
     @Import(name="cellDisplayMode")
     private @Nullable Output<String> cellDisplayMode;
 
     /**
-     * @return A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * @return A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      * 
      */
     public Optional<Output<String>> cellDisplayMode() {
@@ -96,6 +97,21 @@ public final class PowerpackWidgetGeomapDefinitionRequestFormulaArgs extends com
     }
 
     /**
+     * Number formatting options for the formula.
+     * 
+     */
+    @Import(name="numberFormat")
+    private @Nullable Output<PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatArgs> numberFormat;
+
+    /**
+     * @return Number formatting options for the formula.
+     * 
+     */
+    public Optional<Output<PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatArgs>> numberFormat() {
+        return Optional.ofNullable(this.numberFormat);
+    }
+
+    /**
      * Styling options for widget formulas.
      * 
      */
@@ -118,6 +134,7 @@ public final class PowerpackWidgetGeomapDefinitionRequestFormulaArgs extends com
         this.conditionalFormats = $.conditionalFormats;
         this.formulaExpression = $.formulaExpression;
         this.limit = $.limit;
+        this.numberFormat = $.numberFormat;
         this.style = $.style;
     }
 
@@ -161,7 +178,7 @@ public final class PowerpackWidgetGeomapDefinitionRequestFormulaArgs extends com
         }
 
         /**
-         * @param cellDisplayMode A list of display modes for each table cell. Valid values are `number`, `bar`.
+         * @param cellDisplayMode A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
          * 
          * @return builder
          * 
@@ -172,7 +189,7 @@ public final class PowerpackWidgetGeomapDefinitionRequestFormulaArgs extends com
         }
 
         /**
-         * @param cellDisplayMode A list of display modes for each table cell. Valid values are `number`, `bar`.
+         * @param cellDisplayMode A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
          * 
          * @return builder
          * 
@@ -252,6 +269,27 @@ public final class PowerpackWidgetGeomapDefinitionRequestFormulaArgs extends com
          */
         public Builder limit(PowerpackWidgetGeomapDefinitionRequestFormulaLimitArgs limit) {
             return limit(Output.of(limit));
+        }
+
+        /**
+         * @param numberFormat Number formatting options for the formula.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder numberFormat(@Nullable Output<PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatArgs> numberFormat) {
+            $.numberFormat = numberFormat;
+            return this;
+        }
+
+        /**
+         * @param numberFormat Number formatting options for the formula.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder numberFormat(PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatArgs numberFormat) {
+            return numberFormat(Output.of(numberFormat));
         }
 
         /**

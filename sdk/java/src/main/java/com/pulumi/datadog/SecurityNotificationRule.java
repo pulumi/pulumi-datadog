@@ -55,8 +55,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .enabled(false)
  *             .targets(            
- *                 "bob}{@literal @}{@code email.com",
- *                 "alice}{@literal @}{@code email.com")
+ *                 "}{@literal @}{@code bob}{@literal @}{@code email.com",
+ *                 "}{@literal @}{@code alice}{@literal @}{@code email.com")
  *             .build());
  * 
  *         var vulnerabilityRule = new SecurityNotificationRule("vulnerabilityRule", SecurityNotificationRuleArgs.builder()
@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  *                     "high")
  *                 .build())
  *             .timeAggregation(36000)
- *             .targets("john}{@literal @}{@code email.com")
+ *             .targets("}{@literal @}{@code john}{@literal @}{@code email.com")
  *             .build());
  * 
  *     }}{@code
@@ -216,14 +216,14 @@ public class SecurityNotificationRule extends com.pulumi.resources.CustomResourc
         return Codegen.optional(this.selectors);
     }
     /**
-     * The list of handle targets for the notifications.
+     * The list of handle targets for the notifications. A target must be prefixed with an {@literal @}. It can be an email address ({@literal @}bob{@literal @}email.com), or any installed integration. For example, a Slack recipient ({@literal @}slack-ops), or a Teams recipient ({@literal @}teams-ops).
      * 
      */
     @Export(name="targets", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> targets;
 
     /**
-     * @return The list of handle targets for the notifications.
+     * @return The list of handle targets for the notifications. A target must be prefixed with an {@literal @}. It can be an email address ({@literal @}bob{@literal @}email.com), or any installed integration. For example, a Slack recipient ({@literal @}slack-ops), or a Teams recipient ({@literal @}teams-ops).
      * 
      */
     public Output<List<String>> targets() {

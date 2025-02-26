@@ -67,6 +67,10 @@ export class SyntheticsGlobalVariable extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * If set to true, the global variable is a FIDO variable. Defaults to `false`.
+     */
+    public readonly isFido!: pulumi.Output<boolean | undefined>;
+    /**
      * If set to true, the global variable is a TOTP variable. Defaults to `false`.
      */
     public readonly isTotp!: pulumi.Output<boolean | undefined>;
@@ -91,7 +95,7 @@ export class SyntheticsGlobalVariable extends pulumi.CustomResource {
      */
     public readonly restrictedRoles!: pulumi.Output<string[] | undefined>;
     /**
-     * If set to true, the value of the global variable is hidden. This setting is ignored if `isTotp` is set to `true`. Defaults to `false`.
+     * If set to true, the value of the global variable is hidden. This setting is ignored if `isTotp` or `isFido` is set to `true`. Defaults to `false`.
      */
     public readonly secure!: pulumi.Output<boolean | undefined>;
     /**
@@ -99,9 +103,9 @@ export class SyntheticsGlobalVariable extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<string[] | undefined>;
     /**
-     * The value of the global variable.
+     * The value of the global variable. This setting is ignored if `isFido` is set to `true` and required otherwise.
      */
-    public readonly value!: pulumi.Output<string>;
+    public readonly value!: pulumi.Output<string | undefined>;
 
     /**
      * Create a SyntheticsGlobalVariable resource with the given unique name, arguments, and options.
@@ -117,6 +121,7 @@ export class SyntheticsGlobalVariable extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as SyntheticsGlobalVariableState | undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["isFido"] = state ? state.isFido : undefined;
             resourceInputs["isTotp"] = state ? state.isTotp : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["options"] = state ? state.options : undefined;
@@ -131,10 +136,8 @@ export class SyntheticsGlobalVariable extends pulumi.CustomResource {
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.value === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'value'");
-            }
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["isFido"] = args ? args.isFido : undefined;
             resourceInputs["isTotp"] = args ? args.isTotp : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["options"] = args ? args.options : undefined;
@@ -161,6 +164,10 @@ export interface SyntheticsGlobalVariableState {
      */
     description?: pulumi.Input<string>;
     /**
+     * If set to true, the global variable is a FIDO variable. Defaults to `false`.
+     */
+    isFido?: pulumi.Input<boolean>;
+    /**
      * If set to true, the global variable is a TOTP variable. Defaults to `false`.
      */
     isTotp?: pulumi.Input<boolean>;
@@ -185,7 +192,7 @@ export interface SyntheticsGlobalVariableState {
      */
     restrictedRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * If set to true, the value of the global variable is hidden. This setting is ignored if `isTotp` is set to `true`. Defaults to `false`.
+     * If set to true, the value of the global variable is hidden. This setting is ignored if `isTotp` or `isFido` is set to `true`. Defaults to `false`.
      */
     secure?: pulumi.Input<boolean>;
     /**
@@ -193,7 +200,7 @@ export interface SyntheticsGlobalVariableState {
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The value of the global variable.
+     * The value of the global variable. This setting is ignored if `isFido` is set to `true` and required otherwise.
      */
     value?: pulumi.Input<string>;
 }
@@ -206,6 +213,10 @@ export interface SyntheticsGlobalVariableArgs {
      * Description of the global variable.
      */
     description?: pulumi.Input<string>;
+    /**
+     * If set to true, the global variable is a FIDO variable. Defaults to `false`.
+     */
+    isFido?: pulumi.Input<boolean>;
     /**
      * If set to true, the global variable is a TOTP variable. Defaults to `false`.
      */
@@ -231,7 +242,7 @@ export interface SyntheticsGlobalVariableArgs {
      */
     restrictedRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * If set to true, the value of the global variable is hidden. This setting is ignored if `isTotp` is set to `true`. Defaults to `false`.
+     * If set to true, the value of the global variable is hidden. This setting is ignored if `isTotp` or `isFido` is set to `true`. Defaults to `false`.
      */
     secure?: pulumi.Input<boolean>;
     /**
@@ -239,7 +250,7 @@ export interface SyntheticsGlobalVariableArgs {
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The value of the global variable.
+     * The value of the global variable. This setting is ignored if `isFido` is set to `true` and required otherwise.
      */
-    value: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
 }

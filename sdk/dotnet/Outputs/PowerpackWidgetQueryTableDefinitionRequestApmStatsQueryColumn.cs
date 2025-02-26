@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Alias;
         /// <summary>
-        /// A list of display modes for each table cell. Valid values are `number`, `bar`.
+        /// A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         /// </summary>
         public readonly string? CellDisplayMode;
         /// <summary>

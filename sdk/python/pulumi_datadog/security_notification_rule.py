@@ -29,7 +29,7 @@ class SecurityNotificationRuleArgs:
         """
         The set of arguments for constructing a SecurityNotificationRule resource.
         :param pulumi.Input[str] name: The name of the rule (must be unique).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] targets: The list of handle targets for the notifications.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] targets: The list of handle targets for the notifications. A target must be prefixed with an @. It can be an email address (@bob@email.com), or any installed integration. For example, a Slack recipient (@slack-ops), or a Teams recipient (@teams-ops).
         :param pulumi.Input[bool] enabled: Indicates whether the rule is enabled. Defaults to `true`.
         :param pulumi.Input['SecurityNotificationRuleSelectorsArgs'] selectors: Defines selectors to filter security issues that generate notifications.
         :param pulumi.Input[int] time_aggregation: Specifies the time period, in seconds, used to aggregate the notification. Defaults to `0`.
@@ -59,7 +59,7 @@ class SecurityNotificationRuleArgs:
     @pulumi.getter
     def targets(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        The list of handle targets for the notifications.
+        The list of handle targets for the notifications. A target must be prefixed with an @. It can be an email address (@bob@email.com), or any installed integration. For example, a Slack recipient (@slack-ops), or a Teams recipient (@teams-ops).
         """
         return pulumi.get(self, "targets")
 
@@ -130,7 +130,7 @@ class _SecurityNotificationRuleState:
         :param pulumi.Input[str] modified_by_name: The name of the rule last modifier.
         :param pulumi.Input[str] name: The name of the rule (must be unique).
         :param pulumi.Input['SecurityNotificationRuleSelectorsArgs'] selectors: Defines selectors to filter security issues that generate notifications.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] targets: The list of handle targets for the notifications.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] targets: The list of handle targets for the notifications. A target must be prefixed with an @. It can be an email address (@bob@email.com), or any installed integration. For example, a Slack recipient (@slack-ops), or a Teams recipient (@teams-ops).
         :param pulumi.Input[int] time_aggregation: Specifies the time period, in seconds, used to aggregate the notification. Defaults to `0`.
         :param pulumi.Input[int] version: The rule version (incremented at each update).
         """
@@ -271,7 +271,7 @@ class _SecurityNotificationRuleState:
     @pulumi.getter
     def targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The list of handle targets for the notifications.
+        The list of handle targets for the notifications. A target must be prefixed with an @. It can be an email address (@bob@email.com), or any installed integration. For example, a Slack recipient (@slack-ops), or a Teams recipient (@teams-ops).
         """
         return pulumi.get(self, "targets")
 
@@ -329,7 +329,7 @@ class SecurityNotificationRule(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Indicates whether the rule is enabled. Defaults to `true`.
         :param pulumi.Input[str] name: The name of the rule (must be unique).
         :param pulumi.Input[Union['SecurityNotificationRuleSelectorsArgs', 'SecurityNotificationRuleSelectorsArgsDict']] selectors: Defines selectors to filter security issues that generate notifications.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] targets: The list of handle targets for the notifications.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] targets: The list of handle targets for the notifications. A target must be prefixed with an @. It can be an email address (@bob@email.com), or any installed integration. For example, a Slack recipient (@slack-ops), or a Teams recipient (@teams-ops).
         :param pulumi.Input[int] time_aggregation: Specifies the time period, in seconds, used to aggregate the notification. Defaults to `0`.
         """
         ...
@@ -430,7 +430,7 @@ class SecurityNotificationRule(pulumi.CustomResource):
         :param pulumi.Input[str] modified_by_name: The name of the rule last modifier.
         :param pulumi.Input[str] name: The name of the rule (must be unique).
         :param pulumi.Input[Union['SecurityNotificationRuleSelectorsArgs', 'SecurityNotificationRuleSelectorsArgsDict']] selectors: Defines selectors to filter security issues that generate notifications.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] targets: The list of handle targets for the notifications.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] targets: The list of handle targets for the notifications. A target must be prefixed with an @. It can be an email address (@bob@email.com), or any installed integration. For example, a Slack recipient (@slack-ops), or a Teams recipient (@teams-ops).
         :param pulumi.Input[int] time_aggregation: Specifies the time period, in seconds, used to aggregate the notification. Defaults to `0`.
         :param pulumi.Input[int] version: The rule version (incremented at each update).
         """
@@ -528,7 +528,7 @@ class SecurityNotificationRule(pulumi.CustomResource):
     @pulumi.getter
     def targets(self) -> pulumi.Output[Sequence[str]]:
         """
-        The list of handle targets for the notifications.
+        The list of handle targets for the notifications. A target must be prefixed with an @. It can be an email address (@bob@email.com), or any installed integration. For example, a Slack recipient (@slack-ops), or a Teams recipient (@teams-ops).
         """
         return pulumi.get(self, "targets")
 

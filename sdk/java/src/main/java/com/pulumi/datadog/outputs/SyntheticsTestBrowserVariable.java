@@ -39,7 +39,7 @@ public final class SyntheticsTestBrowserVariable {
      */
     private @Nullable Boolean secure;
     /**
-     * @return Type of browser test variable. Valid values are `element`, `email`, `global`, `javascript`, `text`.
+     * @return Type of browser test variable. Valid values are `element`, `email`, `global`, `text`.
      * 
      */
     private String type;
@@ -81,7 +81,7 @@ public final class SyntheticsTestBrowserVariable {
         return Optional.ofNullable(this.secure);
     }
     /**
-     * @return Type of browser test variable. Valid values are `element`, `email`, `global`, `javascript`, `text`.
+     * @return Type of browser test variable. Valid values are `element`, `email`, `global`, `text`.
      * 
      */
     public String type() {

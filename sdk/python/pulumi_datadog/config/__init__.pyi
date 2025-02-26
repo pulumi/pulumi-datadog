@@ -37,8 +37,8 @@ appKey: Optional[str]
 
 defaultTags: Optional[str]
 """
-[Experimental - Monitors only] Configuration block containing settings to apply default resource tags across all
-resources.
+[Experimental - Monitors and Logs Pipelines only] Configuration block containing settings to apply default resource tags
+across all resources.
 """
 
 httpClientRetryBackoffBase: Optional[int]

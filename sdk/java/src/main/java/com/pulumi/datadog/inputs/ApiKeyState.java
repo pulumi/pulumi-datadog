@@ -47,14 +47,14 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether the API key is used for remote config. Warning : default value is true for backwards compatibility Defaults to `true`.
+     * Whether the API key is used for remote config. Set to true only if remote config is enabled in `/organization-settings/remote-config`.
      * 
      */
     @Import(name="remoteConfigReadEnabled")
     private @Nullable Output<Boolean> remoteConfigReadEnabled;
 
     /**
-     * @return Whether the API key is used for remote config. Warning : default value is true for backwards compatibility Defaults to `true`.
+     * @return Whether the API key is used for remote config. Set to true only if remote config is enabled in `/organization-settings/remote-config`.
      * 
      */
     public Optional<Output<Boolean>> remoteConfigReadEnabled() {
@@ -130,7 +130,7 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param remoteConfigReadEnabled Whether the API key is used for remote config. Warning : default value is true for backwards compatibility Defaults to `true`.
+         * @param remoteConfigReadEnabled Whether the API key is used for remote config. Set to true only if remote config is enabled in `/organization-settings/remote-config`.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param remoteConfigReadEnabled Whether the API key is used for remote config. Warning : default value is true for backwards compatibility Defaults to `true`.
+         * @param remoteConfigReadEnabled Whether the API key is used for remote config. Set to true only if remote config is enabled in `/organization-settings/remote-config`.
          * 
          * @return builder
          * 

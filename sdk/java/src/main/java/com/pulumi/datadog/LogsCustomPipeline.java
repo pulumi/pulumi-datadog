@@ -272,10 +272,10 @@ public class LogsCustomPipeline extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.processors);
     }
     @Export(name="tags", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> tags;
+    private Output<List<String>> tags;
 
-    public Output<Optional<List<String>>> tags() {
-        return Codegen.optional(this.tags);
+    public Output<List<String>> tags() {
+        return this.tags;
     }
 
     /**

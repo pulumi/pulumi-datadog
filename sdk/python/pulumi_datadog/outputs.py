@@ -44,6 +44,11 @@ __all__ = [
     'DashboardWidgetChangeDefinitionRequestFormula',
     'DashboardWidgetChangeDefinitionRequestFormulaConditionalFormat',
     'DashboardWidgetChangeDefinitionRequestFormulaLimit',
+    'DashboardWidgetChangeDefinitionRequestFormulaNumberFormat',
+    'DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnit',
+    'DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitCanonical',
+    'DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitCustom',
+    'DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitScale',
     'DashboardWidgetChangeDefinitionRequestFormulaStyle',
     'DashboardWidgetChangeDefinitionRequestProcessQuery',
     'DashboardWidgetChangeDefinitionRequestQuery',
@@ -76,6 +81,11 @@ __all__ = [
     'DashboardWidgetGeomapDefinitionRequestFormula',
     'DashboardWidgetGeomapDefinitionRequestFormulaConditionalFormat',
     'DashboardWidgetGeomapDefinitionRequestFormulaLimit',
+    'DashboardWidgetGeomapDefinitionRequestFormulaNumberFormat',
+    'DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnit',
+    'DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonical',
+    'DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustom',
+    'DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScale',
     'DashboardWidgetGeomapDefinitionRequestFormulaStyle',
     'DashboardWidgetGeomapDefinitionRequestQuery',
     'DashboardWidgetGeomapDefinitionRequestQueryApmDependencyStatsQuery',
@@ -101,6 +111,11 @@ __all__ = [
     'DashboardWidgetHeatmapDefinitionRequestFormula',
     'DashboardWidgetHeatmapDefinitionRequestFormulaConditionalFormat',
     'DashboardWidgetHeatmapDefinitionRequestFormulaLimit',
+    'DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormat',
+    'DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnit',
+    'DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCanonical',
+    'DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCustom',
+    'DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitScale',
     'DashboardWidgetHeatmapDefinitionRequestFormulaStyle',
     'DashboardWidgetHeatmapDefinitionRequestProcessQuery',
     'DashboardWidgetHeatmapDefinitionRequestQuery',
@@ -154,6 +169,11 @@ __all__ = [
     'DashboardWidgetQueryTableDefinitionRequestFormula',
     'DashboardWidgetQueryTableDefinitionRequestFormulaConditionalFormat',
     'DashboardWidgetQueryTableDefinitionRequestFormulaLimit',
+    'DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormat',
+    'DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnit',
+    'DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCanonical',
+    'DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCustom',
+    'DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitScale',
     'DashboardWidgetQueryTableDefinitionRequestFormulaStyle',
     'DashboardWidgetQueryTableDefinitionRequestProcessQuery',
     'DashboardWidgetQueryTableDefinitionRequestQuery',
@@ -184,6 +204,11 @@ __all__ = [
     'DashboardWidgetQueryValueDefinitionRequestFormula',
     'DashboardWidgetQueryValueDefinitionRequestFormulaConditionalFormat',
     'DashboardWidgetQueryValueDefinitionRequestFormulaLimit',
+    'DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormat',
+    'DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnit',
+    'DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCanonical',
+    'DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustom',
+    'DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScale',
     'DashboardWidgetQueryValueDefinitionRequestFormulaStyle',
     'DashboardWidgetQueryValueDefinitionRequestProcessQuery',
     'DashboardWidgetQueryValueDefinitionRequestQuery',
@@ -264,6 +289,11 @@ __all__ = [
     'DashboardWidgetSunburstDefinitionRequestFormula',
     'DashboardWidgetSunburstDefinitionRequestFormulaConditionalFormat',
     'DashboardWidgetSunburstDefinitionRequestFormulaLimit',
+    'DashboardWidgetSunburstDefinitionRequestFormulaNumberFormat',
+    'DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnit',
+    'DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCanonical',
+    'DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCustom',
+    'DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitScale',
     'DashboardWidgetSunburstDefinitionRequestFormulaStyle',
     'DashboardWidgetSunburstDefinitionRequestNetworkQuery',
     'DashboardWidgetSunburstDefinitionRequestNetworkQueryComputeQuery',
@@ -297,6 +327,11 @@ __all__ = [
     'DashboardWidgetTimeseriesDefinitionRequestFormula',
     'DashboardWidgetTimeseriesDefinitionRequestFormulaConditionalFormat',
     'DashboardWidgetTimeseriesDefinitionRequestFormulaLimit',
+    'DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormat',
+    'DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnit',
+    'DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical',
+    'DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustom',
+    'DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScale',
     'DashboardWidgetTimeseriesDefinitionRequestFormulaStyle',
     'DashboardWidgetTimeseriesDefinitionRequestMetadata',
     'DashboardWidgetTimeseriesDefinitionRequestNetworkQuery',
@@ -332,6 +367,11 @@ __all__ = [
     'DashboardWidgetToplistDefinitionRequestFormula',
     'DashboardWidgetToplistDefinitionRequestFormulaConditionalFormat',
     'DashboardWidgetToplistDefinitionRequestFormulaLimit',
+    'DashboardWidgetToplistDefinitionRequestFormulaNumberFormat',
+    'DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnit',
+    'DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonical',
+    'DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustom',
+    'DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitScale',
     'DashboardWidgetToplistDefinitionRequestFormulaStyle',
     'DashboardWidgetToplistDefinitionRequestProcessQuery',
     'DashboardWidgetToplistDefinitionRequestQuery',
@@ -359,6 +399,11 @@ __all__ = [
     'DashboardWidgetTreemapDefinitionRequestFormula',
     'DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormat',
     'DashboardWidgetTreemapDefinitionRequestFormulaLimit',
+    'DashboardWidgetTreemapDefinitionRequestFormulaNumberFormat',
+    'DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnit',
+    'DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonical',
+    'DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom',
+    'DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale',
     'DashboardWidgetTreemapDefinitionRequestFormulaStyle',
     'DashboardWidgetTreemapDefinitionRequestQuery',
     'DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery',
@@ -417,6 +462,7 @@ __all__ = [
     'LogsCustomPipelineProcessorPipelineProcessorMessageRemapper',
     'LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor',
     'LogsCustomPipelineProcessorPipelineProcessorServiceRemapper',
+    'LogsCustomPipelineProcessorPipelineProcessorSpanIdRemapper',
     'LogsCustomPipelineProcessorPipelineProcessorStatusRemapper',
     'LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessor',
     'LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapper',
@@ -424,6 +470,7 @@ __all__ = [
     'LogsCustomPipelineProcessorPipelineProcessorUserAgentParser',
     'LogsCustomPipelineProcessorReferenceTableLookupProcessor',
     'LogsCustomPipelineProcessorServiceRemapper',
+    'LogsCustomPipelineProcessorSpanIdRemapper',
     'LogsCustomPipelineProcessorStatusRemapper',
     'LogsCustomPipelineProcessorStringBuilderProcessor',
     'LogsCustomPipelineProcessorTraceIdRemapper',
@@ -472,6 +519,11 @@ __all__ = [
     'PowerpackWidgetChangeDefinitionRequestFormula',
     'PowerpackWidgetChangeDefinitionRequestFormulaConditionalFormat',
     'PowerpackWidgetChangeDefinitionRequestFormulaLimit',
+    'PowerpackWidgetChangeDefinitionRequestFormulaNumberFormat',
+    'PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnit',
+    'PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnitCanonical',
+    'PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnitCustom',
+    'PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnitScale',
     'PowerpackWidgetChangeDefinitionRequestFormulaStyle',
     'PowerpackWidgetChangeDefinitionRequestLogQuery',
     'PowerpackWidgetChangeDefinitionRequestLogQueryComputeQuery',
@@ -539,6 +591,11 @@ __all__ = [
     'PowerpackWidgetGeomapDefinitionRequestFormula',
     'PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormat',
     'PowerpackWidgetGeomapDefinitionRequestFormulaLimit',
+    'PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormat',
+    'PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnit',
+    'PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonical',
+    'PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustom',
+    'PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScale',
     'PowerpackWidgetGeomapDefinitionRequestFormulaStyle',
     'PowerpackWidgetGeomapDefinitionRequestLogQuery',
     'PowerpackWidgetGeomapDefinitionRequestLogQueryComputeQuery',
@@ -576,6 +633,11 @@ __all__ = [
     'PowerpackWidgetHeatmapDefinitionRequestFormula',
     'PowerpackWidgetHeatmapDefinitionRequestFormulaConditionalFormat',
     'PowerpackWidgetHeatmapDefinitionRequestFormulaLimit',
+    'PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormat',
+    'PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnit',
+    'PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCanonical',
+    'PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCustom',
+    'PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitScale',
     'PowerpackWidgetHeatmapDefinitionRequestFormulaStyle',
     'PowerpackWidgetHeatmapDefinitionRequestLogQuery',
     'PowerpackWidgetHeatmapDefinitionRequestLogQueryComputeQuery',
@@ -680,6 +742,11 @@ __all__ = [
     'PowerpackWidgetQueryTableDefinitionRequestFormula',
     'PowerpackWidgetQueryTableDefinitionRequestFormulaConditionalFormat',
     'PowerpackWidgetQueryTableDefinitionRequestFormulaLimit',
+    'PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormat',
+    'PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnit',
+    'PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCanonical',
+    'PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCustom',
+    'PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitScale',
     'PowerpackWidgetQueryTableDefinitionRequestFormulaStyle',
     'PowerpackWidgetQueryTableDefinitionRequestLogQuery',
     'PowerpackWidgetQueryTableDefinitionRequestLogQueryComputeQuery',
@@ -730,6 +797,11 @@ __all__ = [
     'PowerpackWidgetQueryValueDefinitionRequestFormula',
     'PowerpackWidgetQueryValueDefinitionRequestFormulaConditionalFormat',
     'PowerpackWidgetQueryValueDefinitionRequestFormulaLimit',
+    'PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormat',
+    'PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnit',
+    'PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCanonical',
+    'PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustom',
+    'PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScale',
     'PowerpackWidgetQueryValueDefinitionRequestFormulaStyle',
     'PowerpackWidgetQueryValueDefinitionRequestLogQuery',
     'PowerpackWidgetQueryValueDefinitionRequestLogQueryComputeQuery',
@@ -852,6 +924,11 @@ __all__ = [
     'PowerpackWidgetSunburstDefinitionRequestFormula',
     'PowerpackWidgetSunburstDefinitionRequestFormulaConditionalFormat',
     'PowerpackWidgetSunburstDefinitionRequestFormulaLimit',
+    'PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormat',
+    'PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnit',
+    'PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCanonical',
+    'PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCustom',
+    'PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnitScale',
     'PowerpackWidgetSunburstDefinitionRequestFormulaStyle',
     'PowerpackWidgetSunburstDefinitionRequestLogQuery',
     'PowerpackWidgetSunburstDefinitionRequestLogQueryComputeQuery',
@@ -905,6 +982,11 @@ __all__ = [
     'PowerpackWidgetTimeseriesDefinitionRequestFormula',
     'PowerpackWidgetTimeseriesDefinitionRequestFormulaConditionalFormat',
     'PowerpackWidgetTimeseriesDefinitionRequestFormulaLimit',
+    'PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormat',
+    'PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnit',
+    'PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical',
+    'PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustom',
+    'PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScale',
     'PowerpackWidgetTimeseriesDefinitionRequestFormulaStyle',
     'PowerpackWidgetTimeseriesDefinitionRequestLogQuery',
     'PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQuery',
@@ -960,6 +1042,11 @@ __all__ = [
     'PowerpackWidgetToplistDefinitionRequestFormula',
     'PowerpackWidgetToplistDefinitionRequestFormulaConditionalFormat',
     'PowerpackWidgetToplistDefinitionRequestFormulaLimit',
+    'PowerpackWidgetToplistDefinitionRequestFormulaNumberFormat',
+    'PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnit',
+    'PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonical',
+    'PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustom',
+    'PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScale',
     'PowerpackWidgetToplistDefinitionRequestFormulaStyle',
     'PowerpackWidgetToplistDefinitionRequestLogQuery',
     'PowerpackWidgetToplistDefinitionRequestLogQueryComputeQuery',
@@ -1002,6 +1089,11 @@ __all__ = [
     'PowerpackWidgetTreemapDefinitionRequestFormula',
     'PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormat',
     'PowerpackWidgetTreemapDefinitionRequestFormulaLimit',
+    'PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormat',
+    'PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnit',
+    'PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonical',
+    'PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom',
+    'PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale',
     'PowerpackWidgetTreemapDefinitionRequestFormulaStyle',
     'PowerpackWidgetTreemapDefinitionRequestQuery',
     'PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery',
@@ -3202,6 +3294,8 @@ class DashboardWidgetChangeDefinitionRequestFormula(dict):
             suggest = "cell_display_mode"
         elif key == "conditionalFormats":
             suggest = "conditional_formats"
+        elif key == "numberFormat":
+            suggest = "number_format"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetChangeDefinitionRequestFormula. Access the value via the '{suggest}' property getter instead.")
@@ -3220,13 +3314,15 @@ class DashboardWidgetChangeDefinitionRequestFormula(dict):
                  cell_display_mode: Optional[str] = None,
                  conditional_formats: Optional[Sequence['outputs.DashboardWidgetChangeDefinitionRequestFormulaConditionalFormat']] = None,
                  limit: Optional['outputs.DashboardWidgetChangeDefinitionRequestFormulaLimit'] = None,
+                 number_format: Optional['outputs.DashboardWidgetChangeDefinitionRequestFormulaNumberFormat'] = None,
                  style: Optional['outputs.DashboardWidgetChangeDefinitionRequestFormulaStyle'] = None):
         """
         :param str formula_expression: A string expression built from queries, formulas, and functions.
         :param str alias: An expression alias.
-        :param str cell_display_mode: A list of display modes for each table cell. Valid values are `number`, `bar`.
+        :param str cell_display_mode: A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         :param Sequence['DashboardWidgetChangeDefinitionRequestFormulaConditionalFormatArgs'] conditional_formats: Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
         :param 'DashboardWidgetChangeDefinitionRequestFormulaLimitArgs' limit: The options for limiting results returned.
+        :param 'DashboardWidgetChangeDefinitionRequestFormulaNumberFormatArgs' number_format: Number formatting options for the formula.
         :param 'DashboardWidgetChangeDefinitionRequestFormulaStyleArgs' style: Styling options for widget formulas.
         """
         pulumi.set(__self__, "formula_expression", formula_expression)
@@ -3238,6 +3334,8 @@ class DashboardWidgetChangeDefinitionRequestFormula(dict):
             pulumi.set(__self__, "conditional_formats", conditional_formats)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
+        if number_format is not None:
+            pulumi.set(__self__, "number_format", number_format)
         if style is not None:
             pulumi.set(__self__, "style", style)
 
@@ -3261,7 +3359,7 @@ class DashboardWidgetChangeDefinitionRequestFormula(dict):
     @pulumi.getter(name="cellDisplayMode")
     def cell_display_mode(self) -> Optional[str]:
         """
-        A list of display modes for each table cell. Valid values are `number`, `bar`.
+        A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         """
         return pulumi.get(self, "cell_display_mode")
 
@@ -3280,6 +3378,14 @@ class DashboardWidgetChangeDefinitionRequestFormula(dict):
         The options for limiting results returned.
         """
         return pulumi.get(self, "limit")
+
+    @property
+    @pulumi.getter(name="numberFormat")
+    def number_format(self) -> Optional['outputs.DashboardWidgetChangeDefinitionRequestFormulaNumberFormat']:
+        """
+        Number formatting options for the formula.
+        """
+        return pulumi.get(self, "number_format")
 
     @property
     @pulumi.getter
@@ -3454,6 +3560,176 @@ class DashboardWidgetChangeDefinitionRequestFormulaLimit(dict):
         The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
         """
         return pulumi.get(self, "order")
+
+
+@pulumi.output_type
+class DashboardWidgetChangeDefinitionRequestFormulaNumberFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitScale":
+            suggest = "unit_scale"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetChangeDefinitionRequestFormulaNumberFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetChangeDefinitionRequestFormulaNumberFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetChangeDefinitionRequestFormulaNumberFormat.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit: 'outputs.DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnit',
+                 unit_scale: Optional['outputs.DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitScale'] = None):
+        """
+        :param 'DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitArgs' unit: Unit of the number format.
+        """
+        pulumi.set(__self__, "unit", unit)
+        if unit_scale is not None:
+            pulumi.set(__self__, "unit_scale", unit_scale)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> 'outputs.DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnit':
+        """
+        Unit of the number format.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter(name="unitScale")
+    def unit_scale(self) -> Optional['outputs.DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitScale']:
+        return pulumi.get(self, "unit_scale")
+
+
+@pulumi.output_type
+class DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnit(dict):
+    def __init__(__self__, *,
+                 canonical: Optional['outputs.DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitCanonical'] = None,
+                 custom: Optional['outputs.DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitCustom'] = None):
+        """
+        :param 'DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitCanonicalArgs' canonical: Canonical Units
+        :param 'DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitCustomArgs' custom: Use custom (non canonical metrics)
+        """
+        if canonical is not None:
+            pulumi.set(__self__, "canonical", canonical)
+        if custom is not None:
+            pulumi.set(__self__, "custom", custom)
+
+    @property
+    @pulumi.getter
+    def canonical(self) -> Optional['outputs.DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitCanonical']:
+        """
+        Canonical Units
+        """
+        return pulumi.get(self, "canonical")
+
+    @property
+    @pulumi.getter
+    def custom(self) -> Optional['outputs.DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitCustom']:
+        """
+        Use custom (non canonical metrics)
+        """
+        return pulumi.get(self, "custom")
+
+
+@pulumi.output_type
+class DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitCanonical(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitName":
+            suggest = "unit_name"
+        elif key == "perUnitName":
+            suggest = "per_unit_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitCanonical. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitCanonical.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitCanonical.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit_name: str,
+                 per_unit_name: Optional[str] = None):
+        """
+        :param str unit_name: Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+        :param str per_unit_name: per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+        """
+        pulumi.set(__self__, "unit_name", unit_name)
+        if per_unit_name is not None:
+            pulumi.set(__self__, "per_unit_name", per_unit_name)
+
+    @property
+    @pulumi.getter(name="unitName")
+    def unit_name(self) -> str:
+        """
+        Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+        """
+        return pulumi.get(self, "unit_name")
+
+    @property
+    @pulumi.getter(name="perUnitName")
+    def per_unit_name(self) -> Optional[str]:
+        """
+        per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+        """
+        return pulumi.get(self, "per_unit_name")
+
+
+@pulumi.output_type
+class DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitCustom(dict):
+    def __init__(__self__, *,
+                 label: str):
+        """
+        :param str label: Unit label
+        """
+        pulumi.set(__self__, "label", label)
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        """
+        Unit label
+        """
+        return pulumi.get(self, "label")
+
+
+@pulumi.output_type
+class DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitScale(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitName":
+            suggest = "unit_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitScale. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitScale.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitScale.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit_name: str):
+        pulumi.set(__self__, "unit_name", unit_name)
+
+    @property
+    @pulumi.getter(name="unitName")
+    def unit_name(self) -> str:
+        return pulumi.get(self, "unit_name")
 
 
 @pulumi.output_type
@@ -5263,7 +5539,7 @@ class DashboardWidgetDistributionDefinitionRequestApmStatsQueryColumn(dict):
         """
         :param str name: The column name.
         :param str alias: A user-assigned alias for the column.
-        :param str cell_display_mode: A list of display modes for each table cell. Valid values are `number`, `bar`.
+        :param str cell_display_mode: A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         :param str order: Widget sorting methods. Valid values are `asc`, `desc`.
         """
         pulumi.set(__self__, "name", name)
@@ -5294,7 +5570,7 @@ class DashboardWidgetDistributionDefinitionRequestApmStatsQueryColumn(dict):
     @pulumi.getter(name="cellDisplayMode")
     def cell_display_mode(self) -> Optional[str]:
         """
-        A list of display modes for each table cell. Valid values are `number`, `bar`.
+        A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         """
         return pulumi.get(self, "cell_display_mode")
 
@@ -6132,6 +6408,8 @@ class DashboardWidgetGeomapDefinitionRequestFormula(dict):
             suggest = "cell_display_mode"
         elif key == "conditionalFormats":
             suggest = "conditional_formats"
+        elif key == "numberFormat":
+            suggest = "number_format"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGeomapDefinitionRequestFormula. Access the value via the '{suggest}' property getter instead.")
@@ -6150,13 +6428,15 @@ class DashboardWidgetGeomapDefinitionRequestFormula(dict):
                  cell_display_mode: Optional[str] = None,
                  conditional_formats: Optional[Sequence['outputs.DashboardWidgetGeomapDefinitionRequestFormulaConditionalFormat']] = None,
                  limit: Optional['outputs.DashboardWidgetGeomapDefinitionRequestFormulaLimit'] = None,
+                 number_format: Optional['outputs.DashboardWidgetGeomapDefinitionRequestFormulaNumberFormat'] = None,
                  style: Optional['outputs.DashboardWidgetGeomapDefinitionRequestFormulaStyle'] = None):
         """
         :param str formula_expression: A string expression built from queries, formulas, and functions.
         :param str alias: An expression alias.
-        :param str cell_display_mode: A list of display modes for each table cell. Valid values are `number`, `bar`.
+        :param str cell_display_mode: A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         :param Sequence['DashboardWidgetGeomapDefinitionRequestFormulaConditionalFormatArgs'] conditional_formats: Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
         :param 'DashboardWidgetGeomapDefinitionRequestFormulaLimitArgs' limit: The options for limiting results returned.
+        :param 'DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatArgs' number_format: Number formatting options for the formula.
         :param 'DashboardWidgetGeomapDefinitionRequestFormulaStyleArgs' style: Styling options for widget formulas.
         """
         pulumi.set(__self__, "formula_expression", formula_expression)
@@ -6168,6 +6448,8 @@ class DashboardWidgetGeomapDefinitionRequestFormula(dict):
             pulumi.set(__self__, "conditional_formats", conditional_formats)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
+        if number_format is not None:
+            pulumi.set(__self__, "number_format", number_format)
         if style is not None:
             pulumi.set(__self__, "style", style)
 
@@ -6191,7 +6473,7 @@ class DashboardWidgetGeomapDefinitionRequestFormula(dict):
     @pulumi.getter(name="cellDisplayMode")
     def cell_display_mode(self) -> Optional[str]:
         """
-        A list of display modes for each table cell. Valid values are `number`, `bar`.
+        A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         """
         return pulumi.get(self, "cell_display_mode")
 
@@ -6210,6 +6492,14 @@ class DashboardWidgetGeomapDefinitionRequestFormula(dict):
         The options for limiting results returned.
         """
         return pulumi.get(self, "limit")
+
+    @property
+    @pulumi.getter(name="numberFormat")
+    def number_format(self) -> Optional['outputs.DashboardWidgetGeomapDefinitionRequestFormulaNumberFormat']:
+        """
+        Number formatting options for the formula.
+        """
+        return pulumi.get(self, "number_format")
 
     @property
     @pulumi.getter
@@ -6384,6 +6674,176 @@ class DashboardWidgetGeomapDefinitionRequestFormulaLimit(dict):
         The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
         """
         return pulumi.get(self, "order")
+
+
+@pulumi.output_type
+class DashboardWidgetGeomapDefinitionRequestFormulaNumberFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitScale":
+            suggest = "unit_scale"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGeomapDefinitionRequestFormulaNumberFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGeomapDefinitionRequestFormulaNumberFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGeomapDefinitionRequestFormulaNumberFormat.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit: 'outputs.DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnit',
+                 unit_scale: Optional['outputs.DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScale'] = None):
+        """
+        :param 'DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitArgs' unit: Unit of the number format.
+        """
+        pulumi.set(__self__, "unit", unit)
+        if unit_scale is not None:
+            pulumi.set(__self__, "unit_scale", unit_scale)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> 'outputs.DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnit':
+        """
+        Unit of the number format.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter(name="unitScale")
+    def unit_scale(self) -> Optional['outputs.DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScale']:
+        return pulumi.get(self, "unit_scale")
+
+
+@pulumi.output_type
+class DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnit(dict):
+    def __init__(__self__, *,
+                 canonical: Optional['outputs.DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonical'] = None,
+                 custom: Optional['outputs.DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustom'] = None):
+        """
+        :param 'DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalArgs' canonical: Canonical Units
+        :param 'DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomArgs' custom: Use custom (non canonical metrics)
+        """
+        if canonical is not None:
+            pulumi.set(__self__, "canonical", canonical)
+        if custom is not None:
+            pulumi.set(__self__, "custom", custom)
+
+    @property
+    @pulumi.getter
+    def canonical(self) -> Optional['outputs.DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonical']:
+        """
+        Canonical Units
+        """
+        return pulumi.get(self, "canonical")
+
+    @property
+    @pulumi.getter
+    def custom(self) -> Optional['outputs.DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustom']:
+        """
+        Use custom (non canonical metrics)
+        """
+        return pulumi.get(self, "custom")
+
+
+@pulumi.output_type
+class DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonical(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitName":
+            suggest = "unit_name"
+        elif key == "perUnitName":
+            suggest = "per_unit_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonical. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonical.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonical.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit_name: str,
+                 per_unit_name: Optional[str] = None):
+        """
+        :param str unit_name: Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+        :param str per_unit_name: per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+        """
+        pulumi.set(__self__, "unit_name", unit_name)
+        if per_unit_name is not None:
+            pulumi.set(__self__, "per_unit_name", per_unit_name)
+
+    @property
+    @pulumi.getter(name="unitName")
+    def unit_name(self) -> str:
+        """
+        Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+        """
+        return pulumi.get(self, "unit_name")
+
+    @property
+    @pulumi.getter(name="perUnitName")
+    def per_unit_name(self) -> Optional[str]:
+        """
+        per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+        """
+        return pulumi.get(self, "per_unit_name")
+
+
+@pulumi.output_type
+class DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustom(dict):
+    def __init__(__self__, *,
+                 label: str):
+        """
+        :param str label: Unit label
+        """
+        pulumi.set(__self__, "label", label)
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        """
+        Unit label
+        """
+        return pulumi.get(self, "label")
+
+
+@pulumi.output_type
+class DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScale(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitName":
+            suggest = "unit_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScale. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScale.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScale.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit_name: str):
+        pulumi.set(__self__, "unit_name", unit_name)
+
+    @property
+    @pulumi.getter(name="unitName")
+    def unit_name(self) -> str:
+        return pulumi.get(self, "unit_name")
 
 
 @pulumi.output_type
@@ -8745,6 +9205,8 @@ class DashboardWidgetHeatmapDefinitionRequestFormula(dict):
             suggest = "cell_display_mode"
         elif key == "conditionalFormats":
             suggest = "conditional_formats"
+        elif key == "numberFormat":
+            suggest = "number_format"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetHeatmapDefinitionRequestFormula. Access the value via the '{suggest}' property getter instead.")
@@ -8763,13 +9225,15 @@ class DashboardWidgetHeatmapDefinitionRequestFormula(dict):
                  cell_display_mode: Optional[str] = None,
                  conditional_formats: Optional[Sequence['outputs.DashboardWidgetHeatmapDefinitionRequestFormulaConditionalFormat']] = None,
                  limit: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestFormulaLimit'] = None,
+                 number_format: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormat'] = None,
                  style: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestFormulaStyle'] = None):
         """
         :param str formula_expression: A string expression built from queries, formulas, and functions.
         :param str alias: An expression alias.
-        :param str cell_display_mode: A list of display modes for each table cell. Valid values are `number`, `bar`.
+        :param str cell_display_mode: A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         :param Sequence['DashboardWidgetHeatmapDefinitionRequestFormulaConditionalFormatArgs'] conditional_formats: Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
         :param 'DashboardWidgetHeatmapDefinitionRequestFormulaLimitArgs' limit: The options for limiting results returned.
+        :param 'DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatArgs' number_format: Number formatting options for the formula.
         :param 'DashboardWidgetHeatmapDefinitionRequestFormulaStyleArgs' style: Styling options for widget formulas.
         """
         pulumi.set(__self__, "formula_expression", formula_expression)
@@ -8781,6 +9245,8 @@ class DashboardWidgetHeatmapDefinitionRequestFormula(dict):
             pulumi.set(__self__, "conditional_formats", conditional_formats)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
+        if number_format is not None:
+            pulumi.set(__self__, "number_format", number_format)
         if style is not None:
             pulumi.set(__self__, "style", style)
 
@@ -8804,7 +9270,7 @@ class DashboardWidgetHeatmapDefinitionRequestFormula(dict):
     @pulumi.getter(name="cellDisplayMode")
     def cell_display_mode(self) -> Optional[str]:
         """
-        A list of display modes for each table cell. Valid values are `number`, `bar`.
+        A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         """
         return pulumi.get(self, "cell_display_mode")
 
@@ -8823,6 +9289,14 @@ class DashboardWidgetHeatmapDefinitionRequestFormula(dict):
         The options for limiting results returned.
         """
         return pulumi.get(self, "limit")
+
+    @property
+    @pulumi.getter(name="numberFormat")
+    def number_format(self) -> Optional['outputs.DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormat']:
+        """
+        Number formatting options for the formula.
+        """
+        return pulumi.get(self, "number_format")
 
     @property
     @pulumi.getter
@@ -8997,6 +9471,176 @@ class DashboardWidgetHeatmapDefinitionRequestFormulaLimit(dict):
         The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
         """
         return pulumi.get(self, "order")
+
+
+@pulumi.output_type
+class DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitScale":
+            suggest = "unit_scale"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormat.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit: 'outputs.DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnit',
+                 unit_scale: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitScale'] = None):
+        """
+        :param 'DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitArgs' unit: Unit of the number format.
+        """
+        pulumi.set(__self__, "unit", unit)
+        if unit_scale is not None:
+            pulumi.set(__self__, "unit_scale", unit_scale)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> 'outputs.DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnit':
+        """
+        Unit of the number format.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter(name="unitScale")
+    def unit_scale(self) -> Optional['outputs.DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitScale']:
+        return pulumi.get(self, "unit_scale")
+
+
+@pulumi.output_type
+class DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnit(dict):
+    def __init__(__self__, *,
+                 canonical: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCanonical'] = None,
+                 custom: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCustom'] = None):
+        """
+        :param 'DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCanonicalArgs' canonical: Canonical Units
+        :param 'DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCustomArgs' custom: Use custom (non canonical metrics)
+        """
+        if canonical is not None:
+            pulumi.set(__self__, "canonical", canonical)
+        if custom is not None:
+            pulumi.set(__self__, "custom", custom)
+
+    @property
+    @pulumi.getter
+    def canonical(self) -> Optional['outputs.DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCanonical']:
+        """
+        Canonical Units
+        """
+        return pulumi.get(self, "canonical")
+
+    @property
+    @pulumi.getter
+    def custom(self) -> Optional['outputs.DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCustom']:
+        """
+        Use custom (non canonical metrics)
+        """
+        return pulumi.get(self, "custom")
+
+
+@pulumi.output_type
+class DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCanonical(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitName":
+            suggest = "unit_name"
+        elif key == "perUnitName":
+            suggest = "per_unit_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCanonical. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCanonical.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCanonical.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit_name: str,
+                 per_unit_name: Optional[str] = None):
+        """
+        :param str unit_name: Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+        :param str per_unit_name: per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+        """
+        pulumi.set(__self__, "unit_name", unit_name)
+        if per_unit_name is not None:
+            pulumi.set(__self__, "per_unit_name", per_unit_name)
+
+    @property
+    @pulumi.getter(name="unitName")
+    def unit_name(self) -> str:
+        """
+        Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+        """
+        return pulumi.get(self, "unit_name")
+
+    @property
+    @pulumi.getter(name="perUnitName")
+    def per_unit_name(self) -> Optional[str]:
+        """
+        per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+        """
+        return pulumi.get(self, "per_unit_name")
+
+
+@pulumi.output_type
+class DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCustom(dict):
+    def __init__(__self__, *,
+                 label: str):
+        """
+        :param str label: Unit label
+        """
+        pulumi.set(__self__, "label", label)
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        """
+        Unit label
+        """
+        return pulumi.get(self, "label")
+
+
+@pulumi.output_type
+class DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitScale(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitName":
+            suggest = "unit_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitScale. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitScale.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitScale.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit_name: str):
+        pulumi.set(__self__, "unit_name", unit_name)
+
+    @property
+    @pulumi.getter(name="unitName")
+    def unit_name(self) -> str:
+        return pulumi.get(self, "unit_name")
 
 
 @pulumi.output_type
@@ -12772,7 +13416,7 @@ class DashboardWidgetQueryTableDefinitionRequest(dict):
         :param str aggregator: The aggregator to use for time aggregation. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
         :param str alias: The alias for the column name (defaults to metric name).
         :param 'DashboardWidgetApmQueryArgs' apm_query: The query to use for this widget.
-        :param Sequence[str] cell_display_modes: A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`.
+        :param Sequence[str] cell_display_modes: A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`, `trend`.
         :param Sequence['DashboardWidgetQueryTableDefinitionRequestConditionalFormatArgs'] conditional_formats: Conditional formats allow you to set the color of your widget content or background, depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
         :param int limit: The number of lines to show in the table.
         :param 'DashboardWidgetLogQueryArgs' log_query: The query to use for this widget.
@@ -12849,7 +13493,7 @@ class DashboardWidgetQueryTableDefinitionRequest(dict):
     @pulumi.getter(name="cellDisplayModes")
     def cell_display_modes(self) -> Optional[Sequence[str]]:
         """
-        A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`.
+        A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`, `trend`.
         """
         return pulumi.get(self, "cell_display_modes")
 
@@ -13068,7 +13712,7 @@ class DashboardWidgetQueryTableDefinitionRequestApmStatsQueryColumn(dict):
         """
         :param str name: The column name.
         :param str alias: A user-assigned alias for the column.
-        :param str cell_display_mode: A list of display modes for each table cell. Valid values are `number`, `bar`.
+        :param str cell_display_mode: A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         :param str order: Widget sorting methods. Valid values are `asc`, `desc`.
         """
         pulumi.set(__self__, "name", name)
@@ -13099,7 +13743,7 @@ class DashboardWidgetQueryTableDefinitionRequestApmStatsQueryColumn(dict):
     @pulumi.getter(name="cellDisplayMode")
     def cell_display_mode(self) -> Optional[str]:
         """
-        A list of display modes for each table cell. Valid values are `number`, `bar`.
+        A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         """
         return pulumi.get(self, "cell_display_mode")
 
@@ -13258,6 +13902,8 @@ class DashboardWidgetQueryTableDefinitionRequestFormula(dict):
             suggest = "cell_display_mode"
         elif key == "conditionalFormats":
             suggest = "conditional_formats"
+        elif key == "numberFormat":
+            suggest = "number_format"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetQueryTableDefinitionRequestFormula. Access the value via the '{suggest}' property getter instead.")
@@ -13276,13 +13922,15 @@ class DashboardWidgetQueryTableDefinitionRequestFormula(dict):
                  cell_display_mode: Optional[str] = None,
                  conditional_formats: Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestFormulaConditionalFormat']] = None,
                  limit: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestFormulaLimit'] = None,
+                 number_format: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormat'] = None,
                  style: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestFormulaStyle'] = None):
         """
         :param str formula_expression: A string expression built from queries, formulas, and functions.
         :param str alias: An expression alias.
-        :param str cell_display_mode: A list of display modes for each table cell. Valid values are `number`, `bar`.
+        :param str cell_display_mode: A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         :param Sequence['DashboardWidgetQueryTableDefinitionRequestFormulaConditionalFormatArgs'] conditional_formats: Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
         :param 'DashboardWidgetQueryTableDefinitionRequestFormulaLimitArgs' limit: The options for limiting results returned.
+        :param 'DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatArgs' number_format: Number formatting options for the formula.
         :param 'DashboardWidgetQueryTableDefinitionRequestFormulaStyleArgs' style: Styling options for widget formulas.
         """
         pulumi.set(__self__, "formula_expression", formula_expression)
@@ -13294,6 +13942,8 @@ class DashboardWidgetQueryTableDefinitionRequestFormula(dict):
             pulumi.set(__self__, "conditional_formats", conditional_formats)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
+        if number_format is not None:
+            pulumi.set(__self__, "number_format", number_format)
         if style is not None:
             pulumi.set(__self__, "style", style)
 
@@ -13317,7 +13967,7 @@ class DashboardWidgetQueryTableDefinitionRequestFormula(dict):
     @pulumi.getter(name="cellDisplayMode")
     def cell_display_mode(self) -> Optional[str]:
         """
-        A list of display modes for each table cell. Valid values are `number`, `bar`.
+        A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         """
         return pulumi.get(self, "cell_display_mode")
 
@@ -13336,6 +13986,14 @@ class DashboardWidgetQueryTableDefinitionRequestFormula(dict):
         The options for limiting results returned.
         """
         return pulumi.get(self, "limit")
+
+    @property
+    @pulumi.getter(name="numberFormat")
+    def number_format(self) -> Optional['outputs.DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormat']:
+        """
+        Number formatting options for the formula.
+        """
+        return pulumi.get(self, "number_format")
 
     @property
     @pulumi.getter
@@ -13510,6 +14168,176 @@ class DashboardWidgetQueryTableDefinitionRequestFormulaLimit(dict):
         The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
         """
         return pulumi.get(self, "order")
+
+
+@pulumi.output_type
+class DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitScale":
+            suggest = "unit_scale"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormat.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit: 'outputs.DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnit',
+                 unit_scale: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitScale'] = None):
+        """
+        :param 'DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitArgs' unit: Unit of the number format.
+        """
+        pulumi.set(__self__, "unit", unit)
+        if unit_scale is not None:
+            pulumi.set(__self__, "unit_scale", unit_scale)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> 'outputs.DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnit':
+        """
+        Unit of the number format.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter(name="unitScale")
+    def unit_scale(self) -> Optional['outputs.DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitScale']:
+        return pulumi.get(self, "unit_scale")
+
+
+@pulumi.output_type
+class DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnit(dict):
+    def __init__(__self__, *,
+                 canonical: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCanonical'] = None,
+                 custom: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCustom'] = None):
+        """
+        :param 'DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCanonicalArgs' canonical: Canonical Units
+        :param 'DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCustomArgs' custom: Use custom (non canonical metrics)
+        """
+        if canonical is not None:
+            pulumi.set(__self__, "canonical", canonical)
+        if custom is not None:
+            pulumi.set(__self__, "custom", custom)
+
+    @property
+    @pulumi.getter
+    def canonical(self) -> Optional['outputs.DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCanonical']:
+        """
+        Canonical Units
+        """
+        return pulumi.get(self, "canonical")
+
+    @property
+    @pulumi.getter
+    def custom(self) -> Optional['outputs.DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCustom']:
+        """
+        Use custom (non canonical metrics)
+        """
+        return pulumi.get(self, "custom")
+
+
+@pulumi.output_type
+class DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCanonical(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitName":
+            suggest = "unit_name"
+        elif key == "perUnitName":
+            suggest = "per_unit_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCanonical. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCanonical.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCanonical.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit_name: str,
+                 per_unit_name: Optional[str] = None):
+        """
+        :param str unit_name: Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+        :param str per_unit_name: per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+        """
+        pulumi.set(__self__, "unit_name", unit_name)
+        if per_unit_name is not None:
+            pulumi.set(__self__, "per_unit_name", per_unit_name)
+
+    @property
+    @pulumi.getter(name="unitName")
+    def unit_name(self) -> str:
+        """
+        Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+        """
+        return pulumi.get(self, "unit_name")
+
+    @property
+    @pulumi.getter(name="perUnitName")
+    def per_unit_name(self) -> Optional[str]:
+        """
+        per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+        """
+        return pulumi.get(self, "per_unit_name")
+
+
+@pulumi.output_type
+class DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCustom(dict):
+    def __init__(__self__, *,
+                 label: str):
+        """
+        :param str label: Unit label
+        """
+        pulumi.set(__self__, "label", label)
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        """
+        Unit label
+        """
+        return pulumi.get(self, "label")
+
+
+@pulumi.output_type
+class DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitScale(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitName":
+            suggest = "unit_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitScale. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitScale.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitScale.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit_name: str):
+        pulumi.set(__self__, "unit_name", unit_name)
+
+    @property
+    @pulumi.getter(name="unitName")
+    def unit_name(self) -> str:
+        return pulumi.get(self, "unit_name")
 
 
 @pulumi.output_type
@@ -15815,6 +16643,8 @@ class DashboardWidgetQueryValueDefinitionRequestFormula(dict):
             suggest = "cell_display_mode"
         elif key == "conditionalFormats":
             suggest = "conditional_formats"
+        elif key == "numberFormat":
+            suggest = "number_format"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetQueryValueDefinitionRequestFormula. Access the value via the '{suggest}' property getter instead.")
@@ -15833,13 +16663,15 @@ class DashboardWidgetQueryValueDefinitionRequestFormula(dict):
                  cell_display_mode: Optional[str] = None,
                  conditional_formats: Optional[Sequence['outputs.DashboardWidgetQueryValueDefinitionRequestFormulaConditionalFormat']] = None,
                  limit: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestFormulaLimit'] = None,
+                 number_format: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormat'] = None,
                  style: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestFormulaStyle'] = None):
         """
         :param str formula_expression: A string expression built from queries, formulas, and functions.
         :param str alias: An expression alias.
-        :param str cell_display_mode: A list of display modes for each table cell. Valid values are `number`, `bar`.
+        :param str cell_display_mode: A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         :param Sequence['DashboardWidgetQueryValueDefinitionRequestFormulaConditionalFormatArgs'] conditional_formats: Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
         :param 'DashboardWidgetQueryValueDefinitionRequestFormulaLimitArgs' limit: The options for limiting results returned.
+        :param 'DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatArgs' number_format: Number formatting options for the formula.
         :param 'DashboardWidgetQueryValueDefinitionRequestFormulaStyleArgs' style: Styling options for widget formulas.
         """
         pulumi.set(__self__, "formula_expression", formula_expression)
@@ -15851,6 +16683,8 @@ class DashboardWidgetQueryValueDefinitionRequestFormula(dict):
             pulumi.set(__self__, "conditional_formats", conditional_formats)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
+        if number_format is not None:
+            pulumi.set(__self__, "number_format", number_format)
         if style is not None:
             pulumi.set(__self__, "style", style)
 
@@ -15874,7 +16708,7 @@ class DashboardWidgetQueryValueDefinitionRequestFormula(dict):
     @pulumi.getter(name="cellDisplayMode")
     def cell_display_mode(self) -> Optional[str]:
         """
-        A list of display modes for each table cell. Valid values are `number`, `bar`.
+        A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         """
         return pulumi.get(self, "cell_display_mode")
 
@@ -15893,6 +16727,14 @@ class DashboardWidgetQueryValueDefinitionRequestFormula(dict):
         The options for limiting results returned.
         """
         return pulumi.get(self, "limit")
+
+    @property
+    @pulumi.getter(name="numberFormat")
+    def number_format(self) -> Optional['outputs.DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormat']:
+        """
+        Number formatting options for the formula.
+        """
+        return pulumi.get(self, "number_format")
 
     @property
     @pulumi.getter
@@ -16067,6 +16909,176 @@ class DashboardWidgetQueryValueDefinitionRequestFormulaLimit(dict):
         The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
         """
         return pulumi.get(self, "order")
+
+
+@pulumi.output_type
+class DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitScale":
+            suggest = "unit_scale"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormat.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit: 'outputs.DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnit',
+                 unit_scale: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScale'] = None):
+        """
+        :param 'DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitArgs' unit: Unit of the number format.
+        """
+        pulumi.set(__self__, "unit", unit)
+        if unit_scale is not None:
+            pulumi.set(__self__, "unit_scale", unit_scale)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> 'outputs.DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnit':
+        """
+        Unit of the number format.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter(name="unitScale")
+    def unit_scale(self) -> Optional['outputs.DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScale']:
+        return pulumi.get(self, "unit_scale")
+
+
+@pulumi.output_type
+class DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnit(dict):
+    def __init__(__self__, *,
+                 canonical: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCanonical'] = None,
+                 custom: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustom'] = None):
+        """
+        :param 'DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCanonicalArgs' canonical: Canonical Units
+        :param 'DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomArgs' custom: Use custom (non canonical metrics)
+        """
+        if canonical is not None:
+            pulumi.set(__self__, "canonical", canonical)
+        if custom is not None:
+            pulumi.set(__self__, "custom", custom)
+
+    @property
+    @pulumi.getter
+    def canonical(self) -> Optional['outputs.DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCanonical']:
+        """
+        Canonical Units
+        """
+        return pulumi.get(self, "canonical")
+
+    @property
+    @pulumi.getter
+    def custom(self) -> Optional['outputs.DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustom']:
+        """
+        Use custom (non canonical metrics)
+        """
+        return pulumi.get(self, "custom")
+
+
+@pulumi.output_type
+class DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCanonical(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitName":
+            suggest = "unit_name"
+        elif key == "perUnitName":
+            suggest = "per_unit_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCanonical. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCanonical.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCanonical.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit_name: str,
+                 per_unit_name: Optional[str] = None):
+        """
+        :param str unit_name: Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+        :param str per_unit_name: per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+        """
+        pulumi.set(__self__, "unit_name", unit_name)
+        if per_unit_name is not None:
+            pulumi.set(__self__, "per_unit_name", per_unit_name)
+
+    @property
+    @pulumi.getter(name="unitName")
+    def unit_name(self) -> str:
+        """
+        Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+        """
+        return pulumi.get(self, "unit_name")
+
+    @property
+    @pulumi.getter(name="perUnitName")
+    def per_unit_name(self) -> Optional[str]:
+        """
+        per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+        """
+        return pulumi.get(self, "per_unit_name")
+
+
+@pulumi.output_type
+class DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustom(dict):
+    def __init__(__self__, *,
+                 label: str):
+        """
+        :param str label: Unit label
+        """
+        pulumi.set(__self__, "label", label)
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        """
+        Unit label
+        """
+        return pulumi.get(self, "label")
+
+
+@pulumi.output_type
+class DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScale(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitName":
+            suggest = "unit_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScale. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScale.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScale.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit_name: str):
+        pulumi.set(__self__, "unit_name", unit_name)
+
+    @property
+    @pulumi.getter(name="unitName")
+    def unit_name(self) -> str:
+        return pulumi.get(self, "unit_name")
 
 
 @pulumi.output_type
@@ -22037,6 +23049,8 @@ class DashboardWidgetSunburstDefinitionRequestFormula(dict):
             suggest = "cell_display_mode"
         elif key == "conditionalFormats":
             suggest = "conditional_formats"
+        elif key == "numberFormat":
+            suggest = "number_format"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetSunburstDefinitionRequestFormula. Access the value via the '{suggest}' property getter instead.")
@@ -22055,13 +23069,15 @@ class DashboardWidgetSunburstDefinitionRequestFormula(dict):
                  cell_display_mode: Optional[str] = None,
                  conditional_formats: Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionRequestFormulaConditionalFormat']] = None,
                  limit: Optional['outputs.DashboardWidgetSunburstDefinitionRequestFormulaLimit'] = None,
+                 number_format: Optional['outputs.DashboardWidgetSunburstDefinitionRequestFormulaNumberFormat'] = None,
                  style: Optional['outputs.DashboardWidgetSunburstDefinitionRequestFormulaStyle'] = None):
         """
         :param str formula_expression: A string expression built from queries, formulas, and functions.
         :param str alias: An expression alias.
-        :param str cell_display_mode: A list of display modes for each table cell. Valid values are `number`, `bar`.
+        :param str cell_display_mode: A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         :param Sequence['DashboardWidgetSunburstDefinitionRequestFormulaConditionalFormatArgs'] conditional_formats: Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
         :param 'DashboardWidgetSunburstDefinitionRequestFormulaLimitArgs' limit: The options for limiting results returned.
+        :param 'DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatArgs' number_format: Number formatting options for the formula.
         :param 'DashboardWidgetSunburstDefinitionRequestFormulaStyleArgs' style: Styling options for widget formulas.
         """
         pulumi.set(__self__, "formula_expression", formula_expression)
@@ -22073,6 +23089,8 @@ class DashboardWidgetSunburstDefinitionRequestFormula(dict):
             pulumi.set(__self__, "conditional_formats", conditional_formats)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
+        if number_format is not None:
+            pulumi.set(__self__, "number_format", number_format)
         if style is not None:
             pulumi.set(__self__, "style", style)
 
@@ -22096,7 +23114,7 @@ class DashboardWidgetSunburstDefinitionRequestFormula(dict):
     @pulumi.getter(name="cellDisplayMode")
     def cell_display_mode(self) -> Optional[str]:
         """
-        A list of display modes for each table cell. Valid values are `number`, `bar`.
+        A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         """
         return pulumi.get(self, "cell_display_mode")
 
@@ -22115,6 +23133,14 @@ class DashboardWidgetSunburstDefinitionRequestFormula(dict):
         The options for limiting results returned.
         """
         return pulumi.get(self, "limit")
+
+    @property
+    @pulumi.getter(name="numberFormat")
+    def number_format(self) -> Optional['outputs.DashboardWidgetSunburstDefinitionRequestFormulaNumberFormat']:
+        """
+        Number formatting options for the formula.
+        """
+        return pulumi.get(self, "number_format")
 
     @property
     @pulumi.getter
@@ -22289,6 +23315,176 @@ class DashboardWidgetSunburstDefinitionRequestFormulaLimit(dict):
         The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
         """
         return pulumi.get(self, "order")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestFormulaNumberFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitScale":
+            suggest = "unit_scale"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetSunburstDefinitionRequestFormulaNumberFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetSunburstDefinitionRequestFormulaNumberFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetSunburstDefinitionRequestFormulaNumberFormat.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit: 'outputs.DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnit',
+                 unit_scale: Optional['outputs.DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitScale'] = None):
+        """
+        :param 'DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitArgs' unit: Unit of the number format.
+        """
+        pulumi.set(__self__, "unit", unit)
+        if unit_scale is not None:
+            pulumi.set(__self__, "unit_scale", unit_scale)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> 'outputs.DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnit':
+        """
+        Unit of the number format.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter(name="unitScale")
+    def unit_scale(self) -> Optional['outputs.DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitScale']:
+        return pulumi.get(self, "unit_scale")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnit(dict):
+    def __init__(__self__, *,
+                 canonical: Optional['outputs.DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCanonical'] = None,
+                 custom: Optional['outputs.DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCustom'] = None):
+        """
+        :param 'DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCanonicalArgs' canonical: Canonical Units
+        :param 'DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCustomArgs' custom: Use custom (non canonical metrics)
+        """
+        if canonical is not None:
+            pulumi.set(__self__, "canonical", canonical)
+        if custom is not None:
+            pulumi.set(__self__, "custom", custom)
+
+    @property
+    @pulumi.getter
+    def canonical(self) -> Optional['outputs.DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCanonical']:
+        """
+        Canonical Units
+        """
+        return pulumi.get(self, "canonical")
+
+    @property
+    @pulumi.getter
+    def custom(self) -> Optional['outputs.DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCustom']:
+        """
+        Use custom (non canonical metrics)
+        """
+        return pulumi.get(self, "custom")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCanonical(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitName":
+            suggest = "unit_name"
+        elif key == "perUnitName":
+            suggest = "per_unit_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCanonical. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCanonical.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCanonical.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit_name: str,
+                 per_unit_name: Optional[str] = None):
+        """
+        :param str unit_name: Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+        :param str per_unit_name: per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+        """
+        pulumi.set(__self__, "unit_name", unit_name)
+        if per_unit_name is not None:
+            pulumi.set(__self__, "per_unit_name", per_unit_name)
+
+    @property
+    @pulumi.getter(name="unitName")
+    def unit_name(self) -> str:
+        """
+        Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+        """
+        return pulumi.get(self, "unit_name")
+
+    @property
+    @pulumi.getter(name="perUnitName")
+    def per_unit_name(self) -> Optional[str]:
+        """
+        per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+        """
+        return pulumi.get(self, "per_unit_name")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCustom(dict):
+    def __init__(__self__, *,
+                 label: str):
+        """
+        :param str label: Unit label
+        """
+        pulumi.set(__self__, "label", label)
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        """
+        Unit label
+        """
+        return pulumi.get(self, "label")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitScale(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitName":
+            suggest = "unit_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitScale. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitScale.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitScale.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit_name: str):
+        pulumi.set(__self__, "unit_name", unit_name)
+
+    @property
+    @pulumi.getter(name="unitName")
+    def unit_name(self) -> str:
+        return pulumi.get(self, "unit_name")
 
 
 @pulumi.output_type
@@ -24730,6 +25926,8 @@ class DashboardWidgetTimeseriesDefinitionRequestFormula(dict):
             suggest = "cell_display_mode"
         elif key == "conditionalFormats":
             suggest = "conditional_formats"
+        elif key == "numberFormat":
+            suggest = "number_format"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetTimeseriesDefinitionRequestFormula. Access the value via the '{suggest}' property getter instead.")
@@ -24748,13 +25946,15 @@ class DashboardWidgetTimeseriesDefinitionRequestFormula(dict):
                  cell_display_mode: Optional[str] = None,
                  conditional_formats: Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequestFormulaConditionalFormat']] = None,
                  limit: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestFormulaLimit'] = None,
+                 number_format: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormat'] = None,
                  style: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestFormulaStyle'] = None):
         """
         :param str formula_expression: A string expression built from queries, formulas, and functions.
         :param str alias: An expression alias.
-        :param str cell_display_mode: A list of display modes for each table cell. Valid values are `number`, `bar`.
+        :param str cell_display_mode: A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         :param Sequence['DashboardWidgetTimeseriesDefinitionRequestFormulaConditionalFormatArgs'] conditional_formats: Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
         :param 'DashboardWidgetTimeseriesDefinitionRequestFormulaLimitArgs' limit: The options for limiting results returned.
+        :param 'DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatArgs' number_format: Number formatting options for the formula.
         :param 'DashboardWidgetTimeseriesDefinitionRequestFormulaStyleArgs' style: Styling options for widget formulas.
         """
         pulumi.set(__self__, "formula_expression", formula_expression)
@@ -24766,6 +25966,8 @@ class DashboardWidgetTimeseriesDefinitionRequestFormula(dict):
             pulumi.set(__self__, "conditional_formats", conditional_formats)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
+        if number_format is not None:
+            pulumi.set(__self__, "number_format", number_format)
         if style is not None:
             pulumi.set(__self__, "style", style)
 
@@ -24789,7 +25991,7 @@ class DashboardWidgetTimeseriesDefinitionRequestFormula(dict):
     @pulumi.getter(name="cellDisplayMode")
     def cell_display_mode(self) -> Optional[str]:
         """
-        A list of display modes for each table cell. Valid values are `number`, `bar`.
+        A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         """
         return pulumi.get(self, "cell_display_mode")
 
@@ -24808,6 +26010,14 @@ class DashboardWidgetTimeseriesDefinitionRequestFormula(dict):
         The options for limiting results returned.
         """
         return pulumi.get(self, "limit")
+
+    @property
+    @pulumi.getter(name="numberFormat")
+    def number_format(self) -> Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormat']:
+        """
+        Number formatting options for the formula.
+        """
+        return pulumi.get(self, "number_format")
 
     @property
     @pulumi.getter
@@ -24982,6 +26192,176 @@ class DashboardWidgetTimeseriesDefinitionRequestFormulaLimit(dict):
         The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
         """
         return pulumi.get(self, "order")
+
+
+@pulumi.output_type
+class DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitScale":
+            suggest = "unit_scale"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormat.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit: 'outputs.DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnit',
+                 unit_scale: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScale'] = None):
+        """
+        :param 'DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitArgs' unit: Unit of the number format.
+        """
+        pulumi.set(__self__, "unit", unit)
+        if unit_scale is not None:
+            pulumi.set(__self__, "unit_scale", unit_scale)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> 'outputs.DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnit':
+        """
+        Unit of the number format.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter(name="unitScale")
+    def unit_scale(self) -> Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScale']:
+        return pulumi.get(self, "unit_scale")
+
+
+@pulumi.output_type
+class DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnit(dict):
+    def __init__(__self__, *,
+                 canonical: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical'] = None,
+                 custom: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustom'] = None):
+        """
+        :param 'DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalArgs' canonical: Canonical Units
+        :param 'DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomArgs' custom: Use custom (non canonical metrics)
+        """
+        if canonical is not None:
+            pulumi.set(__self__, "canonical", canonical)
+        if custom is not None:
+            pulumi.set(__self__, "custom", custom)
+
+    @property
+    @pulumi.getter
+    def canonical(self) -> Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical']:
+        """
+        Canonical Units
+        """
+        return pulumi.get(self, "canonical")
+
+    @property
+    @pulumi.getter
+    def custom(self) -> Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustom']:
+        """
+        Use custom (non canonical metrics)
+        """
+        return pulumi.get(self, "custom")
+
+
+@pulumi.output_type
+class DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitName":
+            suggest = "unit_name"
+        elif key == "perUnitName":
+            suggest = "per_unit_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit_name: str,
+                 per_unit_name: Optional[str] = None):
+        """
+        :param str unit_name: Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+        :param str per_unit_name: per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+        """
+        pulumi.set(__self__, "unit_name", unit_name)
+        if per_unit_name is not None:
+            pulumi.set(__self__, "per_unit_name", per_unit_name)
+
+    @property
+    @pulumi.getter(name="unitName")
+    def unit_name(self) -> str:
+        """
+        Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+        """
+        return pulumi.get(self, "unit_name")
+
+    @property
+    @pulumi.getter(name="perUnitName")
+    def per_unit_name(self) -> Optional[str]:
+        """
+        per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+        """
+        return pulumi.get(self, "per_unit_name")
+
+
+@pulumi.output_type
+class DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustom(dict):
+    def __init__(__self__, *,
+                 label: str):
+        """
+        :param str label: Unit label
+        """
+        pulumi.set(__self__, "label", label)
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        """
+        Unit label
+        """
+        return pulumi.get(self, "label")
+
+
+@pulumi.output_type
+class DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScale(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitName":
+            suggest = "unit_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScale. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScale.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScale.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit_name: str):
+        pulumi.set(__self__, "unit_name", unit_name)
+
+    @property
+    @pulumi.getter(name="unitName")
+    def unit_name(self) -> str:
+        return pulumi.get(self, "unit_name")
 
 
 @pulumi.output_type
@@ -27576,6 +28956,8 @@ class DashboardWidgetToplistDefinitionRequestFormula(dict):
             suggest = "cell_display_mode"
         elif key == "conditionalFormats":
             suggest = "conditional_formats"
+        elif key == "numberFormat":
+            suggest = "number_format"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetToplistDefinitionRequestFormula. Access the value via the '{suggest}' property getter instead.")
@@ -27594,13 +28976,15 @@ class DashboardWidgetToplistDefinitionRequestFormula(dict):
                  cell_display_mode: Optional[str] = None,
                  conditional_formats: Optional[Sequence['outputs.DashboardWidgetToplistDefinitionRequestFormulaConditionalFormat']] = None,
                  limit: Optional['outputs.DashboardWidgetToplistDefinitionRequestFormulaLimit'] = None,
+                 number_format: Optional['outputs.DashboardWidgetToplistDefinitionRequestFormulaNumberFormat'] = None,
                  style: Optional['outputs.DashboardWidgetToplistDefinitionRequestFormulaStyle'] = None):
         """
         :param str formula_expression: A string expression built from queries, formulas, and functions.
         :param str alias: An expression alias.
-        :param str cell_display_mode: A list of display modes for each table cell. Valid values are `number`, `bar`.
+        :param str cell_display_mode: A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         :param Sequence['DashboardWidgetToplistDefinitionRequestFormulaConditionalFormatArgs'] conditional_formats: Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
         :param 'DashboardWidgetToplistDefinitionRequestFormulaLimitArgs' limit: The options for limiting results returned.
+        :param 'DashboardWidgetToplistDefinitionRequestFormulaNumberFormatArgs' number_format: Number formatting options for the formula.
         :param 'DashboardWidgetToplistDefinitionRequestFormulaStyleArgs' style: Styling options for widget formulas.
         """
         pulumi.set(__self__, "formula_expression", formula_expression)
@@ -27612,6 +28996,8 @@ class DashboardWidgetToplistDefinitionRequestFormula(dict):
             pulumi.set(__self__, "conditional_formats", conditional_formats)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
+        if number_format is not None:
+            pulumi.set(__self__, "number_format", number_format)
         if style is not None:
             pulumi.set(__self__, "style", style)
 
@@ -27635,7 +29021,7 @@ class DashboardWidgetToplistDefinitionRequestFormula(dict):
     @pulumi.getter(name="cellDisplayMode")
     def cell_display_mode(self) -> Optional[str]:
         """
-        A list of display modes for each table cell. Valid values are `number`, `bar`.
+        A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         """
         return pulumi.get(self, "cell_display_mode")
 
@@ -27654,6 +29040,14 @@ class DashboardWidgetToplistDefinitionRequestFormula(dict):
         The options for limiting results returned.
         """
         return pulumi.get(self, "limit")
+
+    @property
+    @pulumi.getter(name="numberFormat")
+    def number_format(self) -> Optional['outputs.DashboardWidgetToplistDefinitionRequestFormulaNumberFormat']:
+        """
+        Number formatting options for the formula.
+        """
+        return pulumi.get(self, "number_format")
 
     @property
     @pulumi.getter
@@ -27828,6 +29222,176 @@ class DashboardWidgetToplistDefinitionRequestFormulaLimit(dict):
         The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
         """
         return pulumi.get(self, "order")
+
+
+@pulumi.output_type
+class DashboardWidgetToplistDefinitionRequestFormulaNumberFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitScale":
+            suggest = "unit_scale"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetToplistDefinitionRequestFormulaNumberFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetToplistDefinitionRequestFormulaNumberFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetToplistDefinitionRequestFormulaNumberFormat.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit: 'outputs.DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnit',
+                 unit_scale: Optional['outputs.DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitScale'] = None):
+        """
+        :param 'DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitArgs' unit: Unit of the number format.
+        """
+        pulumi.set(__self__, "unit", unit)
+        if unit_scale is not None:
+            pulumi.set(__self__, "unit_scale", unit_scale)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> 'outputs.DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnit':
+        """
+        Unit of the number format.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter(name="unitScale")
+    def unit_scale(self) -> Optional['outputs.DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitScale']:
+        return pulumi.get(self, "unit_scale")
+
+
+@pulumi.output_type
+class DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnit(dict):
+    def __init__(__self__, *,
+                 canonical: Optional['outputs.DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonical'] = None,
+                 custom: Optional['outputs.DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustom'] = None):
+        """
+        :param 'DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalArgs' canonical: Canonical Units
+        :param 'DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomArgs' custom: Use custom (non canonical metrics)
+        """
+        if canonical is not None:
+            pulumi.set(__self__, "canonical", canonical)
+        if custom is not None:
+            pulumi.set(__self__, "custom", custom)
+
+    @property
+    @pulumi.getter
+    def canonical(self) -> Optional['outputs.DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonical']:
+        """
+        Canonical Units
+        """
+        return pulumi.get(self, "canonical")
+
+    @property
+    @pulumi.getter
+    def custom(self) -> Optional['outputs.DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustom']:
+        """
+        Use custom (non canonical metrics)
+        """
+        return pulumi.get(self, "custom")
+
+
+@pulumi.output_type
+class DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonical(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitName":
+            suggest = "unit_name"
+        elif key == "perUnitName":
+            suggest = "per_unit_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonical. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonical.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonical.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit_name: str,
+                 per_unit_name: Optional[str] = None):
+        """
+        :param str unit_name: Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+        :param str per_unit_name: per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+        """
+        pulumi.set(__self__, "unit_name", unit_name)
+        if per_unit_name is not None:
+            pulumi.set(__self__, "per_unit_name", per_unit_name)
+
+    @property
+    @pulumi.getter(name="unitName")
+    def unit_name(self) -> str:
+        """
+        Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+        """
+        return pulumi.get(self, "unit_name")
+
+    @property
+    @pulumi.getter(name="perUnitName")
+    def per_unit_name(self) -> Optional[str]:
+        """
+        per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+        """
+        return pulumi.get(self, "per_unit_name")
+
+
+@pulumi.output_type
+class DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustom(dict):
+    def __init__(__self__, *,
+                 label: str):
+        """
+        :param str label: Unit label
+        """
+        pulumi.set(__self__, "label", label)
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        """
+        Unit label
+        """
+        return pulumi.get(self, "label")
+
+
+@pulumi.output_type
+class DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitScale(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitName":
+            suggest = "unit_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitScale. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitScale.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitScale.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit_name: str):
+        pulumi.set(__self__, "unit_name", unit_name)
+
+    @property
+    @pulumi.getter(name="unitName")
+    def unit_name(self) -> str:
+        return pulumi.get(self, "unit_name")
 
 
 @pulumi.output_type
@@ -29126,15 +30690,19 @@ class DashboardWidgetToplistDefinitionRequestStyle(dict):
 class DashboardWidgetToplistDefinitionStyle(dict):
     def __init__(__self__, *,
                  displays: Optional[Sequence['outputs.DashboardWidgetToplistDefinitionStyleDisplay']] = None,
-                 palette: Optional[str] = None):
+                 palette: Optional[str] = None,
+                 scaling: Optional[str] = None):
         """
         :param Sequence['DashboardWidgetToplistDefinitionStyleDisplayArgs'] displays: The display mode for the widget.
         :param str palette: The color palette for the widget.
+        :param str scaling: The scaling mode for the widget. Valid values are `absolute`, `relative`.
         """
         if displays is not None:
             pulumi.set(__self__, "displays", displays)
         if palette is not None:
             pulumi.set(__self__, "palette", palette)
+        if scaling is not None:
+            pulumi.set(__self__, "scaling", scaling)
 
     @property
     @pulumi.getter
@@ -29151,6 +30719,14 @@ class DashboardWidgetToplistDefinitionStyle(dict):
         The color palette for the widget.
         """
         return pulumi.get(self, "palette")
+
+    @property
+    @pulumi.getter
+    def scaling(self) -> Optional[str]:
+        """
+        The scaling mode for the widget. Valid values are `absolute`, `relative`.
+        """
+        return pulumi.get(self, "scaling")
 
 
 @pulumi.output_type
@@ -29722,6 +31298,8 @@ class DashboardWidgetTreemapDefinitionRequestFormula(dict):
             suggest = "cell_display_mode"
         elif key == "conditionalFormats":
             suggest = "conditional_formats"
+        elif key == "numberFormat":
+            suggest = "number_format"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetTreemapDefinitionRequestFormula. Access the value via the '{suggest}' property getter instead.")
@@ -29740,13 +31318,15 @@ class DashboardWidgetTreemapDefinitionRequestFormula(dict):
                  cell_display_mode: Optional[str] = None,
                  conditional_formats: Optional[Sequence['outputs.DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormat']] = None,
                  limit: Optional['outputs.DashboardWidgetTreemapDefinitionRequestFormulaLimit'] = None,
+                 number_format: Optional['outputs.DashboardWidgetTreemapDefinitionRequestFormulaNumberFormat'] = None,
                  style: Optional['outputs.DashboardWidgetTreemapDefinitionRequestFormulaStyle'] = None):
         """
         :param str formula_expression: A string expression built from queries, formulas, and functions.
         :param str alias: An expression alias.
-        :param str cell_display_mode: A list of display modes for each table cell. Valid values are `number`, `bar`.
+        :param str cell_display_mode: A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         :param Sequence['DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormatArgs'] conditional_formats: Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
         :param 'DashboardWidgetTreemapDefinitionRequestFormulaLimitArgs' limit: The options for limiting results returned.
+        :param 'DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatArgs' number_format: Number formatting options for the formula.
         :param 'DashboardWidgetTreemapDefinitionRequestFormulaStyleArgs' style: Styling options for widget formulas.
         """
         pulumi.set(__self__, "formula_expression", formula_expression)
@@ -29758,6 +31338,8 @@ class DashboardWidgetTreemapDefinitionRequestFormula(dict):
             pulumi.set(__self__, "conditional_formats", conditional_formats)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
+        if number_format is not None:
+            pulumi.set(__self__, "number_format", number_format)
         if style is not None:
             pulumi.set(__self__, "style", style)
 
@@ -29781,7 +31363,7 @@ class DashboardWidgetTreemapDefinitionRequestFormula(dict):
     @pulumi.getter(name="cellDisplayMode")
     def cell_display_mode(self) -> Optional[str]:
         """
-        A list of display modes for each table cell. Valid values are `number`, `bar`.
+        A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         """
         return pulumi.get(self, "cell_display_mode")
 
@@ -29800,6 +31382,14 @@ class DashboardWidgetTreemapDefinitionRequestFormula(dict):
         The options for limiting results returned.
         """
         return pulumi.get(self, "limit")
+
+    @property
+    @pulumi.getter(name="numberFormat")
+    def number_format(self) -> Optional['outputs.DashboardWidgetTreemapDefinitionRequestFormulaNumberFormat']:
+        """
+        Number formatting options for the formula.
+        """
+        return pulumi.get(self, "number_format")
 
     @property
     @pulumi.getter
@@ -29974,6 +31564,176 @@ class DashboardWidgetTreemapDefinitionRequestFormulaLimit(dict):
         The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
         """
         return pulumi.get(self, "order")
+
+
+@pulumi.output_type
+class DashboardWidgetTreemapDefinitionRequestFormulaNumberFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitScale":
+            suggest = "unit_scale"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetTreemapDefinitionRequestFormulaNumberFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetTreemapDefinitionRequestFormulaNumberFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetTreemapDefinitionRequestFormulaNumberFormat.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit: 'outputs.DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnit',
+                 unit_scale: Optional['outputs.DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale'] = None):
+        """
+        :param 'DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitArgs' unit: Unit of the number format.
+        """
+        pulumi.set(__self__, "unit", unit)
+        if unit_scale is not None:
+            pulumi.set(__self__, "unit_scale", unit_scale)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> 'outputs.DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnit':
+        """
+        Unit of the number format.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter(name="unitScale")
+    def unit_scale(self) -> Optional['outputs.DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale']:
+        return pulumi.get(self, "unit_scale")
+
+
+@pulumi.output_type
+class DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnit(dict):
+    def __init__(__self__, *,
+                 canonical: Optional['outputs.DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonical'] = None,
+                 custom: Optional['outputs.DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom'] = None):
+        """
+        :param 'DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalArgs' canonical: Canonical Units
+        :param 'DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomArgs' custom: Use custom (non canonical metrics)
+        """
+        if canonical is not None:
+            pulumi.set(__self__, "canonical", canonical)
+        if custom is not None:
+            pulumi.set(__self__, "custom", custom)
+
+    @property
+    @pulumi.getter
+    def canonical(self) -> Optional['outputs.DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonical']:
+        """
+        Canonical Units
+        """
+        return pulumi.get(self, "canonical")
+
+    @property
+    @pulumi.getter
+    def custom(self) -> Optional['outputs.DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom']:
+        """
+        Use custom (non canonical metrics)
+        """
+        return pulumi.get(self, "custom")
+
+
+@pulumi.output_type
+class DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonical(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitName":
+            suggest = "unit_name"
+        elif key == "perUnitName":
+            suggest = "per_unit_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonical. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonical.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonical.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit_name: str,
+                 per_unit_name: Optional[str] = None):
+        """
+        :param str unit_name: Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+        :param str per_unit_name: per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+        """
+        pulumi.set(__self__, "unit_name", unit_name)
+        if per_unit_name is not None:
+            pulumi.set(__self__, "per_unit_name", per_unit_name)
+
+    @property
+    @pulumi.getter(name="unitName")
+    def unit_name(self) -> str:
+        """
+        Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+        """
+        return pulumi.get(self, "unit_name")
+
+    @property
+    @pulumi.getter(name="perUnitName")
+    def per_unit_name(self) -> Optional[str]:
+        """
+        per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+        """
+        return pulumi.get(self, "per_unit_name")
+
+
+@pulumi.output_type
+class DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom(dict):
+    def __init__(__self__, *,
+                 label: str):
+        """
+        :param str label: Unit label
+        """
+        pulumi.set(__self__, "label", label)
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        """
+        Unit label
+        """
+        return pulumi.get(self, "label")
+
+
+@pulumi.output_type
+class DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitName":
+            suggest = "unit_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit_name: str):
+        pulumi.set(__self__, "unit_name", unit_name)
+
+    @property
+    @pulumi.getter(name="unitName")
+    def unit_name(self) -> str:
+        return pulumi.get(self, "unit_name")
 
 
 @pulumi.output_type
@@ -32151,6 +33911,8 @@ class LogsCustomPipelineProcessor(dict):
             suggest = "reference_table_lookup_processor"
         elif key == "serviceRemapper":
             suggest = "service_remapper"
+        elif key == "spanIdRemapper":
+            suggest = "span_id_remapper"
         elif key == "statusRemapper":
             suggest = "status_remapper"
         elif key == "stringBuilderProcessor":
@@ -32185,6 +33947,7 @@ class LogsCustomPipelineProcessor(dict):
                  pipeline: Optional['outputs.LogsCustomPipelineProcessorPipeline'] = None,
                  reference_table_lookup_processor: Optional['outputs.LogsCustomPipelineProcessorReferenceTableLookupProcessor'] = None,
                  service_remapper: Optional['outputs.LogsCustomPipelineProcessorServiceRemapper'] = None,
+                 span_id_remapper: Optional['outputs.LogsCustomPipelineProcessorSpanIdRemapper'] = None,
                  status_remapper: Optional['outputs.LogsCustomPipelineProcessorStatusRemapper'] = None,
                  string_builder_processor: Optional['outputs.LogsCustomPipelineProcessorStringBuilderProcessor'] = None,
                  trace_id_remapper: Optional['outputs.LogsCustomPipelineProcessorTraceIdRemapper'] = None,
@@ -32201,6 +33964,7 @@ class LogsCustomPipelineProcessor(dict):
         :param 'LogsCustomPipelineProcessorMessageRemapperArgs' message_remapper: Message Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-message-remapper)
         :param 'LogsCustomPipelineProcessorReferenceTableLookupProcessorArgs' reference_table_lookup_processor: Reference Table Lookup Processor. Reference Tables are in public beta. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
         :param 'LogsCustomPipelineProcessorServiceRemapperArgs' service_remapper: Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
+        :param 'LogsCustomPipelineProcessorSpanIdRemapperArgs' span_id_remapper: Span ID Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#span-remapper)
         :param 'LogsCustomPipelineProcessorStatusRemapperArgs' status_remapper: Status Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-status-remapper)
         :param 'LogsCustomPipelineProcessorStringBuilderProcessorArgs' string_builder_processor: String Builder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#string-builder-processor)
         :param 'LogsCustomPipelineProcessorTraceIdRemapperArgs' trace_id_remapper: Trace ID Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#trace-remapper)
@@ -32229,6 +33993,8 @@ class LogsCustomPipelineProcessor(dict):
             pulumi.set(__self__, "reference_table_lookup_processor", reference_table_lookup_processor)
         if service_remapper is not None:
             pulumi.set(__self__, "service_remapper", service_remapper)
+        if span_id_remapper is not None:
+            pulumi.set(__self__, "span_id_remapper", span_id_remapper)
         if status_remapper is not None:
             pulumi.set(__self__, "status_remapper", status_remapper)
         if string_builder_processor is not None:
@@ -32324,6 +34090,14 @@ class LogsCustomPipelineProcessor(dict):
         Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
         """
         return pulumi.get(self, "service_remapper")
+
+    @property
+    @pulumi.getter(name="spanIdRemapper")
+    def span_id_remapper(self) -> Optional['outputs.LogsCustomPipelineProcessorSpanIdRemapper']:
+        """
+        Span ID Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#span-remapper)
+        """
+        return pulumi.get(self, "span_id_remapper")
 
     @property
     @pulumi.getter(name="statusRemapper")
@@ -33217,6 +34991,8 @@ class LogsCustomPipelineProcessorPipelineProcessor(dict):
             suggest = "reference_table_lookup_processor"
         elif key == "serviceRemapper":
             suggest = "service_remapper"
+        elif key == "spanIdRemapper":
+            suggest = "span_id_remapper"
         elif key == "statusRemapper":
             suggest = "status_remapper"
         elif key == "stringBuilderProcessor":
@@ -33250,6 +35026,7 @@ class LogsCustomPipelineProcessorPipelineProcessor(dict):
                  message_remapper: Optional['outputs.LogsCustomPipelineProcessorPipelineProcessorMessageRemapper'] = None,
                  reference_table_lookup_processor: Optional['outputs.LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor'] = None,
                  service_remapper: Optional['outputs.LogsCustomPipelineProcessorPipelineProcessorServiceRemapper'] = None,
+                 span_id_remapper: Optional['outputs.LogsCustomPipelineProcessorPipelineProcessorSpanIdRemapper'] = None,
                  status_remapper: Optional['outputs.LogsCustomPipelineProcessorPipelineProcessorStatusRemapper'] = None,
                  string_builder_processor: Optional['outputs.LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessor'] = None,
                  trace_id_remapper: Optional['outputs.LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapper'] = None,
@@ -33266,6 +35043,7 @@ class LogsCustomPipelineProcessorPipelineProcessor(dict):
         :param 'LogsCustomPipelineProcessorPipelineProcessorMessageRemapperArgs' message_remapper: Message Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-message-remapper)
         :param 'LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorArgs' reference_table_lookup_processor: Reference Table Lookup Processor. Reference Tables are in public beta. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
         :param 'LogsCustomPipelineProcessorPipelineProcessorServiceRemapperArgs' service_remapper: Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
+        :param 'LogsCustomPipelineProcessorPipelineProcessorSpanIdRemapperArgs' span_id_remapper: Span ID Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#span-remapper)
         :param 'LogsCustomPipelineProcessorPipelineProcessorStatusRemapperArgs' status_remapper: Status Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-status-remapper)
         :param 'LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessorArgs' string_builder_processor: String Builder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#string-builder-processor)
         :param 'LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapperArgs' trace_id_remapper: Trace ID Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#trace-remapper)
@@ -33292,6 +35070,8 @@ class LogsCustomPipelineProcessorPipelineProcessor(dict):
             pulumi.set(__self__, "reference_table_lookup_processor", reference_table_lookup_processor)
         if service_remapper is not None:
             pulumi.set(__self__, "service_remapper", service_remapper)
+        if span_id_remapper is not None:
+            pulumi.set(__self__, "span_id_remapper", span_id_remapper)
         if status_remapper is not None:
             pulumi.set(__self__, "status_remapper", status_remapper)
         if string_builder_processor is not None:
@@ -33382,6 +35162,14 @@ class LogsCustomPipelineProcessorPipelineProcessor(dict):
         Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
         """
         return pulumi.get(self, "service_remapper")
+
+    @property
+    @pulumi.getter(name="spanIdRemapper")
+    def span_id_remapper(self) -> Optional['outputs.LogsCustomPipelineProcessorPipelineProcessorSpanIdRemapper']:
+        """
+        Span ID Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#span-remapper)
+        """
+        return pulumi.get(self, "span_id_remapper")
 
     @property
     @pulumi.getter(name="statusRemapper")
@@ -34307,6 +36095,65 @@ class LogsCustomPipelineProcessorPipelineProcessorServiceRemapper(dict):
 
 
 @pulumi.output_type
+class LogsCustomPipelineProcessorPipelineProcessorSpanIdRemapper(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEnabled":
+            suggest = "is_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsCustomPipelineProcessorPipelineProcessorSpanIdRemapper. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsCustomPipelineProcessorPipelineProcessorSpanIdRemapper.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsCustomPipelineProcessorPipelineProcessorSpanIdRemapper.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 sources: Sequence[str],
+                 is_enabled: Optional[bool] = None,
+                 name: Optional[str] = None):
+        """
+        :param Sequence[str] sources: List of source attributes.
+        :param bool is_enabled: If the processor is enabled or not.
+        :param str name: Name of the processor.
+        """
+        pulumi.set(__self__, "sources", sources)
+        if is_enabled is not None:
+            pulumi.set(__self__, "is_enabled", is_enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def sources(self) -> Sequence[str]:
+        """
+        List of source attributes.
+        """
+        return pulumi.get(self, "sources")
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> Optional[bool]:
+        """
+        If the processor is enabled or not.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the processor.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
 class LogsCustomPipelineProcessorPipelineProcessorStatusRemapper(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -34776,6 +36623,65 @@ class LogsCustomPipelineProcessorServiceRemapper(dict):
 
     def get(self, key: str, default = None) -> Any:
         LogsCustomPipelineProcessorServiceRemapper.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 sources: Sequence[str],
+                 is_enabled: Optional[bool] = None,
+                 name: Optional[str] = None):
+        """
+        :param Sequence[str] sources: List of source attributes.
+        :param bool is_enabled: If the processor is enabled or not.
+        :param str name: Name of the processor.
+        """
+        pulumi.set(__self__, "sources", sources)
+        if is_enabled is not None:
+            pulumi.set(__self__, "is_enabled", is_enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def sources(self) -> Sequence[str]:
+        """
+        List of source attributes.
+        """
+        return pulumi.get(self, "sources")
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> Optional[bool]:
+        """
+        If the processor is enabled or not.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the processor.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class LogsCustomPipelineProcessorSpanIdRemapper(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEnabled":
+            suggest = "is_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsCustomPipelineProcessorSpanIdRemapper. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsCustomPipelineProcessorSpanIdRemapper.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsCustomPipelineProcessorSpanIdRemapper.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -37928,6 +39834,8 @@ class PowerpackWidgetChangeDefinitionRequestFormula(dict):
             suggest = "cell_display_mode"
         elif key == "conditionalFormats":
             suggest = "conditional_formats"
+        elif key == "numberFormat":
+            suggest = "number_format"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetChangeDefinitionRequestFormula. Access the value via the '{suggest}' property getter instead.")
@@ -37946,13 +39854,15 @@ class PowerpackWidgetChangeDefinitionRequestFormula(dict):
                  cell_display_mode: Optional[str] = None,
                  conditional_formats: Optional[Sequence['outputs.PowerpackWidgetChangeDefinitionRequestFormulaConditionalFormat']] = None,
                  limit: Optional['outputs.PowerpackWidgetChangeDefinitionRequestFormulaLimit'] = None,
+                 number_format: Optional['outputs.PowerpackWidgetChangeDefinitionRequestFormulaNumberFormat'] = None,
                  style: Optional['outputs.PowerpackWidgetChangeDefinitionRequestFormulaStyle'] = None):
         """
         :param str formula_expression: A string expression built from queries, formulas, and functions.
         :param str alias: An expression alias.
-        :param str cell_display_mode: A list of display modes for each table cell. Valid values are `number`, `bar`.
+        :param str cell_display_mode: A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         :param Sequence['PowerpackWidgetChangeDefinitionRequestFormulaConditionalFormatArgs'] conditional_formats: Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
         :param 'PowerpackWidgetChangeDefinitionRequestFormulaLimitArgs' limit: The options for limiting results returned.
+        :param 'PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatArgs' number_format: Number formatting options for the formula.
         :param 'PowerpackWidgetChangeDefinitionRequestFormulaStyleArgs' style: Styling options for widget formulas.
         """
         pulumi.set(__self__, "formula_expression", formula_expression)
@@ -37964,6 +39874,8 @@ class PowerpackWidgetChangeDefinitionRequestFormula(dict):
             pulumi.set(__self__, "conditional_formats", conditional_formats)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
+        if number_format is not None:
+            pulumi.set(__self__, "number_format", number_format)
         if style is not None:
             pulumi.set(__self__, "style", style)
 
@@ -37987,7 +39899,7 @@ class PowerpackWidgetChangeDefinitionRequestFormula(dict):
     @pulumi.getter(name="cellDisplayMode")
     def cell_display_mode(self) -> Optional[str]:
         """
-        A list of display modes for each table cell. Valid values are `number`, `bar`.
+        A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         """
         return pulumi.get(self, "cell_display_mode")
 
@@ -38006,6 +39918,14 @@ class PowerpackWidgetChangeDefinitionRequestFormula(dict):
         The options for limiting results returned.
         """
         return pulumi.get(self, "limit")
+
+    @property
+    @pulumi.getter(name="numberFormat")
+    def number_format(self) -> Optional['outputs.PowerpackWidgetChangeDefinitionRequestFormulaNumberFormat']:
+        """
+        Number formatting options for the formula.
+        """
+        return pulumi.get(self, "number_format")
 
     @property
     @pulumi.getter
@@ -38180,6 +40100,176 @@ class PowerpackWidgetChangeDefinitionRequestFormulaLimit(dict):
         The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
         """
         return pulumi.get(self, "order")
+
+
+@pulumi.output_type
+class PowerpackWidgetChangeDefinitionRequestFormulaNumberFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitScale":
+            suggest = "unit_scale"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetChangeDefinitionRequestFormulaNumberFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PowerpackWidgetChangeDefinitionRequestFormulaNumberFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PowerpackWidgetChangeDefinitionRequestFormulaNumberFormat.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit: 'outputs.PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnit',
+                 unit_scale: Optional['outputs.PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnitScale'] = None):
+        """
+        :param 'PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnitArgs' unit: Unit of the number format.
+        """
+        pulumi.set(__self__, "unit", unit)
+        if unit_scale is not None:
+            pulumi.set(__self__, "unit_scale", unit_scale)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> 'outputs.PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnit':
+        """
+        Unit of the number format.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter(name="unitScale")
+    def unit_scale(self) -> Optional['outputs.PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnitScale']:
+        return pulumi.get(self, "unit_scale")
+
+
+@pulumi.output_type
+class PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnit(dict):
+    def __init__(__self__, *,
+                 canonical: Optional['outputs.PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnitCanonical'] = None,
+                 custom: Optional['outputs.PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnitCustom'] = None):
+        """
+        :param 'PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnitCanonicalArgs' canonical: Canonical Units
+        :param 'PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnitCustomArgs' custom: Use custom (non canonical metrics)
+        """
+        if canonical is not None:
+            pulumi.set(__self__, "canonical", canonical)
+        if custom is not None:
+            pulumi.set(__self__, "custom", custom)
+
+    @property
+    @pulumi.getter
+    def canonical(self) -> Optional['outputs.PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnitCanonical']:
+        """
+        Canonical Units
+        """
+        return pulumi.get(self, "canonical")
+
+    @property
+    @pulumi.getter
+    def custom(self) -> Optional['outputs.PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnitCustom']:
+        """
+        Use custom (non canonical metrics)
+        """
+        return pulumi.get(self, "custom")
+
+
+@pulumi.output_type
+class PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnitCanonical(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitName":
+            suggest = "unit_name"
+        elif key == "perUnitName":
+            suggest = "per_unit_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnitCanonical. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnitCanonical.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnitCanonical.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit_name: str,
+                 per_unit_name: Optional[str] = None):
+        """
+        :param str unit_name: Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+        :param str per_unit_name: per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+        """
+        pulumi.set(__self__, "unit_name", unit_name)
+        if per_unit_name is not None:
+            pulumi.set(__self__, "per_unit_name", per_unit_name)
+
+    @property
+    @pulumi.getter(name="unitName")
+    def unit_name(self) -> str:
+        """
+        Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+        """
+        return pulumi.get(self, "unit_name")
+
+    @property
+    @pulumi.getter(name="perUnitName")
+    def per_unit_name(self) -> Optional[str]:
+        """
+        per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+        """
+        return pulumi.get(self, "per_unit_name")
+
+
+@pulumi.output_type
+class PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnitCustom(dict):
+    def __init__(__self__, *,
+                 label: str):
+        """
+        :param str label: Unit label
+        """
+        pulumi.set(__self__, "label", label)
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        """
+        Unit label
+        """
+        return pulumi.get(self, "label")
+
+
+@pulumi.output_type
+class PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnitScale(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitName":
+            suggest = "unit_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnitScale. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnitScale.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnitScale.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit_name: str):
+        pulumi.set(__self__, "unit_name", unit_name)
+
+    @property
+    @pulumi.getter(name="unitName")
+    def unit_name(self) -> str:
+        return pulumi.get(self, "unit_name")
 
 
 @pulumi.output_type
@@ -41085,7 +43175,7 @@ class PowerpackWidgetDistributionDefinitionRequestApmStatsQueryColumn(dict):
         """
         :param str name: The column name.
         :param str alias: A user-assigned alias for the column.
-        :param str cell_display_mode: A list of display modes for each table cell. Valid values are `number`, `bar`.
+        :param str cell_display_mode: A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         :param str order: Widget sorting methods. Valid values are `asc`, `desc`.
         """
         pulumi.set(__self__, "name", name)
@@ -41116,7 +43206,7 @@ class PowerpackWidgetDistributionDefinitionRequestApmStatsQueryColumn(dict):
     @pulumi.getter(name="cellDisplayMode")
     def cell_display_mode(self) -> Optional[str]:
         """
-        A list of display modes for each table cell. Valid values are `number`, `bar`.
+        A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         """
         return pulumi.get(self, "cell_display_mode")
 
@@ -42776,6 +44866,8 @@ class PowerpackWidgetGeomapDefinitionRequestFormula(dict):
             suggest = "cell_display_mode"
         elif key == "conditionalFormats":
             suggest = "conditional_formats"
+        elif key == "numberFormat":
+            suggest = "number_format"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetGeomapDefinitionRequestFormula. Access the value via the '{suggest}' property getter instead.")
@@ -42794,13 +44886,15 @@ class PowerpackWidgetGeomapDefinitionRequestFormula(dict):
                  cell_display_mode: Optional[str] = None,
                  conditional_formats: Optional[Sequence['outputs.PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormat']] = None,
                  limit: Optional['outputs.PowerpackWidgetGeomapDefinitionRequestFormulaLimit'] = None,
+                 number_format: Optional['outputs.PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormat'] = None,
                  style: Optional['outputs.PowerpackWidgetGeomapDefinitionRequestFormulaStyle'] = None):
         """
         :param str formula_expression: A string expression built from queries, formulas, and functions.
         :param str alias: An expression alias.
-        :param str cell_display_mode: A list of display modes for each table cell. Valid values are `number`, `bar`.
+        :param str cell_display_mode: A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         :param Sequence['PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatArgs'] conditional_formats: Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
         :param 'PowerpackWidgetGeomapDefinitionRequestFormulaLimitArgs' limit: The options for limiting results returned.
+        :param 'PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatArgs' number_format: Number formatting options for the formula.
         :param 'PowerpackWidgetGeomapDefinitionRequestFormulaStyleArgs' style: Styling options for widget formulas.
         """
         pulumi.set(__self__, "formula_expression", formula_expression)
@@ -42812,6 +44906,8 @@ class PowerpackWidgetGeomapDefinitionRequestFormula(dict):
             pulumi.set(__self__, "conditional_formats", conditional_formats)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
+        if number_format is not None:
+            pulumi.set(__self__, "number_format", number_format)
         if style is not None:
             pulumi.set(__self__, "style", style)
 
@@ -42835,7 +44931,7 @@ class PowerpackWidgetGeomapDefinitionRequestFormula(dict):
     @pulumi.getter(name="cellDisplayMode")
     def cell_display_mode(self) -> Optional[str]:
         """
-        A list of display modes for each table cell. Valid values are `number`, `bar`.
+        A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         """
         return pulumi.get(self, "cell_display_mode")
 
@@ -42854,6 +44950,14 @@ class PowerpackWidgetGeomapDefinitionRequestFormula(dict):
         The options for limiting results returned.
         """
         return pulumi.get(self, "limit")
+
+    @property
+    @pulumi.getter(name="numberFormat")
+    def number_format(self) -> Optional['outputs.PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormat']:
+        """
+        Number formatting options for the formula.
+        """
+        return pulumi.get(self, "number_format")
 
     @property
     @pulumi.getter
@@ -43028,6 +45132,176 @@ class PowerpackWidgetGeomapDefinitionRequestFormulaLimit(dict):
         The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
         """
         return pulumi.get(self, "order")
+
+
+@pulumi.output_type
+class PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitScale":
+            suggest = "unit_scale"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormat.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit: 'outputs.PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnit',
+                 unit_scale: Optional['outputs.PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScale'] = None):
+        """
+        :param 'PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitArgs' unit: Unit of the number format.
+        """
+        pulumi.set(__self__, "unit", unit)
+        if unit_scale is not None:
+            pulumi.set(__self__, "unit_scale", unit_scale)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> 'outputs.PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnit':
+        """
+        Unit of the number format.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter(name="unitScale")
+    def unit_scale(self) -> Optional['outputs.PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScale']:
+        return pulumi.get(self, "unit_scale")
+
+
+@pulumi.output_type
+class PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnit(dict):
+    def __init__(__self__, *,
+                 canonical: Optional['outputs.PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonical'] = None,
+                 custom: Optional['outputs.PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustom'] = None):
+        """
+        :param 'PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalArgs' canonical: Canonical Units
+        :param 'PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomArgs' custom: Use custom (non canonical metrics)
+        """
+        if canonical is not None:
+            pulumi.set(__self__, "canonical", canonical)
+        if custom is not None:
+            pulumi.set(__self__, "custom", custom)
+
+    @property
+    @pulumi.getter
+    def canonical(self) -> Optional['outputs.PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonical']:
+        """
+        Canonical Units
+        """
+        return pulumi.get(self, "canonical")
+
+    @property
+    @pulumi.getter
+    def custom(self) -> Optional['outputs.PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustom']:
+        """
+        Use custom (non canonical metrics)
+        """
+        return pulumi.get(self, "custom")
+
+
+@pulumi.output_type
+class PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonical(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitName":
+            suggest = "unit_name"
+        elif key == "perUnitName":
+            suggest = "per_unit_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonical. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonical.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonical.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit_name: str,
+                 per_unit_name: Optional[str] = None):
+        """
+        :param str unit_name: Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+        :param str per_unit_name: per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+        """
+        pulumi.set(__self__, "unit_name", unit_name)
+        if per_unit_name is not None:
+            pulumi.set(__self__, "per_unit_name", per_unit_name)
+
+    @property
+    @pulumi.getter(name="unitName")
+    def unit_name(self) -> str:
+        """
+        Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+        """
+        return pulumi.get(self, "unit_name")
+
+    @property
+    @pulumi.getter(name="perUnitName")
+    def per_unit_name(self) -> Optional[str]:
+        """
+        per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+        """
+        return pulumi.get(self, "per_unit_name")
+
+
+@pulumi.output_type
+class PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustom(dict):
+    def __init__(__self__, *,
+                 label: str):
+        """
+        :param str label: Unit label
+        """
+        pulumi.set(__self__, "label", label)
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        """
+        Unit label
+        """
+        return pulumi.get(self, "label")
+
+
+@pulumi.output_type
+class PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScale(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitName":
+            suggest = "unit_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScale. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScale.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScale.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit_name: str):
+        pulumi.set(__self__, "unit_name", unit_name)
+
+    @property
+    @pulumi.getter(name="unitName")
+    def unit_name(self) -> str:
+        return pulumi.get(self, "unit_name")
 
 
 @pulumi.output_type
@@ -45534,6 +47808,8 @@ class PowerpackWidgetHeatmapDefinitionRequestFormula(dict):
             suggest = "cell_display_mode"
         elif key == "conditionalFormats":
             suggest = "conditional_formats"
+        elif key == "numberFormat":
+            suggest = "number_format"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetHeatmapDefinitionRequestFormula. Access the value via the '{suggest}' property getter instead.")
@@ -45552,13 +47828,15 @@ class PowerpackWidgetHeatmapDefinitionRequestFormula(dict):
                  cell_display_mode: Optional[str] = None,
                  conditional_formats: Optional[Sequence['outputs.PowerpackWidgetHeatmapDefinitionRequestFormulaConditionalFormat']] = None,
                  limit: Optional['outputs.PowerpackWidgetHeatmapDefinitionRequestFormulaLimit'] = None,
+                 number_format: Optional['outputs.PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormat'] = None,
                  style: Optional['outputs.PowerpackWidgetHeatmapDefinitionRequestFormulaStyle'] = None):
         """
         :param str formula_expression: A string expression built from queries, formulas, and functions.
         :param str alias: An expression alias.
-        :param str cell_display_mode: A list of display modes for each table cell. Valid values are `number`, `bar`.
+        :param str cell_display_mode: A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         :param Sequence['PowerpackWidgetHeatmapDefinitionRequestFormulaConditionalFormatArgs'] conditional_formats: Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
         :param 'PowerpackWidgetHeatmapDefinitionRequestFormulaLimitArgs' limit: The options for limiting results returned.
+        :param 'PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatArgs' number_format: Number formatting options for the formula.
         :param 'PowerpackWidgetHeatmapDefinitionRequestFormulaStyleArgs' style: Styling options for widget formulas.
         """
         pulumi.set(__self__, "formula_expression", formula_expression)
@@ -45570,6 +47848,8 @@ class PowerpackWidgetHeatmapDefinitionRequestFormula(dict):
             pulumi.set(__self__, "conditional_formats", conditional_formats)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
+        if number_format is not None:
+            pulumi.set(__self__, "number_format", number_format)
         if style is not None:
             pulumi.set(__self__, "style", style)
 
@@ -45593,7 +47873,7 @@ class PowerpackWidgetHeatmapDefinitionRequestFormula(dict):
     @pulumi.getter(name="cellDisplayMode")
     def cell_display_mode(self) -> Optional[str]:
         """
-        A list of display modes for each table cell. Valid values are `number`, `bar`.
+        A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         """
         return pulumi.get(self, "cell_display_mode")
 
@@ -45612,6 +47892,14 @@ class PowerpackWidgetHeatmapDefinitionRequestFormula(dict):
         The options for limiting results returned.
         """
         return pulumi.get(self, "limit")
+
+    @property
+    @pulumi.getter(name="numberFormat")
+    def number_format(self) -> Optional['outputs.PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormat']:
+        """
+        Number formatting options for the formula.
+        """
+        return pulumi.get(self, "number_format")
 
     @property
     @pulumi.getter
@@ -45786,6 +48074,176 @@ class PowerpackWidgetHeatmapDefinitionRequestFormulaLimit(dict):
         The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
         """
         return pulumi.get(self, "order")
+
+
+@pulumi.output_type
+class PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitScale":
+            suggest = "unit_scale"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormat.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit: 'outputs.PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnit',
+                 unit_scale: Optional['outputs.PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitScale'] = None):
+        """
+        :param 'PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitArgs' unit: Unit of the number format.
+        """
+        pulumi.set(__self__, "unit", unit)
+        if unit_scale is not None:
+            pulumi.set(__self__, "unit_scale", unit_scale)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> 'outputs.PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnit':
+        """
+        Unit of the number format.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter(name="unitScale")
+    def unit_scale(self) -> Optional['outputs.PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitScale']:
+        return pulumi.get(self, "unit_scale")
+
+
+@pulumi.output_type
+class PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnit(dict):
+    def __init__(__self__, *,
+                 canonical: Optional['outputs.PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCanonical'] = None,
+                 custom: Optional['outputs.PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCustom'] = None):
+        """
+        :param 'PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCanonicalArgs' canonical: Canonical Units
+        :param 'PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCustomArgs' custom: Use custom (non canonical metrics)
+        """
+        if canonical is not None:
+            pulumi.set(__self__, "canonical", canonical)
+        if custom is not None:
+            pulumi.set(__self__, "custom", custom)
+
+    @property
+    @pulumi.getter
+    def canonical(self) -> Optional['outputs.PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCanonical']:
+        """
+        Canonical Units
+        """
+        return pulumi.get(self, "canonical")
+
+    @property
+    @pulumi.getter
+    def custom(self) -> Optional['outputs.PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCustom']:
+        """
+        Use custom (non canonical metrics)
+        """
+        return pulumi.get(self, "custom")
+
+
+@pulumi.output_type
+class PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCanonical(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitName":
+            suggest = "unit_name"
+        elif key == "perUnitName":
+            suggest = "per_unit_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCanonical. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCanonical.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCanonical.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit_name: str,
+                 per_unit_name: Optional[str] = None):
+        """
+        :param str unit_name: Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+        :param str per_unit_name: per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+        """
+        pulumi.set(__self__, "unit_name", unit_name)
+        if per_unit_name is not None:
+            pulumi.set(__self__, "per_unit_name", per_unit_name)
+
+    @property
+    @pulumi.getter(name="unitName")
+    def unit_name(self) -> str:
+        """
+        Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+        """
+        return pulumi.get(self, "unit_name")
+
+    @property
+    @pulumi.getter(name="perUnitName")
+    def per_unit_name(self) -> Optional[str]:
+        """
+        per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+        """
+        return pulumi.get(self, "per_unit_name")
+
+
+@pulumi.output_type
+class PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCustom(dict):
+    def __init__(__self__, *,
+                 label: str):
+        """
+        :param str label: Unit label
+        """
+        pulumi.set(__self__, "label", label)
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        """
+        Unit label
+        """
+        return pulumi.get(self, "label")
+
+
+@pulumi.output_type
+class PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitScale(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitName":
+            suggest = "unit_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitScale. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitScale.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitScale.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit_name: str):
+        pulumi.set(__self__, "unit_name", unit_name)
+
+    @property
+    @pulumi.getter(name="unitName")
+    def unit_name(self) -> str:
+        return pulumi.get(self, "unit_name")
 
 
 @pulumi.output_type
@@ -52066,7 +54524,7 @@ class PowerpackWidgetQueryTableDefinitionRequest(dict):
         :param str aggregator: The aggregator to use for time aggregation. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
         :param str alias: The alias for the column name (defaults to metric name).
         :param 'PowerpackWidgetQueryTableDefinitionRequestApmQueryArgs' apm_query: The query to use for this widget.
-        :param Sequence[str] cell_display_modes: A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`.
+        :param Sequence[str] cell_display_modes: A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`, `trend`.
         :param Sequence['PowerpackWidgetQueryTableDefinitionRequestConditionalFormatArgs'] conditional_formats: Conditional formats allow you to set the color of your widget content or background, depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
         :param int limit: The number of lines to show in the table.
         :param 'PowerpackWidgetQueryTableDefinitionRequestLogQueryArgs' log_query: The query to use for this widget.
@@ -52143,7 +54601,7 @@ class PowerpackWidgetQueryTableDefinitionRequest(dict):
     @pulumi.getter(name="cellDisplayModes")
     def cell_display_modes(self) -> Optional[Sequence[str]]:
         """
-        A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`.
+        A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`, `trend`.
         """
         return pulumi.get(self, "cell_display_modes")
 
@@ -52636,7 +55094,7 @@ class PowerpackWidgetQueryTableDefinitionRequestApmStatsQueryColumn(dict):
         """
         :param str name: The column name.
         :param str alias: A user-assigned alias for the column.
-        :param str cell_display_mode: A list of display modes for each table cell. Valid values are `number`, `bar`.
+        :param str cell_display_mode: A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         :param str order: Widget sorting methods. Valid values are `asc`, `desc`.
         """
         pulumi.set(__self__, "name", name)
@@ -52667,7 +55125,7 @@ class PowerpackWidgetQueryTableDefinitionRequestApmStatsQueryColumn(dict):
     @pulumi.getter(name="cellDisplayMode")
     def cell_display_mode(self) -> Optional[str]:
         """
-        A list of display modes for each table cell. Valid values are `number`, `bar`.
+        A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         """
         return pulumi.get(self, "cell_display_mode")
 
@@ -52826,6 +55284,8 @@ class PowerpackWidgetQueryTableDefinitionRequestFormula(dict):
             suggest = "cell_display_mode"
         elif key == "conditionalFormats":
             suggest = "conditional_formats"
+        elif key == "numberFormat":
+            suggest = "number_format"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetQueryTableDefinitionRequestFormula. Access the value via the '{suggest}' property getter instead.")
@@ -52844,13 +55304,15 @@ class PowerpackWidgetQueryTableDefinitionRequestFormula(dict):
                  cell_display_mode: Optional[str] = None,
                  conditional_formats: Optional[Sequence['outputs.PowerpackWidgetQueryTableDefinitionRequestFormulaConditionalFormat']] = None,
                  limit: Optional['outputs.PowerpackWidgetQueryTableDefinitionRequestFormulaLimit'] = None,
+                 number_format: Optional['outputs.PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormat'] = None,
                  style: Optional['outputs.PowerpackWidgetQueryTableDefinitionRequestFormulaStyle'] = None):
         """
         :param str formula_expression: A string expression built from queries, formulas, and functions.
         :param str alias: An expression alias.
-        :param str cell_display_mode: A list of display modes for each table cell. Valid values are `number`, `bar`.
+        :param str cell_display_mode: A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         :param Sequence['PowerpackWidgetQueryTableDefinitionRequestFormulaConditionalFormatArgs'] conditional_formats: Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
         :param 'PowerpackWidgetQueryTableDefinitionRequestFormulaLimitArgs' limit: The options for limiting results returned.
+        :param 'PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatArgs' number_format: Number formatting options for the formula.
         :param 'PowerpackWidgetQueryTableDefinitionRequestFormulaStyleArgs' style: Styling options for widget formulas.
         """
         pulumi.set(__self__, "formula_expression", formula_expression)
@@ -52862,6 +55324,8 @@ class PowerpackWidgetQueryTableDefinitionRequestFormula(dict):
             pulumi.set(__self__, "conditional_formats", conditional_formats)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
+        if number_format is not None:
+            pulumi.set(__self__, "number_format", number_format)
         if style is not None:
             pulumi.set(__self__, "style", style)
 
@@ -52885,7 +55349,7 @@ class PowerpackWidgetQueryTableDefinitionRequestFormula(dict):
     @pulumi.getter(name="cellDisplayMode")
     def cell_display_mode(self) -> Optional[str]:
         """
-        A list of display modes for each table cell. Valid values are `number`, `bar`.
+        A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         """
         return pulumi.get(self, "cell_display_mode")
 
@@ -52904,6 +55368,14 @@ class PowerpackWidgetQueryTableDefinitionRequestFormula(dict):
         The options for limiting results returned.
         """
         return pulumi.get(self, "limit")
+
+    @property
+    @pulumi.getter(name="numberFormat")
+    def number_format(self) -> Optional['outputs.PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormat']:
+        """
+        Number formatting options for the formula.
+        """
+        return pulumi.get(self, "number_format")
 
     @property
     @pulumi.getter
@@ -53078,6 +55550,176 @@ class PowerpackWidgetQueryTableDefinitionRequestFormulaLimit(dict):
         The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
         """
         return pulumi.get(self, "order")
+
+
+@pulumi.output_type
+class PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitScale":
+            suggest = "unit_scale"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormat.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit: 'outputs.PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnit',
+                 unit_scale: Optional['outputs.PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitScale'] = None):
+        """
+        :param 'PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitArgs' unit: Unit of the number format.
+        """
+        pulumi.set(__self__, "unit", unit)
+        if unit_scale is not None:
+            pulumi.set(__self__, "unit_scale", unit_scale)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> 'outputs.PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnit':
+        """
+        Unit of the number format.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter(name="unitScale")
+    def unit_scale(self) -> Optional['outputs.PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitScale']:
+        return pulumi.get(self, "unit_scale")
+
+
+@pulumi.output_type
+class PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnit(dict):
+    def __init__(__self__, *,
+                 canonical: Optional['outputs.PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCanonical'] = None,
+                 custom: Optional['outputs.PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCustom'] = None):
+        """
+        :param 'PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCanonicalArgs' canonical: Canonical Units
+        :param 'PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCustomArgs' custom: Use custom (non canonical metrics)
+        """
+        if canonical is not None:
+            pulumi.set(__self__, "canonical", canonical)
+        if custom is not None:
+            pulumi.set(__self__, "custom", custom)
+
+    @property
+    @pulumi.getter
+    def canonical(self) -> Optional['outputs.PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCanonical']:
+        """
+        Canonical Units
+        """
+        return pulumi.get(self, "canonical")
+
+    @property
+    @pulumi.getter
+    def custom(self) -> Optional['outputs.PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCustom']:
+        """
+        Use custom (non canonical metrics)
+        """
+        return pulumi.get(self, "custom")
+
+
+@pulumi.output_type
+class PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCanonical(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitName":
+            suggest = "unit_name"
+        elif key == "perUnitName":
+            suggest = "per_unit_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCanonical. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCanonical.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCanonical.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit_name: str,
+                 per_unit_name: Optional[str] = None):
+        """
+        :param str unit_name: Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+        :param str per_unit_name: per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+        """
+        pulumi.set(__self__, "unit_name", unit_name)
+        if per_unit_name is not None:
+            pulumi.set(__self__, "per_unit_name", per_unit_name)
+
+    @property
+    @pulumi.getter(name="unitName")
+    def unit_name(self) -> str:
+        """
+        Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+        """
+        return pulumi.get(self, "unit_name")
+
+    @property
+    @pulumi.getter(name="perUnitName")
+    def per_unit_name(self) -> Optional[str]:
+        """
+        per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+        """
+        return pulumi.get(self, "per_unit_name")
+
+
+@pulumi.output_type
+class PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCustom(dict):
+    def __init__(__self__, *,
+                 label: str):
+        """
+        :param str label: Unit label
+        """
+        pulumi.set(__self__, "label", label)
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        """
+        Unit label
+        """
+        return pulumi.get(self, "label")
+
+
+@pulumi.output_type
+class PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitScale(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitName":
+            suggest = "unit_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitScale. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitScale.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitScale.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit_name: str):
+        pulumi.set(__self__, "unit_name", unit_name)
+
+    @property
+    @pulumi.getter(name="unitName")
+    def unit_name(self) -> str:
+        return pulumi.get(self, "unit_name")
 
 
 @pulumi.output_type
@@ -56479,6 +59121,8 @@ class PowerpackWidgetQueryValueDefinitionRequestFormula(dict):
             suggest = "cell_display_mode"
         elif key == "conditionalFormats":
             suggest = "conditional_formats"
+        elif key == "numberFormat":
+            suggest = "number_format"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetQueryValueDefinitionRequestFormula. Access the value via the '{suggest}' property getter instead.")
@@ -56497,13 +59141,15 @@ class PowerpackWidgetQueryValueDefinitionRequestFormula(dict):
                  cell_display_mode: Optional[str] = None,
                  conditional_formats: Optional[Sequence['outputs.PowerpackWidgetQueryValueDefinitionRequestFormulaConditionalFormat']] = None,
                  limit: Optional['outputs.PowerpackWidgetQueryValueDefinitionRequestFormulaLimit'] = None,
+                 number_format: Optional['outputs.PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormat'] = None,
                  style: Optional['outputs.PowerpackWidgetQueryValueDefinitionRequestFormulaStyle'] = None):
         """
         :param str formula_expression: A string expression built from queries, formulas, and functions.
         :param str alias: An expression alias.
-        :param str cell_display_mode: A list of display modes for each table cell. Valid values are `number`, `bar`.
+        :param str cell_display_mode: A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         :param Sequence['PowerpackWidgetQueryValueDefinitionRequestFormulaConditionalFormatArgs'] conditional_formats: Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
         :param 'PowerpackWidgetQueryValueDefinitionRequestFormulaLimitArgs' limit: The options for limiting results returned.
+        :param 'PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatArgs' number_format: Number formatting options for the formula.
         :param 'PowerpackWidgetQueryValueDefinitionRequestFormulaStyleArgs' style: Styling options for widget formulas.
         """
         pulumi.set(__self__, "formula_expression", formula_expression)
@@ -56515,6 +59161,8 @@ class PowerpackWidgetQueryValueDefinitionRequestFormula(dict):
             pulumi.set(__self__, "conditional_formats", conditional_formats)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
+        if number_format is not None:
+            pulumi.set(__self__, "number_format", number_format)
         if style is not None:
             pulumi.set(__self__, "style", style)
 
@@ -56538,7 +59186,7 @@ class PowerpackWidgetQueryValueDefinitionRequestFormula(dict):
     @pulumi.getter(name="cellDisplayMode")
     def cell_display_mode(self) -> Optional[str]:
         """
-        A list of display modes for each table cell. Valid values are `number`, `bar`.
+        A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         """
         return pulumi.get(self, "cell_display_mode")
 
@@ -56557,6 +59205,14 @@ class PowerpackWidgetQueryValueDefinitionRequestFormula(dict):
         The options for limiting results returned.
         """
         return pulumi.get(self, "limit")
+
+    @property
+    @pulumi.getter(name="numberFormat")
+    def number_format(self) -> Optional['outputs.PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormat']:
+        """
+        Number formatting options for the formula.
+        """
+        return pulumi.get(self, "number_format")
 
     @property
     @pulumi.getter
@@ -56731,6 +59387,176 @@ class PowerpackWidgetQueryValueDefinitionRequestFormulaLimit(dict):
         The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
         """
         return pulumi.get(self, "order")
+
+
+@pulumi.output_type
+class PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitScale":
+            suggest = "unit_scale"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormat.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit: 'outputs.PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnit',
+                 unit_scale: Optional['outputs.PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScale'] = None):
+        """
+        :param 'PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitArgs' unit: Unit of the number format.
+        """
+        pulumi.set(__self__, "unit", unit)
+        if unit_scale is not None:
+            pulumi.set(__self__, "unit_scale", unit_scale)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> 'outputs.PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnit':
+        """
+        Unit of the number format.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter(name="unitScale")
+    def unit_scale(self) -> Optional['outputs.PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScale']:
+        return pulumi.get(self, "unit_scale")
+
+
+@pulumi.output_type
+class PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnit(dict):
+    def __init__(__self__, *,
+                 canonical: Optional['outputs.PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCanonical'] = None,
+                 custom: Optional['outputs.PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustom'] = None):
+        """
+        :param 'PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCanonicalArgs' canonical: Canonical Units
+        :param 'PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomArgs' custom: Use custom (non canonical metrics)
+        """
+        if canonical is not None:
+            pulumi.set(__self__, "canonical", canonical)
+        if custom is not None:
+            pulumi.set(__self__, "custom", custom)
+
+    @property
+    @pulumi.getter
+    def canonical(self) -> Optional['outputs.PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCanonical']:
+        """
+        Canonical Units
+        """
+        return pulumi.get(self, "canonical")
+
+    @property
+    @pulumi.getter
+    def custom(self) -> Optional['outputs.PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustom']:
+        """
+        Use custom (non canonical metrics)
+        """
+        return pulumi.get(self, "custom")
+
+
+@pulumi.output_type
+class PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCanonical(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitName":
+            suggest = "unit_name"
+        elif key == "perUnitName":
+            suggest = "per_unit_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCanonical. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCanonical.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCanonical.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit_name: str,
+                 per_unit_name: Optional[str] = None):
+        """
+        :param str unit_name: Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+        :param str per_unit_name: per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+        """
+        pulumi.set(__self__, "unit_name", unit_name)
+        if per_unit_name is not None:
+            pulumi.set(__self__, "per_unit_name", per_unit_name)
+
+    @property
+    @pulumi.getter(name="unitName")
+    def unit_name(self) -> str:
+        """
+        Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+        """
+        return pulumi.get(self, "unit_name")
+
+    @property
+    @pulumi.getter(name="perUnitName")
+    def per_unit_name(self) -> Optional[str]:
+        """
+        per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+        """
+        return pulumi.get(self, "per_unit_name")
+
+
+@pulumi.output_type
+class PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustom(dict):
+    def __init__(__self__, *,
+                 label: str):
+        """
+        :param str label: Unit label
+        """
+        pulumi.set(__self__, "label", label)
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        """
+        Unit label
+        """
+        return pulumi.get(self, "label")
+
+
+@pulumi.output_type
+class PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScale(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitName":
+            suggest = "unit_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScale. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScale.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScale.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit_name: str):
+        pulumi.set(__self__, "unit_name", unit_name)
+
+    @property
+    @pulumi.getter(name="unitName")
+    def unit_name(self) -> str:
+        return pulumi.get(self, "unit_name")
 
 
 @pulumi.output_type
@@ -64954,6 +67780,8 @@ class PowerpackWidgetSunburstDefinitionRequestFormula(dict):
             suggest = "cell_display_mode"
         elif key == "conditionalFormats":
             suggest = "conditional_formats"
+        elif key == "numberFormat":
+            suggest = "number_format"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetSunburstDefinitionRequestFormula. Access the value via the '{suggest}' property getter instead.")
@@ -64972,13 +67800,15 @@ class PowerpackWidgetSunburstDefinitionRequestFormula(dict):
                  cell_display_mode: Optional[str] = None,
                  conditional_formats: Optional[Sequence['outputs.PowerpackWidgetSunburstDefinitionRequestFormulaConditionalFormat']] = None,
                  limit: Optional['outputs.PowerpackWidgetSunburstDefinitionRequestFormulaLimit'] = None,
+                 number_format: Optional['outputs.PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormat'] = None,
                  style: Optional['outputs.PowerpackWidgetSunburstDefinitionRequestFormulaStyle'] = None):
         """
         :param str formula_expression: A string expression built from queries, formulas, and functions.
         :param str alias: An expression alias.
-        :param str cell_display_mode: A list of display modes for each table cell. Valid values are `number`, `bar`.
+        :param str cell_display_mode: A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         :param Sequence['PowerpackWidgetSunburstDefinitionRequestFormulaConditionalFormatArgs'] conditional_formats: Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
         :param 'PowerpackWidgetSunburstDefinitionRequestFormulaLimitArgs' limit: The options for limiting results returned.
+        :param 'PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatArgs' number_format: Number formatting options for the formula.
         :param 'PowerpackWidgetSunburstDefinitionRequestFormulaStyleArgs' style: Styling options for widget formulas.
         """
         pulumi.set(__self__, "formula_expression", formula_expression)
@@ -64990,6 +67820,8 @@ class PowerpackWidgetSunburstDefinitionRequestFormula(dict):
             pulumi.set(__self__, "conditional_formats", conditional_formats)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
+        if number_format is not None:
+            pulumi.set(__self__, "number_format", number_format)
         if style is not None:
             pulumi.set(__self__, "style", style)
 
@@ -65013,7 +67845,7 @@ class PowerpackWidgetSunburstDefinitionRequestFormula(dict):
     @pulumi.getter(name="cellDisplayMode")
     def cell_display_mode(self) -> Optional[str]:
         """
-        A list of display modes for each table cell. Valid values are `number`, `bar`.
+        A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         """
         return pulumi.get(self, "cell_display_mode")
 
@@ -65032,6 +67864,14 @@ class PowerpackWidgetSunburstDefinitionRequestFormula(dict):
         The options for limiting results returned.
         """
         return pulumi.get(self, "limit")
+
+    @property
+    @pulumi.getter(name="numberFormat")
+    def number_format(self) -> Optional['outputs.PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormat']:
+        """
+        Number formatting options for the formula.
+        """
+        return pulumi.get(self, "number_format")
 
     @property
     @pulumi.getter
@@ -65206,6 +68046,176 @@ class PowerpackWidgetSunburstDefinitionRequestFormulaLimit(dict):
         The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
         """
         return pulumi.get(self, "order")
+
+
+@pulumi.output_type
+class PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitScale":
+            suggest = "unit_scale"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormat.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit: 'outputs.PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnit',
+                 unit_scale: Optional['outputs.PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnitScale'] = None):
+        """
+        :param 'PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnitArgs' unit: Unit of the number format.
+        """
+        pulumi.set(__self__, "unit", unit)
+        if unit_scale is not None:
+            pulumi.set(__self__, "unit_scale", unit_scale)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> 'outputs.PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnit':
+        """
+        Unit of the number format.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter(name="unitScale")
+    def unit_scale(self) -> Optional['outputs.PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnitScale']:
+        return pulumi.get(self, "unit_scale")
+
+
+@pulumi.output_type
+class PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnit(dict):
+    def __init__(__self__, *,
+                 canonical: Optional['outputs.PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCanonical'] = None,
+                 custom: Optional['outputs.PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCustom'] = None):
+        """
+        :param 'PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCanonicalArgs' canonical: Canonical Units
+        :param 'PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCustomArgs' custom: Use custom (non canonical metrics)
+        """
+        if canonical is not None:
+            pulumi.set(__self__, "canonical", canonical)
+        if custom is not None:
+            pulumi.set(__self__, "custom", custom)
+
+    @property
+    @pulumi.getter
+    def canonical(self) -> Optional['outputs.PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCanonical']:
+        """
+        Canonical Units
+        """
+        return pulumi.get(self, "canonical")
+
+    @property
+    @pulumi.getter
+    def custom(self) -> Optional['outputs.PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCustom']:
+        """
+        Use custom (non canonical metrics)
+        """
+        return pulumi.get(self, "custom")
+
+
+@pulumi.output_type
+class PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCanonical(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitName":
+            suggest = "unit_name"
+        elif key == "perUnitName":
+            suggest = "per_unit_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCanonical. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCanonical.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCanonical.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit_name: str,
+                 per_unit_name: Optional[str] = None):
+        """
+        :param str unit_name: Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+        :param str per_unit_name: per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+        """
+        pulumi.set(__self__, "unit_name", unit_name)
+        if per_unit_name is not None:
+            pulumi.set(__self__, "per_unit_name", per_unit_name)
+
+    @property
+    @pulumi.getter(name="unitName")
+    def unit_name(self) -> str:
+        """
+        Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+        """
+        return pulumi.get(self, "unit_name")
+
+    @property
+    @pulumi.getter(name="perUnitName")
+    def per_unit_name(self) -> Optional[str]:
+        """
+        per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+        """
+        return pulumi.get(self, "per_unit_name")
+
+
+@pulumi.output_type
+class PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCustom(dict):
+    def __init__(__self__, *,
+                 label: str):
+        """
+        :param str label: Unit label
+        """
+        pulumi.set(__self__, "label", label)
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        """
+        Unit label
+        """
+        return pulumi.get(self, "label")
+
+
+@pulumi.output_type
+class PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnitScale(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitName":
+            suggest = "unit_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnitScale. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnitScale.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnitScale.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit_name: str):
+        pulumi.set(__self__, "unit_name", unit_name)
+
+    @property
+    @pulumi.getter(name="unitName")
+    def unit_name(self) -> str:
+        return pulumi.get(self, "unit_name")
 
 
 @pulumi.output_type
@@ -68743,6 +71753,8 @@ class PowerpackWidgetTimeseriesDefinitionRequestFormula(dict):
             suggest = "cell_display_mode"
         elif key == "conditionalFormats":
             suggest = "conditional_formats"
+        elif key == "numberFormat":
+            suggest = "number_format"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetTimeseriesDefinitionRequestFormula. Access the value via the '{suggest}' property getter instead.")
@@ -68761,13 +71773,15 @@ class PowerpackWidgetTimeseriesDefinitionRequestFormula(dict):
                  cell_display_mode: Optional[str] = None,
                  conditional_formats: Optional[Sequence['outputs.PowerpackWidgetTimeseriesDefinitionRequestFormulaConditionalFormat']] = None,
                  limit: Optional['outputs.PowerpackWidgetTimeseriesDefinitionRequestFormulaLimit'] = None,
+                 number_format: Optional['outputs.PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormat'] = None,
                  style: Optional['outputs.PowerpackWidgetTimeseriesDefinitionRequestFormulaStyle'] = None):
         """
         :param str formula_expression: A string expression built from queries, formulas, and functions.
         :param str alias: An expression alias.
-        :param str cell_display_mode: A list of display modes for each table cell. Valid values are `number`, `bar`.
+        :param str cell_display_mode: A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         :param Sequence['PowerpackWidgetTimeseriesDefinitionRequestFormulaConditionalFormatArgs'] conditional_formats: Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
         :param 'PowerpackWidgetTimeseriesDefinitionRequestFormulaLimitArgs' limit: The options for limiting results returned.
+        :param 'PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatArgs' number_format: Number formatting options for the formula.
         :param 'PowerpackWidgetTimeseriesDefinitionRequestFormulaStyleArgs' style: Styling options for widget formulas.
         """
         pulumi.set(__self__, "formula_expression", formula_expression)
@@ -68779,6 +71793,8 @@ class PowerpackWidgetTimeseriesDefinitionRequestFormula(dict):
             pulumi.set(__self__, "conditional_formats", conditional_formats)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
+        if number_format is not None:
+            pulumi.set(__self__, "number_format", number_format)
         if style is not None:
             pulumi.set(__self__, "style", style)
 
@@ -68802,7 +71818,7 @@ class PowerpackWidgetTimeseriesDefinitionRequestFormula(dict):
     @pulumi.getter(name="cellDisplayMode")
     def cell_display_mode(self) -> Optional[str]:
         """
-        A list of display modes for each table cell. Valid values are `number`, `bar`.
+        A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         """
         return pulumi.get(self, "cell_display_mode")
 
@@ -68821,6 +71837,14 @@ class PowerpackWidgetTimeseriesDefinitionRequestFormula(dict):
         The options for limiting results returned.
         """
         return pulumi.get(self, "limit")
+
+    @property
+    @pulumi.getter(name="numberFormat")
+    def number_format(self) -> Optional['outputs.PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormat']:
+        """
+        Number formatting options for the formula.
+        """
+        return pulumi.get(self, "number_format")
 
     @property
     @pulumi.getter
@@ -68995,6 +72019,176 @@ class PowerpackWidgetTimeseriesDefinitionRequestFormulaLimit(dict):
         The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
         """
         return pulumi.get(self, "order")
+
+
+@pulumi.output_type
+class PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitScale":
+            suggest = "unit_scale"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormat.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit: 'outputs.PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnit',
+                 unit_scale: Optional['outputs.PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScale'] = None):
+        """
+        :param 'PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitArgs' unit: Unit of the number format.
+        """
+        pulumi.set(__self__, "unit", unit)
+        if unit_scale is not None:
+            pulumi.set(__self__, "unit_scale", unit_scale)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> 'outputs.PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnit':
+        """
+        Unit of the number format.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter(name="unitScale")
+    def unit_scale(self) -> Optional['outputs.PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScale']:
+        return pulumi.get(self, "unit_scale")
+
+
+@pulumi.output_type
+class PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnit(dict):
+    def __init__(__self__, *,
+                 canonical: Optional['outputs.PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical'] = None,
+                 custom: Optional['outputs.PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustom'] = None):
+        """
+        :param 'PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalArgs' canonical: Canonical Units
+        :param 'PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomArgs' custom: Use custom (non canonical metrics)
+        """
+        if canonical is not None:
+            pulumi.set(__self__, "canonical", canonical)
+        if custom is not None:
+            pulumi.set(__self__, "custom", custom)
+
+    @property
+    @pulumi.getter
+    def canonical(self) -> Optional['outputs.PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical']:
+        """
+        Canonical Units
+        """
+        return pulumi.get(self, "canonical")
+
+    @property
+    @pulumi.getter
+    def custom(self) -> Optional['outputs.PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustom']:
+        """
+        Use custom (non canonical metrics)
+        """
+        return pulumi.get(self, "custom")
+
+
+@pulumi.output_type
+class PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitName":
+            suggest = "unit_name"
+        elif key == "perUnitName":
+            suggest = "per_unit_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit_name: str,
+                 per_unit_name: Optional[str] = None):
+        """
+        :param str unit_name: Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+        :param str per_unit_name: per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+        """
+        pulumi.set(__self__, "unit_name", unit_name)
+        if per_unit_name is not None:
+            pulumi.set(__self__, "per_unit_name", per_unit_name)
+
+    @property
+    @pulumi.getter(name="unitName")
+    def unit_name(self) -> str:
+        """
+        Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+        """
+        return pulumi.get(self, "unit_name")
+
+    @property
+    @pulumi.getter(name="perUnitName")
+    def per_unit_name(self) -> Optional[str]:
+        """
+        per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+        """
+        return pulumi.get(self, "per_unit_name")
+
+
+@pulumi.output_type
+class PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustom(dict):
+    def __init__(__self__, *,
+                 label: str):
+        """
+        :param str label: Unit label
+        """
+        pulumi.set(__self__, "label", label)
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        """
+        Unit label
+        """
+        return pulumi.get(self, "label")
+
+
+@pulumi.output_type
+class PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScale(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitName":
+            suggest = "unit_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScale. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScale.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScale.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit_name: str):
+        pulumi.set(__self__, "unit_name", unit_name)
+
+    @property
+    @pulumi.getter(name="unitName")
+    def unit_name(self) -> str:
+        return pulumi.get(self, "unit_name")
 
 
 @pulumi.output_type
@@ -72685,6 +75879,8 @@ class PowerpackWidgetToplistDefinitionRequestFormula(dict):
             suggest = "cell_display_mode"
         elif key == "conditionalFormats":
             suggest = "conditional_formats"
+        elif key == "numberFormat":
+            suggest = "number_format"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetToplistDefinitionRequestFormula. Access the value via the '{suggest}' property getter instead.")
@@ -72703,13 +75899,15 @@ class PowerpackWidgetToplistDefinitionRequestFormula(dict):
                  cell_display_mode: Optional[str] = None,
                  conditional_formats: Optional[Sequence['outputs.PowerpackWidgetToplistDefinitionRequestFormulaConditionalFormat']] = None,
                  limit: Optional['outputs.PowerpackWidgetToplistDefinitionRequestFormulaLimit'] = None,
+                 number_format: Optional['outputs.PowerpackWidgetToplistDefinitionRequestFormulaNumberFormat'] = None,
                  style: Optional['outputs.PowerpackWidgetToplistDefinitionRequestFormulaStyle'] = None):
         """
         :param str formula_expression: A string expression built from queries, formulas, and functions.
         :param str alias: An expression alias.
-        :param str cell_display_mode: A list of display modes for each table cell. Valid values are `number`, `bar`.
+        :param str cell_display_mode: A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         :param Sequence['PowerpackWidgetToplistDefinitionRequestFormulaConditionalFormatArgs'] conditional_formats: Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
         :param 'PowerpackWidgetToplistDefinitionRequestFormulaLimitArgs' limit: The options for limiting results returned.
+        :param 'PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatArgs' number_format: Number formatting options for the formula.
         :param 'PowerpackWidgetToplistDefinitionRequestFormulaStyleArgs' style: Styling options for widget formulas.
         """
         pulumi.set(__self__, "formula_expression", formula_expression)
@@ -72721,6 +75919,8 @@ class PowerpackWidgetToplistDefinitionRequestFormula(dict):
             pulumi.set(__self__, "conditional_formats", conditional_formats)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
+        if number_format is not None:
+            pulumi.set(__self__, "number_format", number_format)
         if style is not None:
             pulumi.set(__self__, "style", style)
 
@@ -72744,7 +75944,7 @@ class PowerpackWidgetToplistDefinitionRequestFormula(dict):
     @pulumi.getter(name="cellDisplayMode")
     def cell_display_mode(self) -> Optional[str]:
         """
-        A list of display modes for each table cell. Valid values are `number`, `bar`.
+        A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         """
         return pulumi.get(self, "cell_display_mode")
 
@@ -72763,6 +75963,14 @@ class PowerpackWidgetToplistDefinitionRequestFormula(dict):
         The options for limiting results returned.
         """
         return pulumi.get(self, "limit")
+
+    @property
+    @pulumi.getter(name="numberFormat")
+    def number_format(self) -> Optional['outputs.PowerpackWidgetToplistDefinitionRequestFormulaNumberFormat']:
+        """
+        Number formatting options for the formula.
+        """
+        return pulumi.get(self, "number_format")
 
     @property
     @pulumi.getter
@@ -72937,6 +76145,176 @@ class PowerpackWidgetToplistDefinitionRequestFormulaLimit(dict):
         The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
         """
         return pulumi.get(self, "order")
+
+
+@pulumi.output_type
+class PowerpackWidgetToplistDefinitionRequestFormulaNumberFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitScale":
+            suggest = "unit_scale"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetToplistDefinitionRequestFormulaNumberFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PowerpackWidgetToplistDefinitionRequestFormulaNumberFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PowerpackWidgetToplistDefinitionRequestFormulaNumberFormat.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit: 'outputs.PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnit',
+                 unit_scale: Optional['outputs.PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScale'] = None):
+        """
+        :param 'PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitArgs' unit: Unit of the number format.
+        """
+        pulumi.set(__self__, "unit", unit)
+        if unit_scale is not None:
+            pulumi.set(__self__, "unit_scale", unit_scale)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> 'outputs.PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnit':
+        """
+        Unit of the number format.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter(name="unitScale")
+    def unit_scale(self) -> Optional['outputs.PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScale']:
+        return pulumi.get(self, "unit_scale")
+
+
+@pulumi.output_type
+class PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnit(dict):
+    def __init__(__self__, *,
+                 canonical: Optional['outputs.PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonical'] = None,
+                 custom: Optional['outputs.PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustom'] = None):
+        """
+        :param 'PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalArgs' canonical: Canonical Units
+        :param 'PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomArgs' custom: Use custom (non canonical metrics)
+        """
+        if canonical is not None:
+            pulumi.set(__self__, "canonical", canonical)
+        if custom is not None:
+            pulumi.set(__self__, "custom", custom)
+
+    @property
+    @pulumi.getter
+    def canonical(self) -> Optional['outputs.PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonical']:
+        """
+        Canonical Units
+        """
+        return pulumi.get(self, "canonical")
+
+    @property
+    @pulumi.getter
+    def custom(self) -> Optional['outputs.PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustom']:
+        """
+        Use custom (non canonical metrics)
+        """
+        return pulumi.get(self, "custom")
+
+
+@pulumi.output_type
+class PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonical(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitName":
+            suggest = "unit_name"
+        elif key == "perUnitName":
+            suggest = "per_unit_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonical. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonical.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonical.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit_name: str,
+                 per_unit_name: Optional[str] = None):
+        """
+        :param str unit_name: Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+        :param str per_unit_name: per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+        """
+        pulumi.set(__self__, "unit_name", unit_name)
+        if per_unit_name is not None:
+            pulumi.set(__self__, "per_unit_name", per_unit_name)
+
+    @property
+    @pulumi.getter(name="unitName")
+    def unit_name(self) -> str:
+        """
+        Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+        """
+        return pulumi.get(self, "unit_name")
+
+    @property
+    @pulumi.getter(name="perUnitName")
+    def per_unit_name(self) -> Optional[str]:
+        """
+        per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+        """
+        return pulumi.get(self, "per_unit_name")
+
+
+@pulumi.output_type
+class PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustom(dict):
+    def __init__(__self__, *,
+                 label: str):
+        """
+        :param str label: Unit label
+        """
+        pulumi.set(__self__, "label", label)
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        """
+        Unit label
+        """
+        return pulumi.get(self, "label")
+
+
+@pulumi.output_type
+class PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScale(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitName":
+            suggest = "unit_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScale. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScale.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScale.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit_name: str):
+        pulumi.set(__self__, "unit_name", unit_name)
+
+    @property
+    @pulumi.getter(name="unitName")
+    def unit_name(self) -> str:
+        return pulumi.get(self, "unit_name")
 
 
 @pulumi.output_type
@@ -75057,15 +78435,19 @@ class PowerpackWidgetToplistDefinitionRequestStyle(dict):
 class PowerpackWidgetToplistDefinitionStyle(dict):
     def __init__(__self__, *,
                  displays: Optional[Sequence['outputs.PowerpackWidgetToplistDefinitionStyleDisplay']] = None,
-                 palette: Optional[str] = None):
+                 palette: Optional[str] = None,
+                 scaling: Optional[str] = None):
         """
         :param Sequence['PowerpackWidgetToplistDefinitionStyleDisplayArgs'] displays: The display mode for the widget.
         :param str palette: The color palette for the widget.
+        :param str scaling: The scaling mode for the widget. Valid values are `absolute`, `relative`.
         """
         if displays is not None:
             pulumi.set(__self__, "displays", displays)
         if palette is not None:
             pulumi.set(__self__, "palette", palette)
+        if scaling is not None:
+            pulumi.set(__self__, "scaling", scaling)
 
     @property
     @pulumi.getter
@@ -75082,6 +78464,14 @@ class PowerpackWidgetToplistDefinitionStyle(dict):
         The color palette for the widget.
         """
         return pulumi.get(self, "palette")
+
+    @property
+    @pulumi.getter
+    def scaling(self) -> Optional[str]:
+        """
+        The scaling mode for the widget. Valid values are `absolute`, `relative`.
+        """
+        return pulumi.get(self, "scaling")
 
 
 @pulumi.output_type
@@ -75653,6 +79043,8 @@ class PowerpackWidgetTreemapDefinitionRequestFormula(dict):
             suggest = "cell_display_mode"
         elif key == "conditionalFormats":
             suggest = "conditional_formats"
+        elif key == "numberFormat":
+            suggest = "number_format"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetTreemapDefinitionRequestFormula. Access the value via the '{suggest}' property getter instead.")
@@ -75671,13 +79063,15 @@ class PowerpackWidgetTreemapDefinitionRequestFormula(dict):
                  cell_display_mode: Optional[str] = None,
                  conditional_formats: Optional[Sequence['outputs.PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormat']] = None,
                  limit: Optional['outputs.PowerpackWidgetTreemapDefinitionRequestFormulaLimit'] = None,
+                 number_format: Optional['outputs.PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormat'] = None,
                  style: Optional['outputs.PowerpackWidgetTreemapDefinitionRequestFormulaStyle'] = None):
         """
         :param str formula_expression: A string expression built from queries, formulas, and functions.
         :param str alias: An expression alias.
-        :param str cell_display_mode: A list of display modes for each table cell. Valid values are `number`, `bar`.
+        :param str cell_display_mode: A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         :param Sequence['PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatArgs'] conditional_formats: Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
         :param 'PowerpackWidgetTreemapDefinitionRequestFormulaLimitArgs' limit: The options for limiting results returned.
+        :param 'PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatArgs' number_format: Number formatting options for the formula.
         :param 'PowerpackWidgetTreemapDefinitionRequestFormulaStyleArgs' style: Styling options for widget formulas.
         """
         pulumi.set(__self__, "formula_expression", formula_expression)
@@ -75689,6 +79083,8 @@ class PowerpackWidgetTreemapDefinitionRequestFormula(dict):
             pulumi.set(__self__, "conditional_formats", conditional_formats)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
+        if number_format is not None:
+            pulumi.set(__self__, "number_format", number_format)
         if style is not None:
             pulumi.set(__self__, "style", style)
 
@@ -75712,7 +79108,7 @@ class PowerpackWidgetTreemapDefinitionRequestFormula(dict):
     @pulumi.getter(name="cellDisplayMode")
     def cell_display_mode(self) -> Optional[str]:
         """
-        A list of display modes for each table cell. Valid values are `number`, `bar`.
+        A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         """
         return pulumi.get(self, "cell_display_mode")
 
@@ -75731,6 +79127,14 @@ class PowerpackWidgetTreemapDefinitionRequestFormula(dict):
         The options for limiting results returned.
         """
         return pulumi.get(self, "limit")
+
+    @property
+    @pulumi.getter(name="numberFormat")
+    def number_format(self) -> Optional['outputs.PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormat']:
+        """
+        Number formatting options for the formula.
+        """
+        return pulumi.get(self, "number_format")
 
     @property
     @pulumi.getter
@@ -75905,6 +79309,176 @@ class PowerpackWidgetTreemapDefinitionRequestFormulaLimit(dict):
         The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
         """
         return pulumi.get(self, "order")
+
+
+@pulumi.output_type
+class PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitScale":
+            suggest = "unit_scale"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormat.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit: 'outputs.PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnit',
+                 unit_scale: Optional['outputs.PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale'] = None):
+        """
+        :param 'PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitArgs' unit: Unit of the number format.
+        """
+        pulumi.set(__self__, "unit", unit)
+        if unit_scale is not None:
+            pulumi.set(__self__, "unit_scale", unit_scale)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> 'outputs.PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnit':
+        """
+        Unit of the number format.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter(name="unitScale")
+    def unit_scale(self) -> Optional['outputs.PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale']:
+        return pulumi.get(self, "unit_scale")
+
+
+@pulumi.output_type
+class PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnit(dict):
+    def __init__(__self__, *,
+                 canonical: Optional['outputs.PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonical'] = None,
+                 custom: Optional['outputs.PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom'] = None):
+        """
+        :param 'PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalArgs' canonical: Canonical Units
+        :param 'PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomArgs' custom: Use custom (non canonical metrics)
+        """
+        if canonical is not None:
+            pulumi.set(__self__, "canonical", canonical)
+        if custom is not None:
+            pulumi.set(__self__, "custom", custom)
+
+    @property
+    @pulumi.getter
+    def canonical(self) -> Optional['outputs.PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonical']:
+        """
+        Canonical Units
+        """
+        return pulumi.get(self, "canonical")
+
+    @property
+    @pulumi.getter
+    def custom(self) -> Optional['outputs.PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom']:
+        """
+        Use custom (non canonical metrics)
+        """
+        return pulumi.get(self, "custom")
+
+
+@pulumi.output_type
+class PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonical(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitName":
+            suggest = "unit_name"
+        elif key == "perUnitName":
+            suggest = "per_unit_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonical. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonical.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonical.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit_name: str,
+                 per_unit_name: Optional[str] = None):
+        """
+        :param str unit_name: Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+        :param str per_unit_name: per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+        """
+        pulumi.set(__self__, "unit_name", unit_name)
+        if per_unit_name is not None:
+            pulumi.set(__self__, "per_unit_name", per_unit_name)
+
+    @property
+    @pulumi.getter(name="unitName")
+    def unit_name(self) -> str:
+        """
+        Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+        """
+        return pulumi.get(self, "unit_name")
+
+    @property
+    @pulumi.getter(name="perUnitName")
+    def per_unit_name(self) -> Optional[str]:
+        """
+        per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+        """
+        return pulumi.get(self, "per_unit_name")
+
+
+@pulumi.output_type
+class PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom(dict):
+    def __init__(__self__, *,
+                 label: str):
+        """
+        :param str label: Unit label
+        """
+        pulumi.set(__self__, "label", label)
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        """
+        Unit label
+        """
+        return pulumi.get(self, "label")
+
+
+@pulumi.output_type
+class PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unitName":
+            suggest = "unit_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit_name: str):
+        pulumi.set(__self__, "unit_name", unit_name)
+
+    @property
+    @pulumi.getter(name="unitName")
+    def unit_name(self) -> str:
+        return pulumi.get(self, "unit_name")
 
 
 @pulumi.output_type
@@ -77644,9 +81218,9 @@ class SecurityMonitoringRuleOptions(dict):
         """
         :param bool decrease_criticality_based_on_env: If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `log_detection`. Defaults to `false`.
         :param str detection_method: The detection method. Valid values are `threshold`, `new_value`, `anomaly_detection`, `impossible_travel`, `hardcoded`, `third_party`, `anomaly_threshold`. Defaults to `"threshold"`.
-        :param int evaluation_window: A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`.
+        :param int evaluation_window: A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
         :param 'SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs' impossible_travel_options: Options for rules using the impossible travel detection method.
-        :param int keep_alive: Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
+        :param int keep_alive: Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
         :param int max_signal_duration: A signal will “close” regardless of the query being matched once the time exceeds the maximum duration (in seconds). This time is calculated from the first seen timestamp. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
         :param 'SecurityMonitoringRuleOptionsNewValueOptionsArgs' new_value_options: New value rules specific options.
         :param 'SecurityMonitoringRuleOptionsThirdPartyRuleOptionsArgs' third_party_rule_options: Options for rules using the third-party detection method.
@@ -77688,7 +81262,7 @@ class SecurityMonitoringRuleOptions(dict):
     @pulumi.getter(name="evaluationWindow")
     def evaluation_window(self) -> Optional[int]:
         """
-        A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`.
+        A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
         """
         return pulumi.get(self, "evaluation_window")
 
@@ -77704,7 +81278,7 @@ class SecurityMonitoringRuleOptions(dict):
     @pulumi.getter(name="keepAlive")
     def keep_alive(self) -> Optional[int]:
         """
-        Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
+        Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
         """
         return pulumi.get(self, "keep_alive")
 
@@ -81503,7 +85077,7 @@ class SyntheticsTestBrowserVariable(dict):
                  secure: Optional[bool] = None):
         """
         :param str name: Name of the variable.
-        :param str type: Type of browser test variable. Valid values are `element`, `email`, `global`, `javascript`, `text`.
+        :param str type: Type of browser test variable. Valid values are `element`, `email`, `global`, `text`.
         :param str example: Example for the variable. Defaults to `""`.
         :param str id: ID of the global variable to use. This is actually only used (and required) in the case of using a variable of type `global`.
         :param str pattern: Pattern of the variable. Defaults to `""`.
@@ -81532,7 +85106,7 @@ class SyntheticsTestBrowserVariable(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Type of browser test variable. Valid values are `element`, `email`, `global`, `javascript`, `text`.
+        Type of browser test variable. Valid values are `element`, `email`, `global`, `text`.
         """
         return pulumi.get(self, "type")
 

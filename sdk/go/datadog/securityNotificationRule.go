@@ -40,7 +40,7 @@ type SecurityNotificationRule struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Defines selectors to filter security issues that generate notifications.
 	Selectors SecurityNotificationRuleSelectorsPtrOutput `pulumi:"selectors"`
-	// The list of handle targets for the notifications.
+	// The list of handle targets for the notifications. A target must be prefixed with an @. It can be an email address (@bob@email.com), or any installed integration. For example, a Slack recipient (@slack-ops), or a Teams recipient (@teams-ops).
 	Targets pulumi.StringArrayOutput `pulumi:"targets"`
 	// Specifies the time period, in seconds, used to aggregate the notification. Defaults to `0`.
 	TimeAggregation pulumi.IntOutput `pulumi:"timeAggregation"`
@@ -102,7 +102,7 @@ type securityNotificationRuleState struct {
 	Name *string `pulumi:"name"`
 	// Defines selectors to filter security issues that generate notifications.
 	Selectors *SecurityNotificationRuleSelectors `pulumi:"selectors"`
-	// The list of handle targets for the notifications.
+	// The list of handle targets for the notifications. A target must be prefixed with an @. It can be an email address (@bob@email.com), or any installed integration. For example, a Slack recipient (@slack-ops), or a Teams recipient (@teams-ops).
 	Targets []string `pulumi:"targets"`
 	// Specifies the time period, in seconds, used to aggregate the notification. Defaults to `0`.
 	TimeAggregation *int `pulumi:"timeAggregation"`
@@ -129,7 +129,7 @@ type SecurityNotificationRuleState struct {
 	Name pulumi.StringPtrInput
 	// Defines selectors to filter security issues that generate notifications.
 	Selectors SecurityNotificationRuleSelectorsPtrInput
-	// The list of handle targets for the notifications.
+	// The list of handle targets for the notifications. A target must be prefixed with an @. It can be an email address (@bob@email.com), or any installed integration. For example, a Slack recipient (@slack-ops), or a Teams recipient (@teams-ops).
 	Targets pulumi.StringArrayInput
 	// Specifies the time period, in seconds, used to aggregate the notification. Defaults to `0`.
 	TimeAggregation pulumi.IntPtrInput
@@ -148,7 +148,7 @@ type securityNotificationRuleArgs struct {
 	Name string `pulumi:"name"`
 	// Defines selectors to filter security issues that generate notifications.
 	Selectors *SecurityNotificationRuleSelectors `pulumi:"selectors"`
-	// The list of handle targets for the notifications.
+	// The list of handle targets for the notifications. A target must be prefixed with an @. It can be an email address (@bob@email.com), or any installed integration. For example, a Slack recipient (@slack-ops), or a Teams recipient (@teams-ops).
 	Targets []string `pulumi:"targets"`
 	// Specifies the time period, in seconds, used to aggregate the notification. Defaults to `0`.
 	TimeAggregation *int `pulumi:"timeAggregation"`
@@ -162,7 +162,7 @@ type SecurityNotificationRuleArgs struct {
 	Name pulumi.StringInput
 	// Defines selectors to filter security issues that generate notifications.
 	Selectors SecurityNotificationRuleSelectorsPtrInput
-	// The list of handle targets for the notifications.
+	// The list of handle targets for the notifications. A target must be prefixed with an @. It can be an email address (@bob@email.com), or any installed integration. For example, a Slack recipient (@slack-ops), or a Teams recipient (@teams-ops).
 	Targets pulumi.StringArrayInput
 	// Specifies the time period, in seconds, used to aggregate the notification. Defaults to `0`.
 	TimeAggregation pulumi.IntPtrInput
@@ -300,7 +300,7 @@ func (o SecurityNotificationRuleOutput) Selectors() SecurityNotificationRuleSele
 	return o.ApplyT(func(v *SecurityNotificationRule) SecurityNotificationRuleSelectorsPtrOutput { return v.Selectors }).(SecurityNotificationRuleSelectorsPtrOutput)
 }
 
-// The list of handle targets for the notifications.
+// The list of handle targets for the notifications. A target must be prefixed with an @. It can be an email address (@bob@email.com), or any installed integration. For example, a Slack recipient (@slack-ops), or a Teams recipient (@teams-ops).
 func (o SecurityNotificationRuleOutput) Targets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SecurityNotificationRule) pulumi.StringArrayOutput { return v.Targets }).(pulumi.StringArrayOutput)
 }

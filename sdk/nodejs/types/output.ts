@@ -592,7 +592,7 @@ export interface DashboardWidgetChangeDefinitionRequestFormula {
      */
     alias?: string;
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayMode?: string;
     /**
@@ -607,6 +607,10 @@ export interface DashboardWidgetChangeDefinitionRequestFormula {
      * The options for limiting results returned.
      */
     limit?: outputs.DashboardWidgetChangeDefinitionRequestFormulaLimit;
+    /**
+     * Number formatting options for the formula.
+     */
+    numberFormat?: outputs.DashboardWidgetChangeDefinitionRequestFormulaNumberFormat;
     /**
      * Styling options for widget formulas.
      */
@@ -661,6 +665,47 @@ export interface DashboardWidgetChangeDefinitionRequestFormulaLimit {
      * The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
      */
     order?: string;
+}
+
+export interface DashboardWidgetChangeDefinitionRequestFormulaNumberFormat {
+    /**
+     * Unit of the number format.
+     */
+    unit: outputs.DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnit;
+    unitScale?: outputs.DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitScale;
+}
+
+export interface DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnit {
+    /**
+     * Canonical Units
+     */
+    canonical?: outputs.DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitCanonical;
+    /**
+     * Use custom (non canonical metrics)
+     */
+    custom?: outputs.DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitCustom;
+}
+
+export interface DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitCanonical {
+    /**
+     * per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+     */
+    perUnitName?: string;
+    /**
+     * Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+     */
+    unitName: string;
+}
+
+export interface DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitCustom {
+    /**
+     * Unit label
+     */
+    label: string;
+}
+
+export interface DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitScale {
+    unitName: string;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestFormulaStyle {
@@ -1176,7 +1221,7 @@ export interface DashboardWidgetDistributionDefinitionRequestApmStatsQueryColumn
      */
     alias?: string;
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayMode?: string;
     /**
@@ -1411,7 +1456,7 @@ export interface DashboardWidgetGeomapDefinitionRequestFormula {
      */
     alias?: string;
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayMode?: string;
     /**
@@ -1426,6 +1471,10 @@ export interface DashboardWidgetGeomapDefinitionRequestFormula {
      * The options for limiting results returned.
      */
     limit?: outputs.DashboardWidgetGeomapDefinitionRequestFormulaLimit;
+    /**
+     * Number formatting options for the formula.
+     */
+    numberFormat?: outputs.DashboardWidgetGeomapDefinitionRequestFormulaNumberFormat;
     /**
      * Styling options for widget formulas.
      */
@@ -1480,6 +1529,47 @@ export interface DashboardWidgetGeomapDefinitionRequestFormulaLimit {
      * The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
      */
     order?: string;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestFormulaNumberFormat {
+    /**
+     * Unit of the number format.
+     */
+    unit: outputs.DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnit;
+    unitScale?: outputs.DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScale;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnit {
+    /**
+     * Canonical Units
+     */
+    canonical?: outputs.DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonical;
+    /**
+     * Use custom (non canonical metrics)
+     */
+    custom?: outputs.DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustom;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonical {
+    /**
+     * per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+     */
+    perUnitName?: string;
+    /**
+     * Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+     */
+    unitName: string;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustom {
+    /**
+     * Unit label
+     */
+    label: string;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScale {
+    unitName: string;
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestFormulaStyle {
@@ -2148,7 +2238,7 @@ export interface DashboardWidgetHeatmapDefinitionRequestFormula {
      */
     alias?: string;
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayMode?: string;
     /**
@@ -2163,6 +2253,10 @@ export interface DashboardWidgetHeatmapDefinitionRequestFormula {
      * The options for limiting results returned.
      */
     limit?: outputs.DashboardWidgetHeatmapDefinitionRequestFormulaLimit;
+    /**
+     * Number formatting options for the formula.
+     */
+    numberFormat?: outputs.DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormat;
     /**
      * Styling options for widget formulas.
      */
@@ -2217,6 +2311,47 @@ export interface DashboardWidgetHeatmapDefinitionRequestFormulaLimit {
      * The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
      */
     order?: string;
+}
+
+export interface DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormat {
+    /**
+     * Unit of the number format.
+     */
+    unit: outputs.DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnit;
+    unitScale?: outputs.DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitScale;
+}
+
+export interface DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnit {
+    /**
+     * Canonical Units
+     */
+    canonical?: outputs.DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCanonical;
+    /**
+     * Use custom (non canonical metrics)
+     */
+    custom?: outputs.DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCustom;
+}
+
+export interface DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCanonical {
+    /**
+     * per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+     */
+    perUnitName?: string;
+    /**
+     * Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+     */
+    unitName: string;
+}
+
+export interface DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCustom {
+    /**
+     * Unit label
+     */
+    label: string;
+}
+
+export interface DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitScale {
+    unitName: string;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestFormulaStyle {
@@ -3288,7 +3423,7 @@ export interface DashboardWidgetQueryTableDefinitionRequest {
     apmQuery?: outputs.DashboardWidgetApmQuery;
     apmStatsQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestApmStatsQuery;
     /**
-     * A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayModes?: string[];
     /**
@@ -3368,7 +3503,7 @@ export interface DashboardWidgetQueryTableDefinitionRequestApmStatsQueryColumn {
      */
     alias?: string;
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayMode?: string;
     /**
@@ -3426,7 +3561,7 @@ export interface DashboardWidgetQueryTableDefinitionRequestFormula {
      */
     alias?: string;
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayMode?: string;
     /**
@@ -3441,6 +3576,10 @@ export interface DashboardWidgetQueryTableDefinitionRequestFormula {
      * The options for limiting results returned.
      */
     limit?: outputs.DashboardWidgetQueryTableDefinitionRequestFormulaLimit;
+    /**
+     * Number formatting options for the formula.
+     */
+    numberFormat?: outputs.DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormat;
     /**
      * Styling options for widget formulas.
      */
@@ -3495,6 +3634,47 @@ export interface DashboardWidgetQueryTableDefinitionRequestFormulaLimit {
      * The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
      */
     order?: string;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormat {
+    /**
+     * Unit of the number format.
+     */
+    unit: outputs.DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnit;
+    unitScale?: outputs.DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitScale;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnit {
+    /**
+     * Canonical Units
+     */
+    canonical?: outputs.DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCanonical;
+    /**
+     * Use custom (non canonical metrics)
+     */
+    custom?: outputs.DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCustom;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCanonical {
+    /**
+     * per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+     */
+    perUnitName?: string;
+    /**
+     * Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+     */
+    unitName: string;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCustom {
+    /**
+     * Unit label
+     */
+    label: string;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitScale {
+    unitName: string;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestFormulaStyle {
@@ -4154,7 +4334,7 @@ export interface DashboardWidgetQueryValueDefinitionRequestFormula {
      */
     alias?: string;
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayMode?: string;
     /**
@@ -4169,6 +4349,10 @@ export interface DashboardWidgetQueryValueDefinitionRequestFormula {
      * The options for limiting results returned.
      */
     limit?: outputs.DashboardWidgetQueryValueDefinitionRequestFormulaLimit;
+    /**
+     * Number formatting options for the formula.
+     */
+    numberFormat?: outputs.DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormat;
     /**
      * Styling options for widget formulas.
      */
@@ -4223,6 +4407,47 @@ export interface DashboardWidgetQueryValueDefinitionRequestFormulaLimit {
      * The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
      */
     order?: string;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormat {
+    /**
+     * Unit of the number format.
+     */
+    unit: outputs.DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnit;
+    unitScale?: outputs.DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScale;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnit {
+    /**
+     * Canonical Units
+     */
+    canonical?: outputs.DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCanonical;
+    /**
+     * Use custom (non canonical metrics)
+     */
+    custom?: outputs.DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustom;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCanonical {
+    /**
+     * per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+     */
+    perUnitName?: string;
+    /**
+     * Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+     */
+    unitName: string;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustom {
+    /**
+     * Unit label
+     */
+    label: string;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScale {
+    unitName: string;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestFormulaStyle {
@@ -5908,7 +6133,7 @@ export interface DashboardWidgetSunburstDefinitionRequestFormula {
      */
     alias?: string;
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayMode?: string;
     /**
@@ -5923,6 +6148,10 @@ export interface DashboardWidgetSunburstDefinitionRequestFormula {
      * The options for limiting results returned.
      */
     limit?: outputs.DashboardWidgetSunburstDefinitionRequestFormulaLimit;
+    /**
+     * Number formatting options for the formula.
+     */
+    numberFormat?: outputs.DashboardWidgetSunburstDefinitionRequestFormulaNumberFormat;
     /**
      * Styling options for widget formulas.
      */
@@ -5977,6 +6206,47 @@ export interface DashboardWidgetSunburstDefinitionRequestFormulaLimit {
      * The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
      */
     order?: string;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestFormulaNumberFormat {
+    /**
+     * Unit of the number format.
+     */
+    unit: outputs.DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnit;
+    unitScale?: outputs.DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitScale;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnit {
+    /**
+     * Canonical Units
+     */
+    canonical?: outputs.DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCanonical;
+    /**
+     * Use custom (non canonical metrics)
+     */
+    custom?: outputs.DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCustom;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCanonical {
+    /**
+     * per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+     */
+    perUnitName?: string;
+    /**
+     * Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+     */
+    unitName: string;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCustom {
+    /**
+     * Unit label
+     */
+    label: string;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitScale {
+    unitName: string;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestFormulaStyle {
@@ -6681,7 +6951,7 @@ export interface DashboardWidgetTimeseriesDefinitionRequestFormula {
      */
     alias?: string;
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayMode?: string;
     /**
@@ -6696,6 +6966,10 @@ export interface DashboardWidgetTimeseriesDefinitionRequestFormula {
      * The options for limiting results returned.
      */
     limit?: outputs.DashboardWidgetTimeseriesDefinitionRequestFormulaLimit;
+    /**
+     * Number formatting options for the formula.
+     */
+    numberFormat?: outputs.DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormat;
     /**
      * Styling options for widget formulas.
      */
@@ -6750,6 +7024,47 @@ export interface DashboardWidgetTimeseriesDefinitionRequestFormulaLimit {
      * The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
      */
     order?: string;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormat {
+    /**
+     * Unit of the number format.
+     */
+    unit: outputs.DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnit;
+    unitScale?: outputs.DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScale;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnit {
+    /**
+     * Canonical Units
+     */
+    canonical?: outputs.DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical;
+    /**
+     * Use custom (non canonical metrics)
+     */
+    custom?: outputs.DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustom;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical {
+    /**
+     * per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+     */
+    perUnitName?: string;
+    /**
+     * Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+     */
+    unitName: string;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustom {
+    /**
+     * Unit label
+     */
+    label: string;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScale {
+    unitName: string;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestFormulaStyle {
@@ -7492,7 +7807,7 @@ export interface DashboardWidgetToplistDefinitionRequestFormula {
      */
     alias?: string;
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayMode?: string;
     /**
@@ -7507,6 +7822,10 @@ export interface DashboardWidgetToplistDefinitionRequestFormula {
      * The options for limiting results returned.
      */
     limit?: outputs.DashboardWidgetToplistDefinitionRequestFormulaLimit;
+    /**
+     * Number formatting options for the formula.
+     */
+    numberFormat?: outputs.DashboardWidgetToplistDefinitionRequestFormulaNumberFormat;
     /**
      * Styling options for widget formulas.
      */
@@ -7561,6 +7880,47 @@ export interface DashboardWidgetToplistDefinitionRequestFormulaLimit {
      * The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
      */
     order?: string;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestFormulaNumberFormat {
+    /**
+     * Unit of the number format.
+     */
+    unit: outputs.DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnit;
+    unitScale?: outputs.DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitScale;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnit {
+    /**
+     * Canonical Units
+     */
+    canonical?: outputs.DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonical;
+    /**
+     * Use custom (non canonical metrics)
+     */
+    custom?: outputs.DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustom;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonical {
+    /**
+     * per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+     */
+    perUnitName?: string;
+    /**
+     * Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+     */
+    unitName: string;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustom {
+    /**
+     * Unit label
+     */
+    label: string;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitScale {
+    unitName: string;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestFormulaStyle {
@@ -7945,6 +8305,10 @@ export interface DashboardWidgetToplistDefinitionStyle {
      * The color palette for the widget.
      */
     palette?: string;
+    /**
+     * The scaling mode for the widget. Valid values are `absolute`, `relative`.
+     */
+    scaling: string;
 }
 
 export interface DashboardWidgetToplistDefinitionStyleDisplay {
@@ -8107,7 +8471,7 @@ export interface DashboardWidgetTreemapDefinitionRequestFormula {
      */
     alias?: string;
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayMode?: string;
     /**
@@ -8122,6 +8486,10 @@ export interface DashboardWidgetTreemapDefinitionRequestFormula {
      * The options for limiting results returned.
      */
     limit?: outputs.DashboardWidgetTreemapDefinitionRequestFormulaLimit;
+    /**
+     * Number formatting options for the formula.
+     */
+    numberFormat?: outputs.DashboardWidgetTreemapDefinitionRequestFormulaNumberFormat;
     /**
      * Styling options for widget formulas.
      */
@@ -8176,6 +8544,47 @@ export interface DashboardWidgetTreemapDefinitionRequestFormulaLimit {
      * The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
      */
     order?: string;
+}
+
+export interface DashboardWidgetTreemapDefinitionRequestFormulaNumberFormat {
+    /**
+     * Unit of the number format.
+     */
+    unit: outputs.DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnit;
+    unitScale?: outputs.DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale;
+}
+
+export interface DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnit {
+    /**
+     * Canonical Units
+     */
+    canonical?: outputs.DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonical;
+    /**
+     * Use custom (non canonical metrics)
+     */
+    custom?: outputs.DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom;
+}
+
+export interface DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonical {
+    /**
+     * per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+     */
+    perUnitName?: string;
+    /**
+     * Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+     */
+    unitName: string;
+}
+
+export interface DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom {
+    /**
+     * Unit label
+     */
+    label: string;
+}
+
+export interface DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale {
+    unitName: string;
 }
 
 export interface DashboardWidgetTreemapDefinitionRequestFormulaStyle {
@@ -9572,6 +9981,10 @@ export interface LogsCustomPipelineProcessor {
      */
     serviceRemapper?: outputs.LogsCustomPipelineProcessorServiceRemapper;
     /**
+     * Span ID Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#span-remapper)
+     */
+    spanIdRemapper?: outputs.LogsCustomPipelineProcessorSpanIdRemapper;
+    /**
      * Status Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-status-remapper)
      */
     statusRemapper?: outputs.LogsCustomPipelineProcessorStatusRemapper;
@@ -9799,7 +10212,7 @@ export interface LogsCustomPipelineProcessorPipeline {
     isEnabled?: boolean;
     name: string;
     processors?: outputs.LogsCustomPipelineProcessorPipelineProcessor[];
-    tags?: string[];
+    tags: string[];
 }
 
 export interface LogsCustomPipelineProcessorPipelineFilter {
@@ -9850,6 +10263,10 @@ export interface LogsCustomPipelineProcessorPipelineProcessor {
      * Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
      */
     serviceRemapper?: outputs.LogsCustomPipelineProcessorPipelineProcessorServiceRemapper;
+    /**
+     * Span ID Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#span-remapper)
+     */
+    spanIdRemapper?: outputs.LogsCustomPipelineProcessorPipelineProcessorSpanIdRemapper;
     /**
      * Status Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-status-remapper)
      */
@@ -10110,6 +10527,21 @@ export interface LogsCustomPipelineProcessorPipelineProcessorServiceRemapper {
     sources: string[];
 }
 
+export interface LogsCustomPipelineProcessorPipelineProcessorSpanIdRemapper {
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: boolean;
+    /**
+     * Name of the processor.
+     */
+    name?: string;
+    /**
+     * List of source attributes.
+     */
+    sources: string[];
+}
+
 export interface LogsCustomPipelineProcessorPipelineProcessorStatusRemapper {
     /**
      * If the processor is enabled or not.
@@ -10233,6 +10665,21 @@ export interface LogsCustomPipelineProcessorReferenceTableLookupProcessor {
 }
 
 export interface LogsCustomPipelineProcessorServiceRemapper {
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: boolean;
+    /**
+     * Name of the processor.
+     */
+    name?: string;
+    /**
+     * List of source attributes.
+     */
+    sources: string[];
+}
+
+export interface LogsCustomPipelineProcessorSpanIdRemapper {
     /**
      * If the processor is enabled or not.
      */
@@ -11123,7 +11570,7 @@ export interface PowerpackWidgetChangeDefinitionRequestFormula {
      */
     alias?: string;
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayMode?: string;
     /**
@@ -11138,6 +11585,10 @@ export interface PowerpackWidgetChangeDefinitionRequestFormula {
      * The options for limiting results returned.
      */
     limit?: outputs.PowerpackWidgetChangeDefinitionRequestFormulaLimit;
+    /**
+     * Number formatting options for the formula.
+     */
+    numberFormat?: outputs.PowerpackWidgetChangeDefinitionRequestFormulaNumberFormat;
     /**
      * Styling options for widget formulas.
      */
@@ -11192,6 +11643,47 @@ export interface PowerpackWidgetChangeDefinitionRequestFormulaLimit {
      * The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
      */
     order?: string;
+}
+
+export interface PowerpackWidgetChangeDefinitionRequestFormulaNumberFormat {
+    /**
+     * Unit of the number format.
+     */
+    unit: outputs.PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnit;
+    unitScale?: outputs.PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnitScale;
+}
+
+export interface PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnit {
+    /**
+     * Canonical Units
+     */
+    canonical?: outputs.PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnitCanonical;
+    /**
+     * Use custom (non canonical metrics)
+     */
+    custom?: outputs.PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnitCustom;
+}
+
+export interface PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnitCanonical {
+    /**
+     * per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+     */
+    perUnitName?: string;
+    /**
+     * Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+     */
+    unitName: string;
+}
+
+export interface PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnitCustom {
+    /**
+     * Unit label
+     */
+    label: string;
+}
+
+export interface PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnitScale {
+    unitName: string;
 }
 
 export interface PowerpackWidgetChangeDefinitionRequestFormulaStyle {
@@ -12039,7 +12531,7 @@ export interface PowerpackWidgetDistributionDefinitionRequestApmStatsQueryColumn
      */
     alias?: string;
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayMode?: string;
     /**
@@ -12523,7 +13015,7 @@ export interface PowerpackWidgetGeomapDefinitionRequestFormula {
      */
     alias?: string;
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayMode?: string;
     /**
@@ -12538,6 +13030,10 @@ export interface PowerpackWidgetGeomapDefinitionRequestFormula {
      * The options for limiting results returned.
      */
     limit?: outputs.PowerpackWidgetGeomapDefinitionRequestFormulaLimit;
+    /**
+     * Number formatting options for the formula.
+     */
+    numberFormat?: outputs.PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormat;
     /**
      * Styling options for widget formulas.
      */
@@ -12592,6 +13088,47 @@ export interface PowerpackWidgetGeomapDefinitionRequestFormulaLimit {
      * The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
      */
     order?: string;
+}
+
+export interface PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormat {
+    /**
+     * Unit of the number format.
+     */
+    unit: outputs.PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnit;
+    unitScale?: outputs.PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScale;
+}
+
+export interface PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnit {
+    /**
+     * Canonical Units
+     */
+    canonical?: outputs.PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonical;
+    /**
+     * Use custom (non canonical metrics)
+     */
+    custom?: outputs.PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustom;
+}
+
+export interface PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonical {
+    /**
+     * per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+     */
+    perUnitName?: string;
+    /**
+     * Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+     */
+    unitName: string;
+}
+
+export interface PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustom {
+    /**
+     * Unit label
+     */
+    label: string;
+}
+
+export interface PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScale {
+    unitName: string;
 }
 
 export interface PowerpackWidgetGeomapDefinitionRequestFormulaStyle {
@@ -13320,7 +13857,7 @@ export interface PowerpackWidgetHeatmapDefinitionRequestFormula {
      */
     alias?: string;
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayMode?: string;
     /**
@@ -13335,6 +13872,10 @@ export interface PowerpackWidgetHeatmapDefinitionRequestFormula {
      * The options for limiting results returned.
      */
     limit?: outputs.PowerpackWidgetHeatmapDefinitionRequestFormulaLimit;
+    /**
+     * Number formatting options for the formula.
+     */
+    numberFormat?: outputs.PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormat;
     /**
      * Styling options for widget formulas.
      */
@@ -13389,6 +13930,47 @@ export interface PowerpackWidgetHeatmapDefinitionRequestFormulaLimit {
      * The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
      */
     order?: string;
+}
+
+export interface PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormat {
+    /**
+     * Unit of the number format.
+     */
+    unit: outputs.PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnit;
+    unitScale?: outputs.PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitScale;
+}
+
+export interface PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnit {
+    /**
+     * Canonical Units
+     */
+    canonical?: outputs.PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCanonical;
+    /**
+     * Use custom (non canonical metrics)
+     */
+    custom?: outputs.PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCustom;
+}
+
+export interface PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCanonical {
+    /**
+     * per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+     */
+    perUnitName?: string;
+    /**
+     * Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+     */
+    unitName: string;
+}
+
+export interface PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCustom {
+    /**
+     * Unit label
+     */
+    label: string;
+}
+
+export interface PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitScale {
+    unitName: string;
 }
 
 export interface PowerpackWidgetHeatmapDefinitionRequestFormulaStyle {
@@ -15222,7 +15804,7 @@ export interface PowerpackWidgetQueryTableDefinitionRequest {
     apmQuery?: outputs.PowerpackWidgetQueryTableDefinitionRequestApmQuery;
     apmStatsQuery?: outputs.PowerpackWidgetQueryTableDefinitionRequestApmStatsQuery;
     /**
-     * A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayModes?: string[];
     /**
@@ -15385,7 +15967,7 @@ export interface PowerpackWidgetQueryTableDefinitionRequestApmStatsQueryColumn {
      */
     alias?: string;
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayMode?: string;
     /**
@@ -15443,7 +16025,7 @@ export interface PowerpackWidgetQueryTableDefinitionRequestFormula {
      */
     alias?: string;
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayMode?: string;
     /**
@@ -15458,6 +16040,10 @@ export interface PowerpackWidgetQueryTableDefinitionRequestFormula {
      * The options for limiting results returned.
      */
     limit?: outputs.PowerpackWidgetQueryTableDefinitionRequestFormulaLimit;
+    /**
+     * Number formatting options for the formula.
+     */
+    numberFormat?: outputs.PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormat;
     /**
      * Styling options for widget formulas.
      */
@@ -15512,6 +16098,47 @@ export interface PowerpackWidgetQueryTableDefinitionRequestFormulaLimit {
      * The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
      */
     order?: string;
+}
+
+export interface PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormat {
+    /**
+     * Unit of the number format.
+     */
+    unit: outputs.PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnit;
+    unitScale?: outputs.PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitScale;
+}
+
+export interface PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnit {
+    /**
+     * Canonical Units
+     */
+    canonical?: outputs.PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCanonical;
+    /**
+     * Use custom (non canonical metrics)
+     */
+    custom?: outputs.PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCustom;
+}
+
+export interface PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCanonical {
+    /**
+     * per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+     */
+    perUnitName?: string;
+    /**
+     * Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+     */
+    unitName: string;
+}
+
+export interface PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCustom {
+    /**
+     * Unit label
+     */
+    label: string;
+}
+
+export interface PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitScale {
+    unitName: string;
 }
 
 export interface PowerpackWidgetQueryTableDefinitionRequestFormulaStyle {
@@ -16503,7 +17130,7 @@ export interface PowerpackWidgetQueryValueDefinitionRequestFormula {
      */
     alias?: string;
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayMode?: string;
     /**
@@ -16518,6 +17145,10 @@ export interface PowerpackWidgetQueryValueDefinitionRequestFormula {
      * The options for limiting results returned.
      */
     limit?: outputs.PowerpackWidgetQueryValueDefinitionRequestFormulaLimit;
+    /**
+     * Number formatting options for the formula.
+     */
+    numberFormat?: outputs.PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormat;
     /**
      * Styling options for widget formulas.
      */
@@ -16572,6 +17203,47 @@ export interface PowerpackWidgetQueryValueDefinitionRequestFormulaLimit {
      * The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
      */
     order?: string;
+}
+
+export interface PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormat {
+    /**
+     * Unit of the number format.
+     */
+    unit: outputs.PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnit;
+    unitScale?: outputs.PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScale;
+}
+
+export interface PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnit {
+    /**
+     * Canonical Units
+     */
+    canonical?: outputs.PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCanonical;
+    /**
+     * Use custom (non canonical metrics)
+     */
+    custom?: outputs.PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustom;
+}
+
+export interface PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCanonical {
+    /**
+     * per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+     */
+    perUnitName?: string;
+    /**
+     * Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+     */
+    unitName: string;
+}
+
+export interface PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustom {
+    /**
+     * Unit label
+     */
+    label: string;
+}
+
+export interface PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScale {
+    unitName: string;
 }
 
 export interface PowerpackWidgetQueryValueDefinitionRequestFormulaStyle {
@@ -18961,7 +19633,7 @@ export interface PowerpackWidgetSunburstDefinitionRequestFormula {
      */
     alias?: string;
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayMode?: string;
     /**
@@ -18976,6 +19648,10 @@ export interface PowerpackWidgetSunburstDefinitionRequestFormula {
      * The options for limiting results returned.
      */
     limit?: outputs.PowerpackWidgetSunburstDefinitionRequestFormulaLimit;
+    /**
+     * Number formatting options for the formula.
+     */
+    numberFormat?: outputs.PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormat;
     /**
      * Styling options for widget formulas.
      */
@@ -19030,6 +19706,47 @@ export interface PowerpackWidgetSunburstDefinitionRequestFormulaLimit {
      * The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
      */
     order?: string;
+}
+
+export interface PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormat {
+    /**
+     * Unit of the number format.
+     */
+    unit: outputs.PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnit;
+    unitScale?: outputs.PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnitScale;
+}
+
+export interface PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnit {
+    /**
+     * Canonical Units
+     */
+    canonical?: outputs.PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCanonical;
+    /**
+     * Use custom (non canonical metrics)
+     */
+    custom?: outputs.PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCustom;
+}
+
+export interface PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCanonical {
+    /**
+     * per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+     */
+    perUnitName?: string;
+    /**
+     * Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+     */
+    unitName: string;
+}
+
+export interface PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCustom {
+    /**
+     * Unit label
+     */
+    label: string;
+}
+
+export interface PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnitScale {
+    unitName: string;
 }
 
 export interface PowerpackWidgetSunburstDefinitionRequestFormulaStyle {
@@ -20066,7 +20783,7 @@ export interface PowerpackWidgetTimeseriesDefinitionRequestFormula {
      */
     alias?: string;
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayMode?: string;
     /**
@@ -20081,6 +20798,10 @@ export interface PowerpackWidgetTimeseriesDefinitionRequestFormula {
      * The options for limiting results returned.
      */
     limit?: outputs.PowerpackWidgetTimeseriesDefinitionRequestFormulaLimit;
+    /**
+     * Number formatting options for the formula.
+     */
+    numberFormat?: outputs.PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormat;
     /**
      * Styling options for widget formulas.
      */
@@ -20135,6 +20856,47 @@ export interface PowerpackWidgetTimeseriesDefinitionRequestFormulaLimit {
      * The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
      */
     order?: string;
+}
+
+export interface PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormat {
+    /**
+     * Unit of the number format.
+     */
+    unit: outputs.PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnit;
+    unitScale?: outputs.PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScale;
+}
+
+export interface PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnit {
+    /**
+     * Canonical Units
+     */
+    canonical?: outputs.PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical;
+    /**
+     * Use custom (non canonical metrics)
+     */
+    custom?: outputs.PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustom;
+}
+
+export interface PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical {
+    /**
+     * per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+     */
+    perUnitName?: string;
+    /**
+     * Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+     */
+    unitName: string;
+}
+
+export interface PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustom {
+    /**
+     * Unit label
+     */
+    label: string;
+}
+
+export interface PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScale {
+    unitName: string;
 }
 
 export interface PowerpackWidgetTimeseriesDefinitionRequestFormulaStyle {
@@ -21209,7 +21971,7 @@ export interface PowerpackWidgetToplistDefinitionRequestFormula {
      */
     alias?: string;
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayMode?: string;
     /**
@@ -21224,6 +21986,10 @@ export interface PowerpackWidgetToplistDefinitionRequestFormula {
      * The options for limiting results returned.
      */
     limit?: outputs.PowerpackWidgetToplistDefinitionRequestFormulaLimit;
+    /**
+     * Number formatting options for the formula.
+     */
+    numberFormat?: outputs.PowerpackWidgetToplistDefinitionRequestFormulaNumberFormat;
     /**
      * Styling options for widget formulas.
      */
@@ -21278,6 +22044,47 @@ export interface PowerpackWidgetToplistDefinitionRequestFormulaLimit {
      * The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
      */
     order?: string;
+}
+
+export interface PowerpackWidgetToplistDefinitionRequestFormulaNumberFormat {
+    /**
+     * Unit of the number format.
+     */
+    unit: outputs.PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnit;
+    unitScale?: outputs.PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScale;
+}
+
+export interface PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnit {
+    /**
+     * Canonical Units
+     */
+    canonical?: outputs.PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonical;
+    /**
+     * Use custom (non canonical metrics)
+     */
+    custom?: outputs.PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustom;
+}
+
+export interface PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonical {
+    /**
+     * per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+     */
+    perUnitName?: string;
+    /**
+     * Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+     */
+    unitName: string;
+}
+
+export interface PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustom {
+    /**
+     * Unit label
+     */
+    label: string;
+}
+
+export interface PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScale {
+    unitName: string;
 }
 
 export interface PowerpackWidgetToplistDefinitionRequestFormulaStyle {
@@ -21911,6 +22718,10 @@ export interface PowerpackWidgetToplistDefinitionStyle {
      * The color palette for the widget.
      */
     palette?: string;
+    /**
+     * The scaling mode for the widget. Valid values are `absolute`, `relative`.
+     */
+    scaling: string;
 }
 
 export interface PowerpackWidgetToplistDefinitionStyleDisplay {
@@ -22073,7 +22884,7 @@ export interface PowerpackWidgetTreemapDefinitionRequestFormula {
      */
     alias?: string;
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayMode?: string;
     /**
@@ -22088,6 +22899,10 @@ export interface PowerpackWidgetTreemapDefinitionRequestFormula {
      * The options for limiting results returned.
      */
     limit?: outputs.PowerpackWidgetTreemapDefinitionRequestFormulaLimit;
+    /**
+     * Number formatting options for the formula.
+     */
+    numberFormat?: outputs.PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormat;
     /**
      * Styling options for widget formulas.
      */
@@ -22142,6 +22957,47 @@ export interface PowerpackWidgetTreemapDefinitionRequestFormulaLimit {
      * The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
      */
     order?: string;
+}
+
+export interface PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormat {
+    /**
+     * Unit of the number format.
+     */
+    unit: outputs.PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnit;
+    unitScale?: outputs.PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale;
+}
+
+export interface PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnit {
+    /**
+     * Canonical Units
+     */
+    canonical?: outputs.PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonical;
+    /**
+     * Use custom (non canonical metrics)
+     */
+    custom?: outputs.PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom;
+}
+
+export interface PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonical {
+    /**
+     * per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+     */
+    perUnitName?: string;
+    /**
+     * Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+     */
+    unitName: string;
+}
+
+export interface PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom {
+    /**
+     * Unit label
+     */
+    label: string;
+}
+
+export interface PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale {
+    unitName: string;
 }
 
 export interface PowerpackWidgetTreemapDefinitionRequestFormulaStyle {
@@ -22656,7 +23512,7 @@ export interface SecurityMonitoringRuleOptions {
      */
     detectionMethod?: string;
     /**
-     * A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`.
+     * A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
      */
     evaluationWindow?: number;
     /**
@@ -22664,7 +23520,7 @@ export interface SecurityMonitoringRuleOptions {
      */
     impossibleTravelOptions?: outputs.SecurityMonitoringRuleOptionsImpossibleTravelOptions;
     /**
-     * Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
+     * Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
      */
     keepAlive?: number;
     /**
@@ -23784,7 +24640,7 @@ export interface SyntheticsTestBrowserVariable {
      */
     secure?: boolean;
     /**
-     * Type of browser test variable. Valid values are `element`, `email`, `global`, `javascript`, `text`.
+     * Type of browser test variable. Valid values are `element`, `email`, `global`, `text`.
      */
     type: string;
 }
@@ -24592,7 +25448,7 @@ export namespace azure {
 export namespace config {
     export interface DefaultTags {
         /**
-         * [Experimental - Monitors only] Resource tags to be applied by default across all resources.
+         * [Experimental - Monitors and Logs Pipelines only] Resource tags to be applied by default across all resources.
          */
         tags?: {[key: string]: string};
     }

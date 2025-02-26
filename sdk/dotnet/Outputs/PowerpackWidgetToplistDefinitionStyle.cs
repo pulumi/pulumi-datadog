@@ -21,15 +21,22 @@ namespace Pulumi.Datadog.Outputs
         /// The color palette for the widget.
         /// </summary>
         public readonly string? Palette;
+        /// <summary>
+        /// The scaling mode for the widget. Valid values are `absolute`, `relative`.
+        /// </summary>
+        public readonly string? Scaling;
 
         [OutputConstructor]
         private PowerpackWidgetToplistDefinitionStyle(
             ImmutableArray<Outputs.PowerpackWidgetToplistDefinitionStyleDisplay> displays,
 
-            string? palette)
+            string? palette,
+
+            string? scaling)
         {
             Displays = displays;
             Palette = palette;
+            Scaling = scaling;
         }
     }
 }

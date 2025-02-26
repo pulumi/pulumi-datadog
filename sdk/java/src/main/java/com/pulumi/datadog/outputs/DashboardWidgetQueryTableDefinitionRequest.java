@@ -40,7 +40,7 @@ public final class DashboardWidgetQueryTableDefinitionRequest {
     private @Nullable DashboardWidgetApmQuery apmQuery;
     private @Nullable DashboardWidgetQueryTableDefinitionRequestApmStatsQuery apmStatsQuery;
     /**
-     * @return A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`.
+     * @return A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`, `trend`.
      * 
      */
     private @Nullable List<String> cellDisplayModes;
@@ -118,7 +118,7 @@ public final class DashboardWidgetQueryTableDefinitionRequest {
         return Optional.ofNullable(this.apmStatsQuery);
     }
     /**
-     * @return A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`.
+     * @return A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`, `trend`.
      * 
      */
     public List<String> cellDisplayModes() {

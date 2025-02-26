@@ -30,6 +30,12 @@ namespace Pulumi.Datadog.Inputs
         [Input("palette")]
         public Input<string>? Palette { get; set; }
 
+        /// <summary>
+        /// The scaling mode for the widget. Valid values are `absolute`, `relative`.
+        /// </summary>
+        [Input("scaling")]
+        public Input<string>? Scaling { get; set; }
+
         public PowerpackWidgetToplistDefinitionStyleArgs()
         {
         }

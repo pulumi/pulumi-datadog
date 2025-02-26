@@ -53,7 +53,7 @@ type ApiKey struct {
 	Key pulumi.StringOutput `pulumi:"key"`
 	// Name for API Key.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Whether the API key is used for remote config. Warning : default value is true for backwards compatibility Defaults to `true`.
+	// Whether the API key is used for remote config. Set to true only if remote config is enabled in `/organization-settings/remote-config`.
 	RemoteConfigReadEnabled pulumi.BoolOutput `pulumi:"remoteConfigReadEnabled"`
 }
 
@@ -98,7 +98,7 @@ type apiKeyState struct {
 	Key *string `pulumi:"key"`
 	// Name for API Key.
 	Name *string `pulumi:"name"`
-	// Whether the API key is used for remote config. Warning : default value is true for backwards compatibility Defaults to `true`.
+	// Whether the API key is used for remote config. Set to true only if remote config is enabled in `/organization-settings/remote-config`.
 	RemoteConfigReadEnabled *bool `pulumi:"remoteConfigReadEnabled"`
 }
 
@@ -107,7 +107,7 @@ type ApiKeyState struct {
 	Key pulumi.StringPtrInput
 	// Name for API Key.
 	Name pulumi.StringPtrInput
-	// Whether the API key is used for remote config. Warning : default value is true for backwards compatibility Defaults to `true`.
+	// Whether the API key is used for remote config. Set to true only if remote config is enabled in `/organization-settings/remote-config`.
 	RemoteConfigReadEnabled pulumi.BoolPtrInput
 }
 
@@ -118,7 +118,7 @@ func (ApiKeyState) ElementType() reflect.Type {
 type apiKeyArgs struct {
 	// Name for API Key.
 	Name string `pulumi:"name"`
-	// Whether the API key is used for remote config. Warning : default value is true for backwards compatibility Defaults to `true`.
+	// Whether the API key is used for remote config. Set to true only if remote config is enabled in `/organization-settings/remote-config`.
 	RemoteConfigReadEnabled *bool `pulumi:"remoteConfigReadEnabled"`
 }
 
@@ -126,7 +126,7 @@ type apiKeyArgs struct {
 type ApiKeyArgs struct {
 	// Name for API Key.
 	Name pulumi.StringInput
-	// Whether the API key is used for remote config. Warning : default value is true for backwards compatibility Defaults to `true`.
+	// Whether the API key is used for remote config. Set to true only if remote config is enabled in `/organization-settings/remote-config`.
 	RemoteConfigReadEnabled pulumi.BoolPtrInput
 }
 
@@ -227,7 +227,7 @@ func (o ApiKeyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiKey) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Whether the API key is used for remote config. Warning : default value is true for backwards compatibility Defaults to `true`.
+// Whether the API key is used for remote config. Set to true only if remote config is enabled in `/organization-settings/remote-config`.
 func (o ApiKeyOutput) RemoteConfigReadEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ApiKey) pulumi.BoolOutput { return v.RemoteConfigReadEnabled }).(pulumi.BoolOutput)
 }

@@ -23,6 +23,11 @@ public final class PowerpackWidgetToplistDefinitionStyle {
      * 
      */
     private @Nullable String palette;
+    /**
+     * @return The scaling mode for the widget. Valid values are `absolute`, `relative`.
+     * 
+     */
+    private @Nullable String scaling;
 
     private PowerpackWidgetToplistDefinitionStyle() {}
     /**
@@ -39,6 +44,13 @@ public final class PowerpackWidgetToplistDefinitionStyle {
     public Optional<String> palette() {
         return Optional.ofNullable(this.palette);
     }
+    /**
+     * @return The scaling mode for the widget. Valid values are `absolute`, `relative`.
+     * 
+     */
+    public Optional<String> scaling() {
+        return Optional.ofNullable(this.scaling);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -51,11 +63,13 @@ public final class PowerpackWidgetToplistDefinitionStyle {
     public static final class Builder {
         private @Nullable List<PowerpackWidgetToplistDefinitionStyleDisplay> displays;
         private @Nullable String palette;
+        private @Nullable String scaling;
         public Builder() {}
         public Builder(PowerpackWidgetToplistDefinitionStyle defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.displays = defaults.displays;
     	      this.palette = defaults.palette;
+    	      this.scaling = defaults.scaling;
         }
 
         @CustomType.Setter
@@ -73,10 +87,17 @@ public final class PowerpackWidgetToplistDefinitionStyle {
             this.palette = palette;
             return this;
         }
+        @CustomType.Setter
+        public Builder scaling(@Nullable String scaling) {
+
+            this.scaling = scaling;
+            return this;
+        }
         public PowerpackWidgetToplistDefinitionStyle build() {
             final var _resultValue = new PowerpackWidgetToplistDefinitionStyle();
             _resultValue.displays = displays;
             _resultValue.palette = palette;
+            _resultValue.scaling = scaling;
             return _resultValue;
         }
     }

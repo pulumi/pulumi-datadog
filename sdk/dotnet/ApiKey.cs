@@ -53,7 +53,7 @@ namespace Pulumi.Datadog
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the API key is used for remote config. Warning : default value is true for backwards compatibility Defaults to `true`.
+        /// Whether the API key is used for remote config. Set to true only if remote config is enabled in `/organization-settings/remote-config`.
         /// </summary>
         [Output("remoteConfigReadEnabled")]
         public Output<bool> RemoteConfigReadEnabled { get; private set; } = null!;
@@ -115,7 +115,7 @@ namespace Pulumi.Datadog
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Whether the API key is used for remote config. Warning : default value is true for backwards compatibility Defaults to `true`.
+        /// Whether the API key is used for remote config. Set to true only if remote config is enabled in `/organization-settings/remote-config`.
         /// </summary>
         [Input("remoteConfigReadEnabled")]
         public Input<bool>? RemoteConfigReadEnabled { get; set; }
@@ -151,7 +151,7 @@ namespace Pulumi.Datadog
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether the API key is used for remote config. Warning : default value is true for backwards compatibility Defaults to `true`.
+        /// Whether the API key is used for remote config. Set to true only if remote config is enabled in `/organization-settings/remote-config`.
         /// </summary>
         [Input("remoteConfigReadEnabled")]
         public Input<bool>? RemoteConfigReadEnabled { get; set; }

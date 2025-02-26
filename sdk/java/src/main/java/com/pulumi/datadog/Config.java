@@ -39,8 +39,8 @@ public final class Config {
         return Codegen.stringProp("appKey").config(config).get();
     }
 /**
- * [Experimental - Monitors only] Configuration block containing settings to apply default resource tags across all
- * resources.
+ * [Experimental - Monitors and Logs Pipelines only] Configuration block containing settings to apply default resource tags
+ * across all resources.
  * 
  */
     public Optional<DefaultTags> defaultTags() {

@@ -92,14 +92,14 @@ public class ApiKey extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Whether the API key is used for remote config. Warning : default value is true for backwards compatibility Defaults to `true`.
+     * Whether the API key is used for remote config. Set to true only if remote config is enabled in `/organization-settings/remote-config`.
      * 
      */
     @Export(name="remoteConfigReadEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> remoteConfigReadEnabled;
 
     /**
-     * @return Whether the API key is used for remote config. Warning : default value is true for backwards compatibility Defaults to `true`.
+     * @return Whether the API key is used for remote config. Set to true only if remote config is enabled in `/organization-settings/remote-config`.
      * 
      */
     public Output<Boolean> remoteConfigReadEnabled() {

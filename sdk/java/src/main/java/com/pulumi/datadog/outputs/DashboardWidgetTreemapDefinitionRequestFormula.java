@@ -6,6 +6,7 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormat;
 import com.pulumi.datadog.outputs.DashboardWidgetTreemapDefinitionRequestFormulaLimit;
+import com.pulumi.datadog.outputs.DashboardWidgetTreemapDefinitionRequestFormulaNumberFormat;
 import com.pulumi.datadog.outputs.DashboardWidgetTreemapDefinitionRequestFormulaStyle;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -22,7 +23,7 @@ public final class DashboardWidgetTreemapDefinitionRequestFormula {
      */
     private @Nullable String alias;
     /**
-     * @return A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * @return A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      * 
      */
     private @Nullable String cellDisplayMode;
@@ -42,6 +43,11 @@ public final class DashboardWidgetTreemapDefinitionRequestFormula {
      */
     private @Nullable DashboardWidgetTreemapDefinitionRequestFormulaLimit limit;
     /**
+     * @return Number formatting options for the formula.
+     * 
+     */
+    private @Nullable DashboardWidgetTreemapDefinitionRequestFormulaNumberFormat numberFormat;
+    /**
      * @return Styling options for widget formulas.
      * 
      */
@@ -56,7 +62,7 @@ public final class DashboardWidgetTreemapDefinitionRequestFormula {
         return Optional.ofNullable(this.alias);
     }
     /**
-     * @return A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * @return A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      * 
      */
     public Optional<String> cellDisplayMode() {
@@ -84,6 +90,13 @@ public final class DashboardWidgetTreemapDefinitionRequestFormula {
         return Optional.ofNullable(this.limit);
     }
     /**
+     * @return Number formatting options for the formula.
+     * 
+     */
+    public Optional<DashboardWidgetTreemapDefinitionRequestFormulaNumberFormat> numberFormat() {
+        return Optional.ofNullable(this.numberFormat);
+    }
+    /**
      * @return Styling options for widget formulas.
      * 
      */
@@ -105,6 +118,7 @@ public final class DashboardWidgetTreemapDefinitionRequestFormula {
         private @Nullable List<DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormat> conditionalFormats;
         private String formulaExpression;
         private @Nullable DashboardWidgetTreemapDefinitionRequestFormulaLimit limit;
+        private @Nullable DashboardWidgetTreemapDefinitionRequestFormulaNumberFormat numberFormat;
         private @Nullable DashboardWidgetTreemapDefinitionRequestFormulaStyle style;
         public Builder() {}
         public Builder(DashboardWidgetTreemapDefinitionRequestFormula defaults) {
@@ -114,6 +128,7 @@ public final class DashboardWidgetTreemapDefinitionRequestFormula {
     	      this.conditionalFormats = defaults.conditionalFormats;
     	      this.formulaExpression = defaults.formulaExpression;
     	      this.limit = defaults.limit;
+    	      this.numberFormat = defaults.numberFormat;
     	      this.style = defaults.style;
         }
 
@@ -153,6 +168,12 @@ public final class DashboardWidgetTreemapDefinitionRequestFormula {
             return this;
         }
         @CustomType.Setter
+        public Builder numberFormat(@Nullable DashboardWidgetTreemapDefinitionRequestFormulaNumberFormat numberFormat) {
+
+            this.numberFormat = numberFormat;
+            return this;
+        }
+        @CustomType.Setter
         public Builder style(@Nullable DashboardWidgetTreemapDefinitionRequestFormulaStyle style) {
 
             this.style = style;
@@ -165,6 +186,7 @@ public final class DashboardWidgetTreemapDefinitionRequestFormula {
             _resultValue.conditionalFormats = conditionalFormats;
             _resultValue.formulaExpression = formulaExpression;
             _resultValue.limit = limit;
+            _resultValue.numberFormat = numberFormat;
             _resultValue.style = style;
             return _resultValue;
         }

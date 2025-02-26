@@ -24,7 +24,7 @@ class ApiKeyArgs:
         """
         The set of arguments for constructing a ApiKey resource.
         :param pulumi.Input[str] name: Name for API Key.
-        :param pulumi.Input[bool] remote_config_read_enabled: Whether the API key is used for remote config. Warning : default value is true for backwards compatibility Defaults to `true`.
+        :param pulumi.Input[bool] remote_config_read_enabled: Whether the API key is used for remote config. Set to true only if remote config is enabled in `/organization-settings/remote-config`.
         """
         pulumi.set(__self__, "name", name)
         if remote_config_read_enabled is not None:
@@ -46,7 +46,7 @@ class ApiKeyArgs:
     @pulumi.getter(name="remoteConfigReadEnabled")
     def remote_config_read_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the API key is used for remote config. Warning : default value is true for backwards compatibility Defaults to `true`.
+        Whether the API key is used for remote config. Set to true only if remote config is enabled in `/organization-settings/remote-config`.
         """
         return pulumi.get(self, "remote_config_read_enabled")
 
@@ -65,7 +65,7 @@ class _ApiKeyState:
         Input properties used for looking up and filtering ApiKey resources.
         :param pulumi.Input[str] key: The value of the API Key.
         :param pulumi.Input[str] name: Name for API Key.
-        :param pulumi.Input[bool] remote_config_read_enabled: Whether the API key is used for remote config. Warning : default value is true for backwards compatibility Defaults to `true`.
+        :param pulumi.Input[bool] remote_config_read_enabled: Whether the API key is used for remote config. Set to true only if remote config is enabled in `/organization-settings/remote-config`.
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -102,7 +102,7 @@ class _ApiKeyState:
     @pulumi.getter(name="remoteConfigReadEnabled")
     def remote_config_read_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the API key is used for remote config. Warning : default value is true for backwards compatibility Defaults to `true`.
+        Whether the API key is used for remote config. Set to true only if remote config is enabled in `/organization-settings/remote-config`.
         """
         return pulumi.get(self, "remote_config_read_enabled")
 
@@ -141,7 +141,7 @@ class ApiKey(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Name for API Key.
-        :param pulumi.Input[bool] remote_config_read_enabled: Whether the API key is used for remote config. Warning : default value is true for backwards compatibility Defaults to `true`.
+        :param pulumi.Input[bool] remote_config_read_enabled: Whether the API key is used for remote config. Set to true only if remote config is enabled in `/organization-settings/remote-config`.
         """
         ...
     @overload
@@ -223,7 +223,7 @@ class ApiKey(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] key: The value of the API Key.
         :param pulumi.Input[str] name: Name for API Key.
-        :param pulumi.Input[bool] remote_config_read_enabled: Whether the API key is used for remote config. Warning : default value is true for backwards compatibility Defaults to `true`.
+        :param pulumi.Input[bool] remote_config_read_enabled: Whether the API key is used for remote config. Set to true only if remote config is enabled in `/organization-settings/remote-config`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -254,7 +254,7 @@ class ApiKey(pulumi.CustomResource):
     @pulumi.getter(name="remoteConfigReadEnabled")
     def remote_config_read_enabled(self) -> pulumi.Output[bool]:
         """
-        Whether the API key is used for remote config. Warning : default value is true for backwards compatibility Defaults to `true`.
+        Whether the API key is used for remote config. Set to true only if remote config is enabled in `/organization-settings/remote-config`.
         """
         return pulumi.get(self, "remote_config_read_enabled")
 

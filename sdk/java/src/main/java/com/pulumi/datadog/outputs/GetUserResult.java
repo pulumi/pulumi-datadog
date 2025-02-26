@@ -14,6 +14,16 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetUserResult {
     /**
+     * @return The time when the user was created (RFC3339 format).
+     * 
+     */
+    private String createdAt;
+    /**
+     * @return Indicates whether the user is disabled.
+     * 
+     */
+    private Boolean disabled;
+    /**
      * @return Email of the user.
      * 
      */
@@ -29,17 +39,71 @@ public final class GetUserResult {
      */
     private String filter;
     /**
+     * @return The user&#39;s handle.
+     * 
+     */
+    private String handle;
+    /**
+     * @return The URL where the user&#39;s icon is located.
+     * 
+     */
+    private String icon;
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
     /**
+     * @return Indicates whether the user has enabled MFA.
+     * 
+     */
+    private Boolean mfaEnabled;
+    /**
+     * @return The time at which the user was last updated (RFC3339 format).
+     * 
+     */
+    private String modifiedAt;
+    /**
      * @return Name of the user.
      * 
      */
     private String name;
+    /**
+     * @return Indicates whether the user is a service account.
+     * 
+     */
+    private Boolean serviceAccount;
+    /**
+     * @return The user&#39;s status.
+     * 
+     */
+    private String status;
+    /**
+     * @return The user&#39;s title.
+     * 
+     */
+    private String title;
+    /**
+     * @return Indicates whether the user is verified.
+     * 
+     */
+    private Boolean verified;
 
     private GetUserResult() {}
+    /**
+     * @return The time when the user was created (RFC3339 format).
+     * 
+     */
+    public String createdAt() {
+        return this.createdAt;
+    }
+    /**
+     * @return Indicates whether the user is disabled.
+     * 
+     */
+    public Boolean disabled() {
+        return this.disabled;
+    }
     /**
      * @return Email of the user.
      * 
@@ -62,6 +126,20 @@ public final class GetUserResult {
         return this.filter;
     }
     /**
+     * @return The user&#39;s handle.
+     * 
+     */
+    public String handle() {
+        return this.handle;
+    }
+    /**
+     * @return The URL where the user&#39;s icon is located.
+     * 
+     */
+    public String icon() {
+        return this.icon;
+    }
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
@@ -69,11 +147,53 @@ public final class GetUserResult {
         return this.id;
     }
     /**
+     * @return Indicates whether the user has enabled MFA.
+     * 
+     */
+    public Boolean mfaEnabled() {
+        return this.mfaEnabled;
+    }
+    /**
+     * @return The time at which the user was last updated (RFC3339 format).
+     * 
+     */
+    public String modifiedAt() {
+        return this.modifiedAt;
+    }
+    /**
      * @return Name of the user.
      * 
      */
     public String name() {
         return this.name;
+    }
+    /**
+     * @return Indicates whether the user is a service account.
+     * 
+     */
+    public Boolean serviceAccount() {
+        return this.serviceAccount;
+    }
+    /**
+     * @return The user&#39;s status.
+     * 
+     */
+    public String status() {
+        return this.status;
+    }
+    /**
+     * @return The user&#39;s title.
+     * 
+     */
+    public String title() {
+        return this.title;
+    }
+    /**
+     * @return Indicates whether the user is verified.
+     * 
+     */
+    public Boolean verified() {
+        return this.verified;
     }
 
     public static Builder builder() {
@@ -85,21 +205,57 @@ public final class GetUserResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String createdAt;
+        private Boolean disabled;
         private String email;
         private @Nullable Boolean exactMatch;
         private String filter;
+        private String handle;
+        private String icon;
         private String id;
+        private Boolean mfaEnabled;
+        private String modifiedAt;
         private String name;
+        private Boolean serviceAccount;
+        private String status;
+        private String title;
+        private Boolean verified;
         public Builder() {}
         public Builder(GetUserResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.createdAt = defaults.createdAt;
+    	      this.disabled = defaults.disabled;
     	      this.email = defaults.email;
     	      this.exactMatch = defaults.exactMatch;
     	      this.filter = defaults.filter;
+    	      this.handle = defaults.handle;
+    	      this.icon = defaults.icon;
     	      this.id = defaults.id;
+    	      this.mfaEnabled = defaults.mfaEnabled;
+    	      this.modifiedAt = defaults.modifiedAt;
     	      this.name = defaults.name;
+    	      this.serviceAccount = defaults.serviceAccount;
+    	      this.status = defaults.status;
+    	      this.title = defaults.title;
+    	      this.verified = defaults.verified;
         }
 
+        @CustomType.Setter
+        public Builder createdAt(String createdAt) {
+            if (createdAt == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "createdAt");
+            }
+            this.createdAt = createdAt;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder disabled(Boolean disabled) {
+            if (disabled == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "disabled");
+            }
+            this.disabled = disabled;
+            return this;
+        }
         @CustomType.Setter
         public Builder email(String email) {
             if (email == null) {
@@ -123,11 +279,43 @@ public final class GetUserResult {
             return this;
         }
         @CustomType.Setter
+        public Builder handle(String handle) {
+            if (handle == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "handle");
+            }
+            this.handle = handle;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder icon(String icon) {
+            if (icon == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "icon");
+            }
+            this.icon = icon;
+            return this;
+        }
+        @CustomType.Setter
         public Builder id(String id) {
             if (id == null) {
               throw new MissingRequiredPropertyException("GetUserResult", "id");
             }
             this.id = id;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder mfaEnabled(Boolean mfaEnabled) {
+            if (mfaEnabled == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "mfaEnabled");
+            }
+            this.mfaEnabled = mfaEnabled;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder modifiedAt(String modifiedAt) {
+            if (modifiedAt == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "modifiedAt");
+            }
+            this.modifiedAt = modifiedAt;
             return this;
         }
         @CustomType.Setter
@@ -138,13 +326,55 @@ public final class GetUserResult {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
+        public Builder serviceAccount(Boolean serviceAccount) {
+            if (serviceAccount == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "serviceAccount");
+            }
+            this.serviceAccount = serviceAccount;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder status(String status) {
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "status");
+            }
+            this.status = status;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder title(String title) {
+            if (title == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "title");
+            }
+            this.title = title;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder verified(Boolean verified) {
+            if (verified == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "verified");
+            }
+            this.verified = verified;
+            return this;
+        }
         public GetUserResult build() {
             final var _resultValue = new GetUserResult();
+            _resultValue.createdAt = createdAt;
+            _resultValue.disabled = disabled;
             _resultValue.email = email;
             _resultValue.exactMatch = exactMatch;
             _resultValue.filter = filter;
+            _resultValue.handle = handle;
+            _resultValue.icon = icon;
             _resultValue.id = id;
+            _resultValue.mfaEnabled = mfaEnabled;
+            _resultValue.modifiedAt = modifiedAt;
             _resultValue.name = name;
+            _resultValue.serviceAccount = serviceAccount;
+            _resultValue.status = status;
+            _resultValue.title = title;
+            _resultValue.verified = verified;
             return _resultValue;
         }
     }

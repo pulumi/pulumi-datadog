@@ -19,7 +19,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Alias { get; set; }
 
         /// <summary>
-        /// A list of display modes for each table cell. Valid values are `number`, `bar`.
+        /// A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         /// </summary>
         [Input("cellDisplayMode")]
         public Input<string>? CellDisplayMode { get; set; }

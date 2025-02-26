@@ -45,6 +45,14 @@ export interface GetUserArgs {
  */
 export interface GetUserResult {
     /**
+     * The time when the user was created (RFC3339 format).
+     */
+    readonly createdAt: string;
+    /**
+     * Indicates whether the user is disabled.
+     */
+    readonly disabled: boolean;
+    /**
      * Email of the user.
      */
     readonly email: string;
@@ -57,13 +65,45 @@ export interface GetUserResult {
      */
     readonly filter: string;
     /**
+     * The user's handle.
+     */
+    readonly handle: string;
+    /**
+     * The URL where the user's icon is located.
+     */
+    readonly icon: string;
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     /**
+     * Indicates whether the user has enabled MFA.
+     */
+    readonly mfaEnabled: boolean;
+    /**
+     * The time at which the user was last updated (RFC3339 format).
+     */
+    readonly modifiedAt: string;
+    /**
      * Name of the user.
      */
     readonly name: string;
+    /**
+     * Indicates whether the user is a service account.
+     */
+    readonly serviceAccount: boolean;
+    /**
+     * The user's status.
+     */
+    readonly status: string;
+    /**
+     * The user's title.
+     */
+    readonly title: string;
+    /**
+     * Indicates whether the user is verified.
+     */
+    readonly verified: boolean;
 }
 /**
  * Use this data source to retrieve information about an existing user to use it in an other resources.

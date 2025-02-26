@@ -51,14 +51,14 @@ public final class SecurityMonitoringRuleOptionsArgs extends com.pulumi.resource
     }
 
     /**
-     * A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`.
+     * A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
      * 
      */
     @Import(name="evaluationWindow")
     private @Nullable Output<Integer> evaluationWindow;
 
     /**
-     * @return A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`.
+     * @return A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
      * 
      */
     public Optional<Output<Integer>> evaluationWindow() {
@@ -81,14 +81,14 @@ public final class SecurityMonitoringRuleOptionsArgs extends com.pulumi.resource
     }
 
     /**
-     * Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
+     * Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
      * 
      */
     @Import(name="keepAlive")
     private @Nullable Output<Integer> keepAlive;
 
     /**
-     * @return Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
+     * @return Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
      * 
      */
     public Optional<Output<Integer>> keepAlive() {
@@ -214,7 +214,7 @@ public final class SecurityMonitoringRuleOptionsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param evaluationWindow A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`.
+         * @param evaluationWindow A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class SecurityMonitoringRuleOptionsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param evaluationWindow A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`.
+         * @param evaluationWindow A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class SecurityMonitoringRuleOptionsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param keepAlive Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
+         * @param keepAlive Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
          * 
          * @return builder
          * 
@@ -267,7 +267,7 @@ public final class SecurityMonitoringRuleOptionsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param keepAlive Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
+         * @param keepAlive Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
          * 
          * @return builder
          * 

@@ -22,32 +22,35 @@ __all__ = ['SyntheticsGlobalVariableArgs', 'SyntheticsGlobalVariable']
 class SyntheticsGlobalVariableArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 value: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 is_fido: Optional[pulumi.Input[bool]] = None,
                  is_totp: Optional[pulumi.Input[bool]] = None,
                  options: Optional[pulumi.Input['SyntheticsGlobalVariableOptionsArgs']] = None,
                  parse_test_id: Optional[pulumi.Input[str]] = None,
                  parse_test_options: Optional[pulumi.Input['SyntheticsGlobalVariableParseTestOptionsArgs']] = None,
                  restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  secure: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SyntheticsGlobalVariable resource.
         :param pulumi.Input[str] name: Synthetics global variable name.
-        :param pulumi.Input[str] value: The value of the global variable.
         :param pulumi.Input[str] description: Description of the global variable.
+        :param pulumi.Input[bool] is_fido: If set to true, the global variable is a FIDO variable. Defaults to `false`.
         :param pulumi.Input[bool] is_totp: If set to true, the global variable is a TOTP variable. Defaults to `false`.
         :param pulumi.Input['SyntheticsGlobalVariableOptionsArgs'] options: Additional options for the variable, such as a MFA token.
         :param pulumi.Input[str] parse_test_id: Id of the Synthetics test to use for a variable from test.
         :param pulumi.Input['SyntheticsGlobalVariableParseTestOptionsArgs'] parse_test_options: ID of the Synthetics test to use a source of the global variable value.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: A list of role identifiers to associate with the Synthetics global variable.
-        :param pulumi.Input[bool] secure: If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` is set to `true`. Defaults to `false`.
+        :param pulumi.Input[bool] secure: If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` or `is_fido` is set to `true`. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics global variable.
+        :param pulumi.Input[str] value: The value of the global variable. This setting is ignored if `is_fido` is set to `true` and required otherwise.
         """
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if is_fido is not None:
+            pulumi.set(__self__, "is_fido", is_fido)
         if is_totp is not None:
             pulumi.set(__self__, "is_totp", is_totp)
         if options is not None:
@@ -62,6 +65,8 @@ class SyntheticsGlobalVariableArgs:
             pulumi.set(__self__, "secure", secure)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -77,18 +82,6 @@ class SyntheticsGlobalVariableArgs:
 
     @property
     @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        The value of the global variable.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-    @property
-    @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
         Description of the global variable.
@@ -98,6 +91,18 @@ class SyntheticsGlobalVariableArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="isFido")
+    def is_fido(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If set to true, the global variable is a FIDO variable. Defaults to `false`.
+        """
+        return pulumi.get(self, "is_fido")
+
+    @is_fido.setter
+    def is_fido(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_fido", value)
 
     @property
     @pulumi.getter(name="isTotp")
@@ -163,7 +168,7 @@ class SyntheticsGlobalVariableArgs:
     @pulumi.getter
     def secure(self) -> Optional[pulumi.Input[bool]]:
         """
-        If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` is set to `true`. Defaults to `false`.
+        If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` or `is_fido` is set to `true`. Defaults to `false`.
         """
         return pulumi.get(self, "secure")
 
@@ -183,11 +188,24 @@ class SyntheticsGlobalVariableArgs:
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value of the global variable. This setting is ignored if `is_fido` is set to `true` and required otherwise.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
 
 @pulumi.input_type
 class _SyntheticsGlobalVariableState:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
+                 is_fido: Optional[pulumi.Input[bool]] = None,
                  is_totp: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input['SyntheticsGlobalVariableOptionsArgs']] = None,
@@ -200,18 +218,21 @@ class _SyntheticsGlobalVariableState:
         """
         Input properties used for looking up and filtering SyntheticsGlobalVariable resources.
         :param pulumi.Input[str] description: Description of the global variable.
+        :param pulumi.Input[bool] is_fido: If set to true, the global variable is a FIDO variable. Defaults to `false`.
         :param pulumi.Input[bool] is_totp: If set to true, the global variable is a TOTP variable. Defaults to `false`.
         :param pulumi.Input[str] name: Synthetics global variable name.
         :param pulumi.Input['SyntheticsGlobalVariableOptionsArgs'] options: Additional options for the variable, such as a MFA token.
         :param pulumi.Input[str] parse_test_id: Id of the Synthetics test to use for a variable from test.
         :param pulumi.Input['SyntheticsGlobalVariableParseTestOptionsArgs'] parse_test_options: ID of the Synthetics test to use a source of the global variable value.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: A list of role identifiers to associate with the Synthetics global variable.
-        :param pulumi.Input[bool] secure: If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` is set to `true`. Defaults to `false`.
+        :param pulumi.Input[bool] secure: If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` or `is_fido` is set to `true`. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics global variable.
-        :param pulumi.Input[str] value: The value of the global variable.
+        :param pulumi.Input[str] value: The value of the global variable. This setting is ignored if `is_fido` is set to `true` and required otherwise.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if is_fido is not None:
+            pulumi.set(__self__, "is_fido", is_fido)
         if is_totp is not None:
             pulumi.set(__self__, "is_totp", is_totp)
         if name is not None:
@@ -242,6 +263,18 @@ class _SyntheticsGlobalVariableState:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="isFido")
+    def is_fido(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If set to true, the global variable is a FIDO variable. Defaults to `false`.
+        """
+        return pulumi.get(self, "is_fido")
+
+    @is_fido.setter
+    def is_fido(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_fido", value)
 
     @property
     @pulumi.getter(name="isTotp")
@@ -319,7 +352,7 @@ class _SyntheticsGlobalVariableState:
     @pulumi.getter
     def secure(self) -> Optional[pulumi.Input[bool]]:
         """
-        If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` is set to `true`. Defaults to `false`.
+        If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` or `is_fido` is set to `true`. Defaults to `false`.
         """
         return pulumi.get(self, "secure")
 
@@ -343,7 +376,7 @@ class _SyntheticsGlobalVariableState:
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
         """
-        The value of the global variable.
+        The value of the global variable. This setting is ignored if `is_fido` is set to `true` and required otherwise.
         """
         return pulumi.get(self, "value")
 
@@ -358,6 +391,7 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 is_fido: Optional[pulumi.Input[bool]] = None,
                  is_totp: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input[Union['SyntheticsGlobalVariableOptionsArgs', 'SyntheticsGlobalVariableOptionsArgsDict']]] = None,
@@ -398,15 +432,16 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the global variable.
+        :param pulumi.Input[bool] is_fido: If set to true, the global variable is a FIDO variable. Defaults to `false`.
         :param pulumi.Input[bool] is_totp: If set to true, the global variable is a TOTP variable. Defaults to `false`.
         :param pulumi.Input[str] name: Synthetics global variable name.
         :param pulumi.Input[Union['SyntheticsGlobalVariableOptionsArgs', 'SyntheticsGlobalVariableOptionsArgsDict']] options: Additional options for the variable, such as a MFA token.
         :param pulumi.Input[str] parse_test_id: Id of the Synthetics test to use for a variable from test.
         :param pulumi.Input[Union['SyntheticsGlobalVariableParseTestOptionsArgs', 'SyntheticsGlobalVariableParseTestOptionsArgsDict']] parse_test_options: ID of the Synthetics test to use a source of the global variable value.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: A list of role identifiers to associate with the Synthetics global variable.
-        :param pulumi.Input[bool] secure: If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` is set to `true`. Defaults to `false`.
+        :param pulumi.Input[bool] secure: If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` or `is_fido` is set to `true`. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics global variable.
-        :param pulumi.Input[str] value: The value of the global variable.
+        :param pulumi.Input[str] value: The value of the global variable. This setting is ignored if `is_fido` is set to `true` and required otherwise.
         """
         ...
     @overload
@@ -457,6 +492,7 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 is_fido: Optional[pulumi.Input[bool]] = None,
                  is_totp: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input[Union['SyntheticsGlobalVariableOptionsArgs', 'SyntheticsGlobalVariableOptionsArgsDict']]] = None,
@@ -476,6 +512,7 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
             __props__ = SyntheticsGlobalVariableArgs.__new__(SyntheticsGlobalVariableArgs)
 
             __props__.__dict__["description"] = description
+            __props__.__dict__["is_fido"] = is_fido
             __props__.__dict__["is_totp"] = is_totp
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
@@ -486,8 +523,6 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
             __props__.__dict__["restricted_roles"] = restricted_roles
             __props__.__dict__["secure"] = secure
             __props__.__dict__["tags"] = tags
-            if value is None and not opts.urn:
-                raise TypeError("Missing required property 'value'")
             __props__.__dict__["value"] = None if value is None else pulumi.Output.secret(value)
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["value"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
@@ -502,6 +537,7 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             description: Optional[pulumi.Input[str]] = None,
+            is_fido: Optional[pulumi.Input[bool]] = None,
             is_totp: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             options: Optional[pulumi.Input[Union['SyntheticsGlobalVariableOptionsArgs', 'SyntheticsGlobalVariableOptionsArgsDict']]] = None,
@@ -519,21 +555,23 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the global variable.
+        :param pulumi.Input[bool] is_fido: If set to true, the global variable is a FIDO variable. Defaults to `false`.
         :param pulumi.Input[bool] is_totp: If set to true, the global variable is a TOTP variable. Defaults to `false`.
         :param pulumi.Input[str] name: Synthetics global variable name.
         :param pulumi.Input[Union['SyntheticsGlobalVariableOptionsArgs', 'SyntheticsGlobalVariableOptionsArgsDict']] options: Additional options for the variable, such as a MFA token.
         :param pulumi.Input[str] parse_test_id: Id of the Synthetics test to use for a variable from test.
         :param pulumi.Input[Union['SyntheticsGlobalVariableParseTestOptionsArgs', 'SyntheticsGlobalVariableParseTestOptionsArgsDict']] parse_test_options: ID of the Synthetics test to use a source of the global variable value.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: A list of role identifiers to associate with the Synthetics global variable.
-        :param pulumi.Input[bool] secure: If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` is set to `true`. Defaults to `false`.
+        :param pulumi.Input[bool] secure: If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` or `is_fido` is set to `true`. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics global variable.
-        :param pulumi.Input[str] value: The value of the global variable.
+        :param pulumi.Input[str] value: The value of the global variable. This setting is ignored if `is_fido` is set to `true` and required otherwise.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _SyntheticsGlobalVariableState.__new__(_SyntheticsGlobalVariableState)
 
         __props__.__dict__["description"] = description
+        __props__.__dict__["is_fido"] = is_fido
         __props__.__dict__["is_totp"] = is_totp
         __props__.__dict__["name"] = name
         __props__.__dict__["options"] = options
@@ -552,6 +590,14 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
         Description of the global variable.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="isFido")
+    def is_fido(self) -> pulumi.Output[Optional[bool]]:
+        """
+        If set to true, the global variable is a FIDO variable. Defaults to `false`.
+        """
+        return pulumi.get(self, "is_fido")
 
     @property
     @pulumi.getter(name="isTotp")
@@ -605,7 +651,7 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
     @pulumi.getter
     def secure(self) -> pulumi.Output[Optional[bool]]:
         """
-        If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` is set to `true`. Defaults to `false`.
+        If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` or `is_fido` is set to `true`. Defaults to `false`.
         """
         return pulumi.get(self, "secure")
 
@@ -619,9 +665,9 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def value(self) -> pulumi.Output[str]:
+    def value(self) -> pulumi.Output[Optional[str]]:
         """
-        The value of the global variable.
+        The value of the global variable. This setting is ignored if `is_fido` is set to `true` and required otherwise.
         """
         return pulumi.get(self, "value")
 

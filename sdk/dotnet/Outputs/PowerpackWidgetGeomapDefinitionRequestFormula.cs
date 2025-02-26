@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Alias;
         /// <summary>
-        /// A list of display modes for each table cell. Valid values are `number`, `bar`.
+        /// A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         /// </summary>
         public readonly string? CellDisplayMode;
         /// <summary>
@@ -33,6 +33,10 @@ namespace Pulumi.Datadog.Outputs
         /// The options for limiting results returned.
         /// </summary>
         public readonly Outputs.PowerpackWidgetGeomapDefinitionRequestFormulaLimit? Limit;
+        /// <summary>
+        /// Number formatting options for the formula.
+        /// </summary>
+        public readonly Outputs.PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormat? NumberFormat;
         /// <summary>
         /// Styling options for widget formulas.
         /// </summary>
@@ -50,6 +54,8 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.PowerpackWidgetGeomapDefinitionRequestFormulaLimit? limit,
 
+            Outputs.PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormat? numberFormat,
+
             Outputs.PowerpackWidgetGeomapDefinitionRequestFormulaStyle? style)
         {
             Alias = alias;
@@ -57,6 +63,7 @@ namespace Pulumi.Datadog.Outputs
             ConditionalFormats = conditionalFormats;
             FormulaExpression = formulaExpression;
             Limit = limit;
+            NumberFormat = numberFormat;
             Style = style;
         }
     }

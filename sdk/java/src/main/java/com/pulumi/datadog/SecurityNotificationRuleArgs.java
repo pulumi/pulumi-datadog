@@ -66,14 +66,14 @@ public final class SecurityNotificationRuleArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The list of handle targets for the notifications.
+     * The list of handle targets for the notifications. A target must be prefixed with an {@literal @}. It can be an email address ({@literal @}bob{@literal @}email.com), or any installed integration. For example, a Slack recipient ({@literal @}slack-ops), or a Teams recipient ({@literal @}teams-ops).
      * 
      */
     @Import(name="targets", required=true)
     private Output<List<String>> targets;
 
     /**
-     * @return The list of handle targets for the notifications.
+     * @return The list of handle targets for the notifications. A target must be prefixed with an {@literal @}. It can be an email address ({@literal @}bob{@literal @}email.com), or any installed integration. For example, a Slack recipient ({@literal @}slack-ops), or a Teams recipient ({@literal @}teams-ops).
      * 
      */
     public Output<List<String>> targets() {
@@ -187,7 +187,7 @@ public final class SecurityNotificationRuleArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param targets The list of handle targets for the notifications.
+         * @param targets The list of handle targets for the notifications. A target must be prefixed with an {@literal @}. It can be an email address ({@literal @}bob{@literal @}email.com), or any installed integration. For example, a Slack recipient ({@literal @}slack-ops), or a Teams recipient ({@literal @}teams-ops).
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class SecurityNotificationRuleArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param targets The list of handle targets for the notifications.
+         * @param targets The list of handle targets for the notifications. A target must be prefixed with an {@literal @}. It can be an email address ({@literal @}bob{@literal @}email.com), or any installed integration. For example, a Slack recipient ({@literal @}slack-ops), or a Teams recipient ({@literal @}teams-ops).
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class SecurityNotificationRuleArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param targets The list of handle targets for the notifications.
+         * @param targets The list of handle targets for the notifications. A target must be prefixed with an {@literal @}. It can be an email address ({@literal @}bob{@literal @}email.com), or any installed integration. For example, a Slack recipient ({@literal @}slack-ops), or a Teams recipient ({@literal @}teams-ops).
          * 
          * @return builder
          * 

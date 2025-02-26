@@ -130,6 +130,14 @@ namespace Pulumi.Datadog
     public sealed class GetUserResult
     {
         /// <summary>
+        /// The time when the user was created (RFC3339 format).
+        /// </summary>
+        public readonly string CreatedAt;
+        /// <summary>
+        /// Indicates whether the user is disabled.
+        /// </summary>
+        public readonly bool Disabled;
+        /// <summary>
         /// Email of the user.
         /// </summary>
         public readonly string Email;
@@ -142,31 +150,93 @@ namespace Pulumi.Datadog
         /// </summary>
         public readonly string Filter;
         /// <summary>
+        /// The user's handle.
+        /// </summary>
+        public readonly string Handle;
+        /// <summary>
+        /// The URL where the user's icon is located.
+        /// </summary>
+        public readonly string Icon;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Indicates whether the user has enabled MFA.
+        /// </summary>
+        public readonly bool MfaEnabled;
+        /// <summary>
+        /// The time at which the user was last updated (RFC3339 format).
+        /// </summary>
+        public readonly string ModifiedAt;
+        /// <summary>
         /// Name of the user.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Indicates whether the user is a service account.
+        /// </summary>
+        public readonly bool ServiceAccount;
+        /// <summary>
+        /// The user's status.
+        /// </summary>
+        public readonly string Status;
+        /// <summary>
+        /// The user's title.
+        /// </summary>
+        public readonly string Title;
+        /// <summary>
+        /// Indicates whether the user is verified.
+        /// </summary>
+        public readonly bool Verified;
 
         [OutputConstructor]
         private GetUserResult(
+            string createdAt,
+
+            bool disabled,
+
             string email,
 
             bool? exactMatch,
 
             string filter,
 
+            string handle,
+
+            string icon,
+
             string id,
 
-            string name)
+            bool mfaEnabled,
+
+            string modifiedAt,
+
+            string name,
+
+            bool serviceAccount,
+
+            string status,
+
+            string title,
+
+            bool verified)
         {
+            CreatedAt = createdAt;
+            Disabled = disabled;
             Email = email;
             ExactMatch = exactMatch;
             Filter = filter;
+            Handle = handle;
+            Icon = icon;
             Id = id;
+            MfaEnabled = mfaEnabled;
+            ModifiedAt = modifiedAt;
             Name = name;
+            ServiceAccount = serviceAccount;
+            Status = status;
+            Title = title;
+            Verified = verified;
         }
     }
 }

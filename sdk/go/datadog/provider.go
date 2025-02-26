@@ -75,8 +75,8 @@ type providerArgs struct {
 	ApiUrl *string `pulumi:"apiUrl"`
 	// (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
 	AppKey *string `pulumi:"appKey"`
-	// [Experimental - Monitors only] Configuration block containing settings to apply default resource tags across all
-	// resources.
+	// [Experimental - Monitors and Logs Pipelines only] Configuration block containing settings to apply default resource tags
+	// across all resources.
 	DefaultTags *ProviderDefaultTags `pulumi:"defaultTags"`
 	// The HTTP request retry back off base. Defaults to 2.
 	HttpClientRetryBackoffBase *int `pulumi:"httpClientRetryBackoffBase"`
@@ -106,8 +106,8 @@ type ProviderArgs struct {
 	ApiUrl pulumi.StringPtrInput
 	// (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
 	AppKey pulumi.StringPtrInput
-	// [Experimental - Monitors only] Configuration block containing settings to apply default resource tags across all
-	// resources.
+	// [Experimental - Monitors and Logs Pipelines only] Configuration block containing settings to apply default resource tags
+	// across all resources.
 	DefaultTags ProviderDefaultTagsPtrInput
 	// The HTTP request retry back off base. Defaults to 2.
 	HttpClientRetryBackoffBase pulumi.IntPtrInput

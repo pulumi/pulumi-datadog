@@ -131,8 +131,8 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// [Experimental - Monitors only] Configuration block containing settings to apply default resource tags across all
-        /// resources.
+        /// [Experimental - Monitors and Logs Pipelines only] Configuration block containing settings to apply default resource tags
+        /// across all resources.
         /// </summary>
         [Input("defaultTags", json: true)]
         public Input<Inputs.ProviderDefaultTagsArgs>? DefaultTags { get; set; }

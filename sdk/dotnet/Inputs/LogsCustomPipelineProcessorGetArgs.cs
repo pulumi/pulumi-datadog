@@ -76,6 +76,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.LogsCustomPipelineProcessorServiceRemapperGetArgs>? ServiceRemapper { get; set; }
 
         /// <summary>
+        /// Span ID Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#span-remapper)
+        /// </summary>
+        [Input("spanIdRemapper")]
+        public Input<Inputs.LogsCustomPipelineProcessorSpanIdRemapperGetArgs>? SpanIdRemapper { get; set; }
+
+        /// <summary>
         /// Status Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-status-remapper)
         /// </summary>
         [Input("statusRemapper")]

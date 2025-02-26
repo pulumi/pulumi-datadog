@@ -16,6 +16,7 @@ import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorMessageRemapperArgs;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorPipelineArgs;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorReferenceTableLookupProcessorArgs;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorServiceRemapperArgs;
+import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorSpanIdRemapperArgs;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorStatusRemapperArgs;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorStringBuilderProcessorArgs;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorTraceIdRemapperArgs;
@@ -188,6 +189,21 @@ public final class LogsCustomPipelineProcessorArgs extends com.pulumi.resources.
     }
 
     /**
+     * Span ID Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#span-remapper)
+     * 
+     */
+    @Import(name="spanIdRemapper")
+    private @Nullable Output<LogsCustomPipelineProcessorSpanIdRemapperArgs> spanIdRemapper;
+
+    /**
+     * @return Span ID Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#span-remapper)
+     * 
+     */
+    public Optional<Output<LogsCustomPipelineProcessorSpanIdRemapperArgs>> spanIdRemapper() {
+        return Optional.ofNullable(this.spanIdRemapper);
+    }
+
+    /**
      * Status Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-status-remapper)
      * 
      */
@@ -276,6 +292,7 @@ public final class LogsCustomPipelineProcessorArgs extends com.pulumi.resources.
         this.pipeline = $.pipeline;
         this.referenceTableLookupProcessor = $.referenceTableLookupProcessor;
         this.serviceRemapper = $.serviceRemapper;
+        this.spanIdRemapper = $.spanIdRemapper;
         this.statusRemapper = $.statusRemapper;
         this.stringBuilderProcessor = $.stringBuilderProcessor;
         this.traceIdRemapper = $.traceIdRemapper;
@@ -518,6 +535,27 @@ public final class LogsCustomPipelineProcessorArgs extends com.pulumi.resources.
          */
         public Builder serviceRemapper(LogsCustomPipelineProcessorServiceRemapperArgs serviceRemapper) {
             return serviceRemapper(Output.of(serviceRemapper));
+        }
+
+        /**
+         * @param spanIdRemapper Span ID Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#span-remapper)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder spanIdRemapper(@Nullable Output<LogsCustomPipelineProcessorSpanIdRemapperArgs> spanIdRemapper) {
+            $.spanIdRemapper = spanIdRemapper;
+            return this;
+        }
+
+        /**
+         * @param spanIdRemapper Span ID Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#span-remapper)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder spanIdRemapper(LogsCustomPipelineProcessorSpanIdRemapperArgs spanIdRemapper) {
+            return spanIdRemapper(Output.of(spanIdRemapper));
         }
 
         /**

@@ -592,7 +592,7 @@ export interface DashboardWidgetChangeDefinitionRequestFormula {
      */
     alias?: pulumi.Input<string>;
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayMode?: pulumi.Input<string>;
     /**
@@ -607,6 +607,10 @@ export interface DashboardWidgetChangeDefinitionRequestFormula {
      * The options for limiting results returned.
      */
     limit?: pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestFormulaLimit>;
+    /**
+     * Number formatting options for the formula.
+     */
+    numberFormat?: pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestFormulaNumberFormat>;
     /**
      * Styling options for widget formulas.
      */
@@ -661,6 +665,47 @@ export interface DashboardWidgetChangeDefinitionRequestFormulaLimit {
      * The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
      */
     order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetChangeDefinitionRequestFormulaNumberFormat {
+    /**
+     * Unit of the number format.
+     */
+    unit: pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnit>;
+    unitScale?: pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitScale>;
+}
+
+export interface DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnit {
+    /**
+     * Canonical Units
+     */
+    canonical?: pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitCanonical>;
+    /**
+     * Use custom (non canonical metrics)
+     */
+    custom?: pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitCustom>;
+}
+
+export interface DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitCanonical {
+    /**
+     * per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+     */
+    perUnitName?: pulumi.Input<string>;
+    /**
+     * Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+     */
+    unitName: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitCustom {
+    /**
+     * Unit label
+     */
+    label: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitScale {
+    unitName: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestFormulaStyle {
@@ -1176,7 +1221,7 @@ export interface DashboardWidgetDistributionDefinitionRequestApmStatsQueryColumn
      */
     alias?: pulumi.Input<string>;
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayMode?: pulumi.Input<string>;
     /**
@@ -1411,7 +1456,7 @@ export interface DashboardWidgetGeomapDefinitionRequestFormula {
      */
     alias?: pulumi.Input<string>;
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayMode?: pulumi.Input<string>;
     /**
@@ -1426,6 +1471,10 @@ export interface DashboardWidgetGeomapDefinitionRequestFormula {
      * The options for limiting results returned.
      */
     limit?: pulumi.Input<inputs.DashboardWidgetGeomapDefinitionRequestFormulaLimit>;
+    /**
+     * Number formatting options for the formula.
+     */
+    numberFormat?: pulumi.Input<inputs.DashboardWidgetGeomapDefinitionRequestFormulaNumberFormat>;
     /**
      * Styling options for widget formulas.
      */
@@ -1480,6 +1529,47 @@ export interface DashboardWidgetGeomapDefinitionRequestFormulaLimit {
      * The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
      */
     order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestFormulaNumberFormat {
+    /**
+     * Unit of the number format.
+     */
+    unit: pulumi.Input<inputs.DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnit>;
+    unitScale?: pulumi.Input<inputs.DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScale>;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnit {
+    /**
+     * Canonical Units
+     */
+    canonical?: pulumi.Input<inputs.DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonical>;
+    /**
+     * Use custom (non canonical metrics)
+     */
+    custom?: pulumi.Input<inputs.DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustom>;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonical {
+    /**
+     * per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+     */
+    perUnitName?: pulumi.Input<string>;
+    /**
+     * Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+     */
+    unitName: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustom {
+    /**
+     * Unit label
+     */
+    label: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScale {
+    unitName: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestFormulaStyle {
@@ -2148,7 +2238,7 @@ export interface DashboardWidgetHeatmapDefinitionRequestFormula {
      */
     alias?: pulumi.Input<string>;
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayMode?: pulumi.Input<string>;
     /**
@@ -2163,6 +2253,10 @@ export interface DashboardWidgetHeatmapDefinitionRequestFormula {
      * The options for limiting results returned.
      */
     limit?: pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestFormulaLimit>;
+    /**
+     * Number formatting options for the formula.
+     */
+    numberFormat?: pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormat>;
     /**
      * Styling options for widget formulas.
      */
@@ -2217,6 +2311,47 @@ export interface DashboardWidgetHeatmapDefinitionRequestFormulaLimit {
      * The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
      */
     order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormat {
+    /**
+     * Unit of the number format.
+     */
+    unit: pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnit>;
+    unitScale?: pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitScale>;
+}
+
+export interface DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnit {
+    /**
+     * Canonical Units
+     */
+    canonical?: pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCanonical>;
+    /**
+     * Use custom (non canonical metrics)
+     */
+    custom?: pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCustom>;
+}
+
+export interface DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCanonical {
+    /**
+     * per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+     */
+    perUnitName?: pulumi.Input<string>;
+    /**
+     * Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+     */
+    unitName: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCustom {
+    /**
+     * Unit label
+     */
+    label: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitScale {
+    unitName: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestFormulaStyle {
@@ -3288,7 +3423,7 @@ export interface DashboardWidgetQueryTableDefinitionRequest {
     apmQuery?: pulumi.Input<inputs.DashboardWidgetApmQuery>;
     apmStatsQuery?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestApmStatsQuery>;
     /**
-     * A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayModes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -3368,7 +3503,7 @@ export interface DashboardWidgetQueryTableDefinitionRequestApmStatsQueryColumn {
      */
     alias?: pulumi.Input<string>;
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayMode?: pulumi.Input<string>;
     /**
@@ -3426,7 +3561,7 @@ export interface DashboardWidgetQueryTableDefinitionRequestFormula {
      */
     alias?: pulumi.Input<string>;
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayMode?: pulumi.Input<string>;
     /**
@@ -3441,6 +3576,10 @@ export interface DashboardWidgetQueryTableDefinitionRequestFormula {
      * The options for limiting results returned.
      */
     limit?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestFormulaLimit>;
+    /**
+     * Number formatting options for the formula.
+     */
+    numberFormat?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormat>;
     /**
      * Styling options for widget formulas.
      */
@@ -3495,6 +3634,47 @@ export interface DashboardWidgetQueryTableDefinitionRequestFormulaLimit {
      * The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
      */
     order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormat {
+    /**
+     * Unit of the number format.
+     */
+    unit: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnit>;
+    unitScale?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitScale>;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnit {
+    /**
+     * Canonical Units
+     */
+    canonical?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCanonical>;
+    /**
+     * Use custom (non canonical metrics)
+     */
+    custom?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCustom>;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCanonical {
+    /**
+     * per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+     */
+    perUnitName?: pulumi.Input<string>;
+    /**
+     * Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+     */
+    unitName: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCustom {
+    /**
+     * Unit label
+     */
+    label: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitScale {
+    unitName: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestFormulaStyle {
@@ -4154,7 +4334,7 @@ export interface DashboardWidgetQueryValueDefinitionRequestFormula {
      */
     alias?: pulumi.Input<string>;
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayMode?: pulumi.Input<string>;
     /**
@@ -4169,6 +4349,10 @@ export interface DashboardWidgetQueryValueDefinitionRequestFormula {
      * The options for limiting results returned.
      */
     limit?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestFormulaLimit>;
+    /**
+     * Number formatting options for the formula.
+     */
+    numberFormat?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormat>;
     /**
      * Styling options for widget formulas.
      */
@@ -4223,6 +4407,47 @@ export interface DashboardWidgetQueryValueDefinitionRequestFormulaLimit {
      * The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
      */
     order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormat {
+    /**
+     * Unit of the number format.
+     */
+    unit: pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnit>;
+    unitScale?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScale>;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnit {
+    /**
+     * Canonical Units
+     */
+    canonical?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCanonical>;
+    /**
+     * Use custom (non canonical metrics)
+     */
+    custom?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustom>;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCanonical {
+    /**
+     * per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+     */
+    perUnitName?: pulumi.Input<string>;
+    /**
+     * Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+     */
+    unitName: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustom {
+    /**
+     * Unit label
+     */
+    label: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScale {
+    unitName: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestFormulaStyle {
@@ -5908,7 +6133,7 @@ export interface DashboardWidgetSunburstDefinitionRequestFormula {
      */
     alias?: pulumi.Input<string>;
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayMode?: pulumi.Input<string>;
     /**
@@ -5923,6 +6148,10 @@ export interface DashboardWidgetSunburstDefinitionRequestFormula {
      * The options for limiting results returned.
      */
     limit?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestFormulaLimit>;
+    /**
+     * Number formatting options for the formula.
+     */
+    numberFormat?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestFormulaNumberFormat>;
     /**
      * Styling options for widget formulas.
      */
@@ -5977,6 +6206,47 @@ export interface DashboardWidgetSunburstDefinitionRequestFormulaLimit {
      * The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
      */
     order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestFormulaNumberFormat {
+    /**
+     * Unit of the number format.
+     */
+    unit: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnit>;
+    unitScale?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitScale>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnit {
+    /**
+     * Canonical Units
+     */
+    canonical?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCanonical>;
+    /**
+     * Use custom (non canonical metrics)
+     */
+    custom?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCustom>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCanonical {
+    /**
+     * per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+     */
+    perUnitName?: pulumi.Input<string>;
+    /**
+     * Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+     */
+    unitName: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCustom {
+    /**
+     * Unit label
+     */
+    label: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitScale {
+    unitName: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestFormulaStyle {
@@ -6681,7 +6951,7 @@ export interface DashboardWidgetTimeseriesDefinitionRequestFormula {
      */
     alias?: pulumi.Input<string>;
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayMode?: pulumi.Input<string>;
     /**
@@ -6696,6 +6966,10 @@ export interface DashboardWidgetTimeseriesDefinitionRequestFormula {
      * The options for limiting results returned.
      */
     limit?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestFormulaLimit>;
+    /**
+     * Number formatting options for the formula.
+     */
+    numberFormat?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormat>;
     /**
      * Styling options for widget formulas.
      */
@@ -6750,6 +7024,47 @@ export interface DashboardWidgetTimeseriesDefinitionRequestFormulaLimit {
      * The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
      */
     order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormat {
+    /**
+     * Unit of the number format.
+     */
+    unit: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnit>;
+    unitScale?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScale>;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnit {
+    /**
+     * Canonical Units
+     */
+    canonical?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical>;
+    /**
+     * Use custom (non canonical metrics)
+     */
+    custom?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustom>;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical {
+    /**
+     * per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+     */
+    perUnitName?: pulumi.Input<string>;
+    /**
+     * Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+     */
+    unitName: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustom {
+    /**
+     * Unit label
+     */
+    label: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScale {
+    unitName: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestFormulaStyle {
@@ -7492,7 +7807,7 @@ export interface DashboardWidgetToplistDefinitionRequestFormula {
      */
     alias?: pulumi.Input<string>;
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayMode?: pulumi.Input<string>;
     /**
@@ -7507,6 +7822,10 @@ export interface DashboardWidgetToplistDefinitionRequestFormula {
      * The options for limiting results returned.
      */
     limit?: pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestFormulaLimit>;
+    /**
+     * Number formatting options for the formula.
+     */
+    numberFormat?: pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestFormulaNumberFormat>;
     /**
      * Styling options for widget formulas.
      */
@@ -7561,6 +7880,47 @@ export interface DashboardWidgetToplistDefinitionRequestFormulaLimit {
      * The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
      */
     order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestFormulaNumberFormat {
+    /**
+     * Unit of the number format.
+     */
+    unit: pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnit>;
+    unitScale?: pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitScale>;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnit {
+    /**
+     * Canonical Units
+     */
+    canonical?: pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonical>;
+    /**
+     * Use custom (non canonical metrics)
+     */
+    custom?: pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustom>;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonical {
+    /**
+     * per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+     */
+    perUnitName?: pulumi.Input<string>;
+    /**
+     * Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+     */
+    unitName: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustom {
+    /**
+     * Unit label
+     */
+    label: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitScale {
+    unitName: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestFormulaStyle {
@@ -7945,6 +8305,10 @@ export interface DashboardWidgetToplistDefinitionStyle {
      * The color palette for the widget.
      */
     palette?: pulumi.Input<string>;
+    /**
+     * The scaling mode for the widget. Valid values are `absolute`, `relative`.
+     */
+    scaling?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetToplistDefinitionStyleDisplay {
@@ -8107,7 +8471,7 @@ export interface DashboardWidgetTreemapDefinitionRequestFormula {
      */
     alias?: pulumi.Input<string>;
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayMode?: pulumi.Input<string>;
     /**
@@ -8122,6 +8486,10 @@ export interface DashboardWidgetTreemapDefinitionRequestFormula {
      * The options for limiting results returned.
      */
     limit?: pulumi.Input<inputs.DashboardWidgetTreemapDefinitionRequestFormulaLimit>;
+    /**
+     * Number formatting options for the formula.
+     */
+    numberFormat?: pulumi.Input<inputs.DashboardWidgetTreemapDefinitionRequestFormulaNumberFormat>;
     /**
      * Styling options for widget formulas.
      */
@@ -8176,6 +8544,47 @@ export interface DashboardWidgetTreemapDefinitionRequestFormulaLimit {
      * The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
      */
     order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetTreemapDefinitionRequestFormulaNumberFormat {
+    /**
+     * Unit of the number format.
+     */
+    unit: pulumi.Input<inputs.DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnit>;
+    unitScale?: pulumi.Input<inputs.DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale>;
+}
+
+export interface DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnit {
+    /**
+     * Canonical Units
+     */
+    canonical?: pulumi.Input<inputs.DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonical>;
+    /**
+     * Use custom (non canonical metrics)
+     */
+    custom?: pulumi.Input<inputs.DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom>;
+}
+
+export interface DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonical {
+    /**
+     * per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+     */
+    perUnitName?: pulumi.Input<string>;
+    /**
+     * Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+     */
+    unitName: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom {
+    /**
+     * Unit label
+     */
+    label: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale {
+    unitName: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetTreemapDefinitionRequestFormulaStyle {
@@ -8898,6 +9307,10 @@ export interface LogsCustomPipelineProcessor {
      */
     serviceRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorServiceRemapper>;
     /**
+     * Span ID Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#span-remapper)
+     */
+    spanIdRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorSpanIdRemapper>;
+    /**
      * Status Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-status-remapper)
      */
     statusRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorStatusRemapper>;
@@ -9177,6 +9590,10 @@ export interface LogsCustomPipelineProcessorPipelineProcessor {
      */
     serviceRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorServiceRemapper>;
     /**
+     * Span ID Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#span-remapper)
+     */
+    spanIdRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorSpanIdRemapper>;
+    /**
      * Status Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-status-remapper)
      */
     statusRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorStatusRemapper>;
@@ -9436,6 +9853,21 @@ export interface LogsCustomPipelineProcessorPipelineProcessorServiceRemapper {
     sources: pulumi.Input<pulumi.Input<string>[]>;
 }
 
+export interface LogsCustomPipelineProcessorPipelineProcessorSpanIdRemapper {
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: pulumi.Input<boolean>;
+    /**
+     * Name of the processor.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * List of source attributes.
+     */
+    sources: pulumi.Input<pulumi.Input<string>[]>;
+}
+
 export interface LogsCustomPipelineProcessorPipelineProcessorStatusRemapper {
     /**
      * If the processor is enabled or not.
@@ -9559,6 +9991,21 @@ export interface LogsCustomPipelineProcessorReferenceTableLookupProcessor {
 }
 
 export interface LogsCustomPipelineProcessorServiceRemapper {
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: pulumi.Input<boolean>;
+    /**
+     * Name of the processor.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * List of source attributes.
+     */
+    sources: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface LogsCustomPipelineProcessorSpanIdRemapper {
     /**
      * If the processor is enabled or not.
      */
@@ -10449,7 +10896,7 @@ export interface PowerpackWidgetChangeDefinitionRequestFormula {
      */
     alias?: pulumi.Input<string>;
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayMode?: pulumi.Input<string>;
     /**
@@ -10464,6 +10911,10 @@ export interface PowerpackWidgetChangeDefinitionRequestFormula {
      * The options for limiting results returned.
      */
     limit?: pulumi.Input<inputs.PowerpackWidgetChangeDefinitionRequestFormulaLimit>;
+    /**
+     * Number formatting options for the formula.
+     */
+    numberFormat?: pulumi.Input<inputs.PowerpackWidgetChangeDefinitionRequestFormulaNumberFormat>;
     /**
      * Styling options for widget formulas.
      */
@@ -10518,6 +10969,47 @@ export interface PowerpackWidgetChangeDefinitionRequestFormulaLimit {
      * The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
      */
     order?: pulumi.Input<string>;
+}
+
+export interface PowerpackWidgetChangeDefinitionRequestFormulaNumberFormat {
+    /**
+     * Unit of the number format.
+     */
+    unit: pulumi.Input<inputs.PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnit>;
+    unitScale?: pulumi.Input<inputs.PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnitScale>;
+}
+
+export interface PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnit {
+    /**
+     * Canonical Units
+     */
+    canonical?: pulumi.Input<inputs.PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnitCanonical>;
+    /**
+     * Use custom (non canonical metrics)
+     */
+    custom?: pulumi.Input<inputs.PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnitCustom>;
+}
+
+export interface PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnitCanonical {
+    /**
+     * per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+     */
+    perUnitName?: pulumi.Input<string>;
+    /**
+     * Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+     */
+    unitName: pulumi.Input<string>;
+}
+
+export interface PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnitCustom {
+    /**
+     * Unit label
+     */
+    label: pulumi.Input<string>;
+}
+
+export interface PowerpackWidgetChangeDefinitionRequestFormulaNumberFormatUnitScale {
+    unitName: pulumi.Input<string>;
 }
 
 export interface PowerpackWidgetChangeDefinitionRequestFormulaStyle {
@@ -11365,7 +11857,7 @@ export interface PowerpackWidgetDistributionDefinitionRequestApmStatsQueryColumn
      */
     alias?: pulumi.Input<string>;
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayMode?: pulumi.Input<string>;
     /**
@@ -11849,7 +12341,7 @@ export interface PowerpackWidgetGeomapDefinitionRequestFormula {
      */
     alias?: pulumi.Input<string>;
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayMode?: pulumi.Input<string>;
     /**
@@ -11864,6 +12356,10 @@ export interface PowerpackWidgetGeomapDefinitionRequestFormula {
      * The options for limiting results returned.
      */
     limit?: pulumi.Input<inputs.PowerpackWidgetGeomapDefinitionRequestFormulaLimit>;
+    /**
+     * Number formatting options for the formula.
+     */
+    numberFormat?: pulumi.Input<inputs.PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormat>;
     /**
      * Styling options for widget formulas.
      */
@@ -11918,6 +12414,47 @@ export interface PowerpackWidgetGeomapDefinitionRequestFormulaLimit {
      * The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
      */
     order?: pulumi.Input<string>;
+}
+
+export interface PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormat {
+    /**
+     * Unit of the number format.
+     */
+    unit: pulumi.Input<inputs.PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnit>;
+    unitScale?: pulumi.Input<inputs.PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScale>;
+}
+
+export interface PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnit {
+    /**
+     * Canonical Units
+     */
+    canonical?: pulumi.Input<inputs.PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonical>;
+    /**
+     * Use custom (non canonical metrics)
+     */
+    custom?: pulumi.Input<inputs.PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustom>;
+}
+
+export interface PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonical {
+    /**
+     * per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+     */
+    perUnitName?: pulumi.Input<string>;
+    /**
+     * Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+     */
+    unitName: pulumi.Input<string>;
+}
+
+export interface PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustom {
+    /**
+     * Unit label
+     */
+    label: pulumi.Input<string>;
+}
+
+export interface PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScale {
+    unitName: pulumi.Input<string>;
 }
 
 export interface PowerpackWidgetGeomapDefinitionRequestFormulaStyle {
@@ -12646,7 +13183,7 @@ export interface PowerpackWidgetHeatmapDefinitionRequestFormula {
      */
     alias?: pulumi.Input<string>;
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayMode?: pulumi.Input<string>;
     /**
@@ -12661,6 +13198,10 @@ export interface PowerpackWidgetHeatmapDefinitionRequestFormula {
      * The options for limiting results returned.
      */
     limit?: pulumi.Input<inputs.PowerpackWidgetHeatmapDefinitionRequestFormulaLimit>;
+    /**
+     * Number formatting options for the formula.
+     */
+    numberFormat?: pulumi.Input<inputs.PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormat>;
     /**
      * Styling options for widget formulas.
      */
@@ -12715,6 +13256,47 @@ export interface PowerpackWidgetHeatmapDefinitionRequestFormulaLimit {
      * The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
      */
     order?: pulumi.Input<string>;
+}
+
+export interface PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormat {
+    /**
+     * Unit of the number format.
+     */
+    unit: pulumi.Input<inputs.PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnit>;
+    unitScale?: pulumi.Input<inputs.PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitScale>;
+}
+
+export interface PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnit {
+    /**
+     * Canonical Units
+     */
+    canonical?: pulumi.Input<inputs.PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCanonical>;
+    /**
+     * Use custom (non canonical metrics)
+     */
+    custom?: pulumi.Input<inputs.PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCustom>;
+}
+
+export interface PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCanonical {
+    /**
+     * per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+     */
+    perUnitName?: pulumi.Input<string>;
+    /**
+     * Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+     */
+    unitName: pulumi.Input<string>;
+}
+
+export interface PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCustom {
+    /**
+     * Unit label
+     */
+    label: pulumi.Input<string>;
+}
+
+export interface PowerpackWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitScale {
+    unitName: pulumi.Input<string>;
 }
 
 export interface PowerpackWidgetHeatmapDefinitionRequestFormulaStyle {
@@ -14548,7 +15130,7 @@ export interface PowerpackWidgetQueryTableDefinitionRequest {
     apmQuery?: pulumi.Input<inputs.PowerpackWidgetQueryTableDefinitionRequestApmQuery>;
     apmStatsQuery?: pulumi.Input<inputs.PowerpackWidgetQueryTableDefinitionRequestApmStatsQuery>;
     /**
-     * A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayModes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -14711,7 +15293,7 @@ export interface PowerpackWidgetQueryTableDefinitionRequestApmStatsQueryColumn {
      */
     alias?: pulumi.Input<string>;
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayMode?: pulumi.Input<string>;
     /**
@@ -14769,7 +15351,7 @@ export interface PowerpackWidgetQueryTableDefinitionRequestFormula {
      */
     alias?: pulumi.Input<string>;
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayMode?: pulumi.Input<string>;
     /**
@@ -14784,6 +15366,10 @@ export interface PowerpackWidgetQueryTableDefinitionRequestFormula {
      * The options for limiting results returned.
      */
     limit?: pulumi.Input<inputs.PowerpackWidgetQueryTableDefinitionRequestFormulaLimit>;
+    /**
+     * Number formatting options for the formula.
+     */
+    numberFormat?: pulumi.Input<inputs.PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormat>;
     /**
      * Styling options for widget formulas.
      */
@@ -14838,6 +15424,47 @@ export interface PowerpackWidgetQueryTableDefinitionRequestFormulaLimit {
      * The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
      */
     order?: pulumi.Input<string>;
+}
+
+export interface PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormat {
+    /**
+     * Unit of the number format.
+     */
+    unit: pulumi.Input<inputs.PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnit>;
+    unitScale?: pulumi.Input<inputs.PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitScale>;
+}
+
+export interface PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnit {
+    /**
+     * Canonical Units
+     */
+    canonical?: pulumi.Input<inputs.PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCanonical>;
+    /**
+     * Use custom (non canonical metrics)
+     */
+    custom?: pulumi.Input<inputs.PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCustom>;
+}
+
+export interface PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCanonical {
+    /**
+     * per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+     */
+    perUnitName?: pulumi.Input<string>;
+    /**
+     * Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+     */
+    unitName: pulumi.Input<string>;
+}
+
+export interface PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCustom {
+    /**
+     * Unit label
+     */
+    label: pulumi.Input<string>;
+}
+
+export interface PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitScale {
+    unitName: pulumi.Input<string>;
 }
 
 export interface PowerpackWidgetQueryTableDefinitionRequestFormulaStyle {
@@ -15829,7 +16456,7 @@ export interface PowerpackWidgetQueryValueDefinitionRequestFormula {
      */
     alias?: pulumi.Input<string>;
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayMode?: pulumi.Input<string>;
     /**
@@ -15844,6 +16471,10 @@ export interface PowerpackWidgetQueryValueDefinitionRequestFormula {
      * The options for limiting results returned.
      */
     limit?: pulumi.Input<inputs.PowerpackWidgetQueryValueDefinitionRequestFormulaLimit>;
+    /**
+     * Number formatting options for the formula.
+     */
+    numberFormat?: pulumi.Input<inputs.PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormat>;
     /**
      * Styling options for widget formulas.
      */
@@ -15898,6 +16529,47 @@ export interface PowerpackWidgetQueryValueDefinitionRequestFormulaLimit {
      * The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
      */
     order?: pulumi.Input<string>;
+}
+
+export interface PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormat {
+    /**
+     * Unit of the number format.
+     */
+    unit: pulumi.Input<inputs.PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnit>;
+    unitScale?: pulumi.Input<inputs.PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScale>;
+}
+
+export interface PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnit {
+    /**
+     * Canonical Units
+     */
+    canonical?: pulumi.Input<inputs.PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCanonical>;
+    /**
+     * Use custom (non canonical metrics)
+     */
+    custom?: pulumi.Input<inputs.PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustom>;
+}
+
+export interface PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCanonical {
+    /**
+     * per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+     */
+    perUnitName?: pulumi.Input<string>;
+    /**
+     * Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+     */
+    unitName: pulumi.Input<string>;
+}
+
+export interface PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustom {
+    /**
+     * Unit label
+     */
+    label: pulumi.Input<string>;
+}
+
+export interface PowerpackWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScale {
+    unitName: pulumi.Input<string>;
 }
 
 export interface PowerpackWidgetQueryValueDefinitionRequestFormulaStyle {
@@ -18287,7 +18959,7 @@ export interface PowerpackWidgetSunburstDefinitionRequestFormula {
      */
     alias?: pulumi.Input<string>;
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayMode?: pulumi.Input<string>;
     /**
@@ -18302,6 +18974,10 @@ export interface PowerpackWidgetSunburstDefinitionRequestFormula {
      * The options for limiting results returned.
      */
     limit?: pulumi.Input<inputs.PowerpackWidgetSunburstDefinitionRequestFormulaLimit>;
+    /**
+     * Number formatting options for the formula.
+     */
+    numberFormat?: pulumi.Input<inputs.PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormat>;
     /**
      * Styling options for widget formulas.
      */
@@ -18356,6 +19032,47 @@ export interface PowerpackWidgetSunburstDefinitionRequestFormulaLimit {
      * The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
      */
     order?: pulumi.Input<string>;
+}
+
+export interface PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormat {
+    /**
+     * Unit of the number format.
+     */
+    unit: pulumi.Input<inputs.PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnit>;
+    unitScale?: pulumi.Input<inputs.PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnitScale>;
+}
+
+export interface PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnit {
+    /**
+     * Canonical Units
+     */
+    canonical?: pulumi.Input<inputs.PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCanonical>;
+    /**
+     * Use custom (non canonical metrics)
+     */
+    custom?: pulumi.Input<inputs.PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCustom>;
+}
+
+export interface PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCanonical {
+    /**
+     * per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+     */
+    perUnitName?: pulumi.Input<string>;
+    /**
+     * Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+     */
+    unitName: pulumi.Input<string>;
+}
+
+export interface PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCustom {
+    /**
+     * Unit label
+     */
+    label: pulumi.Input<string>;
+}
+
+export interface PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormatUnitScale {
+    unitName: pulumi.Input<string>;
 }
 
 export interface PowerpackWidgetSunburstDefinitionRequestFormulaStyle {
@@ -19392,7 +20109,7 @@ export interface PowerpackWidgetTimeseriesDefinitionRequestFormula {
      */
     alias?: pulumi.Input<string>;
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayMode?: pulumi.Input<string>;
     /**
@@ -19407,6 +20124,10 @@ export interface PowerpackWidgetTimeseriesDefinitionRequestFormula {
      * The options for limiting results returned.
      */
     limit?: pulumi.Input<inputs.PowerpackWidgetTimeseriesDefinitionRequestFormulaLimit>;
+    /**
+     * Number formatting options for the formula.
+     */
+    numberFormat?: pulumi.Input<inputs.PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormat>;
     /**
      * Styling options for widget formulas.
      */
@@ -19461,6 +20182,47 @@ export interface PowerpackWidgetTimeseriesDefinitionRequestFormulaLimit {
      * The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
      */
     order?: pulumi.Input<string>;
+}
+
+export interface PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormat {
+    /**
+     * Unit of the number format.
+     */
+    unit: pulumi.Input<inputs.PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnit>;
+    unitScale?: pulumi.Input<inputs.PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScale>;
+}
+
+export interface PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnit {
+    /**
+     * Canonical Units
+     */
+    canonical?: pulumi.Input<inputs.PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical>;
+    /**
+     * Use custom (non canonical metrics)
+     */
+    custom?: pulumi.Input<inputs.PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustom>;
+}
+
+export interface PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical {
+    /**
+     * per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+     */
+    perUnitName?: pulumi.Input<string>;
+    /**
+     * Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+     */
+    unitName: pulumi.Input<string>;
+}
+
+export interface PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustom {
+    /**
+     * Unit label
+     */
+    label: pulumi.Input<string>;
+}
+
+export interface PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScale {
+    unitName: pulumi.Input<string>;
 }
 
 export interface PowerpackWidgetTimeseriesDefinitionRequestFormulaStyle {
@@ -20535,7 +21297,7 @@ export interface PowerpackWidgetToplistDefinitionRequestFormula {
      */
     alias?: pulumi.Input<string>;
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayMode?: pulumi.Input<string>;
     /**
@@ -20550,6 +21312,10 @@ export interface PowerpackWidgetToplistDefinitionRequestFormula {
      * The options for limiting results returned.
      */
     limit?: pulumi.Input<inputs.PowerpackWidgetToplistDefinitionRequestFormulaLimit>;
+    /**
+     * Number formatting options for the formula.
+     */
+    numberFormat?: pulumi.Input<inputs.PowerpackWidgetToplistDefinitionRequestFormulaNumberFormat>;
     /**
      * Styling options for widget formulas.
      */
@@ -20604,6 +21370,47 @@ export interface PowerpackWidgetToplistDefinitionRequestFormulaLimit {
      * The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
      */
     order?: pulumi.Input<string>;
+}
+
+export interface PowerpackWidgetToplistDefinitionRequestFormulaNumberFormat {
+    /**
+     * Unit of the number format.
+     */
+    unit: pulumi.Input<inputs.PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnit>;
+    unitScale?: pulumi.Input<inputs.PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScale>;
+}
+
+export interface PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnit {
+    /**
+     * Canonical Units
+     */
+    canonical?: pulumi.Input<inputs.PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonical>;
+    /**
+     * Use custom (non canonical metrics)
+     */
+    custom?: pulumi.Input<inputs.PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustom>;
+}
+
+export interface PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonical {
+    /**
+     * per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+     */
+    perUnitName?: pulumi.Input<string>;
+    /**
+     * Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+     */
+    unitName: pulumi.Input<string>;
+}
+
+export interface PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustom {
+    /**
+     * Unit label
+     */
+    label: pulumi.Input<string>;
+}
+
+export interface PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScale {
+    unitName: pulumi.Input<string>;
 }
 
 export interface PowerpackWidgetToplistDefinitionRequestFormulaStyle {
@@ -21237,6 +22044,10 @@ export interface PowerpackWidgetToplistDefinitionStyle {
      * The color palette for the widget.
      */
     palette?: pulumi.Input<string>;
+    /**
+     * The scaling mode for the widget. Valid values are `absolute`, `relative`.
+     */
+    scaling?: pulumi.Input<string>;
 }
 
 export interface PowerpackWidgetToplistDefinitionStyleDisplay {
@@ -21399,7 +22210,7 @@ export interface PowerpackWidgetTreemapDefinitionRequestFormula {
      */
     alias?: pulumi.Input<string>;
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayMode?: pulumi.Input<string>;
     /**
@@ -21414,6 +22225,10 @@ export interface PowerpackWidgetTreemapDefinitionRequestFormula {
      * The options for limiting results returned.
      */
     limit?: pulumi.Input<inputs.PowerpackWidgetTreemapDefinitionRequestFormulaLimit>;
+    /**
+     * Number formatting options for the formula.
+     */
+    numberFormat?: pulumi.Input<inputs.PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormat>;
     /**
      * Styling options for widget formulas.
      */
@@ -21468,6 +22283,47 @@ export interface PowerpackWidgetTreemapDefinitionRequestFormulaLimit {
      * The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
      */
     order?: pulumi.Input<string>;
+}
+
+export interface PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormat {
+    /**
+     * Unit of the number format.
+     */
+    unit: pulumi.Input<inputs.PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnit>;
+    unitScale?: pulumi.Input<inputs.PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale>;
+}
+
+export interface PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnit {
+    /**
+     * Canonical Units
+     */
+    canonical?: pulumi.Input<inputs.PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonical>;
+    /**
+     * Use custom (non canonical metrics)
+     */
+    custom?: pulumi.Input<inputs.PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom>;
+}
+
+export interface PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonical {
+    /**
+     * per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+     */
+    perUnitName?: pulumi.Input<string>;
+    /**
+     * Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+     */
+    unitName: pulumi.Input<string>;
+}
+
+export interface PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom {
+    /**
+     * Unit label
+     */
+    label: pulumi.Input<string>;
+}
+
+export interface PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale {
+    unitName: pulumi.Input<string>;
 }
 
 export interface PowerpackWidgetTreemapDefinitionRequestFormulaStyle {
@@ -21842,7 +22698,7 @@ export interface PowerpackWidgetWidgetLayout {
 
 export interface ProviderDefaultTags {
     /**
-     * [Experimental - Monitors only] Resource tags to be applied by default across all resources.
+     * [Experimental - Monitors and Logs Pipelines only] Resource tags to be applied by default across all resources.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -21989,7 +22845,7 @@ export interface SecurityMonitoringRuleOptions {
      */
     detectionMethod?: pulumi.Input<string>;
     /**
-     * A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`.
+     * A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
      */
     evaluationWindow?: pulumi.Input<number>;
     /**
@@ -21997,7 +22853,7 @@ export interface SecurityMonitoringRuleOptions {
      */
     impossibleTravelOptions?: pulumi.Input<inputs.SecurityMonitoringRuleOptionsImpossibleTravelOptions>;
     /**
-     * Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
+     * Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
      */
     keepAlive?: pulumi.Input<number>;
     /**
@@ -23117,7 +23973,7 @@ export interface SyntheticsTestBrowserVariable {
      */
     secure?: pulumi.Input<boolean>;
     /**
-     * Type of browser test variable. Valid values are `element`, `email`, `global`, `javascript`, `text`.
+     * Type of browser test variable. Valid values are `element`, `email`, `global`, `text`.
      */
     type: pulumi.Input<string>;
 }

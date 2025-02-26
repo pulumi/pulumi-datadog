@@ -93,14 +93,14 @@ public final class SyntheticsTestBrowserVariableArgs extends com.pulumi.resource
     }
 
     /**
-     * Type of browser test variable. Valid values are `element`, `email`, `global`, `javascript`, `text`.
+     * Type of browser test variable. Valid values are `element`, `email`, `global`, `text`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Type of browser test variable. Valid values are `element`, `email`, `global`, `javascript`, `text`.
+     * @return Type of browser test variable. Valid values are `element`, `email`, `global`, `text`.
      * 
      */
     public Output<String> type() {
@@ -242,7 +242,7 @@ public final class SyntheticsTestBrowserVariableArgs extends com.pulumi.resource
         }
 
         /**
-         * @param type Type of browser test variable. Valid values are `element`, `email`, `global`, `javascript`, `text`.
+         * @param type Type of browser test variable. Valid values are `element`, `email`, `global`, `text`.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class SyntheticsTestBrowserVariableArgs extends com.pulumi.resource
         }
 
         /**
-         * @param type Type of browser test variable. Valid values are `element`, `email`, `global`, `javascript`, `text`.
+         * @param type Type of browser test variable. Valid values are `element`, `email`, `global`, `text`.
          * 
          * @return builder
          * 

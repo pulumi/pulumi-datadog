@@ -35,6 +35,21 @@ public final class SyntheticsGlobalVariableState extends com.pulumi.resources.Re
     }
 
     /**
+     * If set to true, the global variable is a FIDO variable. Defaults to `false`.
+     * 
+     */
+    @Import(name="isFido")
+    private @Nullable Output<Boolean> isFido;
+
+    /**
+     * @return If set to true, the global variable is a FIDO variable. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> isFido() {
+        return Optional.ofNullable(this.isFido);
+    }
+
+    /**
      * If set to true, the global variable is a TOTP variable. Defaults to `false`.
      * 
      */
@@ -125,14 +140,14 @@ public final class SyntheticsGlobalVariableState extends com.pulumi.resources.Re
     }
 
     /**
-     * If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` is set to `true`. Defaults to `false`.
+     * If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` or `is_fido` is set to `true`. Defaults to `false`.
      * 
      */
     @Import(name="secure")
     private @Nullable Output<Boolean> secure;
 
     /**
-     * @return If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` is set to `true`. Defaults to `false`.
+     * @return If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` or `is_fido` is set to `true`. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> secure() {
@@ -155,14 +170,14 @@ public final class SyntheticsGlobalVariableState extends com.pulumi.resources.Re
     }
 
     /**
-     * The value of the global variable.
+     * The value of the global variable. This setting is ignored if `is_fido` is set to `true` and required otherwise.
      * 
      */
     @Import(name="value")
     private @Nullable Output<String> value;
 
     /**
-     * @return The value of the global variable.
+     * @return The value of the global variable. This setting is ignored if `is_fido` is set to `true` and required otherwise.
      * 
      */
     public Optional<Output<String>> value() {
@@ -173,6 +188,7 @@ public final class SyntheticsGlobalVariableState extends com.pulumi.resources.Re
 
     private SyntheticsGlobalVariableState(SyntheticsGlobalVariableState $) {
         this.description = $.description;
+        this.isFido = $.isFido;
         this.isTotp = $.isTotp;
         this.name = $.name;
         this.options = $.options;
@@ -221,6 +237,27 @@ public final class SyntheticsGlobalVariableState extends com.pulumi.resources.Re
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param isFido If set to true, the global variable is a FIDO variable. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isFido(@Nullable Output<Boolean> isFido) {
+            $.isFido = isFido;
+            return this;
+        }
+
+        /**
+         * @param isFido If set to true, the global variable is a FIDO variable. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isFido(Boolean isFido) {
+            return isFido(Output.of(isFido));
         }
 
         /**
@@ -360,7 +397,7 @@ public final class SyntheticsGlobalVariableState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param secure If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` is set to `true`. Defaults to `false`.
+         * @param secure If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` or `is_fido` is set to `true`. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -371,7 +408,7 @@ public final class SyntheticsGlobalVariableState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param secure If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` is set to `true`. Defaults to `false`.
+         * @param secure If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` or `is_fido` is set to `true`. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -412,7 +449,7 @@ public final class SyntheticsGlobalVariableState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param value The value of the global variable.
+         * @param value The value of the global variable. This setting is ignored if `is_fido` is set to `true` and required otherwise.
          * 
          * @return builder
          * 
@@ -423,7 +460,7 @@ public final class SyntheticsGlobalVariableState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param value The value of the global variable.
+         * @param value The value of the global variable. This setting is ignored if `is_fido` is set to `true` and required otherwise.
          * 
          * @return builder
          * 

@@ -54,6 +54,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.LogsCustomPipelineProcessorPipelineProcessorServiceRemapper? ServiceRemapper;
         /// <summary>
+        /// Span ID Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#span-remapper)
+        /// </summary>
+        public readonly Outputs.LogsCustomPipelineProcessorPipelineProcessorSpanIdRemapper? SpanIdRemapper;
+        /// <summary>
         /// Status Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-status-remapper)
         /// </summary>
         public readonly Outputs.LogsCustomPipelineProcessorPipelineProcessorStatusRemapper? StatusRemapper;
@@ -96,6 +100,8 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.LogsCustomPipelineProcessorPipelineProcessorServiceRemapper? serviceRemapper,
 
+            Outputs.LogsCustomPipelineProcessorPipelineProcessorSpanIdRemapper? spanIdRemapper,
+
             Outputs.LogsCustomPipelineProcessorPipelineProcessorStatusRemapper? statusRemapper,
 
             Outputs.LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessor? stringBuilderProcessor,
@@ -116,6 +122,7 @@ namespace Pulumi.Datadog.Outputs
             MessageRemapper = messageRemapper;
             ReferenceTableLookupProcessor = referenceTableLookupProcessor;
             ServiceRemapper = serviceRemapper;
+            SpanIdRemapper = spanIdRemapper;
             StatusRemapper = statusRemapper;
             StringBuilderProcessor = stringBuilderProcessor;
             TraceIdRemapper = traceIdRemapper;
