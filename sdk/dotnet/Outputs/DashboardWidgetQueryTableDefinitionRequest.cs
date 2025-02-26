@@ -27,7 +27,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly Outputs.DashboardWidgetApmQuery? ApmQuery;
         public readonly Outputs.DashboardWidgetQueryTableDefinitionRequestApmStatsQuery? ApmStatsQuery;
         /// <summary>
-        /// A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`.
+        /// A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`, `trend`.
         /// </summary>
         public readonly ImmutableArray<string> CellDisplayModes;
         /// <summary>

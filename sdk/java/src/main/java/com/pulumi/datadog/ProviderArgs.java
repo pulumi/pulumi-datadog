@@ -73,16 +73,16 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * [Experimental - Monitors only] Configuration block containing settings to apply default resource tags across all
-     * resources.
+     * [Experimental - Monitors and Logs Pipelines only] Configuration block containing settings to apply default resource tags
+     * across all resources.
      * 
      */
     @Import(name="defaultTags", json=true)
     private @Nullable Output<ProviderDefaultTagsArgs> defaultTags;
 
     /**
-     * @return [Experimental - Monitors only] Configuration block containing settings to apply default resource tags across all
-     * resources.
+     * @return [Experimental - Monitors and Logs Pipelines only] Configuration block containing settings to apply default resource tags
+     * across all resources.
      * 
      */
     public Optional<Output<ProviderDefaultTagsArgs>> defaultTags() {
@@ -288,8 +288,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultTags [Experimental - Monitors only] Configuration block containing settings to apply default resource tags across all
-         * resources.
+         * @param defaultTags [Experimental - Monitors and Logs Pipelines only] Configuration block containing settings to apply default resource tags
+         * across all resources.
          * 
          * @return builder
          * 
@@ -300,8 +300,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultTags [Experimental - Monitors only] Configuration block containing settings to apply default resource tags across all
-         * resources.
+         * @param defaultTags [Experimental - Monitors and Logs Pipelines only] Configuration block containing settings to apply default resource tags
+         * across all resources.
          * 
          * @return builder
          * 

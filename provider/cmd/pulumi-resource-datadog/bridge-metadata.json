@@ -204,6 +204,29 @@
                                                                     "limit": {
                                                                         "maxItemsOne": true
                                                                     },
+                                                                    "number_format": {
+                                                                        "maxItemsOne": true,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "unit": {
+                                                                                    "maxItemsOne": true,
+                                                                                    "elem": {
+                                                                                        "fields": {
+                                                                                            "canonical": {
+                                                                                                "maxItemsOne": true
+                                                                                            },
+                                                                                            "custom": {
+                                                                                                "maxItemsOne": true
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                "unit_scale": {
+                                                                                    "maxItemsOne": true
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
                                                                     "style": {
                                                                         "maxItemsOne": true
                                                                     }
@@ -575,6 +598,29 @@
                                                                     "limit": {
                                                                         "maxItemsOne": true
                                                                     },
+                                                                    "number_format": {
+                                                                        "maxItemsOne": true,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "unit": {
+                                                                                    "maxItemsOne": true,
+                                                                                    "elem": {
+                                                                                        "fields": {
+                                                                                            "canonical": {
+                                                                                                "maxItemsOne": true
+                                                                                            },
+                                                                                            "custom": {
+                                                                                                "maxItemsOne": true
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                "unit_scale": {
+                                                                                    "maxItemsOne": true
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
                                                                     "style": {
                                                                         "maxItemsOne": true
                                                                     }
@@ -798,6 +844,29 @@
                                                                                             },
                                                                                             "limit": {
                                                                                                 "maxItemsOne": true
+                                                                                            },
+                                                                                            "number_format": {
+                                                                                                "maxItemsOne": true,
+                                                                                                "elem": {
+                                                                                                    "fields": {
+                                                                                                        "unit": {
+                                                                                                            "maxItemsOne": true,
+                                                                                                            "elem": {
+                                                                                                                "fields": {
+                                                                                                                    "canonical": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    },
+                                                                                                                    "custom": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }
+                                                                                                        },
+                                                                                                        "unit_scale": {
+                                                                                                            "maxItemsOne": true
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
                                                                                             },
                                                                                             "style": {
                                                                                                 "maxItemsOne": true
@@ -1170,6 +1239,29 @@
                                                                                             "limit": {
                                                                                                 "maxItemsOne": true
                                                                                             },
+                                                                                            "number_format": {
+                                                                                                "maxItemsOne": true,
+                                                                                                "elem": {
+                                                                                                    "fields": {
+                                                                                                        "unit": {
+                                                                                                            "maxItemsOne": true,
+                                                                                                            "elem": {
+                                                                                                                "fields": {
+                                                                                                                    "canonical": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    },
+                                                                                                                    "custom": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }
+                                                                                                        },
+                                                                                                        "unit_scale": {
+                                                                                                            "maxItemsOne": true
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
+                                                                                            },
                                                                                             "style": {
                                                                                                 "maxItemsOne": true
                                                                                             }
@@ -1382,6 +1474,29 @@
                                                                                             },
                                                                                             "limit": {
                                                                                                 "maxItemsOne": true
+                                                                                            },
+                                                                                            "number_format": {
+                                                                                                "maxItemsOne": true,
+                                                                                                "elem": {
+                                                                                                    "fields": {
+                                                                                                        "unit": {
+                                                                                                            "maxItemsOne": true,
+                                                                                                            "elem": {
+                                                                                                                "fields": {
+                                                                                                                    "canonical": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    },
+                                                                                                                    "custom": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }
+                                                                                                        },
+                                                                                                        "unit_scale": {
+                                                                                                            "maxItemsOne": true
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
                                                                                             },
                                                                                             "style": {
                                                                                                 "maxItemsOne": true
@@ -1978,6 +2093,29 @@
                                                                                             "limit": {
                                                                                                 "maxItemsOne": true
                                                                                             },
+                                                                                            "number_format": {
+                                                                                                "maxItemsOne": true,
+                                                                                                "elem": {
+                                                                                                    "fields": {
+                                                                                                        "unit": {
+                                                                                                            "maxItemsOne": true,
+                                                                                                            "elem": {
+                                                                                                                "fields": {
+                                                                                                                    "canonical": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    },
+                                                                                                                    "custom": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }
+                                                                                                        },
+                                                                                                        "unit_scale": {
+                                                                                                            "maxItemsOne": true
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
+                                                                                            },
                                                                                             "style": {
                                                                                                 "maxItemsOne": true
                                                                                             }
@@ -2260,6 +2398,29 @@
                                                                                             },
                                                                                             "limit": {
                                                                                                 "maxItemsOne": true
+                                                                                            },
+                                                                                            "number_format": {
+                                                                                                "maxItemsOne": true,
+                                                                                                "elem": {
+                                                                                                    "fields": {
+                                                                                                        "unit": {
+                                                                                                            "maxItemsOne": true,
+                                                                                                            "elem": {
+                                                                                                                "fields": {
+                                                                                                                    "canonical": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    },
+                                                                                                                    "custom": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }
+                                                                                                        },
+                                                                                                        "unit_scale": {
+                                                                                                            "maxItemsOne": true
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
                                                                                             },
                                                                                             "style": {
                                                                                                 "maxItemsOne": true
@@ -2932,6 +3093,29 @@
                                                                                                                     "limit": {
                                                                                                                         "maxItemsOne": true
                                                                                                                     },
+                                                                                                                    "number_format": {
+                                                                                                                        "maxItemsOne": true,
+                                                                                                                        "elem": {
+                                                                                                                            "fields": {
+                                                                                                                                "unit": {
+                                                                                                                                    "maxItemsOne": true,
+                                                                                                                                    "elem": {
+                                                                                                                                        "fields": {
+                                                                                                                                            "canonical": {
+                                                                                                                                                "maxItemsOne": true
+                                                                                                                                            },
+                                                                                                                                            "custom": {
+                                                                                                                                                "maxItemsOne": true
+                                                                                                                                            }
+                                                                                                                                        }
+                                                                                                                                    }
+                                                                                                                                },
+                                                                                                                                "unit_scale": {
+                                                                                                                                    "maxItemsOne": true
+                                                                                                                                }
+                                                                                                                            }
+                                                                                                                        }
+                                                                                                                    },
                                                                                                                     "style": {
                                                                                                                         "maxItemsOne": true
                                                                                                                     }
@@ -3145,6 +3329,29 @@
                                                                                                                     },
                                                                                                                     "limit": {
                                                                                                                         "maxItemsOne": true
+                                                                                                                    },
+                                                                                                                    "number_format": {
+                                                                                                                        "maxItemsOne": true,
+                                                                                                                        "elem": {
+                                                                                                                            "fields": {
+                                                                                                                                "unit": {
+                                                                                                                                    "maxItemsOne": true,
+                                                                                                                                    "elem": {
+                                                                                                                                        "fields": {
+                                                                                                                                            "canonical": {
+                                                                                                                                                "maxItemsOne": true
+                                                                                                                                            },
+                                                                                                                                            "custom": {
+                                                                                                                                                "maxItemsOne": true
+                                                                                                                                            }
+                                                                                                                                        }
+                                                                                                                                    }
+                                                                                                                                },
+                                                                                                                                "unit_scale": {
+                                                                                                                                    "maxItemsOne": true
+                                                                                                                                }
+                                                                                                                            }
+                                                                                                                        }
                                                                                                                     },
                                                                                                                     "style": {
                                                                                                                         "maxItemsOne": true
@@ -3371,6 +3578,29 @@
                                                                                                                     },
                                                                                                                     "limit": {
                                                                                                                         "maxItemsOne": true
+                                                                                                                    },
+                                                                                                                    "number_format": {
+                                                                                                                        "maxItemsOne": true,
+                                                                                                                        "elem": {
+                                                                                                                            "fields": {
+                                                                                                                                "unit": {
+                                                                                                                                    "maxItemsOne": true,
+                                                                                                                                    "elem": {
+                                                                                                                                        "fields": {
+                                                                                                                                            "canonical": {
+                                                                                                                                                "maxItemsOne": true
+                                                                                                                                            },
+                                                                                                                                            "custom": {
+                                                                                                                                                "maxItemsOne": true
+                                                                                                                                            }
+                                                                                                                                        }
+                                                                                                                                    }
+                                                                                                                                },
+                                                                                                                                "unit_scale": {
+                                                                                                                                    "maxItemsOne": true
+                                                                                                                                }
+                                                                                                                            }
+                                                                                                                        }
                                                                                                                     },
                                                                                                                     "style": {
                                                                                                                         "maxItemsOne": true
@@ -3654,6 +3884,29 @@
                                                                                                                     },
                                                                                                                     "limit": {
                                                                                                                         "maxItemsOne": true
+                                                                                                                    },
+                                                                                                                    "number_format": {
+                                                                                                                        "maxItemsOne": true,
+                                                                                                                        "elem": {
+                                                                                                                            "fields": {
+                                                                                                                                "unit": {
+                                                                                                                                    "maxItemsOne": true,
+                                                                                                                                    "elem": {
+                                                                                                                                        "fields": {
+                                                                                                                                            "canonical": {
+                                                                                                                                                "maxItemsOne": true
+                                                                                                                                            },
+                                                                                                                                            "custom": {
+                                                                                                                                                "maxItemsOne": true
+                                                                                                                                            }
+                                                                                                                                        }
+                                                                                                                                    }
+                                                                                                                                },
+                                                                                                                                "unit_scale": {
+                                                                                                                                    "maxItemsOne": true
+                                                                                                                                }
+                                                                                                                            }
+                                                                                                                        }
                                                                                                                     },
                                                                                                                     "style": {
                                                                                                                         "maxItemsOne": true
@@ -4287,6 +4540,29 @@
                                                                                                                     "limit": {
                                                                                                                         "maxItemsOne": true
                                                                                                                     },
+                                                                                                                    "number_format": {
+                                                                                                                        "maxItemsOne": true,
+                                                                                                                        "elem": {
+                                                                                                                            "fields": {
+                                                                                                                                "unit": {
+                                                                                                                                    "maxItemsOne": true,
+                                                                                                                                    "elem": {
+                                                                                                                                        "fields": {
+                                                                                                                                            "canonical": {
+                                                                                                                                                "maxItemsOne": true
+                                                                                                                                            },
+                                                                                                                                            "custom": {
+                                                                                                                                                "maxItemsOne": true
+                                                                                                                                            }
+                                                                                                                                        }
+                                                                                                                                    }
+                                                                                                                                },
+                                                                                                                                "unit_scale": {
+                                                                                                                                    "maxItemsOne": true
+                                                                                                                                }
+                                                                                                                            }
+                                                                                                                        }
+                                                                                                                    },
                                                                                                                     "style": {
                                                                                                                         "maxItemsOne": true
                                                                                                                     }
@@ -4581,6 +4857,29 @@
                                                                                                                     },
                                                                                                                     "limit": {
                                                                                                                         "maxItemsOne": true
+                                                                                                                    },
+                                                                                                                    "number_format": {
+                                                                                                                        "maxItemsOne": true,
+                                                                                                                        "elem": {
+                                                                                                                            "fields": {
+                                                                                                                                "unit": {
+                                                                                                                                    "maxItemsOne": true,
+                                                                                                                                    "elem": {
+                                                                                                                                        "fields": {
+                                                                                                                                            "canonical": {
+                                                                                                                                                "maxItemsOne": true
+                                                                                                                                            },
+                                                                                                                                            "custom": {
+                                                                                                                                                "maxItemsOne": true
+                                                                                                                                            }
+                                                                                                                                        }
+                                                                                                                                    }
+                                                                                                                                },
+                                                                                                                                "unit_scale": {
+                                                                                                                                    "maxItemsOne": true
+                                                                                                                                }
+                                                                                                                            }
+                                                                                                                        }
                                                                                                                     },
                                                                                                                     "style": {
                                                                                                                         "maxItemsOne": true
@@ -4880,6 +5179,29 @@
                                                                                                                     "limit": {
                                                                                                                         "maxItemsOne": true
                                                                                                                     },
+                                                                                                                    "number_format": {
+                                                                                                                        "maxItemsOne": true,
+                                                                                                                        "elem": {
+                                                                                                                            "fields": {
+                                                                                                                                "unit": {
+                                                                                                                                    "maxItemsOne": true,
+                                                                                                                                    "elem": {
+                                                                                                                                        "fields": {
+                                                                                                                                            "canonical": {
+                                                                                                                                                "maxItemsOne": true
+                                                                                                                                            },
+                                                                                                                                            "custom": {
+                                                                                                                                                "maxItemsOne": true
+                                                                                                                                            }
+                                                                                                                                        }
+                                                                                                                                    }
+                                                                                                                                },
+                                                                                                                                "unit_scale": {
+                                                                                                                                    "maxItemsOne": true
+                                                                                                                                }
+                                                                                                                            }
+                                                                                                                        }
+                                                                                                                    },
                                                                                                                     "style": {
                                                                                                                         "maxItemsOne": true
                                                                                                                     }
@@ -5103,6 +5425,29 @@
                                                                                                                     },
                                                                                                                     "limit": {
                                                                                                                         "maxItemsOne": true
+                                                                                                                    },
+                                                                                                                    "number_format": {
+                                                                                                                        "maxItemsOne": true,
+                                                                                                                        "elem": {
+                                                                                                                            "fields": {
+                                                                                                                                "unit": {
+                                                                                                                                    "maxItemsOne": true,
+                                                                                                                                    "elem": {
+                                                                                                                                        "fields": {
+                                                                                                                                            "canonical": {
+                                                                                                                                                "maxItemsOne": true
+                                                                                                                                            },
+                                                                                                                                            "custom": {
+                                                                                                                                                "maxItemsOne": true
+                                                                                                                                            }
+                                                                                                                                        }
+                                                                                                                                    }
+                                                                                                                                },
+                                                                                                                                "unit_scale": {
+                                                                                                                                    "maxItemsOne": true
+                                                                                                                                }
+                                                                                                                            }
+                                                                                                                        }
                                                                                                                     },
                                                                                                                     "style": {
                                                                                                                         "maxItemsOne": true
@@ -5333,6 +5678,29 @@
                                                                                             },
                                                                                             "limit": {
                                                                                                 "maxItemsOne": true
+                                                                                            },
+                                                                                            "number_format": {
+                                                                                                "maxItemsOne": true,
+                                                                                                "elem": {
+                                                                                                    "fields": {
+                                                                                                        "unit": {
+                                                                                                            "maxItemsOne": true,
+                                                                                                            "elem": {
+                                                                                                                "fields": {
+                                                                                                                    "canonical": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    },
+                                                                                                                    "custom": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }
+                                                                                                        },
+                                                                                                        "unit_scale": {
+                                                                                                            "maxItemsOne": true
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
                                                                                             },
                                                                                             "style": {
                                                                                                 "maxItemsOne": true
@@ -5628,6 +5996,29 @@
                                                                                             },
                                                                                             "limit": {
                                                                                                 "maxItemsOne": true
+                                                                                            },
+                                                                                            "number_format": {
+                                                                                                "maxItemsOne": true,
+                                                                                                "elem": {
+                                                                                                    "fields": {
+                                                                                                        "unit": {
+                                                                                                            "maxItemsOne": true,
+                                                                                                            "elem": {
+                                                                                                                "fields": {
+                                                                                                                    "canonical": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    },
+                                                                                                                    "custom": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }
+                                                                                                        },
+                                                                                                        "unit_scale": {
+                                                                                                            "maxItemsOne": true
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
                                                                                             },
                                                                                             "style": {
                                                                                                 "maxItemsOne": true
@@ -5927,6 +6318,29 @@
                                                                                             "limit": {
                                                                                                 "maxItemsOne": true
                                                                                             },
+                                                                                            "number_format": {
+                                                                                                "maxItemsOne": true,
+                                                                                                "elem": {
+                                                                                                    "fields": {
+                                                                                                        "unit": {
+                                                                                                            "maxItemsOne": true,
+                                                                                                            "elem": {
+                                                                                                                "fields": {
+                                                                                                                    "canonical": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    },
+                                                                                                                    "custom": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }
+                                                                                                        },
+                                                                                                        "unit_scale": {
+                                                                                                            "maxItemsOne": true
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
+                                                                                            },
                                                                                             "style": {
                                                                                                 "maxItemsOne": true
                                                                                             }
@@ -6181,6 +6595,29 @@
                                                                                             "limit": {
                                                                                                 "maxItemsOne": true
                                                                                             },
+                                                                                            "number_format": {
+                                                                                                "maxItemsOne": true,
+                                                                                                "elem": {
+                                                                                                    "fields": {
+                                                                                                        "unit": {
+                                                                                                            "maxItemsOne": true,
+                                                                                                            "elem": {
+                                                                                                                "fields": {
+                                                                                                                    "canonical": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    },
+                                                                                                                    "custom": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }
+                                                                                                        },
+                                                                                                        "unit_scale": {
+                                                                                                            "maxItemsOne": true
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
+                                                                                            },
                                                                                             "style": {
                                                                                                 "maxItemsOne": true
                                                                                             }
@@ -6350,6 +6787,29 @@
                                                                     },
                                                                     "limit": {
                                                                         "maxItemsOne": true
+                                                                    },
+                                                                    "number_format": {
+                                                                        "maxItemsOne": true,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "unit": {
+                                                                                    "maxItemsOne": true,
+                                                                                    "elem": {
+                                                                                        "fields": {
+                                                                                            "canonical": {
+                                                                                                "maxItemsOne": true
+                                                                                            },
+                                                                                            "custom": {
+                                                                                                "maxItemsOne": true
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                "unit_scale": {
+                                                                                    "maxItemsOne": true
+                                                                                }
+                                                                            }
+                                                                        }
                                                                     },
                                                                     "style": {
                                                                         "maxItemsOne": true
@@ -6946,6 +7406,29 @@
                                                                     "limit": {
                                                                         "maxItemsOne": true
                                                                     },
+                                                                    "number_format": {
+                                                                        "maxItemsOne": true,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "unit": {
+                                                                                    "maxItemsOne": true,
+                                                                                    "elem": {
+                                                                                        "fields": {
+                                                                                            "canonical": {
+                                                                                                "maxItemsOne": true
+                                                                                            },
+                                                                                            "custom": {
+                                                                                                "maxItemsOne": true
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                "unit_scale": {
+                                                                                    "maxItemsOne": true
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
                                                                     "style": {
                                                                         "maxItemsOne": true
                                                                     }
@@ -7228,6 +7711,29 @@
                                                                     },
                                                                     "limit": {
                                                                         "maxItemsOne": true
+                                                                    },
+                                                                    "number_format": {
+                                                                        "maxItemsOne": true,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "unit": {
+                                                                                    "maxItemsOne": true,
+                                                                                    "elem": {
+                                                                                        "fields": {
+                                                                                            "canonical": {
+                                                                                                "maxItemsOne": true
+                                                                                            },
+                                                                                            "custom": {
+                                                                                                "maxItemsOne": true
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                "unit_scale": {
+                                                                                    "maxItemsOne": true
+                                                                                }
+                                                                            }
+                                                                        }
                                                                     },
                                                                     "style": {
                                                                         "maxItemsOne": true
@@ -7900,6 +8406,29 @@
                                                                                             "limit": {
                                                                                                 "maxItemsOne": true
                                                                                             },
+                                                                                            "number_format": {
+                                                                                                "maxItemsOne": true,
+                                                                                                "elem": {
+                                                                                                    "fields": {
+                                                                                                        "unit": {
+                                                                                                            "maxItemsOne": true,
+                                                                                                            "elem": {
+                                                                                                                "fields": {
+                                                                                                                    "canonical": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    },
+                                                                                                                    "custom": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }
+                                                                                                        },
+                                                                                                        "unit_scale": {
+                                                                                                            "maxItemsOne": true
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
+                                                                                            },
                                                                                             "style": {
                                                                                                 "maxItemsOne": true
                                                                                             }
@@ -8113,6 +8642,29 @@
                                                                                             },
                                                                                             "limit": {
                                                                                                 "maxItemsOne": true
+                                                                                            },
+                                                                                            "number_format": {
+                                                                                                "maxItemsOne": true,
+                                                                                                "elem": {
+                                                                                                    "fields": {
+                                                                                                        "unit": {
+                                                                                                            "maxItemsOne": true,
+                                                                                                            "elem": {
+                                                                                                                "fields": {
+                                                                                                                    "canonical": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    },
+                                                                                                                    "custom": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }
+                                                                                                        },
+                                                                                                        "unit_scale": {
+                                                                                                            "maxItemsOne": true
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
                                                                                             },
                                                                                             "style": {
                                                                                                 "maxItemsOne": true
@@ -8339,6 +8891,29 @@
                                                                                             },
                                                                                             "limit": {
                                                                                                 "maxItemsOne": true
+                                                                                            },
+                                                                                            "number_format": {
+                                                                                                "maxItemsOne": true,
+                                                                                                "elem": {
+                                                                                                    "fields": {
+                                                                                                        "unit": {
+                                                                                                            "maxItemsOne": true,
+                                                                                                            "elem": {
+                                                                                                                "fields": {
+                                                                                                                    "canonical": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    },
+                                                                                                                    "custom": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }
+                                                                                                        },
+                                                                                                        "unit_scale": {
+                                                                                                            "maxItemsOne": true
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
                                                                                             },
                                                                                             "style": {
                                                                                                 "maxItemsOne": true
@@ -8622,6 +9197,29 @@
                                                                                             },
                                                                                             "limit": {
                                                                                                 "maxItemsOne": true
+                                                                                            },
+                                                                                            "number_format": {
+                                                                                                "maxItemsOne": true,
+                                                                                                "elem": {
+                                                                                                    "fields": {
+                                                                                                        "unit": {
+                                                                                                            "maxItemsOne": true,
+                                                                                                            "elem": {
+                                                                                                                "fields": {
+                                                                                                                    "canonical": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    },
+                                                                                                                    "custom": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }
+                                                                                                        },
+                                                                                                        "unit_scale": {
+                                                                                                            "maxItemsOne": true
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
                                                                                             },
                                                                                             "style": {
                                                                                                 "maxItemsOne": true
@@ -9255,6 +9853,29 @@
                                                                                             "limit": {
                                                                                                 "maxItemsOne": true
                                                                                             },
+                                                                                            "number_format": {
+                                                                                                "maxItemsOne": true,
+                                                                                                "elem": {
+                                                                                                    "fields": {
+                                                                                                        "unit": {
+                                                                                                            "maxItemsOne": true,
+                                                                                                            "elem": {
+                                                                                                                "fields": {
+                                                                                                                    "canonical": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    },
+                                                                                                                    "custom": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }
+                                                                                                        },
+                                                                                                        "unit_scale": {
+                                                                                                            "maxItemsOne": true
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
+                                                                                            },
                                                                                             "style": {
                                                                                                 "maxItemsOne": true
                                                                                             }
@@ -9549,6 +10170,29 @@
                                                                                             },
                                                                                             "limit": {
                                                                                                 "maxItemsOne": true
+                                                                                            },
+                                                                                            "number_format": {
+                                                                                                "maxItemsOne": true,
+                                                                                                "elem": {
+                                                                                                    "fields": {
+                                                                                                        "unit": {
+                                                                                                            "maxItemsOne": true,
+                                                                                                            "elem": {
+                                                                                                                "fields": {
+                                                                                                                    "canonical": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    },
+                                                                                                                    "custom": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }
+                                                                                                        },
+                                                                                                        "unit_scale": {
+                                                                                                            "maxItemsOne": true
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
                                                                                             },
                                                                                             "style": {
                                                                                                 "maxItemsOne": true
@@ -9848,6 +10492,29 @@
                                                                                             "limit": {
                                                                                                 "maxItemsOne": true
                                                                                             },
+                                                                                            "number_format": {
+                                                                                                "maxItemsOne": true,
+                                                                                                "elem": {
+                                                                                                    "fields": {
+                                                                                                        "unit": {
+                                                                                                            "maxItemsOne": true,
+                                                                                                            "elem": {
+                                                                                                                "fields": {
+                                                                                                                    "canonical": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    },
+                                                                                                                    "custom": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }
+                                                                                                        },
+                                                                                                        "unit_scale": {
+                                                                                                            "maxItemsOne": true
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
+                                                                                            },
                                                                                             "style": {
                                                                                                 "maxItemsOne": true
                                                                                             }
@@ -10071,6 +10738,29 @@
                                                                                             },
                                                                                             "limit": {
                                                                                                 "maxItemsOne": true
+                                                                                            },
+                                                                                            "number_format": {
+                                                                                                "maxItemsOne": true,
+                                                                                                "elem": {
+                                                                                                    "fields": {
+                                                                                                        "unit": {
+                                                                                                            "maxItemsOne": true,
+                                                                                                            "elem": {
+                                                                                                                "fields": {
+                                                                                                                    "canonical": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    },
+                                                                                                                    "custom": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }
+                                                                                                        },
+                                                                                                        "unit_scale": {
+                                                                                                            "maxItemsOne": true
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
                                                                                             },
                                                                                             "style": {
                                                                                                 "maxItemsOne": true
@@ -10301,6 +10991,29 @@
                                                                     },
                                                                     "limit": {
                                                                         "maxItemsOne": true
+                                                                    },
+                                                                    "number_format": {
+                                                                        "maxItemsOne": true,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "unit": {
+                                                                                    "maxItemsOne": true,
+                                                                                    "elem": {
+                                                                                        "fields": {
+                                                                                            "canonical": {
+                                                                                                "maxItemsOne": true
+                                                                                            },
+                                                                                            "custom": {
+                                                                                                "maxItemsOne": true
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                "unit_scale": {
+                                                                                    "maxItemsOne": true
+                                                                                }
+                                                                            }
+                                                                        }
                                                                     },
                                                                     "style": {
                                                                         "maxItemsOne": true
@@ -10596,6 +11309,29 @@
                                                                     },
                                                                     "limit": {
                                                                         "maxItemsOne": true
+                                                                    },
+                                                                    "number_format": {
+                                                                        "maxItemsOne": true,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "unit": {
+                                                                                    "maxItemsOne": true,
+                                                                                    "elem": {
+                                                                                        "fields": {
+                                                                                            "canonical": {
+                                                                                                "maxItemsOne": true
+                                                                                            },
+                                                                                            "custom": {
+                                                                                                "maxItemsOne": true
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                "unit_scale": {
+                                                                                    "maxItemsOne": true
+                                                                                }
+                                                                            }
+                                                                        }
                                                                     },
                                                                     "style": {
                                                                         "maxItemsOne": true
@@ -10895,6 +11631,29 @@
                                                                     "limit": {
                                                                         "maxItemsOne": true
                                                                     },
+                                                                    "number_format": {
+                                                                        "maxItemsOne": true,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "unit": {
+                                                                                    "maxItemsOne": true,
+                                                                                    "elem": {
+                                                                                        "fields": {
+                                                                                            "canonical": {
+                                                                                                "maxItemsOne": true
+                                                                                            },
+                                                                                            "custom": {
+                                                                                                "maxItemsOne": true
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                "unit_scale": {
+                                                                                    "maxItemsOne": true
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
                                                                     "style": {
                                                                         "maxItemsOne": true
                                                                     }
@@ -11148,6 +11907,29 @@
                                                                     },
                                                                     "limit": {
                                                                         "maxItemsOne": true
+                                                                    },
+                                                                    "number_format": {
+                                                                        "maxItemsOne": true,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "unit": {
+                                                                                    "maxItemsOne": true,
+                                                                                    "elem": {
+                                                                                        "fields": {
+                                                                                            "canonical": {
+                                                                                                "maxItemsOne": true
+                                                                                            },
+                                                                                            "custom": {
+                                                                                                "maxItemsOne": true
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                "unit_scale": {
+                                                                                    "maxItemsOne": true
+                                                                                }
+                                                                            }
+                                                                        }
                                                                     },
                                                                     "style": {
                                                                         "maxItemsOne": true
@@ -11828,6 +12610,16 @@
                                                                 }
                                                             }
                                                         },
+                                                        "span_id_remapper": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "sources": {
+                                                                        "maxItemsOne": false
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
                                                         "status_remapper": {
                                                             "maxItemsOne": true,
                                                             "elem": {
@@ -11884,6 +12676,16 @@
                                     "maxItemsOne": true
                                 },
                                 "service_remapper": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "sources": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "span_id_remapper": {
                                     "maxItemsOne": true,
                                     "elem": {
                                         "fields": {
@@ -12231,6 +13033,29 @@
                                                                     },
                                                                     "limit": {
                                                                         "maxItemsOne": true
+                                                                    },
+                                                                    "number_format": {
+                                                                        "maxItemsOne": true,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "unit": {
+                                                                                    "maxItemsOne": true,
+                                                                                    "elem": {
+                                                                                        "fields": {
+                                                                                            "canonical": {
+                                                                                                "maxItemsOne": true
+                                                                                            },
+                                                                                            "custom": {
+                                                                                                "maxItemsOne": true
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                "unit_scale": {
+                                                                                    "maxItemsOne": true
+                                                                                }
+                                                                            }
+                                                                        }
                                                                     },
                                                                     "style": {
                                                                         "maxItemsOne": true
@@ -12603,6 +13428,29 @@
                                                                     "limit": {
                                                                         "maxItemsOne": true
                                                                     },
+                                                                    "number_format": {
+                                                                        "maxItemsOne": true,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "unit": {
+                                                                                    "maxItemsOne": true,
+                                                                                    "elem": {
+                                                                                        "fields": {
+                                                                                            "canonical": {
+                                                                                                "maxItemsOne": true
+                                                                                            },
+                                                                                            "custom": {
+                                                                                                "maxItemsOne": true
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                "unit_scale": {
+                                                                                    "maxItemsOne": true
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
                                                                     "style": {
                                                                         "maxItemsOne": true
                                                                     }
@@ -12815,6 +13663,29 @@
                                                                     },
                                                                     "limit": {
                                                                         "maxItemsOne": true
+                                                                    },
+                                                                    "number_format": {
+                                                                        "maxItemsOne": true,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "unit": {
+                                                                                    "maxItemsOne": true,
+                                                                                    "elem": {
+                                                                                        "fields": {
+                                                                                            "canonical": {
+                                                                                                "maxItemsOne": true
+                                                                                            },
+                                                                                            "custom": {
+                                                                                                "maxItemsOne": true
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                "unit_scale": {
+                                                                                    "maxItemsOne": true
+                                                                                }
+                                                                            }
+                                                                        }
                                                                     },
                                                                     "style": {
                                                                         "maxItemsOne": true
@@ -13377,6 +14248,29 @@
                                                                     "limit": {
                                                                         "maxItemsOne": true
                                                                     },
+                                                                    "number_format": {
+                                                                        "maxItemsOne": true,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "unit": {
+                                                                                    "maxItemsOne": true,
+                                                                                    "elem": {
+                                                                                        "fields": {
+                                                                                            "canonical": {
+                                                                                                "maxItemsOne": true
+                                                                                            },
+                                                                                            "custom": {
+                                                                                                "maxItemsOne": true
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                "unit_scale": {
+                                                                                    "maxItemsOne": true
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
                                                                     "style": {
                                                                         "maxItemsOne": true
                                                                     }
@@ -13659,6 +14553,29 @@
                                                                     },
                                                                     "limit": {
                                                                         "maxItemsOne": true
+                                                                    },
+                                                                    "number_format": {
+                                                                        "maxItemsOne": true,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "unit": {
+                                                                                    "maxItemsOne": true,
+                                                                                    "elem": {
+                                                                                        "fields": {
+                                                                                            "canonical": {
+                                                                                                "maxItemsOne": true
+                                                                                            },
+                                                                                            "custom": {
+                                                                                                "maxItemsOne": true
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                "unit_scale": {
+                                                                                    "maxItemsOne": true
+                                                                                }
+                                                                            }
+                                                                        }
                                                                     },
                                                                     "style": {
                                                                         "maxItemsOne": true
@@ -14352,6 +15269,29 @@
                                                                     "limit": {
                                                                         "maxItemsOne": true
                                                                     },
+                                                                    "number_format": {
+                                                                        "maxItemsOne": true,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "unit": {
+                                                                                    "maxItemsOne": true,
+                                                                                    "elem": {
+                                                                                        "fields": {
+                                                                                            "canonical": {
+                                                                                                "maxItemsOne": true
+                                                                                            },
+                                                                                            "custom": {
+                                                                                                "maxItemsOne": true
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                "unit_scale": {
+                                                                                    "maxItemsOne": true
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
                                                                     "style": {
                                                                         "maxItemsOne": true
                                                                     }
@@ -14646,6 +15586,29 @@
                                                                     },
                                                                     "limit": {
                                                                         "maxItemsOne": true
+                                                                    },
+                                                                    "number_format": {
+                                                                        "maxItemsOne": true,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "unit": {
+                                                                                    "maxItemsOne": true,
+                                                                                    "elem": {
+                                                                                        "fields": {
+                                                                                            "canonical": {
+                                                                                                "maxItemsOne": true
+                                                                                            },
+                                                                                            "custom": {
+                                                                                                "maxItemsOne": true
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                "unit_scale": {
+                                                                                    "maxItemsOne": true
+                                                                                }
+                                                                            }
+                                                                        }
                                                                     },
                                                                     "style": {
                                                                         "maxItemsOne": true
@@ -14945,6 +15908,29 @@
                                                                     "limit": {
                                                                         "maxItemsOne": true
                                                                     },
+                                                                    "number_format": {
+                                                                        "maxItemsOne": true,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "unit": {
+                                                                                    "maxItemsOne": true,
+                                                                                    "elem": {
+                                                                                        "fields": {
+                                                                                            "canonical": {
+                                                                                                "maxItemsOne": true
+                                                                                            },
+                                                                                            "custom": {
+                                                                                                "maxItemsOne": true
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                "unit_scale": {
+                                                                                    "maxItemsOne": true
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
                                                                     "style": {
                                                                         "maxItemsOne": true
                                                                     }
@@ -15198,6 +16184,29 @@
                                                                     },
                                                                     "limit": {
                                                                         "maxItemsOne": true
+                                                                    },
+                                                                    "number_format": {
+                                                                        "maxItemsOne": true,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "unit": {
+                                                                                    "maxItemsOne": true,
+                                                                                    "elem": {
+                                                                                        "fields": {
+                                                                                            "canonical": {
+                                                                                                "maxItemsOne": true
+                                                                                            },
+                                                                                            "custom": {
+                                                                                                "maxItemsOne": true
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                "unit_scale": {
+                                                                                    "maxItemsOne": true
+                                                                                }
+                                                                            }
+                                                                        }
                                                                     },
                                                                     "style": {
                                                                         "maxItemsOne": true

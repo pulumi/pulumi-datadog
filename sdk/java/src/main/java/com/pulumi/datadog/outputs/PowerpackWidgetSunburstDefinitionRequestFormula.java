@@ -6,6 +6,7 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.PowerpackWidgetSunburstDefinitionRequestFormulaConditionalFormat;
 import com.pulumi.datadog.outputs.PowerpackWidgetSunburstDefinitionRequestFormulaLimit;
+import com.pulumi.datadog.outputs.PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormat;
 import com.pulumi.datadog.outputs.PowerpackWidgetSunburstDefinitionRequestFormulaStyle;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -22,7 +23,7 @@ public final class PowerpackWidgetSunburstDefinitionRequestFormula {
      */
     private @Nullable String alias;
     /**
-     * @return A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * @return A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      * 
      */
     private @Nullable String cellDisplayMode;
@@ -42,6 +43,11 @@ public final class PowerpackWidgetSunburstDefinitionRequestFormula {
      */
     private @Nullable PowerpackWidgetSunburstDefinitionRequestFormulaLimit limit;
     /**
+     * @return Number formatting options for the formula.
+     * 
+     */
+    private @Nullable PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormat numberFormat;
+    /**
      * @return Styling options for widget formulas.
      * 
      */
@@ -56,7 +62,7 @@ public final class PowerpackWidgetSunburstDefinitionRequestFormula {
         return Optional.ofNullable(this.alias);
     }
     /**
-     * @return A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * @return A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      * 
      */
     public Optional<String> cellDisplayMode() {
@@ -84,6 +90,13 @@ public final class PowerpackWidgetSunburstDefinitionRequestFormula {
         return Optional.ofNullable(this.limit);
     }
     /**
+     * @return Number formatting options for the formula.
+     * 
+     */
+    public Optional<PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormat> numberFormat() {
+        return Optional.ofNullable(this.numberFormat);
+    }
+    /**
      * @return Styling options for widget formulas.
      * 
      */
@@ -105,6 +118,7 @@ public final class PowerpackWidgetSunburstDefinitionRequestFormula {
         private @Nullable List<PowerpackWidgetSunburstDefinitionRequestFormulaConditionalFormat> conditionalFormats;
         private String formulaExpression;
         private @Nullable PowerpackWidgetSunburstDefinitionRequestFormulaLimit limit;
+        private @Nullable PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormat numberFormat;
         private @Nullable PowerpackWidgetSunburstDefinitionRequestFormulaStyle style;
         public Builder() {}
         public Builder(PowerpackWidgetSunburstDefinitionRequestFormula defaults) {
@@ -114,6 +128,7 @@ public final class PowerpackWidgetSunburstDefinitionRequestFormula {
     	      this.conditionalFormats = defaults.conditionalFormats;
     	      this.formulaExpression = defaults.formulaExpression;
     	      this.limit = defaults.limit;
+    	      this.numberFormat = defaults.numberFormat;
     	      this.style = defaults.style;
         }
 
@@ -153,6 +168,12 @@ public final class PowerpackWidgetSunburstDefinitionRequestFormula {
             return this;
         }
         @CustomType.Setter
+        public Builder numberFormat(@Nullable PowerpackWidgetSunburstDefinitionRequestFormulaNumberFormat numberFormat) {
+
+            this.numberFormat = numberFormat;
+            return this;
+        }
+        @CustomType.Setter
         public Builder style(@Nullable PowerpackWidgetSunburstDefinitionRequestFormulaStyle style) {
 
             this.style = style;
@@ -165,6 +186,7 @@ public final class PowerpackWidgetSunburstDefinitionRequestFormula {
             _resultValue.conditionalFormats = conditionalFormats;
             _resultValue.formulaExpression = formulaExpression;
             _resultValue.limit = limit;
+            _resultValue.numberFormat = numberFormat;
             _resultValue.style = style;
             return _resultValue;
         }

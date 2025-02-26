@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetHeatmapDefinitionRequestFormulaConditionalFormatArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetHeatmapDefinitionRequestFormulaLimitArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetHeatmapDefinitionRequestFormulaStyleArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -36,14 +37,14 @@ public final class DashboardWidgetHeatmapDefinitionRequestFormulaArgs extends co
     }
 
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      * 
      */
     @Import(name="cellDisplayMode")
     private @Nullable Output<String> cellDisplayMode;
 
     /**
-     * @return A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * @return A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      * 
      */
     public Optional<Output<String>> cellDisplayMode() {
@@ -96,6 +97,21 @@ public final class DashboardWidgetHeatmapDefinitionRequestFormulaArgs extends co
     }
 
     /**
+     * Number formatting options for the formula.
+     * 
+     */
+    @Import(name="numberFormat")
+    private @Nullable Output<DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatArgs> numberFormat;
+
+    /**
+     * @return Number formatting options for the formula.
+     * 
+     */
+    public Optional<Output<DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatArgs>> numberFormat() {
+        return Optional.ofNullable(this.numberFormat);
+    }
+
+    /**
      * Styling options for widget formulas.
      * 
      */
@@ -118,6 +134,7 @@ public final class DashboardWidgetHeatmapDefinitionRequestFormulaArgs extends co
         this.conditionalFormats = $.conditionalFormats;
         this.formulaExpression = $.formulaExpression;
         this.limit = $.limit;
+        this.numberFormat = $.numberFormat;
         this.style = $.style;
     }
 
@@ -161,7 +178,7 @@ public final class DashboardWidgetHeatmapDefinitionRequestFormulaArgs extends co
         }
 
         /**
-         * @param cellDisplayMode A list of display modes for each table cell. Valid values are `number`, `bar`.
+         * @param cellDisplayMode A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
          * 
          * @return builder
          * 
@@ -172,7 +189,7 @@ public final class DashboardWidgetHeatmapDefinitionRequestFormulaArgs extends co
         }
 
         /**
-         * @param cellDisplayMode A list of display modes for each table cell. Valid values are `number`, `bar`.
+         * @param cellDisplayMode A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
          * 
          * @return builder
          * 
@@ -252,6 +269,27 @@ public final class DashboardWidgetHeatmapDefinitionRequestFormulaArgs extends co
          */
         public Builder limit(DashboardWidgetHeatmapDefinitionRequestFormulaLimitArgs limit) {
             return limit(Output.of(limit));
+        }
+
+        /**
+         * @param numberFormat Number formatting options for the formula.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder numberFormat(@Nullable Output<DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatArgs> numberFormat) {
+            $.numberFormat = numberFormat;
+            return this;
+        }
+
+        /**
+         * @param numberFormat Number formatting options for the formula.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder numberFormat(DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatArgs numberFormat) {
+            return numberFormat(Output.of(numberFormat));
         }
 
         /**

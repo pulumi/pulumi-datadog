@@ -32,14 +32,14 @@ public final class PowerpackWidgetQueryTableDefinitionRequestApmStatsQueryColumn
     }
 
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      * 
      */
     @Import(name="cellDisplayMode")
     private @Nullable Output<String> cellDisplayMode;
 
     /**
-     * @return A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * @return A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      * 
      */
     public Optional<Output<String>> cellDisplayMode() {
@@ -125,7 +125,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequestApmStatsQueryColumn
         }
 
         /**
-         * @param cellDisplayMode A list of display modes for each table cell. Valid values are `number`, `bar`.
+         * @param cellDisplayMode A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequestApmStatsQueryColumn
         }
 
         /**
-         * @param cellDisplayMode A list of display modes for each table cell. Valid values are `number`, `bar`.
+         * @param cellDisplayMode A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
          * 
          * @return builder
          * 

@@ -80,7 +80,7 @@ export class SecurityNotificationRule extends pulumi.CustomResource {
      */
     public readonly selectors!: pulumi.Output<outputs.SecurityNotificationRuleSelectors | undefined>;
     /**
-     * The list of handle targets for the notifications.
+     * The list of handle targets for the notifications. A target must be prefixed with an @. It can be an email address (@bob@email.com), or any installed integration. For example, a Slack recipient (@slack-ops), or a Teams recipient (@teams-ops).
      */
     public readonly targets!: pulumi.Output<string[]>;
     /**
@@ -184,7 +184,7 @@ export interface SecurityNotificationRuleState {
      */
     selectors?: pulumi.Input<inputs.SecurityNotificationRuleSelectors>;
     /**
-     * The list of handle targets for the notifications.
+     * The list of handle targets for the notifications. A target must be prefixed with an @. It can be an email address (@bob@email.com), or any installed integration. For example, a Slack recipient (@slack-ops), or a Teams recipient (@teams-ops).
      */
     targets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -214,7 +214,7 @@ export interface SecurityNotificationRuleArgs {
      */
     selectors?: pulumi.Input<inputs.SecurityNotificationRuleSelectors>;
     /**
-     * The list of handle targets for the notifications.
+     * The list of handle targets for the notifications. A target must be prefixed with an @. It can be an email address (@bob@email.com), or any installed integration. For example, a Slack recipient (@slack-ops), or a Teams recipient (@teams-ops).
      */
     targets: pulumi.Input<pulumi.Input<string>[]>;
     /**

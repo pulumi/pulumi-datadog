@@ -55,6 +55,12 @@ namespace Pulumi.Datadog
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// If set to true, the global variable is a FIDO variable. Defaults to `false`.
+        /// </summary>
+        [Output("isFido")]
+        public Output<bool?> IsFido { get; private set; } = null!;
+
+        /// <summary>
         /// If set to true, the global variable is a TOTP variable. Defaults to `false`.
         /// </summary>
         [Output("isTotp")]
@@ -91,7 +97,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<string>> RestrictedRoles { get; private set; } = null!;
 
         /// <summary>
-        /// If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` is set to `true`. Defaults to `false`.
+        /// If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` or `is_fido` is set to `true`. Defaults to `false`.
         /// </summary>
         [Output("secure")]
         public Output<bool?> Secure { get; private set; } = null!;
@@ -103,10 +109,10 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The value of the global variable.
+        /// The value of the global variable. This setting is ignored if `is_fido` is set to `true` and required otherwise.
         /// </summary>
         [Output("value")]
-        public Output<string> Value { get; private set; } = null!;
+        public Output<string?> Value { get; private set; } = null!;
 
 
         /// <summary>
@@ -165,6 +171,12 @@ namespace Pulumi.Datadog
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// If set to true, the global variable is a FIDO variable. Defaults to `false`.
+        /// </summary>
+        [Input("isFido")]
+        public Input<bool>? IsFido { get; set; }
+
+        /// <summary>
         /// If set to true, the global variable is a TOTP variable. Defaults to `false`.
         /// </summary>
         [Input("isTotp")]
@@ -207,7 +219,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` is set to `true`. Defaults to `false`.
+        /// If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` or `is_fido` is set to `true`. Defaults to `false`.
         /// </summary>
         [Input("secure")]
         public Input<bool>? Secure { get; set; }
@@ -224,11 +236,11 @@ namespace Pulumi.Datadog
             set => _tags = value;
         }
 
-        [Input("value", required: true)]
+        [Input("value")]
         private Input<string>? _value;
 
         /// <summary>
-        /// The value of the global variable.
+        /// The value of the global variable. This setting is ignored if `is_fido` is set to `true` and required otherwise.
         /// </summary>
         public Input<string>? Value
         {
@@ -253,6 +265,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// If set to true, the global variable is a FIDO variable. Defaults to `false`.
+        /// </summary>
+        [Input("isFido")]
+        public Input<bool>? IsFido { get; set; }
 
         /// <summary>
         /// If set to true, the global variable is a TOTP variable. Defaults to `false`.
@@ -297,7 +315,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` is set to `true`. Defaults to `false`.
+        /// If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` or `is_fido` is set to `true`. Defaults to `false`.
         /// </summary>
         [Input("secure")]
         public Input<bool>? Secure { get; set; }
@@ -318,7 +336,7 @@ namespace Pulumi.Datadog
         private Input<string>? _value;
 
         /// <summary>
-        /// The value of the global variable.
+        /// The value of the global variable. This setting is ignored if `is_fido` is set to `true` and required otherwise.
         /// </summary>
         public Input<string>? Value
         {

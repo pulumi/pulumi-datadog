@@ -60,7 +60,7 @@ export class ApiKey extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Whether the API key is used for remote config. Warning : default value is true for backwards compatibility Defaults to `true`.
+     * Whether the API key is used for remote config. Set to true only if remote config is enabled in `/organization-settings/remote-config`.
      */
     public readonly remoteConfigReadEnabled!: pulumi.Output<boolean>;
 
@@ -109,7 +109,7 @@ export interface ApiKeyState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Whether the API key is used for remote config. Warning : default value is true for backwards compatibility Defaults to `true`.
+     * Whether the API key is used for remote config. Set to true only if remote config is enabled in `/organization-settings/remote-config`.
      */
     remoteConfigReadEnabled?: pulumi.Input<boolean>;
 }
@@ -123,7 +123,7 @@ export interface ApiKeyArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * Whether the API key is used for remote config. Warning : default value is true for backwards compatibility Defaults to `true`.
+     * Whether the API key is used for remote config. Set to true only if remote config is enabled in `/organization-settings/remote-config`.
      */
     remoteConfigReadEnabled?: pulumi.Input<boolean>;
 }

@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatArgs;
 import com.pulumi.datadog.inputs.PowerpackWidgetTreemapDefinitionRequestFormulaLimitArgs;
+import com.pulumi.datadog.inputs.PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatArgs;
 import com.pulumi.datadog.inputs.PowerpackWidgetTreemapDefinitionRequestFormulaStyleArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -36,14 +37,14 @@ public final class PowerpackWidgetTreemapDefinitionRequestFormulaArgs extends co
     }
 
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      * 
      */
     @Import(name="cellDisplayMode")
     private @Nullable Output<String> cellDisplayMode;
 
     /**
-     * @return A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * @return A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      * 
      */
     public Optional<Output<String>> cellDisplayMode() {
@@ -96,6 +97,21 @@ public final class PowerpackWidgetTreemapDefinitionRequestFormulaArgs extends co
     }
 
     /**
+     * Number formatting options for the formula.
+     * 
+     */
+    @Import(name="numberFormat")
+    private @Nullable Output<PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatArgs> numberFormat;
+
+    /**
+     * @return Number formatting options for the formula.
+     * 
+     */
+    public Optional<Output<PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatArgs>> numberFormat() {
+        return Optional.ofNullable(this.numberFormat);
+    }
+
+    /**
      * Styling options for widget formulas.
      * 
      */
@@ -118,6 +134,7 @@ public final class PowerpackWidgetTreemapDefinitionRequestFormulaArgs extends co
         this.conditionalFormats = $.conditionalFormats;
         this.formulaExpression = $.formulaExpression;
         this.limit = $.limit;
+        this.numberFormat = $.numberFormat;
         this.style = $.style;
     }
 
@@ -161,7 +178,7 @@ public final class PowerpackWidgetTreemapDefinitionRequestFormulaArgs extends co
         }
 
         /**
-         * @param cellDisplayMode A list of display modes for each table cell. Valid values are `number`, `bar`.
+         * @param cellDisplayMode A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
          * 
          * @return builder
          * 
@@ -172,7 +189,7 @@ public final class PowerpackWidgetTreemapDefinitionRequestFormulaArgs extends co
         }
 
         /**
-         * @param cellDisplayMode A list of display modes for each table cell. Valid values are `number`, `bar`.
+         * @param cellDisplayMode A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
          * 
          * @return builder
          * 
@@ -252,6 +269,27 @@ public final class PowerpackWidgetTreemapDefinitionRequestFormulaArgs extends co
          */
         public Builder limit(PowerpackWidgetTreemapDefinitionRequestFormulaLimitArgs limit) {
             return limit(Output.of(limit));
+        }
+
+        /**
+         * @param numberFormat Number formatting options for the formula.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder numberFormat(@Nullable Output<PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatArgs> numberFormat) {
+            $.numberFormat = numberFormat;
+            return this;
+        }
+
+        /**
+         * @param numberFormat Number formatting options for the formula.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder numberFormat(PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatArgs numberFormat) {
+            return numberFormat(Output.of(numberFormat));
         }
 
         /**

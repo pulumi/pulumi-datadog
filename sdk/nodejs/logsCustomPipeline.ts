@@ -224,7 +224,7 @@ export class LogsCustomPipeline extends pulumi.CustomResource {
     public readonly isEnabled!: pulumi.Output<boolean | undefined>;
     public readonly name!: pulumi.Output<string>;
     public readonly processors!: pulumi.Output<outputs.LogsCustomPipelineProcessor[] | undefined>;
-    public readonly tags!: pulumi.Output<string[] | undefined>;
+    public readonly tags!: pulumi.Output<string[]>;
 
     /**
      * Create a LogsCustomPipeline resource with the given unique name, arguments, and options.

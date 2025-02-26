@@ -43,7 +43,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<bool>? Secure { get; set; }
 
         /// <summary>
-        /// Type of browser test variable. Valid values are `element`, `email`, `global`, `javascript`, `text`.
+        /// Type of browser test variable. Valid values are `element`, `email`, `global`, `text`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

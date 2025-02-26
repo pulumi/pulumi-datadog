@@ -40,8 +40,8 @@ class ProviderArgs:
                `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/
                for all available regions.
         :param pulumi.Input[str] app_key: (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
-        :param pulumi.Input['ProviderDefaultTagsArgs'] default_tags: [Experimental - Monitors only] Configuration block containing settings to apply default resource tags across all
-               resources.
+        :param pulumi.Input['ProviderDefaultTagsArgs'] default_tags: [Experimental - Monitors and Logs Pipelines only] Configuration block containing settings to apply default resource tags
+               across all resources.
         :param pulumi.Input[int] http_client_retry_backoff_base: The HTTP request retry back off base. Defaults to 2.
         :param pulumi.Input[int] http_client_retry_backoff_multiplier: The HTTP request retry back off multiplier. Defaults to 2.
         :param pulumi.Input[str] http_client_retry_enabled: Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
@@ -116,8 +116,8 @@ class ProviderArgs:
     @pulumi.getter(name="defaultTags")
     def default_tags(self) -> Optional[pulumi.Input['ProviderDefaultTagsArgs']]:
         """
-        [Experimental - Monitors only] Configuration block containing settings to apply default resource tags across all
-        resources.
+        [Experimental - Monitors and Logs Pipelines only] Configuration block containing settings to apply default resource tags
+        across all resources.
         """
         return pulumi.get(self, "default_tags")
 
@@ -231,8 +231,8 @@ class Provider(pulumi.ProviderResource):
                `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/
                for all available regions.
         :param pulumi.Input[str] app_key: (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
-        :param pulumi.Input[Union['ProviderDefaultTagsArgs', 'ProviderDefaultTagsArgsDict']] default_tags: [Experimental - Monitors only] Configuration block containing settings to apply default resource tags across all
-               resources.
+        :param pulumi.Input[Union['ProviderDefaultTagsArgs', 'ProviderDefaultTagsArgsDict']] default_tags: [Experimental - Monitors and Logs Pipelines only] Configuration block containing settings to apply default resource tags
+               across all resources.
         :param pulumi.Input[int] http_client_retry_backoff_base: The HTTP request retry back off base. Defaults to 2.
         :param pulumi.Input[int] http_client_retry_backoff_multiplier: The HTTP request retry back off multiplier. Defaults to 2.
         :param pulumi.Input[str] http_client_retry_enabled: Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.

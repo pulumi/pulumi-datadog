@@ -71,7 +71,7 @@ class OpenapiApi(pulumi.CustomResource):
                  spec: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a Datadog OpenAPI resource. This can be used to synchronize Datadog's [API catalog](https://docs.datadoghq.com/api_catalog/) with an [OpenAPI](https://www.openapis.org/) specifications file.
+        Deprecated: use the `SoftwareCatalog` resource instead. Provides a Datadog OpenAPI resource. This can be used to synchronize Datadog's [API catalog](https://docs.datadoghq.com/api_catalog/) with an [OpenAPI](https://www.openapis.org/) specifications file.
 
         ## Import
 
@@ -90,7 +90,7 @@ class OpenapiApi(pulumi.CustomResource):
                  args: OpenapiApiArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Datadog OpenAPI resource. This can be used to synchronize Datadog's [API catalog](https://docs.datadoghq.com/api_catalog/) with an [OpenAPI](https://www.openapis.org/) specifications file.
+        Deprecated: use the `SoftwareCatalog` resource instead. Provides a Datadog OpenAPI resource. This can be used to synchronize Datadog's [API catalog](https://docs.datadoghq.com/api_catalog/) with an [OpenAPI](https://www.openapis.org/) specifications file.
 
         ## Import
 

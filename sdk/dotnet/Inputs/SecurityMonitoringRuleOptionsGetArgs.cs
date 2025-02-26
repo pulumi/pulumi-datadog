@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? DetectionMethod { get; set; }
 
         /// <summary>
-        /// A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`.
+        /// A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
         /// </summary>
         [Input("evaluationWindow")]
         public Input<int>? EvaluationWindow { get; set; }
@@ -37,7 +37,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.SecurityMonitoringRuleOptionsImpossibleTravelOptionsGetArgs>? ImpossibleTravelOptions { get; set; }
 
         /// <summary>
-        /// Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
+        /// Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
         /// </summary>
         [Input("keepAlive")]
         public Input<int>? KeepAlive { get; set; }

@@ -34,7 +34,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? Secure;
         /// <summary>
-        /// Type of browser test variable. Valid values are `element`, `email`, `global`, `javascript`, `text`.
+        /// Type of browser test variable. Valid values are `element`, `email`, `global`, `text`.
         /// </summary>
         public readonly string Type;
 

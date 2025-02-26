@@ -76,7 +76,7 @@ namespace Pulumi.Datadog
         public Output<Outputs.SecurityNotificationRuleSelectors?> Selectors { get; private set; } = null!;
 
         /// <summary>
-        /// The list of handle targets for the notifications.
+        /// The list of handle targets for the notifications. A target must be prefixed with an @. It can be an email address (@bob@email.com), or any installed integration. For example, a Slack recipient (@slack-ops), or a Teams recipient (@teams-ops).
         /// </summary>
         [Output("targets")]
         public Output<ImmutableArray<string>> Targets { get; private set; } = null!;
@@ -161,7 +161,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _targets;
 
         /// <summary>
-        /// The list of handle targets for the notifications.
+        /// The list of handle targets for the notifications. A target must be prefixed with an @. It can be an email address (@bob@email.com), or any installed integration. For example, a Slack recipient (@slack-ops), or a Teams recipient (@teams-ops).
         /// </summary>
         public InputList<string> Targets
         {
@@ -241,7 +241,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _targets;
 
         /// <summary>
-        /// The list of handle targets for the notifications.
+        /// The list of handle targets for the notifications. A target must be prefixed with an @. It can be an email address (@bob@email.com), or any installed integration. For example, a Slack recipient (@slack-ops), or a Teams recipient (@teams-ops).
         /// </summary>
         public InputList<string> Targets
         {

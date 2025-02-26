@@ -58,16 +58,36 @@ type LookupUserArgs struct {
 
 // A collection of values returned by getUser.
 type LookupUserResult struct {
+	// The time when the user was created (RFC3339 format).
+	CreatedAt string `pulumi:"createdAt"`
+	// Indicates whether the user is disabled.
+	Disabled bool `pulumi:"disabled"`
 	// Email of the user.
 	Email string `pulumi:"email"`
 	// When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute. Defaults to `false`.
 	ExactMatch *bool `pulumi:"exactMatch"`
 	// Filter all users by the given string.
 	Filter string `pulumi:"filter"`
+	// The user's handle.
+	Handle string `pulumi:"handle"`
+	// The URL where the user's icon is located.
+	Icon string `pulumi:"icon"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// Indicates whether the user has enabled MFA.
+	MfaEnabled bool `pulumi:"mfaEnabled"`
+	// The time at which the user was last updated (RFC3339 format).
+	ModifiedAt string `pulumi:"modifiedAt"`
 	// Name of the user.
 	Name string `pulumi:"name"`
+	// Indicates whether the user is a service account.
+	ServiceAccount bool `pulumi:"serviceAccount"`
+	// The user's status.
+	Status string `pulumi:"status"`
+	// The user's title.
+	Title string `pulumi:"title"`
+	// Indicates whether the user is verified.
+	Verified bool `pulumi:"verified"`
 }
 
 func LookupUserOutput(ctx *pulumi.Context, args LookupUserOutputArgs, opts ...pulumi.InvokeOption) LookupUserResultOutput {
@@ -106,6 +126,16 @@ func (o LookupUserResultOutput) ToLookupUserResultOutputWithContext(ctx context.
 	return o
 }
 
+// The time when the user was created (RFC3339 format).
+func (o LookupUserResultOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// Indicates whether the user is disabled.
+func (o LookupUserResultOutput) Disabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupUserResult) bool { return v.Disabled }).(pulumi.BoolOutput)
+}
+
 // Email of the user.
 func (o LookupUserResultOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Email }).(pulumi.StringOutput)
@@ -121,14 +151,54 @@ func (o LookupUserResultOutput) Filter() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Filter }).(pulumi.StringOutput)
 }
 
+// The user's handle.
+func (o LookupUserResultOutput) Handle() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.Handle }).(pulumi.StringOutput)
+}
+
+// The URL where the user's icon is located.
+func (o LookupUserResultOutput) Icon() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.Icon }).(pulumi.StringOutput)
+}
+
 // The provider-assigned unique ID for this managed resource.
 func (o LookupUserResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Indicates whether the user has enabled MFA.
+func (o LookupUserResultOutput) MfaEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupUserResult) bool { return v.MfaEnabled }).(pulumi.BoolOutput)
+}
+
+// The time at which the user was last updated (RFC3339 format).
+func (o LookupUserResultOutput) ModifiedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.ModifiedAt }).(pulumi.StringOutput)
+}
+
 // Name of the user.
 func (o LookupUserResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Indicates whether the user is a service account.
+func (o LookupUserResultOutput) ServiceAccount() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupUserResult) bool { return v.ServiceAccount }).(pulumi.BoolOutput)
+}
+
+// The user's status.
+func (o LookupUserResultOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// The user's title.
+func (o LookupUserResultOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.Title }).(pulumi.StringOutput)
+}
+
+// Indicates whether the user is verified.
+func (o LookupUserResultOutput) Verified() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupUserResult) bool { return v.Verified }).(pulumi.BoolOutput)
 }
 
 func init() {

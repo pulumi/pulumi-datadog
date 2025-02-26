@@ -14,6 +14,7 @@ import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorPipelineProcessorLo
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorPipelineProcessorMessageRemapper;
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor;
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorPipelineProcessorServiceRemapper;
+import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorPipelineProcessorSpanIdRemapper;
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorPipelineProcessorStatusRemapper;
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessor;
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapper;
@@ -75,6 +76,11 @@ public final class LogsCustomPipelineProcessorPipelineProcessor {
      * 
      */
     private @Nullable LogsCustomPipelineProcessorPipelineProcessorServiceRemapper serviceRemapper;
+    /**
+     * @return Span ID Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#span-remapper)
+     * 
+     */
+    private @Nullable LogsCustomPipelineProcessorPipelineProcessorSpanIdRemapper spanIdRemapper;
     /**
      * @return Status Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-status-remapper)
      * 
@@ -173,6 +179,13 @@ public final class LogsCustomPipelineProcessorPipelineProcessor {
         return Optional.ofNullable(this.serviceRemapper);
     }
     /**
+     * @return Span ID Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#span-remapper)
+     * 
+     */
+    public Optional<LogsCustomPipelineProcessorPipelineProcessorSpanIdRemapper> spanIdRemapper() {
+        return Optional.ofNullable(this.spanIdRemapper);
+    }
+    /**
      * @return Status Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-status-remapper)
      * 
      */
@@ -227,6 +240,7 @@ public final class LogsCustomPipelineProcessorPipelineProcessor {
         private @Nullable LogsCustomPipelineProcessorPipelineProcessorMessageRemapper messageRemapper;
         private @Nullable LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor referenceTableLookupProcessor;
         private @Nullable LogsCustomPipelineProcessorPipelineProcessorServiceRemapper serviceRemapper;
+        private @Nullable LogsCustomPipelineProcessorPipelineProcessorSpanIdRemapper spanIdRemapper;
         private @Nullable LogsCustomPipelineProcessorPipelineProcessorStatusRemapper statusRemapper;
         private @Nullable LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessor stringBuilderProcessor;
         private @Nullable LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapper traceIdRemapper;
@@ -245,6 +259,7 @@ public final class LogsCustomPipelineProcessorPipelineProcessor {
     	      this.messageRemapper = defaults.messageRemapper;
     	      this.referenceTableLookupProcessor = defaults.referenceTableLookupProcessor;
     	      this.serviceRemapper = defaults.serviceRemapper;
+    	      this.spanIdRemapper = defaults.spanIdRemapper;
     	      this.statusRemapper = defaults.statusRemapper;
     	      this.stringBuilderProcessor = defaults.stringBuilderProcessor;
     	      this.traceIdRemapper = defaults.traceIdRemapper;
@@ -313,6 +328,12 @@ public final class LogsCustomPipelineProcessorPipelineProcessor {
             return this;
         }
         @CustomType.Setter
+        public Builder spanIdRemapper(@Nullable LogsCustomPipelineProcessorPipelineProcessorSpanIdRemapper spanIdRemapper) {
+
+            this.spanIdRemapper = spanIdRemapper;
+            return this;
+        }
+        @CustomType.Setter
         public Builder statusRemapper(@Nullable LogsCustomPipelineProcessorPipelineProcessorStatusRemapper statusRemapper) {
 
             this.statusRemapper = statusRemapper;
@@ -354,6 +375,7 @@ public final class LogsCustomPipelineProcessorPipelineProcessor {
             _resultValue.messageRemapper = messageRemapper;
             _resultValue.referenceTableLookupProcessor = referenceTableLookupProcessor;
             _resultValue.serviceRemapper = serviceRemapper;
+            _resultValue.spanIdRemapper = spanIdRemapper;
             _resultValue.statusRemapper = statusRemapper;
             _resultValue.stringBuilderProcessor = stringBuilderProcessor;
             _resultValue.traceIdRemapper = traceIdRemapper;

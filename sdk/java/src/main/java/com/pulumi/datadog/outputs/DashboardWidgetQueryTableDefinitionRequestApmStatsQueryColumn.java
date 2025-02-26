@@ -18,7 +18,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestApmStatsQueryColumn
      */
     private @Nullable String alias;
     /**
-     * @return A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * @return A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      * 
      */
     private @Nullable String cellDisplayMode;
@@ -42,7 +42,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestApmStatsQueryColumn
         return Optional.ofNullable(this.alias);
     }
     /**
-     * @return A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * @return A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      * 
      */
     public Optional<String> cellDisplayMode() {
