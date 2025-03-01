@@ -6,6 +6,8 @@ package com.pulumi.datadog;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.datadog.Utilities;
+import com.pulumi.datadog.inputs.GetActionConnectionArgs;
+import com.pulumi.datadog.inputs.GetActionConnectionPlainArgs;
 import com.pulumi.datadog.inputs.GetApiKeyArgs;
 import com.pulumi.datadog.inputs.GetApiKeyPlainArgs;
 import com.pulumi.datadog.inputs.GetApplicationKeyArgs;
@@ -58,6 +60,7 @@ import com.pulumi.datadog.inputs.GetUserArgs;
 import com.pulumi.datadog.inputs.GetUserPlainArgs;
 import com.pulumi.datadog.inputs.GetUsersArgs;
 import com.pulumi.datadog.inputs.GetUsersPlainArgs;
+import com.pulumi.datadog.outputs.GetActionConnectionResult;
 import com.pulumi.datadog.outputs.GetApiKeyResult;
 import com.pulumi.datadog.outputs.GetApmRetentionFiltersOrderResult;
 import com.pulumi.datadog.outputs.GetApplicationKeyResult;
@@ -104,6 +107,216 @@ import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class DatadogFunctions {
+    /**
+     * A connection that can be used in Actions, including in the Workflow Automation and App Builder products.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetActionConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myConnection = DatadogFunctions.getActionConnection(GetActionConnectionArgs.builder()
+     *             .id("11111111-2222-3333-4444-555555555555")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetActionConnectionResult> getActionConnection(GetActionConnectionArgs args) {
+        return getActionConnection(args, InvokeOptions.Empty);
+    }
+    /**
+     * A connection that can be used in Actions, including in the Workflow Automation and App Builder products.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetActionConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myConnection = DatadogFunctions.getActionConnection(GetActionConnectionArgs.builder()
+     *             .id("11111111-2222-3333-4444-555555555555")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetActionConnectionResult> getActionConnectionPlain(GetActionConnectionPlainArgs args) {
+        return getActionConnectionPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * A connection that can be used in Actions, including in the Workflow Automation and App Builder products.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetActionConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myConnection = DatadogFunctions.getActionConnection(GetActionConnectionArgs.builder()
+     *             .id("11111111-2222-3333-4444-555555555555")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetActionConnectionResult> getActionConnection(GetActionConnectionArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getActionConnection:getActionConnection", TypeShape.of(GetActionConnectionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * A connection that can be used in Actions, including in the Workflow Automation and App Builder products.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetActionConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myConnection = DatadogFunctions.getActionConnection(GetActionConnectionArgs.builder()
+     *             .id("11111111-2222-3333-4444-555555555555")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetActionConnectionResult> getActionConnection(GetActionConnectionArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getActionConnection:getActionConnection", TypeShape.of(GetActionConnectionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * A connection that can be used in Actions, including in the Workflow Automation and App Builder products.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetActionConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myConnection = DatadogFunctions.getActionConnection(GetActionConnectionArgs.builder()
+     *             .id("11111111-2222-3333-4444-555555555555")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetActionConnectionResult> getActionConnectionPlain(GetActionConnectionPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getActionConnection:getActionConnection", TypeShape.of(GetActionConnectionResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Use this data source to retrieve information about an existing api key. Deprecated. This will be removed in a future release with prior notice. Securely store your API keys using a secret management system or use the datadog.ApiKey resource to manage API keys in your Datadog account.
      * 

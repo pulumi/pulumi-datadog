@@ -16,6 +16,14 @@ from . import _utilities
 from . import outputs
 
 __all__ = [
+    'ActionConnectionAws',
+    'ActionConnectionAwsAssumeRole',
+    'ActionConnectionHttp',
+    'ActionConnectionHttpTokenAuth',
+    'ActionConnectionHttpTokenAuthBody',
+    'ActionConnectionHttpTokenAuthHeader',
+    'ActionConnectionHttpTokenAuthToken',
+    'ActionConnectionHttpTokenAuthUrlParameter',
     'ApmRetentionFilterFilter',
     'ChildOrganizationApiKey',
     'ChildOrganizationApplicationKey',
@@ -146,6 +154,7 @@ __all__ = [
     'DashboardWidgetListStreamDefinitionRequest',
     'DashboardWidgetListStreamDefinitionRequestColumn',
     'DashboardWidgetListStreamDefinitionRequestQuery',
+    'DashboardWidgetListStreamDefinitionRequestQueryGroupBy',
     'DashboardWidgetListStreamDefinitionRequestQuerySort',
     'DashboardWidgetLogQuery',
     'DashboardWidgetLogQueryComputeQuery',
@@ -167,6 +176,7 @@ __all__ = [
     'DashboardWidgetQueryTableDefinitionRequestApmStatsQueryColumn',
     'DashboardWidgetQueryTableDefinitionRequestConditionalFormat',
     'DashboardWidgetQueryTableDefinitionRequestFormula',
+    'DashboardWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions',
     'DashboardWidgetQueryTableDefinitionRequestFormulaConditionalFormat',
     'DashboardWidgetQueryTableDefinitionRequestFormulaLimit',
     'DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormat',
@@ -723,6 +733,7 @@ __all__ = [
     'PowerpackWidgetListStreamDefinitionRequest',
     'PowerpackWidgetListStreamDefinitionRequestColumn',
     'PowerpackWidgetListStreamDefinitionRequestQuery',
+    'PowerpackWidgetListStreamDefinitionRequestQueryGroupBy',
     'PowerpackWidgetListStreamDefinitionRequestQuerySort',
     'PowerpackWidgetLogStreamDefinition',
     'PowerpackWidgetLogStreamDefinitionSort',
@@ -740,6 +751,7 @@ __all__ = [
     'PowerpackWidgetQueryTableDefinitionRequestApmStatsQueryColumn',
     'PowerpackWidgetQueryTableDefinitionRequestConditionalFormat',
     'PowerpackWidgetQueryTableDefinitionRequestFormula',
+    'PowerpackWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions',
     'PowerpackWidgetQueryTableDefinitionRequestFormulaConditionalFormat',
     'PowerpackWidgetQueryTableDefinitionRequestFormulaLimit',
     'PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormat',
@@ -1206,6 +1218,14 @@ __all__ = [
     'SyntheticsTestRequestDefinition',
     'SyntheticsTestRequestFile',
     'SyntheticsTestRequestProxy',
+    'GetActionConnectionAwsResult',
+    'GetActionConnectionAwsAssumeRoleResult',
+    'GetActionConnectionHttpResult',
+    'GetActionConnectionHttpTokenAuthResult',
+    'GetActionConnectionHttpTokenAuthBodyResult',
+    'GetActionConnectionHttpTokenAuthHeaderResult',
+    'GetActionConnectionHttpTokenAuthTokenResult',
+    'GetActionConnectionHttpTokenAuthUrlParameterResult',
     'GetCloudWorkloadSecurityAgentRulesAgentRuleResult',
     'GetCsmThreatsAgentRulesAgentRuleResult',
     'GetHostsHostListResult',
@@ -1251,6 +1271,389 @@ __all__ = [
     'GetTeamsTeamResult',
     'GetUsersUserResult',
 ]
+
+@pulumi.output_type
+class ActionConnectionAws(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "assumeRole":
+            suggest = "assume_role"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConnectionAws. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConnectionAws.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConnectionAws.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 assume_role: Optional['outputs.ActionConnectionAwsAssumeRole'] = None):
+        """
+        :param 'ActionConnectionAwsAssumeRoleArgs' assume_role: Configuration for an assume role AWS connection
+        """
+        if assume_role is not None:
+            pulumi.set(__self__, "assume_role", assume_role)
+
+    @property
+    @pulumi.getter(name="assumeRole")
+    def assume_role(self) -> Optional['outputs.ActionConnectionAwsAssumeRole']:
+        """
+        Configuration for an assume role AWS connection
+        """
+        return pulumi.get(self, "assume_role")
+
+
+@pulumi.output_type
+class ActionConnectionAwsAssumeRole(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountId":
+            suggest = "account_id"
+        elif key == "externalId":
+            suggest = "external_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConnectionAwsAssumeRole. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConnectionAwsAssumeRole.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConnectionAwsAssumeRole.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 account_id: Optional[str] = None,
+                 external_id: Optional[str] = None,
+                 principal_id: Optional[str] = None,
+                 role: Optional[str] = None):
+        """
+        :param str account_id: AWS account that the connection is created for
+        :param str external_id: External ID that specifies which connection can be used to assume the role
+        :param str principal_id: AWS account that will assume the role
+        :param str role: Role to assume
+        """
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if role is not None:
+            pulumi.set(__self__, "role", role)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[str]:
+        """
+        AWS account that the connection is created for
+        """
+        return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional[str]:
+        """
+        External ID that specifies which connection can be used to assume the role
+        """
+        return pulumi.get(self, "external_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[str]:
+        """
+        AWS account that will assume the role
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter
+    def role(self) -> Optional[str]:
+        """
+        Role to assume
+        """
+        return pulumi.get(self, "role")
+
+
+@pulumi.output_type
+class ActionConnectionHttp(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "baseUrl":
+            suggest = "base_url"
+        elif key == "tokenAuth":
+            suggest = "token_auth"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConnectionHttp. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConnectionHttp.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConnectionHttp.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 base_url: Optional[str] = None,
+                 token_auth: Optional['outputs.ActionConnectionHttpTokenAuth'] = None):
+        """
+        :param str base_url: Base HTTP url for the integration
+        :param 'ActionConnectionHttpTokenAuthArgs' token_auth: Configuration for an HTTP connection that uses token auth
+        """
+        if base_url is not None:
+            pulumi.set(__self__, "base_url", base_url)
+        if token_auth is not None:
+            pulumi.set(__self__, "token_auth", token_auth)
+
+    @property
+    @pulumi.getter(name="baseUrl")
+    def base_url(self) -> Optional[str]:
+        """
+        Base HTTP url for the integration
+        """
+        return pulumi.get(self, "base_url")
+
+    @property
+    @pulumi.getter(name="tokenAuth")
+    def token_auth(self) -> Optional['outputs.ActionConnectionHttpTokenAuth']:
+        """
+        Configuration for an HTTP connection that uses token auth
+        """
+        return pulumi.get(self, "token_auth")
+
+
+@pulumi.output_type
+class ActionConnectionHttpTokenAuth(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "urlParameters":
+            suggest = "url_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConnectionHttpTokenAuth. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConnectionHttpTokenAuth.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConnectionHttpTokenAuth.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 body: Optional['outputs.ActionConnectionHttpTokenAuthBody'] = None,
+                 headers: Optional[Sequence['outputs.ActionConnectionHttpTokenAuthHeader']] = None,
+                 tokens: Optional[Sequence['outputs.ActionConnectionHttpTokenAuthToken']] = None,
+                 url_parameters: Optional[Sequence['outputs.ActionConnectionHttpTokenAuthUrlParameter']] = None):
+        """
+        :param 'ActionConnectionHttpTokenAuthBodyArgs' body: Body for HTTP authentication
+        :param Sequence['ActionConnectionHttpTokenAuthHeaderArgs'] headers: Header for HTTP authentication
+        :param Sequence['ActionConnectionHttpTokenAuthTokenArgs'] tokens: Token for HTTP authentication
+        :param Sequence['ActionConnectionHttpTokenAuthUrlParameterArgs'] url_parameters: URL parameter for HTTP authentication
+        """
+        if body is not None:
+            pulumi.set(__self__, "body", body)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if tokens is not None:
+            pulumi.set(__self__, "tokens", tokens)
+        if url_parameters is not None:
+            pulumi.set(__self__, "url_parameters", url_parameters)
+
+    @property
+    @pulumi.getter
+    def body(self) -> Optional['outputs.ActionConnectionHttpTokenAuthBody']:
+        """
+        Body for HTTP authentication
+        """
+        return pulumi.get(self, "body")
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[Sequence['outputs.ActionConnectionHttpTokenAuthHeader']]:
+        """
+        Header for HTTP authentication
+        """
+        return pulumi.get(self, "headers")
+
+    @property
+    @pulumi.getter
+    def tokens(self) -> Optional[Sequence['outputs.ActionConnectionHttpTokenAuthToken']]:
+        """
+        Token for HTTP authentication
+        """
+        return pulumi.get(self, "tokens")
+
+    @property
+    @pulumi.getter(name="urlParameters")
+    def url_parameters(self) -> Optional[Sequence['outputs.ActionConnectionHttpTokenAuthUrlParameter']]:
+        """
+        URL parameter for HTTP authentication
+        """
+        return pulumi.get(self, "url_parameters")
+
+
+@pulumi.output_type
+class ActionConnectionHttpTokenAuthBody(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentType":
+            suggest = "content_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConnectionHttpTokenAuthBody. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConnectionHttpTokenAuthBody.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConnectionHttpTokenAuthBody.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 content: Optional[str] = None,
+                 content_type: Optional[str] = None):
+        """
+        :param str content: Serialized body content
+        :param str content_type: Content type of the body
+        """
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[str]:
+        """
+        Serialized body content
+        """
+        return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional[str]:
+        """
+        Content type of the body
+        """
+        return pulumi.get(self, "content_type")
+
+
+@pulumi.output_type
+class ActionConnectionHttpTokenAuthHeader(dict):
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        :param str name: Header name
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Header name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ActionConnectionHttpTokenAuthToken(dict):
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        :param str name: Token name
+        :param str type: Token type
+        :param str value: Token value
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Token name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Token type
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        Token value
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ActionConnectionHttpTokenAuthUrlParameter(dict):
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        :param str name: URL parameter name
+        :param str value: URL parameter value
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        URL parameter name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        URL parameter value
+        """
+        return pulumi.get(self, "value")
+
 
 @pulumi.output_type
 class ApmRetentionFilterFilter(dict):
@@ -12031,8 +12434,12 @@ class DashboardWidgetListStreamDefinitionRequestQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "clusteringPatternFieldPath":
+            suggest = "clustering_pattern_field_path"
         elif key == "eventSize":
             suggest = "event_size"
+        elif key == "groupBies":
+            suggest = "group_bies"
         elif key == "queryString":
             suggest = "query_string"
 
@@ -12049,22 +12456,30 @@ class DashboardWidgetListStreamDefinitionRequestQuery(dict):
 
     def __init__(__self__, *,
                  data_source: str,
+                 clustering_pattern_field_path: Optional[str] = None,
                  event_size: Optional[str] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetListStreamDefinitionRequestQueryGroupBy']] = None,
                  indexes: Optional[Sequence[str]] = None,
                  query_string: Optional[str] = None,
                  sort: Optional['outputs.DashboardWidgetListStreamDefinitionRequestQuerySort'] = None,
                  storage: Optional[str] = None):
         """
         :param str data_source: Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`, `llm_observability_stream`.
+        :param str clustering_pattern_field_path: Specifies the field for logs pattern clustering. Can only be used with `logs_pattern_stream`.
         :param str event_size: Size of events displayed in widget. Required if `data_source` is `event_stream`. Valid values are `s`, `l`.
+        :param Sequence['DashboardWidgetListStreamDefinitionRequestQueryGroupByArgs'] group_bies: Group by configuration for the List Stream widget. Group by can only be used with `logs_pattern_stream` (up to 4 items) or `logs_transaction_stream` (one group by item is required) list stream source.
         :param Sequence[str] indexes: List of indexes.
         :param str query_string: Widget query.
         :param 'DashboardWidgetListStreamDefinitionRequestQuerySortArgs' sort: The facet and order to sort the data, for example: `{"column": "time", "order": "desc"}`.
         :param str storage: Storage location (private beta).
         """
         pulumi.set(__self__, "data_source", data_source)
+        if clustering_pattern_field_path is not None:
+            pulumi.set(__self__, "clustering_pattern_field_path", clustering_pattern_field_path)
         if event_size is not None:
             pulumi.set(__self__, "event_size", event_size)
+        if group_bies is not None:
+            pulumi.set(__self__, "group_bies", group_bies)
         if indexes is not None:
             pulumi.set(__self__, "indexes", indexes)
         if query_string is not None:
@@ -12083,12 +12498,28 @@ class DashboardWidgetListStreamDefinitionRequestQuery(dict):
         return pulumi.get(self, "data_source")
 
     @property
+    @pulumi.getter(name="clusteringPatternFieldPath")
+    def clustering_pattern_field_path(self) -> Optional[str]:
+        """
+        Specifies the field for logs pattern clustering. Can only be used with `logs_pattern_stream`.
+        """
+        return pulumi.get(self, "clustering_pattern_field_path")
+
+    @property
     @pulumi.getter(name="eventSize")
     def event_size(self) -> Optional[str]:
         """
         Size of events displayed in widget. Required if `data_source` is `event_stream`. Valid values are `s`, `l`.
         """
         return pulumi.get(self, "event_size")
+
+    @property
+    @pulumi.getter(name="groupBies")
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetListStreamDefinitionRequestQueryGroupBy']]:
+        """
+        Group by configuration for the List Stream widget. Group by can only be used with `logs_pattern_stream` (up to 4 items) or `logs_transaction_stream` (one group by item is required) list stream source.
+        """
+        return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter
@@ -12121,6 +12552,24 @@ class DashboardWidgetListStreamDefinitionRequestQuery(dict):
         Storage location (private beta).
         """
         return pulumi.get(self, "storage")
+
+
+@pulumi.output_type
+class DashboardWidgetListStreamDefinitionRequestQueryGroupBy(dict):
+    def __init__(__self__, *,
+                 facet: str):
+        """
+        :param str facet: Facet name
+        """
+        pulumi.set(__self__, "facet", facet)
+
+    @property
+    @pulumi.getter
+    def facet(self) -> str:
+        """
+        Facet name
+        """
+        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -13900,6 +14349,8 @@ class DashboardWidgetQueryTableDefinitionRequestFormula(dict):
             suggest = "formula_expression"
         elif key == "cellDisplayMode":
             suggest = "cell_display_mode"
+        elif key == "cellDisplayModeOptions":
+            suggest = "cell_display_mode_options"
         elif key == "conditionalFormats":
             suggest = "conditional_formats"
         elif key == "numberFormat":
@@ -13920,6 +14371,7 @@ class DashboardWidgetQueryTableDefinitionRequestFormula(dict):
                  formula_expression: str,
                  alias: Optional[str] = None,
                  cell_display_mode: Optional[str] = None,
+                 cell_display_mode_options: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions'] = None,
                  conditional_formats: Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestFormulaConditionalFormat']] = None,
                  limit: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestFormulaLimit'] = None,
                  number_format: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormat'] = None,
@@ -13928,6 +14380,7 @@ class DashboardWidgetQueryTableDefinitionRequestFormula(dict):
         :param str formula_expression: A string expression built from queries, formulas, and functions.
         :param str alias: An expression alias.
         :param str cell_display_mode: A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
+        :param 'DashboardWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsArgs' cell_display_mode_options: A list of display modes for each table cell.
         :param Sequence['DashboardWidgetQueryTableDefinitionRequestFormulaConditionalFormatArgs'] conditional_formats: Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
         :param 'DashboardWidgetQueryTableDefinitionRequestFormulaLimitArgs' limit: The options for limiting results returned.
         :param 'DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatArgs' number_format: Number formatting options for the formula.
@@ -13938,6 +14391,8 @@ class DashboardWidgetQueryTableDefinitionRequestFormula(dict):
             pulumi.set(__self__, "alias", alias)
         if cell_display_mode is not None:
             pulumi.set(__self__, "cell_display_mode", cell_display_mode)
+        if cell_display_mode_options is not None:
+            pulumi.set(__self__, "cell_display_mode_options", cell_display_mode_options)
         if conditional_formats is not None:
             pulumi.set(__self__, "conditional_formats", conditional_formats)
         if limit is not None:
@@ -13972,6 +14427,14 @@ class DashboardWidgetQueryTableDefinitionRequestFormula(dict):
         return pulumi.get(self, "cell_display_mode")
 
     @property
+    @pulumi.getter(name="cellDisplayModeOptions")
+    def cell_display_mode_options(self) -> Optional['outputs.DashboardWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions']:
+        """
+        A list of display modes for each table cell.
+        """
+        return pulumi.get(self, "cell_display_mode_options")
+
+    @property
     @pulumi.getter(name="conditionalFormats")
     def conditional_formats(self) -> Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestFormulaConditionalFormat']]:
         """
@@ -14002,6 +14465,56 @@ class DashboardWidgetQueryTableDefinitionRequestFormula(dict):
         Styling options for widget formulas.
         """
         return pulumi.get(self, "style")
+
+
+@pulumi.output_type
+class DashboardWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "trendType":
+            suggest = "trend_type"
+        elif key == "yScale":
+            suggest = "y_scale"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 trend_type: Optional[str] = None,
+                 y_scale: Optional[str] = None):
+        """
+        :param str trend_type: The type of trend line to display. Valid values are `area`, `line`, `bars`.
+        :param str y_scale: The scale of the y-axis. Valid values are `shared`, `independent`.
+        """
+        if trend_type is not None:
+            pulumi.set(__self__, "trend_type", trend_type)
+        if y_scale is not None:
+            pulumi.set(__self__, "y_scale", y_scale)
+
+    @property
+    @pulumi.getter(name="trendType")
+    def trend_type(self) -> Optional[str]:
+        """
+        The type of trend line to display. Valid values are `area`, `line`, `bars`.
+        """
+        return pulumi.get(self, "trend_type")
+
+    @property
+    @pulumi.getter(name="yScale")
+    def y_scale(self) -> Optional[str]:
+        """
+        The scale of the y-axis. Valid values are `shared`, `independent`.
+        """
+        return pulumi.get(self, "y_scale")
 
 
 @pulumi.output_type
@@ -53648,8 +54161,12 @@ class PowerpackWidgetListStreamDefinitionRequestQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "clusteringPatternFieldPath":
+            suggest = "clustering_pattern_field_path"
         elif key == "eventSize":
             suggest = "event_size"
+        elif key == "groupBies":
+            suggest = "group_bies"
         elif key == "queryString":
             suggest = "query_string"
 
@@ -53666,22 +54183,30 @@ class PowerpackWidgetListStreamDefinitionRequestQuery(dict):
 
     def __init__(__self__, *,
                  data_source: str,
+                 clustering_pattern_field_path: Optional[str] = None,
                  event_size: Optional[str] = None,
+                 group_bies: Optional[Sequence['outputs.PowerpackWidgetListStreamDefinitionRequestQueryGroupBy']] = None,
                  indexes: Optional[Sequence[str]] = None,
                  query_string: Optional[str] = None,
                  sort: Optional['outputs.PowerpackWidgetListStreamDefinitionRequestQuerySort'] = None,
                  storage: Optional[str] = None):
         """
         :param str data_source: Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`, `llm_observability_stream`.
+        :param str clustering_pattern_field_path: Specifies the field for logs pattern clustering. Can only be used with `logs_pattern_stream`.
         :param str event_size: Size of events displayed in widget. Required if `data_source` is `event_stream`. Valid values are `s`, `l`.
+        :param Sequence['PowerpackWidgetListStreamDefinitionRequestQueryGroupByArgs'] group_bies: Group by configuration for the List Stream widget. Group by can only be used with `logs_pattern_stream` (up to 4 items) or `logs_transaction_stream` (one group by item is required) list stream source.
         :param Sequence[str] indexes: List of indexes.
         :param str query_string: Widget query.
         :param 'PowerpackWidgetListStreamDefinitionRequestQuerySortArgs' sort: The facet and order to sort the data, for example: `{"column": "time", "order": "desc"}`.
         :param str storage: Storage location (private beta).
         """
         pulumi.set(__self__, "data_source", data_source)
+        if clustering_pattern_field_path is not None:
+            pulumi.set(__self__, "clustering_pattern_field_path", clustering_pattern_field_path)
         if event_size is not None:
             pulumi.set(__self__, "event_size", event_size)
+        if group_bies is not None:
+            pulumi.set(__self__, "group_bies", group_bies)
         if indexes is not None:
             pulumi.set(__self__, "indexes", indexes)
         if query_string is not None:
@@ -53700,12 +54225,28 @@ class PowerpackWidgetListStreamDefinitionRequestQuery(dict):
         return pulumi.get(self, "data_source")
 
     @property
+    @pulumi.getter(name="clusteringPatternFieldPath")
+    def clustering_pattern_field_path(self) -> Optional[str]:
+        """
+        Specifies the field for logs pattern clustering. Can only be used with `logs_pattern_stream`.
+        """
+        return pulumi.get(self, "clustering_pattern_field_path")
+
+    @property
     @pulumi.getter(name="eventSize")
     def event_size(self) -> Optional[str]:
         """
         Size of events displayed in widget. Required if `data_source` is `event_stream`. Valid values are `s`, `l`.
         """
         return pulumi.get(self, "event_size")
+
+    @property
+    @pulumi.getter(name="groupBies")
+    def group_bies(self) -> Optional[Sequence['outputs.PowerpackWidgetListStreamDefinitionRequestQueryGroupBy']]:
+        """
+        Group by configuration for the List Stream widget. Group by can only be used with `logs_pattern_stream` (up to 4 items) or `logs_transaction_stream` (one group by item is required) list stream source.
+        """
+        return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter
@@ -53738,6 +54279,24 @@ class PowerpackWidgetListStreamDefinitionRequestQuery(dict):
         Storage location (private beta).
         """
         return pulumi.get(self, "storage")
+
+
+@pulumi.output_type
+class PowerpackWidgetListStreamDefinitionRequestQueryGroupBy(dict):
+    def __init__(__self__, *,
+                 facet: str):
+        """
+        :param str facet: Facet name
+        """
+        pulumi.set(__self__, "facet", facet)
+
+    @property
+    @pulumi.getter
+    def facet(self) -> str:
+        """
+        Facet name
+        """
+        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -55282,6 +55841,8 @@ class PowerpackWidgetQueryTableDefinitionRequestFormula(dict):
             suggest = "formula_expression"
         elif key == "cellDisplayMode":
             suggest = "cell_display_mode"
+        elif key == "cellDisplayModeOptions":
+            suggest = "cell_display_mode_options"
         elif key == "conditionalFormats":
             suggest = "conditional_formats"
         elif key == "numberFormat":
@@ -55302,6 +55863,7 @@ class PowerpackWidgetQueryTableDefinitionRequestFormula(dict):
                  formula_expression: str,
                  alias: Optional[str] = None,
                  cell_display_mode: Optional[str] = None,
+                 cell_display_mode_options: Optional['outputs.PowerpackWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions'] = None,
                  conditional_formats: Optional[Sequence['outputs.PowerpackWidgetQueryTableDefinitionRequestFormulaConditionalFormat']] = None,
                  limit: Optional['outputs.PowerpackWidgetQueryTableDefinitionRequestFormulaLimit'] = None,
                  number_format: Optional['outputs.PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormat'] = None,
@@ -55310,6 +55872,7 @@ class PowerpackWidgetQueryTableDefinitionRequestFormula(dict):
         :param str formula_expression: A string expression built from queries, formulas, and functions.
         :param str alias: An expression alias.
         :param str cell_display_mode: A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
+        :param 'PowerpackWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsArgs' cell_display_mode_options: A list of display modes for each table cell.
         :param Sequence['PowerpackWidgetQueryTableDefinitionRequestFormulaConditionalFormatArgs'] conditional_formats: Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
         :param 'PowerpackWidgetQueryTableDefinitionRequestFormulaLimitArgs' limit: The options for limiting results returned.
         :param 'PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatArgs' number_format: Number formatting options for the formula.
@@ -55320,6 +55883,8 @@ class PowerpackWidgetQueryTableDefinitionRequestFormula(dict):
             pulumi.set(__self__, "alias", alias)
         if cell_display_mode is not None:
             pulumi.set(__self__, "cell_display_mode", cell_display_mode)
+        if cell_display_mode_options is not None:
+            pulumi.set(__self__, "cell_display_mode_options", cell_display_mode_options)
         if conditional_formats is not None:
             pulumi.set(__self__, "conditional_formats", conditional_formats)
         if limit is not None:
@@ -55354,6 +55919,14 @@ class PowerpackWidgetQueryTableDefinitionRequestFormula(dict):
         return pulumi.get(self, "cell_display_mode")
 
     @property
+    @pulumi.getter(name="cellDisplayModeOptions")
+    def cell_display_mode_options(self) -> Optional['outputs.PowerpackWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions']:
+        """
+        A list of display modes for each table cell.
+        """
+        return pulumi.get(self, "cell_display_mode_options")
+
+    @property
     @pulumi.getter(name="conditionalFormats")
     def conditional_formats(self) -> Optional[Sequence['outputs.PowerpackWidgetQueryTableDefinitionRequestFormulaConditionalFormat']]:
         """
@@ -55384,6 +55957,56 @@ class PowerpackWidgetQueryTableDefinitionRequestFormula(dict):
         Styling options for widget formulas.
         """
         return pulumi.get(self, "style")
+
+
+@pulumi.output_type
+class PowerpackWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "trendType":
+            suggest = "trend_type"
+        elif key == "yScale":
+            suggest = "y_scale"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PowerpackWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PowerpackWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 trend_type: Optional[str] = None,
+                 y_scale: Optional[str] = None):
+        """
+        :param str trend_type: The type of trend line to display. Valid values are `area`, `line`, `bars`.
+        :param str y_scale: The scale of the y-axis. Valid values are `shared`, `independent`.
+        """
+        if trend_type is not None:
+            pulumi.set(__self__, "trend_type", trend_type)
+        if y_scale is not None:
+            pulumi.set(__self__, "y_scale", y_scale)
+
+    @property
+    @pulumi.getter(name="trendType")
+    def trend_type(self) -> Optional[str]:
+        """
+        The type of trend line to display. Valid values are `area`, `line`, `bars`.
+        """
+        return pulumi.get(self, "trend_type")
+
+    @property
+    @pulumi.getter(name="yScale")
+    def y_scale(self) -> Optional[str]:
+        """
+        The scale of the y-axis. Valid values are `shared`, `independent`.
+        """
+        return pulumi.get(self, "y_scale")
 
 
 @pulumi.output_type
@@ -82856,16 +83479,17 @@ class SyntheticsPrivateLocationMetadata(dict):
     def __init__(__self__, *,
                  restricted_roles: Optional[Sequence[str]] = None):
         """
-        :param Sequence[str] restricted_roles: A list of role identifiers pulled from the Roles API to restrict read and write access.
+        :param Sequence[str] restricted_roles: A list of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
         """
         if restricted_roles is not None:
             pulumi.set(__self__, "restricted_roles", restricted_roles)
 
     @property
     @pulumi.getter(name="restrictedRoles")
+    @_utilities.deprecated("""This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.""")
     def restricted_roles(self) -> Optional[Sequence[str]]:
         """
-        A list of role identifiers pulled from the Roles API to restrict read and write access.
+        A list of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
         """
         return pulumi.get(self, "restricted_roles")
 
@@ -85273,11 +85897,12 @@ class SyntheticsTestMobileOptionsList(dict):
                  verbosity: Optional[int] = None):
         """
         :param int tick_every: How often the test should run (in seconds).
+        :param Sequence['SyntheticsTestMobileOptionsListBindingArgs'] bindings: Restriction policy bindings for the Synthetic mobile test. Should not be used in parallel with a `RestrictionPolicy` resource
         :param 'SyntheticsTestMobileOptionsListCiArgs' ci: CI/CD options for a Synthetic test.
         :param int min_failure_duration: Minimum amount of time in failure required to trigger an alert (in seconds). Default is `0`.
         :param str monitor_name: The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
         :param bool no_screenshot: Prevents saving screenshots of the steps.
-        :param Sequence[str] restricted_roles: A list of role identifiers pulled from the Roles API to restrict read and write access.
+        :param Sequence[str] restricted_roles: A list of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
         :param 'SyntheticsTestMobileOptionsListSchedulingArgs' scheduling: Object containing timeframes and timezone used for advanced scheduling.
         """
         pulumi.set(__self__, "device_ids", device_ids)
@@ -85338,6 +85963,9 @@ class SyntheticsTestMobileOptionsList(dict):
     @property
     @pulumi.getter
     def bindings(self) -> Optional[Sequence['outputs.SyntheticsTestMobileOptionsListBinding']]:
+        """
+        Restriction policy bindings for the Synthetic mobile test. Should not be used in parallel with a `RestrictionPolicy` resource
+        """
         return pulumi.get(self, "bindings")
 
     @property
@@ -85394,9 +86022,10 @@ class SyntheticsTestMobileOptionsList(dict):
 
     @property
     @pulumi.getter(name="restrictedRoles")
+    @_utilities.deprecated("""This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.""")
     def restricted_roles(self) -> Optional[Sequence[str]]:
         """
-        A list of role identifiers pulled from the Roles API to restrict read and write access.
+        A list of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
         """
         return pulumi.get(self, "restricted_roles")
 
@@ -86362,7 +86991,7 @@ class SyntheticsTestOptionsList(dict):
         :param int min_location_failed: Minimum number of locations in failure required to trigger an alert. Defaults to `1`.
         :param str monitor_name: The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
         :param bool no_screenshot: Prevents saving screenshots of the steps.
-        :param Sequence[str] restricted_roles: A list of role identifiers pulled from the Roles API to restrict read and write access.
+        :param Sequence[str] restricted_roles: A list of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
         :param 'SyntheticsTestOptionsListRumSettingsArgs' rum_settings: The RUM data collection settings for the Synthetic browser test.
         :param 'SyntheticsTestOptionsListSchedulingArgs' scheduling: Object containing timeframes and timezone used for advanced scheduling.
         """
@@ -86540,9 +87169,10 @@ class SyntheticsTestOptionsList(dict):
 
     @property
     @pulumi.getter(name="restrictedRoles")
+    @_utilities.deprecated("""This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.""")
     def restricted_roles(self) -> Optional[Sequence[str]]:
         """
-        A list of role identifiers pulled from the Roles API to restrict read and write access.
+        A list of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
         """
         return pulumi.get(self, "restricted_roles")
 
@@ -87578,6 +88208,284 @@ class SyntheticsTestRequestProxy(dict):
         Header name and value map.
         """
         return pulumi.get(self, "headers")
+
+
+@pulumi.output_type
+class GetActionConnectionAwsResult(dict):
+    def __init__(__self__, *,
+                 assume_role: Optional['outputs.GetActionConnectionAwsAssumeRoleResult'] = None):
+        """
+        :param 'GetActionConnectionAwsAssumeRoleArgs' assume_role: Configuration for an assume role AWS connection
+        """
+        if assume_role is not None:
+            pulumi.set(__self__, "assume_role", assume_role)
+
+    @property
+    @pulumi.getter(name="assumeRole")
+    def assume_role(self) -> Optional['outputs.GetActionConnectionAwsAssumeRoleResult']:
+        """
+        Configuration for an assume role AWS connection
+        """
+        return pulumi.get(self, "assume_role")
+
+
+@pulumi.output_type
+class GetActionConnectionAwsAssumeRoleResult(dict):
+    def __init__(__self__, *,
+                 account_id: str,
+                 external_id: str,
+                 principal_id: str,
+                 role: str):
+        """
+        :param str account_id: AWS account that the connection is created for
+        :param str external_id: External ID that specifies which connection can be used to assume the role
+        :param str principal_id: AWS account that will assume the role
+        :param str role: Role to assume
+        """
+        pulumi.set(__self__, "account_id", account_id)
+        pulumi.set(__self__, "external_id", external_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "role", role)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> str:
+        """
+        AWS account that the connection is created for
+        """
+        return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> str:
+        """
+        External ID that specifies which connection can be used to assume the role
+        """
+        return pulumi.get(self, "external_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        AWS account that will assume the role
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter
+    def role(self) -> str:
+        """
+        Role to assume
+        """
+        return pulumi.get(self, "role")
+
+
+@pulumi.output_type
+class GetActionConnectionHttpResult(dict):
+    def __init__(__self__, *,
+                 base_url: str,
+                 token_auth: Optional['outputs.GetActionConnectionHttpTokenAuthResult'] = None):
+        """
+        :param str base_url: Base HTTP url for the integration
+        :param 'GetActionConnectionHttpTokenAuthArgs' token_auth: Configuration for an HTTP connection that uses token auth
+        """
+        pulumi.set(__self__, "base_url", base_url)
+        if token_auth is not None:
+            pulumi.set(__self__, "token_auth", token_auth)
+
+    @property
+    @pulumi.getter(name="baseUrl")
+    def base_url(self) -> str:
+        """
+        Base HTTP url for the integration
+        """
+        return pulumi.get(self, "base_url")
+
+    @property
+    @pulumi.getter(name="tokenAuth")
+    def token_auth(self) -> Optional['outputs.GetActionConnectionHttpTokenAuthResult']:
+        """
+        Configuration for an HTTP connection that uses token auth
+        """
+        return pulumi.get(self, "token_auth")
+
+
+@pulumi.output_type
+class GetActionConnectionHttpTokenAuthResult(dict):
+    def __init__(__self__, *,
+                 body: Optional['outputs.GetActionConnectionHttpTokenAuthBodyResult'] = None,
+                 headers: Optional[Sequence['outputs.GetActionConnectionHttpTokenAuthHeaderResult']] = None,
+                 tokens: Optional[Sequence['outputs.GetActionConnectionHttpTokenAuthTokenResult']] = None,
+                 url_parameters: Optional[Sequence['outputs.GetActionConnectionHttpTokenAuthUrlParameterResult']] = None):
+        """
+        :param 'GetActionConnectionHttpTokenAuthBodyArgs' body: Body for HTTP authentication
+        :param Sequence['GetActionConnectionHttpTokenAuthHeaderArgs'] headers: Header for HTTP authentication
+        :param Sequence['GetActionConnectionHttpTokenAuthTokenArgs'] tokens: Token for HTTP authentication
+        :param Sequence['GetActionConnectionHttpTokenAuthUrlParameterArgs'] url_parameters: URL parameter for HTTP authentication
+        """
+        if body is not None:
+            pulumi.set(__self__, "body", body)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if tokens is not None:
+            pulumi.set(__self__, "tokens", tokens)
+        if url_parameters is not None:
+            pulumi.set(__self__, "url_parameters", url_parameters)
+
+    @property
+    @pulumi.getter
+    def body(self) -> Optional['outputs.GetActionConnectionHttpTokenAuthBodyResult']:
+        """
+        Body for HTTP authentication
+        """
+        return pulumi.get(self, "body")
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[Sequence['outputs.GetActionConnectionHttpTokenAuthHeaderResult']]:
+        """
+        Header for HTTP authentication
+        """
+        return pulumi.get(self, "headers")
+
+    @property
+    @pulumi.getter
+    def tokens(self) -> Optional[Sequence['outputs.GetActionConnectionHttpTokenAuthTokenResult']]:
+        """
+        Token for HTTP authentication
+        """
+        return pulumi.get(self, "tokens")
+
+    @property
+    @pulumi.getter(name="urlParameters")
+    def url_parameters(self) -> Optional[Sequence['outputs.GetActionConnectionHttpTokenAuthUrlParameterResult']]:
+        """
+        URL parameter for HTTP authentication
+        """
+        return pulumi.get(self, "url_parameters")
+
+
+@pulumi.output_type
+class GetActionConnectionHttpTokenAuthBodyResult(dict):
+    def __init__(__self__, *,
+                 content: str,
+                 content_type: str):
+        """
+        :param str content: Serialized body content
+        :param str content_type: Content type of the body
+        """
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "content_type", content_type)
+
+    @property
+    @pulumi.getter
+    def content(self) -> str:
+        """
+        Serialized body content
+        """
+        return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> str:
+        """
+        Content type of the body
+        """
+        return pulumi.get(self, "content_type")
+
+
+@pulumi.output_type
+class GetActionConnectionHttpTokenAuthHeaderResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: str):
+        """
+        :param str name: Header name
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Header name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetActionConnectionHttpTokenAuthTokenResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 type: str,
+                 value: str):
+        """
+        :param str name: Token name
+        :param str type: Token type
+        :param str value: Token value
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Token name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Token type
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Token value
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetActionConnectionHttpTokenAuthUrlParameterResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: str):
+        """
+        :param str name: URL parameter name
+        :param str value: URL parameter value
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        URL parameter name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        URL parameter value
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

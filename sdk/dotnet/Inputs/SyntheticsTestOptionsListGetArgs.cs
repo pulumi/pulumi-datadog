@@ -106,8 +106,9 @@ namespace Pulumi.Datadog.Inputs
         private InputList<string>? _restrictedRoles;
 
         /// <summary>
-        /// A list of role identifiers pulled from the Roles API to restrict read and write access.
+        /// A list of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
         /// </summary>
+        [Obsolete(@"This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.")]
         public InputList<string> RestrictedRoles
         {
             get => _restrictedRoles ?? (_restrictedRoles = new InputList<string>());

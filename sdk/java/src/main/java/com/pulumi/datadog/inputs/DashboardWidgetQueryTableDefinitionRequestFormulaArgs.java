@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.DashboardWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetQueryTableDefinitionRequestFormulaConditionalFormatArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetQueryTableDefinitionRequestFormulaLimitArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatArgs;
@@ -49,6 +50,21 @@ public final class DashboardWidgetQueryTableDefinitionRequestFormulaArgs extends
      */
     public Optional<Output<String>> cellDisplayMode() {
         return Optional.ofNullable(this.cellDisplayMode);
+    }
+
+    /**
+     * A list of display modes for each table cell.
+     * 
+     */
+    @Import(name="cellDisplayModeOptions")
+    private @Nullable Output<DashboardWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsArgs> cellDisplayModeOptions;
+
+    /**
+     * @return A list of display modes for each table cell.
+     * 
+     */
+    public Optional<Output<DashboardWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsArgs>> cellDisplayModeOptions() {
+        return Optional.ofNullable(this.cellDisplayModeOptions);
     }
 
     /**
@@ -131,6 +147,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestFormulaArgs extends
     private DashboardWidgetQueryTableDefinitionRequestFormulaArgs(DashboardWidgetQueryTableDefinitionRequestFormulaArgs $) {
         this.alias = $.alias;
         this.cellDisplayMode = $.cellDisplayMode;
+        this.cellDisplayModeOptions = $.cellDisplayModeOptions;
         this.conditionalFormats = $.conditionalFormats;
         this.formulaExpression = $.formulaExpression;
         this.limit = $.limit;
@@ -196,6 +213,27 @@ public final class DashboardWidgetQueryTableDefinitionRequestFormulaArgs extends
          */
         public Builder cellDisplayMode(String cellDisplayMode) {
             return cellDisplayMode(Output.of(cellDisplayMode));
+        }
+
+        /**
+         * @param cellDisplayModeOptions A list of display modes for each table cell.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cellDisplayModeOptions(@Nullable Output<DashboardWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsArgs> cellDisplayModeOptions) {
+            $.cellDisplayModeOptions = cellDisplayModeOptions;
+            return this;
+        }
+
+        /**
+         * @param cellDisplayModeOptions A list of display modes for each table cell.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cellDisplayModeOptions(DashboardWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsArgs cellDisplayModeOptions) {
+            return cellDisplayModeOptions(Output.of(cellDisplayModeOptions));
         }
 
         /**

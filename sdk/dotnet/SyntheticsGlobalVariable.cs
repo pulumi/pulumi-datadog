@@ -91,7 +91,7 @@ namespace Pulumi.Datadog
         public Output<Outputs.SyntheticsGlobalVariableParseTestOptions?> ParseTestOptions { get; private set; } = null!;
 
         /// <summary>
-        /// A list of role identifiers to associate with the Synthetics global variable.
+        /// A list of role identifiers to associate with the Synthetics global variable. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
         /// </summary>
         [Output("restrictedRoles")]
         public Output<ImmutableArray<string>> RestrictedRoles { get; private set; } = null!;
@@ -210,8 +210,9 @@ namespace Pulumi.Datadog
         private InputList<string>? _restrictedRoles;
 
         /// <summary>
-        /// A list of role identifiers to associate with the Synthetics global variable.
+        /// A list of role identifiers to associate with the Synthetics global variable. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
         /// </summary>
+        [Obsolete(@"This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.")]
         public InputList<string> RestrictedRoles
         {
             get => _restrictedRoles ?? (_restrictedRoles = new InputList<string>());
@@ -306,8 +307,9 @@ namespace Pulumi.Datadog
         private InputList<string>? _restrictedRoles;
 
         /// <summary>
-        /// A list of role identifiers to associate with the Synthetics global variable.
+        /// A list of role identifiers to associate with the Synthetics global variable. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
         /// </summary>
+        [Obsolete(@"This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.")]
         public InputList<string> RestrictedRoles
         {
             get => _restrictedRoles ?? (_restrictedRoles = new InputList<string>());

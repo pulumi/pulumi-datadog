@@ -5,6 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * !>This resource is deprecated - use the `datadog.aws.IntegrationAccount` resource instead.
+ *
  * Provides a Datadog - Amazon Web Services integration Lambda ARN resource. This can be used to create and manage the log collection Lambdas for an account.
  *
  * Update operations are currently not supported with datadog API so any change forces a new resource.

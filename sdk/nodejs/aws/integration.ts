@@ -5,6 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * !>This resource is deprecated - use the `datadog.aws.IntegrationAccount` resource instead.
+ *
  * Provides a Datadog - Amazon Web Services integration resource. This can be used to create and manage Datadog - Amazon Web Services integration.
  *
  * ## Example Usage

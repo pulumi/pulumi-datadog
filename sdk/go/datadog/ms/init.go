@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "datadog:ms/integrationTeamsTenantBasedHandle:IntegrationTeamsTenantBasedHandle":
 		r = &IntegrationTeamsTenantBasedHandle{}
+	case "datadog:ms/integrationTeamsWorkflowsWebhookHandle:IntegrationTeamsWorkflowsWebhookHandle":
+		r = &IntegrationTeamsWorkflowsWebhookHandle{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -39,6 +41,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"ms/integrationTeamsTenantBasedHandle",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"ms/integrationTeamsWorkflowsWebhookHandle",
 		&module{version},
 	)
 }

@@ -5,6 +5,107 @@ import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
+export interface ActionConnectionAws {
+    /**
+     * Configuration for an assume role AWS connection
+     */
+    assumeRole?: outputs.ActionConnectionAwsAssumeRole;
+}
+
+export interface ActionConnectionAwsAssumeRole {
+    /**
+     * AWS account that the connection is created for
+     */
+    accountId?: string;
+    /**
+     * External ID that specifies which connection can be used to assume the role
+     */
+    externalId: string;
+    /**
+     * AWS account that will assume the role
+     */
+    principalId: string;
+    /**
+     * Role to assume
+     */
+    role?: string;
+}
+
+export interface ActionConnectionHttp {
+    /**
+     * Base HTTP url for the integration
+     */
+    baseUrl?: string;
+    /**
+     * Configuration for an HTTP connection that uses token auth
+     */
+    tokenAuth?: outputs.ActionConnectionHttpTokenAuth;
+}
+
+export interface ActionConnectionHttpTokenAuth {
+    /**
+     * Body for HTTP authentication
+     */
+    body?: outputs.ActionConnectionHttpTokenAuthBody;
+    /**
+     * Header for HTTP authentication
+     */
+    headers?: outputs.ActionConnectionHttpTokenAuthHeader[];
+    /**
+     * Token for HTTP authentication
+     */
+    tokens?: outputs.ActionConnectionHttpTokenAuthToken[];
+    /**
+     * URL parameter for HTTP authentication
+     */
+    urlParameters?: outputs.ActionConnectionHttpTokenAuthUrlParameter[];
+}
+
+export interface ActionConnectionHttpTokenAuthBody {
+    /**
+     * Serialized body content
+     */
+    content?: string;
+    /**
+     * Content type of the body
+     */
+    contentType?: string;
+}
+
+export interface ActionConnectionHttpTokenAuthHeader {
+    /**
+     * Header name
+     */
+    name?: string;
+    value?: string;
+}
+
+export interface ActionConnectionHttpTokenAuthToken {
+    /**
+     * Token name
+     */
+    name?: string;
+    /**
+     * Token type
+     */
+    type?: string;
+    /**
+     * Token value
+     */
+    value?: string;
+}
+
+export interface ActionConnectionHttpTokenAuthUrlParameter {
+    /**
+     * URL parameter name
+     */
+    name?: string;
+    /**
+     * URL parameter value
+     */
+    value?: string;
+}
+
 export interface ApmRetentionFilterFilter {
     /**
      * The search query - follow the span search syntax, use `AND` between tags and `\` to escape special characters, use nanosecond for duration. Defaults to `"*"`.
@@ -3027,6 +3128,10 @@ export interface DashboardWidgetListStreamDefinitionRequestColumn {
 
 export interface DashboardWidgetListStreamDefinitionRequestQuery {
     /**
+     * Specifies the field for logs pattern clustering. Can only be used with `logsPatternStream`.
+     */
+    clusteringPatternFieldPath?: string;
+    /**
      * Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`.
      */
     dataSource: string;
@@ -3034,6 +3139,10 @@ export interface DashboardWidgetListStreamDefinitionRequestQuery {
      * Size of events displayed in widget. Required if `dataSource` is `eventStream`. Valid values are `s`, `l`.
      */
     eventSize?: string;
+    /**
+     * Group by configuration for the List Stream widget. Group by can only be used with `logsPatternStream` (up to 4 items) or `logsTransactionStream` (one group by item is required) list stream source.
+     */
+    groupBies?: outputs.DashboardWidgetListStreamDefinitionRequestQueryGroupBy[];
     /**
      * List of indexes.
      */
@@ -3050,6 +3159,13 @@ export interface DashboardWidgetListStreamDefinitionRequestQuery {
      * Storage location (private beta).
      */
     storage?: string;
+}
+
+export interface DashboardWidgetListStreamDefinitionRequestQueryGroupBy {
+    /**
+     * Facet name
+     */
+    facet: string;
 }
 
 export interface DashboardWidgetListStreamDefinitionRequestQuerySort {
@@ -3565,6 +3681,10 @@ export interface DashboardWidgetQueryTableDefinitionRequestFormula {
      */
     cellDisplayMode?: string;
     /**
+     * A list of display modes for each table cell.
+     */
+    cellDisplayModeOptions?: outputs.DashboardWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions;
+    /**
      * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
      */
     conditionalFormats?: outputs.DashboardWidgetQueryTableDefinitionRequestFormulaConditionalFormat[];
@@ -3584,6 +3704,17 @@ export interface DashboardWidgetQueryTableDefinitionRequestFormula {
      * Styling options for widget formulas.
      */
     style?: outputs.DashboardWidgetQueryTableDefinitionRequestFormulaStyle;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions {
+    /**
+     * The type of trend line to display. Valid values are `area`, `line`, `bars`.
+     */
+    trendType?: string;
+    /**
+     * The scale of the y-axis. Valid values are `shared`, `independent`.
+     */
+    yScale?: string;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestFormulaConditionalFormat {
@@ -9027,6 +9158,107 @@ export interface DowntimeScheduleRecurringScheduleRecurrence {
      * ISO-8601 Datetime to start the downtime. Must not include a UTC offset. If not provided, the downtime starts the moment it is created.
      */
     start: string;
+}
+
+export interface GetActionConnectionAws {
+    /**
+     * Configuration for an assume role AWS connection
+     */
+    assumeRole?: outputs.GetActionConnectionAwsAssumeRole;
+}
+
+export interface GetActionConnectionAwsAssumeRole {
+    /**
+     * AWS account that the connection is created for
+     */
+    accountId: string;
+    /**
+     * External ID that specifies which connection can be used to assume the role
+     */
+    externalId: string;
+    /**
+     * AWS account that will assume the role
+     */
+    principalId: string;
+    /**
+     * Role to assume
+     */
+    role: string;
+}
+
+export interface GetActionConnectionHttp {
+    /**
+     * Base HTTP url for the integration
+     */
+    baseUrl: string;
+    /**
+     * Configuration for an HTTP connection that uses token auth
+     */
+    tokenAuth?: outputs.GetActionConnectionHttpTokenAuth;
+}
+
+export interface GetActionConnectionHttpTokenAuth {
+    /**
+     * Body for HTTP authentication
+     */
+    body?: outputs.GetActionConnectionHttpTokenAuthBody;
+    /**
+     * Header for HTTP authentication
+     */
+    headers?: outputs.GetActionConnectionHttpTokenAuthHeader[];
+    /**
+     * Token for HTTP authentication
+     */
+    tokens?: outputs.GetActionConnectionHttpTokenAuthToken[];
+    /**
+     * URL parameter for HTTP authentication
+     */
+    urlParameters?: outputs.GetActionConnectionHttpTokenAuthUrlParameter[];
+}
+
+export interface GetActionConnectionHttpTokenAuthBody {
+    /**
+     * Serialized body content
+     */
+    content: string;
+    /**
+     * Content type of the body
+     */
+    contentType: string;
+}
+
+export interface GetActionConnectionHttpTokenAuthHeader {
+    /**
+     * Header name
+     */
+    name: string;
+    value: string;
+}
+
+export interface GetActionConnectionHttpTokenAuthToken {
+    /**
+     * Token name
+     */
+    name: string;
+    /**
+     * Token type
+     */
+    type: string;
+    /**
+     * Token value
+     */
+    value: string;
+}
+
+export interface GetActionConnectionHttpTokenAuthUrlParameter {
+    /**
+     * URL parameter name
+     */
+    name: string;
+    /**
+     * URL parameter value
+     */
+    value: string;
 }
 
 export interface GetCloudWorkloadSecurityAgentRulesAgentRule {
@@ -15559,6 +15791,10 @@ export interface PowerpackWidgetListStreamDefinitionRequestColumn {
 
 export interface PowerpackWidgetListStreamDefinitionRequestQuery {
     /**
+     * Specifies the field for logs pattern clustering. Can only be used with `logsPatternStream`.
+     */
+    clusteringPatternFieldPath?: string;
+    /**
      * Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`.
      */
     dataSource: string;
@@ -15566,6 +15802,10 @@ export interface PowerpackWidgetListStreamDefinitionRequestQuery {
      * Size of events displayed in widget. Required if `dataSource` is `eventStream`. Valid values are `s`, `l`.
      */
     eventSize?: string;
+    /**
+     * Group by configuration for the List Stream widget. Group by can only be used with `logsPatternStream` (up to 4 items) or `logsTransactionStream` (one group by item is required) list stream source.
+     */
+    groupBies?: outputs.PowerpackWidgetListStreamDefinitionRequestQueryGroupBy[];
     /**
      * List of indexes.
      */
@@ -15582,6 +15822,13 @@ export interface PowerpackWidgetListStreamDefinitionRequestQuery {
      * Storage location (private beta).
      */
     storage?: string;
+}
+
+export interface PowerpackWidgetListStreamDefinitionRequestQueryGroupBy {
+    /**
+     * Facet name
+     */
+    facet: string;
 }
 
 export interface PowerpackWidgetListStreamDefinitionRequestQuerySort {
@@ -16029,6 +16276,10 @@ export interface PowerpackWidgetQueryTableDefinitionRequestFormula {
      */
     cellDisplayMode?: string;
     /**
+     * A list of display modes for each table cell.
+     */
+    cellDisplayModeOptions?: outputs.PowerpackWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions;
+    /**
      * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
      */
     conditionalFormats?: outputs.PowerpackWidgetQueryTableDefinitionRequestFormulaConditionalFormat[];
@@ -16048,6 +16299,17 @@ export interface PowerpackWidgetQueryTableDefinitionRequestFormula {
      * Styling options for widget formulas.
      */
     style?: outputs.PowerpackWidgetQueryTableDefinitionRequestFormulaStyle;
+}
+
+export interface PowerpackWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions {
+    /**
+     * The type of trend line to display. Valid values are `area`, `line`, `bars`.
+     */
+    trendType?: string;
+    /**
+     * The scale of the y-axis. Valid values are `shared`, `independent`.
+     */
+    yScale?: string;
 }
 
 export interface PowerpackWidgetQueryTableDefinitionRequestFormulaConditionalFormat {
@@ -23944,7 +24206,9 @@ export interface SyntheticsGlobalVariableParseTestOptionsParser {
 
 export interface SyntheticsPrivateLocationMetadata {
     /**
-     * A list of role identifiers pulled from the Roles API to restrict read and write access.
+     * A list of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
+     *
+     * @deprecated This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
      */
     restrictedRoles?: string[];
 }
@@ -24668,6 +24932,9 @@ export interface SyntheticsTestConfigVariable {
 
 export interface SyntheticsTestMobileOptionsList {
     allowApplicationCrash?: boolean;
+    /**
+     * Restriction policy bindings for the Synthetic mobile test. Should not be used in parallel with a `datadog.RestrictionPolicy` resource
+     */
     bindings?: outputs.SyntheticsTestMobileOptionsListBinding[];
     /**
      * CI/CD options for a Synthetic test.
@@ -24692,7 +24959,9 @@ export interface SyntheticsTestMobileOptionsList {
      */
     noScreenshot?: boolean;
     /**
-     * A list of role identifiers pulled from the Roles API to restrict read and write access.
+     * A list of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
+     *
+     * @deprecated This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
      */
     restrictedRoles?: string[];
     retry?: outputs.SyntheticsTestMobileOptionsListRetry;
@@ -24974,7 +25243,9 @@ export interface SyntheticsTestOptionsList {
      */
     noScreenshot?: boolean;
     /**
-     * A list of role identifiers pulled from the Roles API to restrict read and write access.
+     * A list of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
+     *
+     * @deprecated This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
      */
     restrictedRoles?: string[];
     retry?: outputs.SyntheticsTestOptionsListRetry;

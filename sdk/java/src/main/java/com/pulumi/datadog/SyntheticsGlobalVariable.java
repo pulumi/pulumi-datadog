@@ -171,14 +171,18 @@ public class SyntheticsGlobalVariable extends com.pulumi.resources.CustomResourc
         return Codegen.optional(this.parseTestOptions);
     }
     /**
-     * A list of role identifiers to associate with the Synthetics global variable.
+     * A list of role identifiers to associate with the Synthetics global variable. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
+     * 
+     * @deprecated
+     * This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
      * 
      */
+    @Deprecated /* This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead. */
     @Export(name="restrictedRoles", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> restrictedRoles;
 
     /**
-     * @return A list of role identifiers to associate with the Synthetics global variable.
+     * @return A list of role identifiers to associate with the Synthetics global variable. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
      * 
      */
     public Output<Optional<List<String>>> restrictedRoles() {

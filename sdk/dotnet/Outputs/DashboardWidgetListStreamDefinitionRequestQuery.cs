@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetListStreamDefinitionRequestQuery
     {
         /// <summary>
+        /// Specifies the field for logs pattern clustering. Can only be used with `logs_pattern_stream`.
+        /// </summary>
+        public readonly string? ClusteringPatternFieldPath;
+        /// <summary>
         /// Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`, `llm_observability_stream`.
         /// </summary>
         public readonly string DataSource;
@@ -21,6 +25,10 @@ namespace Pulumi.Datadog.Outputs
         /// Size of events displayed in widget. Required if `data_source` is `event_stream`. Valid values are `s`, `l`.
         /// </summary>
         public readonly string? EventSize;
+        /// <summary>
+        /// Group by configuration for the List Stream widget. Group by can only be used with `logs_pattern_stream` (up to 4 items) or `logs_transaction_stream` (one group by item is required) list stream source.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DashboardWidgetListStreamDefinitionRequestQueryGroupBy> GroupBies;
         /// <summary>
         /// List of indexes.
         /// </summary>
@@ -40,9 +48,13 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private DashboardWidgetListStreamDefinitionRequestQuery(
+            string? clusteringPatternFieldPath,
+
             string dataSource,
 
             string? eventSize,
+
+            ImmutableArray<Outputs.DashboardWidgetListStreamDefinitionRequestQueryGroupBy> groupBies,
 
             ImmutableArray<string> indexes,
 
@@ -52,8 +64,10 @@ namespace Pulumi.Datadog.Outputs
 
             string? storage)
         {
+            ClusteringPatternFieldPath = clusteringPatternFieldPath;
             DataSource = dataSource;
             EventSize = eventSize;
+            GroupBies = groupBies;
             Indexes = indexes;
             QueryString = queryString;
             Sort = sort;

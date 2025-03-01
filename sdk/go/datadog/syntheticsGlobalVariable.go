@@ -70,7 +70,9 @@ type SyntheticsGlobalVariable struct {
 	ParseTestId pulumi.StringPtrOutput `pulumi:"parseTestId"`
 	// ID of the Synthetics test to use a source of the global variable value.
 	ParseTestOptions SyntheticsGlobalVariableParseTestOptionsPtrOutput `pulumi:"parseTestOptions"`
-	// A list of role identifiers to associate with the Synthetics global variable.
+	// A list of role identifiers to associate with the Synthetics global variable. **Deprecated.** This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
+	//
+	// Deprecated: This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
 	RestrictedRoles pulumi.StringArrayOutput `pulumi:"restrictedRoles"`
 	// If set to true, the value of the global variable is hidden. This setting is ignored if `isTotp` or `isFido` is set to `true`. Defaults to `false`.
 	Secure pulumi.BoolPtrOutput `pulumi:"secure"`
@@ -134,7 +136,9 @@ type syntheticsGlobalVariableState struct {
 	ParseTestId *string `pulumi:"parseTestId"`
 	// ID of the Synthetics test to use a source of the global variable value.
 	ParseTestOptions *SyntheticsGlobalVariableParseTestOptions `pulumi:"parseTestOptions"`
-	// A list of role identifiers to associate with the Synthetics global variable.
+	// A list of role identifiers to associate with the Synthetics global variable. **Deprecated.** This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
+	//
+	// Deprecated: This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
 	RestrictedRoles []string `pulumi:"restrictedRoles"`
 	// If set to true, the value of the global variable is hidden. This setting is ignored if `isTotp` or `isFido` is set to `true`. Defaults to `false`.
 	Secure *bool `pulumi:"secure"`
@@ -159,7 +163,9 @@ type SyntheticsGlobalVariableState struct {
 	ParseTestId pulumi.StringPtrInput
 	// ID of the Synthetics test to use a source of the global variable value.
 	ParseTestOptions SyntheticsGlobalVariableParseTestOptionsPtrInput
-	// A list of role identifiers to associate with the Synthetics global variable.
+	// A list of role identifiers to associate with the Synthetics global variable. **Deprecated.** This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
+	//
+	// Deprecated: This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
 	RestrictedRoles pulumi.StringArrayInput
 	// If set to true, the value of the global variable is hidden. This setting is ignored if `isTotp` or `isFido` is set to `true`. Defaults to `false`.
 	Secure pulumi.BoolPtrInput
@@ -188,7 +194,9 @@ type syntheticsGlobalVariableArgs struct {
 	ParseTestId *string `pulumi:"parseTestId"`
 	// ID of the Synthetics test to use a source of the global variable value.
 	ParseTestOptions *SyntheticsGlobalVariableParseTestOptions `pulumi:"parseTestOptions"`
-	// A list of role identifiers to associate with the Synthetics global variable.
+	// A list of role identifiers to associate with the Synthetics global variable. **Deprecated.** This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
+	//
+	// Deprecated: This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
 	RestrictedRoles []string `pulumi:"restrictedRoles"`
 	// If set to true, the value of the global variable is hidden. This setting is ignored if `isTotp` or `isFido` is set to `true`. Defaults to `false`.
 	Secure *bool `pulumi:"secure"`
@@ -214,7 +222,9 @@ type SyntheticsGlobalVariableArgs struct {
 	ParseTestId pulumi.StringPtrInput
 	// ID of the Synthetics test to use a source of the global variable value.
 	ParseTestOptions SyntheticsGlobalVariableParseTestOptionsPtrInput
-	// A list of role identifiers to associate with the Synthetics global variable.
+	// A list of role identifiers to associate with the Synthetics global variable. **Deprecated.** This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
+	//
+	// Deprecated: This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
 	RestrictedRoles pulumi.StringArrayInput
 	// If set to true, the value of the global variable is hidden. This setting is ignored if `isTotp` or `isFido` is set to `true`. Defaults to `false`.
 	Secure pulumi.BoolPtrInput
@@ -348,7 +358,9 @@ func (o SyntheticsGlobalVariableOutput) ParseTestOptions() SyntheticsGlobalVaria
 	}).(SyntheticsGlobalVariableParseTestOptionsPtrOutput)
 }
 
-// A list of role identifiers to associate with the Synthetics global variable.
+// A list of role identifiers to associate with the Synthetics global variable. **Deprecated.** This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
+//
+// Deprecated: This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
 func (o SyntheticsGlobalVariableOutput) RestrictedRoles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SyntheticsGlobalVariable) pulumi.StringArrayOutput { return v.RestrictedRoles }).(pulumi.StringArrayOutput)
 }

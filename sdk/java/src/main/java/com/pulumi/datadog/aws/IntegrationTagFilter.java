@@ -14,6 +14,8 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
+ * !&gt;This resource is deprecated - use the `datadog.aws.IntegrationAccount` resource instead.
+ * 
  * Provides a Datadog AWS tag filter resource. This can be used to create and manage Datadog AWS tag filters.
  * 
  * ## Example Usage

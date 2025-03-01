@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.PowerpackWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsArgs;
 import com.pulumi.datadog.inputs.PowerpackWidgetQueryTableDefinitionRequestFormulaConditionalFormatArgs;
 import com.pulumi.datadog.inputs.PowerpackWidgetQueryTableDefinitionRequestFormulaLimitArgs;
 import com.pulumi.datadog.inputs.PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormatArgs;
@@ -49,6 +50,21 @@ public final class PowerpackWidgetQueryTableDefinitionRequestFormulaArgs extends
      */
     public Optional<Output<String>> cellDisplayMode() {
         return Optional.ofNullable(this.cellDisplayMode);
+    }
+
+    /**
+     * A list of display modes for each table cell.
+     * 
+     */
+    @Import(name="cellDisplayModeOptions")
+    private @Nullable Output<PowerpackWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsArgs> cellDisplayModeOptions;
+
+    /**
+     * @return A list of display modes for each table cell.
+     * 
+     */
+    public Optional<Output<PowerpackWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsArgs>> cellDisplayModeOptions() {
+        return Optional.ofNullable(this.cellDisplayModeOptions);
     }
 
     /**
@@ -131,6 +147,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequestFormulaArgs extends
     private PowerpackWidgetQueryTableDefinitionRequestFormulaArgs(PowerpackWidgetQueryTableDefinitionRequestFormulaArgs $) {
         this.alias = $.alias;
         this.cellDisplayMode = $.cellDisplayMode;
+        this.cellDisplayModeOptions = $.cellDisplayModeOptions;
         this.conditionalFormats = $.conditionalFormats;
         this.formulaExpression = $.formulaExpression;
         this.limit = $.limit;
@@ -196,6 +213,27 @@ public final class PowerpackWidgetQueryTableDefinitionRequestFormulaArgs extends
          */
         public Builder cellDisplayMode(String cellDisplayMode) {
             return cellDisplayMode(Output.of(cellDisplayMode));
+        }
+
+        /**
+         * @param cellDisplayModeOptions A list of display modes for each table cell.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cellDisplayModeOptions(@Nullable Output<PowerpackWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsArgs> cellDisplayModeOptions) {
+            $.cellDisplayModeOptions = cellDisplayModeOptions;
+            return this;
+        }
+
+        /**
+         * @param cellDisplayModeOptions A list of display modes for each table cell.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cellDisplayModeOptions(PowerpackWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsArgs cellDisplayModeOptions) {
+            return cellDisplayModeOptions(Output.of(cellDisplayModeOptions));
         }
 
         /**

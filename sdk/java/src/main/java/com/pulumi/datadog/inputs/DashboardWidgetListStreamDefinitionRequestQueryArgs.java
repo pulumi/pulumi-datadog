@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.DashboardWidgetListStreamDefinitionRequestQueryGroupByArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetListStreamDefinitionRequestQuerySortArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -17,6 +18,21 @@ import javax.annotation.Nullable;
 public final class DashboardWidgetListStreamDefinitionRequestQueryArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final DashboardWidgetListStreamDefinitionRequestQueryArgs Empty = new DashboardWidgetListStreamDefinitionRequestQueryArgs();
+
+    /**
+     * Specifies the field for logs pattern clustering. Can only be used with `logs_pattern_stream`.
+     * 
+     */
+    @Import(name="clusteringPatternFieldPath")
+    private @Nullable Output<String> clusteringPatternFieldPath;
+
+    /**
+     * @return Specifies the field for logs pattern clustering. Can only be used with `logs_pattern_stream`.
+     * 
+     */
+    public Optional<Output<String>> clusteringPatternFieldPath() {
+        return Optional.ofNullable(this.clusteringPatternFieldPath);
+    }
 
     /**
      * Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`, `llm_observability_stream`.
@@ -46,6 +62,21 @@ public final class DashboardWidgetListStreamDefinitionRequestQueryArgs extends c
      */
     public Optional<Output<String>> eventSize() {
         return Optional.ofNullable(this.eventSize);
+    }
+
+    /**
+     * Group by configuration for the List Stream widget. Group by can only be used with `logs_pattern_stream` (up to 4 items) or `logs_transaction_stream` (one group by item is required) list stream source.
+     * 
+     */
+    @Import(name="groupBies")
+    private @Nullable Output<List<DashboardWidgetListStreamDefinitionRequestQueryGroupByArgs>> groupBies;
+
+    /**
+     * @return Group by configuration for the List Stream widget. Group by can only be used with `logs_pattern_stream` (up to 4 items) or `logs_transaction_stream` (one group by item is required) list stream source.
+     * 
+     */
+    public Optional<Output<List<DashboardWidgetListStreamDefinitionRequestQueryGroupByArgs>>> groupBies() {
+        return Optional.ofNullable(this.groupBies);
     }
 
     /**
@@ -111,8 +142,10 @@ public final class DashboardWidgetListStreamDefinitionRequestQueryArgs extends c
     private DashboardWidgetListStreamDefinitionRequestQueryArgs() {}
 
     private DashboardWidgetListStreamDefinitionRequestQueryArgs(DashboardWidgetListStreamDefinitionRequestQueryArgs $) {
+        this.clusteringPatternFieldPath = $.clusteringPatternFieldPath;
         this.dataSource = $.dataSource;
         this.eventSize = $.eventSize;
+        this.groupBies = $.groupBies;
         this.indexes = $.indexes;
         this.queryString = $.queryString;
         this.sort = $.sort;
@@ -135,6 +168,27 @@ public final class DashboardWidgetListStreamDefinitionRequestQueryArgs extends c
 
         public Builder(DashboardWidgetListStreamDefinitionRequestQueryArgs defaults) {
             $ = new DashboardWidgetListStreamDefinitionRequestQueryArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param clusteringPatternFieldPath Specifies the field for logs pattern clustering. Can only be used with `logs_pattern_stream`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clusteringPatternFieldPath(@Nullable Output<String> clusteringPatternFieldPath) {
+            $.clusteringPatternFieldPath = clusteringPatternFieldPath;
+            return this;
+        }
+
+        /**
+         * @param clusteringPatternFieldPath Specifies the field for logs pattern clustering. Can only be used with `logs_pattern_stream`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clusteringPatternFieldPath(String clusteringPatternFieldPath) {
+            return clusteringPatternFieldPath(Output.of(clusteringPatternFieldPath));
         }
 
         /**
@@ -177,6 +231,37 @@ public final class DashboardWidgetListStreamDefinitionRequestQueryArgs extends c
          */
         public Builder eventSize(String eventSize) {
             return eventSize(Output.of(eventSize));
+        }
+
+        /**
+         * @param groupBies Group by configuration for the List Stream widget. Group by can only be used with `logs_pattern_stream` (up to 4 items) or `logs_transaction_stream` (one group by item is required) list stream source.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder groupBies(@Nullable Output<List<DashboardWidgetListStreamDefinitionRequestQueryGroupByArgs>> groupBies) {
+            $.groupBies = groupBies;
+            return this;
+        }
+
+        /**
+         * @param groupBies Group by configuration for the List Stream widget. Group by can only be used with `logs_pattern_stream` (up to 4 items) or `logs_transaction_stream` (one group by item is required) list stream source.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder groupBies(List<DashboardWidgetListStreamDefinitionRequestQueryGroupByArgs> groupBies) {
+            return groupBies(Output.of(groupBies));
+        }
+
+        /**
+         * @param groupBies Group by configuration for the List Stream widget. Group by can only be used with `logs_pattern_stream` (up to 4 items) or `logs_transaction_stream` (one group by item is required) list stream source.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder groupBies(DashboardWidgetListStreamDefinitionRequestQueryGroupByArgs... groupBies) {
+            return groupBies(List.of(groupBies));
         }
 
         /**

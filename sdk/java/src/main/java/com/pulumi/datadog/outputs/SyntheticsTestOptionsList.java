@@ -93,9 +93,13 @@ public final class SyntheticsTestOptionsList {
      */
     private @Nullable Boolean noScreenshot;
     /**
-     * @return A list of role identifiers pulled from the Roles API to restrict read and write access.
+     * @return A list of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
+     * 
+     * @deprecated
+     * This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
      * 
      */
+    @Deprecated /* This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead. */
     private @Nullable List<String> restrictedRoles;
     private @Nullable SyntheticsTestOptionsListRetry retry;
     /**
@@ -220,9 +224,13 @@ public final class SyntheticsTestOptionsList {
         return Optional.ofNullable(this.noScreenshot);
     }
     /**
-     * @return A list of role identifiers pulled from the Roles API to restrict read and write access.
+     * @return A list of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
+     * 
+     * @deprecated
+     * This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
      * 
      */
+    @Deprecated /* This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead. */
     public List<String> restrictedRoles() {
         return this.restrictedRoles == null ? List.of() : this.restrictedRoles;
     }
