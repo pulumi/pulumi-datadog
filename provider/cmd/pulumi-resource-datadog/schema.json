@@ -418,6 +418,143 @@
                 "id"
             ]
         },
+        "datadog:index/ActionConnectionAws:ActionConnectionAws": {
+            "properties": {
+                "assumeRole": {
+                    "$ref": "#/types/datadog:index/ActionConnectionAwsAssumeRole:ActionConnectionAwsAssumeRole",
+                    "description": "Configuration for an assume role AWS connection\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/ActionConnectionAwsAssumeRole:ActionConnectionAwsAssumeRole": {
+            "properties": {
+                "accountId": {
+                    "type": "string",
+                    "description": "AWS account that the connection is created for\n"
+                },
+                "externalId": {
+                    "type": "string",
+                    "description": "External ID that specifies which connection can be used to assume the role\n"
+                },
+                "principalId": {
+                    "type": "string",
+                    "description": "AWS account that will assume the role\n"
+                },
+                "role": {
+                    "type": "string",
+                    "description": "Role to assume\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "externalId",
+                        "principalId"
+                    ]
+                }
+            }
+        },
+        "datadog:index/ActionConnectionHttp:ActionConnectionHttp": {
+            "properties": {
+                "baseUrl": {
+                    "type": "string",
+                    "description": "Base HTTP url for the integration\n"
+                },
+                "tokenAuth": {
+                    "$ref": "#/types/datadog:index/ActionConnectionHttpTokenAuth:ActionConnectionHttpTokenAuth",
+                    "description": "Configuration for an HTTP connection that uses token auth\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/ActionConnectionHttpTokenAuth:ActionConnectionHttpTokenAuth": {
+            "properties": {
+                "body": {
+                    "$ref": "#/types/datadog:index/ActionConnectionHttpTokenAuthBody:ActionConnectionHttpTokenAuthBody",
+                    "description": "Body for HTTP authentication\n"
+                },
+                "headers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ActionConnectionHttpTokenAuthHeader:ActionConnectionHttpTokenAuthHeader"
+                    },
+                    "description": "Header for HTTP authentication\n"
+                },
+                "tokens": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ActionConnectionHttpTokenAuthToken:ActionConnectionHttpTokenAuthToken"
+                    },
+                    "description": "Token for HTTP authentication\n"
+                },
+                "urlParameters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ActionConnectionHttpTokenAuthUrlParameter:ActionConnectionHttpTokenAuthUrlParameter"
+                    },
+                    "description": "URL parameter for HTTP authentication\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/ActionConnectionHttpTokenAuthBody:ActionConnectionHttpTokenAuthBody": {
+            "properties": {
+                "content": {
+                    "type": "string",
+                    "description": "Serialized body content\n"
+                },
+                "contentType": {
+                    "type": "string",
+                    "description": "Content type of the body\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/ActionConnectionHttpTokenAuthHeader:ActionConnectionHttpTokenAuthHeader": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Header name\n"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/ActionConnectionHttpTokenAuthToken:ActionConnectionHttpTokenAuthToken": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Token name\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Token type\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Token value\n",
+                    "secret": true
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/ActionConnectionHttpTokenAuthUrlParameter:ActionConnectionHttpTokenAuthUrlParameter": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "URL parameter name\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "URL parameter value\n"
+                }
+            },
+            "type": "object"
+        },
         "datadog:index/ApmRetentionFilterFilter:ApmRetentionFilterFilter": {
             "properties": {
                 "query": {
@@ -4318,6 +4455,10 @@
         },
         "datadog:index/DashboardWidgetListStreamDefinitionRequestQuery:DashboardWidgetListStreamDefinitionRequestQuery": {
             "properties": {
+                "clusteringPatternFieldPath": {
+                    "type": "string",
+                    "description": "Specifies the field for logs pattern clustering. Can only be used with `logs_pattern_stream`.\n"
+                },
                 "dataSource": {
                     "type": "string",
                     "description": "Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`, `llm_observability_stream`.\n"
@@ -4325,6 +4466,13 @@
                 "eventSize": {
                     "type": "string",
                     "description": "Size of events displayed in widget. Required if `data_source` is `event_stream`. Valid values are `s`, `l`.\n"
+                },
+                "groupBies": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetListStreamDefinitionRequestQueryGroupBy:DashboardWidgetListStreamDefinitionRequestQueryGroupBy"
+                    },
+                    "description": "Group by configuration for the List Stream widget. Group by can only be used with `logs_pattern_stream` (up to 4 items) or `logs_transaction_stream` (one group by item is required) list stream source.\n"
                 },
                 "indexes": {
                     "type": "array",
@@ -4349,6 +4497,18 @@
             "type": "object",
             "required": [
                 "dataSource"
+            ]
+        },
+        "datadog:index/DashboardWidgetListStreamDefinitionRequestQueryGroupBy:DashboardWidgetListStreamDefinitionRequestQueryGroupBy": {
+            "properties": {
+                "facet": {
+                    "type": "string",
+                    "description": "Facet name\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "facet"
             ]
         },
         "datadog:index/DashboardWidgetListStreamDefinitionRequestQuerySort:DashboardWidgetListStreamDefinitionRequestQuerySort": {
@@ -5011,6 +5171,10 @@
                     "type": "string",
                     "description": "A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.\n"
                 },
+                "cellDisplayModeOptions": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions:DashboardWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions",
+                    "description": "A list of display modes for each table cell.\n"
+                },
                 "conditionalFormats": {
                     "type": "array",
                     "items": {
@@ -5039,6 +5203,19 @@
             "required": [
                 "formulaExpression"
             ]
+        },
+        "datadog:index/DashboardWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions:DashboardWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions": {
+            "properties": {
+                "trendType": {
+                    "type": "string",
+                    "description": "The type of trend line to display. Valid values are `area`, `line`, `bars`.\n"
+                },
+                "yScale": {
+                    "type": "string",
+                    "description": "The scale of the y-axis. Valid values are `shared`, `independent`.\n"
+                }
+            },
+            "type": "object"
         },
         "datadog:index/DashboardWidgetQueryTableDefinitionRequestFormulaConditionalFormat:DashboardWidgetQueryTableDefinitionRequestFormulaConditionalFormat": {
             "properties": {
@@ -19873,6 +20050,10 @@
         },
         "datadog:index/PowerpackWidgetListStreamDefinitionRequestQuery:PowerpackWidgetListStreamDefinitionRequestQuery": {
             "properties": {
+                "clusteringPatternFieldPath": {
+                    "type": "string",
+                    "description": "Specifies the field for logs pattern clustering. Can only be used with `logs_pattern_stream`.\n"
+                },
                 "dataSource": {
                     "type": "string",
                     "description": "Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`, `llm_observability_stream`.\n"
@@ -19880,6 +20061,13 @@
                 "eventSize": {
                     "type": "string",
                     "description": "Size of events displayed in widget. Required if `data_source` is `event_stream`. Valid values are `s`, `l`.\n"
+                },
+                "groupBies": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/PowerpackWidgetListStreamDefinitionRequestQueryGroupBy:PowerpackWidgetListStreamDefinitionRequestQueryGroupBy"
+                    },
+                    "description": "Group by configuration for the List Stream widget. Group by can only be used with `logs_pattern_stream` (up to 4 items) or `logs_transaction_stream` (one group by item is required) list stream source.\n"
                 },
                 "indexes": {
                     "type": "array",
@@ -19904,6 +20092,18 @@
             "type": "object",
             "required": [
                 "dataSource"
+            ]
+        },
+        "datadog:index/PowerpackWidgetListStreamDefinitionRequestQueryGroupBy:PowerpackWidgetListStreamDefinitionRequestQueryGroupBy": {
+            "properties": {
+                "facet": {
+                    "type": "string",
+                    "description": "Facet name\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "facet"
             ]
         },
         "datadog:index/PowerpackWidgetListStreamDefinitionRequestQuerySort:PowerpackWidgetListStreamDefinitionRequestQuerySort": {
@@ -20467,6 +20667,10 @@
                     "type": "string",
                     "description": "A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.\n"
                 },
+                "cellDisplayModeOptions": {
+                    "$ref": "#/types/datadog:index/PowerpackWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions:PowerpackWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions",
+                    "description": "A list of display modes for each table cell.\n"
+                },
                 "conditionalFormats": {
                     "type": "array",
                     "items": {
@@ -20495,6 +20699,19 @@
             "required": [
                 "formulaExpression"
             ]
+        },
+        "datadog:index/PowerpackWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions:PowerpackWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions": {
+            "properties": {
+                "trendType": {
+                    "type": "string",
+                    "description": "The type of trend line to display. Valid values are `area`, `line`, `bars`.\n"
+                },
+                "yScale": {
+                    "type": "string",
+                    "description": "The scale of the y-axis. Valid values are `shared`, `independent`.\n"
+                }
+            },
+            "type": "object"
         },
         "datadog:index/PowerpackWidgetQueryTableDefinitionRequestFormulaConditionalFormat:PowerpackWidgetQueryTableDefinitionRequestFormulaConditionalFormat": {
             "properties": {
@@ -31002,7 +31219,8 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of role identifiers pulled from the Roles API to restrict read and write access.\n"
+                    "description": "A list of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.\n",
+                    "deprecationMessage": "This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead."
                 }
             },
             "type": "object"
@@ -31931,7 +32149,8 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/datadog:index/SyntheticsTestMobileOptionsListBinding:SyntheticsTestMobileOptionsListBinding"
-                    }
+                    },
+                    "description": "Restriction policy bindings for the Synthetic mobile test. Should not be used in parallel with a `datadog.RestrictionPolicy` resource\n"
                 },
                 "ci": {
                     "$ref": "#/types/datadog:index/SyntheticsTestMobileOptionsListCi:SyntheticsTestMobileOptionsListCi",
@@ -31975,7 +32194,8 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of role identifiers pulled from the Roles API to restrict read and write access.\n"
+                    "description": "A list of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.\n",
+                    "deprecationMessage": "This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead."
                 },
                 "retry": {
                     "$ref": "#/types/datadog:index/SyntheticsTestMobileOptionsListRetry:SyntheticsTestMobileOptionsListRetry"
@@ -32389,7 +32609,8 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of role identifiers pulled from the Roles API to restrict read and write access.\n"
+                    "description": "A list of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.\n",
+                    "deprecationMessage": "This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead."
                 },
                 "retry": {
                     "$ref": "#/types/datadog:index/SyntheticsTestOptionsListRetry:SyntheticsTestOptionsListRetry"
@@ -32792,6 +33013,191 @@
             "required": [
                 "url"
             ]
+        },
+        "datadog:index/getActionConnectionAws:getActionConnectionAws": {
+            "properties": {
+                "assumeRole": {
+                    "$ref": "#/types/datadog:index/getActionConnectionAwsAssumeRole:getActionConnectionAwsAssumeRole",
+                    "description": "Configuration for an assume role AWS connection\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/getActionConnectionAwsAssumeRole:getActionConnectionAwsAssumeRole": {
+            "properties": {
+                "accountId": {
+                    "type": "string",
+                    "description": "AWS account that the connection is created for\n"
+                },
+                "externalId": {
+                    "type": "string",
+                    "description": "External ID that specifies which connection can be used to assume the role\n"
+                },
+                "principalId": {
+                    "type": "string",
+                    "description": "AWS account that will assume the role\n"
+                },
+                "role": {
+                    "type": "string",
+                    "description": "Role to assume\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "accountId",
+                "externalId",
+                "principalId",
+                "role"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "datadog:index/getActionConnectionHttp:getActionConnectionHttp": {
+            "properties": {
+                "baseUrl": {
+                    "type": "string",
+                    "description": "Base HTTP url for the integration\n"
+                },
+                "tokenAuth": {
+                    "$ref": "#/types/datadog:index/getActionConnectionHttpTokenAuth:getActionConnectionHttpTokenAuth",
+                    "description": "Configuration for an HTTP connection that uses token auth\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "baseUrl"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "datadog:index/getActionConnectionHttpTokenAuth:getActionConnectionHttpTokenAuth": {
+            "properties": {
+                "body": {
+                    "$ref": "#/types/datadog:index/getActionConnectionHttpTokenAuthBody:getActionConnectionHttpTokenAuthBody",
+                    "description": "Body for HTTP authentication\n"
+                },
+                "headers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/getActionConnectionHttpTokenAuthHeader:getActionConnectionHttpTokenAuthHeader"
+                    },
+                    "description": "Header for HTTP authentication\n"
+                },
+                "tokens": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/getActionConnectionHttpTokenAuthToken:getActionConnectionHttpTokenAuthToken"
+                    },
+                    "description": "Token for HTTP authentication\n"
+                },
+                "urlParameters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/getActionConnectionHttpTokenAuthUrlParameter:getActionConnectionHttpTokenAuthUrlParameter"
+                    },
+                    "description": "URL parameter for HTTP authentication\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/getActionConnectionHttpTokenAuthBody:getActionConnectionHttpTokenAuthBody": {
+            "properties": {
+                "content": {
+                    "type": "string",
+                    "description": "Serialized body content\n"
+                },
+                "contentType": {
+                    "type": "string",
+                    "description": "Content type of the body\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "content",
+                "contentType"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "datadog:index/getActionConnectionHttpTokenAuthHeader:getActionConnectionHttpTokenAuthHeader": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Header name\n"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "datadog:index/getActionConnectionHttpTokenAuthToken:getActionConnectionHttpTokenAuthToken": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Token name\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Token type\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Token value\n",
+                    "secret": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "type",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "datadog:index/getActionConnectionHttpTokenAuthUrlParameter:getActionConnectionHttpTokenAuthUrlParameter": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "URL parameter name\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "URL parameter value\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         },
         "datadog:index/getCloudWorkloadSecurityAgentRulesAgentRule:getCloudWorkloadSecurityAgentRulesAgentRule": {
             "properties": {
@@ -34414,7 +34820,7 @@
     },
     "resources": {
         "datadog:aws/integration:Integration": {
-            "description": "Provides a Datadog - Amazon Web Services integration resource. This can be used to create and manage Datadog - Amazon Web Services integration.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Create a new Datadog - Amazon Web Services integration\nconst sandbox = new datadog.aws.Integration(\"sandbox\", {\n    accountId: \"1234567890\",\n    roleName: \"DatadogAWSIntegrationRole\",\n    filterTags: [\"key:value\"],\n    hostTags: [\n        \"key:value\",\n        \"key2:value2\",\n    ],\n    accountSpecificNamespaceRules: {\n        auto_scaling: \"false\",\n        opsworks: \"false\",\n    },\n    excludedRegions: [\n        \"us-east-1\",\n        \"us-west-2\",\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Create a new Datadog - Amazon Web Services integration\nsandbox = datadog.aws.Integration(\"sandbox\",\n    account_id=\"1234567890\",\n    role_name=\"DatadogAWSIntegrationRole\",\n    filter_tags=[\"key:value\"],\n    host_tags=[\n        \"key:value\",\n        \"key2:value2\",\n    ],\n    account_specific_namespace_rules={\n        \"auto_scaling\": \"false\",\n        \"opsworks\": \"false\",\n    },\n    excluded_regions=[\n        \"us-east-1\",\n        \"us-west-2\",\n    ])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Create a new Datadog - Amazon Web Services integration\n    var sandbox = new Datadog.Aws.Integration(\"sandbox\", new()\n    {\n        AccountId = \"1234567890\",\n        RoleName = \"DatadogAWSIntegrationRole\",\n        FilterTags = new[]\n        {\n            \"key:value\",\n        },\n        HostTags = new[]\n        {\n            \"key:value\",\n            \"key2:value2\",\n        },\n        AccountSpecificNamespaceRules = \n        {\n            { \"auto_scaling\", \"false\" },\n            { \"opsworks\", \"false\" },\n        },\n        ExcludedRegions = new[]\n        {\n            \"us-east-1\",\n            \"us-west-2\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/aws\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t// Create a new Datadog - Amazon Web Services integration\n\t\t_, err := aws.NewIntegration(ctx, \"sandbox\", \u0026aws.IntegrationArgs{\n\t\t\tAccountId: pulumi.String(\"1234567890\"),\n\t\t\tRoleName:  pulumi.String(\"DatadogAWSIntegrationRole\"),\n\t\t\tFilterTags: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"key:value\"),\n\t\t\t},\n\t\t\tHostTags: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"key:value\"),\n\t\t\t\tpulumi.String(\"key2:value2\"),\n\t\t\t},\n\t\t\tAccountSpecificNamespaceRules: pulumi.StringMap{\n\t\t\t\t\"auto_scaling\": pulumi.String(\"false\"),\n\t\t\t\t\"opsworks\":     pulumi.String(\"false\"),\n\t\t\t},\n\t\t\tExcludedRegions: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"us-east-1\"),\n\t\t\t\tpulumi.String(\"us-west-2\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.aws.Integration;\nimport com.pulumi.datadog.aws.IntegrationArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // Create a new Datadog - Amazon Web Services integration\n        var sandbox = new Integration(\"sandbox\", IntegrationArgs.builder()\n            .accountId(\"1234567890\")\n            .roleName(\"DatadogAWSIntegrationRole\")\n            .filterTags(\"key:value\")\n            .hostTags(            \n                \"key:value\",\n                \"key2:value2\")\n            .accountSpecificNamespaceRules(Map.ofEntries(\n                Map.entry(\"auto_scaling\", false),\n                Map.entry(\"opsworks\", false)\n            ))\n            .excludedRegions(            \n                \"us-east-1\",\n                \"us-west-2\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Create a new Datadog - Amazon Web Services integration\n  sandbox:\n    type: datadog:aws:Integration\n    properties:\n      accountId: '1234567890'\n      roleName: DatadogAWSIntegrationRole\n      filterTags:\n        - key:value\n      hostTags:\n        - key:value\n        - key2:value2\n      accountSpecificNamespaceRules:\n        auto_scaling: false\n        opsworks: false\n      excludedRegions:\n        - us-east-1\n        - us-west-2\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nAmazon Web Services integrations can be imported using their account ID and role name separated with a colon (:), while the external_id should be passed by setting an environment variable called EXTERNAL_ID\n\n```sh\n$ pulumi import datadog:aws/integration:Integration EXTERNAL_ID=${external_id} datadog_integration_aws.test ${account_id}:${role_name}\n```\n\n",
+            "description": "!\u003eThis resource is deprecated - use the `datadog.aws.IntegrationAccount` resource instead.\n\nProvides a Datadog - Amazon Web Services integration resource. This can be used to create and manage Datadog - Amazon Web Services integration.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Create a new Datadog - Amazon Web Services integration\nconst sandbox = new datadog.aws.Integration(\"sandbox\", {\n    accountId: \"1234567890\",\n    roleName: \"DatadogAWSIntegrationRole\",\n    filterTags: [\"key:value\"],\n    hostTags: [\n        \"key:value\",\n        \"key2:value2\",\n    ],\n    accountSpecificNamespaceRules: {\n        auto_scaling: \"false\",\n        opsworks: \"false\",\n    },\n    excludedRegions: [\n        \"us-east-1\",\n        \"us-west-2\",\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Create a new Datadog - Amazon Web Services integration\nsandbox = datadog.aws.Integration(\"sandbox\",\n    account_id=\"1234567890\",\n    role_name=\"DatadogAWSIntegrationRole\",\n    filter_tags=[\"key:value\"],\n    host_tags=[\n        \"key:value\",\n        \"key2:value2\",\n    ],\n    account_specific_namespace_rules={\n        \"auto_scaling\": \"false\",\n        \"opsworks\": \"false\",\n    },\n    excluded_regions=[\n        \"us-east-1\",\n        \"us-west-2\",\n    ])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Create a new Datadog - Amazon Web Services integration\n    var sandbox = new Datadog.Aws.Integration(\"sandbox\", new()\n    {\n        AccountId = \"1234567890\",\n        RoleName = \"DatadogAWSIntegrationRole\",\n        FilterTags = new[]\n        {\n            \"key:value\",\n        },\n        HostTags = new[]\n        {\n            \"key:value\",\n            \"key2:value2\",\n        },\n        AccountSpecificNamespaceRules = \n        {\n            { \"auto_scaling\", \"false\" },\n            { \"opsworks\", \"false\" },\n        },\n        ExcludedRegions = new[]\n        {\n            \"us-east-1\",\n            \"us-west-2\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/aws\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t// Create a new Datadog - Amazon Web Services integration\n\t\t_, err := aws.NewIntegration(ctx, \"sandbox\", \u0026aws.IntegrationArgs{\n\t\t\tAccountId: pulumi.String(\"1234567890\"),\n\t\t\tRoleName:  pulumi.String(\"DatadogAWSIntegrationRole\"),\n\t\t\tFilterTags: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"key:value\"),\n\t\t\t},\n\t\t\tHostTags: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"key:value\"),\n\t\t\t\tpulumi.String(\"key2:value2\"),\n\t\t\t},\n\t\t\tAccountSpecificNamespaceRules: pulumi.StringMap{\n\t\t\t\t\"auto_scaling\": pulumi.String(\"false\"),\n\t\t\t\t\"opsworks\":     pulumi.String(\"false\"),\n\t\t\t},\n\t\t\tExcludedRegions: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"us-east-1\"),\n\t\t\t\tpulumi.String(\"us-west-2\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.aws.Integration;\nimport com.pulumi.datadog.aws.IntegrationArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // Create a new Datadog - Amazon Web Services integration\n        var sandbox = new Integration(\"sandbox\", IntegrationArgs.builder()\n            .accountId(\"1234567890\")\n            .roleName(\"DatadogAWSIntegrationRole\")\n            .filterTags(\"key:value\")\n            .hostTags(            \n                \"key:value\",\n                \"key2:value2\")\n            .accountSpecificNamespaceRules(Map.ofEntries(\n                Map.entry(\"auto_scaling\", false),\n                Map.entry(\"opsworks\", false)\n            ))\n            .excludedRegions(            \n                \"us-east-1\",\n                \"us-west-2\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Create a new Datadog - Amazon Web Services integration\n  sandbox:\n    type: datadog:aws:Integration\n    properties:\n      accountId: '1234567890'\n      roleName: DatadogAWSIntegrationRole\n      filterTags:\n        - key:value\n      hostTags:\n        - key:value\n        - key2:value2\n      accountSpecificNamespaceRules:\n        auto_scaling: false\n        opsworks: false\n      excludedRegions:\n        - us-east-1\n        - us-west-2\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nAmazon Web Services integrations can be imported using their account ID and role name separated with a colon (:), while the external_id should be passed by setting an environment variable called EXTERNAL_ID\n\n```sh\n$ pulumi import datadog:aws/integration:Integration EXTERNAL_ID=${external_id} datadog_integration_aws.test ${account_id}:${role_name}\n```\n\n",
             "properties": {
                 "accessKeyId": {
                     "type": "string",
@@ -34837,7 +35243,7 @@
             }
         },
         "datadog:aws/integrationLambdaArn:IntegrationLambdaArn": {
-            "description": "Provides a Datadog - Amazon Web Services integration Lambda ARN resource. This can be used to create and manage the log collection Lambdas for an account.\n\nUpdate operations are currently not supported with datadog API so any change forces a new resource.\n\n**Note**: If you are using AWS GovCloud or the AWS China* region, update the `lambda_arn` parameter for your environment.\n\n *\\*All use of Datadog Services in (or in connection with environments within) mainland China is subject to the disclaimer published in the \u003ca href=\"https://www.datadoghq.com/legal/restricted-service-locations/\"\u003eRestricted Service Locations\u003c/a\u003e section on our website.*\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Create a new Datadog - Amazon Web Services integration Lambda ARN\nconst mainCollector = new datadog.aws.IntegrationLambdaArn(\"main_collector\", {\n    accountId: \"1234567890\",\n    lambdaArn: \"arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Create a new Datadog - Amazon Web Services integration Lambda ARN\nmain_collector = datadog.aws.IntegrationLambdaArn(\"main_collector\",\n    account_id=\"1234567890\",\n    lambda_arn=\"arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Create a new Datadog - Amazon Web Services integration Lambda ARN\n    var mainCollector = new Datadog.Aws.IntegrationLambdaArn(\"main_collector\", new()\n    {\n        AccountId = \"1234567890\",\n        LambdaArn = \"arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/aws\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t// Create a new Datadog - Amazon Web Services integration Lambda ARN\n\t\t_, err := aws.NewIntegrationLambdaArn(ctx, \"main_collector\", \u0026aws.IntegrationLambdaArnArgs{\n\t\t\tAccountId: pulumi.String(\"1234567890\"),\n\t\t\tLambdaArn: pulumi.String(\"arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.aws.IntegrationLambdaArn;\nimport com.pulumi.datadog.aws.IntegrationLambdaArnArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // Create a new Datadog - Amazon Web Services integration Lambda ARN\n        var mainCollector = new IntegrationLambdaArn(\"mainCollector\", IntegrationLambdaArnArgs.builder()\n            .accountId(\"1234567890\")\n            .lambdaArn(\"arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Create a new Datadog - Amazon Web Services integration Lambda ARN\n  mainCollector:\n    type: datadog:aws:IntegrationLambdaArn\n    name: main_collector\n    properties:\n      accountId: '1234567890'\n      lambdaArn: arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nAmazon Web Services Lambda ARN integrations can be imported using their account_id and lambda_arn separated with a space (` `).\n\n```sh\n$ pulumi import datadog:aws/integrationLambdaArn:IntegrationLambdaArn test \"1234567890 arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder\"\n```\n\n",
+            "description": "!\u003eThis resource is deprecated - use the `datadog.aws.IntegrationAccount` resource instead.\n\nProvides a Datadog - Amazon Web Services integration Lambda ARN resource. This can be used to create and manage the log collection Lambdas for an account.\n\nUpdate operations are currently not supported with datadog API so any change forces a new resource.\n\n**Note**: If you are using AWS GovCloud or the AWS China* region, update the `lambda_arn` parameter for your environment.\n\n *\\*All use of Datadog Services in (or in connection with environments within) mainland China is subject to the disclaimer published in the \u003ca href=\"https://www.datadoghq.com/legal/restricted-service-locations/\"\u003eRestricted Service Locations\u003c/a\u003e section on our website.*\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Create a new Datadog - Amazon Web Services integration Lambda ARN\nconst mainCollector = new datadog.aws.IntegrationLambdaArn(\"main_collector\", {\n    accountId: \"1234567890\",\n    lambdaArn: \"arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Create a new Datadog - Amazon Web Services integration Lambda ARN\nmain_collector = datadog.aws.IntegrationLambdaArn(\"main_collector\",\n    account_id=\"1234567890\",\n    lambda_arn=\"arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Create a new Datadog - Amazon Web Services integration Lambda ARN\n    var mainCollector = new Datadog.Aws.IntegrationLambdaArn(\"main_collector\", new()\n    {\n        AccountId = \"1234567890\",\n        LambdaArn = \"arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/aws\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t// Create a new Datadog - Amazon Web Services integration Lambda ARN\n\t\t_, err := aws.NewIntegrationLambdaArn(ctx, \"main_collector\", \u0026aws.IntegrationLambdaArnArgs{\n\t\t\tAccountId: pulumi.String(\"1234567890\"),\n\t\t\tLambdaArn: pulumi.String(\"arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.aws.IntegrationLambdaArn;\nimport com.pulumi.datadog.aws.IntegrationLambdaArnArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // Create a new Datadog - Amazon Web Services integration Lambda ARN\n        var mainCollector = new IntegrationLambdaArn(\"mainCollector\", IntegrationLambdaArnArgs.builder()\n            .accountId(\"1234567890\")\n            .lambdaArn(\"arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Create a new Datadog - Amazon Web Services integration Lambda ARN\n  mainCollector:\n    type: datadog:aws:IntegrationLambdaArn\n    name: main_collector\n    properties:\n      accountId: '1234567890'\n      lambdaArn: arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nAmazon Web Services Lambda ARN integrations can be imported using their account_id and lambda_arn separated with a space (` `).\n\n```sh\n$ pulumi import datadog:aws/integrationLambdaArn:IntegrationLambdaArn test \"1234567890 arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder\"\n```\n\n",
             "properties": {
                 "accountId": {
                     "type": "string",
@@ -34886,7 +35292,7 @@
             }
         },
         "datadog:aws/integrationLogCollection:IntegrationLogCollection": {
-            "description": "Provides a Datadog - Amazon Web Services integration log collection resource. This can be used to manage which AWS services logs are collected from for an account.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Create a new Datadog - Amazon Web Services integration log collection\nconst main = new datadog.aws.IntegrationLogCollection(\"main\", {\n    accountId: \"1234567890\",\n    services: [\"lambda\"],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Create a new Datadog - Amazon Web Services integration log collection\nmain = datadog.aws.IntegrationLogCollection(\"main\",\n    account_id=\"1234567890\",\n    services=[\"lambda\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Create a new Datadog - Amazon Web Services integration log collection\n    var main = new Datadog.Aws.IntegrationLogCollection(\"main\", new()\n    {\n        AccountId = \"1234567890\",\n        Services = new[]\n        {\n            \"lambda\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/aws\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t// Create a new Datadog - Amazon Web Services integration log collection\n\t\t_, err := aws.NewIntegrationLogCollection(ctx, \"main\", \u0026aws.IntegrationLogCollectionArgs{\n\t\t\tAccountId: pulumi.String(\"1234567890\"),\n\t\t\tServices: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"lambda\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.aws.IntegrationLogCollection;\nimport com.pulumi.datadog.aws.IntegrationLogCollectionArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // Create a new Datadog - Amazon Web Services integration log collection\n        var main = new IntegrationLogCollection(\"main\", IntegrationLogCollectionArgs.builder()\n            .accountId(\"1234567890\")\n            .services(\"lambda\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Create a new Datadog - Amazon Web Services integration log collection\n  main:\n    type: datadog:aws:IntegrationLogCollection\n    properties:\n      accountId: '1234567890'\n      services:\n        - lambda\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nAmazon Web Services log collection integrations can be imported using the `account ID`.\n\n```sh\n$ pulumi import datadog:aws/integrationLogCollection:IntegrationLogCollection test 1234567890\n```\n\n",
+            "description": "!\u003eThis resource is deprecated - use the `datadog.aws.IntegrationAccount` resource instead.\n\nProvides a Datadog - Amazon Web Services integration log collection resource. This can be used to manage which AWS services logs are collected from for an account.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Create a new Datadog - Amazon Web Services integration log collection\nconst main = new datadog.aws.IntegrationLogCollection(\"main\", {\n    accountId: \"1234567890\",\n    services: [\"lambda\"],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Create a new Datadog - Amazon Web Services integration log collection\nmain = datadog.aws.IntegrationLogCollection(\"main\",\n    account_id=\"1234567890\",\n    services=[\"lambda\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Create a new Datadog - Amazon Web Services integration log collection\n    var main = new Datadog.Aws.IntegrationLogCollection(\"main\", new()\n    {\n        AccountId = \"1234567890\",\n        Services = new[]\n        {\n            \"lambda\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/aws\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t// Create a new Datadog - Amazon Web Services integration log collection\n\t\t_, err := aws.NewIntegrationLogCollection(ctx, \"main\", \u0026aws.IntegrationLogCollectionArgs{\n\t\t\tAccountId: pulumi.String(\"1234567890\"),\n\t\t\tServices: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"lambda\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.aws.IntegrationLogCollection;\nimport com.pulumi.datadog.aws.IntegrationLogCollectionArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // Create a new Datadog - Amazon Web Services integration log collection\n        var main = new IntegrationLogCollection(\"main\", IntegrationLogCollectionArgs.builder()\n            .accountId(\"1234567890\")\n            .services(\"lambda\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Create a new Datadog - Amazon Web Services integration log collection\n  main:\n    type: datadog:aws:IntegrationLogCollection\n    properties:\n      accountId: '1234567890'\n      services:\n        - lambda\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nAmazon Web Services log collection integrations can be imported using the `account ID`.\n\n```sh\n$ pulumi import datadog:aws/integrationLogCollection:IntegrationLogCollection test 1234567890\n```\n\n",
             "properties": {
                 "accountId": {
                     "type": "string",
@@ -34942,7 +35348,7 @@
             }
         },
         "datadog:aws/integrationTagFilter:IntegrationTagFilter": {
-            "description": "Provides a Datadog AWS tag filter resource. This can be used to create and manage Datadog AWS tag filters.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Create a new Datadog - Amazon Web Services integration tag filter\nconst foo = new datadog.aws.IntegrationTagFilter(\"foo\", {\n    accountId: \"123456789010\",\n    namespace: \"sqs\",\n    tagFilterStr: \"key:value\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Create a new Datadog - Amazon Web Services integration tag filter\nfoo = datadog.aws.IntegrationTagFilter(\"foo\",\n    account_id=\"123456789010\",\n    namespace=\"sqs\",\n    tag_filter_str=\"key:value\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Create a new Datadog - Amazon Web Services integration tag filter\n    var foo = new Datadog.Aws.IntegrationTagFilter(\"foo\", new()\n    {\n        AccountId = \"123456789010\",\n        Namespace = \"sqs\",\n        TagFilterStr = \"key:value\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/aws\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t// Create a new Datadog - Amazon Web Services integration tag filter\n\t\t_, err := aws.NewIntegrationTagFilter(ctx, \"foo\", \u0026aws.IntegrationTagFilterArgs{\n\t\t\tAccountId:    pulumi.String(\"123456789010\"),\n\t\t\tNamespace:    pulumi.String(\"sqs\"),\n\t\t\tTagFilterStr: pulumi.String(\"key:value\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.aws.IntegrationTagFilter;\nimport com.pulumi.datadog.aws.IntegrationTagFilterArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // Create a new Datadog - Amazon Web Services integration tag filter\n        var foo = new IntegrationTagFilter(\"foo\", IntegrationTagFilterArgs.builder()\n            .accountId(\"123456789010\")\n            .namespace(\"sqs\")\n            .tagFilterStr(\"key:value\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Create a new Datadog - Amazon Web Services integration tag filter\n  foo:\n    type: datadog:aws:IntegrationTagFilter\n    properties:\n      accountId: '123456789010'\n      namespace: sqs\n      tagFilterStr: key:value\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nAmazon Web Services log filter resource can be imported using their account ID and namespace separated with a colon (:).\n\n```sh\n$ pulumi import datadog:aws/integrationTagFilter:IntegrationTagFilter foo ${account_id}:${namespace}\n```\n\n",
+            "description": "!\u003eThis resource is deprecated - use the `datadog.aws.IntegrationAccount` resource instead.\n\nProvides a Datadog AWS tag filter resource. This can be used to create and manage Datadog AWS tag filters.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Create a new Datadog - Amazon Web Services integration tag filter\nconst foo = new datadog.aws.IntegrationTagFilter(\"foo\", {\n    accountId: \"123456789010\",\n    namespace: \"sqs\",\n    tagFilterStr: \"key:value\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Create a new Datadog - Amazon Web Services integration tag filter\nfoo = datadog.aws.IntegrationTagFilter(\"foo\",\n    account_id=\"123456789010\",\n    namespace=\"sqs\",\n    tag_filter_str=\"key:value\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Create a new Datadog - Amazon Web Services integration tag filter\n    var foo = new Datadog.Aws.IntegrationTagFilter(\"foo\", new()\n    {\n        AccountId = \"123456789010\",\n        Namespace = \"sqs\",\n        TagFilterStr = \"key:value\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/aws\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t// Create a new Datadog - Amazon Web Services integration tag filter\n\t\t_, err := aws.NewIntegrationTagFilter(ctx, \"foo\", \u0026aws.IntegrationTagFilterArgs{\n\t\t\tAccountId:    pulumi.String(\"123456789010\"),\n\t\t\tNamespace:    pulumi.String(\"sqs\"),\n\t\t\tTagFilterStr: pulumi.String(\"key:value\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.aws.IntegrationTagFilter;\nimport com.pulumi.datadog.aws.IntegrationTagFilterArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // Create a new Datadog - Amazon Web Services integration tag filter\n        var foo = new IntegrationTagFilter(\"foo\", IntegrationTagFilterArgs.builder()\n            .accountId(\"123456789010\")\n            .namespace(\"sqs\")\n            .tagFilterStr(\"key:value\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Create a new Datadog - Amazon Web Services integration tag filter\n  foo:\n    type: datadog:aws:IntegrationTagFilter\n    properties:\n      accountId: '123456789010'\n      namespace: sqs\n      tagFilterStr: key:value\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nAmazon Web Services log filter resource can be imported using their account ID and namespace separated with a colon (:).\n\n```sh\n$ pulumi import datadog:aws/integrationTagFilter:IntegrationTagFilter foo ${account_id}:${namespace}\n```\n\n",
             "properties": {
                 "accountId": {
                     "type": "string",
@@ -35940,6 +36346,61 @@
                     "resourceCollectionEnabled": {
                         "type": "boolean",
                         "description": "When enabled, Datadog scans for all resources in your GCP environment.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "datadog:index/actionConnection:ActionConnection": {
+            "description": "A connection that can be used in Actions, including in the Workflow Automation and App Builder products.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.ActionConnection;\nimport com.pulumi.datadog.ActionConnectionArgs;\nimport static com.pulumi.codegen.internal.Serialization.*;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var config = ctx.config();\n        var awsConnection = new ActionConnection(\"awsConnection\", ActionConnectionArgs.builder()\n            .name(\"My AWS Connection\")\n            .aws(ActionConnectionAwsArgs.builder()\n                .assumeRole(ActionConnectionAwsAssumeRoleArgs.builder()\n                    .accountId(\"123456789012\")\n                    .role(\"role2\")\n                    .build())\n                .build())\n            .build());\n\n        final var token1 = config.get(\"token1\");\n        final var token2 = config.get(\"token2\");\n        var httpConnection = new ActionConnection(\"httpConnection\", ActionConnectionArgs.builder()\n            .name(\"My HTTP connection with token auth\")\n            .http(ActionConnectionHttpArgs.builder()\n                .baseUrl(\"https://catfact.ninja\")\n                .tokenAuth(ActionConnectionHttpTokenAuthArgs.builder()\n                    .tokens(                    \n                        ActionConnectionHttpTokenAuthTokenArgs.builder()\n                            .type(\"SECRET\")\n                            .name(\"token1\")\n                            .value(token1)\n                            .build(),\n                        ActionConnectionHttpTokenAuthTokenArgs.builder()\n                            .type(\"SECRET\")\n                            .name(\"token2\")\n                            .value(token2)\n                            .build())\n                    .headers(                    \n                        ActionConnectionHttpTokenAuthHeaderArgs.builder()\n                            .name(\"header-one\")\n                            .value(\"headerval\")\n                            .build(),\n                        ActionConnectionHttpTokenAuthHeaderArgs.builder()\n                            .name(\"h2\")\n                            .value(\"{{ token1 }} test\")\n                            .build())\n                    .urlParameters(                    \n                        ActionConnectionHttpTokenAuthUrlParameterArgs.builder()\n                            .name(\"param1\")\n                            .value(\"{{ token1 }}\")\n                            .build(),\n                        ActionConnectionHttpTokenAuthUrlParameterArgs.builder()\n                            .name(\"param2\")\n                            .value(\"paramVal2\")\n                            .build())\n                    .body(ActionConnectionHttpTokenAuthBodyArgs.builder()\n                        .contentType(\"application/json\")\n                        .content(serializeJson(\n                            jsonObject(\n                                jsonProperty(\"key\", \"mykey\"),\n                                jsonProperty(\"value\", \"maybe with a secret: {{ token2 }}\")\n                            )))\n                        .build())\n                    .build())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nconfiguration:\n  token1:\n    type: string\n  token2:\n    type: string\nresources:\n  awsConnection:\n    type: datadog:ActionConnection\n    name: aws_connection\n    properties:\n      name: My AWS Connection\n      aws:\n        - assumeRole:\n            - accountId: '123456789012'\n              role: role2\n  httpConnection:\n    type: datadog:ActionConnection\n    name: http_connection\n    properties:\n      name: My HTTP connection with token auth\n      http:\n        - baseUrl: https://catfact.ninja\n          tokenAuth:\n            - tokens:\n                - type: SECRET\n                  name: token1\n                  value: ${token1}\n                - type: SECRET\n                  name: token2\n                  value: ${token2}\n              headers:\n                - name: header-one\n                  value: headerval\n                - name: h2\n                  value: '{{ token1 }} test'\n              urlParameters:\n                - name: param1\n                  value: '{{ token1 }}'\n                - name: param2\n                  value: paramVal2\n              body:\n                - contentType: application/json\n                  content:\n                    fn::toJSON:\n                      key: mykey\n                      value: 'maybe with a secret: {{ token2 }}'\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import datadog:index/actionConnection:ActionConnection my_connection 11111111-2222-3333-4444-555555555555\n```\n\n",
+            "properties": {
+                "aws": {
+                    "$ref": "#/types/datadog:index/ActionConnectionAws:ActionConnectionAws",
+                    "description": "Configuration for an AWS connection\n"
+                },
+                "http": {
+                    "$ref": "#/types/datadog:index/ActionConnectionHttp:ActionConnectionHttp",
+                    "description": "Configuration for an HTTP connection\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the connection\n"
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "inputProperties": {
+                "aws": {
+                    "$ref": "#/types/datadog:index/ActionConnectionAws:ActionConnectionAws",
+                    "description": "Configuration for an AWS connection\n"
+                },
+                "http": {
+                    "$ref": "#/types/datadog:index/ActionConnectionHttp:ActionConnectionHttp",
+                    "description": "Configuration for an HTTP connection\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the connection\n"
+                }
+            },
+            "requiredInputs": [
+                "name"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ActionConnection resources.\n",
+                "properties": {
+                    "aws": {
+                        "$ref": "#/types/datadog:index/ActionConnectionAws:ActionConnectionAws",
+                        "description": "Configuration for an AWS connection\n"
+                    },
+                    "http": {
+                        "$ref": "#/types/datadog:index/ActionConnectionHttp:ActionConnectionHttp",
+                        "description": "Configuration for an HTTP connection\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the connection\n"
                     }
                 },
                 "type": "object"
@@ -41426,7 +41887,8 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of role identifiers to associate with the Synthetics global variable.\n"
+                    "description": "A list of role identifiers to associate with the Synthetics global variable. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.\n",
+                    "deprecationMessage": "This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead."
                 },
                 "secure": {
                     "type": "boolean",
@@ -41482,7 +41944,8 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of role identifiers to associate with the Synthetics global variable.\n"
+                    "description": "A list of role identifiers to associate with the Synthetics global variable. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.\n",
+                    "deprecationMessage": "This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead."
                 },
                 "secure": {
                     "type": "boolean",
@@ -41540,7 +42003,8 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "A list of role identifiers to associate with the Synthetics global variable.\n"
+                        "description": "A list of role identifiers to associate with the Synthetics global variable. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.\n",
+                        "deprecationMessage": "This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead."
                     },
                     "secure": {
                         "type": "boolean",
@@ -42784,6 +43248,54 @@
                 "type": "object"
             }
         },
+        "datadog:ms/integrationTeamsWorkflowsWebhookHandle:IntegrationTeamsWorkflowsWebhookHandle": {
+            "description": "Resource for interacting with Datadog Microsoft Teams integration Microsoft Workflows webhook handles.\n",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Your Microsoft Workflows webhook handle name.\n"
+                },
+                "url": {
+                    "type": "string",
+                    "description": "Your Microsoft Workflows webhook URL.\n",
+                    "secret": true
+                }
+            },
+            "required": [
+                "name",
+                "url"
+            ],
+            "inputProperties": {
+                "name": {
+                    "type": "string",
+                    "description": "Your Microsoft Workflows webhook handle name.\n"
+                },
+                "url": {
+                    "type": "string",
+                    "description": "Your Microsoft Workflows webhook URL.\n",
+                    "secret": true
+                }
+            },
+            "requiredInputs": [
+                "name",
+                "url"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering IntegrationTeamsWorkflowsWebhookHandle resources.\n",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Your Microsoft Workflows webhook handle name.\n"
+                    },
+                    "url": {
+                        "type": "string",
+                        "description": "Your Microsoft Workflows webhook URL.\n",
+                        "secret": true
+                    }
+                },
+                "type": "object"
+            }
+        },
         "datadog:opsgenie/serviceObject:ServiceObject": {
             "description": "Resource for interacting with Datadog Opsgenie Service API.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst fakeServiceName = new datadog.opsgenie.ServiceObject(\"fake_service_name\", {\n    name: \"fake_service_name\",\n    opsgenieApiKey: \"00000000-0000-0000-0000-000000000000\",\n    region: \"us\",\n});\nconst fakeServiceName2 = new datadog.opsgenie.ServiceObject(\"fake_service_name_2\", {\n    name: \"fake_service_name_2\",\n    opsgenieApiKey: \"11111111-1111-1111-1111-111111111111\",\n    region: \"eu\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nfake_service_name = datadog.opsgenie.ServiceObject(\"fake_service_name\",\n    name=\"fake_service_name\",\n    opsgenie_api_key=\"00000000-0000-0000-0000-000000000000\",\n    region=\"us\")\nfake_service_name2 = datadog.opsgenie.ServiceObject(\"fake_service_name_2\",\n    name=\"fake_service_name_2\",\n    opsgenie_api_key=\"11111111-1111-1111-1111-111111111111\",\n    region=\"eu\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var fakeServiceName = new Datadog.OpsGenie.ServiceObject(\"fake_service_name\", new()\n    {\n        Name = \"fake_service_name\",\n        OpsgenieApiKey = \"00000000-0000-0000-0000-000000000000\",\n        Region = \"us\",\n    });\n\n    var fakeServiceName2 = new Datadog.OpsGenie.ServiceObject(\"fake_service_name_2\", new()\n    {\n        Name = \"fake_service_name_2\",\n        OpsgenieApiKey = \"11111111-1111-1111-1111-111111111111\",\n        Region = \"eu\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/opsgenie\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := opsgenie.NewServiceObject(ctx, \"fake_service_name\", \u0026opsgenie.ServiceObjectArgs{\n\t\t\tName:           pulumi.String(\"fake_service_name\"),\n\t\t\tOpsgenieApiKey: pulumi.String(\"00000000-0000-0000-0000-000000000000\"),\n\t\t\tRegion:         pulumi.String(\"us\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = opsgenie.NewServiceObject(ctx, \"fake_service_name_2\", \u0026opsgenie.ServiceObjectArgs{\n\t\t\tName:           pulumi.String(\"fake_service_name_2\"),\n\t\t\tOpsgenieApiKey: pulumi.String(\"11111111-1111-1111-1111-111111111111\"),\n\t\t\tRegion:         pulumi.String(\"eu\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.opsgenie.ServiceObject;\nimport com.pulumi.datadog.opsgenie.ServiceObjectArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var fakeServiceName = new ServiceObject(\"fakeServiceName\", ServiceObjectArgs.builder()\n            .name(\"fake_service_name\")\n            .opsgenieApiKey(\"00000000-0000-0000-0000-000000000000\")\n            .region(\"us\")\n            .build());\n\n        var fakeServiceName2 = new ServiceObject(\"fakeServiceName2\", ServiceObjectArgs.builder()\n            .name(\"fake_service_name_2\")\n            .opsgenieApiKey(\"11111111-1111-1111-1111-111111111111\")\n            .region(\"eu\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  fakeServiceName:\n    type: datadog:opsgenie:ServiceObject\n    name: fake_service_name\n    properties:\n      name: fake_service_name\n      opsgenieApiKey: 00000000-0000-0000-0000-000000000000\n      region: us\n  fakeServiceName2:\n    type: datadog:opsgenie:ServiceObject\n    name: fake_service_name_2\n    properties:\n      name: fake_service_name_2\n      opsgenieApiKey: 11111111-1111-1111-1111-111111111111\n      region: eu\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "properties": {
@@ -43124,6 +43636,56 @@
                 "required": [
                     "id",
                     "namespaceRules"
+                ],
+                "type": "object"
+            }
+        },
+        "datadog:index/getActionConnection:getActionConnection": {
+            "description": "A connection that can be used in Actions, including in the Workflow Automation and App Builder products.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst myConnection = datadog.getActionConnection({\n    id: \"11111111-2222-3333-4444-555555555555\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nmy_connection = datadog.get_action_connection(id=\"11111111-2222-3333-4444-555555555555\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var myConnection = Datadog.GetActionConnection.Invoke(new()\n    {\n        Id = \"11111111-2222-3333-4444-555555555555\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.LookupActionConnection(ctx, \u0026datadog.LookupActionConnectionArgs{\n\t\t\tId: \"11111111-2222-3333-4444-555555555555\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.DatadogFunctions;\nimport com.pulumi.datadog.inputs.GetActionConnectionArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var myConnection = DatadogFunctions.getActionConnection(GetActionConnectionArgs.builder()\n            .id(\"11111111-2222-3333-4444-555555555555\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  myConnection:\n    fn::invoke:\n      function: datadog:getActionConnection\n      arguments:\n        id: 11111111-2222-3333-4444-555555555555\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getActionConnection.\n",
+                "properties": {
+                    "aws": {
+                        "$ref": "#/types/datadog:index/getActionConnectionAws:getActionConnectionAws",
+                        "description": "Configuration for an AWS connection\n"
+                    },
+                    "http": {
+                        "$ref": "#/types/datadog:index/getActionConnectionHttp:getActionConnectionHttp",
+                        "description": "Configuration for an HTTP connection\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "ID for Connection.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getActionConnection.\n",
+                "properties": {
+                    "aws": {
+                        "$ref": "#/types/datadog:index/getActionConnectionAws:getActionConnectionAws",
+                        "description": "Configuration for an AWS connection\n"
+                    },
+                    "http": {
+                        "$ref": "#/types/datadog:index/getActionConnectionHttp:getActionConnectionHttp",
+                        "description": "Configuration for an HTTP connection\n"
+                    },
+                    "id": {
+                        "description": "ID for Connection.\n",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Name of the connection\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id",
+                    "name"
                 ],
                 "type": "object"
             }

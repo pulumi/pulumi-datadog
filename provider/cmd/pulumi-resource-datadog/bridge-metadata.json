@@ -1,6 +1,29 @@
 {
     "auto-aliasing": {
         "resources": {
+            "datadog_action_connection": {
+                "current": "datadog:index/actionConnection:ActionConnection",
+                "majorVersion": 4,
+                "fields": {
+                    "http": {
+                        "fields": {
+                            "token_auth": {
+                                "fields": {
+                                    "header": {
+                                        "maxItemsOne": false
+                                    },
+                                    "token": {
+                                        "maxItemsOne": false
+                                    },
+                                    "url_parameter": {
+                                        "maxItemsOne": false
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "datadog_api_key": {
                 "current": "datadog:index/apiKey:ApiKey",
                 "majorVersion": 4
@@ -1962,6 +1985,9 @@
                                                                                     "maxItemsOne": true,
                                                                                     "elem": {
                                                                                         "fields": {
+                                                                                            "group_by": {
+                                                                                                "maxItemsOne": false
+                                                                                            },
                                                                                             "indexes": {
                                                                                                 "maxItemsOne": false
                                                                                             },
@@ -2087,6 +2113,9 @@
                                                                                     "maxItemsOne": false,
                                                                                     "elem": {
                                                                                         "fields": {
+                                                                                            "cell_display_mode_options": {
+                                                                                                "maxItemsOne": true
+                                                                                            },
                                                                                             "conditional_formats": {
                                                                                                 "maxItemsOne": false
                                                                                             },
@@ -3573,6 +3602,9 @@
                                                                                                             "maxItemsOne": false,
                                                                                                             "elem": {
                                                                                                                 "fields": {
+                                                                                                                    "cell_display_mode_options": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    },
                                                                                                                     "conditional_formats": {
                                                                                                                         "maxItemsOne": false
                                                                                                                     },
@@ -7275,6 +7307,9 @@
                                                             "maxItemsOne": true,
                                                             "elem": {
                                                                 "fields": {
+                                                                    "group_by": {
+                                                                        "maxItemsOne": false
+                                                                    },
                                                                     "indexes": {
                                                                         "maxItemsOne": false
                                                                     },
@@ -7400,6 +7435,9 @@
                                                             "maxItemsOne": false,
                                                             "elem": {
                                                                 "fields": {
+                                                                    "cell_display_mode_options": {
+                                                                        "maxItemsOne": true
+                                                                    },
                                                                     "conditional_formats": {
                                                                         "maxItemsOne": false
                                                                     },
@@ -8886,6 +8924,9 @@
                                                                                     "maxItemsOne": false,
                                                                                     "elem": {
                                                                                         "fields": {
+                                                                                            "cell_display_mode_options": {
+                                                                                                "maxItemsOne": true
+                                                                                            },
                                                                                             "conditional_formats": {
                                                                                                 "maxItemsOne": false
                                                                                             },
@@ -12312,6 +12353,10 @@
                 "current": "datadog:ms/integrationTeamsTenantBasedHandle:IntegrationTeamsTenantBasedHandle",
                 "majorVersion": 4
             },
+            "datadog_integration_ms_teams_workflows_webhook_handle": {
+                "current": "datadog:ms/integrationTeamsWorkflowsWebhookHandle:IntegrationTeamsWorkflowsWebhookHandle",
+                "majorVersion": 4
+            },
             "datadog_integration_opsgenie_service_object": {
                 "current": "datadog:opsgenie/serviceObject:ServiceObject",
                 "majorVersion": 4
@@ -14151,6 +14196,9 @@
                                                             "maxItemsOne": true,
                                                             "elem": {
                                                                 "fields": {
+                                                                    "group_by": {
+                                                                        "maxItemsOne": false
+                                                                    },
                                                                     "indexes": {
                                                                         "maxItemsOne": false
                                                                     },
@@ -14242,6 +14290,9 @@
                                                             "maxItemsOne": false,
                                                             "elem": {
                                                                 "fields": {
+                                                                    "cell_display_mode_options": {
+                                                                        "maxItemsOne": true
+                                                                    },
                                                                     "conditional_formats": {
                                                                         "maxItemsOne": false
                                                                     },
@@ -17043,6 +17094,29 @@
             }
         },
         "datasources": {
+            "datadog_action_connection": {
+                "current": "datadog:index/getActionConnection:getActionConnection",
+                "majorVersion": 4,
+                "fields": {
+                    "http": {
+                        "fields": {
+                            "token_auth": {
+                                "fields": {
+                                    "header": {
+                                        "maxItemsOne": false
+                                    },
+                                    "token": {
+                                        "maxItemsOne": false
+                                    },
+                                    "url_parameter": {
+                                        "maxItemsOne": false
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "datadog_api_key": {
                 "current": "datadog:index/getApiKey:getApiKey",
                 "majorVersion": 4
@@ -17687,6 +17761,7 @@
             "datadog:fastly/integrationService:IntegrationService": 1,
             "datadog:gcp/integration:Integration": 1,
             "datadog:gcp/integrationSts:IntegrationSts": 1,
+            "datadog:index/actionConnection:ActionConnection": 1,
             "datadog:index/apiKey:ApiKey": 1,
             "datadog:index/apmRetentionFilter:ApmRetentionFilter": 1,
             "datadog:index/apmRetentionFilterOrder:ApmRetentionFilterOrder": 1,
@@ -17752,6 +17827,7 @@
             "datadog:index/webhook:Webhook": 1,
             "datadog:index/webhookCustomVariable:WebhookCustomVariable": 1,
             "datadog:ms/integrationTeamsTenantBasedHandle:IntegrationTeamsTenantBasedHandle": 1,
+            "datadog:ms/integrationTeamsWorkflowsWebhookHandle:IntegrationTeamsWorkflowsWebhookHandle": 1,
             "datadog:opsgenie/serviceObject:ServiceObject": 0,
             "datadog:pagerduty/integration:Integration": 0,
             "datadog:pagerduty/serviceObject:ServiceObject": 0,
@@ -17762,6 +17838,7 @@
             "datadog:aws/getIntegrationAvailableNamespaces:getIntegrationAvailableNamespaces": 1,
             "datadog:aws/getIntegrationLogsServices:getIntegrationLogsServices": 0,
             "datadog:aws/getIntegrationNamespaceRules:getIntegrationNamespaceRules": 1,
+            "datadog:index/getActionConnection:getActionConnection": 1,
             "datadog:index/getApiKey:getApiKey": 1,
             "datadog:index/getApmRetentionFiltersOrder:getApmRetentionFiltersOrder": 1,
             "datadog:index/getApplicationKey:getApplicationKey": 1,
