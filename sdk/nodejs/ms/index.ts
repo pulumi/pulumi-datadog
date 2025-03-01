@@ -10,6 +10,11 @@ export type IntegrationTeamsTenantBasedHandle = import("./integrationTeamsTenant
 export const IntegrationTeamsTenantBasedHandle: typeof import("./integrationTeamsTenantBasedHandle").IntegrationTeamsTenantBasedHandle = null as any;
 utilities.lazyLoad(exports, ["IntegrationTeamsTenantBasedHandle"], () => require("./integrationTeamsTenantBasedHandle"));
 
+export { IntegrationTeamsWorkflowsWebhookHandleArgs, IntegrationTeamsWorkflowsWebhookHandleState } from "./integrationTeamsWorkflowsWebhookHandle";
+export type IntegrationTeamsWorkflowsWebhookHandle = import("./integrationTeamsWorkflowsWebhookHandle").IntegrationTeamsWorkflowsWebhookHandle;
+export const IntegrationTeamsWorkflowsWebhookHandle: typeof import("./integrationTeamsWorkflowsWebhookHandle").IntegrationTeamsWorkflowsWebhookHandle = null as any;
+utilities.lazyLoad(exports, ["IntegrationTeamsWorkflowsWebhookHandle"], () => require("./integrationTeamsWorkflowsWebhookHandle"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -17,9 +22,12 @@ const _module = {
         switch (type) {
             case "datadog:ms/integrationTeamsTenantBasedHandle:IntegrationTeamsTenantBasedHandle":
                 return new IntegrationTeamsTenantBasedHandle(name, <any>undefined, { urn })
+            case "datadog:ms/integrationTeamsWorkflowsWebhookHandle:IntegrationTeamsWorkflowsWebhookHandle":
+                return new IntegrationTeamsWorkflowsWebhookHandle(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("datadog", "ms/integrationTeamsTenantBasedHandle", _module)
+pulumi.runtime.registerResourceModule("datadog", "ms/integrationTeamsWorkflowsWebhookHandle", _module)

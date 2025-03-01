@@ -22,6 +22,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? CellDisplayMode;
         /// <summary>
+        /// A list of display modes for each table cell.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions? CellDisplayModeOptions;
+        /// <summary>
         /// Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetQueryTableDefinitionRequestFormulaConditionalFormat> ConditionalFormats;
@@ -48,6 +52,8 @@ namespace Pulumi.Datadog.Outputs
 
             string? cellDisplayMode,
 
+            Outputs.DashboardWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions? cellDisplayModeOptions,
+
             ImmutableArray<Outputs.DashboardWidgetQueryTableDefinitionRequestFormulaConditionalFormat> conditionalFormats,
 
             string formulaExpression,
@@ -60,6 +66,7 @@ namespace Pulumi.Datadog.Outputs
         {
             Alias = alias;
             CellDisplayMode = cellDisplayMode;
+            CellDisplayModeOptions = cellDisplayModeOptions;
             ConditionalFormats = conditionalFormats;
             FormulaExpression = formulaExpression;
             Limit = limit;

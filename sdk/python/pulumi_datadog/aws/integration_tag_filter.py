@@ -135,6 +135,8 @@ class IntegrationTagFilter(pulumi.CustomResource):
                  tag_filter_str: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        !>This resource is deprecated - use the `aws.IntegrationAccount` resource instead.
+
         Provides a Datadog AWS tag filter resource. This can be used to create and manage Datadog AWS tag filters.
 
         ## Example Usage
@@ -171,6 +173,8 @@ class IntegrationTagFilter(pulumi.CustomResource):
                  args: IntegrationTagFilterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        !>This resource is deprecated - use the `aws.IntegrationAccount` resource instead.
+
         Provides a Datadog AWS tag filter resource. This can be used to create and manage Datadog AWS tag filters.
 
         ## Example Usage

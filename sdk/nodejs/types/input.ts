@@ -5,6 +5,107 @@ import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
+export interface ActionConnectionAws {
+    /**
+     * Configuration for an assume role AWS connection
+     */
+    assumeRole?: pulumi.Input<inputs.ActionConnectionAwsAssumeRole>;
+}
+
+export interface ActionConnectionAwsAssumeRole {
+    /**
+     * AWS account that the connection is created for
+     */
+    accountId?: pulumi.Input<string>;
+    /**
+     * External ID that specifies which connection can be used to assume the role
+     */
+    externalId?: pulumi.Input<string>;
+    /**
+     * AWS account that will assume the role
+     */
+    principalId?: pulumi.Input<string>;
+    /**
+     * Role to assume
+     */
+    role?: pulumi.Input<string>;
+}
+
+export interface ActionConnectionHttp {
+    /**
+     * Base HTTP url for the integration
+     */
+    baseUrl?: pulumi.Input<string>;
+    /**
+     * Configuration for an HTTP connection that uses token auth
+     */
+    tokenAuth?: pulumi.Input<inputs.ActionConnectionHttpTokenAuth>;
+}
+
+export interface ActionConnectionHttpTokenAuth {
+    /**
+     * Body for HTTP authentication
+     */
+    body?: pulumi.Input<inputs.ActionConnectionHttpTokenAuthBody>;
+    /**
+     * Header for HTTP authentication
+     */
+    headers?: pulumi.Input<pulumi.Input<inputs.ActionConnectionHttpTokenAuthHeader>[]>;
+    /**
+     * Token for HTTP authentication
+     */
+    tokens?: pulumi.Input<pulumi.Input<inputs.ActionConnectionHttpTokenAuthToken>[]>;
+    /**
+     * URL parameter for HTTP authentication
+     */
+    urlParameters?: pulumi.Input<pulumi.Input<inputs.ActionConnectionHttpTokenAuthUrlParameter>[]>;
+}
+
+export interface ActionConnectionHttpTokenAuthBody {
+    /**
+     * Serialized body content
+     */
+    content?: pulumi.Input<string>;
+    /**
+     * Content type of the body
+     */
+    contentType?: pulumi.Input<string>;
+}
+
+export interface ActionConnectionHttpTokenAuthHeader {
+    /**
+     * Header name
+     */
+    name?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ActionConnectionHttpTokenAuthToken {
+    /**
+     * Token name
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Token type
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * Token value
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface ActionConnectionHttpTokenAuthUrlParameter {
+    /**
+     * URL parameter name
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * URL parameter value
+     */
+    value?: pulumi.Input<string>;
+}
+
 export interface ApmRetentionFilterFilter {
     /**
      * The search query - follow the span search syntax, use `AND` between tags and `\` to escape special characters, use nanosecond for duration. Defaults to `"*"`.
@@ -3027,6 +3128,10 @@ export interface DashboardWidgetListStreamDefinitionRequestColumn {
 
 export interface DashboardWidgetListStreamDefinitionRequestQuery {
     /**
+     * Specifies the field for logs pattern clustering. Can only be used with `logsPatternStream`.
+     */
+    clusteringPatternFieldPath?: pulumi.Input<string>;
+    /**
      * Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`.
      */
     dataSource: pulumi.Input<string>;
@@ -3034,6 +3139,10 @@ export interface DashboardWidgetListStreamDefinitionRequestQuery {
      * Size of events displayed in widget. Required if `dataSource` is `eventStream`. Valid values are `s`, `l`.
      */
     eventSize?: pulumi.Input<string>;
+    /**
+     * Group by configuration for the List Stream widget. Group by can only be used with `logsPatternStream` (up to 4 items) or `logsTransactionStream` (one group by item is required) list stream source.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetListStreamDefinitionRequestQueryGroupBy>[]>;
     /**
      * List of indexes.
      */
@@ -3050,6 +3159,13 @@ export interface DashboardWidgetListStreamDefinitionRequestQuery {
      * Storage location (private beta).
      */
     storage?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetListStreamDefinitionRequestQueryGroupBy {
+    /**
+     * Facet name
+     */
+    facet: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetListStreamDefinitionRequestQuerySort {
@@ -3565,6 +3681,10 @@ export interface DashboardWidgetQueryTableDefinitionRequestFormula {
      */
     cellDisplayMode?: pulumi.Input<string>;
     /**
+     * A list of display modes for each table cell.
+     */
+    cellDisplayModeOptions?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions>;
+    /**
      * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
      */
     conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestFormulaConditionalFormat>[]>;
@@ -3584,6 +3704,17 @@ export interface DashboardWidgetQueryTableDefinitionRequestFormula {
      * Styling options for widget formulas.
      */
     style?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestFormulaStyle>;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions {
+    /**
+     * The type of trend line to display. Valid values are `area`, `line`, `bars`.
+     */
+    trendType?: pulumi.Input<string>;
+    /**
+     * The scale of the y-axis. Valid values are `shared`, `independent`.
+     */
+    yScale?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestFormulaConditionalFormat {
@@ -9027,6 +9158,208 @@ export interface DowntimeScheduleRecurringScheduleRecurrence {
      * ISO-8601 Datetime to start the downtime. Must not include a UTC offset. If not provided, the downtime starts the moment it is created.
      */
     start?: pulumi.Input<string>;
+}
+
+export interface GetActionConnectionAws {
+    /**
+     * Configuration for an assume role AWS connection
+     */
+    assumeRole?: inputs.GetActionConnectionAwsAssumeRole;
+}
+
+export interface GetActionConnectionAwsArgs {
+    /**
+     * Configuration for an assume role AWS connection
+     */
+    assumeRole?: pulumi.Input<inputs.GetActionConnectionAwsAssumeRoleArgs>;
+}
+
+export interface GetActionConnectionAwsAssumeRole {
+    /**
+     * AWS account that the connection is created for
+     */
+    accountId?: string;
+    /**
+     * External ID that specifies which connection can be used to assume the role
+     */
+    externalId?: string;
+    /**
+     * AWS account that will assume the role
+     */
+    principalId?: string;
+    /**
+     * Role to assume
+     */
+    role?: string;
+}
+
+export interface GetActionConnectionAwsAssumeRoleArgs {
+    /**
+     * AWS account that the connection is created for
+     */
+    accountId?: pulumi.Input<string>;
+    /**
+     * External ID that specifies which connection can be used to assume the role
+     */
+    externalId?: pulumi.Input<string>;
+    /**
+     * AWS account that will assume the role
+     */
+    principalId?: pulumi.Input<string>;
+    /**
+     * Role to assume
+     */
+    role?: pulumi.Input<string>;
+}
+
+export interface GetActionConnectionHttp {
+    /**
+     * Base HTTP url for the integration
+     */
+    baseUrl?: string;
+    /**
+     * Configuration for an HTTP connection that uses token auth
+     */
+    tokenAuth?: inputs.GetActionConnectionHttpTokenAuth;
+}
+
+export interface GetActionConnectionHttpArgs {
+    /**
+     * Base HTTP url for the integration
+     */
+    baseUrl?: pulumi.Input<string>;
+    /**
+     * Configuration for an HTTP connection that uses token auth
+     */
+    tokenAuth?: pulumi.Input<inputs.GetActionConnectionHttpTokenAuthArgs>;
+}
+
+export interface GetActionConnectionHttpTokenAuth {
+    /**
+     * Body for HTTP authentication
+     */
+    body?: inputs.GetActionConnectionHttpTokenAuthBody;
+    /**
+     * Header for HTTP authentication
+     */
+    headers?: inputs.GetActionConnectionHttpTokenAuthHeader[];
+    /**
+     * Token for HTTP authentication
+     */
+    tokens?: inputs.GetActionConnectionHttpTokenAuthToken[];
+    /**
+     * URL parameter for HTTP authentication
+     */
+    urlParameters?: inputs.GetActionConnectionHttpTokenAuthUrlParameter[];
+}
+
+export interface GetActionConnectionHttpTokenAuthArgs {
+    /**
+     * Body for HTTP authentication
+     */
+    body?: pulumi.Input<inputs.GetActionConnectionHttpTokenAuthBodyArgs>;
+    /**
+     * Header for HTTP authentication
+     */
+    headers?: pulumi.Input<pulumi.Input<inputs.GetActionConnectionHttpTokenAuthHeaderArgs>[]>;
+    /**
+     * Token for HTTP authentication
+     */
+    tokens?: pulumi.Input<pulumi.Input<inputs.GetActionConnectionHttpTokenAuthTokenArgs>[]>;
+    /**
+     * URL parameter for HTTP authentication
+     */
+    urlParameters?: pulumi.Input<pulumi.Input<inputs.GetActionConnectionHttpTokenAuthUrlParameterArgs>[]>;
+}
+
+export interface GetActionConnectionHttpTokenAuthBody {
+    /**
+     * Serialized body content
+     */
+    content?: string;
+    /**
+     * Content type of the body
+     */
+    contentType?: string;
+}
+
+export interface GetActionConnectionHttpTokenAuthBodyArgs {
+    /**
+     * Serialized body content
+     */
+    content?: pulumi.Input<string>;
+    /**
+     * Content type of the body
+     */
+    contentType?: pulumi.Input<string>;
+}
+
+export interface GetActionConnectionHttpTokenAuthHeader {
+    /**
+     * Header name
+     */
+    name?: string;
+    value?: string;
+}
+
+export interface GetActionConnectionHttpTokenAuthHeaderArgs {
+    /**
+     * Header name
+     */
+    name?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface GetActionConnectionHttpTokenAuthToken {
+    /**
+     * Token name
+     */
+    name?: string;
+    /**
+     * Token type
+     */
+    type?: string;
+    /**
+     * Token value
+     */
+    value?: string;
+}
+
+export interface GetActionConnectionHttpTokenAuthTokenArgs {
+    /**
+     * Token name
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Token type
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * Token value
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface GetActionConnectionHttpTokenAuthUrlParameter {
+    /**
+     * URL parameter name
+     */
+    name?: string;
+    /**
+     * URL parameter value
+     */
+    value?: string;
+}
+
+export interface GetActionConnectionHttpTokenAuthUrlParameterArgs {
+    /**
+     * URL parameter name
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * URL parameter value
+     */
+    value?: pulumi.Input<string>;
 }
 
 export interface GetTeamsTeam {
@@ -14885,6 +15218,10 @@ export interface PowerpackWidgetListStreamDefinitionRequestColumn {
 
 export interface PowerpackWidgetListStreamDefinitionRequestQuery {
     /**
+     * Specifies the field for logs pattern clustering. Can only be used with `logsPatternStream`.
+     */
+    clusteringPatternFieldPath?: pulumi.Input<string>;
+    /**
      * Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`.
      */
     dataSource: pulumi.Input<string>;
@@ -14892,6 +15229,10 @@ export interface PowerpackWidgetListStreamDefinitionRequestQuery {
      * Size of events displayed in widget. Required if `dataSource` is `eventStream`. Valid values are `s`, `l`.
      */
     eventSize?: pulumi.Input<string>;
+    /**
+     * Group by configuration for the List Stream widget. Group by can only be used with `logsPatternStream` (up to 4 items) or `logsTransactionStream` (one group by item is required) list stream source.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.PowerpackWidgetListStreamDefinitionRequestQueryGroupBy>[]>;
     /**
      * List of indexes.
      */
@@ -14908,6 +15249,13 @@ export interface PowerpackWidgetListStreamDefinitionRequestQuery {
      * Storage location (private beta).
      */
     storage?: pulumi.Input<string>;
+}
+
+export interface PowerpackWidgetListStreamDefinitionRequestQueryGroupBy {
+    /**
+     * Facet name
+     */
+    facet: pulumi.Input<string>;
 }
 
 export interface PowerpackWidgetListStreamDefinitionRequestQuerySort {
@@ -15355,6 +15703,10 @@ export interface PowerpackWidgetQueryTableDefinitionRequestFormula {
      */
     cellDisplayMode?: pulumi.Input<string>;
     /**
+     * A list of display modes for each table cell.
+     */
+    cellDisplayModeOptions?: pulumi.Input<inputs.PowerpackWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions>;
+    /**
      * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
      */
     conditionalFormats?: pulumi.Input<pulumi.Input<inputs.PowerpackWidgetQueryTableDefinitionRequestFormulaConditionalFormat>[]>;
@@ -15374,6 +15726,17 @@ export interface PowerpackWidgetQueryTableDefinitionRequestFormula {
      * Styling options for widget formulas.
      */
     style?: pulumi.Input<inputs.PowerpackWidgetQueryTableDefinitionRequestFormulaStyle>;
+}
+
+export interface PowerpackWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions {
+    /**
+     * The type of trend line to display. Valid values are `area`, `line`, `bars`.
+     */
+    trendType?: pulumi.Input<string>;
+    /**
+     * The scale of the y-axis. Valid values are `shared`, `independent`.
+     */
+    yScale?: pulumi.Input<string>;
 }
 
 export interface PowerpackWidgetQueryTableDefinitionRequestFormulaConditionalFormat {
@@ -23277,7 +23640,9 @@ export interface SyntheticsGlobalVariableParseTestOptionsParser {
 
 export interface SyntheticsPrivateLocationMetadata {
     /**
-     * A list of role identifiers pulled from the Roles API to restrict read and write access.
+     * A list of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
+     *
+     * @deprecated This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
      */
     restrictedRoles?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -24001,6 +24366,9 @@ export interface SyntheticsTestConfigVariable {
 
 export interface SyntheticsTestMobileOptionsList {
     allowApplicationCrash?: pulumi.Input<boolean>;
+    /**
+     * Restriction policy bindings for the Synthetic mobile test. Should not be used in parallel with a `datadog.RestrictionPolicy` resource
+     */
     bindings?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestMobileOptionsListBinding>[]>;
     /**
      * CI/CD options for a Synthetic test.
@@ -24025,7 +24393,9 @@ export interface SyntheticsTestMobileOptionsList {
      */
     noScreenshot?: pulumi.Input<boolean>;
     /**
-     * A list of role identifiers pulled from the Roles API to restrict read and write access.
+     * A list of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
+     *
+     * @deprecated This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
      */
     restrictedRoles?: pulumi.Input<pulumi.Input<string>[]>;
     retry?: pulumi.Input<inputs.SyntheticsTestMobileOptionsListRetry>;
@@ -24307,7 +24677,9 @@ export interface SyntheticsTestOptionsList {
      */
     noScreenshot?: pulumi.Input<boolean>;
     /**
-     * A list of role identifiers pulled from the Roles API to restrict read and write access.
+     * A list of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
+     *
+     * @deprecated This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
      */
     restrictedRoles?: pulumi.Input<pulumi.Input<string>[]>;
     retry?: pulumi.Input<inputs.SyntheticsTestOptionsListRetry>;

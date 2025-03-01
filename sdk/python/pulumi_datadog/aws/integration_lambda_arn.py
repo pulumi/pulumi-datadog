@@ -103,6 +103,8 @@ class IntegrationLambdaArn(pulumi.CustomResource):
                  lambda_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        !>This resource is deprecated - use the `aws.IntegrationAccount` resource instead.
+
         Provides a Datadog - Amazon Web Services integration Lambda ARN resource. This can be used to create and manage the log collection Lambdas for an account.
 
         Update operations are currently not supported with datadog API so any change forces a new resource.
@@ -143,6 +145,8 @@ class IntegrationLambdaArn(pulumi.CustomResource):
                  args: IntegrationLambdaArnArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        !>This resource is deprecated - use the `aws.IntegrationAccount` resource instead.
+
         Provides a Datadog - Amazon Web Services integration Lambda ARN resource. This can be used to create and manage the log collection Lambdas for an account.
 
         Update operations are currently not supported with datadog API so any change forces a new resource.

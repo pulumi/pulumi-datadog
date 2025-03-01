@@ -12,6 +12,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// !>This resource is deprecated - use the `aws.IntegrationAccount` resource instead.
+//
 // Provides a Datadog AWS tag filter resource. This can be used to create and manage Datadog AWS tag filters.
 //
 // ## Example Usage

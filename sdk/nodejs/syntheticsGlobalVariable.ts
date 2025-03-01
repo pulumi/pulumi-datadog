@@ -91,7 +91,9 @@ export class SyntheticsGlobalVariable extends pulumi.CustomResource {
      */
     public readonly parseTestOptions!: pulumi.Output<outputs.SyntheticsGlobalVariableParseTestOptions | undefined>;
     /**
-     * A list of role identifiers to associate with the Synthetics global variable.
+     * A list of role identifiers to associate with the Synthetics global variable. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
+     *
+     * @deprecated This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
      */
     public readonly restrictedRoles!: pulumi.Output<string[] | undefined>;
     /**
@@ -188,7 +190,9 @@ export interface SyntheticsGlobalVariableState {
      */
     parseTestOptions?: pulumi.Input<inputs.SyntheticsGlobalVariableParseTestOptions>;
     /**
-     * A list of role identifiers to associate with the Synthetics global variable.
+     * A list of role identifiers to associate with the Synthetics global variable. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
+     *
+     * @deprecated This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
      */
     restrictedRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -238,7 +242,9 @@ export interface SyntheticsGlobalVariableArgs {
      */
     parseTestOptions?: pulumi.Input<inputs.SyntheticsGlobalVariableParseTestOptions>;
     /**
-     * A list of role identifiers to associate with the Synthetics global variable.
+     * A list of role identifiers to associate with the Synthetics global variable. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
+     *
+     * @deprecated This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
      */
     restrictedRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**

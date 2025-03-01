@@ -24,6 +24,12 @@ namespace Pulumi.Datadog.Inputs
         [Input("cellDisplayMode")]
         public Input<string>? CellDisplayMode { get; set; }
 
+        /// <summary>
+        /// A list of display modes for each table cell.
+        /// </summary>
+        [Input("cellDisplayModeOptions")]
+        public Input<Inputs.PowerpackWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsArgs>? CellDisplayModeOptions { get; set; }
+
         [Input("conditionalFormats")]
         private InputList<Inputs.PowerpackWidgetQueryTableDefinitionRequestFormulaConditionalFormatArgs>? _conditionalFormats;
 

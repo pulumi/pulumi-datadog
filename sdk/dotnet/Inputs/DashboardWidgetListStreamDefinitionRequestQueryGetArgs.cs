@@ -13,6 +13,12 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetListStreamDefinitionRequestQueryGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies the field for logs pattern clustering. Can only be used with `logs_pattern_stream`.
+        /// </summary>
+        [Input("clusteringPatternFieldPath")]
+        public Input<string>? ClusteringPatternFieldPath { get; set; }
+
+        /// <summary>
         /// Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`, `llm_observability_stream`.
         /// </summary>
         [Input("dataSource", required: true)]
@@ -23,6 +29,18 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("eventSize")]
         public Input<string>? EventSize { get; set; }
+
+        [Input("groupBies")]
+        private InputList<Inputs.DashboardWidgetListStreamDefinitionRequestQueryGroupByGetArgs>? _groupBies;
+
+        /// <summary>
+        /// Group by configuration for the List Stream widget. Group by can only be used with `logs_pattern_stream` (up to 4 items) or `logs_transaction_stream` (one group by item is required) list stream source.
+        /// </summary>
+        public InputList<Inputs.DashboardWidgetListStreamDefinitionRequestQueryGroupByGetArgs> GroupBies
+        {
+            get => _groupBies ?? (_groupBies = new InputList<Inputs.DashboardWidgetListStreamDefinitionRequestQueryGroupByGetArgs>());
+            set => _groupBies = value;
+        }
 
         [Input("indexes")]
         private InputList<string>? _indexes;

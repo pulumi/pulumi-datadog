@@ -5,6 +5,7 @@
 from . import _utilities
 import typing
 # Export this package's modules as members:
+from .action_connection import *
 from .api_key import *
 from .apm_retention_filter import *
 from .apm_retention_filter_order import *
@@ -20,6 +21,7 @@ from .dashboard_list import *
 from .domain_allowlist import *
 from .downtime import *
 from .downtime_schedule import *
+from .get_action_connection import *
 from .get_api_key import *
 from .get_apm_retention_filters_order import *
 from .get_application_key import *
@@ -262,6 +264,14 @@ _utilities.register(
   "fqn": "pulumi_datadog.gcp",
   "classes": {
    "datadog:gcp/integrationSts:IntegrationSts": "IntegrationSts"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/actionConnection",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/actionConnection:ActionConnection": "ActionConnection"
   }
  },
  {
@@ -782,6 +792,14 @@ _utilities.register(
   "fqn": "pulumi_datadog.ms",
   "classes": {
    "datadog:ms/integrationTeamsTenantBasedHandle:IntegrationTeamsTenantBasedHandle": "IntegrationTeamsTenantBasedHandle"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "ms/integrationTeamsWorkflowsWebhookHandle",
+  "fqn": "pulumi_datadog.ms",
+  "classes": {
+   "datadog:ms/integrationTeamsWorkflowsWebhookHandle:IntegrationTeamsWorkflowsWebhookHandle": "IntegrationTeamsWorkflowsWebhookHandle"
   }
  },
  {

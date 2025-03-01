@@ -13,6 +13,7 @@
         "strict": true
     },
     "files": [
+        "actionConnection.ts",
         "apiKey.ts",
         "apmRetentionFilter.ts",
         "apmRetentionFilterOrder.ts",
@@ -54,6 +55,7 @@
         "gcp/index.ts",
         "gcp/integration.ts",
         "gcp/integrationSts.ts",
+        "getActionConnection.ts",
         "getApiKey.ts",
         "getApmRetentionFiltersOrder.ts",
         "getApplicationKey.ts",
@@ -111,6 +113,7 @@
         "monitorJson.ts",
         "ms/index.ts",
         "ms/integrationTeamsTenantBasedHandle.ts",
+        "ms/integrationTeamsWorkflowsWebhookHandle.ts",
         "openapiApi.ts",
         "opsgenie/index.ts",
         "opsgenie/serviceObject.ts",

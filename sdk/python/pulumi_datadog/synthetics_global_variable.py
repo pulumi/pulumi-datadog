@@ -41,7 +41,7 @@ class SyntheticsGlobalVariableArgs:
         :param pulumi.Input['SyntheticsGlobalVariableOptionsArgs'] options: Additional options for the variable, such as a MFA token.
         :param pulumi.Input[str] parse_test_id: Id of the Synthetics test to use for a variable from test.
         :param pulumi.Input['SyntheticsGlobalVariableParseTestOptionsArgs'] parse_test_options: ID of the Synthetics test to use a source of the global variable value.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: A list of role identifiers to associate with the Synthetics global variable.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: A list of role identifiers to associate with the Synthetics global variable. **Deprecated.** This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
         :param pulumi.Input[bool] secure: If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` or `is_fido` is set to `true`. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics global variable.
         :param pulumi.Input[str] value: The value of the global variable. This setting is ignored if `is_fido` is set to `true` and required otherwise.
@@ -59,6 +59,9 @@ class SyntheticsGlobalVariableArgs:
             pulumi.set(__self__, "parse_test_id", parse_test_id)
         if parse_test_options is not None:
             pulumi.set(__self__, "parse_test_options", parse_test_options)
+        if restricted_roles is not None:
+            warnings.warn("""This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.""", DeprecationWarning)
+            pulumi.log.warn("""restricted_roles is deprecated: This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.""")
         if restricted_roles is not None:
             pulumi.set(__self__, "restricted_roles", restricted_roles)
         if secure is not None:
@@ -154,9 +157,10 @@ class SyntheticsGlobalVariableArgs:
 
     @property
     @pulumi.getter(name="restrictedRoles")
+    @_utilities.deprecated("""This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.""")
     def restricted_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of role identifiers to associate with the Synthetics global variable.
+        A list of role identifiers to associate with the Synthetics global variable. **Deprecated.** This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
         """
         return pulumi.get(self, "restricted_roles")
 
@@ -224,7 +228,7 @@ class _SyntheticsGlobalVariableState:
         :param pulumi.Input['SyntheticsGlobalVariableOptionsArgs'] options: Additional options for the variable, such as a MFA token.
         :param pulumi.Input[str] parse_test_id: Id of the Synthetics test to use for a variable from test.
         :param pulumi.Input['SyntheticsGlobalVariableParseTestOptionsArgs'] parse_test_options: ID of the Synthetics test to use a source of the global variable value.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: A list of role identifiers to associate with the Synthetics global variable.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: A list of role identifiers to associate with the Synthetics global variable. **Deprecated.** This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
         :param pulumi.Input[bool] secure: If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` or `is_fido` is set to `true`. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics global variable.
         :param pulumi.Input[str] value: The value of the global variable. This setting is ignored if `is_fido` is set to `true` and required otherwise.
@@ -243,6 +247,9 @@ class _SyntheticsGlobalVariableState:
             pulumi.set(__self__, "parse_test_id", parse_test_id)
         if parse_test_options is not None:
             pulumi.set(__self__, "parse_test_options", parse_test_options)
+        if restricted_roles is not None:
+            warnings.warn("""This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.""", DeprecationWarning)
+            pulumi.log.warn("""restricted_roles is deprecated: This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.""")
         if restricted_roles is not None:
             pulumi.set(__self__, "restricted_roles", restricted_roles)
         if secure is not None:
@@ -338,9 +345,10 @@ class _SyntheticsGlobalVariableState:
 
     @property
     @pulumi.getter(name="restrictedRoles")
+    @_utilities.deprecated("""This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.""")
     def restricted_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of role identifiers to associate with the Synthetics global variable.
+        A list of role identifiers to associate with the Synthetics global variable. **Deprecated.** This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
         """
         return pulumi.get(self, "restricted_roles")
 
@@ -438,7 +446,7 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
         :param pulumi.Input[Union['SyntheticsGlobalVariableOptionsArgs', 'SyntheticsGlobalVariableOptionsArgsDict']] options: Additional options for the variable, such as a MFA token.
         :param pulumi.Input[str] parse_test_id: Id of the Synthetics test to use for a variable from test.
         :param pulumi.Input[Union['SyntheticsGlobalVariableParseTestOptionsArgs', 'SyntheticsGlobalVariableParseTestOptionsArgsDict']] parse_test_options: ID of the Synthetics test to use a source of the global variable value.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: A list of role identifiers to associate with the Synthetics global variable.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: A list of role identifiers to associate with the Synthetics global variable. **Deprecated.** This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
         :param pulumi.Input[bool] secure: If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` or `is_fido` is set to `true`. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics global variable.
         :param pulumi.Input[str] value: The value of the global variable. This setting is ignored if `is_fido` is set to `true` and required otherwise.
@@ -561,7 +569,7 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
         :param pulumi.Input[Union['SyntheticsGlobalVariableOptionsArgs', 'SyntheticsGlobalVariableOptionsArgsDict']] options: Additional options for the variable, such as a MFA token.
         :param pulumi.Input[str] parse_test_id: Id of the Synthetics test to use for a variable from test.
         :param pulumi.Input[Union['SyntheticsGlobalVariableParseTestOptionsArgs', 'SyntheticsGlobalVariableParseTestOptionsArgsDict']] parse_test_options: ID of the Synthetics test to use a source of the global variable value.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: A list of role identifiers to associate with the Synthetics global variable.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: A list of role identifiers to associate with the Synthetics global variable. **Deprecated.** This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
         :param pulumi.Input[bool] secure: If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` or `is_fido` is set to `true`. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics global variable.
         :param pulumi.Input[str] value: The value of the global variable. This setting is ignored if `is_fido` is set to `true` and required otherwise.
@@ -641,9 +649,10 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="restrictedRoles")
+    @_utilities.deprecated("""This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.""")
     def restricted_roles(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        A list of role identifiers to associate with the Synthetics global variable.
+        A list of role identifiers to associate with the Synthetics global variable. **Deprecated.** This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
         """
         return pulumi.get(self, "restricted_roles")
 

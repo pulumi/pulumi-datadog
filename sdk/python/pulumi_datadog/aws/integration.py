@@ -455,6 +455,8 @@ class Integration(pulumi.CustomResource):
                  secret_access_key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        !>This resource is deprecated - use the `aws.IntegrationAccount` resource instead.
+
         Provides a Datadog - Amazon Web Services integration resource. This can be used to create and manage Datadog - Amazon Web Services integration.
 
         ## Example Usage
@@ -512,6 +514,8 @@ class Integration(pulumi.CustomResource):
                  args: Optional[IntegrationArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        !>This resource is deprecated - use the `aws.IntegrationAccount` resource instead.
+
         Provides a Datadog - Amazon Web Services integration resource. This can be used to create and manage Datadog - Amazon Web Services integration.
 
         ## Example Usage

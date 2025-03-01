@@ -32,9 +32,17 @@ public final class SyntheticsTestMobileOptionsListArgs extends com.pulumi.resour
         return Optional.ofNullable(this.allowApplicationCrash);
     }
 
+    /**
+     * Restriction policy bindings for the Synthetic mobile test. Should not be used in parallel with a `datadog.RestrictionPolicy` resource
+     * 
+     */
     @Import(name="bindings")
     private @Nullable Output<List<SyntheticsTestMobileOptionsListBindingArgs>> bindings;
 
+    /**
+     * @return Restriction policy bindings for the Synthetic mobile test. Should not be used in parallel with a `datadog.RestrictionPolicy` resource
+     * 
+     */
     public Optional<Output<List<SyntheticsTestMobileOptionsListBindingArgs>>> bindings() {
         return Optional.ofNullable(this.bindings);
     }
@@ -142,16 +150,24 @@ public final class SyntheticsTestMobileOptionsListArgs extends com.pulumi.resour
     }
 
     /**
-     * A list of role identifiers pulled from the Roles API to restrict read and write access.
+     * A list of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
+     * 
+     * @deprecated
+     * This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
      * 
      */
+    @Deprecated /* This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead. */
     @Import(name="restrictedRoles")
     private @Nullable Output<List<String>> restrictedRoles;
 
     /**
-     * @return A list of role identifiers pulled from the Roles API to restrict read and write access.
+     * @return A list of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
+     * 
+     * @deprecated
+     * This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
      * 
      */
+    @Deprecated /* This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead. */
     public Optional<Output<List<String>>> restrictedRoles() {
         return Optional.ofNullable(this.restrictedRoles);
     }
@@ -249,15 +265,33 @@ public final class SyntheticsTestMobileOptionsListArgs extends com.pulumi.resour
             return allowApplicationCrash(Output.of(allowApplicationCrash));
         }
 
+        /**
+         * @param bindings Restriction policy bindings for the Synthetic mobile test. Should not be used in parallel with a `datadog.RestrictionPolicy` resource
+         * 
+         * @return builder
+         * 
+         */
         public Builder bindings(@Nullable Output<List<SyntheticsTestMobileOptionsListBindingArgs>> bindings) {
             $.bindings = bindings;
             return this;
         }
 
+        /**
+         * @param bindings Restriction policy bindings for the Synthetic mobile test. Should not be used in parallel with a `datadog.RestrictionPolicy` resource
+         * 
+         * @return builder
+         * 
+         */
         public Builder bindings(List<SyntheticsTestMobileOptionsListBindingArgs> bindings) {
             return bindings(Output.of(bindings));
         }
 
+        /**
+         * @param bindings Restriction policy bindings for the Synthetic mobile test. Should not be used in parallel with a `datadog.RestrictionPolicy` resource
+         * 
+         * @return builder
+         * 
+         */
         public Builder bindings(SyntheticsTestMobileOptionsListBindingArgs... bindings) {
             return bindings(List.of(bindings));
         }
@@ -405,32 +439,44 @@ public final class SyntheticsTestMobileOptionsListArgs extends com.pulumi.resour
         }
 
         /**
-         * @param restrictedRoles A list of role identifiers pulled from the Roles API to restrict read and write access.
+         * @param restrictedRoles A list of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
+         * 
          */
+        @Deprecated /* This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead. */
         public Builder restrictedRoles(@Nullable Output<List<String>> restrictedRoles) {
             $.restrictedRoles = restrictedRoles;
             return this;
         }
 
         /**
-         * @param restrictedRoles A list of role identifiers pulled from the Roles API to restrict read and write access.
+         * @param restrictedRoles A list of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
+         * 
          */
+        @Deprecated /* This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead. */
         public Builder restrictedRoles(List<String> restrictedRoles) {
             return restrictedRoles(Output.of(restrictedRoles));
         }
 
         /**
-         * @param restrictedRoles A list of role identifiers pulled from the Roles API to restrict read and write access.
+         * @param restrictedRoles A list of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
+         * 
          */
+        @Deprecated /* This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead. */
         public Builder restrictedRoles(String... restrictedRoles) {
             return restrictedRoles(List.of(restrictedRoles));
         }

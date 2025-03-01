@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.PowerpackWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions;
 import com.pulumi.datadog.outputs.PowerpackWidgetQueryTableDefinitionRequestFormulaConditionalFormat;
 import com.pulumi.datadog.outputs.PowerpackWidgetQueryTableDefinitionRequestFormulaLimit;
 import com.pulumi.datadog.outputs.PowerpackWidgetQueryTableDefinitionRequestFormulaNumberFormat;
@@ -27,6 +28,11 @@ public final class PowerpackWidgetQueryTableDefinitionRequestFormula {
      * 
      */
     private @Nullable String cellDisplayMode;
+    /**
+     * @return A list of display modes for each table cell.
+     * 
+     */
+    private @Nullable PowerpackWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions cellDisplayModeOptions;
     /**
      * @return Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
      * 
@@ -67,6 +73,13 @@ public final class PowerpackWidgetQueryTableDefinitionRequestFormula {
      */
     public Optional<String> cellDisplayMode() {
         return Optional.ofNullable(this.cellDisplayMode);
+    }
+    /**
+     * @return A list of display modes for each table cell.
+     * 
+     */
+    public Optional<PowerpackWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions> cellDisplayModeOptions() {
+        return Optional.ofNullable(this.cellDisplayModeOptions);
     }
     /**
      * @return Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
@@ -115,6 +128,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequestFormula {
     public static final class Builder {
         private @Nullable String alias;
         private @Nullable String cellDisplayMode;
+        private @Nullable PowerpackWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions cellDisplayModeOptions;
         private @Nullable List<PowerpackWidgetQueryTableDefinitionRequestFormulaConditionalFormat> conditionalFormats;
         private String formulaExpression;
         private @Nullable PowerpackWidgetQueryTableDefinitionRequestFormulaLimit limit;
@@ -125,6 +139,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequestFormula {
     	      Objects.requireNonNull(defaults);
     	      this.alias = defaults.alias;
     	      this.cellDisplayMode = defaults.cellDisplayMode;
+    	      this.cellDisplayModeOptions = defaults.cellDisplayModeOptions;
     	      this.conditionalFormats = defaults.conditionalFormats;
     	      this.formulaExpression = defaults.formulaExpression;
     	      this.limit = defaults.limit;
@@ -142,6 +157,12 @@ public final class PowerpackWidgetQueryTableDefinitionRequestFormula {
         public Builder cellDisplayMode(@Nullable String cellDisplayMode) {
 
             this.cellDisplayMode = cellDisplayMode;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder cellDisplayModeOptions(@Nullable PowerpackWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions cellDisplayModeOptions) {
+
+            this.cellDisplayModeOptions = cellDisplayModeOptions;
             return this;
         }
         @CustomType.Setter
@@ -183,6 +204,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequestFormula {
             final var _resultValue = new PowerpackWidgetQueryTableDefinitionRequestFormula();
             _resultValue.alias = alias;
             _resultValue.cellDisplayMode = cellDisplayMode;
+            _resultValue.cellDisplayModeOptions = cellDisplayModeOptions;
             _resultValue.conditionalFormats = conditionalFormats;
             _resultValue.formulaExpression = formulaExpression;
             _resultValue.limit = limit;

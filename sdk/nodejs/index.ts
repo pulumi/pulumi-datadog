@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 // Export members:
+export { ActionConnectionArgs, ActionConnectionState } from "./actionConnection";
+export type ActionConnection = import("./actionConnection").ActionConnection;
+export const ActionConnection: typeof import("./actionConnection").ActionConnection = null as any;
+utilities.lazyLoad(exports, ["ActionConnection"], () => require("./actionConnection"));
+
 export { ApiKeyArgs, ApiKeyState } from "./apiKey";
 export type ApiKey = import("./apiKey").ApiKey;
 export const ApiKey: typeof import("./apiKey").ApiKey = null as any;
@@ -79,6 +84,11 @@ export { DowntimeScheduleArgs, DowntimeScheduleState } from "./downtimeSchedule"
 export type DowntimeSchedule = import("./downtimeSchedule").DowntimeSchedule;
 export const DowntimeSchedule: typeof import("./downtimeSchedule").DowntimeSchedule = null as any;
 utilities.lazyLoad(exports, ["DowntimeSchedule"], () => require("./downtimeSchedule"));
+
+export { GetActionConnectionArgs, GetActionConnectionResult, GetActionConnectionOutputArgs } from "./getActionConnection";
+export const getActionConnection: typeof import("./getActionConnection").getActionConnection = null as any;
+export const getActionConnectionOutput: typeof import("./getActionConnection").getActionConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getActionConnection","getActionConnectionOutput"], () => require("./getActionConnection"));
 
 export { GetApiKeyArgs, GetApiKeyResult, GetApiKeyOutputArgs } from "./getApiKey";
 export const getApiKey: typeof import("./getApiKey").getApiKey = null as any;
@@ -559,6 +569,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "datadog:index/actionConnection:ActionConnection":
+                return new ActionConnection(name, <any>undefined, { urn })
             case "datadog:index/apiKey:ApiKey":
                 return new ApiKey(name, <any>undefined, { urn })
             case "datadog:index/apmRetentionFilter:ApmRetentionFilter":
@@ -692,6 +704,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("datadog", "index/actionConnection", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/apiKey", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/apmRetentionFilter", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/apmRetentionFilterOrder", _module)

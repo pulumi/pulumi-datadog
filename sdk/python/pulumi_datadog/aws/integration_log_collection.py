@@ -103,6 +103,8 @@ class IntegrationLogCollection(pulumi.CustomResource):
                  services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
+        !>This resource is deprecated - use the `aws.IntegrationAccount` resource instead.
+
         Provides a Datadog - Amazon Web Services integration log collection resource. This can be used to manage which AWS services logs are collected from for an account.
 
         ## Example Usage
@@ -137,6 +139,8 @@ class IntegrationLogCollection(pulumi.CustomResource):
                  args: IntegrationLogCollectionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        !>This resource is deprecated - use the `aws.IntegrationAccount` resource instead.
+
         Provides a Datadog - Amazon Web Services integration log collection resource. This can be used to manage which AWS services logs are collected from for an account.
 
         ## Example Usage

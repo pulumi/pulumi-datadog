@@ -17,6 +17,10 @@ namespace Pulumi.Datadog.Inputs
 
         [Input("bindings")]
         private InputList<Inputs.SyntheticsTestMobileOptionsListBindingGetArgs>? _bindings;
+
+        /// <summary>
+        /// Restriction policy bindings for the Synthetic mobile test. Should not be used in parallel with a `datadog.RestrictionPolicy` resource
+        /// </summary>
         public InputList<Inputs.SyntheticsTestMobileOptionsListBindingGetArgs> Bindings
         {
             get => _bindings ?? (_bindings = new InputList<Inputs.SyntheticsTestMobileOptionsListBindingGetArgs>());
@@ -74,8 +78,9 @@ namespace Pulumi.Datadog.Inputs
         private InputList<string>? _restrictedRoles;
 
         /// <summary>
-        /// A list of role identifiers pulled from the Roles API to restrict read and write access.
+        /// A list of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
         /// </summary>
+        [Obsolete(@"This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.")]
         public InputList<string> RestrictedRoles
         {
             get => _restrictedRoles ?? (_restrictedRoles = new InputList<string>());

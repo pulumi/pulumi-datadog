@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "datadog:index/actionConnection:ActionConnection":
+		r = &ActionConnection{}
 	case "datadog:index/apiKey:ApiKey":
 		r = &ApiKey{}
 	case "datadog:index/apmRetentionFilter:ApmRetentionFilter":
@@ -180,6 +182,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/actionConnection",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/apiKey",

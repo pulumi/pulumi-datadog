@@ -22,6 +22,10 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SyntheticsTestMobileOptionsList {
     private @Nullable Boolean allowApplicationCrash;
+    /**
+     * @return Restriction policy bindings for the Synthetic mobile test. Should not be used in parallel with a `datadog.RestrictionPolicy` resource
+     * 
+     */
     private @Nullable List<SyntheticsTestMobileOptionsListBinding> bindings;
     /**
      * @return CI/CD options for a Synthetic test.
@@ -50,9 +54,13 @@ public final class SyntheticsTestMobileOptionsList {
      */
     private @Nullable Boolean noScreenshot;
     /**
-     * @return A list of role identifiers pulled from the Roles API to restrict read and write access.
+     * @return A list of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
+     * 
+     * @deprecated
+     * This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
      * 
      */
+    @Deprecated /* This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead. */
     private @Nullable List<String> restrictedRoles;
     private @Nullable SyntheticsTestMobileOptionsListRetry retry;
     /**
@@ -71,6 +79,10 @@ public final class SyntheticsTestMobileOptionsList {
     public Optional<Boolean> allowApplicationCrash() {
         return Optional.ofNullable(this.allowApplicationCrash);
     }
+    /**
+     * @return Restriction policy bindings for the Synthetic mobile test. Should not be used in parallel with a `datadog.RestrictionPolicy` resource
+     * 
+     */
     public List<SyntheticsTestMobileOptionsListBinding> bindings() {
         return this.bindings == null ? List.of() : this.bindings;
     }
@@ -121,9 +133,13 @@ public final class SyntheticsTestMobileOptionsList {
         return Optional.ofNullable(this.noScreenshot);
     }
     /**
-     * @return A list of role identifiers pulled from the Roles API to restrict read and write access.
+     * @return A list of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
+     * 
+     * @deprecated
+     * This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
      * 
      */
+    @Deprecated /* This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead. */
     public List<String> restrictedRoles() {
         return this.restrictedRoles == null ? List.of() : this.restrictedRoles;
     }

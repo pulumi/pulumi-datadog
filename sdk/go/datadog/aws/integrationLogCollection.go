@@ -12,6 +12,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// !>This resource is deprecated - use the `aws.IntegrationAccount` resource instead.
+//
 // Provides a Datadog - Amazon Web Services integration log collection resource. This can be used to manage which AWS services logs are collected from for an account.
 //
 // ## Example Usage

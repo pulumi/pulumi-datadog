@@ -15,6 +15,8 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
+ * !&gt;This resource is deprecated - use the `datadog.aws.IntegrationAccount` resource instead.
+ * 
  * Provides a Datadog - Amazon Web Services integration log collection resource. This can be used to manage which AWS services logs are collected from for an account.
  * 
  * ## Example Usage

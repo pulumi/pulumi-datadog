@@ -11,6 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// !>This resource is deprecated - use the `aws.IntegrationAccount` resource instead.
+//
 // Provides a Datadog - Amazon Web Services integration resource. This can be used to create and manage Datadog - Amazon Web Services integration.
 //
 // ## Example Usage

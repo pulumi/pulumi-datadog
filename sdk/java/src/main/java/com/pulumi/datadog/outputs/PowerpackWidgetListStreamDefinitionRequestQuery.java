@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.PowerpackWidgetListStreamDefinitionRequestQueryGroupBy;
 import com.pulumi.datadog.outputs.PowerpackWidgetListStreamDefinitionRequestQuerySort;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -15,6 +16,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PowerpackWidgetListStreamDefinitionRequestQuery {
     /**
+     * @return Specifies the field for logs pattern clustering. Can only be used with `logs_pattern_stream`.
+     * 
+     */
+    private @Nullable String clusteringPatternFieldPath;
+    /**
      * @return Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`, `llm_observability_stream`.
      * 
      */
@@ -24,6 +30,11 @@ public final class PowerpackWidgetListStreamDefinitionRequestQuery {
      * 
      */
     private @Nullable String eventSize;
+    /**
+     * @return Group by configuration for the List Stream widget. Group by can only be used with `logs_pattern_stream` (up to 4 items) or `logs_transaction_stream` (one group by item is required) list stream source.
+     * 
+     */
+    private @Nullable List<PowerpackWidgetListStreamDefinitionRequestQueryGroupBy> groupBies;
     /**
      * @return List of indexes.
      * 
@@ -47,6 +58,13 @@ public final class PowerpackWidgetListStreamDefinitionRequestQuery {
 
     private PowerpackWidgetListStreamDefinitionRequestQuery() {}
     /**
+     * @return Specifies the field for logs pattern clustering. Can only be used with `logs_pattern_stream`.
+     * 
+     */
+    public Optional<String> clusteringPatternFieldPath() {
+        return Optional.ofNullable(this.clusteringPatternFieldPath);
+    }
+    /**
      * @return Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`, `llm_observability_stream`.
      * 
      */
@@ -59,6 +77,13 @@ public final class PowerpackWidgetListStreamDefinitionRequestQuery {
      */
     public Optional<String> eventSize() {
         return Optional.ofNullable(this.eventSize);
+    }
+    /**
+     * @return Group by configuration for the List Stream widget. Group by can only be used with `logs_pattern_stream` (up to 4 items) or `logs_transaction_stream` (one group by item is required) list stream source.
+     * 
+     */
+    public List<PowerpackWidgetListStreamDefinitionRequestQueryGroupBy> groupBies() {
+        return this.groupBies == null ? List.of() : this.groupBies;
     }
     /**
      * @return List of indexes.
@@ -98,8 +123,10 @@ public final class PowerpackWidgetListStreamDefinitionRequestQuery {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String clusteringPatternFieldPath;
         private String dataSource;
         private @Nullable String eventSize;
+        private @Nullable List<PowerpackWidgetListStreamDefinitionRequestQueryGroupBy> groupBies;
         private @Nullable List<String> indexes;
         private @Nullable String queryString;
         private @Nullable PowerpackWidgetListStreamDefinitionRequestQuerySort sort;
@@ -107,14 +134,22 @@ public final class PowerpackWidgetListStreamDefinitionRequestQuery {
         public Builder() {}
         public Builder(PowerpackWidgetListStreamDefinitionRequestQuery defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.clusteringPatternFieldPath = defaults.clusteringPatternFieldPath;
     	      this.dataSource = defaults.dataSource;
     	      this.eventSize = defaults.eventSize;
+    	      this.groupBies = defaults.groupBies;
     	      this.indexes = defaults.indexes;
     	      this.queryString = defaults.queryString;
     	      this.sort = defaults.sort;
     	      this.storage = defaults.storage;
         }
 
+        @CustomType.Setter
+        public Builder clusteringPatternFieldPath(@Nullable String clusteringPatternFieldPath) {
+
+            this.clusteringPatternFieldPath = clusteringPatternFieldPath;
+            return this;
+        }
         @CustomType.Setter
         public Builder dataSource(String dataSource) {
             if (dataSource == null) {
@@ -128,6 +163,15 @@ public final class PowerpackWidgetListStreamDefinitionRequestQuery {
 
             this.eventSize = eventSize;
             return this;
+        }
+        @CustomType.Setter
+        public Builder groupBies(@Nullable List<PowerpackWidgetListStreamDefinitionRequestQueryGroupBy> groupBies) {
+
+            this.groupBies = groupBies;
+            return this;
+        }
+        public Builder groupBies(PowerpackWidgetListStreamDefinitionRequestQueryGroupBy... groupBies) {
+            return groupBies(List.of(groupBies));
         }
         @CustomType.Setter
         public Builder indexes(@Nullable List<String> indexes) {
@@ -158,8 +202,10 @@ public final class PowerpackWidgetListStreamDefinitionRequestQuery {
         }
         public PowerpackWidgetListStreamDefinitionRequestQuery build() {
             final var _resultValue = new PowerpackWidgetListStreamDefinitionRequestQuery();
+            _resultValue.clusteringPatternFieldPath = clusteringPatternFieldPath;
             _resultValue.dataSource = dataSource;
             _resultValue.eventSize = eventSize;
+            _resultValue.groupBies = groupBies;
             _resultValue.indexes = indexes;
             _resultValue.queryString = queryString;
             _resultValue.sort = sort;

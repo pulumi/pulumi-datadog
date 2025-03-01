@@ -14,6 +14,9 @@ namespace Pulumi.Datadog.Outputs
     public sealed class SyntheticsTestMobileOptionsList
     {
         public readonly bool? AllowApplicationCrash;
+        /// <summary>
+        /// Restriction policy bindings for the Synthetic mobile test. Should not be used in parallel with a `datadog.RestrictionPolicy` resource
+        /// </summary>
         public readonly ImmutableArray<Outputs.SyntheticsTestMobileOptionsListBinding> Bindings;
         /// <summary>
         /// CI/CD options for a Synthetic test.
@@ -38,7 +41,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? NoScreenshot;
         /// <summary>
-        /// A list of role identifiers pulled from the Roles API to restrict read and write access.
+        /// A list of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
         /// </summary>
         public readonly ImmutableArray<string> RestrictedRoles;
         public readonly Outputs.SyntheticsTestMobileOptionsListRetry? Retry;
