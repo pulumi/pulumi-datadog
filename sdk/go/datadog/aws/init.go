@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &IntegrationAccount{}
 	case "datadog:aws/integrationEventBridge:IntegrationEventBridge":
 		r = &IntegrationEventBridge{}
+	case "datadog:aws/integrationExternalId:IntegrationExternalId":
+		r = &IntegrationExternalId{}
 	case "datadog:aws/integrationLambdaArn:IntegrationLambdaArn":
 		r = &IntegrationLambdaArn{}
 	case "datadog:aws/integrationLogCollection:IntegrationLogCollection":
@@ -59,6 +61,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"aws/integrationEventBridge",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"aws/integrationExternalId",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

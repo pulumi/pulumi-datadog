@@ -40,6 +40,11 @@ export type IntegrationEventBridge = import("./integrationEventBridge").Integrat
 export const IntegrationEventBridge: typeof import("./integrationEventBridge").IntegrationEventBridge = null as any;
 utilities.lazyLoad(exports, ["IntegrationEventBridge"], () => require("./integrationEventBridge"));
 
+export { IntegrationExternalIdArgs, IntegrationExternalIdState } from "./integrationExternalId";
+export type IntegrationExternalId = import("./integrationExternalId").IntegrationExternalId;
+export const IntegrationExternalId: typeof import("./integrationExternalId").IntegrationExternalId = null as any;
+utilities.lazyLoad(exports, ["IntegrationExternalId"], () => require("./integrationExternalId"));
+
 export { IntegrationLambdaArnArgs, IntegrationLambdaArnState } from "./integrationLambdaArn";
 export type IntegrationLambdaArn = import("./integrationLambdaArn").IntegrationLambdaArn;
 export const IntegrationLambdaArn: typeof import("./integrationLambdaArn").IntegrationLambdaArn = null as any;
@@ -66,6 +71,8 @@ const _module = {
                 return new IntegrationAccount(name, <any>undefined, { urn })
             case "datadog:aws/integrationEventBridge:IntegrationEventBridge":
                 return new IntegrationEventBridge(name, <any>undefined, { urn })
+            case "datadog:aws/integrationExternalId:IntegrationExternalId":
+                return new IntegrationExternalId(name, <any>undefined, { urn })
             case "datadog:aws/integrationLambdaArn:IntegrationLambdaArn":
                 return new IntegrationLambdaArn(name, <any>undefined, { urn })
             case "datadog:aws/integrationLogCollection:IntegrationLogCollection":
@@ -80,6 +87,7 @@ const _module = {
 pulumi.runtime.registerResourceModule("datadog", "aws/integration", _module)
 pulumi.runtime.registerResourceModule("datadog", "aws/integrationAccount", _module)
 pulumi.runtime.registerResourceModule("datadog", "aws/integrationEventBridge", _module)
+pulumi.runtime.registerResourceModule("datadog", "aws/integrationExternalId", _module)
 pulumi.runtime.registerResourceModule("datadog", "aws/integrationLambdaArn", _module)
 pulumi.runtime.registerResourceModule("datadog", "aws/integrationLogCollection", _module)
 pulumi.runtime.registerResourceModule("datadog", "aws/integrationTagFilter", _module)

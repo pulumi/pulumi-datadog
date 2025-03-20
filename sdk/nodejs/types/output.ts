@@ -113,6 +113,117 @@ export interface ApmRetentionFilterFilter {
     query: string;
 }
 
+export interface AppsecWafCustomRuleAction {
+    /**
+     * Override the default action to take when the WAF custom rule would block.
+     */
+    action?: string;
+    parameters?: outputs.AppsecWafCustomRuleActionParameters;
+}
+
+export interface AppsecWafCustomRuleActionParameters {
+    /**
+     * The location to redirect to when the WAF custom rule triggers.
+     */
+    location?: string;
+    /**
+     * The status code to return when the WAF custom rule triggers.
+     */
+    statusCode?: number;
+}
+
+export interface AppsecWafCustomRuleCondition {
+    /**
+     * Operator to use for the WAF Condition.
+     */
+    operator?: string;
+    parameters?: outputs.AppsecWafCustomRuleConditionParameters;
+}
+
+export interface AppsecWafCustomRuleConditionParameters {
+    /**
+     * Identifier of a list of data from the denylist. Can only be used as substitution from the list parameter.
+     */
+    data?: string;
+    inputs?: outputs.AppsecWafCustomRuleConditionParametersInput[];
+    /**
+     * List of value to use with the condition. Only used with the phrase*match, !phrase*match, exact*match and !exact*match operator.
+     */
+    lists?: string[];
+    options?: outputs.AppsecWafCustomRuleConditionParametersOptions;
+    /**
+     * Regex to use with the condition. Only used with match*regex and !match*regex operator.
+     */
+    regex?: string;
+    /**
+     * Store the captured value in the specified tag name. Only used with the captureData operator.
+     */
+    value?: string;
+}
+
+export interface AppsecWafCustomRuleConditionParametersInput {
+    /**
+     * Input from the request on which the condition should apply.
+     */
+    address?: string;
+    /**
+     * Specific path for the input.
+     */
+    keyPaths?: string[];
+}
+
+export interface AppsecWafCustomRuleConditionParametersOptions {
+    /**
+     * Evaluate the value as case sensitive.
+     */
+    caseSensitive?: boolean;
+    /**
+     * Only evaluate this condition if the value has a minimum amount of characters.
+     */
+    minLength?: number;
+}
+
+export interface AppsecWafCustomRuleScope {
+    /**
+     * The environment scope for the WAF custom rule.
+     */
+    env?: string;
+    /**
+     * The service scope for the WAF custom rule.
+     */
+    service?: string;
+}
+
+export interface AppsecWafExclusionFilterRulesTarget {
+    /**
+     * Target a single WAF rule based on its identifier.
+     */
+    ruleId?: string;
+    tags?: outputs.AppsecWafExclusionFilterRulesTargetTags;
+}
+
+export interface AppsecWafExclusionFilterRulesTargetTags {
+    /**
+     * The category of the targeted WAF rules.
+     */
+    category?: string;
+    /**
+     * The type of the targeted WAF rules.
+     */
+    type?: string;
+}
+
+export interface AppsecWafExclusionFilterScope {
+    /**
+     * Deploy on this environment.
+     */
+    env?: string;
+    /**
+     * Deploy on this service.
+     */
+    service?: string;
+}
+
 export interface ChildOrganizationApiKey {
     /**
      * API key.
@@ -3539,7 +3650,7 @@ export interface DashboardWidgetQueryTableDefinitionRequest {
     apmQuery?: outputs.DashboardWidgetApmQuery;
     apmStatsQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestApmStatsQuery;
     /**
-     * A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`, `trend`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayModes?: string[];
     /**
@@ -9624,6 +9735,10 @@ export interface GetSecurityMonitoringRulesRule {
      */
     filters?: outputs.GetSecurityMonitoringRulesRuleFilter[];
     /**
+     * Additional grouping to perform on top of the query grouping.
+     */
+    groupSignalsBies?: string[];
+    /**
      * Whether the notifications include the triggering group-by values in their title.
      */
     hasExtendedTitle?: boolean;
@@ -9667,6 +9782,10 @@ export interface GetSecurityMonitoringRulesRule {
 
 export interface GetSecurityMonitoringRulesRuleCase {
     /**
+     * Action to perform when the case trigger
+     */
+    actions?: outputs.GetSecurityMonitoringRulesRuleCaseAction[];
+    /**
      * A rule case contains logical operations (`>`,`>=`, `&&`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries.
      */
     condition?: string;
@@ -9682,6 +9801,24 @@ export interface GetSecurityMonitoringRulesRuleCase {
      * Severity of the Security Signal.
      */
     status: string;
+}
+
+export interface GetSecurityMonitoringRulesRuleCaseAction {
+    /**
+     * Options for the action.
+     */
+    options?: outputs.GetSecurityMonitoringRulesRuleCaseActionOptions;
+    /**
+     * Type of action to perform when the case triggers.
+     */
+    type: string;
+}
+
+export interface GetSecurityMonitoringRulesRuleCaseActionOptions {
+    /**
+     * Duration of the action in seconds.
+     */
+    duration?: number;
 }
 
 export interface GetSecurityMonitoringRulesRuleFilter {
@@ -16051,7 +16188,7 @@ export interface PowerpackWidgetQueryTableDefinitionRequest {
     apmQuery?: outputs.PowerpackWidgetQueryTableDefinitionRequestApmQuery;
     apmStatsQuery?: outputs.PowerpackWidgetQueryTableDefinitionRequestApmStatsQuery;
     /**
-     * A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`, `trend`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayModes?: string[];
     /**
@@ -23736,6 +23873,10 @@ export interface SecurityMonitoringFilterExclusionFilter {
 
 export interface SecurityMonitoringRuleCase {
     /**
+     * Action to perform when the case trigger
+     */
+    actions?: outputs.SecurityMonitoringRuleCaseAction[];
+    /**
      * A rule case contains logical operations (`>`,`>=`, `&&`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries.
      */
     condition?: string;
@@ -23751,6 +23892,24 @@ export interface SecurityMonitoringRuleCase {
      * Severity of the Security Signal. Valid values are `info`, `low`, `medium`, `high`, `critical`.
      */
     status: string;
+}
+
+export interface SecurityMonitoringRuleCaseAction {
+    /**
+     * Options for the action.
+     */
+    options?: outputs.SecurityMonitoringRuleCaseActionOptions;
+    /**
+     * Type of action to perform when the case triggers. Valid values are `blockIp`, `blockUser`.
+     */
+    type: string;
+}
+
+export interface SecurityMonitoringRuleCaseActionOptions {
+    /**
+     * Duration of the action in seconds.
+     */
+    duration?: number;
 }
 
 export interface SecurityMonitoringRuleFilter {
@@ -24206,7 +24365,7 @@ export interface SyntheticsGlobalVariableParseTestOptionsParser {
 
 export interface SyntheticsPrivateLocationMetadata {
     /**
-     * A list of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
+     * A set of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
      *
      * @deprecated This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
      */
@@ -24230,6 +24389,10 @@ export interface SyntheticsTestApiStep {
      * Values to parse and save as variables from the response.
      */
     extractedValues?: outputs.SyntheticsTestApiStepExtractedValue[];
+    /**
+     * Generate variables using JavaScript.
+     */
+    extractedValuesFromScript?: string;
     /**
      * Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allowFailure` is `true`.
      */
@@ -24810,7 +24973,7 @@ export interface SyntheticsTestBrowserStepParams {
      */
     file?: string;
     /**
-     * Details of the files for an "upload files" step, JSON encoded string.
+     * Details of the files for an "upload files" step, JSON encoded string. Refer to the examples for a usage example showing the schema.
      */
     files?: string;
     /**

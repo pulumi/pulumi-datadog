@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class SecurityMonitoringRuleCase
     {
         /// <summary>
+        /// Action to perform when the case trigger
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SecurityMonitoringRuleCaseAction> Actions;
+        /// <summary>
         /// A rule case contains logical operations (`&gt;`,`&gt;=`, `&amp;&amp;`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries.
         /// </summary>
         public readonly string? Condition;
@@ -32,6 +36,8 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private SecurityMonitoringRuleCase(
+            ImmutableArray<Outputs.SecurityMonitoringRuleCaseAction> actions,
+
             string? condition,
 
             string? name,
@@ -40,6 +46,7 @@ namespace Pulumi.Datadog.Outputs
 
             string status)
         {
+            Actions = actions;
             Condition = condition;
             Name = name;
             Notifications = notifications;

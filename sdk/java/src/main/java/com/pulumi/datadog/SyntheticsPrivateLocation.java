@@ -84,18 +84,18 @@ public class SyntheticsPrivateLocation extends com.pulumi.resources.CustomResour
         return this.config;
     }
     /**
-     * Description of the private location.
+     * Description of the private location. Defaults to `&#34;&#34;`.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> description;
+    private Output<String> description;
 
     /**
-     * @return Description of the private location.
+     * @return Description of the private location. Defaults to `&#34;&#34;`.
      * 
      */
-    public Output<Optional<String>> description() {
-        return Codegen.optional(this.description);
+    public Output<String> description() {
+        return this.description;
     }
     /**
      * The private location metadata
@@ -130,14 +130,14 @@ public class SyntheticsPrivateLocation extends com.pulumi.resources.CustomResour
      * 
      */
     @Export(name="tags", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> tags;
+    private Output<List<String>> tags;
 
     /**
      * @return A list of tags to associate with your synthetics private location.
      * 
      */
-    public Output<Optional<List<String>>> tags() {
-        return Codegen.optional(this.tags);
+    public Output<List<String>> tags() {
+        return this.tags;
     }
 
     /**

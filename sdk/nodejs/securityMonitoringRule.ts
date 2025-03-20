@@ -96,6 +96,10 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
      */
     public readonly filters!: pulumi.Output<outputs.SecurityMonitoringRuleFilter[] | undefined>;
     /**
+     * Additional grouping to perform on top of the query grouping.
+     */
+    public readonly groupSignalsBies!: pulumi.Output<string[] | undefined>;
+    /**
      * Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
      */
     public readonly hasExtendedTitle!: pulumi.Output<boolean | undefined>;
@@ -156,6 +160,7 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
             resourceInputs["cases"] = state ? state.cases : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["filters"] = state ? state.filters : undefined;
+            resourceInputs["groupSignalsBies"] = state ? state.groupSignalsBies : undefined;
             resourceInputs["hasExtendedTitle"] = state ? state.hasExtendedTitle : undefined;
             resourceInputs["message"] = state ? state.message : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -178,6 +183,7 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
             resourceInputs["cases"] = args ? args.cases : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["filters"] = args ? args.filters : undefined;
+            resourceInputs["groupSignalsBies"] = args ? args.groupSignalsBies : undefined;
             resourceInputs["hasExtendedTitle"] = args ? args.hasExtendedTitle : undefined;
             resourceInputs["message"] = args ? args.message : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -211,6 +217,10 @@ export interface SecurityMonitoringRuleState {
      * Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleFilter>[]>;
+    /**
+     * Additional grouping to perform on top of the query grouping.
+     */
+    groupSignalsBies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
      */
@@ -273,6 +283,10 @@ export interface SecurityMonitoringRuleArgs {
      * Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleFilter>[]>;
+    /**
+     * Additional grouping to perform on top of the query grouping.
+     */
+    groupSignalsBies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
      */

@@ -10,6 +10,8 @@ from .api_key import *
 from .apm_retention_filter import *
 from .apm_retention_filter_order import *
 from .application_key import *
+from .appsec_waf_custom_rule import *
+from .appsec_waf_exclusion_filter import *
 from .authn_mapping import *
 from .child_organization import *
 from .cloud_configuration_rule import *
@@ -61,6 +63,7 @@ from .get_team_memberships import *
 from .get_teams import *
 from .get_user import *
 from .get_users import *
+from .get_workflow_automation import *
 from .ip_allowlist import *
 from .logs_archive import *
 from .logs_archive_order import *
@@ -111,6 +114,7 @@ from .user import *
 from .user_role import *
 from .webhook import *
 from .webhook_custom_variable import *
+from .workflow_automation import *
 from ._inputs import *
 from . import outputs
 
@@ -176,6 +180,14 @@ _utilities.register(
   "fqn": "pulumi_datadog.aws",
   "classes": {
    "datadog:aws/integrationEventBridge:IntegrationEventBridge": "IntegrationEventBridge"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "aws/integrationExternalId",
+  "fqn": "pulumi_datadog.aws",
+  "classes": {
+   "datadog:aws/integrationExternalId:IntegrationExternalId": "IntegrationExternalId"
   }
  },
  {
@@ -304,6 +316,22 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/applicationKey:ApplicationKey": "ApplicationKey"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/appsecWafCustomRule",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/appsecWafCustomRule:AppsecWafCustomRule": "AppsecWafCustomRule"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/appsecWafExclusionFilter",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/appsecWafExclusionFilter:AppsecWafExclusionFilter": "AppsecWafExclusionFilter"
   }
  },
  {
@@ -784,6 +812,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/webhookCustomVariable:WebhookCustomVariable": "WebhookCustomVariable"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/workflowAutomation",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/workflowAutomation:WorkflowAutomation": "WorkflowAutomation"
   }
  },
  {

@@ -67,7 +67,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? File { get; set; }
 
         /// <summary>
-        /// Details of the files for an "upload files" step, JSON encoded string.
+        /// Details of the files for an "upload files" step, JSON encoded string. Refer to the examples for a usage example showing the schema.
         /// </summary>
         [Input("files")]
         public Input<string>? Files { get; set; }

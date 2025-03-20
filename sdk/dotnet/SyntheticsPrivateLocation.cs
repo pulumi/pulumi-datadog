@@ -54,10 +54,10 @@ namespace Pulumi.Datadog
         public Output<string> Config { get; private set; } = null!;
 
         /// <summary>
-        /// Description of the private location.
+        /// Description of the private location. Defaults to `""`.
         /// </summary>
         [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
+        public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
         /// The private location metadata
@@ -128,7 +128,7 @@ namespace Pulumi.Datadog
     public sealed class SyntheticsPrivateLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Description of the private location.
+        /// Description of the private location. Defaults to `""`.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -182,7 +182,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// Description of the private location.
+        /// Description of the private location. Defaults to `""`.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }

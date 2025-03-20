@@ -66,9 +66,9 @@ export class SyntheticsPrivateLocation extends pulumi.CustomResource {
      */
     public /*out*/ readonly config!: pulumi.Output<string>;
     /**
-     * Description of the private location.
+     * Description of the private location. Defaults to `""`.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string>;
     /**
      * The private location metadata
      */
@@ -80,7 +80,7 @@ export class SyntheticsPrivateLocation extends pulumi.CustomResource {
     /**
      * A list of tags to associate with your synthetics private location.
      */
-    public readonly tags!: pulumi.Output<string[] | undefined>;
+    public readonly tags!: pulumi.Output<string[]>;
 
     /**
      * Create a SyntheticsPrivateLocation resource with the given unique name, arguments, and options.
@@ -127,7 +127,7 @@ export interface SyntheticsPrivateLocationState {
      */
     config?: pulumi.Input<string>;
     /**
-     * Description of the private location.
+     * Description of the private location. Defaults to `""`.
      */
     description?: pulumi.Input<string>;
     /**
@@ -149,7 +149,7 @@ export interface SyntheticsPrivateLocationState {
  */
 export interface SyntheticsPrivateLocationArgs {
     /**
-     * Description of the private location.
+     * Description of the private location. Defaults to `""`.
      */
     description?: pulumi.Input<string>;
     /**

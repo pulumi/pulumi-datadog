@@ -46,6 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Create new synthetics_global_variable resource
  *         var testVariable = new SyntheticsGlobalVariable("testVariable", SyntheticsGlobalVariableArgs.builder()
  *             .name("EXAMPLE_VARIABLE")
  *             .description("Description of the variable")
@@ -73,46 +74,46 @@ import javax.annotation.Nullable;
 @ResourceType(type="datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable")
 public class SyntheticsGlobalVariable extends com.pulumi.resources.CustomResource {
     /**
-     * Description of the global variable.
+     * Description of the global variable. Defaults to `&#34;&#34;`.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> description;
+    private Output<String> description;
 
     /**
-     * @return Description of the global variable.
+     * @return Description of the global variable. Defaults to `&#34;&#34;`.
      * 
      */
-    public Output<Optional<String>> description() {
-        return Codegen.optional(this.description);
+    public Output<String> description() {
+        return this.description;
     }
     /**
      * If set to true, the global variable is a FIDO variable. Defaults to `false`.
      * 
      */
     @Export(name="isFido", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> isFido;
+    private Output<Boolean> isFido;
 
     /**
      * @return If set to true, the global variable is a FIDO variable. Defaults to `false`.
      * 
      */
-    public Output<Optional<Boolean>> isFido() {
-        return Codegen.optional(this.isFido);
+    public Output<Boolean> isFido() {
+        return this.isFido;
     }
     /**
      * If set to true, the global variable is a TOTP variable. Defaults to `false`.
      * 
      */
     @Export(name="isTotp", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> isTotp;
+    private Output<Boolean> isTotp;
 
     /**
      * @return If set to true, the global variable is a TOTP variable. Defaults to `false`.
      * 
      */
-    public Output<Optional<Boolean>> isTotp() {
-        return Codegen.optional(this.isTotp);
+    public Output<Boolean> isTotp() {
+        return this.isTotp;
     }
     /**
      * Synthetics global variable name.
@@ -189,42 +190,42 @@ public class SyntheticsGlobalVariable extends com.pulumi.resources.CustomResourc
         return Codegen.optional(this.restrictedRoles);
     }
     /**
-     * If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` or `is_fido` is set to `true`. Defaults to `false`.
+     * If set to true, the value of the global variable is hidden. This setting is automatically set to `true` if `is_totp` or `is_fido` is set to `true`. Defaults to `false`.
      * 
      */
     @Export(name="secure", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> secure;
+    private Output<Boolean> secure;
 
     /**
-     * @return If set to true, the value of the global variable is hidden. This setting is ignored if `is_totp` or `is_fido` is set to `true`. Defaults to `false`.
+     * @return If set to true, the value of the global variable is hidden. This setting is automatically set to `true` if `is_totp` or `is_fido` is set to `true`. Defaults to `false`.
      * 
      */
-    public Output<Optional<Boolean>> secure() {
-        return Codegen.optional(this.secure);
+    public Output<Boolean> secure() {
+        return this.secure;
     }
     /**
      * A list of tags to associate with your synthetics global variable.
      * 
      */
     @Export(name="tags", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> tags;
+    private Output<List<String>> tags;
 
     /**
      * @return A list of tags to associate with your synthetics global variable.
      * 
      */
-    public Output<Optional<List<String>>> tags() {
-        return Codegen.optional(this.tags);
+    public Output<List<String>> tags() {
+        return this.tags;
     }
     /**
-     * The value of the global variable. This setting is ignored if `is_fido` is set to `true` and required otherwise.
+     * The value of the global variable. Required unless `is_fido` is set to `true`.
      * 
      */
     @Export(name="value", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> value;
 
     /**
-     * @return The value of the global variable. This setting is ignored if `is_fido` is set to `true` and required otherwise.
+     * @return The value of the global variable. Required unless `is_fido` is set to `true`.
      * 
      */
     public Output<Optional<String>> value() {

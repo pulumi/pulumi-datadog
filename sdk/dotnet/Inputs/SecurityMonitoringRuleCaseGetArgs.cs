@@ -12,6 +12,18 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class SecurityMonitoringRuleCaseGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("actions")]
+        private InputList<Inputs.SecurityMonitoringRuleCaseActionGetArgs>? _actions;
+
+        /// <summary>
+        /// Action to perform when the case trigger
+        /// </summary>
+        public InputList<Inputs.SecurityMonitoringRuleCaseActionGetArgs> Actions
+        {
+            get => _actions ?? (_actions = new InputList<Inputs.SecurityMonitoringRuleCaseActionGetArgs>());
+            set => _actions = value;
+        }
+
         /// <summary>
         /// A rule case contains logical operations (`&gt;`,`&gt;=`, `&amp;&amp;`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries.
         /// </summary>

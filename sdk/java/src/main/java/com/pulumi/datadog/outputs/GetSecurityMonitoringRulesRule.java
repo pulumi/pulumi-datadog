@@ -37,6 +37,11 @@ public final class GetSecurityMonitoringRulesRule {
      */
     private @Nullable List<GetSecurityMonitoringRulesRuleFilter> filters;
     /**
+     * @return Additional grouping to perform on top of the query grouping.
+     * 
+     */
+    private @Nullable List<String> groupSignalsBies;
+    /**
      * @return Whether the notifications include the triggering group-by values in their title.
      * 
      */
@@ -108,6 +113,13 @@ public final class GetSecurityMonitoringRulesRule {
      */
     public List<GetSecurityMonitoringRulesRuleFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
+    }
+    /**
+     * @return Additional grouping to perform on top of the query grouping.
+     * 
+     */
+    public List<String> groupSignalsBies() {
+        return this.groupSignalsBies == null ? List.of() : this.groupSignalsBies;
     }
     /**
      * @return Whether the notifications include the triggering group-by values in their title.
@@ -192,6 +204,7 @@ public final class GetSecurityMonitoringRulesRule {
         private @Nullable List<GetSecurityMonitoringRulesRuleCase> cases;
         private @Nullable Boolean enabled;
         private @Nullable List<GetSecurityMonitoringRulesRuleFilter> filters;
+        private @Nullable List<String> groupSignalsBies;
         private @Nullable Boolean hasExtendedTitle;
         private String message;
         private String name;
@@ -208,6 +221,7 @@ public final class GetSecurityMonitoringRulesRule {
     	      this.cases = defaults.cases;
     	      this.enabled = defaults.enabled;
     	      this.filters = defaults.filters;
+    	      this.groupSignalsBies = defaults.groupSignalsBies;
     	      this.hasExtendedTitle = defaults.hasExtendedTitle;
     	      this.message = defaults.message;
     	      this.name = defaults.name;
@@ -243,6 +257,15 @@ public final class GetSecurityMonitoringRulesRule {
         }
         public Builder filters(GetSecurityMonitoringRulesRuleFilter... filters) {
             return filters(List.of(filters));
+        }
+        @CustomType.Setter
+        public Builder groupSignalsBies(@Nullable List<String> groupSignalsBies) {
+
+            this.groupSignalsBies = groupSignalsBies;
+            return this;
+        }
+        public Builder groupSignalsBies(String... groupSignalsBies) {
+            return groupSignalsBies(List.of(groupSignalsBies));
         }
         @CustomType.Setter
         public Builder hasExtendedTitle(@Nullable Boolean hasExtendedTitle) {
@@ -328,6 +351,7 @@ public final class GetSecurityMonitoringRulesRule {
             _resultValue.cases = cases;
             _resultValue.enabled = enabled;
             _resultValue.filters = filters;
+            _resultValue.groupSignalsBies = groupSignalsBies;
             _resultValue.hasExtendedTitle = hasExtendedTitle;
             _resultValue.message = message;
             _resultValue.name = name;

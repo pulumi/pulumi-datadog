@@ -30,6 +30,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.SyntheticsTestApiStepExtractedValue> ExtractedValues;
         /// <summary>
+        /// Generate variables using JavaScript.
+        /// </summary>
+        public readonly string? ExtractedValuesFromScript;
+        /// <summary>
         /// Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
         /// </summary>
         public readonly bool? IsCritical;
@@ -89,6 +93,8 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.SyntheticsTestApiStepExtractedValue> extractedValues,
 
+            string? extractedValuesFromScript,
+
             bool? isCritical,
 
             string name,
@@ -119,6 +125,7 @@ namespace Pulumi.Datadog.Outputs
             Assertions = assertions;
             ExitIfSucceed = exitIfSucceed;
             ExtractedValues = extractedValues;
+            ExtractedValuesFromScript = extractedValuesFromScript;
             IsCritical = isCritical;
             Name = name;
             RequestBasicauth = requestBasicauth;

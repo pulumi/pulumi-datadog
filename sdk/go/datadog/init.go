@@ -31,6 +31,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ApmRetentionFilterOrder{}
 	case "datadog:index/applicationKey:ApplicationKey":
 		r = &ApplicationKey{}
+	case "datadog:index/appsecWafCustomRule:AppsecWafCustomRule":
+		r = &AppsecWafCustomRule{}
+	case "datadog:index/appsecWafExclusionFilter:AppsecWafExclusionFilter":
+		r = &AppsecWafExclusionFilter{}
 	case "datadog:index/authnMapping:AuthnMapping":
 		r = &AuthnMapping{}
 	case "datadog:index/childOrganization:ChildOrganization":
@@ -151,6 +155,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Webhook{}
 	case "datadog:index/webhookCustomVariable:WebhookCustomVariable":
 		r = &WebhookCustomVariable{}
+	case "datadog:index/workflowAutomation:WorkflowAutomation":
+		r = &WorkflowAutomation{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -205,6 +211,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/applicationKey",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/appsecWafCustomRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/appsecWafExclusionFilter",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -505,6 +521,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/webhookCustomVariable",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/workflowAutomation",
 		&module{version},
 	)
 	pulumi.RegisterResourcePackage(

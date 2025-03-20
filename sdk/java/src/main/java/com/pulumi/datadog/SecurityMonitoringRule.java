@@ -144,6 +144,20 @@ public class SecurityMonitoringRule extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.filters);
     }
     /**
+     * Additional grouping to perform on top of the query grouping.
+     * 
+     */
+    @Export(name="groupSignalsBies", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> groupSignalsBies;
+
+    /**
+     * @return Additional grouping to perform on top of the query grouping.
+     * 
+     */
+    public Output<Optional<List<String>>> groupSignalsBies() {
+        return Codegen.optional(this.groupSignalsBies);
+    }
+    /**
      * Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
      * 
      */

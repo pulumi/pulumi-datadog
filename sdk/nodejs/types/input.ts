@@ -113,6 +113,117 @@ export interface ApmRetentionFilterFilter {
     query?: pulumi.Input<string>;
 }
 
+export interface AppsecWafCustomRuleAction {
+    /**
+     * Override the default action to take when the WAF custom rule would block.
+     */
+    action?: pulumi.Input<string>;
+    parameters?: pulumi.Input<inputs.AppsecWafCustomRuleActionParameters>;
+}
+
+export interface AppsecWafCustomRuleActionParameters {
+    /**
+     * The location to redirect to when the WAF custom rule triggers.
+     */
+    location?: pulumi.Input<string>;
+    /**
+     * The status code to return when the WAF custom rule triggers.
+     */
+    statusCode?: pulumi.Input<number>;
+}
+
+export interface AppsecWafCustomRuleCondition {
+    /**
+     * Operator to use for the WAF Condition.
+     */
+    operator?: pulumi.Input<string>;
+    parameters?: pulumi.Input<inputs.AppsecWafCustomRuleConditionParameters>;
+}
+
+export interface AppsecWafCustomRuleConditionParameters {
+    /**
+     * Identifier of a list of data from the denylist. Can only be used as substitution from the list parameter.
+     */
+    data?: pulumi.Input<string>;
+    inputs?: pulumi.Input<pulumi.Input<inputs.AppsecWafCustomRuleConditionParametersInput>[]>;
+    /**
+     * List of value to use with the condition. Only used with the phrase*match, !phrase*match, exact*match and !exact*match operator.
+     */
+    lists?: pulumi.Input<pulumi.Input<string>[]>;
+    options?: pulumi.Input<inputs.AppsecWafCustomRuleConditionParametersOptions>;
+    /**
+     * Regex to use with the condition. Only used with match*regex and !match*regex operator.
+     */
+    regex?: pulumi.Input<string>;
+    /**
+     * Store the captured value in the specified tag name. Only used with the captureData operator.
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface AppsecWafCustomRuleConditionParametersInput {
+    /**
+     * Input from the request on which the condition should apply.
+     */
+    address?: pulumi.Input<string>;
+    /**
+     * Specific path for the input.
+     */
+    keyPaths?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface AppsecWafCustomRuleConditionParametersOptions {
+    /**
+     * Evaluate the value as case sensitive.
+     */
+    caseSensitive?: pulumi.Input<boolean>;
+    /**
+     * Only evaluate this condition if the value has a minimum amount of characters.
+     */
+    minLength?: pulumi.Input<number>;
+}
+
+export interface AppsecWafCustomRuleScope {
+    /**
+     * The environment scope for the WAF custom rule.
+     */
+    env?: pulumi.Input<string>;
+    /**
+     * The service scope for the WAF custom rule.
+     */
+    service?: pulumi.Input<string>;
+}
+
+export interface AppsecWafExclusionFilterRulesTarget {
+    /**
+     * Target a single WAF rule based on its identifier.
+     */
+    ruleId?: pulumi.Input<string>;
+    tags?: pulumi.Input<inputs.AppsecWafExclusionFilterRulesTargetTags>;
+}
+
+export interface AppsecWafExclusionFilterRulesTargetTags {
+    /**
+     * The category of the targeted WAF rules.
+     */
+    category?: pulumi.Input<string>;
+    /**
+     * The type of the targeted WAF rules.
+     */
+    type?: pulumi.Input<string>;
+}
+
+export interface AppsecWafExclusionFilterScope {
+    /**
+     * Deploy on this environment.
+     */
+    env?: pulumi.Input<string>;
+    /**
+     * Deploy on this service.
+     */
+    service?: pulumi.Input<string>;
+}
+
 export interface ChildOrganizationApiKey {
     /**
      * API key.
@@ -3539,7 +3650,7 @@ export interface DashboardWidgetQueryTableDefinitionRequest {
     apmQuery?: pulumi.Input<inputs.DashboardWidgetApmQuery>;
     apmStatsQuery?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestApmStatsQuery>;
     /**
-     * A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`, `trend`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayModes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -15478,7 +15589,7 @@ export interface PowerpackWidgetQueryTableDefinitionRequest {
     apmQuery?: pulumi.Input<inputs.PowerpackWidgetQueryTableDefinitionRequestApmQuery>;
     apmStatsQuery?: pulumi.Input<inputs.PowerpackWidgetQueryTableDefinitionRequestApmStatsQuery>;
     /**
-     * A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`, `trend`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      */
     cellDisplayModes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -23170,6 +23281,10 @@ export interface SecurityMonitoringFilterExclusionFilter {
 
 export interface SecurityMonitoringRuleCase {
     /**
+     * Action to perform when the case trigger
+     */
+    actions?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleCaseAction>[]>;
+    /**
      * A rule case contains logical operations (`>`,`>=`, `&&`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries.
      */
     condition?: pulumi.Input<string>;
@@ -23185,6 +23300,24 @@ export interface SecurityMonitoringRuleCase {
      * Severity of the Security Signal. Valid values are `info`, `low`, `medium`, `high`, `critical`.
      */
     status: pulumi.Input<string>;
+}
+
+export interface SecurityMonitoringRuleCaseAction {
+    /**
+     * Options for the action.
+     */
+    options?: pulumi.Input<inputs.SecurityMonitoringRuleCaseActionOptions>;
+    /**
+     * Type of action to perform when the case triggers. Valid values are `blockIp`, `blockUser`.
+     */
+    type: pulumi.Input<string>;
+}
+
+export interface SecurityMonitoringRuleCaseActionOptions {
+    /**
+     * Duration of the action in seconds.
+     */
+    duration?: pulumi.Input<number>;
 }
 
 export interface SecurityMonitoringRuleFilter {
@@ -23640,7 +23773,7 @@ export interface SyntheticsGlobalVariableParseTestOptionsParser {
 
 export interface SyntheticsPrivateLocationMetadata {
     /**
-     * A list of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
+     * A set of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
      *
      * @deprecated This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
      */
@@ -23664,6 +23797,10 @@ export interface SyntheticsTestApiStep {
      * Values to parse and save as variables from the response.
      */
     extractedValues?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestApiStepExtractedValue>[]>;
+    /**
+     * Generate variables using JavaScript.
+     */
+    extractedValuesFromScript?: pulumi.Input<string>;
     /**
      * Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allowFailure` is `true`.
      */
@@ -24244,7 +24381,7 @@ export interface SyntheticsTestBrowserStepParams {
      */
     file?: pulumi.Input<string>;
     /**
-     * Details of the files for an "upload files" step, JSON encoded string.
+     * Details of the files for an "upload files" step, JSON encoded string. Refer to the examples for a usage example showing the schema.
      */
     files?: pulumi.Input<string>;
     /**

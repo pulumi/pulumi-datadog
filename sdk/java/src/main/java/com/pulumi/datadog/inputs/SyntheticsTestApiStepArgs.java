@@ -89,6 +89,21 @@ public final class SyntheticsTestApiStepArgs extends com.pulumi.resources.Resour
     }
 
     /**
+     * Generate variables using JavaScript.
+     * 
+     */
+    @Import(name="extractedValuesFromScript")
+    private @Nullable Output<String> extractedValuesFromScript;
+
+    /**
+     * @return Generate variables using JavaScript.
+     * 
+     */
+    public Optional<Output<String>> extractedValuesFromScript() {
+        return Optional.ofNullable(this.extractedValuesFromScript);
+    }
+
+    /**
      * Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
      * 
      */
@@ -282,6 +297,7 @@ public final class SyntheticsTestApiStepArgs extends com.pulumi.resources.Resour
         this.assertions = $.assertions;
         this.exitIfSucceed = $.exitIfSucceed;
         this.extractedValues = $.extractedValues;
+        this.extractedValuesFromScript = $.extractedValuesFromScript;
         this.isCritical = $.isCritical;
         this.name = $.name;
         this.requestBasicauth = $.requestBasicauth;
@@ -417,6 +433,27 @@ public final class SyntheticsTestApiStepArgs extends com.pulumi.resources.Resour
          */
         public Builder extractedValues(SyntheticsTestApiStepExtractedValueArgs... extractedValues) {
             return extractedValues(List.of(extractedValues));
+        }
+
+        /**
+         * @param extractedValuesFromScript Generate variables using JavaScript.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder extractedValuesFromScript(@Nullable Output<String> extractedValuesFromScript) {
+            $.extractedValuesFromScript = extractedValuesFromScript;
+            return this;
+        }
+
+        /**
+         * @param extractedValuesFromScript Generate variables using JavaScript.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder extractedValuesFromScript(String extractedValuesFromScript) {
+            return extractedValuesFromScript(Output.of(extractedValuesFromScript));
         }
 
         /**

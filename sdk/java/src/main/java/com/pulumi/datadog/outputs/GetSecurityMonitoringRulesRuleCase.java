@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.GetSecurityMonitoringRulesRuleCaseAction;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
@@ -13,6 +14,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSecurityMonitoringRulesRuleCase {
+    /**
+     * @return Action to perform when the case trigger
+     * 
+     */
+    private @Nullable List<GetSecurityMonitoringRulesRuleCaseAction> actions;
     /**
      * @return A rule case contains logical operations (`&gt;`,`&gt;=`, `&amp;&amp;`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries.
      * 
@@ -35,6 +41,13 @@ public final class GetSecurityMonitoringRulesRuleCase {
     private String status;
 
     private GetSecurityMonitoringRulesRuleCase() {}
+    /**
+     * @return Action to perform when the case trigger
+     * 
+     */
+    public List<GetSecurityMonitoringRulesRuleCaseAction> actions() {
+        return this.actions == null ? List.of() : this.actions;
+    }
     /**
      * @return A rule case contains logical operations (`&gt;`,`&gt;=`, `&amp;&amp;`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries.
      * 
@@ -73,6 +86,7 @@ public final class GetSecurityMonitoringRulesRuleCase {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable List<GetSecurityMonitoringRulesRuleCaseAction> actions;
         private @Nullable String condition;
         private @Nullable String name;
         private @Nullable List<String> notifications;
@@ -80,12 +94,22 @@ public final class GetSecurityMonitoringRulesRuleCase {
         public Builder() {}
         public Builder(GetSecurityMonitoringRulesRuleCase defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.actions = defaults.actions;
     	      this.condition = defaults.condition;
     	      this.name = defaults.name;
     	      this.notifications = defaults.notifications;
     	      this.status = defaults.status;
         }
 
+        @CustomType.Setter
+        public Builder actions(@Nullable List<GetSecurityMonitoringRulesRuleCaseAction> actions) {
+
+            this.actions = actions;
+            return this;
+        }
+        public Builder actions(GetSecurityMonitoringRulesRuleCaseAction... actions) {
+            return actions(List.of(actions));
+        }
         @CustomType.Setter
         public Builder condition(@Nullable String condition) {
 
@@ -117,6 +141,7 @@ public final class GetSecurityMonitoringRulesRuleCase {
         }
         public GetSecurityMonitoringRulesRuleCase build() {
             final var _resultValue = new GetSecurityMonitoringRulesRuleCase();
+            _resultValue.actions = actions;
             _resultValue.condition = condition;
             _resultValue.name = name;
             _resultValue.notifications = notifications;

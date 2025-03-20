@@ -25,6 +25,16 @@ __all__ = [
     'ActionConnectionHttpTokenAuthToken',
     'ActionConnectionHttpTokenAuthUrlParameter',
     'ApmRetentionFilterFilter',
+    'AppsecWafCustomRuleAction',
+    'AppsecWafCustomRuleActionParameters',
+    'AppsecWafCustomRuleCondition',
+    'AppsecWafCustomRuleConditionParameters',
+    'AppsecWafCustomRuleConditionParametersInput',
+    'AppsecWafCustomRuleConditionParametersOptions',
+    'AppsecWafCustomRuleScope',
+    'AppsecWafExclusionFilterRulesTarget',
+    'AppsecWafExclusionFilterRulesTargetTags',
+    'AppsecWafExclusionFilterScope',
     'ChildOrganizationApiKey',
     'ChildOrganizationApplicationKey',
     'ChildOrganizationSetting',
@@ -1131,6 +1141,8 @@ __all__ = [
     'SecurityMonitoringDefaultRuleOptions',
     'SecurityMonitoringFilterExclusionFilter',
     'SecurityMonitoringRuleCase',
+    'SecurityMonitoringRuleCaseAction',
+    'SecurityMonitoringRuleCaseActionOptions',
     'SecurityMonitoringRuleFilter',
     'SecurityMonitoringRuleOptions',
     'SecurityMonitoringRuleOptionsImpossibleTravelOptions',
@@ -1253,6 +1265,8 @@ __all__ = [
     'GetSecurityMonitoringFiltersFilterExclusionFilterResult',
     'GetSecurityMonitoringRulesRuleResult',
     'GetSecurityMonitoringRulesRuleCaseResult',
+    'GetSecurityMonitoringRulesRuleCaseActionResult',
+    'GetSecurityMonitoringRulesRuleCaseActionOptionsResult',
     'GetSecurityMonitoringRulesRuleFilterResult',
     'GetSecurityMonitoringRulesRuleOptionsResult',
     'GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptionsResult',
@@ -1672,6 +1686,414 @@ class ApmRetentionFilterFilter(dict):
         The search query - follow the span search syntax, use `AND` between tags and `\\` to escape special characters, use nanosecond for duration. Defaults to `"*"`.
         """
         return pulumi.get(self, "query")
+
+
+@pulumi.output_type
+class AppsecWafCustomRuleAction(dict):
+    def __init__(__self__, *,
+                 action: Optional[str] = None,
+                 parameters: Optional['outputs.AppsecWafCustomRuleActionParameters'] = None):
+        """
+        :param str action: Override the default action to take when the WAF custom rule would block.
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[str]:
+        """
+        Override the default action to take when the WAF custom rule would block.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional['outputs.AppsecWafCustomRuleActionParameters']:
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class AppsecWafCustomRuleActionParameters(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "statusCode":
+            suggest = "status_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppsecWafCustomRuleActionParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppsecWafCustomRuleActionParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppsecWafCustomRuleActionParameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 location: Optional[str] = None,
+                 status_code: Optional[int] = None):
+        """
+        :param str location: The location to redirect to when the WAF custom rule triggers.
+        :param int status_code: The status code to return when the WAF custom rule triggers.
+        """
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if status_code is not None:
+            pulumi.set(__self__, "status_code", status_code)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The location to redirect to when the WAF custom rule triggers.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="statusCode")
+    def status_code(self) -> Optional[int]:
+        """
+        The status code to return when the WAF custom rule triggers.
+        """
+        return pulumi.get(self, "status_code")
+
+
+@pulumi.output_type
+class AppsecWafCustomRuleCondition(dict):
+    def __init__(__self__, *,
+                 operator: Optional[str] = None,
+                 parameters: Optional['outputs.AppsecWafCustomRuleConditionParameters'] = None):
+        """
+        :param str operator: Operator to use for the WAF Condition.
+        """
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> Optional[str]:
+        """
+        Operator to use for the WAF Condition.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional['outputs.AppsecWafCustomRuleConditionParameters']:
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class AppsecWafCustomRuleConditionParameters(dict):
+    def __init__(__self__, *,
+                 data: Optional[str] = None,
+                 inputs: Optional[Sequence['outputs.AppsecWafCustomRuleConditionParametersInput']] = None,
+                 lists: Optional[Sequence[str]] = None,
+                 options: Optional['outputs.AppsecWafCustomRuleConditionParametersOptions'] = None,
+                 regex: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        :param str data: Identifier of a list of data from the denylist. Can only be used as substitution from the list parameter.
+        :param Sequence[str] lists: List of value to use with the condition. Only used with the phrase*match, !phrase*match, exact*match and !exact*match operator.
+        :param str regex: Regex to use with the condition. Only used with match*regex and !match*regex operator.
+        :param str value: Store the captured value in the specified tag name. Only used with the capture_data operator.
+        """
+        if data is not None:
+            pulumi.set(__self__, "data", data)
+        if inputs is not None:
+            pulumi.set(__self__, "inputs", inputs)
+        if lists is not None:
+            pulumi.set(__self__, "lists", lists)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+        if regex is not None:
+            pulumi.set(__self__, "regex", regex)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def data(self) -> Optional[str]:
+        """
+        Identifier of a list of data from the denylist. Can only be used as substitution from the list parameter.
+        """
+        return pulumi.get(self, "data")
+
+    @property
+    @pulumi.getter
+    def inputs(self) -> Optional[Sequence['outputs.AppsecWafCustomRuleConditionParametersInput']]:
+        return pulumi.get(self, "inputs")
+
+    @property
+    @pulumi.getter
+    def lists(self) -> Optional[Sequence[str]]:
+        """
+        List of value to use with the condition. Only used with the phrase*match, !phrase*match, exact*match and !exact*match operator.
+        """
+        return pulumi.get(self, "lists")
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional['outputs.AppsecWafCustomRuleConditionParametersOptions']:
+        return pulumi.get(self, "options")
+
+    @property
+    @pulumi.getter
+    def regex(self) -> Optional[str]:
+        """
+        Regex to use with the condition. Only used with match*regex and !match*regex operator.
+        """
+        return pulumi.get(self, "regex")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        Store the captured value in the specified tag name. Only used with the capture_data operator.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AppsecWafCustomRuleConditionParametersInput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyPaths":
+            suggest = "key_paths"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppsecWafCustomRuleConditionParametersInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppsecWafCustomRuleConditionParametersInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppsecWafCustomRuleConditionParametersInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 address: Optional[str] = None,
+                 key_paths: Optional[Sequence[str]] = None):
+        """
+        :param str address: Input from the request on which the condition should apply.
+        :param Sequence[str] key_paths: Specific path for the input.
+        """
+        if address is not None:
+            pulumi.set(__self__, "address", address)
+        if key_paths is not None:
+            pulumi.set(__self__, "key_paths", key_paths)
+
+    @property
+    @pulumi.getter
+    def address(self) -> Optional[str]:
+        """
+        Input from the request on which the condition should apply.
+        """
+        return pulumi.get(self, "address")
+
+    @property
+    @pulumi.getter(name="keyPaths")
+    def key_paths(self) -> Optional[Sequence[str]]:
+        """
+        Specific path for the input.
+        """
+        return pulumi.get(self, "key_paths")
+
+
+@pulumi.output_type
+class AppsecWafCustomRuleConditionParametersOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "caseSensitive":
+            suggest = "case_sensitive"
+        elif key == "minLength":
+            suggest = "min_length"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppsecWafCustomRuleConditionParametersOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppsecWafCustomRuleConditionParametersOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppsecWafCustomRuleConditionParametersOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 case_sensitive: Optional[bool] = None,
+                 min_length: Optional[int] = None):
+        """
+        :param bool case_sensitive: Evaluate the value as case sensitive.
+        :param int min_length: Only evaluate this condition if the value has a minimum amount of characters.
+        """
+        if case_sensitive is not None:
+            pulumi.set(__self__, "case_sensitive", case_sensitive)
+        if min_length is not None:
+            pulumi.set(__self__, "min_length", min_length)
+
+    @property
+    @pulumi.getter(name="caseSensitive")
+    def case_sensitive(self) -> Optional[bool]:
+        """
+        Evaluate the value as case sensitive.
+        """
+        return pulumi.get(self, "case_sensitive")
+
+    @property
+    @pulumi.getter(name="minLength")
+    def min_length(self) -> Optional[int]:
+        """
+        Only evaluate this condition if the value has a minimum amount of characters.
+        """
+        return pulumi.get(self, "min_length")
+
+
+@pulumi.output_type
+class AppsecWafCustomRuleScope(dict):
+    def __init__(__self__, *,
+                 env: Optional[str] = None,
+                 service: Optional[str] = None):
+        """
+        :param str env: The environment scope for the WAF custom rule.
+        :param str service: The service scope for the WAF custom rule.
+        """
+        if env is not None:
+            pulumi.set(__self__, "env", env)
+        if service is not None:
+            pulumi.set(__self__, "service", service)
+
+    @property
+    @pulumi.getter
+    def env(self) -> Optional[str]:
+        """
+        The environment scope for the WAF custom rule.
+        """
+        return pulumi.get(self, "env")
+
+    @property
+    @pulumi.getter
+    def service(self) -> Optional[str]:
+        """
+        The service scope for the WAF custom rule.
+        """
+        return pulumi.get(self, "service")
+
+
+@pulumi.output_type
+class AppsecWafExclusionFilterRulesTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleId":
+            suggest = "rule_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppsecWafExclusionFilterRulesTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppsecWafExclusionFilterRulesTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppsecWafExclusionFilterRulesTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 rule_id: Optional[str] = None,
+                 tags: Optional['outputs.AppsecWafExclusionFilterRulesTargetTags'] = None):
+        """
+        :param str rule_id: Target a single WAF rule based on its identifier.
+        """
+        if rule_id is not None:
+            pulumi.set(__self__, "rule_id", rule_id)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="ruleId")
+    def rule_id(self) -> Optional[str]:
+        """
+        Target a single WAF rule based on its identifier.
+        """
+        return pulumi.get(self, "rule_id")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional['outputs.AppsecWafExclusionFilterRulesTargetTags']:
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class AppsecWafExclusionFilterRulesTargetTags(dict):
+    def __init__(__self__, *,
+                 category: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        :param str category: The category of the targeted WAF rules.
+        :param str type: The type of the targeted WAF rules.
+        """
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[str]:
+        """
+        The category of the targeted WAF rules.
+        """
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of the targeted WAF rules.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class AppsecWafExclusionFilterScope(dict):
+    def __init__(__self__, *,
+                 env: Optional[str] = None,
+                 service: Optional[str] = None):
+        """
+        :param str env: Deploy on this environment.
+        :param str service: Deploy on this service.
+        """
+        if env is not None:
+            pulumi.set(__self__, "env", env)
+        if service is not None:
+            pulumi.set(__self__, "service", service)
+
+    @property
+    @pulumi.getter
+    def env(self) -> Optional[str]:
+        """
+        Deploy on this environment.
+        """
+        return pulumi.get(self, "env")
+
+    @property
+    @pulumi.getter
+    def service(self) -> Optional[str]:
+        """
+        Deploy on this service.
+        """
+        return pulumi.get(self, "service")
 
 
 @pulumi.output_type
@@ -13865,7 +14287,7 @@ class DashboardWidgetQueryTableDefinitionRequest(dict):
         :param str aggregator: The aggregator to use for time aggregation. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
         :param str alias: The alias for the column name (defaults to metric name).
         :param 'DashboardWidgetApmQueryArgs' apm_query: The query to use for this widget.
-        :param Sequence[str] cell_display_modes: A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`, `trend`.
+        :param Sequence[str] cell_display_modes: A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         :param Sequence['DashboardWidgetQueryTableDefinitionRequestConditionalFormatArgs'] conditional_formats: Conditional formats allow you to set the color of your widget content or background, depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
         :param int limit: The number of lines to show in the table.
         :param 'DashboardWidgetLogQueryArgs' log_query: The query to use for this widget.
@@ -13942,7 +14364,7 @@ class DashboardWidgetQueryTableDefinitionRequest(dict):
     @pulumi.getter(name="cellDisplayModes")
     def cell_display_modes(self) -> Optional[Sequence[str]]:
         """
-        A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`, `trend`.
+        A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         """
         return pulumi.get(self, "cell_display_modes")
 
@@ -55083,7 +55505,7 @@ class PowerpackWidgetQueryTableDefinitionRequest(dict):
         :param str aggregator: The aggregator to use for time aggregation. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
         :param str alias: The alias for the column name (defaults to metric name).
         :param 'PowerpackWidgetQueryTableDefinitionRequestApmQueryArgs' apm_query: The query to use for this widget.
-        :param Sequence[str] cell_display_modes: A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`, `trend`.
+        :param Sequence[str] cell_display_modes: A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         :param Sequence['PowerpackWidgetQueryTableDefinitionRequestConditionalFormatArgs'] conditional_formats: Conditional formats allow you to set the color of your widget content or background, depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
         :param int limit: The number of lines to show in the table.
         :param 'PowerpackWidgetQueryTableDefinitionRequestLogQueryArgs' log_query: The query to use for this widget.
@@ -55160,7 +55582,7 @@ class PowerpackWidgetQueryTableDefinitionRequest(dict):
     @pulumi.getter(name="cellDisplayModes")
     def cell_display_modes(self) -> Optional[Sequence[str]]:
         """
-        A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`, `trend`.
+        A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
         """
         return pulumi.get(self, "cell_display_modes")
 
@@ -81717,16 +82139,20 @@ class SecurityMonitoringFilterExclusionFilter(dict):
 class SecurityMonitoringRuleCase(dict):
     def __init__(__self__, *,
                  status: str,
+                 actions: Optional[Sequence['outputs.SecurityMonitoringRuleCaseAction']] = None,
                  condition: Optional[str] = None,
                  name: Optional[str] = None,
                  notifications: Optional[Sequence[str]] = None):
         """
         :param str status: Severity of the Security Signal. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+        :param Sequence['SecurityMonitoringRuleCaseActionArgs'] actions: Action to perform when the case trigger
         :param str condition: A rule case contains logical operations (`>`,`>=`, `&&`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries.
         :param str name: Name of the case.
         :param Sequence[str] notifications: Notification targets for each rule case.
         """
         pulumi.set(__self__, "status", status)
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
         if condition is not None:
             pulumi.set(__self__, "condition", condition)
         if name is not None:
@@ -81741,6 +82167,14 @@ class SecurityMonitoringRuleCase(dict):
         Severity of the Security Signal. Valid values are `info`, `low`, `medium`, `high`, `critical`.
         """
         return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Optional[Sequence['outputs.SecurityMonitoringRuleCaseAction']]:
+        """
+        Action to perform when the case trigger
+        """
+        return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter
@@ -81765,6 +82199,55 @@ class SecurityMonitoringRuleCase(dict):
         Notification targets for each rule case.
         """
         return pulumi.get(self, "notifications")
+
+
+@pulumi.output_type
+class SecurityMonitoringRuleCaseAction(dict):
+    def __init__(__self__, *,
+                 type: str,
+                 options: Optional['outputs.SecurityMonitoringRuleCaseActionOptions'] = None):
+        """
+        :param str type: Type of action to perform when the case triggers. Valid values are `block_ip`, `block_user`.
+        :param 'SecurityMonitoringRuleCaseActionOptionsArgs' options: Options for the action.
+        """
+        pulumi.set(__self__, "type", type)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of action to perform when the case triggers. Valid values are `block_ip`, `block_user`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional['outputs.SecurityMonitoringRuleCaseActionOptions']:
+        """
+        Options for the action.
+        """
+        return pulumi.get(self, "options")
+
+
+@pulumi.output_type
+class SecurityMonitoringRuleCaseActionOptions(dict):
+    def __init__(__self__, *,
+                 duration: Optional[int] = None):
+        """
+        :param int duration: Duration of the action in seconds.
+        """
+        if duration is not None:
+            pulumi.set(__self__, "duration", duration)
+
+    @property
+    @pulumi.getter
+    def duration(self) -> Optional[int]:
+        """
+        Duration of the action in seconds.
+        """
+        return pulumi.get(self, "duration")
 
 
 @pulumi.output_type
@@ -83479,7 +83962,7 @@ class SyntheticsPrivateLocationMetadata(dict):
     def __init__(__self__, *,
                  restricted_roles: Optional[Sequence[str]] = None):
         """
-        :param Sequence[str] restricted_roles: A list of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
+        :param Sequence[str] restricted_roles: A set of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
         """
         if restricted_roles is not None:
             pulumi.set(__self__, "restricted_roles", restricted_roles)
@@ -83489,7 +83972,7 @@ class SyntheticsPrivateLocationMetadata(dict):
     @_utilities.deprecated("""This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.""")
     def restricted_roles(self) -> Optional[Sequence[str]]:
         """
-        A list of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
+        A set of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
         """
         return pulumi.get(self, "restricted_roles")
 
@@ -83505,6 +83988,8 @@ class SyntheticsTestApiStep(dict):
             suggest = "exit_if_succeed"
         elif key == "extractedValues":
             suggest = "extracted_values"
+        elif key == "extractedValuesFromScript":
+            suggest = "extracted_values_from_script"
         elif key == "isCritical":
             suggest = "is_critical"
         elif key == "requestBasicauth":
@@ -83541,6 +84026,7 @@ class SyntheticsTestApiStep(dict):
                  assertions: Optional[Sequence['outputs.SyntheticsTestApiStepAssertion']] = None,
                  exit_if_succeed: Optional[bool] = None,
                  extracted_values: Optional[Sequence['outputs.SyntheticsTestApiStepExtractedValue']] = None,
+                 extracted_values_from_script: Optional[str] = None,
                  is_critical: Optional[bool] = None,
                  request_basicauth: Optional['outputs.SyntheticsTestApiStepRequestBasicauth'] = None,
                  request_client_certificate: Optional['outputs.SyntheticsTestApiStepRequestClientCertificate'] = None,
@@ -83559,6 +84045,7 @@ class SyntheticsTestApiStep(dict):
         :param Sequence['SyntheticsTestApiStepAssertionArgs'] assertions: Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
         :param bool exit_if_succeed: Determines whether or not to exit the test if the step succeeds.
         :param Sequence['SyntheticsTestApiStepExtractedValueArgs'] extracted_values: Values to parse and save as variables from the response.
+        :param str extracted_values_from_script: Generate variables using JavaScript.
         :param bool is_critical: Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
         :param 'SyntheticsTestApiStepRequestBasicauthArgs' request_basicauth: The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
         :param 'SyntheticsTestApiStepRequestClientCertificateArgs' request_client_certificate: Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
@@ -83580,6 +84067,8 @@ class SyntheticsTestApiStep(dict):
             pulumi.set(__self__, "exit_if_succeed", exit_if_succeed)
         if extracted_values is not None:
             pulumi.set(__self__, "extracted_values", extracted_values)
+        if extracted_values_from_script is not None:
+            pulumi.set(__self__, "extracted_values_from_script", extracted_values_from_script)
         if is_critical is not None:
             pulumi.set(__self__, "is_critical", is_critical)
         if request_basicauth is not None:
@@ -83644,6 +84133,14 @@ class SyntheticsTestApiStep(dict):
         Values to parse and save as variables from the response.
         """
         return pulumi.get(self, "extracted_values")
+
+    @property
+    @pulumi.getter(name="extractedValuesFromScript")
+    def extracted_values_from_script(self) -> Optional[str]:
+        """
+        Generate variables using JavaScript.
+        """
+        return pulumi.get(self, "extracted_values_from_script")
 
     @property
     @pulumi.getter(name="isCritical")
@@ -85375,7 +85872,7 @@ class SyntheticsTestBrowserStepParams(dict):
         :param 'SyntheticsTestBrowserStepParamsElementUserLocatorArgs' element_user_locator: Custom user selector to use for the step.
         :param str email: Details of the email for an "assert email" step, JSON encoded string.
         :param str file: JSON encoded string used for an "assert download" step. Refer to the examples for a usage example showing the schema.
-        :param str files: Details of the files for an "upload files" step, JSON encoded string.
+        :param str files: Details of the files for an "upload files" step, JSON encoded string. Refer to the examples for a usage example showing the schema.
         :param Sequence[str] modifiers: Modifier to use for a "press key" step.
         :param str playing_tab_id: ID of the tab to play the subtest.
         :param str request: Request for an API step.
@@ -85501,7 +85998,7 @@ class SyntheticsTestBrowserStepParams(dict):
     @pulumi.getter
     def files(self) -> Optional[str]:
         """
-        Details of the files for an "upload files" step, JSON encoded string.
+        Details of the files for an "upload files" step, JSON encoded string. Refer to the examples for a usage example showing the schema.
         """
         return pulumi.get(self, "files")
 
@@ -89592,6 +90089,7 @@ class GetSecurityMonitoringRulesRuleResult(dict):
                  cases: Optional[Sequence['outputs.GetSecurityMonitoringRulesRuleCaseResult']] = None,
                  enabled: Optional[bool] = None,
                  filters: Optional[Sequence['outputs.GetSecurityMonitoringRulesRuleFilterResult']] = None,
+                 group_signals_bies: Optional[Sequence[str]] = None,
                  has_extended_title: Optional[bool] = None,
                  options: Optional['outputs.GetSecurityMonitoringRulesRuleOptionsResult'] = None,
                  queries: Optional[Sequence['outputs.GetSecurityMonitoringRulesRuleQueryResult']] = None,
@@ -89606,6 +90104,7 @@ class GetSecurityMonitoringRulesRuleResult(dict):
         :param Sequence['GetSecurityMonitoringRulesRuleCaseArgs'] cases: Cases for generating signals.
         :param bool enabled: Whether the rule is enabled.
         :param Sequence['GetSecurityMonitoringRulesRuleFilterArgs'] filters: Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
+        :param Sequence[str] group_signals_bies: Additional grouping to perform on top of the query grouping.
         :param bool has_extended_title: Whether the notifications include the triggering group-by values in their title.
         :param 'GetSecurityMonitoringRulesRuleOptionsArgs' options: Options on rules.
         :param Sequence['GetSecurityMonitoringRulesRuleQueryArgs'] queries: Queries for selecting logs which are part of the rule.
@@ -89623,6 +90122,8 @@ class GetSecurityMonitoringRulesRuleResult(dict):
             pulumi.set(__self__, "enabled", enabled)
         if filters is not None:
             pulumi.set(__self__, "filters", filters)
+        if group_signals_bies is not None:
+            pulumi.set(__self__, "group_signals_bies", group_signals_bies)
         if has_extended_title is not None:
             pulumi.set(__self__, "has_extended_title", has_extended_title)
         if options is not None:
@@ -89679,6 +90180,14 @@ class GetSecurityMonitoringRulesRuleResult(dict):
         Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
         """
         return pulumi.get(self, "filters")
+
+    @property
+    @pulumi.getter(name="groupSignalsBies")
+    def group_signals_bies(self) -> Optional[Sequence[str]]:
+        """
+        Additional grouping to perform on top of the query grouping.
+        """
+        return pulumi.get(self, "group_signals_bies")
 
     @property
     @pulumi.getter(name="hasExtendedTitle")
@@ -89749,16 +90258,20 @@ class GetSecurityMonitoringRulesRuleResult(dict):
 class GetSecurityMonitoringRulesRuleCaseResult(dict):
     def __init__(__self__, *,
                  status: str,
+                 actions: Optional[Sequence['outputs.GetSecurityMonitoringRulesRuleCaseActionResult']] = None,
                  condition: Optional[str] = None,
                  name: Optional[str] = None,
                  notifications: Optional[Sequence[str]] = None):
         """
         :param str status: Severity of the Security Signal.
+        :param Sequence['GetSecurityMonitoringRulesRuleCaseActionArgs'] actions: Action to perform when the case trigger
         :param str condition: A rule case contains logical operations (`>`,`>=`, `&&`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries.
         :param str name: Name of the case.
         :param Sequence[str] notifications: Notification targets for each rule case.
         """
         pulumi.set(__self__, "status", status)
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
         if condition is not None:
             pulumi.set(__self__, "condition", condition)
         if name is not None:
@@ -89773,6 +90286,14 @@ class GetSecurityMonitoringRulesRuleCaseResult(dict):
         Severity of the Security Signal.
         """
         return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Optional[Sequence['outputs.GetSecurityMonitoringRulesRuleCaseActionResult']]:
+        """
+        Action to perform when the case trigger
+        """
+        return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter
@@ -89797,6 +90318,55 @@ class GetSecurityMonitoringRulesRuleCaseResult(dict):
         Notification targets for each rule case.
         """
         return pulumi.get(self, "notifications")
+
+
+@pulumi.output_type
+class GetSecurityMonitoringRulesRuleCaseActionResult(dict):
+    def __init__(__self__, *,
+                 type: str,
+                 options: Optional['outputs.GetSecurityMonitoringRulesRuleCaseActionOptionsResult'] = None):
+        """
+        :param str type: Type of action to perform when the case triggers.
+        :param 'GetSecurityMonitoringRulesRuleCaseActionOptionsArgs' options: Options for the action.
+        """
+        pulumi.set(__self__, "type", type)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of action to perform when the case triggers.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional['outputs.GetSecurityMonitoringRulesRuleCaseActionOptionsResult']:
+        """
+        Options for the action.
+        """
+        return pulumi.get(self, "options")
+
+
+@pulumi.output_type
+class GetSecurityMonitoringRulesRuleCaseActionOptionsResult(dict):
+    def __init__(__self__, *,
+                 duration: Optional[int] = None):
+        """
+        :param int duration: Duration of the action in seconds.
+        """
+        if duration is not None:
+            pulumi.set(__self__, "duration", duration)
+
+    @property
+    @pulumi.getter
+    def duration(self) -> Optional[int]:
+        """
+        Duration of the action in seconds.
+        """
+        return pulumi.get(self, "duration")
 
 
 @pulumi.output_type

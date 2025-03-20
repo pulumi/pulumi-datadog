@@ -375,6 +375,17 @@ import (
 //		return err
 //	}
 //	json0 := string(tmpJSON0)
+//	tmpJSON1, err := json.Marshal([]map[string]interface{}{
+//		map[string]interface{}{
+//			"name":    "hello.txt",
+//			"size":    11,
+//			"content": "Hello world",
+//		},
+//	})
+//	if err != nil {
+//		return err
+//	}
+//	json1 := string(tmpJSON1)
 //	// Example Usage (Synthetics Browser test)
 //	// Create a new Datadog Synthetics Browser test starting on https://www.example.org
 //	_, err = datadog.NewSyntheticsTest(ctx, "test_browser", &datadog.SyntheticsTestArgs{
@@ -407,6 +418,20 @@ import (
 //				Type: pulumi.String("assertFileDownload"),
 //				Params: &datadog.SyntheticsTestBrowserStepParamsArgs{
 //					File: pulumi.String(json0),
+//				},
+//			},
+//			&datadog.SyntheticsTestBrowserStepArgs{
+//				Name: pulumi.String("Upload a file"),
+//				Type: pulumi.String("uploadFiles"),
+//				Params: &datadog.SyntheticsTestBrowserStepParamsArgs{
+//					Files:   pulumi.String(json1),
+//					Element: pulumi.String("*[@id='simple-file-upload']"),
+//					ElementUserLocator: &datadog.SyntheticsTestBrowserStepParamsElementUserLocatorArgs{
+//						Value: &datadog.SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs{
+//							Type:  pulumi.String("css"),
+//							Value: pulumi.String("#simple-file-upload"),
+//						},
+//					},
 //				},
 //			},
 //		},
@@ -495,19 +520,6 @@ import (
 //				NotificationPresetName: pulumi.String("show_all"),
 //			},
 //			MonitorPriority: pulumi.Int(5),
-//			RestrictedRoles: pulumi.StringArray{
-//				pulumi.String("role1"),
-//				pulumi.String("role2"),
-//			},
-//			Bindings: datadog.SyntheticsTestMobileOptionsListBindingArray{
-//				&datadog.SyntheticsTestMobileOptionsListBindingArgs{
-//					Principals: pulumi.StringArray{
-//						pulumi.String("org:8dee7c38-0000-aaaa-zzzz-8b5a08d3b091"),
-//						pulumi.String("team:3a0cdd74-0000-aaaa-zzzz-da7ad0900002"),
-//					},
-//					Relation: pulumi.String("editor"),
-//				},
-//			},
 //			Ci: &datadog.SyntheticsTestMobileOptionsListCiArgs{
 //				ExecutionRule: pulumi.String("blocking"),
 //			},
