@@ -50,6 +50,57 @@
                     }
                 }
             },
+            "datadog_appsec_waf_custom_rule": {
+                "current": "datadog:index/appsecWafCustomRule:AppsecWafCustomRule",
+                "majorVersion": 4,
+                "fields": {
+                    "condition": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "parameters": {
+                                    "fields": {
+                                        "input": {
+                                            "maxItemsOne": false,
+                                            "elem": {
+                                                "fields": {
+                                                    "key_path": {
+                                                        "maxItemsOne": false
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "list": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "scope": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "datadog_appsec_waf_exclusion_filter": {
+                "current": "datadog:index/appsecWafExclusionFilter:AppsecWafExclusionFilter",
+                "majorVersion": 4,
+                "fields": {
+                    "ip_list": {
+                        "maxItemsOne": false
+                    },
+                    "parameters": {
+                        "maxItemsOne": false
+                    },
+                    "rules_target": {
+                        "maxItemsOne": false
+                    },
+                    "scope": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "datadog_authn_mapping": {
                 "current": "datadog:index/authnMapping:AuthnMapping",
                 "majorVersion": 4
@@ -12256,6 +12307,10 @@
                 "current": "datadog:aws/integrationEventBridge:IntegrationEventBridge",
                 "majorVersion": 4
             },
+            "datadog_integration_aws_external_id": {
+                "current": "datadog:aws/integrationExternalId:IntegrationExternalId",
+                "majorVersion": 4
+            },
             "datadog_integration_aws_lambda_arn": {
                 "current": "datadog:aws/integrationLambdaArn:IntegrationLambdaArn",
                 "majorVersion": 4
@@ -16461,6 +16516,16 @@
                         "maxItemsOne": false,
                         "elem": {
                             "fields": {
+                                "action": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "options": {
+                                                "maxItemsOne": true
+                                            }
+                                        }
+                                    }
+                                },
                                 "notifications": {
                                     "maxItemsOne": false
                                 }
@@ -16468,6 +16533,9 @@
                         }
                     },
                     "filter": {
+                        "maxItemsOne": false
+                    },
+                    "group_signals_by": {
                         "maxItemsOne": false
                     },
                     "options": {
@@ -17091,6 +17159,15 @@
             "datadog_webhook_custom_variable": {
                 "current": "datadog:index/webhookCustomVariable:WebhookCustomVariable",
                 "majorVersion": 4
+            },
+            "datadog_workflow_automation": {
+                "current": "datadog:index/workflowAutomation:WorkflowAutomation",
+                "majorVersion": 4,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
             }
         },
         "datasources": {
@@ -17517,6 +17594,16 @@
                                     "maxItemsOne": false,
                                     "elem": {
                                         "fields": {
+                                            "action": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "options": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
+                                            },
                                             "notifications": {
                                                 "maxItemsOne": false
                                             }
@@ -17524,6 +17611,9 @@
                                     }
                                 },
                                 "filter": {
+                                    "maxItemsOne": false
+                                },
+                                "group_signals_by": {
                                     "maxItemsOne": false
                                 },
                                 "options": {
@@ -17731,6 +17821,15 @@
                         "maxItemsOne": false
                     }
                 }
+            },
+            "datadog_workflow_automation": {
+                "current": "datadog:index/getWorkflowAutomation:getWorkflowAutomation",
+                "majorVersion": 4,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
             }
         }
     },
@@ -17750,6 +17849,7 @@
             "datadog:aws/integration:Integration": 0,
             "datadog:aws/integrationAccount:IntegrationAccount": 1,
             "datadog:aws/integrationEventBridge:IntegrationEventBridge": 1,
+            "datadog:aws/integrationExternalId:IntegrationExternalId": 1,
             "datadog:aws/integrationLambdaArn:IntegrationLambdaArn": 0,
             "datadog:aws/integrationLogCollection:IntegrationLogCollection": 0,
             "datadog:aws/integrationTagFilter:IntegrationTagFilter": 0,
@@ -17766,6 +17866,8 @@
             "datadog:index/apmRetentionFilter:ApmRetentionFilter": 1,
             "datadog:index/apmRetentionFilterOrder:ApmRetentionFilterOrder": 1,
             "datadog:index/applicationKey:ApplicationKey": 1,
+            "datadog:index/appsecWafCustomRule:AppsecWafCustomRule": 1,
+            "datadog:index/appsecWafExclusionFilter:AppsecWafExclusionFilter": 1,
             "datadog:index/authnMapping:AuthnMapping": 0,
             "datadog:index/childOrganization:ChildOrganization": 0,
             "datadog:index/cloudConfigurationRule:CloudConfigurationRule": 0,
@@ -17815,8 +17917,8 @@
             "datadog:index/softwareCatalog:SoftwareCatalog": 1,
             "datadog:index/spansMetric:SpansMetric": 1,
             "datadog:index/syntheticsConcurrencyCap:SyntheticsConcurrencyCap": 1,
-            "datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable": 0,
-            "datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation": 0,
+            "datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable": 1,
+            "datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation": 1,
             "datadog:index/syntheticsTest:SyntheticsTest": 0,
             "datadog:index/team:Team": 1,
             "datadog:index/teamLink:TeamLink": 1,
@@ -17826,6 +17928,7 @@
             "datadog:index/userRole:UserRole": 1,
             "datadog:index/webhook:Webhook": 1,
             "datadog:index/webhookCustomVariable:WebhookCustomVariable": 1,
+            "datadog:index/workflowAutomation:WorkflowAutomation": 1,
             "datadog:ms/integrationTeamsTenantBasedHandle:IntegrationTeamsTenantBasedHandle": 1,
             "datadog:ms/integrationTeamsWorkflowsWebhookHandle:IntegrationTeamsWorkflowsWebhookHandle": 1,
             "datadog:opsgenie/serviceObject:ServiceObject": 0,
@@ -17870,14 +17973,15 @@
             "datadog:index/getServiceAccount:getServiceAccount": 1,
             "datadog:index/getServiceLevelObjective:getServiceLevelObjective": 0,
             "datadog:index/getServiceLevelObjectives:getServiceLevelObjectives": 0,
-            "datadog:index/getSyntheticsGlobalVariable:getSyntheticsGlobalVariable": 0,
+            "datadog:index/getSyntheticsGlobalVariable:getSyntheticsGlobalVariable": 1,
             "datadog:index/getSyntheticsLocations:getSyntheticsLocations": 0,
             "datadog:index/getSyntheticsTest:getSyntheticsTest": 0,
             "datadog:index/getTeam:getTeam": 1,
             "datadog:index/getTeamMemberships:getTeamMemberships": 1,
             "datadog:index/getTeams:getTeams": 1,
             "datadog:index/getUser:getUser": 0,
-            "datadog:index/getUsers:getUsers": 1
+            "datadog:index/getUsers:getUsers": 1,
+            "datadog:index/getWorkflowAutomation:getWorkflowAutomation": 1
         }
     },
     "renames": {
