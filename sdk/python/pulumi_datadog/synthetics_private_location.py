@@ -28,7 +28,7 @@ class SyntheticsPrivateLocationArgs:
         """
         The set of arguments for constructing a SyntheticsPrivateLocation resource.
         :param pulumi.Input[str] name: Synthetics private location name.
-        :param pulumi.Input[str] description: Description of the private location.
+        :param pulumi.Input[str] description: Description of the private location. Defaults to `""`.
         :param pulumi.Input['SyntheticsPrivateLocationMetadataArgs'] metadata: The private location metadata
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics private location.
         """
@@ -56,7 +56,7 @@ class SyntheticsPrivateLocationArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Description of the private location.
+        Description of the private location. Defaults to `""`.
         """
         return pulumi.get(self, "description")
 
@@ -100,7 +100,7 @@ class _SyntheticsPrivateLocationState:
         """
         Input properties used for looking up and filtering SyntheticsPrivateLocation resources.
         :param pulumi.Input[str] config: Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
-        :param pulumi.Input[str] description: Description of the private location.
+        :param pulumi.Input[str] description: Description of the private location. Defaults to `""`.
         :param pulumi.Input['SyntheticsPrivateLocationMetadataArgs'] metadata: The private location metadata
         :param pulumi.Input[str] name: Synthetics private location name.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics private location.
@@ -132,7 +132,7 @@ class _SyntheticsPrivateLocationState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Description of the private location.
+        Description of the private location. Defaults to `""`.
         """
         return pulumi.get(self, "description")
 
@@ -215,7 +215,7 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: Description of the private location.
+        :param pulumi.Input[str] description: Description of the private location. Defaults to `""`.
         :param pulumi.Input[Union['SyntheticsPrivateLocationMetadataArgs', 'SyntheticsPrivateLocationMetadataArgsDict']] metadata: The private location metadata
         :param pulumi.Input[str] name: Synthetics private location name.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics private location.
@@ -312,7 +312,7 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] config: Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
-        :param pulumi.Input[str] description: Description of the private location.
+        :param pulumi.Input[str] description: Description of the private location. Defaults to `""`.
         :param pulumi.Input[Union['SyntheticsPrivateLocationMetadataArgs', 'SyntheticsPrivateLocationMetadataArgsDict']] metadata: The private location metadata
         :param pulumi.Input[str] name: Synthetics private location name.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics private location.
@@ -338,9 +338,9 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> pulumi.Output[Optional[str]]:
+    def description(self) -> pulumi.Output[str]:
         """
-        Description of the private location.
+        Description of the private location. Defaults to `""`.
         """
         return pulumi.get(self, "description")
 
@@ -362,7 +362,7 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def tags(self) -> pulumi.Output[Sequence[str]]:
         """
         A list of tags to associate with your synthetics private location.
         """

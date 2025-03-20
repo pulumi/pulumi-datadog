@@ -64,7 +64,7 @@ namespace Pulumi.Datadog
     public sealed class GetSyntheticsGlobalVariableResult
     {
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
+        /// The ID of this resource.
         /// </summary>
         public readonly string Id;
         /// <summary>

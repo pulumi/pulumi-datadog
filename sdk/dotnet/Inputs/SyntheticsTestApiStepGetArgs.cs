@@ -49,6 +49,12 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
+        /// Generate variables using JavaScript.
+        /// </summary>
+        [Input("extractedValuesFromScript")]
+        public Input<string>? ExtractedValuesFromScript { get; set; }
+
+        /// <summary>
         /// Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
         /// </summary>
         [Input("isCritical")]

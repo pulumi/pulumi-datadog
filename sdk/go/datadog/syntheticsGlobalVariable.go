@@ -28,6 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create new synthetics_global_variable resource
 //			_, err := datadog.NewSyntheticsGlobalVariable(ctx, "test_variable", &datadog.SyntheticsGlobalVariableArgs{
 //				Name:        pulumi.String("EXAMPLE_VARIABLE"),
 //				Description: pulumi.String("Description of the variable"),
@@ -56,12 +57,12 @@ import (
 type SyntheticsGlobalVariable struct {
 	pulumi.CustomResourceState
 
-	// Description of the global variable.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Description of the global variable. Defaults to `""`.
+	Description pulumi.StringOutput `pulumi:"description"`
 	// If set to true, the global variable is a FIDO variable. Defaults to `false`.
-	IsFido pulumi.BoolPtrOutput `pulumi:"isFido"`
+	IsFido pulumi.BoolOutput `pulumi:"isFido"`
 	// If set to true, the global variable is a TOTP variable. Defaults to `false`.
-	IsTotp pulumi.BoolPtrOutput `pulumi:"isTotp"`
+	IsTotp pulumi.BoolOutput `pulumi:"isTotp"`
 	// Synthetics global variable name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Additional options for the variable, such as a MFA token.
@@ -74,11 +75,11 @@ type SyntheticsGlobalVariable struct {
 	//
 	// Deprecated: This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
 	RestrictedRoles pulumi.StringArrayOutput `pulumi:"restrictedRoles"`
-	// If set to true, the value of the global variable is hidden. This setting is ignored if `isTotp` or `isFido` is set to `true`. Defaults to `false`.
-	Secure pulumi.BoolPtrOutput `pulumi:"secure"`
+	// If set to true, the value of the global variable is hidden. This setting is automatically set to `true` if `isTotp` or `isFido` is set to `true`. Defaults to `false`.
+	Secure pulumi.BoolOutput `pulumi:"secure"`
 	// A list of tags to associate with your synthetics global variable.
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
-	// The value of the global variable. This setting is ignored if `isFido` is set to `true` and required otherwise.
+	// The value of the global variable. Required unless `isFido` is set to `true`.
 	Value pulumi.StringPtrOutput `pulumi:"value"`
 }
 
@@ -122,7 +123,7 @@ func GetSyntheticsGlobalVariable(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SyntheticsGlobalVariable resources.
 type syntheticsGlobalVariableState struct {
-	// Description of the global variable.
+	// Description of the global variable. Defaults to `""`.
 	Description *string `pulumi:"description"`
 	// If set to true, the global variable is a FIDO variable. Defaults to `false`.
 	IsFido *bool `pulumi:"isFido"`
@@ -140,16 +141,16 @@ type syntheticsGlobalVariableState struct {
 	//
 	// Deprecated: This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
 	RestrictedRoles []string `pulumi:"restrictedRoles"`
-	// If set to true, the value of the global variable is hidden. This setting is ignored if `isTotp` or `isFido` is set to `true`. Defaults to `false`.
+	// If set to true, the value of the global variable is hidden. This setting is automatically set to `true` if `isTotp` or `isFido` is set to `true`. Defaults to `false`.
 	Secure *bool `pulumi:"secure"`
 	// A list of tags to associate with your synthetics global variable.
 	Tags []string `pulumi:"tags"`
-	// The value of the global variable. This setting is ignored if `isFido` is set to `true` and required otherwise.
+	// The value of the global variable. Required unless `isFido` is set to `true`.
 	Value *string `pulumi:"value"`
 }
 
 type SyntheticsGlobalVariableState struct {
-	// Description of the global variable.
+	// Description of the global variable. Defaults to `""`.
 	Description pulumi.StringPtrInput
 	// If set to true, the global variable is a FIDO variable. Defaults to `false`.
 	IsFido pulumi.BoolPtrInput
@@ -167,11 +168,11 @@ type SyntheticsGlobalVariableState struct {
 	//
 	// Deprecated: This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
 	RestrictedRoles pulumi.StringArrayInput
-	// If set to true, the value of the global variable is hidden. This setting is ignored if `isTotp` or `isFido` is set to `true`. Defaults to `false`.
+	// If set to true, the value of the global variable is hidden. This setting is automatically set to `true` if `isTotp` or `isFido` is set to `true`. Defaults to `false`.
 	Secure pulumi.BoolPtrInput
 	// A list of tags to associate with your synthetics global variable.
 	Tags pulumi.StringArrayInput
-	// The value of the global variable. This setting is ignored if `isFido` is set to `true` and required otherwise.
+	// The value of the global variable. Required unless `isFido` is set to `true`.
 	Value pulumi.StringPtrInput
 }
 
@@ -180,7 +181,7 @@ func (SyntheticsGlobalVariableState) ElementType() reflect.Type {
 }
 
 type syntheticsGlobalVariableArgs struct {
-	// Description of the global variable.
+	// Description of the global variable. Defaults to `""`.
 	Description *string `pulumi:"description"`
 	// If set to true, the global variable is a FIDO variable. Defaults to `false`.
 	IsFido *bool `pulumi:"isFido"`
@@ -198,17 +199,17 @@ type syntheticsGlobalVariableArgs struct {
 	//
 	// Deprecated: This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
 	RestrictedRoles []string `pulumi:"restrictedRoles"`
-	// If set to true, the value of the global variable is hidden. This setting is ignored if `isTotp` or `isFido` is set to `true`. Defaults to `false`.
+	// If set to true, the value of the global variable is hidden. This setting is automatically set to `true` if `isTotp` or `isFido` is set to `true`. Defaults to `false`.
 	Secure *bool `pulumi:"secure"`
 	// A list of tags to associate with your synthetics global variable.
 	Tags []string `pulumi:"tags"`
-	// The value of the global variable. This setting is ignored if `isFido` is set to `true` and required otherwise.
+	// The value of the global variable. Required unless `isFido` is set to `true`.
 	Value *string `pulumi:"value"`
 }
 
 // The set of arguments for constructing a SyntheticsGlobalVariable resource.
 type SyntheticsGlobalVariableArgs struct {
-	// Description of the global variable.
+	// Description of the global variable. Defaults to `""`.
 	Description pulumi.StringPtrInput
 	// If set to true, the global variable is a FIDO variable. Defaults to `false`.
 	IsFido pulumi.BoolPtrInput
@@ -226,11 +227,11 @@ type SyntheticsGlobalVariableArgs struct {
 	//
 	// Deprecated: This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
 	RestrictedRoles pulumi.StringArrayInput
-	// If set to true, the value of the global variable is hidden. This setting is ignored if `isTotp` or `isFido` is set to `true`. Defaults to `false`.
+	// If set to true, the value of the global variable is hidden. This setting is automatically set to `true` if `isTotp` or `isFido` is set to `true`. Defaults to `false`.
 	Secure pulumi.BoolPtrInput
 	// A list of tags to associate with your synthetics global variable.
 	Tags pulumi.StringArrayInput
-	// The value of the global variable. This setting is ignored if `isFido` is set to `true` and required otherwise.
+	// The value of the global variable. Required unless `isFido` is set to `true`.
 	Value pulumi.StringPtrInput
 }
 
@@ -321,19 +322,19 @@ func (o SyntheticsGlobalVariableOutput) ToSyntheticsGlobalVariableOutputWithCont
 	return o
 }
 
-// Description of the global variable.
-func (o SyntheticsGlobalVariableOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SyntheticsGlobalVariable) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+// Description of the global variable. Defaults to `""`.
+func (o SyntheticsGlobalVariableOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *SyntheticsGlobalVariable) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
 // If set to true, the global variable is a FIDO variable. Defaults to `false`.
-func (o SyntheticsGlobalVariableOutput) IsFido() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SyntheticsGlobalVariable) pulumi.BoolPtrOutput { return v.IsFido }).(pulumi.BoolPtrOutput)
+func (o SyntheticsGlobalVariableOutput) IsFido() pulumi.BoolOutput {
+	return o.ApplyT(func(v *SyntheticsGlobalVariable) pulumi.BoolOutput { return v.IsFido }).(pulumi.BoolOutput)
 }
 
 // If set to true, the global variable is a TOTP variable. Defaults to `false`.
-func (o SyntheticsGlobalVariableOutput) IsTotp() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SyntheticsGlobalVariable) pulumi.BoolPtrOutput { return v.IsTotp }).(pulumi.BoolPtrOutput)
+func (o SyntheticsGlobalVariableOutput) IsTotp() pulumi.BoolOutput {
+	return o.ApplyT(func(v *SyntheticsGlobalVariable) pulumi.BoolOutput { return v.IsTotp }).(pulumi.BoolOutput)
 }
 
 // Synthetics global variable name.
@@ -365,9 +366,9 @@ func (o SyntheticsGlobalVariableOutput) RestrictedRoles() pulumi.StringArrayOutp
 	return o.ApplyT(func(v *SyntheticsGlobalVariable) pulumi.StringArrayOutput { return v.RestrictedRoles }).(pulumi.StringArrayOutput)
 }
 
-// If set to true, the value of the global variable is hidden. This setting is ignored if `isTotp` or `isFido` is set to `true`. Defaults to `false`.
-func (o SyntheticsGlobalVariableOutput) Secure() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SyntheticsGlobalVariable) pulumi.BoolPtrOutput { return v.Secure }).(pulumi.BoolPtrOutput)
+// If set to true, the value of the global variable is hidden. This setting is automatically set to `true` if `isTotp` or `isFido` is set to `true`. Defaults to `false`.
+func (o SyntheticsGlobalVariableOutput) Secure() pulumi.BoolOutput {
+	return o.ApplyT(func(v *SyntheticsGlobalVariable) pulumi.BoolOutput { return v.Secure }).(pulumi.BoolOutput)
 }
 
 // A list of tags to associate with your synthetics global variable.
@@ -375,7 +376,7 @@ func (o SyntheticsGlobalVariableOutput) Tags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SyntheticsGlobalVariable) pulumi.StringArrayOutput { return v.Tags }).(pulumi.StringArrayOutput)
 }
 
-// The value of the global variable. This setting is ignored if `isFido` is set to `true` and required otherwise.
+// The value of the global variable. Required unless `isFido` is set to `true`.
 func (o SyntheticsGlobalVariableOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsGlobalVariable) pulumi.StringPtrOutput { return v.Value }).(pulumi.StringPtrOutput)
 }

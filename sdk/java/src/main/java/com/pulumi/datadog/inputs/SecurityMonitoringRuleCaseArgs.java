@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.SecurityMonitoringRuleCaseActionArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
@@ -16,6 +17,21 @@ import javax.annotation.Nullable;
 public final class SecurityMonitoringRuleCaseArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final SecurityMonitoringRuleCaseArgs Empty = new SecurityMonitoringRuleCaseArgs();
+
+    /**
+     * Action to perform when the case trigger
+     * 
+     */
+    @Import(name="actions")
+    private @Nullable Output<List<SecurityMonitoringRuleCaseActionArgs>> actions;
+
+    /**
+     * @return Action to perform when the case trigger
+     * 
+     */
+    public Optional<Output<List<SecurityMonitoringRuleCaseActionArgs>>> actions() {
+        return Optional.ofNullable(this.actions);
+    }
 
     /**
      * A rule case contains logical operations (`&gt;`,`&gt;=`, `&amp;&amp;`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries.
@@ -80,6 +96,7 @@ public final class SecurityMonitoringRuleCaseArgs extends com.pulumi.resources.R
     private SecurityMonitoringRuleCaseArgs() {}
 
     private SecurityMonitoringRuleCaseArgs(SecurityMonitoringRuleCaseArgs $) {
+        this.actions = $.actions;
         this.condition = $.condition;
         this.name = $.name;
         this.notifications = $.notifications;
@@ -102,6 +119,37 @@ public final class SecurityMonitoringRuleCaseArgs extends com.pulumi.resources.R
 
         public Builder(SecurityMonitoringRuleCaseArgs defaults) {
             $ = new SecurityMonitoringRuleCaseArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param actions Action to perform when the case trigger
+         * 
+         * @return builder
+         * 
+         */
+        public Builder actions(@Nullable Output<List<SecurityMonitoringRuleCaseActionArgs>> actions) {
+            $.actions = actions;
+            return this;
+        }
+
+        /**
+         * @param actions Action to perform when the case trigger
+         * 
+         * @return builder
+         * 
+         */
+        public Builder actions(List<SecurityMonitoringRuleCaseActionArgs> actions) {
+            return actions(Output.of(actions));
+        }
+
+        /**
+         * @param actions Action to perform when the case trigger
+         * 
+         * @return builder
+         * 
+         */
+        public Builder actions(SecurityMonitoringRuleCaseActionArgs... actions) {
+            return actions(List.of(actions));
         }
 
         /**

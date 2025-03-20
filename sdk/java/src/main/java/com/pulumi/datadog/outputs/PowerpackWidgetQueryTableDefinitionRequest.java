@@ -40,7 +40,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequest {
     private @Nullable PowerpackWidgetQueryTableDefinitionRequestApmQuery apmQuery;
     private @Nullable PowerpackWidgetQueryTableDefinitionRequestApmStatsQuery apmStatsQuery;
     /**
-     * @return A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`, `trend`.
+     * @return A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      * 
      */
     private @Nullable List<String> cellDisplayModes;
@@ -118,7 +118,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequest {
         return Optional.ofNullable(this.apmStatsQuery);
     }
     /**
-     * @return A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`, `trend`.
+     * @return A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      * 
      */
     public List<String> cellDisplayModes() {

@@ -30,7 +30,7 @@ type LookupSyntheticsGlobalVariableArgs struct {
 
 // A collection of values returned by getSyntheticsGlobalVariable.
 type LookupSyntheticsGlobalVariableResult struct {
-	// The provider-assigned unique ID for this managed resource.
+	// The ID of this resource.
 	Id string `pulumi:"id"`
 	// The synthetics global variable name to search for. Must only match one global variable.
 	Name string `pulumi:"name"`
@@ -72,7 +72,7 @@ func (o LookupSyntheticsGlobalVariableResultOutput) ToLookupSyntheticsGlobalVari
 	return o
 }
 
-// The provider-assigned unique ID for this managed resource.
+// The ID of this resource.
 func (o LookupSyntheticsGlobalVariableResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSyntheticsGlobalVariableResult) string { return v.Id }).(pulumi.StringOutput)
 }

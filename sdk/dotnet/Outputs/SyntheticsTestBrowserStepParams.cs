@@ -50,7 +50,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? File;
         /// <summary>
-        /// Details of the files for an "upload files" step, JSON encoded string.
+        /// Details of the files for an "upload files" step, JSON encoded string. Refer to the examples for a usage example showing the schema.
         /// </summary>
         public readonly string? Files;
         /// <summary>

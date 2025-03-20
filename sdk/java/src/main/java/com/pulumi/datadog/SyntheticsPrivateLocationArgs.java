@@ -19,14 +19,14 @@ public final class SyntheticsPrivateLocationArgs extends com.pulumi.resources.Re
     public static final SyntheticsPrivateLocationArgs Empty = new SyntheticsPrivateLocationArgs();
 
     /**
-     * Description of the private location.
+     * Description of the private location. Defaults to `&#34;&#34;`.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Description of the private location.
+     * @return Description of the private location. Defaults to `&#34;&#34;`.
      * 
      */
     public Optional<Output<String>> description() {
@@ -106,7 +106,7 @@ public final class SyntheticsPrivateLocationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param description Description of the private location.
+         * @param description Description of the private location. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class SyntheticsPrivateLocationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param description Description of the private location.
+         * @param description Description of the private location. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 

@@ -62,7 +62,7 @@ public final class SyntheticsTestBrowserStepParams {
      */
     private @Nullable String file;
     /**
-     * @return Details of the files for an &#34;upload files&#34; step, JSON encoded string.
+     * @return Details of the files for an &#34;upload files&#34; step, JSON encoded string. Refer to the examples for a usage example showing the schema.
      * 
      */
     private @Nullable String files;
@@ -177,7 +177,7 @@ public final class SyntheticsTestBrowserStepParams {
         return Optional.ofNullable(this.file);
     }
     /**
-     * @return Details of the files for an &#34;upload files&#34; step, JSON encoded string.
+     * @return Details of the files for an &#34;upload files&#34; step, JSON encoded string. Refer to the examples for a usage example showing the schema.
      * 
      */
     public Optional<String> files() {

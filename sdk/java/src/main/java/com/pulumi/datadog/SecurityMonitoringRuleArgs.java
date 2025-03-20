@@ -71,6 +71,21 @@ public final class SecurityMonitoringRuleArgs extends com.pulumi.resources.Resou
     }
 
     /**
+     * Additional grouping to perform on top of the query grouping.
+     * 
+     */
+    @Import(name="groupSignalsBies")
+    private @Nullable Output<List<String>> groupSignalsBies;
+
+    /**
+     * @return Additional grouping to perform on top of the query grouping.
+     * 
+     */
+    public Optional<Output<List<String>>> groupSignalsBies() {
+        return Optional.ofNullable(this.groupSignalsBies);
+    }
+
+    /**
      * Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
      * 
      */
@@ -241,6 +256,7 @@ public final class SecurityMonitoringRuleArgs extends com.pulumi.resources.Resou
         this.cases = $.cases;
         this.enabled = $.enabled;
         this.filters = $.filters;
+        this.groupSignalsBies = $.groupSignalsBies;
         this.hasExtendedTitle = $.hasExtendedTitle;
         this.message = $.message;
         this.name = $.name;
@@ -353,6 +369,37 @@ public final class SecurityMonitoringRuleArgs extends com.pulumi.resources.Resou
          */
         public Builder filters(SecurityMonitoringRuleFilterArgs... filters) {
             return filters(List.of(filters));
+        }
+
+        /**
+         * @param groupSignalsBies Additional grouping to perform on top of the query grouping.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder groupSignalsBies(@Nullable Output<List<String>> groupSignalsBies) {
+            $.groupSignalsBies = groupSignalsBies;
+            return this;
+        }
+
+        /**
+         * @param groupSignalsBies Additional grouping to perform on top of the query grouping.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder groupSignalsBies(List<String> groupSignalsBies) {
+            return groupSignalsBies(Output.of(groupSignalsBies));
+        }
+
+        /**
+         * @param groupSignalsBies Additional grouping to perform on top of the query grouping.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder groupSignalsBies(String... groupSignalsBies) {
+            return groupSignalsBies(List.of(groupSignalsBies));
         }
 
         /**

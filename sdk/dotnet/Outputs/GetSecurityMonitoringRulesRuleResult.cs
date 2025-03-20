@@ -26,6 +26,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetSecurityMonitoringRulesRuleFilterResult> Filters;
         /// <summary>
+        /// Additional grouping to perform on top of the query grouping.
+        /// </summary>
+        public readonly ImmutableArray<string> GroupSignalsBies;
+        /// <summary>
         /// Whether the notifications include the triggering group-by values in their title.
         /// </summary>
         public readonly bool? HasExtendedTitle;
@@ -74,6 +78,8 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.GetSecurityMonitoringRulesRuleFilterResult> filters,
 
+            ImmutableArray<string> groupSignalsBies,
+
             bool? hasExtendedTitle,
 
             string message,
@@ -97,6 +103,7 @@ namespace Pulumi.Datadog.Outputs
             Cases = cases;
             Enabled = enabled;
             Filters = filters;
+            GroupSignalsBies = groupSignalsBies;
             HasExtendedTitle = hasExtendedTitle;
             Message = message;
             Name = name;

@@ -1279,6 +1279,24 @@ class SyntheticsTest(pulumi.CustomResource):
                         }),
                     },
                 },
+                {
+                    "name": "Upload a file",
+                    "type": "uploadFiles",
+                    "params": {
+                        "files": json.dumps([{
+                            "name": "hello.txt",
+                            "size": 11,
+                            "content": "Hello world",
+                        }]),
+                        "element": "*[@id='simple-file-upload']",
+                        "element_user_locator": {
+                            "value": {
+                                "type": "css",
+                                "value": "#simple-file-upload",
+                            },
+                        },
+                    },
+                },
             ],
             browser_variables=[
                 {
@@ -1355,17 +1373,6 @@ class SyntheticsTest(pulumi.CustomResource):
                     "notification_preset_name": "show_all",
                 },
                 "monitor_priority": 5,
-                "restricted_roles": [
-                    "role1",
-                    "role2",
-                ],
-                "bindings": [{
-                    "principals": [
-                        "org:8dee7c38-0000-aaaa-zzzz-8b5a08d3b091",
-                        "team:3a0cdd74-0000-aaaa-zzzz-da7ad0900002",
-                    ],
-                    "relation": "editor",
-                }],
                 "ci": {
                     "execution_rule": "blocking",
                 },
@@ -1915,6 +1922,24 @@ class SyntheticsTest(pulumi.CustomResource):
                         }),
                     },
                 },
+                {
+                    "name": "Upload a file",
+                    "type": "uploadFiles",
+                    "params": {
+                        "files": json.dumps([{
+                            "name": "hello.txt",
+                            "size": 11,
+                            "content": "Hello world",
+                        }]),
+                        "element": "*[@id='simple-file-upload']",
+                        "element_user_locator": {
+                            "value": {
+                                "type": "css",
+                                "value": "#simple-file-upload",
+                            },
+                        },
+                    },
+                },
             ],
             browser_variables=[
                 {
@@ -1991,17 +2016,6 @@ class SyntheticsTest(pulumi.CustomResource):
                     "notification_preset_name": "show_all",
                 },
                 "monitor_priority": 5,
-                "restricted_roles": [
-                    "role1",
-                    "role2",
-                ],
-                "bindings": [{
-                    "principals": [
-                        "org:8dee7c38-0000-aaaa-zzzz-8b5a08d3b091",
-                        "team:3a0cdd74-0000-aaaa-zzzz-da7ad0900002",
-                    ],
-                    "relation": "editor",
-                }],
                 "ci": {
                     "execution_rule": "blocking",
                 },

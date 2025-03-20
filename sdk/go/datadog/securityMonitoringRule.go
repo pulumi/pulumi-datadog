@@ -93,6 +93,8 @@ type SecurityMonitoringRule struct {
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
 	Filters SecurityMonitoringRuleFilterArrayOutput `pulumi:"filters"`
+	// Additional grouping to perform on top of the query grouping.
+	GroupSignalsBies pulumi.StringArrayOutput `pulumi:"groupSignalsBies"`
 	// Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
 	HasExtendedTitle pulumi.BoolPtrOutput `pulumi:"hasExtendedTitle"`
 	// Message for generated signals.
@@ -159,6 +161,8 @@ type securityMonitoringRuleState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
 	Filters []SecurityMonitoringRuleFilter `pulumi:"filters"`
+	// Additional grouping to perform on top of the query grouping.
+	GroupSignalsBies []string `pulumi:"groupSignalsBies"`
 	// Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
 	HasExtendedTitle *bool `pulumi:"hasExtendedTitle"`
 	// Message for generated signals.
@@ -190,6 +194,8 @@ type SecurityMonitoringRuleState struct {
 	Enabled pulumi.BoolPtrInput
 	// Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
 	Filters SecurityMonitoringRuleFilterArrayInput
+	// Additional grouping to perform on top of the query grouping.
+	GroupSignalsBies pulumi.StringArrayInput
 	// Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
 	HasExtendedTitle pulumi.BoolPtrInput
 	// Message for generated signals.
@@ -225,6 +231,8 @@ type securityMonitoringRuleArgs struct {
 	Enabled *bool `pulumi:"enabled"`
 	// Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
 	Filters []SecurityMonitoringRuleFilter `pulumi:"filters"`
+	// Additional grouping to perform on top of the query grouping.
+	GroupSignalsBies []string `pulumi:"groupSignalsBies"`
 	// Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
 	HasExtendedTitle *bool `pulumi:"hasExtendedTitle"`
 	// Message for generated signals.
@@ -257,6 +265,8 @@ type SecurityMonitoringRuleArgs struct {
 	Enabled pulumi.BoolPtrInput
 	// Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
 	Filters SecurityMonitoringRuleFilterArrayInput
+	// Additional grouping to perform on top of the query grouping.
+	GroupSignalsBies pulumi.StringArrayInput
 	// Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
 	HasExtendedTitle pulumi.BoolPtrInput
 	// Message for generated signals.
@@ -381,6 +391,11 @@ func (o SecurityMonitoringRuleOutput) Enabled() pulumi.BoolPtrOutput {
 // Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
 func (o SecurityMonitoringRuleOutput) Filters() SecurityMonitoringRuleFilterArrayOutput {
 	return o.ApplyT(func(v *SecurityMonitoringRule) SecurityMonitoringRuleFilterArrayOutput { return v.Filters }).(SecurityMonitoringRuleFilterArrayOutput)
+}
+
+// Additional grouping to perform on top of the query grouping.
+func (o SecurityMonitoringRuleOutput) GroupSignalsBies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRule) pulumi.StringArrayOutput { return v.GroupSignalsBies }).(pulumi.StringArrayOutput)
 }
 
 // Whether the notifications include the triggering group-by values in their title. Defaults to `false`.

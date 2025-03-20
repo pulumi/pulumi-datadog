@@ -107,6 +107,12 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<Outputs.SecurityMonitoringRuleFilter>> Filters { get; private set; } = null!;
 
         /// <summary>
+        /// Additional grouping to perform on top of the query grouping.
+        /// </summary>
+        [Output("groupSignalsBies")]
+        public Output<ImmutableArray<string>> GroupSignalsBies { get; private set; } = null!;
+
+        /// <summary>
         /// Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
         /// </summary>
         [Output("hasExtendedTitle")]
@@ -248,6 +254,18 @@ namespace Pulumi.Datadog
             set => _filters = value;
         }
 
+        [Input("groupSignalsBies")]
+        private InputList<string>? _groupSignalsBies;
+
+        /// <summary>
+        /// Additional grouping to perform on top of the query grouping.
+        /// </summary>
+        public InputList<string> GroupSignalsBies
+        {
+            get => _groupSignalsBies ?? (_groupSignalsBies = new InputList<string>());
+            set => _groupSignalsBies = value;
+        }
+
         /// <summary>
         /// Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
         /// </summary>
@@ -380,6 +398,18 @@ namespace Pulumi.Datadog
         {
             get => _filters ?? (_filters = new InputList<Inputs.SecurityMonitoringRuleFilterGetArgs>());
             set => _filters = value;
+        }
+
+        [Input("groupSignalsBies")]
+        private InputList<string>? _groupSignalsBies;
+
+        /// <summary>
+        /// Additional grouping to perform on top of the query grouping.
+        /// </summary>
+        public InputList<string> GroupSignalsBies
+        {
+            get => _groupSignalsBies ?? (_groupSignalsBies = new InputList<string>());
+            set => _groupSignalsBies = value;
         }
 
         /// <summary>

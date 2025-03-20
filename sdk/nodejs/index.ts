@@ -30,6 +30,16 @@ export type ApplicationKey = import("./applicationKey").ApplicationKey;
 export const ApplicationKey: typeof import("./applicationKey").ApplicationKey = null as any;
 utilities.lazyLoad(exports, ["ApplicationKey"], () => require("./applicationKey"));
 
+export { AppsecWafCustomRuleArgs, AppsecWafCustomRuleState } from "./appsecWafCustomRule";
+export type AppsecWafCustomRule = import("./appsecWafCustomRule").AppsecWafCustomRule;
+export const AppsecWafCustomRule: typeof import("./appsecWafCustomRule").AppsecWafCustomRule = null as any;
+utilities.lazyLoad(exports, ["AppsecWafCustomRule"], () => require("./appsecWafCustomRule"));
+
+export { AppsecWafExclusionFilterArgs, AppsecWafExclusionFilterState } from "./appsecWafExclusionFilter";
+export type AppsecWafExclusionFilter = import("./appsecWafExclusionFilter").AppsecWafExclusionFilter;
+export const AppsecWafExclusionFilter: typeof import("./appsecWafExclusionFilter").AppsecWafExclusionFilter = null as any;
+utilities.lazyLoad(exports, ["AppsecWafExclusionFilter"], () => require("./appsecWafExclusionFilter"));
+
 export { AuthnMappingArgs, AuthnMappingState } from "./authnMapping";
 export type AuthnMapping = import("./authnMapping").AuthnMapping;
 export const AuthnMapping: typeof import("./authnMapping").AuthnMapping = null as any;
@@ -285,6 +295,11 @@ export const getUsers: typeof import("./getUsers").getUsers = null as any;
 export const getUsersOutput: typeof import("./getUsers").getUsersOutput = null as any;
 utilities.lazyLoad(exports, ["getUsers","getUsersOutput"], () => require("./getUsers"));
 
+export { GetWorkflowAutomationArgs, GetWorkflowAutomationResult, GetWorkflowAutomationOutputArgs } from "./getWorkflowAutomation";
+export const getWorkflowAutomation: typeof import("./getWorkflowAutomation").getWorkflowAutomation = null as any;
+export const getWorkflowAutomationOutput: typeof import("./getWorkflowAutomation").getWorkflowAutomationOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkflowAutomation","getWorkflowAutomationOutput"], () => require("./getWorkflowAutomation"));
+
 export { IpAllowlistArgs, IpAllowlistState } from "./ipAllowlist";
 export type IpAllowlist = import("./ipAllowlist").IpAllowlist;
 export const IpAllowlist: typeof import("./ipAllowlist").IpAllowlist = null as any;
@@ -535,6 +550,11 @@ export type WebhookCustomVariable = import("./webhookCustomVariable").WebhookCus
 export const WebhookCustomVariable: typeof import("./webhookCustomVariable").WebhookCustomVariable = null as any;
 utilities.lazyLoad(exports, ["WebhookCustomVariable"], () => require("./webhookCustomVariable"));
 
+export { WorkflowAutomationArgs, WorkflowAutomationState } from "./workflowAutomation";
+export type WorkflowAutomation = import("./workflowAutomation").WorkflowAutomation;
+export const WorkflowAutomation: typeof import("./workflowAutomation").WorkflowAutomation = null as any;
+utilities.lazyLoad(exports, ["WorkflowAutomation"], () => require("./workflowAutomation"));
+
 
 // Export sub-modules:
 import * as aws from "./aws";
@@ -579,6 +599,10 @@ const _module = {
                 return new ApmRetentionFilterOrder(name, <any>undefined, { urn })
             case "datadog:index/applicationKey:ApplicationKey":
                 return new ApplicationKey(name, <any>undefined, { urn })
+            case "datadog:index/appsecWafCustomRule:AppsecWafCustomRule":
+                return new AppsecWafCustomRule(name, <any>undefined, { urn })
+            case "datadog:index/appsecWafExclusionFilter:AppsecWafExclusionFilter":
+                return new AppsecWafExclusionFilter(name, <any>undefined, { urn })
             case "datadog:index/authnMapping:AuthnMapping":
                 return new AuthnMapping(name, <any>undefined, { urn })
             case "datadog:index/childOrganization:ChildOrganization":
@@ -699,6 +723,8 @@ const _module = {
                 return new Webhook(name, <any>undefined, { urn })
             case "datadog:index/webhookCustomVariable:WebhookCustomVariable":
                 return new WebhookCustomVariable(name, <any>undefined, { urn })
+            case "datadog:index/workflowAutomation:WorkflowAutomation":
+                return new WorkflowAutomation(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -709,6 +735,8 @@ pulumi.runtime.registerResourceModule("datadog", "index/apiKey", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/apmRetentionFilter", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/apmRetentionFilterOrder", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/applicationKey", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/appsecWafCustomRule", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/appsecWafExclusionFilter", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/authnMapping", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/childOrganization", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/cloudConfigurationRule", _module)
@@ -769,6 +797,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/user", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/userRole", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/webhook", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/webhookCustomVariable", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/workflowAutomation", _module)
 pulumi.runtime.registerResourcePackage("datadog", {
     version: utilities.getVersion(),
     constructProvider: (name: string, type: string, urn: string): pulumi.ProviderResource => {

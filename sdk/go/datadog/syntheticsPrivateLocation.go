@@ -57,8 +57,8 @@ type SyntheticsPrivateLocation struct {
 
 	// Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
 	Config pulumi.StringOutput `pulumi:"config"`
-	// Description of the private location.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Description of the private location. Defaults to `""`.
+	Description pulumi.StringOutput `pulumi:"description"`
 	// The private location metadata
 	Metadata SyntheticsPrivateLocationMetadataPtrOutput `pulumi:"metadata"`
 	// Synthetics private location name.
@@ -106,7 +106,7 @@ func GetSyntheticsPrivateLocation(ctx *pulumi.Context,
 type syntheticsPrivateLocationState struct {
 	// Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
 	Config *string `pulumi:"config"`
-	// Description of the private location.
+	// Description of the private location. Defaults to `""`.
 	Description *string `pulumi:"description"`
 	// The private location metadata
 	Metadata *SyntheticsPrivateLocationMetadata `pulumi:"metadata"`
@@ -119,7 +119,7 @@ type syntheticsPrivateLocationState struct {
 type SyntheticsPrivateLocationState struct {
 	// Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
 	Config pulumi.StringPtrInput
-	// Description of the private location.
+	// Description of the private location. Defaults to `""`.
 	Description pulumi.StringPtrInput
 	// The private location metadata
 	Metadata SyntheticsPrivateLocationMetadataPtrInput
@@ -134,7 +134,7 @@ func (SyntheticsPrivateLocationState) ElementType() reflect.Type {
 }
 
 type syntheticsPrivateLocationArgs struct {
-	// Description of the private location.
+	// Description of the private location. Defaults to `""`.
 	Description *string `pulumi:"description"`
 	// The private location metadata
 	Metadata *SyntheticsPrivateLocationMetadata `pulumi:"metadata"`
@@ -146,7 +146,7 @@ type syntheticsPrivateLocationArgs struct {
 
 // The set of arguments for constructing a SyntheticsPrivateLocation resource.
 type SyntheticsPrivateLocationArgs struct {
-	// Description of the private location.
+	// Description of the private location. Defaults to `""`.
 	Description pulumi.StringPtrInput
 	// The private location metadata
 	Metadata SyntheticsPrivateLocationMetadataPtrInput
@@ -248,9 +248,9 @@ func (o SyntheticsPrivateLocationOutput) Config() pulumi.StringOutput {
 	return o.ApplyT(func(v *SyntheticsPrivateLocation) pulumi.StringOutput { return v.Config }).(pulumi.StringOutput)
 }
 
-// Description of the private location.
-func (o SyntheticsPrivateLocationOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SyntheticsPrivateLocation) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+// Description of the private location. Defaults to `""`.
+func (o SyntheticsPrivateLocationOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *SyntheticsPrivateLocation) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
 // The private location metadata

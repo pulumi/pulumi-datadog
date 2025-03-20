@@ -67,6 +67,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.datadog.inputs.SyntheticsTestApiStepRequestDefinitionArgs;
  * import com.pulumi.datadog.inputs.SyntheticsTestBrowserStepArgs;
  * import com.pulumi.datadog.inputs.SyntheticsTestBrowserStepParamsArgs;
+ * import com.pulumi.datadog.inputs.SyntheticsTestBrowserStepParamsElementUserLocatorArgs;
+ * import com.pulumi.datadog.inputs.SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs;
  * import com.pulumi.datadog.inputs.SyntheticsTestBrowserVariableArgs;
  * import com.pulumi.datadog.inputs.SyntheticsTestMobileOptionsListArgs;
  * import com.pulumi.datadog.inputs.SyntheticsTestMobileOptionsListRetryArgs;
@@ -395,6 +397,25 @@ import javax.annotation.Nullable;
  *                                 ))
  *                             )))
  *                         .build())
+ *                     .build(),
+ *                 SyntheticsTestBrowserStepArgs.builder()
+ *                     .name("Upload a file")
+ *                     .type("uploadFiles")
+ *                     .params(SyntheticsTestBrowserStepParamsArgs.builder()
+ *                         .files(serializeJson(
+ *                             jsonArray(jsonObject(
+ *                                 jsonProperty("name", "hello.txt"),
+ *                                 jsonProperty("size", 11),
+ *                                 jsonProperty("content", "Hello world")
+ *                             ))))
+ *                         .element("*[}{@literal @}{@code id='simple-file-upload']")
+ *                         .elementUserLocator(SyntheticsTestBrowserStepParamsElementUserLocatorArgs.builder()
+ *                             .value(SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs.builder()
+ *                                 .type("css")
+ *                                 .value("#simple-file-upload")
+ *                                 .build())
+ *                             .build())
+ *                         .build())
  *                     .build())
  *             .browserVariables(            
  *                 SyntheticsTestBrowserVariableArgs.builder()
@@ -468,15 +489,6 @@ import javax.annotation.Nullable;
  *                     .notificationPresetName("show_all")
  *                     .build())
  *                 .monitorPriority(5)
- *                 .restrictedRoles(                
- *                     "role1",
- *                     "role2")
- *                 .bindings(SyntheticsTestMobileOptionsListBindingArgs.builder()
- *                     .principals(                    
- *                         "org:8dee7c38-0000-aaaa-zzzz-8b5a08d3b091",
- *                         "team:3a0cdd74-0000-aaaa-zzzz-da7ad0900002")
- *                     .relation("editor")
- *                     .build())
  *                 .ci(SyntheticsTestMobileOptionsListCiArgs.builder()
  *                     .executionRule("blocking")
  *                     .build())

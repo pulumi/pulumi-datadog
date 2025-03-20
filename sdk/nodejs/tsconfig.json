@@ -18,6 +18,8 @@
         "apmRetentionFilter.ts",
         "apmRetentionFilterOrder.ts",
         "applicationKey.ts",
+        "appsecWafCustomRule.ts",
+        "appsecWafExclusionFilter.ts",
         "authnMapping.ts",
         "aws/getIntegrationAvailableLogsServices.ts",
         "aws/getIntegrationAvailableNamespaces.ts",
@@ -27,6 +29,7 @@
         "aws/integration.ts",
         "aws/integrationAccount.ts",
         "aws/integrationEventBridge.ts",
+        "aws/integrationExternalId.ts",
         "aws/integrationLambdaArn.ts",
         "aws/integrationLogCollection.ts",
         "aws/integrationTagFilter.ts",
@@ -95,6 +98,7 @@
         "getTeams.ts",
         "getUser.ts",
         "getUsers.ts",
+        "getWorkflowAutomation.ts",
         "index.ts",
         "ipAllowlist.ts",
         "logsArchive.ts",
@@ -159,6 +163,7 @@
         "userRole.ts",
         "utilities.ts",
         "webhook.ts",
-        "webhookCustomVariable.ts"
+        "webhookCustomVariable.ts",
+        "workflowAutomation.ts"
     ]
 }

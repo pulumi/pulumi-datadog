@@ -26,6 +26,7 @@ class SecurityMonitoringRuleArgs:
                  cases: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleCaseArgs']]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleFilterArgs']]]] = None,
+                 group_signals_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  has_extended_title: Optional[pulumi.Input[bool]] = None,
                  options: Optional[pulumi.Input['SecurityMonitoringRuleOptionsArgs']] = None,
                  queries: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleQueryArgs']]]] = None,
@@ -42,6 +43,7 @@ class SecurityMonitoringRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleCaseArgs']]] cases: Cases for generating signals.
         :param pulumi.Input[bool] enabled: Whether the rule is enabled. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleFilterArgs']]] filters: Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_signals_bies: Additional grouping to perform on top of the query grouping.
         :param pulumi.Input[bool] has_extended_title: Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
         :param pulumi.Input['SecurityMonitoringRuleOptionsArgs'] options: Options on rules.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleQueryArgs']]] queries: Queries for selecting logs which are part of the rule.
@@ -60,6 +62,8 @@ class SecurityMonitoringRuleArgs:
             pulumi.set(__self__, "enabled", enabled)
         if filters is not None:
             pulumi.set(__self__, "filters", filters)
+        if group_signals_bies is not None:
+            pulumi.set(__self__, "group_signals_bies", group_signals_bies)
         if has_extended_title is not None:
             pulumi.set(__self__, "has_extended_title", has_extended_title)
         if options is not None:
@@ -138,6 +142,18 @@ class SecurityMonitoringRuleArgs:
     @filters.setter
     def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleFilterArgs']]]]):
         pulumi.set(self, "filters", value)
+
+    @property
+    @pulumi.getter(name="groupSignalsBies")
+    def group_signals_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Additional grouping to perform on top of the query grouping.
+        """
+        return pulumi.get(self, "group_signals_bies")
+
+    @group_signals_bies.setter
+    def group_signals_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "group_signals_bies", value)
 
     @property
     @pulumi.getter(name="hasExtendedTitle")
@@ -254,6 +270,7 @@ class _SecurityMonitoringRuleState:
                  cases: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleCaseArgs']]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleFilterArgs']]]] = None,
+                 group_signals_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  has_extended_title: Optional[pulumi.Input[bool]] = None,
                  message: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -270,6 +287,7 @@ class _SecurityMonitoringRuleState:
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleCaseArgs']]] cases: Cases for generating signals.
         :param pulumi.Input[bool] enabled: Whether the rule is enabled. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleFilterArgs']]] filters: Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_signals_bies: Additional grouping to perform on top of the query grouping.
         :param pulumi.Input[bool] has_extended_title: Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
         :param pulumi.Input[str] message: Message for generated signals.
         :param pulumi.Input[str] name: The name of the rule.
@@ -288,6 +306,8 @@ class _SecurityMonitoringRuleState:
             pulumi.set(__self__, "enabled", enabled)
         if filters is not None:
             pulumi.set(__self__, "filters", filters)
+        if group_signals_bies is not None:
+            pulumi.set(__self__, "group_signals_bies", group_signals_bies)
         if has_extended_title is not None:
             pulumi.set(__self__, "has_extended_title", has_extended_title)
         if message is not None:
@@ -346,6 +366,18 @@ class _SecurityMonitoringRuleState:
     @filters.setter
     def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleFilterArgs']]]]):
         pulumi.set(self, "filters", value)
+
+    @property
+    @pulumi.getter(name="groupSignalsBies")
+    def group_signals_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Additional grouping to perform on top of the query grouping.
+        """
+        return pulumi.get(self, "group_signals_bies")
+
+    @group_signals_bies.setter
+    def group_signals_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "group_signals_bies", value)
 
     @property
     @pulumi.getter(name="hasExtendedTitle")
@@ -488,6 +520,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
                  cases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringRuleCaseArgs', 'SecurityMonitoringRuleCaseArgsDict']]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringRuleFilterArgs', 'SecurityMonitoringRuleFilterArgsDict']]]]] = None,
+                 group_signals_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  has_extended_title: Optional[pulumi.Input[bool]] = None,
                  message: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -553,6 +586,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringRuleCaseArgs', 'SecurityMonitoringRuleCaseArgsDict']]]] cases: Cases for generating signals.
         :param pulumi.Input[bool] enabled: Whether the rule is enabled. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringRuleFilterArgs', 'SecurityMonitoringRuleFilterArgsDict']]]] filters: Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_signals_bies: Additional grouping to perform on top of the query grouping.
         :param pulumi.Input[bool] has_extended_title: Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
         :param pulumi.Input[str] message: Message for generated signals.
         :param pulumi.Input[str] name: The name of the rule.
@@ -637,6 +671,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
                  cases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringRuleCaseArgs', 'SecurityMonitoringRuleCaseArgsDict']]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringRuleFilterArgs', 'SecurityMonitoringRuleFilterArgsDict']]]]] = None,
+                 group_signals_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  has_extended_title: Optional[pulumi.Input[bool]] = None,
                  message: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -660,6 +695,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
             __props__.__dict__["cases"] = cases
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["filters"] = filters
+            __props__.__dict__["group_signals_bies"] = group_signals_bies
             __props__.__dict__["has_extended_title"] = has_extended_title
             if message is None and not opts.urn:
                 raise TypeError("Missing required property 'message'")
@@ -688,6 +724,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
             cases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringRuleCaseArgs', 'SecurityMonitoringRuleCaseArgsDict']]]]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringRuleFilterArgs', 'SecurityMonitoringRuleFilterArgsDict']]]]] = None,
+            group_signals_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             has_extended_title: Optional[pulumi.Input[bool]] = None,
             message: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -709,6 +746,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringRuleCaseArgs', 'SecurityMonitoringRuleCaseArgsDict']]]] cases: Cases for generating signals.
         :param pulumi.Input[bool] enabled: Whether the rule is enabled. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringRuleFilterArgs', 'SecurityMonitoringRuleFilterArgsDict']]]] filters: Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_signals_bies: Additional grouping to perform on top of the query grouping.
         :param pulumi.Input[bool] has_extended_title: Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
         :param pulumi.Input[str] message: Message for generated signals.
         :param pulumi.Input[str] name: The name of the rule.
@@ -728,6 +766,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
         __props__.__dict__["cases"] = cases
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["filters"] = filters
+        __props__.__dict__["group_signals_bies"] = group_signals_bies
         __props__.__dict__["has_extended_title"] = has_extended_title
         __props__.__dict__["message"] = message
         __props__.__dict__["name"] = name
@@ -764,6 +803,14 @@ class SecurityMonitoringRule(pulumi.CustomResource):
         Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
         """
         return pulumi.get(self, "filters")
+
+    @property
+    @pulumi.getter(name="groupSignalsBies")
+    def group_signals_bies(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Additional grouping to perform on top of the query grouping.
+        """
+        return pulumi.get(self, "group_signals_bies")
 
     @property
     @pulumi.getter(name="hasExtendedTitle")

@@ -457,6 +457,32 @@ namespace Pulumi.Datadog
     ///                     }),
     ///                 },
     ///             },
+    ///             new Datadog.Inputs.SyntheticsTestBrowserStepArgs
+    ///             {
+    ///                 Name = "Upload a file",
+    ///                 Type = "uploadFiles",
+    ///                 Params = new Datadog.Inputs.SyntheticsTestBrowserStepParamsArgs
+    ///                 {
+    ///                     Files = JsonSerializer.Serialize(new[]
+    ///                     {
+    ///                         new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["name"] = "hello.txt",
+    ///                             ["size"] = 11,
+    ///                             ["content"] = "Hello world",
+    ///                         },
+    ///                     }),
+    ///                     Element = "*[@id='simple-file-upload']",
+    ///                     ElementUserLocator = new Datadog.Inputs.SyntheticsTestBrowserStepParamsElementUserLocatorArgs
+    ///                     {
+    ///                         Value = new Datadog.Inputs.SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs
+    ///                         {
+    ///                             Type = "css",
+    ///                             Value = "#simple-file-upload",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
     ///         },
     ///         BrowserVariables = new[]
     ///         {
@@ -560,23 +586,6 @@ namespace Pulumi.Datadog
     ///                 NotificationPresetName = "show_all",
     ///             },
     ///             MonitorPriority = 5,
-    ///             RestrictedRoles = new[]
-    ///             {
-    ///                 "role1",
-    ///                 "role2",
-    ///             },
-    ///             Bindings = new[]
-    ///             {
-    ///                 new Datadog.Inputs.SyntheticsTestMobileOptionsListBindingArgs
-    ///                 {
-    ///                     Principals = new[]
-    ///                     {
-    ///                         "org:8dee7c38-0000-aaaa-zzzz-8b5a08d3b091",
-    ///                         "team:3a0cdd74-0000-aaaa-zzzz-da7ad0900002",
-    ///                     },
-    ///                     Relation = "editor",
-    ///                 },
-    ///             },
     ///             Ci = new Datadog.Inputs.SyntheticsTestMobileOptionsListCiArgs
     ///             {
     ///                 ExecutionRule = "blocking",

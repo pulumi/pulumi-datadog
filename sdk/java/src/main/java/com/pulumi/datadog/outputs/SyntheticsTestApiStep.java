@@ -45,6 +45,11 @@ public final class SyntheticsTestApiStep {
      */
     private @Nullable List<SyntheticsTestApiStepExtractedValue> extractedValues;
     /**
+     * @return Generate variables using JavaScript.
+     * 
+     */
+    private @Nullable String extractedValuesFromScript;
+    /**
      * @return Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
      * 
      */
@@ -134,6 +139,13 @@ public final class SyntheticsTestApiStep {
      */
     public List<SyntheticsTestApiStepExtractedValue> extractedValues() {
         return this.extractedValues == null ? List.of() : this.extractedValues;
+    }
+    /**
+     * @return Generate variables using JavaScript.
+     * 
+     */
+    public Optional<String> extractedValuesFromScript() {
+        return Optional.ofNullable(this.extractedValuesFromScript);
     }
     /**
      * @return Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
@@ -236,6 +248,7 @@ public final class SyntheticsTestApiStep {
         private @Nullable List<SyntheticsTestApiStepAssertion> assertions;
         private @Nullable Boolean exitIfSucceed;
         private @Nullable List<SyntheticsTestApiStepExtractedValue> extractedValues;
+        private @Nullable String extractedValuesFromScript;
         private @Nullable Boolean isCritical;
         private String name;
         private @Nullable SyntheticsTestApiStepRequestBasicauth requestBasicauth;
@@ -256,6 +269,7 @@ public final class SyntheticsTestApiStep {
     	      this.assertions = defaults.assertions;
     	      this.exitIfSucceed = defaults.exitIfSucceed;
     	      this.extractedValues = defaults.extractedValues;
+    	      this.extractedValuesFromScript = defaults.extractedValuesFromScript;
     	      this.isCritical = defaults.isCritical;
     	      this.name = defaults.name;
     	      this.requestBasicauth = defaults.requestBasicauth;
@@ -300,6 +314,12 @@ public final class SyntheticsTestApiStep {
         }
         public Builder extractedValues(SyntheticsTestApiStepExtractedValue... extractedValues) {
             return extractedValues(List.of(extractedValues));
+        }
+        @CustomType.Setter
+        public Builder extractedValuesFromScript(@Nullable String extractedValuesFromScript) {
+
+            this.extractedValuesFromScript = extractedValuesFromScript;
+            return this;
         }
         @CustomType.Setter
         public Builder isCritical(@Nullable Boolean isCritical) {
@@ -390,6 +410,7 @@ public final class SyntheticsTestApiStep {
             _resultValue.assertions = assertions;
             _resultValue.exitIfSucceed = exitIfSucceed;
             _resultValue.extractedValues = extractedValues;
+            _resultValue.extractedValuesFromScript = extractedValuesFromScript;
             _resultValue.isCritical = isCritical;
             _resultValue.name = name;
             _resultValue.requestBasicauth = requestBasicauth;

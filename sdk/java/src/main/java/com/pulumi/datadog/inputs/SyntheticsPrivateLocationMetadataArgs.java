@@ -17,7 +17,7 @@ public final class SyntheticsPrivateLocationMetadataArgs extends com.pulumi.reso
     public static final SyntheticsPrivateLocationMetadataArgs Empty = new SyntheticsPrivateLocationMetadataArgs();
 
     /**
-     * A list of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
+     * A set of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
      * 
      * @deprecated
      * This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
@@ -28,7 +28,7 @@ public final class SyntheticsPrivateLocationMetadataArgs extends com.pulumi.reso
     private @Nullable Output<List<String>> restrictedRoles;
 
     /**
-     * @return A list of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
+     * @return A set of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
      * 
      * @deprecated
      * This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
@@ -64,7 +64,7 @@ public final class SyntheticsPrivateLocationMetadataArgs extends com.pulumi.reso
         }
 
         /**
-         * @param restrictedRoles A list of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
+         * @param restrictedRoles A set of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
          * 
          * @return builder
          * 
@@ -79,7 +79,7 @@ public final class SyntheticsPrivateLocationMetadataArgs extends com.pulumi.reso
         }
 
         /**
-         * @param restrictedRoles A list of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
+         * @param restrictedRoles A set of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class SyntheticsPrivateLocationMetadataArgs extends com.pulumi.reso
         }
 
         /**
-         * @param restrictedRoles A list of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
+         * @param restrictedRoles A set of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
          * 
          * @return builder
          * 

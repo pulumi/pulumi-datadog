@@ -156,14 +156,14 @@ public final class SyntheticsTestBrowserStepParamsArgs extends com.pulumi.resour
     }
 
     /**
-     * Details of the files for an &#34;upload files&#34; step, JSON encoded string.
+     * Details of the files for an &#34;upload files&#34; step, JSON encoded string. Refer to the examples for a usage example showing the schema.
      * 
      */
     @Import(name="files")
     private @Nullable Output<String> files;
 
     /**
-     * @return Details of the files for an &#34;upload files&#34; step, JSON encoded string.
+     * @return Details of the files for an &#34;upload files&#34; step, JSON encoded string. Refer to the examples for a usage example showing the schema.
      * 
      */
     public Optional<Output<String>> files() {
@@ -537,7 +537,7 @@ public final class SyntheticsTestBrowserStepParamsArgs extends com.pulumi.resour
         }
 
         /**
-         * @param files Details of the files for an &#34;upload files&#34; step, JSON encoded string.
+         * @param files Details of the files for an &#34;upload files&#34; step, JSON encoded string. Refer to the examples for a usage example showing the schema.
          * 
          * @return builder
          * 
@@ -548,7 +548,7 @@ public final class SyntheticsTestBrowserStepParamsArgs extends com.pulumi.resour
         }
 
         /**
-         * @param files Details of the files for an &#34;upload files&#34; step, JSON encoded string.
+         * @param files Details of the files for an &#34;upload files&#34; step, JSON encoded string. Refer to the examples for a usage example showing the schema.
          * 
          * @return builder
          * 

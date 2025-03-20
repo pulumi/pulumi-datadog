@@ -330,6 +330,24 @@ import * as utilities from "./utilities";
  *                 }),
  *             },
  *         },
+ *         {
+ *             name: "Upload a file",
+ *             type: "uploadFiles",
+ *             params: {
+ *                 files: JSON.stringify([{
+ *                     name: "hello.txt",
+ *                     size: 11,
+ *                     content: "Hello world",
+ *                 }]),
+ *                 element: "*[@id='simple-file-upload']",
+ *                 elementUserLocator: {
+ *                     value: {
+ *                         type: "css",
+ *                         value: "#simple-file-upload",
+ *                     },
+ *                 },
+ *             },
+ *         },
  *     ],
  *     browserVariables: [
  *         {
@@ -407,17 +425,6 @@ import * as utilities from "./utilities";
  *             notificationPresetName: "show_all",
  *         },
  *         monitorPriority: 5,
- *         restrictedRoles: [
- *             "role1",
- *             "role2",
- *         ],
- *         bindings: [{
- *             principals: [
- *                 "org:8dee7c38-0000-aaaa-zzzz-8b5a08d3b091",
- *                 "team:3a0cdd74-0000-aaaa-zzzz-da7ad0900002",
- *             ],
- *             relation: "editor",
- *         }],
  *         ci: {
  *             executionRule: "blocking",
  *         },

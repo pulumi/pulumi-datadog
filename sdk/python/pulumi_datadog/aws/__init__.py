@@ -12,6 +12,7 @@ from .get_integration_namespace_rules import *
 from .integration import *
 from .integration_account import *
 from .integration_event_bridge import *
+from .integration_external_id import *
 from .integration_lambda_arn import *
 from .integration_log_collection import *
 from .integration_tag_filter import *

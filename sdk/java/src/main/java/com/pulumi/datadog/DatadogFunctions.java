@@ -60,6 +60,8 @@ import com.pulumi.datadog.inputs.GetUserArgs;
 import com.pulumi.datadog.inputs.GetUserPlainArgs;
 import com.pulumi.datadog.inputs.GetUsersArgs;
 import com.pulumi.datadog.inputs.GetUsersPlainArgs;
+import com.pulumi.datadog.inputs.GetWorkflowAutomationArgs;
+import com.pulumi.datadog.inputs.GetWorkflowAutomationPlainArgs;
 import com.pulumi.datadog.outputs.GetActionConnectionResult;
 import com.pulumi.datadog.outputs.GetApiKeyResult;
 import com.pulumi.datadog.outputs.GetApmRetentionFiltersOrderResult;
@@ -100,6 +102,7 @@ import com.pulumi.datadog.outputs.GetTeamResult;
 import com.pulumi.datadog.outputs.GetTeamsResult;
 import com.pulumi.datadog.outputs.GetUserResult;
 import com.pulumi.datadog.outputs.GetUsersResult;
+import com.pulumi.datadog.outputs.GetWorkflowAutomationResult;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
@@ -8154,5 +8157,215 @@ public final class DatadogFunctions {
      */
     public static CompletableFuture<GetUsersResult> getUsersPlain(GetUsersPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:index/getUsers:getUsers", TypeShape.of(GetUsersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * This data source retrieves the definition of an existing Datadog workflow from Workflow Automation for use in other resources.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetWorkflowAutomationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myWorkflow = DatadogFunctions.getWorkflowAutomation(GetWorkflowAutomationArgs.builder()
+     *             .id("11111111-2222-3333-4444-555555555555")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetWorkflowAutomationResult> getWorkflowAutomation(GetWorkflowAutomationArgs args) {
+        return getWorkflowAutomation(args, InvokeOptions.Empty);
+    }
+    /**
+     * This data source retrieves the definition of an existing Datadog workflow from Workflow Automation for use in other resources.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetWorkflowAutomationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myWorkflow = DatadogFunctions.getWorkflowAutomation(GetWorkflowAutomationArgs.builder()
+     *             .id("11111111-2222-3333-4444-555555555555")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetWorkflowAutomationResult> getWorkflowAutomationPlain(GetWorkflowAutomationPlainArgs args) {
+        return getWorkflowAutomationPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * This data source retrieves the definition of an existing Datadog workflow from Workflow Automation for use in other resources.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetWorkflowAutomationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myWorkflow = DatadogFunctions.getWorkflowAutomation(GetWorkflowAutomationArgs.builder()
+     *             .id("11111111-2222-3333-4444-555555555555")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetWorkflowAutomationResult> getWorkflowAutomation(GetWorkflowAutomationArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getWorkflowAutomation:getWorkflowAutomation", TypeShape.of(GetWorkflowAutomationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * This data source retrieves the definition of an existing Datadog workflow from Workflow Automation for use in other resources.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetWorkflowAutomationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myWorkflow = DatadogFunctions.getWorkflowAutomation(GetWorkflowAutomationArgs.builder()
+     *             .id("11111111-2222-3333-4444-555555555555")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetWorkflowAutomationResult> getWorkflowAutomation(GetWorkflowAutomationArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getWorkflowAutomation:getWorkflowAutomation", TypeShape.of(GetWorkflowAutomationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * This data source retrieves the definition of an existing Datadog workflow from Workflow Automation for use in other resources.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetWorkflowAutomationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myWorkflow = DatadogFunctions.getWorkflowAutomation(GetWorkflowAutomationArgs.builder()
+     *             .id("11111111-2222-3333-4444-555555555555")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetWorkflowAutomationResult> getWorkflowAutomationPlain(GetWorkflowAutomationPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getWorkflowAutomation:getWorkflowAutomation", TypeShape.of(GetWorkflowAutomationResult.class), args, Utilities.withVersion(options));
     }
 }

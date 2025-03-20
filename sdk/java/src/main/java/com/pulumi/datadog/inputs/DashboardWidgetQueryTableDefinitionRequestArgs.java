@@ -80,14 +80,14 @@ public final class DashboardWidgetQueryTableDefinitionRequestArgs extends com.pu
     }
 
     /**
-     * A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`, `trend`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      * 
      */
     @Import(name="cellDisplayModes")
     private @Nullable Output<List<String>> cellDisplayModes;
 
     /**
-     * @return A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`, `trend`.
+     * @return A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
      * 
      */
     public Optional<Output<List<String>>> cellDisplayModes() {
@@ -355,7 +355,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestArgs extends com.pu
         }
 
         /**
-         * @param cellDisplayModes A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`, `trend`.
+         * @param cellDisplayModes A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
          * 
          * @return builder
          * 
@@ -366,7 +366,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestArgs extends com.pu
         }
 
         /**
-         * @param cellDisplayModes A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`, `trend`.
+         * @param cellDisplayModes A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
          * 
          * @return builder
          * 
@@ -376,7 +376,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestArgs extends com.pu
         }
 
         /**
-         * @param cellDisplayModes A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`, `trend`.
+         * @param cellDisplayModes A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
          * 
          * @return builder
          * 
