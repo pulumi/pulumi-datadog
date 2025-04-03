@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ActionConnectionHttp
     {
         /// <summary>
-        /// Base HTTP url for the integration
+        /// Base HTTP url for the integration. String length must be at least 1.
         /// </summary>
         public readonly string? BaseUrl;
         /// <summary>

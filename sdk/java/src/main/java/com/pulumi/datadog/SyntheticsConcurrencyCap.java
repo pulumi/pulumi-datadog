@@ -64,14 +64,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="datadog:index/syntheticsConcurrencyCap:SyntheticsConcurrencyCap")
 public class SyntheticsConcurrencyCap extends com.pulumi.resources.CustomResource {
     /**
-     * Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel.
+     * Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel. Value must be at least 1.
      * 
      */
     @Export(name="onDemandConcurrencyCap", refs={Integer.class}, tree="[0]")
     private Output<Integer> onDemandConcurrencyCap;
 
     /**
-     * @return Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel.
+     * @return Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel. Value must be at least 1.
      * 
      */
     public Output<Integer> onDemandConcurrencyCap() {

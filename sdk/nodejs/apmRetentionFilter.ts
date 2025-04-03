@@ -62,7 +62,7 @@ export class ApmRetentionFilter extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query.
+     * Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
      */
     public readonly rate!: pulumi.Output<string>;
 
@@ -130,7 +130,7 @@ export interface ApmRetentionFilterState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query.
+     * Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
      */
     rate?: pulumi.Input<string>;
 }
@@ -156,7 +156,7 @@ export interface ApmRetentionFilterArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query.
+     * Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
      */
     rate: pulumi.Input<string>;
 }

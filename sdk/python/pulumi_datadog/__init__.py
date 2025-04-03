@@ -9,6 +9,7 @@ from .action_connection import *
 from .api_key import *
 from .apm_retention_filter import *
 from .apm_retention_filter_order import *
+from .app_builder_app import *
 from .application_key import *
 from .appsec_waf_custom_rule import *
 from .appsec_waf_exclusion_filter import *
@@ -26,6 +27,7 @@ from .downtime_schedule import *
 from .get_action_connection import *
 from .get_api_key import *
 from .get_apm_retention_filters_order import *
+from .get_app_builder_app import *
 from .get_application_key import *
 from .get_cloud_workload_security_agent_rules import *
 from .get_csm_threats_agent_rules import *
@@ -47,6 +49,7 @@ from .get_role import *
 from .get_role_users import *
 from .get_roles import *
 from .get_rum_application import *
+from .get_rum_retention_filters import *
 from .get_security_monitoring_filters import *
 from .get_security_monitoring_rules import *
 from .get_security_monitoring_suppressions import *
@@ -55,6 +58,7 @@ from .get_sensitive_data_scanner_standard_pattern import *
 from .get_service_account import *
 from .get_service_level_objective import *
 from .get_service_level_objectives import *
+from .get_software_catalog import *
 from .get_synthetics_global_variable import *
 from .get_synthetics_locations import *
 from .get_synthetics_test import *
@@ -87,6 +91,8 @@ from .restriction_policy import *
 from .role import *
 from .rum_application import *
 from .rum_metric import *
+from .rum_retention_filter import *
+from .rum_retention_filters_order import *
 from .security_monitoring_default_rule import *
 from .security_monitoring_filter import *
 from .security_monitoring_rule import *
@@ -308,6 +314,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/apmRetentionFilterOrder:ApmRetentionFilterOrder": "ApmRetentionFilterOrder"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/appBuilderApp",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/appBuilderApp:AppBuilderApp": "AppBuilderApp"
   }
  },
  {
@@ -596,6 +610,22 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/rumMetric:RumMetric": "RumMetric"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/rumRetentionFilter",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/rumRetentionFilter:RumRetentionFilter": "RumRetentionFilter"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/rumRetentionFiltersOrder",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/rumRetentionFiltersOrder:RumRetentionFiltersOrder": "RumRetentionFiltersOrder"
   }
  },
  {

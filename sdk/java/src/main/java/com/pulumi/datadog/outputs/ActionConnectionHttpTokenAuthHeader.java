@@ -12,20 +12,28 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ActionConnectionHttpTokenAuthHeader {
     /**
-     * @return Header name
+     * @return Header name. String length must be at least 1.
      * 
      */
     private @Nullable String name;
+    /**
+     * @return String length must be at least 1.
+     * 
+     */
     private @Nullable String value;
 
     private ActionConnectionHttpTokenAuthHeader() {}
     /**
-     * @return Header name
+     * @return Header name. String length must be at least 1.
      * 
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
+    /**
+     * @return String length must be at least 1.
+     * 
+     */
     public Optional<String> value() {
         return Optional.ofNullable(this.value);
     }

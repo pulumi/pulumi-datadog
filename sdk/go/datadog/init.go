@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ApmRetentionFilter{}
 	case "datadog:index/apmRetentionFilterOrder:ApmRetentionFilterOrder":
 		r = &ApmRetentionFilterOrder{}
+	case "datadog:index/appBuilderApp:AppBuilderApp":
+		r = &AppBuilderApp{}
 	case "datadog:index/applicationKey:ApplicationKey":
 		r = &ApplicationKey{}
 	case "datadog:index/appsecWafCustomRule:AppsecWafCustomRule":
@@ -101,6 +103,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RumApplication{}
 	case "datadog:index/rumMetric:RumMetric":
 		r = &RumMetric{}
+	case "datadog:index/rumRetentionFilter:RumRetentionFilter":
+		r = &RumRetentionFilter{}
+	case "datadog:index/rumRetentionFiltersOrder:RumRetentionFiltersOrder":
+		r = &RumRetentionFiltersOrder{}
 	case "datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule":
 		r = &SecurityMonitoringDefaultRule{}
 	case "datadog:index/securityMonitoringFilter:SecurityMonitoringFilter":
@@ -206,6 +212,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/apmRetentionFilterOrder",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/appBuilderApp",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -386,6 +397,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/rumMetric",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/rumRetentionFilter",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/rumRetentionFiltersOrder",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

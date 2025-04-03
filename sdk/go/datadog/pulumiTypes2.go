@@ -26597,9 +26597,9 @@ func (o SyntheticsGlobalVariableOptionsPtrOutput) TotpParameters() SyntheticsGlo
 }
 
 type SyntheticsGlobalVariableOptionsTotpParameters struct {
-	// Number of digits for the OTP.
+	// Number of digits for the OTP. Value must be between 4 and 10.
 	Digits int `pulumi:"digits"`
-	// Interval for which to refresh the token (in seconds).
+	// Interval for which to refresh the token (in seconds). Value must be between 0 and 999.
 	RefreshInterval int `pulumi:"refreshInterval"`
 }
 
@@ -26615,9 +26615,9 @@ type SyntheticsGlobalVariableOptionsTotpParametersInput interface {
 }
 
 type SyntheticsGlobalVariableOptionsTotpParametersArgs struct {
-	// Number of digits for the OTP.
+	// Number of digits for the OTP. Value must be between 4 and 10.
 	Digits pulumi.IntInput `pulumi:"digits"`
-	// Interval for which to refresh the token (in seconds).
+	// Interval for which to refresh the token (in seconds). Value must be between 0 and 999.
 	RefreshInterval pulumi.IntInput `pulumi:"refreshInterval"`
 }
 
@@ -26698,12 +26698,12 @@ func (o SyntheticsGlobalVariableOptionsTotpParametersOutput) ToSyntheticsGlobalV
 	}).(SyntheticsGlobalVariableOptionsTotpParametersPtrOutput)
 }
 
-// Number of digits for the OTP.
+// Number of digits for the OTP. Value must be between 4 and 10.
 func (o SyntheticsGlobalVariableOptionsTotpParametersOutput) Digits() pulumi.IntOutput {
 	return o.ApplyT(func(v SyntheticsGlobalVariableOptionsTotpParameters) int { return v.Digits }).(pulumi.IntOutput)
 }
 
-// Interval for which to refresh the token (in seconds).
+// Interval for which to refresh the token (in seconds). Value must be between 0 and 999.
 func (o SyntheticsGlobalVariableOptionsTotpParametersOutput) RefreshInterval() pulumi.IntOutput {
 	return o.ApplyT(func(v SyntheticsGlobalVariableOptionsTotpParameters) int { return v.RefreshInterval }).(pulumi.IntOutput)
 }
@@ -26732,7 +26732,7 @@ func (o SyntheticsGlobalVariableOptionsTotpParametersPtrOutput) Elem() Synthetic
 	}).(SyntheticsGlobalVariableOptionsTotpParametersOutput)
 }
 
-// Number of digits for the OTP.
+// Number of digits for the OTP. Value must be between 4 and 10.
 func (o SyntheticsGlobalVariableOptionsTotpParametersPtrOutput) Digits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SyntheticsGlobalVariableOptionsTotpParameters) *int {
 		if v == nil {
@@ -26742,7 +26742,7 @@ func (o SyntheticsGlobalVariableOptionsTotpParametersPtrOutput) Digits() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
-// Interval for which to refresh the token (in seconds).
+// Interval for which to refresh the token (in seconds). Value must be between 0 and 999.
 func (o SyntheticsGlobalVariableOptionsTotpParametersPtrOutput) RefreshInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SyntheticsGlobalVariableOptionsTotpParameters) *int {
 		if v == nil {
@@ -30149,7 +30149,7 @@ func (o SyntheticsTestApiStepRequestProxyPtrOutput) Url() pulumi.StringPtrOutput
 }
 
 type SyntheticsTestApiStepRetry struct {
-	// Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
+	// Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `3` for `api` tests, `2` for `browser` and `mobile` tests. Defaults to `0`.
 	Count *int `pulumi:"count"`
 	// Interval between a failed test and the next retry in milliseconds. Maximum value: `5000`. Defaults to `300`.
 	Interval *int `pulumi:"interval"`
@@ -30167,7 +30167,7 @@ type SyntheticsTestApiStepRetryInput interface {
 }
 
 type SyntheticsTestApiStepRetryArgs struct {
-	// Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
+	// Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `3` for `api` tests, `2` for `browser` and `mobile` tests. Defaults to `0`.
 	Count pulumi.IntPtrInput `pulumi:"count"`
 	// Interval between a failed test and the next retry in milliseconds. Maximum value: `5000`. Defaults to `300`.
 	Interval pulumi.IntPtrInput `pulumi:"interval"`
@@ -30250,7 +30250,7 @@ func (o SyntheticsTestApiStepRetryOutput) ToSyntheticsTestApiStepRetryPtrOutputW
 	}).(SyntheticsTestApiStepRetryPtrOutput)
 }
 
-// Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
+// Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `3` for `api` tests, `2` for `browser` and `mobile` tests. Defaults to `0`.
 func (o SyntheticsTestApiStepRetryOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepRetry) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
@@ -30284,7 +30284,7 @@ func (o SyntheticsTestApiStepRetryPtrOutput) Elem() SyntheticsTestApiStepRetryOu
 	}).(SyntheticsTestApiStepRetryOutput)
 }
 
-// Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
+// Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `3` for `api` tests, `2` for `browser` and `mobile` tests. Defaults to `0`.
 func (o SyntheticsTestApiStepRetryPtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestApiStepRetry) *int {
 		if v == nil {
@@ -33186,7 +33186,7 @@ func (o SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput) RenotifyOccurren
 }
 
 type SyntheticsTestMobileOptionsListRetry struct {
-	// Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
+	// Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `3` for `api` tests, `2` for `browser` and `mobile` tests. Defaults to `0`.
 	Count *int `pulumi:"count"`
 	// Interval between a failed test and the next retry in milliseconds. Maximum value: `5000`. Defaults to `300`.
 	Interval *int `pulumi:"interval"`
@@ -33204,7 +33204,7 @@ type SyntheticsTestMobileOptionsListRetryInput interface {
 }
 
 type SyntheticsTestMobileOptionsListRetryArgs struct {
-	// Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
+	// Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `3` for `api` tests, `2` for `browser` and `mobile` tests. Defaults to `0`.
 	Count pulumi.IntPtrInput `pulumi:"count"`
 	// Interval between a failed test and the next retry in milliseconds. Maximum value: `5000`. Defaults to `300`.
 	Interval pulumi.IntPtrInput `pulumi:"interval"`
@@ -33287,7 +33287,7 @@ func (o SyntheticsTestMobileOptionsListRetryOutput) ToSyntheticsTestMobileOption
 	}).(SyntheticsTestMobileOptionsListRetryPtrOutput)
 }
 
-// Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
+// Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `3` for `api` tests, `2` for `browser` and `mobile` tests. Defaults to `0`.
 func (o SyntheticsTestMobileOptionsListRetryOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestMobileOptionsListRetry) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
@@ -33321,7 +33321,7 @@ func (o SyntheticsTestMobileOptionsListRetryPtrOutput) Elem() SyntheticsTestMobi
 	}).(SyntheticsTestMobileOptionsListRetryOutput)
 }
 
-// Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
+// Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `3` for `api` tests, `2` for `browser` and `mobile` tests. Defaults to `0`.
 func (o SyntheticsTestMobileOptionsListRetryPtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestMobileOptionsListRetry) *int {
 		if v == nil {
@@ -35641,7 +35641,7 @@ func (o SyntheticsTestOptionsListMonitorOptionsPtrOutput) RenotifyOccurrences() 
 }
 
 type SyntheticsTestOptionsListRetry struct {
-	// Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
+	// Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `3` for `api` tests, `2` for `browser` and `mobile` tests. Defaults to `0`.
 	Count *int `pulumi:"count"`
 	// Interval between a failed test and the next retry in milliseconds. Maximum value: `5000`. Defaults to `300`.
 	Interval *int `pulumi:"interval"`
@@ -35659,7 +35659,7 @@ type SyntheticsTestOptionsListRetryInput interface {
 }
 
 type SyntheticsTestOptionsListRetryArgs struct {
-	// Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
+	// Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `3` for `api` tests, `2` for `browser` and `mobile` tests. Defaults to `0`.
 	Count pulumi.IntPtrInput `pulumi:"count"`
 	// Interval between a failed test and the next retry in milliseconds. Maximum value: `5000`. Defaults to `300`.
 	Interval pulumi.IntPtrInput `pulumi:"interval"`
@@ -35742,7 +35742,7 @@ func (o SyntheticsTestOptionsListRetryOutput) ToSyntheticsTestOptionsListRetryPt
 	}).(SyntheticsTestOptionsListRetryPtrOutput)
 }
 
-// Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
+// Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `3` for `api` tests, `2` for `browser` and `mobile` tests. Defaults to `0`.
 func (o SyntheticsTestOptionsListRetryOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestOptionsListRetry) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
@@ -35776,7 +35776,7 @@ func (o SyntheticsTestOptionsListRetryPtrOutput) Elem() SyntheticsTestOptionsLis
 	}).(SyntheticsTestOptionsListRetryOutput)
 }
 
-// Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
+// Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `3` for `api` tests, `2` for `browser` and `mobile` tests. Defaults to `0`.
 func (o SyntheticsTestOptionsListRetryPtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestOptionsListRetry) *int {
 		if v == nil {
@@ -41742,6 +41742,130 @@ func (o GetRolesRoleArrayOutput) Index(i pulumi.IntInput) GetRolesRoleOutput {
 	}).(GetRolesRoleOutput)
 }
 
+type GetRumRetentionFiltersRetentionFilter struct {
+	Enabled    bool   `pulumi:"enabled"`
+	EventType  string `pulumi:"eventType"`
+	Id         string `pulumi:"id"`
+	Name       string `pulumi:"name"`
+	Query      string `pulumi:"query"`
+	SampleRate int    `pulumi:"sampleRate"`
+}
+
+// GetRumRetentionFiltersRetentionFilterInput is an input type that accepts GetRumRetentionFiltersRetentionFilterArgs and GetRumRetentionFiltersRetentionFilterOutput values.
+// You can construct a concrete instance of `GetRumRetentionFiltersRetentionFilterInput` via:
+//
+//	GetRumRetentionFiltersRetentionFilterArgs{...}
+type GetRumRetentionFiltersRetentionFilterInput interface {
+	pulumi.Input
+
+	ToGetRumRetentionFiltersRetentionFilterOutput() GetRumRetentionFiltersRetentionFilterOutput
+	ToGetRumRetentionFiltersRetentionFilterOutputWithContext(context.Context) GetRumRetentionFiltersRetentionFilterOutput
+}
+
+type GetRumRetentionFiltersRetentionFilterArgs struct {
+	Enabled    pulumi.BoolInput   `pulumi:"enabled"`
+	EventType  pulumi.StringInput `pulumi:"eventType"`
+	Id         pulumi.StringInput `pulumi:"id"`
+	Name       pulumi.StringInput `pulumi:"name"`
+	Query      pulumi.StringInput `pulumi:"query"`
+	SampleRate pulumi.IntInput    `pulumi:"sampleRate"`
+}
+
+func (GetRumRetentionFiltersRetentionFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRumRetentionFiltersRetentionFilter)(nil)).Elem()
+}
+
+func (i GetRumRetentionFiltersRetentionFilterArgs) ToGetRumRetentionFiltersRetentionFilterOutput() GetRumRetentionFiltersRetentionFilterOutput {
+	return i.ToGetRumRetentionFiltersRetentionFilterOutputWithContext(context.Background())
+}
+
+func (i GetRumRetentionFiltersRetentionFilterArgs) ToGetRumRetentionFiltersRetentionFilterOutputWithContext(ctx context.Context) GetRumRetentionFiltersRetentionFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRumRetentionFiltersRetentionFilterOutput)
+}
+
+// GetRumRetentionFiltersRetentionFilterArrayInput is an input type that accepts GetRumRetentionFiltersRetentionFilterArray and GetRumRetentionFiltersRetentionFilterArrayOutput values.
+// You can construct a concrete instance of `GetRumRetentionFiltersRetentionFilterArrayInput` via:
+//
+//	GetRumRetentionFiltersRetentionFilterArray{ GetRumRetentionFiltersRetentionFilterArgs{...} }
+type GetRumRetentionFiltersRetentionFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetRumRetentionFiltersRetentionFilterArrayOutput() GetRumRetentionFiltersRetentionFilterArrayOutput
+	ToGetRumRetentionFiltersRetentionFilterArrayOutputWithContext(context.Context) GetRumRetentionFiltersRetentionFilterArrayOutput
+}
+
+type GetRumRetentionFiltersRetentionFilterArray []GetRumRetentionFiltersRetentionFilterInput
+
+func (GetRumRetentionFiltersRetentionFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRumRetentionFiltersRetentionFilter)(nil)).Elem()
+}
+
+func (i GetRumRetentionFiltersRetentionFilterArray) ToGetRumRetentionFiltersRetentionFilterArrayOutput() GetRumRetentionFiltersRetentionFilterArrayOutput {
+	return i.ToGetRumRetentionFiltersRetentionFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetRumRetentionFiltersRetentionFilterArray) ToGetRumRetentionFiltersRetentionFilterArrayOutputWithContext(ctx context.Context) GetRumRetentionFiltersRetentionFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRumRetentionFiltersRetentionFilterArrayOutput)
+}
+
+type GetRumRetentionFiltersRetentionFilterOutput struct{ *pulumi.OutputState }
+
+func (GetRumRetentionFiltersRetentionFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRumRetentionFiltersRetentionFilter)(nil)).Elem()
+}
+
+func (o GetRumRetentionFiltersRetentionFilterOutput) ToGetRumRetentionFiltersRetentionFilterOutput() GetRumRetentionFiltersRetentionFilterOutput {
+	return o
+}
+
+func (o GetRumRetentionFiltersRetentionFilterOutput) ToGetRumRetentionFiltersRetentionFilterOutputWithContext(ctx context.Context) GetRumRetentionFiltersRetentionFilterOutput {
+	return o
+}
+
+func (o GetRumRetentionFiltersRetentionFilterOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetRumRetentionFiltersRetentionFilter) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+func (o GetRumRetentionFiltersRetentionFilterOutput) EventType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRumRetentionFiltersRetentionFilter) string { return v.EventType }).(pulumi.StringOutput)
+}
+
+func (o GetRumRetentionFiltersRetentionFilterOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRumRetentionFiltersRetentionFilter) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetRumRetentionFiltersRetentionFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRumRetentionFiltersRetentionFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetRumRetentionFiltersRetentionFilterOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRumRetentionFiltersRetentionFilter) string { return v.Query }).(pulumi.StringOutput)
+}
+
+func (o GetRumRetentionFiltersRetentionFilterOutput) SampleRate() pulumi.IntOutput {
+	return o.ApplyT(func(v GetRumRetentionFiltersRetentionFilter) int { return v.SampleRate }).(pulumi.IntOutput)
+}
+
+type GetRumRetentionFiltersRetentionFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRumRetentionFiltersRetentionFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRumRetentionFiltersRetentionFilter)(nil)).Elem()
+}
+
+func (o GetRumRetentionFiltersRetentionFilterArrayOutput) ToGetRumRetentionFiltersRetentionFilterArrayOutput() GetRumRetentionFiltersRetentionFilterArrayOutput {
+	return o
+}
+
+func (o GetRumRetentionFiltersRetentionFilterArrayOutput) ToGetRumRetentionFiltersRetentionFilterArrayOutputWithContext(ctx context.Context) GetRumRetentionFiltersRetentionFilterArrayOutput {
+	return o
+}
+
+func (o GetRumRetentionFiltersRetentionFilterArrayOutput) Index(i pulumi.IntInput) GetRumRetentionFiltersRetentionFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRumRetentionFiltersRetentionFilter {
+		return vs[0].([]GetRumRetentionFiltersRetentionFilter)[vs[1].(int)]
+	}).(GetRumRetentionFiltersRetentionFilterOutput)
+}
+
 type GetSecurityMonitoringFiltersFilter struct {
 	// Exclusion filters to exclude some logs from the security filter.
 	ExclusionFilters []GetSecurityMonitoringFiltersFilterExclusionFilter `pulumi:"exclusionFilters"`
@@ -44657,6 +44781,136 @@ func (o GetServiceLevelObjectivesSloArrayOutput) Index(i pulumi.IntInput) GetSer
 	}).(GetServiceLevelObjectivesSloOutput)
 }
 
+type GetSoftwareCatalogEntity struct {
+	DisplayName string   `pulumi:"displayName"`
+	Id          string   `pulumi:"id"`
+	Kind        string   `pulumi:"kind"`
+	Name        string   `pulumi:"name"`
+	Namespace   string   `pulumi:"namespace"`
+	Owner       string   `pulumi:"owner"`
+	Tags        []string `pulumi:"tags"`
+}
+
+// GetSoftwareCatalogEntityInput is an input type that accepts GetSoftwareCatalogEntityArgs and GetSoftwareCatalogEntityOutput values.
+// You can construct a concrete instance of `GetSoftwareCatalogEntityInput` via:
+//
+//	GetSoftwareCatalogEntityArgs{...}
+type GetSoftwareCatalogEntityInput interface {
+	pulumi.Input
+
+	ToGetSoftwareCatalogEntityOutput() GetSoftwareCatalogEntityOutput
+	ToGetSoftwareCatalogEntityOutputWithContext(context.Context) GetSoftwareCatalogEntityOutput
+}
+
+type GetSoftwareCatalogEntityArgs struct {
+	DisplayName pulumi.StringInput      `pulumi:"displayName"`
+	Id          pulumi.StringInput      `pulumi:"id"`
+	Kind        pulumi.StringInput      `pulumi:"kind"`
+	Name        pulumi.StringInput      `pulumi:"name"`
+	Namespace   pulumi.StringInput      `pulumi:"namespace"`
+	Owner       pulumi.StringInput      `pulumi:"owner"`
+	Tags        pulumi.StringArrayInput `pulumi:"tags"`
+}
+
+func (GetSoftwareCatalogEntityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSoftwareCatalogEntity)(nil)).Elem()
+}
+
+func (i GetSoftwareCatalogEntityArgs) ToGetSoftwareCatalogEntityOutput() GetSoftwareCatalogEntityOutput {
+	return i.ToGetSoftwareCatalogEntityOutputWithContext(context.Background())
+}
+
+func (i GetSoftwareCatalogEntityArgs) ToGetSoftwareCatalogEntityOutputWithContext(ctx context.Context) GetSoftwareCatalogEntityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSoftwareCatalogEntityOutput)
+}
+
+// GetSoftwareCatalogEntityArrayInput is an input type that accepts GetSoftwareCatalogEntityArray and GetSoftwareCatalogEntityArrayOutput values.
+// You can construct a concrete instance of `GetSoftwareCatalogEntityArrayInput` via:
+//
+//	GetSoftwareCatalogEntityArray{ GetSoftwareCatalogEntityArgs{...} }
+type GetSoftwareCatalogEntityArrayInput interface {
+	pulumi.Input
+
+	ToGetSoftwareCatalogEntityArrayOutput() GetSoftwareCatalogEntityArrayOutput
+	ToGetSoftwareCatalogEntityArrayOutputWithContext(context.Context) GetSoftwareCatalogEntityArrayOutput
+}
+
+type GetSoftwareCatalogEntityArray []GetSoftwareCatalogEntityInput
+
+func (GetSoftwareCatalogEntityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSoftwareCatalogEntity)(nil)).Elem()
+}
+
+func (i GetSoftwareCatalogEntityArray) ToGetSoftwareCatalogEntityArrayOutput() GetSoftwareCatalogEntityArrayOutput {
+	return i.ToGetSoftwareCatalogEntityArrayOutputWithContext(context.Background())
+}
+
+func (i GetSoftwareCatalogEntityArray) ToGetSoftwareCatalogEntityArrayOutputWithContext(ctx context.Context) GetSoftwareCatalogEntityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSoftwareCatalogEntityArrayOutput)
+}
+
+type GetSoftwareCatalogEntityOutput struct{ *pulumi.OutputState }
+
+func (GetSoftwareCatalogEntityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSoftwareCatalogEntity)(nil)).Elem()
+}
+
+func (o GetSoftwareCatalogEntityOutput) ToGetSoftwareCatalogEntityOutput() GetSoftwareCatalogEntityOutput {
+	return o
+}
+
+func (o GetSoftwareCatalogEntityOutput) ToGetSoftwareCatalogEntityOutputWithContext(ctx context.Context) GetSoftwareCatalogEntityOutput {
+	return o
+}
+
+func (o GetSoftwareCatalogEntityOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSoftwareCatalogEntity) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+func (o GetSoftwareCatalogEntityOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSoftwareCatalogEntity) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetSoftwareCatalogEntityOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSoftwareCatalogEntity) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+func (o GetSoftwareCatalogEntityOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSoftwareCatalogEntity) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetSoftwareCatalogEntityOutput) Namespace() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSoftwareCatalogEntity) string { return v.Namespace }).(pulumi.StringOutput)
+}
+
+func (o GetSoftwareCatalogEntityOutput) Owner() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSoftwareCatalogEntity) string { return v.Owner }).(pulumi.StringOutput)
+}
+
+func (o GetSoftwareCatalogEntityOutput) Tags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSoftwareCatalogEntity) []string { return v.Tags }).(pulumi.StringArrayOutput)
+}
+
+type GetSoftwareCatalogEntityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSoftwareCatalogEntityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSoftwareCatalogEntity)(nil)).Elem()
+}
+
+func (o GetSoftwareCatalogEntityArrayOutput) ToGetSoftwareCatalogEntityArrayOutput() GetSoftwareCatalogEntityArrayOutput {
+	return o
+}
+
+func (o GetSoftwareCatalogEntityArrayOutput) ToGetSoftwareCatalogEntityArrayOutputWithContext(ctx context.Context) GetSoftwareCatalogEntityArrayOutput {
+	return o
+}
+
+func (o GetSoftwareCatalogEntityArrayOutput) Index(i pulumi.IntInput) GetSoftwareCatalogEntityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSoftwareCatalogEntity {
+		return vs[0].([]GetSoftwareCatalogEntity)[vs[1].(int)]
+	}).(GetSoftwareCatalogEntityOutput)
+}
+
 type GetTeamMembershipsTeamMembership struct {
 	Id     string `pulumi:"id"`
 	Role   string `pulumi:"role"`
@@ -45573,6 +45827,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleUsersRoleUserArrayInput)(nil)).Elem(), GetRoleUsersRoleUserArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRolesRoleInput)(nil)).Elem(), GetRolesRoleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRolesRoleArrayInput)(nil)).Elem(), GetRolesRoleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRumRetentionFiltersRetentionFilterInput)(nil)).Elem(), GetRumRetentionFiltersRetentionFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRumRetentionFiltersRetentionFilterArrayInput)(nil)).Elem(), GetRumRetentionFiltersRetentionFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityMonitoringFiltersFilterInput)(nil)).Elem(), GetSecurityMonitoringFiltersFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityMonitoringFiltersFilterArrayInput)(nil)).Elem(), GetSecurityMonitoringFiltersFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityMonitoringFiltersFilterExclusionFilterInput)(nil)).Elem(), GetSecurityMonitoringFiltersFilterExclusionFilterArgs{})
@@ -45613,6 +45869,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceLevelObjectiveQueryArrayInput)(nil)).Elem(), GetServiceLevelObjectiveQueryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceLevelObjectivesSloInput)(nil)).Elem(), GetServiceLevelObjectivesSloArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceLevelObjectivesSloArrayInput)(nil)).Elem(), GetServiceLevelObjectivesSloArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSoftwareCatalogEntityInput)(nil)).Elem(), GetSoftwareCatalogEntityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSoftwareCatalogEntityArrayInput)(nil)).Elem(), GetSoftwareCatalogEntityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamMembershipsTeamMembershipInput)(nil)).Elem(), GetTeamMembershipsTeamMembershipArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamMembershipsTeamMembershipArrayInput)(nil)).Elem(), GetTeamMembershipsTeamMembershipArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamsTeamInput)(nil)).Elem(), GetTeamsTeamArgs{})
@@ -46105,6 +46363,8 @@ func init() {
 	pulumi.RegisterOutputType(GetRoleUsersRoleUserArrayOutput{})
 	pulumi.RegisterOutputType(GetRolesRoleOutput{})
 	pulumi.RegisterOutputType(GetRolesRoleArrayOutput{})
+	pulumi.RegisterOutputType(GetRumRetentionFiltersRetentionFilterOutput{})
+	pulumi.RegisterOutputType(GetRumRetentionFiltersRetentionFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetSecurityMonitoringFiltersFilterOutput{})
 	pulumi.RegisterOutputType(GetSecurityMonitoringFiltersFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetSecurityMonitoringFiltersFilterExclusionFilterOutput{})
@@ -46145,6 +46405,8 @@ func init() {
 	pulumi.RegisterOutputType(GetServiceLevelObjectiveQueryArrayOutput{})
 	pulumi.RegisterOutputType(GetServiceLevelObjectivesSloOutput{})
 	pulumi.RegisterOutputType(GetServiceLevelObjectivesSloArrayOutput{})
+	pulumi.RegisterOutputType(GetSoftwareCatalogEntityOutput{})
+	pulumi.RegisterOutputType(GetSoftwareCatalogEntityArrayOutput{})
 	pulumi.RegisterOutputType(GetTeamMembershipsTeamMembershipOutput{})
 	pulumi.RegisterOutputType(GetTeamMembershipsTeamMembershipArrayOutput{})
 	pulumi.RegisterOutputType(GetTeamsTeamOutput{})

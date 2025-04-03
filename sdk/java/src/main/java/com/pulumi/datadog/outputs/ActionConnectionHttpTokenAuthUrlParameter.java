@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ActionConnectionHttpTokenAuthUrlParameter {
     /**
-     * @return URL parameter name
+     * @return URL parameter name. String length must be at least 1.
      * 
      */
     private @Nullable String name;
     /**
-     * @return URL parameter value
+     * @return URL parameter value. String length must be at least 1.
      * 
      */
     private @Nullable String value;
 
     private ActionConnectionHttpTokenAuthUrlParameter() {}
     /**
-     * @return URL parameter name
+     * @return URL parameter name. String length must be at least 1.
      * 
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return URL parameter value
+     * @return URL parameter value. String length must be at least 1.
      * 
      */
     public Optional<String> value() {

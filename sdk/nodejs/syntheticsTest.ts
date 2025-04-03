@@ -188,6 +188,56 @@ import * as utilities from "./utilities";
  *         tickEvery: 900,
  *     },
  * });
+ * // Example Usage (Synthetics ICMP test)
+ * // Create a new Datadog Synthetics ICMP test on example.org
+ * const testApiIcmp = new datadog.SyntheticsTest("test_api_icmp", {
+ *     name: "ICMP Test on example.com",
+ *     type: "api",
+ *     subtype: "icmp",
+ *     status: "live",
+ *     locations: ["aws:eu-central-1"],
+ *     tags: [
+ *         "foo:bar",
+ *         "foo",
+ *         "env:test",
+ *     ],
+ *     requestDefinition: {
+ *         host: "example.com",
+ *         noSavingResponseBody: false,
+ *         numberOfPackets: 1,
+ *         persistCookies: false,
+ *         shouldTrackHops: false,
+ *         timeout: 0,
+ *     },
+ *     assertions: [
+ *         {
+ *             operator: "is",
+ *             target: "0",
+ *             type: "packetLossPercentage",
+ *         },
+ *         {
+ *             operator: "lessThan",
+ *             property: "avg",
+ *             target: "1000",
+ *             type: "latency",
+ *         },
+ *         {
+ *             operator: "moreThanOrEqual",
+ *             target: "1",
+ *             type: "packetsReceived",
+ *         },
+ *     ],
+ *     optionsList: {
+ *         tickEvery: 900,
+ *         retry: {
+ *             count: 2,
+ *             interval: 300,
+ *         },
+ *         monitorOptions: {
+ *             renotifyInterval: 120,
+ *         },
+ *     },
+ * });
  * // Example Usage (Synthetics Multistep API test)
  * // Create a new Datadog Synthetics Multistep API test
  * const testMultiStep = new datadog.SyntheticsTest("test_multi_step", {
@@ -236,9 +286,10 @@ import * as utilities from "./utilities";
  *             name: "A gRPC health check on example.org",
  *             subtype: "grpc",
  *             assertions: [{
- *                 type: "statusCode",
+ *                 type: "grpcMetadata",
  *                 operator: "is",
- *                 target: "200",
+ *                 property: "X-Header",
+ *                 target: "test",
  *             }],
  *             requestDefinition: {
  *                 host: "example.org",
@@ -251,9 +302,9 @@ import * as utilities from "./utilities";
  *             name: "A gRPC behavior check on example.org",
  *             subtype: "grpc",
  *             assertions: [{
- *                 type: "statusCode",
+ *                 type: "grpcHealthcheckStatus",
  *                 operator: "is",
- *                 target: "200",
+ *                 target: "1",
  *             }],
  *             requestDefinition: {
  *                 host: "example.org",

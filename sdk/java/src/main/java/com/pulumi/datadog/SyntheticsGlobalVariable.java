@@ -116,14 +116,14 @@ public class SyntheticsGlobalVariable extends com.pulumi.resources.CustomResourc
         return this.isTotp;
     }
     /**
-     * Synthetics global variable name.
+     * Synthetics global variable name. Must be all uppercase with underscores.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Synthetics global variable name.
+     * @return Synthetics global variable name. Must be all uppercase with underscores.
      * 
      */
     public Output<String> name() {

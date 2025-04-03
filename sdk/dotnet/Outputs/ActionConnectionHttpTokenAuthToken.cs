@@ -14,15 +14,15 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ActionConnectionHttpTokenAuthToken
     {
         /// <summary>
-        /// Token name
+        /// Token name. String length must be at least 1.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Token type
+        /// Token type Valid values are `SECRET`.
         /// </summary>
         public readonly string? Type;
         /// <summary>
-        /// Token value
+        /// Token value. String length must be at least 1.
         /// </summary>
         public readonly string? Value;
 

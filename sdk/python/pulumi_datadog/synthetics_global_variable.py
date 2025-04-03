@@ -34,7 +34,7 @@ class SyntheticsGlobalVariableArgs:
                  value: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SyntheticsGlobalVariable resource.
-        :param pulumi.Input[str] name: Synthetics global variable name.
+        :param pulumi.Input[str] name: Synthetics global variable name. Must be all uppercase with underscores.
         :param pulumi.Input[str] description: Description of the global variable. Defaults to `""`.
         :param pulumi.Input[bool] is_fido: If set to true, the global variable is a FIDO variable. Defaults to `false`.
         :param pulumi.Input[bool] is_totp: If set to true, the global variable is a TOTP variable. Defaults to `false`.
@@ -75,7 +75,7 @@ class SyntheticsGlobalVariableArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Synthetics global variable name.
+        Synthetics global variable name. Must be all uppercase with underscores.
         """
         return pulumi.get(self, "name")
 
@@ -224,7 +224,7 @@ class _SyntheticsGlobalVariableState:
         :param pulumi.Input[str] description: Description of the global variable. Defaults to `""`.
         :param pulumi.Input[bool] is_fido: If set to true, the global variable is a FIDO variable. Defaults to `false`.
         :param pulumi.Input[bool] is_totp: If set to true, the global variable is a TOTP variable. Defaults to `false`.
-        :param pulumi.Input[str] name: Synthetics global variable name.
+        :param pulumi.Input[str] name: Synthetics global variable name. Must be all uppercase with underscores.
         :param pulumi.Input['SyntheticsGlobalVariableOptionsArgs'] options: Additional options for the variable, such as a MFA token.
         :param pulumi.Input[str] parse_test_id: Id of the Synthetics test to use for a variable from test.
         :param pulumi.Input['SyntheticsGlobalVariableParseTestOptionsArgs'] parse_test_options: ID of the Synthetics test to use a source of the global variable value.
@@ -299,7 +299,7 @@ class _SyntheticsGlobalVariableState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Synthetics global variable name.
+        Synthetics global variable name. Must be all uppercase with underscores.
         """
         return pulumi.get(self, "name")
 
@@ -443,7 +443,7 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the global variable. Defaults to `""`.
         :param pulumi.Input[bool] is_fido: If set to true, the global variable is a FIDO variable. Defaults to `false`.
         :param pulumi.Input[bool] is_totp: If set to true, the global variable is a TOTP variable. Defaults to `false`.
-        :param pulumi.Input[str] name: Synthetics global variable name.
+        :param pulumi.Input[str] name: Synthetics global variable name. Must be all uppercase with underscores.
         :param pulumi.Input[Union['SyntheticsGlobalVariableOptionsArgs', 'SyntheticsGlobalVariableOptionsArgsDict']] options: Additional options for the variable, such as a MFA token.
         :param pulumi.Input[str] parse_test_id: Id of the Synthetics test to use for a variable from test.
         :param pulumi.Input[Union['SyntheticsGlobalVariableParseTestOptionsArgs', 'SyntheticsGlobalVariableParseTestOptionsArgsDict']] parse_test_options: ID of the Synthetics test to use a source of the global variable value.
@@ -567,7 +567,7 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the global variable. Defaults to `""`.
         :param pulumi.Input[bool] is_fido: If set to true, the global variable is a FIDO variable. Defaults to `false`.
         :param pulumi.Input[bool] is_totp: If set to true, the global variable is a TOTP variable. Defaults to `false`.
-        :param pulumi.Input[str] name: Synthetics global variable name.
+        :param pulumi.Input[str] name: Synthetics global variable name. Must be all uppercase with underscores.
         :param pulumi.Input[Union['SyntheticsGlobalVariableOptionsArgs', 'SyntheticsGlobalVariableOptionsArgsDict']] options: Additional options for the variable, such as a MFA token.
         :param pulumi.Input[str] parse_test_id: Id of the Synthetics test to use for a variable from test.
         :param pulumi.Input[Union['SyntheticsGlobalVariableParseTestOptionsArgs', 'SyntheticsGlobalVariableParseTestOptionsArgsDict']] parse_test_options: ID of the Synthetics test to use a source of the global variable value.
@@ -621,7 +621,7 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Synthetics global variable name.
+        Synthetics global variable name. Must be all uppercase with underscores.
         """
         return pulumi.get(self, "name")
 

@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetSyntheticsLocationsResult {
     /**
-     * @return The provider-assigned unique ID for this managed resource.
+     * @return The ID of this resource.
      * 
      */
     private String id;
@@ -24,7 +24,7 @@ public final class GetSyntheticsLocationsResult {
 
     private GetSyntheticsLocationsResult() {}
     /**
-     * @return The provider-assigned unique ID for this managed resource.
+     * @return The ID of this resource.
      * 
      */
     public String id() {

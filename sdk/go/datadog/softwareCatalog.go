@@ -323,7 +323,7 @@ import (
 type SoftwareCatalog struct {
 	pulumi.CustomResourceState
 
-	// The catalog entity definition.
+	// The catalog entity definition. Entity must be a valid entity YAML/JSON structure.
 	Entity pulumi.StringOutput `pulumi:"entity"`
 }
 
@@ -360,12 +360,12 @@ func GetSoftwareCatalog(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SoftwareCatalog resources.
 type softwareCatalogState struct {
-	// The catalog entity definition.
+	// The catalog entity definition. Entity must be a valid entity YAML/JSON structure.
 	Entity *string `pulumi:"entity"`
 }
 
 type SoftwareCatalogState struct {
-	// The catalog entity definition.
+	// The catalog entity definition. Entity must be a valid entity YAML/JSON structure.
 	Entity pulumi.StringPtrInput
 }
 
@@ -374,13 +374,13 @@ func (SoftwareCatalogState) ElementType() reflect.Type {
 }
 
 type softwareCatalogArgs struct {
-	// The catalog entity definition.
+	// The catalog entity definition. Entity must be a valid entity YAML/JSON structure.
 	Entity string `pulumi:"entity"`
 }
 
 // The set of arguments for constructing a SoftwareCatalog resource.
 type SoftwareCatalogArgs struct {
-	// The catalog entity definition.
+	// The catalog entity definition. Entity must be a valid entity YAML/JSON structure.
 	Entity pulumi.StringInput
 }
 
@@ -471,7 +471,7 @@ func (o SoftwareCatalogOutput) ToSoftwareCatalogOutputWithContext(ctx context.Co
 	return o
 }
 
-// The catalog entity definition.
+// The catalog entity definition. Entity must be a valid entity YAML/JSON structure.
 func (o SoftwareCatalogOutput) Entity() pulumi.StringOutput {
 	return o.ApplyT(func(v *SoftwareCatalog) pulumi.StringOutput { return v.Entity }).(pulumi.StringOutput)
 }

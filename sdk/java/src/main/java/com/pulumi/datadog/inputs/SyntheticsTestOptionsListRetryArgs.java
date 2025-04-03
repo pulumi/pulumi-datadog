@@ -16,14 +16,14 @@ public final class SyntheticsTestOptionsListRetryArgs extends com.pulumi.resourc
     public static final SyntheticsTestOptionsListRetryArgs Empty = new SyntheticsTestOptionsListRetryArgs();
 
     /**
-     * Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
+     * Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `3` for `api` tests, `2` for `browser` and `mobile` tests. Defaults to `0`.
      * 
      */
     @Import(name="count")
     private @Nullable Output<Integer> count;
 
     /**
-     * @return Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
+     * @return Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `3` for `api` tests, `2` for `browser` and `mobile` tests. Defaults to `0`.
      * 
      */
     public Optional<Output<Integer>> count() {
@@ -71,7 +71,7 @@ public final class SyntheticsTestOptionsListRetryArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param count Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
+         * @param count Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `3` for `api` tests, `2` for `browser` and `mobile` tests. Defaults to `0`.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class SyntheticsTestOptionsListRetryArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param count Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
+         * @param count Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `3` for `api` tests, `2` for `browser` and `mobile` tests. Defaults to `0`.
          * 
          * @return builder
          * 

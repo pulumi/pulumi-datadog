@@ -43,7 +43,7 @@ namespace Pulumi.Datadog
     public partial class SyntheticsConcurrencyCap : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel.
+        /// Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel. Value must be at least 1.
         /// </summary>
         [Output("onDemandConcurrencyCap")]
         public Output<int> OnDemandConcurrencyCap { get; private set; } = null!;
@@ -95,7 +95,7 @@ namespace Pulumi.Datadog
     public sealed class SyntheticsConcurrencyCapArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel.
+        /// Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel. Value must be at least 1.
         /// </summary>
         [Input("onDemandConcurrencyCap", required: true)]
         public Input<int> OnDemandConcurrencyCap { get; set; } = null!;
@@ -109,7 +109,7 @@ namespace Pulumi.Datadog
     public sealed class SyntheticsConcurrencyCapState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel.
+        /// Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel. Value must be at least 1.
         /// </summary>
         [Input("onDemandConcurrencyCap")]
         public Input<int>? OnDemandConcurrencyCap { get; set; }

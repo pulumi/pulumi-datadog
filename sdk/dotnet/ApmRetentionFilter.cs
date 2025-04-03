@@ -48,7 +48,7 @@ namespace Pulumi.Datadog
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query.
+        /// Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
         /// </summary>
         [Output("rate")]
         public Output<string> Rate { get; private set; } = null!;
@@ -124,7 +124,7 @@ namespace Pulumi.Datadog
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query.
+        /// Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
         /// </summary>
         [Input("rate", required: true)]
         public Input<string> Rate { get; set; } = null!;
@@ -162,7 +162,7 @@ namespace Pulumi.Datadog
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query.
+        /// Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
         /// </summary>
         [Input("rate")]
         public Input<string>? Rate { get; set; }

@@ -16,14 +16,14 @@ public final class ActionConnectionHttpTokenAuthUrlParameterArgs extends com.pul
     public static final ActionConnectionHttpTokenAuthUrlParameterArgs Empty = new ActionConnectionHttpTokenAuthUrlParameterArgs();
 
     /**
-     * URL parameter name
+     * URL parameter name. String length must be at least 1.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return URL parameter name
+     * @return URL parameter name. String length must be at least 1.
      * 
      */
     public Optional<Output<String>> name() {
@@ -31,14 +31,14 @@ public final class ActionConnectionHttpTokenAuthUrlParameterArgs extends com.pul
     }
 
     /**
-     * URL parameter value
+     * URL parameter value. String length must be at least 1.
      * 
      */
     @Import(name="value")
     private @Nullable Output<String> value;
 
     /**
-     * @return URL parameter value
+     * @return URL parameter value. String length must be at least 1.
      * 
      */
     public Optional<Output<String>> value() {
@@ -71,7 +71,7 @@ public final class ActionConnectionHttpTokenAuthUrlParameterArgs extends com.pul
         }
 
         /**
-         * @param name URL parameter name
+         * @param name URL parameter name. String length must be at least 1.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ActionConnectionHttpTokenAuthUrlParameterArgs extends com.pul
         }
 
         /**
-         * @param name URL parameter name
+         * @param name URL parameter name. String length must be at least 1.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class ActionConnectionHttpTokenAuthUrlParameterArgs extends com.pul
         }
 
         /**
-         * @param value URL parameter value
+         * @param value URL parameter value. String length must be at least 1.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class ActionConnectionHttpTokenAuthUrlParameterArgs extends com.pul
         }
 
         /**
-         * @param value URL parameter value
+         * @param value URL parameter value. String length must be at least 1.
          * 
          * @return builder
          * 

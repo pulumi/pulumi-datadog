@@ -15,14 +15,14 @@ public final class SyntheticsGlobalVariableOptionsTotpParametersArgs extends com
     public static final SyntheticsGlobalVariableOptionsTotpParametersArgs Empty = new SyntheticsGlobalVariableOptionsTotpParametersArgs();
 
     /**
-     * Number of digits for the OTP.
+     * Number of digits for the OTP. Value must be between 4 and 10.
      * 
      */
     @Import(name="digits", required=true)
     private Output<Integer> digits;
 
     /**
-     * @return Number of digits for the OTP.
+     * @return Number of digits for the OTP. Value must be between 4 and 10.
      * 
      */
     public Output<Integer> digits() {
@@ -30,14 +30,14 @@ public final class SyntheticsGlobalVariableOptionsTotpParametersArgs extends com
     }
 
     /**
-     * Interval for which to refresh the token (in seconds).
+     * Interval for which to refresh the token (in seconds). Value must be between 0 and 999.
      * 
      */
     @Import(name="refreshInterval", required=true)
     private Output<Integer> refreshInterval;
 
     /**
-     * @return Interval for which to refresh the token (in seconds).
+     * @return Interval for which to refresh the token (in seconds). Value must be between 0 and 999.
      * 
      */
     public Output<Integer> refreshInterval() {
@@ -70,7 +70,7 @@ public final class SyntheticsGlobalVariableOptionsTotpParametersArgs extends com
         }
 
         /**
-         * @param digits Number of digits for the OTP.
+         * @param digits Number of digits for the OTP. Value must be between 4 and 10.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class SyntheticsGlobalVariableOptionsTotpParametersArgs extends com
         }
 
         /**
-         * @param digits Number of digits for the OTP.
+         * @param digits Number of digits for the OTP. Value must be between 4 and 10.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class SyntheticsGlobalVariableOptionsTotpParametersArgs extends com
         }
 
         /**
-         * @param refreshInterval Interval for which to refresh the token (in seconds).
+         * @param refreshInterval Interval for which to refresh the token (in seconds). Value must be between 0 and 999.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class SyntheticsGlobalVariableOptionsTotpParametersArgs extends com
         }
 
         /**
-         * @param refreshInterval Interval for which to refresh the token (in seconds).
+         * @param refreshInterval Interval for which to refresh the token (in seconds). Value must be between 0 and 999.
          * 
          * @return builder
          * 

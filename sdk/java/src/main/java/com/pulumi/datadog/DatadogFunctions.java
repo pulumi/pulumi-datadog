@@ -10,6 +10,8 @@ import com.pulumi.datadog.inputs.GetActionConnectionArgs;
 import com.pulumi.datadog.inputs.GetActionConnectionPlainArgs;
 import com.pulumi.datadog.inputs.GetApiKeyArgs;
 import com.pulumi.datadog.inputs.GetApiKeyPlainArgs;
+import com.pulumi.datadog.inputs.GetAppBuilderAppArgs;
+import com.pulumi.datadog.inputs.GetAppBuilderAppPlainArgs;
 import com.pulumi.datadog.inputs.GetApplicationKeyArgs;
 import com.pulumi.datadog.inputs.GetApplicationKeyPlainArgs;
 import com.pulumi.datadog.inputs.GetDashboardArgs;
@@ -36,6 +38,8 @@ import com.pulumi.datadog.inputs.GetRolesArgs;
 import com.pulumi.datadog.inputs.GetRolesPlainArgs;
 import com.pulumi.datadog.inputs.GetRumApplicationArgs;
 import com.pulumi.datadog.inputs.GetRumApplicationPlainArgs;
+import com.pulumi.datadog.inputs.GetRumRetentionFiltersArgs;
+import com.pulumi.datadog.inputs.GetRumRetentionFiltersPlainArgs;
 import com.pulumi.datadog.inputs.GetSecurityMonitoringRulesArgs;
 import com.pulumi.datadog.inputs.GetSecurityMonitoringRulesPlainArgs;
 import com.pulumi.datadog.inputs.GetSensitiveDataScannerStandardPatternArgs;
@@ -46,6 +50,8 @@ import com.pulumi.datadog.inputs.GetServiceLevelObjectiveArgs;
 import com.pulumi.datadog.inputs.GetServiceLevelObjectivePlainArgs;
 import com.pulumi.datadog.inputs.GetServiceLevelObjectivesArgs;
 import com.pulumi.datadog.inputs.GetServiceLevelObjectivesPlainArgs;
+import com.pulumi.datadog.inputs.GetSoftwareCatalogArgs;
+import com.pulumi.datadog.inputs.GetSoftwareCatalogPlainArgs;
 import com.pulumi.datadog.inputs.GetSyntheticsGlobalVariableArgs;
 import com.pulumi.datadog.inputs.GetSyntheticsGlobalVariablePlainArgs;
 import com.pulumi.datadog.inputs.GetSyntheticsTestArgs;
@@ -65,6 +71,7 @@ import com.pulumi.datadog.inputs.GetWorkflowAutomationPlainArgs;
 import com.pulumi.datadog.outputs.GetActionConnectionResult;
 import com.pulumi.datadog.outputs.GetApiKeyResult;
 import com.pulumi.datadog.outputs.GetApmRetentionFiltersOrderResult;
+import com.pulumi.datadog.outputs.GetAppBuilderAppResult;
 import com.pulumi.datadog.outputs.GetApplicationKeyResult;
 import com.pulumi.datadog.outputs.GetCloudWorkloadSecurityAgentRulesResult;
 import com.pulumi.datadog.outputs.GetCsmThreatsAgentRulesResult;
@@ -86,6 +93,7 @@ import com.pulumi.datadog.outputs.GetRoleResult;
 import com.pulumi.datadog.outputs.GetRoleUsersResult;
 import com.pulumi.datadog.outputs.GetRolesResult;
 import com.pulumi.datadog.outputs.GetRumApplicationResult;
+import com.pulumi.datadog.outputs.GetRumRetentionFiltersResult;
 import com.pulumi.datadog.outputs.GetSecurityMonitoringFiltersResult;
 import com.pulumi.datadog.outputs.GetSecurityMonitoringRulesResult;
 import com.pulumi.datadog.outputs.GetSecurityMonitoringSuppressionsResult;
@@ -94,6 +102,7 @@ import com.pulumi.datadog.outputs.GetSensitiveDataScannerStandardPatternResult;
 import com.pulumi.datadog.outputs.GetServiceAccountResult;
 import com.pulumi.datadog.outputs.GetServiceLevelObjectiveResult;
 import com.pulumi.datadog.outputs.GetServiceLevelObjectivesResult;
+import com.pulumi.datadog.outputs.GetSoftwareCatalogResult;
 import com.pulumi.datadog.outputs.GetSyntheticsGlobalVariableResult;
 import com.pulumi.datadog.outputs.GetSyntheticsLocationsResult;
 import com.pulumi.datadog.outputs.GetSyntheticsTestResult;
@@ -886,6 +895,216 @@ public final class DatadogFunctions {
      */
     public static CompletableFuture<GetApmRetentionFiltersOrderResult> getApmRetentionFiltersOrderPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:index/getApmRetentionFiltersOrder:getApmRetentionFiltersOrder", TypeShape.of(GetApmRetentionFiltersOrderResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * This data source retrieves the definition of an existing Datadog App from App Builder for use in other resources, such as embedding Apps in Dashboards.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetAppBuilderAppArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myApp = DatadogFunctions.getAppBuilderApp(GetAppBuilderAppArgs.builder()
+     *             .id("11111111-2222-3333-4444-555555555555")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetAppBuilderAppResult> getAppBuilderApp(GetAppBuilderAppArgs args) {
+        return getAppBuilderApp(args, InvokeOptions.Empty);
+    }
+    /**
+     * This data source retrieves the definition of an existing Datadog App from App Builder for use in other resources, such as embedding Apps in Dashboards.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetAppBuilderAppArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myApp = DatadogFunctions.getAppBuilderApp(GetAppBuilderAppArgs.builder()
+     *             .id("11111111-2222-3333-4444-555555555555")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetAppBuilderAppResult> getAppBuilderAppPlain(GetAppBuilderAppPlainArgs args) {
+        return getAppBuilderAppPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * This data source retrieves the definition of an existing Datadog App from App Builder for use in other resources, such as embedding Apps in Dashboards.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetAppBuilderAppArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myApp = DatadogFunctions.getAppBuilderApp(GetAppBuilderAppArgs.builder()
+     *             .id("11111111-2222-3333-4444-555555555555")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetAppBuilderAppResult> getAppBuilderApp(GetAppBuilderAppArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getAppBuilderApp:getAppBuilderApp", TypeShape.of(GetAppBuilderAppResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * This data source retrieves the definition of an existing Datadog App from App Builder for use in other resources, such as embedding Apps in Dashboards.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetAppBuilderAppArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myApp = DatadogFunctions.getAppBuilderApp(GetAppBuilderAppArgs.builder()
+     *             .id("11111111-2222-3333-4444-555555555555")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetAppBuilderAppResult> getAppBuilderApp(GetAppBuilderAppArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getAppBuilderApp:getAppBuilderApp", TypeShape.of(GetAppBuilderAppResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * This data source retrieves the definition of an existing Datadog App from App Builder for use in other resources, such as embedding Apps in Dashboards.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetAppBuilderAppArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myApp = DatadogFunctions.getAppBuilderApp(GetAppBuilderAppArgs.builder()
+     *             .id("11111111-2222-3333-4444-555555555555")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetAppBuilderAppResult> getAppBuilderAppPlain(GetAppBuilderAppPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getAppBuilderApp:getAppBuilderApp", TypeShape.of(GetAppBuilderAppResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve information about an existing application key. Deprecated. This will be removed in a future release with prior notice. Securely store your application keys using a secret management system or use the datadog.ApplicationKey resource to manage application keys in your Datadog account.
@@ -5067,6 +5286,216 @@ public final class DatadogFunctions {
         return Deployment.getInstance().invokeAsync("datadog:index/getRumApplication:getRumApplication", TypeShape.of(GetRumApplicationResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides a Datadog RUM retention filters datasource. This can be used to retrieve all RUM retention filters for a given RUM application.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetRumRetentionFiltersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var testingRumRetentionFilters = DatadogFunctions.getRumRetentionFilters(GetRumRetentionFiltersArgs.builder()
+     *             .applicationId("<APPLICATION_ID>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetRumRetentionFiltersResult> getRumRetentionFilters(GetRumRetentionFiltersArgs args) {
+        return getRumRetentionFilters(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides a Datadog RUM retention filters datasource. This can be used to retrieve all RUM retention filters for a given RUM application.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetRumRetentionFiltersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var testingRumRetentionFilters = DatadogFunctions.getRumRetentionFilters(GetRumRetentionFiltersArgs.builder()
+     *             .applicationId("<APPLICATION_ID>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetRumRetentionFiltersResult> getRumRetentionFiltersPlain(GetRumRetentionFiltersPlainArgs args) {
+        return getRumRetentionFiltersPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides a Datadog RUM retention filters datasource. This can be used to retrieve all RUM retention filters for a given RUM application.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetRumRetentionFiltersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var testingRumRetentionFilters = DatadogFunctions.getRumRetentionFilters(GetRumRetentionFiltersArgs.builder()
+     *             .applicationId("<APPLICATION_ID>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetRumRetentionFiltersResult> getRumRetentionFilters(GetRumRetentionFiltersArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getRumRetentionFilters:getRumRetentionFilters", TypeShape.of(GetRumRetentionFiltersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides a Datadog RUM retention filters datasource. This can be used to retrieve all RUM retention filters for a given RUM application.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetRumRetentionFiltersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var testingRumRetentionFilters = DatadogFunctions.getRumRetentionFilters(GetRumRetentionFiltersArgs.builder()
+     *             .applicationId("<APPLICATION_ID>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetRumRetentionFiltersResult> getRumRetentionFilters(GetRumRetentionFiltersArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getRumRetentionFilters:getRumRetentionFilters", TypeShape.of(GetRumRetentionFiltersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides a Datadog RUM retention filters datasource. This can be used to retrieve all RUM retention filters for a given RUM application.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetRumRetentionFiltersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var testingRumRetentionFilters = DatadogFunctions.getRumRetentionFilters(GetRumRetentionFiltersArgs.builder()
+     *             .applicationId("<APPLICATION_ID>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetRumRetentionFiltersResult> getRumRetentionFiltersPlain(GetRumRetentionFiltersPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getRumRetentionFilters:getRumRetentionFilters", TypeShape.of(GetRumRetentionFiltersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Use this data source to retrieve information about existing security monitoring filters for use in other resources.
      * 
      * ## Example Usage
@@ -6717,6 +7146,286 @@ public final class DatadogFunctions {
      */
     public static CompletableFuture<GetServiceLevelObjectivesResult> getServiceLevelObjectivesPlain(GetServiceLevelObjectivesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:index/getServiceLevelObjectives:getServiceLevelObjectives", TypeShape.of(GetServiceLevelObjectivesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to list software catalog entities to use in other resources.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetSoftwareCatalogArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DatadogFunctions.getSoftwareCatalog();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetSoftwareCatalogResult> getSoftwareCatalog() {
+        return getSoftwareCatalog(GetSoftwareCatalogArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to list software catalog entities to use in other resources.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetSoftwareCatalogArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DatadogFunctions.getSoftwareCatalog();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetSoftwareCatalogResult> getSoftwareCatalogPlain() {
+        return getSoftwareCatalogPlain(GetSoftwareCatalogPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to list software catalog entities to use in other resources.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetSoftwareCatalogArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DatadogFunctions.getSoftwareCatalog();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetSoftwareCatalogResult> getSoftwareCatalog(GetSoftwareCatalogArgs args) {
+        return getSoftwareCatalog(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to list software catalog entities to use in other resources.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetSoftwareCatalogArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DatadogFunctions.getSoftwareCatalog();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetSoftwareCatalogResult> getSoftwareCatalogPlain(GetSoftwareCatalogPlainArgs args) {
+        return getSoftwareCatalogPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to list software catalog entities to use in other resources.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetSoftwareCatalogArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DatadogFunctions.getSoftwareCatalog();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetSoftwareCatalogResult> getSoftwareCatalog(GetSoftwareCatalogArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getSoftwareCatalog:getSoftwareCatalog", TypeShape.of(GetSoftwareCatalogResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to list software catalog entities to use in other resources.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetSoftwareCatalogArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DatadogFunctions.getSoftwareCatalog();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetSoftwareCatalogResult> getSoftwareCatalog(GetSoftwareCatalogArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getSoftwareCatalog:getSoftwareCatalog", TypeShape.of(GetSoftwareCatalogResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to list software catalog entities to use in other resources.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetSoftwareCatalogArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DatadogFunctions.getSoftwareCatalog();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetSoftwareCatalogResult> getSoftwareCatalogPlain(GetSoftwareCatalogPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getSoftwareCatalog:getSoftwareCatalog", TypeShape.of(GetSoftwareCatalogResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve a Datadog Synthetics global variable (to be used in Synthetics tests).

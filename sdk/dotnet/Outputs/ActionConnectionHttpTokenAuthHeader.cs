@@ -14,9 +14,12 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ActionConnectionHttpTokenAuthHeader
     {
         /// <summary>
-        /// Header name
+        /// Header name. String length must be at least 1.
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// String length must be at least 1.
+        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

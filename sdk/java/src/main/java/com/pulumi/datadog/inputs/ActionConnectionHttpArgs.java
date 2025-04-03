@@ -17,14 +17,14 @@ public final class ActionConnectionHttpArgs extends com.pulumi.resources.Resourc
     public static final ActionConnectionHttpArgs Empty = new ActionConnectionHttpArgs();
 
     /**
-     * Base HTTP url for the integration
+     * Base HTTP url for the integration. String length must be at least 1.
      * 
      */
     @Import(name="baseUrl")
     private @Nullable Output<String> baseUrl;
 
     /**
-     * @return Base HTTP url for the integration
+     * @return Base HTTP url for the integration. String length must be at least 1.
      * 
      */
     public Optional<Output<String>> baseUrl() {
@@ -72,7 +72,7 @@ public final class ActionConnectionHttpArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param baseUrl Base HTTP url for the integration
+         * @param baseUrl Base HTTP url for the integration. String length must be at least 1.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ActionConnectionHttpArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param baseUrl Base HTTP url for the integration
+         * @param baseUrl Base HTTP url for the integration. String length must be at least 1.
          * 
          * @return builder
          * 

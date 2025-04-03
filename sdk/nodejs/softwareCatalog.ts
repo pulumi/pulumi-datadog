@@ -263,7 +263,7 @@ export class SoftwareCatalog extends pulumi.CustomResource {
     }
 
     /**
-     * The catalog entity definition.
+     * The catalog entity definition. Entity must be a valid entity YAML/JSON structure.
      */
     public readonly entity!: pulumi.Output<string>;
 
@@ -298,7 +298,7 @@ export class SoftwareCatalog extends pulumi.CustomResource {
  */
 export interface SoftwareCatalogState {
     /**
-     * The catalog entity definition.
+     * The catalog entity definition. Entity must be a valid entity YAML/JSON structure.
      */
     entity?: pulumi.Input<string>;
 }
@@ -308,7 +308,7 @@ export interface SoftwareCatalogState {
  */
 export interface SoftwareCatalogArgs {
     /**
-     * The catalog entity definition.
+     * The catalog entity definition. Entity must be a valid entity YAML/JSON structure.
      */
     entity: pulumi.Input<string>;
 }

@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class SyntheticsTestApiStepRetryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
+        /// Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `3` for `api` tests, `2` for `browser` and `mobile` tests. Defaults to `0`.
         /// </summary>
         [Input("count")]
         public Input<int>? Count { get; set; }

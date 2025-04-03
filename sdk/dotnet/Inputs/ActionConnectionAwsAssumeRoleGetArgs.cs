@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ActionConnectionAwsAssumeRoleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// AWS account that the connection is created for
+        /// AWS account that the connection is created for. String length must be at least 1.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? PrincipalId { get; set; }
 
         /// <summary>
-        /// Role to assume
+        /// Role to assume. String length must be at least 1.
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }

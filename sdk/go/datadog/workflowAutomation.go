@@ -99,7 +99,7 @@ type WorkflowAutomation struct {
 
 	// Description of the workflow.
 	Description pulumi.StringOutput `pulumi:"description"`
-	// Name of the workflow.
+	// Name of the workflow. String length must be at least 1.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Set the workflow to published or unpublished. Workflows in an unpublished state are only executable through manual runs. Automatic triggers such as Schedule do not execute the workflow until it is published.
 	Published pulumi.BoolOutput `pulumi:"published"`
@@ -107,7 +107,7 @@ type WorkflowAutomation struct {
 	SpecJson pulumi.StringOutput `pulumi:"specJson"`
 	// Tags of the workflow.
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
-	// If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here.
+	// If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here. String length must be at least 16.
 	WebhookSecret pulumi.StringPtrOutput `pulumi:"webhookSecret"`
 }
 
@@ -165,7 +165,7 @@ func GetWorkflowAutomation(ctx *pulumi.Context,
 type workflowAutomationState struct {
 	// Description of the workflow.
 	Description *string `pulumi:"description"`
-	// Name of the workflow.
+	// Name of the workflow. String length must be at least 1.
 	Name *string `pulumi:"name"`
 	// Set the workflow to published or unpublished. Workflows in an unpublished state are only executable through manual runs. Automatic triggers such as Schedule do not execute the workflow until it is published.
 	Published *bool `pulumi:"published"`
@@ -173,14 +173,14 @@ type workflowAutomationState struct {
 	SpecJson *string `pulumi:"specJson"`
 	// Tags of the workflow.
 	Tags []string `pulumi:"tags"`
-	// If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here.
+	// If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here. String length must be at least 16.
 	WebhookSecret *string `pulumi:"webhookSecret"`
 }
 
 type WorkflowAutomationState struct {
 	// Description of the workflow.
 	Description pulumi.StringPtrInput
-	// Name of the workflow.
+	// Name of the workflow. String length must be at least 1.
 	Name pulumi.StringPtrInput
 	// Set the workflow to published or unpublished. Workflows in an unpublished state are only executable through manual runs. Automatic triggers such as Schedule do not execute the workflow until it is published.
 	Published pulumi.BoolPtrInput
@@ -188,7 +188,7 @@ type WorkflowAutomationState struct {
 	SpecJson pulumi.StringPtrInput
 	// Tags of the workflow.
 	Tags pulumi.StringArrayInput
-	// If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here.
+	// If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here. String length must be at least 16.
 	WebhookSecret pulumi.StringPtrInput
 }
 
@@ -199,7 +199,7 @@ func (WorkflowAutomationState) ElementType() reflect.Type {
 type workflowAutomationArgs struct {
 	// Description of the workflow.
 	Description string `pulumi:"description"`
-	// Name of the workflow.
+	// Name of the workflow. String length must be at least 1.
 	Name string `pulumi:"name"`
 	// Set the workflow to published or unpublished. Workflows in an unpublished state are only executable through manual runs. Automatic triggers such as Schedule do not execute the workflow until it is published.
 	Published bool `pulumi:"published"`
@@ -207,7 +207,7 @@ type workflowAutomationArgs struct {
 	SpecJson string `pulumi:"specJson"`
 	// Tags of the workflow.
 	Tags []string `pulumi:"tags"`
-	// If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here.
+	// If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here. String length must be at least 16.
 	WebhookSecret *string `pulumi:"webhookSecret"`
 }
 
@@ -215,7 +215,7 @@ type workflowAutomationArgs struct {
 type WorkflowAutomationArgs struct {
 	// Description of the workflow.
 	Description pulumi.StringInput
-	// Name of the workflow.
+	// Name of the workflow. String length must be at least 1.
 	Name pulumi.StringInput
 	// Set the workflow to published or unpublished. Workflows in an unpublished state are only executable through manual runs. Automatic triggers such as Schedule do not execute the workflow until it is published.
 	Published pulumi.BoolInput
@@ -223,7 +223,7 @@ type WorkflowAutomationArgs struct {
 	SpecJson pulumi.StringInput
 	// Tags of the workflow.
 	Tags pulumi.StringArrayInput
-	// If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here.
+	// If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here. String length must be at least 16.
 	WebhookSecret pulumi.StringPtrInput
 }
 
@@ -319,7 +319,7 @@ func (o WorkflowAutomationOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkflowAutomation) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// Name of the workflow.
+// Name of the workflow. String length must be at least 1.
 func (o WorkflowAutomationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkflowAutomation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -339,7 +339,7 @@ func (o WorkflowAutomationOutput) Tags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WorkflowAutomation) pulumi.StringArrayOutput { return v.Tags }).(pulumi.StringArrayOutput)
 }
 
-// If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here.
+// If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here. String length must be at least 16.
 func (o WorkflowAutomationOutput) WebhookSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowAutomation) pulumi.StringPtrOutput { return v.WebhookSecret }).(pulumi.StringPtrOutput)
 }

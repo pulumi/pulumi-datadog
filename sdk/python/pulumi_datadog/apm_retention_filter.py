@@ -31,7 +31,7 @@ class ApmRetentionFilterArgs:
         :param pulumi.Input[bool] enabled: the status of the retention filter.
         :param pulumi.Input[str] filter_type: The type of the retention filter, currently only spans-processing-sampling is available. Valid values are `spans-sampling-processor`.
         :param pulumi.Input[str] name: The name of the retention filter.
-        :param pulumi.Input[str] rate: Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query.
+        :param pulumi.Input[str] rate: Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
         :param pulumi.Input['ApmRetentionFilterFilterArgs'] filter: The spans filter. Spans matching this filter will be indexed and stored.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -81,7 +81,7 @@ class ApmRetentionFilterArgs:
     @pulumi.getter
     def rate(self) -> pulumi.Input[str]:
         """
-        Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query.
+        Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
         """
         return pulumi.get(self, "rate")
 
@@ -116,7 +116,7 @@ class _ApmRetentionFilterState:
         :param pulumi.Input['ApmRetentionFilterFilterArgs'] filter: The spans filter. Spans matching this filter will be indexed and stored.
         :param pulumi.Input[str] filter_type: The type of the retention filter, currently only spans-processing-sampling is available. Valid values are `spans-sampling-processor`.
         :param pulumi.Input[str] name: The name of the retention filter.
-        :param pulumi.Input[str] rate: Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query.
+        :param pulumi.Input[str] rate: Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -181,7 +181,7 @@ class _ApmRetentionFilterState:
     @pulumi.getter
     def rate(self) -> Optional[pulumi.Input[str]]:
         """
-        Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query.
+        Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
         """
         return pulumi.get(self, "rate")
 
@@ -218,7 +218,7 @@ class ApmRetentionFilter(pulumi.CustomResource):
         :param pulumi.Input[Union['ApmRetentionFilterFilterArgs', 'ApmRetentionFilterFilterArgsDict']] filter: The spans filter. Spans matching this filter will be indexed and stored.
         :param pulumi.Input[str] filter_type: The type of the retention filter, currently only spans-processing-sampling is available. Valid values are `spans-sampling-processor`.
         :param pulumi.Input[str] name: The name of the retention filter.
-        :param pulumi.Input[str] rate: Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query.
+        :param pulumi.Input[str] rate: Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
         """
         ...
     @overload
@@ -305,7 +305,7 @@ class ApmRetentionFilter(pulumi.CustomResource):
         :param pulumi.Input[Union['ApmRetentionFilterFilterArgs', 'ApmRetentionFilterFilterArgsDict']] filter: The spans filter. Spans matching this filter will be indexed and stored.
         :param pulumi.Input[str] filter_type: The type of the retention filter, currently only spans-processing-sampling is available. Valid values are `spans-sampling-processor`.
         :param pulumi.Input[str] name: The name of the retention filter.
-        :param pulumi.Input[str] rate: Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query.
+        :param pulumi.Input[str] rate: Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -354,7 +354,7 @@ class ApmRetentionFilter(pulumi.CustomResource):
     @pulumi.getter
     def rate(self) -> pulumi.Output[str]:
         """
-        Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query.
+        Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
         """
         return pulumi.get(self, "rate")
 

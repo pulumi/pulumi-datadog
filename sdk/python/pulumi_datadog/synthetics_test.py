@@ -1138,6 +1138,55 @@ class SyntheticsTest(pulumi.CustomResource):
             options_list={
                 "tick_every": 900,
             })
+        # Example Usage (Synthetics ICMP test)
+        # Create a new Datadog Synthetics ICMP test on example.org
+        test_api_icmp = datadog.SyntheticsTest("test_api_icmp",
+            name="ICMP Test on example.com",
+            type="api",
+            subtype="icmp",
+            status="live",
+            locations=["aws:eu-central-1"],
+            tags=[
+                "foo:bar",
+                "foo",
+                "env:test",
+            ],
+            request_definition={
+                "host": "example.com",
+                "no_saving_response_body": False,
+                "number_of_packets": 1,
+                "persist_cookies": False,
+                "should_track_hops": False,
+                "timeout": 0,
+            },
+            assertions=[
+                {
+                    "operator": "is",
+                    "target": "0",
+                    "type": "packetLossPercentage",
+                },
+                {
+                    "operator": "lessThan",
+                    "property": "avg",
+                    "target": "1000",
+                    "type": "latency",
+                },
+                {
+                    "operator": "moreThanOrEqual",
+                    "target": "1",
+                    "type": "packetsReceived",
+                },
+            ],
+            options_list={
+                "tick_every": 900,
+                "retry": {
+                    "count": 2,
+                    "interval": 300,
+                },
+                "monitor_options": {
+                    "renotify_interval": 120,
+                },
+            })
         # Example Usage (Synthetics Multistep API test)
         # Create a new Datadog Synthetics Multistep API test
         test_multi_step = datadog.SyntheticsTest("test_multi_step",
@@ -1186,9 +1235,10 @@ class SyntheticsTest(pulumi.CustomResource):
                     "name": "A gRPC health check on example.org",
                     "subtype": "grpc",
                     "assertions": [{
-                        "type": "statusCode",
+                        "type": "grpcMetadata",
                         "operator": "is",
-                        "target": "200",
+                        "property": "X-Header",
+                        "target": "test",
                     }],
                     "request_definition": {
                         "host": "example.org",
@@ -1201,9 +1251,9 @@ class SyntheticsTest(pulumi.CustomResource):
                     "name": "A gRPC behavior check on example.org",
                     "subtype": "grpc",
                     "assertions": [{
-                        "type": "statusCode",
+                        "type": "grpcHealthcheckStatus",
                         "operator": "is",
-                        "target": "200",
+                        "target": "1",
                     }],
                     "request_definition": {
                         "host": "example.org",
@@ -1781,6 +1831,55 @@ class SyntheticsTest(pulumi.CustomResource):
             options_list={
                 "tick_every": 900,
             })
+        # Example Usage (Synthetics ICMP test)
+        # Create a new Datadog Synthetics ICMP test on example.org
+        test_api_icmp = datadog.SyntheticsTest("test_api_icmp",
+            name="ICMP Test on example.com",
+            type="api",
+            subtype="icmp",
+            status="live",
+            locations=["aws:eu-central-1"],
+            tags=[
+                "foo:bar",
+                "foo",
+                "env:test",
+            ],
+            request_definition={
+                "host": "example.com",
+                "no_saving_response_body": False,
+                "number_of_packets": 1,
+                "persist_cookies": False,
+                "should_track_hops": False,
+                "timeout": 0,
+            },
+            assertions=[
+                {
+                    "operator": "is",
+                    "target": "0",
+                    "type": "packetLossPercentage",
+                },
+                {
+                    "operator": "lessThan",
+                    "property": "avg",
+                    "target": "1000",
+                    "type": "latency",
+                },
+                {
+                    "operator": "moreThanOrEqual",
+                    "target": "1",
+                    "type": "packetsReceived",
+                },
+            ],
+            options_list={
+                "tick_every": 900,
+                "retry": {
+                    "count": 2,
+                    "interval": 300,
+                },
+                "monitor_options": {
+                    "renotify_interval": 120,
+                },
+            })
         # Example Usage (Synthetics Multistep API test)
         # Create a new Datadog Synthetics Multistep API test
         test_multi_step = datadog.SyntheticsTest("test_multi_step",
@@ -1829,9 +1928,10 @@ class SyntheticsTest(pulumi.CustomResource):
                     "name": "A gRPC health check on example.org",
                     "subtype": "grpc",
                     "assertions": [{
-                        "type": "statusCode",
+                        "type": "grpcMetadata",
                         "operator": "is",
-                        "target": "200",
+                        "property": "X-Header",
+                        "target": "test",
                     }],
                     "request_definition": {
                         "host": "example.org",
@@ -1844,9 +1944,9 @@ class SyntheticsTest(pulumi.CustomResource):
                     "name": "A gRPC behavior check on example.org",
                     "subtype": "grpc",
                     "assertions": [{
-                        "type": "statusCode",
+                        "type": "grpcHealthcheckStatus",
                         "operator": "is",
-                        "target": "200",
+                        "target": "1",
                     }],
                     "request_definition": {
                         "host": "example.org",

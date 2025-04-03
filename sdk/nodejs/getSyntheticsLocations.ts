@@ -18,7 +18,7 @@ export function getSyntheticsLocations(opts?: pulumi.InvokeOptions): Promise<Get
  */
 export interface GetSyntheticsLocationsResult {
     /**
-     * The provider-assigned unique ID for this managed resource.
+     * The ID of this resource.
      */
     readonly id: string;
     /**

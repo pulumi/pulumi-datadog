@@ -13,13 +13,13 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ActionConnectionHttpTokenAuthBodyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Serialized body content
+        /// Serialized body content. String length must be at least 1.
         /// </summary>
         [Input("content")]
         public Input<string>? Content { get; set; }
 
         /// <summary>
-        /// Content type of the body
+        /// Content type of the body. String length must be at least 1.
         /// </summary>
         [Input("contentType")]
         public Input<string>? ContentType { get; set; }

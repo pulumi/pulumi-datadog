@@ -16,14 +16,14 @@ public final class ActionConnectionHttpTokenAuthBodyArgs extends com.pulumi.reso
     public static final ActionConnectionHttpTokenAuthBodyArgs Empty = new ActionConnectionHttpTokenAuthBodyArgs();
 
     /**
-     * Serialized body content
+     * Serialized body content. String length must be at least 1.
      * 
      */
     @Import(name="content")
     private @Nullable Output<String> content;
 
     /**
-     * @return Serialized body content
+     * @return Serialized body content. String length must be at least 1.
      * 
      */
     public Optional<Output<String>> content() {
@@ -31,14 +31,14 @@ public final class ActionConnectionHttpTokenAuthBodyArgs extends com.pulumi.reso
     }
 
     /**
-     * Content type of the body
+     * Content type of the body. String length must be at least 1.
      * 
      */
     @Import(name="contentType")
     private @Nullable Output<String> contentType;
 
     /**
-     * @return Content type of the body
+     * @return Content type of the body. String length must be at least 1.
      * 
      */
     public Optional<Output<String>> contentType() {
@@ -71,7 +71,7 @@ public final class ActionConnectionHttpTokenAuthBodyArgs extends com.pulumi.reso
         }
 
         /**
-         * @param content Serialized body content
+         * @param content Serialized body content. String length must be at least 1.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ActionConnectionHttpTokenAuthBodyArgs extends com.pulumi.reso
         }
 
         /**
-         * @param content Serialized body content
+         * @param content Serialized body content. String length must be at least 1.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class ActionConnectionHttpTokenAuthBodyArgs extends com.pulumi.reso
         }
 
         /**
-         * @param contentType Content type of the body
+         * @param contentType Content type of the body. String length must be at least 1.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class ActionConnectionHttpTokenAuthBodyArgs extends com.pulumi.reso
         }
 
         /**
-         * @param contentType Content type of the body
+         * @param contentType Content type of the body. String length must be at least 1.
          * 
          * @return builder
          * 

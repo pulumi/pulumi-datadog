@@ -14,7 +14,7 @@ export interface ActionConnectionAws {
 
 export interface ActionConnectionAwsAssumeRole {
     /**
-     * AWS account that the connection is created for
+     * AWS account that the connection is created for. String length must be at least 1.
      */
     accountId?: pulumi.Input<string>;
     /**
@@ -26,14 +26,14 @@ export interface ActionConnectionAwsAssumeRole {
      */
     principalId?: pulumi.Input<string>;
     /**
-     * Role to assume
+     * Role to assume. String length must be at least 1.
      */
     role?: pulumi.Input<string>;
 }
 
 export interface ActionConnectionHttp {
     /**
-     * Base HTTP url for the integration
+     * Base HTTP url for the integration. String length must be at least 1.
      */
     baseUrl?: pulumi.Input<string>;
     /**
@@ -63,45 +63,48 @@ export interface ActionConnectionHttpTokenAuth {
 
 export interface ActionConnectionHttpTokenAuthBody {
     /**
-     * Serialized body content
+     * Serialized body content. String length must be at least 1.
      */
     content?: pulumi.Input<string>;
     /**
-     * Content type of the body
+     * Content type of the body. String length must be at least 1.
      */
     contentType?: pulumi.Input<string>;
 }
 
 export interface ActionConnectionHttpTokenAuthHeader {
     /**
-     * Header name
+     * Header name. String length must be at least 1.
      */
     name?: pulumi.Input<string>;
+    /**
+     * String length must be at least 1.
+     */
     value?: pulumi.Input<string>;
 }
 
 export interface ActionConnectionHttpTokenAuthToken {
     /**
-     * Token name
+     * Token name. String length must be at least 1.
      */
     name?: pulumi.Input<string>;
     /**
-     * Token type
+     * Token type Valid values are `SECRET`.
      */
     type?: pulumi.Input<string>;
     /**
-     * Token value
+     * Token value. String length must be at least 1.
      */
     value?: pulumi.Input<string>;
 }
 
 export interface ActionConnectionHttpTokenAuthUrlParameter {
     /**
-     * URL parameter name
+     * URL parameter name. String length must be at least 1.
      */
     name?: pulumi.Input<string>;
     /**
-     * URL parameter value
+     * URL parameter value. String length must be at least 1.
      */
     value?: pulumi.Input<string>;
 }
@@ -9537,7 +9540,7 @@ export interface GetTeamsTeamArgs {
 
 export interface IpAllowlistEntry {
     /**
-     * IP address or range of addresses.
+     * IP address or range of addresses. String must be a valid CIDR block or IP address.
      */
     cidrBlock: pulumi.Input<string>;
     /**
@@ -9613,6 +9616,10 @@ export interface LogsArchiveS3Archive {
      * Your AWS role name
      */
     roleName: pulumi.Input<string>;
+    /**
+     * The AWS S3 storage class used to upload the logs. Valid values are `STANDARD`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER_IR`. Defaults to `"STANDARD"`.
+     */
+    storageClass?: pulumi.Input<string>;
 }
 
 export interface LogsCustomDestinationElasticsearchDestination {
@@ -23735,11 +23742,11 @@ export interface SyntheticsGlobalVariableOptions {
 
 export interface SyntheticsGlobalVariableOptionsTotpParameters {
     /**
-     * Number of digits for the OTP.
+     * Number of digits for the OTP. Value must be between 4 and 10.
      */
     digits: pulumi.Input<number>;
     /**
-     * Interval for which to refresh the token (in seconds).
+     * Interval for which to refresh the token (in seconds). Value must be between 0 and 999.
      */
     refreshInterval: pulumi.Input<number>;
 }
@@ -24199,7 +24206,7 @@ export interface SyntheticsTestApiStepRequestProxy {
 
 export interface SyntheticsTestApiStepRetry {
     /**
-     * Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
+     * Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `3` for `api` tests, `2` for `browser` and `mobile` tests. Defaults to `0`.
      */
     count?: pulumi.Input<number>;
     /**
@@ -24589,7 +24596,7 @@ export interface SyntheticsTestMobileOptionsListMonitorOptions {
 
 export interface SyntheticsTestMobileOptionsListRetry {
     /**
-     * Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
+     * Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `3` for `api` tests, `2` for `browser` and `mobile` tests. Defaults to `0`.
      */
     count?: pulumi.Input<number>;
     /**
@@ -24854,7 +24861,7 @@ export interface SyntheticsTestOptionsListMonitorOptions {
 
 export interface SyntheticsTestOptionsListRetry {
     /**
-     * Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
+     * Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `3` for `api` tests, `2` for `browser` and `mobile` tests. Defaults to `0`.
      */
     count?: pulumi.Input<number>;
     /**

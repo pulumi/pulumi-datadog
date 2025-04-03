@@ -22,7 +22,7 @@ class SoftwareCatalogArgs:
                  entity: pulumi.Input[str]):
         """
         The set of arguments for constructing a SoftwareCatalog resource.
-        :param pulumi.Input[str] entity: The catalog entity definition.
+        :param pulumi.Input[str] entity: The catalog entity definition. Entity must be a valid entity YAML/JSON structure.
         """
         pulumi.set(__self__, "entity", entity)
 
@@ -30,7 +30,7 @@ class SoftwareCatalogArgs:
     @pulumi.getter
     def entity(self) -> pulumi.Input[str]:
         """
-        The catalog entity definition.
+        The catalog entity definition. Entity must be a valid entity YAML/JSON structure.
         """
         return pulumi.get(self, "entity")
 
@@ -45,7 +45,7 @@ class _SoftwareCatalogState:
                  entity: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SoftwareCatalog resources.
-        :param pulumi.Input[str] entity: The catalog entity definition.
+        :param pulumi.Input[str] entity: The catalog entity definition. Entity must be a valid entity YAML/JSON structure.
         """
         if entity is not None:
             pulumi.set(__self__, "entity", entity)
@@ -54,7 +54,7 @@ class _SoftwareCatalogState:
     @pulumi.getter
     def entity(self) -> Optional[pulumi.Input[str]]:
         """
-        The catalog entity definition.
+        The catalog entity definition. Entity must be a valid entity YAML/JSON structure.
         """
         return pulumi.get(self, "entity")
 
@@ -302,7 +302,7 @@ class SoftwareCatalog(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] entity: The catalog entity definition.
+        :param pulumi.Input[str] entity: The catalog entity definition. Entity must be a valid entity YAML/JSON structure.
         """
         ...
     @overload
@@ -586,7 +586,7 @@ class SoftwareCatalog(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] entity: The catalog entity definition.
+        :param pulumi.Input[str] entity: The catalog entity definition. Entity must be a valid entity YAML/JSON structure.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -599,7 +599,7 @@ class SoftwareCatalog(pulumi.CustomResource):
     @pulumi.getter
     def entity(self) -> pulumi.Output[str]:
         """
-        The catalog entity definition.
+        The catalog entity definition. Entity must be a valid entity YAML/JSON structure.
         """
         return pulumi.get(self, "entity")
 

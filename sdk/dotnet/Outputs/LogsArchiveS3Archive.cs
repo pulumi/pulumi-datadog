@@ -37,6 +37,10 @@ namespace Pulumi.Datadog.Outputs
         /// Your AWS role name
         /// </summary>
         public readonly string RoleName;
+        /// <summary>
+        /// The AWS S3 storage class used to upload the logs. Valid values are `STANDARD`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER_IR`. Defaults to `"STANDARD"`.
+        /// </summary>
+        public readonly string? StorageClass;
 
         [OutputConstructor]
         private LogsArchiveS3Archive(
@@ -50,7 +54,9 @@ namespace Pulumi.Datadog.Outputs
 
             string? path,
 
-            string roleName)
+            string roleName,
+
+            string? storageClass)
         {
             AccountId = accountId;
             Bucket = bucket;
@@ -58,6 +64,7 @@ namespace Pulumi.Datadog.Outputs
             EncryptionType = encryptionType;
             Path = path;
             RoleName = roleName;
+            StorageClass = storageClass;
         }
     }
 }

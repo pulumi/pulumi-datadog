@@ -13,11 +13,14 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ActionConnectionHttpTokenAuthHeaderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Header name
+        /// Header name. String length must be at least 1.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// String length must be at least 1.
+        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

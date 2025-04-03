@@ -13,13 +13,13 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ActionConnectionHttpTokenAuthUrlParameterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// URL parameter name
+        /// URL parameter name. String length must be at least 1.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// URL parameter value
+        /// URL parameter value. String length must be at least 1.
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }

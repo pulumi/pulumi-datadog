@@ -12,38 +12,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ActionConnectionHttpTokenAuthToken {
     /**
-     * @return Token name
+     * @return Token name. String length must be at least 1.
      * 
      */
     private @Nullable String name;
     /**
-     * @return Token type
+     * @return Token type Valid values are `SECRET`.
      * 
      */
     private @Nullable String type;
     /**
-     * @return Token value
+     * @return Token value. String length must be at least 1.
      * 
      */
     private @Nullable String value;
 
     private ActionConnectionHttpTokenAuthToken() {}
     /**
-     * @return Token name
+     * @return Token name. String length must be at least 1.
      * 
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return Token type
+     * @return Token type Valid values are `SECRET`.
      * 
      */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }
     /**
-     * @return Token value
+     * @return Token value. String length must be at least 1.
      * 
      */
     public Optional<String> value() {

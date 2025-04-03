@@ -106,6 +106,21 @@ public final class LogsArchiveS3ArchiveArgs extends com.pulumi.resources.Resourc
         return this.roleName;
     }
 
+    /**
+     * The AWS S3 storage class used to upload the logs. Valid values are `STANDARD`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER_IR`. Defaults to `&#34;STANDARD&#34;`.
+     * 
+     */
+    @Import(name="storageClass")
+    private @Nullable Output<String> storageClass;
+
+    /**
+     * @return The AWS S3 storage class used to upload the logs. Valid values are `STANDARD`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER_IR`. Defaults to `&#34;STANDARD&#34;`.
+     * 
+     */
+    public Optional<Output<String>> storageClass() {
+        return Optional.ofNullable(this.storageClass);
+    }
+
     private LogsArchiveS3ArchiveArgs() {}
 
     private LogsArchiveS3ArchiveArgs(LogsArchiveS3ArchiveArgs $) {
@@ -115,6 +130,7 @@ public final class LogsArchiveS3ArchiveArgs extends com.pulumi.resources.Resourc
         this.encryptionType = $.encryptionType;
         this.path = $.path;
         this.roleName = $.roleName;
+        this.storageClass = $.storageClass;
     }
 
     public static Builder builder() {
@@ -259,6 +275,27 @@ public final class LogsArchiveS3ArchiveArgs extends com.pulumi.resources.Resourc
          */
         public Builder roleName(String roleName) {
             return roleName(Output.of(roleName));
+        }
+
+        /**
+         * @param storageClass The AWS S3 storage class used to upload the logs. Valid values are `STANDARD`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER_IR`. Defaults to `&#34;STANDARD&#34;`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageClass(@Nullable Output<String> storageClass) {
+            $.storageClass = storageClass;
+            return this;
+        }
+
+        /**
+         * @param storageClass The AWS S3 storage class used to upload the logs. Valid values are `STANDARD`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER_IR`. Defaults to `&#34;STANDARD&#34;`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageClass(String storageClass) {
+            return storageClass(Output.of(storageClass));
         }
 
         public LogsArchiveS3ArchiveArgs build() {

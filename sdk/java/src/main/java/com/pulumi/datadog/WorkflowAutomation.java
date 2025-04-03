@@ -120,14 +120,14 @@ public class WorkflowAutomation extends com.pulumi.resources.CustomResource {
         return this.description;
     }
     /**
-     * Name of the workflow.
+     * Name of the workflow. String length must be at least 1.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of the workflow.
+     * @return Name of the workflow. String length must be at least 1.
      * 
      */
     public Output<String> name() {
@@ -176,14 +176,14 @@ public class WorkflowAutomation extends com.pulumi.resources.CustomResource {
         return this.tags;
     }
     /**
-     * If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here.
+     * If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here. String length must be at least 16.
      * 
      */
     @Export(name="webhookSecret", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> webhookSecret;
 
     /**
-     * @return If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here.
+     * @return If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here. String length must be at least 16.
      * 
      */
     public Output<Optional<String>> webhookSecret() {

@@ -68,7 +68,7 @@ namespace Pulumi.Datadog
         public Output<bool> IsTotp { get; private set; } = null!;
 
         /// <summary>
-        /// Synthetics global variable name.
+        /// Synthetics global variable name. Must be all uppercase with underscores.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -184,7 +184,7 @@ namespace Pulumi.Datadog
         public Input<bool>? IsTotp { get; set; }
 
         /// <summary>
-        /// Synthetics global variable name.
+        /// Synthetics global variable name. Must be all uppercase with underscores.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -281,7 +281,7 @@ namespace Pulumi.Datadog
         public Input<bool>? IsTotp { get; set; }
 
         /// <summary>
-        /// Synthetics global variable name.
+        /// Synthetics global variable name. Must be all uppercase with underscores.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

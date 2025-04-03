@@ -33,14 +33,14 @@ public final class WorkflowAutomationState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Name of the workflow.
+     * Name of the workflow. String length must be at least 1.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the workflow.
+     * @return Name of the workflow. String length must be at least 1.
      * 
      */
     public Optional<Output<String>> name() {
@@ -93,14 +93,14 @@ public final class WorkflowAutomationState extends com.pulumi.resources.Resource
     }
 
     /**
-     * If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here.
+     * If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here. String length must be at least 16.
      * 
      */
     @Import(name="webhookSecret")
     private @Nullable Output<String> webhookSecret;
 
     /**
-     * @return If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here.
+     * @return If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here. String length must be at least 16.
      * 
      */
     public Optional<Output<String>> webhookSecret() {
@@ -158,7 +158,7 @@ public final class WorkflowAutomationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name Name of the workflow.
+         * @param name Name of the workflow. String length must be at least 1.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class WorkflowAutomationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name Name of the workflow.
+         * @param name Name of the workflow. String length must be at least 1.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class WorkflowAutomationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param webhookSecret If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here.
+         * @param webhookSecret If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here. String length must be at least 16.
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class WorkflowAutomationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param webhookSecret If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here.
+         * @param webhookSecret If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here. String length must be at least 16.
          * 
          * @return builder
          * 
