@@ -25,6 +25,11 @@ export type ApmRetentionFilterOrder = import("./apmRetentionFilterOrder").ApmRet
 export const ApmRetentionFilterOrder: typeof import("./apmRetentionFilterOrder").ApmRetentionFilterOrder = null as any;
 utilities.lazyLoad(exports, ["ApmRetentionFilterOrder"], () => require("./apmRetentionFilterOrder"));
 
+export { AppBuilderAppArgs, AppBuilderAppState } from "./appBuilderApp";
+export type AppBuilderApp = import("./appBuilderApp").AppBuilderApp;
+export const AppBuilderApp: typeof import("./appBuilderApp").AppBuilderApp = null as any;
+utilities.lazyLoad(exports, ["AppBuilderApp"], () => require("./appBuilderApp"));
+
 export { ApplicationKeyArgs, ApplicationKeyState } from "./applicationKey";
 export type ApplicationKey = import("./applicationKey").ApplicationKey;
 export const ApplicationKey: typeof import("./applicationKey").ApplicationKey = null as any;
@@ -109,6 +114,11 @@ export { GetApmRetentionFiltersOrderResult } from "./getApmRetentionFiltersOrder
 export const getApmRetentionFiltersOrder: typeof import("./getApmRetentionFiltersOrder").getApmRetentionFiltersOrder = null as any;
 export const getApmRetentionFiltersOrderOutput: typeof import("./getApmRetentionFiltersOrder").getApmRetentionFiltersOrderOutput = null as any;
 utilities.lazyLoad(exports, ["getApmRetentionFiltersOrder","getApmRetentionFiltersOrderOutput"], () => require("./getApmRetentionFiltersOrder"));
+
+export { GetAppBuilderAppArgs, GetAppBuilderAppResult, GetAppBuilderAppOutputArgs } from "./getAppBuilderApp";
+export const getAppBuilderApp: typeof import("./getAppBuilderApp").getAppBuilderApp = null as any;
+export const getAppBuilderAppOutput: typeof import("./getAppBuilderApp").getAppBuilderAppOutput = null as any;
+utilities.lazyLoad(exports, ["getAppBuilderApp","getAppBuilderAppOutput"], () => require("./getAppBuilderApp"));
 
 export { GetApplicationKeyArgs, GetApplicationKeyResult, GetApplicationKeyOutputArgs } from "./getApplicationKey";
 export const getApplicationKey: typeof import("./getApplicationKey").getApplicationKey = null as any;
@@ -215,6 +225,11 @@ export const getRumApplication: typeof import("./getRumApplication").getRumAppli
 export const getRumApplicationOutput: typeof import("./getRumApplication").getRumApplicationOutput = null as any;
 utilities.lazyLoad(exports, ["getRumApplication","getRumApplicationOutput"], () => require("./getRumApplication"));
 
+export { GetRumRetentionFiltersArgs, GetRumRetentionFiltersResult, GetRumRetentionFiltersOutputArgs } from "./getRumRetentionFilters";
+export const getRumRetentionFilters: typeof import("./getRumRetentionFilters").getRumRetentionFilters = null as any;
+export const getRumRetentionFiltersOutput: typeof import("./getRumRetentionFilters").getRumRetentionFiltersOutput = null as any;
+utilities.lazyLoad(exports, ["getRumRetentionFilters","getRumRetentionFiltersOutput"], () => require("./getRumRetentionFilters"));
+
 export { GetSecurityMonitoringFiltersResult } from "./getSecurityMonitoringFilters";
 export const getSecurityMonitoringFilters: typeof import("./getSecurityMonitoringFilters").getSecurityMonitoringFilters = null as any;
 export const getSecurityMonitoringFiltersOutput: typeof import("./getSecurityMonitoringFilters").getSecurityMonitoringFiltersOutput = null as any;
@@ -254,6 +269,11 @@ export { GetServiceLevelObjectivesArgs, GetServiceLevelObjectivesResult, GetServ
 export const getServiceLevelObjectives: typeof import("./getServiceLevelObjectives").getServiceLevelObjectives = null as any;
 export const getServiceLevelObjectivesOutput: typeof import("./getServiceLevelObjectives").getServiceLevelObjectivesOutput = null as any;
 utilities.lazyLoad(exports, ["getServiceLevelObjectives","getServiceLevelObjectivesOutput"], () => require("./getServiceLevelObjectives"));
+
+export { GetSoftwareCatalogArgs, GetSoftwareCatalogResult, GetSoftwareCatalogOutputArgs } from "./getSoftwareCatalog";
+export const getSoftwareCatalog: typeof import("./getSoftwareCatalog").getSoftwareCatalog = null as any;
+export const getSoftwareCatalogOutput: typeof import("./getSoftwareCatalog").getSoftwareCatalogOutput = null as any;
+utilities.lazyLoad(exports, ["getSoftwareCatalog","getSoftwareCatalogOutput"], () => require("./getSoftwareCatalog"));
 
 export { GetSyntheticsGlobalVariableArgs, GetSyntheticsGlobalVariableResult, GetSyntheticsGlobalVariableOutputArgs } from "./getSyntheticsGlobalVariable";
 export const getSyntheticsGlobalVariable: typeof import("./getSyntheticsGlobalVariable").getSyntheticsGlobalVariable = null as any;
@@ -414,6 +434,16 @@ export { RumMetricArgs, RumMetricState } from "./rumMetric";
 export type RumMetric = import("./rumMetric").RumMetric;
 export const RumMetric: typeof import("./rumMetric").RumMetric = null as any;
 utilities.lazyLoad(exports, ["RumMetric"], () => require("./rumMetric"));
+
+export { RumRetentionFilterArgs, RumRetentionFilterState } from "./rumRetentionFilter";
+export type RumRetentionFilter = import("./rumRetentionFilter").RumRetentionFilter;
+export const RumRetentionFilter: typeof import("./rumRetentionFilter").RumRetentionFilter = null as any;
+utilities.lazyLoad(exports, ["RumRetentionFilter"], () => require("./rumRetentionFilter"));
+
+export { RumRetentionFiltersOrderArgs, RumRetentionFiltersOrderState } from "./rumRetentionFiltersOrder";
+export type RumRetentionFiltersOrder = import("./rumRetentionFiltersOrder").RumRetentionFiltersOrder;
+export const RumRetentionFiltersOrder: typeof import("./rumRetentionFiltersOrder").RumRetentionFiltersOrder = null as any;
+utilities.lazyLoad(exports, ["RumRetentionFiltersOrder"], () => require("./rumRetentionFiltersOrder"));
 
 export { SecurityMonitoringDefaultRuleArgs, SecurityMonitoringDefaultRuleState } from "./securityMonitoringDefaultRule";
 export type SecurityMonitoringDefaultRule = import("./securityMonitoringDefaultRule").SecurityMonitoringDefaultRule;
@@ -597,6 +627,8 @@ const _module = {
                 return new ApmRetentionFilter(name, <any>undefined, { urn })
             case "datadog:index/apmRetentionFilterOrder:ApmRetentionFilterOrder":
                 return new ApmRetentionFilterOrder(name, <any>undefined, { urn })
+            case "datadog:index/appBuilderApp:AppBuilderApp":
+                return new AppBuilderApp(name, <any>undefined, { urn })
             case "datadog:index/applicationKey:ApplicationKey":
                 return new ApplicationKey(name, <any>undefined, { urn })
             case "datadog:index/appsecWafCustomRule:AppsecWafCustomRule":
@@ -669,6 +701,10 @@ const _module = {
                 return new RumApplication(name, <any>undefined, { urn })
             case "datadog:index/rumMetric:RumMetric":
                 return new RumMetric(name, <any>undefined, { urn })
+            case "datadog:index/rumRetentionFilter:RumRetentionFilter":
+                return new RumRetentionFilter(name, <any>undefined, { urn })
+            case "datadog:index/rumRetentionFiltersOrder:RumRetentionFiltersOrder":
+                return new RumRetentionFiltersOrder(name, <any>undefined, { urn })
             case "datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule":
                 return new SecurityMonitoringDefaultRule(name, <any>undefined, { urn })
             case "datadog:index/securityMonitoringFilter:SecurityMonitoringFilter":
@@ -734,6 +770,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/actionConnection", _modu
 pulumi.runtime.registerResourceModule("datadog", "index/apiKey", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/apmRetentionFilter", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/apmRetentionFilterOrder", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/appBuilderApp", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/applicationKey", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/appsecWafCustomRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/appsecWafExclusionFilter", _module)
@@ -770,6 +807,8 @@ pulumi.runtime.registerResourceModule("datadog", "index/restrictionPolicy", _mod
 pulumi.runtime.registerResourceModule("datadog", "index/role", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/rumApplication", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/rumMetric", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/rumRetentionFilter", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/rumRetentionFiltersOrder", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringDefaultRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringFilter", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringRule", _module)

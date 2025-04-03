@@ -13,13 +13,13 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ActionConnectionHttpTokenAuthTokenArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Token name
+        /// Token name. String length must be at least 1.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Token type
+        /// Token type Valid values are `SECRET`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -28,7 +28,7 @@ namespace Pulumi.Datadog.Inputs
         private Input<string>? _value;
 
         /// <summary>
-        /// Token value
+        /// Token value. String length must be at least 1.
         /// </summary>
         public Input<string>? Value
         {

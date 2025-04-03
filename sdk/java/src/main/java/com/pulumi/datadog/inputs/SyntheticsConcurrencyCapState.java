@@ -16,14 +16,14 @@ public final class SyntheticsConcurrencyCapState extends com.pulumi.resources.Re
     public static final SyntheticsConcurrencyCapState Empty = new SyntheticsConcurrencyCapState();
 
     /**
-     * Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel.
+     * Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel. Value must be at least 1.
      * 
      */
     @Import(name="onDemandConcurrencyCap")
     private @Nullable Output<Integer> onDemandConcurrencyCap;
 
     /**
-     * @return Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel.
+     * @return Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel. Value must be at least 1.
      * 
      */
     public Optional<Output<Integer>> onDemandConcurrencyCap() {
@@ -55,7 +55,7 @@ public final class SyntheticsConcurrencyCapState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param onDemandConcurrencyCap Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel.
+         * @param onDemandConcurrencyCap Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel. Value must be at least 1.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class SyntheticsConcurrencyCapState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param onDemandConcurrencyCap Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel.
+         * @param onDemandConcurrencyCap Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel. Value must be at least 1.
          * 
          * @return builder
          * 

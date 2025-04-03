@@ -95,7 +95,7 @@ export class WorkflowAutomation extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string>;
     /**
-     * Name of the workflow.
+     * Name of the workflow. String length must be at least 1.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -111,7 +111,7 @@ export class WorkflowAutomation extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<string[]>;
     /**
-     * If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here.
+     * If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here. String length must be at least 16.
      */
     public readonly webhookSecret!: pulumi.Output<string | undefined>;
 
@@ -174,7 +174,7 @@ export interface WorkflowAutomationState {
      */
     description?: pulumi.Input<string>;
     /**
-     * Name of the workflow.
+     * Name of the workflow. String length must be at least 1.
      */
     name?: pulumi.Input<string>;
     /**
@@ -190,7 +190,7 @@ export interface WorkflowAutomationState {
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here.
+     * If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here. String length must be at least 16.
      */
     webhookSecret?: pulumi.Input<string>;
 }
@@ -204,7 +204,7 @@ export interface WorkflowAutomationArgs {
      */
     description: pulumi.Input<string>;
     /**
-     * Name of the workflow.
+     * Name of the workflow. String length must be at least 1.
      */
     name: pulumi.Input<string>;
     /**
@@ -220,7 +220,7 @@ export interface WorkflowAutomationArgs {
      */
     tags: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here.
+     * If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here. String length must be at least 16.
      */
     webhookSecret?: pulumi.Input<string>;
 }

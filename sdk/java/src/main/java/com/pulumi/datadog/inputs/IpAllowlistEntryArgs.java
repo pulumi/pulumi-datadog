@@ -17,14 +17,14 @@ public final class IpAllowlistEntryArgs extends com.pulumi.resources.ResourceArg
     public static final IpAllowlistEntryArgs Empty = new IpAllowlistEntryArgs();
 
     /**
-     * IP address or range of addresses.
+     * IP address or range of addresses. String must be a valid CIDR block or IP address.
      * 
      */
     @Import(name="cidrBlock", required=true)
     private Output<String> cidrBlock;
 
     /**
-     * @return IP address or range of addresses.
+     * @return IP address or range of addresses. String must be a valid CIDR block or IP address.
      * 
      */
     public Output<String> cidrBlock() {
@@ -72,7 +72,7 @@ public final class IpAllowlistEntryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param cidrBlock IP address or range of addresses.
+         * @param cidrBlock IP address or range of addresses. String must be a valid CIDR block or IP address.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class IpAllowlistEntryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param cidrBlock IP address or range of addresses.
+         * @param cidrBlock IP address or range of addresses. String must be a valid CIDR block or IP address.
          * 
          * @return builder
          * 

@@ -42,6 +42,11 @@ public final class LogsArchiveS3Archive {
      * 
      */
     private String roleName;
+    /**
+     * @return The AWS S3 storage class used to upload the logs. Valid values are `STANDARD`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER_IR`. Defaults to `&#34;STANDARD&#34;`.
+     * 
+     */
+    private @Nullable String storageClass;
 
     private LogsArchiveS3Archive() {}
     /**
@@ -86,6 +91,13 @@ public final class LogsArchiveS3Archive {
     public String roleName() {
         return this.roleName;
     }
+    /**
+     * @return The AWS S3 storage class used to upload the logs. Valid values are `STANDARD`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER_IR`. Defaults to `&#34;STANDARD&#34;`.
+     * 
+     */
+    public Optional<String> storageClass() {
+        return Optional.ofNullable(this.storageClass);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -102,6 +114,7 @@ public final class LogsArchiveS3Archive {
         private @Nullable String encryptionType;
         private @Nullable String path;
         private String roleName;
+        private @Nullable String storageClass;
         public Builder() {}
         public Builder(LogsArchiveS3Archive defaults) {
     	      Objects.requireNonNull(defaults);
@@ -111,6 +124,7 @@ public final class LogsArchiveS3Archive {
     	      this.encryptionType = defaults.encryptionType;
     	      this.path = defaults.path;
     	      this.roleName = defaults.roleName;
+    	      this.storageClass = defaults.storageClass;
         }
 
         @CustomType.Setter
@@ -155,6 +169,12 @@ public final class LogsArchiveS3Archive {
             this.roleName = roleName;
             return this;
         }
+        @CustomType.Setter
+        public Builder storageClass(@Nullable String storageClass) {
+
+            this.storageClass = storageClass;
+            return this;
+        }
         public LogsArchiveS3Archive build() {
             final var _resultValue = new LogsArchiveS3Archive();
             _resultValue.accountId = accountId;
@@ -163,6 +183,7 @@ public final class LogsArchiveS3Archive {
             _resultValue.encryptionType = encryptionType;
             _resultValue.path = path;
             _resultValue.roleName = roleName;
+            _resultValue.storageClass = storageClass;
             return _resultValue;
         }
     }

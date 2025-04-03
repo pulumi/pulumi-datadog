@@ -32,7 +32,7 @@ type ApmRetentionFilter struct {
 	FilterType pulumi.StringOutput `pulumi:"filterType"`
 	// The name of the retention filter.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query.
+	// Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
 	Rate pulumi.StringOutput `pulumi:"rate"`
 }
 
@@ -86,7 +86,7 @@ type apmRetentionFilterState struct {
 	FilterType *string `pulumi:"filterType"`
 	// The name of the retention filter.
 	Name *string `pulumi:"name"`
-	// Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query.
+	// Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
 	Rate *string `pulumi:"rate"`
 }
 
@@ -99,7 +99,7 @@ type ApmRetentionFilterState struct {
 	FilterType pulumi.StringPtrInput
 	// The name of the retention filter.
 	Name pulumi.StringPtrInput
-	// Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query.
+	// Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
 	Rate pulumi.StringPtrInput
 }
 
@@ -116,7 +116,7 @@ type apmRetentionFilterArgs struct {
 	FilterType string `pulumi:"filterType"`
 	// The name of the retention filter.
 	Name string `pulumi:"name"`
-	// Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query.
+	// Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
 	Rate string `pulumi:"rate"`
 }
 
@@ -130,7 +130,7 @@ type ApmRetentionFilterArgs struct {
 	FilterType pulumi.StringInput
 	// The name of the retention filter.
 	Name pulumi.StringInput
-	// Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query.
+	// Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
 	Rate pulumi.StringInput
 }
 
@@ -241,7 +241,7 @@ func (o ApmRetentionFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApmRetentionFilter) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query.
+// Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
 func (o ApmRetentionFilterOutput) Rate() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApmRetentionFilter) pulumi.StringOutput { return v.Rate }).(pulumi.StringOutput)
 }

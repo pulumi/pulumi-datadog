@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ActionConnectionAwsAssumeRole {
     /**
-     * @return AWS account that the connection is created for
+     * @return AWS account that the connection is created for. String length must be at least 1.
      * 
      */
     private @Nullable String accountId;
@@ -27,14 +27,14 @@ public final class ActionConnectionAwsAssumeRole {
      */
     private @Nullable String principalId;
     /**
-     * @return Role to assume
+     * @return Role to assume. String length must be at least 1.
      * 
      */
     private @Nullable String role;
 
     private ActionConnectionAwsAssumeRole() {}
     /**
-     * @return AWS account that the connection is created for
+     * @return AWS account that the connection is created for. String length must be at least 1.
      * 
      */
     public Optional<String> accountId() {
@@ -55,7 +55,7 @@ public final class ActionConnectionAwsAssumeRole {
         return Optional.ofNullable(this.principalId);
     }
     /**
-     * @return Role to assume
+     * @return Role to assume. String length must be at least 1.
      * 
      */
     public Optional<String> role() {

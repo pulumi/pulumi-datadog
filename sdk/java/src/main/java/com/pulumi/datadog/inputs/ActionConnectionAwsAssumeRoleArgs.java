@@ -16,14 +16,14 @@ public final class ActionConnectionAwsAssumeRoleArgs extends com.pulumi.resource
     public static final ActionConnectionAwsAssumeRoleArgs Empty = new ActionConnectionAwsAssumeRoleArgs();
 
     /**
-     * AWS account that the connection is created for
+     * AWS account that the connection is created for. String length must be at least 1.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return AWS account that the connection is created for
+     * @return AWS account that the connection is created for. String length must be at least 1.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -61,14 +61,14 @@ public final class ActionConnectionAwsAssumeRoleArgs extends com.pulumi.resource
     }
 
     /**
-     * Role to assume
+     * Role to assume. String length must be at least 1.
      * 
      */
     @Import(name="role")
     private @Nullable Output<String> role;
 
     /**
-     * @return Role to assume
+     * @return Role to assume. String length must be at least 1.
      * 
      */
     public Optional<Output<String>> role() {
@@ -103,7 +103,7 @@ public final class ActionConnectionAwsAssumeRoleArgs extends com.pulumi.resource
         }
 
         /**
-         * @param accountId AWS account that the connection is created for
+         * @param accountId AWS account that the connection is created for. String length must be at least 1.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class ActionConnectionAwsAssumeRoleArgs extends com.pulumi.resource
         }
 
         /**
-         * @param accountId AWS account that the connection is created for
+         * @param accountId AWS account that the connection is created for. String length must be at least 1.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class ActionConnectionAwsAssumeRoleArgs extends com.pulumi.resource
         }
 
         /**
-         * @param role Role to assume
+         * @param role Role to assume. String length must be at least 1.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class ActionConnectionAwsAssumeRoleArgs extends com.pulumi.resource
         }
 
         /**
-         * @param role Role to assume
+         * @param role Role to assume. String length must be at least 1.
          * 
          * @return builder
          * 

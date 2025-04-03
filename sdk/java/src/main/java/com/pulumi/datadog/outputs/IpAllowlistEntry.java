@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class IpAllowlistEntry {
     /**
-     * @return IP address or range of addresses.
+     * @return IP address or range of addresses. String must be a valid CIDR block or IP address.
      * 
      */
     private String cidrBlock;
@@ -25,7 +25,7 @@ public final class IpAllowlistEntry {
 
     private IpAllowlistEntry() {}
     /**
-     * @return IP address or range of addresses.
+     * @return IP address or range of addresses. String must be a valid CIDR block or IP address.
      * 
      */
     public String cidrBlock() {

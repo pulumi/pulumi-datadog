@@ -106,7 +106,7 @@ namespace Pulumi.Datadog
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the workflow.
+        /// Name of the workflow. String length must be at least 1.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -130,7 +130,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here.
+        /// If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here. String length must be at least 16.
         /// </summary>
         [Output("webhookSecret")]
         public Output<string?> WebhookSecret { get; private set; } = null!;
@@ -192,7 +192,7 @@ namespace Pulumi.Datadog
         public Input<string> Description { get; set; } = null!;
 
         /// <summary>
-        /// Name of the workflow.
+        /// Name of the workflow. String length must be at least 1.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -225,7 +225,7 @@ namespace Pulumi.Datadog
         private Input<string>? _webhookSecret;
 
         /// <summary>
-        /// If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here.
+        /// If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here. String length must be at least 16.
         /// </summary>
         public Input<string>? WebhookSecret
         {
@@ -252,7 +252,7 @@ namespace Pulumi.Datadog
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Name of the workflow.
+        /// Name of the workflow. String length must be at least 1.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -285,7 +285,7 @@ namespace Pulumi.Datadog
         private Input<string>? _webhookSecret;
 
         /// <summary>
-        /// If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here.
+        /// If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here. String length must be at least 16.
         /// </summary>
         public Input<string>? WebhookSecret
         {

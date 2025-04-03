@@ -129,14 +129,14 @@ public class ApmRetentionFilter extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query.
+     * Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
      * 
      */
     @Export(name="rate", refs={String.class}, tree="[0]")
     private Output<String> rate;
 
     /**
-     * @return Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query.
+     * @return Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
      * 
      */
     public Output<String> rate() {

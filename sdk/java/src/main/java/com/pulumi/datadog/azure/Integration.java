@@ -67,6 +67,8 @@ import javax.annotation.Nullable;
  * 
  * Microsoft Azure integrations can be imported using their `tenant name` and `client` id separated with a colon (`:`).
  * 
+ * The client_secret should be passed by setting the environment variable CLIENT_SECRET
+ * 
  * ```sh
  * $ pulumi import datadog:azure/integration:Integration sandbox ${tenant_name}:${client_id}
  * ```

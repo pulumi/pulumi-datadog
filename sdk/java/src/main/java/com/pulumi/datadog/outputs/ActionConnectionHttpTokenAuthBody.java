@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ActionConnectionHttpTokenAuthBody {
     /**
-     * @return Serialized body content
+     * @return Serialized body content. String length must be at least 1.
      * 
      */
     private @Nullable String content;
     /**
-     * @return Content type of the body
+     * @return Content type of the body. String length must be at least 1.
      * 
      */
     private @Nullable String contentType;
 
     private ActionConnectionHttpTokenAuthBody() {}
     /**
-     * @return Serialized body content
+     * @return Serialized body content. String length must be at least 1.
      * 
      */
     public Optional<String> content() {
         return Optional.ofNullable(this.content);
     }
     /**
-     * @return Content type of the body
+     * @return Content type of the body. String length must be at least 1.
      * 
      */
     public Optional<String> contentType() {

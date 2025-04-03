@@ -1261,6 +1261,7 @@ __all__ = [
     'GetMonitorsMonitorResult',
     'GetRoleUsersRoleUserResult',
     'GetRolesRoleResult',
+    'GetRumRetentionFiltersRetentionFilterResult',
     'GetSecurityMonitoringFiltersFilterResult',
     'GetSecurityMonitoringFiltersFilterExclusionFilterResult',
     'GetSecurityMonitoringRulesRuleResult',
@@ -1281,6 +1282,7 @@ __all__ = [
     'GetSecurityMonitoringSuppressionsSuppressionResult',
     'GetServiceLevelObjectiveQueryResult',
     'GetServiceLevelObjectivesSloResult',
+    'GetSoftwareCatalogEntityResult',
     'GetTeamMembershipsTeamMembershipResult',
     'GetTeamsTeamResult',
     'GetUsersUserResult',
@@ -1351,10 +1353,10 @@ class ActionConnectionAwsAssumeRole(dict):
                  principal_id: Optional[str] = None,
                  role: Optional[str] = None):
         """
-        :param str account_id: AWS account that the connection is created for
+        :param str account_id: AWS account that the connection is created for. String length must be at least 1.
         :param str external_id: External ID that specifies which connection can be used to assume the role
         :param str principal_id: AWS account that will assume the role
-        :param str role: Role to assume
+        :param str role: Role to assume. String length must be at least 1.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -1369,7 +1371,7 @@ class ActionConnectionAwsAssumeRole(dict):
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[str]:
         """
-        AWS account that the connection is created for
+        AWS account that the connection is created for. String length must be at least 1.
         """
         return pulumi.get(self, "account_id")
 
@@ -1393,7 +1395,7 @@ class ActionConnectionAwsAssumeRole(dict):
     @pulumi.getter
     def role(self) -> Optional[str]:
         """
-        Role to assume
+        Role to assume. String length must be at least 1.
         """
         return pulumi.get(self, "role")
 
@@ -1423,7 +1425,7 @@ class ActionConnectionHttp(dict):
                  base_url: Optional[str] = None,
                  token_auth: Optional['outputs.ActionConnectionHttpTokenAuth'] = None):
         """
-        :param str base_url: Base HTTP url for the integration
+        :param str base_url: Base HTTP url for the integration. String length must be at least 1.
         :param 'ActionConnectionHttpTokenAuthArgs' token_auth: Configuration for an HTTP connection that uses token auth
         """
         if base_url is not None:
@@ -1435,7 +1437,7 @@ class ActionConnectionHttp(dict):
     @pulumi.getter(name="baseUrl")
     def base_url(self) -> Optional[str]:
         """
-        Base HTTP url for the integration
+        Base HTTP url for the integration. String length must be at least 1.
         """
         return pulumi.get(self, "base_url")
 
@@ -1543,8 +1545,8 @@ class ActionConnectionHttpTokenAuthBody(dict):
                  content: Optional[str] = None,
                  content_type: Optional[str] = None):
         """
-        :param str content: Serialized body content
-        :param str content_type: Content type of the body
+        :param str content: Serialized body content. String length must be at least 1.
+        :param str content_type: Content type of the body. String length must be at least 1.
         """
         if content is not None:
             pulumi.set(__self__, "content", content)
@@ -1555,7 +1557,7 @@ class ActionConnectionHttpTokenAuthBody(dict):
     @pulumi.getter
     def content(self) -> Optional[str]:
         """
-        Serialized body content
+        Serialized body content. String length must be at least 1.
         """
         return pulumi.get(self, "content")
 
@@ -1563,7 +1565,7 @@ class ActionConnectionHttpTokenAuthBody(dict):
     @pulumi.getter(name="contentType")
     def content_type(self) -> Optional[str]:
         """
-        Content type of the body
+        Content type of the body. String length must be at least 1.
         """
         return pulumi.get(self, "content_type")
 
@@ -1574,7 +1576,8 @@ class ActionConnectionHttpTokenAuthHeader(dict):
                  name: Optional[str] = None,
                  value: Optional[str] = None):
         """
-        :param str name: Header name
+        :param str name: Header name. String length must be at least 1.
+        :param str value: String length must be at least 1.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -1585,13 +1588,16 @@ class ActionConnectionHttpTokenAuthHeader(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        Header name
+        Header name. String length must be at least 1.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def value(self) -> Optional[str]:
+        """
+        String length must be at least 1.
+        """
         return pulumi.get(self, "value")
 
 
@@ -1602,9 +1608,9 @@ class ActionConnectionHttpTokenAuthToken(dict):
                  type: Optional[str] = None,
                  value: Optional[str] = None):
         """
-        :param str name: Token name
-        :param str type: Token type
-        :param str value: Token value
+        :param str name: Token name. String length must be at least 1.
+        :param str type: Token type Valid values are `SECRET`.
+        :param str value: Token value. String length must be at least 1.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -1617,7 +1623,7 @@ class ActionConnectionHttpTokenAuthToken(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        Token name
+        Token name. String length must be at least 1.
         """
         return pulumi.get(self, "name")
 
@@ -1625,7 +1631,7 @@ class ActionConnectionHttpTokenAuthToken(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        Token type
+        Token type Valid values are `SECRET`.
         """
         return pulumi.get(self, "type")
 
@@ -1633,7 +1639,7 @@ class ActionConnectionHttpTokenAuthToken(dict):
     @pulumi.getter
     def value(self) -> Optional[str]:
         """
-        Token value
+        Token value. String length must be at least 1.
         """
         return pulumi.get(self, "value")
 
@@ -1644,8 +1650,8 @@ class ActionConnectionHttpTokenAuthUrlParameter(dict):
                  name: Optional[str] = None,
                  value: Optional[str] = None):
         """
-        :param str name: URL parameter name
-        :param str value: URL parameter value
+        :param str name: URL parameter name. String length must be at least 1.
+        :param str value: URL parameter value. String length must be at least 1.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -1656,7 +1662,7 @@ class ActionConnectionHttpTokenAuthUrlParameter(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        URL parameter name
+        URL parameter name. String length must be at least 1.
         """
         return pulumi.get(self, "name")
 
@@ -1664,7 +1670,7 @@ class ActionConnectionHttpTokenAuthUrlParameter(dict):
     @pulumi.getter
     def value(self) -> Optional[str]:
         """
-        URL parameter value
+        URL parameter value. String length must be at least 1.
         """
         return pulumi.get(self, "value")
 
@@ -34222,7 +34228,7 @@ class IpAllowlistEntry(dict):
                  cidr_block: str,
                  note: Optional[str] = None):
         """
-        :param str cidr_block: IP address or range of addresses.
+        :param str cidr_block: IP address or range of addresses. String must be a valid CIDR block or IP address.
         :param str note: Note accompanying IP address.
         """
         pulumi.set(__self__, "cidr_block", cidr_block)
@@ -34233,7 +34239,7 @@ class IpAllowlistEntry(dict):
     @pulumi.getter(name="cidrBlock")
     def cidr_block(self) -> str:
         """
-        IP address or range of addresses.
+        IP address or range of addresses. String must be a valid CIDR block or IP address.
         """
         return pulumi.get(self, "cidr_block")
 
@@ -34415,6 +34421,8 @@ class LogsArchiveS3Archive(dict):
             suggest = "encryption_key"
         elif key == "encryptionType":
             suggest = "encryption_type"
+        elif key == "storageClass":
+            suggest = "storage_class"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in LogsArchiveS3Archive. Access the value via the '{suggest}' property getter instead.")
@@ -34433,7 +34441,8 @@ class LogsArchiveS3Archive(dict):
                  role_name: str,
                  encryption_key: Optional[str] = None,
                  encryption_type: Optional[str] = None,
-                 path: Optional[str] = None):
+                 path: Optional[str] = None,
+                 storage_class: Optional[str] = None):
         """
         :param str account_id: Your AWS account id.
         :param str bucket: Name of your s3 bucket.
@@ -34441,6 +34450,7 @@ class LogsArchiveS3Archive(dict):
         :param str encryption_key: The AWS KMS encryption key.
         :param str encryption_type: The type of encryption on your archive. Valid values are `NO_OVERRIDE`, `SSE_S3`, `SSE_KMS`. Defaults to `"NO_OVERRIDE"`.
         :param str path: Path where the archive is stored.
+        :param str storage_class: The AWS S3 storage class used to upload the logs. Valid values are `STANDARD`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER_IR`. Defaults to `"STANDARD"`.
         """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "bucket", bucket)
@@ -34451,6 +34461,8 @@ class LogsArchiveS3Archive(dict):
             pulumi.set(__self__, "encryption_type", encryption_type)
         if path is not None:
             pulumi.set(__self__, "path", path)
+        if storage_class is not None:
+            pulumi.set(__self__, "storage_class", storage_class)
 
     @property
     @pulumi.getter(name="accountId")
@@ -34499,6 +34511,14 @@ class LogsArchiveS3Archive(dict):
         Path where the archive is stored.
         """
         return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter(name="storageClass")
+    def storage_class(self) -> Optional[str]:
+        """
+        The AWS S3 storage class used to upload the logs. Valid values are `STANDARD`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER_IR`. Defaults to `"STANDARD"`.
+        """
+        return pulumi.get(self, "storage_class")
 
 
 @pulumi.output_type
@@ -83820,8 +83840,8 @@ class SyntheticsGlobalVariableOptionsTotpParameters(dict):
                  digits: int,
                  refresh_interval: int):
         """
-        :param int digits: Number of digits for the OTP.
-        :param int refresh_interval: Interval for which to refresh the token (in seconds).
+        :param int digits: Number of digits for the OTP. Value must be between 4 and 10.
+        :param int refresh_interval: Interval for which to refresh the token (in seconds). Value must be between 0 and 999.
         """
         pulumi.set(__self__, "digits", digits)
         pulumi.set(__self__, "refresh_interval", refresh_interval)
@@ -83830,7 +83850,7 @@ class SyntheticsGlobalVariableOptionsTotpParameters(dict):
     @pulumi.getter
     def digits(self) -> int:
         """
-        Number of digits for the OTP.
+        Number of digits for the OTP. Value must be between 4 and 10.
         """
         return pulumi.get(self, "digits")
 
@@ -83838,7 +83858,7 @@ class SyntheticsGlobalVariableOptionsTotpParameters(dict):
     @pulumi.getter(name="refreshInterval")
     def refresh_interval(self) -> int:
         """
-        Interval for which to refresh the token (in seconds).
+        Interval for which to refresh the token (in seconds). Value must be between 0 and 999.
         """
         return pulumi.get(self, "refresh_interval")
 
@@ -85356,7 +85376,7 @@ class SyntheticsTestApiStepRetry(dict):
                  count: Optional[int] = None,
                  interval: Optional[int] = None):
         """
-        :param int count: Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
+        :param int count: Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `3` for `api` tests, `2` for `browser` and `mobile` tests. Defaults to `0`.
         :param int interval: Interval between a failed test and the next retry in milliseconds. Maximum value: `5000`. Defaults to `300`.
         """
         if count is not None:
@@ -85368,7 +85388,7 @@ class SyntheticsTestApiStepRetry(dict):
     @pulumi.getter
     def count(self) -> Optional[int]:
         """
-        Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
+        Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `3` for `api` tests, `2` for `browser` and `mobile` tests. Defaults to `0`.
         """
         return pulumi.get(self, "count")
 
@@ -86740,7 +86760,7 @@ class SyntheticsTestMobileOptionsListRetry(dict):
                  count: Optional[int] = None,
                  interval: Optional[int] = None):
         """
-        :param int count: Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
+        :param int count: Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `3` for `api` tests, `2` for `browser` and `mobile` tests. Defaults to `0`.
         :param int interval: Interval between a failed test and the next retry in milliseconds. Maximum value: `5000`. Defaults to `300`.
         """
         if count is not None:
@@ -86752,7 +86772,7 @@ class SyntheticsTestMobileOptionsListRetry(dict):
     @pulumi.getter
     def count(self) -> Optional[int]:
         """
-        Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
+        Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `3` for `api` tests, `2` for `browser` and `mobile` tests. Defaults to `0`.
         """
         return pulumi.get(self, "count")
 
@@ -87787,7 +87807,7 @@ class SyntheticsTestOptionsListRetry(dict):
                  count: Optional[int] = None,
                  interval: Optional[int] = None):
         """
-        :param int count: Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
+        :param int count: Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `3` for `api` tests, `2` for `browser` and `mobile` tests. Defaults to `0`.
         :param int interval: Interval between a failed test and the next retry in milliseconds. Maximum value: `5000`. Defaults to `300`.
         """
         if count is not None:
@@ -87799,7 +87819,7 @@ class SyntheticsTestOptionsListRetry(dict):
     @pulumi.getter
     def count(self) -> Optional[int]:
         """
-        Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `5`. Defaults to `0`.
+        Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `3` for `api` tests, `2` for `browser` and `mobile` tests. Defaults to `0`.
         """
         return pulumi.get(self, "count")
 
@@ -89978,6 +89998,53 @@ class GetRolesRoleResult(dict):
 
 
 @pulumi.output_type
+class GetRumRetentionFiltersRetentionFilterResult(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 event_type: str,
+                 id: str,
+                 name: str,
+                 query: str,
+                 sample_rate: int):
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "event_type", event_type)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "query", query)
+        pulumi.set(__self__, "sample_rate", sample_rate)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="eventType")
+    def event_type(self) -> str:
+        return pulumi.get(self, "event_type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def query(self) -> str:
+        return pulumi.get(self, "query")
+
+    @property
+    @pulumi.getter(name="sampleRate")
+    def sample_rate(self) -> int:
+        return pulumi.get(self, "sample_rate")
+
+
+@pulumi.output_type
 class GetSecurityMonitoringFiltersFilterResult(dict):
     def __init__(__self__, *,
                  is_enabled: bool,
@@ -91118,6 +91185,60 @@ class GetServiceLevelObjectivesSloResult(dict):
         The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available options to choose from are: `metric` and `monitor`.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetSoftwareCatalogEntityResult(dict):
+    def __init__(__self__, *,
+                 display_name: str,
+                 id: str,
+                 kind: str,
+                 name: str,
+                 namespace: str,
+                 owner: str,
+                 tags: Sequence[str]):
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "namespace", namespace)
+        pulumi.set(__self__, "owner", owner)
+        pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> str:
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> str:
+        return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> str:
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Sequence[str]:
+        return pulumi.get(self, "tags")
 
 
 @pulumi.output_type

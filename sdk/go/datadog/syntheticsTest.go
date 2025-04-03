@@ -240,6 +240,61 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Example Usage (Synthetics ICMP test)
+//			// Create a new Datadog Synthetics ICMP test on example.org
+//			_, err = datadog.NewSyntheticsTest(ctx, "test_api_icmp", &datadog.SyntheticsTestArgs{
+//				Name:    pulumi.String("ICMP Test on example.com"),
+//				Type:    pulumi.String("api"),
+//				Subtype: pulumi.String("icmp"),
+//				Status:  pulumi.String("live"),
+//				Locations: pulumi.StringArray{
+//					pulumi.String("aws:eu-central-1"),
+//				},
+//				Tags: pulumi.StringArray{
+//					pulumi.String("foo:bar"),
+//					pulumi.String("foo"),
+//					pulumi.String("env:test"),
+//				},
+//				RequestDefinition: &datadog.SyntheticsTestRequestDefinitionArgs{
+//					Host:                 pulumi.String("example.com"),
+//					NoSavingResponseBody: pulumi.Bool(false),
+//					NumberOfPackets:      pulumi.Int(1),
+//					PersistCookies:       pulumi.Bool(false),
+//					ShouldTrackHops:      pulumi.Bool(false),
+//					Timeout:              pulumi.Int(0),
+//				},
+//				Assertions: datadog.SyntheticsTestAssertionArray{
+//					&datadog.SyntheticsTestAssertionArgs{
+//						Operator: pulumi.String("is"),
+//						Target:   pulumi.String("0"),
+//						Type:     pulumi.String("packetLossPercentage"),
+//					},
+//					&datadog.SyntheticsTestAssertionArgs{
+//						Operator: pulumi.String("lessThan"),
+//						Property: pulumi.String("avg"),
+//						Target:   pulumi.String("1000"),
+//						Type:     pulumi.String("latency"),
+//					},
+//					&datadog.SyntheticsTestAssertionArgs{
+//						Operator: pulumi.String("moreThanOrEqual"),
+//						Target:   pulumi.String("1"),
+//						Type:     pulumi.String("packetsReceived"),
+//					},
+//				},
+//				OptionsList: &datadog.SyntheticsTestOptionsListArgs{
+//					TickEvery: pulumi.Int(900),
+//					Retry: &datadog.SyntheticsTestOptionsListRetryArgs{
+//						Count:    pulumi.Int(2),
+//						Interval: pulumi.Int(300),
+//					},
+//					MonitorOptions: &datadog.SyntheticsTestOptionsListMonitorOptionsArgs{
+//						RenotifyInterval: pulumi.Int(120),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			// Example Usage (Synthetics Multistep API test)
 //			// Create a new Datadog Synthetics Multistep API test
 //			_, err = datadog.NewSyntheticsTest(ctx, "test_multi_step", &datadog.SyntheticsTestArgs{
@@ -295,9 +350,10 @@ import (
 //						Subtype: pulumi.String("grpc"),
 //						Assertions: datadog.SyntheticsTestApiStepAssertionArray{
 //							&datadog.SyntheticsTestApiStepAssertionArgs{
-//								Type:     pulumi.String("statusCode"),
+//								Type:     pulumi.String("grpcMetadata"),
 //								Operator: pulumi.String("is"),
-//								Target:   pulumi.String("200"),
+//								Property: pulumi.String("X-Header"),
+//								Target:   pulumi.String("test"),
 //							},
 //						},
 //						RequestDefinition: &datadog.SyntheticsTestApiStepRequestDefinitionArgs{
@@ -312,9 +368,9 @@ import (
 //						Subtype: pulumi.String("grpc"),
 //						Assertions: datadog.SyntheticsTestApiStepAssertionArray{
 //							&datadog.SyntheticsTestApiStepAssertionArgs{
-//								Type:     pulumi.String("statusCode"),
+//								Type:     pulumi.String("grpcHealthcheckStatus"),
 //								Operator: pulumi.String("is"),
-//								Target:   pulumi.String("200"),
+//								Target:   pulumi.String("1"),
 //							},
 //						},
 //						RequestDefinition: &datadog.SyntheticsTestApiStepRequestDefinitionArgs{

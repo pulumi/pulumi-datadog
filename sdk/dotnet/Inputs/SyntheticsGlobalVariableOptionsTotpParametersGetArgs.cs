@@ -13,13 +13,13 @@ namespace Pulumi.Datadog.Inputs
     public sealed class SyntheticsGlobalVariableOptionsTotpParametersGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Number of digits for the OTP.
+        /// Number of digits for the OTP. Value must be between 4 and 10.
         /// </summary>
         [Input("digits", required: true)]
         public Input<int> Digits { get; set; } = null!;
 
         /// <summary>
-        /// Interval for which to refresh the token (in seconds).
+        /// Interval for which to refresh the token (in seconds). Value must be between 0 and 999.
         /// </summary>
         [Input("refreshInterval", required: true)]
         public Input<int> RefreshInterval { get; set; } = null!;

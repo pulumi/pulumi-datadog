@@ -28,11 +28,11 @@ class WorkflowAutomationArgs:
         """
         The set of arguments for constructing a WorkflowAutomation resource.
         :param pulumi.Input[str] description: Description of the workflow.
-        :param pulumi.Input[str] name: Name of the workflow.
+        :param pulumi.Input[str] name: Name of the workflow. String length must be at least 1.
         :param pulumi.Input[bool] published: Set the workflow to published or unpublished. Workflows in an unpublished state are only executable through manual runs. Automatic triggers such as Schedule do not execute the workflow until it is published.
         :param pulumi.Input[str] spec_json: The spec defines what the workflow does.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags of the workflow.
-        :param pulumi.Input[str] webhook_secret: If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here.
+        :param pulumi.Input[str] webhook_secret: If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here. String length must be at least 16.
         """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "name", name)
@@ -58,7 +58,7 @@ class WorkflowAutomationArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Name of the workflow.
+        Name of the workflow. String length must be at least 1.
         """
         return pulumi.get(self, "name")
 
@@ -106,7 +106,7 @@ class WorkflowAutomationArgs:
     @pulumi.getter(name="webhookSecret")
     def webhook_secret(self) -> Optional[pulumi.Input[str]]:
         """
-        If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here.
+        If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here. String length must be at least 16.
         """
         return pulumi.get(self, "webhook_secret")
 
@@ -127,11 +127,11 @@ class _WorkflowAutomationState:
         """
         Input properties used for looking up and filtering WorkflowAutomation resources.
         :param pulumi.Input[str] description: Description of the workflow.
-        :param pulumi.Input[str] name: Name of the workflow.
+        :param pulumi.Input[str] name: Name of the workflow. String length must be at least 1.
         :param pulumi.Input[bool] published: Set the workflow to published or unpublished. Workflows in an unpublished state are only executable through manual runs. Automatic triggers such as Schedule do not execute the workflow until it is published.
         :param pulumi.Input[str] spec_json: The spec defines what the workflow does.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags of the workflow.
-        :param pulumi.Input[str] webhook_secret: If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here.
+        :param pulumi.Input[str] webhook_secret: If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here. String length must be at least 16.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -162,7 +162,7 @@ class _WorkflowAutomationState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the workflow.
+        Name of the workflow. String length must be at least 1.
         """
         return pulumi.get(self, "name")
 
@@ -210,7 +210,7 @@ class _WorkflowAutomationState:
     @pulumi.getter(name="webhookSecret")
     def webhook_secret(self) -> Optional[pulumi.Input[str]]:
         """
-        If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here.
+        If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here. String length must be at least 16.
         """
         return pulumi.get(self, "webhook_secret")
 
@@ -292,11 +292,11 @@ class WorkflowAutomation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the workflow.
-        :param pulumi.Input[str] name: Name of the workflow.
+        :param pulumi.Input[str] name: Name of the workflow. String length must be at least 1.
         :param pulumi.Input[bool] published: Set the workflow to published or unpublished. Workflows in an unpublished state are only executable through manual runs. Automatic triggers such as Schedule do not execute the workflow until it is published.
         :param pulumi.Input[str] spec_json: The spec defines what the workflow does.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags of the workflow.
-        :param pulumi.Input[str] webhook_secret: If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here.
+        :param pulumi.Input[str] webhook_secret: If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here. String length must be at least 16.
         """
         ...
     @overload
@@ -434,11 +434,11 @@ class WorkflowAutomation(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the workflow.
-        :param pulumi.Input[str] name: Name of the workflow.
+        :param pulumi.Input[str] name: Name of the workflow. String length must be at least 1.
         :param pulumi.Input[bool] published: Set the workflow to published or unpublished. Workflows in an unpublished state are only executable through manual runs. Automatic triggers such as Schedule do not execute the workflow until it is published.
         :param pulumi.Input[str] spec_json: The spec defines what the workflow does.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags of the workflow.
-        :param pulumi.Input[str] webhook_secret: If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here.
+        :param pulumi.Input[str] webhook_secret: If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here. String length must be at least 16.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -464,7 +464,7 @@ class WorkflowAutomation(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the workflow.
+        Name of the workflow. String length must be at least 1.
         """
         return pulumi.get(self, "name")
 
@@ -496,7 +496,7 @@ class WorkflowAutomation(pulumi.CustomResource):
     @pulumi.getter(name="webhookSecret")
     def webhook_secret(self) -> pulumi.Output[Optional[str]]:
         """
-        If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here.
+        If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here. String length must be at least 16.
         """
         return pulumi.get(self, "webhook_secret")
 

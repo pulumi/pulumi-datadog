@@ -22,7 +22,7 @@ class SyntheticsConcurrencyCapArgs:
                  on_demand_concurrency_cap: pulumi.Input[int]):
         """
         The set of arguments for constructing a SyntheticsConcurrencyCap resource.
-        :param pulumi.Input[int] on_demand_concurrency_cap: Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel.
+        :param pulumi.Input[int] on_demand_concurrency_cap: Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel. Value must be at least 1.
         """
         pulumi.set(__self__, "on_demand_concurrency_cap", on_demand_concurrency_cap)
 
@@ -30,7 +30,7 @@ class SyntheticsConcurrencyCapArgs:
     @pulumi.getter(name="onDemandConcurrencyCap")
     def on_demand_concurrency_cap(self) -> pulumi.Input[int]:
         """
-        Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel.
+        Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel. Value must be at least 1.
         """
         return pulumi.get(self, "on_demand_concurrency_cap")
 
@@ -45,7 +45,7 @@ class _SyntheticsConcurrencyCapState:
                  on_demand_concurrency_cap: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering SyntheticsConcurrencyCap resources.
-        :param pulumi.Input[int] on_demand_concurrency_cap: Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel.
+        :param pulumi.Input[int] on_demand_concurrency_cap: Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel. Value must be at least 1.
         """
         if on_demand_concurrency_cap is not None:
             pulumi.set(__self__, "on_demand_concurrency_cap", on_demand_concurrency_cap)
@@ -54,7 +54,7 @@ class _SyntheticsConcurrencyCapState:
     @pulumi.getter(name="onDemandConcurrencyCap")
     def on_demand_concurrency_cap(self) -> Optional[pulumi.Input[int]]:
         """
-        Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel.
+        Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel. Value must be at least 1.
         """
         return pulumi.get(self, "on_demand_concurrency_cap")
 
@@ -93,7 +93,7 @@ class SyntheticsConcurrencyCap(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] on_demand_concurrency_cap: Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel.
+        :param pulumi.Input[int] on_demand_concurrency_cap: Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel. Value must be at least 1.
         """
         ...
     @overload
@@ -168,7 +168,7 @@ class SyntheticsConcurrencyCap(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] on_demand_concurrency_cap: Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel.
+        :param pulumi.Input[int] on_demand_concurrency_cap: Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel. Value must be at least 1.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -181,7 +181,7 @@ class SyntheticsConcurrencyCap(pulumi.CustomResource):
     @pulumi.getter(name="onDemandConcurrencyCap")
     def on_demand_concurrency_cap(self) -> pulumi.Output[int]:
         """
-        Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel.
+        Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel. Value must be at least 1.
         """
         return pulumi.get(self, "on_demand_concurrency_cap")
 

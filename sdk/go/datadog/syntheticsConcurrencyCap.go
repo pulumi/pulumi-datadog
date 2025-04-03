@@ -51,7 +51,7 @@ import (
 type SyntheticsConcurrencyCap struct {
 	pulumi.CustomResourceState
 
-	// Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel.
+	// Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel. Value must be at least 1.
 	OnDemandConcurrencyCap pulumi.IntOutput `pulumi:"onDemandConcurrencyCap"`
 }
 
@@ -88,12 +88,12 @@ func GetSyntheticsConcurrencyCap(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SyntheticsConcurrencyCap resources.
 type syntheticsConcurrencyCapState struct {
-	// Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel.
+	// Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel. Value must be at least 1.
 	OnDemandConcurrencyCap *int `pulumi:"onDemandConcurrencyCap"`
 }
 
 type SyntheticsConcurrencyCapState struct {
-	// Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel.
+	// Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel. Value must be at least 1.
 	OnDemandConcurrencyCap pulumi.IntPtrInput
 }
 
@@ -102,13 +102,13 @@ func (SyntheticsConcurrencyCapState) ElementType() reflect.Type {
 }
 
 type syntheticsConcurrencyCapArgs struct {
-	// Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel.
+	// Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel. Value must be at least 1.
 	OnDemandConcurrencyCap int `pulumi:"onDemandConcurrencyCap"`
 }
 
 // The set of arguments for constructing a SyntheticsConcurrencyCap resource.
 type SyntheticsConcurrencyCapArgs struct {
-	// Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel.
+	// Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel. Value must be at least 1.
 	OnDemandConcurrencyCap pulumi.IntInput
 }
 
@@ -199,7 +199,7 @@ func (o SyntheticsConcurrencyCapOutput) ToSyntheticsConcurrencyCapOutputWithCont
 	return o
 }
 
-// Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel.
+// Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel. Value must be at least 1.
 func (o SyntheticsConcurrencyCapOutput) OnDemandConcurrencyCap() pulumi.IntOutput {
 	return o.ApplyT(func(v *SyntheticsConcurrencyCap) pulumi.IntOutput { return v.OnDemandConcurrencyCap }).(pulumi.IntOutput)
 }

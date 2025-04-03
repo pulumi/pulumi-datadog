@@ -65,14 +65,14 @@ public final class SyntheticsGlobalVariableState extends com.pulumi.resources.Re
     }
 
     /**
-     * Synthetics global variable name.
+     * Synthetics global variable name. Must be all uppercase with underscores.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Synthetics global variable name.
+     * @return Synthetics global variable name. Must be all uppercase with underscores.
      * 
      */
     public Optional<Output<String>> name() {
@@ -290,7 +290,7 @@ public final class SyntheticsGlobalVariableState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param name Synthetics global variable name.
+         * @param name Synthetics global variable name. Must be all uppercase with underscores.
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class SyntheticsGlobalVariableState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param name Synthetics global variable name.
+         * @param name Synthetics global variable name. Must be all uppercase with underscores.
          * 
          * @return builder
          * 

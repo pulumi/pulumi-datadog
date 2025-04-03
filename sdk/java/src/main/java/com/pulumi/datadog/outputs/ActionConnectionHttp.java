@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ActionConnectionHttp {
     /**
-     * @return Base HTTP url for the integration
+     * @return Base HTTP url for the integration. String length must be at least 1.
      * 
      */
     private @Nullable String baseUrl;
@@ -25,7 +25,7 @@ public final class ActionConnectionHttp {
 
     private ActionConnectionHttp() {}
     /**
-     * @return Base HTTP url for the integration
+     * @return Base HTTP url for the integration. String length must be at least 1.
      * 
      */
     public Optional<String> baseUrl() {

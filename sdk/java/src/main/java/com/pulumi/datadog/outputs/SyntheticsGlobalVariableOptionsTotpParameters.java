@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class SyntheticsGlobalVariableOptionsTotpParameters {
     /**
-     * @return Number of digits for the OTP.
+     * @return Number of digits for the OTP. Value must be between 4 and 10.
      * 
      */
     private Integer digits;
     /**
-     * @return Interval for which to refresh the token (in seconds).
+     * @return Interval for which to refresh the token (in seconds). Value must be between 0 and 999.
      * 
      */
     private Integer refreshInterval;
 
     private SyntheticsGlobalVariableOptionsTotpParameters() {}
     /**
-     * @return Number of digits for the OTP.
+     * @return Number of digits for the OTP. Value must be between 4 and 10.
      * 
      */
     public Integer digits() {
         return this.digits;
     }
     /**
-     * @return Interval for which to refresh the token (in seconds).
+     * @return Interval for which to refresh the token (in seconds). Value must be between 0 and 999.
      * 
      */
     public Integer refreshInterval() {

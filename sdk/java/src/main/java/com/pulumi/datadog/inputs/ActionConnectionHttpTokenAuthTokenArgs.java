@@ -16,14 +16,14 @@ public final class ActionConnectionHttpTokenAuthTokenArgs extends com.pulumi.res
     public static final ActionConnectionHttpTokenAuthTokenArgs Empty = new ActionConnectionHttpTokenAuthTokenArgs();
 
     /**
-     * Token name
+     * Token name. String length must be at least 1.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Token name
+     * @return Token name. String length must be at least 1.
      * 
      */
     public Optional<Output<String>> name() {
@@ -31,14 +31,14 @@ public final class ActionConnectionHttpTokenAuthTokenArgs extends com.pulumi.res
     }
 
     /**
-     * Token type
+     * Token type Valid values are `SECRET`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Token type
+     * @return Token type Valid values are `SECRET`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -46,14 +46,14 @@ public final class ActionConnectionHttpTokenAuthTokenArgs extends com.pulumi.res
     }
 
     /**
-     * Token value
+     * Token value. String length must be at least 1.
      * 
      */
     @Import(name="value")
     private @Nullable Output<String> value;
 
     /**
-     * @return Token value
+     * @return Token value. String length must be at least 1.
      * 
      */
     public Optional<Output<String>> value() {
@@ -87,7 +87,7 @@ public final class ActionConnectionHttpTokenAuthTokenArgs extends com.pulumi.res
         }
 
         /**
-         * @param name Token name
+         * @param name Token name. String length must be at least 1.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class ActionConnectionHttpTokenAuthTokenArgs extends com.pulumi.res
         }
 
         /**
-         * @param name Token name
+         * @param name Token name. String length must be at least 1.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class ActionConnectionHttpTokenAuthTokenArgs extends com.pulumi.res
         }
 
         /**
-         * @param type Token type
+         * @param type Token type Valid values are `SECRET`.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class ActionConnectionHttpTokenAuthTokenArgs extends com.pulumi.res
         }
 
         /**
-         * @param type Token type
+         * @param type Token type Valid values are `SECRET`.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class ActionConnectionHttpTokenAuthTokenArgs extends com.pulumi.res
         }
 
         /**
-         * @param value Token value
+         * @param value Token value. String length must be at least 1.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class ActionConnectionHttpTokenAuthTokenArgs extends com.pulumi.res
         }
 
         /**
-         * @param value Token value
+         * @param value Token value. String length must be at least 1.
          * 
          * @return builder
          * 

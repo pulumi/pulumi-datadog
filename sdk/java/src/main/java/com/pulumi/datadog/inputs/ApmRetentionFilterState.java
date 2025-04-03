@@ -78,14 +78,14 @@ public final class ApmRetentionFilterState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query.
+     * Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
      * 
      */
     @Import(name="rate")
     private @Nullable Output<String> rate;
 
     /**
-     * @return Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query.
+     * @return Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
      * 
      */
     public Optional<Output<String>> rate() {
@@ -205,7 +205,7 @@ public final class ApmRetentionFilterState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param rate Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query.
+         * @param rate Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class ApmRetentionFilterState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param rate Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query.
+         * @param rate Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
          * 
          * @return builder
          * 

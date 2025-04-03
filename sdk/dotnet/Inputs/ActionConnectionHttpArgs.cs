@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ActionConnectionHttpArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Base HTTP url for the integration
+        /// Base HTTP url for the integration. String length must be at least 1.
         /// </summary>
         [Input("baseUrl")]
         public Input<string>? BaseUrl { get; set; }

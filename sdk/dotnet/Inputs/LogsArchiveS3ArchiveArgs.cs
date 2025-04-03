@@ -48,6 +48,12 @@ namespace Pulumi.Datadog.Inputs
         [Input("roleName", required: true)]
         public Input<string> RoleName { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS S3 storage class used to upload the logs. Valid values are `STANDARD`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER_IR`. Defaults to `"STANDARD"`.
+        /// </summary>
+        [Input("storageClass")]
+        public Input<string>? StorageClass { get; set; }
+
         public LogsArchiveS3ArchiveArgs()
         {
         }

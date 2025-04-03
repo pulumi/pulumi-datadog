@@ -24,7 +24,7 @@ func GetSyntheticsLocations(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*
 
 // A collection of values returned by getSyntheticsLocations.
 type GetSyntheticsLocationsResult struct {
-	// The provider-assigned unique ID for this managed resource.
+	// The ID of this resource.
 	Id string `pulumi:"id"`
 	// A map of available Synthetics location IDs to names for Synthetics tests.
 	Locations map[string]string `pulumi:"locations"`
@@ -52,7 +52,7 @@ func (o GetSyntheticsLocationsResultOutput) ToGetSyntheticsLocationsResultOutput
 	return o
 }
 
-// The provider-assigned unique ID for this managed resource.
+// The ID of this resource.
 func (o GetSyntheticsLocationsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSyntheticsLocationsResult) string { return v.Id }).(pulumi.StringOutput)
 }

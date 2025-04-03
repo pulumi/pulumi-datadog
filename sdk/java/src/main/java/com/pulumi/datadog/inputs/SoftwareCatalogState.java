@@ -16,14 +16,14 @@ public final class SoftwareCatalogState extends com.pulumi.resources.ResourceArg
     public static final SoftwareCatalogState Empty = new SoftwareCatalogState();
 
     /**
-     * The catalog entity definition.
+     * The catalog entity definition. Entity must be a valid entity YAML/JSON structure.
      * 
      */
     @Import(name="entity")
     private @Nullable Output<String> entity;
 
     /**
-     * @return The catalog entity definition.
+     * @return The catalog entity definition. Entity must be a valid entity YAML/JSON structure.
      * 
      */
     public Optional<Output<String>> entity() {
@@ -55,7 +55,7 @@ public final class SoftwareCatalogState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param entity The catalog entity definition.
+         * @param entity The catalog entity definition. Entity must be a valid entity YAML/JSON structure.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class SoftwareCatalogState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param entity The catalog entity definition.
+         * @param entity The catalog entity definition. Entity must be a valid entity YAML/JSON structure.
          * 
          * @return builder
          * 

@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ActionConnectionAwsAssumeRole
     {
         /// <summary>
-        /// AWS account that the connection is created for
+        /// AWS account that the connection is created for. String length must be at least 1.
         /// </summary>
         public readonly string? AccountId;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? PrincipalId;
         /// <summary>
-        /// Role to assume
+        /// Role to assume. String length must be at least 1.
         /// </summary>
         public readonly string? Role;
 

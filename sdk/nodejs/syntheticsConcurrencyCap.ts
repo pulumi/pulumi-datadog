@@ -54,7 +54,7 @@ export class SyntheticsConcurrencyCap extends pulumi.CustomResource {
     }
 
     /**
-     * Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel.
+     * Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel. Value must be at least 1.
      */
     public readonly onDemandConcurrencyCap!: pulumi.Output<number>;
 
@@ -89,7 +89,7 @@ export class SyntheticsConcurrencyCap extends pulumi.CustomResource {
  */
 export interface SyntheticsConcurrencyCapState {
     /**
-     * Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel.
+     * Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel. Value must be at least 1.
      */
     onDemandConcurrencyCap?: pulumi.Input<number>;
 }
@@ -99,7 +99,7 @@ export interface SyntheticsConcurrencyCapState {
  */
 export interface SyntheticsConcurrencyCapArgs {
     /**
-     * Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel.
+     * Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel. Value must be at least 1.
      */
     onDemandConcurrencyCap: pulumi.Input<number>;
 }

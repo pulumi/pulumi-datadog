@@ -76,7 +76,7 @@ export class SyntheticsGlobalVariable extends pulumi.CustomResource {
      */
     public readonly isTotp!: pulumi.Output<boolean>;
     /**
-     * Synthetics global variable name.
+     * Synthetics global variable name. Must be all uppercase with underscores.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -175,7 +175,7 @@ export interface SyntheticsGlobalVariableState {
      */
     isTotp?: pulumi.Input<boolean>;
     /**
-     * Synthetics global variable name.
+     * Synthetics global variable name. Must be all uppercase with underscores.
      */
     name?: pulumi.Input<string>;
     /**
@@ -227,7 +227,7 @@ export interface SyntheticsGlobalVariableArgs {
      */
     isTotp?: pulumi.Input<boolean>;
     /**
-     * Synthetics global variable name.
+     * Synthetics global variable name. Must be all uppercase with underscores.
      */
     name: pulumi.Input<string>;
     /**

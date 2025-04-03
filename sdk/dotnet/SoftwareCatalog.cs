@@ -264,7 +264,7 @@ namespace Pulumi.Datadog
     public partial class SoftwareCatalog : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The catalog entity definition.
+        /// The catalog entity definition. Entity must be a valid entity YAML/JSON structure.
         /// </summary>
         [Output("entity")]
         public Output<string> Entity { get; private set; } = null!;
@@ -316,7 +316,7 @@ namespace Pulumi.Datadog
     public sealed class SoftwareCatalogArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The catalog entity definition.
+        /// The catalog entity definition. Entity must be a valid entity YAML/JSON structure.
         /// </summary>
         [Input("entity", required: true)]
         public Input<string> Entity { get; set; } = null!;
@@ -330,7 +330,7 @@ namespace Pulumi.Datadog
     public sealed class SoftwareCatalogState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The catalog entity definition.
+        /// The catalog entity definition. Entity must be a valid entity YAML/JSON structure.
         /// </summary>
         [Input("entity")]
         public Input<string>? Entity { get; set; }

@@ -14,11 +14,11 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ActionConnectionHttpTokenAuthBody
     {
         /// <summary>
-        /// Serialized body content
+        /// Serialized body content. String length must be at least 1.
         /// </summary>
         public readonly string? Content;
         /// <summary>
-        /// Content type of the body
+        /// Content type of the body. String length must be at least 1.
         /// </summary>
         public readonly string? ContentType;
 

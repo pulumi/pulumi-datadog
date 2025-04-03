@@ -286,14 +286,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="datadog:index/softwareCatalog:SoftwareCatalog")
 public class SoftwareCatalog extends com.pulumi.resources.CustomResource {
     /**
-     * The catalog entity definition.
+     * The catalog entity definition. Entity must be a valid entity YAML/JSON structure.
      * 
      */
     @Export(name="entity", refs={String.class}, tree="[0]")
     private Output<String> entity;
 
     /**
-     * @return The catalog entity definition.
+     * @return The catalog entity definition. Entity must be a valid entity YAML/JSON structure.
      * 
      */
     public Output<String> entity() {

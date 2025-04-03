@@ -266,6 +266,70 @@ namespace Pulumi.Datadog
     ///         },
     ///     });
     /// 
+    ///     // Example Usage (Synthetics ICMP test)
+    ///     // Create a new Datadog Synthetics ICMP test on example.org
+    ///     var testApiIcmp = new Datadog.SyntheticsTest("test_api_icmp", new()
+    ///     {
+    ///         Name = "ICMP Test on example.com",
+    ///         Type = "api",
+    ///         Subtype = "icmp",
+    ///         Status = "live",
+    ///         Locations = new[]
+    ///         {
+    ///             "aws:eu-central-1",
+    ///         },
+    ///         Tags = new[]
+    ///         {
+    ///             "foo:bar",
+    ///             "foo",
+    ///             "env:test",
+    ///         },
+    ///         RequestDefinition = new Datadog.Inputs.SyntheticsTestRequestDefinitionArgs
+    ///         {
+    ///             Host = "example.com",
+    ///             NoSavingResponseBody = false,
+    ///             NumberOfPackets = 1,
+    ///             PersistCookies = false,
+    ///             ShouldTrackHops = false,
+    ///             Timeout = 0,
+    ///         },
+    ///         Assertions = new[]
+    ///         {
+    ///             new Datadog.Inputs.SyntheticsTestAssertionArgs
+    ///             {
+    ///                 Operator = "is",
+    ///                 Target = "0",
+    ///                 Type = "packetLossPercentage",
+    ///             },
+    ///             new Datadog.Inputs.SyntheticsTestAssertionArgs
+    ///             {
+    ///                 Operator = "lessThan",
+    ///                 Property = "avg",
+    ///                 Target = "1000",
+    ///                 Type = "latency",
+    ///             },
+    ///             new Datadog.Inputs.SyntheticsTestAssertionArgs
+    ///             {
+    ///                 Operator = "moreThanOrEqual",
+    ///                 Target = "1",
+    ///                 Type = "packetsReceived",
+    ///             },
+    ///         },
+    ///         OptionsList = new Datadog.Inputs.SyntheticsTestOptionsListArgs
+    ///         {
+    ///             TickEvery = 900,
+    ///             Retry = new Datadog.Inputs.SyntheticsTestOptionsListRetryArgs
+    ///             {
+    ///                 Count = 2,
+    ///                 Interval = 300,
+    ///             },
+    ///             MonitorOptions = new Datadog.Inputs.SyntheticsTestOptionsListMonitorOptionsArgs
+    ///             {
+    ///                 RenotifyInterval = 120,
+    ///             },
+    ///         },
+    ///     });
+    /// 
     ///     // Example Usage (Synthetics Multistep API test)
     ///     // Create a new Datadog Synthetics Multistep API test
     ///     var testMultiStep = new Datadog.SyntheticsTest("test_multi_step", new()
@@ -337,9 +401,10 @@ namespace Pulumi.Datadog
     ///                 {
     ///                     new Datadog.Inputs.SyntheticsTestApiStepAssertionArgs
     ///                     {
-    ///                         Type = "statusCode",
+    ///                         Type = "grpcMetadata",
     ///                         Operator = "is",
-    ///                         Target = "200",
+    ///                         Property = "X-Header",
+    ///                         Target = "test",
     ///                     },
     ///                 },
     ///                 RequestDefinition = new Datadog.Inputs.SyntheticsTestApiStepRequestDefinitionArgs
@@ -358,9 +423,9 @@ namespace Pulumi.Datadog
     ///                 {
     ///                     new Datadog.Inputs.SyntheticsTestApiStepAssertionArgs
     ///                     {
-    ///                         Type = "statusCode",
+    ///                         Type = "grpcHealthcheckStatus",
     ///                         Operator = "is",
-    ///                         Target = "200",
+    ///                         Target = "1",
     ///                     },
     ///                 },
     ///                 RequestDefinition = new Datadog.Inputs.SyntheticsTestApiStepRequestDefinitionArgs

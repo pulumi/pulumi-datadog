@@ -14,11 +14,11 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ActionConnectionHttpTokenAuthUrlParameter
     {
         /// <summary>
-        /// URL parameter name
+        /// URL parameter name. String length must be at least 1.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// URL parameter value
+        /// URL parameter value. String length must be at least 1.
         /// </summary>
         public readonly string? Value;
 

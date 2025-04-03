@@ -63,7 +63,7 @@ type SyntheticsGlobalVariable struct {
 	IsFido pulumi.BoolOutput `pulumi:"isFido"`
 	// If set to true, the global variable is a TOTP variable. Defaults to `false`.
 	IsTotp pulumi.BoolOutput `pulumi:"isTotp"`
-	// Synthetics global variable name.
+	// Synthetics global variable name. Must be all uppercase with underscores.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Additional options for the variable, such as a MFA token.
 	Options SyntheticsGlobalVariableOptionsPtrOutput `pulumi:"options"`
@@ -129,7 +129,7 @@ type syntheticsGlobalVariableState struct {
 	IsFido *bool `pulumi:"isFido"`
 	// If set to true, the global variable is a TOTP variable. Defaults to `false`.
 	IsTotp *bool `pulumi:"isTotp"`
-	// Synthetics global variable name.
+	// Synthetics global variable name. Must be all uppercase with underscores.
 	Name *string `pulumi:"name"`
 	// Additional options for the variable, such as a MFA token.
 	Options *SyntheticsGlobalVariableOptions `pulumi:"options"`
@@ -156,7 +156,7 @@ type SyntheticsGlobalVariableState struct {
 	IsFido pulumi.BoolPtrInput
 	// If set to true, the global variable is a TOTP variable. Defaults to `false`.
 	IsTotp pulumi.BoolPtrInput
-	// Synthetics global variable name.
+	// Synthetics global variable name. Must be all uppercase with underscores.
 	Name pulumi.StringPtrInput
 	// Additional options for the variable, such as a MFA token.
 	Options SyntheticsGlobalVariableOptionsPtrInput
@@ -187,7 +187,7 @@ type syntheticsGlobalVariableArgs struct {
 	IsFido *bool `pulumi:"isFido"`
 	// If set to true, the global variable is a TOTP variable. Defaults to `false`.
 	IsTotp *bool `pulumi:"isTotp"`
-	// Synthetics global variable name.
+	// Synthetics global variable name. Must be all uppercase with underscores.
 	Name string `pulumi:"name"`
 	// Additional options for the variable, such as a MFA token.
 	Options *SyntheticsGlobalVariableOptions `pulumi:"options"`
@@ -215,7 +215,7 @@ type SyntheticsGlobalVariableArgs struct {
 	IsFido pulumi.BoolPtrInput
 	// If set to true, the global variable is a TOTP variable. Defaults to `false`.
 	IsTotp pulumi.BoolPtrInput
-	// Synthetics global variable name.
+	// Synthetics global variable name. Must be all uppercase with underscores.
 	Name pulumi.StringInput
 	// Additional options for the variable, such as a MFA token.
 	Options SyntheticsGlobalVariableOptionsPtrInput
@@ -337,7 +337,7 @@ func (o SyntheticsGlobalVariableOutput) IsTotp() pulumi.BoolOutput {
 	return o.ApplyT(func(v *SyntheticsGlobalVariable) pulumi.BoolOutput { return v.IsTotp }).(pulumi.BoolOutput)
 }
 
-// Synthetics global variable name.
+// Synthetics global variable name. Must be all uppercase with underscores.
 func (o SyntheticsGlobalVariableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SyntheticsGlobalVariable) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
