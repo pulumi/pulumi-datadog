@@ -41,6 +41,10 @@
                     }
                 }
             },
+            "datadog_app_builder_app": {
+                "current": "datadog:index/appBuilderApp:AppBuilderApp",
+                "majorVersion": 4
+            },
             "datadog_application_key": {
                 "current": "datadog:index/applicationKey:ApplicationKey",
                 "majorVersion": 4,
@@ -16474,6 +16478,19 @@
                     }
                 }
             },
+            "datadog_rum_retention_filter": {
+                "current": "datadog:index/rumRetentionFilter:RumRetentionFilter",
+                "majorVersion": 4
+            },
+            "datadog_rum_retention_filters_order": {
+                "current": "datadog:index/rumRetentionFiltersOrder:RumRetentionFiltersOrder",
+                "majorVersion": 4,
+                "fields": {
+                    "retention_filter_ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "datadog_security_monitoring_default_rule": {
                 "current": "datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule",
                 "majorVersion": 4,
@@ -17207,6 +17224,10 @@
                     }
                 }
             },
+            "datadog_app_builder_app": {
+                "current": "datadog:index/getAppBuilderApp:getAppBuilderApp",
+                "majorVersion": 4
+            },
             "datadog_application_key": {
                 "current": "datadog:index/getApplicationKey:getApplicationKey",
                 "majorVersion": 4
@@ -17560,6 +17581,15 @@
                 "current": "datadog:index/getRumApplication:getRumApplication",
                 "majorVersion": 4
             },
+            "datadog_rum_retention_filters": {
+                "current": "datadog:index/getRumRetentionFilters:getRumRetentionFilters",
+                "majorVersion": 4,
+                "fields": {
+                    "retention_filters": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "datadog_security_monitoring_filters": {
                 "current": "datadog:index/getSecurityMonitoringFilters:getSecurityMonitoringFilters",
                 "majorVersion": 4,
@@ -17765,6 +17795,22 @@
                     }
                 }
             },
+            "datadog_software_catalog": {
+                "current": "datadog:index/getSoftwareCatalog:getSoftwareCatalog",
+                "majorVersion": 4,
+                "fields": {
+                    "entities": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "tags": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "datadog_synthetics_global_variable": {
                 "current": "datadog:index/getSyntheticsGlobalVariable:getSyntheticsGlobalVariable",
                 "majorVersion": 4,
@@ -17865,6 +17911,7 @@
             "datadog:index/apiKey:ApiKey": 1,
             "datadog:index/apmRetentionFilter:ApmRetentionFilter": 1,
             "datadog:index/apmRetentionFilterOrder:ApmRetentionFilterOrder": 1,
+            "datadog:index/appBuilderApp:AppBuilderApp": 1,
             "datadog:index/applicationKey:ApplicationKey": 1,
             "datadog:index/appsecWafCustomRule:AppsecWafCustomRule": 1,
             "datadog:index/appsecWafExclusionFilter:AppsecWafExclusionFilter": 1,
@@ -17901,6 +17948,8 @@
             "datadog:index/role:Role": 0,
             "datadog:index/rumApplication:RumApplication": 1,
             "datadog:index/rumMetric:RumMetric": 1,
+            "datadog:index/rumRetentionFilter:RumRetentionFilter": 1,
+            "datadog:index/rumRetentionFiltersOrder:RumRetentionFiltersOrder": 1,
             "datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule": 0,
             "datadog:index/securityMonitoringFilter:SecurityMonitoringFilter": 0,
             "datadog:index/securityMonitoringRule:SecurityMonitoringRule": 0,
@@ -17944,6 +17993,7 @@
             "datadog:index/getActionConnection:getActionConnection": 1,
             "datadog:index/getApiKey:getApiKey": 1,
             "datadog:index/getApmRetentionFiltersOrder:getApmRetentionFiltersOrder": 1,
+            "datadog:index/getAppBuilderApp:getAppBuilderApp": 1,
             "datadog:index/getApplicationKey:getApplicationKey": 1,
             "datadog:index/getCloudWorkloadSecurityAgentRules:getCloudWorkloadSecurityAgentRules": 0,
             "datadog:index/getCsmThreatsAgentRules:getCsmThreatsAgentRules": 1,
@@ -17965,6 +18015,7 @@
             "datadog:index/getRoleUsers:getRoleUsers": 1,
             "datadog:index/getRoles:getRoles": 0,
             "datadog:index/getRumApplication:getRumApplication": 1,
+            "datadog:index/getRumRetentionFilters:getRumRetentionFilters": 1,
             "datadog:index/getSecurityMonitoringFilters:getSecurityMonitoringFilters": 0,
             "datadog:index/getSecurityMonitoringRules:getSecurityMonitoringRules": 0,
             "datadog:index/getSecurityMonitoringSuppressions:getSecurityMonitoringSuppressions": 1,
@@ -17973,8 +18024,9 @@
             "datadog:index/getServiceAccount:getServiceAccount": 1,
             "datadog:index/getServiceLevelObjective:getServiceLevelObjective": 0,
             "datadog:index/getServiceLevelObjectives:getServiceLevelObjectives": 0,
+            "datadog:index/getSoftwareCatalog:getSoftwareCatalog": 1,
             "datadog:index/getSyntheticsGlobalVariable:getSyntheticsGlobalVariable": 1,
-            "datadog:index/getSyntheticsLocations:getSyntheticsLocations": 0,
+            "datadog:index/getSyntheticsLocations:getSyntheticsLocations": 1,
             "datadog:index/getSyntheticsTest:getSyntheticsTest": 0,
             "datadog:index/getTeam:getTeam": 1,
             "datadog:index/getTeamMemberships:getTeamMemberships": 1,
