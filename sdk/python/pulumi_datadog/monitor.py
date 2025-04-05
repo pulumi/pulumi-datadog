@@ -102,9 +102,9 @@ class MonitorArgs:
         :param pulumi.Input[str] on_missing_data: Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
                in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
                evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than
-               `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only
-               available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are:
-               `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
+               `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not
+               available for Service Check, Composite, or SLO monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`,
+               `resolve`, and `default`.
         :param pulumi.Input[str] priority: Integer from 1 (high) to 5 (low) indicating alert severity.
         :param pulumi.Input[int] renotify_interval: The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
                re-notify if it's not resolved.
@@ -486,9 +486,9 @@ class MonitorArgs:
         Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
         in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
         evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than
-        `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only
-        available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are:
-        `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
+        `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not
+        available for Service Check, Composite, or SLO monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`,
+        `resolve`, and `default`.
         """
         return pulumi.get(self, "on_missing_data")
 
@@ -715,9 +715,9 @@ class _MonitorState:
         :param pulumi.Input[str] on_missing_data: Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
                in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
                evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than
-               `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only
-               available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are:
-               `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
+               `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not
+               available for Service Check, Composite, or SLO monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`,
+               `resolve`, and `default`.
         :param pulumi.Input[str] priority: Integer from 1 (high) to 5 (low) indicating alert severity.
         :param pulumi.Input[int] renotify_interval: The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
                re-notify if it's not resolved.
@@ -1083,9 +1083,9 @@ class _MonitorState:
         Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
         in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
         evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than
-        `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only
-        available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are:
-        `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
+        `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not
+        available for Service Check, Composite, or SLO monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`,
+        `resolve`, and `default`.
         """
         return pulumi.get(self, "on_missing_data")
 
@@ -1370,9 +1370,9 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[str] on_missing_data: Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
                in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
                evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than
-               `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only
-               available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are:
-               `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
+               `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not
+               available for Service Check, Composite, or SLO monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`,
+               `resolve`, and `default`.
         :param pulumi.Input[str] priority: Integer from 1 (high) to 5 (low) indicating alert severity.
         :param pulumi.Input[int] renotify_interval: The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
                re-notify if it's not resolved.
@@ -1626,9 +1626,9 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[str] on_missing_data: Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
                in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
                evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than
-               `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only
-               available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are:
-               `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
+               `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not
+               available for Service Check, Composite, or SLO monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`,
+               `resolve`, and `default`.
         :param pulumi.Input[str] priority: Integer from 1 (high) to 5 (low) indicating alert severity.
         :param pulumi.Input[int] renotify_interval: The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
                re-notify if it's not resolved.
@@ -1879,9 +1879,9 @@ class Monitor(pulumi.CustomResource):
         Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
         in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
         evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than
-        `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only
-        available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are:
-        `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
+        `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not
+        available for Service Check, Composite, or SLO monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`,
+        `resolve`, and `default`.
         """
         return pulumi.get(self, "on_missing_data")
 

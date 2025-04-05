@@ -174,9 +174,9 @@ export class Monitor extends pulumi.CustomResource {
      * Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
      * in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
      * evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than
-     * `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only
-     * available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are:
-     * `showNoData`, `showAndNotifyNoData`, `resolve`, and `default`.
+     * `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not
+     * available for Service Check, Composite, or SLO monitors. Valid values are: `showNoData`, `showAndNotifyNoData`,
+     * `resolve`, and `default`.
      */
     public readonly onMissingData!: pulumi.Output<string | undefined>;
     /**
@@ -448,9 +448,9 @@ export interface MonitorState {
      * Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
      * in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
      * evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than
-     * `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only
-     * available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are:
-     * `showNoData`, `showAndNotifyNoData`, `resolve`, and `default`.
+     * `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not
+     * available for Service Check, Composite, or SLO monitors. Valid values are: `showNoData`, `showAndNotifyNoData`,
+     * `resolve`, and `default`.
      */
     onMissingData?: pulumi.Input<string>;
     /**
@@ -622,9 +622,9 @@ export interface MonitorArgs {
      * Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
      * in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
      * evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than
-     * `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only
-     * available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are:
-     * `showNoData`, `showAndNotifyNoData`, `resolve`, and `default`.
+     * `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not
+     * available for Service Check, Composite, or SLO monitors. Valid values are: `showNoData`, `showAndNotifyNoData`,
+     * `resolve`, and `default`.
      */
     onMissingData?: pulumi.Input<string>;
     /**
