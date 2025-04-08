@@ -50,17 +50,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Source the permissions
- *         final var bar = DatadogFunctions.getPermissions();
+ *         final var bar = DatadogFunctions.getPermissions(GetPermissionsArgs.builder()
+ *             .build());
  * 
  *         // Create a new Datadog role
  *         var foo = new Role("foo", RoleArgs.builder()
  *             .name("foo")
  *             .permissions(            
  *                 RolePermissionArgs.builder()
- *                     .id(bar.applyValue(getPermissionsResult -> getPermissionsResult.permissions().monitorsDowntime()))
+ *                     .id(bar.permissions().monitorsDowntime())
  *                     .build(),
  *                 RolePermissionArgs.builder()
- *                     .id(bar.applyValue(getPermissionsResult -> getPermissionsResult.permissions().monitorsWrite()))
+ *                     .id(bar.permissions().monitorsWrite())
  *                     .build())
  *             .build());
  * 

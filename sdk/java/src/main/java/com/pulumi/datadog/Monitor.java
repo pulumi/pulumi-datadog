@@ -57,8 +57,8 @@ import javax.annotation.Nullable;
  *             .escalationMessage("Escalation message }{@literal @}{@code pagerduty")
  *             .query("avg(last_1h):avg:aws.ec2.cpu}{{@code environment:foo,host:foo}}{@code  by }{{@code host}}{@code  > 4")
  *             .monitorThresholds(MonitorMonitorThresholdsArgs.builder()
- *                 .warning(2)
- *                 .critical(4)
+ *                 .warning("2")
+ *                 .critical("4")
  *                 .build())
  *             .includeTags(true)
  *             .tags(            

@@ -20,50 +20,6 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.datadog.ApmRetentionFilter;
- * import com.pulumi.datadog.ApmRetentionFilterArgs;
- * import com.pulumi.datadog.ApmRetentionFilterOrder;
- * import com.pulumi.datadog.ApmRetentionFilterOrderArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         // Create APM retention filter
- *         var foo = new ApmRetentionFilter("foo", ApmRetentionFilterArgs.builder()
- *             .name("Sample order")
- *             .rate("1.0")
- *             .filter(ApmRetentionFilterFilterArgs.builder()
- *                 .query("*")
- *                 .build())
- *             .filterType("spans-sampling-processor")
- *             .enabled(false)
- *             .build());
- * 
- *         // Create APM reention filter order
- *         var bar = new ApmRetentionFilterOrder("bar", ApmRetentionFilterOrderArgs.builder()
- *             .filterIds(foo.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
