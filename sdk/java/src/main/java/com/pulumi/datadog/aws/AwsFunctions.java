@@ -191,7 +191,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var rules = AwsFunctions.getIntegrationNamespaceRules();
+     *         final var rules = AwsFunctions.getIntegrationNamespaceRules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -230,7 +230,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var rules = AwsFunctions.getIntegrationNamespaceRules();
+     *         final var rules = AwsFunctions.getIntegrationNamespaceRules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -269,7 +269,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var rules = AwsFunctions.getIntegrationNamespaceRules();
+     *         final var rules = AwsFunctions.getIntegrationNamespaceRules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -308,7 +308,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var rules = AwsFunctions.getIntegrationNamespaceRules();
+     *         final var rules = AwsFunctions.getIntegrationNamespaceRules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -347,7 +347,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var rules = AwsFunctions.getIntegrationNamespaceRules();
+     *         final var rules = AwsFunctions.getIntegrationNamespaceRules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -386,7 +386,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var rules = AwsFunctions.getIntegrationNamespaceRules();
+     *         final var rules = AwsFunctions.getIntegrationNamespaceRules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -425,7 +425,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var rules = AwsFunctions.getIntegrationNamespaceRules();
+     *         final var rules = AwsFunctions.getIntegrationNamespaceRules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }

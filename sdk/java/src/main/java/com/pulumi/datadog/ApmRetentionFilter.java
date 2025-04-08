@@ -22,43 +22,6 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.datadog.ApmRetentionFilter;
- * import com.pulumi.datadog.ApmRetentionFilterArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App }{{@code
- *     public static void main(String[] args) }{{@code
- *         Pulumi.run(App::stack);
- *     }}{@code
- * 
- *     public static void stack(Context ctx) }{{@code
- *         // Create APM retention filter
- *         var foo = new ApmRetentionFilter("foo", ApmRetentionFilterArgs.builder()
- *             .name("Sample order")
- *             .rate("1.0")
- *             .filter(ApmRetentionFilterFilterArgs.builder()
- *                 .query("service:sample AND env:production AND }{@literal @}{@code http.method:GET AND app:sampleapp AND }{@literal @}{@code http.status_code:200 AND }{@literal @}{@code duration:>600000000")
- *                 .build())
- *             .filterType("spans-sampling-processor")
- *             .enabled(false)
- *             .build());
- * 
- *     }}{@code
- * }}{@code
- * }
- * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

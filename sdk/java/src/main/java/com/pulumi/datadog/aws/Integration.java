@@ -55,8 +55,8 @@ import javax.annotation.Nullable;
  *                 "key:value",
  *                 "key2:value2")
  *             .accountSpecificNamespaceRules(Map.ofEntries(
- *                 Map.entry("auto_scaling", false),
- *                 Map.entry("opsworks", false)
+ *                 Map.entry("auto_scaling", "false"),
+ *                 Map.entry("opsworks", "false")
  *             ))
  *             .excludedRegions(            
  *                 "us-east-1",

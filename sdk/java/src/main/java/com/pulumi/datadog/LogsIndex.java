@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *                 .resetTime("14:00")
  *                 .resetUtcOffset("+02:00")
  *                 .build())
- *             .dailyLimitWarningThresholdPercentage(50)
+ *             .dailyLimitWarningThresholdPercentage(50.0)
  *             .retentionDays(7)
  *             .flexRetentionDays(180)
  *             .filters(LogsIndexFilterArgs.builder()
@@ -78,7 +78,7 @@ import javax.annotation.Nullable;
  *                     .isEnabled(true)
  *                     .filters(LogsIndexExclusionFilterFilterArgs.builder()
  *                         .query("service:kube_apiserver")
- *                         .sampleRate(1)
+ *                         .sampleRate(1.0)
  *                         .build())
  *                     .build())
  *             .build());
