@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *         var bar = new ServiceAccount("bar", ServiceAccountArgs.builder()
  *             .email("new}{@literal @}{@code example.com")
  *             .name("Service Account Bar")
- *             .roles(roRole.applyValue(getRoleResult -> getRoleResult.id()))
+ *             .roles(roRole.id())
  *             .build());
  * 
  *     }}{@code

@@ -32,7 +32,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.datadog.appsecExclusionFilter;
- * import com.pulumi.datadog.AppsecExclusionFilterArgs;
+ * import com.pulumi.datadog.appsecExclusionFilterArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -51,15 +51,21 @@ import javax.annotation.Nullable;
  *             .description("Exclude false positives on a path")
  *             .enabled(true)
  *             .pathGlob("/accounts/*")
- *             .rulesTarget(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *             .scope(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .rulesTarget(List.of(Map.of("tags", List.of(Map.ofEntries(
+ *                 Map.entry("category", "attack_attempt"),
+ *                 Map.entry("type", "lfi")
+ *             )))))
+ *             .scope(List.of(Map.ofEntries(
+ *                 Map.entry("env", "www"),
+ *                 Map.entry("service", "prod")
+ *             )))
  *             .build());
  * 
  *         // Create a WAF exclusion filter for trusted IPs
  *         var trustedIps = new AppsecExclusionFilter("trustedIps", AppsecExclusionFilterArgs.builder()
  *             .description("Do not block office IP network")
  *             .enabled(true)
- *             .ipList("198.10.14.53/24")
+ *             .ipList(List.of("198.10.14.53/24"))
  *             .onMatch("monitor")
  *             .build());
  * 
