@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  *                     .query("*")
  *                     .eventSize("l")
  *                     .title("Widget Title")
- *                     .titleSize(16)
+ *                     .titleSize("16")
  *                     .titleAlign("right")
  *                     .build())
  *                 .build())

@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *         var devRoRoleMapping = new AuthnMapping("devRoRoleMapping", AuthnMappingArgs.builder()
  *             .key("Member-of")
  *             .value("Development")
- *             .role(roRole.applyValue(getRoleResult -> getRoleResult.id()))
+ *             .role(roRole.id())
  *             .build());
  * 
  *     }

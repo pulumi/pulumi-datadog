@@ -650,7 +650,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = DatadogFunctions.getApmRetentionFiltersOrder();
+     *         final var foo = DatadogFunctions.getApmRetentionFiltersOrder(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -689,7 +689,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = DatadogFunctions.getApmRetentionFiltersOrder();
+     *         final var foo = DatadogFunctions.getApmRetentionFiltersOrder(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -728,7 +728,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = DatadogFunctions.getApmRetentionFiltersOrder();
+     *         final var foo = DatadogFunctions.getApmRetentionFiltersOrder(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -767,7 +767,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = DatadogFunctions.getApmRetentionFiltersOrder();
+     *         final var foo = DatadogFunctions.getApmRetentionFiltersOrder(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -806,7 +806,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = DatadogFunctions.getApmRetentionFiltersOrder();
+     *         final var foo = DatadogFunctions.getApmRetentionFiltersOrder(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -845,7 +845,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = DatadogFunctions.getApmRetentionFiltersOrder();
+     *         final var foo = DatadogFunctions.getApmRetentionFiltersOrder(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -884,7 +884,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = DatadogFunctions.getApmRetentionFiltersOrder();
+     *         final var foo = DatadogFunctions.getApmRetentionFiltersOrder(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1425,7 +1425,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getCloudWorkloadSecurityAgentRules();
+     *         final var test = DatadogFunctions.getCloudWorkloadSecurityAgentRules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1462,7 +1462,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getCloudWorkloadSecurityAgentRules();
+     *         final var test = DatadogFunctions.getCloudWorkloadSecurityAgentRules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1499,7 +1499,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getCloudWorkloadSecurityAgentRules();
+     *         final var test = DatadogFunctions.getCloudWorkloadSecurityAgentRules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1536,7 +1536,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getCloudWorkloadSecurityAgentRules();
+     *         final var test = DatadogFunctions.getCloudWorkloadSecurityAgentRules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1573,7 +1573,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getCloudWorkloadSecurityAgentRules();
+     *         final var test = DatadogFunctions.getCloudWorkloadSecurityAgentRules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1610,7 +1610,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getCloudWorkloadSecurityAgentRules();
+     *         final var test = DatadogFunctions.getCloudWorkloadSecurityAgentRules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1647,7 +1647,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getCloudWorkloadSecurityAgentRules();
+     *         final var test = DatadogFunctions.getCloudWorkloadSecurityAgentRules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1958,7 +1958,7 @@ public final class DatadogFunctions {
      *         var time = new Dashboard("time", DashboardArgs.builder()
      *             .title("TF Test Layout Dashboard")
      *             .description("Created using the Datadog provider in Pulumi")
-     *             .dashboardLists(test.applyValue(getDashboardListResult -> getDashboardListResult.id()))
+     *             .dashboardLists(test.id())
      *             .layoutType("ordered")
      *             .isReadOnly(true)
      *             .widgets(DashboardWidgetArgs.builder()
@@ -2021,7 +2021,7 @@ public final class DatadogFunctions {
      *         var time = new Dashboard("time", DashboardArgs.builder()
      *             .title("TF Test Layout Dashboard")
      *             .description("Created using the Datadog provider in Pulumi")
-     *             .dashboardLists(test.applyValue(getDashboardListResult -> getDashboardListResult.id()))
+     *             .dashboardLists(test.id())
      *             .layoutType("ordered")
      *             .isReadOnly(true)
      *             .widgets(DashboardWidgetArgs.builder()
@@ -2084,7 +2084,7 @@ public final class DatadogFunctions {
      *         var time = new Dashboard("time", DashboardArgs.builder()
      *             .title("TF Test Layout Dashboard")
      *             .description("Created using the Datadog provider in Pulumi")
-     *             .dashboardLists(test.applyValue(getDashboardListResult -> getDashboardListResult.id()))
+     *             .dashboardLists(test.id())
      *             .layoutType("ordered")
      *             .isReadOnly(true)
      *             .widgets(DashboardWidgetArgs.builder()
@@ -2147,7 +2147,7 @@ public final class DatadogFunctions {
      *         var time = new Dashboard("time", DashboardArgs.builder()
      *             .title("TF Test Layout Dashboard")
      *             .description("Created using the Datadog provider in Pulumi")
-     *             .dashboardLists(test.applyValue(getDashboardListResult -> getDashboardListResult.id()))
+     *             .dashboardLists(test.id())
      *             .layoutType("ordered")
      *             .isReadOnly(true)
      *             .widgets(DashboardWidgetArgs.builder()
@@ -2210,7 +2210,7 @@ public final class DatadogFunctions {
      *         var time = new Dashboard("time", DashboardArgs.builder()
      *             .title("TF Test Layout Dashboard")
      *             .description("Created using the Datadog provider in Pulumi")
-     *             .dashboardLists(test.applyValue(getDashboardListResult -> getDashboardListResult.id()))
+     *             .dashboardLists(test.id())
      *             .layoutType("ordered")
      *             .isReadOnly(true)
      *             .widgets(DashboardWidgetArgs.builder()
@@ -2239,37 +2239,6 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.datadog.DatadogFunctions;
-     * import com.pulumi.datadog.inputs.GetHostsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var foo = DatadogFunctions.getHosts(GetHostsArgs.builder()
-     *             .includeMutedHostsData(true)
-     *             .includeHostsMetadata(true)
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2282,37 +2251,6 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.datadog.DatadogFunctions;
-     * import com.pulumi.datadog.inputs.GetHostsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var foo = DatadogFunctions.getHosts(GetHostsArgs.builder()
-     *             .includeMutedHostsData(true)
-     *             .includeHostsMetadata(true)
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2325,37 +2263,6 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.datadog.DatadogFunctions;
-     * import com.pulumi.datadog.inputs.GetHostsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var foo = DatadogFunctions.getHosts(GetHostsArgs.builder()
-     *             .includeMutedHostsData(true)
-     *             .includeHostsMetadata(true)
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2368,37 +2275,6 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.datadog.DatadogFunctions;
-     * import com.pulumi.datadog.inputs.GetHostsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var foo = DatadogFunctions.getHosts(GetHostsArgs.builder()
-     *             .includeMutedHostsData(true)
-     *             .includeHostsMetadata(true)
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2411,37 +2287,6 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.datadog.DatadogFunctions;
-     * import com.pulumi.datadog.inputs.GetHostsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var foo = DatadogFunctions.getHosts(GetHostsArgs.builder()
-     *             .includeMutedHostsData(true)
-     *             .includeHostsMetadata(true)
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2454,37 +2299,6 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.datadog.DatadogFunctions;
-     * import com.pulumi.datadog.inputs.GetHostsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var foo = DatadogFunctions.getHosts(GetHostsArgs.builder()
-     *             .includeMutedHostsData(true)
-     *             .includeHostsMetadata(true)
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2497,37 +2311,6 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.datadog.DatadogFunctions;
-     * import com.pulumi.datadog.inputs.GetHostsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var foo = DatadogFunctions.getHosts(GetHostsArgs.builder()
-     *             .includeMutedHostsData(true)
-     *             .includeHostsMetadata(true)
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2561,7 +2344,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getIpRanges();
+     *         final var test = DatadogFunctions.getIpRanges(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -2600,7 +2383,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getIpRanges();
+     *         final var test = DatadogFunctions.getIpRanges(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -2639,7 +2422,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getIpRanges();
+     *         final var test = DatadogFunctions.getIpRanges(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -2678,7 +2461,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getIpRanges();
+     *         final var test = DatadogFunctions.getIpRanges(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -2717,7 +2500,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getIpRanges();
+     *         final var test = DatadogFunctions.getIpRanges(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -2756,7 +2539,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getIpRanges();
+     *         final var test = DatadogFunctions.getIpRanges(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -2795,7 +2578,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getIpRanges();
+     *         final var test = DatadogFunctions.getIpRanges(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -2883,7 +2666,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getLogsIndexes();
+     *         final var test = DatadogFunctions.getLogsIndexes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -2922,7 +2705,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getLogsIndexes();
+     *         final var test = DatadogFunctions.getLogsIndexes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -2961,7 +2744,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getLogsIndexes();
+     *         final var test = DatadogFunctions.getLogsIndexes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -3000,7 +2783,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getLogsIndexes();
+     *         final var test = DatadogFunctions.getLogsIndexes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -3039,7 +2822,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getLogsIndexes();
+     *         final var test = DatadogFunctions.getLogsIndexes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -3078,7 +2861,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getLogsIndexes();
+     *         final var test = DatadogFunctions.getLogsIndexes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -3117,7 +2900,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getLogsIndexes();
+     *         final var test = DatadogFunctions.getLogsIndexes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -3156,7 +2939,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getLogsIndexesOrder();
+     *         final var test = DatadogFunctions.getLogsIndexesOrder(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -3195,7 +2978,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getLogsIndexesOrder();
+     *         final var test = DatadogFunctions.getLogsIndexesOrder(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -3234,7 +3017,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getLogsIndexesOrder();
+     *         final var test = DatadogFunctions.getLogsIndexesOrder(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -3273,7 +3056,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getLogsIndexesOrder();
+     *         final var test = DatadogFunctions.getLogsIndexesOrder(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -3312,7 +3095,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getLogsIndexesOrder();
+     *         final var test = DatadogFunctions.getLogsIndexesOrder(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -3351,7 +3134,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getLogsIndexesOrder();
+     *         final var test = DatadogFunctions.getLogsIndexesOrder(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -3390,7 +3173,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getLogsIndexesOrder();
+     *         final var test = DatadogFunctions.getLogsIndexesOrder(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -3513,7 +3296,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getLogsPipelinesOrder();
+     *         final var test = DatadogFunctions.getLogsPipelinesOrder(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -3552,7 +3335,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getLogsPipelinesOrder();
+     *         final var test = DatadogFunctions.getLogsPipelinesOrder(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -3591,7 +3374,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getLogsPipelinesOrder();
+     *         final var test = DatadogFunctions.getLogsPipelinesOrder(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -3630,7 +3413,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getLogsPipelinesOrder();
+     *         final var test = DatadogFunctions.getLogsPipelinesOrder(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -3669,7 +3452,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getLogsPipelinesOrder();
+     *         final var test = DatadogFunctions.getLogsPipelinesOrder(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -3708,7 +3491,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getLogsPipelinesOrder();
+     *         final var test = DatadogFunctions.getLogsPipelinesOrder(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -3747,7 +3530,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getLogsPipelinesOrder();
+     *         final var test = DatadogFunctions.getLogsPipelinesOrder(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -4087,7 +3870,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getMonitorConfigPolicies();
+     *         final var test = DatadogFunctions.getMonitorConfigPolicies(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -4126,7 +3909,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getMonitorConfigPolicies();
+     *         final var test = DatadogFunctions.getMonitorConfigPolicies(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -4165,7 +3948,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getMonitorConfigPolicies();
+     *         final var test = DatadogFunctions.getMonitorConfigPolicies(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -4204,7 +3987,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getMonitorConfigPolicies();
+     *         final var test = DatadogFunctions.getMonitorConfigPolicies(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -4243,7 +4026,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getMonitorConfigPolicies();
+     *         final var test = DatadogFunctions.getMonitorConfigPolicies(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -4282,7 +4065,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getMonitorConfigPolicies();
+     *         final var test = DatadogFunctions.getMonitorConfigPolicies(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -4321,7 +4104,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getMonitorConfigPolicies();
+     *         final var test = DatadogFunctions.getMonitorConfigPolicies(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -4410,7 +4193,8 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var permissions = DatadogFunctions.getPermissions();
+     *         final var permissions = DatadogFunctions.getPermissions(GetPermissionsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -4450,7 +4234,8 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var permissions = DatadogFunctions.getPermissions();
+     *         final var permissions = DatadogFunctions.getPermissions(GetPermissionsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -4490,7 +4275,8 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var permissions = DatadogFunctions.getPermissions();
+     *         final var permissions = DatadogFunctions.getPermissions(GetPermissionsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -4530,7 +4316,8 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var permissions = DatadogFunctions.getPermissions();
+     *         final var permissions = DatadogFunctions.getPermissions(GetPermissionsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -4570,7 +4357,8 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var permissions = DatadogFunctions.getPermissions();
+     *         final var permissions = DatadogFunctions.getPermissions(GetPermissionsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -4610,7 +4398,8 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var permissions = DatadogFunctions.getPermissions();
+     *         final var permissions = DatadogFunctions.getPermissions(GetPermissionsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -4650,7 +4439,8 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var permissions = DatadogFunctions.getPermissions();
+     *         final var permissions = DatadogFunctions.getPermissions(GetPermissionsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -5522,7 +5312,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getSecurityMonitoringFilters();
+     *         final var test = DatadogFunctions.getSecurityMonitoringFilters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -5561,7 +5351,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getSecurityMonitoringFilters();
+     *         final var test = DatadogFunctions.getSecurityMonitoringFilters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -5600,7 +5390,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getSecurityMonitoringFilters();
+     *         final var test = DatadogFunctions.getSecurityMonitoringFilters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -5639,7 +5429,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getSecurityMonitoringFilters();
+     *         final var test = DatadogFunctions.getSecurityMonitoringFilters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -5678,7 +5468,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getSecurityMonitoringFilters();
+     *         final var test = DatadogFunctions.getSecurityMonitoringFilters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -5717,7 +5507,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getSecurityMonitoringFilters();
+     *         final var test = DatadogFunctions.getSecurityMonitoringFilters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -5756,7 +5546,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getSecurityMonitoringFilters();
+     *         final var test = DatadogFunctions.getSecurityMonitoringFilters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -6154,10 +5944,10 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = DatadogFunctions.getSensitiveDataScannerGroupOrder();
+     *         final var foo = DatadogFunctions.getSensitiveDataScannerGroupOrder(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         var foobar = new SensitiveDataScannerGroupOrder("foobar", SensitiveDataScannerGroupOrderArgs.builder()
-     *             .groupIds(foo.applyValue(getSensitiveDataScannerGroupOrderResult -> getSensitiveDataScannerGroupOrderResult.groupIds()))
+     *             .groupIds(foo.groupIds())
      *             .build());
      * 
      *     }
@@ -6199,10 +5989,10 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = DatadogFunctions.getSensitiveDataScannerGroupOrder();
+     *         final var foo = DatadogFunctions.getSensitiveDataScannerGroupOrder(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         var foobar = new SensitiveDataScannerGroupOrder("foobar", SensitiveDataScannerGroupOrderArgs.builder()
-     *             .groupIds(foo.applyValue(getSensitiveDataScannerGroupOrderResult -> getSensitiveDataScannerGroupOrderResult.groupIds()))
+     *             .groupIds(foo.groupIds())
      *             .build());
      * 
      *     }
@@ -6244,10 +6034,10 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = DatadogFunctions.getSensitiveDataScannerGroupOrder();
+     *         final var foo = DatadogFunctions.getSensitiveDataScannerGroupOrder(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         var foobar = new SensitiveDataScannerGroupOrder("foobar", SensitiveDataScannerGroupOrderArgs.builder()
-     *             .groupIds(foo.applyValue(getSensitiveDataScannerGroupOrderResult -> getSensitiveDataScannerGroupOrderResult.groupIds()))
+     *             .groupIds(foo.groupIds())
      *             .build());
      * 
      *     }
@@ -6289,10 +6079,10 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = DatadogFunctions.getSensitiveDataScannerGroupOrder();
+     *         final var foo = DatadogFunctions.getSensitiveDataScannerGroupOrder(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         var foobar = new SensitiveDataScannerGroupOrder("foobar", SensitiveDataScannerGroupOrderArgs.builder()
-     *             .groupIds(foo.applyValue(getSensitiveDataScannerGroupOrderResult -> getSensitiveDataScannerGroupOrderResult.groupIds()))
+     *             .groupIds(foo.groupIds())
      *             .build());
      * 
      *     }
@@ -6334,10 +6124,10 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = DatadogFunctions.getSensitiveDataScannerGroupOrder();
+     *         final var foo = DatadogFunctions.getSensitiveDataScannerGroupOrder(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         var foobar = new SensitiveDataScannerGroupOrder("foobar", SensitiveDataScannerGroupOrderArgs.builder()
-     *             .groupIds(foo.applyValue(getSensitiveDataScannerGroupOrderResult -> getSensitiveDataScannerGroupOrderResult.groupIds()))
+     *             .groupIds(foo.groupIds())
      *             .build());
      * 
      *     }
@@ -6379,10 +6169,10 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = DatadogFunctions.getSensitiveDataScannerGroupOrder();
+     *         final var foo = DatadogFunctions.getSensitiveDataScannerGroupOrder(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         var foobar = new SensitiveDataScannerGroupOrder("foobar", SensitiveDataScannerGroupOrderArgs.builder()
-     *             .groupIds(foo.applyValue(getSensitiveDataScannerGroupOrderResult -> getSensitiveDataScannerGroupOrderResult.groupIds()))
+     *             .groupIds(foo.groupIds())
      *             .build());
      * 
      *     }
@@ -6424,10 +6214,10 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = DatadogFunctions.getSensitiveDataScannerGroupOrder();
+     *         final var foo = DatadogFunctions.getSensitiveDataScannerGroupOrder(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         var foobar = new SensitiveDataScannerGroupOrder("foobar", SensitiveDataScannerGroupOrderArgs.builder()
-     *             .groupIds(foo.applyValue(getSensitiveDataScannerGroupOrderResult -> getSensitiveDataScannerGroupOrderResult.groupIds()))
+     *             .groupIds(foo.groupIds())
      *             .build());
      * 
      *     }
@@ -7175,7 +6965,8 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getSoftwareCatalog();
+     *         final var test = DatadogFunctions.getSoftwareCatalog(GetSoftwareCatalogArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -7215,7 +7006,8 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getSoftwareCatalog();
+     *         final var test = DatadogFunctions.getSoftwareCatalog(GetSoftwareCatalogArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -7255,7 +7047,8 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getSoftwareCatalog();
+     *         final var test = DatadogFunctions.getSoftwareCatalog(GetSoftwareCatalogArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -7295,7 +7088,8 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getSoftwareCatalog();
+     *         final var test = DatadogFunctions.getSoftwareCatalog(GetSoftwareCatalogArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -7335,7 +7129,8 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getSoftwareCatalog();
+     *         final var test = DatadogFunctions.getSoftwareCatalog(GetSoftwareCatalogArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -7375,7 +7170,8 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getSoftwareCatalog();
+     *         final var test = DatadogFunctions.getSoftwareCatalog(GetSoftwareCatalogArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -7415,7 +7211,8 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getSoftwareCatalog();
+     *         final var test = DatadogFunctions.getSoftwareCatalog(GetSoftwareCatalogArgs.builder()
+     *             .build());
      * 
      *     }
      * }

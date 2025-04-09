@@ -25,59 +25,6 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.datadog.DowntimeSchedule;
- * import com.pulumi.datadog.DowntimeScheduleArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         // Create new downtime_schedule resource
- *         var downtimeScheduleExample = new DowntimeSchedule("downtimeScheduleExample", DowntimeScheduleArgs.builder()
- *             .scope("env:us9-prod7 AND team:test123")
- *             .monitorIdentifier(DowntimeScheduleMonitorIdentifierArgs.builder()
- *                 .monitorTags(                
- *                     "test:123",
- *                     "data:test")
- *                 .build())
- *             .recurringSchedule(DowntimeScheduleRecurringScheduleArgs.builder()
- *                 .recurrences(DowntimeScheduleRecurringScheduleRecurrenceArgs.builder()
- *                     .duration("1h")
- *                     .rrule("FREQ=DAILY;INTERVAL=1")
- *                     .start("2050-01-02T03:04:05")
- *                     .build())
- *                 .timezone("America/New_York")
- *                 .build())
- *             .displayTimezone("America/New_York")
- *             .message("Message about the downtime")
- *             .muteFirstRecoveryNotification(true)
- *             .notifyEndStates(            
- *                 "alert",
- *                 "warn")
- *             .notifyEndTypes(            
- *                 "canceled",
- *                 "expired")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

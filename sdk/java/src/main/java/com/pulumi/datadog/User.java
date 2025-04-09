@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *         // Create a new Datadog user
  *         var foo = new User("foo", UserArgs.builder()
  *             .email("new}{@literal @}{@code example.com")
- *             .roles(roRole.applyValue(getRoleResult -> getRoleResult.id()))
+ *             .roles(roRole.id())
  *             .build());
  * 
  *     }}{@code
