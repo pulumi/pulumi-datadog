@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Slack.Outputs
         /// </summary>
         public readonly bool? Message;
         /// <summary>
+        /// Show interactive buttons to mute the alerting monitor. Defaults to `true`.
+        /// </summary>
+        public readonly bool? MuteButtons;
+        /// <summary>
         /// Show the list of @-handles in the alert event. Defaults to `true`.
         /// </summary>
         public readonly bool? Notified;
@@ -34,6 +38,8 @@ namespace Pulumi.Datadog.Slack.Outputs
         private ChannelDisplay(
             bool? message,
 
+            bool? muteButtons,
+
             bool? notified,
 
             bool? snapshot,
@@ -41,6 +47,7 @@ namespace Pulumi.Datadog.Slack.Outputs
             bool? tags)
         {
             Message = message;
+            MuteButtons = muteButtons;
             Notified = notified;
             Snapshot = snapshot;
             Tags = tags;

@@ -395,6 +395,11 @@ export type MonitorJson = import("./monitorJson").MonitorJson;
 export const MonitorJson: typeof import("./monitorJson").MonitorJson = null as any;
 utilities.lazyLoad(exports, ["MonitorJson"], () => require("./monitorJson"));
 
+export { ObservabilityPipelineArgs, ObservabilityPipelineState } from "./observabilityPipeline";
+export type ObservabilityPipeline = import("./observabilityPipeline").ObservabilityPipeline;
+export const ObservabilityPipeline: typeof import("./observabilityPipeline").ObservabilityPipeline = null as any;
+utilities.lazyLoad(exports, ["ObservabilityPipeline"], () => require("./observabilityPipeline"));
+
 export { OpenapiApiArgs, OpenapiApiState } from "./openapiApi";
 export type OpenapiApi = import("./openapiApi").OpenapiApi;
 export const OpenapiApi: typeof import("./openapiApi").OpenapiApi = null as any;
@@ -687,6 +692,8 @@ const _module = {
                 return new MonitorConfigPolicy(name, <any>undefined, { urn })
             case "datadog:index/monitorJson:MonitorJson":
                 return new MonitorJson(name, <any>undefined, { urn })
+            case "datadog:index/observabilityPipeline:ObservabilityPipeline":
+                return new ObservabilityPipeline(name, <any>undefined, { urn })
             case "datadog:index/openapiApi:OpenapiApi":
                 return new OpenapiApi(name, <any>undefined, { urn })
             case "datadog:index/organizationSettings:OrganizationSettings":
@@ -800,6 +807,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/metricTagConfiguration",
 pulumi.runtime.registerResourceModule("datadog", "index/monitor", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/monitorConfigPolicy", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/monitorJson", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/observabilityPipeline", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/openapiApi", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/organizationSettings", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/powerpack", _module)

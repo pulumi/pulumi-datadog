@@ -28,6 +28,10 @@ if not MYPY:
         """
         Show the main body of the alert event. Defaults to `true`.
         """
+        mute_buttons: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Show interactive buttons to mute the alerting monitor. Defaults to `true`.
+        """
         notified: NotRequired[pulumi.Input[builtins.bool]]
         """
         Show the list of @-handles in the alert event. Defaults to `true`.
@@ -47,17 +51,21 @@ elif False:
 class ChannelDisplayArgs:
     def __init__(__self__, *,
                  message: Optional[pulumi.Input[builtins.bool]] = None,
+                 mute_buttons: Optional[pulumi.Input[builtins.bool]] = None,
                  notified: Optional[pulumi.Input[builtins.bool]] = None,
                  snapshot: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[builtins.bool]] = None):
         """
         :param pulumi.Input[builtins.bool] message: Show the main body of the alert event. Defaults to `true`.
+        :param pulumi.Input[builtins.bool] mute_buttons: Show interactive buttons to mute the alerting monitor. Defaults to `true`.
         :param pulumi.Input[builtins.bool] notified: Show the list of @-handles in the alert event. Defaults to `true`.
         :param pulumi.Input[builtins.bool] snapshot: Show the alert event's snapshot image. Defaults to `true`.
         :param pulumi.Input[builtins.bool] tags: Show the scopes on which the monitor alerted. Defaults to `true`.
         """
         if message is not None:
             pulumi.set(__self__, "message", message)
+        if mute_buttons is not None:
+            pulumi.set(__self__, "mute_buttons", mute_buttons)
         if notified is not None:
             pulumi.set(__self__, "notified", notified)
         if snapshot is not None:
@@ -76,6 +84,18 @@ class ChannelDisplayArgs:
     @message.setter
     def message(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "message", value)
+
+    @property
+    @pulumi.getter(name="muteButtons")
+    def mute_buttons(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Show interactive buttons to mute the alerting monitor. Defaults to `true`.
+        """
+        return pulumi.get(self, "mute_buttons")
+
+    @mute_buttons.setter
+    def mute_buttons(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "mute_buttons", value)
 
     @property
     @pulumi.getter

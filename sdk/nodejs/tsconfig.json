@@ -122,6 +122,7 @@
         "ms/index.ts",
         "ms/integrationTeamsTenantBasedHandle.ts",
         "ms/integrationTeamsWorkflowsWebhookHandle.ts",
+        "observabilityPipeline.ts",
         "openapiApi.ts",
         "opsgenie/index.ts",
         "opsgenie/serviceObject.ts",

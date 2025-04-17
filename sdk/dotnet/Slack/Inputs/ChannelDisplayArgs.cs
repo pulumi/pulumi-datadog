@@ -19,6 +19,12 @@ namespace Pulumi.Datadog.Slack.Inputs
         public Input<bool>? Message { get; set; }
 
         /// <summary>
+        /// Show interactive buttons to mute the alerting monitor. Defaults to `true`.
+        /// </summary>
+        [Input("muteButtons")]
+        public Input<bool>? MuteButtons { get; set; }
+
+        /// <summary>
         /// Show the list of @-handles in the alert event. Defaults to `true`.
         /// </summary>
         [Input("notified")]

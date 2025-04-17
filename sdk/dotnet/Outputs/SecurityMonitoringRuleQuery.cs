@@ -22,6 +22,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Aggregation;
         /// <summary>
+        /// Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`. Defaults to `"logs"`.
+        /// </summary>
+        public readonly string? DataSource;
+        /// <summary>
         /// Field for which the cardinality is measured. Sent as an array.
         /// </summary>
         public readonly ImmutableArray<string> DistinctFields;
@@ -52,6 +56,8 @@ namespace Pulumi.Datadog.Outputs
 
             string? aggregation,
 
+            string? dataSource,
+
             ImmutableArray<string> distinctFields,
 
             ImmutableArray<string> groupByFields,
@@ -66,6 +72,7 @@ namespace Pulumi.Datadog.Outputs
         {
             AgentRules = agentRules;
             Aggregation = aggregation;
+            DataSource = dataSource;
             DistinctFields = distinctFields;
             GroupByFields = groupByFields;
             Metric = metric;

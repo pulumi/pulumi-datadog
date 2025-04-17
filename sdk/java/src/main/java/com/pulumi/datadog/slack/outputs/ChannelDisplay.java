@@ -17,6 +17,11 @@ public final class ChannelDisplay {
      */
     private @Nullable Boolean message;
     /**
+     * @return Show interactive buttons to mute the alerting monitor. Defaults to `true`.
+     * 
+     */
+    private @Nullable Boolean muteButtons;
+    /**
      * @return Show the list of {@literal @}-handles in the alert event. Defaults to `true`.
      * 
      */
@@ -39,6 +44,13 @@ public final class ChannelDisplay {
      */
     public Optional<Boolean> message() {
         return Optional.ofNullable(this.message);
+    }
+    /**
+     * @return Show interactive buttons to mute the alerting monitor. Defaults to `true`.
+     * 
+     */
+    public Optional<Boolean> muteButtons() {
+        return Optional.ofNullable(this.muteButtons);
     }
     /**
      * @return Show the list of {@literal @}-handles in the alert event. Defaults to `true`.
@@ -72,6 +84,7 @@ public final class ChannelDisplay {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean message;
+        private @Nullable Boolean muteButtons;
         private @Nullable Boolean notified;
         private @Nullable Boolean snapshot;
         private @Nullable Boolean tags;
@@ -79,6 +92,7 @@ public final class ChannelDisplay {
         public Builder(ChannelDisplay defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.message = defaults.message;
+    	      this.muteButtons = defaults.muteButtons;
     	      this.notified = defaults.notified;
     	      this.snapshot = defaults.snapshot;
     	      this.tags = defaults.tags;
@@ -88,6 +102,12 @@ public final class ChannelDisplay {
         public Builder message(@Nullable Boolean message) {
 
             this.message = message;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder muteButtons(@Nullable Boolean muteButtons) {
+
+            this.muteButtons = muteButtons;
             return this;
         }
         @CustomType.Setter
@@ -111,6 +131,7 @@ public final class ChannelDisplay {
         public ChannelDisplay build() {
             final var _resultValue = new ChannelDisplay();
             _resultValue.message = message;
+            _resultValue.muteButtons = muteButtons;
             _resultValue.notified = notified;
             _resultValue.snapshot = snapshot;
             _resultValue.tags = tags;
