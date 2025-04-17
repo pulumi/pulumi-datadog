@@ -14363,6 +14363,559 @@
                 "query"
             ]
         },
+        "datadog:index/ObservabilityPipelineConfig:ObservabilityPipelineConfig": {
+            "properties": {
+                "destinations": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigDestinations:ObservabilityPipelineConfigDestinations",
+                    "description": "List of destinations.\n"
+                },
+                "processors": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessors:ObservabilityPipelineConfigProcessors",
+                    "description": "List of processors.\n"
+                },
+                "sources": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigSources:ObservabilityPipelineConfigSources",
+                    "description": "List of sources.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/ObservabilityPipelineConfigDestinations:ObservabilityPipelineConfigDestinations": {
+            "properties": {
+                "datadogLogs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigDestinationsDatadogLog:ObservabilityPipelineConfigDestinationsDatadogLog"
+                    },
+                    "description": "The `datadog_logs` destination forwards logs to Datadog Log Management.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/ObservabilityPipelineConfigDestinationsDatadogLog:ObservabilityPipelineConfigDestinationsDatadogLog": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The unique ID of the destination.\n"
+                },
+                "inputs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The inputs for the destination.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "inputs"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigProcessors:ObservabilityPipelineConfigProcessors": {
+            "properties": {
+                "addFields": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsAddField:ObservabilityPipelineConfigProcessorsAddField"
+                    },
+                    "description": "The `add_fields` processor adds static key-value fields to logs.\n"
+                },
+                "filters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsFilter:ObservabilityPipelineConfigProcessorsFilter"
+                    },
+                    "description": "The `filter` processor allows conditional processing of logs based on a Datadog search query. Logs that match the `include` query are passed through; others are discarded.\n"
+                },
+                "parseJsons": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsParseJson:ObservabilityPipelineConfigProcessorsParseJson"
+                    },
+                    "description": "The `parse_json` processor extracts JSON from a specified field and flattens it into the event. This is useful when logs contain embedded JSON as a string.\n"
+                },
+                "quotas": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsQuota:ObservabilityPipelineConfigProcessorsQuota"
+                    },
+                    "description": "The `quota` measures logging traffic for logs that match a specified filter. When the configured daily quota is met, the processor can drop or alert.\n"
+                },
+                "removeFields": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsRemoveField:ObservabilityPipelineConfigProcessorsRemoveField"
+                    },
+                    "description": "The `remove_fields` processor deletes specified fields from logs.\n"
+                },
+                "renameFields": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsRenameField:ObservabilityPipelineConfigProcessorsRenameField"
+                    },
+                    "description": "The `rename_fields` processor changes field names.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/ObservabilityPipelineConfigProcessorsAddField:ObservabilityPipelineConfigProcessorsAddField": {
+            "properties": {
+                "fields": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsAddFieldField:ObservabilityPipelineConfigProcessorsAddFieldField"
+                    },
+                    "description": "A list of static fields (key-value pairs) that is added to each log event processed by this component.\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The unique ID of the processor.\n"
+                },
+                "include": {
+                    "type": "string",
+                    "description": "A Datadog search query used to determine which logs this processor targets.\n"
+                },
+                "inputs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The inputs for the processor.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "include",
+                "inputs"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigProcessorsAddFieldField:ObservabilityPipelineConfigProcessorsAddFieldField": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The field name to add.\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value to assign to the field.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "value"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigProcessorsFilter:ObservabilityPipelineConfigProcessorsFilter": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The unique ID of the processor.\n"
+                },
+                "include": {
+                    "type": "string",
+                    "description": "A Datadog search query used to determine which logs should pass through the filter. Logs that match this query continue to downstream components; others are dropped.\n"
+                },
+                "inputs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The inputs for the processor.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "include",
+                "inputs"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigProcessorsParseJson:ObservabilityPipelineConfigProcessorsParseJson": {
+            "properties": {
+                "field": {
+                    "type": "string",
+                    "description": "The field to parse.\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The unique ID of the processor.\n"
+                },
+                "include": {
+                    "type": "string",
+                    "description": "A Datadog search query used to determine which logs this processor targets.\n"
+                },
+                "inputs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The inputs for the processor.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "field",
+                "id",
+                "include",
+                "inputs"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigProcessorsQuota:ObservabilityPipelineConfigProcessorsQuota": {
+            "properties": {
+                "dropEvents": {
+                    "type": "boolean",
+                    "description": "Whether to drop events exceeding the limit.\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The unique ID of the processor.\n"
+                },
+                "ignoreWhenMissingPartitions": {
+                    "type": "boolean",
+                    "description": "Whether to ignore when partition fields are missing.\n"
+                },
+                "include": {
+                    "type": "string",
+                    "description": "A Datadog search query used to determine which logs this processor targets.\n"
+                },
+                "inputs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The inputs for the processor.\n"
+                },
+                "limit": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsQuotaLimit:ObservabilityPipelineConfigProcessorsQuotaLimit"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the quota.\n"
+                },
+                "overrides": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsQuotaOverride:ObservabilityPipelineConfigProcessorsQuotaOverride"
+                    },
+                    "description": "The overrides for field-specific quotas.\n"
+                },
+                "partitionFields": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of partition fields.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "dropEvents",
+                "id",
+                "include",
+                "inputs",
+                "name"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigProcessorsQuotaLimit:ObservabilityPipelineConfigProcessorsQuotaLimit": {
+            "properties": {
+                "enforce": {
+                    "type": "string",
+                    "description": "Whether to enforce by 'bytes' or 'events'. Valid values are `bytes`, `events`.\n"
+                },
+                "limit": {
+                    "type": "integer",
+                    "description": "The daily quota limit.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "enforce",
+                "limit"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigProcessorsQuotaOverride:ObservabilityPipelineConfigProcessorsQuotaOverride": {
+            "properties": {
+                "fields": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsQuotaOverrideField:ObservabilityPipelineConfigProcessorsQuotaOverrideField"
+                    },
+                    "description": "Fields that trigger this override.\n"
+                },
+                "limit": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsQuotaOverrideLimit:ObservabilityPipelineConfigProcessorsQuotaOverrideLimit"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/ObservabilityPipelineConfigProcessorsQuotaOverrideField:ObservabilityPipelineConfigProcessorsQuotaOverrideField": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The field name.\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The field value.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "value"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigProcessorsQuotaOverrideLimit:ObservabilityPipelineConfigProcessorsQuotaOverrideLimit": {
+            "properties": {
+                "enforce": {
+                    "type": "string",
+                    "description": "Whether to enforce by 'bytes' or 'events'. Valid values are `bytes`, `events`.\n"
+                },
+                "limit": {
+                    "type": "integer",
+                    "description": "The daily quota limit.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "enforce",
+                "limit"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigProcessorsRemoveField:ObservabilityPipelineConfigProcessorsRemoveField": {
+            "properties": {
+                "fields": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of fields to remove from the events.\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The unique ID of the processor.\n"
+                },
+                "include": {
+                    "type": "string",
+                    "description": "A Datadog search query used to determine which logs this processor targets.\n"
+                },
+                "inputs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The inputs for the processor.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "fields",
+                "id",
+                "include",
+                "inputs"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigProcessorsRenameField:ObservabilityPipelineConfigProcessorsRenameField": {
+            "properties": {
+                "fields": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsRenameFieldField:ObservabilityPipelineConfigProcessorsRenameFieldField"
+                    },
+                    "description": "List of fields to rename.\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The unique ID of the processor.\n"
+                },
+                "include": {
+                    "type": "string",
+                    "description": "A Datadog search query used to determine which logs this processor targets.\n"
+                },
+                "inputs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "he inputs for the processor.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "include",
+                "inputs"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigProcessorsRenameFieldField:ObservabilityPipelineConfigProcessorsRenameFieldField": {
+            "properties": {
+                "destination": {
+                    "type": "string",
+                    "description": "Destination field name.\n"
+                },
+                "preserveSource": {
+                    "type": "boolean",
+                    "description": "Whether to keep the original field.\n"
+                },
+                "source": {
+                    "type": "string",
+                    "description": "Source field to rename.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "destination",
+                "preserveSource",
+                "source"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigSources:ObservabilityPipelineConfigSources": {
+            "properties": {
+                "datadogAgents": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigSourcesDatadogAgent:ObservabilityPipelineConfigSourcesDatadogAgent"
+                    },
+                    "description": "The `datadog_agent` source collects logs from the Datadog Agent.\n"
+                },
+                "kafkas": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigSourcesKafka:ObservabilityPipelineConfigSourcesKafka"
+                    },
+                    "description": "The `kafka` source ingests data from Apache Kafka topics.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/ObservabilityPipelineConfigSourcesDatadogAgent:ObservabilityPipelineConfigSourcesDatadogAgent": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The unique ID of the source.\n"
+                },
+                "tls": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigSourcesDatadogAgentTls:ObservabilityPipelineConfigSourcesDatadogAgentTls",
+                    "description": "Configuration for enabling TLS encryption between the pipeline component and external services.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigSourcesDatadogAgentTls:ObservabilityPipelineConfigSourcesDatadogAgentTls": {
+            "properties": {
+                "caFile": {
+                    "type": "string",
+                    "description": "Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.\n"
+                },
+                "crtFile": {
+                    "type": "string",
+                    "description": "Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.\n"
+                },
+                "keyFile": {
+                    "type": "string",
+                    "description": "Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "crtFile"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigSourcesKafka:ObservabilityPipelineConfigSourcesKafka": {
+            "properties": {
+                "groupId": {
+                    "type": "string",
+                    "description": "The Kafka consumer group ID.\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The unique ID of the source.\n"
+                },
+                "librdkafkaOptions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigSourcesKafkaLibrdkafkaOption:ObservabilityPipelineConfigSourcesKafkaLibrdkafkaOption"
+                    },
+                    "description": "Advanced librdkafka client configuration options.\n"
+                },
+                "sasl": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigSourcesKafkaSasl:ObservabilityPipelineConfigSourcesKafkaSasl",
+                    "description": "SASL authentication settings.\n"
+                },
+                "tls": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigSourcesKafkaTls:ObservabilityPipelineConfigSourcesKafkaTls",
+                    "description": "Configuration for enabling TLS encryption between the pipeline component and external services.\n"
+                },
+                "topics": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of Kafka topic names to subscribe to. The source ingests messages from each topic specified.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "groupId",
+                "id",
+                "topics"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigSourcesKafkaLibrdkafkaOption:ObservabilityPipelineConfigSourcesKafkaLibrdkafkaOption": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the librdkafka option.\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value of the librdkafka option.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "value"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigSourcesKafkaSasl:ObservabilityPipelineConfigSourcesKafkaSasl": {
+            "properties": {
+                "mechanism": {
+                    "type": "string",
+                    "description": "SASL mechanism to use (e.g., PLAIN, SCRAM-SHA-256, SCRAM-SHA-512). Valid values are `PLAIN`, `SCRAM-SHA-256`, `SCRAM-SHA-512`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "mechanism"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigSourcesKafkaTls:ObservabilityPipelineConfigSourcesKafkaTls": {
+            "properties": {
+                "caFile": {
+                    "type": "string",
+                    "description": "Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.\n"
+                },
+                "crtFile": {
+                    "type": "string",
+                    "description": "Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.\n"
+                },
+                "keyFile": {
+                    "type": "string",
+                    "description": "Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "crtFile"
+            ]
+        },
         "datadog:index/OrganizationSettingsSettings:OrganizationSettingsSettings": {
             "properties": {
                 "privateWidgetShare": {
@@ -30858,6 +31411,10 @@
                     "type": "string",
                     "description": "The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`. Defaults to `\"count\"`.\n"
                 },
+                "dataSource": {
+                    "type": "string",
+                    "description": "Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`. Defaults to `\"logs\"`.\n"
+                },
                 "distinctFields": {
                     "type": "array",
                     "items": {
@@ -34563,6 +35120,10 @@
                     "type": "string",
                     "description": "The aggregation type. For Signal Correlation rules, it must be event_count.\n"
                 },
+                "dataSource": {
+                    "type": "string",
+                    "description": "Source of events.\n"
+                },
                 "distinctFields": {
                     "type": "array",
                     "items": {
@@ -35024,6 +35585,10 @@
                 "message": {
                     "type": "boolean",
                     "description": "Show the main body of the alert event. Defaults to `true`.\n"
+                },
+                "muteButtons": {
+                    "type": "boolean",
+                    "description": "Show interactive buttons to mute the alerting monitor. Defaults to `true`.\n"
                 },
                 "notified": {
                     "type": "boolean",
@@ -40298,6 +40863,49 @@
                 "type": "object"
             }
         },
+        "datadog:index/observabilityPipeline:ObservabilityPipeline": {
+            "description": "Provides a Datadog Observability Pipeline resource. Observability Pipelines allows you to collect and process logs within your own infrastructure, and then route them to downstream integrations.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  test:\n    type: datadog:ObservabilityPipeline\n    properties:\n      name: test pipeline\n      config:\n        - sources:\n            - kafkas:\n                - id: source-1\n                  groupId: my-consumer-group\n                  topics:\n                    - my-topic-1\n                    - my-topic-2\n                  tls:\n                    crtFile: /etc/certs/client.crt\n                    keyFile: /etc/certs/client.key\n                    caFile: /etc/certs/ca.crt\n                  sasl:\n                    - mechanism: SCRAM-SHA-512\n                  librdkafkaOptions:\n                    - name: fetch.message.max.bytes\n                      value: '1048576'\n                    - name: socket.timeout.ms\n                      value: '500'\n          processors:\n            - parseJsons:\n                - id: filter-1\n                  include: service:nginx\n                  field: message2\n                  inputs:\n                    - source-1\n                - id: filter-3\n                  include: service:nginx\n                  field: message\n                  inputs:\n                    - filter-2\n              filters:\n                - id: filter-2\n                  include: service:nginx\n                  inputs:\n                    - filter-1\n          destinations:\n            - datadogLogs:\n                - id: sink-1\n                  inputs:\n                    - filter-3\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "properties": {
+                "config": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfig:ObservabilityPipelineConfig",
+                    "description": "Configuration for the pipeline.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The pipeline name.\n"
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "inputProperties": {
+                "config": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfig:ObservabilityPipelineConfig",
+                    "description": "Configuration for the pipeline.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The pipeline name.\n"
+                }
+            },
+            "requiredInputs": [
+                "name"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ObservabilityPipeline resources.\n",
+                "properties": {
+                    "config": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfig:ObservabilityPipelineConfig",
+                        "description": "Configuration for the pipeline.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The pipeline name.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "datadog:index/openapiApi:OpenapiApi": {
             "description": "Deprecated: use the `datadog.SoftwareCatalog` resource instead. Provides a Datadog OpenAPI resource. This can be used to synchronize Datadog's [API catalog](https://docs.datadoghq.com/api_catalog/) with an [OpenAPI](https://www.openapis.org/) specifications file.\n\n## Import\n\n```sh\n$ pulumi import datadog:index/openapiApi:OpenapiApi new_list \"90646597-5fdb-4a17-a240-647003f8c028\"\n```\n\n",
             "properties": {
@@ -41188,7 +41796,7 @@
             }
         },
         "datadog:index/securityMonitoringRule:SecurityMonitoringRule": {
-            "description": "Provides a Datadog Security Monitoring Rule API resource. This can be used to create and manage Datadog security monitoring rules. To change settings for a default rule use `datadog_security_default_rule` instead.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst myrule = new datadog.SecurityMonitoringRule(\"myrule\", {\n    name: \"My rule\",\n    message: \"The rule has triggered.\",\n    enabled: true,\n    queries: [\n        {\n            name: \"errors\",\n            query: \"status:error\",\n            aggregation: \"count\",\n            groupByFields: [\"host\"],\n        },\n        {\n            name: \"warnings\",\n            query: \"status:warning\",\n            aggregation: \"count\",\n            groupByFields: [\"host\"],\n        },\n    ],\n    cases: [{\n        status: \"high\",\n        condition: \"errors \u003e 3 \u0026\u0026 warnings \u003e 10\",\n        notifications: [\"@user\"],\n    }],\n    options: {\n        evaluationWindow: 300,\n        keepAlive: 600,\n        maxSignalDuration: 900,\n    },\n    tags: [\"type:dos\"],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nmyrule = datadog.SecurityMonitoringRule(\"myrule\",\n    name=\"My rule\",\n    message=\"The rule has triggered.\",\n    enabled=True,\n    queries=[\n        {\n            \"name\": \"errors\",\n            \"query\": \"status:error\",\n            \"aggregation\": \"count\",\n            \"group_by_fields\": [\"host\"],\n        },\n        {\n            \"name\": \"warnings\",\n            \"query\": \"status:warning\",\n            \"aggregation\": \"count\",\n            \"group_by_fields\": [\"host\"],\n        },\n    ],\n    cases=[{\n        \"status\": \"high\",\n        \"condition\": \"errors \u003e 3 \u0026\u0026 warnings \u003e 10\",\n        \"notifications\": [\"@user\"],\n    }],\n    options={\n        \"evaluation_window\": 300,\n        \"keep_alive\": 600,\n        \"max_signal_duration\": 900,\n    },\n    tags=[\"type:dos\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var myrule = new Datadog.SecurityMonitoringRule(\"myrule\", new()\n    {\n        Name = \"My rule\",\n        Message = \"The rule has triggered.\",\n        Enabled = true,\n        Queries = new[]\n        {\n            new Datadog.Inputs.SecurityMonitoringRuleQueryArgs\n            {\n                Name = \"errors\",\n                Query = \"status:error\",\n                Aggregation = \"count\",\n                GroupByFields = new[]\n                {\n                    \"host\",\n                },\n            },\n            new Datadog.Inputs.SecurityMonitoringRuleQueryArgs\n            {\n                Name = \"warnings\",\n                Query = \"status:warning\",\n                Aggregation = \"count\",\n                GroupByFields = new[]\n                {\n                    \"host\",\n                },\n            },\n        },\n        Cases = new[]\n        {\n            new Datadog.Inputs.SecurityMonitoringRuleCaseArgs\n            {\n                Status = \"high\",\n                Condition = \"errors \u003e 3 \u0026\u0026 warnings \u003e 10\",\n                Notifications = new[]\n                {\n                    \"@user\",\n                },\n            },\n        },\n        Options = new Datadog.Inputs.SecurityMonitoringRuleOptionsArgs\n        {\n            EvaluationWindow = 300,\n            KeepAlive = 600,\n            MaxSignalDuration = 900,\n        },\n        Tags = new[]\n        {\n            \"type:dos\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewSecurityMonitoringRule(ctx, \"myrule\", \u0026datadog.SecurityMonitoringRuleArgs{\n\t\t\tName:    pulumi.String(\"My rule\"),\n\t\t\tMessage: pulumi.String(\"The rule has triggered.\"),\n\t\t\tEnabled: pulumi.Bool(true),\n\t\t\tQueries: datadog.SecurityMonitoringRuleQueryArray{\n\t\t\t\t\u0026datadog.SecurityMonitoringRuleQueryArgs{\n\t\t\t\t\tName:        pulumi.String(\"errors\"),\n\t\t\t\t\tQuery:       pulumi.String(\"status:error\"),\n\t\t\t\t\tAggregation: pulumi.String(\"count\"),\n\t\t\t\t\tGroupByFields: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"host\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026datadog.SecurityMonitoringRuleQueryArgs{\n\t\t\t\t\tName:        pulumi.String(\"warnings\"),\n\t\t\t\t\tQuery:       pulumi.String(\"status:warning\"),\n\t\t\t\t\tAggregation: pulumi.String(\"count\"),\n\t\t\t\t\tGroupByFields: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"host\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t\tCases: datadog.SecurityMonitoringRuleCaseArray{\n\t\t\t\t\u0026datadog.SecurityMonitoringRuleCaseArgs{\n\t\t\t\t\tStatus:    pulumi.String(\"high\"),\n\t\t\t\t\tCondition: pulumi.String(\"errors \u003e 3 \u0026\u0026 warnings \u003e 10\"),\n\t\t\t\t\tNotifications: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"@user\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t\tOptions: \u0026datadog.SecurityMonitoringRuleOptionsArgs{\n\t\t\t\tEvaluationWindow:  pulumi.Int(300),\n\t\t\t\tKeepAlive:         pulumi.Int(600),\n\t\t\t\tMaxSignalDuration: pulumi.Int(900),\n\t\t\t},\n\t\t\tTags: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"type:dos\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.SecurityMonitoringRule;\nimport com.pulumi.datadog.SecurityMonitoringRuleArgs;\nimport com.pulumi.datadog.inputs.SecurityMonitoringRuleQueryArgs;\nimport com.pulumi.datadog.inputs.SecurityMonitoringRuleCaseArgs;\nimport com.pulumi.datadog.inputs.SecurityMonitoringRuleOptionsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var myrule = new SecurityMonitoringRule(\"myrule\", SecurityMonitoringRuleArgs.builder()\n            .name(\"My rule\")\n            .message(\"The rule has triggered.\")\n            .enabled(true)\n            .queries(            \n                SecurityMonitoringRuleQueryArgs.builder()\n                    .name(\"errors\")\n                    .query(\"status:error\")\n                    .aggregation(\"count\")\n                    .groupByFields(\"host\")\n                    .build(),\n                SecurityMonitoringRuleQueryArgs.builder()\n                    .name(\"warnings\")\n                    .query(\"status:warning\")\n                    .aggregation(\"count\")\n                    .groupByFields(\"host\")\n                    .build())\n            .cases(SecurityMonitoringRuleCaseArgs.builder()\n                .status(\"high\")\n                .condition(\"errors \u003e 3 \u0026\u0026 warnings \u003e 10\")\n                .notifications(\"@user\")\n                .build())\n            .options(SecurityMonitoringRuleOptionsArgs.builder()\n                .evaluationWindow(300)\n                .keepAlive(600)\n                .maxSignalDuration(900)\n                .build())\n            .tags(\"type:dos\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  myrule:\n    type: datadog:SecurityMonitoringRule\n    properties:\n      name: My rule\n      message: The rule has triggered.\n      enabled: true\n      queries:\n        - name: errors\n          query: status:error\n          aggregation: count\n          groupByFields:\n            - host\n        - name: warnings\n          query: status:warning\n          aggregation: count\n          groupByFields:\n            - host\n      cases:\n        - status: high\n          condition: errors \u003e 3 \u0026\u0026 warnings \u003e 10\n          notifications:\n            - '@user'\n      options:\n        evaluationWindow: 300\n        keepAlive: 600\n        maxSignalDuration: 900\n      tags:\n        - type:dos\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nSecurity monitoring rules can be imported using ID, e.g.\n\n```sh\n$ pulumi import datadog:index/securityMonitoringRule:SecurityMonitoringRule my_rule m0o-hto-lkb\n```\n\n",
+            "description": "Provides a Datadog Security Monitoring Rule API resource. This can be used to create and manage Datadog security monitoring rules. To change settings for a default rule use `datadog_security_default_rule` instead.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst myrule = new datadog.SecurityMonitoringRule(\"myrule\", {\n    name: \"My rule\",\n    message: \"The rule has triggered.\",\n    enabled: true,\n    queries: [\n        {\n            name: \"errors\",\n            query: \"status:error\",\n            aggregation: \"count\",\n            dataSource: \"logs\",\n            groupByFields: [\"host\"],\n        },\n        {\n            name: \"warnings\",\n            query: \"status:warning\",\n            aggregation: \"count\",\n            dataSource: \"logs\",\n            groupByFields: [\"host\"],\n        },\n    ],\n    cases: [{\n        status: \"high\",\n        condition: \"errors \u003e 3 \u0026\u0026 warnings \u003e 10\",\n        notifications: [\"@user\"],\n    }],\n    options: {\n        evaluationWindow: 300,\n        keepAlive: 600,\n        maxSignalDuration: 900,\n    },\n    tags: [\"type:dos\"],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nmyrule = datadog.SecurityMonitoringRule(\"myrule\",\n    name=\"My rule\",\n    message=\"The rule has triggered.\",\n    enabled=True,\n    queries=[\n        {\n            \"name\": \"errors\",\n            \"query\": \"status:error\",\n            \"aggregation\": \"count\",\n            \"data_source\": \"logs\",\n            \"group_by_fields\": [\"host\"],\n        },\n        {\n            \"name\": \"warnings\",\n            \"query\": \"status:warning\",\n            \"aggregation\": \"count\",\n            \"data_source\": \"logs\",\n            \"group_by_fields\": [\"host\"],\n        },\n    ],\n    cases=[{\n        \"status\": \"high\",\n        \"condition\": \"errors \u003e 3 \u0026\u0026 warnings \u003e 10\",\n        \"notifications\": [\"@user\"],\n    }],\n    options={\n        \"evaluation_window\": 300,\n        \"keep_alive\": 600,\n        \"max_signal_duration\": 900,\n    },\n    tags=[\"type:dos\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var myrule = new Datadog.SecurityMonitoringRule(\"myrule\", new()\n    {\n        Name = \"My rule\",\n        Message = \"The rule has triggered.\",\n        Enabled = true,\n        Queries = new[]\n        {\n            new Datadog.Inputs.SecurityMonitoringRuleQueryArgs\n            {\n                Name = \"errors\",\n                Query = \"status:error\",\n                Aggregation = \"count\",\n                DataSource = \"logs\",\n                GroupByFields = new[]\n                {\n                    \"host\",\n                },\n            },\n            new Datadog.Inputs.SecurityMonitoringRuleQueryArgs\n            {\n                Name = \"warnings\",\n                Query = \"status:warning\",\n                Aggregation = \"count\",\n                DataSource = \"logs\",\n                GroupByFields = new[]\n                {\n                    \"host\",\n                },\n            },\n        },\n        Cases = new[]\n        {\n            new Datadog.Inputs.SecurityMonitoringRuleCaseArgs\n            {\n                Status = \"high\",\n                Condition = \"errors \u003e 3 \u0026\u0026 warnings \u003e 10\",\n                Notifications = new[]\n                {\n                    \"@user\",\n                },\n            },\n        },\n        Options = new Datadog.Inputs.SecurityMonitoringRuleOptionsArgs\n        {\n            EvaluationWindow = 300,\n            KeepAlive = 600,\n            MaxSignalDuration = 900,\n        },\n        Tags = new[]\n        {\n            \"type:dos\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewSecurityMonitoringRule(ctx, \"myrule\", \u0026datadog.SecurityMonitoringRuleArgs{\n\t\t\tName:    pulumi.String(\"My rule\"),\n\t\t\tMessage: pulumi.String(\"The rule has triggered.\"),\n\t\t\tEnabled: pulumi.Bool(true),\n\t\t\tQueries: datadog.SecurityMonitoringRuleQueryArray{\n\t\t\t\t\u0026datadog.SecurityMonitoringRuleQueryArgs{\n\t\t\t\t\tName:        pulumi.String(\"errors\"),\n\t\t\t\t\tQuery:       pulumi.String(\"status:error\"),\n\t\t\t\t\tAggregation: pulumi.String(\"count\"),\n\t\t\t\t\tDataSource:  pulumi.String(\"logs\"),\n\t\t\t\t\tGroupByFields: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"host\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026datadog.SecurityMonitoringRuleQueryArgs{\n\t\t\t\t\tName:        pulumi.String(\"warnings\"),\n\t\t\t\t\tQuery:       pulumi.String(\"status:warning\"),\n\t\t\t\t\tAggregation: pulumi.String(\"count\"),\n\t\t\t\t\tDataSource:  pulumi.String(\"logs\"),\n\t\t\t\t\tGroupByFields: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"host\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t\tCases: datadog.SecurityMonitoringRuleCaseArray{\n\t\t\t\t\u0026datadog.SecurityMonitoringRuleCaseArgs{\n\t\t\t\t\tStatus:    pulumi.String(\"high\"),\n\t\t\t\t\tCondition: pulumi.String(\"errors \u003e 3 \u0026\u0026 warnings \u003e 10\"),\n\t\t\t\t\tNotifications: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"@user\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t\tOptions: \u0026datadog.SecurityMonitoringRuleOptionsArgs{\n\t\t\t\tEvaluationWindow:  pulumi.Int(300),\n\t\t\t\tKeepAlive:         pulumi.Int(600),\n\t\t\t\tMaxSignalDuration: pulumi.Int(900),\n\t\t\t},\n\t\t\tTags: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"type:dos\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.SecurityMonitoringRule;\nimport com.pulumi.datadog.SecurityMonitoringRuleArgs;\nimport com.pulumi.datadog.inputs.SecurityMonitoringRuleQueryArgs;\nimport com.pulumi.datadog.inputs.SecurityMonitoringRuleCaseArgs;\nimport com.pulumi.datadog.inputs.SecurityMonitoringRuleOptionsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var myrule = new SecurityMonitoringRule(\"myrule\", SecurityMonitoringRuleArgs.builder()\n            .name(\"My rule\")\n            .message(\"The rule has triggered.\")\n            .enabled(true)\n            .queries(            \n                SecurityMonitoringRuleQueryArgs.builder()\n                    .name(\"errors\")\n                    .query(\"status:error\")\n                    .aggregation(\"count\")\n                    .dataSource(\"logs\")\n                    .groupByFields(\"host\")\n                    .build(),\n                SecurityMonitoringRuleQueryArgs.builder()\n                    .name(\"warnings\")\n                    .query(\"status:warning\")\n                    .aggregation(\"count\")\n                    .dataSource(\"logs\")\n                    .groupByFields(\"host\")\n                    .build())\n            .cases(SecurityMonitoringRuleCaseArgs.builder()\n                .status(\"high\")\n                .condition(\"errors \u003e 3 \u0026\u0026 warnings \u003e 10\")\n                .notifications(\"@user\")\n                .build())\n            .options(SecurityMonitoringRuleOptionsArgs.builder()\n                .evaluationWindow(300)\n                .keepAlive(600)\n                .maxSignalDuration(900)\n                .build())\n            .tags(\"type:dos\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  myrule:\n    type: datadog:SecurityMonitoringRule\n    properties:\n      name: My rule\n      message: The rule has triggered.\n      enabled: true\n      queries:\n        - name: errors\n          query: status:error\n          aggregation: count\n          dataSource: logs\n          groupByFields:\n            - host\n        - name: warnings\n          query: status:warning\n          aggregation: count\n          dataSource: logs\n          groupByFields:\n            - host\n      cases:\n        - status: high\n          condition: errors \u003e 3 \u0026\u0026 warnings \u003e 10\n          notifications:\n            - '@user'\n      options:\n        evaluationWindow: 300\n        keepAlive: 600\n        maxSignalDuration: 900\n      tags:\n        - type:dos\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nSecurity monitoring rules can be imported using ID, e.g.\n\n```sh\n$ pulumi import datadog:index/securityMonitoringRule:SecurityMonitoringRule my_rule m0o-hto-lkb\n```\n\n",
             "properties": {
                 "cases": {
                     "type": "array",

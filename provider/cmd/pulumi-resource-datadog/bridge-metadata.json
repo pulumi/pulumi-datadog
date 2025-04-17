@@ -13025,6 +13025,146 @@
                 "current": "datadog:index/monitorJson:MonitorJson",
                 "majorVersion": 4
             },
+            "datadog_observability_pipeline": {
+                "current": "datadog:index/observabilityPipeline:ObservabilityPipeline",
+                "majorVersion": 4,
+                "fields": {
+                    "config": {
+                        "fields": {
+                            "destinations": {
+                                "fields": {
+                                    "datadog_logs": {
+                                        "maxItemsOne": false,
+                                        "elem": {
+                                            "fields": {
+                                                "inputs": {
+                                                    "maxItemsOne": false
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "processors": {
+                                "fields": {
+                                    "add_fields": {
+                                        "maxItemsOne": false,
+                                        "elem": {
+                                            "fields": {
+                                                "field": {
+                                                    "maxItemsOne": false
+                                                },
+                                                "inputs": {
+                                                    "maxItemsOne": false
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "filter": {
+                                        "maxItemsOne": false,
+                                        "elem": {
+                                            "fields": {
+                                                "inputs": {
+                                                    "maxItemsOne": false
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "parse_json": {
+                                        "maxItemsOne": false,
+                                        "elem": {
+                                            "fields": {
+                                                "inputs": {
+                                                    "maxItemsOne": false
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "quota": {
+                                        "maxItemsOne": false,
+                                        "elem": {
+                                            "fields": {
+                                                "inputs": {
+                                                    "maxItemsOne": false
+                                                },
+                                                "overrides": {
+                                                    "maxItemsOne": false,
+                                                    "elem": {
+                                                        "fields": {
+                                                            "field": {
+                                                                "maxItemsOne": false
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "partition_fields": {
+                                                    "maxItemsOne": false
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "remove_fields": {
+                                        "maxItemsOne": false,
+                                        "elem": {
+                                            "fields": {
+                                                "fields": {
+                                                    "maxItemsOne": false
+                                                },
+                                                "inputs": {
+                                                    "maxItemsOne": false
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "rename_fields": {
+                                        "maxItemsOne": false,
+                                        "elem": {
+                                            "fields": {
+                                                "field": {
+                                                    "maxItemsOne": false
+                                                },
+                                                "inputs": {
+                                                    "maxItemsOne": false
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "sources": {
+                                "fields": {
+                                    "datadog_agent": {
+                                        "maxItemsOne": false,
+                                        "elem": {
+                                            "fields": {
+                                                "tls": {
+                                                    "maxItemsOne": true
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "kafka": {
+                                        "maxItemsOne": false,
+                                        "elem": {
+                                            "fields": {
+                                                "librdkafka_option": {
+                                                    "maxItemsOne": false
+                                                },
+                                                "tls": {
+                                                    "maxItemsOne": true
+                                                },
+                                                "topics": {
+                                                    "maxItemsOne": false
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "datadog_openapi_api": {
                 "current": "datadog:index/openapiApi:OpenapiApi",
                 "majorVersion": 4
@@ -17941,6 +18081,7 @@
             "datadog:index/monitor:Monitor": 0,
             "datadog:index/monitorConfigPolicy:MonitorConfigPolicy": 0,
             "datadog:index/monitorJson:MonitorJson": 0,
+            "datadog:index/observabilityPipeline:ObservabilityPipeline": 1,
             "datadog:index/openapiApi:OpenapiApi": 1,
             "datadog:index/organizationSettings:OrganizationSettings": 0,
             "datadog:index/powerpack:Powerpack": 0,
