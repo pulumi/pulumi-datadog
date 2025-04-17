@@ -29,6 +29,11 @@ public final class SecurityMonitoringRuleQuery {
      */
     private @Nullable String aggregation;
     /**
+     * @return Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`. Defaults to `&#34;logs&#34;`.
+     * 
+     */
+    private @Nullable String dataSource;
+    /**
      * @return Field for which the cardinality is measured. Sent as an array.
      * 
      */
@@ -81,6 +86,13 @@ public final class SecurityMonitoringRuleQuery {
      */
     public Optional<String> aggregation() {
         return Optional.ofNullable(this.aggregation);
+    }
+    /**
+     * @return Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`. Defaults to `&#34;logs&#34;`.
+     * 
+     */
+    public Optional<String> dataSource() {
+        return Optional.ofNullable(this.dataSource);
     }
     /**
      * @return Field for which the cardinality is measured. Sent as an array.
@@ -140,6 +152,7 @@ public final class SecurityMonitoringRuleQuery {
     public static final class Builder {
         private @Nullable List<SecurityMonitoringRuleQueryAgentRule> agentRules;
         private @Nullable String aggregation;
+        private @Nullable String dataSource;
         private @Nullable List<String> distinctFields;
         private @Nullable List<String> groupByFields;
         private @Nullable String metric;
@@ -151,6 +164,7 @@ public final class SecurityMonitoringRuleQuery {
     	      Objects.requireNonNull(defaults);
     	      this.agentRules = defaults.agentRules;
     	      this.aggregation = defaults.aggregation;
+    	      this.dataSource = defaults.dataSource;
     	      this.distinctFields = defaults.distinctFields;
     	      this.groupByFields = defaults.groupByFields;
     	      this.metric = defaults.metric;
@@ -172,6 +186,12 @@ public final class SecurityMonitoringRuleQuery {
         public Builder aggregation(@Nullable String aggregation) {
 
             this.aggregation = aggregation;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dataSource(@Nullable String dataSource) {
+
+            this.dataSource = dataSource;
             return this;
         }
         @CustomType.Setter
@@ -225,6 +245,7 @@ public final class SecurityMonitoringRuleQuery {
             final var _resultValue = new SecurityMonitoringRuleQuery();
             _resultValue.agentRules = agentRules;
             _resultValue.aggregation = aggregation;
+            _resultValue.dataSource = dataSource;
             _resultValue.distinctFields = distinctFields;
             _resultValue.groupByFields = groupByFields;
             _resultValue.metric = metric;

@@ -57,6 +57,21 @@ public final class SecurityMonitoringRuleQueryArgs extends com.pulumi.resources.
     }
 
     /**
+     * Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`. Defaults to `&#34;logs&#34;`.
+     * 
+     */
+    @Import(name="dataSource")
+    private @Nullable Output<String> dataSource;
+
+    /**
+     * @return Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`. Defaults to `&#34;logs&#34;`.
+     * 
+     */
+    public Optional<Output<String>> dataSource() {
+        return Optional.ofNullable(this.dataSource);
+    }
+
+    /**
      * Field for which the cardinality is measured. Sent as an array.
      * 
      */
@@ -159,6 +174,7 @@ public final class SecurityMonitoringRuleQueryArgs extends com.pulumi.resources.
     private SecurityMonitoringRuleQueryArgs(SecurityMonitoringRuleQueryArgs $) {
         this.agentRules = $.agentRules;
         this.aggregation = $.aggregation;
+        this.dataSource = $.dataSource;
         this.distinctFields = $.distinctFields;
         this.groupByFields = $.groupByFields;
         this.metric = $.metric;
@@ -247,6 +263,27 @@ public final class SecurityMonitoringRuleQueryArgs extends com.pulumi.resources.
          */
         public Builder aggregation(String aggregation) {
             return aggregation(Output.of(aggregation));
+        }
+
+        /**
+         * @param dataSource Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`. Defaults to `&#34;logs&#34;`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataSource(@Nullable Output<String> dataSource) {
+            $.dataSource = dataSource;
+            return this;
+        }
+
+        /**
+         * @param dataSource Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`. Defaults to `&#34;logs&#34;`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataSource(String dataSource) {
+            return dataSource(Output.of(dataSource));
         }
 
         /**

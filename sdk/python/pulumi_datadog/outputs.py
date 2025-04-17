@@ -519,6 +519,29 @@ __all__ = [
     'MonitorVariablesEventQueryGroupBy',
     'MonitorVariablesEventQueryGroupBySort',
     'MonitorVariablesEventQuerySearch',
+    'ObservabilityPipelineConfig',
+    'ObservabilityPipelineConfigDestinations',
+    'ObservabilityPipelineConfigDestinationsDatadogLog',
+    'ObservabilityPipelineConfigProcessors',
+    'ObservabilityPipelineConfigProcessorsAddField',
+    'ObservabilityPipelineConfigProcessorsAddFieldField',
+    'ObservabilityPipelineConfigProcessorsFilter',
+    'ObservabilityPipelineConfigProcessorsParseJson',
+    'ObservabilityPipelineConfigProcessorsQuota',
+    'ObservabilityPipelineConfigProcessorsQuotaLimit',
+    'ObservabilityPipelineConfigProcessorsQuotaOverride',
+    'ObservabilityPipelineConfigProcessorsQuotaOverrideField',
+    'ObservabilityPipelineConfigProcessorsQuotaOverrideLimit',
+    'ObservabilityPipelineConfigProcessorsRemoveField',
+    'ObservabilityPipelineConfigProcessorsRenameField',
+    'ObservabilityPipelineConfigProcessorsRenameFieldField',
+    'ObservabilityPipelineConfigSources',
+    'ObservabilityPipelineConfigSourcesDatadogAgent',
+    'ObservabilityPipelineConfigSourcesDatadogAgentTls',
+    'ObservabilityPipelineConfigSourcesKafka',
+    'ObservabilityPipelineConfigSourcesKafkaLibrdkafkaOption',
+    'ObservabilityPipelineConfigSourcesKafkaSasl',
+    'ObservabilityPipelineConfigSourcesKafkaTls',
     'OrganizationSettingsSettings',
     'OrganizationSettingsSettingsSaml',
     'OrganizationSettingsSettingsSamlAutocreateUsersDomains',
@@ -39111,6 +39134,1135 @@ class MonitorVariablesEventQuerySearch(dict):
         The events search string.
         """
         return pulumi.get(self, "query")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfig(dict):
+    def __init__(__self__, *,
+                 destinations: Optional['outputs.ObservabilityPipelineConfigDestinations'] = None,
+                 processors: Optional['outputs.ObservabilityPipelineConfigProcessors'] = None,
+                 sources: Optional['outputs.ObservabilityPipelineConfigSources'] = None):
+        """
+        :param 'ObservabilityPipelineConfigDestinationsArgs' destinations: List of destinations.
+        :param 'ObservabilityPipelineConfigProcessorsArgs' processors: List of processors.
+        :param 'ObservabilityPipelineConfigSourcesArgs' sources: List of sources.
+        """
+        if destinations is not None:
+            pulumi.set(__self__, "destinations", destinations)
+        if processors is not None:
+            pulumi.set(__self__, "processors", processors)
+        if sources is not None:
+            pulumi.set(__self__, "sources", sources)
+
+    @property
+    @pulumi.getter
+    def destinations(self) -> Optional['outputs.ObservabilityPipelineConfigDestinations']:
+        """
+        List of destinations.
+        """
+        return pulumi.get(self, "destinations")
+
+    @property
+    @pulumi.getter
+    def processors(self) -> Optional['outputs.ObservabilityPipelineConfigProcessors']:
+        """
+        List of processors.
+        """
+        return pulumi.get(self, "processors")
+
+    @property
+    @pulumi.getter
+    def sources(self) -> Optional['outputs.ObservabilityPipelineConfigSources']:
+        """
+        List of sources.
+        """
+        return pulumi.get(self, "sources")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigDestinations(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "datadogLogs":
+            suggest = "datadog_logs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ObservabilityPipelineConfigDestinations. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ObservabilityPipelineConfigDestinations.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ObservabilityPipelineConfigDestinations.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 datadog_logs: Optional[Sequence['outputs.ObservabilityPipelineConfigDestinationsDatadogLog']] = None):
+        """
+        :param Sequence['ObservabilityPipelineConfigDestinationsDatadogLogArgs'] datadog_logs: The `datadog_logs` destination forwards logs to Datadog Log Management.
+        """
+        if datadog_logs is not None:
+            pulumi.set(__self__, "datadog_logs", datadog_logs)
+
+    @property
+    @pulumi.getter(name="datadogLogs")
+    def datadog_logs(self) -> Optional[Sequence['outputs.ObservabilityPipelineConfigDestinationsDatadogLog']]:
+        """
+        The `datadog_logs` destination forwards logs to Datadog Log Management.
+        """
+        return pulumi.get(self, "datadog_logs")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigDestinationsDatadogLog(dict):
+    def __init__(__self__, *,
+                 id: builtins.str,
+                 inputs: Sequence[builtins.str]):
+        """
+        :param builtins.str id: The unique ID of the destination.
+        :param Sequence[builtins.str] inputs: The inputs for the destination.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "inputs", inputs)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.str:
+        """
+        The unique ID of the destination.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def inputs(self) -> Sequence[builtins.str]:
+        """
+        The inputs for the destination.
+        """
+        return pulumi.get(self, "inputs")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigProcessors(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "addFields":
+            suggest = "add_fields"
+        elif key == "parseJsons":
+            suggest = "parse_jsons"
+        elif key == "removeFields":
+            suggest = "remove_fields"
+        elif key == "renameFields":
+            suggest = "rename_fields"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ObservabilityPipelineConfigProcessors. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ObservabilityPipelineConfigProcessors.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ObservabilityPipelineConfigProcessors.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 add_fields: Optional[Sequence['outputs.ObservabilityPipelineConfigProcessorsAddField']] = None,
+                 filters: Optional[Sequence['outputs.ObservabilityPipelineConfigProcessorsFilter']] = None,
+                 parse_jsons: Optional[Sequence['outputs.ObservabilityPipelineConfigProcessorsParseJson']] = None,
+                 quotas: Optional[Sequence['outputs.ObservabilityPipelineConfigProcessorsQuota']] = None,
+                 remove_fields: Optional[Sequence['outputs.ObservabilityPipelineConfigProcessorsRemoveField']] = None,
+                 rename_fields: Optional[Sequence['outputs.ObservabilityPipelineConfigProcessorsRenameField']] = None):
+        """
+        :param Sequence['ObservabilityPipelineConfigProcessorsAddFieldArgs'] add_fields: The `add_fields` processor adds static key-value fields to logs.
+        :param Sequence['ObservabilityPipelineConfigProcessorsFilterArgs'] filters: The `filter` processor allows conditional processing of logs based on a Datadog search query. Logs that match the `include` query are passed through; others are discarded.
+        :param Sequence['ObservabilityPipelineConfigProcessorsParseJsonArgs'] parse_jsons: The `parse_json` processor extracts JSON from a specified field and flattens it into the event. This is useful when logs contain embedded JSON as a string.
+        :param Sequence['ObservabilityPipelineConfigProcessorsQuotaArgs'] quotas: The `quota` measures logging traffic for logs that match a specified filter. When the configured daily quota is met, the processor can drop or alert.
+        :param Sequence['ObservabilityPipelineConfigProcessorsRemoveFieldArgs'] remove_fields: The `remove_fields` processor deletes specified fields from logs.
+        :param Sequence['ObservabilityPipelineConfigProcessorsRenameFieldArgs'] rename_fields: The `rename_fields` processor changes field names.
+        """
+        if add_fields is not None:
+            pulumi.set(__self__, "add_fields", add_fields)
+        if filters is not None:
+            pulumi.set(__self__, "filters", filters)
+        if parse_jsons is not None:
+            pulumi.set(__self__, "parse_jsons", parse_jsons)
+        if quotas is not None:
+            pulumi.set(__self__, "quotas", quotas)
+        if remove_fields is not None:
+            pulumi.set(__self__, "remove_fields", remove_fields)
+        if rename_fields is not None:
+            pulumi.set(__self__, "rename_fields", rename_fields)
+
+    @property
+    @pulumi.getter(name="addFields")
+    def add_fields(self) -> Optional[Sequence['outputs.ObservabilityPipelineConfigProcessorsAddField']]:
+        """
+        The `add_fields` processor adds static key-value fields to logs.
+        """
+        return pulumi.get(self, "add_fields")
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional[Sequence['outputs.ObservabilityPipelineConfigProcessorsFilter']]:
+        """
+        The `filter` processor allows conditional processing of logs based on a Datadog search query. Logs that match the `include` query are passed through; others are discarded.
+        """
+        return pulumi.get(self, "filters")
+
+    @property
+    @pulumi.getter(name="parseJsons")
+    def parse_jsons(self) -> Optional[Sequence['outputs.ObservabilityPipelineConfigProcessorsParseJson']]:
+        """
+        The `parse_json` processor extracts JSON from a specified field and flattens it into the event. This is useful when logs contain embedded JSON as a string.
+        """
+        return pulumi.get(self, "parse_jsons")
+
+    @property
+    @pulumi.getter
+    def quotas(self) -> Optional[Sequence['outputs.ObservabilityPipelineConfigProcessorsQuota']]:
+        """
+        The `quota` measures logging traffic for logs that match a specified filter. When the configured daily quota is met, the processor can drop or alert.
+        """
+        return pulumi.get(self, "quotas")
+
+    @property
+    @pulumi.getter(name="removeFields")
+    def remove_fields(self) -> Optional[Sequence['outputs.ObservabilityPipelineConfigProcessorsRemoveField']]:
+        """
+        The `remove_fields` processor deletes specified fields from logs.
+        """
+        return pulumi.get(self, "remove_fields")
+
+    @property
+    @pulumi.getter(name="renameFields")
+    def rename_fields(self) -> Optional[Sequence['outputs.ObservabilityPipelineConfigProcessorsRenameField']]:
+        """
+        The `rename_fields` processor changes field names.
+        """
+        return pulumi.get(self, "rename_fields")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigProcessorsAddField(dict):
+    def __init__(__self__, *,
+                 id: builtins.str,
+                 include: builtins.str,
+                 inputs: Sequence[builtins.str],
+                 fields: Optional[Sequence['outputs.ObservabilityPipelineConfigProcessorsAddFieldField']] = None):
+        """
+        :param builtins.str id: The unique ID of the processor.
+        :param builtins.str include: A Datadog search query used to determine which logs this processor targets.
+        :param Sequence[builtins.str] inputs: The inputs for the processor.
+        :param Sequence['ObservabilityPipelineConfigProcessorsAddFieldFieldArgs'] fields: A list of static fields (key-value pairs) that is added to each log event processed by this component.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "include", include)
+        pulumi.set(__self__, "inputs", inputs)
+        if fields is not None:
+            pulumi.set(__self__, "fields", fields)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.str:
+        """
+        The unique ID of the processor.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def include(self) -> builtins.str:
+        """
+        A Datadog search query used to determine which logs this processor targets.
+        """
+        return pulumi.get(self, "include")
+
+    @property
+    @pulumi.getter
+    def inputs(self) -> Sequence[builtins.str]:
+        """
+        The inputs for the processor.
+        """
+        return pulumi.get(self, "inputs")
+
+    @property
+    @pulumi.getter
+    def fields(self) -> Optional[Sequence['outputs.ObservabilityPipelineConfigProcessorsAddFieldField']]:
+        """
+        A list of static fields (key-value pairs) that is added to each log event processed by this component.
+        """
+        return pulumi.get(self, "fields")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigProcessorsAddFieldField(dict):
+    def __init__(__self__, *,
+                 name: builtins.str,
+                 value: builtins.str):
+        """
+        :param builtins.str name: The field name to add.
+        :param builtins.str value: The value to assign to the field.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        The field name to add.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> builtins.str:
+        """
+        The value to assign to the field.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigProcessorsFilter(dict):
+    def __init__(__self__, *,
+                 id: builtins.str,
+                 include: builtins.str,
+                 inputs: Sequence[builtins.str]):
+        """
+        :param builtins.str id: The unique ID of the processor.
+        :param builtins.str include: A Datadog search query used to determine which logs should pass through the filter. Logs that match this query continue to downstream components; others are dropped.
+        :param Sequence[builtins.str] inputs: The inputs for the processor.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "include", include)
+        pulumi.set(__self__, "inputs", inputs)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.str:
+        """
+        The unique ID of the processor.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def include(self) -> builtins.str:
+        """
+        A Datadog search query used to determine which logs should pass through the filter. Logs that match this query continue to downstream components; others are dropped.
+        """
+        return pulumi.get(self, "include")
+
+    @property
+    @pulumi.getter
+    def inputs(self) -> Sequence[builtins.str]:
+        """
+        The inputs for the processor.
+        """
+        return pulumi.get(self, "inputs")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigProcessorsParseJson(dict):
+    def __init__(__self__, *,
+                 field: builtins.str,
+                 id: builtins.str,
+                 include: builtins.str,
+                 inputs: Sequence[builtins.str]):
+        """
+        :param builtins.str field: The field to parse.
+        :param builtins.str id: The unique ID of the processor.
+        :param builtins.str include: A Datadog search query used to determine which logs this processor targets.
+        :param Sequence[builtins.str] inputs: The inputs for the processor.
+        """
+        pulumi.set(__self__, "field", field)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "include", include)
+        pulumi.set(__self__, "inputs", inputs)
+
+    @property
+    @pulumi.getter
+    def field(self) -> builtins.str:
+        """
+        The field to parse.
+        """
+        return pulumi.get(self, "field")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.str:
+        """
+        The unique ID of the processor.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def include(self) -> builtins.str:
+        """
+        A Datadog search query used to determine which logs this processor targets.
+        """
+        return pulumi.get(self, "include")
+
+    @property
+    @pulumi.getter
+    def inputs(self) -> Sequence[builtins.str]:
+        """
+        The inputs for the processor.
+        """
+        return pulumi.get(self, "inputs")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigProcessorsQuota(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dropEvents":
+            suggest = "drop_events"
+        elif key == "ignoreWhenMissingPartitions":
+            suggest = "ignore_when_missing_partitions"
+        elif key == "partitionFields":
+            suggest = "partition_fields"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ObservabilityPipelineConfigProcessorsQuota. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ObservabilityPipelineConfigProcessorsQuota.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ObservabilityPipelineConfigProcessorsQuota.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 drop_events: builtins.bool,
+                 id: builtins.str,
+                 include: builtins.str,
+                 inputs: Sequence[builtins.str],
+                 name: builtins.str,
+                 ignore_when_missing_partitions: Optional[builtins.bool] = None,
+                 limit: Optional['outputs.ObservabilityPipelineConfigProcessorsQuotaLimit'] = None,
+                 overrides: Optional[Sequence['outputs.ObservabilityPipelineConfigProcessorsQuotaOverride']] = None,
+                 partition_fields: Optional[Sequence[builtins.str]] = None):
+        """
+        :param builtins.bool drop_events: Whether to drop events exceeding the limit.
+        :param builtins.str id: The unique ID of the processor.
+        :param builtins.str include: A Datadog search query used to determine which logs this processor targets.
+        :param Sequence[builtins.str] inputs: The inputs for the processor.
+        :param builtins.str name: The name of the quota.
+        :param builtins.bool ignore_when_missing_partitions: Whether to ignore when partition fields are missing.
+        :param Sequence['ObservabilityPipelineConfigProcessorsQuotaOverrideArgs'] overrides: The overrides for field-specific quotas.
+        :param Sequence[builtins.str] partition_fields: List of partition fields.
+        """
+        pulumi.set(__self__, "drop_events", drop_events)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "include", include)
+        pulumi.set(__self__, "inputs", inputs)
+        pulumi.set(__self__, "name", name)
+        if ignore_when_missing_partitions is not None:
+            pulumi.set(__self__, "ignore_when_missing_partitions", ignore_when_missing_partitions)
+        if limit is not None:
+            pulumi.set(__self__, "limit", limit)
+        if overrides is not None:
+            pulumi.set(__self__, "overrides", overrides)
+        if partition_fields is not None:
+            pulumi.set(__self__, "partition_fields", partition_fields)
+
+    @property
+    @pulumi.getter(name="dropEvents")
+    def drop_events(self) -> builtins.bool:
+        """
+        Whether to drop events exceeding the limit.
+        """
+        return pulumi.get(self, "drop_events")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.str:
+        """
+        The unique ID of the processor.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def include(self) -> builtins.str:
+        """
+        A Datadog search query used to determine which logs this processor targets.
+        """
+        return pulumi.get(self, "include")
+
+    @property
+    @pulumi.getter
+    def inputs(self) -> Sequence[builtins.str]:
+        """
+        The inputs for the processor.
+        """
+        return pulumi.get(self, "inputs")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        The name of the quota.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="ignoreWhenMissingPartitions")
+    def ignore_when_missing_partitions(self) -> Optional[builtins.bool]:
+        """
+        Whether to ignore when partition fields are missing.
+        """
+        return pulumi.get(self, "ignore_when_missing_partitions")
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional['outputs.ObservabilityPipelineConfigProcessorsQuotaLimit']:
+        return pulumi.get(self, "limit")
+
+    @property
+    @pulumi.getter
+    def overrides(self) -> Optional[Sequence['outputs.ObservabilityPipelineConfigProcessorsQuotaOverride']]:
+        """
+        The overrides for field-specific quotas.
+        """
+        return pulumi.get(self, "overrides")
+
+    @property
+    @pulumi.getter(name="partitionFields")
+    def partition_fields(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of partition fields.
+        """
+        return pulumi.get(self, "partition_fields")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigProcessorsQuotaLimit(dict):
+    def __init__(__self__, *,
+                 enforce: builtins.str,
+                 limit: builtins.int):
+        """
+        :param builtins.str enforce: Whether to enforce by 'bytes' or 'events'. Valid values are `bytes`, `events`.
+        :param builtins.int limit: The daily quota limit.
+        """
+        pulumi.set(__self__, "enforce", enforce)
+        pulumi.set(__self__, "limit", limit)
+
+    @property
+    @pulumi.getter
+    def enforce(self) -> builtins.str:
+        """
+        Whether to enforce by 'bytes' or 'events'. Valid values are `bytes`, `events`.
+        """
+        return pulumi.get(self, "enforce")
+
+    @property
+    @pulumi.getter
+    def limit(self) -> builtins.int:
+        """
+        The daily quota limit.
+        """
+        return pulumi.get(self, "limit")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigProcessorsQuotaOverride(dict):
+    def __init__(__self__, *,
+                 fields: Optional[Sequence['outputs.ObservabilityPipelineConfigProcessorsQuotaOverrideField']] = None,
+                 limit: Optional['outputs.ObservabilityPipelineConfigProcessorsQuotaOverrideLimit'] = None):
+        """
+        :param Sequence['ObservabilityPipelineConfigProcessorsQuotaOverrideFieldArgs'] fields: Fields that trigger this override.
+        """
+        if fields is not None:
+            pulumi.set(__self__, "fields", fields)
+        if limit is not None:
+            pulumi.set(__self__, "limit", limit)
+
+    @property
+    @pulumi.getter
+    def fields(self) -> Optional[Sequence['outputs.ObservabilityPipelineConfigProcessorsQuotaOverrideField']]:
+        """
+        Fields that trigger this override.
+        """
+        return pulumi.get(self, "fields")
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional['outputs.ObservabilityPipelineConfigProcessorsQuotaOverrideLimit']:
+        return pulumi.get(self, "limit")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigProcessorsQuotaOverrideField(dict):
+    def __init__(__self__, *,
+                 name: builtins.str,
+                 value: builtins.str):
+        """
+        :param builtins.str name: The field name.
+        :param builtins.str value: The field value.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        The field name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> builtins.str:
+        """
+        The field value.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigProcessorsQuotaOverrideLimit(dict):
+    def __init__(__self__, *,
+                 enforce: builtins.str,
+                 limit: builtins.int):
+        """
+        :param builtins.str enforce: Whether to enforce by 'bytes' or 'events'. Valid values are `bytes`, `events`.
+        :param builtins.int limit: The daily quota limit.
+        """
+        pulumi.set(__self__, "enforce", enforce)
+        pulumi.set(__self__, "limit", limit)
+
+    @property
+    @pulumi.getter
+    def enforce(self) -> builtins.str:
+        """
+        Whether to enforce by 'bytes' or 'events'. Valid values are `bytes`, `events`.
+        """
+        return pulumi.get(self, "enforce")
+
+    @property
+    @pulumi.getter
+    def limit(self) -> builtins.int:
+        """
+        The daily quota limit.
+        """
+        return pulumi.get(self, "limit")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigProcessorsRemoveField(dict):
+    def __init__(__self__, *,
+                 fields: Sequence[builtins.str],
+                 id: builtins.str,
+                 include: builtins.str,
+                 inputs: Sequence[builtins.str]):
+        """
+        :param Sequence[builtins.str] fields: List of fields to remove from the events.
+        :param builtins.str id: The unique ID of the processor.
+        :param builtins.str include: A Datadog search query used to determine which logs this processor targets.
+        :param Sequence[builtins.str] inputs: The inputs for the processor.
+        """
+        pulumi.set(__self__, "fields", fields)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "include", include)
+        pulumi.set(__self__, "inputs", inputs)
+
+    @property
+    @pulumi.getter
+    def fields(self) -> Sequence[builtins.str]:
+        """
+        List of fields to remove from the events.
+        """
+        return pulumi.get(self, "fields")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.str:
+        """
+        The unique ID of the processor.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def include(self) -> builtins.str:
+        """
+        A Datadog search query used to determine which logs this processor targets.
+        """
+        return pulumi.get(self, "include")
+
+    @property
+    @pulumi.getter
+    def inputs(self) -> Sequence[builtins.str]:
+        """
+        The inputs for the processor.
+        """
+        return pulumi.get(self, "inputs")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigProcessorsRenameField(dict):
+    def __init__(__self__, *,
+                 id: builtins.str,
+                 include: builtins.str,
+                 inputs: Sequence[builtins.str],
+                 fields: Optional[Sequence['outputs.ObservabilityPipelineConfigProcessorsRenameFieldField']] = None):
+        """
+        :param builtins.str id: The unique ID of the processor.
+        :param builtins.str include: A Datadog search query used to determine which logs this processor targets.
+        :param Sequence[builtins.str] inputs: he inputs for the processor.
+        :param Sequence['ObservabilityPipelineConfigProcessorsRenameFieldFieldArgs'] fields: List of fields to rename.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "include", include)
+        pulumi.set(__self__, "inputs", inputs)
+        if fields is not None:
+            pulumi.set(__self__, "fields", fields)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.str:
+        """
+        The unique ID of the processor.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def include(self) -> builtins.str:
+        """
+        A Datadog search query used to determine which logs this processor targets.
+        """
+        return pulumi.get(self, "include")
+
+    @property
+    @pulumi.getter
+    def inputs(self) -> Sequence[builtins.str]:
+        """
+        he inputs for the processor.
+        """
+        return pulumi.get(self, "inputs")
+
+    @property
+    @pulumi.getter
+    def fields(self) -> Optional[Sequence['outputs.ObservabilityPipelineConfigProcessorsRenameFieldField']]:
+        """
+        List of fields to rename.
+        """
+        return pulumi.get(self, "fields")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigProcessorsRenameFieldField(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "preserveSource":
+            suggest = "preserve_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ObservabilityPipelineConfigProcessorsRenameFieldField. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ObservabilityPipelineConfigProcessorsRenameFieldField.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ObservabilityPipelineConfigProcessorsRenameFieldField.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination: builtins.str,
+                 preserve_source: builtins.bool,
+                 source: builtins.str):
+        """
+        :param builtins.str destination: Destination field name.
+        :param builtins.bool preserve_source: Whether to keep the original field.
+        :param builtins.str source: Source field to rename.
+        """
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "preserve_source", preserve_source)
+        pulumi.set(__self__, "source", source)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> builtins.str:
+        """
+        Destination field name.
+        """
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter(name="preserveSource")
+    def preserve_source(self) -> builtins.bool:
+        """
+        Whether to keep the original field.
+        """
+        return pulumi.get(self, "preserve_source")
+
+    @property
+    @pulumi.getter
+    def source(self) -> builtins.str:
+        """
+        Source field to rename.
+        """
+        return pulumi.get(self, "source")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigSources(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "datadogAgents":
+            suggest = "datadog_agents"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ObservabilityPipelineConfigSources. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ObservabilityPipelineConfigSources.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ObservabilityPipelineConfigSources.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 datadog_agents: Optional[Sequence['outputs.ObservabilityPipelineConfigSourcesDatadogAgent']] = None,
+                 kafkas: Optional[Sequence['outputs.ObservabilityPipelineConfigSourcesKafka']] = None):
+        """
+        :param Sequence['ObservabilityPipelineConfigSourcesDatadogAgentArgs'] datadog_agents: The `datadog_agent` source collects logs from the Datadog Agent.
+        :param Sequence['ObservabilityPipelineConfigSourcesKafkaArgs'] kafkas: The `kafka` source ingests data from Apache Kafka topics.
+        """
+        if datadog_agents is not None:
+            pulumi.set(__self__, "datadog_agents", datadog_agents)
+        if kafkas is not None:
+            pulumi.set(__self__, "kafkas", kafkas)
+
+    @property
+    @pulumi.getter(name="datadogAgents")
+    def datadog_agents(self) -> Optional[Sequence['outputs.ObservabilityPipelineConfigSourcesDatadogAgent']]:
+        """
+        The `datadog_agent` source collects logs from the Datadog Agent.
+        """
+        return pulumi.get(self, "datadog_agents")
+
+    @property
+    @pulumi.getter
+    def kafkas(self) -> Optional[Sequence['outputs.ObservabilityPipelineConfigSourcesKafka']]:
+        """
+        The `kafka` source ingests data from Apache Kafka topics.
+        """
+        return pulumi.get(self, "kafkas")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigSourcesDatadogAgent(dict):
+    def __init__(__self__, *,
+                 id: builtins.str,
+                 tls: Optional['outputs.ObservabilityPipelineConfigSourcesDatadogAgentTls'] = None):
+        """
+        :param builtins.str id: The unique ID of the source.
+        :param 'ObservabilityPipelineConfigSourcesDatadogAgentTlsArgs' tls: Configuration for enabling TLS encryption between the pipeline component and external services.
+        """
+        pulumi.set(__self__, "id", id)
+        if tls is not None:
+            pulumi.set(__self__, "tls", tls)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.str:
+        """
+        The unique ID of the source.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def tls(self) -> Optional['outputs.ObservabilityPipelineConfigSourcesDatadogAgentTls']:
+        """
+        Configuration for enabling TLS encryption between the pipeline component and external services.
+        """
+        return pulumi.get(self, "tls")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigSourcesDatadogAgentTls(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "crtFile":
+            suggest = "crt_file"
+        elif key == "caFile":
+            suggest = "ca_file"
+        elif key == "keyFile":
+            suggest = "key_file"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ObservabilityPipelineConfigSourcesDatadogAgentTls. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ObservabilityPipelineConfigSourcesDatadogAgentTls.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ObservabilityPipelineConfigSourcesDatadogAgentTls.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 crt_file: builtins.str,
+                 ca_file: Optional[builtins.str] = None,
+                 key_file: Optional[builtins.str] = None):
+        """
+        :param builtins.str crt_file: Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+        :param builtins.str ca_file: Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+        :param builtins.str key_file: Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+        """
+        pulumi.set(__self__, "crt_file", crt_file)
+        if ca_file is not None:
+            pulumi.set(__self__, "ca_file", ca_file)
+        if key_file is not None:
+            pulumi.set(__self__, "key_file", key_file)
+
+    @property
+    @pulumi.getter(name="crtFile")
+    def crt_file(self) -> builtins.str:
+        """
+        Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+        """
+        return pulumi.get(self, "crt_file")
+
+    @property
+    @pulumi.getter(name="caFile")
+    def ca_file(self) -> Optional[builtins.str]:
+        """
+        Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+        """
+        return pulumi.get(self, "ca_file")
+
+    @property
+    @pulumi.getter(name="keyFile")
+    def key_file(self) -> Optional[builtins.str]:
+        """
+        Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+        """
+        return pulumi.get(self, "key_file")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigSourcesKafka(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupId":
+            suggest = "group_id"
+        elif key == "librdkafkaOptions":
+            suggest = "librdkafka_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ObservabilityPipelineConfigSourcesKafka. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ObservabilityPipelineConfigSourcesKafka.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ObservabilityPipelineConfigSourcesKafka.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_id: builtins.str,
+                 id: builtins.str,
+                 topics: Sequence[builtins.str],
+                 librdkafka_options: Optional[Sequence['outputs.ObservabilityPipelineConfigSourcesKafkaLibrdkafkaOption']] = None,
+                 sasl: Optional['outputs.ObservabilityPipelineConfigSourcesKafkaSasl'] = None,
+                 tls: Optional['outputs.ObservabilityPipelineConfigSourcesKafkaTls'] = None):
+        """
+        :param builtins.str group_id: The Kafka consumer group ID.
+        :param builtins.str id: The unique ID of the source.
+        :param Sequence[builtins.str] topics: A list of Kafka topic names to subscribe to. The source ingests messages from each topic specified.
+        :param Sequence['ObservabilityPipelineConfigSourcesKafkaLibrdkafkaOptionArgs'] librdkafka_options: Advanced librdkafka client configuration options.
+        :param 'ObservabilityPipelineConfigSourcesKafkaSaslArgs' sasl: SASL authentication settings.
+        :param 'ObservabilityPipelineConfigSourcesKafkaTlsArgs' tls: Configuration for enabling TLS encryption between the pipeline component and external services.
+        """
+        pulumi.set(__self__, "group_id", group_id)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "topics", topics)
+        if librdkafka_options is not None:
+            pulumi.set(__self__, "librdkafka_options", librdkafka_options)
+        if sasl is not None:
+            pulumi.set(__self__, "sasl", sasl)
+        if tls is not None:
+            pulumi.set(__self__, "tls", tls)
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> builtins.str:
+        """
+        The Kafka consumer group ID.
+        """
+        return pulumi.get(self, "group_id")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.str:
+        """
+        The unique ID of the source.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def topics(self) -> Sequence[builtins.str]:
+        """
+        A list of Kafka topic names to subscribe to. The source ingests messages from each topic specified.
+        """
+        return pulumi.get(self, "topics")
+
+    @property
+    @pulumi.getter(name="librdkafkaOptions")
+    def librdkafka_options(self) -> Optional[Sequence['outputs.ObservabilityPipelineConfigSourcesKafkaLibrdkafkaOption']]:
+        """
+        Advanced librdkafka client configuration options.
+        """
+        return pulumi.get(self, "librdkafka_options")
+
+    @property
+    @pulumi.getter
+    def sasl(self) -> Optional['outputs.ObservabilityPipelineConfigSourcesKafkaSasl']:
+        """
+        SASL authentication settings.
+        """
+        return pulumi.get(self, "sasl")
+
+    @property
+    @pulumi.getter
+    def tls(self) -> Optional['outputs.ObservabilityPipelineConfigSourcesKafkaTls']:
+        """
+        Configuration for enabling TLS encryption between the pipeline component and external services.
+        """
+        return pulumi.get(self, "tls")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigSourcesKafkaLibrdkafkaOption(dict):
+    def __init__(__self__, *,
+                 name: builtins.str,
+                 value: builtins.str):
+        """
+        :param builtins.str name: The name of the librdkafka option.
+        :param builtins.str value: The value of the librdkafka option.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        The name of the librdkafka option.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> builtins.str:
+        """
+        The value of the librdkafka option.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigSourcesKafkaSasl(dict):
+    def __init__(__self__, *,
+                 mechanism: builtins.str):
+        """
+        :param builtins.str mechanism: SASL mechanism to use (e.g., PLAIN, SCRAM-SHA-256, SCRAM-SHA-512). Valid values are `PLAIN`, `SCRAM-SHA-256`, `SCRAM-SHA-512`.
+        """
+        pulumi.set(__self__, "mechanism", mechanism)
+
+    @property
+    @pulumi.getter
+    def mechanism(self) -> builtins.str:
+        """
+        SASL mechanism to use (e.g., PLAIN, SCRAM-SHA-256, SCRAM-SHA-512). Valid values are `PLAIN`, `SCRAM-SHA-256`, `SCRAM-SHA-512`.
+        """
+        return pulumi.get(self, "mechanism")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigSourcesKafkaTls(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "crtFile":
+            suggest = "crt_file"
+        elif key == "caFile":
+            suggest = "ca_file"
+        elif key == "keyFile":
+            suggest = "key_file"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ObservabilityPipelineConfigSourcesKafkaTls. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ObservabilityPipelineConfigSourcesKafkaTls.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ObservabilityPipelineConfigSourcesKafkaTls.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 crt_file: builtins.str,
+                 ca_file: Optional[builtins.str] = None,
+                 key_file: Optional[builtins.str] = None):
+        """
+        :param builtins.str crt_file: Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+        :param builtins.str ca_file: Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+        :param builtins.str key_file: Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+        """
+        pulumi.set(__self__, "crt_file", crt_file)
+        if ca_file is not None:
+            pulumi.set(__self__, "ca_file", ca_file)
+        if key_file is not None:
+            pulumi.set(__self__, "key_file", key_file)
+
+    @property
+    @pulumi.getter(name="crtFile")
+    def crt_file(self) -> builtins.str:
+        """
+        Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+        """
+        return pulumi.get(self, "crt_file")
+
+    @property
+    @pulumi.getter(name="caFile")
+    def ca_file(self) -> Optional[builtins.str]:
+        """
+        Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+        """
+        return pulumi.get(self, "ca_file")
+
+    @property
+    @pulumi.getter(name="keyFile")
+    def key_file(self) -> Optional[builtins.str]:
+        """
+        Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+        """
+        return pulumi.get(self, "key_file")
 
 
 @pulumi.output_type
@@ -82677,6 +83829,8 @@ class SecurityMonitoringRuleQuery(dict):
         suggest = None
         if key == "agentRules":
             suggest = "agent_rules"
+        elif key == "dataSource":
+            suggest = "data_source"
         elif key == "distinctFields":
             suggest = "distinct_fields"
         elif key == "groupByFields":
@@ -82697,6 +83851,7 @@ class SecurityMonitoringRuleQuery(dict):
                  query: builtins.str,
                  agent_rules: Optional[Sequence['outputs.SecurityMonitoringRuleQueryAgentRule']] = None,
                  aggregation: Optional[builtins.str] = None,
+                 data_source: Optional[builtins.str] = None,
                  distinct_fields: Optional[Sequence[builtins.str]] = None,
                  group_by_fields: Optional[Sequence[builtins.str]] = None,
                  metric: Optional[builtins.str] = None,
@@ -82706,6 +83861,7 @@ class SecurityMonitoringRuleQuery(dict):
         :param builtins.str query: Query to run on logs.
         :param Sequence['SecurityMonitoringRuleQueryAgentRuleArgs'] agent_rules: **Deprecated**. It won't be applied anymore. **Deprecated.** `agent_rule` has been deprecated in favor of new Agent Rule resource.
         :param builtins.str aggregation: The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`. Defaults to `"count"`.
+        :param builtins.str data_source: Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`. Defaults to `"logs"`.
         :param Sequence[builtins.str] distinct_fields: Field for which the cardinality is measured. Sent as an array.
         :param Sequence[builtins.str] group_by_fields: Fields to group by.
         :param builtins.str metric: The target field to aggregate over when using the `sum`, `max`, or `geo_data` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
@@ -82717,6 +83873,8 @@ class SecurityMonitoringRuleQuery(dict):
             pulumi.set(__self__, "agent_rules", agent_rules)
         if aggregation is not None:
             pulumi.set(__self__, "aggregation", aggregation)
+        if data_source is not None:
+            pulumi.set(__self__, "data_source", data_source)
         if distinct_fields is not None:
             pulumi.set(__self__, "distinct_fields", distinct_fields)
         if group_by_fields is not None:
@@ -82752,6 +83910,14 @@ class SecurityMonitoringRuleQuery(dict):
         The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`. Defaults to `"count"`.
         """
         return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> Optional[builtins.str]:
+        """
+        Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`. Defaults to `"logs"`.
+        """
+        return pulumi.get(self, "data_source")
 
     @property
     @pulumi.getter(name="distinctFields")
@@ -90732,6 +91898,7 @@ class GetSecurityMonitoringRulesRuleQueryResult(dict):
                  query: builtins.str,
                  agent_rules: Optional[Sequence['outputs.GetSecurityMonitoringRulesRuleQueryAgentRuleResult']] = None,
                  aggregation: Optional[builtins.str] = None,
+                 data_source: Optional[builtins.str] = None,
                  distinct_fields: Optional[Sequence[builtins.str]] = None,
                  group_by_fields: Optional[Sequence[builtins.str]] = None,
                  metric: Optional[builtins.str] = None,
@@ -90741,6 +91908,7 @@ class GetSecurityMonitoringRulesRuleQueryResult(dict):
         :param builtins.str query: Query to run on logs.
         :param Sequence['GetSecurityMonitoringRulesRuleQueryAgentRuleArgs'] agent_rules: **Deprecated**. It won't be applied anymore.
         :param builtins.str aggregation: The aggregation type. For Signal Correlation rules, it must be event_count.
+        :param builtins.str data_source: Source of events.
         :param Sequence[builtins.str] distinct_fields: Field for which the cardinality is measured. Sent as an array.
         :param Sequence[builtins.str] group_by_fields: Fields to group by.
         :param builtins.str metric: The target field to aggregate over when using the `sum`, `max`, or `geo_data` aggregations.
@@ -90752,6 +91920,8 @@ class GetSecurityMonitoringRulesRuleQueryResult(dict):
             pulumi.set(__self__, "agent_rules", agent_rules)
         if aggregation is not None:
             pulumi.set(__self__, "aggregation", aggregation)
+        if data_source is not None:
+            pulumi.set(__self__, "data_source", data_source)
         if distinct_fields is not None:
             pulumi.set(__self__, "distinct_fields", distinct_fields)
         if group_by_fields is not None:
@@ -90793,6 +91963,14 @@ class GetSecurityMonitoringRulesRuleQueryResult(dict):
         The aggregation type. For Signal Correlation rules, it must be event_count.
         """
         return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> Optional[builtins.str]:
+        """
+        Source of events.
+        """
+        return pulumi.get(self, "data_source")
 
     @property
     @pulumi.getter(name="distinctFields")

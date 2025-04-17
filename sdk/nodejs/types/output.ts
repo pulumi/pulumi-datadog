@@ -9947,6 +9947,10 @@ export interface GetSecurityMonitoringRulesRuleQuery {
      */
     aggregation?: string;
     /**
+     * Source of events.
+     */
+    dataSource?: string;
+    /**
      * Field for which the cardinality is measured. Sent as an array.
      */
     distinctFields?: string[];
@@ -11481,6 +11485,357 @@ export interface MonitorVariablesEventQuerySearch {
      * The events search string.
      */
     query: string;
+}
+
+export interface ObservabilityPipelineConfig {
+    /**
+     * List of destinations.
+     */
+    destinations?: outputs.ObservabilityPipelineConfigDestinations;
+    /**
+     * List of processors.
+     */
+    processors?: outputs.ObservabilityPipelineConfigProcessors;
+    /**
+     * List of sources.
+     */
+    sources?: outputs.ObservabilityPipelineConfigSources;
+}
+
+export interface ObservabilityPipelineConfigDestinations {
+    /**
+     * The `datadogLogs` destination forwards logs to Datadog Log Management.
+     */
+    datadogLogs?: outputs.ObservabilityPipelineConfigDestinationsDatadogLog[];
+}
+
+export interface ObservabilityPipelineConfigDestinationsDatadogLog {
+    /**
+     * The unique ID of the destination.
+     */
+    id: string;
+    /**
+     * The inputs for the destination.
+     */
+    inputs: string[];
+}
+
+export interface ObservabilityPipelineConfigProcessors {
+    /**
+     * The `addFields` processor adds static key-value fields to logs.
+     */
+    addFields?: outputs.ObservabilityPipelineConfigProcessorsAddField[];
+    /**
+     * The `filter` processor allows conditional processing of logs based on a Datadog search query. Logs that match the `include` query are passed through; others are discarded.
+     */
+    filters?: outputs.ObservabilityPipelineConfigProcessorsFilter[];
+    /**
+     * The `parseJson` processor extracts JSON from a specified field and flattens it into the event. This is useful when logs contain embedded JSON as a string.
+     */
+    parseJsons?: outputs.ObservabilityPipelineConfigProcessorsParseJson[];
+    /**
+     * The `quota` measures logging traffic for logs that match a specified filter. When the configured daily quota is met, the processor can drop or alert.
+     */
+    quotas?: outputs.ObservabilityPipelineConfigProcessorsQuota[];
+    /**
+     * The `removeFields` processor deletes specified fields from logs.
+     */
+    removeFields?: outputs.ObservabilityPipelineConfigProcessorsRemoveField[];
+    /**
+     * The `renameFields` processor changes field names.
+     */
+    renameFields?: outputs.ObservabilityPipelineConfigProcessorsRenameField[];
+}
+
+export interface ObservabilityPipelineConfigProcessorsAddField {
+    /**
+     * A list of static fields (key-value pairs) that is added to each log event processed by this component.
+     */
+    fields?: outputs.ObservabilityPipelineConfigProcessorsAddFieldField[];
+    /**
+     * The unique ID of the processor.
+     */
+    id: string;
+    /**
+     * A Datadog search query used to determine which logs this processor targets.
+     */
+    include: string;
+    /**
+     * The inputs for the processor.
+     */
+    inputs: string[];
+}
+
+export interface ObservabilityPipelineConfigProcessorsAddFieldField {
+    /**
+     * The field name to add.
+     */
+    name: string;
+    /**
+     * The value to assign to the field.
+     */
+    value: string;
+}
+
+export interface ObservabilityPipelineConfigProcessorsFilter {
+    /**
+     * The unique ID of the processor.
+     */
+    id: string;
+    /**
+     * A Datadog search query used to determine which logs should pass through the filter. Logs that match this query continue to downstream components; others are dropped.
+     */
+    include: string;
+    /**
+     * The inputs for the processor.
+     */
+    inputs: string[];
+}
+
+export interface ObservabilityPipelineConfigProcessorsParseJson {
+    /**
+     * The field to parse.
+     */
+    field: string;
+    /**
+     * The unique ID of the processor.
+     */
+    id: string;
+    /**
+     * A Datadog search query used to determine which logs this processor targets.
+     */
+    include: string;
+    /**
+     * The inputs for the processor.
+     */
+    inputs: string[];
+}
+
+export interface ObservabilityPipelineConfigProcessorsQuota {
+    /**
+     * Whether to drop events exceeding the limit.
+     */
+    dropEvents: boolean;
+    /**
+     * The unique ID of the processor.
+     */
+    id: string;
+    /**
+     * Whether to ignore when partition fields are missing.
+     */
+    ignoreWhenMissingPartitions?: boolean;
+    /**
+     * A Datadog search query used to determine which logs this processor targets.
+     */
+    include: string;
+    /**
+     * The inputs for the processor.
+     */
+    inputs: string[];
+    limit?: outputs.ObservabilityPipelineConfigProcessorsQuotaLimit;
+    /**
+     * The name of the quota.
+     */
+    name: string;
+    /**
+     * The overrides for field-specific quotas.
+     */
+    overrides?: outputs.ObservabilityPipelineConfigProcessorsQuotaOverride[];
+    /**
+     * List of partition fields.
+     */
+    partitionFields?: string[];
+}
+
+export interface ObservabilityPipelineConfigProcessorsQuotaLimit {
+    /**
+     * Whether to enforce by 'bytes' or 'events'. Valid values are `bytes`, `events`.
+     */
+    enforce: string;
+    /**
+     * The daily quota limit.
+     */
+    limit: number;
+}
+
+export interface ObservabilityPipelineConfigProcessorsQuotaOverride {
+    /**
+     * Fields that trigger this override.
+     */
+    fields?: outputs.ObservabilityPipelineConfigProcessorsQuotaOverrideField[];
+    limit?: outputs.ObservabilityPipelineConfigProcessorsQuotaOverrideLimit;
+}
+
+export interface ObservabilityPipelineConfigProcessorsQuotaOverrideField {
+    /**
+     * The field name.
+     */
+    name: string;
+    /**
+     * The field value.
+     */
+    value: string;
+}
+
+export interface ObservabilityPipelineConfigProcessorsQuotaOverrideLimit {
+    /**
+     * Whether to enforce by 'bytes' or 'events'. Valid values are `bytes`, `events`.
+     */
+    enforce: string;
+    /**
+     * The daily quota limit.
+     */
+    limit: number;
+}
+
+export interface ObservabilityPipelineConfigProcessorsRemoveField {
+    /**
+     * List of fields to remove from the events.
+     */
+    fields: string[];
+    /**
+     * The unique ID of the processor.
+     */
+    id: string;
+    /**
+     * A Datadog search query used to determine which logs this processor targets.
+     */
+    include: string;
+    /**
+     * The inputs for the processor.
+     */
+    inputs: string[];
+}
+
+export interface ObservabilityPipelineConfigProcessorsRenameField {
+    /**
+     * List of fields to rename.
+     */
+    fields?: outputs.ObservabilityPipelineConfigProcessorsRenameFieldField[];
+    /**
+     * The unique ID of the processor.
+     */
+    id: string;
+    /**
+     * A Datadog search query used to determine which logs this processor targets.
+     */
+    include: string;
+    /**
+     * he inputs for the processor.
+     */
+    inputs: string[];
+}
+
+export interface ObservabilityPipelineConfigProcessorsRenameFieldField {
+    /**
+     * Destination field name.
+     */
+    destination: string;
+    /**
+     * Whether to keep the original field.
+     */
+    preserveSource: boolean;
+    /**
+     * Source field to rename.
+     */
+    source: string;
+}
+
+export interface ObservabilityPipelineConfigSources {
+    /**
+     * The `datadogAgent` source collects logs from the Datadog Agent.
+     */
+    datadogAgents?: outputs.ObservabilityPipelineConfigSourcesDatadogAgent[];
+    /**
+     * The `kafka` source ingests data from Apache Kafka topics.
+     */
+    kafkas?: outputs.ObservabilityPipelineConfigSourcesKafka[];
+}
+
+export interface ObservabilityPipelineConfigSourcesDatadogAgent {
+    /**
+     * The unique ID of the source.
+     */
+    id: string;
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     */
+    tls?: outputs.ObservabilityPipelineConfigSourcesDatadogAgentTls;
+}
+
+export interface ObservabilityPipelineConfigSourcesDatadogAgentTls {
+    /**
+     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     */
+    caFile?: string;
+    /**
+     * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     */
+    crtFile: string;
+    /**
+     * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     */
+    keyFile?: string;
+}
+
+export interface ObservabilityPipelineConfigSourcesKafka {
+    /**
+     * The Kafka consumer group ID.
+     */
+    groupId: string;
+    /**
+     * The unique ID of the source.
+     */
+    id: string;
+    /**
+     * Advanced librdkafka client configuration options.
+     */
+    librdkafkaOptions?: outputs.ObservabilityPipelineConfigSourcesKafkaLibrdkafkaOption[];
+    /**
+     * SASL authentication settings.
+     */
+    sasl?: outputs.ObservabilityPipelineConfigSourcesKafkaSasl;
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     */
+    tls?: outputs.ObservabilityPipelineConfigSourcesKafkaTls;
+    /**
+     * A list of Kafka topic names to subscribe to. The source ingests messages from each topic specified.
+     */
+    topics: string[];
+}
+
+export interface ObservabilityPipelineConfigSourcesKafkaLibrdkafkaOption {
+    /**
+     * The name of the librdkafka option.
+     */
+    name: string;
+    /**
+     * The value of the librdkafka option.
+     */
+    value: string;
+}
+
+export interface ObservabilityPipelineConfigSourcesKafkaSasl {
+    /**
+     * SASL mechanism to use (e.g., PLAIN, SCRAM-SHA-256, SCRAM-SHA-512). Valid values are `PLAIN`, `SCRAM-SHA-256`, `SCRAM-SHA-512`.
+     */
+    mechanism: string;
+}
+
+export interface ObservabilityPipelineConfigSourcesKafkaTls {
+    /**
+     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     */
+    caFile?: string;
+    /**
+     * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     */
+    crtFile: string;
+    /**
+     * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     */
+    keyFile?: string;
 }
 
 export interface OrganizationSettingsSettings {
@@ -24052,6 +24407,10 @@ export interface SecurityMonitoringRuleQuery {
      */
     aggregation?: string;
     /**
+     * Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`. Defaults to `"logs"`.
+     */
+    dataSource?: string;
+    /**
      * Field for which the cardinality is measured. Sent as an array.
      */
     distinctFields?: string[];
@@ -25929,6 +26288,10 @@ export namespace slack {
          * Show the main body of the alert event. Defaults to `true`.
          */
         message?: boolean;
+        /**
+         * Show interactive buttons to mute the alerting monitor. Defaults to `true`.
+         */
+        muteButtons?: boolean;
         /**
          * Show the list of @-handles in the alert event. Defaults to `true`.
          */

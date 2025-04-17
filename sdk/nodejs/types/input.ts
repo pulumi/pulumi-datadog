@@ -10865,6 +10865,357 @@ export interface MonitorVariablesEventQuerySearch {
     query: pulumi.Input<string>;
 }
 
+export interface ObservabilityPipelineConfig {
+    /**
+     * List of destinations.
+     */
+    destinations?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinations>;
+    /**
+     * List of processors.
+     */
+    processors?: pulumi.Input<inputs.ObservabilityPipelineConfigProcessors>;
+    /**
+     * List of sources.
+     */
+    sources?: pulumi.Input<inputs.ObservabilityPipelineConfigSources>;
+}
+
+export interface ObservabilityPipelineConfigDestinations {
+    /**
+     * The `datadogLogs` destination forwards logs to Datadog Log Management.
+     */
+    datadogLogs?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigDestinationsDatadogLog>[]>;
+}
+
+export interface ObservabilityPipelineConfigDestinationsDatadogLog {
+    /**
+     * The unique ID of the destination.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * The inputs for the destination.
+     */
+    inputs: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface ObservabilityPipelineConfigProcessors {
+    /**
+     * The `addFields` processor adds static key-value fields to logs.
+     */
+    addFields?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsAddField>[]>;
+    /**
+     * The `filter` processor allows conditional processing of logs based on a Datadog search query. Logs that match the `include` query are passed through; others are discarded.
+     */
+    filters?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsFilter>[]>;
+    /**
+     * The `parseJson` processor extracts JSON from a specified field and flattens it into the event. This is useful when logs contain embedded JSON as a string.
+     */
+    parseJsons?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsParseJson>[]>;
+    /**
+     * The `quota` measures logging traffic for logs that match a specified filter. When the configured daily quota is met, the processor can drop or alert.
+     */
+    quotas?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsQuota>[]>;
+    /**
+     * The `removeFields` processor deletes specified fields from logs.
+     */
+    removeFields?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsRemoveField>[]>;
+    /**
+     * The `renameFields` processor changes field names.
+     */
+    renameFields?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsRenameField>[]>;
+}
+
+export interface ObservabilityPipelineConfigProcessorsAddField {
+    /**
+     * A list of static fields (key-value pairs) that is added to each log event processed by this component.
+     */
+    fields?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsAddFieldField>[]>;
+    /**
+     * The unique ID of the processor.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * A Datadog search query used to determine which logs this processor targets.
+     */
+    include: pulumi.Input<string>;
+    /**
+     * The inputs for the processor.
+     */
+    inputs: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface ObservabilityPipelineConfigProcessorsAddFieldField {
+    /**
+     * The field name to add.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The value to assign to the field.
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigProcessorsFilter {
+    /**
+     * The unique ID of the processor.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * A Datadog search query used to determine which logs should pass through the filter. Logs that match this query continue to downstream components; others are dropped.
+     */
+    include: pulumi.Input<string>;
+    /**
+     * The inputs for the processor.
+     */
+    inputs: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface ObservabilityPipelineConfigProcessorsParseJson {
+    /**
+     * The field to parse.
+     */
+    field: pulumi.Input<string>;
+    /**
+     * The unique ID of the processor.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * A Datadog search query used to determine which logs this processor targets.
+     */
+    include: pulumi.Input<string>;
+    /**
+     * The inputs for the processor.
+     */
+    inputs: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface ObservabilityPipelineConfigProcessorsQuota {
+    /**
+     * Whether to drop events exceeding the limit.
+     */
+    dropEvents: pulumi.Input<boolean>;
+    /**
+     * The unique ID of the processor.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * Whether to ignore when partition fields are missing.
+     */
+    ignoreWhenMissingPartitions?: pulumi.Input<boolean>;
+    /**
+     * A Datadog search query used to determine which logs this processor targets.
+     */
+    include: pulumi.Input<string>;
+    /**
+     * The inputs for the processor.
+     */
+    inputs: pulumi.Input<pulumi.Input<string>[]>;
+    limit?: pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsQuotaLimit>;
+    /**
+     * The name of the quota.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The overrides for field-specific quotas.
+     */
+    overrides?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsQuotaOverride>[]>;
+    /**
+     * List of partition fields.
+     */
+    partitionFields?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface ObservabilityPipelineConfigProcessorsQuotaLimit {
+    /**
+     * Whether to enforce by 'bytes' or 'events'. Valid values are `bytes`, `events`.
+     */
+    enforce: pulumi.Input<string>;
+    /**
+     * The daily quota limit.
+     */
+    limit: pulumi.Input<number>;
+}
+
+export interface ObservabilityPipelineConfigProcessorsQuotaOverride {
+    /**
+     * Fields that trigger this override.
+     */
+    fields?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsQuotaOverrideField>[]>;
+    limit?: pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsQuotaOverrideLimit>;
+}
+
+export interface ObservabilityPipelineConfigProcessorsQuotaOverrideField {
+    /**
+     * The field name.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The field value.
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigProcessorsQuotaOverrideLimit {
+    /**
+     * Whether to enforce by 'bytes' or 'events'. Valid values are `bytes`, `events`.
+     */
+    enforce: pulumi.Input<string>;
+    /**
+     * The daily quota limit.
+     */
+    limit: pulumi.Input<number>;
+}
+
+export interface ObservabilityPipelineConfigProcessorsRemoveField {
+    /**
+     * List of fields to remove from the events.
+     */
+    fields: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The unique ID of the processor.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * A Datadog search query used to determine which logs this processor targets.
+     */
+    include: pulumi.Input<string>;
+    /**
+     * The inputs for the processor.
+     */
+    inputs: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface ObservabilityPipelineConfigProcessorsRenameField {
+    /**
+     * List of fields to rename.
+     */
+    fields?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsRenameFieldField>[]>;
+    /**
+     * The unique ID of the processor.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * A Datadog search query used to determine which logs this processor targets.
+     */
+    include: pulumi.Input<string>;
+    /**
+     * he inputs for the processor.
+     */
+    inputs: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface ObservabilityPipelineConfigProcessorsRenameFieldField {
+    /**
+     * Destination field name.
+     */
+    destination: pulumi.Input<string>;
+    /**
+     * Whether to keep the original field.
+     */
+    preserveSource: pulumi.Input<boolean>;
+    /**
+     * Source field to rename.
+     */
+    source: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigSources {
+    /**
+     * The `datadogAgent` source collects logs from the Datadog Agent.
+     */
+    datadogAgents?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigSourcesDatadogAgent>[]>;
+    /**
+     * The `kafka` source ingests data from Apache Kafka topics.
+     */
+    kafkas?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigSourcesKafka>[]>;
+}
+
+export interface ObservabilityPipelineConfigSourcesDatadogAgent {
+    /**
+     * The unique ID of the source.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     */
+    tls?: pulumi.Input<inputs.ObservabilityPipelineConfigSourcesDatadogAgentTls>;
+}
+
+export interface ObservabilityPipelineConfigSourcesDatadogAgentTls {
+    /**
+     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     */
+    caFile?: pulumi.Input<string>;
+    /**
+     * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     */
+    crtFile: pulumi.Input<string>;
+    /**
+     * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     */
+    keyFile?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigSourcesKafka {
+    /**
+     * The Kafka consumer group ID.
+     */
+    groupId: pulumi.Input<string>;
+    /**
+     * The unique ID of the source.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * Advanced librdkafka client configuration options.
+     */
+    librdkafkaOptions?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigSourcesKafkaLibrdkafkaOption>[]>;
+    /**
+     * SASL authentication settings.
+     */
+    sasl?: pulumi.Input<inputs.ObservabilityPipelineConfigSourcesKafkaSasl>;
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     */
+    tls?: pulumi.Input<inputs.ObservabilityPipelineConfigSourcesKafkaTls>;
+    /**
+     * A list of Kafka topic names to subscribe to. The source ingests messages from each topic specified.
+     */
+    topics: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface ObservabilityPipelineConfigSourcesKafkaLibrdkafkaOption {
+    /**
+     * The name of the librdkafka option.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The value of the librdkafka option.
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigSourcesKafkaSasl {
+    /**
+     * SASL mechanism to use (e.g., PLAIN, SCRAM-SHA-256, SCRAM-SHA-512). Valid values are `PLAIN`, `SCRAM-SHA-256`, `SCRAM-SHA-512`.
+     */
+    mechanism: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigSourcesKafkaTls {
+    /**
+     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     */
+    caFile?: pulumi.Input<string>;
+    /**
+     * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     */
+    crtFile: pulumi.Input<string>;
+    /**
+     * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     */
+    keyFile?: pulumi.Input<string>;
+}
+
 export interface OrganizationSettingsSettings {
     /**
      * Whether or not the organization users can share widgets outside of Datadog. Defaults to `false`.
@@ -23441,6 +23792,10 @@ export interface SecurityMonitoringRuleQuery {
      */
     aggregation?: pulumi.Input<string>;
     /**
+     * Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`. Defaults to `"logs"`.
+     */
+    dataSource?: pulumi.Input<string>;
+    /**
      * Field for which the cardinality is measured. Sent as an array.
      */
     distinctFields?: pulumi.Input<pulumi.Input<string>[]>;
@@ -25296,6 +25651,10 @@ export namespace slack {
          * Show the main body of the alert event. Defaults to `true`.
          */
         message?: pulumi.Input<boolean>;
+        /**
+         * Show interactive buttons to mute the alerting monitor. Defaults to `true`.
+         */
+        muteButtons?: pulumi.Input<boolean>;
         /**
          * Show the list of @-handles in the alert event. Defaults to `true`.
          */

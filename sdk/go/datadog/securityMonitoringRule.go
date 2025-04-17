@@ -37,6 +37,7 @@ import (
 //						Name:        pulumi.String("errors"),
 //						Query:       pulumi.String("status:error"),
 //						Aggregation: pulumi.String("count"),
+//						DataSource:  pulumi.String("logs"),
 //						GroupByFields: pulumi.StringArray{
 //							pulumi.String("host"),
 //						},
@@ -45,6 +46,7 @@ import (
 //						Name:        pulumi.String("warnings"),
 //						Query:       pulumi.String("status:warning"),
 //						Aggregation: pulumi.String("count"),
+//						DataSource:  pulumi.String("logs"),
 //						GroupByFields: pulumi.StringArray{
 //							pulumi.String("host"),
 //						},

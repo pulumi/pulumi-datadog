@@ -84,6 +84,7 @@ from .metric_tag_configuration import *
 from .monitor import *
 from .monitor_config_policy import *
 from .monitor_json import *
+from .observability_pipeline import *
 from .openapi_api import *
 from .organization_settings import *
 from .powerpack import *
@@ -555,6 +556,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/monitorJson:MonitorJson": "MonitorJson"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/observabilityPipeline",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/observabilityPipeline:ObservabilityPipeline": "ObservabilityPipeline"
   }
  },
  {

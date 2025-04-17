@@ -89,6 +89,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &MonitorConfigPolicy{}
 	case "datadog:index/monitorJson:MonitorJson":
 		r = &MonitorJson{}
+	case "datadog:index/observabilityPipeline:ObservabilityPipeline":
+		r = &ObservabilityPipeline{}
 	case "datadog:index/openapiApi:OpenapiApi":
 		r = &OpenapiApi{}
 	case "datadog:index/organizationSettings:OrganizationSettings":
@@ -362,6 +364,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/monitorJson",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/observabilityPipeline",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

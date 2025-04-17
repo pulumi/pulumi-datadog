@@ -34,6 +34,7 @@ namespace Pulumi.Datadog
     ///                 Name = "errors",
     ///                 Query = "status:error",
     ///                 Aggregation = "count",
+    ///                 DataSource = "logs",
     ///                 GroupByFields = new[]
     ///                 {
     ///                     "host",
@@ -44,6 +45,7 @@ namespace Pulumi.Datadog
     ///                 Name = "warnings",
     ///                 Query = "status:warning",
     ///                 Aggregation = "count",
+    ///                 DataSource = "logs",
     ///                 GroupByFields = new[]
     ///                 {
     ///                     "host",

@@ -31,6 +31,21 @@ public final class ChannelDisplayArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * Show interactive buttons to mute the alerting monitor. Defaults to `true`.
+     * 
+     */
+    @Import(name="muteButtons")
+    private @Nullable Output<Boolean> muteButtons;
+
+    /**
+     * @return Show interactive buttons to mute the alerting monitor. Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> muteButtons() {
+        return Optional.ofNullable(this.muteButtons);
+    }
+
+    /**
      * Show the list of {@literal @}-handles in the alert event. Defaults to `true`.
      * 
      */
@@ -79,6 +94,7 @@ public final class ChannelDisplayArgs extends com.pulumi.resources.ResourceArgs 
 
     private ChannelDisplayArgs(ChannelDisplayArgs $) {
         this.message = $.message;
+        this.muteButtons = $.muteButtons;
         this.notified = $.notified;
         this.snapshot = $.snapshot;
         this.tags = $.tags;
@@ -121,6 +137,27 @@ public final class ChannelDisplayArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder message(Boolean message) {
             return message(Output.of(message));
+        }
+
+        /**
+         * @param muteButtons Show interactive buttons to mute the alerting monitor. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder muteButtons(@Nullable Output<Boolean> muteButtons) {
+            $.muteButtons = muteButtons;
+            return this;
+        }
+
+        /**
+         * @param muteButtons Show interactive buttons to mute the alerting monitor. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder muteButtons(Boolean muteButtons) {
+            return muteButtons(Output.of(muteButtons));
         }
 
         /**

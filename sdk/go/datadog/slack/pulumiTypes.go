@@ -16,6 +16,8 @@ var _ = internal.GetEnvOrDefault
 type ChannelDisplay struct {
 	// Show the main body of the alert event. Defaults to `true`.
 	Message *bool `pulumi:"message"`
+	// Show interactive buttons to mute the alerting monitor. Defaults to `true`.
+	MuteButtons *bool `pulumi:"muteButtons"`
 	// Show the list of @-handles in the alert event. Defaults to `true`.
 	Notified *bool `pulumi:"notified"`
 	// Show the alert event's snapshot image. Defaults to `true`.
@@ -38,6 +40,8 @@ type ChannelDisplayInput interface {
 type ChannelDisplayArgs struct {
 	// Show the main body of the alert event. Defaults to `true`.
 	Message pulumi.BoolPtrInput `pulumi:"message"`
+	// Show interactive buttons to mute the alerting monitor. Defaults to `true`.
+	MuteButtons pulumi.BoolPtrInput `pulumi:"muteButtons"`
 	// Show the list of @-handles in the alert event. Defaults to `true`.
 	Notified pulumi.BoolPtrInput `pulumi:"notified"`
 	// Show the alert event's snapshot image. Defaults to `true`.
@@ -128,6 +132,11 @@ func (o ChannelDisplayOutput) Message() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ChannelDisplay) *bool { return v.Message }).(pulumi.BoolPtrOutput)
 }
 
+// Show interactive buttons to mute the alerting monitor. Defaults to `true`.
+func (o ChannelDisplayOutput) MuteButtons() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ChannelDisplay) *bool { return v.MuteButtons }).(pulumi.BoolPtrOutput)
+}
+
 // Show the list of @-handles in the alert event. Defaults to `true`.
 func (o ChannelDisplayOutput) Notified() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ChannelDisplay) *bool { return v.Notified }).(pulumi.BoolPtrOutput)
@@ -174,6 +183,16 @@ func (o ChannelDisplayPtrOutput) Message() pulumi.BoolPtrOutput {
 			return nil
 		}
 		return v.Message
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Show interactive buttons to mute the alerting monitor. Defaults to `true`.
+func (o ChannelDisplayPtrOutput) MuteButtons() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ChannelDisplay) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.MuteButtons
 	}).(pulumi.BoolPtrOutput)
 }
 
