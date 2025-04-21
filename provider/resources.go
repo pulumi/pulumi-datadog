@@ -29,7 +29,7 @@ import (
 
 	pfbridge "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/pf/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
-	tks "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens/fallbackstrat"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
@@ -169,9 +169,13 @@ func Provider() tfbridge.ProviderInfo {
 		EnableAccurateBridgePreview:    true,
 	}
 
-	strategy := tks.KnownModules("datadog_", mainMod, []string{
-		"integration",
-	},
+	strategy, err := fallbackstrat.KnownModulesWithInferredFallback(
+		&prov,
+		"datadog_",
+		mainMod,
+		[]string{
+			"integration",
+		},
 		func(module, name string) (string, error) {
 			// Datadog puts integration tokens into their own module, where
 			// each integration partner gets their own module.
@@ -205,6 +209,7 @@ func Provider() tfbridge.ProviderInfo {
 			lower := string(unicode.ToLower(rune(name[0]))) + name[1:]
 			return datadogPkg + ":" + module + "/" + lower + ":" + name, nil
 		})
+	contract.AssertNoError(err)
 
 	prov.MustComputeTokens(strategy)
 	prov.MustApplyAutoAliases()
