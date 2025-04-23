@@ -382,6 +382,9 @@ class _CloudConfigurationRuleState:
 
 
 class CloudConfigurationRule(pulumi.CustomResource):
+
+    pulumi_type = "datadog:index/cloudConfigurationRule:CloudConfigurationRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

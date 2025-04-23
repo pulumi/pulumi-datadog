@@ -371,6 +371,9 @@ class _IntegrationStsState:
 
 
 class IntegrationSts(pulumi.CustomResource):
+
+    pulumi_type = "datadog:gcp/integrationSts:IntegrationSts"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

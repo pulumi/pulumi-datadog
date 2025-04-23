@@ -222,6 +222,9 @@ class _RumRetentionFilterState:
 
 
 class RumRetentionFilter(pulumi.CustomResource):
+
+    pulumi_type = "datadog:index/rumRetentionFilter:RumRetentionFilter"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

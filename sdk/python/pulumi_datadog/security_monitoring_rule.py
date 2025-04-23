@@ -514,6 +514,9 @@ class _SecurityMonitoringRuleState:
 
 
 class SecurityMonitoringRule(pulumi.CustomResource):
+
+    pulumi_type = "datadog:index/securityMonitoringRule:SecurityMonitoringRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

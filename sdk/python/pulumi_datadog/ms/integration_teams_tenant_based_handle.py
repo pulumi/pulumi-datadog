@@ -158,6 +158,9 @@ class _IntegrationTeamsTenantBasedHandleState:
 
 
 class IntegrationTeamsTenantBasedHandle(pulumi.CustomResource):
+
+    pulumi_type = "datadog:ms/integrationTeamsTenantBasedHandle:IntegrationTeamsTenantBasedHandle"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

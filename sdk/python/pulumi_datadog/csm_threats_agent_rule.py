@@ -159,6 +159,9 @@ class _CsmThreatsAgentRuleState:
 
 
 class CsmThreatsAgentRule(pulumi.CustomResource):
+
+    pulumi_type = "datadog:index/csmThreatsAgentRule:CsmThreatsAgentRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

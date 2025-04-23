@@ -97,6 +97,9 @@ class _LogsIndexOrderState:
 
 
 class LogsIndexOrder(pulumi.CustomResource):
+
+    pulumi_type = "datadog:index/logsIndexOrder:LogsIndexOrder"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

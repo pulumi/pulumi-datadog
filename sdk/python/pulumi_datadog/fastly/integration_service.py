@@ -129,6 +129,9 @@ class _IntegrationServiceState:
 
 
 class IntegrationService(pulumi.CustomResource):
+
+    pulumi_type = "datadog:fastly/integrationService:IntegrationService"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

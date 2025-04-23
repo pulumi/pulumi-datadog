@@ -395,6 +395,9 @@ class _SyntheticsGlobalVariableState:
 
 
 class SyntheticsGlobalVariable(pulumi.CustomResource):
+
+    pulumi_type = "datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

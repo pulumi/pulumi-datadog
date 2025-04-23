@@ -127,6 +127,9 @@ class _WebhookCustomVariableState:
 
 
 class WebhookCustomVariable(pulumi.CustomResource):
+
+    pulumi_type = "datadog:index/webhookCustomVariable:WebhookCustomVariable"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

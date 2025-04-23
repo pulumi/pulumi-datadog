@@ -65,6 +65,9 @@ class _SyntheticsConcurrencyCapState:
 
 
 class SyntheticsConcurrencyCap(pulumi.CustomResource):
+
+    pulumi_type = "datadog:index/syntheticsConcurrencyCap:SyntheticsConcurrencyCap"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

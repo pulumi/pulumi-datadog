@@ -343,6 +343,9 @@ class _LogsCustomDestinationState:
 
 
 class LogsCustomDestination(pulumi.CustomResource):
+
+    pulumi_type = "datadog:index/logsCustomDestination:LogsCustomDestination"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

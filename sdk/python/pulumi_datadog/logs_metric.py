@@ -161,6 +161,9 @@ class _LogsMetricState:
 
 
 class LogsMetric(pulumi.CustomResource):
+
+    pulumi_type = "datadog:index/logsMetric:LogsMetric"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
