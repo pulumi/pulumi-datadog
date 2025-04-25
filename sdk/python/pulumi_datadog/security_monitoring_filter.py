@@ -209,6 +209,9 @@ class _SecurityMonitoringFilterState:
 
 
 class SecurityMonitoringFilter(pulumi.CustomResource):
+
+    pulumi_type = "datadog:index/securityMonitoringFilter:SecurityMonitoringFilter"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

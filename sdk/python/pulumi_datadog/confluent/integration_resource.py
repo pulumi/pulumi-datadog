@@ -192,6 +192,9 @@ class _IntegrationResourceState:
 
 
 class IntegrationResource(pulumi.CustomResource):
+
+    pulumi_type = "datadog:confluent/integrationResource:IntegrationResource"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

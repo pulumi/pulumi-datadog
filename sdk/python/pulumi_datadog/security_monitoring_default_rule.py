@@ -212,6 +212,9 @@ class _SecurityMonitoringDefaultRuleState:
 
 
 class SecurityMonitoringDefaultRule(pulumi.CustomResource):
+
+    pulumi_type = "datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

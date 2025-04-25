@@ -91,6 +91,9 @@ class _RestrictionPolicyState:
 
 
 class RestrictionPolicy(pulumi.CustomResource):
+
+    pulumi_type = "datadog:index/restrictionPolicy:RestrictionPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

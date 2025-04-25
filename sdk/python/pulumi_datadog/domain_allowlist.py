@@ -96,6 +96,9 @@ class _DomainAllowlistState:
 
 
 class DomainAllowlist(pulumi.CustomResource):
+
+    pulumi_type = "datadog:index/domainAllowlist:DomainAllowlist"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

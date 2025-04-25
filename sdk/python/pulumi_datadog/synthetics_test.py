@@ -928,6 +928,9 @@ class _SyntheticsTestState:
 
 
 class SyntheticsTest(pulumi.CustomResource):
+
+    pulumi_type = "datadog:index/syntheticsTest:SyntheticsTest"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

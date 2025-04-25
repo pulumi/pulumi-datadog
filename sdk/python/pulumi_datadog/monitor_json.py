@@ -97,6 +97,9 @@ class _MonitorJsonState:
 
 
 class MonitorJson(pulumi.CustomResource):
+
+    pulumi_type = "datadog:index/monitorJson:MonitorJson"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
