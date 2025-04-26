@@ -26,14 +26,16 @@ class ApmRetentionFilterArgs:
                  filter_type: pulumi.Input[builtins.str],
                  name: pulumi.Input[builtins.str],
                  rate: pulumi.Input[builtins.str],
-                 filter: Optional[pulumi.Input['ApmRetentionFilterFilterArgs']] = None):
+                 filter: Optional[pulumi.Input['ApmRetentionFilterFilterArgs']] = None,
+                 trace_rate: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ApmRetentionFilter resource.
         :param pulumi.Input[builtins.bool] enabled: the status of the retention filter.
         :param pulumi.Input[builtins.str] filter_type: The type of the retention filter, currently only spans-processing-sampling is available. Valid values are `spans-sampling-processor`.
         :param pulumi.Input[builtins.str] name: The name of the retention filter.
-        :param pulumi.Input[builtins.str] rate: Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
+        :param pulumi.Input[builtins.str] rate: Sample rate to apply to spans going through this retention filter as a string; a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
         :param pulumi.Input['ApmRetentionFilterFilterArgs'] filter: The spans filter. Spans matching this filter will be indexed and stored.
+        :param pulumi.Input[builtins.str] trace_rate: Sample rate to apply to traces with spans going through this retention filter as a string; a value of 1.0 keeps all traces matching the query. Value must be between 0.00 and 1.00.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "filter_type", filter_type)
@@ -41,6 +43,8 @@ class ApmRetentionFilterArgs:
         pulumi.set(__self__, "rate", rate)
         if filter is not None:
             pulumi.set(__self__, "filter", filter)
+        if trace_rate is not None:
+            pulumi.set(__self__, "trace_rate", trace_rate)
 
     @property
     @pulumi.getter
@@ -82,7 +86,7 @@ class ApmRetentionFilterArgs:
     @pulumi.getter
     def rate(self) -> pulumi.Input[builtins.str]:
         """
-        Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
+        Sample rate to apply to spans going through this retention filter as a string; a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
         """
         return pulumi.get(self, "rate")
 
@@ -102,6 +106,18 @@ class ApmRetentionFilterArgs:
     def filter(self, value: Optional[pulumi.Input['ApmRetentionFilterFilterArgs']]):
         pulumi.set(self, "filter", value)
 
+    @property
+    @pulumi.getter(name="traceRate")
+    def trace_rate(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Sample rate to apply to traces with spans going through this retention filter as a string; a value of 1.0 keeps all traces matching the query. Value must be between 0.00 and 1.00.
+        """
+        return pulumi.get(self, "trace_rate")
+
+    @trace_rate.setter
+    def trace_rate(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "trace_rate", value)
+
 
 @pulumi.input_type
 class _ApmRetentionFilterState:
@@ -110,14 +126,16 @@ class _ApmRetentionFilterState:
                  filter: Optional[pulumi.Input['ApmRetentionFilterFilterArgs']] = None,
                  filter_type: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
-                 rate: Optional[pulumi.Input[builtins.str]] = None):
+                 rate: Optional[pulumi.Input[builtins.str]] = None,
+                 trace_rate: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApmRetentionFilter resources.
         :param pulumi.Input[builtins.bool] enabled: the status of the retention filter.
         :param pulumi.Input['ApmRetentionFilterFilterArgs'] filter: The spans filter. Spans matching this filter will be indexed and stored.
         :param pulumi.Input[builtins.str] filter_type: The type of the retention filter, currently only spans-processing-sampling is available. Valid values are `spans-sampling-processor`.
         :param pulumi.Input[builtins.str] name: The name of the retention filter.
-        :param pulumi.Input[builtins.str] rate: Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
+        :param pulumi.Input[builtins.str] rate: Sample rate to apply to spans going through this retention filter as a string; a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
+        :param pulumi.Input[builtins.str] trace_rate: Sample rate to apply to traces with spans going through this retention filter as a string; a value of 1.0 keeps all traces matching the query. Value must be between 0.00 and 1.00.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -129,6 +147,8 @@ class _ApmRetentionFilterState:
             pulumi.set(__self__, "name", name)
         if rate is not None:
             pulumi.set(__self__, "rate", rate)
+        if trace_rate is not None:
+            pulumi.set(__self__, "trace_rate", trace_rate)
 
     @property
     @pulumi.getter
@@ -182,13 +202,25 @@ class _ApmRetentionFilterState:
     @pulumi.getter
     def rate(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
+        Sample rate to apply to spans going through this retention filter as a string; a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
         """
         return pulumi.get(self, "rate")
 
     @rate.setter
     def rate(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "rate", value)
+
+    @property
+    @pulumi.getter(name="traceRate")
+    def trace_rate(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Sample rate to apply to traces with spans going through this retention filter as a string; a value of 1.0 keeps all traces matching the query. Value must be between 0.00 and 1.00.
+        """
+        return pulumi.get(self, "trace_rate")
+
+    @trace_rate.setter
+    def trace_rate(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "trace_rate", value)
 
 
 class ApmRetentionFilter(pulumi.CustomResource):
@@ -201,6 +233,7 @@ class ApmRetentionFilter(pulumi.CustomResource):
                  filter_type: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  rate: Optional[pulumi.Input[builtins.str]] = None,
+                 trace_rate: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         The object describing the configuration of the retention filter to create/update.
@@ -219,7 +252,8 @@ class ApmRetentionFilter(pulumi.CustomResource):
         :param pulumi.Input[Union['ApmRetentionFilterFilterArgs', 'ApmRetentionFilterFilterArgsDict']] filter: The spans filter. Spans matching this filter will be indexed and stored.
         :param pulumi.Input[builtins.str] filter_type: The type of the retention filter, currently only spans-processing-sampling is available. Valid values are `spans-sampling-processor`.
         :param pulumi.Input[builtins.str] name: The name of the retention filter.
-        :param pulumi.Input[builtins.str] rate: Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
+        :param pulumi.Input[builtins.str] rate: Sample rate to apply to spans going through this retention filter as a string; a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
+        :param pulumi.Input[builtins.str] trace_rate: Sample rate to apply to traces with spans going through this retention filter as a string; a value of 1.0 keeps all traces matching the query. Value must be between 0.00 and 1.00.
         """
         ...
     @overload
@@ -258,6 +292,7 @@ class ApmRetentionFilter(pulumi.CustomResource):
                  filter_type: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  rate: Optional[pulumi.Input[builtins.str]] = None,
+                 trace_rate: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -280,6 +315,7 @@ class ApmRetentionFilter(pulumi.CustomResource):
             if rate is None and not opts.urn:
                 raise TypeError("Missing required property 'rate'")
             __props__.__dict__["rate"] = rate
+            __props__.__dict__["trace_rate"] = trace_rate
         super(ApmRetentionFilter, __self__).__init__(
             'datadog:index/apmRetentionFilter:ApmRetentionFilter',
             resource_name,
@@ -294,7 +330,8 @@ class ApmRetentionFilter(pulumi.CustomResource):
             filter: Optional[pulumi.Input[Union['ApmRetentionFilterFilterArgs', 'ApmRetentionFilterFilterArgsDict']]] = None,
             filter_type: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
-            rate: Optional[pulumi.Input[builtins.str]] = None) -> 'ApmRetentionFilter':
+            rate: Optional[pulumi.Input[builtins.str]] = None,
+            trace_rate: Optional[pulumi.Input[builtins.str]] = None) -> 'ApmRetentionFilter':
         """
         Get an existing ApmRetentionFilter resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -306,7 +343,8 @@ class ApmRetentionFilter(pulumi.CustomResource):
         :param pulumi.Input[Union['ApmRetentionFilterFilterArgs', 'ApmRetentionFilterFilterArgsDict']] filter: The spans filter. Spans matching this filter will be indexed and stored.
         :param pulumi.Input[builtins.str] filter_type: The type of the retention filter, currently only spans-processing-sampling is available. Valid values are `spans-sampling-processor`.
         :param pulumi.Input[builtins.str] name: The name of the retention filter.
-        :param pulumi.Input[builtins.str] rate: Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
+        :param pulumi.Input[builtins.str] rate: Sample rate to apply to spans going through this retention filter as a string; a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
+        :param pulumi.Input[builtins.str] trace_rate: Sample rate to apply to traces with spans going through this retention filter as a string; a value of 1.0 keeps all traces matching the query. Value must be between 0.00 and 1.00.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -317,6 +355,7 @@ class ApmRetentionFilter(pulumi.CustomResource):
         __props__.__dict__["filter_type"] = filter_type
         __props__.__dict__["name"] = name
         __props__.__dict__["rate"] = rate
+        __props__.__dict__["trace_rate"] = trace_rate
         return ApmRetentionFilter(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -355,7 +394,15 @@ class ApmRetentionFilter(pulumi.CustomResource):
     @pulumi.getter
     def rate(self) -> pulumi.Output[builtins.str]:
         """
-        Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
+        Sample rate to apply to spans going through this retention filter as a string; a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
         """
         return pulumi.get(self, "rate")
+
+    @property
+    @pulumi.getter(name="traceRate")
+    def trace_rate(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        Sample rate to apply to traces with spans going through this retention filter as a string; a value of 1.0 keeps all traces matching the query. Value must be between 0.00 and 1.00.
+        """
+        return pulumi.get(self, "trace_rate")
 

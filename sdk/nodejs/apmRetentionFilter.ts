@@ -62,9 +62,13 @@ export class ApmRetentionFilter extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
+     * Sample rate to apply to spans going through this retention filter as a string; a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
      */
     public readonly rate!: pulumi.Output<string>;
+    /**
+     * Sample rate to apply to traces with spans going through this retention filter as a string; a value of 1.0 keeps all traces matching the query. Value must be between 0.00 and 1.00.
+     */
+    public readonly traceRate!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ApmRetentionFilter resource with the given unique name, arguments, and options.
@@ -84,6 +88,7 @@ export class ApmRetentionFilter extends pulumi.CustomResource {
             resourceInputs["filterType"] = state ? state.filterType : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["rate"] = state ? state.rate : undefined;
+            resourceInputs["traceRate"] = state ? state.traceRate : undefined;
         } else {
             const args = argsOrState as ApmRetentionFilterArgs | undefined;
             if ((!args || args.enabled === undefined) && !opts.urn) {
@@ -103,6 +108,7 @@ export class ApmRetentionFilter extends pulumi.CustomResource {
             resourceInputs["filterType"] = args ? args.filterType : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["rate"] = args ? args.rate : undefined;
+            resourceInputs["traceRate"] = args ? args.traceRate : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ApmRetentionFilter.__pulumiType, name, resourceInputs, opts);
@@ -130,9 +136,13 @@ export interface ApmRetentionFilterState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
+     * Sample rate to apply to spans going through this retention filter as a string; a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
      */
     rate?: pulumi.Input<string>;
+    /**
+     * Sample rate to apply to traces with spans going through this retention filter as a string; a value of 1.0 keeps all traces matching the query. Value must be between 0.00 and 1.00.
+     */
+    traceRate?: pulumi.Input<string>;
 }
 
 /**
@@ -156,7 +166,11 @@ export interface ApmRetentionFilterArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
+     * Sample rate to apply to spans going through this retention filter as a string; a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
      */
     rate: pulumi.Input<string>;
+    /**
+     * Sample rate to apply to traces with spans going through this retention filter as a string; a value of 1.0 keeps all traces matching the query. Value must be between 0.00 and 1.00.
+     */
+    traceRate?: pulumi.Input<string>;
 }

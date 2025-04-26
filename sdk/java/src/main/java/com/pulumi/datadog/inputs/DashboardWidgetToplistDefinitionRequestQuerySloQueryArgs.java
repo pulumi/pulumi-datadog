@@ -122,14 +122,14 @@ public final class DashboardWidgetToplistDefinitionRequestQuerySloQueryArgs exte
     }
 
     /**
-     * type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `&#34;metric&#34;`.
+     * type of the SLO to query. Valid values are `metric`, `monitor`, `time_slice`. Defaults to `&#34;metric&#34;`.
      * 
      */
     @Import(name="sloQueryType")
     private @Nullable Output<String> sloQueryType;
 
     /**
-     * @return type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `&#34;metric&#34;`.
+     * @return type of the SLO to query. Valid values are `metric`, `monitor`, `time_slice`. Defaults to `&#34;metric&#34;`.
      * 
      */
     public Optional<Output<String>> sloQueryType() {
@@ -315,7 +315,7 @@ public final class DashboardWidgetToplistDefinitionRequestQuerySloQueryArgs exte
         }
 
         /**
-         * @param sloQueryType type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `&#34;metric&#34;`.
+         * @param sloQueryType type of the SLO to query. Valid values are `metric`, `monitor`, `time_slice`. Defaults to `&#34;metric&#34;`.
          * 
          * @return builder
          * 
@@ -326,7 +326,7 @@ public final class DashboardWidgetToplistDefinitionRequestQuerySloQueryArgs exte
         }
 
         /**
-         * @param sloQueryType type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `&#34;metric&#34;`.
+         * @param sloQueryType type of the SLO to query. Valid values are `metric`, `monitor`, `time_slice`. Defaults to `&#34;metric&#34;`.
          * 
          * @return builder
          * 

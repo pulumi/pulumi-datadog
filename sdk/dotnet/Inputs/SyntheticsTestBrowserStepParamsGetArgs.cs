@@ -97,6 +97,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Request { get; set; }
 
         /// <summary>
+        /// Details of the requests for an "assert request" step, JSON encoded string. Refer to the examples for a usage example showing the schema.
+        /// </summary>
+        [Input("requests")]
+        public Input<string>? Requests { get; set; }
+
+        /// <summary>
         /// ID of the Synthetics test to use as subtest.
         /// </summary>
         [Input("subtestPublicId")]

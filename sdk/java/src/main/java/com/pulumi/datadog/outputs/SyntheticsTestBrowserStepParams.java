@@ -82,6 +82,11 @@ public final class SyntheticsTestBrowserStepParams {
      */
     private @Nullable String request;
     /**
+     * @return Details of the requests for an &#34;assert request&#34; step, JSON encoded string. Refer to the examples for a usage example showing the schema.
+     * 
+     */
+    private @Nullable String requests;
+    /**
      * @return ID of the Synthetics test to use as subtest.
      * 
      */
@@ -205,6 +210,13 @@ public final class SyntheticsTestBrowserStepParams {
         return Optional.ofNullable(this.request);
     }
     /**
+     * @return Details of the requests for an &#34;assert request&#34; step, JSON encoded string. Refer to the examples for a usage example showing the schema.
+     * 
+     */
+    public Optional<String> requests() {
+        return Optional.ofNullable(this.requests);
+    }
+    /**
      * @return ID of the Synthetics test to use as subtest.
      * 
      */
@@ -269,6 +281,7 @@ public final class SyntheticsTestBrowserStepParams {
         private @Nullable List<String> modifiers;
         private @Nullable String playingTabId;
         private @Nullable String request;
+        private @Nullable String requests;
         private @Nullable String subtestPublicId;
         private @Nullable String value;
         private @Nullable SyntheticsTestBrowserStepParamsVariable variable;
@@ -291,6 +304,7 @@ public final class SyntheticsTestBrowserStepParams {
     	      this.modifiers = defaults.modifiers;
     	      this.playingTabId = defaults.playingTabId;
     	      this.request = defaults.request;
+    	      this.requests = defaults.requests;
     	      this.subtestPublicId = defaults.subtestPublicId;
     	      this.value = defaults.value;
     	      this.variable = defaults.variable;
@@ -381,6 +395,12 @@ public final class SyntheticsTestBrowserStepParams {
             return this;
         }
         @CustomType.Setter
+        public Builder requests(@Nullable String requests) {
+
+            this.requests = requests;
+            return this;
+        }
+        @CustomType.Setter
         public Builder subtestPublicId(@Nullable String subtestPublicId) {
 
             this.subtestPublicId = subtestPublicId;
@@ -431,6 +451,7 @@ public final class SyntheticsTestBrowserStepParams {
             _resultValue.modifiers = modifiers;
             _resultValue.playingTabId = playingTabId;
             _resultValue.request = request;
+            _resultValue.requests = requests;
             _resultValue.subtestPublicId = subtestPublicId;
             _resultValue.value = value;
             _resultValue.variable = variable;

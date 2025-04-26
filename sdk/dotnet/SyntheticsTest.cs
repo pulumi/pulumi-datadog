@@ -548,6 +548,23 @@ namespace Pulumi.Datadog
     ///                     },
     ///                 },
     ///             },
+    ///             new Datadog.Inputs.SyntheticsTestBrowserStepArgs
+    ///             {
+    ///                 Name = "Test sending http requests",
+    ///                 Type = "assertRequests",
+    ///                 Params = new Datadog.Inputs.SyntheticsTestBrowserStepParamsArgs
+    ///                 {
+    ///                     Requests = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["count"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["type"] = "equals",
+    ///                             ["value"] = 1,
+    ///                         },
+    ///                         ["url"] = "https://www.example.org",
+    ///                     }),
+    ///                 },
+    ///             },
     ///         },
     ///         BrowserVariables = new[]
     ///         {

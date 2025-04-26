@@ -216,6 +216,21 @@ public final class SyntheticsTestBrowserStepParamsArgs extends com.pulumi.resour
     }
 
     /**
+     * Details of the requests for an &#34;assert request&#34; step, JSON encoded string. Refer to the examples for a usage example showing the schema.
+     * 
+     */
+    @Import(name="requests")
+    private @Nullable Output<String> requests;
+
+    /**
+     * @return Details of the requests for an &#34;assert request&#34; step, JSON encoded string. Refer to the examples for a usage example showing the schema.
+     * 
+     */
+    public Optional<Output<String>> requests() {
+        return Optional.ofNullable(this.requests);
+    }
+
+    /**
      * ID of the Synthetics test to use as subtest.
      * 
      */
@@ -321,6 +336,7 @@ public final class SyntheticsTestBrowserStepParamsArgs extends com.pulumi.resour
         this.modifiers = $.modifiers;
         this.playingTabId = $.playingTabId;
         this.request = $.request;
+        this.requests = $.requests;
         this.subtestPublicId = $.subtestPublicId;
         this.value = $.value;
         this.variable = $.variable;
@@ -628,6 +644,27 @@ public final class SyntheticsTestBrowserStepParamsArgs extends com.pulumi.resour
          */
         public Builder request(String request) {
             return request(Output.of(request));
+        }
+
+        /**
+         * @param requests Details of the requests for an &#34;assert request&#34; step, JSON encoded string. Refer to the examples for a usage example showing the schema.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requests(@Nullable Output<String> requests) {
+            $.requests = requests;
+            return this;
+        }
+
+        /**
+         * @param requests Details of the requests for an &#34;assert request&#34; step, JSON encoded string. Refer to the examples for a usage example showing the schema.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requests(String requests) {
+            return requests(Output.of(requests));
         }
 
         /**

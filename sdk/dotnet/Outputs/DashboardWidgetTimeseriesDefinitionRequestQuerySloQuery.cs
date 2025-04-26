@@ -42,7 +42,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string SloId;
         /// <summary>
-        /// type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `"metric"`.
+        /// type of the SLO to query. Valid values are `metric`, `monitor`, `time_slice`. Defaults to `"metric"`.
         /// </summary>
         public readonly string? SloQueryType;
 
