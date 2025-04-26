@@ -1348,6 +1348,19 @@ class SyntheticsTest(pulumi.CustomResource):
                         },
                     },
                 },
+                {
+                    "name": "Test sending http requests",
+                    "type": "assertRequests",
+                    "params": {
+                        "requests": json.dumps({
+                            "count": {
+                                "type": "equals",
+                                "value": 1,
+                            },
+                            "url": "https://www.example.org",
+                        }),
+                    },
+                },
             ],
             browser_variables=[
                 {
@@ -2039,6 +2052,19 @@ class SyntheticsTest(pulumi.CustomResource):
                                 "value": "#simple-file-upload",
                             },
                         },
+                    },
+                },
+                {
+                    "name": "Test sending http requests",
+                    "type": "assertRequests",
+                    "params": {
+                        "requests": json.dumps({
+                            "count": {
+                                "type": "equals",
+                                "value": 1,
+                            },
+                            "url": "https://www.example.org",
+                        }),
                     },
                 },
             ],

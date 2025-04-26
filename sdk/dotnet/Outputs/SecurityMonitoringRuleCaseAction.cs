@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.SecurityMonitoringRuleCaseActionOptions? Options;
         /// <summary>
-        /// Type of action to perform when the case triggers. Valid values are `block_ip`, `block_user`.
+        /// Type of action to perform when the case triggers. Valid values are `block_ip`, `block_user`, `user_behavior`.
         /// </summary>
         public readonly string Type;
 

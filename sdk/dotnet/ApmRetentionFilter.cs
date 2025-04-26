@@ -48,10 +48,16 @@ namespace Pulumi.Datadog
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
+        /// Sample rate to apply to spans going through this retention filter as a string; a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
         /// </summary>
         [Output("rate")]
         public Output<string> Rate { get; private set; } = null!;
+
+        /// <summary>
+        /// Sample rate to apply to traces with spans going through this retention filter as a string; a value of 1.0 keeps all traces matching the query. Value must be between 0.00 and 1.00.
+        /// </summary>
+        [Output("traceRate")]
+        public Output<string?> TraceRate { get; private set; } = null!;
 
 
         /// <summary>
@@ -124,10 +130,16 @@ namespace Pulumi.Datadog
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
+        /// Sample rate to apply to spans going through this retention filter as a string; a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
         /// </summary>
         [Input("rate", required: true)]
         public Input<string> Rate { get; set; } = null!;
+
+        /// <summary>
+        /// Sample rate to apply to traces with spans going through this retention filter as a string; a value of 1.0 keeps all traces matching the query. Value must be between 0.00 and 1.00.
+        /// </summary>
+        [Input("traceRate")]
+        public Input<string>? TraceRate { get; set; }
 
         public ApmRetentionFilterArgs()
         {
@@ -162,10 +174,16 @@ namespace Pulumi.Datadog
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
+        /// Sample rate to apply to spans going through this retention filter as a string; a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
         /// </summary>
         [Input("rate")]
         public Input<string>? Rate { get; set; }
+
+        /// <summary>
+        /// Sample rate to apply to traces with spans going through this retention filter as a string; a value of 1.0 keeps all traces matching the query. Value must be between 0.00 and 1.00.
+        /// </summary>
+        [Input("traceRate")]
+        public Input<string>? TraceRate { get; set; }
 
         public ApmRetentionFilterState()
         {

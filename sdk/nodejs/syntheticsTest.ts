@@ -399,6 +399,19 @@ import * as utilities from "./utilities";
  *                 },
  *             },
  *         },
+ *         {
+ *             name: "Test sending http requests",
+ *             type: "assertRequests",
+ *             params: {
+ *                 requests: JSON.stringify({
+ *                     count: {
+ *                         type: "equals",
+ *                         value: 1,
+ *                     },
+ *                     url: "https://www.example.org",
+ *                 }),
+ *             },
+ *         },
  *     ],
  *     browserVariables: [
  *         {

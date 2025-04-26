@@ -466,6 +466,20 @@ import javax.annotation.Nullable;
  *                                 .build())
  *                             .build())
  *                         .build())
+ *                     .build(),
+ *                 SyntheticsTestBrowserStepArgs.builder()
+ *                     .name("Test sending http requests")
+ *                     .type("assertRequests")
+ *                     .params(SyntheticsTestBrowserStepParamsArgs.builder()
+ *                         .requests(serializeJson(
+ *                             jsonObject(
+ *                                 jsonProperty("count", jsonObject(
+ *                                     jsonProperty("type", "equals"),
+ *                                     jsonProperty("value", 1)
+ *                                 )),
+ *                                 jsonProperty("url", "https://www.example.org")
+ *                             )))
+ *                         .build())
  *                     .build())
  *             .browserVariables(            
  *                 SyntheticsTestBrowserVariableArgs.builder()

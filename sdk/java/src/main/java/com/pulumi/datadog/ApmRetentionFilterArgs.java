@@ -79,18 +79,33 @@ public final class ApmRetentionFilterArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
+     * Sample rate to apply to spans going through this retention filter as a string; a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
      * 
      */
     @Import(name="rate", required=true)
     private Output<String> rate;
 
     /**
-     * @return Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
+     * @return Sample rate to apply to spans going through this retention filter as a string; a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
      * 
      */
     public Output<String> rate() {
         return this.rate;
+    }
+
+    /**
+     * Sample rate to apply to traces with spans going through this retention filter as a string; a value of 1.0 keeps all traces matching the query. Value must be between 0.00 and 1.00.
+     * 
+     */
+    @Import(name="traceRate")
+    private @Nullable Output<String> traceRate;
+
+    /**
+     * @return Sample rate to apply to traces with spans going through this retention filter as a string; a value of 1.0 keeps all traces matching the query. Value must be between 0.00 and 1.00.
+     * 
+     */
+    public Optional<Output<String>> traceRate() {
+        return Optional.ofNullable(this.traceRate);
     }
 
     private ApmRetentionFilterArgs() {}
@@ -101,6 +116,7 @@ public final class ApmRetentionFilterArgs extends com.pulumi.resources.ResourceA
         this.filterType = $.filterType;
         this.name = $.name;
         this.rate = $.rate;
+        this.traceRate = $.traceRate;
     }
 
     public static Builder builder() {
@@ -206,7 +222,7 @@ public final class ApmRetentionFilterArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param rate Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
+         * @param rate Sample rate to apply to spans going through this retention filter as a string; a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
          * 
          * @return builder
          * 
@@ -217,13 +233,34 @@ public final class ApmRetentionFilterArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param rate Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
+         * @param rate Sample rate to apply to spans going through this retention filter as a string; a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
          * 
          * @return builder
          * 
          */
         public Builder rate(String rate) {
             return rate(Output.of(rate));
+        }
+
+        /**
+         * @param traceRate Sample rate to apply to traces with spans going through this retention filter as a string; a value of 1.0 keeps all traces matching the query. Value must be between 0.00 and 1.00.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder traceRate(@Nullable Output<String> traceRate) {
+            $.traceRate = traceRate;
+            return this;
+        }
+
+        /**
+         * @param traceRate Sample rate to apply to traces with spans going through this retention filter as a string; a value of 1.0 keeps all traces matching the query. Value must be between 0.00 and 1.00.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder traceRate(String traceRate) {
+            return traceRate(Output.of(traceRate));
         }
 
         public ApmRetentionFilterArgs build() {

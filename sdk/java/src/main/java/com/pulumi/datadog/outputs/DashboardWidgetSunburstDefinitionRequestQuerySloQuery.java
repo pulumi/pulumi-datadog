@@ -48,7 +48,7 @@ public final class DashboardWidgetSunburstDefinitionRequestQuerySloQuery {
      */
     private String sloId;
     /**
-     * @return type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `&#34;metric&#34;`.
+     * @return type of the SLO to query. Valid values are `metric`, `monitor`, `time_slice`. Defaults to `&#34;metric&#34;`.
      * 
      */
     private @Nullable String sloQueryType;
@@ -104,7 +104,7 @@ public final class DashboardWidgetSunburstDefinitionRequestQuerySloQuery {
         return this.sloId;
     }
     /**
-     * @return type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `&#34;metric&#34;`.
+     * @return type of the SLO to query. Valid values are `metric`, `monitor`, `time_slice`. Defaults to `&#34;metric&#34;`.
      * 
      */
     public Optional<String> sloQueryType() {

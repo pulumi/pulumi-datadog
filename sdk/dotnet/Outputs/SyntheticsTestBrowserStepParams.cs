@@ -66,6 +66,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Request;
         /// <summary>
+        /// Details of the requests for an "assert request" step, JSON encoded string. Refer to the examples for a usage example showing the schema.
+        /// </summary>
+        public readonly string? Requests;
+        /// <summary>
         /// ID of the Synthetics test to use as subtest.
         /// </summary>
         public readonly string? SubtestPublicId;
@@ -118,6 +122,8 @@ namespace Pulumi.Datadog.Outputs
 
             string? request,
 
+            string? requests,
+
             string? subtestPublicId,
 
             string? value,
@@ -143,6 +149,7 @@ namespace Pulumi.Datadog.Outputs
             Modifiers = modifiers;
             PlayingTabId = playingTabId;
             Request = request;
+            Requests = requests;
             SubtestPublicId = subtestPublicId;
             Value = value;
             Variable = variable;

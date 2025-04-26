@@ -442,6 +442,17 @@ import (
 //		return err
 //	}
 //	json1 := string(tmpJSON1)
+//	tmpJSON2, err := json.Marshal(map[string]interface{}{
+//		"count": map[string]interface{}{
+//			"type":  "equals",
+//			"value": 1,
+//		},
+//		"url": "https://www.example.org",
+//	})
+//	if err != nil {
+//		return err
+//	}
+//	json2 := string(tmpJSON2)
 //	// Example Usage (Synthetics Browser test)
 //	// Create a new Datadog Synthetics Browser test starting on https://www.example.org
 //	_, err = datadog.NewSyntheticsTest(ctx, "test_browser", &datadog.SyntheticsTestArgs{
@@ -488,6 +499,13 @@ import (
 //							Value: pulumi.String("#simple-file-upload"),
 //						},
 //					},
+//				},
+//			},
+//			&datadog.SyntheticsTestBrowserStepArgs{
+//				Name: pulumi.String("Test sending http requests"),
+//				Type: pulumi.String("assertRequests"),
+//				Params: &datadog.SyntheticsTestBrowserStepParamsArgs{
+//					Requests: pulumi.String(json2),
 //				},
 //			},
 //		},

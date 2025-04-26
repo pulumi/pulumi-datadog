@@ -6947,7 +6947,7 @@ type PowerpackWidgetTimeseriesDefinitionRequestQuerySloQuery struct {
 	Name *string `pulumi:"name"`
 	// ID of an SLO to query.
 	SloId string `pulumi:"sloId"`
-	// type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
+	// type of the SLO to query. Valid values are `metric`, `monitor`, `timeSlice`. Defaults to `"metric"`.
 	SloQueryType *string `pulumi:"sloQueryType"`
 }
 
@@ -6977,7 +6977,7 @@ type PowerpackWidgetTimeseriesDefinitionRequestQuerySloQueryArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// ID of an SLO to query.
 	SloId pulumi.StringInput `pulumi:"sloId"`
-	// type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
+	// type of the SLO to query. Valid values are `metric`, `monitor`, `timeSlice`. Defaults to `"metric"`.
 	SloQueryType pulumi.StringPtrInput `pulumi:"sloQueryType"`
 }
 
@@ -7095,7 +7095,7 @@ func (o PowerpackWidgetTimeseriesDefinitionRequestQuerySloQueryOutput) SloId() p
 	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestQuerySloQuery) string { return v.SloId }).(pulumi.StringOutput)
 }
 
-// type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
+// type of the SLO to query. Valid values are `metric`, `monitor`, `timeSlice`. Defaults to `"metric"`.
 func (o PowerpackWidgetTimeseriesDefinitionRequestQuerySloQueryOutput) SloQueryType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestQuerySloQuery) *string { return v.SloQueryType }).(pulumi.StringPtrOutput)
 }
@@ -7194,7 +7194,7 @@ func (o PowerpackWidgetTimeseriesDefinitionRequestQuerySloQueryPtrOutput) SloId(
 	}).(pulumi.StringPtrOutput)
 }
 
-// type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
+// type of the SLO to query. Valid values are `metric`, `monitor`, `timeSlice`. Defaults to `"metric"`.
 func (o PowerpackWidgetTimeseriesDefinitionRequestQuerySloQueryPtrOutput) SloQueryType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestQuerySloQuery) *string {
 		if v == nil {
@@ -16561,7 +16561,7 @@ type PowerpackWidgetToplistDefinitionRequestQuerySloQuery struct {
 	Name *string `pulumi:"name"`
 	// ID of an SLO to query.
 	SloId string `pulumi:"sloId"`
-	// type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
+	// type of the SLO to query. Valid values are `metric`, `monitor`, `timeSlice`. Defaults to `"metric"`.
 	SloQueryType *string `pulumi:"sloQueryType"`
 }
 
@@ -16591,7 +16591,7 @@ type PowerpackWidgetToplistDefinitionRequestQuerySloQueryArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// ID of an SLO to query.
 	SloId pulumi.StringInput `pulumi:"sloId"`
-	// type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
+	// type of the SLO to query. Valid values are `metric`, `monitor`, `timeSlice`. Defaults to `"metric"`.
 	SloQueryType pulumi.StringPtrInput `pulumi:"sloQueryType"`
 }
 
@@ -16707,7 +16707,7 @@ func (o PowerpackWidgetToplistDefinitionRequestQuerySloQueryOutput) SloId() pulu
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQuerySloQuery) string { return v.SloId }).(pulumi.StringOutput)
 }
 
-// type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
+// type of the SLO to query. Valid values are `metric`, `monitor`, `timeSlice`. Defaults to `"metric"`.
 func (o PowerpackWidgetToplistDefinitionRequestQuerySloQueryOutput) SloQueryType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQuerySloQuery) *string { return v.SloQueryType }).(pulumi.StringPtrOutput)
 }
@@ -16806,7 +16806,7 @@ func (o PowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrOutput) SloId() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
+// type of the SLO to query. Valid values are `metric`, `monitor`, `timeSlice`. Defaults to `"metric"`.
 func (o PowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrOutput) SloQueryType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQuerySloQuery) *string {
 		if v == nil {
@@ -23798,7 +23798,7 @@ type PowerpackWidgetTreemapDefinitionRequestQuerySloQuery struct {
 	Name *string `pulumi:"name"`
 	// ID of an SLO to query.
 	SloId string `pulumi:"sloId"`
-	// type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
+	// type of the SLO to query. Valid values are `metric`, `monitor`, `timeSlice`. Defaults to `"metric"`.
 	SloQueryType *string `pulumi:"sloQueryType"`
 }
 
@@ -23828,7 +23828,7 @@ type PowerpackWidgetTreemapDefinitionRequestQuerySloQueryArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// ID of an SLO to query.
 	SloId pulumi.StringInput `pulumi:"sloId"`
-	// type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
+	// type of the SLO to query. Valid values are `metric`, `monitor`, `timeSlice`. Defaults to `"metric"`.
 	SloQueryType pulumi.StringPtrInput `pulumi:"sloQueryType"`
 }
 
@@ -23944,7 +23944,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestQuerySloQueryOutput) SloId() pulu
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQuerySloQuery) string { return v.SloId }).(pulumi.StringOutput)
 }
 
-// type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
+// type of the SLO to query. Valid values are `metric`, `monitor`, `timeSlice`. Defaults to `"metric"`.
 func (o PowerpackWidgetTreemapDefinitionRequestQuerySloQueryOutput) SloQueryType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQuerySloQuery) *string { return v.SloQueryType }).(pulumi.StringPtrOutput)
 }
@@ -24043,7 +24043,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput) SloId() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
+// type of the SLO to query. Valid values are `metric`, `monitor`, `timeSlice`. Defaults to `"metric"`.
 func (o PowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput) SloQueryType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQuerySloQuery) *string {
 		if v == nil {
@@ -25761,7 +25761,7 @@ func (o SecurityMonitoringRuleCaseArrayOutput) Index(i pulumi.IntInput) Security
 type SecurityMonitoringRuleCaseAction struct {
 	// Options for the action.
 	Options *SecurityMonitoringRuleCaseActionOptions `pulumi:"options"`
-	// Type of action to perform when the case triggers. Valid values are `blockIp`, `blockUser`.
+	// Type of action to perform when the case triggers. Valid values are `blockIp`, `blockUser`, `userBehavior`.
 	Type string `pulumi:"type"`
 }
 
@@ -25779,7 +25779,7 @@ type SecurityMonitoringRuleCaseActionInput interface {
 type SecurityMonitoringRuleCaseActionArgs struct {
 	// Options for the action.
 	Options SecurityMonitoringRuleCaseActionOptionsPtrInput `pulumi:"options"`
-	// Type of action to perform when the case triggers. Valid values are `blockIp`, `blockUser`.
+	// Type of action to perform when the case triggers. Valid values are `blockIp`, `blockUser`, `userBehavior`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -25839,7 +25839,7 @@ func (o SecurityMonitoringRuleCaseActionOutput) Options() SecurityMonitoringRule
 	return o.ApplyT(func(v SecurityMonitoringRuleCaseAction) *SecurityMonitoringRuleCaseActionOptions { return v.Options }).(SecurityMonitoringRuleCaseActionOptionsPtrOutput)
 }
 
-// Type of action to perform when the case triggers. Valid values are `blockIp`, `blockUser`.
+// Type of action to perform when the case triggers. Valid values are `blockIp`, `blockUser`, `userBehavior`.
 func (o SecurityMonitoringRuleCaseActionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityMonitoringRuleCaseAction) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -34543,7 +34543,7 @@ type SyntheticsTestBrowserStep struct {
 	PublicId *string `pulumi:"publicId"`
 	// Used to override the default timeout of a step.
 	Timeout *int `pulumi:"timeout"`
-	// Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `click`, `extractFromJavascript`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `hover`, `playSubTest`, `pressKey`, `refresh`, `runApiTest`, `scroll`, `selectOption`, `typeText`, `uploadFiles`, `wait`.
+	// Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `assertRequests`, `click`, `extractFromJavascript`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `hover`, `playSubTest`, `pressKey`, `refresh`, `runApiTest`, `scroll`, `selectOption`, `typeText`, `uploadFiles`, `wait`.
 	Type string `pulumi:"type"`
 }
 
@@ -34581,7 +34581,7 @@ type SyntheticsTestBrowserStepArgs struct {
 	PublicId pulumi.StringPtrInput `pulumi:"publicId"`
 	// Used to override the default timeout of a step.
 	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
-	// Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `click`, `extractFromJavascript`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `hover`, `playSubTest`, `pressKey`, `refresh`, `runApiTest`, `scroll`, `selectOption`, `typeText`, `uploadFiles`, `wait`.
+	// Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `assertRequests`, `click`, `extractFromJavascript`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `hover`, `playSubTest`, `pressKey`, `refresh`, `runApiTest`, `scroll`, `selectOption`, `typeText`, `uploadFiles`, `wait`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -34691,7 +34691,7 @@ func (o SyntheticsTestBrowserStepOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestBrowserStep) *int { return v.Timeout }).(pulumi.IntPtrOutput)
 }
 
-// Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `click`, `extractFromJavascript`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `hover`, `playSubTest`, `pressKey`, `refresh`, `runApiTest`, `scroll`, `selectOption`, `typeText`, `uploadFiles`, `wait`.
+// Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `assertRequests`, `click`, `extractFromJavascript`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `hover`, `playSubTest`, `pressKey`, `refresh`, `runApiTest`, `scroll`, `selectOption`, `typeText`, `uploadFiles`, `wait`.
 func (o SyntheticsTestBrowserStepOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SyntheticsTestBrowserStep) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -34743,6 +34743,8 @@ type SyntheticsTestBrowserStepParams struct {
 	PlayingTabId *string `pulumi:"playingTabId"`
 	// Request for an API step.
 	Request *string `pulumi:"request"`
+	// Details of the requests for an "assert request" step, JSON encoded string. Refer to the examples for a usage example showing the schema.
+	Requests *string `pulumi:"requests"`
 	// ID of the Synthetics test to use as subtest.
 	SubtestPublicId *string `pulumi:"subtestPublicId"`
 	// Value of the step.
@@ -34795,6 +34797,8 @@ type SyntheticsTestBrowserStepParamsArgs struct {
 	PlayingTabId pulumi.StringPtrInput `pulumi:"playingTabId"`
 	// Request for an API step.
 	Request pulumi.StringPtrInput `pulumi:"request"`
+	// Details of the requests for an "assert request" step, JSON encoded string. Refer to the examples for a usage example showing the schema.
+	Requests pulumi.StringPtrInput `pulumi:"requests"`
 	// ID of the Synthetics test to use as subtest.
 	SubtestPublicId pulumi.StringPtrInput `pulumi:"subtestPublicId"`
 	// Value of the step.
@@ -34900,6 +34904,11 @@ func (o SyntheticsTestBrowserStepParamsOutput) PlayingTabId() pulumi.StringPtrOu
 // Request for an API step.
 func (o SyntheticsTestBrowserStepParamsOutput) Request() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *string { return v.Request }).(pulumi.StringPtrOutput)
+}
+
+// Details of the requests for an "assert request" step, JSON encoded string. Refer to the examples for a usage example showing the schema.
+func (o SyntheticsTestBrowserStepParamsOutput) Requests() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *string { return v.Requests }).(pulumi.StringPtrOutput)
 }
 
 // ID of the Synthetics test to use as subtest.
