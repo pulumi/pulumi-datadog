@@ -224,6 +224,9 @@ class _ApmRetentionFilterState:
 
 
 class ApmRetentionFilter(pulumi.CustomResource):
+
+    pulumi_type = "datadog:index/apmRetentionFilter:ApmRetentionFilter"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

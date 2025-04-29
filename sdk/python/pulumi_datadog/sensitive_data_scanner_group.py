@@ -192,6 +192,9 @@ class _SensitiveDataScannerGroupState:
 
 
 class SensitiveDataScannerGroup(pulumi.CustomResource):
+
+    pulumi_type = "datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -306,6 +306,9 @@ class _SecurityNotificationRuleState:
 
 
 class SecurityNotificationRule(pulumi.CustomResource):
+
+    pulumi_type = "datadog:index/securityNotificationRule:SecurityNotificationRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -96,6 +96,9 @@ class _IntegrationTeamsWorkflowsWebhookHandleState:
 
 
 class IntegrationTeamsWorkflowsWebhookHandle(pulumi.CustomResource):
+
+    pulumi_type = "datadog:ms/integrationTeamsWorkflowsWebhookHandle:IntegrationTeamsWorkflowsWebhookHandle"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

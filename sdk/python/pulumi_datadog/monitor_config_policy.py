@@ -99,6 +99,9 @@ class _MonitorConfigPolicyState:
 
 
 class MonitorConfigPolicy(pulumi.CustomResource):
+
+    pulumi_type = "datadog:index/monitorConfigPolicy:MonitorConfigPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

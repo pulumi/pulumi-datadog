@@ -481,6 +481,9 @@ class _ServiceLevelObjectiveState:
 
 
 class ServiceLevelObjective(pulumi.CustomResource):
+
+    pulumi_type = "datadog:index/serviceLevelObjective:ServiceLevelObjective"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -96,6 +96,9 @@ class _IntegrationLogCollectionState:
 
 
 class IntegrationLogCollection(pulumi.CustomResource):
+
+    pulumi_type = "datadog:aws/integrationLogCollection:IntegrationLogCollection"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

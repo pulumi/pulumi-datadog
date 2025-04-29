@@ -164,6 +164,9 @@ class _OrganizationSettingsState:
 
 
 class OrganizationSettings(pulumi.CustomResource):
+
+    pulumi_type = "datadog:index/organizationSettings:OrganizationSettings"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

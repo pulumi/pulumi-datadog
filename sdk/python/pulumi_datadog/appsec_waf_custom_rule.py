@@ -264,6 +264,9 @@ class _AppsecWafCustomRuleState:
 
 
 class AppsecWafCustomRule(pulumi.CustomResource):
+
+    pulumi_type = "datadog:index/appsecWafCustomRule:AppsecWafCustomRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

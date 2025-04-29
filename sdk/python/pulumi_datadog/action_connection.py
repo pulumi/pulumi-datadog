@@ -131,6 +131,9 @@ class _ActionConnectionState:
 
 
 class ActionConnection(pulumi.CustomResource):
+
+    pulumi_type = "datadog:index/actionConnection:ActionConnection"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

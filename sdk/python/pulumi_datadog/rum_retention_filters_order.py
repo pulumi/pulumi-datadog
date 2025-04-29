@@ -96,6 +96,9 @@ class _RumRetentionFiltersOrderState:
 
 
 class RumRetentionFiltersOrder(pulumi.CustomResource):
+
+    pulumi_type = "datadog:index/rumRetentionFiltersOrder:RumRetentionFiltersOrder"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

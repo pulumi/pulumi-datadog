@@ -88,6 +88,9 @@ class _ServiceObjectState:
 
 
 class ServiceObject(pulumi.CustomResource):
+
+    pulumi_type = "datadog:pagerduty/serviceObject:ServiceObject"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

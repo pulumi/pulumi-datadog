@@ -221,6 +221,9 @@ class _WorkflowAutomationState:
 
 
 class WorkflowAutomation(pulumi.CustomResource):
+
+    pulumi_type = "datadog:index/workflowAutomation:WorkflowAutomation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

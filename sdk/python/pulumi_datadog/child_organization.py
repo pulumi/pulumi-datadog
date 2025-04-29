@@ -163,6 +163,9 @@ class _ChildOrganizationState:
 
 
 class ChildOrganization(pulumi.CustomResource):
+
+    pulumi_type = "datadog:index/childOrganization:ChildOrganization"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
