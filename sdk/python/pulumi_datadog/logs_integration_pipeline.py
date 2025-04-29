@@ -66,6 +66,9 @@ class _LogsIntegrationPipelineState:
 
 
 class LogsIntegrationPipeline(pulumi.CustomResource):
+
+    pulumi_type = "datadog:index/logsIntegrationPipeline:LogsIntegrationPipeline"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

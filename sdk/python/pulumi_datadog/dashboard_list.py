@@ -99,6 +99,9 @@ class _DashboardListState:
 
 
 class DashboardList(pulumi.CustomResource):
+
+    pulumi_type = "datadog:index/dashboardList:DashboardList"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

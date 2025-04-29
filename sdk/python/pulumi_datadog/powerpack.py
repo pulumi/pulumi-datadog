@@ -292,6 +292,9 @@ class _PowerpackState:
 
 
 class Powerpack(pulumi.CustomResource):
+
+    pulumi_type = "datadog:index/powerpack:Powerpack"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

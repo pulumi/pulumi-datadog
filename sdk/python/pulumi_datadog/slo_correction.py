@@ -287,6 +287,9 @@ class _SloCorrectionState:
 
 
 class SloCorrection(pulumi.CustomResource):
+
+    pulumi_type = "datadog:index/sloCorrection:SloCorrection"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -139,6 +139,9 @@ class _SpansMetricState:
 
 
 class SpansMetric(pulumi.CustomResource):
+
+    pulumi_type = "datadog:index/spansMetric:SpansMetric"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

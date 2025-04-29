@@ -306,6 +306,9 @@ class _AppsecWafExclusionFilterState:
 
 
 class AppsecWafExclusionFilter(pulumi.CustomResource):
+
+    pulumi_type = "datadog:index/appsecWafExclusionFilter:AppsecWafExclusionFilter"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

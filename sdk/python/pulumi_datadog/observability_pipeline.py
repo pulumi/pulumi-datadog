@@ -99,6 +99,9 @@ class _ObservabilityPipelineState:
 
 
 class ObservabilityPipeline(pulumi.CustomResource):
+
+    pulumi_type = "datadog:index/observabilityPipeline:ObservabilityPipeline"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

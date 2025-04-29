@@ -127,6 +127,9 @@ class _TeamPermissionSettingState:
 
 
 class TeamPermissionSetting(pulumi.CustomResource):
+
+    pulumi_type = "datadog:index/teamPermissionSetting:TeamPermissionSetting"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

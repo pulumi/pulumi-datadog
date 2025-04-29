@@ -435,6 +435,9 @@ class _DowntimeState:
 
 
 class Downtime(pulumi.CustomResource):
+
+    pulumi_type = "datadog:index/downtime:Downtime"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

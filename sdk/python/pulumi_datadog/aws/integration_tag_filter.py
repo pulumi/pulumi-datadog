@@ -127,6 +127,9 @@ class _IntegrationTagFilterState:
 
 
 class IntegrationTagFilter(pulumi.CustomResource):
+
+    pulumi_type = "datadog:aws/integrationTagFilter:IntegrationTagFilter"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

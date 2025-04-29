@@ -225,6 +225,9 @@ class _AppBuilderAppState:
 
 
 class AppBuilderApp(pulumi.CustomResource):
+
+    pulumi_type = "datadog:index/appBuilderApp:AppBuilderApp"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

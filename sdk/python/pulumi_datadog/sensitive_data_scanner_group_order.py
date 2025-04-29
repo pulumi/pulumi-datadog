@@ -65,6 +65,9 @@ class _SensitiveDataScannerGroupOrderState:
 
 
 class SensitiveDataScannerGroupOrder(pulumi.CustomResource):
+
+    pulumi_type = "datadog:index/sensitiveDataScannerGroupOrder:SensitiveDataScannerGroupOrder"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

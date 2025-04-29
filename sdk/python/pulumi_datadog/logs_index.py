@@ -322,6 +322,9 @@ class _LogsIndexState:
 
 
 class LogsIndex(pulumi.CustomResource):
+
+    pulumi_type = "datadog:index/logsIndex:LogsIndex"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

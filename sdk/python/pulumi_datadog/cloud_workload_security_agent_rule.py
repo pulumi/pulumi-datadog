@@ -160,6 +160,9 @@ class _CloudWorkloadSecurityAgentRuleState:
 
 
 class CloudWorkloadSecurityAgentRule(pulumi.CustomResource):
+
+    pulumi_type = "datadog:index/cloudWorkloadSecurityAgentRule:CloudWorkloadSecurityAgentRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

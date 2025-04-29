@@ -65,6 +65,9 @@ class _ApmRetentionFilterOrderState:
 
 
 class ApmRetentionFilterOrder(pulumi.CustomResource):
+
+    pulumi_type = "datadog:index/apmRetentionFilterOrder:ApmRetentionFilterOrder"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
