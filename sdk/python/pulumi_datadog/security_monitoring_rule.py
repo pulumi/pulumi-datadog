@@ -50,7 +50,7 @@ class SecurityMonitoringRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleQueryArgs']]] queries: Queries for selecting logs which are part of the rule.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleReferenceTableArgs']]] reference_tables: Reference tables for filtering query results.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleSignalQueryArgs']]] signal_queries: Queries for selecting logs which are part of the rule.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] tags: Tags for generated signals.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] tags: Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleThirdPartyCaseArgs']]] third_party_cases: Cases for generating signals for third-party rules. Only required and accepted for third-party rules
         :param pulumi.Input[builtins.str] type: The rule type. Valid values are `application_security`, `log_detection`, `workload_security`, `signal_correlation`. Defaults to `"log_detection"`.
         :param pulumi.Input[builtins.bool] validate: Whether or not to validate the Rule.
@@ -220,7 +220,7 @@ class SecurityMonitoringRuleArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        Tags for generated signals.
+        Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
         """
         return pulumi.get(self, "tags")
 
@@ -296,7 +296,7 @@ class _SecurityMonitoringRuleState:
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleQueryArgs']]] queries: Queries for selecting logs which are part of the rule.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleReferenceTableArgs']]] reference_tables: Reference tables for filtering query results.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleSignalQueryArgs']]] signal_queries: Queries for selecting logs which are part of the rule.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] tags: Tags for generated signals.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] tags: Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleThirdPartyCaseArgs']]] third_party_cases: Cases for generating signals for third-party rules. Only required and accepted for third-party rules
         :param pulumi.Input[builtins.str] type: The rule type. Valid values are `application_security`, `log_detection`, `workload_security`, `signal_correlation`. Defaults to `"log_detection"`.
         :param pulumi.Input[builtins.bool] validate: Whether or not to validate the Rule.
@@ -468,7 +468,7 @@ class _SecurityMonitoringRuleState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        Tags for generated signals.
+        Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
         """
         return pulumi.get(self, "tags")
 
@@ -600,7 +600,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringRuleQueryArgs', 'SecurityMonitoringRuleQueryArgsDict']]]] queries: Queries for selecting logs which are part of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringRuleReferenceTableArgs', 'SecurityMonitoringRuleReferenceTableArgsDict']]]] reference_tables: Reference tables for filtering query results.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringRuleSignalQueryArgs', 'SecurityMonitoringRuleSignalQueryArgsDict']]]] signal_queries: Queries for selecting logs which are part of the rule.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] tags: Tags for generated signals.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] tags: Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringRuleThirdPartyCaseArgs', 'SecurityMonitoringRuleThirdPartyCaseArgsDict']]]] third_party_cases: Cases for generating signals for third-party rules. Only required and accepted for third-party rules
         :param pulumi.Input[builtins.str] type: The rule type. Valid values are `application_security`, `log_detection`, `workload_security`, `signal_correlation`. Defaults to `"log_detection"`.
         :param pulumi.Input[builtins.bool] validate: Whether or not to validate the Rule.
@@ -762,7 +762,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringRuleQueryArgs', 'SecurityMonitoringRuleQueryArgsDict']]]] queries: Queries for selecting logs which are part of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringRuleReferenceTableArgs', 'SecurityMonitoringRuleReferenceTableArgsDict']]]] reference_tables: Reference tables for filtering query results.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringRuleSignalQueryArgs', 'SecurityMonitoringRuleSignalQueryArgsDict']]]] signal_queries: Queries for selecting logs which are part of the rule.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] tags: Tags for generated signals.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] tags: Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringRuleThirdPartyCaseArgs', 'SecurityMonitoringRuleThirdPartyCaseArgsDict']]]] third_party_cases: Cases for generating signals for third-party rules. Only required and accepted for third-party rules
         :param pulumi.Input[builtins.str] type: The rule type. Valid values are `application_security`, `log_detection`, `workload_security`, `signal_correlation`. Defaults to `"log_detection"`.
         :param pulumi.Input[builtins.bool] validate: Whether or not to validate the Rule.
@@ -878,9 +878,9 @@ class SecurityMonitoringRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
+    def tags(self) -> pulumi.Output[Sequence[builtins.str]]:
         """
-        Tags for generated signals.
+        Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
         """
         return pulumi.get(self, "tags")
 

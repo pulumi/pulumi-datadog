@@ -10708,6 +10708,13 @@ export interface MonitorMonitorThresholds {
     warningRecovery?: pulumi.Input<string>;
 }
 
+export interface MonitorNotificationRuleFilter {
+    /**
+     * All tags that target monitors must match.
+     */
+    tags: pulumi.Input<pulumi.Input<string>[]>;
+}
+
 export interface MonitorSchedulingOption {
     /**
      * Configuration options for the custom schedules. If `start` is omitted, the monitor creation time will be used.
@@ -23530,7 +23537,7 @@ export interface PowerpackWidgetWidgetLayout {
 
 export interface ProviderDefaultTags {
     /**
-     * [Experimental - Monitors and Logs Pipelines only] Resource tags to be applied by default across all resources.
+     * [Experimental - Logs Pipelines, Monitors and Security Monitoring Rules only] Resource tags to be applied by default across all resources.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -24907,7 +24914,7 @@ export interface SyntheticsTestMobileOptionsList {
      */
     scheduling?: pulumi.Input<inputs.SyntheticsTestMobileOptionsListScheduling>;
     /**
-     * How often the test should run (in seconds).
+     * How often the test should run (in seconds). Valid range is `300-604800` for mobile tests.
      */
     tickEvery: pulumi.Input<number>;
     verbosity?: pulumi.Input<number>;
@@ -24938,6 +24945,9 @@ export interface SyntheticsTestMobileOptionsListMobileApplication {
 }
 
 export interface SyntheticsTestMobileOptionsListMonitorOptions {
+    /**
+     * A message to include with a re-notification.
+     */
     escalationMessage?: pulumi.Input<string>;
     /**
      * Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`.
@@ -25195,7 +25205,7 @@ export interface SyntheticsTestOptionsList {
      */
     scheduling?: pulumi.Input<inputs.SyntheticsTestOptionsListScheduling>;
     /**
-     * How often the test should run (in seconds).
+     * How often the test should run (in seconds). Valid range is `30-604800` for API tests and `60-604800` for browser tests.
      */
     tickEvery: pulumi.Input<number>;
 }
@@ -25208,6 +25218,10 @@ export interface SyntheticsTestOptionsListCi {
 }
 
 export interface SyntheticsTestOptionsListMonitorOptions {
+    /**
+     * A message to include with a re-notification.
+     */
+    escalationMessage?: pulumi.Input<string>;
     /**
      * Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
      */

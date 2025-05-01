@@ -48,8 +48,8 @@ Object.defineProperty(exports, "appKey", {
 });
 
 /**
- * [Experimental - Monitors and Logs Pipelines only] Configuration block containing settings to apply default resource tags
- * across all resources.
+ * [Experimental - Logs Pipelines, Monitors and Security Monitoring Rules only] Configuration block containing settings to
+ * apply default resource tags across all resources.
  */
 export declare const defaultTags: outputs.config.DefaultTags | undefined;
 Object.defineProperty(exports, "defaultTags", {

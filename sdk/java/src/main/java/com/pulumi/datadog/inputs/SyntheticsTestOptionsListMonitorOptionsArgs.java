@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -14,6 +15,21 @@ import javax.annotation.Nullable;
 public final class SyntheticsTestOptionsListMonitorOptionsArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final SyntheticsTestOptionsListMonitorOptionsArgs Empty = new SyntheticsTestOptionsListMonitorOptionsArgs();
+
+    /**
+     * A message to include with a re-notification.
+     * 
+     */
+    @Import(name="escalationMessage")
+    private @Nullable Output<String> escalationMessage;
+
+    /**
+     * @return A message to include with a re-notification.
+     * 
+     */
+    public Optional<Output<String>> escalationMessage() {
+        return Optional.ofNullable(this.escalationMessage);
+    }
 
     /**
      * Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
@@ -48,6 +64,7 @@ public final class SyntheticsTestOptionsListMonitorOptionsArgs extends com.pulum
     private SyntheticsTestOptionsListMonitorOptionsArgs() {}
 
     private SyntheticsTestOptionsListMonitorOptionsArgs(SyntheticsTestOptionsListMonitorOptionsArgs $) {
+        this.escalationMessage = $.escalationMessage;
         this.renotifyInterval = $.renotifyInterval;
         this.renotifyOccurrences = $.renotifyOccurrences;
     }
@@ -68,6 +85,27 @@ public final class SyntheticsTestOptionsListMonitorOptionsArgs extends com.pulum
 
         public Builder(SyntheticsTestOptionsListMonitorOptionsArgs defaults) {
             $ = new SyntheticsTestOptionsListMonitorOptionsArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param escalationMessage A message to include with a re-notification.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder escalationMessage(@Nullable Output<String> escalationMessage) {
+            $.escalationMessage = escalationMessage;
+            return this;
+        }
+
+        /**
+         * @param escalationMessage A message to include with a re-notification.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder escalationMessage(String escalationMessage) {
+            return escalationMessage(Output.of(escalationMessage));
         }
 
         /**

@@ -41,6 +41,7 @@ from .get_logs_indexes import *
 from .get_logs_indexes_order import *
 from .get_logs_pipelines import *
 from .get_logs_pipelines_order import *
+from .get_metric_tags import *
 from .get_monitor import *
 from .get_monitor_config_policies import *
 from .get_monitors import *
@@ -84,6 +85,7 @@ from .metric_tag_configuration import *
 from .monitor import *
 from .monitor_config_policy import *
 from .monitor_json import *
+from .monitor_notification_rule import *
 from .observability_pipeline import *
 from .openapi_api import *
 from .organization_settings import *
@@ -556,6 +558,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/monitorJson:MonitorJson": "MonitorJson"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/monitorNotificationRule",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/monitorNotificationRule:MonitorNotificationRule": "MonitorNotificationRule"
   }
  },
  {

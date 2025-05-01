@@ -9779,9 +9779,9 @@ export interface GetSecurityMonitoringRulesRule {
      */
     signalQueries?: outputs.GetSecurityMonitoringRulesRuleSignalQuery[];
     /**
-     * Tags for generated signals.
+     * Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
      */
-    tags?: string[];
+    tags: string[];
     /**
      * Cases for generating signals for third-party rules. Only required and accepted for third-party rules
      */
@@ -11328,6 +11328,13 @@ export interface MonitorMonitorThresholds {
      * The monitor `WARNING` recovery threshold. Must be a number.
      */
     warningRecovery?: string;
+}
+
+export interface MonitorNotificationRuleFilter {
+    /**
+     * All tags that target monitors must match.
+     */
+    tags: string[];
 }
 
 export interface MonitorSchedulingOption {
@@ -25522,7 +25529,7 @@ export interface SyntheticsTestMobileOptionsList {
      */
     scheduling?: outputs.SyntheticsTestMobileOptionsListScheduling;
     /**
-     * How often the test should run (in seconds).
+     * How often the test should run (in seconds). Valid range is `300-604800` for mobile tests.
      */
     tickEvery: number;
     verbosity?: number;
@@ -25553,6 +25560,9 @@ export interface SyntheticsTestMobileOptionsListMobileApplication {
 }
 
 export interface SyntheticsTestMobileOptionsListMonitorOptions {
+    /**
+     * A message to include with a re-notification.
+     */
     escalationMessage?: string;
     /**
      * Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`.
@@ -25810,7 +25820,7 @@ export interface SyntheticsTestOptionsList {
      */
     scheduling?: outputs.SyntheticsTestOptionsListScheduling;
     /**
-     * How often the test should run (in seconds).
+     * How often the test should run (in seconds). Valid range is `30-604800` for API tests and `60-604800` for browser tests.
      */
     tickEvery: number;
 }
@@ -25823,6 +25833,10 @@ export interface SyntheticsTestOptionsListCi {
 }
 
 export interface SyntheticsTestOptionsListMonitorOptions {
+    /**
+     * A message to include with a re-notification.
+     */
+    escalationMessage?: string;
     /**
      * Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
      */
@@ -26271,7 +26285,7 @@ export namespace azure {
 export namespace config {
     export interface DefaultTags {
         /**
-         * [Experimental - Monitors and Logs Pipelines only] Resource tags to be applied by default across all resources.
+         * [Experimental - Logs Pipelines, Monitors and Security Monitoring Rules only] Resource tags to be applied by default across all resources.
          */
         tags?: {[key: string]: string};
     }

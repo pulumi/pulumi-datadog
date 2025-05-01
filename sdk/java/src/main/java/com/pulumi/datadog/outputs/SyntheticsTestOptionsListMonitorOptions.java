@@ -5,12 +5,18 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class SyntheticsTestOptionsListMonitorOptions {
+    /**
+     * @return A message to include with a re-notification.
+     * 
+     */
+    private @Nullable String escalationMessage;
     /**
      * @return Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
      * 
@@ -23,6 +29,13 @@ public final class SyntheticsTestOptionsListMonitorOptions {
     private @Nullable Integer renotifyOccurrences;
 
     private SyntheticsTestOptionsListMonitorOptions() {}
+    /**
+     * @return A message to include with a re-notification.
+     * 
+     */
+    public Optional<String> escalationMessage() {
+        return Optional.ofNullable(this.escalationMessage);
+    }
     /**
      * @return Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
      * 
@@ -47,15 +60,23 @@ public final class SyntheticsTestOptionsListMonitorOptions {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String escalationMessage;
         private @Nullable Integer renotifyInterval;
         private @Nullable Integer renotifyOccurrences;
         public Builder() {}
         public Builder(SyntheticsTestOptionsListMonitorOptions defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.escalationMessage = defaults.escalationMessage;
     	      this.renotifyInterval = defaults.renotifyInterval;
     	      this.renotifyOccurrences = defaults.renotifyOccurrences;
         }
 
+        @CustomType.Setter
+        public Builder escalationMessage(@Nullable String escalationMessage) {
+
+            this.escalationMessage = escalationMessage;
+            return this;
+        }
         @CustomType.Setter
         public Builder renotifyInterval(@Nullable Integer renotifyInterval) {
 
@@ -70,6 +91,7 @@ public final class SyntheticsTestOptionsListMonitorOptions {
         }
         public SyntheticsTestOptionsListMonitorOptions build() {
             final var _resultValue = new SyntheticsTestOptionsListMonitorOptions();
+            _resultValue.escalationMessage = escalationMessage;
             _resultValue.renotifyInterval = renotifyInterval;
             _resultValue.renotifyOccurrences = renotifyOccurrences;
             return _resultValue;

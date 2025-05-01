@@ -180,6 +180,11 @@ export const getLogsPipelinesOrder: typeof import("./getLogsPipelinesOrder").get
 export const getLogsPipelinesOrderOutput: typeof import("./getLogsPipelinesOrder").getLogsPipelinesOrderOutput = null as any;
 utilities.lazyLoad(exports, ["getLogsPipelinesOrder","getLogsPipelinesOrderOutput"], () => require("./getLogsPipelinesOrder"));
 
+export { GetMetricTagsArgs, GetMetricTagsResult, GetMetricTagsOutputArgs } from "./getMetricTags";
+export const getMetricTags: typeof import("./getMetricTags").getMetricTags = null as any;
+export const getMetricTagsOutput: typeof import("./getMetricTags").getMetricTagsOutput = null as any;
+utilities.lazyLoad(exports, ["getMetricTags","getMetricTagsOutput"], () => require("./getMetricTags"));
+
 export { GetMonitorArgs, GetMonitorResult, GetMonitorOutputArgs } from "./getMonitor";
 export const getMonitor: typeof import("./getMonitor").getMonitor = null as any;
 export const getMonitorOutput: typeof import("./getMonitor").getMonitorOutput = null as any;
@@ -394,6 +399,11 @@ export { MonitorJsonArgs, MonitorJsonState } from "./monitorJson";
 export type MonitorJson = import("./monitorJson").MonitorJson;
 export const MonitorJson: typeof import("./monitorJson").MonitorJson = null as any;
 utilities.lazyLoad(exports, ["MonitorJson"], () => require("./monitorJson"));
+
+export { MonitorNotificationRuleArgs, MonitorNotificationRuleState } from "./monitorNotificationRule";
+export type MonitorNotificationRule = import("./monitorNotificationRule").MonitorNotificationRule;
+export const MonitorNotificationRule: typeof import("./monitorNotificationRule").MonitorNotificationRule = null as any;
+utilities.lazyLoad(exports, ["MonitorNotificationRule"], () => require("./monitorNotificationRule"));
 
 export { ObservabilityPipelineArgs, ObservabilityPipelineState } from "./observabilityPipeline";
 export type ObservabilityPipeline = import("./observabilityPipeline").ObservabilityPipeline;
@@ -692,6 +702,8 @@ const _module = {
                 return new MonitorConfigPolicy(name, <any>undefined, { urn })
             case "datadog:index/monitorJson:MonitorJson":
                 return new MonitorJson(name, <any>undefined, { urn })
+            case "datadog:index/monitorNotificationRule:MonitorNotificationRule":
+                return new MonitorNotificationRule(name, <any>undefined, { urn })
             case "datadog:index/observabilityPipeline:ObservabilityPipeline":
                 return new ObservabilityPipeline(name, <any>undefined, { urn })
             case "datadog:index/openapiApi:OpenapiApi":
@@ -807,6 +819,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/metricTagConfiguration",
 pulumi.runtime.registerResourceModule("datadog", "index/monitor", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/monitorConfigPolicy", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/monitorJson", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/monitorNotificationRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/observabilityPipeline", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/openapiApi", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/organizationSettings", _module)

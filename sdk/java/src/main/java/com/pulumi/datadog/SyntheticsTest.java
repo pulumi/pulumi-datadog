@@ -164,6 +164,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .monitorOptions(SyntheticsTestOptionsListMonitorOptionsArgs.builder()
  *                     .renotifyInterval(120)
+ *                     .escalationMessage("test escalation message")
  *                     .build())
  *                 .build())
  *             .build());

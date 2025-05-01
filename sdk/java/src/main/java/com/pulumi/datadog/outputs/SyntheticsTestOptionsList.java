@@ -113,7 +113,7 @@ public final class SyntheticsTestOptionsList {
      */
     private @Nullable SyntheticsTestOptionsListScheduling scheduling;
     /**
-     * @return How often the test should run (in seconds).
+     * @return How often the test should run (in seconds). Valid range is `30-604800` for API tests and `60-604800` for browser tests.
      * 
      */
     private Integer tickEvery;
@@ -252,7 +252,7 @@ public final class SyntheticsTestOptionsList {
         return Optional.ofNullable(this.scheduling);
     }
     /**
-     * @return How often the test should run (in seconds).
+     * @return How often the test should run (in seconds). Valid range is `30-604800` for API tests and `60-604800` for browser tests.
      * 
      */
     public Integer tickEvery() {

@@ -135,6 +135,7 @@ namespace Pulumi.Datadog
     ///             MonitorOptions = new Datadog.Inputs.SyntheticsTestOptionsListMonitorOptionsArgs
     ///             {
     ///                 RenotifyInterval = 120,
+    ///                 EscalationMessage = "test escalation message",
     ///             },
     ///         },
     ///     });

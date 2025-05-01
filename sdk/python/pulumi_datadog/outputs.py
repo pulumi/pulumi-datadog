@@ -508,6 +508,7 @@ __all__ = [
     'MonitorConfigPolicyTagPolicy',
     'MonitorMonitorThresholdWindows',
     'MonitorMonitorThresholds',
+    'MonitorNotificationRuleFilter',
     'MonitorSchedulingOption',
     'MonitorSchedulingOptionCustomSchedule',
     'MonitorSchedulingOptionCustomScheduleRecurrence',
@@ -38604,6 +38605,24 @@ class MonitorMonitorThresholds(dict):
         The monitor `WARNING` recovery threshold. Must be a number.
         """
         return pulumi.get(self, "warning_recovery")
+
+
+@pulumi.output_type
+class MonitorNotificationRuleFilter(dict):
+    def __init__(__self__, *,
+                 tags: Sequence[builtins.str]):
+        """
+        :param Sequence[builtins.str] tags: All tags that target monitors must match.
+        """
+        pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Sequence[builtins.str]:
+        """
+        All tags that target monitors must match.
+        """
+        return pulumi.get(self, "tags")
 
 
 @pulumi.output_type
@@ -87592,7 +87611,7 @@ class SyntheticsTestMobileOptionsList(dict):
                  scheduling: Optional['outputs.SyntheticsTestMobileOptionsListScheduling'] = None,
                  verbosity: Optional[builtins.int] = None):
         """
-        :param builtins.int tick_every: How often the test should run (in seconds).
+        :param builtins.int tick_every: How often the test should run (in seconds). Valid range is `300-604800` for mobile tests.
         :param Sequence['SyntheticsTestMobileOptionsListBindingArgs'] bindings: Restriction policy bindings for the Synthetic mobile test. Should not be used in parallel with a `RestrictionPolicy` resource
         :param 'SyntheticsTestMobileOptionsListCiArgs' ci: CI/CD options for a Synthetic test.
         :param builtins.int min_failure_duration: Minimum amount of time in failure required to trigger an alert (in seconds). Default is `0`.
@@ -87647,7 +87666,7 @@ class SyntheticsTestMobileOptionsList(dict):
     @pulumi.getter(name="tickEvery")
     def tick_every(self) -> builtins.int:
         """
-        How often the test should run (in seconds).
+        How often the test should run (in seconds). Valid range is `300-604800` for mobile tests.
         """
         return pulumi.get(self, "tick_every")
 
@@ -87890,6 +87909,7 @@ class SyntheticsTestMobileOptionsListMonitorOptions(dict):
                  renotify_interval: Optional[builtins.int] = None,
                  renotify_occurrences: Optional[builtins.int] = None):
         """
+        :param builtins.str escalation_message: A message to include with a re-notification.
         :param builtins.str notification_preset_name: Valid values are `show_all`, `hide_all`, `hide_query`, `hide_handles`.
         :param builtins.int renotify_interval: Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
         :param builtins.int renotify_occurrences: The number of times a monitor renotifies. It can only be set if `renotify_interval` is set.
@@ -87906,6 +87926,9 @@ class SyntheticsTestMobileOptionsListMonitorOptions(dict):
     @property
     @pulumi.getter(name="escalationMessage")
     def escalation_message(self) -> Optional[builtins.str]:
+        """
+        A message to include with a re-notification.
+        """
         return pulumi.get(self, "escalation_message")
 
     @property
@@ -88672,7 +88695,7 @@ class SyntheticsTestOptionsList(dict):
                  rum_settings: Optional['outputs.SyntheticsTestOptionsListRumSettings'] = None,
                  scheduling: Optional['outputs.SyntheticsTestOptionsListScheduling'] = None):
         """
-        :param builtins.int tick_every: How often the test should run (in seconds).
+        :param builtins.int tick_every: How often the test should run (in seconds). Valid range is `30-604800` for API tests and `60-604800` for browser tests.
         :param builtins.bool accept_self_signed: For SSL test, whether or not the test should allow self signed certificates.
         :param builtins.bool allow_insecure: Allows loading insecure content for a request in an API test or in a multistep API test step.
         :param builtins.bool check_certificate_revocation: For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
@@ -88737,7 +88760,7 @@ class SyntheticsTestOptionsList(dict):
     @pulumi.getter(name="tickEvery")
     def tick_every(self) -> builtins.int:
         """
-        How often the test should run (in seconds).
+        How often the test should run (in seconds). Valid range is `30-604800` for API tests and `60-604800` for browser tests.
         """
         return pulumi.get(self, "tick_every")
 
@@ -88935,7 +88958,9 @@ class SyntheticsTestOptionsListMonitorOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "renotifyInterval":
+        if key == "escalationMessage":
+            suggest = "escalation_message"
+        elif key == "renotifyInterval":
             suggest = "renotify_interval"
         elif key == "renotifyOccurrences":
             suggest = "renotify_occurrences"
@@ -88952,16 +88977,28 @@ class SyntheticsTestOptionsListMonitorOptions(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 escalation_message: Optional[builtins.str] = None,
                  renotify_interval: Optional[builtins.int] = None,
                  renotify_occurrences: Optional[builtins.int] = None):
         """
+        :param builtins.str escalation_message: A message to include with a re-notification.
         :param builtins.int renotify_interval: Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
         :param builtins.int renotify_occurrences: The number of times a monitor renotifies. It can only be set if `renotify_interval` is set.
         """
+        if escalation_message is not None:
+            pulumi.set(__self__, "escalation_message", escalation_message)
         if renotify_interval is not None:
             pulumi.set(__self__, "renotify_interval", renotify_interval)
         if renotify_occurrences is not None:
             pulumi.set(__self__, "renotify_occurrences", renotify_occurrences)
+
+    @property
+    @pulumi.getter(name="escalationMessage")
+    def escalation_message(self) -> Optional[builtins.str]:
+        """
+        A message to include with a re-notification.
+        """
+        return pulumi.get(self, "escalation_message")
 
     @property
     @pulumi.getter(name="renotifyInterval")
@@ -91332,6 +91369,7 @@ class GetSecurityMonitoringRulesRuleResult(dict):
     def __init__(__self__, *,
                  message: builtins.str,
                  name: builtins.str,
+                 tags: Sequence[builtins.str],
                  cases: Optional[Sequence['outputs.GetSecurityMonitoringRulesRuleCaseResult']] = None,
                  enabled: Optional[builtins.bool] = None,
                  filters: Optional[Sequence['outputs.GetSecurityMonitoringRulesRuleFilterResult']] = None,
@@ -91341,12 +91379,12 @@ class GetSecurityMonitoringRulesRuleResult(dict):
                  queries: Optional[Sequence['outputs.GetSecurityMonitoringRulesRuleQueryResult']] = None,
                  reference_tables: Optional[Sequence['outputs.GetSecurityMonitoringRulesRuleReferenceTableResult']] = None,
                  signal_queries: Optional[Sequence['outputs.GetSecurityMonitoringRulesRuleSignalQueryResult']] = None,
-                 tags: Optional[Sequence[builtins.str]] = None,
                  third_party_cases: Optional[Sequence['outputs.GetSecurityMonitoringRulesRuleThirdPartyCaseResult']] = None,
                  type: Optional[builtins.str] = None):
         """
         :param builtins.str message: Message for generated signals.
         :param builtins.str name: The name of the rule.
+        :param Sequence[builtins.str] tags: Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
         :param Sequence['GetSecurityMonitoringRulesRuleCaseArgs'] cases: Cases for generating signals.
         :param builtins.bool enabled: Whether the rule is enabled.
         :param Sequence['GetSecurityMonitoringRulesRuleFilterArgs'] filters: Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
@@ -91356,12 +91394,12 @@ class GetSecurityMonitoringRulesRuleResult(dict):
         :param Sequence['GetSecurityMonitoringRulesRuleQueryArgs'] queries: Queries for selecting logs which are part of the rule.
         :param Sequence['GetSecurityMonitoringRulesRuleReferenceTableArgs'] reference_tables: Reference tables for filtering query results.
         :param Sequence['GetSecurityMonitoringRulesRuleSignalQueryArgs'] signal_queries: Queries for selecting logs which are part of the rule.
-        :param Sequence[builtins.str] tags: Tags for generated signals.
         :param Sequence['GetSecurityMonitoringRulesRuleThirdPartyCaseArgs'] third_party_cases: Cases for generating signals for third-party rules. Only required and accepted for third-party rules
         :param builtins.str type: The rule type.
         """
         pulumi.set(__self__, "message", message)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "tags", tags)
         if cases is not None:
             pulumi.set(__self__, "cases", cases)
         if enabled is not None:
@@ -91380,8 +91418,6 @@ class GetSecurityMonitoringRulesRuleResult(dict):
             pulumi.set(__self__, "reference_tables", reference_tables)
         if signal_queries is not None:
             pulumi.set(__self__, "signal_queries", signal_queries)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
         if third_party_cases is not None:
             pulumi.set(__self__, "third_party_cases", third_party_cases)
         if type is not None:
@@ -91402,6 +91438,14 @@ class GetSecurityMonitoringRulesRuleResult(dict):
         The name of the rule.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Sequence[builtins.str]:
+        """
+        Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
@@ -91474,14 +91518,6 @@ class GetSecurityMonitoringRulesRuleResult(dict):
         Queries for selecting logs which are part of the rule.
         """
         return pulumi.get(self, "signal_queries")
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[Sequence[builtins.str]]:
-        """
-        Tags for generated signals.
-        """
-        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="thirdPartyCases")

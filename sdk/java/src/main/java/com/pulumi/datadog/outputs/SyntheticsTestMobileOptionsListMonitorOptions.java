@@ -12,6 +12,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SyntheticsTestMobileOptionsListMonitorOptions {
+    /**
+     * @return A message to include with a re-notification.
+     * 
+     */
     private @Nullable String escalationMessage;
     /**
      * @return Valid values are `show_all`, `hide_all`, `hide_query`, `hide_handles`.
@@ -30,6 +34,10 @@ public final class SyntheticsTestMobileOptionsListMonitorOptions {
     private @Nullable Integer renotifyOccurrences;
 
     private SyntheticsTestMobileOptionsListMonitorOptions() {}
+    /**
+     * @return A message to include with a re-notification.
+     * 
+     */
     public Optional<String> escalationMessage() {
         return Optional.ofNullable(this.escalationMessage);
     }

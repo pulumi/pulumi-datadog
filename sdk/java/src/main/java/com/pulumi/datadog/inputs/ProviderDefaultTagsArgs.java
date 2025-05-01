@@ -17,14 +17,14 @@ public final class ProviderDefaultTagsArgs extends com.pulumi.resources.Resource
     public static final ProviderDefaultTagsArgs Empty = new ProviderDefaultTagsArgs();
 
     /**
-     * [Experimental - Monitors and Logs Pipelines only] Resource tags to be applied by default across all resources.
+     * [Experimental - Logs Pipelines, Monitors and Security Monitoring Rules only] Resource tags to be applied by default across all resources.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return [Experimental - Monitors and Logs Pipelines only] Resource tags to be applied by default across all resources.
+     * @return [Experimental - Logs Pipelines, Monitors and Security Monitoring Rules only] Resource tags to be applied by default across all resources.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -56,7 +56,7 @@ public final class ProviderDefaultTagsArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param tags [Experimental - Monitors and Logs Pipelines only] Resource tags to be applied by default across all resources.
+         * @param tags [Experimental - Logs Pipelines, Monitors and Security Monitoring Rules only] Resource tags to be applied by default across all resources.
          * 
          * @return builder
          * 
@@ -67,7 +67,7 @@ public final class ProviderDefaultTagsArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param tags [Experimental - Monitors and Logs Pipelines only] Resource tags to be applied by default across all resources.
+         * @param tags [Experimental - Logs Pipelines, Monitors and Security Monitoring Rules only] Resource tags to be applied by default across all resources.
          * 
          * @return builder
          * 

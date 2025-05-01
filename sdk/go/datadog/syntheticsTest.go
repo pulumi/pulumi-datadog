@@ -123,7 +123,8 @@ import (
 //						Interval: pulumi.Int(300),
 //					},
 //					MonitorOptions: &datadog.SyntheticsTestOptionsListMonitorOptionsArgs{
-//						RenotifyInterval: pulumi.Int(120),
+//						RenotifyInterval:  pulumi.Int(120),
+//						EscalationMessage: pulumi.String("test escalation message"),
 //					},
 //				},
 //			})

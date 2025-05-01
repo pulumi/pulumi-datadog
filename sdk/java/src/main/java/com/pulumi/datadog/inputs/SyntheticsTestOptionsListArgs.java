@@ -309,14 +309,14 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * How often the test should run (in seconds).
+     * How often the test should run (in seconds). Valid range is `30-604800` for API tests and `60-604800` for browser tests.
      * 
      */
     @Import(name="tickEvery", required=true)
     private Output<Integer> tickEvery;
 
     /**
-     * @return How often the test should run (in seconds).
+     * @return How often the test should run (in seconds). Valid range is `30-604800` for API tests and `60-604800` for browser tests.
      * 
      */
     public Output<Integer> tickEvery() {
@@ -774,7 +774,7 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param tickEvery How often the test should run (in seconds).
+         * @param tickEvery How often the test should run (in seconds). Valid range is `30-604800` for API tests and `60-604800` for browser tests.
          * 
          * @return builder
          * 
@@ -785,7 +785,7 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param tickEvery How often the test should run (in seconds).
+         * @param tickEvery How often the test should run (in seconds). Valid range is `30-604800` for API tests and `60-604800` for browser tests.
          * 
          * @return builder
          * 

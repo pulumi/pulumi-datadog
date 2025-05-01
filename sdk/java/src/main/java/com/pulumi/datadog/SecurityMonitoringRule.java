@@ -258,18 +258,18 @@ public class SecurityMonitoringRule extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.signalQueries);
     }
     /**
-     * Tags for generated signals.
+     * Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
      * 
      */
     @Export(name="tags", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> tags;
+    private Output<List<String>> tags;
 
     /**
-     * @return Tags for generated signals.
+     * @return Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
      * 
      */
-    public Output<Optional<List<String>>> tags() {
-        return Codegen.optional(this.tags);
+    public Output<List<String>> tags() {
+        return this.tags;
     }
     /**
      * Cases for generating signals for third-party rules. Only required and accepted for third-party rules

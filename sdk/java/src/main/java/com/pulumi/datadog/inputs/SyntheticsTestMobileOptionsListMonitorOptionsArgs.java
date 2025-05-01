@@ -16,9 +16,17 @@ public final class SyntheticsTestMobileOptionsListMonitorOptionsArgs extends com
 
     public static final SyntheticsTestMobileOptionsListMonitorOptionsArgs Empty = new SyntheticsTestMobileOptionsListMonitorOptionsArgs();
 
+    /**
+     * A message to include with a re-notification.
+     * 
+     */
     @Import(name="escalationMessage")
     private @Nullable Output<String> escalationMessage;
 
+    /**
+     * @return A message to include with a re-notification.
+     * 
+     */
     public Optional<Output<String>> escalationMessage() {
         return Optional.ofNullable(this.escalationMessage);
     }
@@ -95,11 +103,23 @@ public final class SyntheticsTestMobileOptionsListMonitorOptionsArgs extends com
             $ = new SyntheticsTestMobileOptionsListMonitorOptionsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param escalationMessage A message to include with a re-notification.
+         * 
+         * @return builder
+         * 
+         */
         public Builder escalationMessage(@Nullable Output<String> escalationMessage) {
             $.escalationMessage = escalationMessage;
             return this;
         }
 
+        /**
+         * @param escalationMessage A message to include with a re-notification.
+         * 
+         * @return builder
+         * 
+         */
         public Builder escalationMessage(String escalationMessage) {
             return escalationMessage(Output.of(escalationMessage));
         }

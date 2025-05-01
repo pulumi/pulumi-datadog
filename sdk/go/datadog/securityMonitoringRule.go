@@ -111,7 +111,7 @@ type SecurityMonitoringRule struct {
 	ReferenceTables SecurityMonitoringRuleReferenceTableArrayOutput `pulumi:"referenceTables"`
 	// Queries for selecting logs which are part of the rule.
 	SignalQueries SecurityMonitoringRuleSignalQueryArrayOutput `pulumi:"signalQueries"`
-	// Tags for generated signals.
+	// Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
 	// Cases for generating signals for third-party rules. Only required and accepted for third-party rules
 	ThirdPartyCases SecurityMonitoringRuleThirdPartyCaseArrayOutput `pulumi:"thirdPartyCases"`
@@ -179,7 +179,7 @@ type securityMonitoringRuleState struct {
 	ReferenceTables []SecurityMonitoringRuleReferenceTable `pulumi:"referenceTables"`
 	// Queries for selecting logs which are part of the rule.
 	SignalQueries []SecurityMonitoringRuleSignalQuery `pulumi:"signalQueries"`
-	// Tags for generated signals.
+	// Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
 	Tags []string `pulumi:"tags"`
 	// Cases for generating signals for third-party rules. Only required and accepted for third-party rules
 	ThirdPartyCases []SecurityMonitoringRuleThirdPartyCase `pulumi:"thirdPartyCases"`
@@ -212,7 +212,7 @@ type SecurityMonitoringRuleState struct {
 	ReferenceTables SecurityMonitoringRuleReferenceTableArrayInput
 	// Queries for selecting logs which are part of the rule.
 	SignalQueries SecurityMonitoringRuleSignalQueryArrayInput
-	// Tags for generated signals.
+	// Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
 	Tags pulumi.StringArrayInput
 	// Cases for generating signals for third-party rules. Only required and accepted for third-party rules
 	ThirdPartyCases SecurityMonitoringRuleThirdPartyCaseArrayInput
@@ -249,7 +249,7 @@ type securityMonitoringRuleArgs struct {
 	ReferenceTables []SecurityMonitoringRuleReferenceTable `pulumi:"referenceTables"`
 	// Queries for selecting logs which are part of the rule.
 	SignalQueries []SecurityMonitoringRuleSignalQuery `pulumi:"signalQueries"`
-	// Tags for generated signals.
+	// Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
 	Tags []string `pulumi:"tags"`
 	// Cases for generating signals for third-party rules. Only required and accepted for third-party rules
 	ThirdPartyCases []SecurityMonitoringRuleThirdPartyCase `pulumi:"thirdPartyCases"`
@@ -283,7 +283,7 @@ type SecurityMonitoringRuleArgs struct {
 	ReferenceTables SecurityMonitoringRuleReferenceTableArrayInput
 	// Queries for selecting logs which are part of the rule.
 	SignalQueries SecurityMonitoringRuleSignalQueryArrayInput
-	// Tags for generated signals.
+	// Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
 	Tags pulumi.StringArrayInput
 	// Cases for generating signals for third-party rules. Only required and accepted for third-party rules
 	ThirdPartyCases SecurityMonitoringRuleThirdPartyCaseArrayInput
@@ -437,7 +437,7 @@ func (o SecurityMonitoringRuleOutput) SignalQueries() SecurityMonitoringRuleSign
 	return o.ApplyT(func(v *SecurityMonitoringRule) SecurityMonitoringRuleSignalQueryArrayOutput { return v.SignalQueries }).(SecurityMonitoringRuleSignalQueryArrayOutput)
 }
 
-// Tags for generated signals.
+// Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
 func (o SecurityMonitoringRuleOutput) Tags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SecurityMonitoringRule) pulumi.StringArrayOutput { return v.Tags }).(pulumi.StringArrayOutput)
 }

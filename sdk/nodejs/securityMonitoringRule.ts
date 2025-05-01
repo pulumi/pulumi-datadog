@@ -130,9 +130,9 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
      */
     public readonly signalQueries!: pulumi.Output<outputs.SecurityMonitoringRuleSignalQuery[] | undefined>;
     /**
-     * Tags for generated signals.
+     * Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
      */
-    public readonly tags!: pulumi.Output<string[] | undefined>;
+    public readonly tags!: pulumi.Output<string[]>;
     /**
      * Cases for generating signals for third-party rules. Only required and accepted for third-party rules
      */
@@ -252,7 +252,7 @@ export interface SecurityMonitoringRuleState {
      */
     signalQueries?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleSignalQuery>[]>;
     /**
-     * Tags for generated signals.
+     * Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -318,7 +318,7 @@ export interface SecurityMonitoringRuleArgs {
      */
     signalQueries?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleSignalQuery>[]>;
     /**
-     * Tags for generated signals.
+     * Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**

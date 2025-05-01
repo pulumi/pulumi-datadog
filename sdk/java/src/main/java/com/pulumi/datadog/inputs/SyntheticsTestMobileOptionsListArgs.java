@@ -195,14 +195,14 @@ public final class SyntheticsTestMobileOptionsListArgs extends com.pulumi.resour
     }
 
     /**
-     * How often the test should run (in seconds).
+     * How often the test should run (in seconds). Valid range is `300-604800` for mobile tests.
      * 
      */
     @Import(name="tickEvery", required=true)
     private Output<Integer> tickEvery;
 
     /**
-     * @return How often the test should run (in seconds).
+     * @return How often the test should run (in seconds). Valid range is `300-604800` for mobile tests.
      * 
      */
     public Output<Integer> tickEvery() {
@@ -512,7 +512,7 @@ public final class SyntheticsTestMobileOptionsListArgs extends com.pulumi.resour
         }
 
         /**
-         * @param tickEvery How often the test should run (in seconds).
+         * @param tickEvery How often the test should run (in seconds). Valid range is `300-604800` for mobile tests.
          * 
          * @return builder
          * 
@@ -523,7 +523,7 @@ public final class SyntheticsTestMobileOptionsListArgs extends com.pulumi.resour
         }
 
         /**
-         * @param tickEvery How often the test should run (in seconds).
+         * @param tickEvery How often the test should run (in seconds). Valid range is `300-604800` for mobile tests.
          * 
          * @return builder
          * 
