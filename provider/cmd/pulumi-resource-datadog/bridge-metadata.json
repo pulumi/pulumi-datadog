@@ -13025,6 +13025,22 @@
                 "current": "datadog:index/monitorJson:MonitorJson",
                 "majorVersion": 4
             },
+            "datadog_monitor_notification_rule": {
+                "current": "datadog:index/monitorNotificationRule:MonitorNotificationRule",
+                "majorVersion": 4,
+                "fields": {
+                    "filter": {
+                        "fields": {
+                            "tags": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "recipients": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "datadog_observability_pipeline": {
                 "current": "datadog:index/observabilityPipeline:ObservabilityPipeline",
                 "majorVersion": 4,
@@ -17599,6 +17615,15 @@
                     }
                 }
             },
+            "datadog_metric_tags": {
+                "current": "datadog:index/getMetricTags:getMetricTags",
+                "majorVersion": 4,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "datadog_monitor": {
                 "current": "datadog:index/getMonitor:getMonitor",
                 "majorVersion": 4,
@@ -18081,6 +18106,7 @@
             "datadog:index/monitor:Monitor": 0,
             "datadog:index/monitorConfigPolicy:MonitorConfigPolicy": 0,
             "datadog:index/monitorJson:MonitorJson": 0,
+            "datadog:index/monitorNotificationRule:MonitorNotificationRule": 1,
             "datadog:index/observabilityPipeline:ObservabilityPipeline": 1,
             "datadog:index/openapiApi:OpenapiApi": 1,
             "datadog:index/organizationSettings:OrganizationSettings": 0,
@@ -18147,6 +18173,7 @@
             "datadog:index/getLogsIndexesOrder:getLogsIndexesOrder": 0,
             "datadog:index/getLogsPipelines:getLogsPipelines": 0,
             "datadog:index/getLogsPipelinesOrder:getLogsPipelinesOrder": 1,
+            "datadog:index/getMetricTags:getMetricTags": 1,
             "datadog:index/getMonitor:getMonitor": 0,
             "datadog:index/getMonitorConfigPolicies:getMonitorConfigPolicies": 0,
             "datadog:index/getMonitors:getMonitors": 0,
