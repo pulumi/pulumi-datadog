@@ -13,6 +13,9 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class SyntheticsTestMobileOptionsListMonitorOptions
     {
+        /// <summary>
+        /// A message to include with a re-notification.
+        /// </summary>
         public readonly string? EscalationMessage;
         /// <summary>
         /// Valid values are `show_all`, `hide_all`, `hide_query`, `hide_handles`.

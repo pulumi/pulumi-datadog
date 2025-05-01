@@ -105,8 +105,8 @@ export interface ProviderArgs {
      */
     appKey?: pulumi.Input<string>;
     /**
-     * [Experimental - Monitors and Logs Pipelines only] Configuration block containing settings to apply default resource tags
-     * across all resources.
+     * [Experimental - Logs Pipelines, Monitors and Security Monitoring Rules only] Configuration block containing settings to
+     * apply default resource tags across all resources.
      */
     defaultTags?: pulumi.Input<inputs.ProviderDefaultTags>;
     /**

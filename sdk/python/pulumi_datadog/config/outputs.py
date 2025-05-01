@@ -24,7 +24,7 @@ class DefaultTags(dict):
     def __init__(__self__, *,
                  tags: Optional[Mapping[str, builtins.str]] = None):
         """
-        :param Mapping[str, builtins.str] tags: [Experimental - Monitors and Logs Pipelines only] Resource tags to be applied by default across all resources.
+        :param Mapping[str, builtins.str] tags: [Experimental - Logs Pipelines, Monitors and Security Monitoring Rules only] Resource tags to be applied by default across all resources.
         """
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
@@ -33,7 +33,7 @@ class DefaultTags(dict):
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
         """
-        [Experimental - Monitors and Logs Pipelines only] Resource tags to be applied by default across all resources.
+        [Experimental - Logs Pipelines, Monitors and Security Monitoring Rules only] Resource tags to be applied by default across all resources.
         """
         return pulumi.get(self, "tags")
 

@@ -12,6 +12,9 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class SyntheticsTestMobileOptionsListMonitorOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A message to include with a re-notification.
+        /// </summary>
         [Input("escalationMessage")]
         public Input<string>? EscalationMessage { get; set; }
 

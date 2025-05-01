@@ -50,7 +50,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.SyntheticsTestMobileOptionsListScheduling? Scheduling;
         /// <summary>
-        /// How often the test should run (in seconds).
+        /// How often the test should run (in seconds). Valid range is `300-604800` for mobile tests.
         /// </summary>
         public readonly int TickEvery;
         public readonly int? Verbosity;

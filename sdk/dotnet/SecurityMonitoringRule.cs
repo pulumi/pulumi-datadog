@@ -157,7 +157,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<Outputs.SecurityMonitoringRuleSignalQuery>> SignalQueries { get; private set; } = null!;
 
         /// <summary>
-        /// Tags for generated signals.
+        /// Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
@@ -332,7 +332,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _tags;
 
         /// <summary>
-        /// Tags for generated signals.
+        /// Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
         /// </summary>
         public InputList<string> Tags
         {
@@ -478,7 +478,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _tags;
 
         /// <summary>
-        /// Tags for generated signals.
+        /// Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
         /// </summary>
         public InputList<string> Tags
         {

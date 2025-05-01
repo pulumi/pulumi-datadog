@@ -51,8 +51,8 @@ class _ExportableConfig(types.ModuleType):
     @property
     def default_tags(self) -> Optional[str]:
         """
-        [Experimental - Monitors and Logs Pipelines only] Configuration block containing settings to apply default resource tags
-        across all resources.
+        [Experimental - Logs Pipelines, Monitors and Security Monitoring Rules only] Configuration block containing settings to
+        apply default resource tags across all resources.
         """
         return __config__.get('defaultTags')
 

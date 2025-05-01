@@ -98,6 +98,7 @@ import * as utilities from "./utilities";
  *         },
  *         monitorOptions: {
  *             renotifyInterval: 120,
+ *             escalationMessage: "test escalation message",
  *         },
  *     },
  * });

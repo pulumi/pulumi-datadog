@@ -13,6 +13,181 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQuery struct {
+	// The aggregation method.
+	Aggregation string `pulumi:"aggregation"`
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval *int `pulumi:"interval"`
+}
+
+// PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryInput is an input type that accepts PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryArgs and PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryInput` via:
+//
+//	PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryArgs{...}
+type PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryOutput() PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryOutput
+	ToPowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryOutputWithContext(context.Context) PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryOutput
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryArgs struct {
+	// The aggregation method.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
+}
+
+func (PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQuery)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryArgs) ToPowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryOutput() PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryOutput {
+	return i.ToPowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryArgs) ToPowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryOutput)
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryArgs) ToPowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryPtrOutput {
+	return i.ToPowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryArgs) ToPowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryOutput).ToPowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryPtrInput is an input type that accepts PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryArgs, PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryPtr and PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryPtrInput` via:
+//
+//	        PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryPtrOutput
+	ToPowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryPtrOutputWithContext(context.Context) PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryPtrOutput
+}
+
+type powerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryPtrType PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryArgs
+
+func PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryPtr(v *PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryArgs) PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryPtrInput {
+	return (*powerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryPtrType)(v)
+}
+
+func (*powerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQuery)(nil)).Elem()
+}
+
+func (i *powerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryPtrType) ToPowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryPtrOutput {
+	return i.ToPowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryPtrType) ToPowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryPtrOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryOutput) ToPowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryOutput() PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryOutput) ToPowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryOutput) ToPowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryPtrOutput {
+	return o.ToPowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryOutput) ToPowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQuery) *PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQuery {
+		return &v
+	}).(PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryPtrOutput)
+}
+
+// The aggregation method.
+func (o PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryOutput) Aggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQuery) string { return v.Aggregation }).(pulumi.StringOutput)
+}
+
+// The facet name.
+func (o PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQuery) *string { return v.Facet }).(pulumi.StringPtrOutput)
+}
+
+// Define the time interval in seconds.
+func (o PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQuery) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryPtrOutput) ToPowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryPtrOutput) ToPowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryPtrOutput) Elem() PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQuery) PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQuery {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQuery
+		return ret
+	}).(PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryOutput)
+}
+
+// The aggregation method.
+func (o PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryPtrOutput) Aggregation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Aggregation
+	}).(pulumi.StringPtrOutput)
+}
+
+// The facet name.
+func (o PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryPtrOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Facet
+	}).(pulumi.StringPtrOutput)
+}
+
+// Define the time interval in seconds.
+func (o PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryPtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQuery) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Interval
+	}).(pulumi.IntPtrOutput)
+}
+
 type PowerpackWidgetTimeseriesDefinitionRequestApmQueryGroupBy struct {
 	// The facet name.
 	Facet *string `pulumi:"facet"`
@@ -24267,7 +24442,7 @@ func (o PowerpackWidgetWidgetLayoutPtrOutput) Y() pulumi.IntPtrOutput {
 }
 
 type ProviderDefaultTags struct {
-	// [Experimental - Monitors and Logs Pipelines only] Resource tags to be applied by default across all resources.
+	// [Experimental - Logs Pipelines, Monitors and Security Monitoring Rules only] Resource tags to be applied by default across all resources.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -24283,7 +24458,7 @@ type ProviderDefaultTagsInput interface {
 }
 
 type ProviderDefaultTagsArgs struct {
-	// [Experimental - Monitors and Logs Pipelines only] Resource tags to be applied by default across all resources.
+	// [Experimental - Logs Pipelines, Monitors and Security Monitoring Rules only] Resource tags to be applied by default across all resources.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -24364,7 +24539,7 @@ func (o ProviderDefaultTagsOutput) ToProviderDefaultTagsPtrOutputWithContext(ctx
 	}).(ProviderDefaultTagsPtrOutput)
 }
 
-// [Experimental - Monitors and Logs Pipelines only] Resource tags to be applied by default across all resources.
+// [Experimental - Logs Pipelines, Monitors and Security Monitoring Rules only] Resource tags to be applied by default across all resources.
 func (o ProviderDefaultTagsOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ProviderDefaultTags) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -24393,7 +24568,7 @@ func (o ProviderDefaultTagsPtrOutput) Elem() ProviderDefaultTagsOutput {
 	}).(ProviderDefaultTagsOutput)
 }
 
-// [Experimental - Monitors and Logs Pipelines only] Resource tags to be applied by default across all resources.
+// [Experimental - Logs Pipelines, Monitors and Security Monitoring Rules only] Resource tags to be applied by default across all resources.
 func (o ProviderDefaultTagsPtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ProviderDefaultTags) map[string]string {
 		if v == nil {
@@ -35725,7 +35900,7 @@ type SyntheticsTestMobileOptionsList struct {
 	Retry           *SyntheticsTestMobileOptionsListRetry `pulumi:"retry"`
 	// Object containing timeframes and timezone used for advanced scheduling.
 	Scheduling *SyntheticsTestMobileOptionsListScheduling `pulumi:"scheduling"`
-	// How often the test should run (in seconds).
+	// How often the test should run (in seconds). Valid range is `300-604800` for mobile tests.
 	TickEvery int  `pulumi:"tickEvery"`
 	Verbosity *int `pulumi:"verbosity"`
 }
@@ -35766,7 +35941,7 @@ type SyntheticsTestMobileOptionsListArgs struct {
 	Retry           SyntheticsTestMobileOptionsListRetryPtrInput `pulumi:"retry"`
 	// Object containing timeframes and timezone used for advanced scheduling.
 	Scheduling SyntheticsTestMobileOptionsListSchedulingPtrInput `pulumi:"scheduling"`
-	// How often the test should run (in seconds).
+	// How often the test should run (in seconds). Valid range is `300-604800` for mobile tests.
 	TickEvery pulumi.IntInput    `pulumi:"tickEvery"`
 	Verbosity pulumi.IntPtrInput `pulumi:"verbosity"`
 }
@@ -35923,7 +36098,7 @@ func (o SyntheticsTestMobileOptionsListOutput) Scheduling() SyntheticsTestMobile
 	}).(SyntheticsTestMobileOptionsListSchedulingPtrOutput)
 }
 
-// How often the test should run (in seconds).
+// How often the test should run (in seconds). Valid range is `300-604800` for mobile tests.
 func (o SyntheticsTestMobileOptionsListOutput) TickEvery() pulumi.IntOutput {
 	return o.ApplyT(func(v SyntheticsTestMobileOptionsList) int { return v.TickEvery }).(pulumi.IntOutput)
 }
@@ -36100,7 +36275,7 @@ func (o SyntheticsTestMobileOptionsListPtrOutput) Scheduling() SyntheticsTestMob
 	}).(SyntheticsTestMobileOptionsListSchedulingPtrOutput)
 }
 
-// How often the test should run (in seconds).
+// How often the test should run (in seconds). Valid range is `300-604800` for mobile tests.
 func (o SyntheticsTestMobileOptionsListPtrOutput) TickEvery() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestMobileOptionsList) *int {
 		if v == nil {
@@ -36527,6 +36702,7 @@ func (o SyntheticsTestMobileOptionsListMobileApplicationPtrOutput) ReferenceType
 }
 
 type SyntheticsTestMobileOptionsListMonitorOptions struct {
+	// A message to include with a re-notification.
 	EscalationMessage *string `pulumi:"escalationMessage"`
 	// Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`.
 	NotificationPresetName *string `pulumi:"notificationPresetName"`
@@ -36548,6 +36724,7 @@ type SyntheticsTestMobileOptionsListMonitorOptionsInput interface {
 }
 
 type SyntheticsTestMobileOptionsListMonitorOptionsArgs struct {
+	// A message to include with a re-notification.
 	EscalationMessage pulumi.StringPtrInput `pulumi:"escalationMessage"`
 	// Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`.
 	NotificationPresetName pulumi.StringPtrInput `pulumi:"notificationPresetName"`
@@ -36634,6 +36811,7 @@ func (o SyntheticsTestMobileOptionsListMonitorOptionsOutput) ToSyntheticsTestMob
 	}).(SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput)
 }
 
+// A message to include with a re-notification.
 func (o SyntheticsTestMobileOptionsListMonitorOptionsOutput) EscalationMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestMobileOptionsListMonitorOptions) *string { return v.EscalationMessage }).(pulumi.StringPtrOutput)
 }
@@ -36677,6 +36855,7 @@ func (o SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput) Elem() Synthetic
 	}).(SyntheticsTestMobileOptionsListMonitorOptionsOutput)
 }
 
+// A message to include with a re-notification.
 func (o SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput) EscalationMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestMobileOptionsListMonitorOptions) *string {
 		if v == nil {
@@ -38405,7 +38584,7 @@ type SyntheticsTestOptionsList struct {
 	RumSettings *SyntheticsTestOptionsListRumSettings `pulumi:"rumSettings"`
 	// Object containing timeframes and timezone used for advanced scheduling.
 	Scheduling *SyntheticsTestOptionsListScheduling `pulumi:"scheduling"`
-	// How often the test should run (in seconds).
+	// How often the test should run (in seconds). Valid range is `30-604800` for API tests and `60-604800` for browser tests.
 	TickEvery int `pulumi:"tickEvery"`
 }
 
@@ -38460,7 +38639,7 @@ type SyntheticsTestOptionsListArgs struct {
 	RumSettings SyntheticsTestOptionsListRumSettingsPtrInput `pulumi:"rumSettings"`
 	// Object containing timeframes and timezone used for advanced scheduling.
 	Scheduling SyntheticsTestOptionsListSchedulingPtrInput `pulumi:"scheduling"`
-	// How often the test should run (in seconds).
+	// How often the test should run (in seconds). Valid range is `30-604800` for API tests and `60-604800` for browser tests.
 	TickEvery pulumi.IntInput `pulumi:"tickEvery"`
 }
 
@@ -38640,7 +38819,7 @@ func (o SyntheticsTestOptionsListOutput) Scheduling() SyntheticsTestOptionsListS
 	return o.ApplyT(func(v SyntheticsTestOptionsList) *SyntheticsTestOptionsListScheduling { return v.Scheduling }).(SyntheticsTestOptionsListSchedulingPtrOutput)
 }
 
-// How often the test should run (in seconds).
+// How often the test should run (in seconds). Valid range is `30-604800` for API tests and `60-604800` for browser tests.
 func (o SyntheticsTestOptionsListOutput) TickEvery() pulumi.IntOutput {
 	return o.ApplyT(func(v SyntheticsTestOptionsList) int { return v.TickEvery }).(pulumi.IntOutput)
 }
@@ -38868,7 +39047,7 @@ func (o SyntheticsTestOptionsListPtrOutput) Scheduling() SyntheticsTestOptionsLi
 	}).(SyntheticsTestOptionsListSchedulingPtrOutput)
 }
 
-// How often the test should run (in seconds).
+// How often the test should run (in seconds). Valid range is `30-604800` for API tests and `60-604800` for browser tests.
 func (o SyntheticsTestOptionsListPtrOutput) TickEvery() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestOptionsList) *int {
 		if v == nil {
@@ -39016,6 +39195,8 @@ func (o SyntheticsTestOptionsListCiPtrOutput) ExecutionRule() pulumi.StringPtrOu
 }
 
 type SyntheticsTestOptionsListMonitorOptions struct {
+	// A message to include with a re-notification.
+	EscalationMessage *string `pulumi:"escalationMessage"`
 	// Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
 	RenotifyInterval *int `pulumi:"renotifyInterval"`
 	// The number of times a monitor renotifies. It can only be set if `renotifyInterval` is set.
@@ -39034,6 +39215,8 @@ type SyntheticsTestOptionsListMonitorOptionsInput interface {
 }
 
 type SyntheticsTestOptionsListMonitorOptionsArgs struct {
+	// A message to include with a re-notification.
+	EscalationMessage pulumi.StringPtrInput `pulumi:"escalationMessage"`
 	// Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
 	RenotifyInterval pulumi.IntPtrInput `pulumi:"renotifyInterval"`
 	// The number of times a monitor renotifies. It can only be set if `renotifyInterval` is set.
@@ -39117,6 +39300,11 @@ func (o SyntheticsTestOptionsListMonitorOptionsOutput) ToSyntheticsTestOptionsLi
 	}).(SyntheticsTestOptionsListMonitorOptionsPtrOutput)
 }
 
+// A message to include with a re-notification.
+func (o SyntheticsTestOptionsListMonitorOptionsOutput) EscalationMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsListMonitorOptions) *string { return v.EscalationMessage }).(pulumi.StringPtrOutput)
+}
+
 // Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
 func (o SyntheticsTestOptionsListMonitorOptionsOutput) RenotifyInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestOptionsListMonitorOptions) *int { return v.RenotifyInterval }).(pulumi.IntPtrOutput)
@@ -39149,6 +39337,16 @@ func (o SyntheticsTestOptionsListMonitorOptionsPtrOutput) Elem() SyntheticsTestO
 		var ret SyntheticsTestOptionsListMonitorOptions
 		return ret
 	}).(SyntheticsTestOptionsListMonitorOptionsOutput)
+}
+
+// A message to include with a re-notification.
+func (o SyntheticsTestOptionsListMonitorOptionsPtrOutput) EscalationMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsListMonitorOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EscalationMessage
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
@@ -45670,7 +45868,7 @@ type GetSecurityMonitoringRulesRule struct {
 	ReferenceTables []GetSecurityMonitoringRulesRuleReferenceTable `pulumi:"referenceTables"`
 	// Queries for selecting logs which are part of the rule.
 	SignalQueries []GetSecurityMonitoringRulesRuleSignalQuery `pulumi:"signalQueries"`
-	// Tags for generated signals.
+	// Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
 	Tags []string `pulumi:"tags"`
 	// Cases for generating signals for third-party rules. Only required and accepted for third-party rules
 	ThirdPartyCases []GetSecurityMonitoringRulesRuleThirdPartyCase `pulumi:"thirdPartyCases"`
@@ -45712,7 +45910,7 @@ type GetSecurityMonitoringRulesRuleArgs struct {
 	ReferenceTables GetSecurityMonitoringRulesRuleReferenceTableArrayInput `pulumi:"referenceTables"`
 	// Queries for selecting logs which are part of the rule.
 	SignalQueries GetSecurityMonitoringRulesRuleSignalQueryArrayInput `pulumi:"signalQueries"`
-	// Tags for generated signals.
+	// Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
 	Tags pulumi.StringArrayInput `pulumi:"tags"`
 	// Cases for generating signals for third-party rules. Only required and accepted for third-party rules
 	ThirdPartyCases GetSecurityMonitoringRulesRuleThirdPartyCaseArrayInput `pulumi:"thirdPartyCases"`
@@ -45830,7 +46028,7 @@ func (o GetSecurityMonitoringRulesRuleOutput) SignalQueries() GetSecurityMonitor
 	}).(GetSecurityMonitoringRulesRuleSignalQueryArrayOutput)
 }
 
-// Tags for generated signals.
+// Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
 func (o GetSecurityMonitoringRulesRuleOutput) Tags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRule) []string { return v.Tags }).(pulumi.StringArrayOutput)
 }
@@ -48881,6 +49079,8 @@ func (o GetUsersUserArrayOutput) Index(i pulumi.IntInput) GetUsersUserOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryPtrInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestApmQueryGroupByInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestApmQueryGroupByArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestApmQueryGroupByArrayInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestApmQueryGroupByArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestApmQueryGroupBySortQueryInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestApmQueryGroupBySortQueryArgs{})
@@ -49463,6 +49663,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamsTeamArrayInput)(nil)).Elem(), GetTeamsTeamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserInput)(nil)).Elem(), GetUsersUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserArrayInput)(nil)).Elem(), GetUsersUserArray{})
+	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestApmQueryComputeQueryPtrOutput{})
 	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestApmQueryGroupByOutput{})
 	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestApmQueryGroupByArrayOutput{})
 	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestApmQueryGroupBySortQueryOutput{})

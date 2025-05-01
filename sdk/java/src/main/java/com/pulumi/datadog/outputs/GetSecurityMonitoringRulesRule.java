@@ -77,10 +77,10 @@ public final class GetSecurityMonitoringRulesRule {
      */
     private @Nullable List<GetSecurityMonitoringRulesRuleSignalQuery> signalQueries;
     /**
-     * @return Tags for generated signals.
+     * @return Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
      * 
      */
-    private @Nullable List<String> tags;
+    private List<String> tags;
     /**
      * @return Cases for generating signals for third-party rules. Only required and accepted for third-party rules
      * 
@@ -171,11 +171,11 @@ public final class GetSecurityMonitoringRulesRule {
         return this.signalQueries == null ? List.of() : this.signalQueries;
     }
     /**
-     * @return Tags for generated signals.
+     * @return Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
      * 
      */
     public List<String> tags() {
-        return this.tags == null ? List.of() : this.tags;
+        return this.tags;
     }
     /**
      * @return Cases for generating signals for third-party rules. Only required and accepted for third-party rules
@@ -212,7 +212,7 @@ public final class GetSecurityMonitoringRulesRule {
         private @Nullable List<GetSecurityMonitoringRulesRuleQuery> queries;
         private @Nullable List<GetSecurityMonitoringRulesRuleReferenceTable> referenceTables;
         private @Nullable List<GetSecurityMonitoringRulesRuleSignalQuery> signalQueries;
-        private @Nullable List<String> tags;
+        private List<String> tags;
         private @Nullable List<GetSecurityMonitoringRulesRuleThirdPartyCase> thirdPartyCases;
         private @Nullable String type;
         public Builder() {}
@@ -323,8 +323,10 @@ public final class GetSecurityMonitoringRulesRule {
             return signalQueries(List.of(signalQueries));
         }
         @CustomType.Setter
-        public Builder tags(@Nullable List<String> tags) {
-
+        public Builder tags(List<String> tags) {
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetSecurityMonitoringRulesRule", "tags");
+            }
             this.tags = tags;
             return this;
         }

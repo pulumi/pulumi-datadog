@@ -1056,6 +1056,7 @@ class SyntheticsTest(pulumi.CustomResource):
                 },
                 "monitor_options": {
                     "renotify_interval": 120,
+                    "escalation_message": "test escalation message",
                 },
             })
         # Example Usage (Synthetics SSL test)
@@ -1762,6 +1763,7 @@ class SyntheticsTest(pulumi.CustomResource):
                 },
                 "monitor_options": {
                     "renotify_interval": 120,
+                    "escalation_message": "test escalation message",
                 },
             })
         # Example Usage (Synthetics SSL test)

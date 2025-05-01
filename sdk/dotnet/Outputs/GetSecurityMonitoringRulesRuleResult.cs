@@ -58,7 +58,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetSecurityMonitoringRulesRuleSignalQueryResult> SignalQueries;
         /// <summary>
-        /// Tags for generated signals.
+        /// Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
         /// </summary>
         public readonly ImmutableArray<string> Tags;
         /// <summary>

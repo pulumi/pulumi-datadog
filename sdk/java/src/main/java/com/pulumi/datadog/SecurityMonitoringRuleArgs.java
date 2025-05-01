@@ -191,14 +191,14 @@ public final class SecurityMonitoringRuleArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Tags for generated signals.
+     * Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<List<String>> tags;
 
     /**
-     * @return Tags for generated signals.
+     * @return Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
      * 
      */
     public Optional<Output<List<String>>> tags() {
@@ -580,7 +580,7 @@ public final class SecurityMonitoringRuleArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param tags Tags for generated signals.
+         * @param tags Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
          * 
          * @return builder
          * 
@@ -591,7 +591,7 @@ public final class SecurityMonitoringRuleArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param tags Tags for generated signals.
+         * @param tags Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
          * 
          * @return builder
          * 
@@ -601,7 +601,7 @@ public final class SecurityMonitoringRuleArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param tags Tags for generated signals.
+         * @param tags Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
          * 
          * @return builder
          * 

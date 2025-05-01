@@ -69,7 +69,7 @@ public final class SyntheticsTestMobileOptionsList {
      */
     private @Nullable SyntheticsTestMobileOptionsListScheduling scheduling;
     /**
-     * @return How often the test should run (in seconds).
+     * @return How often the test should run (in seconds). Valid range is `300-604800` for mobile tests.
      * 
      */
     private Integer tickEvery;
@@ -154,7 +154,7 @@ public final class SyntheticsTestMobileOptionsList {
         return Optional.ofNullable(this.scheduling);
     }
     /**
-     * @return How often the test should run (in seconds).
+     * @return How often the test should run (in seconds). Valid range is `300-604800` for mobile tests.
      * 
      */
     public Integer tickEvery() {

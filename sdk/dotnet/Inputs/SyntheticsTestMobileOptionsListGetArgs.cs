@@ -97,7 +97,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.SyntheticsTestMobileOptionsListSchedulingGetArgs>? Scheduling { get; set; }
 
         /// <summary>
-        /// How often the test should run (in seconds).
+        /// How often the test should run (in seconds). Valid range is `300-604800` for mobile tests.
         /// </summary>
         [Input("tickEvery", required: true)]
         public Input<int> TickEvery { get; set; } = null!;

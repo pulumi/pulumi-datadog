@@ -13,6 +13,12 @@ namespace Pulumi.Datadog.Inputs
     public sealed class SyntheticsTestOptionsListMonitorOptionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A message to include with a re-notification.
+        /// </summary>
+        [Input("escalationMessage")]
+        public Input<string>? EscalationMessage { get; set; }
+
+        /// <summary>
         /// Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
         /// </summary>
         [Input("renotifyInterval")]

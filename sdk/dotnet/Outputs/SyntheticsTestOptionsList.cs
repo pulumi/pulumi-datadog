@@ -85,7 +85,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.SyntheticsTestOptionsListScheduling? Scheduling;
         /// <summary>
-        /// How often the test should run (in seconds).
+        /// How often the test should run (in seconds). Valid range is `30-604800` for API tests and `60-604800` for browser tests.
         /// </summary>
         public readonly int TickEvery;
 
