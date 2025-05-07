@@ -114,6 +114,10 @@ typ:
 	// type references.
 
 	fixup := func(t *schema.TypeSpec) {
+		if t == nil {
+			return
+		}
+
 		const prefix = "#/types/"
 
 		tokStr, ok := strings.CutPrefix(t.Ref, prefix)
