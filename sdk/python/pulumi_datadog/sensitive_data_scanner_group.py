@@ -191,10 +191,8 @@ class _SensitiveDataScannerGroupState:
         pulumi.set(self, "product_lists", value)
 
 
+@pulumi.type_token("datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup")
 class SensitiveDataScannerGroup(pulumi.CustomResource):
-
-    pulumi_type = "datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -298,10 +298,8 @@ class _DowntimeScheduleState:
         pulumi.set(self, "scope", value)
 
 
+@pulumi.type_token("datadog:index/downtimeSchedule:DowntimeSchedule")
 class DowntimeSchedule(pulumi.CustomResource):
-
-    pulumi_type = "datadog:index/downtimeSchedule:DowntimeSchedule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

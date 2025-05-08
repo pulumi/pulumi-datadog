@@ -221,10 +221,8 @@ class _RumRetentionFilterState:
         pulumi.set(self, "sample_rate", value)
 
 
+@pulumi.type_token("datadog:index/rumRetentionFilter:RumRetentionFilter")
 class RumRetentionFilter(pulumi.CustomResource):
-
-    pulumi_type = "datadog:index/rumRetentionFilter:RumRetentionFilter"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

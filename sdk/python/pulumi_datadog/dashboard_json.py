@@ -136,10 +136,8 @@ class _DashboardJsonState:
         pulumi.set(self, "url", value)
 
 
+@pulumi.type_token("datadog:index/dashboardJson:DashboardJson")
 class DashboardJson(pulumi.CustomResource):
-
-    pulumi_type = "datadog:index/dashboardJson:DashboardJson"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

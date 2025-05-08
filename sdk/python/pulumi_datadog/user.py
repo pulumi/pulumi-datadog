@@ -224,10 +224,8 @@ class _UserState:
         pulumi.set(self, "verified", value)
 
 
+@pulumi.type_token("datadog:index/user:User")
 class User(pulumi.CustomResource):
-
-    pulumi_type = "datadog:index/user:User"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

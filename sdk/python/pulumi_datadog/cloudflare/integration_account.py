@@ -159,10 +159,8 @@ class _IntegrationAccountState:
         pulumi.set(self, "resources", value)
 
 
+@pulumi.type_token("datadog:cloudflare/integrationAccount:IntegrationAccount")
 class IntegrationAccount(pulumi.CustomResource):
-
-    pulumi_type = "datadog:cloudflare/integrationAccount:IntegrationAccount"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -150,10 +150,8 @@ class _ServiceObjectState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("datadog:opsgenie/serviceObject:ServiceObject")
 class ServiceObject(pulumi.CustomResource):
-
-    pulumi_type = "datadog:opsgenie/serviceObject:ServiceObject"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

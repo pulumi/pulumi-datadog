@@ -163,10 +163,8 @@ class _OrganizationSettingsState:
         pulumi.set(self, "settings", value)
 
 
+@pulumi.type_token("datadog:index/organizationSettings:OrganizationSettings")
 class OrganizationSettings(pulumi.CustomResource):
-
-    pulumi_type = "datadog:index/organizationSettings:OrganizationSettings"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

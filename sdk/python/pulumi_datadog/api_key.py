@@ -112,10 +112,8 @@ class _ApiKeyState:
         pulumi.set(self, "remote_config_read_enabled", value)
 
 
+@pulumi.type_token("datadog:index/apiKey:ApiKey")
 class ApiKey(pulumi.CustomResource):
-
-    pulumi_type = "datadog:index/apiKey:ApiKey"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

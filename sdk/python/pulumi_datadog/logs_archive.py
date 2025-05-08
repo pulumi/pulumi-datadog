@@ -289,10 +289,8 @@ class _LogsArchiveState:
         pulumi.set(self, "s3_archive", value)
 
 
+@pulumi.type_token("datadog:index/logsArchive:LogsArchive")
 class LogsArchive(pulumi.CustomResource):
-
-    pulumi_type = "datadog:index/logsArchive:LogsArchive"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

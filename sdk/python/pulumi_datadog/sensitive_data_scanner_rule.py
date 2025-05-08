@@ -418,10 +418,8 @@ class _SensitiveDataScannerRuleState:
         pulumi.set(self, "text_replacement", value)
 
 
+@pulumi.type_token("datadog:index/sensitiveDataScannerRule:SensitiveDataScannerRule")
 class SensitiveDataScannerRule(pulumi.CustomResource):
-
-    pulumi_type = "datadog:index/sensitiveDataScannerRule:SensitiveDataScannerRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

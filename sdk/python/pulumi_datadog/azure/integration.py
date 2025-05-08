@@ -484,10 +484,8 @@ class _IntegrationState:
         pulumi.set(self, "usage_metrics_enabled", value)
 
 
+@pulumi.type_token("datadog:azure/integration:Integration")
 class Integration(pulumi.CustomResource):
-
-    pulumi_type = "datadog:azure/integration:Integration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

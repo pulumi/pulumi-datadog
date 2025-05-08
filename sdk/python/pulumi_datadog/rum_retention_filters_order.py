@@ -95,10 +95,8 @@ class _RumRetentionFiltersOrderState:
         pulumi.set(self, "retention_filter_ids", value)
 
 
+@pulumi.type_token("datadog:index/rumRetentionFiltersOrder:RumRetentionFiltersOrder")
 class RumRetentionFiltersOrder(pulumi.CustomResource):
-
-    pulumi_type = "datadog:index/rumRetentionFiltersOrder:RumRetentionFiltersOrder"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

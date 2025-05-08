@@ -95,10 +95,8 @@ class _IntegrationLambdaArnState:
         pulumi.set(self, "lambda_arn", value)
 
 
+@pulumi.type_token("datadog:aws/integrationLambdaArn:IntegrationLambdaArn")
 class IntegrationLambdaArn(pulumi.CustomResource):
-
-    pulumi_type = "datadog:aws/integrationLambdaArn:IntegrationLambdaArn"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

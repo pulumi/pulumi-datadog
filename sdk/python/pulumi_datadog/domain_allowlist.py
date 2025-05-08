@@ -95,10 +95,8 @@ class _DomainAllowlistState:
         pulumi.set(self, "enabled", value)
 
 
+@pulumi.type_token("datadog:index/domainAllowlist:DomainAllowlist")
 class DomainAllowlist(pulumi.CustomResource):
-
-    pulumi_type = "datadog:index/domainAllowlist:DomainAllowlist"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -321,10 +321,8 @@ class _LogsIndexState:
         pulumi.set(self, "retention_days", value)
 
 
+@pulumi.type_token("datadog:index/logsIndex:LogsIndex")
 class LogsIndex(pulumi.CustomResource):
-
-    pulumi_type = "datadog:index/logsIndex:LogsIndex"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

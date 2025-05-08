@@ -193,10 +193,8 @@ class _RumMetricState:
         pulumi.set(self, "uniqueness", value)
 
 
+@pulumi.type_token("datadog:index/rumMetric:RumMetric")
 class RumMetric(pulumi.CustomResource):
-
-    pulumi_type = "datadog:index/rumMetric:RumMetric"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

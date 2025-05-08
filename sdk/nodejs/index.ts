@@ -425,10 +425,8 @@ export type Powerpack = import("./powerpack").Powerpack;
 export const Powerpack: typeof import("./powerpack").Powerpack = null as any;
 utilities.lazyLoad(exports, ["Powerpack"], () => require("./powerpack"));
 
-export { ProviderArgs } from "./provider";
-export type Provider = import("./provider").Provider;
-export const Provider: typeof import("./provider").Provider = null as any;
-utilities.lazyLoad(exports, ["Provider"], () => require("./provider"));
+export * from "./provider";
+import { Provider } from "./provider";
 
 export { RestrictionPolicyArgs, RestrictionPolicyState } from "./restrictionPolicy";
 export type RestrictionPolicy = import("./restrictionPolicy").RestrictionPolicy;

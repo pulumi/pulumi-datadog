@@ -223,10 +223,8 @@ class _ApmRetentionFilterState:
         pulumi.set(self, "trace_rate", value)
 
 
+@pulumi.type_token("datadog:index/apmRetentionFilter:ApmRetentionFilter")
 class ApmRetentionFilter(pulumi.CustomResource):
-
-    pulumi_type = "datadog:index/apmRetentionFilter:ApmRetentionFilter"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

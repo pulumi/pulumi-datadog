@@ -98,10 +98,8 @@ class _IpAllowlistState:
         pulumi.set(self, "entries", value)
 
 
+@pulumi.type_token("datadog:index/ipAllowlist:IpAllowlist")
 class IpAllowlist(pulumi.CustomResource):
-
-    pulumi_type = "datadog:index/ipAllowlist:IpAllowlist"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

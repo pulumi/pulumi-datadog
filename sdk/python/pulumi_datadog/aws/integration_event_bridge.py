@@ -158,10 +158,8 @@ class _IntegrationEventBridgeState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("datadog:aws/integrationEventBridge:IntegrationEventBridge")
 class IntegrationEventBridge(pulumi.CustomResource):
-
-    pulumi_type = "datadog:aws/integrationEventBridge:IntegrationEventBridge"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

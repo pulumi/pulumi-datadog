@@ -95,10 +95,8 @@ class _IntegrationAccountState:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("datadog:fastly/integrationAccount:IntegrationAccount")
 class IntegrationAccount(pulumi.CustomResource):
-
-    pulumi_type = "datadog:fastly/integrationAccount:IntegrationAccount"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
