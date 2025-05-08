@@ -35720,6 +35720,9 @@
                 "type": "string",
                 "description": "Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default\nis true. When false, api_key won't be checked.\n"
             }
+        },
+        "methods": {
+            "terraformConfig": "pulumi:providers:datadog/terraformConfig"
         }
     },
     "resources": {
@@ -47878,6 +47881,35 @@
                     "published",
                     "specJson",
                     "tags"
+                ],
+                "type": "object"
+            }
+        },
+        "pulumi:providers:datadog/terraformConfig": {
+            "description": "This function returns a Terraform config object with terraform-namecased keys,to be used with the Terraform Module Provider.",
+            "inputs": {
+                "properties": {
+                    "__self__": {
+                        "type": "ref",
+                        "$ref": "#/resources/pulumi:providers:datadog"
+                    }
+                },
+                "type": "pulumi:providers:datadog/terraformConfig",
+                "required": [
+                    "__self__"
+                ]
+            },
+            "outputs": {
+                "properties": {
+                    "result": {
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        },
+                        "type": "object"
+                    }
+                },
+                "required": [
+                    "result"
                 ],
                 "type": "object"
             }
