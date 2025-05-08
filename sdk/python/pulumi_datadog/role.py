@@ -170,10 +170,8 @@ class _RoleState:
         pulumi.set(self, "validate", value)
 
 
+@pulumi.type_token("datadog:index/role:Role")
 class Role(pulumi.CustomResource):
-
-    pulumi_type = "datadog:index/role:Role"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

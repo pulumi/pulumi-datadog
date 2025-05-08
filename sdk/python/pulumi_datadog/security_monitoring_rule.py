@@ -513,10 +513,8 @@ class _SecurityMonitoringRuleState:
         pulumi.set(self, "validate", value)
 
 
+@pulumi.type_token("datadog:index/securityMonitoringRule:SecurityMonitoringRule")
 class SecurityMonitoringRule(pulumi.CustomResource):
-
-    pulumi_type = "datadog:index/securityMonitoringRule:SecurityMonitoringRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

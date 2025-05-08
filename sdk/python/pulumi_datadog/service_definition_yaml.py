@@ -64,10 +64,8 @@ class _ServiceDefinitionYamlState:
         pulumi.set(self, "service_definition", value)
 
 
+@pulumi.type_token("datadog:index/serviceDefinitionYaml:ServiceDefinitionYaml")
 class ServiceDefinitionYaml(pulumi.CustomResource):
-
-    pulumi_type = "datadog:index/serviceDefinitionYaml:ServiceDefinitionYaml"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

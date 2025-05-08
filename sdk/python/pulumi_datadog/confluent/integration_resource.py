@@ -191,10 +191,8 @@ class _IntegrationResourceState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("datadog:confluent/integrationResource:IntegrationResource")
 class IntegrationResource(pulumi.CustomResource):
-
-    pulumi_type = "datadog:confluent/integrationResource:IntegrationResource"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

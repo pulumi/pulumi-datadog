@@ -26,10 +26,8 @@ class IntegrationExternalIdArgs:
         pass
 
 
+@pulumi.type_token("datadog:aws/integrationExternalId:IntegrationExternalId")
 class IntegrationExternalId(pulumi.CustomResource):
-
-    pulumi_type = "datadog:aws/integrationExternalId:IntegrationExternalId"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

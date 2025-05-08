@@ -412,10 +412,8 @@ class _IntegrationState:
         pulumi.set(self, "resource_collection_enabled", value)
 
 
+@pulumi.type_token("datadog:gcp/integration:Integration")
 class Integration(pulumi.CustomResource):
-
-    pulumi_type = "datadog:gcp/integration:Integration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -64,10 +64,8 @@ class _SoftwareCatalogState:
         pulumi.set(self, "entity", value)
 
 
+@pulumi.type_token("datadog:index/softwareCatalog:SoftwareCatalog")
 class SoftwareCatalog(pulumi.CustomResource):
-
-    pulumi_type = "datadog:index/softwareCatalog:SoftwareCatalog"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

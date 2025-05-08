@@ -177,10 +177,8 @@ class _LogsCustomPipelineState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("datadog:index/logsCustomPipeline:LogsCustomPipeline")
 class LogsCustomPipeline(pulumi.CustomResource):
-
-    pulumi_type = "datadog:index/logsCustomPipeline:LogsCustomPipeline"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

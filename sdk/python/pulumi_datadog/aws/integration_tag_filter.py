@@ -126,10 +126,8 @@ class _IntegrationTagFilterState:
         pulumi.set(self, "tag_filter_str", value)
 
 
+@pulumi.type_token("datadog:aws/integrationTagFilter:IntegrationTagFilter")
 class IntegrationTagFilter(pulumi.CustomResource):
-
-    pulumi_type = "datadog:aws/integrationTagFilter:IntegrationTagFilter"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -95,10 +95,8 @@ class _IntegrationTeamsWorkflowsWebhookHandleState:
         pulumi.set(self, "url", value)
 
 
+@pulumi.type_token("datadog:ms/integrationTeamsWorkflowsWebhookHandle:IntegrationTeamsWorkflowsWebhookHandle")
 class IntegrationTeamsWorkflowsWebhookHandle(pulumi.CustomResource):
-
-    pulumi_type = "datadog:ms/integrationTeamsWorkflowsWebhookHandle:IntegrationTeamsWorkflowsWebhookHandle"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

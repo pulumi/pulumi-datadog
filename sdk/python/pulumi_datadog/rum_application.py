@@ -112,10 +112,8 @@ class _RumApplicationState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("datadog:index/rumApplication:RumApplication")
 class RumApplication(pulumi.CustomResource):
-
-    pulumi_type = "datadog:index/rumApplication:RumApplication"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

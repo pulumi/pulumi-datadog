@@ -927,10 +927,8 @@ class _SyntheticsTestState:
         pulumi.set(self, "variables_from_script", value)
 
 
+@pulumi.type_token("datadog:index/syntheticsTest:SyntheticsTest")
 class SyntheticsTest(pulumi.CustomResource):
-
-    pulumi_type = "datadog:index/syntheticsTest:SyntheticsTest"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

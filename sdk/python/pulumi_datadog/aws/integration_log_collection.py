@@ -95,10 +95,8 @@ class _IntegrationLogCollectionState:
         pulumi.set(self, "services", value)
 
 
+@pulumi.type_token("datadog:aws/integrationLogCollection:IntegrationLogCollection")
 class IntegrationLogCollection(pulumi.CustomResource):
-
-    pulumi_type = "datadog:aws/integrationLogCollection:IntegrationLogCollection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

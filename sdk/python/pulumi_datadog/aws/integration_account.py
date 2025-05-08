@@ -321,10 +321,8 @@ class _IntegrationAccountState:
         pulumi.set(self, "traces_config", value)
 
 
+@pulumi.type_token("datadog:aws/integrationAccount:IntegrationAccount")
 class IntegrationAccount(pulumi.CustomResource):
-
-    pulumi_type = "datadog:aws/integrationAccount:IntegrationAccount"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

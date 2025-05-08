@@ -286,10 +286,8 @@ class _SecurityMonitoringSuppressionState:
         pulumi.set(self, "suppression_query", value)
 
 
+@pulumi.type_token("datadog:index/securityMonitoringSuppression:SecurityMonitoringSuppression")
 class SecurityMonitoringSuppression(pulumi.CustomResource):
-
-    pulumi_type = "datadog:index/securityMonitoringSuppression:SecurityMonitoringSuppression"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

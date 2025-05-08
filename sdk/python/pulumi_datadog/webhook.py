@@ -191,10 +191,8 @@ class _WebhookState:
         pulumi.set(self, "url", value)
 
 
+@pulumi.type_token("datadog:index/webhook:Webhook")
 class Webhook(pulumi.CustomResource):
-
-    pulumi_type = "datadog:index/webhook:Webhook"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

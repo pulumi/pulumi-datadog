@@ -1255,10 +1255,8 @@ class _MonitorState:
         pulumi.set(self, "variables", value)
 
 
+@pulumi.type_token("datadog:index/monitor:Monitor")
 class Monitor(pulumi.CustomResource):
-
-    pulumi_type = "datadog:index/monitor:Monitor"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
