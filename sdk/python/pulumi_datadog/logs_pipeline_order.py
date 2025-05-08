@@ -95,10 +95,8 @@ class _LogsPipelineOrderState:
         pulumi.set(self, "pipelines", value)
 
 
+@pulumi.type_token("datadog:index/logsPipelineOrder:LogsPipelineOrder")
 class LogsPipelineOrder(pulumi.CustomResource):
-
-    pulumi_type = "datadog:index/logsPipelineOrder:LogsPipelineOrder"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

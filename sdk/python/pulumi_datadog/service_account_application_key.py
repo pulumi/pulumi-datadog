@@ -175,10 +175,8 @@ class _ServiceAccountApplicationKeyState:
         pulumi.set(self, "service_account_id", value)
 
 
+@pulumi.type_token("datadog:index/serviceAccountApplicationKey:ServiceAccountApplicationKey")
 class ServiceAccountApplicationKey(pulumi.CustomResource):
-
-    pulumi_type = "datadog:index/serviceAccountApplicationKey:ServiceAccountApplicationKey"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

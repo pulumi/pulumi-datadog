@@ -65,10 +65,8 @@ class _LogsArchiveOrderState:
         pulumi.set(self, "archive_ids", value)
 
 
+@pulumi.type_token("datadog:index/logsArchiveOrder:LogsArchiveOrder")
 class LogsArchiveOrder(pulumi.CustomResource):
-
-    pulumi_type = "datadog:index/logsArchiveOrder:LogsArchiveOrder"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

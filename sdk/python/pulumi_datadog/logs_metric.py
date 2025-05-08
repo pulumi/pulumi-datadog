@@ -160,10 +160,8 @@ class _LogsMetricState:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("datadog:index/logsMetric:LogsMetric")
 class LogsMetric(pulumi.CustomResource):
-
-    pulumi_type = "datadog:index/logsMetric:LogsMetric"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

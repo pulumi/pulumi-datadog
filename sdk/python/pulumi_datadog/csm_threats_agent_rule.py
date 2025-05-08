@@ -158,10 +158,8 @@ class _CsmThreatsAgentRuleState:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("datadog:index/csmThreatsAgentRule:CsmThreatsAgentRule")
 class CsmThreatsAgentRule(pulumi.CustomResource):
-
-    pulumi_type = "datadog:index/csmThreatsAgentRule:CsmThreatsAgentRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

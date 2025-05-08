@@ -127,10 +127,8 @@ class _TeamMembershipState:
         pulumi.set(self, "user_id", value)
 
 
+@pulumi.type_token("datadog:index/teamMembership:TeamMembership")
 class TeamMembership(pulumi.CustomResource):
-
-    pulumi_type = "datadog:index/teamMembership:TeamMembership"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

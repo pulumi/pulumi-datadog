@@ -112,10 +112,8 @@ class _ApplicationKeyState:
         pulumi.set(self, "scopes", value)
 
 
+@pulumi.type_token("datadog:index/applicationKey:ApplicationKey")
 class ApplicationKey(pulumi.CustomResource):
-
-    pulumi_type = "datadog:index/applicationKey:ApplicationKey"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

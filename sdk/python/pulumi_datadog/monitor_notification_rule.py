@@ -121,10 +121,8 @@ class _MonitorNotificationRuleState:
         pulumi.set(self, "recipients", value)
 
 
+@pulumi.type_token("datadog:index/monitorNotificationRule:MonitorNotificationRule")
 class MonitorNotificationRule(pulumi.CustomResource):
-
-    pulumi_type = "datadog:index/monitorNotificationRule:MonitorNotificationRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

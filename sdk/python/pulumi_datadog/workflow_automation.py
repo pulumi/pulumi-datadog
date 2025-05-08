@@ -220,10 +220,8 @@ class _WorkflowAutomationState:
         pulumi.set(self, "webhook_secret", value)
 
 
+@pulumi.type_token("datadog:index/workflowAutomation:WorkflowAutomation")
 class WorkflowAutomation(pulumi.CustomResource):
-
-    pulumi_type = "datadog:index/workflowAutomation:WorkflowAutomation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

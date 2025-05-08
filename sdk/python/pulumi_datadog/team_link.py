@@ -158,10 +158,8 @@ class _TeamLinkState:
         pulumi.set(self, "url", value)
 
 
+@pulumi.type_token("datadog:index/teamLink:TeamLink")
 class TeamLink(pulumi.CustomResource):
-
-    pulumi_type = "datadog:index/teamLink:TeamLink"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

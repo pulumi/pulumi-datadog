@@ -224,10 +224,8 @@ class _MetricTagConfigurationState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("datadog:index/metricTagConfiguration:MetricTagConfiguration")
 class MetricTagConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "datadog:index/metricTagConfiguration:MetricTagConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

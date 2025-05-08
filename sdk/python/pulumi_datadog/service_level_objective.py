@@ -480,10 +480,8 @@ class _ServiceLevelObjectiveState:
         pulumi.set(self, "warning_threshold", value)
 
 
+@pulumi.type_token("datadog:index/serviceLevelObjective:ServiceLevelObjective")
 class ServiceLevelObjective(pulumi.CustomResource):
-
-    pulumi_type = "datadog:index/serviceLevelObjective:ServiceLevelObjective"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

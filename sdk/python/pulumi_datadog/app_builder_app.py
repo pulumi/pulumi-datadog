@@ -224,10 +224,8 @@ class _AppBuilderAppState:
         pulumi.set(self, "root_instance_name", value)
 
 
+@pulumi.type_token("datadog:index/appBuilderApp:AppBuilderApp")
 class AppBuilderApp(pulumi.CustomResource):
-
-    pulumi_type = "datadog:index/appBuilderApp:AppBuilderApp"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

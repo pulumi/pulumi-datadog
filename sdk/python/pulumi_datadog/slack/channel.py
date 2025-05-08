@@ -128,10 +128,8 @@ class _ChannelState:
         pulumi.set(self, "display", value)
 
 
+@pulumi.type_token("datadog:slack/channel:Channel")
 class Channel(pulumi.CustomResource):
-
-    pulumi_type = "datadog:slack/channel:Channel"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -291,10 +291,8 @@ class _PowerpackState:
         pulumi.set(self, "widgets", value)
 
 
+@pulumi.type_token("datadog:index/powerpack:Powerpack")
 class Powerpack(pulumi.CustomResource):
-
-    pulumi_type = "datadog:index/powerpack:Powerpack"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

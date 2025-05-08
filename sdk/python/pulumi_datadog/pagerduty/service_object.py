@@ -87,10 +87,8 @@ class _ServiceObjectState:
         pulumi.set(self, "service_name", value)
 
 
+@pulumi.type_token("datadog:pagerduty/serviceObject:ServiceObject")
 class ServiceObject(pulumi.CustomResource):
-
-    pulumi_type = "datadog:pagerduty/serviceObject:ServiceObject"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

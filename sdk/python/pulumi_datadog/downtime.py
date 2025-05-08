@@ -434,10 +434,8 @@ class _DowntimeState:
         pulumi.set(self, "timezone", value)
 
 
+@pulumi.type_token("datadog:index/downtime:Downtime")
 class Downtime(pulumi.CustomResource):
-
-    pulumi_type = "datadog:index/downtime:Downtime"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

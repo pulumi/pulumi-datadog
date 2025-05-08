@@ -256,10 +256,8 @@ class _MetricMetadataState:
         pulumi.set(self, "unit", value)
 
 
+@pulumi.type_token("datadog:index/metricMetadata:MetricMetadata")
 class MetricMetadata(pulumi.CustomResource):
-
-    pulumi_type = "datadog:index/metricMetadata:MetricMetadata"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

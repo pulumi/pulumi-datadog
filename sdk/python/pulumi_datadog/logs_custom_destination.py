@@ -342,10 +342,8 @@ class _LogsCustomDestinationState:
         pulumi.set(self, "splunk_destination", value)
 
 
+@pulumi.type_token("datadog:index/logsCustomDestination:LogsCustomDestination")
 class LogsCustomDestination(pulumi.CustomResource):
-
-    pulumi_type = "datadog:index/logsCustomDestination:LogsCustomDestination"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -159,10 +159,8 @@ class _AuthnMappingState:
         pulumi.set(self, "value", value)
 
 
+@pulumi.type_token("datadog:index/authnMapping:AuthnMapping")
 class AuthnMapping(pulumi.CustomResource):
-
-    pulumi_type = "datadog:index/authnMapping:AuthnMapping"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

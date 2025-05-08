@@ -465,10 +465,8 @@ class _DashboardState:
         pulumi.set(self, "widgets", value)
 
 
+@pulumi.type_token("datadog:index/dashboard:Dashboard")
 class Dashboard(pulumi.CustomResource):
-
-    pulumi_type = "datadog:index/dashboard:Dashboard"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

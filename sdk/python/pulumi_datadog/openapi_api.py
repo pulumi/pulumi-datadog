@@ -64,10 +64,8 @@ class _OpenapiApiState:
         pulumi.set(self, "spec", value)
 
 
+@pulumi.type_token("datadog:index/openapiApi:OpenapiApi")
 class OpenapiApi(pulumi.CustomResource):
-
-    pulumi_type = "datadog:index/openapiApi:OpenapiApi"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

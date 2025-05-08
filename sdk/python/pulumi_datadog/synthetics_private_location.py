@@ -178,10 +178,8 @@ class _SyntheticsPrivateLocationState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation")
 class SyntheticsPrivateLocation(pulumi.CustomResource):
-
-    pulumi_type = "datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -437,10 +437,8 @@ class _IntegrationState:
         pulumi.set(self, "secret_access_key", value)
 
 
+@pulumi.type_token("datadog:aws/integration:Integration")
 class Integration(pulumi.CustomResource):
-
-    pulumi_type = "datadog:aws/integration:Integration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

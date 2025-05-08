@@ -286,10 +286,8 @@ class _SloCorrectionState:
         pulumi.set(self, "timezone", value)
 
 
+@pulumi.type_token("datadog:index/sloCorrection:SloCorrection")
 class SloCorrection(pulumi.CustomResource):
-
-    pulumi_type = "datadog:index/sloCorrection:SloCorrection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

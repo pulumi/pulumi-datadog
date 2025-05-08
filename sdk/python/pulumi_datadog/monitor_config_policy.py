@@ -98,10 +98,8 @@ class _MonitorConfigPolicyState:
         pulumi.set(self, "tag_policy", value)
 
 
+@pulumi.type_token("datadog:index/monitorConfigPolicy:MonitorConfigPolicy")
 class MonitorConfigPolicy(pulumi.CustomResource):
-
-    pulumi_type = "datadog:index/monitorConfigPolicy:MonitorConfigPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
