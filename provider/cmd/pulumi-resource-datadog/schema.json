@@ -73,7 +73,7 @@
             },
             "defaultTags": {
                 "$ref": "#/types/datadog:config/defaultTags:defaultTags",
-                "description": "[Experimental - Logs Pipelines, Monitors and Security Monitoring Rules only] Configuration block containing settings to\napply default resource tags across all resources.\n"
+                "description": "[Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration\nblock containing settings to apply default resource tags across all resources.\n"
             },
             "httpClientRetryBackoffBase": {
                 "type": "integer",
@@ -398,7 +398,7 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "[Experimental - Logs Pipelines, Monitors and Security Monitoring Rules only] Resource tags to be applied by default across all resources.\n"
+                    "description": "[Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Resource tags to be applied by default across all resources.\n"
                 }
             },
             "type": "object"
@@ -957,6 +957,45 @@
             "required": [
                 "action",
                 "query"
+            ]
+        },
+        "datadog:index/ComplianceCustomFrameworkRequirement:ComplianceCustomFrameworkRequirement": {
+            "properties": {
+                "controls": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ComplianceCustomFrameworkRequirementControl:ComplianceCustomFrameworkRequirementControl"
+                    },
+                    "description": "The controls of the requirement. Length must be at least 1.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the requirement. String length must be at least 1.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name"
+            ]
+        },
+        "datadog:index/ComplianceCustomFrameworkRequirementControl:ComplianceCustomFrameworkRequirementControl": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the control. String length must be at least 1.\n"
+                },
+                "rulesIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The set of rules IDs for the control. Length must be at least 1.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "rulesIds"
             ]
         },
         "datadog:index/DashboardListDashItem:DashboardListDashItem": {
@@ -4598,11 +4637,7 @@
                     "description": "Widget column width. Valid values are `auto`, `compact`, `full`.\n"
                 }
             },
-            "type": "object",
-            "required": [
-                "field",
-                "width"
-            ]
+            "type": "object"
         },
         "datadog:index/DashboardWidgetListStreamDefinitionRequestQuery:DashboardWidgetListStreamDefinitionRequestQuery": {
             "properties": {
@@ -11691,6 +11726,13 @@
         },
         "datadog:index/DashboardWidgetTreemapDefinition:DashboardWidgetTreemapDefinition": {
             "properties": {
+                "customLinks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetTreemapDefinitionCustomLink:DashboardWidgetTreemapDefinitionCustomLink"
+                    },
+                    "description": "A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.\n"
+                },
                 "requests": {
                     "type": "array",
                     "items": {
@@ -11701,6 +11743,27 @@
                 "title": {
                     "type": "string",
                     "description": "The title of the widget.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/DashboardWidgetTreemapDefinitionCustomLink:DashboardWidgetTreemapDefinitionCustomLink": {
+            "properties": {
+                "isHidden": {
+                    "type": "boolean",
+                    "description": "The flag for toggling context menu link visibility.\n"
+                },
+                "label": {
+                    "type": "string",
+                    "description": "The label for the custom link URL.\n"
+                },
+                "link": {
+                    "type": "string",
+                    "description": "The URL of the custom link.\n"
+                },
+                "overrideLabel": {
+                    "type": "string",
+                    "description": "The label ID that refers to a context menu link item. When `override_label` is provided, the client request omits the label field.\n"
                 }
             },
             "type": "object"
@@ -14397,15 +14460,190 @@
         },
         "datadog:index/ObservabilityPipelineConfigDestinations:ObservabilityPipelineConfigDestinations": {
             "properties": {
+                "amazonOpensearches": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigDestinationsAmazonOpensearch:ObservabilityPipelineConfigDestinationsAmazonOpensearch"
+                    },
+                    "description": "The `amazon_opensearch` destination writes logs to Amazon OpenSearch.\n"
+                },
+                "azureStorages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigDestinationsAzureStorage:ObservabilityPipelineConfigDestinationsAzureStorage"
+                    },
+                    "description": "The `azure_storage` destination forwards logs to an Azure Blob Storage container.\n"
+                },
                 "datadogLogs": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/datadog:index/ObservabilityPipelineConfigDestinationsDatadogLog:ObservabilityPipelineConfigDestinationsDatadogLog"
                     },
                     "description": "The `datadog_logs` destination forwards logs to Datadog Log Management.\n"
+                },
+                "elasticsearches": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigDestinationsElasticsearch:ObservabilityPipelineConfigDestinationsElasticsearch"
+                    },
+                    "description": "The `elasticsearch` destination writes logs to an Elasticsearch cluster.\n"
+                },
+                "googleChronicles": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigDestinationsGoogleChronicle:ObservabilityPipelineConfigDestinationsGoogleChronicle"
+                    },
+                    "description": "The `google_chronicle` destination sends logs to Google Chronicle.\n"
+                },
+                "googleCloudStorages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigDestinationsGoogleCloudStorage:ObservabilityPipelineConfigDestinationsGoogleCloudStorage"
+                    },
+                    "description": "The `google_cloud_storage` destination stores logs in a Google Cloud Storage (GCS) bucket.\n"
+                },
+                "microsoftSentinels": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigDestinationsMicrosoftSentinel:ObservabilityPipelineConfigDestinationsMicrosoftSentinel"
+                    },
+                    "description": "The `microsoft_sentinel` destination forwards logs to Microsoft Sentinel.\n"
+                },
+                "newRelics": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigDestinationsNewRelic:ObservabilityPipelineConfigDestinationsNewRelic"
+                    },
+                    "description": "The `new_relic` destination sends logs to the New Relic platform.\n"
+                },
+                "opensearches": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigDestinationsOpensearch:ObservabilityPipelineConfigDestinationsOpensearch"
+                    },
+                    "description": "The `opensearch` destination writes logs to an OpenSearch cluster.\n"
+                },
+                "rsyslogs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigDestinationsRsyslog:ObservabilityPipelineConfigDestinationsRsyslog"
+                    },
+                    "description": "The `rsyslog` destination forwards logs to an external `rsyslog` server over TCP or UDP using the syslog protocol.\n"
+                },
+                "sentinelOnes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigDestinationsSentinelOne:ObservabilityPipelineConfigDestinationsSentinelOne"
+                    },
+                    "description": "The `sentinel_one` destination sends logs to SentinelOne.\n"
+                },
+                "splunkHecs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigDestinationsSplunkHec:ObservabilityPipelineConfigDestinationsSplunkHec"
+                    },
+                    "description": "The `splunk_hec` destination forwards logs to Splunk using the HTTP Event Collector (HEC).\n"
+                },
+                "sumoLogics": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigDestinationsSumoLogic:ObservabilityPipelineConfigDestinationsSumoLogic"
+                    },
+                    "description": "The `sumo_logic` destination forwards logs to Sumo Logic.\n"
+                },
+                "syslogNgs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigDestinationsSyslogNg:ObservabilityPipelineConfigDestinationsSyslogNg"
+                    },
+                    "description": "The `syslog_ng` destination forwards logs to an external `syslog-ng` server over TCP or UDP using the syslog protocol.\n"
                 }
             },
             "type": "object"
+        },
+        "datadog:index/ObservabilityPipelineConfigDestinationsAmazonOpensearch:ObservabilityPipelineConfigDestinationsAmazonOpensearch": {
+            "properties": {
+                "auth": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigDestinationsAmazonOpensearchAuth:ObservabilityPipelineConfigDestinationsAmazonOpensearchAuth"
+                },
+                "bulkIndex": {
+                    "type": "string",
+                    "description": "The index or datastream to write logs to.\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for this component.\n"
+                },
+                "inputs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of component IDs whose output is used as the input for this component.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "inputs"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigDestinationsAmazonOpensearchAuth:ObservabilityPipelineConfigDestinationsAmazonOpensearchAuth": {
+            "properties": {
+                "assumeRole": {
+                    "type": "string",
+                    "description": "ARN of the role to assume.\n"
+                },
+                "awsRegion": {
+                    "type": "string",
+                    "description": "AWS region override (if applicable).\n"
+                },
+                "externalId": {
+                    "type": "string",
+                    "description": "External ID for assumed role.\n"
+                },
+                "sessionName": {
+                    "type": "string",
+                    "description": "Session name for assumed role.\n"
+                },
+                "strategy": {
+                    "type": "string",
+                    "description": "The authentication strategy to use (e.g. aws or basic).\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "strategy"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigDestinationsAzureStorage:ObservabilityPipelineConfigDestinationsAzureStorage": {
+            "properties": {
+                "blobPrefix": {
+                    "type": "string",
+                    "description": "Optional prefix for blobs written to the container.\n"
+                },
+                "containerName": {
+                    "type": "string",
+                    "description": "The name of the Azure Blob Storage container to store logs in.\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for this component.\n"
+                },
+                "inputs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of component IDs whose output is used as the `input` for this component.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "containerName",
+                "id",
+                "inputs"
+            ]
         },
         "datadog:index/ObservabilityPipelineConfigDestinationsDatadogLog:ObservabilityPipelineConfigDestinationsDatadogLog": {
             "properties": {
@@ -14427,8 +14665,463 @@
                 "inputs"
             ]
         },
+        "datadog:index/ObservabilityPipelineConfigDestinationsElasticsearch:ObservabilityPipelineConfigDestinationsElasticsearch": {
+            "properties": {
+                "apiVersion": {
+                    "type": "string",
+                    "description": "The Elasticsearch API version to use. Set to `auto` to auto-detect.\n"
+                },
+                "bulkIndex": {
+                    "type": "string",
+                    "description": "The index or datastream to write logs to in Elasticsearch.\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for this component.\n"
+                },
+                "inputs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of component IDs whose output is used as the `input` for this component.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "inputs"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigDestinationsGoogleChronicle:ObservabilityPipelineConfigDestinationsGoogleChronicle": {
+            "properties": {
+                "auth": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigDestinationsGoogleChronicleAuth:ObservabilityPipelineConfigDestinationsGoogleChronicleAuth",
+                    "description": "GCP credentials used to authenticate with Google Cloud Storage.\n"
+                },
+                "customerId": {
+                    "type": "string",
+                    "description": "The Google Chronicle customer ID.\n"
+                },
+                "encoding": {
+                    "type": "string",
+                    "description": "The encoding format for the logs sent to Chronicle.\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for this component.\n"
+                },
+                "inputs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of component IDs whose output is used as the `input` for this component.\n"
+                },
+                "logType": {
+                    "type": "string",
+                    "description": "The log type metadata associated with the Chronicle destination.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "inputs"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigDestinationsGoogleChronicleAuth:ObservabilityPipelineConfigDestinationsGoogleChronicleAuth": {
+            "properties": {
+                "credentialsFile": {
+                    "type": "string",
+                    "description": "Path to the GCP service account key file.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/ObservabilityPipelineConfigDestinationsGoogleCloudStorage:ObservabilityPipelineConfigDestinationsGoogleCloudStorage": {
+            "properties": {
+                "acl": {
+                    "type": "string",
+                    "description": "Access control list setting for objects written to the bucket.\n"
+                },
+                "auth": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigDestinationsGoogleCloudStorageAuth:ObservabilityPipelineConfigDestinationsGoogleCloudStorageAuth",
+                    "description": "GCP credentials used to authenticate with Google Cloud Storage.\n"
+                },
+                "bucket": {
+                    "type": "string",
+                    "description": "Name of the GCS bucket.\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "Unique identifier for the destination component.\n"
+                },
+                "inputs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of component IDs whose output is used as the `input` for this component.\n"
+                },
+                "keyPrefix": {
+                    "type": "string",
+                    "description": "Optional prefix for object keys within the GCS bucket.\n"
+                },
+                "metadatas": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigDestinationsGoogleCloudStorageMetadata:ObservabilityPipelineConfigDestinationsGoogleCloudStorageMetadata"
+                    },
+                    "description": "Custom metadata key-value pairs added to each object.\n"
+                },
+                "storageClass": {
+                    "type": "string",
+                    "description": "Storage class used for objects stored in GCS.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "acl",
+                "bucket",
+                "id",
+                "inputs",
+                "storageClass"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigDestinationsGoogleCloudStorageAuth:ObservabilityPipelineConfigDestinationsGoogleCloudStorageAuth": {
+            "properties": {
+                "credentialsFile": {
+                    "type": "string",
+                    "description": "Path to the GCP service account key file.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "credentialsFile"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigDestinationsGoogleCloudStorageMetadata:ObservabilityPipelineConfigDestinationsGoogleCloudStorageMetadata": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The metadata key.\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The metadata value.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "value"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigDestinationsMicrosoftSentinel:ObservabilityPipelineConfigDestinationsMicrosoftSentinel": {
+            "properties": {
+                "clientId": {
+                    "type": "string",
+                    "description": "Azure AD client ID used for authentication.\n"
+                },
+                "dcrImmutableId": {
+                    "type": "string",
+                    "description": "The immutable ID of the Data Collection Rule (DCR).\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for this component.\n"
+                },
+                "inputs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of component IDs whose output is used as the `input` for this component.\n"
+                },
+                "table": {
+                    "type": "string",
+                    "description": "The name of the Log Analytics table where logs will be sent.\n"
+                },
+                "tenantId": {
+                    "type": "string",
+                    "description": "Azure AD tenant ID.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "clientId",
+                "dcrImmutableId",
+                "id",
+                "inputs",
+                "table",
+                "tenantId"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigDestinationsNewRelic:ObservabilityPipelineConfigDestinationsNewRelic": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for this component.\n"
+                },
+                "inputs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of component IDs whose output is used as the `input` for this component.\n"
+                },
+                "region": {
+                    "type": "string",
+                    "description": "The New Relic region.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "inputs",
+                "region"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigDestinationsOpensearch:ObservabilityPipelineConfigDestinationsOpensearch": {
+            "properties": {
+                "bulkIndex": {
+                    "type": "string",
+                    "description": "The index or datastream to write logs to.\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for this component.\n"
+                },
+                "inputs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of component IDs whose output is used as input.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "inputs"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigDestinationsRsyslog:ObservabilityPipelineConfigDestinationsRsyslog": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for this component.\n"
+                },
+                "inputs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of component IDs whose output is used as the `input` for this component.\n"
+                },
+                "keepalive": {
+                    "type": "integer",
+                    "description": "Optional socket keepalive duration in milliseconds.\n"
+                },
+                "tls": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigDestinationsRsyslogTls:ObservabilityPipelineConfigDestinationsRsyslogTls",
+                    "description": "Configuration for enabling TLS encryption between the pipeline component and external services.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "inputs"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigDestinationsRsyslogTls:ObservabilityPipelineConfigDestinationsRsyslogTls": {
+            "properties": {
+                "caFile": {
+                    "type": "string",
+                    "description": "Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.\n"
+                },
+                "crtFile": {
+                    "type": "string",
+                    "description": "Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.\n"
+                },
+                "keyFile": {
+                    "type": "string",
+                    "description": "Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/ObservabilityPipelineConfigDestinationsSentinelOne:ObservabilityPipelineConfigDestinationsSentinelOne": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for this component.\n"
+                },
+                "inputs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of component IDs whose output is used as the `input` for this component.\n"
+                },
+                "region": {
+                    "type": "string",
+                    "description": "The SentinelOne region to send logs to.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "inputs",
+                "region"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigDestinationsSplunkHec:ObservabilityPipelineConfigDestinationsSplunkHec": {
+            "properties": {
+                "autoExtractTimestamp": {
+                    "type": "boolean",
+                    "description": "If `true`, Splunk tries to extract timestamps from incoming log events.\n"
+                },
+                "encoding": {
+                    "type": "string",
+                    "description": "Encoding format for log events. Valid values: `json`, `raw_message`.\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).\n"
+                },
+                "index": {
+                    "type": "string",
+                    "description": "Optional name of the Splunk index where logs are written.\n"
+                },
+                "inputs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of component IDs whose output is used as the `input` for this component.\n"
+                },
+                "sourcetype": {
+                    "type": "string",
+                    "description": "The Splunk sourcetype to assign to log events.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "inputs"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigDestinationsSumoLogic:ObservabilityPipelineConfigDestinationsSumoLogic": {
+            "properties": {
+                "encoding": {
+                    "type": "string",
+                    "description": "The output encoding format.\n"
+                },
+                "headerCustomFields": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigDestinationsSumoLogicHeaderCustomField:ObservabilityPipelineConfigDestinationsSumoLogicHeaderCustomField"
+                    },
+                    "description": "A list of custom headers to include in the request to Sumo Logic.\n"
+                },
+                "headerHostName": {
+                    "type": "string",
+                    "description": "Optional override for the host name header.\n"
+                },
+                "headerSourceCategory": {
+                    "type": "string",
+                    "description": "Optional override for the source category header.\n"
+                },
+                "headerSourceName": {
+                    "type": "string",
+                    "description": "Optional override for the source name header.\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for this component.\n"
+                },
+                "inputs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of component IDs whose output is used as the `input` for this component.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "inputs"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigDestinationsSumoLogicHeaderCustomField:ObservabilityPipelineConfigDestinationsSumoLogicHeaderCustomField": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The header field name.\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The header field value.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/ObservabilityPipelineConfigDestinationsSyslogNg:ObservabilityPipelineConfigDestinationsSyslogNg": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for this component.\n"
+                },
+                "inputs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of component IDs whose output is used as the `input` for this component.\n"
+                },
+                "keepalive": {
+                    "type": "integer",
+                    "description": "Optional socket keepalive duration in milliseconds.\n"
+                },
+                "tls": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigDestinationsSyslogNgTls:ObservabilityPipelineConfigDestinationsSyslogNgTls",
+                    "description": "Configuration for enabling TLS encryption between the pipeline component and external services.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "inputs"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigDestinationsSyslogNgTls:ObservabilityPipelineConfigDestinationsSyslogNgTls": {
+            "properties": {
+                "caFile": {
+                    "type": "string",
+                    "description": "Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.\n"
+                },
+                "crtFile": {
+                    "type": "string",
+                    "description": "Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.\n"
+                },
+                "keyFile": {
+                    "type": "string",
+                    "description": "Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.\n"
+                }
+            },
+            "type": "object"
+        },
         "datadog:index/ObservabilityPipelineConfigProcessors:ObservabilityPipelineConfigProcessors": {
             "properties": {
+                "addEnvVars": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsAddEnvVar:ObservabilityPipelineConfigProcessorsAddEnvVar"
+                    },
+                    "description": "The `add_env_vars` processor adds environment variable values to log events.\n"
+                },
                 "addFields": {
                     "type": "array",
                     "items": {
@@ -14436,12 +15129,47 @@
                     },
                     "description": "The `add_fields` processor adds static key-value fields to logs.\n"
                 },
+                "dedupes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsDedupe:ObservabilityPipelineConfigProcessorsDedupe"
+                    },
+                    "description": "The `dedupe` processor removes duplicate fields in log events.\n"
+                },
+                "enrichmentTables": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsEnrichmentTable:ObservabilityPipelineConfigProcessorsEnrichmentTable"
+                    },
+                    "description": "The `enrichment_table` processor enriches logs using a static CSV file or GeoIP database.\n"
+                },
                 "filters": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsFilter:ObservabilityPipelineConfigProcessorsFilter"
                     },
                     "description": "The `filter` processor allows conditional processing of logs based on a Datadog search query. Logs that match the `include` query are passed through; others are discarded.\n"
+                },
+                "generateDatadogMetrics": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsGenerateDatadogMetric:ObservabilityPipelineConfigProcessorsGenerateDatadogMetric"
+                    },
+                    "description": "The `generate_datadog_metrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields.\n"
+                },
+                "ocsfMappers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsOcsfMapper:ObservabilityPipelineConfigProcessorsOcsfMapper"
+                    },
+                    "description": "The `ocsf_mapper` processor transforms logs into the OCSF schema using predefined library mappings.\n"
+                },
+                "parseGroks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsParseGrok:ObservabilityPipelineConfigProcessorsParseGrok"
+                    },
+                    "description": "The `parse_grok` processor extracts structured fields from unstructured log messages using Grok patterns.\n"
                 },
                 "parseJsons": {
                     "type": "array",
@@ -14457,6 +15185,13 @@
                     },
                     "description": "The `quota` measures logging traffic for logs that match a specified filter. When the configured daily quota is met, the processor can drop or alert.\n"
                 },
+                "reduces": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsReduce:ObservabilityPipelineConfigProcessorsReduce"
+                    },
+                    "description": "The `reduce` processor aggregates and merges logs based on matching keys and merge strategies.\n"
+                },
                 "removeFields": {
                     "type": "array",
                     "items": {
@@ -14470,9 +15205,79 @@
                         "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsRenameField:ObservabilityPipelineConfigProcessorsRenameField"
                     },
                     "description": "The `rename_fields` processor changes field names.\n"
+                },
+                "samples": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsSample:ObservabilityPipelineConfigProcessorsSample"
+                    },
+                    "description": "The `sample` processor allows probabilistic sampling of logs at a fixed rate.\n"
+                },
+                "sensitiveDataScanners": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsSensitiveDataScanner:ObservabilityPipelineConfigProcessorsSensitiveDataScanner"
+                    },
+                    "description": "The `sensitive_data_scanner` processor detects and optionally redacts sensitive data in log events.\n"
+                },
+                "throttles": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsThrottle:ObservabilityPipelineConfigProcessorsThrottle"
+                    },
+                    "description": "The `throttle` processor limits the number of events that pass through over a given time window.\n"
                 }
             },
             "type": "object"
+        },
+        "datadog:index/ObservabilityPipelineConfigProcessorsAddEnvVar:ObservabilityPipelineConfigProcessorsAddEnvVar": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for this component. Used to reference this processor in the pipeline.\n"
+                },
+                "include": {
+                    "type": "string",
+                    "description": "A Datadog search query used to determine which logs this processor targets.\n"
+                },
+                "inputs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of component IDs whose output is used as the input for this processor.\n"
+                },
+                "variables": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsAddEnvVarVariable:ObservabilityPipelineConfigProcessorsAddEnvVarVariable"
+                    },
+                    "description": "A list of environment variable mappings to apply to log fields.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "include",
+                "inputs"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigProcessorsAddEnvVarVariable:ObservabilityPipelineConfigProcessorsAddEnvVarVariable": {
+            "properties": {
+                "field": {
+                    "type": "string",
+                    "description": "The target field in the log event.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the environment variable to read.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "field",
+                "name"
+            ]
         },
         "datadog:index/ObservabilityPipelineConfigProcessorsAddField:ObservabilityPipelineConfigProcessorsAddField": {
             "properties": {
@@ -14523,6 +15328,172 @@
                 "value"
             ]
         },
+        "datadog:index/ObservabilityPipelineConfigProcessorsDedupe:ObservabilityPipelineConfigProcessorsDedupe": {
+            "properties": {
+                "fields": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of log field paths to check for duplicates.\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for this processor.\n"
+                },
+                "include": {
+                    "type": "string",
+                    "description": "A Datadog search query used to determine which logs this processor targets.\n"
+                },
+                "inputs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of component IDs whose output is used as the input for this processor.\n"
+                },
+                "mode": {
+                    "type": "string",
+                    "description": "The deduplication mode to apply to the fields.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "fields",
+                "id",
+                "include",
+                "inputs",
+                "mode"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigProcessorsEnrichmentTable:ObservabilityPipelineConfigProcessorsEnrichmentTable": {
+            "properties": {
+                "file": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsEnrichmentTableFile:ObservabilityPipelineConfigProcessorsEnrichmentTableFile",
+                    "description": "Defines a static enrichment table loaded from a CSV file.\n"
+                },
+                "geoip": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsEnrichmentTableGeoip:ObservabilityPipelineConfigProcessorsEnrichmentTableGeoip",
+                    "description": "Uses a GeoIP database to enrich logs based on an IP field.\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for this processor.\n"
+                },
+                "include": {
+                    "type": "string",
+                    "description": "A Datadog search query used to determine which logs this processor targets.\n"
+                },
+                "inputs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of component IDs whose output is used as the input for this processor.\n"
+                },
+                "target": {
+                    "type": "string",
+                    "description": "Path where enrichment results should be stored in the log.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "include",
+                "inputs",
+                "target"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigProcessorsEnrichmentTableFile:ObservabilityPipelineConfigProcessorsEnrichmentTableFile": {
+            "properties": {
+                "encoding": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsEnrichmentTableFileEncoding:ObservabilityPipelineConfigProcessorsEnrichmentTableFileEncoding"
+                },
+                "keys": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsEnrichmentTableFileKey:ObservabilityPipelineConfigProcessorsEnrichmentTableFileKey"
+                    },
+                    "description": "Key fields used to look up enrichment values.\n"
+                },
+                "path": {
+                    "type": "string",
+                    "description": "Path to the CSV file.\n"
+                },
+                "schemas": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsEnrichmentTableFileSchema:ObservabilityPipelineConfigProcessorsEnrichmentTableFileSchema"
+                    },
+                    "description": "Schema defining column names and their types.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/ObservabilityPipelineConfigProcessorsEnrichmentTableFileEncoding:ObservabilityPipelineConfigProcessorsEnrichmentTableFileEncoding": {
+            "properties": {
+                "delimiter": {
+                    "type": "string",
+                    "description": "The `encoding` `delimiter`.\n"
+                },
+                "includesHeaders": {
+                    "type": "boolean",
+                    "description": "The `encoding` `includes_headers`.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "File encoding format.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/ObservabilityPipelineConfigProcessorsEnrichmentTableFileKey:ObservabilityPipelineConfigProcessorsEnrichmentTableFileKey": {
+            "properties": {
+                "column": {
+                    "type": "string",
+                    "description": "The `items` `column`.\n"
+                },
+                "comparison": {
+                    "type": "string",
+                    "description": "The comparison method (e.g. equals).\n"
+                },
+                "field": {
+                    "type": "string",
+                    "description": "The `items` `field`.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/ObservabilityPipelineConfigProcessorsEnrichmentTableFileSchema:ObservabilityPipelineConfigProcessorsEnrichmentTableFileSchema": {
+            "properties": {
+                "column": {
+                    "type": "string",
+                    "description": "The `items` `column`.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of the column (e.g. string, boolean, integer, etc.).\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/ObservabilityPipelineConfigProcessorsEnrichmentTableGeoip:ObservabilityPipelineConfigProcessorsEnrichmentTableGeoip": {
+            "properties": {
+                "keyField": {
+                    "type": "string",
+                    "description": "Path to the IP field in the log.\n"
+                },
+                "locale": {
+                    "type": "string",
+                    "description": "Locale used to resolve geographical names.\n"
+                },
+                "path": {
+                    "type": "string",
+                    "description": "Path to the GeoIP database file.\n"
+                }
+            },
+            "type": "object"
+        },
         "datadog:index/ObservabilityPipelineConfigProcessorsFilter:ObservabilityPipelineConfigProcessorsFilter": {
             "properties": {
                 "id": {
@@ -14546,6 +15517,232 @@
                 "id",
                 "include",
                 "inputs"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigProcessorsGenerateDatadogMetric:ObservabilityPipelineConfigProcessorsGenerateDatadogMetric": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for this component. Used to reference this component in other parts of the pipeline.\n"
+                },
+                "include": {
+                    "type": "string",
+                    "description": "A Datadog search query used to determine which logs this processor targets.\n"
+                },
+                "inputs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of component IDs whose output is used as the `input` for this processor.\n"
+                },
+                "metrics": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsGenerateDatadogMetricMetric:ObservabilityPipelineConfigProcessorsGenerateDatadogMetricMetric"
+                    },
+                    "description": "Configuration for generating individual metrics.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "include",
+                "inputs"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigProcessorsGenerateDatadogMetricMetric:ObservabilityPipelineConfigProcessorsGenerateDatadogMetricMetric": {
+            "properties": {
+                "groupBies": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Optional fields used to group the metric series.\n"
+                },
+                "include": {
+                    "type": "string",
+                    "description": "Datadog filter query to match logs for metric generation.\n"
+                },
+                "metricType": {
+                    "type": "string",
+                    "description": "Type of metric to create.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the custom metric to be created.\n"
+                },
+                "value": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsGenerateDatadogMetricMetricValue:ObservabilityPipelineConfigProcessorsGenerateDatadogMetricMetricValue",
+                    "description": "Specifies how the value of the generated metric is computed.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "include",
+                "metricType",
+                "name"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigProcessorsGenerateDatadogMetricMetricValue:ObservabilityPipelineConfigProcessorsGenerateDatadogMetricMetricValue": {
+            "properties": {
+                "field": {
+                    "type": "string",
+                    "description": "Name of the log field containing the numeric value to increment the metric by (used only for `increment_by_field`).\n"
+                },
+                "strategy": {
+                    "type": "string",
+                    "description": "Metric value strategy: `increment_by_one` or `increment_by_field`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "strategy"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigProcessorsOcsfMapper:ObservabilityPipelineConfigProcessorsOcsfMapper": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for this component.\n"
+                },
+                "include": {
+                    "type": "string",
+                    "description": "Search query to select logs.\n"
+                },
+                "inputs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of component IDs whose output is used as input.\n"
+                },
+                "mappings": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsOcsfMapperMapping:ObservabilityPipelineConfigProcessorsOcsfMapperMapping"
+                    },
+                    "description": "List of OCSF mapping entries using library mapping.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "include",
+                "inputs"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigProcessorsOcsfMapperMapping:ObservabilityPipelineConfigProcessorsOcsfMapperMapping": {
+            "properties": {
+                "include": {
+                    "type": "string",
+                    "description": "Search query for selecting which logs the mapping applies to.\n"
+                },
+                "libraryMapping": {
+                    "type": "string",
+                    "description": "Predefined library mapping for log transformation.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "include",
+                "libraryMapping"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigProcessorsParseGrok:ObservabilityPipelineConfigProcessorsParseGrok": {
+            "properties": {
+                "disableLibraryRules": {
+                    "type": "boolean",
+                    "description": "If set to `true`, disables the default Grok rules provided by Datadog.\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "A unique identifier for this processor.\n"
+                },
+                "include": {
+                    "type": "string",
+                    "description": "A Datadog search query used to determine which logs this processor targets.\n"
+                },
+                "inputs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of component IDs whose output is used as the `input` for this component.\n"
+                },
+                "rules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsParseGrokRule:ObservabilityPipelineConfigProcessorsParseGrokRule"
+                    },
+                    "description": "The list of Grok parsing rules. If multiple parsing rules are provided, they are evaluated in order. The first successful match is applied.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "include",
+                "inputs"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigProcessorsParseGrokRule:ObservabilityPipelineConfigProcessorsParseGrokRule": {
+            "properties": {
+                "matchRules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsParseGrokRuleMatchRule:ObservabilityPipelineConfigProcessorsParseGrokRuleMatchRule"
+                    },
+                    "description": "A list of Grok parsing rules that define how to extract fields from the source field. Each rule must contain a name and a valid Grok pattern.\n"
+                },
+                "source": {
+                    "type": "string",
+                    "description": "The name of the field in the log event to apply the Grok rules to.\n"
+                },
+                "supportRules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsParseGrokRuleSupportRule:ObservabilityPipelineConfigProcessorsParseGrokRuleSupportRule"
+                    },
+                    "description": "A list of helper Grok rules that can be referenced by the parsing rules.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "source"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigProcessorsParseGrokRuleMatchRule:ObservabilityPipelineConfigProcessorsParseGrokRuleMatchRule": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the rule.\n"
+                },
+                "rule": {
+                    "type": "string",
+                    "description": "The definition of the Grok rule.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "rule"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigProcessorsParseGrokRuleSupportRule:ObservabilityPipelineConfigProcessorsParseGrokRuleSupportRule": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the helper Grok rule.\n"
+                },
+                "rule": {
+                    "type": "string",
+                    "description": "The definition of the helper Grok rule.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "rule"
             ]
         },
         "datadog:index/ObservabilityPipelineConfigProcessorsParseJson:ObservabilityPipelineConfigProcessorsParseJson": {
@@ -14609,6 +15806,10 @@
                 "name": {
                     "type": "string",
                     "description": "The name of the quota.\n"
+                },
+                "overflowAction": {
+                    "type": "string",
+                    "description": "The action to take when the quota is exceeded: `drop`, `no_action`, or `overflow_routing`.\n"
                 },
                 "overrides": {
                     "type": "array",
@@ -14700,6 +15901,63 @@
                 "limit"
             ]
         },
+        "datadog:index/ObservabilityPipelineConfigProcessorsReduce:ObservabilityPipelineConfigProcessorsReduce": {
+            "properties": {
+                "groupBies": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of fields used to group log events for merging.\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for this processor.\n"
+                },
+                "include": {
+                    "type": "string",
+                    "description": "A Datadog search query used to determine which logs this processor targets.\n"
+                },
+                "inputs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of component IDs whose output is used as the input for this processor.\n"
+                },
+                "mergeStrategies": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsReduceMergeStrategy:ObservabilityPipelineConfigProcessorsReduceMergeStrategy"
+                    },
+                    "description": "List of merge strategies defining how values from grouped events should be combined.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "groupBies",
+                "id",
+                "include",
+                "inputs"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigProcessorsReduceMergeStrategy:ObservabilityPipelineConfigProcessorsReduceMergeStrategy": {
+            "properties": {
+                "path": {
+                    "type": "string",
+                    "description": "The field path in the log event.\n"
+                },
+                "strategy": {
+                    "type": "string",
+                    "description": "The merge strategy to apply.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "path",
+                "strategy"
+            ]
+        },
         "datadog:index/ObservabilityPipelineConfigProcessorsRemoveField:ObservabilityPipelineConfigProcessorsRemoveField": {
             "properties": {
                 "fields": {
@@ -14755,7 +16013,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "he inputs for the processor.\n"
+                    "description": "The inputs for the processor.\n"
                 }
             },
             "type": "object",
@@ -14787,8 +16045,295 @@
                 "source"
             ]
         },
+        "datadog:index/ObservabilityPipelineConfigProcessorsSample:ObservabilityPipelineConfigProcessorsSample": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `input` to downstream components).\n"
+                },
+                "include": {
+                    "type": "string",
+                    "description": "A Datadog search query used to determine which logs this processor targets.\n"
+                },
+                "inputs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of component IDs whose output is used as the `input` for this component.\n"
+                },
+                "percentage": {
+                    "type": "number",
+                    "description": "The percentage of logs to sample.\n"
+                },
+                "rate": {
+                    "type": "integer",
+                    "description": "Number of events to sample (1 in N).\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "include",
+                "inputs"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigProcessorsSensitiveDataScanner:ObservabilityPipelineConfigProcessorsSensitiveDataScanner": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).\n"
+                },
+                "include": {
+                    "type": "string",
+                    "description": "A Datadog search query used to determine which logs this processor targets.\n"
+                },
+                "inputs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of component IDs whose output is used as the `input` for this component.\n"
+                },
+                "rules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsSensitiveDataScannerRule:ObservabilityPipelineConfigProcessorsSensitiveDataScannerRule"
+                    },
+                    "description": "A list of rules for identifying and acting on sensitive data patterns.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "include",
+                "inputs"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigProcessorsSensitiveDataScannerRule:ObservabilityPipelineConfigProcessorsSensitiveDataScannerRule": {
+            "properties": {
+                "keywordOptions": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleKeywordOptions:ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleKeywordOptions",
+                    "description": "Keyword-based proximity matching for sensitive data.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "A name identifying the rule.\n"
+                },
+                "onMatch": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleOnMatch:ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleOnMatch",
+                    "description": "The action to take when a sensitive value is found.\n"
+                },
+                "pattern": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsSensitiveDataScannerRulePattern:ObservabilityPipelineConfigProcessorsSensitiveDataScannerRulePattern",
+                    "description": "Pattern detection configuration for identifying sensitive data using either a custom regex or a library reference.\n"
+                },
+                "scope": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleScope:ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleScope",
+                    "description": "Field-level targeting options that determine where the scanner should operate.\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Tags assigned to this rule for filtering and classification.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleKeywordOptions:ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleKeywordOptions": {
+            "properties": {
+                "keywords": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of keywords to match near the sensitive pattern.\n"
+                },
+                "proximity": {
+                    "type": "integer",
+                    "description": "Maximum number of tokens between a keyword and a sensitive value match.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleOnMatch:ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleOnMatch": {
+            "properties": {
+                "hash": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleOnMatchHash:ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleOnMatchHash",
+                    "description": "Hashes the matched value.\n"
+                },
+                "partialRedact": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleOnMatchPartialRedact:ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleOnMatchPartialRedact",
+                    "description": "Redacts part of the matched value (e.g., keep last 4 characters).\n"
+                },
+                "redact": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleOnMatchRedact:ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleOnMatchRedact",
+                    "description": "Redacts the matched value.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleOnMatchHash:ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleOnMatchHash": {
+            "type": "object"
+        },
+        "datadog:index/ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleOnMatchPartialRedact:ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleOnMatchPartialRedact": {
+            "properties": {
+                "characters": {
+                    "type": "integer",
+                    "description": "Number of characters to keep.\n"
+                },
+                "direction": {
+                    "type": "string",
+                    "description": "Direction from which to keep characters: `first` or `last`.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleOnMatchRedact:ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleOnMatchRedact": {
+            "properties": {
+                "replace": {
+                    "type": "string",
+                    "description": "Replacement string for redacted values (e.g., `***`).\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/ObservabilityPipelineConfigProcessorsSensitiveDataScannerRulePattern:ObservabilityPipelineConfigProcessorsSensitiveDataScannerRulePattern": {
+            "properties": {
+                "custom": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsSensitiveDataScannerRulePatternCustom:ObservabilityPipelineConfigProcessorsSensitiveDataScannerRulePatternCustom",
+                    "description": "Pattern detection using a custom regular expression.\n"
+                },
+                "library": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsSensitiveDataScannerRulePatternLibrary:ObservabilityPipelineConfigProcessorsSensitiveDataScannerRulePatternLibrary",
+                    "description": "Pattern detection using a predefined pattern from the sensitive data scanner pattern library.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/ObservabilityPipelineConfigProcessorsSensitiveDataScannerRulePatternCustom:ObservabilityPipelineConfigProcessorsSensitiveDataScannerRulePatternCustom": {
+            "properties": {
+                "rule": {
+                    "type": "string",
+                    "description": "A regular expression used to detect sensitive values. Must be a valid regex.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/ObservabilityPipelineConfigProcessorsSensitiveDataScannerRulePatternLibrary:ObservabilityPipelineConfigProcessorsSensitiveDataScannerRulePatternLibrary": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Identifier for a predefined pattern from the sensitive data scanner pattern library.\n"
+                },
+                "useRecommendedKeywords": {
+                    "type": "boolean",
+                    "description": "Whether to augment the pattern with recommended keywords (optional).\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleScope:ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleScope": {
+            "properties": {
+                "all": {
+                    "type": "boolean",
+                    "description": "Scan all fields.\n"
+                },
+                "exclude": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleScopeExclude:ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleScopeExclude",
+                    "description": "Explicitly exclude these fields from scanning.\n"
+                },
+                "include": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleScopeInclude:ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleScopeInclude",
+                    "description": "Explicitly include these fields for scanning.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleScopeExclude:ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleScopeExclude": {
+            "properties": {
+                "fields": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The fields to exclude from scanning.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleScopeInclude:ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleScopeInclude": {
+            "properties": {
+                "fields": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The fields to include in scanning.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/ObservabilityPipelineConfigProcessorsThrottle:ObservabilityPipelineConfigProcessorsThrottle": {
+            "properties": {
+                "groupBies": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Optional list of fields used to group events before applying throttling.\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for this processor.\n"
+                },
+                "include": {
+                    "type": "string",
+                    "description": "A Datadog search query used to determine which logs this processor targets.\n"
+                },
+                "inputs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of component IDs whose output is used as the input for this processor.\n"
+                },
+                "threshold": {
+                    "type": "integer",
+                    "description": "The number of events to allow before throttling is applied.\n"
+                },
+                "window": {
+                    "type": "number",
+                    "description": "The time window in seconds over which the threshold applies.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "include",
+                "inputs",
+                "threshold",
+                "window"
+            ]
+        },
         "datadog:index/ObservabilityPipelineConfigSources:ObservabilityPipelineConfigSources": {
             "properties": {
+                "amazonDataFirehoses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigSourcesAmazonDataFirehose:ObservabilityPipelineConfigSourcesAmazonDataFirehose"
+                    },
+                    "description": "The `amazon_data_firehose` source ingests logs from AWS Data Firehose.\n"
+                },
+                "amazonS3s": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigSourcesAmazonS3:ObservabilityPipelineConfigSourcesAmazonS3"
+                    },
+                    "description": "The `amazon_s3` source ingests logs from an Amazon S3 bucket. It supports AWS authentication and TLS encryption.\n"
+                },
                 "datadogAgents": {
                     "type": "array",
                     "items": {
@@ -14796,12 +16341,202 @@
                     },
                     "description": "The `datadog_agent` source collects logs from the Datadog Agent.\n"
                 },
+                "fluentBits": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigSourcesFluentBit:ObservabilityPipelineConfigSourcesFluentBit"
+                    },
+                    "description": "The `fluent` source ingests logs from Fluent Bit.\n"
+                },
+                "fluentds": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigSourcesFluentd:ObservabilityPipelineConfigSourcesFluentd"
+                    },
+                    "description": "The `fluent` source ingests logs from a Fluentd-compatible service.\n"
+                },
+                "googlePubsubs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigSourcesGooglePubsub:ObservabilityPipelineConfigSourcesGooglePubsub"
+                    },
+                    "description": "The `google_pubsub` source ingests logs from a Google Cloud Pub/Sub subscription.\n"
+                },
+                "httpClients": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigSourcesHttpClient:ObservabilityPipelineConfigSourcesHttpClient"
+                    },
+                    "description": "The `http_client` source scrapes logs from HTTP endpoints at regular intervals.\n"
+                },
+                "httpServers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigSourcesHttpServer:ObservabilityPipelineConfigSourcesHttpServer"
+                    },
+                    "description": "The `http_server` source collects logs over HTTP POST from external services.\n"
+                },
                 "kafkas": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/datadog:index/ObservabilityPipelineConfigSourcesKafka:ObservabilityPipelineConfigSourcesKafka"
                     },
                     "description": "The `kafka` source ingests data from Apache Kafka topics.\n"
+                },
+                "logstashes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigSourcesLogstash:ObservabilityPipelineConfigSourcesLogstash"
+                    },
+                    "description": "The `logstash` source ingests logs from a Logstash forwarder.\n"
+                },
+                "rsyslogs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigSourcesRsyslog:ObservabilityPipelineConfigSourcesRsyslog"
+                    },
+                    "description": "The `rsyslog` source listens for logs over TCP or UDP from an `rsyslog` server using the syslog protocol.\n"
+                },
+                "splunkHecs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigSourcesSplunkHec:ObservabilityPipelineConfigSourcesSplunkHec"
+                    },
+                    "description": "The `splunk_hec` source implements the Splunk HTTP Event Collector (HEC) API.\n"
+                },
+                "splunkTcps": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigSourcesSplunkTcp:ObservabilityPipelineConfigSourcesSplunkTcp"
+                    },
+                    "description": "The `splunk_tcp` source receives logs from a Splunk Universal Forwarder over TCP. TLS is supported for secure transmission.\n"
+                },
+                "sumoLogics": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigSourcesSumoLogic:ObservabilityPipelineConfigSourcesSumoLogic"
+                    },
+                    "description": "The `sumo_logic` source receives logs from Sumo Logic collectors.\n"
+                },
+                "syslogNgs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigSourcesSyslogNg:ObservabilityPipelineConfigSourcesSyslogNg"
+                    },
+                    "description": "The `syslog_ng` source listens for logs over TCP or UDP from a `syslog-ng` server using the syslog protocol.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/ObservabilityPipelineConfigSourcesAmazonDataFirehose:ObservabilityPipelineConfigSourcesAmazonDataFirehose": {
+            "properties": {
+                "auth": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigSourcesAmazonDataFirehoseAuth:ObservabilityPipelineConfigSourcesAmazonDataFirehoseAuth",
+                    "description": "AWS authentication credentials used for accessing AWS services such as S3. If omitted, the system’s default credentials are used (for example, the IAM role and environment variables).\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).\n"
+                },
+                "tls": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigSourcesAmazonDataFirehoseTls:ObservabilityPipelineConfigSourcesAmazonDataFirehoseTls",
+                    "description": "Configuration for enabling TLS encryption between the pipeline component and external services.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigSourcesAmazonDataFirehoseAuth:ObservabilityPipelineConfigSourcesAmazonDataFirehoseAuth": {
+            "properties": {
+                "assumeRole": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the role to assume.\n"
+                },
+                "externalId": {
+                    "type": "string",
+                    "description": "A unique identifier for cross-account role assumption.\n"
+                },
+                "sessionName": {
+                    "type": "string",
+                    "description": "A session identifier used for logging and tracing the assumed role session.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/ObservabilityPipelineConfigSourcesAmazonDataFirehoseTls:ObservabilityPipelineConfigSourcesAmazonDataFirehoseTls": {
+            "properties": {
+                "caFile": {
+                    "type": "string",
+                    "description": "Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.\n"
+                },
+                "crtFile": {
+                    "type": "string",
+                    "description": "Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.\n"
+                },
+                "keyFile": {
+                    "type": "string",
+                    "description": "Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/ObservabilityPipelineConfigSourcesAmazonS3:ObservabilityPipelineConfigSourcesAmazonS3": {
+            "properties": {
+                "auth": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigSourcesAmazonS3Auth:ObservabilityPipelineConfigSourcesAmazonS3Auth",
+                    "description": "AWS authentication credentials used for accessing AWS services such as S3. If omitted, the system’s default credentials are used (for example, the IAM role and environment variables).\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).\n"
+                },
+                "region": {
+                    "type": "string",
+                    "description": "AWS region where the S3 bucket resides.\n"
+                },
+                "tls": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigSourcesAmazonS3Tls:ObservabilityPipelineConfigSourcesAmazonS3Tls",
+                    "description": "Configuration for enabling TLS encryption between the pipeline component and external services.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "region"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigSourcesAmazonS3Auth:ObservabilityPipelineConfigSourcesAmazonS3Auth": {
+            "properties": {
+                "assumeRole": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the role to assume.\n"
+                },
+                "externalId": {
+                    "type": "string",
+                    "description": "A unique identifier for cross-account role assumption.\n"
+                },
+                "sessionName": {
+                    "type": "string",
+                    "description": "A session identifier used for logging and tracing the assumed role session.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/ObservabilityPipelineConfigSourcesAmazonS3Tls:ObservabilityPipelineConfigSourcesAmazonS3Tls": {
+            "properties": {
+                "caFile": {
+                    "type": "string",
+                    "description": "Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.\n"
+                },
+                "crtFile": {
+                    "type": "string",
+                    "description": "Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.\n"
+                },
+                "keyFile": {
+                    "type": "string",
+                    "description": "Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.\n"
                 }
             },
             "type": "object"
@@ -14837,10 +16572,230 @@
                     "description": "Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.\n"
                 }
             },
+            "type": "object"
+        },
+        "datadog:index/ObservabilityPipelineConfigSourcesFluentBit:ObservabilityPipelineConfigSourcesFluentBit": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `input` to downstream components).\n"
+                },
+                "tls": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigSourcesFluentBitTls:ObservabilityPipelineConfigSourcesFluentBitTls",
+                    "description": "Configuration for enabling TLS encryption between the pipeline component and external services.\n"
+                }
+            },
             "type": "object",
             "required": [
-                "crtFile"
+                "id"
             ]
+        },
+        "datadog:index/ObservabilityPipelineConfigSourcesFluentBitTls:ObservabilityPipelineConfigSourcesFluentBitTls": {
+            "properties": {
+                "caFile": {
+                    "type": "string",
+                    "description": "Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.\n"
+                },
+                "crtFile": {
+                    "type": "string",
+                    "description": "Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.\n"
+                },
+                "keyFile": {
+                    "type": "string",
+                    "description": "Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/ObservabilityPipelineConfigSourcesFluentd:ObservabilityPipelineConfigSourcesFluentd": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `input` to downstream components).\n"
+                },
+                "tls": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigSourcesFluentdTls:ObservabilityPipelineConfigSourcesFluentdTls",
+                    "description": "Configuration for enabling TLS encryption between the pipeline component and external services.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigSourcesFluentdTls:ObservabilityPipelineConfigSourcesFluentdTls": {
+            "properties": {
+                "caFile": {
+                    "type": "string",
+                    "description": "Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.\n"
+                },
+                "crtFile": {
+                    "type": "string",
+                    "description": "Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.\n"
+                },
+                "keyFile": {
+                    "type": "string",
+                    "description": "Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/ObservabilityPipelineConfigSourcesGooglePubsub:ObservabilityPipelineConfigSourcesGooglePubsub": {
+            "properties": {
+                "auth": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigSourcesGooglePubsubAuth:ObservabilityPipelineConfigSourcesGooglePubsubAuth",
+                    "description": "GCP credentials used to authenticate with Google Cloud Storage.\n"
+                },
+                "decoding": {
+                    "type": "string",
+                    "description": "The decoding format used to interpret incoming logs.\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).\n"
+                },
+                "project": {
+                    "type": "string",
+                    "description": "The GCP project ID that owns the Pub/Sub subscription.\n"
+                },
+                "subscription": {
+                    "type": "string",
+                    "description": "The Pub/Sub subscription name from which messages are consumed.\n"
+                },
+                "tls": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigSourcesGooglePubsubTls:ObservabilityPipelineConfigSourcesGooglePubsubTls",
+                    "description": "Configuration for enabling TLS encryption between the pipeline component and external services.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "decoding",
+                "id",
+                "project",
+                "subscription"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigSourcesGooglePubsubAuth:ObservabilityPipelineConfigSourcesGooglePubsubAuth": {
+            "properties": {
+                "credentialsFile": {
+                    "type": "string",
+                    "description": "Path to the GCP service account key file.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "credentialsFile"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigSourcesGooglePubsubTls:ObservabilityPipelineConfigSourcesGooglePubsubTls": {
+            "properties": {
+                "caFile": {
+                    "type": "string",
+                    "description": "Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.\n"
+                },
+                "crtFile": {
+                    "type": "string",
+                    "description": "Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.\n"
+                },
+                "keyFile": {
+                    "type": "string",
+                    "description": "Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/ObservabilityPipelineConfigSourcesHttpClient:ObservabilityPipelineConfigSourcesHttpClient": {
+            "properties": {
+                "authStrategy": {
+                    "type": "string",
+                    "description": "Optional authentication strategy for HTTP requests.\n"
+                },
+                "decoding": {
+                    "type": "string",
+                    "description": "The decoding format used to interpret incoming logs.\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).\n"
+                },
+                "scrapeIntervalSecs": {
+                    "type": "integer",
+                    "description": "The interval (in seconds) between HTTP scrape requests.\n"
+                },
+                "scrapeTimeoutSecs": {
+                    "type": "integer",
+                    "description": "The timeout (in seconds) for each scrape request.\n"
+                },
+                "tls": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigSourcesHttpClientTls:ObservabilityPipelineConfigSourcesHttpClientTls",
+                    "description": "Configuration for enabling TLS encryption between the pipeline component and external services.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "decoding",
+                "id"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigSourcesHttpClientTls:ObservabilityPipelineConfigSourcesHttpClientTls": {
+            "properties": {
+                "caFile": {
+                    "type": "string",
+                    "description": "Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.\n"
+                },
+                "crtFile": {
+                    "type": "string",
+                    "description": "Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.\n"
+                },
+                "keyFile": {
+                    "type": "string",
+                    "description": "Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/ObservabilityPipelineConfigSourcesHttpServer:ObservabilityPipelineConfigSourcesHttpServer": {
+            "properties": {
+                "authStrategy": {
+                    "type": "string",
+                    "description": "HTTP authentication method. Valid values are `none`, `plain`.\n"
+                },
+                "decoding": {
+                    "type": "string",
+                    "description": "The decoding format used to interpret incoming logs. Valid values are `json`, `gelf`, `syslog`, `bytes`.\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "Unique ID for the HTTP server source.\n"
+                },
+                "tls": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigSourcesHttpServerTls:ObservabilityPipelineConfigSourcesHttpServerTls",
+                    "description": "Configuration for enabling TLS encryption between the pipeline component and external services.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "authStrategy",
+                "decoding",
+                "id"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigSourcesHttpServerTls:ObservabilityPipelineConfigSourcesHttpServerTls": {
+            "properties": {
+                "caFile": {
+                    "type": "string",
+                    "description": "Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.\n"
+                },
+                "crtFile": {
+                    "type": "string",
+                    "description": "Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.\n"
+                },
+                "keyFile": {
+                    "type": "string",
+                    "description": "Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.\n"
+                }
+            },
+            "type": "object"
         },
         "datadog:index/ObservabilityPipelineConfigSourcesKafka:ObservabilityPipelineConfigSourcesKafka": {
             "properties": {
@@ -14906,10 +16861,7 @@
                     "description": "SASL mechanism to use (e.g., PLAIN, SCRAM-SHA-256, SCRAM-SHA-512). Valid values are `PLAIN`, `SCRAM-SHA-256`, `SCRAM-SHA-512`.\n"
                 }
             },
-            "type": "object",
-            "required": [
-                "mechanism"
-            ]
+            "type": "object"
         },
         "datadog:index/ObservabilityPipelineConfigSourcesKafkaTls:ObservabilityPipelineConfigSourcesKafkaTls": {
             "properties": {
@@ -14926,10 +16878,462 @@
                     "description": "Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.\n"
                 }
             },
+            "type": "object"
+        },
+        "datadog:index/ObservabilityPipelineConfigSourcesLogstash:ObservabilityPipelineConfigSourcesLogstash": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).\n"
+                },
+                "tls": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigSourcesLogstashTls:ObservabilityPipelineConfigSourcesLogstashTls",
+                    "description": "Configuration for enabling TLS encryption between the pipeline component and external services.\n"
+                }
+            },
             "type": "object",
             "required": [
-                "crtFile"
+                "id"
             ]
+        },
+        "datadog:index/ObservabilityPipelineConfigSourcesLogstashTls:ObservabilityPipelineConfigSourcesLogstashTls": {
+            "properties": {
+                "caFile": {
+                    "type": "string",
+                    "description": "Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.\n"
+                },
+                "crtFile": {
+                    "type": "string",
+                    "description": "Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.\n"
+                },
+                "keyFile": {
+                    "type": "string",
+                    "description": "Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/ObservabilityPipelineConfigSourcesRsyslog:ObservabilityPipelineConfigSourcesRsyslog": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).\n"
+                },
+                "mode": {
+                    "type": "string",
+                    "description": "Protocol used by the syslog source to receive messages.\n"
+                },
+                "tls": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigSourcesRsyslogTls:ObservabilityPipelineConfigSourcesRsyslogTls",
+                    "description": "Configuration for enabling TLS encryption between the pipeline component and external services.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigSourcesRsyslogTls:ObservabilityPipelineConfigSourcesRsyslogTls": {
+            "properties": {
+                "caFile": {
+                    "type": "string",
+                    "description": "Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.\n"
+                },
+                "crtFile": {
+                    "type": "string",
+                    "description": "Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.\n"
+                },
+                "keyFile": {
+                    "type": "string",
+                    "description": "Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/ObservabilityPipelineConfigSourcesSplunkHec:ObservabilityPipelineConfigSourcesSplunkHec": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).\n"
+                },
+                "tls": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigSourcesSplunkHecTls:ObservabilityPipelineConfigSourcesSplunkHecTls",
+                    "description": "Configuration for enabling TLS encryption between the pipeline component and external services.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigSourcesSplunkHecTls:ObservabilityPipelineConfigSourcesSplunkHecTls": {
+            "properties": {
+                "caFile": {
+                    "type": "string",
+                    "description": "Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.\n"
+                },
+                "crtFile": {
+                    "type": "string",
+                    "description": "Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.\n"
+                },
+                "keyFile": {
+                    "type": "string",
+                    "description": "Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/ObservabilityPipelineConfigSourcesSplunkTcp:ObservabilityPipelineConfigSourcesSplunkTcp": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).\n"
+                },
+                "tls": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigSourcesSplunkTcpTls:ObservabilityPipelineConfigSourcesSplunkTcpTls",
+                    "description": "Configuration for enabling TLS encryption between the pipeline component and external services.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigSourcesSplunkTcpTls:ObservabilityPipelineConfigSourcesSplunkTcpTls": {
+            "properties": {
+                "caFile": {
+                    "type": "string",
+                    "description": "Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.\n"
+                },
+                "crtFile": {
+                    "type": "string",
+                    "description": "Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.\n"
+                },
+                "keyFile": {
+                    "type": "string",
+                    "description": "Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/ObservabilityPipelineConfigSourcesSumoLogic:ObservabilityPipelineConfigSourcesSumoLogic": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigSourcesSyslogNg:ObservabilityPipelineConfigSourcesSyslogNg": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).\n"
+                },
+                "mode": {
+                    "type": "string",
+                    "description": "Protocol used by the syslog source to receive messages.\n"
+                },
+                "tls": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigSourcesSyslogNgTls:ObservabilityPipelineConfigSourcesSyslogNgTls",
+                    "description": "Configuration for enabling TLS encryption between the pipeline component and external services.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigSourcesSyslogNgTls:ObservabilityPipelineConfigSourcesSyslogNgTls": {
+            "properties": {
+                "caFile": {
+                    "type": "string",
+                    "description": "Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.\n"
+                },
+                "crtFile": {
+                    "type": "string",
+                    "description": "Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.\n"
+                },
+                "keyFile": {
+                    "type": "string",
+                    "description": "Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/OnCallEscalationPolicyStep:OnCallEscalationPolicyStep": {
+            "properties": {
+                "assignment": {
+                    "type": "string",
+                    "description": "Specifies how this escalation step will assign targets. Can be `default` (page all targets at once) or `round-robin`. Valid values are `assignment`, `round-robin`. Defaults to `\"default\"`.\n"
+                },
+                "escalateAfterSeconds": {
+                    "type": "integer",
+                    "description": "Defines how many seconds to wait before escalating to the next step. Value must be between 60 and 36000.\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The ID of this step.\n"
+                },
+                "targets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/OnCallEscalationPolicyStepTarget:OnCallEscalationPolicyStepTarget"
+                    },
+                    "description": "List of targets for the step.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "escalateAfterSeconds"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "assignment",
+                        "escalateAfterSeconds",
+                        "id"
+                    ]
+                }
+            }
+        },
+        "datadog:index/OnCallEscalationPolicyStepTarget:OnCallEscalationPolicyStepTarget": {
+            "properties": {
+                "schedule": {
+                    "type": "string",
+                    "description": "Targeted schedule ID.\n"
+                },
+                "team": {
+                    "type": "string",
+                    "description": "Targeted team ID.\n"
+                },
+                "user": {
+                    "type": "string",
+                    "description": "Targeted user ID.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/OnCallScheduleLayer:OnCallScheduleLayer": {
+            "properties": {
+                "effectiveDate": {
+                    "type": "string",
+                    "description": "The date/time when this layer should become active (in ISO 8601).\n"
+                },
+                "endDate": {
+                    "type": "string",
+                    "description": "The date/time after which this layer no longer applies (in ISO 8601).\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The ID of this layer.\n"
+                },
+                "interval": {
+                    "$ref": "#/types/datadog:index/OnCallScheduleLayerInterval:OnCallScheduleLayerInterval"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of this layer. Should be unique within the schedule.\n"
+                },
+                "restrictions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/OnCallScheduleLayerRestriction:OnCallScheduleLayerRestriction"
+                    },
+                    "description": "List of restrictions for the layer.\n"
+                },
+                "rotationStart": {
+                    "type": "string",
+                    "description": "The date/time when the rotation for this layer starts (in ISO 8601).\n"
+                },
+                "users": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of user IDs for the layer. Can either be a valid user id or null\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "effectiveDate",
+                "name",
+                "users"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "effectiveDate",
+                        "id",
+                        "name",
+                        "users"
+                    ]
+                }
+            }
+        },
+        "datadog:index/OnCallScheduleLayerInterval:OnCallScheduleLayerInterval": {
+            "properties": {
+                "days": {
+                    "type": "integer",
+                    "description": "The number of full days in each rotation period.\n"
+                },
+                "seconds": {
+                    "type": "integer",
+                    "description": "For intervals that are not expressible in whole days, this will be added to `days`. Defaults to `0`.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "days",
+                        "seconds"
+                    ]
+                }
+            }
+        },
+        "datadog:index/OnCallScheduleLayerRestriction:OnCallScheduleLayerRestriction": {
+            "properties": {
+                "endDay": {
+                    "type": "string",
+                    "description": "The weekday when the restriction period ends. Valid values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.\n"
+                },
+                "endTime": {
+                    "type": "string",
+                    "description": "The time of day when the restriction ends (hh:mm:ss).\n"
+                },
+                "startDay": {
+                    "type": "string",
+                    "description": "The weekday when the restriction period starts. Valid values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.\n"
+                },
+                "startTime": {
+                    "type": "string",
+                    "description": "The time of day when the restriction begins (hh:mm:ss).\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/OnCallTeamRoutingRulesRule:OnCallTeamRoutingRulesRule": {
+            "properties": {
+                "actions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/OnCallTeamRoutingRulesRuleAction:OnCallTeamRoutingRulesRuleAction"
+                    },
+                    "description": "Specifies the list of actions to perform when the routing rule is matched.\n"
+                },
+                "escalationPolicy": {
+                    "type": "string",
+                    "description": "ID of the policy to be applied when this routing rule matches.\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The ID of this rule.\n"
+                },
+                "query": {
+                    "type": "string",
+                    "description": "Defines the query or condition that triggers this routing rule. Defaults to `\"\"`.\n"
+                },
+                "timeRestrictions": {
+                    "$ref": "#/types/datadog:index/OnCallTeamRoutingRulesRuleTimeRestrictions:OnCallTeamRoutingRulesRuleTimeRestrictions",
+                    "description": "Holds time zone information and a list of time restrictions for a routing rule.\n"
+                },
+                "urgency": {
+                    "type": "string",
+                    "description": "Defines the urgency for pages created via this rule. Only valid if `escalation_policy` is set. Valid values are `high`, `low`, `dynamic`.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "id",
+                        "query"
+                    ]
+                }
+            }
+        },
+        "datadog:index/OnCallTeamRoutingRulesRuleAction:OnCallTeamRoutingRulesRuleAction": {
+            "properties": {
+                "sendSlackMessage": {
+                    "$ref": "#/types/datadog:index/OnCallTeamRoutingRulesRuleActionSendSlackMessage:OnCallTeamRoutingRulesRuleActionSendSlackMessage"
+                },
+                "sendTeamsMessage": {
+                    "$ref": "#/types/datadog:index/OnCallTeamRoutingRulesRuleActionSendTeamsMessage:OnCallTeamRoutingRulesRuleActionSendTeamsMessage"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/OnCallTeamRoutingRulesRuleActionSendSlackMessage:OnCallTeamRoutingRulesRuleActionSendSlackMessage": {
+            "properties": {
+                "channel": {
+                    "type": "string",
+                    "description": "Slack channel ID.\n"
+                },
+                "workspace": {
+                    "type": "string",
+                    "description": "Slack workspace ID.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/OnCallTeamRoutingRulesRuleActionSendTeamsMessage:OnCallTeamRoutingRulesRuleActionSendTeamsMessage": {
+            "properties": {
+                "channel": {
+                    "type": "string",
+                    "description": "Teams channel ID.\n"
+                },
+                "team": {
+                    "type": "string",
+                    "description": "Teams team ID.\n"
+                },
+                "tenant": {
+                    "type": "string",
+                    "description": "Teams tenant ID.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/OnCallTeamRoutingRulesRuleTimeRestrictions:OnCallTeamRoutingRulesRuleTimeRestrictions": {
+            "properties": {
+                "restrictions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/OnCallTeamRoutingRulesRuleTimeRestrictionsRestriction:OnCallTeamRoutingRulesRuleTimeRestrictionsRestriction"
+                    },
+                    "description": "List of restrictions for the rule.\n"
+                },
+                "timeZone": {
+                    "type": "string",
+                    "description": "Specifies the time zone applicable to the restrictions, e.g. `America/New_York`.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/OnCallTeamRoutingRulesRuleTimeRestrictionsRestriction:OnCallTeamRoutingRulesRuleTimeRestrictionsRestriction": {
+            "properties": {
+                "endDay": {
+                    "type": "string",
+                    "description": "The weekday when the restriction period ends. Valid values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.\n"
+                },
+                "endTime": {
+                    "type": "string",
+                    "description": "The time of day when the restriction ends (hh:mm:ss).\n"
+                },
+                "startDay": {
+                    "type": "string",
+                    "description": "The weekday when the restriction period starts. Valid values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.\n"
+                },
+                "startTime": {
+                    "type": "string",
+                    "description": "The time of day when the restriction begins (hh:mm:ss).\n"
+                }
+            },
+            "type": "object"
         },
         "datadog:index/OrganizationSettingsSettings:OrganizationSettingsSettings": {
             "properties": {
@@ -20765,11 +23169,7 @@
                     "description": "Widget column width. Valid values are `auto`, `compact`, `full`.\n"
                 }
             },
-            "type": "object",
-            "required": [
-                "field",
-                "width"
-            ]
+            "type": "object"
         },
         "datadog:index/PowerpackWidgetListStreamDefinitionRequestQuery:PowerpackWidgetListStreamDefinitionRequestQuery": {
             "properties": {
@@ -30379,6 +32779,13 @@
         },
         "datadog:index/PowerpackWidgetTreemapDefinition:PowerpackWidgetTreemapDefinition": {
             "properties": {
+                "customLinks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/PowerpackWidgetTreemapDefinitionCustomLink:PowerpackWidgetTreemapDefinitionCustomLink"
+                    },
+                    "description": "A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.\n"
+                },
                 "requests": {
                     "type": "array",
                     "items": {
@@ -30389,6 +32796,27 @@
                 "title": {
                     "type": "string",
                     "description": "The title of the widget.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/PowerpackWidgetTreemapDefinitionCustomLink:PowerpackWidgetTreemapDefinitionCustomLink": {
+            "properties": {
+                "isHidden": {
+                    "type": "boolean",
+                    "description": "The flag for toggling context menu link visibility.\n"
+                },
+                "label": {
+                    "type": "string",
+                    "description": "The label for the custom link URL.\n"
+                },
+                "link": {
+                    "type": "string",
+                    "description": "The URL of the custom link.\n"
+                },
+                "overrideLabel": {
+                    "type": "string",
+                    "description": "The label ID that refers to a context menu link item. When `override_label` is provided, the client request omits the label field.\n"
                 }
             },
             "type": "object"
@@ -31053,7 +33481,7 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "[Experimental - Logs Pipelines, Monitors and Security Monitoring Rules only] Resource tags to be applied by default across all resources.\n"
+                    "description": "[Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Resource tags to be applied by default across all resources.\n"
                 }
             },
             "type": "object"
@@ -31428,7 +33856,7 @@
                 },
                 "dataSource": {
                     "type": "string",
-                    "description": "Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`. Defaults to `\"logs\"`.\n"
+                    "description": "Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`, `events`. Defaults to `\"logs\"`.\n"
                 },
                 "distinctFields": {
                     "type": "array",
@@ -32721,6 +35149,10 @@
                 "clickType": {
                     "type": "string",
                     "description": "Type of click to use for a \"click\" step.\n"
+                },
+                "clickWithJavascript": {
+                    "type": "boolean",
+                    "description": "Whether to use `element.click()` for a \"click\" step. This is a more reliable way to interact with elements but does not emulate a real user interaction.\n"
                 },
                 "code": {
                     "type": "string",
@@ -35650,7 +38082,7 @@
             },
             "defaultTags": {
                 "$ref": "#/types/datadog:index/ProviderDefaultTags:ProviderDefaultTags",
-                "description": "[Experimental - Logs Pipelines, Monitors and Security Monitoring Rules only] Configuration block containing settings to\napply default resource tags across all resources.\n"
+                "description": "[Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration\nblock containing settings to apply default resource tags across all resources.\n"
             },
             "httpClientRetryBackoffBase": {
                 "type": "integer",
@@ -35694,7 +38126,7 @@
             },
             "defaultTags": {
                 "$ref": "#/types/datadog:index/ProviderDefaultTags:ProviderDefaultTags",
-                "description": "[Experimental - Logs Pipelines, Monitors and Security Monitoring Rules only] Configuration block containing settings to\napply default resource tags across all resources.\n"
+                "description": "[Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration\nblock containing settings to apply default resource tags across all resources.\n"
             },
             "httpClientRetryBackoffBase": {
                 "type": "integer",
@@ -37116,6 +39548,10 @@
                     "type": "boolean",
                     "description": "Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled.\n"
                 },
+                "isPerProjectQuotaEnabled": {
+                    "type": "boolean",
+                    "description": "When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.\n"
+                },
                 "isResourceChangeCollectionEnabled": {
                     "type": "boolean",
                     "description": "When enabled, Datadog scans for all resource change data in your Google Cloud environment.\n"
@@ -37141,6 +39577,7 @@
                 "clientEmail",
                 "delegateAccountEmail",
                 "isCspmEnabled",
+                "isPerProjectQuotaEnabled",
                 "isResourceChangeCollectionEnabled",
                 "isSecurityCommandCenterEnabled",
                 "resourceCollectionEnabled"
@@ -37178,6 +39615,10 @@
                 "isCspmEnabled": {
                     "type": "boolean",
                     "description": "Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled.\n"
+                },
+                "isPerProjectQuotaEnabled": {
+                    "type": "boolean",
+                    "description": "When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.\n"
                 },
                 "isResourceChangeCollectionEnabled": {
                     "type": "boolean",
@@ -37241,6 +39682,10 @@
                     "isCspmEnabled": {
                         "type": "boolean",
                         "description": "Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled.\n"
+                    },
+                    "isPerProjectQuotaEnabled": {
+                        "type": "boolean",
+                        "description": "When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.\n"
                     },
                     "isResourceChangeCollectionEnabled": {
                         "type": "boolean",
@@ -37513,7 +39958,7 @@
             }
         },
         "datadog:index/appBuilderApp:AppBuilderApp": {
-            "description": "Provides a Datadog App resource for creating and managing Datadog Apps from App Builder using the JSON definition.\n\n## Import\n\n```sh\n$ pulumi import datadog:index/appBuilderApp:AppBuilderApp my_app 11111111-2222-3333-4444-555555555555\n```\n\n",
+            "description": "## Example Usage\n\n## Import\n\n```sh\n$ pulumi import datadog:index/appBuilderApp:AppBuilderApp my_app 11111111-2222-3333-4444-555555555555\n```\n\n",
             "properties": {
                 "actionQueryNamesToConnectionIds": {
                     "type": "object",
@@ -38430,6 +40875,98 @@
                         "type": "string",
                         "description": "The name of the Agent rule.\n",
                         "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "datadog:index/complianceCustomFramework:ComplianceCustomFramework": {
+            "description": "Provides a Datadog Compliance Custom Framework resource, which is used to create and manage compliance custom frameworks.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst framework = new datadog.ComplianceCustomFramework(\"framework\", {\n    name: \"my-custom-framework-terraform-2\",\n    version: \"2.0.0\",\n    handle: \"my-custom-framework-terraform-2\",\n    requirements: [\n        {\n            name: \"requirement2\",\n            controls: [\n                {\n                    name: \"control2\",\n                    rulesIds: [\n                        \"def-000-h9o\",\n                        \"def-000-b6i\",\n                        \"def-000-yed\",\n                        \"def-000-h5a\",\n                        \"def-000-aw5\",\n                    ],\n                },\n                {\n                    name: \"control1\",\n                    rulesIds: [\n                        \"def-000-j9v\",\n                        \"def-000-465\",\n                        \"def-000-vq1\",\n                        \"def-000-4hf\",\n                        \"def-000-s2d\",\n                        \"def-000-vnl\",\n                    ],\n                },\n            ],\n        },\n        {\n            name: \"requirement1\",\n            controls: [\n                {\n                    name: \"control2\",\n                    rulesIds: [\n                        \"def-000-wuf\",\n                        \"def-000-7og\",\n                    ],\n                },\n                {\n                    name: \"control5\",\n                    rulesIds: [\n                        \"def-000-mdt\",\n                        \"def-000-zrx\",\n                        \"def-000-z6k\",\n                    ],\n                },\n            ],\n        },\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nframework = datadog.ComplianceCustomFramework(\"framework\",\n    name=\"my-custom-framework-terraform-2\",\n    version=\"2.0.0\",\n    handle=\"my-custom-framework-terraform-2\",\n    requirements=[\n        {\n            \"name\": \"requirement2\",\n            \"controls\": [\n                {\n                    \"name\": \"control2\",\n                    \"rules_ids\": [\n                        \"def-000-h9o\",\n                        \"def-000-b6i\",\n                        \"def-000-yed\",\n                        \"def-000-h5a\",\n                        \"def-000-aw5\",\n                    ],\n                },\n                {\n                    \"name\": \"control1\",\n                    \"rules_ids\": [\n                        \"def-000-j9v\",\n                        \"def-000-465\",\n                        \"def-000-vq1\",\n                        \"def-000-4hf\",\n                        \"def-000-s2d\",\n                        \"def-000-vnl\",\n                    ],\n                },\n            ],\n        },\n        {\n            \"name\": \"requirement1\",\n            \"controls\": [\n                {\n                    \"name\": \"control2\",\n                    \"rules_ids\": [\n                        \"def-000-wuf\",\n                        \"def-000-7og\",\n                    ],\n                },\n                {\n                    \"name\": \"control5\",\n                    \"rules_ids\": [\n                        \"def-000-mdt\",\n                        \"def-000-zrx\",\n                        \"def-000-z6k\",\n                    ],\n                },\n            ],\n        },\n    ])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var framework = new Datadog.ComplianceCustomFramework(\"framework\", new()\n    {\n        Name = \"my-custom-framework-terraform-2\",\n        Version = \"2.0.0\",\n        Handle = \"my-custom-framework-terraform-2\",\n        Requirements = new[]\n        {\n            new Datadog.Inputs.ComplianceCustomFrameworkRequirementArgs\n            {\n                Name = \"requirement2\",\n                Controls = new[]\n                {\n                    new Datadog.Inputs.ComplianceCustomFrameworkRequirementControlArgs\n                    {\n                        Name = \"control2\",\n                        RulesIds = new[]\n                        {\n                            \"def-000-h9o\",\n                            \"def-000-b6i\",\n                            \"def-000-yed\",\n                            \"def-000-h5a\",\n                            \"def-000-aw5\",\n                        },\n                    },\n                    new Datadog.Inputs.ComplianceCustomFrameworkRequirementControlArgs\n                    {\n                        Name = \"control1\",\n                        RulesIds = new[]\n                        {\n                            \"def-000-j9v\",\n                            \"def-000-465\",\n                            \"def-000-vq1\",\n                            \"def-000-4hf\",\n                            \"def-000-s2d\",\n                            \"def-000-vnl\",\n                        },\n                    },\n                },\n            },\n            new Datadog.Inputs.ComplianceCustomFrameworkRequirementArgs\n            {\n                Name = \"requirement1\",\n                Controls = new[]\n                {\n                    new Datadog.Inputs.ComplianceCustomFrameworkRequirementControlArgs\n                    {\n                        Name = \"control2\",\n                        RulesIds = new[]\n                        {\n                            \"def-000-wuf\",\n                            \"def-000-7og\",\n                        },\n                    },\n                    new Datadog.Inputs.ComplianceCustomFrameworkRequirementControlArgs\n                    {\n                        Name = \"control5\",\n                        RulesIds = new[]\n                        {\n                            \"def-000-mdt\",\n                            \"def-000-zrx\",\n                            \"def-000-z6k\",\n                        },\n                    },\n                },\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewComplianceCustomFramework(ctx, \"framework\", \u0026datadog.ComplianceCustomFrameworkArgs{\n\t\t\tName:    pulumi.String(\"my-custom-framework-terraform-2\"),\n\t\t\tVersion: pulumi.String(\"2.0.0\"),\n\t\t\tHandle:  pulumi.String(\"my-custom-framework-terraform-2\"),\n\t\t\tRequirements: datadog.ComplianceCustomFrameworkRequirementArray{\n\t\t\t\t\u0026datadog.ComplianceCustomFrameworkRequirementArgs{\n\t\t\t\t\tName: pulumi.String(\"requirement2\"),\n\t\t\t\t\tControls: datadog.ComplianceCustomFrameworkRequirementControlArray{\n\t\t\t\t\t\t\u0026datadog.ComplianceCustomFrameworkRequirementControlArgs{\n\t\t\t\t\t\t\tName: pulumi.String(\"control2\"),\n\t\t\t\t\t\t\tRulesIds: pulumi.StringArray{\n\t\t\t\t\t\t\t\tpulumi.String(\"def-000-h9o\"),\n\t\t\t\t\t\t\t\tpulumi.String(\"def-000-b6i\"),\n\t\t\t\t\t\t\t\tpulumi.String(\"def-000-yed\"),\n\t\t\t\t\t\t\t\tpulumi.String(\"def-000-h5a\"),\n\t\t\t\t\t\t\t\tpulumi.String(\"def-000-aw5\"),\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\u0026datadog.ComplianceCustomFrameworkRequirementControlArgs{\n\t\t\t\t\t\t\tName: pulumi.String(\"control1\"),\n\t\t\t\t\t\t\tRulesIds: pulumi.StringArray{\n\t\t\t\t\t\t\t\tpulumi.String(\"def-000-j9v\"),\n\t\t\t\t\t\t\t\tpulumi.String(\"def-000-465\"),\n\t\t\t\t\t\t\t\tpulumi.String(\"def-000-vq1\"),\n\t\t\t\t\t\t\t\tpulumi.String(\"def-000-4hf\"),\n\t\t\t\t\t\t\t\tpulumi.String(\"def-000-s2d\"),\n\t\t\t\t\t\t\t\tpulumi.String(\"def-000-vnl\"),\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026datadog.ComplianceCustomFrameworkRequirementArgs{\n\t\t\t\t\tName: pulumi.String(\"requirement1\"),\n\t\t\t\t\tControls: datadog.ComplianceCustomFrameworkRequirementControlArray{\n\t\t\t\t\t\t\u0026datadog.ComplianceCustomFrameworkRequirementControlArgs{\n\t\t\t\t\t\t\tName: pulumi.String(\"control2\"),\n\t\t\t\t\t\t\tRulesIds: pulumi.StringArray{\n\t\t\t\t\t\t\t\tpulumi.String(\"def-000-wuf\"),\n\t\t\t\t\t\t\t\tpulumi.String(\"def-000-7og\"),\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\u0026datadog.ComplianceCustomFrameworkRequirementControlArgs{\n\t\t\t\t\t\t\tName: pulumi.String(\"control5\"),\n\t\t\t\t\t\t\tRulesIds: pulumi.StringArray{\n\t\t\t\t\t\t\t\tpulumi.String(\"def-000-mdt\"),\n\t\t\t\t\t\t\t\tpulumi.String(\"def-000-zrx\"),\n\t\t\t\t\t\t\t\tpulumi.String(\"def-000-z6k\"),\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.ComplianceCustomFramework;\nimport com.pulumi.datadog.ComplianceCustomFrameworkArgs;\nimport com.pulumi.datadog.inputs.ComplianceCustomFrameworkRequirementArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var framework = new ComplianceCustomFramework(\"framework\", ComplianceCustomFrameworkArgs.builder()\n            .name(\"my-custom-framework-terraform-2\")\n            .version(\"2.0.0\")\n            .handle(\"my-custom-framework-terraform-2\")\n            .requirements(            \n                ComplianceCustomFrameworkRequirementArgs.builder()\n                    .name(\"requirement2\")\n                    .controls(                    \n                        ComplianceCustomFrameworkRequirementControlArgs.builder()\n                            .name(\"control2\")\n                            .rulesIds(                            \n                                \"def-000-h9o\",\n                                \"def-000-b6i\",\n                                \"def-000-yed\",\n                                \"def-000-h5a\",\n                                \"def-000-aw5\")\n                            .build(),\n                        ComplianceCustomFrameworkRequirementControlArgs.builder()\n                            .name(\"control1\")\n                            .rulesIds(                            \n                                \"def-000-j9v\",\n                                \"def-000-465\",\n                                \"def-000-vq1\",\n                                \"def-000-4hf\",\n                                \"def-000-s2d\",\n                                \"def-000-vnl\")\n                            .build())\n                    .build(),\n                ComplianceCustomFrameworkRequirementArgs.builder()\n                    .name(\"requirement1\")\n                    .controls(                    \n                        ComplianceCustomFrameworkRequirementControlArgs.builder()\n                            .name(\"control2\")\n                            .rulesIds(                            \n                                \"def-000-wuf\",\n                                \"def-000-7og\")\n                            .build(),\n                        ComplianceCustomFrameworkRequirementControlArgs.builder()\n                            .name(\"control5\")\n                            .rulesIds(                            \n                                \"def-000-mdt\",\n                                \"def-000-zrx\",\n                                \"def-000-z6k\")\n                            .build())\n                    .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  framework:\n    type: datadog:ComplianceCustomFramework\n    properties:\n      name: my-custom-framework-terraform-2\n      version: 2.0.0\n      handle: my-custom-framework-terraform-2\n      requirements:\n        - name: requirement2\n          controls:\n            - name: control2\n              rulesIds:\n                - def-000-h9o\n                - def-000-b6i\n                - def-000-yed\n                - def-000-h5a\n                - def-000-aw5\n            - name: control1\n              rulesIds:\n                - def-000-j9v\n                - def-000-465\n                - def-000-vq1\n                - def-000-4hf\n                - def-000-s2d\n                - def-000-vnl\n        - name: requirement1\n          controls:\n            - name: control2\n              rulesIds:\n                - def-000-wuf\n                - def-000-7og\n            - name: control5\n              rulesIds:\n                - def-000-mdt\n                - def-000-zrx\n                - def-000-z6k\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "properties": {
+                "handle": {
+                    "type": "string",
+                    "description": "The framework handle. String length must be at least 1. This field is immutable.\n"
+                },
+                "iconUrl": {
+                    "type": "string",
+                    "description": "The URL of the icon representing the framework\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The framework name. String length must be at least 1.\n"
+                },
+                "requirements": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ComplianceCustomFrameworkRequirement:ComplianceCustomFrameworkRequirement"
+                    },
+                    "description": "The requirements of the framework. Length must be at least 1.\n"
+                },
+                "version": {
+                    "type": "string",
+                    "description": "The framework version. String length must be at least 1. This field is immutable.\n"
+                }
+            },
+            "required": [
+                "handle",
+                "name",
+                "version"
+            ],
+            "inputProperties": {
+                "handle": {
+                    "type": "string",
+                    "description": "The framework handle. String length must be at least 1. This field is immutable.\n"
+                },
+                "iconUrl": {
+                    "type": "string",
+                    "description": "The URL of the icon representing the framework\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The framework name. String length must be at least 1.\n"
+                },
+                "requirements": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ComplianceCustomFrameworkRequirement:ComplianceCustomFrameworkRequirement"
+                    },
+                    "description": "The requirements of the framework. Length must be at least 1.\n"
+                },
+                "version": {
+                    "type": "string",
+                    "description": "The framework version. String length must be at least 1. This field is immutable.\n"
+                }
+            },
+            "requiredInputs": [
+                "handle",
+                "name",
+                "version"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ComplianceCustomFramework resources.\n",
+                "properties": {
+                    "handle": {
+                        "type": "string",
+                        "description": "The framework handle. String length must be at least 1. This field is immutable.\n"
+                    },
+                    "iconUrl": {
+                        "type": "string",
+                        "description": "The URL of the icon representing the framework\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The framework name. String length must be at least 1.\n"
+                    },
+                    "requirements": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/datadog:index/ComplianceCustomFrameworkRequirement:ComplianceCustomFrameworkRequirement"
+                        },
+                        "description": "The requirements of the framework. Length must be at least 1.\n"
+                    },
+                    "version": {
+                        "type": "string",
+                        "description": "The framework version. String length must be at least 1. This field is immutable.\n"
                     }
                 },
                 "type": "object"
@@ -40904,7 +43441,7 @@
             }
         },
         "datadog:index/monitorNotificationRule:MonitorNotificationRule": {
-            "description": "Provides a Datadog MonitorNotificationRule resource.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  # Create new monitor_notification_rule resource\n  foo:\n    type: datadog:MonitorNotificationRule\n    properties:\n      name: A notification rule name\n      recipients:\n        - slack-test-channel\n        - jira-test\n      filter:\n        - tags:\n            - env:foo\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import datadog:index/monitorNotificationRule:MonitorNotificationRule new_list \"00e000000-0000-1234-0000-000000000000\"\n```\n\n",
+            "description": "Provides a Datadog MonitorNotificationRule resource. *Note: This resource is in Preview. [Request access](https://www.datadoghq.com/product-preview/monitor-notification-rules/).*\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  # Create new monitor_notification_rule resource\n  foo:\n    type: datadog:MonitorNotificationRule\n    properties:\n      name: A notification rule name\n      recipients:\n        - slack-test-channel\n        - jira-test\n      filter:\n        - tags:\n            - env:foo\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import datadog:index/monitorNotificationRule:MonitorNotificationRule new_list \"00e000000-0000-1234-0000-000000000000\"\n```\n\n",
             "properties": {
                 "filter": {
                     "$ref": "#/types/datadog:index/MonitorNotificationRuleFilter:MonitorNotificationRuleFilter"
@@ -40967,7 +43504,7 @@
             }
         },
         "datadog:index/observabilityPipeline:ObservabilityPipeline": {
-            "description": "Provides a Datadog Observability Pipeline resource. Observability Pipelines allows you to collect and process logs within your own infrastructure, and then route them to downstream integrations.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  test:\n    type: datadog:ObservabilityPipeline\n    properties:\n      name: test pipeline\n      config:\n        - sources:\n            - kafkas:\n                - id: source-1\n                  groupId: my-consumer-group\n                  topics:\n                    - my-topic-1\n                    - my-topic-2\n                  tls:\n                    crtFile: /etc/certs/client.crt\n                    keyFile: /etc/certs/client.key\n                    caFile: /etc/certs/ca.crt\n                  sasl:\n                    - mechanism: SCRAM-SHA-512\n                  librdkafkaOptions:\n                    - name: fetch.message.max.bytes\n                      value: '1048576'\n                    - name: socket.timeout.ms\n                      value: '500'\n          processors:\n            - parseJsons:\n                - id: filter-1\n                  include: service:nginx\n                  field: message2\n                  inputs:\n                    - source-1\n                - id: filter-3\n                  include: service:nginx\n                  field: message\n                  inputs:\n                    - filter-2\n              filters:\n                - id: filter-2\n                  include: service:nginx\n                  inputs:\n                    - filter-1\n          destinations:\n            - datadogLogs:\n                - id: sink-1\n                  inputs:\n                    - filter-3\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "description": "Provides a Datadog Observability Pipeline resource. Observability Pipelines allows you to collect and process logs within your own infrastructure, and then route them to downstream integrations. This resource is in **Preview**. Reach out to Datadog support to enable it for your account.   \n\nDatadog recommends using the `-parallelism=1` option to apply this resource.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  test:\n    type: datadog:ObservabilityPipeline\n    properties:\n      name: test pipeline\n      config:\n        - sources:\n            - kafkas:\n                - id: source-1\n                  groupId: my-consumer-group\n                  topics:\n                    - my-topic-1\n                    - my-topic-2\n                  tls:\n                    - crtFile: /etc/certs/client.crt\n                      keyFile: /etc/certs/client.key\n                      caFile: /etc/certs/ca.crt\n                  sasl:\n                    - mechanism: SCRAM-SHA-512\n                  librdkafkaOptions:\n                    - name: fetch.message.max.bytes\n                      value: '1048576'\n                    - name: socket.timeout.ms\n                      value: '500'\n          processors:\n            - parseJsons:\n                - id: filter-1\n                  include: service:nginx\n                  field: message2\n                  inputs:\n                    - source-1\n                - id: filter-3\n                  include: service:nginx\n                  field: message\n                  inputs:\n                    - filter-2\n              filters:\n                - id: filter-2\n                  include: service:nginx\n                  inputs:\n                    - filter-1\n          destinations:\n            - datadogLogs:\n                - id: sink-1\n                  inputs:\n                    - filter-3\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import datadog:index/observabilityPipeline:ObservabilityPipeline example_pipeline 8beabbc4-1f4d-11f0-942b-da7ad0900001\n```\n\n",
             "properties": {
                 "config": {
                     "$ref": "#/types/datadog:index/ObservabilityPipelineConfig:ObservabilityPipelineConfig",
@@ -41004,6 +43541,245 @@
                     "name": {
                         "type": "string",
                         "description": "The pipeline name.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "datadog:index/onCallEscalationPolicy:OnCallEscalationPolicy": {
+            "description": "Provides a Datadog On-Call escalation policy resource. This can be used to create and manage Datadog On-Call escalation policies.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst policyTest = new datadog.OnCallEscalationPolicy(\"policy_test\", {\n    name: \"Policy Name\",\n    resolvePageOnPolicyEnd: true,\n    retries: 3,\n    steps: [{\n        assignment: \"round-robin\",\n        escalateAfterSeconds: 300,\n        targets: [\n            {\n                team: \"00000000-aba2-0000-0000-000000000000\",\n            },\n            {\n                user: \"00000000-aba2-0000-0000-000000000000\",\n            },\n            {\n                schedule: \"00000000-aba2-0000-0000-000000000000\",\n            },\n        ],\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\npolicy_test = datadog.OnCallEscalationPolicy(\"policy_test\",\n    name=\"Policy Name\",\n    resolve_page_on_policy_end=True,\n    retries=3,\n    steps=[{\n        \"assignment\": \"round-robin\",\n        \"escalate_after_seconds\": 300,\n        \"targets\": [\n            {\n                \"team\": \"00000000-aba2-0000-0000-000000000000\",\n            },\n            {\n                \"user\": \"00000000-aba2-0000-0000-000000000000\",\n            },\n            {\n                \"schedule\": \"00000000-aba2-0000-0000-000000000000\",\n            },\n        ],\n    }])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var policyTest = new Datadog.OnCallEscalationPolicy(\"policy_test\", new()\n    {\n        Name = \"Policy Name\",\n        ResolvePageOnPolicyEnd = true,\n        Retries = 3,\n        Steps = new[]\n        {\n            new Datadog.Inputs.OnCallEscalationPolicyStepArgs\n            {\n                Assignment = \"round-robin\",\n                EscalateAfterSeconds = 300,\n                Targets = new[]\n                {\n                    new Datadog.Inputs.OnCallEscalationPolicyStepTargetArgs\n                    {\n                        Team = \"00000000-aba2-0000-0000-000000000000\",\n                    },\n                    new Datadog.Inputs.OnCallEscalationPolicyStepTargetArgs\n                    {\n                        User = \"00000000-aba2-0000-0000-000000000000\",\n                    },\n                    new Datadog.Inputs.OnCallEscalationPolicyStepTargetArgs\n                    {\n                        Schedule = \"00000000-aba2-0000-0000-000000000000\",\n                    },\n                },\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewOnCallEscalationPolicy(ctx, \"policy_test\", \u0026datadog.OnCallEscalationPolicyArgs{\n\t\t\tName:                   pulumi.String(\"Policy Name\"),\n\t\t\tResolvePageOnPolicyEnd: pulumi.Bool(true),\n\t\t\tRetries:                pulumi.Int(3),\n\t\t\tSteps: datadog.OnCallEscalationPolicyStepArray{\n\t\t\t\t\u0026datadog.OnCallEscalationPolicyStepArgs{\n\t\t\t\t\tAssignment:           pulumi.String(\"round-robin\"),\n\t\t\t\t\tEscalateAfterSeconds: pulumi.Int(300),\n\t\t\t\t\tTargets: datadog.OnCallEscalationPolicyStepTargetArray{\n\t\t\t\t\t\t\u0026datadog.OnCallEscalationPolicyStepTargetArgs{\n\t\t\t\t\t\t\tTeam: pulumi.String(\"00000000-aba2-0000-0000-000000000000\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\u0026datadog.OnCallEscalationPolicyStepTargetArgs{\n\t\t\t\t\t\t\tUser: pulumi.String(\"00000000-aba2-0000-0000-000000000000\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\u0026datadog.OnCallEscalationPolicyStepTargetArgs{\n\t\t\t\t\t\t\tSchedule: pulumi.String(\"00000000-aba2-0000-0000-000000000000\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.OnCallEscalationPolicy;\nimport com.pulumi.datadog.OnCallEscalationPolicyArgs;\nimport com.pulumi.datadog.inputs.OnCallEscalationPolicyStepArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var policyTest = new OnCallEscalationPolicy(\"policyTest\", OnCallEscalationPolicyArgs.builder()\n            .name(\"Policy Name\")\n            .resolvePageOnPolicyEnd(true)\n            .retries(3)\n            .steps(OnCallEscalationPolicyStepArgs.builder()\n                .assignment(\"round-robin\")\n                .escalateAfterSeconds(300)\n                .targets(                \n                    OnCallEscalationPolicyStepTargetArgs.builder()\n                        .team(\"00000000-aba2-0000-0000-000000000000\")\n                        .build(),\n                    OnCallEscalationPolicyStepTargetArgs.builder()\n                        .user(\"00000000-aba2-0000-0000-000000000000\")\n                        .build(),\n                    OnCallEscalationPolicyStepTargetArgs.builder()\n                        .schedule(\"00000000-aba2-0000-0000-000000000000\")\n                        .build())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  policyTest:\n    type: datadog:OnCallEscalationPolicy\n    name: policy_test\n    properties:\n      name: Policy Name\n      resolvePageOnPolicyEnd: true\n      retries: 3\n      steps:\n        - assignment: round-robin\n          escalateAfterSeconds: 300\n          targets:\n            - team: 00000000-aba2-0000-0000-000000000000\n            - user: 00000000-aba2-0000-0000-000000000000\n            - schedule: 00000000-aba2-0000-0000-000000000000\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nImport an existing on_call_schedule\n\n```sh\n$ pulumi import datadog:index/onCallEscalationPolicy:OnCallEscalationPolicy test \"b03a07d5-49da-43e9-83b4-5d84969b588b\"\n```\n\n",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "A human-readable name for the escalation policy.\n"
+                },
+                "resolvePageOnPolicyEnd": {
+                    "type": "boolean",
+                    "description": "If true, pages will be automatically resolved if unacknowledged after the final step.\n"
+                },
+                "retries": {
+                    "type": "integer",
+                    "description": "If set, policy will be retried this many times after the final step. Must be in the range 0-10. Value must be between 0 and 10. Defaults to `0`.\n"
+                },
+                "steps": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/OnCallEscalationPolicyStep:OnCallEscalationPolicyStep"
+                    },
+                    "description": "List of steps for the escalation policy.\n"
+                },
+                "teams": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of team ids associated with the escalation policy.\n"
+                }
+            },
+            "required": [
+                "name",
+                "retries",
+                "teams"
+            ],
+            "inputProperties": {
+                "name": {
+                    "type": "string",
+                    "description": "A human-readable name for the escalation policy.\n"
+                },
+                "resolvePageOnPolicyEnd": {
+                    "type": "boolean",
+                    "description": "If true, pages will be automatically resolved if unacknowledged after the final step.\n"
+                },
+                "retries": {
+                    "type": "integer",
+                    "description": "If set, policy will be retried this many times after the final step. Must be in the range 0-10. Value must be between 0 and 10. Defaults to `0`.\n"
+                },
+                "steps": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/OnCallEscalationPolicyStep:OnCallEscalationPolicyStep"
+                    },
+                    "description": "List of steps for the escalation policy.\n"
+                },
+                "teams": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of team ids associated with the escalation policy.\n"
+                }
+            },
+            "requiredInputs": [
+                "name"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering OnCallEscalationPolicy resources.\n",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "A human-readable name for the escalation policy.\n"
+                    },
+                    "resolvePageOnPolicyEnd": {
+                        "type": "boolean",
+                        "description": "If true, pages will be automatically resolved if unacknowledged after the final step.\n"
+                    },
+                    "retries": {
+                        "type": "integer",
+                        "description": "If set, policy will be retried this many times after the final step. Must be in the range 0-10. Value must be between 0 and 10. Defaults to `0`.\n"
+                    },
+                    "steps": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/datadog:index/OnCallEscalationPolicyStep:OnCallEscalationPolicyStep"
+                        },
+                        "description": "List of steps for the escalation policy.\n"
+                    },
+                    "teams": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of team ids associated with the escalation policy.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "datadog:index/onCallSchedule:OnCallSchedule": {
+            "description": "Provides a Datadog On-Call schedule resource. This can be used to create and manage Datadog On-Call schedules.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  test:\n    type: datadog:OnCallSchedule\n    properties:\n      name: Team A On-Call\n      timeZone: America/New_York\n      teams:\n        - 00000000-aba2-0000-0000-000000000000\n      layers:\n        - name: Primary On-Call Layer\n          effectiveDate: 2025-01-01T00:00:00Z\n          endDate: 2026-01-01T00:00:00Z\n          rotationStart: 2025-01-01T00:00:00Z\n          interval:\n            - days: 1\n              seconds: 300\n          users:\n            - 00000000-aba1-0000-0000-000000000000\n          restrictions:\n            - endDay: monday\n              endTime: 17:00:00\n              startDay: monday\n              startTime: 09:00:00\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nImport an existing on_call_schedule\n\n```sh\n$ pulumi import datadog:index/onCallSchedule:OnCallSchedule test \"b03a07d5-49da-43e9-83b4-5d84969b588b\"\n```\n\n",
+            "properties": {
+                "layers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/OnCallScheduleLayer:OnCallScheduleLayer"
+                    },
+                    "description": "List of layers for the schedule.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "A human-readable name for the new schedule.\n"
+                },
+                "teams": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of team ids associated with the schedule.\n"
+                },
+                "timeZone": {
+                    "type": "string",
+                    "description": "The time zone in which the schedule is defined.\n"
+                }
+            },
+            "required": [
+                "name",
+                "teams",
+                "timeZone"
+            ],
+            "inputProperties": {
+                "layers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/OnCallScheduleLayer:OnCallScheduleLayer"
+                    },
+                    "description": "List of layers for the schedule.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "A human-readable name for the new schedule.\n"
+                },
+                "teams": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of team ids associated with the schedule.\n"
+                },
+                "timeZone": {
+                    "type": "string",
+                    "description": "The time zone in which the schedule is defined.\n"
+                }
+            },
+            "requiredInputs": [
+                "name",
+                "timeZone"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering OnCallSchedule resources.\n",
+                "properties": {
+                    "layers": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/datadog:index/OnCallScheduleLayer:OnCallScheduleLayer"
+                        },
+                        "description": "List of layers for the schedule.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "A human-readable name for the new schedule.\n"
+                    },
+                    "teams": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of team ids associated with the schedule.\n"
+                    },
+                    "timeZone": {
+                        "type": "string",
+                        "description": "The time zone in which the schedule is defined.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "datadog:index/onCallTeamRoutingRules:OnCallTeamRoutingRules": {
+            "description": "Provides a Datadog On-Call team routing rules resource.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  teamRulesTest:\n    type: datadog:OnCallTeamRoutingRules\n    name: team_rules_test\n    properties:\n      teamId: 00000000-aba2-0000-0000-000000000000\n      rules:\n        - query: tags.service:test\n          actions:\n            - sendSlackMessage:\n                - workspace: workspace\n                  channel: channel\n          timeRestrictions:\n            - timeZone: America/New_York\n              restrictions:\n                - endDay: monday\n                  endTime: 17:00:00\n                  startDay: monday\n                  startTime: 09:00:00\n        - escalationPolicy: 00000000-aba2-0000-0000-000000000000\n          urgency: dynamic\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nImport an existing on_call_schedule\n\n```sh\n$ pulumi import datadog:index/onCallTeamRoutingRules:OnCallTeamRoutingRules test \"b03a07d5-49da-43e9-83b4-5d84969b588b\"\n```\n\n",
+            "properties": {
+                "rules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/OnCallTeamRoutingRulesRule:OnCallTeamRoutingRulesRule"
+                    },
+                    "description": "List of team routing rules.\n"
+                },
+                "teamId": {
+                    "type": "string",
+                    "description": "ID of the team to associate the routing rules with.\n"
+                }
+            },
+            "required": [
+                "teamId"
+            ],
+            "inputProperties": {
+                "rules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/OnCallTeamRoutingRulesRule:OnCallTeamRoutingRulesRule"
+                    },
+                    "description": "List of team routing rules.\n"
+                },
+                "teamId": {
+                    "type": "string",
+                    "description": "ID of the team to associate the routing rules with.\n"
+                }
+            },
+            "requiredInputs": [
+                "teamId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering OnCallTeamRoutingRules resources.\n",
+                "properties": {
+                    "rules": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/datadog:index/OnCallTeamRoutingRulesRule:OnCallTeamRoutingRulesRule"
+                        },
+                        "description": "List of team routing rules.\n"
+                    },
+                    "teamId": {
+                        "type": "string",
+                        "description": "ID of the team to associate the routing rules with.\n"
                     }
                 },
                 "type": "object"
@@ -42172,6 +44948,37 @@
                 "type": "object"
             }
         },
+        "datadog:index/securityMonitoringRuleJson:SecurityMonitoringRuleJson": {
+            "description": "Provides a Datadog Security Monitoring Rule JSON resource. This can be used to create and manage Datadog security monitoring rules using raw JSON.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  # Example Security Monitoring Rule JSON\n  securityRuleJson:\n    type: datadog:SecurityMonitoringRuleJson\n    name: security_rule_json\n    properties:\n      rule: |\n        {\n          \"name\": \"High error rate security monitoring\",\n          \"isEnabled\": true,\n          \"type\": \"log_detection\",\n          \"message\": \"High error rate detected in logs\",\n          \"tags\": [\"env:prod\", \"security\"],\n          \"cases\": [\n            {\n              \"name\": \"high case\",\n              \"status\": \"high\",\n              \"condition\": \"errors \u003e 100 \u0026\u0026 warnings \u003e 1000\",\n              \"notifications\": [\"@security-team\"]\n            }\n          ],\n          \"queries\": [\n            {\n              \"name\": \"errors\",\n              \"query\": \"status:error\",\n              \"aggregation\": \"count\",\n              \"dataSource\": \"logs\",\n              \"groupByFields\": [\"service\", \"env\"]\n            },\n            {\n              \"name\": \"warnings\",\n              \"query\": \"status:warning\",\n              \"aggregation\": \"count\",\n              \"dataSource\": \"logs\",\n              \"groupByFields\": [\"service\", \"env\"]\n            }\n          ],\n          \"options\": {\n            \"evaluationWindow\": 300,\n            \"keepAlive\": 600,\n            \"maxSignalDuration\": 900,\n            \"detectionMethod\": \"threshold\"\n          }\n        }\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import datadog:index/securityMonitoringRuleJson:SecurityMonitoringRuleJson security_rule_json aaa-yyy-vvv\n```\n\n",
+            "properties": {
+                "json": {
+                    "type": "string",
+                    "description": "The JSON definition of the Security Monitoring Rule.\n"
+                }
+            },
+            "required": [
+                "json"
+            ],
+            "inputProperties": {
+                "json": {
+                    "type": "string",
+                    "description": "The JSON definition of the Security Monitoring Rule.\n"
+                }
+            },
+            "requiredInputs": [
+                "json"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering SecurityMonitoringRuleJson resources.\n",
+                "properties": {
+                    "json": {
+                        "type": "string",
+                        "description": "The JSON definition of the Security Monitoring Rule.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "datadog:index/securityMonitoringSuppression:SecurityMonitoringSuppression": {
             "description": "Provides a Datadog Security Monitoring Suppression API resource. It can be used to create and manage Datadog security monitoring suppression rules.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst mySuppression = new datadog.SecurityMonitoringSuppression(\"my_suppression\", {\n    name: \"My suppression\",\n    description: \"Suppression for low severity CloudTrail signals from John Doe, excluding test environments from analysis, limited to 2024\",\n    enabled: true,\n    ruleQuery: \"severity:low source:cloudtrail\",\n    suppressionQuery: \"@usr.id:john.doe\",\n    dataExclusionQuery: \"env:test\",\n    startDate: \"2024-12-01T16:00:00Z\",\n    expirationDate: \"2024-12-31T12:00:00Z\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nmy_suppression = datadog.SecurityMonitoringSuppression(\"my_suppression\",\n    name=\"My suppression\",\n    description=\"Suppression for low severity CloudTrail signals from John Doe, excluding test environments from analysis, limited to 2024\",\n    enabled=True,\n    rule_query=\"severity:low source:cloudtrail\",\n    suppression_query=\"@usr.id:john.doe\",\n    data_exclusion_query=\"env:test\",\n    start_date=\"2024-12-01T16:00:00Z\",\n    expiration_date=\"2024-12-31T12:00:00Z\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var mySuppression = new Datadog.SecurityMonitoringSuppression(\"my_suppression\", new()\n    {\n        Name = \"My suppression\",\n        Description = \"Suppression for low severity CloudTrail signals from John Doe, excluding test environments from analysis, limited to 2024\",\n        Enabled = true,\n        RuleQuery = \"severity:low source:cloudtrail\",\n        SuppressionQuery = \"@usr.id:john.doe\",\n        DataExclusionQuery = \"env:test\",\n        StartDate = \"2024-12-01T16:00:00Z\",\n        ExpirationDate = \"2024-12-31T12:00:00Z\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewSecurityMonitoringSuppression(ctx, \"my_suppression\", \u0026datadog.SecurityMonitoringSuppressionArgs{\n\t\t\tName:               pulumi.String(\"My suppression\"),\n\t\t\tDescription:        pulumi.String(\"Suppression for low severity CloudTrail signals from John Doe, excluding test environments from analysis, limited to 2024\"),\n\t\t\tEnabled:            pulumi.Bool(true),\n\t\t\tRuleQuery:          pulumi.String(\"severity:low source:cloudtrail\"),\n\t\t\tSuppressionQuery:   pulumi.String(\"@usr.id:john.doe\"),\n\t\t\tDataExclusionQuery: pulumi.String(\"env:test\"),\n\t\t\tStartDate:          pulumi.String(\"2024-12-01T16:00:00Z\"),\n\t\t\tExpirationDate:     pulumi.String(\"2024-12-31T12:00:00Z\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.SecurityMonitoringSuppression;\nimport com.pulumi.datadog.SecurityMonitoringSuppressionArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var mySuppression = new SecurityMonitoringSuppression(\"mySuppression\", SecurityMonitoringSuppressionArgs.builder()\n            .name(\"My suppression\")\n            .description(\"Suppression for low severity CloudTrail signals from John Doe, excluding test environments from analysis, limited to 2024\")\n            .enabled(true)\n            .ruleQuery(\"severity:low source:cloudtrail\")\n            .suppressionQuery(\"@usr.id:john.doe\")\n            .dataExclusionQuery(\"env:test\")\n            .startDate(\"2024-12-01T16:00:00Z\")\n            .expirationDate(\"2024-12-31T12:00:00Z\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  mySuppression:\n    type: datadog:SecurityMonitoringSuppression\n    name: my_suppression\n    properties:\n      name: My suppression\n      description: Suppression for low severity CloudTrail signals from John Doe, excluding test environments from analysis, limited to 2024\n      enabled: true\n      ruleQuery: severity:low source:cloudtrail\n      suppressionQuery: '@usr.id:john.doe'\n      dataExclusionQuery: env:test\n      startDate: 2024-12-01T16:00:00Z\n      expirationDate: 2024-12-31T12:00:00Z\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nSecurity monitoring suppressions can be imported using ID, for example:\n\n```sh\n$ pulumi import datadog:index/securityMonitoringSuppression:SecurityMonitoringSuppression my_suppression m0o-hto-lkb\n```\n\n",
             "properties": {
@@ -43023,7 +45830,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API\n"
+                    "description": "A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. **Note**: it's not currently possible to filter by these tags when querying via the API. If default tags are present at the provider level, they will be added to this resource.\n"
                 },
                 "targetThreshold": {
                     "type": "number",
@@ -43055,6 +45862,7 @@
             },
             "required": [
                 "name",
+                "tags",
                 "targetThreshold",
                 "thresholds",
                 "timeframe",
@@ -43101,7 +45909,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API\n"
+                    "description": "A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. **Note**: it's not currently possible to filter by these tags when querying via the API. If default tags are present at the provider level, they will be added to this resource.\n"
                 },
                 "targetThreshold": {
                     "type": "number",
@@ -43179,7 +45987,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API\n"
+                        "description": "A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. **Note**: it's not currently possible to filter by these tags when querying via the API. If default tags are present at the provider level, they will be added to this resource.\n"
                     },
                     "targetThreshold": {
                         "type": "number",
@@ -43791,7 +46599,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.\n"
+                    "description": "Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations or find the possible values listed in [this API response](https://app.datadoghq.com/api/v1/synthetics/locations?only_public=true).\n"
                 },
                 "message": {
                     "type": "string",
@@ -43956,7 +46764,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.\n"
+                    "description": "Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations or find the possible values listed in [this API response](https://app.datadoghq.com/api/v1/synthetics/locations?only_public=true).\n"
                 },
                 "message": {
                     "type": "string",
@@ -44118,7 +46926,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.\n"
+                        "description": "Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations or find the possible values listed in [this API response](https://app.datadoghq.com/api/v1/synthetics/locations?only_public=true).\n"
                     },
                     "message": {
                         "type": "string",
