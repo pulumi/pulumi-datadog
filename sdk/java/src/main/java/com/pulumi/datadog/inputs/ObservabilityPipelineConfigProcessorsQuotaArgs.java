@@ -118,6 +118,21 @@ public final class ObservabilityPipelineConfigProcessorsQuotaArgs extends com.pu
     }
 
     /**
+     * The action to take when the quota is exceeded: `drop`, `no_action`, or `overflow_routing`.
+     * 
+     */
+    @Import(name="overflowAction")
+    private @Nullable Output<String> overflowAction;
+
+    /**
+     * @return The action to take when the quota is exceeded: `drop`, `no_action`, or `overflow_routing`.
+     * 
+     */
+    public Optional<Output<String>> overflowAction() {
+        return Optional.ofNullable(this.overflowAction);
+    }
+
+    /**
      * The overrides for field-specific quotas.
      * 
      */
@@ -157,6 +172,7 @@ public final class ObservabilityPipelineConfigProcessorsQuotaArgs extends com.pu
         this.inputs = $.inputs;
         this.limit = $.limit;
         this.name = $.name;
+        this.overflowAction = $.overflowAction;
         this.overrides = $.overrides;
         this.partitionFields = $.partitionFields;
     }
@@ -322,6 +338,27 @@ public final class ObservabilityPipelineConfigProcessorsQuotaArgs extends com.pu
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param overflowAction The action to take when the quota is exceeded: `drop`, `no_action`, or `overflow_routing`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder overflowAction(@Nullable Output<String> overflowAction) {
+            $.overflowAction = overflowAction;
+            return this;
+        }
+
+        /**
+         * @param overflowAction The action to take when the quota is exceeded: `drop`, `no_action`, or `overflow_routing`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder overflowAction(String overflowAction) {
+            return overflowAction(Output.of(overflowAction));
         }
 
         /**

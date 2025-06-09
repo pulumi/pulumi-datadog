@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.DashboardWidgetTreemapDefinitionCustomLink;
 import com.pulumi.datadog.outputs.DashboardWidgetTreemapDefinitionRequest;
 import java.lang.String;
 import java.util.List;
@@ -13,6 +14,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetTreemapDefinition {
+    /**
+     * @return A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+     * 
+     */
+    private @Nullable List<DashboardWidgetTreemapDefinitionCustomLink> customLinks;
     /**
      * @return Nested block describing the request to use when displaying the widget.
      * 
@@ -25,6 +31,13 @@ public final class DashboardWidgetTreemapDefinition {
     private @Nullable String title;
 
     private DashboardWidgetTreemapDefinition() {}
+    /**
+     * @return A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+     * 
+     */
+    public List<DashboardWidgetTreemapDefinitionCustomLink> customLinks() {
+        return this.customLinks == null ? List.of() : this.customLinks;
+    }
     /**
      * @return Nested block describing the request to use when displaying the widget.
      * 
@@ -49,15 +62,26 @@ public final class DashboardWidgetTreemapDefinition {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable List<DashboardWidgetTreemapDefinitionCustomLink> customLinks;
         private @Nullable List<DashboardWidgetTreemapDefinitionRequest> requests;
         private @Nullable String title;
         public Builder() {}
         public Builder(DashboardWidgetTreemapDefinition defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.customLinks = defaults.customLinks;
     	      this.requests = defaults.requests;
     	      this.title = defaults.title;
         }
 
+        @CustomType.Setter
+        public Builder customLinks(@Nullable List<DashboardWidgetTreemapDefinitionCustomLink> customLinks) {
+
+            this.customLinks = customLinks;
+            return this;
+        }
+        public Builder customLinks(DashboardWidgetTreemapDefinitionCustomLink... customLinks) {
+            return customLinks(List.of(customLinks));
+        }
         @CustomType.Setter
         public Builder requests(@Nullable List<DashboardWidgetTreemapDefinitionRequest> requests) {
 
@@ -75,6 +99,7 @@ public final class DashboardWidgetTreemapDefinition {
         }
         public DashboardWidgetTreemapDefinition build() {
             final var _resultValue = new DashboardWidgetTreemapDefinition();
+            _resultValue.customLinks = customLinks;
             _resultValue.requests = requests;
             _resultValue.title = title;
             return _resultValue;

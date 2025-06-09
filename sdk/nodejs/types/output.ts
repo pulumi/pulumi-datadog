@@ -354,6 +354,28 @@ export interface CloudConfigurationRuleFilter {
     query: string;
 }
 
+export interface ComplianceCustomFrameworkRequirement {
+    /**
+     * The controls of the requirement. Length must be at least 1.
+     */
+    controls?: outputs.ComplianceCustomFrameworkRequirementControl[];
+    /**
+     * The name of the requirement. String length must be at least 1.
+     */
+    name: string;
+}
+
+export interface ComplianceCustomFrameworkRequirementControl {
+    /**
+     * The name of the control. String length must be at least 1.
+     */
+    name: string;
+    /**
+     * The set of rules IDs for the control. Length must be at least 1.
+     */
+    rulesIds: string[];
+}
+
 export interface DashboardListDashItem {
     /**
      * The ID of the dashboard to add
@@ -3233,11 +3255,11 @@ export interface DashboardWidgetListStreamDefinitionRequestColumn {
     /**
      * Widget column field.
      */
-    field: string;
+    field?: string;
     /**
      * Widget column width. Valid values are `auto`, `compact`, `full`.
      */
-    width: string;
+    width?: string;
 }
 
 export interface DashboardWidgetListStreamDefinitionRequestQuery {
@@ -8696,6 +8718,10 @@ export interface DashboardWidgetTraceServiceDefinition {
 
 export interface DashboardWidgetTreemapDefinition {
     /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
+    customLinks?: outputs.DashboardWidgetTreemapDefinitionCustomLink[];
+    /**
      * Nested block describing the request to use when displaying the widget.
      */
     requests?: outputs.DashboardWidgetTreemapDefinitionRequest[];
@@ -8703,6 +8729,25 @@ export interface DashboardWidgetTreemapDefinition {
      * The title of the widget.
      */
     title?: string;
+}
+
+export interface DashboardWidgetTreemapDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
+    isHidden?: boolean;
+    /**
+     * The label for the custom link URL.
+     */
+    label?: string;
+    /**
+     * The URL of the custom link.
+     */
+    link?: string;
+    /**
+     * The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     */
+    overrideLabel?: string;
 }
 
 export interface DashboardWidgetTreemapDefinitionRequest {
@@ -11511,9 +11556,119 @@ export interface ObservabilityPipelineConfig {
 
 export interface ObservabilityPipelineConfigDestinations {
     /**
+     * The `amazonOpensearch` destination writes logs to Amazon OpenSearch.
+     */
+    amazonOpensearches?: outputs.ObservabilityPipelineConfigDestinationsAmazonOpensearch[];
+    /**
+     * The `azureStorage` destination forwards logs to an Azure Blob Storage container.
+     */
+    azureStorages?: outputs.ObservabilityPipelineConfigDestinationsAzureStorage[];
+    /**
      * The `datadogLogs` destination forwards logs to Datadog Log Management.
      */
     datadogLogs?: outputs.ObservabilityPipelineConfigDestinationsDatadogLog[];
+    /**
+     * The `elasticsearch` destination writes logs to an Elasticsearch cluster.
+     */
+    elasticsearches?: outputs.ObservabilityPipelineConfigDestinationsElasticsearch[];
+    /**
+     * The `googleChronicle` destination sends logs to Google Chronicle.
+     */
+    googleChronicles?: outputs.ObservabilityPipelineConfigDestinationsGoogleChronicle[];
+    /**
+     * The `googleCloudStorage` destination stores logs in a Google Cloud Storage (GCS) bucket.
+     */
+    googleCloudStorages?: outputs.ObservabilityPipelineConfigDestinationsGoogleCloudStorage[];
+    /**
+     * The `microsoftSentinel` destination forwards logs to Microsoft Sentinel.
+     */
+    microsoftSentinels?: outputs.ObservabilityPipelineConfigDestinationsMicrosoftSentinel[];
+    /**
+     * The `newRelic` destination sends logs to the New Relic platform.
+     */
+    newRelics?: outputs.ObservabilityPipelineConfigDestinationsNewRelic[];
+    /**
+     * The `opensearch` destination writes logs to an OpenSearch cluster.
+     */
+    opensearches?: outputs.ObservabilityPipelineConfigDestinationsOpensearch[];
+    /**
+     * The `rsyslog` destination forwards logs to an external `rsyslog` server over TCP or UDP using the syslog protocol.
+     */
+    rsyslogs?: outputs.ObservabilityPipelineConfigDestinationsRsyslog[];
+    /**
+     * The `sentinelOne` destination sends logs to SentinelOne.
+     */
+    sentinelOnes?: outputs.ObservabilityPipelineConfigDestinationsSentinelOne[];
+    /**
+     * The `splunkHec` destination forwards logs to Splunk using the HTTP Event Collector (HEC).
+     */
+    splunkHecs?: outputs.ObservabilityPipelineConfigDestinationsSplunkHec[];
+    /**
+     * The `sumoLogic` destination forwards logs to Sumo Logic.
+     */
+    sumoLogics?: outputs.ObservabilityPipelineConfigDestinationsSumoLogic[];
+    /**
+     * The `syslogNg` destination forwards logs to an external `syslog-ng` server over TCP or UDP using the syslog protocol.
+     */
+    syslogNgs?: outputs.ObservabilityPipelineConfigDestinationsSyslogNg[];
+}
+
+export interface ObservabilityPipelineConfigDestinationsAmazonOpensearch {
+    auth?: outputs.ObservabilityPipelineConfigDestinationsAmazonOpensearchAuth;
+    /**
+     * The index or datastream to write logs to.
+     */
+    bulkIndex?: string;
+    /**
+     * The unique identifier for this component.
+     */
+    id: string;
+    /**
+     * A list of component IDs whose output is used as the input for this component.
+     */
+    inputs: string[];
+}
+
+export interface ObservabilityPipelineConfigDestinationsAmazonOpensearchAuth {
+    /**
+     * ARN of the role to assume.
+     */
+    assumeRole?: string;
+    /**
+     * AWS region override (if applicable).
+     */
+    awsRegion?: string;
+    /**
+     * External ID for assumed role.
+     */
+    externalId?: string;
+    /**
+     * Session name for assumed role.
+     */
+    sessionName?: string;
+    /**
+     * The authentication strategy to use (e.g. aws or basic).
+     */
+    strategy: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationsAzureStorage {
+    /**
+     * Optional prefix for blobs written to the container.
+     */
+    blobPrefix?: string;
+    /**
+     * The name of the Azure Blob Storage container to store logs in.
+     */
+    containerName: string;
+    /**
+     * The unique identifier for this component.
+     */
+    id: string;
+    /**
+     * A list of component IDs whose output is used as the `input` for this component.
+     */
+    inputs: string[];
 }
 
 export interface ObservabilityPipelineConfigDestinationsDatadogLog {
@@ -11527,15 +11682,354 @@ export interface ObservabilityPipelineConfigDestinationsDatadogLog {
     inputs: string[];
 }
 
+export interface ObservabilityPipelineConfigDestinationsElasticsearch {
+    /**
+     * The Elasticsearch API version to use. Set to `auto` to auto-detect.
+     */
+    apiVersion?: string;
+    /**
+     * The index or datastream to write logs to in Elasticsearch.
+     */
+    bulkIndex?: string;
+    /**
+     * The unique identifier for this component.
+     */
+    id: string;
+    /**
+     * A list of component IDs whose output is used as the `input` for this component.
+     */
+    inputs: string[];
+}
+
+export interface ObservabilityPipelineConfigDestinationsGoogleChronicle {
+    /**
+     * GCP credentials used to authenticate with Google Cloud Storage.
+     */
+    auth?: outputs.ObservabilityPipelineConfigDestinationsGoogleChronicleAuth;
+    /**
+     * The Google Chronicle customer ID.
+     */
+    customerId?: string;
+    /**
+     * The encoding format for the logs sent to Chronicle.
+     */
+    encoding?: string;
+    /**
+     * The unique identifier for this component.
+     */
+    id: string;
+    /**
+     * A list of component IDs whose output is used as the `input` for this component.
+     */
+    inputs: string[];
+    /**
+     * The log type metadata associated with the Chronicle destination.
+     */
+    logType?: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationsGoogleChronicleAuth {
+    /**
+     * Path to the GCP service account key file.
+     */
+    credentialsFile?: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationsGoogleCloudStorage {
+    /**
+     * Access control list setting for objects written to the bucket.
+     */
+    acl: string;
+    /**
+     * GCP credentials used to authenticate with Google Cloud Storage.
+     */
+    auth?: outputs.ObservabilityPipelineConfigDestinationsGoogleCloudStorageAuth;
+    /**
+     * Name of the GCS bucket.
+     */
+    bucket: string;
+    /**
+     * Unique identifier for the destination component.
+     */
+    id: string;
+    /**
+     * A list of component IDs whose output is used as the `input` for this component.
+     */
+    inputs: string[];
+    /**
+     * Optional prefix for object keys within the GCS bucket.
+     */
+    keyPrefix?: string;
+    /**
+     * Custom metadata key-value pairs added to each object.
+     */
+    metadatas?: outputs.ObservabilityPipelineConfigDestinationsGoogleCloudStorageMetadata[];
+    /**
+     * Storage class used for objects stored in GCS.
+     */
+    storageClass: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationsGoogleCloudStorageAuth {
+    /**
+     * Path to the GCP service account key file.
+     */
+    credentialsFile: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationsGoogleCloudStorageMetadata {
+    /**
+     * The metadata key.
+     */
+    name: string;
+    /**
+     * The metadata value.
+     */
+    value: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationsMicrosoftSentinel {
+    /**
+     * Azure AD client ID used for authentication.
+     */
+    clientId: string;
+    /**
+     * The immutable ID of the Data Collection Rule (DCR).
+     */
+    dcrImmutableId: string;
+    /**
+     * The unique identifier for this component.
+     */
+    id: string;
+    /**
+     * A list of component IDs whose output is used as the `input` for this component.
+     */
+    inputs: string[];
+    /**
+     * The name of the Log Analytics table where logs will be sent.
+     */
+    table: string;
+    /**
+     * Azure AD tenant ID.
+     */
+    tenantId: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationsNewRelic {
+    /**
+     * The unique identifier for this component.
+     */
+    id: string;
+    /**
+     * A list of component IDs whose output is used as the `input` for this component.
+     */
+    inputs: string[];
+    /**
+     * The New Relic region.
+     */
+    region: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationsOpensearch {
+    /**
+     * The index or datastream to write logs to.
+     */
+    bulkIndex?: string;
+    /**
+     * The unique identifier for this component.
+     */
+    id: string;
+    /**
+     * A list of component IDs whose output is used as input.
+     */
+    inputs: string[];
+}
+
+export interface ObservabilityPipelineConfigDestinationsRsyslog {
+    /**
+     * The unique identifier for this component.
+     */
+    id: string;
+    /**
+     * A list of component IDs whose output is used as the `input` for this component.
+     */
+    inputs: string[];
+    /**
+     * Optional socket keepalive duration in milliseconds.
+     */
+    keepalive?: number;
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     */
+    tls?: outputs.ObservabilityPipelineConfigDestinationsRsyslogTls;
+}
+
+export interface ObservabilityPipelineConfigDestinationsRsyslogTls {
+    /**
+     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     */
+    caFile?: string;
+    /**
+     * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     */
+    crtFile?: string;
+    /**
+     * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     */
+    keyFile?: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationsSentinelOne {
+    /**
+     * The unique identifier for this component.
+     */
+    id: string;
+    /**
+     * A list of component IDs whose output is used as the `input` for this component.
+     */
+    inputs: string[];
+    /**
+     * The SentinelOne region to send logs to.
+     */
+    region: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationsSplunkHec {
+    /**
+     * If `true`, Splunk tries to extract timestamps from incoming log events.
+     */
+    autoExtractTimestamp?: boolean;
+    /**
+     * Encoding format for log events. Valid values: `json`, `rawMessage`.
+     */
+    encoding?: string;
+    /**
+     * The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
+     */
+    id: string;
+    /**
+     * Optional name of the Splunk index where logs are written.
+     */
+    index?: string;
+    /**
+     * A list of component IDs whose output is used as the `input` for this component.
+     */
+    inputs: string[];
+    /**
+     * The Splunk sourcetype to assign to log events.
+     */
+    sourcetype?: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationsSumoLogic {
+    /**
+     * The output encoding format.
+     */
+    encoding?: string;
+    /**
+     * A list of custom headers to include in the request to Sumo Logic.
+     */
+    headerCustomFields?: outputs.ObservabilityPipelineConfigDestinationsSumoLogicHeaderCustomField[];
+    /**
+     * Optional override for the host name header.
+     */
+    headerHostName?: string;
+    /**
+     * Optional override for the source category header.
+     */
+    headerSourceCategory?: string;
+    /**
+     * Optional override for the source name header.
+     */
+    headerSourceName?: string;
+    /**
+     * The unique identifier for this component.
+     */
+    id: string;
+    /**
+     * A list of component IDs whose output is used as the `input` for this component.
+     */
+    inputs: string[];
+}
+
+export interface ObservabilityPipelineConfigDestinationsSumoLogicHeaderCustomField {
+    /**
+     * The header field name.
+     */
+    name?: string;
+    /**
+     * The header field value.
+     */
+    value?: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationsSyslogNg {
+    /**
+     * The unique identifier for this component.
+     */
+    id: string;
+    /**
+     * A list of component IDs whose output is used as the `input` for this component.
+     */
+    inputs: string[];
+    /**
+     * Optional socket keepalive duration in milliseconds.
+     */
+    keepalive?: number;
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     */
+    tls?: outputs.ObservabilityPipelineConfigDestinationsSyslogNgTls;
+}
+
+export interface ObservabilityPipelineConfigDestinationsSyslogNgTls {
+    /**
+     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     */
+    caFile?: string;
+    /**
+     * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     */
+    crtFile?: string;
+    /**
+     * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     */
+    keyFile?: string;
+}
+
 export interface ObservabilityPipelineConfigProcessors {
+    /**
+     * The `addEnvVars` processor adds environment variable values to log events.
+     */
+    addEnvVars?: outputs.ObservabilityPipelineConfigProcessorsAddEnvVar[];
     /**
      * The `addFields` processor adds static key-value fields to logs.
      */
     addFields?: outputs.ObservabilityPipelineConfigProcessorsAddField[];
     /**
+     * The `dedupe` processor removes duplicate fields in log events.
+     */
+    dedupes?: outputs.ObservabilityPipelineConfigProcessorsDedupe[];
+    /**
+     * The `enrichmentTable` processor enriches logs using a static CSV file or GeoIP database.
+     */
+    enrichmentTables?: outputs.ObservabilityPipelineConfigProcessorsEnrichmentTable[];
+    /**
      * The `filter` processor allows conditional processing of logs based on a Datadog search query. Logs that match the `include` query are passed through; others are discarded.
      */
     filters?: outputs.ObservabilityPipelineConfigProcessorsFilter[];
+    /**
+     * The `generateDatadogMetrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields.
+     */
+    generateDatadogMetrics?: outputs.ObservabilityPipelineConfigProcessorsGenerateDatadogMetric[];
+    /**
+     * The `ocsfMapper` processor transforms logs into the OCSF schema using predefined library mappings.
+     */
+    ocsfMappers?: outputs.ObservabilityPipelineConfigProcessorsOcsfMapper[];
+    /**
+     * The `parseGrok` processor extracts structured fields from unstructured log messages using Grok patterns.
+     */
+    parseGroks?: outputs.ObservabilityPipelineConfigProcessorsParseGrok[];
     /**
      * The `parseJson` processor extracts JSON from a specified field and flattens it into the event. This is useful when logs contain embedded JSON as a string.
      */
@@ -11545,6 +12039,10 @@ export interface ObservabilityPipelineConfigProcessors {
      */
     quotas?: outputs.ObservabilityPipelineConfigProcessorsQuota[];
     /**
+     * The `reduce` processor aggregates and merges logs based on matching keys and merge strategies.
+     */
+    reduces?: outputs.ObservabilityPipelineConfigProcessorsReduce[];
+    /**
      * The `removeFields` processor deletes specified fields from logs.
      */
     removeFields?: outputs.ObservabilityPipelineConfigProcessorsRemoveField[];
@@ -11552,6 +12050,48 @@ export interface ObservabilityPipelineConfigProcessors {
      * The `renameFields` processor changes field names.
      */
     renameFields?: outputs.ObservabilityPipelineConfigProcessorsRenameField[];
+    /**
+     * The `sample` processor allows probabilistic sampling of logs at a fixed rate.
+     */
+    samples?: outputs.ObservabilityPipelineConfigProcessorsSample[];
+    /**
+     * The `sensitiveDataScanner` processor detects and optionally redacts sensitive data in log events.
+     */
+    sensitiveDataScanners?: outputs.ObservabilityPipelineConfigProcessorsSensitiveDataScanner[];
+    /**
+     * The `throttle` processor limits the number of events that pass through over a given time window.
+     */
+    throttles?: outputs.ObservabilityPipelineConfigProcessorsThrottle[];
+}
+
+export interface ObservabilityPipelineConfigProcessorsAddEnvVar {
+    /**
+     * The unique identifier for this component. Used to reference this processor in the pipeline.
+     */
+    id: string;
+    /**
+     * A Datadog search query used to determine which logs this processor targets.
+     */
+    include: string;
+    /**
+     * A list of component IDs whose output is used as the input for this processor.
+     */
+    inputs: string[];
+    /**
+     * A list of environment variable mappings to apply to log fields.
+     */
+    variables?: outputs.ObservabilityPipelineConfigProcessorsAddEnvVarVariable[];
+}
+
+export interface ObservabilityPipelineConfigProcessorsAddEnvVarVariable {
+    /**
+     * The target field in the log event.
+     */
+    field: string;
+    /**
+     * The name of the environment variable to read.
+     */
+    name: string;
 }
 
 export interface ObservabilityPipelineConfigProcessorsAddField {
@@ -11584,6 +12124,128 @@ export interface ObservabilityPipelineConfigProcessorsAddFieldField {
     value: string;
 }
 
+export interface ObservabilityPipelineConfigProcessorsDedupe {
+    /**
+     * A list of log field paths to check for duplicates.
+     */
+    fields: string[];
+    /**
+     * The unique identifier for this processor.
+     */
+    id: string;
+    /**
+     * A Datadog search query used to determine which logs this processor targets.
+     */
+    include: string;
+    /**
+     * A list of component IDs whose output is used as the input for this processor.
+     */
+    inputs: string[];
+    /**
+     * The deduplication mode to apply to the fields.
+     */
+    mode: string;
+}
+
+export interface ObservabilityPipelineConfigProcessorsEnrichmentTable {
+    /**
+     * Defines a static enrichment table loaded from a CSV file.
+     */
+    file?: outputs.ObservabilityPipelineConfigProcessorsEnrichmentTableFile;
+    /**
+     * Uses a GeoIP database to enrich logs based on an IP field.
+     */
+    geoip?: outputs.ObservabilityPipelineConfigProcessorsEnrichmentTableGeoip;
+    /**
+     * The unique identifier for this processor.
+     */
+    id: string;
+    /**
+     * A Datadog search query used to determine which logs this processor targets.
+     */
+    include: string;
+    /**
+     * A list of component IDs whose output is used as the input for this processor.
+     */
+    inputs: string[];
+    /**
+     * Path where enrichment results should be stored in the log.
+     */
+    target: string;
+}
+
+export interface ObservabilityPipelineConfigProcessorsEnrichmentTableFile {
+    encoding?: outputs.ObservabilityPipelineConfigProcessorsEnrichmentTableFileEncoding;
+    /**
+     * Key fields used to look up enrichment values.
+     */
+    keys?: outputs.ObservabilityPipelineConfigProcessorsEnrichmentTableFileKey[];
+    /**
+     * Path to the CSV file.
+     */
+    path?: string;
+    /**
+     * Schema defining column names and their types.
+     */
+    schemas?: outputs.ObservabilityPipelineConfigProcessorsEnrichmentTableFileSchema[];
+}
+
+export interface ObservabilityPipelineConfigProcessorsEnrichmentTableFileEncoding {
+    /**
+     * The `encoding` `delimiter`.
+     */
+    delimiter?: string;
+    /**
+     * The `encoding` `includesHeaders`.
+     */
+    includesHeaders?: boolean;
+    /**
+     * File encoding format.
+     */
+    type?: string;
+}
+
+export interface ObservabilityPipelineConfigProcessorsEnrichmentTableFileKey {
+    /**
+     * The `items` `column`.
+     */
+    column?: string;
+    /**
+     * The comparison method (e.g. equals).
+     */
+    comparison?: string;
+    /**
+     * The `items` `field`.
+     */
+    field?: string;
+}
+
+export interface ObservabilityPipelineConfigProcessorsEnrichmentTableFileSchema {
+    /**
+     * The `items` `column`.
+     */
+    column?: string;
+    /**
+     * The type of the column (e.g. string, boolean, integer, etc.).
+     */
+    type?: string;
+}
+
+export interface ObservabilityPipelineConfigProcessorsEnrichmentTableGeoip {
+    /**
+     * Path to the IP field in the log.
+     */
+    keyField?: string;
+    /**
+     * Locale used to resolve geographical names.
+     */
+    locale?: string;
+    /**
+     * Path to the GeoIP database file.
+     */
+    path?: string;
+}
+
 export interface ObservabilityPipelineConfigProcessorsFilter {
     /**
      * The unique ID of the processor.
@@ -11597,6 +12259,149 @@ export interface ObservabilityPipelineConfigProcessorsFilter {
      * The inputs for the processor.
      */
     inputs: string[];
+}
+
+export interface ObservabilityPipelineConfigProcessorsGenerateDatadogMetric {
+    /**
+     * The unique identifier for this component. Used to reference this component in other parts of the pipeline.
+     */
+    id: string;
+    /**
+     * A Datadog search query used to determine which logs this processor targets.
+     */
+    include: string;
+    /**
+     * A list of component IDs whose output is used as the `input` for this processor.
+     */
+    inputs: string[];
+    /**
+     * Configuration for generating individual metrics.
+     */
+    metrics?: outputs.ObservabilityPipelineConfigProcessorsGenerateDatadogMetricMetric[];
+}
+
+export interface ObservabilityPipelineConfigProcessorsGenerateDatadogMetricMetric {
+    /**
+     * Optional fields used to group the metric series.
+     */
+    groupBies?: string[];
+    /**
+     * Datadog filter query to match logs for metric generation.
+     */
+    include: string;
+    /**
+     * Type of metric to create.
+     */
+    metricType: string;
+    /**
+     * Name of the custom metric to be created.
+     */
+    name: string;
+    /**
+     * Specifies how the value of the generated metric is computed.
+     */
+    value?: outputs.ObservabilityPipelineConfigProcessorsGenerateDatadogMetricMetricValue;
+}
+
+export interface ObservabilityPipelineConfigProcessorsGenerateDatadogMetricMetricValue {
+    /**
+     * Name of the log field containing the numeric value to increment the metric by (used only for `incrementByField`).
+     */
+    field?: string;
+    /**
+     * Metric value strategy: `incrementByOne` or `incrementByField`.
+     */
+    strategy: string;
+}
+
+export interface ObservabilityPipelineConfigProcessorsOcsfMapper {
+    /**
+     * The unique identifier for this component.
+     */
+    id: string;
+    /**
+     * Search query to select logs.
+     */
+    include: string;
+    /**
+     * List of component IDs whose output is used as input.
+     */
+    inputs: string[];
+    /**
+     * List of OCSF mapping entries using library mapping.
+     */
+    mappings?: outputs.ObservabilityPipelineConfigProcessorsOcsfMapperMapping[];
+}
+
+export interface ObservabilityPipelineConfigProcessorsOcsfMapperMapping {
+    /**
+     * Search query for selecting which logs the mapping applies to.
+     */
+    include: string;
+    /**
+     * Predefined library mapping for log transformation.
+     */
+    libraryMapping: string;
+}
+
+export interface ObservabilityPipelineConfigProcessorsParseGrok {
+    /**
+     * If set to `true`, disables the default Grok rules provided by Datadog.
+     */
+    disableLibraryRules?: boolean;
+    /**
+     * A unique identifier for this processor.
+     */
+    id: string;
+    /**
+     * A Datadog search query used to determine which logs this processor targets.
+     */
+    include: string;
+    /**
+     * A list of component IDs whose output is used as the `input` for this component.
+     */
+    inputs: string[];
+    /**
+     * The list of Grok parsing rules. If multiple parsing rules are provided, they are evaluated in order. The first successful match is applied.
+     */
+    rules?: outputs.ObservabilityPipelineConfigProcessorsParseGrokRule[];
+}
+
+export interface ObservabilityPipelineConfigProcessorsParseGrokRule {
+    /**
+     * A list of Grok parsing rules that define how to extract fields from the source field. Each rule must contain a name and a valid Grok pattern.
+     */
+    matchRules?: outputs.ObservabilityPipelineConfigProcessorsParseGrokRuleMatchRule[];
+    /**
+     * The name of the field in the log event to apply the Grok rules to.
+     */
+    source: string;
+    /**
+     * A list of helper Grok rules that can be referenced by the parsing rules.
+     */
+    supportRules?: outputs.ObservabilityPipelineConfigProcessorsParseGrokRuleSupportRule[];
+}
+
+export interface ObservabilityPipelineConfigProcessorsParseGrokRuleMatchRule {
+    /**
+     * The name of the rule.
+     */
+    name: string;
+    /**
+     * The definition of the Grok rule.
+     */
+    rule: string;
+}
+
+export interface ObservabilityPipelineConfigProcessorsParseGrokRuleSupportRule {
+    /**
+     * The name of the helper Grok rule.
+     */
+    name: string;
+    /**
+     * The definition of the helper Grok rule.
+     */
+    rule: string;
 }
 
 export interface ObservabilityPipelineConfigProcessorsParseJson {
@@ -11644,6 +12449,10 @@ export interface ObservabilityPipelineConfigProcessorsQuota {
      * The name of the quota.
      */
     name: string;
+    /**
+     * The action to take when the quota is exceeded: `drop`, `noAction`, or `overflowRouting`.
+     */
+    overflowAction?: string;
     /**
      * The overrides for field-specific quotas.
      */
@@ -11695,6 +12504,40 @@ export interface ObservabilityPipelineConfigProcessorsQuotaOverrideLimit {
     limit: number;
 }
 
+export interface ObservabilityPipelineConfigProcessorsReduce {
+    /**
+     * A list of fields used to group log events for merging.
+     */
+    groupBies: string[];
+    /**
+     * The unique identifier for this processor.
+     */
+    id: string;
+    /**
+     * A Datadog search query used to determine which logs this processor targets.
+     */
+    include: string;
+    /**
+     * A list of component IDs whose output is used as the input for this processor.
+     */
+    inputs: string[];
+    /**
+     * List of merge strategies defining how values from grouped events should be combined.
+     */
+    mergeStrategies?: outputs.ObservabilityPipelineConfigProcessorsReduceMergeStrategy[];
+}
+
+export interface ObservabilityPipelineConfigProcessorsReduceMergeStrategy {
+    /**
+     * The field path in the log event.
+     */
+    path: string;
+    /**
+     * The merge strategy to apply.
+     */
+    strategy: string;
+}
+
 export interface ObservabilityPipelineConfigProcessorsRemoveField {
     /**
      * List of fields to remove from the events.
@@ -11728,7 +12571,7 @@ export interface ObservabilityPipelineConfigProcessorsRenameField {
      */
     include: string;
     /**
-     * he inputs for the processor.
+     * The inputs for the processor.
      */
     inputs: string[];
 }
@@ -11748,15 +12591,362 @@ export interface ObservabilityPipelineConfigProcessorsRenameFieldField {
     source: string;
 }
 
+export interface ObservabilityPipelineConfigProcessorsSample {
+    /**
+     * The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `input` to downstream components).
+     */
+    id: string;
+    /**
+     * A Datadog search query used to determine which logs this processor targets.
+     */
+    include: string;
+    /**
+     * A list of component IDs whose output is used as the `input` for this component.
+     */
+    inputs: string[];
+    /**
+     * The percentage of logs to sample.
+     */
+    percentage?: number;
+    /**
+     * Number of events to sample (1 in N).
+     */
+    rate?: number;
+}
+
+export interface ObservabilityPipelineConfigProcessorsSensitiveDataScanner {
+    /**
+     * The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
+     */
+    id: string;
+    /**
+     * A Datadog search query used to determine which logs this processor targets.
+     */
+    include: string;
+    /**
+     * A list of component IDs whose output is used as the `input` for this component.
+     */
+    inputs: string[];
+    /**
+     * A list of rules for identifying and acting on sensitive data patterns.
+     */
+    rules?: outputs.ObservabilityPipelineConfigProcessorsSensitiveDataScannerRule[];
+}
+
+export interface ObservabilityPipelineConfigProcessorsSensitiveDataScannerRule {
+    /**
+     * Keyword-based proximity matching for sensitive data.
+     */
+    keywordOptions?: outputs.ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleKeywordOptions;
+    /**
+     * A name identifying the rule.
+     */
+    name?: string;
+    /**
+     * The action to take when a sensitive value is found.
+     */
+    onMatch?: outputs.ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleOnMatch;
+    /**
+     * Pattern detection configuration for identifying sensitive data using either a custom regex or a library reference.
+     */
+    pattern?: outputs.ObservabilityPipelineConfigProcessorsSensitiveDataScannerRulePattern;
+    /**
+     * Field-level targeting options that determine where the scanner should operate.
+     */
+    scope?: outputs.ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleScope;
+    /**
+     * Tags assigned to this rule for filtering and classification.
+     */
+    tags?: string[];
+}
+
+export interface ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleKeywordOptions {
+    /**
+     * A list of keywords to match near the sensitive pattern.
+     */
+    keywords?: string[];
+    /**
+     * Maximum number of tokens between a keyword and a sensitive value match.
+     */
+    proximity?: number;
+}
+
+export interface ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleOnMatch {
+    /**
+     * Hashes the matched value.
+     */
+    hash?: outputs.ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleOnMatchHash;
+    /**
+     * Redacts part of the matched value (e.g., keep last 4 characters).
+     */
+    partialRedact?: outputs.ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleOnMatchPartialRedact;
+    /**
+     * Redacts the matched value.
+     */
+    redact?: outputs.ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleOnMatchRedact;
+}
+
+export interface ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleOnMatchHash {
+}
+
+export interface ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleOnMatchPartialRedact {
+    /**
+     * Number of characters to keep.
+     */
+    characters?: number;
+    /**
+     * Direction from which to keep characters: `first` or `last`.
+     */
+    direction?: string;
+}
+
+export interface ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleOnMatchRedact {
+    /**
+     * Replacement string for redacted values (e.g., `***`).
+     */
+    replace?: string;
+}
+
+export interface ObservabilityPipelineConfigProcessorsSensitiveDataScannerRulePattern {
+    /**
+     * Pattern detection using a custom regular expression.
+     */
+    custom?: outputs.ObservabilityPipelineConfigProcessorsSensitiveDataScannerRulePatternCustom;
+    /**
+     * Pattern detection using a predefined pattern from the sensitive data scanner pattern library.
+     */
+    library?: outputs.ObservabilityPipelineConfigProcessorsSensitiveDataScannerRulePatternLibrary;
+}
+
+export interface ObservabilityPipelineConfigProcessorsSensitiveDataScannerRulePatternCustom {
+    /**
+     * A regular expression used to detect sensitive values. Must be a valid regex.
+     */
+    rule?: string;
+}
+
+export interface ObservabilityPipelineConfigProcessorsSensitiveDataScannerRulePatternLibrary {
+    /**
+     * Identifier for a predefined pattern from the sensitive data scanner pattern library.
+     */
+    id?: string;
+    /**
+     * Whether to augment the pattern with recommended keywords (optional).
+     */
+    useRecommendedKeywords?: boolean;
+}
+
+export interface ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleScope {
+    /**
+     * Scan all fields.
+     */
+    all?: boolean;
+    /**
+     * Explicitly exclude these fields from scanning.
+     */
+    exclude?: outputs.ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleScopeExclude;
+    /**
+     * Explicitly include these fields for scanning.
+     */
+    include?: outputs.ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleScopeInclude;
+}
+
+export interface ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleScopeExclude {
+    /**
+     * The fields to exclude from scanning.
+     */
+    fields?: string[];
+}
+
+export interface ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleScopeInclude {
+    /**
+     * The fields to include in scanning.
+     */
+    fields?: string[];
+}
+
+export interface ObservabilityPipelineConfigProcessorsThrottle {
+    /**
+     * Optional list of fields used to group events before applying throttling.
+     */
+    groupBies?: string[];
+    /**
+     * The unique identifier for this processor.
+     */
+    id: string;
+    /**
+     * A Datadog search query used to determine which logs this processor targets.
+     */
+    include: string;
+    /**
+     * A list of component IDs whose output is used as the input for this processor.
+     */
+    inputs: string[];
+    /**
+     * The number of events to allow before throttling is applied.
+     */
+    threshold: number;
+    /**
+     * The time window in seconds over which the threshold applies.
+     */
+    window: number;
+}
+
 export interface ObservabilityPipelineConfigSources {
+    /**
+     * The `amazonDataFirehose` source ingests logs from AWS Data Firehose.
+     */
+    amazonDataFirehoses?: outputs.ObservabilityPipelineConfigSourcesAmazonDataFirehose[];
+    /**
+     * The `amazonS3` source ingests logs from an Amazon S3 bucket. It supports AWS authentication and TLS encryption.
+     */
+    amazonS3s?: outputs.ObservabilityPipelineConfigSourcesAmazonS3[];
     /**
      * The `datadogAgent` source collects logs from the Datadog Agent.
      */
     datadogAgents?: outputs.ObservabilityPipelineConfigSourcesDatadogAgent[];
     /**
+     * The `fluent` source ingests logs from Fluent Bit.
+     */
+    fluentBits?: outputs.ObservabilityPipelineConfigSourcesFluentBit[];
+    /**
+     * The `fluent` source ingests logs from a Fluentd-compatible service.
+     */
+    fluentds?: outputs.ObservabilityPipelineConfigSourcesFluentd[];
+    /**
+     * The `googlePubsub` source ingests logs from a Google Cloud Pub/Sub subscription.
+     */
+    googlePubsubs?: outputs.ObservabilityPipelineConfigSourcesGooglePubsub[];
+    /**
+     * The `httpClient` source scrapes logs from HTTP endpoints at regular intervals.
+     */
+    httpClients?: outputs.ObservabilityPipelineConfigSourcesHttpClient[];
+    /**
+     * The `httpServer` source collects logs over HTTP POST from external services.
+     */
+    httpServers?: outputs.ObservabilityPipelineConfigSourcesHttpServer[];
+    /**
      * The `kafka` source ingests data from Apache Kafka topics.
      */
     kafkas?: outputs.ObservabilityPipelineConfigSourcesKafka[];
+    /**
+     * The `logstash` source ingests logs from a Logstash forwarder.
+     */
+    logstashes?: outputs.ObservabilityPipelineConfigSourcesLogstash[];
+    /**
+     * The `rsyslog` source listens for logs over TCP or UDP from an `rsyslog` server using the syslog protocol.
+     */
+    rsyslogs?: outputs.ObservabilityPipelineConfigSourcesRsyslog[];
+    /**
+     * The `splunkHec` source implements the Splunk HTTP Event Collector (HEC) API.
+     */
+    splunkHecs?: outputs.ObservabilityPipelineConfigSourcesSplunkHec[];
+    /**
+     * The `splunkTcp` source receives logs from a Splunk Universal Forwarder over TCP. TLS is supported for secure transmission.
+     */
+    splunkTcps?: outputs.ObservabilityPipelineConfigSourcesSplunkTcp[];
+    /**
+     * The `sumoLogic` source receives logs from Sumo Logic collectors.
+     */
+    sumoLogics?: outputs.ObservabilityPipelineConfigSourcesSumoLogic[];
+    /**
+     * The `syslogNg` source listens for logs over TCP or UDP from a `syslog-ng` server using the syslog protocol.
+     */
+    syslogNgs?: outputs.ObservabilityPipelineConfigSourcesSyslogNg[];
+}
+
+export interface ObservabilityPipelineConfigSourcesAmazonDataFirehose {
+    /**
+     * AWS authentication credentials used for accessing AWS services such as S3. If omitted, the system’s default credentials are used (for example, the IAM role and environment variables).
+     */
+    auth?: outputs.ObservabilityPipelineConfigSourcesAmazonDataFirehoseAuth;
+    /**
+     * The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
+     */
+    id: string;
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     */
+    tls?: outputs.ObservabilityPipelineConfigSourcesAmazonDataFirehoseTls;
+}
+
+export interface ObservabilityPipelineConfigSourcesAmazonDataFirehoseAuth {
+    /**
+     * The Amazon Resource Name (ARN) of the role to assume.
+     */
+    assumeRole?: string;
+    /**
+     * A unique identifier for cross-account role assumption.
+     */
+    externalId?: string;
+    /**
+     * A session identifier used for logging and tracing the assumed role session.
+     */
+    sessionName?: string;
+}
+
+export interface ObservabilityPipelineConfigSourcesAmazonDataFirehoseTls {
+    /**
+     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     */
+    caFile?: string;
+    /**
+     * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     */
+    crtFile?: string;
+    /**
+     * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     */
+    keyFile?: string;
+}
+
+export interface ObservabilityPipelineConfigSourcesAmazonS3 {
+    /**
+     * AWS authentication credentials used for accessing AWS services such as S3. If omitted, the system’s default credentials are used (for example, the IAM role and environment variables).
+     */
+    auth?: outputs.ObservabilityPipelineConfigSourcesAmazonS3Auth;
+    /**
+     * The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
+     */
+    id: string;
+    /**
+     * AWS region where the S3 bucket resides.
+     */
+    region: string;
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     */
+    tls?: outputs.ObservabilityPipelineConfigSourcesAmazonS3Tls;
+}
+
+export interface ObservabilityPipelineConfigSourcesAmazonS3Auth {
+    /**
+     * The Amazon Resource Name (ARN) of the role to assume.
+     */
+    assumeRole?: string;
+    /**
+     * A unique identifier for cross-account role assumption.
+     */
+    externalId?: string;
+    /**
+     * A session identifier used for logging and tracing the assumed role session.
+     */
+    sessionName?: string;
+}
+
+export interface ObservabilityPipelineConfigSourcesAmazonS3Tls {
+    /**
+     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     */
+    caFile?: string;
+    /**
+     * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     */
+    crtFile?: string;
+    /**
+     * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     */
+    keyFile?: string;
 }
 
 export interface ObservabilityPipelineConfigSourcesDatadogAgent {
@@ -11778,7 +12968,184 @@ export interface ObservabilityPipelineConfigSourcesDatadogAgentTls {
     /**
      * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
      */
-    crtFile: string;
+    crtFile?: string;
+    /**
+     * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     */
+    keyFile?: string;
+}
+
+export interface ObservabilityPipelineConfigSourcesFluentBit {
+    /**
+     * The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `input` to downstream components).
+     */
+    id: string;
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     */
+    tls?: outputs.ObservabilityPipelineConfigSourcesFluentBitTls;
+}
+
+export interface ObservabilityPipelineConfigSourcesFluentBitTls {
+    /**
+     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     */
+    caFile?: string;
+    /**
+     * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     */
+    crtFile?: string;
+    /**
+     * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     */
+    keyFile?: string;
+}
+
+export interface ObservabilityPipelineConfigSourcesFluentd {
+    /**
+     * The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `input` to downstream components).
+     */
+    id: string;
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     */
+    tls?: outputs.ObservabilityPipelineConfigSourcesFluentdTls;
+}
+
+export interface ObservabilityPipelineConfigSourcesFluentdTls {
+    /**
+     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     */
+    caFile?: string;
+    /**
+     * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     */
+    crtFile?: string;
+    /**
+     * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     */
+    keyFile?: string;
+}
+
+export interface ObservabilityPipelineConfigSourcesGooglePubsub {
+    /**
+     * GCP credentials used to authenticate with Google Cloud Storage.
+     */
+    auth?: outputs.ObservabilityPipelineConfigSourcesGooglePubsubAuth;
+    /**
+     * The decoding format used to interpret incoming logs.
+     */
+    decoding: string;
+    /**
+     * The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
+     */
+    id: string;
+    /**
+     * The GCP project ID that owns the Pub/Sub subscription.
+     */
+    project: string;
+    /**
+     * The Pub/Sub subscription name from which messages are consumed.
+     */
+    subscription: string;
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     */
+    tls?: outputs.ObservabilityPipelineConfigSourcesGooglePubsubTls;
+}
+
+export interface ObservabilityPipelineConfigSourcesGooglePubsubAuth {
+    /**
+     * Path to the GCP service account key file.
+     */
+    credentialsFile: string;
+}
+
+export interface ObservabilityPipelineConfigSourcesGooglePubsubTls {
+    /**
+     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     */
+    caFile?: string;
+    /**
+     * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     */
+    crtFile?: string;
+    /**
+     * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     */
+    keyFile?: string;
+}
+
+export interface ObservabilityPipelineConfigSourcesHttpClient {
+    /**
+     * Optional authentication strategy for HTTP requests.
+     */
+    authStrategy?: string;
+    /**
+     * The decoding format used to interpret incoming logs.
+     */
+    decoding: string;
+    /**
+     * The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
+     */
+    id: string;
+    /**
+     * The interval (in seconds) between HTTP scrape requests.
+     */
+    scrapeIntervalSecs?: number;
+    /**
+     * The timeout (in seconds) for each scrape request.
+     */
+    scrapeTimeoutSecs?: number;
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     */
+    tls?: outputs.ObservabilityPipelineConfigSourcesHttpClientTls;
+}
+
+export interface ObservabilityPipelineConfigSourcesHttpClientTls {
+    /**
+     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     */
+    caFile?: string;
+    /**
+     * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     */
+    crtFile?: string;
+    /**
+     * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     */
+    keyFile?: string;
+}
+
+export interface ObservabilityPipelineConfigSourcesHttpServer {
+    /**
+     * HTTP authentication method. Valid values are `none`, `plain`.
+     */
+    authStrategy: string;
+    /**
+     * The decoding format used to interpret incoming logs. Valid values are `json`, `gelf`, `syslog`, `bytes`.
+     */
+    decoding: string;
+    /**
+     * Unique ID for the HTTP server source.
+     */
+    id: string;
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     */
+    tls?: outputs.ObservabilityPipelineConfigSourcesHttpServerTls;
+}
+
+export interface ObservabilityPipelineConfigSourcesHttpServerTls {
+    /**
+     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     */
+    caFile?: string;
+    /**
+     * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     */
+    crtFile?: string;
     /**
      * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
      */
@@ -11827,7 +13194,7 @@ export interface ObservabilityPipelineConfigSourcesKafkaSasl {
     /**
      * SASL mechanism to use (e.g., PLAIN, SCRAM-SHA-256, SCRAM-SHA-512). Valid values are `PLAIN`, `SCRAM-SHA-256`, `SCRAM-SHA-512`.
      */
-    mechanism: string;
+    mechanism?: string;
 }
 
 export interface ObservabilityPipelineConfigSourcesKafkaTls {
@@ -11838,11 +13205,340 @@ export interface ObservabilityPipelineConfigSourcesKafkaTls {
     /**
      * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
      */
-    crtFile: string;
+    crtFile?: string;
     /**
      * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
      */
     keyFile?: string;
+}
+
+export interface ObservabilityPipelineConfigSourcesLogstash {
+    /**
+     * The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
+     */
+    id: string;
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     */
+    tls?: outputs.ObservabilityPipelineConfigSourcesLogstashTls;
+}
+
+export interface ObservabilityPipelineConfigSourcesLogstashTls {
+    /**
+     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     */
+    caFile?: string;
+    /**
+     * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     */
+    crtFile?: string;
+    /**
+     * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     */
+    keyFile?: string;
+}
+
+export interface ObservabilityPipelineConfigSourcesRsyslog {
+    /**
+     * The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
+     */
+    id: string;
+    /**
+     * Protocol used by the syslog source to receive messages.
+     */
+    mode?: string;
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     */
+    tls?: outputs.ObservabilityPipelineConfigSourcesRsyslogTls;
+}
+
+export interface ObservabilityPipelineConfigSourcesRsyslogTls {
+    /**
+     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     */
+    caFile?: string;
+    /**
+     * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     */
+    crtFile?: string;
+    /**
+     * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     */
+    keyFile?: string;
+}
+
+export interface ObservabilityPipelineConfigSourcesSplunkHec {
+    /**
+     * The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
+     */
+    id: string;
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     */
+    tls?: outputs.ObservabilityPipelineConfigSourcesSplunkHecTls;
+}
+
+export interface ObservabilityPipelineConfigSourcesSplunkHecTls {
+    /**
+     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     */
+    caFile?: string;
+    /**
+     * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     */
+    crtFile?: string;
+    /**
+     * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     */
+    keyFile?: string;
+}
+
+export interface ObservabilityPipelineConfigSourcesSplunkTcp {
+    /**
+     * The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
+     */
+    id: string;
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     */
+    tls?: outputs.ObservabilityPipelineConfigSourcesSplunkTcpTls;
+}
+
+export interface ObservabilityPipelineConfigSourcesSplunkTcpTls {
+    /**
+     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     */
+    caFile?: string;
+    /**
+     * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     */
+    crtFile?: string;
+    /**
+     * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     */
+    keyFile?: string;
+}
+
+export interface ObservabilityPipelineConfigSourcesSumoLogic {
+    /**
+     * The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
+     */
+    id: string;
+}
+
+export interface ObservabilityPipelineConfigSourcesSyslogNg {
+    /**
+     * The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
+     */
+    id: string;
+    /**
+     * Protocol used by the syslog source to receive messages.
+     */
+    mode?: string;
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     */
+    tls?: outputs.ObservabilityPipelineConfigSourcesSyslogNgTls;
+}
+
+export interface ObservabilityPipelineConfigSourcesSyslogNgTls {
+    /**
+     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     */
+    caFile?: string;
+    /**
+     * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     */
+    crtFile?: string;
+    /**
+     * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     */
+    keyFile?: string;
+}
+
+export interface OnCallEscalationPolicyStep {
+    /**
+     * Specifies how this escalation step will assign targets. Can be `default` (page all targets at once) or `round-robin`. Valid values are `assignment`, `round-robin`. Defaults to `"default"`.
+     */
+    assignment: string;
+    /**
+     * Defines how many seconds to wait before escalating to the next step. Value must be between 60 and 36000.
+     */
+    escalateAfterSeconds: number;
+    /**
+     * The ID of this step.
+     */
+    id: string;
+    /**
+     * List of targets for the step.
+     */
+    targets?: outputs.OnCallEscalationPolicyStepTarget[];
+}
+
+export interface OnCallEscalationPolicyStepTarget {
+    /**
+     * Targeted schedule ID.
+     */
+    schedule?: string;
+    /**
+     * Targeted team ID.
+     */
+    team?: string;
+    /**
+     * Targeted user ID.
+     */
+    user?: string;
+}
+
+export interface OnCallScheduleLayer {
+    /**
+     * The date/time when this layer should become active (in ISO 8601).
+     */
+    effectiveDate: string;
+    /**
+     * The date/time after which this layer no longer applies (in ISO 8601).
+     */
+    endDate?: string;
+    /**
+     * The ID of this layer.
+     */
+    id: string;
+    interval?: outputs.OnCallScheduleLayerInterval;
+    /**
+     * The name of this layer. Should be unique within the schedule.
+     */
+    name: string;
+    /**
+     * List of restrictions for the layer.
+     */
+    restrictions?: outputs.OnCallScheduleLayerRestriction[];
+    /**
+     * The date/time when the rotation for this layer starts (in ISO 8601).
+     */
+    rotationStart?: string;
+    /**
+     * List of user IDs for the layer. Can either be a valid user id or null
+     */
+    users: string[];
+}
+
+export interface OnCallScheduleLayerInterval {
+    /**
+     * The number of full days in each rotation period.
+     */
+    days: number;
+    /**
+     * For intervals that are not expressible in whole days, this will be added to `days`. Defaults to `0`.
+     */
+    seconds: number;
+}
+
+export interface OnCallScheduleLayerRestriction {
+    /**
+     * The weekday when the restriction period ends. Valid values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
+     */
+    endDay?: string;
+    /**
+     * The time of day when the restriction ends (hh:mm:ss).
+     */
+    endTime?: string;
+    /**
+     * The weekday when the restriction period starts. Valid values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
+     */
+    startDay?: string;
+    /**
+     * The time of day when the restriction begins (hh:mm:ss).
+     */
+    startTime?: string;
+}
+
+export interface OnCallTeamRoutingRulesRule {
+    /**
+     * Specifies the list of actions to perform when the routing rule is matched.
+     */
+    actions?: outputs.OnCallTeamRoutingRulesRuleAction[];
+    /**
+     * ID of the policy to be applied when this routing rule matches.
+     */
+    escalationPolicy?: string;
+    /**
+     * The ID of this rule.
+     */
+    id: string;
+    /**
+     * Defines the query or condition that triggers this routing rule. Defaults to `""`.
+     */
+    query: string;
+    /**
+     * Holds time zone information and a list of time restrictions for a routing rule.
+     */
+    timeRestrictions?: outputs.OnCallTeamRoutingRulesRuleTimeRestrictions;
+    /**
+     * Defines the urgency for pages created via this rule. Only valid if `escalationPolicy` is set. Valid values are `high`, `low`, `dynamic`.
+     */
+    urgency?: string;
+}
+
+export interface OnCallTeamRoutingRulesRuleAction {
+    sendSlackMessage?: outputs.OnCallTeamRoutingRulesRuleActionSendSlackMessage;
+    sendTeamsMessage?: outputs.OnCallTeamRoutingRulesRuleActionSendTeamsMessage;
+}
+
+export interface OnCallTeamRoutingRulesRuleActionSendSlackMessage {
+    /**
+     * Slack channel ID.
+     */
+    channel?: string;
+    /**
+     * Slack workspace ID.
+     */
+    workspace?: string;
+}
+
+export interface OnCallTeamRoutingRulesRuleActionSendTeamsMessage {
+    /**
+     * Teams channel ID.
+     */
+    channel?: string;
+    /**
+     * Teams team ID.
+     */
+    team?: string;
+    /**
+     * Teams tenant ID.
+     */
+    tenant?: string;
+}
+
+export interface OnCallTeamRoutingRulesRuleTimeRestrictions {
+    /**
+     * List of restrictions for the rule.
+     */
+    restrictions?: outputs.OnCallTeamRoutingRulesRuleTimeRestrictionsRestriction[];
+    /**
+     * Specifies the time zone applicable to the restrictions, e.g. `America/New_York`.
+     */
+    timeZone?: string;
+}
+
+export interface OnCallTeamRoutingRulesRuleTimeRestrictionsRestriction {
+    /**
+     * The weekday when the restriction period ends. Valid values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
+     */
+    endDay?: string;
+    /**
+     * The time of day when the restriction ends (hh:mm:ss).
+     */
+    endTime?: string;
+    /**
+     * The weekday when the restriction period starts. Valid values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
+     */
+    startDay?: string;
+    /**
+     * The time of day when the restriction begins (hh:mm:ss).
+     */
+    startTime?: string;
 }
 
 export interface OrganizationSettingsSettings {
@@ -16307,11 +18003,11 @@ export interface PowerpackWidgetListStreamDefinitionRequestColumn {
     /**
      * Widget column field.
      */
-    field: string;
+    field?: string;
     /**
      * Widget column width. Valid values are `auto`, `compact`, `full`.
      */
-    width: string;
+    width?: string;
 }
 
 export interface PowerpackWidgetListStreamDefinitionRequestQuery {
@@ -23651,6 +25347,10 @@ export interface PowerpackWidgetTraceServiceDefinition {
 
 export interface PowerpackWidgetTreemapDefinition {
     /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
+    customLinks?: outputs.PowerpackWidgetTreemapDefinitionCustomLink[];
+    /**
      * Nested block describing the request to use when displaying the widget.
      */
     requests?: outputs.PowerpackWidgetTreemapDefinitionRequest[];
@@ -23658,6 +25358,25 @@ export interface PowerpackWidgetTreemapDefinition {
      * The title of the widget.
      */
     title?: string;
+}
+
+export interface PowerpackWidgetTreemapDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
+    isHidden?: boolean;
+    /**
+     * The label for the custom link URL.
+     */
+    label?: string;
+    /**
+     * The URL of the custom link.
+     */
+    link?: string;
+    /**
+     * The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     */
+    overrideLabel?: string;
 }
 
 export interface PowerpackWidgetTreemapDefinitionRequest {
@@ -24414,7 +26133,7 @@ export interface SecurityMonitoringRuleQuery {
      */
     aggregation?: string;
     /**
-     * Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`. Defaults to `"logs"`.
+     * Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`. Defaults to `"logs"`.
      */
     dataSource?: string;
     /**
@@ -25340,6 +27059,10 @@ export interface SyntheticsTestBrowserStepParams {
      * Type of click to use for a "click" step.
      */
     clickType?: string;
+    /**
+     * Whether to use `element.click()` for a "click" step. This is a more reliable way to interact with elements but does not emulate a real user interaction.
+     */
+    clickWithJavascript?: boolean;
     /**
      * Javascript code to use for the step.
      */
@@ -26285,7 +28008,7 @@ export namespace azure {
 export namespace config {
     export interface DefaultTags {
         /**
-         * [Experimental - Logs Pipelines, Monitors and Security Monitoring Rules only] Resource tags to be applied by default across all resources.
+         * [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Resource tags to be applied by default across all resources.
          */
         tags?: {[key: string]: string};
     }

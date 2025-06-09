@@ -32,6 +32,11 @@ public final class SyntheticsTestBrowserStepParams {
      */
     private @Nullable String clickType;
     /**
+     * @return Whether to use `element.click()` for a &#34;click&#34; step. This is a more reliable way to interact with elements but does not emulate a real user interaction.
+     * 
+     */
+    private @Nullable Boolean clickWithJavascript;
+    /**
      * @return Javascript code to use for the step.
      * 
      */
@@ -138,6 +143,13 @@ public final class SyntheticsTestBrowserStepParams {
      */
     public Optional<String> clickType() {
         return Optional.ofNullable(this.clickType);
+    }
+    /**
+     * @return Whether to use `element.click()` for a &#34;click&#34; step. This is a more reliable way to interact with elements but does not emulate a real user interaction.
+     * 
+     */
+    public Optional<Boolean> clickWithJavascript() {
+        return Optional.ofNullable(this.clickWithJavascript);
     }
     /**
      * @return Javascript code to use for the step.
@@ -271,6 +283,7 @@ public final class SyntheticsTestBrowserStepParams {
         private @Nullable String attribute;
         private @Nullable String check;
         private @Nullable String clickType;
+        private @Nullable Boolean clickWithJavascript;
         private @Nullable String code;
         private @Nullable Integer delay;
         private @Nullable String element;
@@ -294,6 +307,7 @@ public final class SyntheticsTestBrowserStepParams {
     	      this.attribute = defaults.attribute;
     	      this.check = defaults.check;
     	      this.clickType = defaults.clickType;
+    	      this.clickWithJavascript = defaults.clickWithJavascript;
     	      this.code = defaults.code;
     	      this.delay = defaults.delay;
     	      this.element = defaults.element;
@@ -329,6 +343,12 @@ public final class SyntheticsTestBrowserStepParams {
         public Builder clickType(@Nullable String clickType) {
 
             this.clickType = clickType;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder clickWithJavascript(@Nullable Boolean clickWithJavascript) {
+
+            this.clickWithJavascript = clickWithJavascript;
             return this;
         }
         @CustomType.Setter
@@ -441,6 +461,7 @@ public final class SyntheticsTestBrowserStepParams {
             _resultValue.attribute = attribute;
             _resultValue.check = check;
             _resultValue.clickType = clickType;
+            _resultValue.clickWithJavascript = clickWithJavascript;
             _resultValue.code = code;
             _resultValue.delay = delay;
             _resultValue.element = element;

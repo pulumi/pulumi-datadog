@@ -12,7 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Datadog Observability Pipeline resource. Observability Pipelines allows you to collect and process logs within your own infrastructure, and then route them to downstream integrations.
+// Provides a Datadog Observability Pipeline resource. Observability Pipelines allows you to collect and process logs within your own infrastructure, and then route them to downstream integrations. This resource is in **Preview**. Reach out to Datadog support to enable it for your account.
+//
+// Datadog recommends using the `-parallelism=1` option to apply this resource.
+//
+// ## Import
+//
+// ```sh
+// $ pulumi import datadog:index/observabilityPipeline:ObservabilityPipeline example_pipeline 8beabbc4-1f4d-11f0-942b-da7ad0900001
+// ```
 type ObservabilityPipeline struct {
 	pulumi.CustomResourceState
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog
 {
     /// <summary>
-    /// Provides a Datadog App resource for creating and managing Datadog Apps from App Builder using the JSON definition.
+    /// ## Example Usage
     /// 
     /// ## Import
     /// 

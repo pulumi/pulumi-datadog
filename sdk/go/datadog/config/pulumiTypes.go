@@ -14,7 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type DefaultTags struct {
-	// [Experimental - Logs Pipelines, Monitors and Security Monitoring Rules only] Resource tags to be applied by default across all resources.
+	// [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Resource tags to be applied by default across all resources.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -30,7 +30,7 @@ type DefaultTagsInput interface {
 }
 
 type DefaultTagsArgs struct {
-	// [Experimental - Logs Pipelines, Monitors and Security Monitoring Rules only] Resource tags to be applied by default across all resources.
+	// [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Resource tags to be applied by default across all resources.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -60,7 +60,7 @@ func (o DefaultTagsOutput) ToDefaultTagsOutputWithContext(ctx context.Context) D
 	return o
 }
 
-// [Experimental - Logs Pipelines, Monitors and Security Monitoring Rules only] Resource tags to be applied by default across all resources.
+// [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Resource tags to be applied by default across all resources.
 func (o DefaultTagsOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v DefaultTags) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

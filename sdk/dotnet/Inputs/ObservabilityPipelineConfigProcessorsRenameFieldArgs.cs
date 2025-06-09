@@ -40,7 +40,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<string>? _inputs;
 
         /// <summary>
-        /// he inputs for the processor.
+        /// The inputs for the processor.
         /// </summary>
         public InputList<string> Inputs
         {

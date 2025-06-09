@@ -12,6 +12,30 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class ObservabilityPipelineConfigDestinationsArgs : global::Pulumi.ResourceArgs
     {
+        [Input("amazonOpensearches")]
+        private InputList<Inputs.ObservabilityPipelineConfigDestinationsAmazonOpensearchArgs>? _amazonOpensearches;
+
+        /// <summary>
+        /// The `amazon_opensearch` destination writes logs to Amazon OpenSearch.
+        /// </summary>
+        public InputList<Inputs.ObservabilityPipelineConfigDestinationsAmazonOpensearchArgs> AmazonOpensearches
+        {
+            get => _amazonOpensearches ?? (_amazonOpensearches = new InputList<Inputs.ObservabilityPipelineConfigDestinationsAmazonOpensearchArgs>());
+            set => _amazonOpensearches = value;
+        }
+
+        [Input("azureStorages")]
+        private InputList<Inputs.ObservabilityPipelineConfigDestinationsAzureStorageArgs>? _azureStorages;
+
+        /// <summary>
+        /// The `azure_storage` destination forwards logs to an Azure Blob Storage container.
+        /// </summary>
+        public InputList<Inputs.ObservabilityPipelineConfigDestinationsAzureStorageArgs> AzureStorages
+        {
+            get => _azureStorages ?? (_azureStorages = new InputList<Inputs.ObservabilityPipelineConfigDestinationsAzureStorageArgs>());
+            set => _azureStorages = value;
+        }
+
         [Input("datadogLogs")]
         private InputList<Inputs.ObservabilityPipelineConfigDestinationsDatadogLogArgs>? _datadogLogs;
 
@@ -22,6 +46,138 @@ namespace Pulumi.Datadog.Inputs
         {
             get => _datadogLogs ?? (_datadogLogs = new InputList<Inputs.ObservabilityPipelineConfigDestinationsDatadogLogArgs>());
             set => _datadogLogs = value;
+        }
+
+        [Input("elasticsearches")]
+        private InputList<Inputs.ObservabilityPipelineConfigDestinationsElasticsearchArgs>? _elasticsearches;
+
+        /// <summary>
+        /// The `elasticsearch` destination writes logs to an Elasticsearch cluster.
+        /// </summary>
+        public InputList<Inputs.ObservabilityPipelineConfigDestinationsElasticsearchArgs> Elasticsearches
+        {
+            get => _elasticsearches ?? (_elasticsearches = new InputList<Inputs.ObservabilityPipelineConfigDestinationsElasticsearchArgs>());
+            set => _elasticsearches = value;
+        }
+
+        [Input("googleChronicles")]
+        private InputList<Inputs.ObservabilityPipelineConfigDestinationsGoogleChronicleArgs>? _googleChronicles;
+
+        /// <summary>
+        /// The `google_chronicle` destination sends logs to Google Chronicle.
+        /// </summary>
+        public InputList<Inputs.ObservabilityPipelineConfigDestinationsGoogleChronicleArgs> GoogleChronicles
+        {
+            get => _googleChronicles ?? (_googleChronicles = new InputList<Inputs.ObservabilityPipelineConfigDestinationsGoogleChronicleArgs>());
+            set => _googleChronicles = value;
+        }
+
+        [Input("googleCloudStorages")]
+        private InputList<Inputs.ObservabilityPipelineConfigDestinationsGoogleCloudStorageArgs>? _googleCloudStorages;
+
+        /// <summary>
+        /// The `google_cloud_storage` destination stores logs in a Google Cloud Storage (GCS) bucket.
+        /// </summary>
+        public InputList<Inputs.ObservabilityPipelineConfigDestinationsGoogleCloudStorageArgs> GoogleCloudStorages
+        {
+            get => _googleCloudStorages ?? (_googleCloudStorages = new InputList<Inputs.ObservabilityPipelineConfigDestinationsGoogleCloudStorageArgs>());
+            set => _googleCloudStorages = value;
+        }
+
+        [Input("microsoftSentinels")]
+        private InputList<Inputs.ObservabilityPipelineConfigDestinationsMicrosoftSentinelArgs>? _microsoftSentinels;
+
+        /// <summary>
+        /// The `microsoft_sentinel` destination forwards logs to Microsoft Sentinel.
+        /// </summary>
+        public InputList<Inputs.ObservabilityPipelineConfigDestinationsMicrosoftSentinelArgs> MicrosoftSentinels
+        {
+            get => _microsoftSentinels ?? (_microsoftSentinels = new InputList<Inputs.ObservabilityPipelineConfigDestinationsMicrosoftSentinelArgs>());
+            set => _microsoftSentinels = value;
+        }
+
+        [Input("newRelics")]
+        private InputList<Inputs.ObservabilityPipelineConfigDestinationsNewRelicArgs>? _newRelics;
+
+        /// <summary>
+        /// The `new_relic` destination sends logs to the New Relic platform.
+        /// </summary>
+        public InputList<Inputs.ObservabilityPipelineConfigDestinationsNewRelicArgs> NewRelics
+        {
+            get => _newRelics ?? (_newRelics = new InputList<Inputs.ObservabilityPipelineConfigDestinationsNewRelicArgs>());
+            set => _newRelics = value;
+        }
+
+        [Input("opensearches")]
+        private InputList<Inputs.ObservabilityPipelineConfigDestinationsOpensearchArgs>? _opensearches;
+
+        /// <summary>
+        /// The `opensearch` destination writes logs to an OpenSearch cluster.
+        /// </summary>
+        public InputList<Inputs.ObservabilityPipelineConfigDestinationsOpensearchArgs> Opensearches
+        {
+            get => _opensearches ?? (_opensearches = new InputList<Inputs.ObservabilityPipelineConfigDestinationsOpensearchArgs>());
+            set => _opensearches = value;
+        }
+
+        [Input("rsyslogs")]
+        private InputList<Inputs.ObservabilityPipelineConfigDestinationsRsyslogArgs>? _rsyslogs;
+
+        /// <summary>
+        /// The `rsyslog` destination forwards logs to an external `rsyslog` server over TCP or UDP using the syslog protocol.
+        /// </summary>
+        public InputList<Inputs.ObservabilityPipelineConfigDestinationsRsyslogArgs> Rsyslogs
+        {
+            get => _rsyslogs ?? (_rsyslogs = new InputList<Inputs.ObservabilityPipelineConfigDestinationsRsyslogArgs>());
+            set => _rsyslogs = value;
+        }
+
+        [Input("sentinelOnes")]
+        private InputList<Inputs.ObservabilityPipelineConfigDestinationsSentinelOneArgs>? _sentinelOnes;
+
+        /// <summary>
+        /// The `sentinel_one` destination sends logs to SentinelOne.
+        /// </summary>
+        public InputList<Inputs.ObservabilityPipelineConfigDestinationsSentinelOneArgs> SentinelOnes
+        {
+            get => _sentinelOnes ?? (_sentinelOnes = new InputList<Inputs.ObservabilityPipelineConfigDestinationsSentinelOneArgs>());
+            set => _sentinelOnes = value;
+        }
+
+        [Input("splunkHecs")]
+        private InputList<Inputs.ObservabilityPipelineConfigDestinationsSplunkHecArgs>? _splunkHecs;
+
+        /// <summary>
+        /// The `splunk_hec` destination forwards logs to Splunk using the HTTP Event Collector (HEC).
+        /// </summary>
+        public InputList<Inputs.ObservabilityPipelineConfigDestinationsSplunkHecArgs> SplunkHecs
+        {
+            get => _splunkHecs ?? (_splunkHecs = new InputList<Inputs.ObservabilityPipelineConfigDestinationsSplunkHecArgs>());
+            set => _splunkHecs = value;
+        }
+
+        [Input("sumoLogics")]
+        private InputList<Inputs.ObservabilityPipelineConfigDestinationsSumoLogicArgs>? _sumoLogics;
+
+        /// <summary>
+        /// The `sumo_logic` destination forwards logs to Sumo Logic.
+        /// </summary>
+        public InputList<Inputs.ObservabilityPipelineConfigDestinationsSumoLogicArgs> SumoLogics
+        {
+            get => _sumoLogics ?? (_sumoLogics = new InputList<Inputs.ObservabilityPipelineConfigDestinationsSumoLogicArgs>());
+            set => _sumoLogics = value;
+        }
+
+        [Input("syslogNgs")]
+        private InputList<Inputs.ObservabilityPipelineConfigDestinationsSyslogNgArgs>? _syslogNgs;
+
+        /// <summary>
+        /// The `syslog_ng` destination forwards logs to an external `syslog-ng` server over TCP or UDP using the syslog protocol.
+        /// </summary>
+        public InputList<Inputs.ObservabilityPipelineConfigDestinationsSyslogNgArgs> SyslogNgs
+        {
+            get => _syslogNgs ?? (_syslogNgs = new InputList<Inputs.ObservabilityPipelineConfigDestinationsSyslogNgArgs>());
+            set => _syslogNgs = value;
         }
 
         public ObservabilityPipelineConfigDestinationsArgs()

@@ -177,9 +177,9 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
      */
     public readonly sliSpecification!: pulumi.Output<outputs.ServiceLevelObjectiveSliSpecification | undefined>;
     /**
-     * A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
+     * A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. **Note**: it's not currently possible to filter by these tags when querying via the API. If default tags are present at the provider level, they will be added to this resource.
      */
-    public readonly tags!: pulumi.Output<string[] | undefined>;
+    public readonly tags!: pulumi.Output<string[]>;
     /**
      * The objective's target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
      */
@@ -296,7 +296,7 @@ export interface ServiceLevelObjectiveState {
      */
     sliSpecification?: pulumi.Input<inputs.ServiceLevelObjectiveSliSpecification>;
     /**
-     * A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
+     * A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. **Note**: it's not currently possible to filter by these tags when querying via the API. If default tags are present at the provider level, they will be added to this resource.
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -358,7 +358,7 @@ export interface ServiceLevelObjectiveArgs {
      */
     sliSpecification?: pulumi.Input<inputs.ServiceLevelObjectiveSliSpecification>;
     /**
-     * A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
+     * A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. **Note**: it's not currently possible to filter by these tags when querying via the API. If default tags are present at the provider level, they will be added to this resource.
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**

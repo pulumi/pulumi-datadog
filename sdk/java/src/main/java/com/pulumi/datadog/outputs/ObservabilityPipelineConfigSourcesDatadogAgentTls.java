@@ -4,7 +4,6 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -21,7 +20,7 @@ public final class ObservabilityPipelineConfigSourcesDatadogAgentTls {
      * @return Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
      * 
      */
-    private String crtFile;
+    private @Nullable String crtFile;
     /**
      * @return Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
      * 
@@ -40,8 +39,8 @@ public final class ObservabilityPipelineConfigSourcesDatadogAgentTls {
      * @return Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
      * 
      */
-    public String crtFile() {
-        return this.crtFile;
+    public Optional<String> crtFile() {
+        return Optional.ofNullable(this.crtFile);
     }
     /**
      * @return Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
@@ -61,7 +60,7 @@ public final class ObservabilityPipelineConfigSourcesDatadogAgentTls {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String caFile;
-        private String crtFile;
+        private @Nullable String crtFile;
         private @Nullable String keyFile;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigSourcesDatadogAgentTls defaults) {
@@ -78,10 +77,8 @@ public final class ObservabilityPipelineConfigSourcesDatadogAgentTls {
             return this;
         }
         @CustomType.Setter
-        public Builder crtFile(String crtFile) {
-            if (crtFile == null) {
-              throw new MissingRequiredPropertyException("ObservabilityPipelineConfigSourcesDatadogAgentTls", "crtFile");
-            }
+        public Builder crtFile(@Nullable String crtFile) {
+
             this.crtFile = crtFile;
             return this;
         }

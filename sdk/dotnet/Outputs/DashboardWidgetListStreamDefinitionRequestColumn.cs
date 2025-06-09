@@ -16,17 +16,17 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// Widget column field.
         /// </summary>
-        public readonly string Field;
+        public readonly string? Field;
         /// <summary>
         /// Widget column width. Valid values are `auto`, `compact`, `full`.
         /// </summary>
-        public readonly string Width;
+        public readonly string? Width;
 
         [OutputConstructor]
         private DashboardWidgetListStreamDefinitionRequestColumn(
-            string field,
+            string? field,
 
-            string width)
+            string? width)
         {
             Field = field;
             Width = width;

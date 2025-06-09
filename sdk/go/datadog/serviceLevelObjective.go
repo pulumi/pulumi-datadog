@@ -166,7 +166,7 @@ type ServiceLevelObjective struct {
 	Query ServiceLevelObjectiveQueryPtrOutput `pulumi:"query"`
 	// A map of SLI specifications to use as part of the SLO.
 	SliSpecification ServiceLevelObjectiveSliSpecificationPtrOutput `pulumi:"sliSpecification"`
-	// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
+	// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. **Note**: it's not currently possible to filter by these tags when querying via the API. If default tags are present at the provider level, they will be added to this resource.
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
 	// The objective's target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
 	TargetThreshold pulumi.Float64Output `pulumi:"targetThreshold"`
@@ -235,7 +235,7 @@ type serviceLevelObjectiveState struct {
 	Query *ServiceLevelObjectiveQuery `pulumi:"query"`
 	// A map of SLI specifications to use as part of the SLO.
 	SliSpecification *ServiceLevelObjectiveSliSpecification `pulumi:"sliSpecification"`
-	// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
+	// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. **Note**: it's not currently possible to filter by these tags when querying via the API. If default tags are present at the provider level, they will be added to this resource.
 	Tags []string `pulumi:"tags"`
 	// The objective's target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
 	TargetThreshold *float64 `pulumi:"targetThreshold"`
@@ -266,7 +266,7 @@ type ServiceLevelObjectiveState struct {
 	Query ServiceLevelObjectiveQueryPtrInput
 	// A map of SLI specifications to use as part of the SLO.
 	SliSpecification ServiceLevelObjectiveSliSpecificationPtrInput
-	// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
+	// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. **Note**: it's not currently possible to filter by these tags when querying via the API. If default tags are present at the provider level, they will be added to this resource.
 	Tags pulumi.StringArrayInput
 	// The objective's target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
 	TargetThreshold pulumi.Float64PtrInput
@@ -301,7 +301,7 @@ type serviceLevelObjectiveArgs struct {
 	Query *ServiceLevelObjectiveQuery `pulumi:"query"`
 	// A map of SLI specifications to use as part of the SLO.
 	SliSpecification *ServiceLevelObjectiveSliSpecification `pulumi:"sliSpecification"`
-	// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
+	// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. **Note**: it's not currently possible to filter by these tags when querying via the API. If default tags are present at the provider level, they will be added to this resource.
 	Tags []string `pulumi:"tags"`
 	// The objective's target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
 	TargetThreshold *float64 `pulumi:"targetThreshold"`
@@ -333,7 +333,7 @@ type ServiceLevelObjectiveArgs struct {
 	Query ServiceLevelObjectiveQueryPtrInput
 	// A map of SLI specifications to use as part of the SLO.
 	SliSpecification ServiceLevelObjectiveSliSpecificationPtrInput
-	// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
+	// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. **Note**: it's not currently possible to filter by these tags when querying via the API. If default tags are present at the provider level, they will be added to this resource.
 	Tags pulumi.StringArrayInput
 	// The objective's target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
 	TargetThreshold pulumi.Float64PtrInput
@@ -473,7 +473,7 @@ func (o ServiceLevelObjectiveOutput) SliSpecification() ServiceLevelObjectiveSli
 	}).(ServiceLevelObjectiveSliSpecificationPtrOutput)
 }
 
-// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
+// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. **Note**: it's not currently possible to filter by these tags when querying via the API. If default tags are present at the provider level, they will be added to this resource.
 func (o ServiceLevelObjectiveOutput) Tags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ServiceLevelObjective) pulumi.StringArrayOutput { return v.Tags }).(pulumi.StringArrayOutput)
 }

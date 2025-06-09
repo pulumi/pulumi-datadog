@@ -66,6 +66,21 @@ public final class SyntheticsTestBrowserStepParamsArgs extends com.pulumi.resour
     }
 
     /**
+     * Whether to use `element.click()` for a &#34;click&#34; step. This is a more reliable way to interact with elements but does not emulate a real user interaction.
+     * 
+     */
+    @Import(name="clickWithJavascript")
+    private @Nullable Output<Boolean> clickWithJavascript;
+
+    /**
+     * @return Whether to use `element.click()` for a &#34;click&#34; step. This is a more reliable way to interact with elements but does not emulate a real user interaction.
+     * 
+     */
+    public Optional<Output<Boolean>> clickWithJavascript() {
+        return Optional.ofNullable(this.clickWithJavascript);
+    }
+
+    /**
      * Javascript code to use for the step.
      * 
      */
@@ -326,6 +341,7 @@ public final class SyntheticsTestBrowserStepParamsArgs extends com.pulumi.resour
         this.attribute = $.attribute;
         this.check = $.check;
         this.clickType = $.clickType;
+        this.clickWithJavascript = $.clickWithJavascript;
         this.code = $.code;
         this.delay = $.delay;
         this.element = $.element;
@@ -424,6 +440,27 @@ public final class SyntheticsTestBrowserStepParamsArgs extends com.pulumi.resour
          */
         public Builder clickType(String clickType) {
             return clickType(Output.of(clickType));
+        }
+
+        /**
+         * @param clickWithJavascript Whether to use `element.click()` for a &#34;click&#34; step. This is a more reliable way to interact with elements but does not emulate a real user interaction.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clickWithJavascript(@Nullable Output<Boolean> clickWithJavascript) {
+            $.clickWithJavascript = clickWithJavascript;
+            return this;
+        }
+
+        /**
+         * @param clickWithJavascript Whether to use `element.click()` for a &#34;click&#34; step. This is a more reliable way to interact with elements but does not emulate a real user interaction.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clickWithJavascript(Boolean clickWithJavascript) {
+            return clickWithJavascript(Output.of(clickWithJavascript));
         }
 
         /**

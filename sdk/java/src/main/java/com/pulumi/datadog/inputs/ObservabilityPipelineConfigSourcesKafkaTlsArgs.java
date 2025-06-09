@@ -5,7 +5,6 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -35,15 +34,15 @@ public final class ObservabilityPipelineConfigSourcesKafkaTlsArgs extends com.pu
      * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
      * 
      */
-    @Import(name="crtFile", required=true)
-    private Output<String> crtFile;
+    @Import(name="crtFile")
+    private @Nullable Output<String> crtFile;
 
     /**
      * @return Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
      * 
      */
-    public Output<String> crtFile() {
-        return this.crtFile;
+    public Optional<Output<String>> crtFile() {
+        return Optional.ofNullable(this.crtFile);
     }
 
     /**
@@ -114,7 +113,7 @@ public final class ObservabilityPipelineConfigSourcesKafkaTlsArgs extends com.pu
          * @return builder
          * 
          */
-        public Builder crtFile(Output<String> crtFile) {
+        public Builder crtFile(@Nullable Output<String> crtFile) {
             $.crtFile = crtFile;
             return this;
         }
@@ -151,9 +150,6 @@ public final class ObservabilityPipelineConfigSourcesKafkaTlsArgs extends com.pu
         }
 
         public ObservabilityPipelineConfigSourcesKafkaTlsArgs build() {
-            if ($.crtFile == null) {
-                throw new MissingRequiredPropertyException("ObservabilityPipelineConfigSourcesKafkaTlsArgs", "crtFile");
-            }
             return $;
         }
     }

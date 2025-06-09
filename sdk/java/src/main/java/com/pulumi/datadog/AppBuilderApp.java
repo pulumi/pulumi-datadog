@@ -16,7 +16,7 @@ import java.util.Map;
 import javax.annotation.Nullable;
 
 /**
- * Provides a Datadog App resource for creating and managing Datadog Apps from App Builder using the JSON definition.
+ * ## Example Usage
  * 
  * ## Import
  * 

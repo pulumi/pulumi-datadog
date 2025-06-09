@@ -17,7 +17,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a Datadog MonitorNotificationRule resource.
+ * Provides a Datadog MonitorNotificationRule resource. *Note: This resource is in Preview. [Request access](https://www.datadoghq.com/product-preview/monitor-notification-rules/).*
  * 
  * ## Example Usage
  * 

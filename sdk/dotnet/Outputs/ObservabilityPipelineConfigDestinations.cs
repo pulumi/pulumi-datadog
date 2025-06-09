@@ -14,14 +14,106 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigDestinations
     {
         /// <summary>
+        /// The `amazon_opensearch` destination writes logs to Amazon OpenSearch.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsAmazonOpensearch> AmazonOpensearches;
+        /// <summary>
+        /// The `azure_storage` destination forwards logs to an Azure Blob Storage container.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsAzureStorage> AzureStorages;
+        /// <summary>
         /// The `datadog_logs` destination forwards logs to Datadog Log Management.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsDatadogLog> DatadogLogs;
+        /// <summary>
+        /// The `elasticsearch` destination writes logs to an Elasticsearch cluster.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsElasticsearch> Elasticsearches;
+        /// <summary>
+        /// The `google_chronicle` destination sends logs to Google Chronicle.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsGoogleChronicle> GoogleChronicles;
+        /// <summary>
+        /// The `google_cloud_storage` destination stores logs in a Google Cloud Storage (GCS) bucket.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsGoogleCloudStorage> GoogleCloudStorages;
+        /// <summary>
+        /// The `microsoft_sentinel` destination forwards logs to Microsoft Sentinel.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsMicrosoftSentinel> MicrosoftSentinels;
+        /// <summary>
+        /// The `new_relic` destination sends logs to the New Relic platform.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsNewRelic> NewRelics;
+        /// <summary>
+        /// The `opensearch` destination writes logs to an OpenSearch cluster.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsOpensearch> Opensearches;
+        /// <summary>
+        /// The `rsyslog` destination forwards logs to an external `rsyslog` server over TCP or UDP using the syslog protocol.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsRsyslog> Rsyslogs;
+        /// <summary>
+        /// The `sentinel_one` destination sends logs to SentinelOne.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsSentinelOne> SentinelOnes;
+        /// <summary>
+        /// The `splunk_hec` destination forwards logs to Splunk using the HTTP Event Collector (HEC).
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsSplunkHec> SplunkHecs;
+        /// <summary>
+        /// The `sumo_logic` destination forwards logs to Sumo Logic.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsSumoLogic> SumoLogics;
+        /// <summary>
+        /// The `syslog_ng` destination forwards logs to an external `syslog-ng` server over TCP or UDP using the syslog protocol.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsSyslogNg> SyslogNgs;
 
         [OutputConstructor]
-        private ObservabilityPipelineConfigDestinations(ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsDatadogLog> datadogLogs)
+        private ObservabilityPipelineConfigDestinations(
+            ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsAmazonOpensearch> amazonOpensearches,
+
+            ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsAzureStorage> azureStorages,
+
+            ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsDatadogLog> datadogLogs,
+
+            ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsElasticsearch> elasticsearches,
+
+            ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsGoogleChronicle> googleChronicles,
+
+            ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsGoogleCloudStorage> googleCloudStorages,
+
+            ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsMicrosoftSentinel> microsoftSentinels,
+
+            ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsNewRelic> newRelics,
+
+            ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsOpensearch> opensearches,
+
+            ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsRsyslog> rsyslogs,
+
+            ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsSentinelOne> sentinelOnes,
+
+            ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsSplunkHec> splunkHecs,
+
+            ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsSumoLogic> sumoLogics,
+
+            ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsSyslogNg> syslogNgs)
         {
+            AmazonOpensearches = amazonOpensearches;
+            AzureStorages = azureStorages;
             DatadogLogs = datadogLogs;
+            Elasticsearches = elasticsearches;
+            GoogleChronicles = googleChronicles;
+            GoogleCloudStorages = googleCloudStorages;
+            MicrosoftSentinels = microsoftSentinels;
+            NewRelics = newRelics;
+            Opensearches = opensearches;
+            Rsyslogs = rsyslogs;
+            SentinelOnes = sentinelOnes;
+            SplunkHecs = splunkHecs;
+            SumoLogics = sumoLogics;
+            SyslogNgs = syslogNgs;
         }
     }
 }

@@ -31,8 +31,8 @@ func GetAppKey(ctx *pulumi.Context) string {
 	return config.Get(ctx, "datadog:appKey")
 }
 
-// [Experimental - Logs Pipelines, Monitors and Security Monitoring Rules only] Configuration block containing settings to
-// apply default resource tags across all resources.
+// [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration
+// block containing settings to apply default resource tags across all resources.
 func GetDefaultTags(ctx *pulumi.Context) string {
 	return config.Get(ctx, "datadog:defaultTags")
 }

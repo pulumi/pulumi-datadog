@@ -5,12 +5,22 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorsAddEnvVarArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorsAddFieldArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorsDedupeArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorsEnrichmentTableArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorsFilterArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorsGenerateDatadogMetricArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorsOcsfMapperArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorsParseGrokArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorsParseJsonArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorsQuotaArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorsReduceArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorsRemoveFieldArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorsRenameFieldArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorsSampleArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorsSensitiveDataScannerArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorsThrottleArgs;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -20,6 +30,21 @@ import javax.annotation.Nullable;
 public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ObservabilityPipelineConfigProcessorsArgs Empty = new ObservabilityPipelineConfigProcessorsArgs();
+
+    /**
+     * The `add_env_vars` processor adds environment variable values to log events.
+     * 
+     */
+    @Import(name="addEnvVars")
+    private @Nullable Output<List<ObservabilityPipelineConfigProcessorsAddEnvVarArgs>> addEnvVars;
+
+    /**
+     * @return The `add_env_vars` processor adds environment variable values to log events.
+     * 
+     */
+    public Optional<Output<List<ObservabilityPipelineConfigProcessorsAddEnvVarArgs>>> addEnvVars() {
+        return Optional.ofNullable(this.addEnvVars);
+    }
 
     /**
      * The `add_fields` processor adds static key-value fields to logs.
@@ -37,6 +62,36 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
     }
 
     /**
+     * The `dedupe` processor removes duplicate fields in log events.
+     * 
+     */
+    @Import(name="dedupes")
+    private @Nullable Output<List<ObservabilityPipelineConfigProcessorsDedupeArgs>> dedupes;
+
+    /**
+     * @return The `dedupe` processor removes duplicate fields in log events.
+     * 
+     */
+    public Optional<Output<List<ObservabilityPipelineConfigProcessorsDedupeArgs>>> dedupes() {
+        return Optional.ofNullable(this.dedupes);
+    }
+
+    /**
+     * The `enrichment_table` processor enriches logs using a static CSV file or GeoIP database.
+     * 
+     */
+    @Import(name="enrichmentTables")
+    private @Nullable Output<List<ObservabilityPipelineConfigProcessorsEnrichmentTableArgs>> enrichmentTables;
+
+    /**
+     * @return The `enrichment_table` processor enriches logs using a static CSV file or GeoIP database.
+     * 
+     */
+    public Optional<Output<List<ObservabilityPipelineConfigProcessorsEnrichmentTableArgs>>> enrichmentTables() {
+        return Optional.ofNullable(this.enrichmentTables);
+    }
+
+    /**
      * The `filter` processor allows conditional processing of logs based on a Datadog search query. Logs that match the `include` query are passed through; others are discarded.
      * 
      */
@@ -49,6 +104,51 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
      */
     public Optional<Output<List<ObservabilityPipelineConfigProcessorsFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
+    }
+
+    /**
+     * The `generate_datadog_metrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields.
+     * 
+     */
+    @Import(name="generateDatadogMetrics")
+    private @Nullable Output<List<ObservabilityPipelineConfigProcessorsGenerateDatadogMetricArgs>> generateDatadogMetrics;
+
+    /**
+     * @return The `generate_datadog_metrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields.
+     * 
+     */
+    public Optional<Output<List<ObservabilityPipelineConfigProcessorsGenerateDatadogMetricArgs>>> generateDatadogMetrics() {
+        return Optional.ofNullable(this.generateDatadogMetrics);
+    }
+
+    /**
+     * The `ocsf_mapper` processor transforms logs into the OCSF schema using predefined library mappings.
+     * 
+     */
+    @Import(name="ocsfMappers")
+    private @Nullable Output<List<ObservabilityPipelineConfigProcessorsOcsfMapperArgs>> ocsfMappers;
+
+    /**
+     * @return The `ocsf_mapper` processor transforms logs into the OCSF schema using predefined library mappings.
+     * 
+     */
+    public Optional<Output<List<ObservabilityPipelineConfigProcessorsOcsfMapperArgs>>> ocsfMappers() {
+        return Optional.ofNullable(this.ocsfMappers);
+    }
+
+    /**
+     * The `parse_grok` processor extracts structured fields from unstructured log messages using Grok patterns.
+     * 
+     */
+    @Import(name="parseGroks")
+    private @Nullable Output<List<ObservabilityPipelineConfigProcessorsParseGrokArgs>> parseGroks;
+
+    /**
+     * @return The `parse_grok` processor extracts structured fields from unstructured log messages using Grok patterns.
+     * 
+     */
+    public Optional<Output<List<ObservabilityPipelineConfigProcessorsParseGrokArgs>>> parseGroks() {
+        return Optional.ofNullable(this.parseGroks);
     }
 
     /**
@@ -82,6 +182,21 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
     }
 
     /**
+     * The `reduce` processor aggregates and merges logs based on matching keys and merge strategies.
+     * 
+     */
+    @Import(name="reduces")
+    private @Nullable Output<List<ObservabilityPipelineConfigProcessorsReduceArgs>> reduces;
+
+    /**
+     * @return The `reduce` processor aggregates and merges logs based on matching keys and merge strategies.
+     * 
+     */
+    public Optional<Output<List<ObservabilityPipelineConfigProcessorsReduceArgs>>> reduces() {
+        return Optional.ofNullable(this.reduces);
+    }
+
+    /**
      * The `remove_fields` processor deletes specified fields from logs.
      * 
      */
@@ -111,15 +226,70 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
         return Optional.ofNullable(this.renameFields);
     }
 
+    /**
+     * The `sample` processor allows probabilistic sampling of logs at a fixed rate.
+     * 
+     */
+    @Import(name="samples")
+    private @Nullable Output<List<ObservabilityPipelineConfigProcessorsSampleArgs>> samples;
+
+    /**
+     * @return The `sample` processor allows probabilistic sampling of logs at a fixed rate.
+     * 
+     */
+    public Optional<Output<List<ObservabilityPipelineConfigProcessorsSampleArgs>>> samples() {
+        return Optional.ofNullable(this.samples);
+    }
+
+    /**
+     * The `sensitive_data_scanner` processor detects and optionally redacts sensitive data in log events.
+     * 
+     */
+    @Import(name="sensitiveDataScanners")
+    private @Nullable Output<List<ObservabilityPipelineConfigProcessorsSensitiveDataScannerArgs>> sensitiveDataScanners;
+
+    /**
+     * @return The `sensitive_data_scanner` processor detects and optionally redacts sensitive data in log events.
+     * 
+     */
+    public Optional<Output<List<ObservabilityPipelineConfigProcessorsSensitiveDataScannerArgs>>> sensitiveDataScanners() {
+        return Optional.ofNullable(this.sensitiveDataScanners);
+    }
+
+    /**
+     * The `throttle` processor limits the number of events that pass through over a given time window.
+     * 
+     */
+    @Import(name="throttles")
+    private @Nullable Output<List<ObservabilityPipelineConfigProcessorsThrottleArgs>> throttles;
+
+    /**
+     * @return The `throttle` processor limits the number of events that pass through over a given time window.
+     * 
+     */
+    public Optional<Output<List<ObservabilityPipelineConfigProcessorsThrottleArgs>>> throttles() {
+        return Optional.ofNullable(this.throttles);
+    }
+
     private ObservabilityPipelineConfigProcessorsArgs() {}
 
     private ObservabilityPipelineConfigProcessorsArgs(ObservabilityPipelineConfigProcessorsArgs $) {
+        this.addEnvVars = $.addEnvVars;
         this.addFields = $.addFields;
+        this.dedupes = $.dedupes;
+        this.enrichmentTables = $.enrichmentTables;
         this.filters = $.filters;
+        this.generateDatadogMetrics = $.generateDatadogMetrics;
+        this.ocsfMappers = $.ocsfMappers;
+        this.parseGroks = $.parseGroks;
         this.parseJsons = $.parseJsons;
         this.quotas = $.quotas;
+        this.reduces = $.reduces;
         this.removeFields = $.removeFields;
         this.renameFields = $.renameFields;
+        this.samples = $.samples;
+        this.sensitiveDataScanners = $.sensitiveDataScanners;
+        this.throttles = $.throttles;
     }
 
     public static Builder builder() {
@@ -138,6 +308,37 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
 
         public Builder(ObservabilityPipelineConfigProcessorsArgs defaults) {
             $ = new ObservabilityPipelineConfigProcessorsArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param addEnvVars The `add_env_vars` processor adds environment variable values to log events.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder addEnvVars(@Nullable Output<List<ObservabilityPipelineConfigProcessorsAddEnvVarArgs>> addEnvVars) {
+            $.addEnvVars = addEnvVars;
+            return this;
+        }
+
+        /**
+         * @param addEnvVars The `add_env_vars` processor adds environment variable values to log events.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder addEnvVars(List<ObservabilityPipelineConfigProcessorsAddEnvVarArgs> addEnvVars) {
+            return addEnvVars(Output.of(addEnvVars));
+        }
+
+        /**
+         * @param addEnvVars The `add_env_vars` processor adds environment variable values to log events.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder addEnvVars(ObservabilityPipelineConfigProcessorsAddEnvVarArgs... addEnvVars) {
+            return addEnvVars(List.of(addEnvVars));
         }
 
         /**
@@ -172,6 +373,68 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
         }
 
         /**
+         * @param dedupes The `dedupe` processor removes duplicate fields in log events.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dedupes(@Nullable Output<List<ObservabilityPipelineConfigProcessorsDedupeArgs>> dedupes) {
+            $.dedupes = dedupes;
+            return this;
+        }
+
+        /**
+         * @param dedupes The `dedupe` processor removes duplicate fields in log events.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dedupes(List<ObservabilityPipelineConfigProcessorsDedupeArgs> dedupes) {
+            return dedupes(Output.of(dedupes));
+        }
+
+        /**
+         * @param dedupes The `dedupe` processor removes duplicate fields in log events.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dedupes(ObservabilityPipelineConfigProcessorsDedupeArgs... dedupes) {
+            return dedupes(List.of(dedupes));
+        }
+
+        /**
+         * @param enrichmentTables The `enrichment_table` processor enriches logs using a static CSV file or GeoIP database.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enrichmentTables(@Nullable Output<List<ObservabilityPipelineConfigProcessorsEnrichmentTableArgs>> enrichmentTables) {
+            $.enrichmentTables = enrichmentTables;
+            return this;
+        }
+
+        /**
+         * @param enrichmentTables The `enrichment_table` processor enriches logs using a static CSV file or GeoIP database.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enrichmentTables(List<ObservabilityPipelineConfigProcessorsEnrichmentTableArgs> enrichmentTables) {
+            return enrichmentTables(Output.of(enrichmentTables));
+        }
+
+        /**
+         * @param enrichmentTables The `enrichment_table` processor enriches logs using a static CSV file or GeoIP database.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enrichmentTables(ObservabilityPipelineConfigProcessorsEnrichmentTableArgs... enrichmentTables) {
+            return enrichmentTables(List.of(enrichmentTables));
+        }
+
+        /**
          * @param filters The `filter` processor allows conditional processing of logs based on a Datadog search query. Logs that match the `include` query are passed through; others are discarded.
          * 
          * @return builder
@@ -200,6 +463,99 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
          */
         public Builder filters(ObservabilityPipelineConfigProcessorsFilterArgs... filters) {
             return filters(List.of(filters));
+        }
+
+        /**
+         * @param generateDatadogMetrics The `generate_datadog_metrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder generateDatadogMetrics(@Nullable Output<List<ObservabilityPipelineConfigProcessorsGenerateDatadogMetricArgs>> generateDatadogMetrics) {
+            $.generateDatadogMetrics = generateDatadogMetrics;
+            return this;
+        }
+
+        /**
+         * @param generateDatadogMetrics The `generate_datadog_metrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder generateDatadogMetrics(List<ObservabilityPipelineConfigProcessorsGenerateDatadogMetricArgs> generateDatadogMetrics) {
+            return generateDatadogMetrics(Output.of(generateDatadogMetrics));
+        }
+
+        /**
+         * @param generateDatadogMetrics The `generate_datadog_metrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder generateDatadogMetrics(ObservabilityPipelineConfigProcessorsGenerateDatadogMetricArgs... generateDatadogMetrics) {
+            return generateDatadogMetrics(List.of(generateDatadogMetrics));
+        }
+
+        /**
+         * @param ocsfMappers The `ocsf_mapper` processor transforms logs into the OCSF schema using predefined library mappings.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ocsfMappers(@Nullable Output<List<ObservabilityPipelineConfigProcessorsOcsfMapperArgs>> ocsfMappers) {
+            $.ocsfMappers = ocsfMappers;
+            return this;
+        }
+
+        /**
+         * @param ocsfMappers The `ocsf_mapper` processor transforms logs into the OCSF schema using predefined library mappings.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ocsfMappers(List<ObservabilityPipelineConfigProcessorsOcsfMapperArgs> ocsfMappers) {
+            return ocsfMappers(Output.of(ocsfMappers));
+        }
+
+        /**
+         * @param ocsfMappers The `ocsf_mapper` processor transforms logs into the OCSF schema using predefined library mappings.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ocsfMappers(ObservabilityPipelineConfigProcessorsOcsfMapperArgs... ocsfMappers) {
+            return ocsfMappers(List.of(ocsfMappers));
+        }
+
+        /**
+         * @param parseGroks The `parse_grok` processor extracts structured fields from unstructured log messages using Grok patterns.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder parseGroks(@Nullable Output<List<ObservabilityPipelineConfigProcessorsParseGrokArgs>> parseGroks) {
+            $.parseGroks = parseGroks;
+            return this;
+        }
+
+        /**
+         * @param parseGroks The `parse_grok` processor extracts structured fields from unstructured log messages using Grok patterns.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder parseGroks(List<ObservabilityPipelineConfigProcessorsParseGrokArgs> parseGroks) {
+            return parseGroks(Output.of(parseGroks));
+        }
+
+        /**
+         * @param parseGroks The `parse_grok` processor extracts structured fields from unstructured log messages using Grok patterns.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder parseGroks(ObservabilityPipelineConfigProcessorsParseGrokArgs... parseGroks) {
+            return parseGroks(List.of(parseGroks));
         }
 
         /**
@@ -265,6 +621,37 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
         }
 
         /**
+         * @param reduces The `reduce` processor aggregates and merges logs based on matching keys and merge strategies.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder reduces(@Nullable Output<List<ObservabilityPipelineConfigProcessorsReduceArgs>> reduces) {
+            $.reduces = reduces;
+            return this;
+        }
+
+        /**
+         * @param reduces The `reduce` processor aggregates and merges logs based on matching keys and merge strategies.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder reduces(List<ObservabilityPipelineConfigProcessorsReduceArgs> reduces) {
+            return reduces(Output.of(reduces));
+        }
+
+        /**
+         * @param reduces The `reduce` processor aggregates and merges logs based on matching keys and merge strategies.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder reduces(ObservabilityPipelineConfigProcessorsReduceArgs... reduces) {
+            return reduces(List.of(reduces));
+        }
+
+        /**
          * @param removeFields The `remove_fields` processor deletes specified fields from logs.
          * 
          * @return builder
@@ -324,6 +711,99 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
          */
         public Builder renameFields(ObservabilityPipelineConfigProcessorsRenameFieldArgs... renameFields) {
             return renameFields(List.of(renameFields));
+        }
+
+        /**
+         * @param samples The `sample` processor allows probabilistic sampling of logs at a fixed rate.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder samples(@Nullable Output<List<ObservabilityPipelineConfigProcessorsSampleArgs>> samples) {
+            $.samples = samples;
+            return this;
+        }
+
+        /**
+         * @param samples The `sample` processor allows probabilistic sampling of logs at a fixed rate.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder samples(List<ObservabilityPipelineConfigProcessorsSampleArgs> samples) {
+            return samples(Output.of(samples));
+        }
+
+        /**
+         * @param samples The `sample` processor allows probabilistic sampling of logs at a fixed rate.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder samples(ObservabilityPipelineConfigProcessorsSampleArgs... samples) {
+            return samples(List.of(samples));
+        }
+
+        /**
+         * @param sensitiveDataScanners The `sensitive_data_scanner` processor detects and optionally redacts sensitive data in log events.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sensitiveDataScanners(@Nullable Output<List<ObservabilityPipelineConfigProcessorsSensitiveDataScannerArgs>> sensitiveDataScanners) {
+            $.sensitiveDataScanners = sensitiveDataScanners;
+            return this;
+        }
+
+        /**
+         * @param sensitiveDataScanners The `sensitive_data_scanner` processor detects and optionally redacts sensitive data in log events.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sensitiveDataScanners(List<ObservabilityPipelineConfigProcessorsSensitiveDataScannerArgs> sensitiveDataScanners) {
+            return sensitiveDataScanners(Output.of(sensitiveDataScanners));
+        }
+
+        /**
+         * @param sensitiveDataScanners The `sensitive_data_scanner` processor detects and optionally redacts sensitive data in log events.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sensitiveDataScanners(ObservabilityPipelineConfigProcessorsSensitiveDataScannerArgs... sensitiveDataScanners) {
+            return sensitiveDataScanners(List.of(sensitiveDataScanners));
+        }
+
+        /**
+         * @param throttles The `throttle` processor limits the number of events that pass through over a given time window.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder throttles(@Nullable Output<List<ObservabilityPipelineConfigProcessorsThrottleArgs>> throttles) {
+            $.throttles = throttles;
+            return this;
+        }
+
+        /**
+         * @param throttles The `throttle` processor limits the number of events that pass through over a given time window.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder throttles(List<ObservabilityPipelineConfigProcessorsThrottleArgs> throttles) {
+            return throttles(Output.of(throttles));
+        }
+
+        /**
+         * @param throttles The `throttle` processor limits the number of events that pass through over a given time window.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder throttles(ObservabilityPipelineConfigProcessorsThrottleArgs... throttles) {
+            return throttles(List.of(throttles));
         }
 
         public ObservabilityPipelineConfigProcessorsArgs build() {

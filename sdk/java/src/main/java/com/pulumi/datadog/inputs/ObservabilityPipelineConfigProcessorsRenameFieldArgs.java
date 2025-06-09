@@ -64,14 +64,14 @@ public final class ObservabilityPipelineConfigProcessorsRenameFieldArgs extends 
     }
 
     /**
-     * he inputs for the processor.
+     * The inputs for the processor.
      * 
      */
     @Import(name="inputs", required=true)
     private Output<List<String>> inputs;
 
     /**
-     * @return he inputs for the processor.
+     * @return The inputs for the processor.
      * 
      */
     public Output<List<String>> inputs() {
@@ -179,7 +179,7 @@ public final class ObservabilityPipelineConfigProcessorsRenameFieldArgs extends 
         }
 
         /**
-         * @param inputs he inputs for the processor.
+         * @param inputs The inputs for the processor.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class ObservabilityPipelineConfigProcessorsRenameFieldArgs extends 
         }
 
         /**
-         * @param inputs he inputs for the processor.
+         * @param inputs The inputs for the processor.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class ObservabilityPipelineConfigProcessorsRenameFieldArgs extends 
         }
 
         /**
-         * @param inputs he inputs for the processor.
+         * @param inputs The inputs for the processor.
          * 
          * @return builder
          * 

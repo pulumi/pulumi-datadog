@@ -15,14 +15,14 @@ namespace Pulumi.Datadog.Inputs
         /// <summary>
         /// Widget column field.
         /// </summary>
-        [Input("field", required: true)]
-        public Input<string> Field { get; set; } = null!;
+        [Input("field")]
+        public Input<string>? Field { get; set; }
 
         /// <summary>
         /// Widget column width. Valid values are `auto`, `compact`, `full`.
         /// </summary>
-        [Input("width", required: true)]
-        public Input<string> Width { get; set; } = null!;
+        [Input("width")]
+        public Input<string>? Width { get; set; }
 
         public DashboardWidgetListStreamDefinitionRequestColumnGetArgs()
         {

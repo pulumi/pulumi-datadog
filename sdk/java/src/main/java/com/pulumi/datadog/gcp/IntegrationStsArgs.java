@@ -110,6 +110,21 @@ public final class IntegrationStsArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
+     * 
+     */
+    @Import(name="isPerProjectQuotaEnabled")
+    private @Nullable Output<Boolean> isPerProjectQuotaEnabled;
+
+    /**
+     * @return When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
+     * 
+     */
+    public Optional<Output<Boolean>> isPerProjectQuotaEnabled() {
+        return Optional.ofNullable(this.isPerProjectQuotaEnabled);
+    }
+
+    /**
      * When enabled, Datadog scans for all resource change data in your Google Cloud environment.
      * 
      */
@@ -178,6 +193,7 @@ public final class IntegrationStsArgs extends com.pulumi.resources.ResourceArgs 
         this.cloudRunRevisionFilters = $.cloudRunRevisionFilters;
         this.hostFilters = $.hostFilters;
         this.isCspmEnabled = $.isCspmEnabled;
+        this.isPerProjectQuotaEnabled = $.isPerProjectQuotaEnabled;
         this.isResourceChangeCollectionEnabled = $.isResourceChangeCollectionEnabled;
         this.isSecurityCommandCenterEnabled = $.isSecurityCommandCenterEnabled;
         this.metricNamespaceConfigs = $.metricNamespaceConfigs;
@@ -356,6 +372,27 @@ public final class IntegrationStsArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder isCspmEnabled(Boolean isCspmEnabled) {
             return isCspmEnabled(Output.of(isCspmEnabled));
+        }
+
+        /**
+         * @param isPerProjectQuotaEnabled When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isPerProjectQuotaEnabled(@Nullable Output<Boolean> isPerProjectQuotaEnabled) {
+            $.isPerProjectQuotaEnabled = isPerProjectQuotaEnabled;
+            return this;
+        }
+
+        /**
+         * @param isPerProjectQuotaEnabled When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isPerProjectQuotaEnabled(Boolean isPerProjectQuotaEnabled) {
+            return isPerProjectQuotaEnabled(Output.of(isPerProjectQuotaEnabled));
         }
 
         /**

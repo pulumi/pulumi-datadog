@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Datadog MonitorNotificationRule resource.
+// Provides a Datadog MonitorNotificationRule resource. *Note: This resource is in Preview. [Request access](https://www.datadoghq.com/product-preview/monitor-notification-rules/).*
 //
 // ## Import
 //

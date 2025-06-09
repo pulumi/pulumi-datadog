@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Inputs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// [Experimental - Logs Pipelines, Monitors and Security Monitoring Rules only] Resource tags to be applied by default across all resources.
+        /// [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Resource tags to be applied by default across all resources.
         /// </summary>
         public InputMap<string> Tags
         {

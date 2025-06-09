@@ -4,7 +4,20 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationsAmazonOpensearch;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationsAzureStorage;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationsDatadogLog;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationsElasticsearch;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationsGoogleChronicle;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationsGoogleCloudStorage;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationsMicrosoftSentinel;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationsNewRelic;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationsOpensearch;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationsRsyslog;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationsSentinelOne;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationsSplunkHec;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationsSumoLogic;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationsSyslogNg;
 import java.util.List;
 import java.util.Objects;
 import javax.annotation.Nullable;
@@ -12,18 +25,174 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ObservabilityPipelineConfigDestinations {
     /**
+     * @return The `amazon_opensearch` destination writes logs to Amazon OpenSearch.
+     * 
+     */
+    private @Nullable List<ObservabilityPipelineConfigDestinationsAmazonOpensearch> amazonOpensearches;
+    /**
+     * @return The `azure_storage` destination forwards logs to an Azure Blob Storage container.
+     * 
+     */
+    private @Nullable List<ObservabilityPipelineConfigDestinationsAzureStorage> azureStorages;
+    /**
      * @return The `datadog_logs` destination forwards logs to Datadog Log Management.
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigDestinationsDatadogLog> datadogLogs;
+    /**
+     * @return The `elasticsearch` destination writes logs to an Elasticsearch cluster.
+     * 
+     */
+    private @Nullable List<ObservabilityPipelineConfigDestinationsElasticsearch> elasticsearches;
+    /**
+     * @return The `google_chronicle` destination sends logs to Google Chronicle.
+     * 
+     */
+    private @Nullable List<ObservabilityPipelineConfigDestinationsGoogleChronicle> googleChronicles;
+    /**
+     * @return The `google_cloud_storage` destination stores logs in a Google Cloud Storage (GCS) bucket.
+     * 
+     */
+    private @Nullable List<ObservabilityPipelineConfigDestinationsGoogleCloudStorage> googleCloudStorages;
+    /**
+     * @return The `microsoft_sentinel` destination forwards logs to Microsoft Sentinel.
+     * 
+     */
+    private @Nullable List<ObservabilityPipelineConfigDestinationsMicrosoftSentinel> microsoftSentinels;
+    /**
+     * @return The `new_relic` destination sends logs to the New Relic platform.
+     * 
+     */
+    private @Nullable List<ObservabilityPipelineConfigDestinationsNewRelic> newRelics;
+    /**
+     * @return The `opensearch` destination writes logs to an OpenSearch cluster.
+     * 
+     */
+    private @Nullable List<ObservabilityPipelineConfigDestinationsOpensearch> opensearches;
+    /**
+     * @return The `rsyslog` destination forwards logs to an external `rsyslog` server over TCP or UDP using the syslog protocol.
+     * 
+     */
+    private @Nullable List<ObservabilityPipelineConfigDestinationsRsyslog> rsyslogs;
+    /**
+     * @return The `sentinel_one` destination sends logs to SentinelOne.
+     * 
+     */
+    private @Nullable List<ObservabilityPipelineConfigDestinationsSentinelOne> sentinelOnes;
+    /**
+     * @return The `splunk_hec` destination forwards logs to Splunk using the HTTP Event Collector (HEC).
+     * 
+     */
+    private @Nullable List<ObservabilityPipelineConfigDestinationsSplunkHec> splunkHecs;
+    /**
+     * @return The `sumo_logic` destination forwards logs to Sumo Logic.
+     * 
+     */
+    private @Nullable List<ObservabilityPipelineConfigDestinationsSumoLogic> sumoLogics;
+    /**
+     * @return The `syslog_ng` destination forwards logs to an external `syslog-ng` server over TCP or UDP using the syslog protocol.
+     * 
+     */
+    private @Nullable List<ObservabilityPipelineConfigDestinationsSyslogNg> syslogNgs;
 
     private ObservabilityPipelineConfigDestinations() {}
+    /**
+     * @return The `amazon_opensearch` destination writes logs to Amazon OpenSearch.
+     * 
+     */
+    public List<ObservabilityPipelineConfigDestinationsAmazonOpensearch> amazonOpensearches() {
+        return this.amazonOpensearches == null ? List.of() : this.amazonOpensearches;
+    }
+    /**
+     * @return The `azure_storage` destination forwards logs to an Azure Blob Storage container.
+     * 
+     */
+    public List<ObservabilityPipelineConfigDestinationsAzureStorage> azureStorages() {
+        return this.azureStorages == null ? List.of() : this.azureStorages;
+    }
     /**
      * @return The `datadog_logs` destination forwards logs to Datadog Log Management.
      * 
      */
     public List<ObservabilityPipelineConfigDestinationsDatadogLog> datadogLogs() {
         return this.datadogLogs == null ? List.of() : this.datadogLogs;
+    }
+    /**
+     * @return The `elasticsearch` destination writes logs to an Elasticsearch cluster.
+     * 
+     */
+    public List<ObservabilityPipelineConfigDestinationsElasticsearch> elasticsearches() {
+        return this.elasticsearches == null ? List.of() : this.elasticsearches;
+    }
+    /**
+     * @return The `google_chronicle` destination sends logs to Google Chronicle.
+     * 
+     */
+    public List<ObservabilityPipelineConfigDestinationsGoogleChronicle> googleChronicles() {
+        return this.googleChronicles == null ? List.of() : this.googleChronicles;
+    }
+    /**
+     * @return The `google_cloud_storage` destination stores logs in a Google Cloud Storage (GCS) bucket.
+     * 
+     */
+    public List<ObservabilityPipelineConfigDestinationsGoogleCloudStorage> googleCloudStorages() {
+        return this.googleCloudStorages == null ? List.of() : this.googleCloudStorages;
+    }
+    /**
+     * @return The `microsoft_sentinel` destination forwards logs to Microsoft Sentinel.
+     * 
+     */
+    public List<ObservabilityPipelineConfigDestinationsMicrosoftSentinel> microsoftSentinels() {
+        return this.microsoftSentinels == null ? List.of() : this.microsoftSentinels;
+    }
+    /**
+     * @return The `new_relic` destination sends logs to the New Relic platform.
+     * 
+     */
+    public List<ObservabilityPipelineConfigDestinationsNewRelic> newRelics() {
+        return this.newRelics == null ? List.of() : this.newRelics;
+    }
+    /**
+     * @return The `opensearch` destination writes logs to an OpenSearch cluster.
+     * 
+     */
+    public List<ObservabilityPipelineConfigDestinationsOpensearch> opensearches() {
+        return this.opensearches == null ? List.of() : this.opensearches;
+    }
+    /**
+     * @return The `rsyslog` destination forwards logs to an external `rsyslog` server over TCP or UDP using the syslog protocol.
+     * 
+     */
+    public List<ObservabilityPipelineConfigDestinationsRsyslog> rsyslogs() {
+        return this.rsyslogs == null ? List.of() : this.rsyslogs;
+    }
+    /**
+     * @return The `sentinel_one` destination sends logs to SentinelOne.
+     * 
+     */
+    public List<ObservabilityPipelineConfigDestinationsSentinelOne> sentinelOnes() {
+        return this.sentinelOnes == null ? List.of() : this.sentinelOnes;
+    }
+    /**
+     * @return The `splunk_hec` destination forwards logs to Splunk using the HTTP Event Collector (HEC).
+     * 
+     */
+    public List<ObservabilityPipelineConfigDestinationsSplunkHec> splunkHecs() {
+        return this.splunkHecs == null ? List.of() : this.splunkHecs;
+    }
+    /**
+     * @return The `sumo_logic` destination forwards logs to Sumo Logic.
+     * 
+     */
+    public List<ObservabilityPipelineConfigDestinationsSumoLogic> sumoLogics() {
+        return this.sumoLogics == null ? List.of() : this.sumoLogics;
+    }
+    /**
+     * @return The `syslog_ng` destination forwards logs to an external `syslog-ng` server over TCP or UDP using the syslog protocol.
+     * 
+     */
+    public List<ObservabilityPipelineConfigDestinationsSyslogNg> syslogNgs() {
+        return this.syslogNgs == null ? List.of() : this.syslogNgs;
     }
 
     public static Builder builder() {
@@ -35,13 +204,57 @@ public final class ObservabilityPipelineConfigDestinations {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable List<ObservabilityPipelineConfigDestinationsAmazonOpensearch> amazonOpensearches;
+        private @Nullable List<ObservabilityPipelineConfigDestinationsAzureStorage> azureStorages;
         private @Nullable List<ObservabilityPipelineConfigDestinationsDatadogLog> datadogLogs;
+        private @Nullable List<ObservabilityPipelineConfigDestinationsElasticsearch> elasticsearches;
+        private @Nullable List<ObservabilityPipelineConfigDestinationsGoogleChronicle> googleChronicles;
+        private @Nullable List<ObservabilityPipelineConfigDestinationsGoogleCloudStorage> googleCloudStorages;
+        private @Nullable List<ObservabilityPipelineConfigDestinationsMicrosoftSentinel> microsoftSentinels;
+        private @Nullable List<ObservabilityPipelineConfigDestinationsNewRelic> newRelics;
+        private @Nullable List<ObservabilityPipelineConfigDestinationsOpensearch> opensearches;
+        private @Nullable List<ObservabilityPipelineConfigDestinationsRsyslog> rsyslogs;
+        private @Nullable List<ObservabilityPipelineConfigDestinationsSentinelOne> sentinelOnes;
+        private @Nullable List<ObservabilityPipelineConfigDestinationsSplunkHec> splunkHecs;
+        private @Nullable List<ObservabilityPipelineConfigDestinationsSumoLogic> sumoLogics;
+        private @Nullable List<ObservabilityPipelineConfigDestinationsSyslogNg> syslogNgs;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigDestinations defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.amazonOpensearches = defaults.amazonOpensearches;
+    	      this.azureStorages = defaults.azureStorages;
     	      this.datadogLogs = defaults.datadogLogs;
+    	      this.elasticsearches = defaults.elasticsearches;
+    	      this.googleChronicles = defaults.googleChronicles;
+    	      this.googleCloudStorages = defaults.googleCloudStorages;
+    	      this.microsoftSentinels = defaults.microsoftSentinels;
+    	      this.newRelics = defaults.newRelics;
+    	      this.opensearches = defaults.opensearches;
+    	      this.rsyslogs = defaults.rsyslogs;
+    	      this.sentinelOnes = defaults.sentinelOnes;
+    	      this.splunkHecs = defaults.splunkHecs;
+    	      this.sumoLogics = defaults.sumoLogics;
+    	      this.syslogNgs = defaults.syslogNgs;
         }
 
+        @CustomType.Setter
+        public Builder amazonOpensearches(@Nullable List<ObservabilityPipelineConfigDestinationsAmazonOpensearch> amazonOpensearches) {
+
+            this.amazonOpensearches = amazonOpensearches;
+            return this;
+        }
+        public Builder amazonOpensearches(ObservabilityPipelineConfigDestinationsAmazonOpensearch... amazonOpensearches) {
+            return amazonOpensearches(List.of(amazonOpensearches));
+        }
+        @CustomType.Setter
+        public Builder azureStorages(@Nullable List<ObservabilityPipelineConfigDestinationsAzureStorage> azureStorages) {
+
+            this.azureStorages = azureStorages;
+            return this;
+        }
+        public Builder azureStorages(ObservabilityPipelineConfigDestinationsAzureStorage... azureStorages) {
+            return azureStorages(List.of(azureStorages));
+        }
         @CustomType.Setter
         public Builder datadogLogs(@Nullable List<ObservabilityPipelineConfigDestinationsDatadogLog> datadogLogs) {
 
@@ -51,9 +264,121 @@ public final class ObservabilityPipelineConfigDestinations {
         public Builder datadogLogs(ObservabilityPipelineConfigDestinationsDatadogLog... datadogLogs) {
             return datadogLogs(List.of(datadogLogs));
         }
+        @CustomType.Setter
+        public Builder elasticsearches(@Nullable List<ObservabilityPipelineConfigDestinationsElasticsearch> elasticsearches) {
+
+            this.elasticsearches = elasticsearches;
+            return this;
+        }
+        public Builder elasticsearches(ObservabilityPipelineConfigDestinationsElasticsearch... elasticsearches) {
+            return elasticsearches(List.of(elasticsearches));
+        }
+        @CustomType.Setter
+        public Builder googleChronicles(@Nullable List<ObservabilityPipelineConfigDestinationsGoogleChronicle> googleChronicles) {
+
+            this.googleChronicles = googleChronicles;
+            return this;
+        }
+        public Builder googleChronicles(ObservabilityPipelineConfigDestinationsGoogleChronicle... googleChronicles) {
+            return googleChronicles(List.of(googleChronicles));
+        }
+        @CustomType.Setter
+        public Builder googleCloudStorages(@Nullable List<ObservabilityPipelineConfigDestinationsGoogleCloudStorage> googleCloudStorages) {
+
+            this.googleCloudStorages = googleCloudStorages;
+            return this;
+        }
+        public Builder googleCloudStorages(ObservabilityPipelineConfigDestinationsGoogleCloudStorage... googleCloudStorages) {
+            return googleCloudStorages(List.of(googleCloudStorages));
+        }
+        @CustomType.Setter
+        public Builder microsoftSentinels(@Nullable List<ObservabilityPipelineConfigDestinationsMicrosoftSentinel> microsoftSentinels) {
+
+            this.microsoftSentinels = microsoftSentinels;
+            return this;
+        }
+        public Builder microsoftSentinels(ObservabilityPipelineConfigDestinationsMicrosoftSentinel... microsoftSentinels) {
+            return microsoftSentinels(List.of(microsoftSentinels));
+        }
+        @CustomType.Setter
+        public Builder newRelics(@Nullable List<ObservabilityPipelineConfigDestinationsNewRelic> newRelics) {
+
+            this.newRelics = newRelics;
+            return this;
+        }
+        public Builder newRelics(ObservabilityPipelineConfigDestinationsNewRelic... newRelics) {
+            return newRelics(List.of(newRelics));
+        }
+        @CustomType.Setter
+        public Builder opensearches(@Nullable List<ObservabilityPipelineConfigDestinationsOpensearch> opensearches) {
+
+            this.opensearches = opensearches;
+            return this;
+        }
+        public Builder opensearches(ObservabilityPipelineConfigDestinationsOpensearch... opensearches) {
+            return opensearches(List.of(opensearches));
+        }
+        @CustomType.Setter
+        public Builder rsyslogs(@Nullable List<ObservabilityPipelineConfigDestinationsRsyslog> rsyslogs) {
+
+            this.rsyslogs = rsyslogs;
+            return this;
+        }
+        public Builder rsyslogs(ObservabilityPipelineConfigDestinationsRsyslog... rsyslogs) {
+            return rsyslogs(List.of(rsyslogs));
+        }
+        @CustomType.Setter
+        public Builder sentinelOnes(@Nullable List<ObservabilityPipelineConfigDestinationsSentinelOne> sentinelOnes) {
+
+            this.sentinelOnes = sentinelOnes;
+            return this;
+        }
+        public Builder sentinelOnes(ObservabilityPipelineConfigDestinationsSentinelOne... sentinelOnes) {
+            return sentinelOnes(List.of(sentinelOnes));
+        }
+        @CustomType.Setter
+        public Builder splunkHecs(@Nullable List<ObservabilityPipelineConfigDestinationsSplunkHec> splunkHecs) {
+
+            this.splunkHecs = splunkHecs;
+            return this;
+        }
+        public Builder splunkHecs(ObservabilityPipelineConfigDestinationsSplunkHec... splunkHecs) {
+            return splunkHecs(List.of(splunkHecs));
+        }
+        @CustomType.Setter
+        public Builder sumoLogics(@Nullable List<ObservabilityPipelineConfigDestinationsSumoLogic> sumoLogics) {
+
+            this.sumoLogics = sumoLogics;
+            return this;
+        }
+        public Builder sumoLogics(ObservabilityPipelineConfigDestinationsSumoLogic... sumoLogics) {
+            return sumoLogics(List.of(sumoLogics));
+        }
+        @CustomType.Setter
+        public Builder syslogNgs(@Nullable List<ObservabilityPipelineConfigDestinationsSyslogNg> syslogNgs) {
+
+            this.syslogNgs = syslogNgs;
+            return this;
+        }
+        public Builder syslogNgs(ObservabilityPipelineConfigDestinationsSyslogNg... syslogNgs) {
+            return syslogNgs(List.of(syslogNgs));
+        }
         public ObservabilityPipelineConfigDestinations build() {
             final var _resultValue = new ObservabilityPipelineConfigDestinations();
+            _resultValue.amazonOpensearches = amazonOpensearches;
+            _resultValue.azureStorages = azureStorages;
             _resultValue.datadogLogs = datadogLogs;
+            _resultValue.elasticsearches = elasticsearches;
+            _resultValue.googleChronicles = googleChronicles;
+            _resultValue.googleCloudStorages = googleCloudStorages;
+            _resultValue.microsoftSentinels = microsoftSentinels;
+            _resultValue.newRelics = newRelics;
+            _resultValue.opensearches = opensearches;
+            _resultValue.rsyslogs = rsyslogs;
+            _resultValue.sentinelOnes = sentinelOnes;
+            _resultValue.splunkHecs = splunkHecs;
+            _resultValue.sumoLogics = sumoLogics;
+            _resultValue.syslogNgs = syslogNgs;
             return _resultValue;
         }
     }

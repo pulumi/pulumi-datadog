@@ -28,6 +28,7 @@ class IntegrationStsArgs:
                  cloud_run_revision_filters: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  host_filters: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  is_cspm_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 is_per_project_quota_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  is_resource_change_collection_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  is_security_command_center_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  metric_namespace_configs: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationStsMetricNamespaceConfigArgs']]]] = None,
@@ -40,6 +41,7 @@ class IntegrationStsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] cloud_run_revision_filters: Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] host_filters: Your Host Filters.
         :param pulumi.Input[builtins.bool] is_cspm_enabled: Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled.
+        :param pulumi.Input[builtins.bool] is_per_project_quota_enabled: When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
         :param pulumi.Input[builtins.bool] is_resource_change_collection_enabled: When enabled, Datadog scans for all resource change data in your Google Cloud environment.
         :param pulumi.Input[builtins.bool] is_security_command_center_enabled: When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['IntegrationStsMetricNamespaceConfigArgs']]] metric_namespace_configs: Configuration for a GCP metric namespace.
@@ -56,6 +58,8 @@ class IntegrationStsArgs:
             pulumi.set(__self__, "host_filters", host_filters)
         if is_cspm_enabled is not None:
             pulumi.set(__self__, "is_cspm_enabled", is_cspm_enabled)
+        if is_per_project_quota_enabled is not None:
+            pulumi.set(__self__, "is_per_project_quota_enabled", is_per_project_quota_enabled)
         if is_resource_change_collection_enabled is not None:
             pulumi.set(__self__, "is_resource_change_collection_enabled", is_resource_change_collection_enabled)
         if is_security_command_center_enabled is not None:
@@ -138,6 +142,18 @@ class IntegrationStsArgs:
         pulumi.set(self, "is_cspm_enabled", value)
 
     @property
+    @pulumi.getter(name="isPerProjectQuotaEnabled")
+    def is_per_project_quota_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
+        """
+        return pulumi.get(self, "is_per_project_quota_enabled")
+
+    @is_per_project_quota_enabled.setter
+    def is_per_project_quota_enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "is_per_project_quota_enabled", value)
+
+    @property
     @pulumi.getter(name="isResourceChangeCollectionEnabled")
     def is_resource_change_collection_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -196,6 +212,7 @@ class _IntegrationStsState:
                  delegate_account_email: Optional[pulumi.Input[builtins.str]] = None,
                  host_filters: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  is_cspm_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 is_per_project_quota_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  is_resource_change_collection_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  is_security_command_center_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  metric_namespace_configs: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationStsMetricNamespaceConfigArgs']]]] = None,
@@ -209,6 +226,7 @@ class _IntegrationStsState:
         :param pulumi.Input[builtins.str] delegate_account_email: Datadog's STS Delegate Email.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] host_filters: Your Host Filters.
         :param pulumi.Input[builtins.bool] is_cspm_enabled: Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled.
+        :param pulumi.Input[builtins.bool] is_per_project_quota_enabled: When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
         :param pulumi.Input[builtins.bool] is_resource_change_collection_enabled: When enabled, Datadog scans for all resource change data in your Google Cloud environment.
         :param pulumi.Input[builtins.bool] is_security_command_center_enabled: When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['IntegrationStsMetricNamespaceConfigArgs']]] metric_namespace_configs: Configuration for a GCP metric namespace.
@@ -228,6 +246,8 @@ class _IntegrationStsState:
             pulumi.set(__self__, "host_filters", host_filters)
         if is_cspm_enabled is not None:
             pulumi.set(__self__, "is_cspm_enabled", is_cspm_enabled)
+        if is_per_project_quota_enabled is not None:
+            pulumi.set(__self__, "is_per_project_quota_enabled", is_per_project_quota_enabled)
         if is_resource_change_collection_enabled is not None:
             pulumi.set(__self__, "is_resource_change_collection_enabled", is_resource_change_collection_enabled)
         if is_security_command_center_enabled is not None:
@@ -322,6 +342,18 @@ class _IntegrationStsState:
         pulumi.set(self, "is_cspm_enabled", value)
 
     @property
+    @pulumi.getter(name="isPerProjectQuotaEnabled")
+    def is_per_project_quota_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
+        """
+        return pulumi.get(self, "is_per_project_quota_enabled")
+
+    @is_per_project_quota_enabled.setter
+    def is_per_project_quota_enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "is_per_project_quota_enabled", value)
+
+    @property
     @pulumi.getter(name="isResourceChangeCollectionEnabled")
     def is_resource_change_collection_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -382,6 +414,7 @@ class IntegrationSts(pulumi.CustomResource):
                  cloud_run_revision_filters: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  host_filters: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  is_cspm_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 is_per_project_quota_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  is_resource_change_collection_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  is_security_command_center_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  metric_namespace_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationStsMetricNamespaceConfigArgs', 'IntegrationStsMetricNamespaceConfigArgsDict']]]]] = None,
@@ -404,6 +437,7 @@ class IntegrationSts(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] cloud_run_revision_filters: Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] host_filters: Your Host Filters.
         :param pulumi.Input[builtins.bool] is_cspm_enabled: Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled.
+        :param pulumi.Input[builtins.bool] is_per_project_quota_enabled: When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
         :param pulumi.Input[builtins.bool] is_resource_change_collection_enabled: When enabled, Datadog scans for all resource change data in your Google Cloud environment.
         :param pulumi.Input[builtins.bool] is_security_command_center_enabled: When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['IntegrationStsMetricNamespaceConfigArgs', 'IntegrationStsMetricNamespaceConfigArgsDict']]]] metric_namespace_configs: Configuration for a GCP metric namespace.
@@ -445,6 +479,7 @@ class IntegrationSts(pulumi.CustomResource):
                  cloud_run_revision_filters: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  host_filters: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  is_cspm_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 is_per_project_quota_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  is_resource_change_collection_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  is_security_command_center_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  metric_namespace_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationStsMetricNamespaceConfigArgs', 'IntegrationStsMetricNamespaceConfigArgsDict']]]]] = None,
@@ -466,6 +501,7 @@ class IntegrationSts(pulumi.CustomResource):
             __props__.__dict__["cloud_run_revision_filters"] = cloud_run_revision_filters
             __props__.__dict__["host_filters"] = host_filters
             __props__.__dict__["is_cspm_enabled"] = is_cspm_enabled
+            __props__.__dict__["is_per_project_quota_enabled"] = is_per_project_quota_enabled
             __props__.__dict__["is_resource_change_collection_enabled"] = is_resource_change_collection_enabled
             __props__.__dict__["is_security_command_center_enabled"] = is_security_command_center_enabled
             __props__.__dict__["metric_namespace_configs"] = metric_namespace_configs
@@ -488,6 +524,7 @@ class IntegrationSts(pulumi.CustomResource):
             delegate_account_email: Optional[pulumi.Input[builtins.str]] = None,
             host_filters: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             is_cspm_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+            is_per_project_quota_enabled: Optional[pulumi.Input[builtins.bool]] = None,
             is_resource_change_collection_enabled: Optional[pulumi.Input[builtins.bool]] = None,
             is_security_command_center_enabled: Optional[pulumi.Input[builtins.bool]] = None,
             metric_namespace_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationStsMetricNamespaceConfigArgs', 'IntegrationStsMetricNamespaceConfigArgsDict']]]]] = None,
@@ -506,6 +543,7 @@ class IntegrationSts(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] delegate_account_email: Datadog's STS Delegate Email.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] host_filters: Your Host Filters.
         :param pulumi.Input[builtins.bool] is_cspm_enabled: Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled.
+        :param pulumi.Input[builtins.bool] is_per_project_quota_enabled: When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
         :param pulumi.Input[builtins.bool] is_resource_change_collection_enabled: When enabled, Datadog scans for all resource change data in your Google Cloud environment.
         :param pulumi.Input[builtins.bool] is_security_command_center_enabled: When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['IntegrationStsMetricNamespaceConfigArgs', 'IntegrationStsMetricNamespaceConfigArgsDict']]]] metric_namespace_configs: Configuration for a GCP metric namespace.
@@ -522,6 +560,7 @@ class IntegrationSts(pulumi.CustomResource):
         __props__.__dict__["delegate_account_email"] = delegate_account_email
         __props__.__dict__["host_filters"] = host_filters
         __props__.__dict__["is_cspm_enabled"] = is_cspm_enabled
+        __props__.__dict__["is_per_project_quota_enabled"] = is_per_project_quota_enabled
         __props__.__dict__["is_resource_change_collection_enabled"] = is_resource_change_collection_enabled
         __props__.__dict__["is_security_command_center_enabled"] = is_security_command_center_enabled
         __props__.__dict__["metric_namespace_configs"] = metric_namespace_configs
@@ -583,6 +622,14 @@ class IntegrationSts(pulumi.CustomResource):
         Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled.
         """
         return pulumi.get(self, "is_cspm_enabled")
+
+    @property
+    @pulumi.getter(name="isPerProjectQuotaEnabled")
+    def is_per_project_quota_enabled(self) -> pulumi.Output[builtins.bool]:
+        """
+        When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
+        """
+        return pulumi.get(self, "is_per_project_quota_enabled")
 
     @property
     @pulumi.getter(name="isResourceChangeCollectionEnabled")

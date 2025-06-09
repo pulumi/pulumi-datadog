@@ -871,14 +871,14 @@ public class SyntheticsTest extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.forceDeleteDependencies);
     }
     /**
-     * Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
+     * Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations or find the possible values listed in [this API response](https://app.datadoghq.com/api/v1/synthetics/locations?only_public=true).
      * 
      */
     @Export(name="locations", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> locations;
 
     /**
-     * @return Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
+     * @return Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations or find the possible values listed in [this API response](https://app.datadoghq.com/api/v1/synthetics/locations?only_public=true).
      * 
      */
     public Output<List<String>> locations() {

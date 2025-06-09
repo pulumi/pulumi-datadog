@@ -57,6 +57,12 @@ namespace Pulumi.Datadog.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The action to take when the quota is exceeded: `drop`, `no_action`, or `overflow_routing`.
+        /// </summary>
+        [Input("overflowAction")]
+        public Input<string>? OverflowAction { get; set; }
+
         [Input("overrides")]
         private InputList<Inputs.ObservabilityPipelineConfigProcessorsQuotaOverrideGetArgs>? _overrides;
 

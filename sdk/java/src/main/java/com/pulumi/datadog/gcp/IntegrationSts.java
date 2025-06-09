@@ -128,6 +128,20 @@ public class IntegrationSts extends com.pulumi.resources.CustomResource {
         return this.isCspmEnabled;
     }
     /**
+     * When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
+     * 
+     */
+    @Export(name="isPerProjectQuotaEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> isPerProjectQuotaEnabled;
+
+    /**
+     * @return When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
+     * 
+     */
+    public Output<Boolean> isPerProjectQuotaEnabled() {
+        return this.isPerProjectQuotaEnabled;
+    }
+    /**
      * When enabled, Datadog scans for all resource change data in your Google Cloud environment.
      * 
      */

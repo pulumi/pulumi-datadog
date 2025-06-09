@@ -4,9 +4,10 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class ObservabilityPipelineConfigSourcesKafkaSasl {
@@ -14,15 +15,15 @@ public final class ObservabilityPipelineConfigSourcesKafkaSasl {
      * @return SASL mechanism to use (e.g., PLAIN, SCRAM-SHA-256, SCRAM-SHA-512). Valid values are `PLAIN`, `SCRAM-SHA-256`, `SCRAM-SHA-512`.
      * 
      */
-    private String mechanism;
+    private @Nullable String mechanism;
 
     private ObservabilityPipelineConfigSourcesKafkaSasl() {}
     /**
      * @return SASL mechanism to use (e.g., PLAIN, SCRAM-SHA-256, SCRAM-SHA-512). Valid values are `PLAIN`, `SCRAM-SHA-256`, `SCRAM-SHA-512`.
      * 
      */
-    public String mechanism() {
-        return this.mechanism;
+    public Optional<String> mechanism() {
+        return Optional.ofNullable(this.mechanism);
     }
 
     public static Builder builder() {
@@ -34,7 +35,7 @@ public final class ObservabilityPipelineConfigSourcesKafkaSasl {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String mechanism;
+        private @Nullable String mechanism;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigSourcesKafkaSasl defaults) {
     	      Objects.requireNonNull(defaults);
@@ -42,10 +43,8 @@ public final class ObservabilityPipelineConfigSourcesKafkaSasl {
         }
 
         @CustomType.Setter
-        public Builder mechanism(String mechanism) {
-            if (mechanism == null) {
-              throw new MissingRequiredPropertyException("ObservabilityPipelineConfigSourcesKafkaSasl", "mechanism");
-            }
+        public Builder mechanism(@Nullable String mechanism) {
+
             this.mechanism = mechanism;
             return this;
         }

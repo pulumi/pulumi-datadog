@@ -263,18 +263,18 @@ public class ServiceLevelObjective extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.sliSpecification);
     }
     /**
-     * A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it&#39;s not currently possible to filter by these tags when querying via the API
+     * A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. **Note**: it&#39;s not currently possible to filter by these tags when querying via the API. If default tags are present at the provider level, they will be added to this resource.
      * 
      */
     @Export(name="tags", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> tags;
+    private Output<List<String>> tags;
 
     /**
-     * @return A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it&#39;s not currently possible to filter by these tags when querying via the API
+     * @return A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. **Note**: it&#39;s not currently possible to filter by these tags when querying via the API. If default tags are present at the provider level, they will be added to this resource.
      * 
      */
-    public Output<Optional<List<String>>> tags() {
-        return Codegen.optional(this.tags);
+    public Output<List<String>> tags() {
+        return this.tags;
     }
     /**
      * The objective&#39;s target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.

@@ -4,9 +4,10 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetListStreamDefinitionRequestColumn {
@@ -14,27 +15,27 @@ public final class DashboardWidgetListStreamDefinitionRequestColumn {
      * @return Widget column field.
      * 
      */
-    private String field;
+    private @Nullable String field;
     /**
      * @return Widget column width. Valid values are `auto`, `compact`, `full`.
      * 
      */
-    private String width;
+    private @Nullable String width;
 
     private DashboardWidgetListStreamDefinitionRequestColumn() {}
     /**
      * @return Widget column field.
      * 
      */
-    public String field() {
-        return this.field;
+    public Optional<String> field() {
+        return Optional.ofNullable(this.field);
     }
     /**
      * @return Widget column width. Valid values are `auto`, `compact`, `full`.
      * 
      */
-    public String width() {
-        return this.width;
+    public Optional<String> width() {
+        return Optional.ofNullable(this.width);
     }
 
     public static Builder builder() {
@@ -46,8 +47,8 @@ public final class DashboardWidgetListStreamDefinitionRequestColumn {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String field;
-        private String width;
+        private @Nullable String field;
+        private @Nullable String width;
         public Builder() {}
         public Builder(DashboardWidgetListStreamDefinitionRequestColumn defaults) {
     	      Objects.requireNonNull(defaults);
@@ -56,18 +57,14 @@ public final class DashboardWidgetListStreamDefinitionRequestColumn {
         }
 
         @CustomType.Setter
-        public Builder field(String field) {
-            if (field == null) {
-              throw new MissingRequiredPropertyException("DashboardWidgetListStreamDefinitionRequestColumn", "field");
-            }
+        public Builder field(@Nullable String field) {
+
             this.field = field;
             return this;
         }
         @CustomType.Setter
-        public Builder width(String width) {
-            if (width == null) {
-              throw new MissingRequiredPropertyException("DashboardWidgetListStreamDefinitionRequestColumn", "width");
-            }
+        public Builder width(@Nullable String width) {
+
             this.width = width;
             return this;
         }

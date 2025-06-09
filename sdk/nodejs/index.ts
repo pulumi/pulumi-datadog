@@ -65,6 +65,11 @@ export type CloudWorkloadSecurityAgentRule = import("./cloudWorkloadSecurityAgen
 export const CloudWorkloadSecurityAgentRule: typeof import("./cloudWorkloadSecurityAgentRule").CloudWorkloadSecurityAgentRule = null as any;
 utilities.lazyLoad(exports, ["CloudWorkloadSecurityAgentRule"], () => require("./cloudWorkloadSecurityAgentRule"));
 
+export { ComplianceCustomFrameworkArgs, ComplianceCustomFrameworkState } from "./complianceCustomFramework";
+export type ComplianceCustomFramework = import("./complianceCustomFramework").ComplianceCustomFramework;
+export const ComplianceCustomFramework: typeof import("./complianceCustomFramework").ComplianceCustomFramework = null as any;
+utilities.lazyLoad(exports, ["ComplianceCustomFramework"], () => require("./complianceCustomFramework"));
+
 export { CsmThreatsAgentRuleArgs, CsmThreatsAgentRuleState } from "./csmThreatsAgentRule";
 export type CsmThreatsAgentRule = import("./csmThreatsAgentRule").CsmThreatsAgentRule;
 export const CsmThreatsAgentRule: typeof import("./csmThreatsAgentRule").CsmThreatsAgentRule = null as any;
@@ -410,6 +415,21 @@ export type ObservabilityPipeline = import("./observabilityPipeline").Observabil
 export const ObservabilityPipeline: typeof import("./observabilityPipeline").ObservabilityPipeline = null as any;
 utilities.lazyLoad(exports, ["ObservabilityPipeline"], () => require("./observabilityPipeline"));
 
+export { OnCallEscalationPolicyArgs, OnCallEscalationPolicyState } from "./onCallEscalationPolicy";
+export type OnCallEscalationPolicy = import("./onCallEscalationPolicy").OnCallEscalationPolicy;
+export const OnCallEscalationPolicy: typeof import("./onCallEscalationPolicy").OnCallEscalationPolicy = null as any;
+utilities.lazyLoad(exports, ["OnCallEscalationPolicy"], () => require("./onCallEscalationPolicy"));
+
+export { OnCallScheduleArgs, OnCallScheduleState } from "./onCallSchedule";
+export type OnCallSchedule = import("./onCallSchedule").OnCallSchedule;
+export const OnCallSchedule: typeof import("./onCallSchedule").OnCallSchedule = null as any;
+utilities.lazyLoad(exports, ["OnCallSchedule"], () => require("./onCallSchedule"));
+
+export { OnCallTeamRoutingRulesArgs, OnCallTeamRoutingRulesState } from "./onCallTeamRoutingRules";
+export type OnCallTeamRoutingRules = import("./onCallTeamRoutingRules").OnCallTeamRoutingRules;
+export const OnCallTeamRoutingRules: typeof import("./onCallTeamRoutingRules").OnCallTeamRoutingRules = null as any;
+utilities.lazyLoad(exports, ["OnCallTeamRoutingRules"], () => require("./onCallTeamRoutingRules"));
+
 export { OpenapiApiArgs, OpenapiApiState } from "./openapiApi";
 export type OpenapiApi = import("./openapiApi").OpenapiApi;
 export const OpenapiApi: typeof import("./openapiApi").OpenapiApi = null as any;
@@ -472,6 +492,11 @@ export { SecurityMonitoringRuleArgs, SecurityMonitoringRuleState } from "./secur
 export type SecurityMonitoringRule = import("./securityMonitoringRule").SecurityMonitoringRule;
 export const SecurityMonitoringRule: typeof import("./securityMonitoringRule").SecurityMonitoringRule = null as any;
 utilities.lazyLoad(exports, ["SecurityMonitoringRule"], () => require("./securityMonitoringRule"));
+
+export { SecurityMonitoringRuleJsonArgs, SecurityMonitoringRuleJsonState } from "./securityMonitoringRuleJson";
+export type SecurityMonitoringRuleJson = import("./securityMonitoringRuleJson").SecurityMonitoringRuleJson;
+export const SecurityMonitoringRuleJson: typeof import("./securityMonitoringRuleJson").SecurityMonitoringRuleJson = null as any;
+utilities.lazyLoad(exports, ["SecurityMonitoringRuleJson"], () => require("./securityMonitoringRuleJson"));
 
 export { SecurityMonitoringSuppressionArgs, SecurityMonitoringSuppressionState } from "./securityMonitoringSuppression";
 export type SecurityMonitoringSuppression = import("./securityMonitoringSuppression").SecurityMonitoringSuppression;
@@ -656,6 +681,8 @@ const _module = {
                 return new CloudConfigurationRule(name, <any>undefined, { urn })
             case "datadog:index/cloudWorkloadSecurityAgentRule:CloudWorkloadSecurityAgentRule":
                 return new CloudWorkloadSecurityAgentRule(name, <any>undefined, { urn })
+            case "datadog:index/complianceCustomFramework:ComplianceCustomFramework":
+                return new ComplianceCustomFramework(name, <any>undefined, { urn })
             case "datadog:index/csmThreatsAgentRule:CsmThreatsAgentRule":
                 return new CsmThreatsAgentRule(name, <any>undefined, { urn })
             case "datadog:index/dashboard:Dashboard":
@@ -704,6 +731,12 @@ const _module = {
                 return new MonitorNotificationRule(name, <any>undefined, { urn })
             case "datadog:index/observabilityPipeline:ObservabilityPipeline":
                 return new ObservabilityPipeline(name, <any>undefined, { urn })
+            case "datadog:index/onCallEscalationPolicy:OnCallEscalationPolicy":
+                return new OnCallEscalationPolicy(name, <any>undefined, { urn })
+            case "datadog:index/onCallSchedule:OnCallSchedule":
+                return new OnCallSchedule(name, <any>undefined, { urn })
+            case "datadog:index/onCallTeamRoutingRules:OnCallTeamRoutingRules":
+                return new OnCallTeamRoutingRules(name, <any>undefined, { urn })
             case "datadog:index/openapiApi:OpenapiApi":
                 return new OpenapiApi(name, <any>undefined, { urn })
             case "datadog:index/organizationSettings:OrganizationSettings":
@@ -728,6 +761,8 @@ const _module = {
                 return new SecurityMonitoringFilter(name, <any>undefined, { urn })
             case "datadog:index/securityMonitoringRule:SecurityMonitoringRule":
                 return new SecurityMonitoringRule(name, <any>undefined, { urn })
+            case "datadog:index/securityMonitoringRuleJson:SecurityMonitoringRuleJson":
+                return new SecurityMonitoringRuleJson(name, <any>undefined, { urn })
             case "datadog:index/securityMonitoringSuppression:SecurityMonitoringSuppression":
                 return new SecurityMonitoringSuppression(name, <any>undefined, { urn })
             case "datadog:index/securityNotificationRule:SecurityNotificationRule":
@@ -795,6 +830,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/authnMapping", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/childOrganization", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/cloudConfigurationRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/cloudWorkloadSecurityAgentRule", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/complianceCustomFramework", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/csmThreatsAgentRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/dashboard", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/dashboardJson", _module)
@@ -819,6 +855,9 @@ pulumi.runtime.registerResourceModule("datadog", "index/monitorConfigPolicy", _m
 pulumi.runtime.registerResourceModule("datadog", "index/monitorJson", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/monitorNotificationRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/observabilityPipeline", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/onCallEscalationPolicy", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/onCallSchedule", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/onCallTeamRoutingRules", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/openapiApi", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/organizationSettings", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/powerpack", _module)
@@ -831,6 +870,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/rumRetentionFiltersOrder
 pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringDefaultRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringFilter", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringRule", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringRuleJson", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringSuppression", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityNotificationRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/sensitiveDataScannerGroup", _module)

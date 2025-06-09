@@ -970,7 +970,7 @@ namespace Pulumi.Datadog
         public Output<bool?> ForceDeleteDependencies { get; private set; } = null!;
 
         /// <summary>
-        /// Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
+        /// Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations or find the possible values listed in [this API response](https://app.datadoghq.com/api/v1/synthetics/locations?only_public=true).
         /// </summary>
         [Output("locations")]
         public Output<ImmutableArray<string>> Locations { get; private set; } = null!;
@@ -1229,7 +1229,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _locations;
 
         /// <summary>
-        /// Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
+        /// Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations or find the possible values listed in [this API response](https://app.datadoghq.com/api/v1/synthetics/locations?only_public=true).
         /// </summary>
         public InputList<string> Locations
         {
@@ -1483,7 +1483,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _locations;
 
         /// <summary>
-        /// Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
+        /// Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations or find the possible values listed in [this API response](https://app.datadoghq.com/api/v1/synthetics/locations?only_public=true).
         /// </summary>
         public InputList<string> Locations
         {

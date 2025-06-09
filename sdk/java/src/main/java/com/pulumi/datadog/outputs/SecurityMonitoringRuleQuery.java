@@ -29,7 +29,7 @@ public final class SecurityMonitoringRuleQuery {
      */
     private @Nullable String aggregation;
     /**
-     * @return Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`. Defaults to `&#34;logs&#34;`.
+     * @return Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`, `events`. Defaults to `&#34;logs&#34;`.
      * 
      */
     private @Nullable String dataSource;
@@ -88,7 +88,7 @@ public final class SecurityMonitoringRuleQuery {
         return Optional.ofNullable(this.aggregation);
     }
     /**
-     * @return Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`. Defaults to `&#34;logs&#34;`.
+     * @return Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`, `events`. Defaults to `&#34;logs&#34;`.
      * 
      */
     public Optional<String> dataSource() {

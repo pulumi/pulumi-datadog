@@ -48,6 +48,11 @@ public final class ObservabilityPipelineConfigProcessorsQuota {
      */
     private String name;
     /**
+     * @return The action to take when the quota is exceeded: `drop`, `no_action`, or `overflow_routing`.
+     * 
+     */
+    private @Nullable String overflowAction;
+    /**
      * @return The overrides for field-specific quotas.
      * 
      */
@@ -105,6 +110,13 @@ public final class ObservabilityPipelineConfigProcessorsQuota {
         return this.name;
     }
     /**
+     * @return The action to take when the quota is exceeded: `drop`, `no_action`, or `overflow_routing`.
+     * 
+     */
+    public Optional<String> overflowAction() {
+        return Optional.ofNullable(this.overflowAction);
+    }
+    /**
      * @return The overrides for field-specific quotas.
      * 
      */
@@ -135,6 +147,7 @@ public final class ObservabilityPipelineConfigProcessorsQuota {
         private List<String> inputs;
         private @Nullable ObservabilityPipelineConfigProcessorsQuotaLimit limit;
         private String name;
+        private @Nullable String overflowAction;
         private @Nullable List<ObservabilityPipelineConfigProcessorsQuotaOverride> overrides;
         private @Nullable List<String> partitionFields;
         public Builder() {}
@@ -147,6 +160,7 @@ public final class ObservabilityPipelineConfigProcessorsQuota {
     	      this.inputs = defaults.inputs;
     	      this.limit = defaults.limit;
     	      this.name = defaults.name;
+    	      this.overflowAction = defaults.overflowAction;
     	      this.overrides = defaults.overrides;
     	      this.partitionFields = defaults.partitionFields;
         }
@@ -207,6 +221,12 @@ public final class ObservabilityPipelineConfigProcessorsQuota {
             return this;
         }
         @CustomType.Setter
+        public Builder overflowAction(@Nullable String overflowAction) {
+
+            this.overflowAction = overflowAction;
+            return this;
+        }
+        @CustomType.Setter
         public Builder overrides(@Nullable List<ObservabilityPipelineConfigProcessorsQuotaOverride> overrides) {
 
             this.overrides = overrides;
@@ -233,6 +253,7 @@ public final class ObservabilityPipelineConfigProcessorsQuota {
             _resultValue.inputs = inputs;
             _resultValue.limit = limit;
             _resultValue.name = name;
+            _resultValue.overflowAction = overflowAction;
             _resultValue.overrides = overrides;
             _resultValue.partitionFields = partitionFields;
             return _resultValue;

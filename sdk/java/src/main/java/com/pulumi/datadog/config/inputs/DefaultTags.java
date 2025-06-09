@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DefaultTags {
     /**
-     * @return [Experimental - Logs Pipelines, Monitors and Security Monitoring Rules only] Resource tags to be applied by default across all resources.
+     * @return [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Resource tags to be applied by default across all resources.
      * 
      */
     private @Nullable Map<String,String> tags;
 
     private DefaultTags() {}
     /**
-     * @return [Experimental - Logs Pipelines, Monitors and Security Monitoring Rules only] Resource tags to be applied by default across all resources.
+     * @return [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Resource tags to be applied by default across all resources.
      * 
      */
     public Map<String,String> tags() {

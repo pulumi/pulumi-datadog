@@ -4,8 +4,21 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourcesAmazonDataFirehose;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourcesAmazonS3;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourcesDatadogAgent;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourcesFluentBit;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourcesFluentd;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourcesGooglePubsub;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourcesHttpClient;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourcesHttpServer;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourcesKafka;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourcesLogstash;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourcesRsyslog;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourcesSplunkHec;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourcesSplunkTcp;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourcesSumoLogic;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourcesSyslogNg;
 import java.util.List;
 import java.util.Objects;
 import javax.annotation.Nullable;
@@ -13,17 +26,96 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ObservabilityPipelineConfigSources {
     /**
+     * @return The `amazon_data_firehose` source ingests logs from AWS Data Firehose.
+     * 
+     */
+    private @Nullable List<ObservabilityPipelineConfigSourcesAmazonDataFirehose> amazonDataFirehoses;
+    /**
+     * @return The `amazon_s3` source ingests logs from an Amazon S3 bucket. It supports AWS authentication and TLS encryption.
+     * 
+     */
+    private @Nullable List<ObservabilityPipelineConfigSourcesAmazonS3> amazonS3s;
+    /**
      * @return The `datadog_agent` source collects logs from the Datadog Agent.
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigSourcesDatadogAgent> datadogAgents;
     /**
+     * @return The `fluent` source ingests logs from Fluent Bit.
+     * 
+     */
+    private @Nullable List<ObservabilityPipelineConfigSourcesFluentBit> fluentBits;
+    /**
+     * @return The `fluent` source ingests logs from a Fluentd-compatible service.
+     * 
+     */
+    private @Nullable List<ObservabilityPipelineConfigSourcesFluentd> fluentds;
+    /**
+     * @return The `google_pubsub` source ingests logs from a Google Cloud Pub/Sub subscription.
+     * 
+     */
+    private @Nullable List<ObservabilityPipelineConfigSourcesGooglePubsub> googlePubsubs;
+    /**
+     * @return The `http_client` source scrapes logs from HTTP endpoints at regular intervals.
+     * 
+     */
+    private @Nullable List<ObservabilityPipelineConfigSourcesHttpClient> httpClients;
+    /**
+     * @return The `http_server` source collects logs over HTTP POST from external services.
+     * 
+     */
+    private @Nullable List<ObservabilityPipelineConfigSourcesHttpServer> httpServers;
+    /**
      * @return The `kafka` source ingests data from Apache Kafka topics.
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigSourcesKafka> kafkas;
+    /**
+     * @return The `logstash` source ingests logs from a Logstash forwarder.
+     * 
+     */
+    private @Nullable List<ObservabilityPipelineConfigSourcesLogstash> logstashes;
+    /**
+     * @return The `rsyslog` source listens for logs over TCP or UDP from an `rsyslog` server using the syslog protocol.
+     * 
+     */
+    private @Nullable List<ObservabilityPipelineConfigSourcesRsyslog> rsyslogs;
+    /**
+     * @return The `splunk_hec` source implements the Splunk HTTP Event Collector (HEC) API.
+     * 
+     */
+    private @Nullable List<ObservabilityPipelineConfigSourcesSplunkHec> splunkHecs;
+    /**
+     * @return The `splunk_tcp` source receives logs from a Splunk Universal Forwarder over TCP. TLS is supported for secure transmission.
+     * 
+     */
+    private @Nullable List<ObservabilityPipelineConfigSourcesSplunkTcp> splunkTcps;
+    /**
+     * @return The `sumo_logic` source receives logs from Sumo Logic collectors.
+     * 
+     */
+    private @Nullable List<ObservabilityPipelineConfigSourcesSumoLogic> sumoLogics;
+    /**
+     * @return The `syslog_ng` source listens for logs over TCP or UDP from a `syslog-ng` server using the syslog protocol.
+     * 
+     */
+    private @Nullable List<ObservabilityPipelineConfigSourcesSyslogNg> syslogNgs;
 
     private ObservabilityPipelineConfigSources() {}
+    /**
+     * @return The `amazon_data_firehose` source ingests logs from AWS Data Firehose.
+     * 
+     */
+    public List<ObservabilityPipelineConfigSourcesAmazonDataFirehose> amazonDataFirehoses() {
+        return this.amazonDataFirehoses == null ? List.of() : this.amazonDataFirehoses;
+    }
+    /**
+     * @return The `amazon_s3` source ingests logs from an Amazon S3 bucket. It supports AWS authentication and TLS encryption.
+     * 
+     */
+    public List<ObservabilityPipelineConfigSourcesAmazonS3> amazonS3s() {
+        return this.amazonS3s == null ? List.of() : this.amazonS3s;
+    }
     /**
      * @return The `datadog_agent` source collects logs from the Datadog Agent.
      * 
@@ -32,11 +124,88 @@ public final class ObservabilityPipelineConfigSources {
         return this.datadogAgents == null ? List.of() : this.datadogAgents;
     }
     /**
+     * @return The `fluent` source ingests logs from Fluent Bit.
+     * 
+     */
+    public List<ObservabilityPipelineConfigSourcesFluentBit> fluentBits() {
+        return this.fluentBits == null ? List.of() : this.fluentBits;
+    }
+    /**
+     * @return The `fluent` source ingests logs from a Fluentd-compatible service.
+     * 
+     */
+    public List<ObservabilityPipelineConfigSourcesFluentd> fluentds() {
+        return this.fluentds == null ? List.of() : this.fluentds;
+    }
+    /**
+     * @return The `google_pubsub` source ingests logs from a Google Cloud Pub/Sub subscription.
+     * 
+     */
+    public List<ObservabilityPipelineConfigSourcesGooglePubsub> googlePubsubs() {
+        return this.googlePubsubs == null ? List.of() : this.googlePubsubs;
+    }
+    /**
+     * @return The `http_client` source scrapes logs from HTTP endpoints at regular intervals.
+     * 
+     */
+    public List<ObservabilityPipelineConfigSourcesHttpClient> httpClients() {
+        return this.httpClients == null ? List.of() : this.httpClients;
+    }
+    /**
+     * @return The `http_server` source collects logs over HTTP POST from external services.
+     * 
+     */
+    public List<ObservabilityPipelineConfigSourcesHttpServer> httpServers() {
+        return this.httpServers == null ? List.of() : this.httpServers;
+    }
+    /**
      * @return The `kafka` source ingests data from Apache Kafka topics.
      * 
      */
     public List<ObservabilityPipelineConfigSourcesKafka> kafkas() {
         return this.kafkas == null ? List.of() : this.kafkas;
+    }
+    /**
+     * @return The `logstash` source ingests logs from a Logstash forwarder.
+     * 
+     */
+    public List<ObservabilityPipelineConfigSourcesLogstash> logstashes() {
+        return this.logstashes == null ? List.of() : this.logstashes;
+    }
+    /**
+     * @return The `rsyslog` source listens for logs over TCP or UDP from an `rsyslog` server using the syslog protocol.
+     * 
+     */
+    public List<ObservabilityPipelineConfigSourcesRsyslog> rsyslogs() {
+        return this.rsyslogs == null ? List.of() : this.rsyslogs;
+    }
+    /**
+     * @return The `splunk_hec` source implements the Splunk HTTP Event Collector (HEC) API.
+     * 
+     */
+    public List<ObservabilityPipelineConfigSourcesSplunkHec> splunkHecs() {
+        return this.splunkHecs == null ? List.of() : this.splunkHecs;
+    }
+    /**
+     * @return The `splunk_tcp` source receives logs from a Splunk Universal Forwarder over TCP. TLS is supported for secure transmission.
+     * 
+     */
+    public List<ObservabilityPipelineConfigSourcesSplunkTcp> splunkTcps() {
+        return this.splunkTcps == null ? List.of() : this.splunkTcps;
+    }
+    /**
+     * @return The `sumo_logic` source receives logs from Sumo Logic collectors.
+     * 
+     */
+    public List<ObservabilityPipelineConfigSourcesSumoLogic> sumoLogics() {
+        return this.sumoLogics == null ? List.of() : this.sumoLogics;
+    }
+    /**
+     * @return The `syslog_ng` source listens for logs over TCP or UDP from a `syslog-ng` server using the syslog protocol.
+     * 
+     */
+    public List<ObservabilityPipelineConfigSourcesSyslogNg> syslogNgs() {
+        return this.syslogNgs == null ? List.of() : this.syslogNgs;
     }
 
     public static Builder builder() {
@@ -48,15 +217,59 @@ public final class ObservabilityPipelineConfigSources {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable List<ObservabilityPipelineConfigSourcesAmazonDataFirehose> amazonDataFirehoses;
+        private @Nullable List<ObservabilityPipelineConfigSourcesAmazonS3> amazonS3s;
         private @Nullable List<ObservabilityPipelineConfigSourcesDatadogAgent> datadogAgents;
+        private @Nullable List<ObservabilityPipelineConfigSourcesFluentBit> fluentBits;
+        private @Nullable List<ObservabilityPipelineConfigSourcesFluentd> fluentds;
+        private @Nullable List<ObservabilityPipelineConfigSourcesGooglePubsub> googlePubsubs;
+        private @Nullable List<ObservabilityPipelineConfigSourcesHttpClient> httpClients;
+        private @Nullable List<ObservabilityPipelineConfigSourcesHttpServer> httpServers;
         private @Nullable List<ObservabilityPipelineConfigSourcesKafka> kafkas;
+        private @Nullable List<ObservabilityPipelineConfigSourcesLogstash> logstashes;
+        private @Nullable List<ObservabilityPipelineConfigSourcesRsyslog> rsyslogs;
+        private @Nullable List<ObservabilityPipelineConfigSourcesSplunkHec> splunkHecs;
+        private @Nullable List<ObservabilityPipelineConfigSourcesSplunkTcp> splunkTcps;
+        private @Nullable List<ObservabilityPipelineConfigSourcesSumoLogic> sumoLogics;
+        private @Nullable List<ObservabilityPipelineConfigSourcesSyslogNg> syslogNgs;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigSources defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.amazonDataFirehoses = defaults.amazonDataFirehoses;
+    	      this.amazonS3s = defaults.amazonS3s;
     	      this.datadogAgents = defaults.datadogAgents;
+    	      this.fluentBits = defaults.fluentBits;
+    	      this.fluentds = defaults.fluentds;
+    	      this.googlePubsubs = defaults.googlePubsubs;
+    	      this.httpClients = defaults.httpClients;
+    	      this.httpServers = defaults.httpServers;
     	      this.kafkas = defaults.kafkas;
+    	      this.logstashes = defaults.logstashes;
+    	      this.rsyslogs = defaults.rsyslogs;
+    	      this.splunkHecs = defaults.splunkHecs;
+    	      this.splunkTcps = defaults.splunkTcps;
+    	      this.sumoLogics = defaults.sumoLogics;
+    	      this.syslogNgs = defaults.syslogNgs;
         }
 
+        @CustomType.Setter
+        public Builder amazonDataFirehoses(@Nullable List<ObservabilityPipelineConfigSourcesAmazonDataFirehose> amazonDataFirehoses) {
+
+            this.amazonDataFirehoses = amazonDataFirehoses;
+            return this;
+        }
+        public Builder amazonDataFirehoses(ObservabilityPipelineConfigSourcesAmazonDataFirehose... amazonDataFirehoses) {
+            return amazonDataFirehoses(List.of(amazonDataFirehoses));
+        }
+        @CustomType.Setter
+        public Builder amazonS3s(@Nullable List<ObservabilityPipelineConfigSourcesAmazonS3> amazonS3s) {
+
+            this.amazonS3s = amazonS3s;
+            return this;
+        }
+        public Builder amazonS3s(ObservabilityPipelineConfigSourcesAmazonS3... amazonS3s) {
+            return amazonS3s(List.of(amazonS3s));
+        }
         @CustomType.Setter
         public Builder datadogAgents(@Nullable List<ObservabilityPipelineConfigSourcesDatadogAgent> datadogAgents) {
 
@@ -67,6 +280,51 @@ public final class ObservabilityPipelineConfigSources {
             return datadogAgents(List.of(datadogAgents));
         }
         @CustomType.Setter
+        public Builder fluentBits(@Nullable List<ObservabilityPipelineConfigSourcesFluentBit> fluentBits) {
+
+            this.fluentBits = fluentBits;
+            return this;
+        }
+        public Builder fluentBits(ObservabilityPipelineConfigSourcesFluentBit... fluentBits) {
+            return fluentBits(List.of(fluentBits));
+        }
+        @CustomType.Setter
+        public Builder fluentds(@Nullable List<ObservabilityPipelineConfigSourcesFluentd> fluentds) {
+
+            this.fluentds = fluentds;
+            return this;
+        }
+        public Builder fluentds(ObservabilityPipelineConfigSourcesFluentd... fluentds) {
+            return fluentds(List.of(fluentds));
+        }
+        @CustomType.Setter
+        public Builder googlePubsubs(@Nullable List<ObservabilityPipelineConfigSourcesGooglePubsub> googlePubsubs) {
+
+            this.googlePubsubs = googlePubsubs;
+            return this;
+        }
+        public Builder googlePubsubs(ObservabilityPipelineConfigSourcesGooglePubsub... googlePubsubs) {
+            return googlePubsubs(List.of(googlePubsubs));
+        }
+        @CustomType.Setter
+        public Builder httpClients(@Nullable List<ObservabilityPipelineConfigSourcesHttpClient> httpClients) {
+
+            this.httpClients = httpClients;
+            return this;
+        }
+        public Builder httpClients(ObservabilityPipelineConfigSourcesHttpClient... httpClients) {
+            return httpClients(List.of(httpClients));
+        }
+        @CustomType.Setter
+        public Builder httpServers(@Nullable List<ObservabilityPipelineConfigSourcesHttpServer> httpServers) {
+
+            this.httpServers = httpServers;
+            return this;
+        }
+        public Builder httpServers(ObservabilityPipelineConfigSourcesHttpServer... httpServers) {
+            return httpServers(List.of(httpServers));
+        }
+        @CustomType.Setter
         public Builder kafkas(@Nullable List<ObservabilityPipelineConfigSourcesKafka> kafkas) {
 
             this.kafkas = kafkas;
@@ -75,10 +333,77 @@ public final class ObservabilityPipelineConfigSources {
         public Builder kafkas(ObservabilityPipelineConfigSourcesKafka... kafkas) {
             return kafkas(List.of(kafkas));
         }
+        @CustomType.Setter
+        public Builder logstashes(@Nullable List<ObservabilityPipelineConfigSourcesLogstash> logstashes) {
+
+            this.logstashes = logstashes;
+            return this;
+        }
+        public Builder logstashes(ObservabilityPipelineConfigSourcesLogstash... logstashes) {
+            return logstashes(List.of(logstashes));
+        }
+        @CustomType.Setter
+        public Builder rsyslogs(@Nullable List<ObservabilityPipelineConfigSourcesRsyslog> rsyslogs) {
+
+            this.rsyslogs = rsyslogs;
+            return this;
+        }
+        public Builder rsyslogs(ObservabilityPipelineConfigSourcesRsyslog... rsyslogs) {
+            return rsyslogs(List.of(rsyslogs));
+        }
+        @CustomType.Setter
+        public Builder splunkHecs(@Nullable List<ObservabilityPipelineConfigSourcesSplunkHec> splunkHecs) {
+
+            this.splunkHecs = splunkHecs;
+            return this;
+        }
+        public Builder splunkHecs(ObservabilityPipelineConfigSourcesSplunkHec... splunkHecs) {
+            return splunkHecs(List.of(splunkHecs));
+        }
+        @CustomType.Setter
+        public Builder splunkTcps(@Nullable List<ObservabilityPipelineConfigSourcesSplunkTcp> splunkTcps) {
+
+            this.splunkTcps = splunkTcps;
+            return this;
+        }
+        public Builder splunkTcps(ObservabilityPipelineConfigSourcesSplunkTcp... splunkTcps) {
+            return splunkTcps(List.of(splunkTcps));
+        }
+        @CustomType.Setter
+        public Builder sumoLogics(@Nullable List<ObservabilityPipelineConfigSourcesSumoLogic> sumoLogics) {
+
+            this.sumoLogics = sumoLogics;
+            return this;
+        }
+        public Builder sumoLogics(ObservabilityPipelineConfigSourcesSumoLogic... sumoLogics) {
+            return sumoLogics(List.of(sumoLogics));
+        }
+        @CustomType.Setter
+        public Builder syslogNgs(@Nullable List<ObservabilityPipelineConfigSourcesSyslogNg> syslogNgs) {
+
+            this.syslogNgs = syslogNgs;
+            return this;
+        }
+        public Builder syslogNgs(ObservabilityPipelineConfigSourcesSyslogNg... syslogNgs) {
+            return syslogNgs(List.of(syslogNgs));
+        }
         public ObservabilityPipelineConfigSources build() {
             final var _resultValue = new ObservabilityPipelineConfigSources();
+            _resultValue.amazonDataFirehoses = amazonDataFirehoses;
+            _resultValue.amazonS3s = amazonS3s;
             _resultValue.datadogAgents = datadogAgents;
+            _resultValue.fluentBits = fluentBits;
+            _resultValue.fluentds = fluentds;
+            _resultValue.googlePubsubs = googlePubsubs;
+            _resultValue.httpClients = httpClients;
+            _resultValue.httpServers = httpServers;
             _resultValue.kafkas = kafkas;
+            _resultValue.logstashes = logstashes;
+            _resultValue.rsyslogs = rsyslogs;
+            _resultValue.splunkHecs = splunkHecs;
+            _resultValue.splunkTcps = splunkTcps;
+            _resultValue.sumoLogics = sumoLogics;
+            _resultValue.syslogNgs = syslogNgs;
             return _resultValue;
         }
     }

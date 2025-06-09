@@ -12,6 +12,18 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class PowerpackWidgetTreemapDefinitionArgs : global::Pulumi.ResourceArgs
     {
+        [Input("customLinks")]
+        private InputList<Inputs.PowerpackWidgetTreemapDefinitionCustomLinkArgs>? _customLinks;
+
+        /// <summary>
+        /// A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+        /// </summary>
+        public InputList<Inputs.PowerpackWidgetTreemapDefinitionCustomLinkArgs> CustomLinks
+        {
+            get => _customLinks ?? (_customLinks = new InputList<Inputs.PowerpackWidgetTreemapDefinitionCustomLinkArgs>());
+            set => _customLinks = value;
+        }
+
         [Input("requests")]
         private InputList<Inputs.PowerpackWidgetTreemapDefinitionRequestArgs>? _requests;
 

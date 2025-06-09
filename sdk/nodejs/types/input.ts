@@ -354,6 +354,28 @@ export interface CloudConfigurationRuleFilter {
     query: pulumi.Input<string>;
 }
 
+export interface ComplianceCustomFrameworkRequirement {
+    /**
+     * The controls of the requirement. Length must be at least 1.
+     */
+    controls?: pulumi.Input<pulumi.Input<inputs.ComplianceCustomFrameworkRequirementControl>[]>;
+    /**
+     * The name of the requirement. String length must be at least 1.
+     */
+    name: pulumi.Input<string>;
+}
+
+export interface ComplianceCustomFrameworkRequirementControl {
+    /**
+     * The name of the control. String length must be at least 1.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The set of rules IDs for the control. Length must be at least 1.
+     */
+    rulesIds: pulumi.Input<pulumi.Input<string>[]>;
+}
+
 export interface DashboardListDashItem {
     /**
      * The ID of the dashboard to add
@@ -3233,11 +3255,11 @@ export interface DashboardWidgetListStreamDefinitionRequestColumn {
     /**
      * Widget column field.
      */
-    field: pulumi.Input<string>;
+    field?: pulumi.Input<string>;
     /**
      * Widget column width. Valid values are `auto`, `compact`, `full`.
      */
-    width: pulumi.Input<string>;
+    width?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetListStreamDefinitionRequestQuery {
@@ -8696,6 +8718,10 @@ export interface DashboardWidgetTraceServiceDefinition {
 
 export interface DashboardWidgetTreemapDefinition {
     /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
+    customLinks?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetTreemapDefinitionCustomLink>[]>;
+    /**
      * Nested block describing the request to use when displaying the widget.
      */
     requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetTreemapDefinitionRequest>[]>;
@@ -8703,6 +8729,25 @@ export interface DashboardWidgetTreemapDefinition {
      * The title of the widget.
      */
     title?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetTreemapDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
+    isHidden?: pulumi.Input<boolean>;
+    /**
+     * The label for the custom link URL.
+     */
+    label?: pulumi.Input<string>;
+    /**
+     * The URL of the custom link.
+     */
+    link?: pulumi.Input<string>;
+    /**
+     * The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     */
+    overrideLabel?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetTreemapDefinitionRequest {
@@ -10889,9 +10934,119 @@ export interface ObservabilityPipelineConfig {
 
 export interface ObservabilityPipelineConfigDestinations {
     /**
+     * The `amazonOpensearch` destination writes logs to Amazon OpenSearch.
+     */
+    amazonOpensearches?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigDestinationsAmazonOpensearch>[]>;
+    /**
+     * The `azureStorage` destination forwards logs to an Azure Blob Storage container.
+     */
+    azureStorages?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigDestinationsAzureStorage>[]>;
+    /**
      * The `datadogLogs` destination forwards logs to Datadog Log Management.
      */
     datadogLogs?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigDestinationsDatadogLog>[]>;
+    /**
+     * The `elasticsearch` destination writes logs to an Elasticsearch cluster.
+     */
+    elasticsearches?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigDestinationsElasticsearch>[]>;
+    /**
+     * The `googleChronicle` destination sends logs to Google Chronicle.
+     */
+    googleChronicles?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigDestinationsGoogleChronicle>[]>;
+    /**
+     * The `googleCloudStorage` destination stores logs in a Google Cloud Storage (GCS) bucket.
+     */
+    googleCloudStorages?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigDestinationsGoogleCloudStorage>[]>;
+    /**
+     * The `microsoftSentinel` destination forwards logs to Microsoft Sentinel.
+     */
+    microsoftSentinels?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigDestinationsMicrosoftSentinel>[]>;
+    /**
+     * The `newRelic` destination sends logs to the New Relic platform.
+     */
+    newRelics?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigDestinationsNewRelic>[]>;
+    /**
+     * The `opensearch` destination writes logs to an OpenSearch cluster.
+     */
+    opensearches?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigDestinationsOpensearch>[]>;
+    /**
+     * The `rsyslog` destination forwards logs to an external `rsyslog` server over TCP or UDP using the syslog protocol.
+     */
+    rsyslogs?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigDestinationsRsyslog>[]>;
+    /**
+     * The `sentinelOne` destination sends logs to SentinelOne.
+     */
+    sentinelOnes?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigDestinationsSentinelOne>[]>;
+    /**
+     * The `splunkHec` destination forwards logs to Splunk using the HTTP Event Collector (HEC).
+     */
+    splunkHecs?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigDestinationsSplunkHec>[]>;
+    /**
+     * The `sumoLogic` destination forwards logs to Sumo Logic.
+     */
+    sumoLogics?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigDestinationsSumoLogic>[]>;
+    /**
+     * The `syslogNg` destination forwards logs to an external `syslog-ng` server over TCP or UDP using the syslog protocol.
+     */
+    syslogNgs?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigDestinationsSyslogNg>[]>;
+}
+
+export interface ObservabilityPipelineConfigDestinationsAmazonOpensearch {
+    auth?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationsAmazonOpensearchAuth>;
+    /**
+     * The index or datastream to write logs to.
+     */
+    bulkIndex?: pulumi.Input<string>;
+    /**
+     * The unique identifier for this component.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * A list of component IDs whose output is used as the input for this component.
+     */
+    inputs: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface ObservabilityPipelineConfigDestinationsAmazonOpensearchAuth {
+    /**
+     * ARN of the role to assume.
+     */
+    assumeRole?: pulumi.Input<string>;
+    /**
+     * AWS region override (if applicable).
+     */
+    awsRegion?: pulumi.Input<string>;
+    /**
+     * External ID for assumed role.
+     */
+    externalId?: pulumi.Input<string>;
+    /**
+     * Session name for assumed role.
+     */
+    sessionName?: pulumi.Input<string>;
+    /**
+     * The authentication strategy to use (e.g. aws or basic).
+     */
+    strategy: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationsAzureStorage {
+    /**
+     * Optional prefix for blobs written to the container.
+     */
+    blobPrefix?: pulumi.Input<string>;
+    /**
+     * The name of the Azure Blob Storage container to store logs in.
+     */
+    containerName: pulumi.Input<string>;
+    /**
+     * The unique identifier for this component.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * A list of component IDs whose output is used as the `input` for this component.
+     */
+    inputs: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface ObservabilityPipelineConfigDestinationsDatadogLog {
@@ -10905,15 +11060,354 @@ export interface ObservabilityPipelineConfigDestinationsDatadogLog {
     inputs: pulumi.Input<pulumi.Input<string>[]>;
 }
 
+export interface ObservabilityPipelineConfigDestinationsElasticsearch {
+    /**
+     * The Elasticsearch API version to use. Set to `auto` to auto-detect.
+     */
+    apiVersion?: pulumi.Input<string>;
+    /**
+     * The index or datastream to write logs to in Elasticsearch.
+     */
+    bulkIndex?: pulumi.Input<string>;
+    /**
+     * The unique identifier for this component.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * A list of component IDs whose output is used as the `input` for this component.
+     */
+    inputs: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface ObservabilityPipelineConfigDestinationsGoogleChronicle {
+    /**
+     * GCP credentials used to authenticate with Google Cloud Storage.
+     */
+    auth?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationsGoogleChronicleAuth>;
+    /**
+     * The Google Chronicle customer ID.
+     */
+    customerId?: pulumi.Input<string>;
+    /**
+     * The encoding format for the logs sent to Chronicle.
+     */
+    encoding?: pulumi.Input<string>;
+    /**
+     * The unique identifier for this component.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * A list of component IDs whose output is used as the `input` for this component.
+     */
+    inputs: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The log type metadata associated with the Chronicle destination.
+     */
+    logType?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationsGoogleChronicleAuth {
+    /**
+     * Path to the GCP service account key file.
+     */
+    credentialsFile?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationsGoogleCloudStorage {
+    /**
+     * Access control list setting for objects written to the bucket.
+     */
+    acl: pulumi.Input<string>;
+    /**
+     * GCP credentials used to authenticate with Google Cloud Storage.
+     */
+    auth?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationsGoogleCloudStorageAuth>;
+    /**
+     * Name of the GCS bucket.
+     */
+    bucket: pulumi.Input<string>;
+    /**
+     * Unique identifier for the destination component.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * A list of component IDs whose output is used as the `input` for this component.
+     */
+    inputs: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Optional prefix for object keys within the GCS bucket.
+     */
+    keyPrefix?: pulumi.Input<string>;
+    /**
+     * Custom metadata key-value pairs added to each object.
+     */
+    metadatas?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigDestinationsGoogleCloudStorageMetadata>[]>;
+    /**
+     * Storage class used for objects stored in GCS.
+     */
+    storageClass: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationsGoogleCloudStorageAuth {
+    /**
+     * Path to the GCP service account key file.
+     */
+    credentialsFile: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationsGoogleCloudStorageMetadata {
+    /**
+     * The metadata key.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The metadata value.
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationsMicrosoftSentinel {
+    /**
+     * Azure AD client ID used for authentication.
+     */
+    clientId: pulumi.Input<string>;
+    /**
+     * The immutable ID of the Data Collection Rule (DCR).
+     */
+    dcrImmutableId: pulumi.Input<string>;
+    /**
+     * The unique identifier for this component.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * A list of component IDs whose output is used as the `input` for this component.
+     */
+    inputs: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the Log Analytics table where logs will be sent.
+     */
+    table: pulumi.Input<string>;
+    /**
+     * Azure AD tenant ID.
+     */
+    tenantId: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationsNewRelic {
+    /**
+     * The unique identifier for this component.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * A list of component IDs whose output is used as the `input` for this component.
+     */
+    inputs: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The New Relic region.
+     */
+    region: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationsOpensearch {
+    /**
+     * The index or datastream to write logs to.
+     */
+    bulkIndex?: pulumi.Input<string>;
+    /**
+     * The unique identifier for this component.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * A list of component IDs whose output is used as input.
+     */
+    inputs: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface ObservabilityPipelineConfigDestinationsRsyslog {
+    /**
+     * The unique identifier for this component.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * A list of component IDs whose output is used as the `input` for this component.
+     */
+    inputs: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Optional socket keepalive duration in milliseconds.
+     */
+    keepalive?: pulumi.Input<number>;
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     */
+    tls?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationsRsyslogTls>;
+}
+
+export interface ObservabilityPipelineConfigDestinationsRsyslogTls {
+    /**
+     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     */
+    caFile?: pulumi.Input<string>;
+    /**
+     * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     */
+    crtFile?: pulumi.Input<string>;
+    /**
+     * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     */
+    keyFile?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationsSentinelOne {
+    /**
+     * The unique identifier for this component.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * A list of component IDs whose output is used as the `input` for this component.
+     */
+    inputs: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The SentinelOne region to send logs to.
+     */
+    region: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationsSplunkHec {
+    /**
+     * If `true`, Splunk tries to extract timestamps from incoming log events.
+     */
+    autoExtractTimestamp?: pulumi.Input<boolean>;
+    /**
+     * Encoding format for log events. Valid values: `json`, `rawMessage`.
+     */
+    encoding?: pulumi.Input<string>;
+    /**
+     * The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
+     */
+    id: pulumi.Input<string>;
+    /**
+     * Optional name of the Splunk index where logs are written.
+     */
+    index?: pulumi.Input<string>;
+    /**
+     * A list of component IDs whose output is used as the `input` for this component.
+     */
+    inputs: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The Splunk sourcetype to assign to log events.
+     */
+    sourcetype?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationsSumoLogic {
+    /**
+     * The output encoding format.
+     */
+    encoding?: pulumi.Input<string>;
+    /**
+     * A list of custom headers to include in the request to Sumo Logic.
+     */
+    headerCustomFields?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigDestinationsSumoLogicHeaderCustomField>[]>;
+    /**
+     * Optional override for the host name header.
+     */
+    headerHostName?: pulumi.Input<string>;
+    /**
+     * Optional override for the source category header.
+     */
+    headerSourceCategory?: pulumi.Input<string>;
+    /**
+     * Optional override for the source name header.
+     */
+    headerSourceName?: pulumi.Input<string>;
+    /**
+     * The unique identifier for this component.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * A list of component IDs whose output is used as the `input` for this component.
+     */
+    inputs: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface ObservabilityPipelineConfigDestinationsSumoLogicHeaderCustomField {
+    /**
+     * The header field name.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * The header field value.
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationsSyslogNg {
+    /**
+     * The unique identifier for this component.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * A list of component IDs whose output is used as the `input` for this component.
+     */
+    inputs: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Optional socket keepalive duration in milliseconds.
+     */
+    keepalive?: pulumi.Input<number>;
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     */
+    tls?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationsSyslogNgTls>;
+}
+
+export interface ObservabilityPipelineConfigDestinationsSyslogNgTls {
+    /**
+     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     */
+    caFile?: pulumi.Input<string>;
+    /**
+     * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     */
+    crtFile?: pulumi.Input<string>;
+    /**
+     * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     */
+    keyFile?: pulumi.Input<string>;
+}
+
 export interface ObservabilityPipelineConfigProcessors {
+    /**
+     * The `addEnvVars` processor adds environment variable values to log events.
+     */
+    addEnvVars?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsAddEnvVar>[]>;
     /**
      * The `addFields` processor adds static key-value fields to logs.
      */
     addFields?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsAddField>[]>;
     /**
+     * The `dedupe` processor removes duplicate fields in log events.
+     */
+    dedupes?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsDedupe>[]>;
+    /**
+     * The `enrichmentTable` processor enriches logs using a static CSV file or GeoIP database.
+     */
+    enrichmentTables?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsEnrichmentTable>[]>;
+    /**
      * The `filter` processor allows conditional processing of logs based on a Datadog search query. Logs that match the `include` query are passed through; others are discarded.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsFilter>[]>;
+    /**
+     * The `generateDatadogMetrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields.
+     */
+    generateDatadogMetrics?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsGenerateDatadogMetric>[]>;
+    /**
+     * The `ocsfMapper` processor transforms logs into the OCSF schema using predefined library mappings.
+     */
+    ocsfMappers?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsOcsfMapper>[]>;
+    /**
+     * The `parseGrok` processor extracts structured fields from unstructured log messages using Grok patterns.
+     */
+    parseGroks?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsParseGrok>[]>;
     /**
      * The `parseJson` processor extracts JSON from a specified field and flattens it into the event. This is useful when logs contain embedded JSON as a string.
      */
@@ -10923,6 +11417,10 @@ export interface ObservabilityPipelineConfigProcessors {
      */
     quotas?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsQuota>[]>;
     /**
+     * The `reduce` processor aggregates and merges logs based on matching keys and merge strategies.
+     */
+    reduces?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsReduce>[]>;
+    /**
      * The `removeFields` processor deletes specified fields from logs.
      */
     removeFields?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsRemoveField>[]>;
@@ -10930,6 +11428,48 @@ export interface ObservabilityPipelineConfigProcessors {
      * The `renameFields` processor changes field names.
      */
     renameFields?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsRenameField>[]>;
+    /**
+     * The `sample` processor allows probabilistic sampling of logs at a fixed rate.
+     */
+    samples?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsSample>[]>;
+    /**
+     * The `sensitiveDataScanner` processor detects and optionally redacts sensitive data in log events.
+     */
+    sensitiveDataScanners?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsSensitiveDataScanner>[]>;
+    /**
+     * The `throttle` processor limits the number of events that pass through over a given time window.
+     */
+    throttles?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsThrottle>[]>;
+}
+
+export interface ObservabilityPipelineConfigProcessorsAddEnvVar {
+    /**
+     * The unique identifier for this component. Used to reference this processor in the pipeline.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * A Datadog search query used to determine which logs this processor targets.
+     */
+    include: pulumi.Input<string>;
+    /**
+     * A list of component IDs whose output is used as the input for this processor.
+     */
+    inputs: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A list of environment variable mappings to apply to log fields.
+     */
+    variables?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsAddEnvVarVariable>[]>;
+}
+
+export interface ObservabilityPipelineConfigProcessorsAddEnvVarVariable {
+    /**
+     * The target field in the log event.
+     */
+    field: pulumi.Input<string>;
+    /**
+     * The name of the environment variable to read.
+     */
+    name: pulumi.Input<string>;
 }
 
 export interface ObservabilityPipelineConfigProcessorsAddField {
@@ -10962,6 +11502,128 @@ export interface ObservabilityPipelineConfigProcessorsAddFieldField {
     value: pulumi.Input<string>;
 }
 
+export interface ObservabilityPipelineConfigProcessorsDedupe {
+    /**
+     * A list of log field paths to check for duplicates.
+     */
+    fields: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The unique identifier for this processor.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * A Datadog search query used to determine which logs this processor targets.
+     */
+    include: pulumi.Input<string>;
+    /**
+     * A list of component IDs whose output is used as the input for this processor.
+     */
+    inputs: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The deduplication mode to apply to the fields.
+     */
+    mode: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigProcessorsEnrichmentTable {
+    /**
+     * Defines a static enrichment table loaded from a CSV file.
+     */
+    file?: pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsEnrichmentTableFile>;
+    /**
+     * Uses a GeoIP database to enrich logs based on an IP field.
+     */
+    geoip?: pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsEnrichmentTableGeoip>;
+    /**
+     * The unique identifier for this processor.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * A Datadog search query used to determine which logs this processor targets.
+     */
+    include: pulumi.Input<string>;
+    /**
+     * A list of component IDs whose output is used as the input for this processor.
+     */
+    inputs: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Path where enrichment results should be stored in the log.
+     */
+    target: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigProcessorsEnrichmentTableFile {
+    encoding?: pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsEnrichmentTableFileEncoding>;
+    /**
+     * Key fields used to look up enrichment values.
+     */
+    keys?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsEnrichmentTableFileKey>[]>;
+    /**
+     * Path to the CSV file.
+     */
+    path?: pulumi.Input<string>;
+    /**
+     * Schema defining column names and their types.
+     */
+    schemas?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsEnrichmentTableFileSchema>[]>;
+}
+
+export interface ObservabilityPipelineConfigProcessorsEnrichmentTableFileEncoding {
+    /**
+     * The `encoding` `delimiter`.
+     */
+    delimiter?: pulumi.Input<string>;
+    /**
+     * The `encoding` `includesHeaders`.
+     */
+    includesHeaders?: pulumi.Input<boolean>;
+    /**
+     * File encoding format.
+     */
+    type?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigProcessorsEnrichmentTableFileKey {
+    /**
+     * The `items` `column`.
+     */
+    column?: pulumi.Input<string>;
+    /**
+     * The comparison method (e.g. equals).
+     */
+    comparison?: pulumi.Input<string>;
+    /**
+     * The `items` `field`.
+     */
+    field?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigProcessorsEnrichmentTableFileSchema {
+    /**
+     * The `items` `column`.
+     */
+    column?: pulumi.Input<string>;
+    /**
+     * The type of the column (e.g. string, boolean, integer, etc.).
+     */
+    type?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigProcessorsEnrichmentTableGeoip {
+    /**
+     * Path to the IP field in the log.
+     */
+    keyField?: pulumi.Input<string>;
+    /**
+     * Locale used to resolve geographical names.
+     */
+    locale?: pulumi.Input<string>;
+    /**
+     * Path to the GeoIP database file.
+     */
+    path?: pulumi.Input<string>;
+}
+
 export interface ObservabilityPipelineConfigProcessorsFilter {
     /**
      * The unique ID of the processor.
@@ -10975,6 +11637,149 @@ export interface ObservabilityPipelineConfigProcessorsFilter {
      * The inputs for the processor.
      */
     inputs: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface ObservabilityPipelineConfigProcessorsGenerateDatadogMetric {
+    /**
+     * The unique identifier for this component. Used to reference this component in other parts of the pipeline.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * A Datadog search query used to determine which logs this processor targets.
+     */
+    include: pulumi.Input<string>;
+    /**
+     * A list of component IDs whose output is used as the `input` for this processor.
+     */
+    inputs: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Configuration for generating individual metrics.
+     */
+    metrics?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsGenerateDatadogMetricMetric>[]>;
+}
+
+export interface ObservabilityPipelineConfigProcessorsGenerateDatadogMetricMetric {
+    /**
+     * Optional fields used to group the metric series.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Datadog filter query to match logs for metric generation.
+     */
+    include: pulumi.Input<string>;
+    /**
+     * Type of metric to create.
+     */
+    metricType: pulumi.Input<string>;
+    /**
+     * Name of the custom metric to be created.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Specifies how the value of the generated metric is computed.
+     */
+    value?: pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsGenerateDatadogMetricMetricValue>;
+}
+
+export interface ObservabilityPipelineConfigProcessorsGenerateDatadogMetricMetricValue {
+    /**
+     * Name of the log field containing the numeric value to increment the metric by (used only for `incrementByField`).
+     */
+    field?: pulumi.Input<string>;
+    /**
+     * Metric value strategy: `incrementByOne` or `incrementByField`.
+     */
+    strategy: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigProcessorsOcsfMapper {
+    /**
+     * The unique identifier for this component.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * Search query to select logs.
+     */
+    include: pulumi.Input<string>;
+    /**
+     * List of component IDs whose output is used as input.
+     */
+    inputs: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of OCSF mapping entries using library mapping.
+     */
+    mappings?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsOcsfMapperMapping>[]>;
+}
+
+export interface ObservabilityPipelineConfigProcessorsOcsfMapperMapping {
+    /**
+     * Search query for selecting which logs the mapping applies to.
+     */
+    include: pulumi.Input<string>;
+    /**
+     * Predefined library mapping for log transformation.
+     */
+    libraryMapping: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigProcessorsParseGrok {
+    /**
+     * If set to `true`, disables the default Grok rules provided by Datadog.
+     */
+    disableLibraryRules?: pulumi.Input<boolean>;
+    /**
+     * A unique identifier for this processor.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * A Datadog search query used to determine which logs this processor targets.
+     */
+    include: pulumi.Input<string>;
+    /**
+     * A list of component IDs whose output is used as the `input` for this component.
+     */
+    inputs: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The list of Grok parsing rules. If multiple parsing rules are provided, they are evaluated in order. The first successful match is applied.
+     */
+    rules?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsParseGrokRule>[]>;
+}
+
+export interface ObservabilityPipelineConfigProcessorsParseGrokRule {
+    /**
+     * A list of Grok parsing rules that define how to extract fields from the source field. Each rule must contain a name and a valid Grok pattern.
+     */
+    matchRules?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsParseGrokRuleMatchRule>[]>;
+    /**
+     * The name of the field in the log event to apply the Grok rules to.
+     */
+    source: pulumi.Input<string>;
+    /**
+     * A list of helper Grok rules that can be referenced by the parsing rules.
+     */
+    supportRules?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsParseGrokRuleSupportRule>[]>;
+}
+
+export interface ObservabilityPipelineConfigProcessorsParseGrokRuleMatchRule {
+    /**
+     * The name of the rule.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The definition of the Grok rule.
+     */
+    rule: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigProcessorsParseGrokRuleSupportRule {
+    /**
+     * The name of the helper Grok rule.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The definition of the helper Grok rule.
+     */
+    rule: pulumi.Input<string>;
 }
 
 export interface ObservabilityPipelineConfigProcessorsParseJson {
@@ -11022,6 +11827,10 @@ export interface ObservabilityPipelineConfigProcessorsQuota {
      * The name of the quota.
      */
     name: pulumi.Input<string>;
+    /**
+     * The action to take when the quota is exceeded: `drop`, `noAction`, or `overflowRouting`.
+     */
+    overflowAction?: pulumi.Input<string>;
     /**
      * The overrides for field-specific quotas.
      */
@@ -11073,6 +11882,40 @@ export interface ObservabilityPipelineConfigProcessorsQuotaOverrideLimit {
     limit: pulumi.Input<number>;
 }
 
+export interface ObservabilityPipelineConfigProcessorsReduce {
+    /**
+     * A list of fields used to group log events for merging.
+     */
+    groupBies: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The unique identifier for this processor.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * A Datadog search query used to determine which logs this processor targets.
+     */
+    include: pulumi.Input<string>;
+    /**
+     * A list of component IDs whose output is used as the input for this processor.
+     */
+    inputs: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of merge strategies defining how values from grouped events should be combined.
+     */
+    mergeStrategies?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsReduceMergeStrategy>[]>;
+}
+
+export interface ObservabilityPipelineConfigProcessorsReduceMergeStrategy {
+    /**
+     * The field path in the log event.
+     */
+    path: pulumi.Input<string>;
+    /**
+     * The merge strategy to apply.
+     */
+    strategy: pulumi.Input<string>;
+}
+
 export interface ObservabilityPipelineConfigProcessorsRemoveField {
     /**
      * List of fields to remove from the events.
@@ -11106,7 +11949,7 @@ export interface ObservabilityPipelineConfigProcessorsRenameField {
      */
     include: pulumi.Input<string>;
     /**
-     * he inputs for the processor.
+     * The inputs for the processor.
      */
     inputs: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -11126,15 +11969,362 @@ export interface ObservabilityPipelineConfigProcessorsRenameFieldField {
     source: pulumi.Input<string>;
 }
 
+export interface ObservabilityPipelineConfigProcessorsSample {
+    /**
+     * The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `input` to downstream components).
+     */
+    id: pulumi.Input<string>;
+    /**
+     * A Datadog search query used to determine which logs this processor targets.
+     */
+    include: pulumi.Input<string>;
+    /**
+     * A list of component IDs whose output is used as the `input` for this component.
+     */
+    inputs: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The percentage of logs to sample.
+     */
+    percentage?: pulumi.Input<number>;
+    /**
+     * Number of events to sample (1 in N).
+     */
+    rate?: pulumi.Input<number>;
+}
+
+export interface ObservabilityPipelineConfigProcessorsSensitiveDataScanner {
+    /**
+     * The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
+     */
+    id: pulumi.Input<string>;
+    /**
+     * A Datadog search query used to determine which logs this processor targets.
+     */
+    include: pulumi.Input<string>;
+    /**
+     * A list of component IDs whose output is used as the `input` for this component.
+     */
+    inputs: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A list of rules for identifying and acting on sensitive data patterns.
+     */
+    rules?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsSensitiveDataScannerRule>[]>;
+}
+
+export interface ObservabilityPipelineConfigProcessorsSensitiveDataScannerRule {
+    /**
+     * Keyword-based proximity matching for sensitive data.
+     */
+    keywordOptions?: pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleKeywordOptions>;
+    /**
+     * A name identifying the rule.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * The action to take when a sensitive value is found.
+     */
+    onMatch?: pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleOnMatch>;
+    /**
+     * Pattern detection configuration for identifying sensitive data using either a custom regex or a library reference.
+     */
+    pattern?: pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsSensitiveDataScannerRulePattern>;
+    /**
+     * Field-level targeting options that determine where the scanner should operate.
+     */
+    scope?: pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleScope>;
+    /**
+     * Tags assigned to this rule for filtering and classification.
+     */
+    tags?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleKeywordOptions {
+    /**
+     * A list of keywords to match near the sensitive pattern.
+     */
+    keywords?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Maximum number of tokens between a keyword and a sensitive value match.
+     */
+    proximity?: pulumi.Input<number>;
+}
+
+export interface ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleOnMatch {
+    /**
+     * Hashes the matched value.
+     */
+    hash?: pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleOnMatchHash>;
+    /**
+     * Redacts part of the matched value (e.g., keep last 4 characters).
+     */
+    partialRedact?: pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleOnMatchPartialRedact>;
+    /**
+     * Redacts the matched value.
+     */
+    redact?: pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleOnMatchRedact>;
+}
+
+export interface ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleOnMatchHash {
+}
+
+export interface ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleOnMatchPartialRedact {
+    /**
+     * Number of characters to keep.
+     */
+    characters?: pulumi.Input<number>;
+    /**
+     * Direction from which to keep characters: `first` or `last`.
+     */
+    direction?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleOnMatchRedact {
+    /**
+     * Replacement string for redacted values (e.g., `***`).
+     */
+    replace?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigProcessorsSensitiveDataScannerRulePattern {
+    /**
+     * Pattern detection using a custom regular expression.
+     */
+    custom?: pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsSensitiveDataScannerRulePatternCustom>;
+    /**
+     * Pattern detection using a predefined pattern from the sensitive data scanner pattern library.
+     */
+    library?: pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsSensitiveDataScannerRulePatternLibrary>;
+}
+
+export interface ObservabilityPipelineConfigProcessorsSensitiveDataScannerRulePatternCustom {
+    /**
+     * A regular expression used to detect sensitive values. Must be a valid regex.
+     */
+    rule?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigProcessorsSensitiveDataScannerRulePatternLibrary {
+    /**
+     * Identifier for a predefined pattern from the sensitive data scanner pattern library.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Whether to augment the pattern with recommended keywords (optional).
+     */
+    useRecommendedKeywords?: pulumi.Input<boolean>;
+}
+
+export interface ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleScope {
+    /**
+     * Scan all fields.
+     */
+    all?: pulumi.Input<boolean>;
+    /**
+     * Explicitly exclude these fields from scanning.
+     */
+    exclude?: pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleScopeExclude>;
+    /**
+     * Explicitly include these fields for scanning.
+     */
+    include?: pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleScopeInclude>;
+}
+
+export interface ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleScopeExclude {
+    /**
+     * The fields to exclude from scanning.
+     */
+    fields?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface ObservabilityPipelineConfigProcessorsSensitiveDataScannerRuleScopeInclude {
+    /**
+     * The fields to include in scanning.
+     */
+    fields?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface ObservabilityPipelineConfigProcessorsThrottle {
+    /**
+     * Optional list of fields used to group events before applying throttling.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The unique identifier for this processor.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * A Datadog search query used to determine which logs this processor targets.
+     */
+    include: pulumi.Input<string>;
+    /**
+     * A list of component IDs whose output is used as the input for this processor.
+     */
+    inputs: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The number of events to allow before throttling is applied.
+     */
+    threshold: pulumi.Input<number>;
+    /**
+     * The time window in seconds over which the threshold applies.
+     */
+    window: pulumi.Input<number>;
+}
+
 export interface ObservabilityPipelineConfigSources {
+    /**
+     * The `amazonDataFirehose` source ingests logs from AWS Data Firehose.
+     */
+    amazonDataFirehoses?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigSourcesAmazonDataFirehose>[]>;
+    /**
+     * The `amazonS3` source ingests logs from an Amazon S3 bucket. It supports AWS authentication and TLS encryption.
+     */
+    amazonS3s?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigSourcesAmazonS3>[]>;
     /**
      * The `datadogAgent` source collects logs from the Datadog Agent.
      */
     datadogAgents?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigSourcesDatadogAgent>[]>;
     /**
+     * The `fluent` source ingests logs from Fluent Bit.
+     */
+    fluentBits?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigSourcesFluentBit>[]>;
+    /**
+     * The `fluent` source ingests logs from a Fluentd-compatible service.
+     */
+    fluentds?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigSourcesFluentd>[]>;
+    /**
+     * The `googlePubsub` source ingests logs from a Google Cloud Pub/Sub subscription.
+     */
+    googlePubsubs?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigSourcesGooglePubsub>[]>;
+    /**
+     * The `httpClient` source scrapes logs from HTTP endpoints at regular intervals.
+     */
+    httpClients?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigSourcesHttpClient>[]>;
+    /**
+     * The `httpServer` source collects logs over HTTP POST from external services.
+     */
+    httpServers?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigSourcesHttpServer>[]>;
+    /**
      * The `kafka` source ingests data from Apache Kafka topics.
      */
     kafkas?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigSourcesKafka>[]>;
+    /**
+     * The `logstash` source ingests logs from a Logstash forwarder.
+     */
+    logstashes?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigSourcesLogstash>[]>;
+    /**
+     * The `rsyslog` source listens for logs over TCP or UDP from an `rsyslog` server using the syslog protocol.
+     */
+    rsyslogs?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigSourcesRsyslog>[]>;
+    /**
+     * The `splunkHec` source implements the Splunk HTTP Event Collector (HEC) API.
+     */
+    splunkHecs?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigSourcesSplunkHec>[]>;
+    /**
+     * The `splunkTcp` source receives logs from a Splunk Universal Forwarder over TCP. TLS is supported for secure transmission.
+     */
+    splunkTcps?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigSourcesSplunkTcp>[]>;
+    /**
+     * The `sumoLogic` source receives logs from Sumo Logic collectors.
+     */
+    sumoLogics?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigSourcesSumoLogic>[]>;
+    /**
+     * The `syslogNg` source listens for logs over TCP or UDP from a `syslog-ng` server using the syslog protocol.
+     */
+    syslogNgs?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigSourcesSyslogNg>[]>;
+}
+
+export interface ObservabilityPipelineConfigSourcesAmazonDataFirehose {
+    /**
+     * AWS authentication credentials used for accessing AWS services such as S3. If omitted, the system’s default credentials are used (for example, the IAM role and environment variables).
+     */
+    auth?: pulumi.Input<inputs.ObservabilityPipelineConfigSourcesAmazonDataFirehoseAuth>;
+    /**
+     * The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
+     */
+    id: pulumi.Input<string>;
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     */
+    tls?: pulumi.Input<inputs.ObservabilityPipelineConfigSourcesAmazonDataFirehoseTls>;
+}
+
+export interface ObservabilityPipelineConfigSourcesAmazonDataFirehoseAuth {
+    /**
+     * The Amazon Resource Name (ARN) of the role to assume.
+     */
+    assumeRole?: pulumi.Input<string>;
+    /**
+     * A unique identifier for cross-account role assumption.
+     */
+    externalId?: pulumi.Input<string>;
+    /**
+     * A session identifier used for logging and tracing the assumed role session.
+     */
+    sessionName?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigSourcesAmazonDataFirehoseTls {
+    /**
+     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     */
+    caFile?: pulumi.Input<string>;
+    /**
+     * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     */
+    crtFile?: pulumi.Input<string>;
+    /**
+     * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     */
+    keyFile?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigSourcesAmazonS3 {
+    /**
+     * AWS authentication credentials used for accessing AWS services such as S3. If omitted, the system’s default credentials are used (for example, the IAM role and environment variables).
+     */
+    auth?: pulumi.Input<inputs.ObservabilityPipelineConfigSourcesAmazonS3Auth>;
+    /**
+     * The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
+     */
+    id: pulumi.Input<string>;
+    /**
+     * AWS region where the S3 bucket resides.
+     */
+    region: pulumi.Input<string>;
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     */
+    tls?: pulumi.Input<inputs.ObservabilityPipelineConfigSourcesAmazonS3Tls>;
+}
+
+export interface ObservabilityPipelineConfigSourcesAmazonS3Auth {
+    /**
+     * The Amazon Resource Name (ARN) of the role to assume.
+     */
+    assumeRole?: pulumi.Input<string>;
+    /**
+     * A unique identifier for cross-account role assumption.
+     */
+    externalId?: pulumi.Input<string>;
+    /**
+     * A session identifier used for logging and tracing the assumed role session.
+     */
+    sessionName?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigSourcesAmazonS3Tls {
+    /**
+     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     */
+    caFile?: pulumi.Input<string>;
+    /**
+     * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     */
+    crtFile?: pulumi.Input<string>;
+    /**
+     * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     */
+    keyFile?: pulumi.Input<string>;
 }
 
 export interface ObservabilityPipelineConfigSourcesDatadogAgent {
@@ -11156,7 +12346,184 @@ export interface ObservabilityPipelineConfigSourcesDatadogAgentTls {
     /**
      * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
      */
-    crtFile: pulumi.Input<string>;
+    crtFile?: pulumi.Input<string>;
+    /**
+     * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     */
+    keyFile?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigSourcesFluentBit {
+    /**
+     * The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `input` to downstream components).
+     */
+    id: pulumi.Input<string>;
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     */
+    tls?: pulumi.Input<inputs.ObservabilityPipelineConfigSourcesFluentBitTls>;
+}
+
+export interface ObservabilityPipelineConfigSourcesFluentBitTls {
+    /**
+     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     */
+    caFile?: pulumi.Input<string>;
+    /**
+     * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     */
+    crtFile?: pulumi.Input<string>;
+    /**
+     * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     */
+    keyFile?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigSourcesFluentd {
+    /**
+     * The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `input` to downstream components).
+     */
+    id: pulumi.Input<string>;
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     */
+    tls?: pulumi.Input<inputs.ObservabilityPipelineConfigSourcesFluentdTls>;
+}
+
+export interface ObservabilityPipelineConfigSourcesFluentdTls {
+    /**
+     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     */
+    caFile?: pulumi.Input<string>;
+    /**
+     * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     */
+    crtFile?: pulumi.Input<string>;
+    /**
+     * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     */
+    keyFile?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigSourcesGooglePubsub {
+    /**
+     * GCP credentials used to authenticate with Google Cloud Storage.
+     */
+    auth?: pulumi.Input<inputs.ObservabilityPipelineConfigSourcesGooglePubsubAuth>;
+    /**
+     * The decoding format used to interpret incoming logs.
+     */
+    decoding: pulumi.Input<string>;
+    /**
+     * The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
+     */
+    id: pulumi.Input<string>;
+    /**
+     * The GCP project ID that owns the Pub/Sub subscription.
+     */
+    project: pulumi.Input<string>;
+    /**
+     * The Pub/Sub subscription name from which messages are consumed.
+     */
+    subscription: pulumi.Input<string>;
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     */
+    tls?: pulumi.Input<inputs.ObservabilityPipelineConfigSourcesGooglePubsubTls>;
+}
+
+export interface ObservabilityPipelineConfigSourcesGooglePubsubAuth {
+    /**
+     * Path to the GCP service account key file.
+     */
+    credentialsFile: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigSourcesGooglePubsubTls {
+    /**
+     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     */
+    caFile?: pulumi.Input<string>;
+    /**
+     * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     */
+    crtFile?: pulumi.Input<string>;
+    /**
+     * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     */
+    keyFile?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigSourcesHttpClient {
+    /**
+     * Optional authentication strategy for HTTP requests.
+     */
+    authStrategy?: pulumi.Input<string>;
+    /**
+     * The decoding format used to interpret incoming logs.
+     */
+    decoding: pulumi.Input<string>;
+    /**
+     * The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
+     */
+    id: pulumi.Input<string>;
+    /**
+     * The interval (in seconds) between HTTP scrape requests.
+     */
+    scrapeIntervalSecs?: pulumi.Input<number>;
+    /**
+     * The timeout (in seconds) for each scrape request.
+     */
+    scrapeTimeoutSecs?: pulumi.Input<number>;
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     */
+    tls?: pulumi.Input<inputs.ObservabilityPipelineConfigSourcesHttpClientTls>;
+}
+
+export interface ObservabilityPipelineConfigSourcesHttpClientTls {
+    /**
+     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     */
+    caFile?: pulumi.Input<string>;
+    /**
+     * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     */
+    crtFile?: pulumi.Input<string>;
+    /**
+     * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     */
+    keyFile?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigSourcesHttpServer {
+    /**
+     * HTTP authentication method. Valid values are `none`, `plain`.
+     */
+    authStrategy: pulumi.Input<string>;
+    /**
+     * The decoding format used to interpret incoming logs. Valid values are `json`, `gelf`, `syslog`, `bytes`.
+     */
+    decoding: pulumi.Input<string>;
+    /**
+     * Unique ID for the HTTP server source.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     */
+    tls?: pulumi.Input<inputs.ObservabilityPipelineConfigSourcesHttpServerTls>;
+}
+
+export interface ObservabilityPipelineConfigSourcesHttpServerTls {
+    /**
+     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     */
+    caFile?: pulumi.Input<string>;
+    /**
+     * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     */
+    crtFile?: pulumi.Input<string>;
     /**
      * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
      */
@@ -11205,7 +12572,7 @@ export interface ObservabilityPipelineConfigSourcesKafkaSasl {
     /**
      * SASL mechanism to use (e.g., PLAIN, SCRAM-SHA-256, SCRAM-SHA-512). Valid values are `PLAIN`, `SCRAM-SHA-256`, `SCRAM-SHA-512`.
      */
-    mechanism: pulumi.Input<string>;
+    mechanism?: pulumi.Input<string>;
 }
 
 export interface ObservabilityPipelineConfigSourcesKafkaTls {
@@ -11216,11 +12583,340 @@ export interface ObservabilityPipelineConfigSourcesKafkaTls {
     /**
      * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
      */
-    crtFile: pulumi.Input<string>;
+    crtFile?: pulumi.Input<string>;
     /**
      * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
      */
     keyFile?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigSourcesLogstash {
+    /**
+     * The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
+     */
+    id: pulumi.Input<string>;
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     */
+    tls?: pulumi.Input<inputs.ObservabilityPipelineConfigSourcesLogstashTls>;
+}
+
+export interface ObservabilityPipelineConfigSourcesLogstashTls {
+    /**
+     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     */
+    caFile?: pulumi.Input<string>;
+    /**
+     * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     */
+    crtFile?: pulumi.Input<string>;
+    /**
+     * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     */
+    keyFile?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigSourcesRsyslog {
+    /**
+     * The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
+     */
+    id: pulumi.Input<string>;
+    /**
+     * Protocol used by the syslog source to receive messages.
+     */
+    mode?: pulumi.Input<string>;
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     */
+    tls?: pulumi.Input<inputs.ObservabilityPipelineConfigSourcesRsyslogTls>;
+}
+
+export interface ObservabilityPipelineConfigSourcesRsyslogTls {
+    /**
+     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     */
+    caFile?: pulumi.Input<string>;
+    /**
+     * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     */
+    crtFile?: pulumi.Input<string>;
+    /**
+     * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     */
+    keyFile?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigSourcesSplunkHec {
+    /**
+     * The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
+     */
+    id: pulumi.Input<string>;
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     */
+    tls?: pulumi.Input<inputs.ObservabilityPipelineConfigSourcesSplunkHecTls>;
+}
+
+export interface ObservabilityPipelineConfigSourcesSplunkHecTls {
+    /**
+     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     */
+    caFile?: pulumi.Input<string>;
+    /**
+     * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     */
+    crtFile?: pulumi.Input<string>;
+    /**
+     * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     */
+    keyFile?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigSourcesSplunkTcp {
+    /**
+     * The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
+     */
+    id: pulumi.Input<string>;
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     */
+    tls?: pulumi.Input<inputs.ObservabilityPipelineConfigSourcesSplunkTcpTls>;
+}
+
+export interface ObservabilityPipelineConfigSourcesSplunkTcpTls {
+    /**
+     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     */
+    caFile?: pulumi.Input<string>;
+    /**
+     * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     */
+    crtFile?: pulumi.Input<string>;
+    /**
+     * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     */
+    keyFile?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigSourcesSumoLogic {
+    /**
+     * The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigSourcesSyslogNg {
+    /**
+     * The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
+     */
+    id: pulumi.Input<string>;
+    /**
+     * Protocol used by the syslog source to receive messages.
+     */
+    mode?: pulumi.Input<string>;
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     */
+    tls?: pulumi.Input<inputs.ObservabilityPipelineConfigSourcesSyslogNgTls>;
+}
+
+export interface ObservabilityPipelineConfigSourcesSyslogNgTls {
+    /**
+     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     */
+    caFile?: pulumi.Input<string>;
+    /**
+     * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     */
+    crtFile?: pulumi.Input<string>;
+    /**
+     * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     */
+    keyFile?: pulumi.Input<string>;
+}
+
+export interface OnCallEscalationPolicyStep {
+    /**
+     * Specifies how this escalation step will assign targets. Can be `default` (page all targets at once) or `round-robin`. Valid values are `assignment`, `round-robin`. Defaults to `"default"`.
+     */
+    assignment?: pulumi.Input<string>;
+    /**
+     * Defines how many seconds to wait before escalating to the next step. Value must be between 60 and 36000.
+     */
+    escalateAfterSeconds: pulumi.Input<number>;
+    /**
+     * The ID of this step.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * List of targets for the step.
+     */
+    targets?: pulumi.Input<pulumi.Input<inputs.OnCallEscalationPolicyStepTarget>[]>;
+}
+
+export interface OnCallEscalationPolicyStepTarget {
+    /**
+     * Targeted schedule ID.
+     */
+    schedule?: pulumi.Input<string>;
+    /**
+     * Targeted team ID.
+     */
+    team?: pulumi.Input<string>;
+    /**
+     * Targeted user ID.
+     */
+    user?: pulumi.Input<string>;
+}
+
+export interface OnCallScheduleLayer {
+    /**
+     * The date/time when this layer should become active (in ISO 8601).
+     */
+    effectiveDate: pulumi.Input<string>;
+    /**
+     * The date/time after which this layer no longer applies (in ISO 8601).
+     */
+    endDate?: pulumi.Input<string>;
+    /**
+     * The ID of this layer.
+     */
+    id?: pulumi.Input<string>;
+    interval?: pulumi.Input<inputs.OnCallScheduleLayerInterval>;
+    /**
+     * The name of this layer. Should be unique within the schedule.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * List of restrictions for the layer.
+     */
+    restrictions?: pulumi.Input<pulumi.Input<inputs.OnCallScheduleLayerRestriction>[]>;
+    /**
+     * The date/time when the rotation for this layer starts (in ISO 8601).
+     */
+    rotationStart?: pulumi.Input<string>;
+    /**
+     * List of user IDs for the layer. Can either be a valid user id or null
+     */
+    users: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface OnCallScheduleLayerInterval {
+    /**
+     * The number of full days in each rotation period.
+     */
+    days?: pulumi.Input<number>;
+    /**
+     * For intervals that are not expressible in whole days, this will be added to `days`. Defaults to `0`.
+     */
+    seconds?: pulumi.Input<number>;
+}
+
+export interface OnCallScheduleLayerRestriction {
+    /**
+     * The weekday when the restriction period ends. Valid values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
+     */
+    endDay?: pulumi.Input<string>;
+    /**
+     * The time of day when the restriction ends (hh:mm:ss).
+     */
+    endTime?: pulumi.Input<string>;
+    /**
+     * The weekday when the restriction period starts. Valid values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
+     */
+    startDay?: pulumi.Input<string>;
+    /**
+     * The time of day when the restriction begins (hh:mm:ss).
+     */
+    startTime?: pulumi.Input<string>;
+}
+
+export interface OnCallTeamRoutingRulesRule {
+    /**
+     * Specifies the list of actions to perform when the routing rule is matched.
+     */
+    actions?: pulumi.Input<pulumi.Input<inputs.OnCallTeamRoutingRulesRuleAction>[]>;
+    /**
+     * ID of the policy to be applied when this routing rule matches.
+     */
+    escalationPolicy?: pulumi.Input<string>;
+    /**
+     * The ID of this rule.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Defines the query or condition that triggers this routing rule. Defaults to `""`.
+     */
+    query?: pulumi.Input<string>;
+    /**
+     * Holds time zone information and a list of time restrictions for a routing rule.
+     */
+    timeRestrictions?: pulumi.Input<inputs.OnCallTeamRoutingRulesRuleTimeRestrictions>;
+    /**
+     * Defines the urgency for pages created via this rule. Only valid if `escalationPolicy` is set. Valid values are `high`, `low`, `dynamic`.
+     */
+    urgency?: pulumi.Input<string>;
+}
+
+export interface OnCallTeamRoutingRulesRuleAction {
+    sendSlackMessage?: pulumi.Input<inputs.OnCallTeamRoutingRulesRuleActionSendSlackMessage>;
+    sendTeamsMessage?: pulumi.Input<inputs.OnCallTeamRoutingRulesRuleActionSendTeamsMessage>;
+}
+
+export interface OnCallTeamRoutingRulesRuleActionSendSlackMessage {
+    /**
+     * Slack channel ID.
+     */
+    channel?: pulumi.Input<string>;
+    /**
+     * Slack workspace ID.
+     */
+    workspace?: pulumi.Input<string>;
+}
+
+export interface OnCallTeamRoutingRulesRuleActionSendTeamsMessage {
+    /**
+     * Teams channel ID.
+     */
+    channel?: pulumi.Input<string>;
+    /**
+     * Teams team ID.
+     */
+    team?: pulumi.Input<string>;
+    /**
+     * Teams tenant ID.
+     */
+    tenant?: pulumi.Input<string>;
+}
+
+export interface OnCallTeamRoutingRulesRuleTimeRestrictions {
+    /**
+     * List of restrictions for the rule.
+     */
+    restrictions?: pulumi.Input<pulumi.Input<inputs.OnCallTeamRoutingRulesRuleTimeRestrictionsRestriction>[]>;
+    /**
+     * Specifies the time zone applicable to the restrictions, e.g. `America/New_York`.
+     */
+    timeZone?: pulumi.Input<string>;
+}
+
+export interface OnCallTeamRoutingRulesRuleTimeRestrictionsRestriction {
+    /**
+     * The weekday when the restriction period ends. Valid values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
+     */
+    endDay?: pulumi.Input<string>;
+    /**
+     * The time of day when the restriction ends (hh:mm:ss).
+     */
+    endTime?: pulumi.Input<string>;
+    /**
+     * The weekday when the restriction period starts. Valid values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
+     */
+    startDay?: pulumi.Input<string>;
+    /**
+     * The time of day when the restriction begins (hh:mm:ss).
+     */
+    startTime?: pulumi.Input<string>;
 }
 
 export interface OrganizationSettingsSettings {
@@ -15685,11 +17381,11 @@ export interface PowerpackWidgetListStreamDefinitionRequestColumn {
     /**
      * Widget column field.
      */
-    field: pulumi.Input<string>;
+    field?: pulumi.Input<string>;
     /**
      * Widget column width. Valid values are `auto`, `compact`, `full`.
      */
-    width: pulumi.Input<string>;
+    width?: pulumi.Input<string>;
 }
 
 export interface PowerpackWidgetListStreamDefinitionRequestQuery {
@@ -23029,6 +24725,10 @@ export interface PowerpackWidgetTraceServiceDefinition {
 
 export interface PowerpackWidgetTreemapDefinition {
     /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
+    customLinks?: pulumi.Input<pulumi.Input<inputs.PowerpackWidgetTreemapDefinitionCustomLink>[]>;
+    /**
      * Nested block describing the request to use when displaying the widget.
      */
     requests?: pulumi.Input<pulumi.Input<inputs.PowerpackWidgetTreemapDefinitionRequest>[]>;
@@ -23036,6 +24736,25 @@ export interface PowerpackWidgetTreemapDefinition {
      * The title of the widget.
      */
     title?: pulumi.Input<string>;
+}
+
+export interface PowerpackWidgetTreemapDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
+    isHidden?: pulumi.Input<boolean>;
+    /**
+     * The label for the custom link URL.
+     */
+    label?: pulumi.Input<string>;
+    /**
+     * The URL of the custom link.
+     */
+    link?: pulumi.Input<string>;
+    /**
+     * The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     */
+    overrideLabel?: pulumi.Input<string>;
 }
 
 export interface PowerpackWidgetTreemapDefinitionRequest {
@@ -23537,7 +25256,7 @@ export interface PowerpackWidgetWidgetLayout {
 
 export interface ProviderDefaultTags {
     /**
-     * [Experimental - Logs Pipelines, Monitors and Security Monitoring Rules only] Resource tags to be applied by default across all resources.
+     * [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Resource tags to be applied by default across all resources.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -23799,7 +25518,7 @@ export interface SecurityMonitoringRuleQuery {
      */
     aggregation?: pulumi.Input<string>;
     /**
-     * Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`. Defaults to `"logs"`.
+     * Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`. Defaults to `"logs"`.
      */
     dataSource?: pulumi.Input<string>;
     /**
@@ -24725,6 +26444,10 @@ export interface SyntheticsTestBrowserStepParams {
      * Type of click to use for a "click" step.
      */
     clickType?: pulumi.Input<string>;
+    /**
+     * Whether to use `element.click()` for a "click" step. This is a more reliable way to interact with elements but does not emulate a real user interaction.
+     */
+    clickWithJavascript?: pulumi.Input<boolean>;
     /**
      * Javascript code to use for the step.
      */

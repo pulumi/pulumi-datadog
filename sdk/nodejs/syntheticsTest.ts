@@ -749,7 +749,7 @@ export class SyntheticsTest extends pulumi.CustomResource {
      */
     public readonly forceDeleteDependencies!: pulumi.Output<boolean | undefined>;
     /**
-     * Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
+     * Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations or find the possible values listed in [this API response](https://app.datadoghq.com/api/v1/synthetics/locations?only_public=true).
      */
     public readonly locations!: pulumi.Output<string[]>;
     /**
@@ -955,7 +955,7 @@ export interface SyntheticsTestState {
      */
     forceDeleteDependencies?: pulumi.Input<boolean>;
     /**
-     * Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
+     * Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations or find the possible values listed in [this API response](https://app.datadoghq.com/api/v1/synthetics/locations?only_public=true).
      */
     locations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -1071,7 +1071,7 @@ export interface SyntheticsTestArgs {
      */
     forceDeleteDependencies?: pulumi.Input<boolean>;
     /**
-     * Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
+     * Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations or find the possible values listed in [this API response](https://app.datadoghq.com/api/v1/synthetics/locations?only_public=true).
      */
     locations: pulumi.Input<pulumi.Input<string>[]>;
     /**

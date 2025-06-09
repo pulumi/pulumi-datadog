@@ -39,6 +39,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The action to take when the quota is exceeded: `drop`, `no_action`, or `overflow_routing`.
+        /// </summary>
+        public readonly string? OverflowAction;
+        /// <summary>
         /// The overrides for field-specific quotas.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigProcessorsQuotaOverride> Overrides;
@@ -63,6 +67,8 @@ namespace Pulumi.Datadog.Outputs
 
             string name,
 
+            string? overflowAction,
+
             ImmutableArray<Outputs.ObservabilityPipelineConfigProcessorsQuotaOverride> overrides,
 
             ImmutableArray<string> partitionFields)
@@ -74,6 +80,7 @@ namespace Pulumi.Datadog.Outputs
             Inputs = inputs;
             Limit = limit;
             Name = name;
+            OverflowAction = overflowAction;
             Overrides = overrides;
             PartitionFields = partitionFields;
         }
