@@ -64,6 +64,12 @@ namespace Pulumi.Datadog.Gcp
         public Output<bool> IsCspmEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
+        /// </summary>
+        [Output("isPerProjectQuotaEnabled")]
+        public Output<bool> IsPerProjectQuotaEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// When enabled, Datadog scans for all resource change data in your Google Cloud environment.
         /// </summary>
         [Output("isResourceChangeCollectionEnabled")]
@@ -188,6 +194,12 @@ namespace Pulumi.Datadog.Gcp
         public Input<bool>? IsCspmEnabled { get; set; }
 
         /// <summary>
+        /// When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
+        /// </summary>
+        [Input("isPerProjectQuotaEnabled")]
+        public Input<bool>? IsPerProjectQuotaEnabled { get; set; }
+
+        /// <summary>
         /// When enabled, Datadog scans for all resource change data in your Google Cloud environment.
         /// </summary>
         [Input("isResourceChangeCollectionEnabled")]
@@ -284,6 +296,12 @@ namespace Pulumi.Datadog.Gcp
         /// </summary>
         [Input("isCspmEnabled")]
         public Input<bool>? IsCspmEnabled { get; set; }
+
+        /// <summary>
+        /// When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
+        /// </summary>
+        [Input("isPerProjectQuotaEnabled")]
+        public Input<bool>? IsPerProjectQuotaEnabled { get; set; }
 
         /// <summary>
         /// When enabled, Datadog scans for all resource change data in your Google Cloud environment.

@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetTreemapDefinition
     {
         /// <summary>
+        /// A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DashboardWidgetTreemapDefinitionCustomLink> CustomLinks;
+        /// <summary>
         /// Nested block describing the request to use when displaying the widget.
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetTreemapDefinitionRequest> Requests;
@@ -24,10 +28,13 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private DashboardWidgetTreemapDefinition(
+            ImmutableArray<Outputs.DashboardWidgetTreemapDefinitionCustomLink> customLinks,
+
             ImmutableArray<Outputs.DashboardWidgetTreemapDefinitionRequest> requests,
 
             string? title)
         {
+            CustomLinks = customLinks;
             Requests = requests;
             Title = title;
         }

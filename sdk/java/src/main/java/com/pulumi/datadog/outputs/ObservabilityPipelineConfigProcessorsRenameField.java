@@ -29,7 +29,7 @@ public final class ObservabilityPipelineConfigProcessorsRenameField {
      */
     private String include;
     /**
-     * @return he inputs for the processor.
+     * @return The inputs for the processor.
      * 
      */
     private List<String> inputs;
@@ -57,7 +57,7 @@ public final class ObservabilityPipelineConfigProcessorsRenameField {
         return this.include;
     }
     /**
-     * @return he inputs for the processor.
+     * @return The inputs for the processor.
      * 
      */
     public List<String> inputs() {

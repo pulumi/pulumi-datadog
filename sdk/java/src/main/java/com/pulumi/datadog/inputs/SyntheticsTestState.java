@@ -153,14 +153,14 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
+     * Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations or find the possible values listed in [this API response](https://app.datadoghq.com/api/v1/synthetics/locations?only_public=true).
      * 
      */
     @Import(name="locations")
     private @Nullable Output<List<String>> locations;
 
     /**
-     * @return Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
+     * @return Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations or find the possible values listed in [this API response](https://app.datadoghq.com/api/v1/synthetics/locations?only_public=true).
      * 
      */
     public Optional<Output<List<String>>> locations() {
@@ -732,7 +732,7 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param locations Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
+         * @param locations Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations or find the possible values listed in [this API response](https://app.datadoghq.com/api/v1/synthetics/locations?only_public=true).
          * 
          * @return builder
          * 
@@ -743,7 +743,7 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param locations Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
+         * @param locations Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations or find the possible values listed in [this API response](https://app.datadoghq.com/api/v1/synthetics/locations?only_public=true).
          * 
          * @return builder
          * 
@@ -753,7 +753,7 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param locations Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
+         * @param locations Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations or find the possible values listed in [this API response](https://app.datadoghq.com/api/v1/synthetics/locations?only_public=true).
          * 
          * @return builder
          * 

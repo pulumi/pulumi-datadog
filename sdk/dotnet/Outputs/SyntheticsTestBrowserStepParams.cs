@@ -26,6 +26,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? ClickType;
         /// <summary>
+        /// Whether to use `element.click()` for a "click" step. This is a more reliable way to interact with elements but does not emulate a real user interaction.
+        /// </summary>
+        public readonly bool? ClickWithJavascript;
+        /// <summary>
         /// Javascript code to use for the step.
         /// </summary>
         public readonly string? Code;
@@ -102,6 +106,8 @@ namespace Pulumi.Datadog.Outputs
 
             string? clickType,
 
+            bool? clickWithJavascript,
+
             string? code,
 
             int? delay,
@@ -139,6 +145,7 @@ namespace Pulumi.Datadog.Outputs
             Attribute = attribute;
             Check = check;
             ClickType = clickType;
+            ClickWithJavascript = clickWithJavascript;
             Code = code;
             Delay = delay;
             Element = element;

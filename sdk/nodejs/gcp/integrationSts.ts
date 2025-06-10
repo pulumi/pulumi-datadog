@@ -72,6 +72,10 @@ export class IntegrationSts extends pulumi.CustomResource {
      */
     public readonly isCspmEnabled!: pulumi.Output<boolean>;
     /**
+     * When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
+     */
+    public readonly isPerProjectQuotaEnabled!: pulumi.Output<boolean>;
+    /**
      * When enabled, Datadog scans for all resource change data in your Google Cloud environment.
      */
     public readonly isResourceChangeCollectionEnabled!: pulumi.Output<boolean>;
@@ -108,6 +112,7 @@ export class IntegrationSts extends pulumi.CustomResource {
             resourceInputs["delegateAccountEmail"] = state ? state.delegateAccountEmail : undefined;
             resourceInputs["hostFilters"] = state ? state.hostFilters : undefined;
             resourceInputs["isCspmEnabled"] = state ? state.isCspmEnabled : undefined;
+            resourceInputs["isPerProjectQuotaEnabled"] = state ? state.isPerProjectQuotaEnabled : undefined;
             resourceInputs["isResourceChangeCollectionEnabled"] = state ? state.isResourceChangeCollectionEnabled : undefined;
             resourceInputs["isSecurityCommandCenterEnabled"] = state ? state.isSecurityCommandCenterEnabled : undefined;
             resourceInputs["metricNamespaceConfigs"] = state ? state.metricNamespaceConfigs : undefined;
@@ -123,6 +128,7 @@ export class IntegrationSts extends pulumi.CustomResource {
             resourceInputs["cloudRunRevisionFilters"] = args ? args.cloudRunRevisionFilters : undefined;
             resourceInputs["hostFilters"] = args ? args.hostFilters : undefined;
             resourceInputs["isCspmEnabled"] = args ? args.isCspmEnabled : undefined;
+            resourceInputs["isPerProjectQuotaEnabled"] = args ? args.isPerProjectQuotaEnabled : undefined;
             resourceInputs["isResourceChangeCollectionEnabled"] = args ? args.isResourceChangeCollectionEnabled : undefined;
             resourceInputs["isSecurityCommandCenterEnabled"] = args ? args.isSecurityCommandCenterEnabled : undefined;
             resourceInputs["metricNamespaceConfigs"] = args ? args.metricNamespaceConfigs : undefined;
@@ -166,6 +172,10 @@ export interface IntegrationStsState {
      * Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled.
      */
     isCspmEnabled?: pulumi.Input<boolean>;
+    /**
+     * When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
+     */
+    isPerProjectQuotaEnabled?: pulumi.Input<boolean>;
     /**
      * When enabled, Datadog scans for all resource change data in your Google Cloud environment.
      */
@@ -212,6 +222,10 @@ export interface IntegrationStsArgs {
      * Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled.
      */
     isCspmEnabled?: pulumi.Input<boolean>;
+    /**
+     * When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
+     */
+    isPerProjectQuotaEnabled?: pulumi.Input<boolean>;
     /**
      * When enabled, Datadog scans for all resource change data in your Google Cloud environment.
      */

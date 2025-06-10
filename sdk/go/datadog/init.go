@@ -45,6 +45,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CloudConfigurationRule{}
 	case "datadog:index/cloudWorkloadSecurityAgentRule:CloudWorkloadSecurityAgentRule":
 		r = &CloudWorkloadSecurityAgentRule{}
+	case "datadog:index/complianceCustomFramework:ComplianceCustomFramework":
+		r = &ComplianceCustomFramework{}
 	case "datadog:index/csmThreatsAgentRule:CsmThreatsAgentRule":
 		r = &CsmThreatsAgentRule{}
 	case "datadog:index/dashboard:Dashboard":
@@ -93,6 +95,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &MonitorNotificationRule{}
 	case "datadog:index/observabilityPipeline:ObservabilityPipeline":
 		r = &ObservabilityPipeline{}
+	case "datadog:index/onCallEscalationPolicy:OnCallEscalationPolicy":
+		r = &OnCallEscalationPolicy{}
+	case "datadog:index/onCallSchedule:OnCallSchedule":
+		r = &OnCallSchedule{}
+	case "datadog:index/onCallTeamRoutingRules:OnCallTeamRoutingRules":
+		r = &OnCallTeamRoutingRules{}
 	case "datadog:index/openapiApi:OpenapiApi":
 		r = &OpenapiApi{}
 	case "datadog:index/organizationSettings:OrganizationSettings":
@@ -117,6 +125,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SecurityMonitoringFilter{}
 	case "datadog:index/securityMonitoringRule:SecurityMonitoringRule":
 		r = &SecurityMonitoringRule{}
+	case "datadog:index/securityMonitoringRuleJson:SecurityMonitoringRuleJson":
+		r = &SecurityMonitoringRuleJson{}
 	case "datadog:index/securityMonitoringSuppression:SecurityMonitoringSuppression":
 		r = &SecurityMonitoringSuppression{}
 	case "datadog:index/securityNotificationRule:SecurityNotificationRule":
@@ -260,6 +270,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"datadog",
+		"index/complianceCustomFramework",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
 		"index/csmThreatsAgentRule",
 		&module{version},
 	)
@@ -380,6 +395,21 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"datadog",
+		"index/onCallEscalationPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/onCallSchedule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/onCallTeamRoutingRules",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
 		"index/openapiApi",
 		&module{version},
 	)
@@ -436,6 +466,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/securityMonitoringRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/securityMonitoringRuleJson",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

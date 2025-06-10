@@ -18,6 +18,7 @@ from .authn_mapping import *
 from .child_organization import *
 from .cloud_configuration_rule import *
 from .cloud_workload_security_agent_rule import *
+from .compliance_custom_framework import *
 from .csm_threats_agent_rule import *
 from .dashboard import *
 from .dashboard_json import *
@@ -87,6 +88,9 @@ from .monitor_config_policy import *
 from .monitor_json import *
 from .monitor_notification_rule import *
 from .observability_pipeline import *
+from .on_call_escalation_policy import *
+from .on_call_schedule import *
+from .on_call_team_routing_rules import *
 from .openapi_api import *
 from .organization_settings import *
 from .powerpack import *
@@ -100,6 +104,7 @@ from .rum_retention_filters_order import *
 from .security_monitoring_default_rule import *
 from .security_monitoring_filter import *
 from .security_monitoring_rule import *
+from .security_monitoring_rule_json import *
 from .security_monitoring_suppression import *
 from .security_notification_rule import *
 from .sensitive_data_scanner_group import *
@@ -386,6 +391,14 @@ _utilities.register(
  },
  {
   "pkg": "datadog",
+  "mod": "index/complianceCustomFramework",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/complianceCustomFramework:ComplianceCustomFramework": "ComplianceCustomFramework"
+  }
+ },
+ {
+  "pkg": "datadog",
   "mod": "index/csmThreatsAgentRule",
   "fqn": "pulumi_datadog",
   "classes": {
@@ -578,6 +591,30 @@ _utilities.register(
  },
  {
   "pkg": "datadog",
+  "mod": "index/onCallEscalationPolicy",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/onCallEscalationPolicy:OnCallEscalationPolicy": "OnCallEscalationPolicy"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/onCallSchedule",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/onCallSchedule:OnCallSchedule": "OnCallSchedule"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/onCallTeamRoutingRules",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/onCallTeamRoutingRules:OnCallTeamRoutingRules": "OnCallTeamRoutingRules"
+  }
+ },
+ {
+  "pkg": "datadog",
   "mod": "index/openapiApi",
   "fqn": "pulumi_datadog",
   "classes": {
@@ -670,6 +707,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/securityMonitoringRule:SecurityMonitoringRule": "SecurityMonitoringRule"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/securityMonitoringRuleJson",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/securityMonitoringRuleJson:SecurityMonitoringRuleJson": "SecurityMonitoringRuleJson"
   }
  },
  {

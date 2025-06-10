@@ -31,6 +31,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? ClickType { get; set; }
 
         /// <summary>
+        /// Whether to use `element.click()` for a "click" step. This is a more reliable way to interact with elements but does not emulate a real user interaction.
+        /// </summary>
+        [Input("clickWithJavascript")]
+        public Input<bool>? ClickWithJavascript { get; set; }
+
+        /// <summary>
         /// Javascript code to use for the step.
         /// </summary>
         [Input("code")]

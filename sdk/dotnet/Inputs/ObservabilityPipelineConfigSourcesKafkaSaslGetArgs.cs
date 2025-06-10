@@ -15,8 +15,8 @@ namespace Pulumi.Datadog.Inputs
         /// <summary>
         /// SASL mechanism to use (e.g., PLAIN, SCRAM-SHA-256, SCRAM-SHA-512). Valid values are `PLAIN`, `SCRAM-SHA-256`, `SCRAM-SHA-512`.
         /// </summary>
-        [Input("mechanism", required: true)]
-        public Input<string> Mechanism { get; set; } = null!;
+        [Input("mechanism")]
+        public Input<string>? Mechanism { get; set; }
 
         public ObservabilityPipelineConfigSourcesKafkaSaslGetArgs()
         {

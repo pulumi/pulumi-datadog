@@ -204,7 +204,7 @@ namespace Pulumi.Datadog
         public Output<Outputs.ServiceLevelObjectiveSliSpecification?> SliSpecification { get; private set; } = null!;
 
         /// <summary>
-        /// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
+        /// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. **Note**: it's not currently possible to filter by these tags when querying via the API. If default tags are present at the provider level, they will be added to this resource.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
@@ -349,7 +349,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _tags;
 
         /// <summary>
-        /// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
+        /// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. **Note**: it's not currently possible to filter by these tags when querying via the API. If default tags are present at the provider level, they will be added to this resource.
         /// </summary>
         public InputList<string> Tags
         {
@@ -465,7 +465,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _tags;
 
         /// <summary>
-        /// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
+        /// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. **Note**: it's not currently possible to filter by these tags when querying via the API. If default tags are present at the provider level, they will be added to this resource.
         /// </summary>
         public InputList<string> Tags
         {

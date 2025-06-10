@@ -16,10 +16,10 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// SASL mechanism to use (e.g., PLAIN, SCRAM-SHA-256, SCRAM-SHA-512). Valid values are `PLAIN`, `SCRAM-SHA-256`, `SCRAM-SHA-512`.
         /// </summary>
-        public readonly string Mechanism;
+        public readonly string? Mechanism;
 
         [OutputConstructor]
-        private ObservabilityPipelineConfigSourcesKafkaSasl(string mechanism)
+        private ObservabilityPipelineConfigSourcesKafkaSasl(string? mechanism)
         {
             Mechanism = mechanism;
         }

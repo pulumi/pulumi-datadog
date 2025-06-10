@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Datadog App resource for creating and managing Datadog Apps from App Builder using the JSON definition.
+// ## Example Usage
 //
 // ## Import
 //

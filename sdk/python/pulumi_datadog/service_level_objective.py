@@ -47,7 +47,7 @@ class ServiceLevelObjectiveArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] monitor_ids: A static set of monitor IDs to use as part of the SLO
         :param pulumi.Input['ServiceLevelObjectiveQueryArgs'] query: The metric query of good / total events
         :param pulumi.Input['ServiceLevelObjectiveSliSpecificationArgs'] sli_specification: A map of SLI specifications to use as part of the SLO.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] tags: A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] tags: A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. **Note**: it's not currently possible to filter by these tags when querying via the API. If default tags are present at the provider level, they will be added to this resource.
         :param pulumi.Input[builtins.float] target_threshold: The objective's target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
         :param pulumi.Input[builtins.str] timeframe: The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
         :param pulumi.Input[builtins.bool] validate: Whether or not to validate the SLO. It checks if monitors added to a monitor SLO already exist.
@@ -191,7 +191,7 @@ class ServiceLevelObjectiveArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
+        A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. **Note**: it's not currently possible to filter by these tags when querying via the API. If default tags are present at the provider level, they will be added to this resource.
         """
         return pulumi.get(self, "tags")
 
@@ -274,7 +274,7 @@ class _ServiceLevelObjectiveState:
         :param pulumi.Input[builtins.str] name: Name of Datadog service level objective
         :param pulumi.Input['ServiceLevelObjectiveQueryArgs'] query: The metric query of good / total events
         :param pulumi.Input['ServiceLevelObjectiveSliSpecificationArgs'] sli_specification: A map of SLI specifications to use as part of the SLO.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] tags: A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] tags: A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. **Note**: it's not currently possible to filter by these tags when querying via the API. If default tags are present at the provider level, they will be added to this resource.
         :param pulumi.Input[builtins.float] target_threshold: The objective's target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveThresholdArgs']]] thresholds: A list of thresholds and targets that define the service level objectives from the provided SLIs.
         :param pulumi.Input[builtins.str] timeframe: The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
@@ -399,7 +399,7 @@ class _ServiceLevelObjectiveState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
+        A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. **Note**: it's not currently possible to filter by these tags when querying via the API. If default tags are present at the provider level, they will be added to this resource.
         """
         return pulumi.get(self, "tags")
 
@@ -621,7 +621,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of Datadog service level objective
         :param pulumi.Input[Union['ServiceLevelObjectiveQueryArgs', 'ServiceLevelObjectiveQueryArgsDict']] query: The metric query of good / total events
         :param pulumi.Input[Union['ServiceLevelObjectiveSliSpecificationArgs', 'ServiceLevelObjectiveSliSpecificationArgsDict']] sli_specification: A map of SLI specifications to use as part of the SLO.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] tags: A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] tags: A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. **Note**: it's not currently possible to filter by these tags when querying via the API. If default tags are present at the provider level, they will be added to this resource.
         :param pulumi.Input[builtins.float] target_threshold: The objective's target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceLevelObjectiveThresholdArgs', 'ServiceLevelObjectiveThresholdArgsDict']]]] thresholds: A list of thresholds and targets that define the service level objectives from the provided SLIs.
         :param pulumi.Input[builtins.str] timeframe: The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
@@ -842,7 +842,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of Datadog service level objective
         :param pulumi.Input[Union['ServiceLevelObjectiveQueryArgs', 'ServiceLevelObjectiveQueryArgsDict']] query: The metric query of good / total events
         :param pulumi.Input[Union['ServiceLevelObjectiveSliSpecificationArgs', 'ServiceLevelObjectiveSliSpecificationArgsDict']] sli_specification: A map of SLI specifications to use as part of the SLO.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] tags: A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] tags: A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. **Note**: it's not currently possible to filter by these tags when querying via the API. If default tags are present at the provider level, they will be added to this resource.
         :param pulumi.Input[builtins.float] target_threshold: The objective's target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceLevelObjectiveThresholdArgs', 'ServiceLevelObjectiveThresholdArgsDict']]]] thresholds: A list of thresholds and targets that define the service level objectives from the provided SLIs.
         :param pulumi.Input[builtins.str] timeframe: The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
@@ -928,9 +928,9 @@ class ServiceLevelObjective(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
+    def tags(self) -> pulumi.Output[Sequence[builtins.str]]:
         """
-        A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
+        A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. **Note**: it's not currently possible to filter by these tags when querying via the API. If default tags are present at the provider level, they will be added to this resource.
         """
         return pulumi.get(self, "tags")
 

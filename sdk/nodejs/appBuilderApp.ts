@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Provides a Datadog App resource for creating and managing Datadog Apps from App Builder using the JSON definition.
+ * ## Example Usage
  *
  * ## Import
  *

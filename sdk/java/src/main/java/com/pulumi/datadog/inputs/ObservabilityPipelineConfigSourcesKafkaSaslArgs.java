@@ -5,9 +5,10 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ObservabilityPipelineConfigSourcesKafkaSaslArgs extends com.pulumi.resources.ResourceArgs {
@@ -18,15 +19,15 @@ public final class ObservabilityPipelineConfigSourcesKafkaSaslArgs extends com.p
      * SASL mechanism to use (e.g., PLAIN, SCRAM-SHA-256, SCRAM-SHA-512). Valid values are `PLAIN`, `SCRAM-SHA-256`, `SCRAM-SHA-512`.
      * 
      */
-    @Import(name="mechanism", required=true)
-    private Output<String> mechanism;
+    @Import(name="mechanism")
+    private @Nullable Output<String> mechanism;
 
     /**
      * @return SASL mechanism to use (e.g., PLAIN, SCRAM-SHA-256, SCRAM-SHA-512). Valid values are `PLAIN`, `SCRAM-SHA-256`, `SCRAM-SHA-512`.
      * 
      */
-    public Output<String> mechanism() {
-        return this.mechanism;
+    public Optional<Output<String>> mechanism() {
+        return Optional.ofNullable(this.mechanism);
     }
 
     private ObservabilityPipelineConfigSourcesKafkaSaslArgs() {}
@@ -59,7 +60,7 @@ public final class ObservabilityPipelineConfigSourcesKafkaSaslArgs extends com.p
          * @return builder
          * 
          */
-        public Builder mechanism(Output<String> mechanism) {
+        public Builder mechanism(@Nullable Output<String> mechanism) {
             $.mechanism = mechanism;
             return this;
         }
@@ -75,9 +76,6 @@ public final class ObservabilityPipelineConfigSourcesKafkaSaslArgs extends com.p
         }
 
         public ObservabilityPipelineConfigSourcesKafkaSaslArgs build() {
-            if ($.mechanism == null) {
-                throw new MissingRequiredPropertyException("ObservabilityPipelineConfigSourcesKafkaSaslArgs", "mechanism");
-            }
             return $;
         }
     }

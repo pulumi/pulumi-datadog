@@ -839,7 +839,7 @@ type SyntheticsTest struct {
 	DeviceIds pulumi.StringArrayOutput `pulumi:"deviceIds"`
 	// A boolean indicating whether this synthetics test can be deleted even if it's referenced by other resources (for example, SLOs and composite monitors).
 	ForceDeleteDependencies pulumi.BoolPtrOutput `pulumi:"forceDeleteDependencies"`
-	// Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
+	// Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations or find the possible values listed in [this API response](https://app.datadoghq.com/api/v1/synthetics/locations?only_public=true).
 	Locations pulumi.StringArrayOutput `pulumi:"locations"`
 	// A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events. Defaults to `""`.
 	Message           pulumi.StringPtrOutput                   `pulumi:"message"`
@@ -939,7 +939,7 @@ type syntheticsTestState struct {
 	DeviceIds []string `pulumi:"deviceIds"`
 	// A boolean indicating whether this synthetics test can be deleted even if it's referenced by other resources (for example, SLOs and composite monitors).
 	ForceDeleteDependencies *bool `pulumi:"forceDeleteDependencies"`
-	// Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
+	// Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations or find the possible values listed in [this API response](https://app.datadoghq.com/api/v1/synthetics/locations?only_public=true).
 	Locations []string `pulumi:"locations"`
 	// A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events. Defaults to `""`.
 	Message           *string                          `pulumi:"message"`
@@ -998,7 +998,7 @@ type SyntheticsTestState struct {
 	DeviceIds pulumi.StringArrayInput
 	// A boolean indicating whether this synthetics test can be deleted even if it's referenced by other resources (for example, SLOs and composite monitors).
 	ForceDeleteDependencies pulumi.BoolPtrInput
-	// Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
+	// Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations or find the possible values listed in [this API response](https://app.datadoghq.com/api/v1/synthetics/locations?only_public=true).
 	Locations pulumi.StringArrayInput
 	// A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events. Defaults to `""`.
 	Message           pulumi.StringPtrInput
@@ -1061,7 +1061,7 @@ type syntheticsTestArgs struct {
 	DeviceIds []string `pulumi:"deviceIds"`
 	// A boolean indicating whether this synthetics test can be deleted even if it's referenced by other resources (for example, SLOs and composite monitors).
 	ForceDeleteDependencies *bool `pulumi:"forceDeleteDependencies"`
-	// Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
+	// Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations or find the possible values listed in [this API response](https://app.datadoghq.com/api/v1/synthetics/locations?only_public=true).
 	Locations []string `pulumi:"locations"`
 	// A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events. Defaults to `""`.
 	Message           *string                          `pulumi:"message"`
@@ -1119,7 +1119,7 @@ type SyntheticsTestArgs struct {
 	DeviceIds pulumi.StringArrayInput
 	// A boolean indicating whether this synthetics test can be deleted even if it's referenced by other resources (for example, SLOs and composite monitors).
 	ForceDeleteDependencies pulumi.BoolPtrInput
-	// Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
+	// Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations or find the possible values listed in [this API response](https://app.datadoghq.com/api/v1/synthetics/locations?only_public=true).
 	Locations pulumi.StringArrayInput
 	// A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events. Defaults to `""`.
 	Message           pulumi.StringPtrInput
@@ -1286,7 +1286,7 @@ func (o SyntheticsTestOutput) ForceDeleteDependencies() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTest) pulumi.BoolPtrOutput { return v.ForceDeleteDependencies }).(pulumi.BoolPtrOutput)
 }
 
-// Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
+// Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations or find the possible values listed in [this API response](https://app.datadoghq.com/api/v1/synthetics/locations?only_public=true).
 func (o SyntheticsTestOutput) Locations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SyntheticsTest) pulumi.StringArrayOutput { return v.Locations }).(pulumi.StringArrayOutput)
 }

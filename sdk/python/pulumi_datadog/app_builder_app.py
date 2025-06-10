@@ -238,7 +238,7 @@ class AppBuilderApp(pulumi.CustomResource):
                  root_instance_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Provides a Datadog App resource for creating and managing Datadog Apps from App Builder using the JSON definition.
+        ## Example Usage
 
         ## Import
 
@@ -262,7 +262,7 @@ class AppBuilderApp(pulumi.CustomResource):
                  args: AppBuilderAppArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Datadog App resource for creating and managing Datadog Apps from App Builder using the JSON definition.
+        ## Example Usage
 
         ## Import
 

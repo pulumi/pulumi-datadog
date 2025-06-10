@@ -132,7 +132,7 @@ class MonitorNotificationRule(pulumi.CustomResource):
                  recipients: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides a Datadog MonitorNotificationRule resource.
+        Provides a Datadog MonitorNotificationRule resource. *Note: This resource is in Preview. [Request access](https://www.datadoghq.com/product-preview/monitor-notification-rules/).*
 
         ## Import
 
@@ -152,7 +152,7 @@ class MonitorNotificationRule(pulumi.CustomResource):
                  args: MonitorNotificationRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Datadog MonitorNotificationRule resource.
+        Provides a Datadog MonitorNotificationRule resource. *Note: This resource is in Preview. [Request access](https://www.datadoghq.com/product-preview/monitor-notification-rules/).*
 
         ## Import
 

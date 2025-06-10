@@ -21,8 +21,8 @@ namespace Pulumi.Datadog.Inputs
         /// <summary>
         /// Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
         /// </summary>
-        [Input("crtFile", required: true)]
-        public Input<string> CrtFile { get; set; } = null!;
+        [Input("crtFile")]
+        public Input<string>? CrtFile { get; set; }
 
         /// <summary>
         /// Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.

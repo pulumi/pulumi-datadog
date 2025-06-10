@@ -36,6 +36,8 @@ type IntegrationSts struct {
 	HostFilters pulumi.StringArrayOutput `pulumi:"hostFilters"`
 	// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled.
 	IsCspmEnabled pulumi.BoolOutput `pulumi:"isCspmEnabled"`
+	// When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
+	IsPerProjectQuotaEnabled pulumi.BoolOutput `pulumi:"isPerProjectQuotaEnabled"`
 	// When enabled, Datadog scans for all resource change data in your Google Cloud environment.
 	IsResourceChangeCollectionEnabled pulumi.BoolOutput `pulumi:"isResourceChangeCollectionEnabled"`
 	// When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
@@ -93,6 +95,8 @@ type integrationStsState struct {
 	HostFilters []string `pulumi:"hostFilters"`
 	// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled.
 	IsCspmEnabled *bool `pulumi:"isCspmEnabled"`
+	// When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
+	IsPerProjectQuotaEnabled *bool `pulumi:"isPerProjectQuotaEnabled"`
 	// When enabled, Datadog scans for all resource change data in your Google Cloud environment.
 	IsResourceChangeCollectionEnabled *bool `pulumi:"isResourceChangeCollectionEnabled"`
 	// When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
@@ -118,6 +122,8 @@ type IntegrationStsState struct {
 	HostFilters pulumi.StringArrayInput
 	// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled.
 	IsCspmEnabled pulumi.BoolPtrInput
+	// When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
+	IsPerProjectQuotaEnabled pulumi.BoolPtrInput
 	// When enabled, Datadog scans for all resource change data in your Google Cloud environment.
 	IsResourceChangeCollectionEnabled pulumi.BoolPtrInput
 	// When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
@@ -145,6 +151,8 @@ type integrationStsArgs struct {
 	HostFilters []string `pulumi:"hostFilters"`
 	// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled.
 	IsCspmEnabled *bool `pulumi:"isCspmEnabled"`
+	// When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
+	IsPerProjectQuotaEnabled *bool `pulumi:"isPerProjectQuotaEnabled"`
 	// When enabled, Datadog scans for all resource change data in your Google Cloud environment.
 	IsResourceChangeCollectionEnabled *bool `pulumi:"isResourceChangeCollectionEnabled"`
 	// When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
@@ -169,6 +177,8 @@ type IntegrationStsArgs struct {
 	HostFilters pulumi.StringArrayInput
 	// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled.
 	IsCspmEnabled pulumi.BoolPtrInput
+	// When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
+	IsPerProjectQuotaEnabled pulumi.BoolPtrInput
 	// When enabled, Datadog scans for all resource change data in your Google Cloud environment.
 	IsResourceChangeCollectionEnabled pulumi.BoolPtrInput
 	// When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
@@ -299,6 +309,11 @@ func (o IntegrationStsOutput) HostFilters() pulumi.StringArrayOutput {
 // Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled.
 func (o IntegrationStsOutput) IsCspmEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *IntegrationSts) pulumi.BoolOutput { return v.IsCspmEnabled }).(pulumi.BoolOutput)
+}
+
+// When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
+func (o IntegrationStsOutput) IsPerProjectQuotaEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *IntegrationSts) pulumi.BoolOutput { return v.IsPerProjectQuotaEnabled }).(pulumi.BoolOutput)
 }
 
 // When enabled, Datadog scans for all resource change data in your Google Cloud environment.

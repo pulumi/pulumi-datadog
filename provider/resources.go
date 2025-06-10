@@ -133,6 +133,17 @@ func Provider() tfbridge.ProviderInfo {
 
 			// OpsGenie
 			"datadog_integration_opsgenie_service_object": {Tok: makeResource(opsGenieMod, "ServiceObject")},
+
+			"datadog_on_call_team_routing_rules": {
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"id": {Name: "teamId"},
+				},
+				ComputeID: tfbridge.DelegateIDField(
+					"teamId",
+					"datadog",
+					"https://github.com/pulumi/pulumi-datadog",
+				),
+			},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"datadog_integration_aws_logs_services": {Tok: makeDataSource(awsMod, "getIntegrationLogsServices")},

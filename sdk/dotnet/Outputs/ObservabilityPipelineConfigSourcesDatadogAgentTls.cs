@@ -20,7 +20,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
         /// </summary>
-        public readonly string CrtFile;
+        public readonly string? CrtFile;
         /// <summary>
         /// Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
         /// </summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Datadog.Outputs
         private ObservabilityPipelineConfigSourcesDatadogAgentTls(
             string? caFile,
 
-            string crtFile,
+            string? crtFile,
 
             string? keyFile)
         {

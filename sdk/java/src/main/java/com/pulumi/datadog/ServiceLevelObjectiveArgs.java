@@ -129,14 +129,14 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it&#39;s not currently possible to filter by these tags when querying via the API
+     * A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. **Note**: it&#39;s not currently possible to filter by these tags when querying via the API. If default tags are present at the provider level, they will be added to this resource.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<List<String>> tags;
 
     /**
-     * @return A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it&#39;s not currently possible to filter by these tags when querying via the API
+     * @return A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. **Note**: it&#39;s not currently possible to filter by these tags when querying via the API. If default tags are present at the provider level, they will be added to this resource.
      * 
      */
     public Optional<Output<List<String>>> tags() {
@@ -438,7 +438,7 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tags A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it&#39;s not currently possible to filter by these tags when querying via the API
+         * @param tags A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. **Note**: it&#39;s not currently possible to filter by these tags when querying via the API. If default tags are present at the provider level, they will be added to this resource.
          * 
          * @return builder
          * 
@@ -449,7 +449,7 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tags A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it&#39;s not currently possible to filter by these tags when querying via the API
+         * @param tags A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. **Note**: it&#39;s not currently possible to filter by these tags when querying via the API. If default tags are present at the provider level, they will be added to this resource.
          * 
          * @return builder
          * 
@@ -459,7 +459,7 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tags A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it&#39;s not currently possible to filter by these tags when querying via the API
+         * @param tags A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. **Note**: it&#39;s not currently possible to filter by these tags when querying via the API. If default tags are present at the provider level, they will be added to this resource.
          * 
          * @return builder
          * 

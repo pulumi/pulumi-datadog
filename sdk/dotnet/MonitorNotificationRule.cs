@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog
 {
     /// <summary>
-    /// Provides a Datadog MonitorNotificationRule resource.
+    /// Provides a Datadog MonitorNotificationRule resource. *Note: This resource is in Preview. [Request access](https://www.datadoghq.com/product-preview/monitor-notification-rules/).*
     /// 
     /// ## Import
     /// 

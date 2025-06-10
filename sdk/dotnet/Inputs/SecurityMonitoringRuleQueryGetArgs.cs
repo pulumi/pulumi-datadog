@@ -32,7 +32,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Aggregation { get; set; }
 
         /// <summary>
-        /// Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`. Defaults to `"logs"`.
+        /// Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`, `events`. Defaults to `"logs"`.
         /// </summary>
         [Input("dataSource")]
         public Input<string>? DataSource { get; set; }

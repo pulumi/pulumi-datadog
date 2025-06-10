@@ -52,7 +52,7 @@ class SyntheticsTestArgs:
                  variables_from_script: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a SyntheticsTest resource.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] locations: Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] locations: Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations or find the possible values listed in [this API response](https://app.datadoghq.com/api/v1/synthetics/locations?only_public=true).
         :param pulumi.Input[builtins.str] name: Name of Datadog synthetics test.
         :param pulumi.Input[builtins.str] status: Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
         :param pulumi.Input[builtins.str] type: Synthetics test type. Valid values are `api`, `browser`, `mobile`.
@@ -136,7 +136,7 @@ class SyntheticsTestArgs:
     @pulumi.getter
     def locations(self) -> pulumi.Input[Sequence[pulumi.Input[builtins.str]]]:
         """
-        Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
+        Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations or find the possible values listed in [this API response](https://app.datadoghq.com/api/v1/synthetics/locations?only_public=true).
         """
         return pulumi.get(self, "locations")
 
@@ -505,7 +505,7 @@ class _SyntheticsTestState:
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestConfigVariableArgs']]] config_variables: Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] device_ids: Required if `type = "browser"`. Array with the different device IDs used to run the test.
         :param pulumi.Input[builtins.bool] force_delete_dependencies: A boolean indicating whether this synthetics test can be deleted even if it's referenced by other resources (for example, SLOs and composite monitors).
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] locations: Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] locations: Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations or find the possible values listed in [this API response](https://app.datadoghq.com/api/v1/synthetics/locations?only_public=true).
         :param pulumi.Input[builtins.str] message: A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events. Defaults to `""`.
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestMobileStepArgs']]] mobile_steps: Steps for mobile tests
         :param pulumi.Input[builtins.int] monitor_id: ID of the monitor associated with the Datadog synthetics test.
@@ -684,7 +684,7 @@ class _SyntheticsTestState:
     @pulumi.getter
     def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
+        Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations or find the possible values listed in [this API response](https://app.datadoghq.com/api/v1/synthetics/locations?only_public=true).
         """
         return pulumi.get(self, "locations")
 
@@ -1644,7 +1644,7 @@ class SyntheticsTest(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestConfigVariableArgs', 'SyntheticsTestConfigVariableArgsDict']]]] config_variables: Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] device_ids: Required if `type = "browser"`. Array with the different device IDs used to run the test.
         :param pulumi.Input[builtins.bool] force_delete_dependencies: A boolean indicating whether this synthetics test can be deleted even if it's referenced by other resources (for example, SLOs and composite monitors).
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] locations: Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] locations: Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations or find the possible values listed in [this API response](https://app.datadoghq.com/api/v1/synthetics/locations?only_public=true).
         :param pulumi.Input[builtins.str] message: A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events. Defaults to `""`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestMobileStepArgs', 'SyntheticsTestMobileStepArgsDict']]]] mobile_steps: Steps for mobile tests
         :param pulumi.Input[builtins.str] name: Name of Datadog synthetics test.
@@ -2484,7 +2484,7 @@ class SyntheticsTest(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestConfigVariableArgs', 'SyntheticsTestConfigVariableArgsDict']]]] config_variables: Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] device_ids: Required if `type = "browser"`. Array with the different device IDs used to run the test.
         :param pulumi.Input[builtins.bool] force_delete_dependencies: A boolean indicating whether this synthetics test can be deleted even if it's referenced by other resources (for example, SLOs and composite monitors).
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] locations: Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] locations: Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations or find the possible values listed in [this API response](https://app.datadoghq.com/api/v1/synthetics/locations?only_public=true).
         :param pulumi.Input[builtins.str] message: A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events. Defaults to `""`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestMobileStepArgs', 'SyntheticsTestMobileStepArgsDict']]]] mobile_steps: Steps for mobile tests
         :param pulumi.Input[builtins.int] monitor_id: ID of the monitor associated with the Datadog synthetics test.
@@ -2607,7 +2607,7 @@ class SyntheticsTest(pulumi.CustomResource):
     @pulumi.getter
     def locations(self) -> pulumi.Output[Sequence[builtins.str]]:
         """
-        Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
+        Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations or find the possible values listed in [this API response](https://app.datadoghq.com/api/v1/synthetics/locations?only_public=true).
         """
         return pulumi.get(self, "locations")
 

@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.PowerpackWidgetTreemapDefinitionCustomLinkArgs;
 import com.pulumi.datadog.inputs.PowerpackWidgetTreemapDefinitionRequestArgs;
 import java.lang.String;
 import java.util.List;
@@ -16,6 +17,21 @@ import javax.annotation.Nullable;
 public final class PowerpackWidgetTreemapDefinitionArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final PowerpackWidgetTreemapDefinitionArgs Empty = new PowerpackWidgetTreemapDefinitionArgs();
+
+    /**
+     * A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+     * 
+     */
+    @Import(name="customLinks")
+    private @Nullable Output<List<PowerpackWidgetTreemapDefinitionCustomLinkArgs>> customLinks;
+
+    /**
+     * @return A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+     * 
+     */
+    public Optional<Output<List<PowerpackWidgetTreemapDefinitionCustomLinkArgs>>> customLinks() {
+        return Optional.ofNullable(this.customLinks);
+    }
 
     /**
      * Nested block describing the request to use when displaying the widget.
@@ -50,6 +66,7 @@ public final class PowerpackWidgetTreemapDefinitionArgs extends com.pulumi.resou
     private PowerpackWidgetTreemapDefinitionArgs() {}
 
     private PowerpackWidgetTreemapDefinitionArgs(PowerpackWidgetTreemapDefinitionArgs $) {
+        this.customLinks = $.customLinks;
         this.requests = $.requests;
         this.title = $.title;
     }
@@ -70,6 +87,37 @@ public final class PowerpackWidgetTreemapDefinitionArgs extends com.pulumi.resou
 
         public Builder(PowerpackWidgetTreemapDefinitionArgs defaults) {
             $ = new PowerpackWidgetTreemapDefinitionArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param customLinks A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customLinks(@Nullable Output<List<PowerpackWidgetTreemapDefinitionCustomLinkArgs>> customLinks) {
+            $.customLinks = customLinks;
+            return this;
+        }
+
+        /**
+         * @param customLinks A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customLinks(List<PowerpackWidgetTreemapDefinitionCustomLinkArgs> customLinks) {
+            return customLinks(Output.of(customLinks));
+        }
+
+        /**
+         * @param customLinks A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customLinks(PowerpackWidgetTreemapDefinitionCustomLinkArgs... customLinks) {
+            return customLinks(List.of(customLinks));
         }
 
         /**

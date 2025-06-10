@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.PowerpackWidgetTreemapDefinitionCustomLink;
 import com.pulumi.datadog.outputs.PowerpackWidgetTreemapDefinitionRequest;
 import java.lang.String;
 import java.util.List;
@@ -13,6 +14,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PowerpackWidgetTreemapDefinition {
+    /**
+     * @return A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+     * 
+     */
+    private @Nullable List<PowerpackWidgetTreemapDefinitionCustomLink> customLinks;
     /**
      * @return Nested block describing the request to use when displaying the widget.
      * 
@@ -25,6 +31,13 @@ public final class PowerpackWidgetTreemapDefinition {
     private @Nullable String title;
 
     private PowerpackWidgetTreemapDefinition() {}
+    /**
+     * @return A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+     * 
+     */
+    public List<PowerpackWidgetTreemapDefinitionCustomLink> customLinks() {
+        return this.customLinks == null ? List.of() : this.customLinks;
+    }
     /**
      * @return Nested block describing the request to use when displaying the widget.
      * 
@@ -49,15 +62,26 @@ public final class PowerpackWidgetTreemapDefinition {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable List<PowerpackWidgetTreemapDefinitionCustomLink> customLinks;
         private @Nullable List<PowerpackWidgetTreemapDefinitionRequest> requests;
         private @Nullable String title;
         public Builder() {}
         public Builder(PowerpackWidgetTreemapDefinition defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.customLinks = defaults.customLinks;
     	      this.requests = defaults.requests;
     	      this.title = defaults.title;
         }
 
+        @CustomType.Setter
+        public Builder customLinks(@Nullable List<PowerpackWidgetTreemapDefinitionCustomLink> customLinks) {
+
+            this.customLinks = customLinks;
+            return this;
+        }
+        public Builder customLinks(PowerpackWidgetTreemapDefinitionCustomLink... customLinks) {
+            return customLinks(List.of(customLinks));
+        }
         @CustomType.Setter
         public Builder requests(@Nullable List<PowerpackWidgetTreemapDefinitionRequest> requests) {
 
@@ -75,6 +99,7 @@ public final class PowerpackWidgetTreemapDefinition {
         }
         public PowerpackWidgetTreemapDefinition build() {
             final var _resultValue = new PowerpackWidgetTreemapDefinition();
+            _resultValue.customLinks = customLinks;
             _resultValue.requests = requests;
             _resultValue.title = title;
             return _resultValue;

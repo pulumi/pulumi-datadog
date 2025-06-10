@@ -26,7 +26,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Include;
         /// <summary>
-        /// he inputs for the processor.
+        /// The inputs for the processor.
         /// </summary>
         public readonly ImmutableArray<string> Inputs;
 

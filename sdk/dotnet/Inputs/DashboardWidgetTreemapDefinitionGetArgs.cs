@@ -12,6 +12,18 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetTreemapDefinitionGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("customLinks")]
+        private InputList<Inputs.DashboardWidgetTreemapDefinitionCustomLinkGetArgs>? _customLinks;
+
+        /// <summary>
+        /// A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+        /// </summary>
+        public InputList<Inputs.DashboardWidgetTreemapDefinitionCustomLinkGetArgs> CustomLinks
+        {
+            get => _customLinks ?? (_customLinks = new InputList<Inputs.DashboardWidgetTreemapDefinitionCustomLinkGetArgs>());
+            set => _customLinks = value;
+        }
+
         [Input("requests")]
         private InputList<Inputs.DashboardWidgetTreemapDefinitionRequestGetArgs>? _requests;
 

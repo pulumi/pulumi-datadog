@@ -5,9 +5,10 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class DashboardWidgetListStreamDefinitionRequestColumnArgs extends com.pulumi.resources.ResourceArgs {
@@ -18,30 +19,30 @@ public final class DashboardWidgetListStreamDefinitionRequestColumnArgs extends 
      * Widget column field.
      * 
      */
-    @Import(name="field", required=true)
-    private Output<String> field;
+    @Import(name="field")
+    private @Nullable Output<String> field;
 
     /**
      * @return Widget column field.
      * 
      */
-    public Output<String> field() {
-        return this.field;
+    public Optional<Output<String>> field() {
+        return Optional.ofNullable(this.field);
     }
 
     /**
      * Widget column width. Valid values are `auto`, `compact`, `full`.
      * 
      */
-    @Import(name="width", required=true)
-    private Output<String> width;
+    @Import(name="width")
+    private @Nullable Output<String> width;
 
     /**
      * @return Widget column width. Valid values are `auto`, `compact`, `full`.
      * 
      */
-    public Output<String> width() {
-        return this.width;
+    public Optional<Output<String>> width() {
+        return Optional.ofNullable(this.width);
     }
 
     private DashboardWidgetListStreamDefinitionRequestColumnArgs() {}
@@ -75,7 +76,7 @@ public final class DashboardWidgetListStreamDefinitionRequestColumnArgs extends 
          * @return builder
          * 
          */
-        public Builder field(Output<String> field) {
+        public Builder field(@Nullable Output<String> field) {
             $.field = field;
             return this;
         }
@@ -96,7 +97,7 @@ public final class DashboardWidgetListStreamDefinitionRequestColumnArgs extends 
          * @return builder
          * 
          */
-        public Builder width(Output<String> width) {
+        public Builder width(@Nullable Output<String> width) {
             $.width = width;
             return this;
         }
@@ -112,12 +113,6 @@ public final class DashboardWidgetListStreamDefinitionRequestColumnArgs extends 
         }
 
         public DashboardWidgetListStreamDefinitionRequestColumnArgs build() {
-            if ($.field == null) {
-                throw new MissingRequiredPropertyException("DashboardWidgetListStreamDefinitionRequestColumnArgs", "field");
-            }
-            if ($.width == null) {
-                throw new MissingRequiredPropertyException("DashboardWidgetListStreamDefinitionRequestColumnArgs", "width");
-            }
             return $;
         }
     }
