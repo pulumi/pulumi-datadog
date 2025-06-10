@@ -144,13 +144,6 @@ func Provider() tfbridge.ProviderInfo {
 					"https://github.com/pulumi/pulumi-datadog",
 				),
 			},
-			// "datadog_observability_pipeline": {
-			// 	Fields: map[string]*tfbridge.SchemaInfo{
-			// 		"config": {
-			//
-			// 		},
-			// 	},
-			// },
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"datadog_integration_aws_logs_services": {Tok: makeDataSource(awsMod, "getIntegrationLogsServices")},
