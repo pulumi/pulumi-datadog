@@ -6,7 +6,7 @@ toolchain go1.24.3
 
 require (
 	github.com/pulumi/pulumi-datadog/sdk/v4 v4.29.0
-	github.com/pulumi/pulumi/sdk/v3 v3.172.0
+	github.com/pulumi/pulumi/sdk/v3 v3.175.0
 )
 
 require (
