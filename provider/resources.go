@@ -144,6 +144,17 @@ func Provider() tfbridge.ProviderInfo {
 					"https://github.com/pulumi/pulumi-datadog",
 				),
 			},
+
+			"datadog_cost_budget": {
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"id": {Name: "budgetId"},
+				},
+				ComputeID: tfbridge.DelegateIDField(
+					"budgetId",
+					"datadog",
+					"https://github.com/pulumi/pulumi-datadog",
+				),
+			},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"datadog_integration_aws_logs_services": {Tok: makeDataSource(awsMod, "getIntegrationLogsServices")},
