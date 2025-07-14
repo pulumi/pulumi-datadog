@@ -211,6 +211,8 @@ class RumMetric(pulumi.CustomResource):
 
         ## Import
 
+        The `pulumi import` command can be used, for example:
+
         ```sh
         $ pulumi import datadog:index/rumMetric:RumMetric testing_rum_metric "testing.rum.metric"
         ```
@@ -230,6 +232,8 @@ class RumMetric(pulumi.CustomResource):
         Provides a Datadog RumMetric resource. This can be used to create and manage Datadog rum_metric.
 
         ## Import
+
+        The `pulumi import` command can be used, for example:
 
         ```sh
         $ pulumi import datadog:index/rumMetric:RumMetric testing_rum_metric "testing.rum.metric"

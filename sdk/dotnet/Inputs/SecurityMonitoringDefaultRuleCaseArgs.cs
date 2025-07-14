@@ -12,7 +12,13 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class SecurityMonitoringDefaultRuleCaseArgs : global::Pulumi.ResourceArgs
     {
-        [Input("notifications", required: true)]
+        /// <summary>
+        /// Status of the rule case to override. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+        /// </summary>
+        [Input("customStatus")]
+        public Input<string>? CustomStatus { get; set; }
+
+        [Input("notifications")]
         private InputList<string>? _notifications;
 
         /// <summary>

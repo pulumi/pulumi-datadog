@@ -47,8 +47,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CloudWorkloadSecurityAgentRule{}
 	case "datadog:index/complianceCustomFramework:ComplianceCustomFramework":
 		r = &ComplianceCustomFramework{}
+	case "datadog:index/complianceResourceEvaluationFilter:ComplianceResourceEvaluationFilter":
+		r = &ComplianceResourceEvaluationFilter{}
+	case "datadog:index/costBudget:CostBudget":
+		r = &CostBudget{}
 	case "datadog:index/csmThreatsAgentRule:CsmThreatsAgentRule":
 		r = &CsmThreatsAgentRule{}
+	case "datadog:index/csmThreatsPolicy:CsmThreatsPolicy":
+		r = &CsmThreatsPolicy{}
 	case "datadog:index/dashboard:Dashboard":
 		r = &Dashboard{}
 	case "datadog:index/dashboardJson:DashboardJson":
@@ -275,7 +281,22 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"datadog",
+		"index/complianceResourceEvaluationFilter",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/costBudget",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
 		"index/csmThreatsAgentRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/csmThreatsPolicy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

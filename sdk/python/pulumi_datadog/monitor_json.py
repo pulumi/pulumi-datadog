@@ -141,6 +141,8 @@ class MonitorJson(pulumi.CustomResource):
 
         ## Import
 
+        The `pulumi import` command can be used, for example:
+
         ```sh
         $ pulumi import datadog:index/monitorJson:MonitorJson monitor_json 123456
         ```
@@ -191,6 +193,8 @@ class MonitorJson(pulumi.CustomResource):
         ```
 
         ## Import
+
+        The `pulumi import` command can be used, for example:
 
         ```sh
         $ pulumi import datadog:index/monitorJson:MonitorJson monitor_json 123456

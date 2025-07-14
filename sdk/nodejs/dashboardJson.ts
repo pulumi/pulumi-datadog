@@ -479,7 +479,6 @@ import * as utilities from "./utilities";
  *       }
  *    ],
  *    "layout_type":"ordered",
- *    "is_read_only":true,
  *    "notify_list":[
  *
  *    ],
@@ -503,6 +502,8 @@ import * as utilities from "./utilities";
  * ```
  *
  * ## Import
+ *
+ * The `pulumi import` command can be used, for example:
  *
  * ```sh
  * $ pulumi import datadog:index/dashboardJson:DashboardJson my_service_dashboard sv7-gyh-kas

@@ -43,6 +43,8 @@ import (
 //
 // ## Import
 //
+// The `pulumi import` command can be used, for example:
+//
 // ```sh
 // $ pulumi import datadog:index/apiKey:ApiKey foo 11111111-2222-3333-4444-555555555555
 // ```

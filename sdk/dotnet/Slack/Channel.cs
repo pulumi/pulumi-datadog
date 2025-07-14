@@ -40,6 +40,8 @@ namespace Pulumi.Datadog.Slack
     /// 
     /// ## Import
     /// 
+    /// The `pulumi import` command can be used, for example:
+    /// 
     /// Slack channel integrations can be imported using their account_name and channel_name separated with a colon (`:`).
     /// 
     /// ```sh

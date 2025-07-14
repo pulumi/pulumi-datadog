@@ -35,6 +35,20 @@ namespace Pulumi.Datadog
     ///         ProductLists = new[]
     ///         {
     ///             "apm",
+    ///             "logs",
+    ///         },
+    ///         Samplings = new[]
+    ///         {
+    ///             new Datadog.Inputs.SensitiveDataScannerGroupSamplingArgs
+    ///             {
+    ///                 Product = "apm",
+    ///                 Rate = 100,
+    ///             },
+    ///             new Datadog.Inputs.SensitiveDataScannerGroupSamplingArgs
+    ///             {
+    ///                 Product = "logs",
+    ///                 Rate = 10,
+    ///             },
     ///         },
     ///     });
     /// 
@@ -42,6 +56,8 @@ namespace Pulumi.Datadog
     /// ```
     /// 
     /// ## Import
+    /// 
+    /// The `pulumi import` command can be used, for example:
     /// 
     /// ```sh
     /// $ pulumi import datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup new_list "&lt;group_id&gt;"
@@ -79,6 +95,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Output("productLists")]
         public Output<ImmutableArray<string>> ProductLists { get; private set; } = null!;
+
+        /// <summary>
+        /// List of sampling configurations per product type for the scanning group.
+        /// </summary>
+        [Output("samplings")]
+        public Output<ImmutableArray<Outputs.SensitiveDataScannerGroupSampling>> Samplings { get; private set; } = null!;
 
 
         /// <summary>
@@ -162,6 +184,18 @@ namespace Pulumi.Datadog
             set => _productLists = value;
         }
 
+        [Input("samplings")]
+        private InputList<Inputs.SensitiveDataScannerGroupSamplingArgs>? _samplings;
+
+        /// <summary>
+        /// List of sampling configurations per product type for the scanning group.
+        /// </summary>
+        public InputList<Inputs.SensitiveDataScannerGroupSamplingArgs> Samplings
+        {
+            get => _samplings ?? (_samplings = new InputList<Inputs.SensitiveDataScannerGroupSamplingArgs>());
+            set => _samplings = value;
+        }
+
         public SensitiveDataScannerGroupArgs()
         {
         }
@@ -204,6 +238,18 @@ namespace Pulumi.Datadog
         {
             get => _productLists ?? (_productLists = new InputList<string>());
             set => _productLists = value;
+        }
+
+        [Input("samplings")]
+        private InputList<Inputs.SensitiveDataScannerGroupSamplingGetArgs>? _samplings;
+
+        /// <summary>
+        /// List of sampling configurations per product type for the scanning group.
+        /// </summary>
+        public InputList<Inputs.SensitiveDataScannerGroupSamplingGetArgs> Samplings
+        {
+            get => _samplings ?? (_samplings = new InputList<Inputs.SensitiveDataScannerGroupSamplingGetArgs>());
+            set => _samplings = value;
         }
 
         public SensitiveDataScannerGroupState()

@@ -391,13 +391,21 @@ import * as utilities from "./utilities";
  *                     size: 11,
  *                     content: "Hello world",
  *                 }]),
- *                 element: "*[@id='simple-file-upload']",
  *                 elementUserLocator: {
  *                     value: {
  *                         type: "css",
  *                         value: "#simple-file-upload",
  *                     },
  *                 },
+ *                 element: JSON.stringify({
+ *                     userLocator: {
+ *                         failTestOnCannotLocate: true,
+ *                         values: [{
+ *                             type: "css",
+ *                             value: "#simple-file-upload",
+ *                         }],
+ *                     },
+ *                 }),
  *             },
  *         },
  *         {

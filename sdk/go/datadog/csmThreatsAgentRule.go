@@ -45,6 +45,8 @@ import (
 //
 // ## Import
 //
+// The `pulumi import` command can be used, for example:
+//
 // CSM Agent Rules can be imported using ID. For example:
 //
 // ```sh
@@ -53,14 +55,20 @@ import (
 type CsmThreatsAgentRule struct {
 	pulumi.CustomResourceState
 
-	// A description for the Agent rule. Defaults to `""`.
+	// The list of actions the rule can perform
+	Actions CsmThreatsAgentRuleActionArrayOutput `pulumi:"actions"`
+	// A description for the Agent rule.
 	Description pulumi.StringOutput `pulumi:"description"`
-	// Indicates Whether the Agent rule is enabled.
+	// Indicates whether the Agent rule is enabled. Must not be used without policy_id.
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// The SECL expression of the Agent rule
 	Expression pulumi.StringOutput `pulumi:"expression"`
 	// The name of the Agent rule.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The ID of the agent policy in which the rule is saved
+	PolicyId pulumi.StringPtrOutput `pulumi:"policyId"`
+	// The list of product tags associated with the rule
+	ProductTags pulumi.StringArrayOutput `pulumi:"productTags"`
 }
 
 // NewCsmThreatsAgentRule registers a new resource with the given unique name, arguments, and options.
@@ -70,9 +78,6 @@ func NewCsmThreatsAgentRule(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Enabled == nil {
-		return nil, errors.New("invalid value for required argument 'Enabled'")
-	}
 	if args.Expression == nil {
 		return nil, errors.New("invalid value for required argument 'Expression'")
 	}
@@ -102,25 +107,37 @@ func GetCsmThreatsAgentRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CsmThreatsAgentRule resources.
 type csmThreatsAgentRuleState struct {
-	// A description for the Agent rule. Defaults to `""`.
+	// The list of actions the rule can perform
+	Actions []CsmThreatsAgentRuleAction `pulumi:"actions"`
+	// A description for the Agent rule.
 	Description *string `pulumi:"description"`
-	// Indicates Whether the Agent rule is enabled.
+	// Indicates whether the Agent rule is enabled. Must not be used without policy_id.
 	Enabled *bool `pulumi:"enabled"`
 	// The SECL expression of the Agent rule
 	Expression *string `pulumi:"expression"`
 	// The name of the Agent rule.
 	Name *string `pulumi:"name"`
+	// The ID of the agent policy in which the rule is saved
+	PolicyId *string `pulumi:"policyId"`
+	// The list of product tags associated with the rule
+	ProductTags []string `pulumi:"productTags"`
 }
 
 type CsmThreatsAgentRuleState struct {
-	// A description for the Agent rule. Defaults to `""`.
+	// The list of actions the rule can perform
+	Actions CsmThreatsAgentRuleActionArrayInput
+	// A description for the Agent rule.
 	Description pulumi.StringPtrInput
-	// Indicates Whether the Agent rule is enabled.
+	// Indicates whether the Agent rule is enabled. Must not be used without policy_id.
 	Enabled pulumi.BoolPtrInput
 	// The SECL expression of the Agent rule
 	Expression pulumi.StringPtrInput
 	// The name of the Agent rule.
 	Name pulumi.StringPtrInput
+	// The ID of the agent policy in which the rule is saved
+	PolicyId pulumi.StringPtrInput
+	// The list of product tags associated with the rule
+	ProductTags pulumi.StringArrayInput
 }
 
 func (CsmThreatsAgentRuleState) ElementType() reflect.Type {
@@ -128,26 +145,38 @@ func (CsmThreatsAgentRuleState) ElementType() reflect.Type {
 }
 
 type csmThreatsAgentRuleArgs struct {
-	// A description for the Agent rule. Defaults to `""`.
+	// The list of actions the rule can perform
+	Actions []CsmThreatsAgentRuleAction `pulumi:"actions"`
+	// A description for the Agent rule.
 	Description *string `pulumi:"description"`
-	// Indicates Whether the Agent rule is enabled.
-	Enabled bool `pulumi:"enabled"`
+	// Indicates whether the Agent rule is enabled. Must not be used without policy_id.
+	Enabled *bool `pulumi:"enabled"`
 	// The SECL expression of the Agent rule
 	Expression string `pulumi:"expression"`
 	// The name of the Agent rule.
 	Name string `pulumi:"name"`
+	// The ID of the agent policy in which the rule is saved
+	PolicyId *string `pulumi:"policyId"`
+	// The list of product tags associated with the rule
+	ProductTags []string `pulumi:"productTags"`
 }
 
 // The set of arguments for constructing a CsmThreatsAgentRule resource.
 type CsmThreatsAgentRuleArgs struct {
-	// A description for the Agent rule. Defaults to `""`.
+	// The list of actions the rule can perform
+	Actions CsmThreatsAgentRuleActionArrayInput
+	// A description for the Agent rule.
 	Description pulumi.StringPtrInput
-	// Indicates Whether the Agent rule is enabled.
-	Enabled pulumi.BoolInput
+	// Indicates whether the Agent rule is enabled. Must not be used without policy_id.
+	Enabled pulumi.BoolPtrInput
 	// The SECL expression of the Agent rule
 	Expression pulumi.StringInput
 	// The name of the Agent rule.
 	Name pulumi.StringInput
+	// The ID of the agent policy in which the rule is saved
+	PolicyId pulumi.StringPtrInput
+	// The list of product tags associated with the rule
+	ProductTags pulumi.StringArrayInput
 }
 
 func (CsmThreatsAgentRuleArgs) ElementType() reflect.Type {
@@ -237,12 +266,17 @@ func (o CsmThreatsAgentRuleOutput) ToCsmThreatsAgentRuleOutputWithContext(ctx co
 	return o
 }
 
-// A description for the Agent rule. Defaults to `""`.
+// The list of actions the rule can perform
+func (o CsmThreatsAgentRuleOutput) Actions() CsmThreatsAgentRuleActionArrayOutput {
+	return o.ApplyT(func(v *CsmThreatsAgentRule) CsmThreatsAgentRuleActionArrayOutput { return v.Actions }).(CsmThreatsAgentRuleActionArrayOutput)
+}
+
+// A description for the Agent rule.
 func (o CsmThreatsAgentRuleOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *CsmThreatsAgentRule) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// Indicates Whether the Agent rule is enabled.
+// Indicates whether the Agent rule is enabled. Must not be used without policy_id.
 func (o CsmThreatsAgentRuleOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *CsmThreatsAgentRule) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -255,6 +289,16 @@ func (o CsmThreatsAgentRuleOutput) Expression() pulumi.StringOutput {
 // The name of the Agent rule.
 func (o CsmThreatsAgentRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *CsmThreatsAgentRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The ID of the agent policy in which the rule is saved
+func (o CsmThreatsAgentRuleOutput) PolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CsmThreatsAgentRule) pulumi.StringPtrOutput { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+// The list of product tags associated with the rule
+func (o CsmThreatsAgentRuleOutput) ProductTags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CsmThreatsAgentRule) pulumi.StringArrayOutput { return v.ProductTags }).(pulumi.StringArrayOutput)
 }
 
 type CsmThreatsAgentRuleArrayOutput struct{ *pulumi.OutputState }

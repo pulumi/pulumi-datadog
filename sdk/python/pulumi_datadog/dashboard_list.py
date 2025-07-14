@@ -171,6 +171,8 @@ class DashboardList(pulumi.CustomResource):
 
         ## Import
 
+        The `pulumi import` command can be used, for example:
+
         ```sh
         $ pulumi import datadog:index/dashboardList:DashboardList new_list 123456
         ```
@@ -249,6 +251,8 @@ class DashboardList(pulumi.CustomResource):
         ```
 
         ## Import
+
+        The `pulumi import` command can be used, for example:
 
         ```sh
         $ pulumi import datadog:index/dashboardList:DashboardList new_list 123456

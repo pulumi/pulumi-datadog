@@ -12,7 +12,7 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class SyntheticsTestApiStepRequestClientCertificateCertArgs : global::Pulumi.ResourceArgs
     {
-        [Input("content", required: true)]
+        [Input("content")]
         private Input<string>? _content;
 
         /// <summary>

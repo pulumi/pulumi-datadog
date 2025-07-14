@@ -26,6 +26,8 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
+ * The `pulumi import` command can be used, for example:
+ *
  * ```sh
  * $ pulumi import datadog:index/rumRetentionFilter:RumRetentionFilter testing_rum_retention_filter "<application_id>:<retention_filter_id>"
  * ```

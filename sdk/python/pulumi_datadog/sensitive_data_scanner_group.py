@@ -26,7 +26,8 @@ class SensitiveDataScannerGroupArgs:
                  is_enabled: pulumi.Input[builtins.bool],
                  name: pulumi.Input[builtins.str],
                  product_lists: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
-                 description: Optional[pulumi.Input[builtins.str]] = None):
+                 description: Optional[pulumi.Input[builtins.str]] = None,
+                 samplings: Optional[pulumi.Input[Sequence[pulumi.Input['SensitiveDataScannerGroupSamplingArgs']]]] = None):
         """
         The set of arguments for constructing a SensitiveDataScannerGroup resource.
         :param pulumi.Input['SensitiveDataScannerGroupFilterArgs'] filter: Filter object the scanning group applies.
@@ -34,6 +35,7 @@ class SensitiveDataScannerGroupArgs:
         :param pulumi.Input[builtins.str] name: Name of the Datadog scanning group.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] product_lists: List of products the scanning group applies. Valid values are `logs`, `rum`, `events`, `apm`.
         :param pulumi.Input[builtins.str] description: Description of the Datadog scanning group.
+        :param pulumi.Input[Sequence[pulumi.Input['SensitiveDataScannerGroupSamplingArgs']]] samplings: List of sampling configurations per product type for the scanning group.
         """
         pulumi.set(__self__, "filter", filter)
         pulumi.set(__self__, "is_enabled", is_enabled)
@@ -41,6 +43,8 @@ class SensitiveDataScannerGroupArgs:
         pulumi.set(__self__, "product_lists", product_lists)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if samplings is not None:
+            pulumi.set(__self__, "samplings", samplings)
 
     @property
     @pulumi.getter
@@ -102,6 +106,18 @@ class SensitiveDataScannerGroupArgs:
     def description(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "description", value)
 
+    @property
+    @pulumi.getter
+    def samplings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SensitiveDataScannerGroupSamplingArgs']]]]:
+        """
+        List of sampling configurations per product type for the scanning group.
+        """
+        return pulumi.get(self, "samplings")
+
+    @samplings.setter
+    def samplings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SensitiveDataScannerGroupSamplingArgs']]]]):
+        pulumi.set(self, "samplings", value)
+
 
 @pulumi.input_type
 class _SensitiveDataScannerGroupState:
@@ -110,7 +126,8 @@ class _SensitiveDataScannerGroupState:
                  filter: Optional[pulumi.Input['SensitiveDataScannerGroupFilterArgs']] = None,
                  is_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
-                 product_lists: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+                 product_lists: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 samplings: Optional[pulumi.Input[Sequence[pulumi.Input['SensitiveDataScannerGroupSamplingArgs']]]] = None):
         """
         Input properties used for looking up and filtering SensitiveDataScannerGroup resources.
         :param pulumi.Input[builtins.str] description: Description of the Datadog scanning group.
@@ -118,6 +135,7 @@ class _SensitiveDataScannerGroupState:
         :param pulumi.Input[builtins.bool] is_enabled: Whether or not the scanning group is enabled. If the group doesn't contain any rule or if all the rules in it are disabled, the group is force-disabled by our backend
         :param pulumi.Input[builtins.str] name: Name of the Datadog scanning group.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] product_lists: List of products the scanning group applies. Valid values are `logs`, `rum`, `events`, `apm`.
+        :param pulumi.Input[Sequence[pulumi.Input['SensitiveDataScannerGroupSamplingArgs']]] samplings: List of sampling configurations per product type for the scanning group.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -129,6 +147,8 @@ class _SensitiveDataScannerGroupState:
             pulumi.set(__self__, "name", name)
         if product_lists is not None:
             pulumi.set(__self__, "product_lists", product_lists)
+        if samplings is not None:
+            pulumi.set(__self__, "samplings", samplings)
 
     @property
     @pulumi.getter
@@ -190,6 +210,18 @@ class _SensitiveDataScannerGroupState:
     def product_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "product_lists", value)
 
+    @property
+    @pulumi.getter
+    def samplings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SensitiveDataScannerGroupSamplingArgs']]]]:
+        """
+        List of sampling configurations per product type for the scanning group.
+        """
+        return pulumi.get(self, "samplings")
+
+    @samplings.setter
+    def samplings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SensitiveDataScannerGroupSamplingArgs']]]]):
+        pulumi.set(self, "samplings", value)
+
 
 @pulumi.type_token("datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup")
 class SensitiveDataScannerGroup(pulumi.CustomResource):
@@ -202,6 +234,7 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
                  is_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  product_lists: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 samplings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SensitiveDataScannerGroupSamplingArgs', 'SensitiveDataScannerGroupSamplingArgsDict']]]]] = None,
                  __props__=None):
         """
         Provides a Sensitive Data Scanner group resource.
@@ -220,10 +253,25 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
                 "query": "service:my-service",
             },
             is_enabled=True,
-            product_lists=["apm"])
+            product_lists=[
+                "apm",
+                "logs",
+            ],
+            samplings=[
+                {
+                    "product": "apm",
+                    "rate": 100,
+                },
+                {
+                    "product": "logs",
+                    "rate": 10,
+                },
+            ])
         ```
 
         ## Import
+
+        The `pulumi import` command can be used, for example:
 
         ```sh
         $ pulumi import datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup new_list "<group_id>"
@@ -236,6 +284,7 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] is_enabled: Whether or not the scanning group is enabled. If the group doesn't contain any rule or if all the rules in it are disabled, the group is force-disabled by our backend
         :param pulumi.Input[builtins.str] name: Name of the Datadog scanning group.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] product_lists: List of products the scanning group applies. Valid values are `logs`, `rum`, `events`, `apm`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SensitiveDataScannerGroupSamplingArgs', 'SensitiveDataScannerGroupSamplingArgsDict']]]] samplings: List of sampling configurations per product type for the scanning group.
         """
         ...
     @overload
@@ -260,10 +309,25 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
                 "query": "service:my-service",
             },
             is_enabled=True,
-            product_lists=["apm"])
+            product_lists=[
+                "apm",
+                "logs",
+            ],
+            samplings=[
+                {
+                    "product": "apm",
+                    "rate": 100,
+                },
+                {
+                    "product": "logs",
+                    "rate": 10,
+                },
+            ])
         ```
 
         ## Import
+
+        The `pulumi import` command can be used, for example:
 
         ```sh
         $ pulumi import datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup new_list "<group_id>"
@@ -289,6 +353,7 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
                  is_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  product_lists: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 samplings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SensitiveDataScannerGroupSamplingArgs', 'SensitiveDataScannerGroupSamplingArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -311,6 +376,7 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
             if product_lists is None and not opts.urn:
                 raise TypeError("Missing required property 'product_lists'")
             __props__.__dict__["product_lists"] = product_lists
+            __props__.__dict__["samplings"] = samplings
         super(SensitiveDataScannerGroup, __self__).__init__(
             'datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup',
             resource_name,
@@ -325,7 +391,8 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
             filter: Optional[pulumi.Input[Union['SensitiveDataScannerGroupFilterArgs', 'SensitiveDataScannerGroupFilterArgsDict']]] = None,
             is_enabled: Optional[pulumi.Input[builtins.bool]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
-            product_lists: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None) -> 'SensitiveDataScannerGroup':
+            product_lists: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+            samplings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SensitiveDataScannerGroupSamplingArgs', 'SensitiveDataScannerGroupSamplingArgsDict']]]]] = None) -> 'SensitiveDataScannerGroup':
         """
         Get an existing SensitiveDataScannerGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -338,6 +405,7 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] is_enabled: Whether or not the scanning group is enabled. If the group doesn't contain any rule or if all the rules in it are disabled, the group is force-disabled by our backend
         :param pulumi.Input[builtins.str] name: Name of the Datadog scanning group.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] product_lists: List of products the scanning group applies. Valid values are `logs`, `rum`, `events`, `apm`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SensitiveDataScannerGroupSamplingArgs', 'SensitiveDataScannerGroupSamplingArgsDict']]]] samplings: List of sampling configurations per product type for the scanning group.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -348,6 +416,7 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
         __props__.__dict__["is_enabled"] = is_enabled
         __props__.__dict__["name"] = name
         __props__.__dict__["product_lists"] = product_lists
+        __props__.__dict__["samplings"] = samplings
         return SensitiveDataScannerGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -389,4 +458,12 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
         List of products the scanning group applies. Valid values are `logs`, `rum`, `events`, `apm`.
         """
         return pulumi.get(self, "product_lists")
+
+    @property
+    @pulumi.getter
+    def samplings(self) -> pulumi.Output[Optional[Sequence['outputs.SensitiveDataScannerGroupSampling']]]:
+        """
+        List of sampling configurations per product type for the scanning group.
+        """
+        return pulumi.get(self, "samplings")
 

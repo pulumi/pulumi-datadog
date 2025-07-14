@@ -16,6 +16,8 @@ import (
 //
 // ## Import
 //
+// The `pulumi import` command can be used, for example:
+//
 // ```sh
 // $ pulumi import datadog:index/downtime:Downtime bytes_received_localhost 2081
 // ```

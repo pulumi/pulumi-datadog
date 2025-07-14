@@ -156,6 +156,8 @@ class IntegrationTagFilter(pulumi.CustomResource):
 
         ## Import
 
+        The `pulumi import` command can be used, for example:
+
         Amazon Web Services log filter resource can be imported using their account ID and namespace separated with a colon (:).
 
         ```sh
@@ -193,6 +195,8 @@ class IntegrationTagFilter(pulumi.CustomResource):
         ```
 
         ## Import
+
+        The `pulumi import` command can be used, for example:
 
         Amazon Web Services log filter resource can be imported using their account ID and namespace separated with a colon (:).
 

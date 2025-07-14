@@ -13,6 +13,12 @@ namespace Pulumi.Datadog.Inputs
     public sealed class SyntheticsTestBrowserStepParamsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Whether to append the `value` to existing text input content for a "typeText" step. By default, content is cleared before text input.
+        /// </summary>
+        [Input("appendToContent")]
+        public Input<bool>? AppendToContent { get; set; }
+
+        /// <summary>
         /// Name of the attribute to use for an "assert attribute" step.
         /// </summary>
         [Input("attribute")]
@@ -49,7 +55,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<int>? Delay { get; set; }
 
         /// <summary>
-        /// Element to use for the step, JSON encoded string.
+        /// Element to use for the step, JSON encoded string. Refer to the examples for a usage example showing the schema.
         /// </summary>
         [Input("element")]
         public Input<string>? Element { get; set; }
@@ -89,6 +95,12 @@ namespace Pulumi.Datadog.Inputs
             get => _modifiers ?? (_modifiers = new InputList<string>());
             set => _modifiers = value;
         }
+
+        /// <summary>
+        /// Pattern to use for an "extractFromEmailBody" step.
+        /// </summary>
+        [Input("pattern")]
+        public Input<Inputs.SyntheticsTestBrowserStepParamsPatternGetArgs>? Pattern { get; set; }
 
         /// <summary>
         /// ID of the tab to play the subtest.

@@ -29,6 +29,7 @@ class LogsCustomDestinationArgs:
                  forward_tags_restriction_list_type: Optional[pulumi.Input[builtins.str]] = None,
                  forward_tags_restriction_lists: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  http_destination: Optional[pulumi.Input['LogsCustomDestinationHttpDestinationArgs']] = None,
+                 microsoft_sentinel_destination: Optional[pulumi.Input['LogsCustomDestinationMicrosoftSentinelDestinationArgs']] = None,
                  query: Optional[pulumi.Input[builtins.str]] = None,
                  splunk_destination: Optional[pulumi.Input['LogsCustomDestinationSplunkDestinationArgs']] = None):
         """
@@ -45,6 +46,7 @@ class LogsCustomDestinationArgs:
                			An empty list represents no restriction is in place and either all or no tags will be
                			forwarded depending on `forward_tags_restriction_list_type` parameter.
         :param pulumi.Input['LogsCustomDestinationHttpDestinationArgs'] http_destination: The HTTP destination.
+        :param pulumi.Input['LogsCustomDestinationMicrosoftSentinelDestinationArgs'] microsoft_sentinel_destination: The Microsoft Sentinel destination.
         :param pulumi.Input[builtins.str] query: The custom destination query filter. Logs matching this query are forwarded to the destination.
         :param pulumi.Input['LogsCustomDestinationSplunkDestinationArgs'] splunk_destination: The Splunk HTTP Event Collector (HEC) destination.
         """
@@ -61,6 +63,8 @@ class LogsCustomDestinationArgs:
             pulumi.set(__self__, "forward_tags_restriction_lists", forward_tags_restriction_lists)
         if http_destination is not None:
             pulumi.set(__self__, "http_destination", http_destination)
+        if microsoft_sentinel_destination is not None:
+            pulumi.set(__self__, "microsoft_sentinel_destination", microsoft_sentinel_destination)
         if query is not None:
             pulumi.set(__self__, "query", query)
         if splunk_destination is not None:
@@ -156,6 +160,18 @@ class LogsCustomDestinationArgs:
         pulumi.set(self, "http_destination", value)
 
     @property
+    @pulumi.getter(name="microsoftSentinelDestination")
+    def microsoft_sentinel_destination(self) -> Optional[pulumi.Input['LogsCustomDestinationMicrosoftSentinelDestinationArgs']]:
+        """
+        The Microsoft Sentinel destination.
+        """
+        return pulumi.get(self, "microsoft_sentinel_destination")
+
+    @microsoft_sentinel_destination.setter
+    def microsoft_sentinel_destination(self, value: Optional[pulumi.Input['LogsCustomDestinationMicrosoftSentinelDestinationArgs']]):
+        pulumi.set(self, "microsoft_sentinel_destination", value)
+
+    @property
     @pulumi.getter
     def query(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -189,6 +205,7 @@ class _LogsCustomDestinationState:
                  forward_tags_restriction_list_type: Optional[pulumi.Input[builtins.str]] = None,
                  forward_tags_restriction_lists: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  http_destination: Optional[pulumi.Input['LogsCustomDestinationHttpDestinationArgs']] = None,
+                 microsoft_sentinel_destination: Optional[pulumi.Input['LogsCustomDestinationMicrosoftSentinelDestinationArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  query: Optional[pulumi.Input[builtins.str]] = None,
                  splunk_destination: Optional[pulumi.Input['LogsCustomDestinationSplunkDestinationArgs']] = None):
@@ -205,6 +222,7 @@ class _LogsCustomDestinationState:
                			An empty list represents no restriction is in place and either all or no tags will be
                			forwarded depending on `forward_tags_restriction_list_type` parameter.
         :param pulumi.Input['LogsCustomDestinationHttpDestinationArgs'] http_destination: The HTTP destination.
+        :param pulumi.Input['LogsCustomDestinationMicrosoftSentinelDestinationArgs'] microsoft_sentinel_destination: The Microsoft Sentinel destination.
         :param pulumi.Input[builtins.str] name: The custom destination name.
         :param pulumi.Input[builtins.str] query: The custom destination query filter. Logs matching this query are forwarded to the destination.
         :param pulumi.Input['LogsCustomDestinationSplunkDestinationArgs'] splunk_destination: The Splunk HTTP Event Collector (HEC) destination.
@@ -221,6 +239,8 @@ class _LogsCustomDestinationState:
             pulumi.set(__self__, "forward_tags_restriction_lists", forward_tags_restriction_lists)
         if http_destination is not None:
             pulumi.set(__self__, "http_destination", http_destination)
+        if microsoft_sentinel_destination is not None:
+            pulumi.set(__self__, "microsoft_sentinel_destination", microsoft_sentinel_destination)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if query is not None:
@@ -306,6 +326,18 @@ class _LogsCustomDestinationState:
         pulumi.set(self, "http_destination", value)
 
     @property
+    @pulumi.getter(name="microsoftSentinelDestination")
+    def microsoft_sentinel_destination(self) -> Optional[pulumi.Input['LogsCustomDestinationMicrosoftSentinelDestinationArgs']]:
+        """
+        The Microsoft Sentinel destination.
+        """
+        return pulumi.get(self, "microsoft_sentinel_destination")
+
+    @microsoft_sentinel_destination.setter
+    def microsoft_sentinel_destination(self, value: Optional[pulumi.Input['LogsCustomDestinationMicrosoftSentinelDestinationArgs']]):
+        pulumi.set(self, "microsoft_sentinel_destination", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -354,6 +386,7 @@ class LogsCustomDestination(pulumi.CustomResource):
                  forward_tags_restriction_list_type: Optional[pulumi.Input[builtins.str]] = None,
                  forward_tags_restriction_lists: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  http_destination: Optional[pulumi.Input[Union['LogsCustomDestinationHttpDestinationArgs', 'LogsCustomDestinationHttpDestinationArgsDict']]] = None,
+                 microsoft_sentinel_destination: Optional[pulumi.Input[Union['LogsCustomDestinationMicrosoftSentinelDestinationArgs', 'LogsCustomDestinationMicrosoftSentinelDestinationArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  query: Optional[pulumi.Input[builtins.str]] = None,
                  splunk_destination: Optional[pulumi.Input[Union['LogsCustomDestinationSplunkDestinationArgs', 'LogsCustomDestinationSplunkDestinationArgsDict']]] = None,
@@ -382,6 +415,8 @@ class LogsCustomDestination(pulumi.CustomResource):
 
         ## Import
 
+        The `pulumi import` command can be used, for example:
+
         Custom destinations can be imported using the destination ID. Caution: auth credentials can not be imported.
 
         ```sh
@@ -401,6 +436,7 @@ class LogsCustomDestination(pulumi.CustomResource):
                			An empty list represents no restriction is in place and either all or no tags will be
                			forwarded depending on `forward_tags_restriction_list_type` parameter.
         :param pulumi.Input[Union['LogsCustomDestinationHttpDestinationArgs', 'LogsCustomDestinationHttpDestinationArgsDict']] http_destination: The HTTP destination.
+        :param pulumi.Input[Union['LogsCustomDestinationMicrosoftSentinelDestinationArgs', 'LogsCustomDestinationMicrosoftSentinelDestinationArgsDict']] microsoft_sentinel_destination: The Microsoft Sentinel destination.
         :param pulumi.Input[builtins.str] name: The custom destination name.
         :param pulumi.Input[builtins.str] query: The custom destination query filter. Logs matching this query are forwarded to the destination.
         :param pulumi.Input[Union['LogsCustomDestinationSplunkDestinationArgs', 'LogsCustomDestinationSplunkDestinationArgsDict']] splunk_destination: The Splunk HTTP Event Collector (HEC) destination.
@@ -435,6 +471,8 @@ class LogsCustomDestination(pulumi.CustomResource):
 
         ## Import
 
+        The `pulumi import` command can be used, for example:
+
         Custom destinations can be imported using the destination ID. Caution: auth credentials can not be imported.
 
         ```sh
@@ -462,6 +500,7 @@ class LogsCustomDestination(pulumi.CustomResource):
                  forward_tags_restriction_list_type: Optional[pulumi.Input[builtins.str]] = None,
                  forward_tags_restriction_lists: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  http_destination: Optional[pulumi.Input[Union['LogsCustomDestinationHttpDestinationArgs', 'LogsCustomDestinationHttpDestinationArgsDict']]] = None,
+                 microsoft_sentinel_destination: Optional[pulumi.Input[Union['LogsCustomDestinationMicrosoftSentinelDestinationArgs', 'LogsCustomDestinationMicrosoftSentinelDestinationArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  query: Optional[pulumi.Input[builtins.str]] = None,
                  splunk_destination: Optional[pulumi.Input[Union['LogsCustomDestinationSplunkDestinationArgs', 'LogsCustomDestinationSplunkDestinationArgsDict']]] = None,
@@ -480,6 +519,7 @@ class LogsCustomDestination(pulumi.CustomResource):
             __props__.__dict__["forward_tags_restriction_list_type"] = forward_tags_restriction_list_type
             __props__.__dict__["forward_tags_restriction_lists"] = forward_tags_restriction_lists
             __props__.__dict__["http_destination"] = http_destination
+            __props__.__dict__["microsoft_sentinel_destination"] = microsoft_sentinel_destination
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
@@ -501,6 +541,7 @@ class LogsCustomDestination(pulumi.CustomResource):
             forward_tags_restriction_list_type: Optional[pulumi.Input[builtins.str]] = None,
             forward_tags_restriction_lists: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             http_destination: Optional[pulumi.Input[Union['LogsCustomDestinationHttpDestinationArgs', 'LogsCustomDestinationHttpDestinationArgsDict']]] = None,
+            microsoft_sentinel_destination: Optional[pulumi.Input[Union['LogsCustomDestinationMicrosoftSentinelDestinationArgs', 'LogsCustomDestinationMicrosoftSentinelDestinationArgsDict']]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             query: Optional[pulumi.Input[builtins.str]] = None,
             splunk_destination: Optional[pulumi.Input[Union['LogsCustomDestinationSplunkDestinationArgs', 'LogsCustomDestinationSplunkDestinationArgsDict']]] = None) -> 'LogsCustomDestination':
@@ -522,6 +563,7 @@ class LogsCustomDestination(pulumi.CustomResource):
                			An empty list represents no restriction is in place and either all or no tags will be
                			forwarded depending on `forward_tags_restriction_list_type` parameter.
         :param pulumi.Input[Union['LogsCustomDestinationHttpDestinationArgs', 'LogsCustomDestinationHttpDestinationArgsDict']] http_destination: The HTTP destination.
+        :param pulumi.Input[Union['LogsCustomDestinationMicrosoftSentinelDestinationArgs', 'LogsCustomDestinationMicrosoftSentinelDestinationArgsDict']] microsoft_sentinel_destination: The Microsoft Sentinel destination.
         :param pulumi.Input[builtins.str] name: The custom destination name.
         :param pulumi.Input[builtins.str] query: The custom destination query filter. Logs matching this query are forwarded to the destination.
         :param pulumi.Input[Union['LogsCustomDestinationSplunkDestinationArgs', 'LogsCustomDestinationSplunkDestinationArgsDict']] splunk_destination: The Splunk HTTP Event Collector (HEC) destination.
@@ -536,6 +578,7 @@ class LogsCustomDestination(pulumi.CustomResource):
         __props__.__dict__["forward_tags_restriction_list_type"] = forward_tags_restriction_list_type
         __props__.__dict__["forward_tags_restriction_lists"] = forward_tags_restriction_lists
         __props__.__dict__["http_destination"] = http_destination
+        __props__.__dict__["microsoft_sentinel_destination"] = microsoft_sentinel_destination
         __props__.__dict__["name"] = name
         __props__.__dict__["query"] = query
         __props__.__dict__["splunk_destination"] = splunk_destination
@@ -593,6 +636,14 @@ class LogsCustomDestination(pulumi.CustomResource):
         The HTTP destination.
         """
         return pulumi.get(self, "http_destination")
+
+    @property
+    @pulumi.getter(name="microsoftSentinelDestination")
+    def microsoft_sentinel_destination(self) -> pulumi.Output[Optional['outputs.LogsCustomDestinationMicrosoftSentinelDestination']]:
+        """
+        The Microsoft Sentinel destination.
+        """
+        return pulumi.get(self, "microsoft_sentinel_destination")
 
     @property
     @pulumi.getter

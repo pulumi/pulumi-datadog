@@ -457,6 +457,8 @@ class Downtime(pulumi.CustomResource):
 
         ## Import
 
+        The `pulumi import` command can be used, for example:
+
         ```sh
         $ pulumi import datadog:index/downtime:Downtime bytes_received_localhost 2081
         ```
@@ -485,6 +487,8 @@ class Downtime(pulumi.CustomResource):
         This resource is deprecated — use the `DowntimeSchedule resource` instead. Provides a Datadog downtime resource. This can be used to create and manage Datadog downtimes.
 
         ## Import
+
+        The `pulumi import` command can be used, for example:
 
         ```sh
         $ pulumi import datadog:index/downtime:Downtime bytes_received_localhost 2081

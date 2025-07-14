@@ -35,6 +35,8 @@ namespace Pulumi.Datadog
     /// 
     /// ## Import
     /// 
+    /// The `pulumi import` command can be used, for example:
+    /// 
     /// CSM Agent Rules can be imported using ID. For example:
     /// 
     /// ```sh
@@ -45,13 +47,19 @@ namespace Pulumi.Datadog
     public partial class CsmThreatsAgentRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A description for the Agent rule. Defaults to `""`.
+        /// The list of actions the rule can perform
+        /// </summary>
+        [Output("actions")]
+        public Output<ImmutableArray<Outputs.CsmThreatsAgentRuleAction>> Actions { get; private set; } = null!;
+
+        /// <summary>
+        /// A description for the Agent rule.
         /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates Whether the Agent rule is enabled.
+        /// Indicates whether the Agent rule is enabled. Must not be used without policy_id.
         /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
@@ -67,6 +75,18 @@ namespace Pulumi.Datadog
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the agent policy in which the rule is saved
+        /// </summary>
+        [Output("policyId")]
+        public Output<string?> PolicyId { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of product tags associated with the rule
+        /// </summary>
+        [Output("productTags")]
+        public Output<ImmutableArray<string>> ProductTags { get; private set; } = null!;
 
 
         /// <summary>
@@ -114,17 +134,29 @@ namespace Pulumi.Datadog
 
     public sealed class CsmThreatsAgentRuleArgs : global::Pulumi.ResourceArgs
     {
+        [Input("actions")]
+        private InputList<Inputs.CsmThreatsAgentRuleActionArgs>? _actions;
+
         /// <summary>
-        /// A description for the Agent rule. Defaults to `""`.
+        /// The list of actions the rule can perform
+        /// </summary>
+        public InputList<Inputs.CsmThreatsAgentRuleActionArgs> Actions
+        {
+            get => _actions ?? (_actions = new InputList<Inputs.CsmThreatsAgentRuleActionArgs>());
+            set => _actions = value;
+        }
+
+        /// <summary>
+        /// A description for the Agent rule.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Indicates Whether the Agent rule is enabled.
+        /// Indicates whether the Agent rule is enabled. Must not be used without policy_id.
         /// </summary>
-        [Input("enabled", required: true)]
-        public Input<bool> Enabled { get; set; } = null!;
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
 
         /// <summary>
         /// The SECL expression of the Agent rule
@@ -138,6 +170,24 @@ namespace Pulumi.Datadog
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the agent policy in which the rule is saved
+        /// </summary>
+        [Input("policyId")]
+        public Input<string>? PolicyId { get; set; }
+
+        [Input("productTags")]
+        private InputList<string>? _productTags;
+
+        /// <summary>
+        /// The list of product tags associated with the rule
+        /// </summary>
+        public InputList<string> ProductTags
+        {
+            get => _productTags ?? (_productTags = new InputList<string>());
+            set => _productTags = value;
+        }
+
         public CsmThreatsAgentRuleArgs()
         {
         }
@@ -146,14 +196,26 @@ namespace Pulumi.Datadog
 
     public sealed class CsmThreatsAgentRuleState : global::Pulumi.ResourceArgs
     {
+        [Input("actions")]
+        private InputList<Inputs.CsmThreatsAgentRuleActionGetArgs>? _actions;
+
         /// <summary>
-        /// A description for the Agent rule. Defaults to `""`.
+        /// The list of actions the rule can perform
+        /// </summary>
+        public InputList<Inputs.CsmThreatsAgentRuleActionGetArgs> Actions
+        {
+            get => _actions ?? (_actions = new InputList<Inputs.CsmThreatsAgentRuleActionGetArgs>());
+            set => _actions = value;
+        }
+
+        /// <summary>
+        /// A description for the Agent rule.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Indicates Whether the Agent rule is enabled.
+        /// Indicates whether the Agent rule is enabled. Must not be used without policy_id.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -169,6 +231,24 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The ID of the agent policy in which the rule is saved
+        /// </summary>
+        [Input("policyId")]
+        public Input<string>? PolicyId { get; set; }
+
+        [Input("productTags")]
+        private InputList<string>? _productTags;
+
+        /// <summary>
+        /// The list of product tags associated with the rule
+        /// </summary>
+        public InputList<string> ProductTags
+        {
+            get => _productTags ?? (_productTags = new InputList<string>());
+            set => _productTags = value;
+        }
 
         public CsmThreatsAgentRuleState()
         {

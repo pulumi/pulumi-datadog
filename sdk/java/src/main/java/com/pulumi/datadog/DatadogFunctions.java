@@ -14,6 +14,10 @@ import com.pulumi.datadog.inputs.GetAppBuilderAppArgs;
 import com.pulumi.datadog.inputs.GetAppBuilderAppPlainArgs;
 import com.pulumi.datadog.inputs.GetApplicationKeyArgs;
 import com.pulumi.datadog.inputs.GetApplicationKeyPlainArgs;
+import com.pulumi.datadog.inputs.GetCostBudgetArgs;
+import com.pulumi.datadog.inputs.GetCostBudgetPlainArgs;
+import com.pulumi.datadog.inputs.GetCsmThreatsAgentRulesArgs;
+import com.pulumi.datadog.inputs.GetCsmThreatsAgentRulesPlainArgs;
 import com.pulumi.datadog.inputs.GetDashboardArgs;
 import com.pulumi.datadog.inputs.GetDashboardListArgs;
 import com.pulumi.datadog.inputs.GetDashboardListPlainArgs;
@@ -76,7 +80,9 @@ import com.pulumi.datadog.outputs.GetApmRetentionFiltersOrderResult;
 import com.pulumi.datadog.outputs.GetAppBuilderAppResult;
 import com.pulumi.datadog.outputs.GetApplicationKeyResult;
 import com.pulumi.datadog.outputs.GetCloudWorkloadSecurityAgentRulesResult;
+import com.pulumi.datadog.outputs.GetCostBudgetResult;
 import com.pulumi.datadog.outputs.GetCsmThreatsAgentRulesResult;
+import com.pulumi.datadog.outputs.GetCsmThreatsPoliciesResult;
 import com.pulumi.datadog.outputs.GetDashboardListResult;
 import com.pulumi.datadog.outputs.GetDashboardResult;
 import com.pulumi.datadog.outputs.GetHostsResult;
@@ -1663,53 +1669,137 @@ public final class DatadogFunctions {
         return Deployment.getInstance().invokeAsync("datadog:index/getCloudWorkloadSecurityAgentRules:getCloudWorkloadSecurityAgentRules", TypeShape.of(GetCloudWorkloadSecurityAgentRulesResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to retrieve information about an existing Datadog cost budget.
+     * 
+     */
+    public static Output<GetCostBudgetResult> getCostBudget(GetCostBudgetArgs args) {
+        return getCostBudget(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog cost budget.
+     * 
+     */
+    public static CompletableFuture<GetCostBudgetResult> getCostBudgetPlain(GetCostBudgetPlainArgs args) {
+        return getCostBudgetPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog cost budget.
+     * 
+     */
+    public static Output<GetCostBudgetResult> getCostBudget(GetCostBudgetArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getCostBudget:getCostBudget", TypeShape.of(GetCostBudgetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog cost budget.
+     * 
+     */
+    public static Output<GetCostBudgetResult> getCostBudget(GetCostBudgetArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getCostBudget:getCostBudget", TypeShape.of(GetCostBudgetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog cost budget.
+     * 
+     */
+    public static CompletableFuture<GetCostBudgetResult> getCostBudgetPlain(GetCostBudgetPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getCostBudget:getCostBudget", TypeShape.of(GetCostBudgetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Use this data source to retrieve information about existing Agent rules.
      * 
      */
     public static Output<GetCsmThreatsAgentRulesResult> getCsmThreatsAgentRules() {
-        return getCsmThreatsAgentRules(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getCsmThreatsAgentRules(GetCsmThreatsAgentRulesArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Use this data source to retrieve information about existing Agent rules.
      * 
      */
     public static CompletableFuture<GetCsmThreatsAgentRulesResult> getCsmThreatsAgentRulesPlain() {
-        return getCsmThreatsAgentRulesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getCsmThreatsAgentRulesPlain(GetCsmThreatsAgentRulesPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Use this data source to retrieve information about existing Agent rules.
      * 
      */
-    public static Output<GetCsmThreatsAgentRulesResult> getCsmThreatsAgentRules(InvokeArgs args) {
+    public static Output<GetCsmThreatsAgentRulesResult> getCsmThreatsAgentRules(GetCsmThreatsAgentRulesArgs args) {
         return getCsmThreatsAgentRules(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to retrieve information about existing Agent rules.
      * 
      */
-    public static CompletableFuture<GetCsmThreatsAgentRulesResult> getCsmThreatsAgentRulesPlain(InvokeArgs args) {
+    public static CompletableFuture<GetCsmThreatsAgentRulesResult> getCsmThreatsAgentRulesPlain(GetCsmThreatsAgentRulesPlainArgs args) {
         return getCsmThreatsAgentRulesPlain(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to retrieve information about existing Agent rules.
      * 
      */
-    public static Output<GetCsmThreatsAgentRulesResult> getCsmThreatsAgentRules(InvokeArgs args, InvokeOptions options) {
+    public static Output<GetCsmThreatsAgentRulesResult> getCsmThreatsAgentRules(GetCsmThreatsAgentRulesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("datadog:index/getCsmThreatsAgentRules:getCsmThreatsAgentRules", TypeShape.of(GetCsmThreatsAgentRulesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve information about existing Agent rules.
      * 
      */
-    public static Output<GetCsmThreatsAgentRulesResult> getCsmThreatsAgentRules(InvokeArgs args, InvokeOutputOptions options) {
+    public static Output<GetCsmThreatsAgentRulesResult> getCsmThreatsAgentRules(GetCsmThreatsAgentRulesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("datadog:index/getCsmThreatsAgentRules:getCsmThreatsAgentRules", TypeShape.of(GetCsmThreatsAgentRulesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve information about existing Agent rules.
      * 
      */
-    public static CompletableFuture<GetCsmThreatsAgentRulesResult> getCsmThreatsAgentRulesPlain(InvokeArgs args, InvokeOptions options) {
+    public static CompletableFuture<GetCsmThreatsAgentRulesResult> getCsmThreatsAgentRulesPlain(GetCsmThreatsAgentRulesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:index/getCsmThreatsAgentRules:getCsmThreatsAgentRules", TypeShape.of(GetCsmThreatsAgentRulesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about existing policies.
+     * 
+     */
+    public static Output<GetCsmThreatsPoliciesResult> getCsmThreatsPolicies() {
+        return getCsmThreatsPolicies(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about existing policies.
+     * 
+     */
+    public static CompletableFuture<GetCsmThreatsPoliciesResult> getCsmThreatsPoliciesPlain() {
+        return getCsmThreatsPoliciesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about existing policies.
+     * 
+     */
+    public static Output<GetCsmThreatsPoliciesResult> getCsmThreatsPolicies(InvokeArgs args) {
+        return getCsmThreatsPolicies(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about existing policies.
+     * 
+     */
+    public static CompletableFuture<GetCsmThreatsPoliciesResult> getCsmThreatsPoliciesPlain(InvokeArgs args) {
+        return getCsmThreatsPoliciesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about existing policies.
+     * 
+     */
+    public static Output<GetCsmThreatsPoliciesResult> getCsmThreatsPolicies(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getCsmThreatsPolicies:getCsmThreatsPolicies", TypeShape.of(GetCsmThreatsPoliciesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about existing policies.
+     * 
+     */
+    public static Output<GetCsmThreatsPoliciesResult> getCsmThreatsPolicies(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getCsmThreatsPolicies:getCsmThreatsPolicies", TypeShape.of(GetCsmThreatsPoliciesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about existing policies.
+     * 
+     */
+    public static CompletableFuture<GetCsmThreatsPoliciesResult> getCsmThreatsPoliciesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getCsmThreatsPolicies:getCsmThreatsPolicies", TypeShape.of(GetCsmThreatsPoliciesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve information about an existing dashboard, for use in other resources. In particular, it can be used in a monitor message to link to a specific dashboard.

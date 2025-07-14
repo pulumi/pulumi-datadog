@@ -25,6 +25,9 @@ namespace Pulumi.Datadog.Outputs
         /// The ID of this layer.
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// Rotation interval for this layer.
+        /// </summary>
         public readonly Outputs.OnCallScheduleLayerInterval? Interval;
         /// <summary>
         /// The name of this layer. Should be unique within the schedule.
@@ -37,7 +40,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The date/time when the rotation for this layer starts (in ISO 8601).
         /// </summary>
-        public readonly string? RotationStart;
+        public readonly string RotationStart;
         /// <summary>
         /// List of user IDs for the layer. Can either be a valid user id or null
         /// </summary>
@@ -57,7 +60,7 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.OnCallScheduleLayerRestriction> restrictions,
 
-            string? rotationStart,
+            string rotationStart,
 
             ImmutableArray<string> users)
         {

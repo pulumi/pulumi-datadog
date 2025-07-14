@@ -63,6 +63,8 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * The `pulumi import` command can be used, for example:
+ * 
  * Amazon Web Services Lambda ARN integrations can be imported using their account_id and lambda_arn separated with a space (` `).
  * 
  * ```sh

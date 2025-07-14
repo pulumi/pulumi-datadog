@@ -12,14 +12,20 @@ import (
 )
 
 // Use this data source to retrieve information about existing Agent rules.
-func GetCsmThreatsAgentRules(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetCsmThreatsAgentRulesResult, error) {
+func GetCsmThreatsAgentRules(ctx *pulumi.Context, args *GetCsmThreatsAgentRulesArgs, opts ...pulumi.InvokeOption) (*GetCsmThreatsAgentRulesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCsmThreatsAgentRulesResult
-	err := ctx.Invoke("datadog:index/getCsmThreatsAgentRules:getCsmThreatsAgentRules", nil, &rv, opts...)
+	err := ctx.Invoke("datadog:index/getCsmThreatsAgentRules:getCsmThreatsAgentRules", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
+}
+
+// A collection of arguments for invoking getCsmThreatsAgentRules.
+type GetCsmThreatsAgentRulesArgs struct {
+	// Listing only the rules in the policy with this field as the ID
+	PolicyId *string `pulumi:"policyId"`
 }
 
 // A collection of values returned by getCsmThreatsAgentRules.
@@ -28,15 +34,29 @@ type GetCsmThreatsAgentRulesResult struct {
 	AgentRules []GetCsmThreatsAgentRulesAgentRule `pulumi:"agentRules"`
 	// List of IDs for the Agent rules.
 	AgentRulesIds []string `pulumi:"agentRulesIds"`
-	// The ID of this resource.
+	// The ID of the data source
 	Id string `pulumi:"id"`
+	// Listing only the rules in the policy with this field as the ID
+	PolicyId *string `pulumi:"policyId"`
 }
 
-func GetCsmThreatsAgentRulesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetCsmThreatsAgentRulesResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetCsmThreatsAgentRulesResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("datadog:index/getCsmThreatsAgentRules:getCsmThreatsAgentRules", nil, GetCsmThreatsAgentRulesResultOutput{}, options).(GetCsmThreatsAgentRulesResultOutput), nil
-	}).(GetCsmThreatsAgentRulesResultOutput)
+func GetCsmThreatsAgentRulesOutput(ctx *pulumi.Context, args GetCsmThreatsAgentRulesOutputArgs, opts ...pulumi.InvokeOption) GetCsmThreatsAgentRulesResultOutput {
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
+		ApplyT(func(v interface{}) (GetCsmThreatsAgentRulesResultOutput, error) {
+			args := v.(GetCsmThreatsAgentRulesArgs)
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("datadog:index/getCsmThreatsAgentRules:getCsmThreatsAgentRules", args, GetCsmThreatsAgentRulesResultOutput{}, options).(GetCsmThreatsAgentRulesResultOutput), nil
+		}).(GetCsmThreatsAgentRulesResultOutput)
+}
+
+// A collection of arguments for invoking getCsmThreatsAgentRules.
+type GetCsmThreatsAgentRulesOutputArgs struct {
+	// Listing only the rules in the policy with this field as the ID
+	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
+}
+
+func (GetCsmThreatsAgentRulesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCsmThreatsAgentRulesArgs)(nil)).Elem()
 }
 
 // A collection of values returned by getCsmThreatsAgentRules.
@@ -64,9 +84,14 @@ func (o GetCsmThreatsAgentRulesResultOutput) AgentRulesIds() pulumi.StringArrayO
 	return o.ApplyT(func(v GetCsmThreatsAgentRulesResult) []string { return v.AgentRulesIds }).(pulumi.StringArrayOutput)
 }
 
-// The ID of this resource.
+// The ID of the data source
 func (o GetCsmThreatsAgentRulesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCsmThreatsAgentRulesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Listing only the rules in the policy with this field as the ID
+func (o GetCsmThreatsAgentRulesResultOutput) PolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCsmThreatsAgentRulesResult) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

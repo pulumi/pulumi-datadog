@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class OnCallEscalationPolicyStep
     {
         /// <summary>
-        /// Specifies how this escalation step will assign targets. Can be `default` (page all targets at once) or `round-robin`. Valid values are `assignment`, `round-robin`. Defaults to `"default"`.
+        /// Specifies how this escalation step will assign targets. Can be `default` (page all targets at once) or `round-robin`. Valid values are `default`, `round-robin`. Defaults to `"default"`.
         /// </summary>
         public readonly string? Assignment;
         /// <summary>

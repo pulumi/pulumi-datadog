@@ -41,6 +41,8 @@ namespace Pulumi.Datadog.Azure
     /// 
     /// ## Import
     /// 
+    /// The `pulumi import` command can be used, for example:
+    /// 
     /// Microsoft Azure integrations can be imported using their `tenant name` and `client` id separated with a colon (`:`).
     /// 
     /// The client_secret should be passed by setting the environment variable CLIENT_SECRET

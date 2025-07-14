@@ -132,9 +132,11 @@ class MonitorNotificationRule(pulumi.CustomResource):
                  recipients: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides a Datadog MonitorNotificationRule resource. *Note: This resource is in Preview. [Request access](https://www.datadoghq.com/product-preview/monitor-notification-rules/).*
+        Provides a Datadog MonitorNotificationRule resource.
 
         ## Import
+
+        The `pulumi import` command can be used, for example:
 
         ```sh
         $ pulumi import datadog:index/monitorNotificationRule:MonitorNotificationRule new_list "00e000000-0000-1234-0000-000000000000"
@@ -152,9 +154,11 @@ class MonitorNotificationRule(pulumi.CustomResource):
                  args: MonitorNotificationRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Datadog MonitorNotificationRule resource. *Note: This resource is in Preview. [Request access](https://www.datadoghq.com/product-preview/monitor-notification-rules/).*
+        Provides a Datadog MonitorNotificationRule resource.
 
         ## Import
+
+        The `pulumi import` command can be used, for example:
 
         ```sh
         $ pulumi import datadog:index/monitorNotificationRule:MonitorNotificationRule new_list "00e000000-0000-1234-0000-000000000000"

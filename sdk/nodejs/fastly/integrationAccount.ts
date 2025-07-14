@@ -22,6 +22,8 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * The `pulumi import` command can be used, for example:
+ *
  * ```sh
  * $ pulumi import datadog:fastly/integrationAccount:IntegrationAccount new_list "a8f5f167f44f4964e6c998dee827110c"
  * ```

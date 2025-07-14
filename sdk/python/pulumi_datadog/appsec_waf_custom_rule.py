@@ -283,6 +283,8 @@ class AppsecWafCustomRule(pulumi.CustomResource):
 
         ## Import
 
+        The `pulumi import` command can be used, for example:
+
         ```sh
         $ pulumi import datadog:index/appsecWafCustomRule:AppsecWafCustomRule new_list ""
         ```
@@ -305,6 +307,8 @@ class AppsecWafCustomRule(pulumi.CustomResource):
         Provides a Datadog AppsecWafCustomRule resource. This can be used to create and manage Datadog appsec_waf_custom_rule.
 
         ## Import
+
+        The `pulumi import` command can be used, for example:
 
         ```sh
         $ pulumi import datadog:index/appsecWafCustomRule:AppsecWafCustomRule new_list ""

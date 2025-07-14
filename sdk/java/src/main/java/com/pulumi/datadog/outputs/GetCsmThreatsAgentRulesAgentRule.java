@@ -4,20 +4,27 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.GetCsmThreatsAgentRulesAgentRuleAction;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class GetCsmThreatsAgentRulesAgentRule {
+    private List<GetCsmThreatsAgentRulesAgentRuleAction> actions;
     private String description;
     private Boolean enabled;
     private String expression;
     private String id;
     private String name;
+    private List<String> productTags;
 
     private GetCsmThreatsAgentRulesAgentRule() {}
+    public List<GetCsmThreatsAgentRulesAgentRuleAction> actions() {
+        return this.actions;
+    }
     public String description() {
         return this.description;
     }
@@ -33,6 +40,9 @@ public final class GetCsmThreatsAgentRulesAgentRule {
     public String name() {
         return this.name;
     }
+    public List<String> productTags() {
+        return this.productTags;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -43,21 +53,36 @@ public final class GetCsmThreatsAgentRulesAgentRule {
     }
     @CustomType.Builder
     public static final class Builder {
+        private List<GetCsmThreatsAgentRulesAgentRuleAction> actions;
         private String description;
         private Boolean enabled;
         private String expression;
         private String id;
         private String name;
+        private List<String> productTags;
         public Builder() {}
         public Builder(GetCsmThreatsAgentRulesAgentRule defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.actions = defaults.actions;
     	      this.description = defaults.description;
     	      this.enabled = defaults.enabled;
     	      this.expression = defaults.expression;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.productTags = defaults.productTags;
         }
 
+        @CustomType.Setter
+        public Builder actions(List<GetCsmThreatsAgentRulesAgentRuleAction> actions) {
+            if (actions == null) {
+              throw new MissingRequiredPropertyException("GetCsmThreatsAgentRulesAgentRule", "actions");
+            }
+            this.actions = actions;
+            return this;
+        }
+        public Builder actions(GetCsmThreatsAgentRulesAgentRuleAction... actions) {
+            return actions(List.of(actions));
+        }
         @CustomType.Setter
         public Builder description(String description) {
             if (description == null) {
@@ -98,13 +123,26 @@ public final class GetCsmThreatsAgentRulesAgentRule {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
+        public Builder productTags(List<String> productTags) {
+            if (productTags == null) {
+              throw new MissingRequiredPropertyException("GetCsmThreatsAgentRulesAgentRule", "productTags");
+            }
+            this.productTags = productTags;
+            return this;
+        }
+        public Builder productTags(String... productTags) {
+            return productTags(List.of(productTags));
+        }
         public GetCsmThreatsAgentRulesAgentRule build() {
             final var _resultValue = new GetCsmThreatsAgentRulesAgentRule();
+            _resultValue.actions = actions;
             _resultValue.description = description;
             _resultValue.enabled = enabled;
             _resultValue.expression = expression;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.productTags = productTags;
             return _resultValue;
         }
     }

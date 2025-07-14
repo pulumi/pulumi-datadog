@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.SyntheticsTestBrowserStepParamsElementUserLocator;
+import com.pulumi.datadog.outputs.SyntheticsTestBrowserStepParamsPattern;
 import com.pulumi.datadog.outputs.SyntheticsTestBrowserStepParamsVariable;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -16,6 +17,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SyntheticsTestBrowserStepParams {
+    /**
+     * @return Whether to append the `value` to existing text input content for a &#34;typeText&#34; step. By default, content is cleared before text input.
+     * 
+     */
+    private @Nullable Boolean appendToContent;
     /**
      * @return Name of the attribute to use for an &#34;assert attribute&#34; step.
      * 
@@ -47,7 +53,7 @@ public final class SyntheticsTestBrowserStepParams {
      */
     private @Nullable Integer delay;
     /**
-     * @return Element to use for the step, JSON encoded string.
+     * @return Element to use for the step, JSON encoded string. Refer to the examples for a usage example showing the schema.
      * 
      */
     private @Nullable String element;
@@ -76,6 +82,11 @@ public final class SyntheticsTestBrowserStepParams {
      * 
      */
     private @Nullable List<String> modifiers;
+    /**
+     * @return Pattern to use for an &#34;extractFromEmailBody&#34; step.
+     * 
+     */
+    private @Nullable SyntheticsTestBrowserStepParamsPattern pattern;
     /**
      * @return ID of the tab to play the subtest.
      * 
@@ -124,6 +135,13 @@ public final class SyntheticsTestBrowserStepParams {
 
     private SyntheticsTestBrowserStepParams() {}
     /**
+     * @return Whether to append the `value` to existing text input content for a &#34;typeText&#34; step. By default, content is cleared before text input.
+     * 
+     */
+    public Optional<Boolean> appendToContent() {
+        return Optional.ofNullable(this.appendToContent);
+    }
+    /**
      * @return Name of the attribute to use for an &#34;assert attribute&#34; step.
      * 
      */
@@ -166,7 +184,7 @@ public final class SyntheticsTestBrowserStepParams {
         return Optional.ofNullable(this.delay);
     }
     /**
-     * @return Element to use for the step, JSON encoded string.
+     * @return Element to use for the step, JSON encoded string. Refer to the examples for a usage example showing the schema.
      * 
      */
     public Optional<String> element() {
@@ -206,6 +224,13 @@ public final class SyntheticsTestBrowserStepParams {
      */
     public List<String> modifiers() {
         return this.modifiers == null ? List.of() : this.modifiers;
+    }
+    /**
+     * @return Pattern to use for an &#34;extractFromEmailBody&#34; step.
+     * 
+     */
+    public Optional<SyntheticsTestBrowserStepParamsPattern> pattern() {
+        return Optional.ofNullable(this.pattern);
     }
     /**
      * @return ID of the tab to play the subtest.
@@ -280,6 +305,7 @@ public final class SyntheticsTestBrowserStepParams {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean appendToContent;
         private @Nullable String attribute;
         private @Nullable String check;
         private @Nullable String clickType;
@@ -292,6 +318,7 @@ public final class SyntheticsTestBrowserStepParams {
         private @Nullable String file;
         private @Nullable String files;
         private @Nullable List<String> modifiers;
+        private @Nullable SyntheticsTestBrowserStepParamsPattern pattern;
         private @Nullable String playingTabId;
         private @Nullable String request;
         private @Nullable String requests;
@@ -304,6 +331,7 @@ public final class SyntheticsTestBrowserStepParams {
         public Builder() {}
         public Builder(SyntheticsTestBrowserStepParams defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.appendToContent = defaults.appendToContent;
     	      this.attribute = defaults.attribute;
     	      this.check = defaults.check;
     	      this.clickType = defaults.clickType;
@@ -316,6 +344,7 @@ public final class SyntheticsTestBrowserStepParams {
     	      this.file = defaults.file;
     	      this.files = defaults.files;
     	      this.modifiers = defaults.modifiers;
+    	      this.pattern = defaults.pattern;
     	      this.playingTabId = defaults.playingTabId;
     	      this.request = defaults.request;
     	      this.requests = defaults.requests;
@@ -327,6 +356,12 @@ public final class SyntheticsTestBrowserStepParams {
     	      this.y = defaults.y;
         }
 
+        @CustomType.Setter
+        public Builder appendToContent(@Nullable Boolean appendToContent) {
+
+            this.appendToContent = appendToContent;
+            return this;
+        }
         @CustomType.Setter
         public Builder attribute(@Nullable String attribute) {
 
@@ -403,6 +438,12 @@ public final class SyntheticsTestBrowserStepParams {
             return modifiers(List.of(modifiers));
         }
         @CustomType.Setter
+        public Builder pattern(@Nullable SyntheticsTestBrowserStepParamsPattern pattern) {
+
+            this.pattern = pattern;
+            return this;
+        }
+        @CustomType.Setter
         public Builder playingTabId(@Nullable String playingTabId) {
 
             this.playingTabId = playingTabId;
@@ -458,6 +499,7 @@ public final class SyntheticsTestBrowserStepParams {
         }
         public SyntheticsTestBrowserStepParams build() {
             final var _resultValue = new SyntheticsTestBrowserStepParams();
+            _resultValue.appendToContent = appendToContent;
             _resultValue.attribute = attribute;
             _resultValue.check = check;
             _resultValue.clickType = clickType;
@@ -470,6 +512,7 @@ public final class SyntheticsTestBrowserStepParams {
             _resultValue.file = file;
             _resultValue.files = files;
             _resultValue.modifiers = modifiers;
+            _resultValue.pattern = pattern;
             _resultValue.playingTabId = playingTabId;
             _resultValue.request = request;
             _resultValue.requests = requests;

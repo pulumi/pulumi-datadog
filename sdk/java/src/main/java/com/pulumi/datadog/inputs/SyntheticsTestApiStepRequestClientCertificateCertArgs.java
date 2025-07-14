@@ -5,7 +5,6 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -20,15 +19,15 @@ public final class SyntheticsTestApiStepRequestClientCertificateCertArgs extends
      * Content of the certificate.
      * 
      */
-    @Import(name="content", required=true)
-    private Output<String> content;
+    @Import(name="content")
+    private @Nullable Output<String> content;
 
     /**
      * @return Content of the certificate.
      * 
      */
-    public Output<String> content() {
-        return this.content;
+    public Optional<Output<String>> content() {
+        return Optional.ofNullable(this.content);
     }
 
     /**
@@ -77,7 +76,7 @@ public final class SyntheticsTestApiStepRequestClientCertificateCertArgs extends
          * @return builder
          * 
          */
-        public Builder content(Output<String> content) {
+        public Builder content(@Nullable Output<String> content) {
             $.content = content;
             return this;
         }
@@ -114,9 +113,6 @@ public final class SyntheticsTestApiStepRequestClientCertificateCertArgs extends
         }
 
         public SyntheticsTestApiStepRequestClientCertificateCertArgs build() {
-            if ($.content == null) {
-                throw new MissingRequiredPropertyException("SyntheticsTestApiStepRequestClientCertificateCertArgs", "content");
-            }
             return $;
         }
     }

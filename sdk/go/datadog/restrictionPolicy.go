@@ -57,6 +57,8 @@ import (
 //
 // ## Import
 //
+// The `pulumi import` command can be used, for example:
+//
 // ```sh
 // $ pulumi import datadog:index/restrictionPolicy:RestrictionPolicy new_list "<policy_id>"
 // ```

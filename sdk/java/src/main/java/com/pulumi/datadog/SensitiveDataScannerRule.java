@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * The `pulumi import` command can be used, for example:
+ * 
  * ```sh
  * $ pulumi import datadog:index/sensitiveDataScannerRule:SensitiveDataScannerRule new_list &#34;&lt;rule_id&gt;&#34;
  * ```

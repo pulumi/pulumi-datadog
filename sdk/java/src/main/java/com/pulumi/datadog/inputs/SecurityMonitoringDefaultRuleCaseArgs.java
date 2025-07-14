@@ -9,6 +9,8 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class SecurityMonitoringDefaultRuleCaseArgs extends com.pulumi.resources.ResourceArgs {
@@ -16,18 +18,33 @@ public final class SecurityMonitoringDefaultRuleCaseArgs extends com.pulumi.reso
     public static final SecurityMonitoringDefaultRuleCaseArgs Empty = new SecurityMonitoringDefaultRuleCaseArgs();
 
     /**
+     * Status of the rule case to override. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+     * 
+     */
+    @Import(name="customStatus")
+    private @Nullable Output<String> customStatus;
+
+    /**
+     * @return Status of the rule case to override. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+     * 
+     */
+    public Optional<Output<String>> customStatus() {
+        return Optional.ofNullable(this.customStatus);
+    }
+
+    /**
      * Notification targets for each rule case.
      * 
      */
-    @Import(name="notifications", required=true)
-    private Output<List<String>> notifications;
+    @Import(name="notifications")
+    private @Nullable Output<List<String>> notifications;
 
     /**
      * @return Notification targets for each rule case.
      * 
      */
-    public Output<List<String>> notifications() {
-        return this.notifications;
+    public Optional<Output<List<String>>> notifications() {
+        return Optional.ofNullable(this.notifications);
     }
 
     /**
@@ -48,6 +65,7 @@ public final class SecurityMonitoringDefaultRuleCaseArgs extends com.pulumi.reso
     private SecurityMonitoringDefaultRuleCaseArgs() {}
 
     private SecurityMonitoringDefaultRuleCaseArgs(SecurityMonitoringDefaultRuleCaseArgs $) {
+        this.customStatus = $.customStatus;
         this.notifications = $.notifications;
         this.status = $.status;
     }
@@ -71,12 +89,33 @@ public final class SecurityMonitoringDefaultRuleCaseArgs extends com.pulumi.reso
         }
 
         /**
+         * @param customStatus Status of the rule case to override. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customStatus(@Nullable Output<String> customStatus) {
+            $.customStatus = customStatus;
+            return this;
+        }
+
+        /**
+         * @param customStatus Status of the rule case to override. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customStatus(String customStatus) {
+            return customStatus(Output.of(customStatus));
+        }
+
+        /**
          * @param notifications Notification targets for each rule case.
          * 
          * @return builder
          * 
          */
-        public Builder notifications(Output<List<String>> notifications) {
+        public Builder notifications(@Nullable Output<List<String>> notifications) {
             $.notifications = notifications;
             return this;
         }
@@ -123,9 +162,6 @@ public final class SecurityMonitoringDefaultRuleCaseArgs extends com.pulumi.reso
         }
 
         public SecurityMonitoringDefaultRuleCaseArgs build() {
-            if ($.notifications == null) {
-                throw new MissingRequiredPropertyException("SecurityMonitoringDefaultRuleCaseArgs", "notifications");
-            }
             if ($.status == null) {
                 throw new MissingRequiredPropertyException("SecurityMonitoringDefaultRuleCaseArgs", "status");
             }

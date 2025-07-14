@@ -538,7 +538,6 @@ namespace Pulumi.Datadog
     ///                             ["content"] = "Hello world",
     ///                         },
     ///                     }),
-    ///                     Element = "*[@id='simple-file-upload']",
     ///                     ElementUserLocator = new Datadog.Inputs.SyntheticsTestBrowserStepParamsElementUserLocatorArgs
     ///                     {
     ///                         Value = new Datadog.Inputs.SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs
@@ -547,6 +546,21 @@ namespace Pulumi.Datadog
     ///                             Value = "#simple-file-upload",
     ///                         },
     ///                     },
+    ///                     Element = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["userLocator"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["failTestOnCannotLocate"] = true,
+    ///                             ["values"] = new[]
+    ///                             {
+    ///                                 new Dictionary&lt;string, object?&gt;
+    ///                                 {
+    ///                                     ["type"] = "css",
+    ///                                     ["value"] = "#simple-file-upload",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     }),
     ///                 },
     ///             },
     ///             new Datadog.Inputs.SyntheticsTestBrowserStepArgs

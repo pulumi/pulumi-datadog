@@ -38,6 +38,8 @@ namespace Pulumi.Datadog
     /// 
     /// ## Import
     /// 
+    /// The `pulumi import` command can be used, for example:
+    /// 
     /// Synthetics private locations can be imported using their string ID, e.g.
     /// 
     /// ```sh
@@ -47,6 +49,12 @@ namespace Pulumi.Datadog
     [DatadogResourceType("datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation")]
     public partial class SyntheticsPrivateLocation : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// API key used to generate the private location configuration.
+        /// </summary>
+        [Output("apiKey")]
+        public Output<string?> ApiKey { get; private set; } = null!;
+
         /// <summary>
         /// Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
         /// </summary>
@@ -102,6 +110,7 @@ namespace Pulumi.Datadog
                 Version = Utilities.Version,
                 AdditionalSecretOutputs =
                 {
+                    "apiKey",
                     "config",
                 },
             };
@@ -127,6 +136,22 @@ namespace Pulumi.Datadog
 
     public sealed class SyntheticsPrivateLocationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("apiKey")]
+        private Input<string>? _apiKey;
+
+        /// <summary>
+        /// API key used to generate the private location configuration.
+        /// </summary>
+        public Input<string>? ApiKey
+        {
+            get => _apiKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _apiKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
         /// <summary>
         /// Description of the private location. Defaults to `""`.
         /// </summary>
@@ -165,6 +190,22 @@ namespace Pulumi.Datadog
 
     public sealed class SyntheticsPrivateLocationState : global::Pulumi.ResourceArgs
     {
+        [Input("apiKey")]
+        private Input<string>? _apiKey;
+
+        /// <summary>
+        /// API key used to generate the private location configuration.
+        /// </summary>
+        public Input<string>? ApiKey
+        {
+            get => _apiKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _apiKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
         [Input("config")]
         private Input<string>? _config;
 

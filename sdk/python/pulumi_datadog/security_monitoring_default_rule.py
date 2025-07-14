@@ -23,20 +23,30 @@ __all__ = ['SecurityMonitoringDefaultRuleArgs', 'SecurityMonitoringDefaultRule']
 class SecurityMonitoringDefaultRuleArgs:
     def __init__(__self__, *,
                  cases: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringDefaultRuleCaseArgs']]]] = None,
+                 custom_message: Optional[pulumi.Input[builtins.str]] = None,
+                 custom_name: Optional[pulumi.Input[builtins.str]] = None,
                  custom_tags: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringDefaultRuleFilterArgs']]]] = None,
-                 options: Optional[pulumi.Input['SecurityMonitoringDefaultRuleOptionsArgs']] = None):
+                 options: Optional[pulumi.Input['SecurityMonitoringDefaultRuleOptionsArgs']] = None,
+                 queries: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringDefaultRuleQueryArgs']]]] = None):
         """
         The set of arguments for constructing a SecurityMonitoringDefaultRule resource.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringDefaultRuleCaseArgs']]] cases: Cases of the rule, this is used to update notifications.
+        :param pulumi.Input[builtins.str] custom_message: Custom Message (will override default message) for generated signals.
+        :param pulumi.Input[builtins.str] custom_name: The name (will override default name) of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] custom_tags: Custom tags for generated signals.
         :param pulumi.Input[builtins.bool] enabled: Enable the rule. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringDefaultRuleFilterArgs']]] filters: Additional queries to filter matched events before they are processed.
         :param pulumi.Input['SecurityMonitoringDefaultRuleOptionsArgs'] options: Options on default rules. Note that only a subset of fields can be updated on default rule options.
+        :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringDefaultRuleQueryArgs']]] queries: Queries for selecting logs which are part of the rule.
         """
         if cases is not None:
             pulumi.set(__self__, "cases", cases)
+        if custom_message is not None:
+            pulumi.set(__self__, "custom_message", custom_message)
+        if custom_name is not None:
+            pulumi.set(__self__, "custom_name", custom_name)
         if custom_tags is not None:
             pulumi.set(__self__, "custom_tags", custom_tags)
         if enabled is not None:
@@ -45,6 +55,8 @@ class SecurityMonitoringDefaultRuleArgs:
             pulumi.set(__self__, "filters", filters)
         if options is not None:
             pulumi.set(__self__, "options", options)
+        if queries is not None:
+            pulumi.set(__self__, "queries", queries)
 
     @property
     @pulumi.getter
@@ -57,6 +69,30 @@ class SecurityMonitoringDefaultRuleArgs:
     @cases.setter
     def cases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringDefaultRuleCaseArgs']]]]):
         pulumi.set(self, "cases", value)
+
+    @property
+    @pulumi.getter(name="customMessage")
+    def custom_message(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Custom Message (will override default message) for generated signals.
+        """
+        return pulumi.get(self, "custom_message")
+
+    @custom_message.setter
+    def custom_message(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "custom_message", value)
+
+    @property
+    @pulumi.getter(name="customName")
+    def custom_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The name (will override default name) of the rule.
+        """
+        return pulumi.get(self, "custom_name")
+
+    @custom_name.setter
+    def custom_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "custom_name", value)
 
     @property
     @pulumi.getter(name="customTags")
@@ -106,27 +142,49 @@ class SecurityMonitoringDefaultRuleArgs:
     def options(self, value: Optional[pulumi.Input['SecurityMonitoringDefaultRuleOptionsArgs']]):
         pulumi.set(self, "options", value)
 
+    @property
+    @pulumi.getter
+    def queries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringDefaultRuleQueryArgs']]]]:
+        """
+        Queries for selecting logs which are part of the rule.
+        """
+        return pulumi.get(self, "queries")
+
+    @queries.setter
+    def queries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringDefaultRuleQueryArgs']]]]):
+        pulumi.set(self, "queries", value)
+
 
 @pulumi.input_type
 class _SecurityMonitoringDefaultRuleState:
     def __init__(__self__, *,
                  cases: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringDefaultRuleCaseArgs']]]] = None,
+                 custom_message: Optional[pulumi.Input[builtins.str]] = None,
+                 custom_name: Optional[pulumi.Input[builtins.str]] = None,
                  custom_tags: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringDefaultRuleFilterArgs']]]] = None,
                  options: Optional[pulumi.Input['SecurityMonitoringDefaultRuleOptionsArgs']] = None,
+                 queries: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringDefaultRuleQueryArgs']]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering SecurityMonitoringDefaultRule resources.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringDefaultRuleCaseArgs']]] cases: Cases of the rule, this is used to update notifications.
+        :param pulumi.Input[builtins.str] custom_message: Custom Message (will override default message) for generated signals.
+        :param pulumi.Input[builtins.str] custom_name: The name (will override default name) of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] custom_tags: Custom tags for generated signals.
         :param pulumi.Input[builtins.bool] enabled: Enable the rule. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringDefaultRuleFilterArgs']]] filters: Additional queries to filter matched events before they are processed.
         :param pulumi.Input['SecurityMonitoringDefaultRuleOptionsArgs'] options: Options on default rules. Note that only a subset of fields can be updated on default rule options.
+        :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringDefaultRuleQueryArgs']]] queries: Queries for selecting logs which are part of the rule.
         :param pulumi.Input[builtins.str] type: The rule type.
         """
         if cases is not None:
             pulumi.set(__self__, "cases", cases)
+        if custom_message is not None:
+            pulumi.set(__self__, "custom_message", custom_message)
+        if custom_name is not None:
+            pulumi.set(__self__, "custom_name", custom_name)
         if custom_tags is not None:
             pulumi.set(__self__, "custom_tags", custom_tags)
         if enabled is not None:
@@ -135,6 +193,8 @@ class _SecurityMonitoringDefaultRuleState:
             pulumi.set(__self__, "filters", filters)
         if options is not None:
             pulumi.set(__self__, "options", options)
+        if queries is not None:
+            pulumi.set(__self__, "queries", queries)
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -151,6 +211,30 @@ class _SecurityMonitoringDefaultRuleState:
         pulumi.set(self, "cases", value)
 
     @property
+    @pulumi.getter(name="customMessage")
+    def custom_message(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Custom Message (will override default message) for generated signals.
+        """
+        return pulumi.get(self, "custom_message")
+
+    @custom_message.setter
+    def custom_message(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "custom_message", value)
+
+    @property
+    @pulumi.getter(name="customName")
+    def custom_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The name (will override default name) of the rule.
+        """
+        return pulumi.get(self, "custom_name")
+
+    @custom_name.setter
+    def custom_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "custom_name", value)
+
+    @property
     @pulumi.getter(name="customTags")
     def custom_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -197,6 +281,18 @@ class _SecurityMonitoringDefaultRuleState:
     @options.setter
     def options(self, value: Optional[pulumi.Input['SecurityMonitoringDefaultRuleOptionsArgs']]):
         pulumi.set(self, "options", value)
+
+    @property
+    @pulumi.getter
+    def queries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringDefaultRuleQueryArgs']]]]:
+        """
+        Queries for selecting logs which are part of the rule.
+        """
+        return pulumi.get(self, "queries")
+
+    @queries.setter
+    def queries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringDefaultRuleQueryArgs']]]]):
+        pulumi.set(self, "queries", value)
 
     @property
     @pulumi.getter
@@ -218,10 +314,13 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringDefaultRuleCaseArgs', 'SecurityMonitoringDefaultRuleCaseArgsDict']]]]] = None,
+                 custom_message: Optional[pulumi.Input[builtins.str]] = None,
+                 custom_name: Optional[pulumi.Input[builtins.str]] = None,
                  custom_tags: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringDefaultRuleFilterArgs', 'SecurityMonitoringDefaultRuleFilterArgsDict']]]]] = None,
                  options: Optional[pulumi.Input[Union['SecurityMonitoringDefaultRuleOptionsArgs', 'SecurityMonitoringDefaultRuleOptionsArgsDict']]] = None,
+                 queries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringDefaultRuleQueryArgs', 'SecurityMonitoringDefaultRuleQueryArgsDict']]]]] = None,
                  __props__=None):
         """
         Provides a Datadog Security Monitoring Rule API resource for default rules. It can only be imported, you can't create a default rule.
@@ -242,6 +341,8 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
 
         ## Import
 
+        The `pulumi import` command can be used, for example:
+
         Default rules need to be imported using their ID before applying.
 
         resource "datadog_security_monitoring_default_rule" "adefaultrule" {
@@ -255,10 +356,13 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringDefaultRuleCaseArgs', 'SecurityMonitoringDefaultRuleCaseArgsDict']]]] cases: Cases of the rule, this is used to update notifications.
+        :param pulumi.Input[builtins.str] custom_message: Custom Message (will override default message) for generated signals.
+        :param pulumi.Input[builtins.str] custom_name: The name (will override default name) of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] custom_tags: Custom tags for generated signals.
         :param pulumi.Input[builtins.bool] enabled: Enable the rule. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringDefaultRuleFilterArgs', 'SecurityMonitoringDefaultRuleFilterArgsDict']]]] filters: Additional queries to filter matched events before they are processed.
         :param pulumi.Input[Union['SecurityMonitoringDefaultRuleOptionsArgs', 'SecurityMonitoringDefaultRuleOptionsArgsDict']] options: Options on default rules. Note that only a subset of fields can be updated on default rule options.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringDefaultRuleQueryArgs', 'SecurityMonitoringDefaultRuleQueryArgsDict']]]] queries: Queries for selecting logs which are part of the rule.
         """
         ...
     @overload
@@ -284,6 +388,8 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
         ```
 
         ## Import
+
+        The `pulumi import` command can be used, for example:
 
         Default rules need to be imported using their ID before applying.
 
@@ -311,10 +417,13 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringDefaultRuleCaseArgs', 'SecurityMonitoringDefaultRuleCaseArgsDict']]]]] = None,
+                 custom_message: Optional[pulumi.Input[builtins.str]] = None,
+                 custom_name: Optional[pulumi.Input[builtins.str]] = None,
                  custom_tags: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringDefaultRuleFilterArgs', 'SecurityMonitoringDefaultRuleFilterArgsDict']]]]] = None,
                  options: Optional[pulumi.Input[Union['SecurityMonitoringDefaultRuleOptionsArgs', 'SecurityMonitoringDefaultRuleOptionsArgsDict']]] = None,
+                 queries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringDefaultRuleQueryArgs', 'SecurityMonitoringDefaultRuleQueryArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -325,10 +434,13 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
             __props__ = SecurityMonitoringDefaultRuleArgs.__new__(SecurityMonitoringDefaultRuleArgs)
 
             __props__.__dict__["cases"] = cases
+            __props__.__dict__["custom_message"] = custom_message
+            __props__.__dict__["custom_name"] = custom_name
             __props__.__dict__["custom_tags"] = custom_tags
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["filters"] = filters
             __props__.__dict__["options"] = options
+            __props__.__dict__["queries"] = queries
             __props__.__dict__["type"] = None
         super(SecurityMonitoringDefaultRule, __self__).__init__(
             'datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule',
@@ -341,10 +453,13 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             cases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringDefaultRuleCaseArgs', 'SecurityMonitoringDefaultRuleCaseArgsDict']]]]] = None,
+            custom_message: Optional[pulumi.Input[builtins.str]] = None,
+            custom_name: Optional[pulumi.Input[builtins.str]] = None,
             custom_tags: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             enabled: Optional[pulumi.Input[builtins.bool]] = None,
             filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringDefaultRuleFilterArgs', 'SecurityMonitoringDefaultRuleFilterArgsDict']]]]] = None,
             options: Optional[pulumi.Input[Union['SecurityMonitoringDefaultRuleOptionsArgs', 'SecurityMonitoringDefaultRuleOptionsArgsDict']]] = None,
+            queries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringDefaultRuleQueryArgs', 'SecurityMonitoringDefaultRuleQueryArgsDict']]]]] = None,
             type: Optional[pulumi.Input[builtins.str]] = None) -> 'SecurityMonitoringDefaultRule':
         """
         Get an existing SecurityMonitoringDefaultRule resource's state with the given name, id, and optional extra
@@ -354,10 +469,13 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringDefaultRuleCaseArgs', 'SecurityMonitoringDefaultRuleCaseArgsDict']]]] cases: Cases of the rule, this is used to update notifications.
+        :param pulumi.Input[builtins.str] custom_message: Custom Message (will override default message) for generated signals.
+        :param pulumi.Input[builtins.str] custom_name: The name (will override default name) of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] custom_tags: Custom tags for generated signals.
         :param pulumi.Input[builtins.bool] enabled: Enable the rule. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringDefaultRuleFilterArgs', 'SecurityMonitoringDefaultRuleFilterArgsDict']]]] filters: Additional queries to filter matched events before they are processed.
         :param pulumi.Input[Union['SecurityMonitoringDefaultRuleOptionsArgs', 'SecurityMonitoringDefaultRuleOptionsArgsDict']] options: Options on default rules. Note that only a subset of fields can be updated on default rule options.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringDefaultRuleQueryArgs', 'SecurityMonitoringDefaultRuleQueryArgsDict']]]] queries: Queries for selecting logs which are part of the rule.
         :param pulumi.Input[builtins.str] type: The rule type.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -365,10 +483,13 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
         __props__ = _SecurityMonitoringDefaultRuleState.__new__(_SecurityMonitoringDefaultRuleState)
 
         __props__.__dict__["cases"] = cases
+        __props__.__dict__["custom_message"] = custom_message
+        __props__.__dict__["custom_name"] = custom_name
         __props__.__dict__["custom_tags"] = custom_tags
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["filters"] = filters
         __props__.__dict__["options"] = options
+        __props__.__dict__["queries"] = queries
         __props__.__dict__["type"] = type
         return SecurityMonitoringDefaultRule(resource_name, opts=opts, __props__=__props__)
 
@@ -379,6 +500,22 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
         Cases of the rule, this is used to update notifications.
         """
         return pulumi.get(self, "cases")
+
+    @property
+    @pulumi.getter(name="customMessage")
+    def custom_message(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        Custom Message (will override default message) for generated signals.
+        """
+        return pulumi.get(self, "custom_message")
+
+    @property
+    @pulumi.getter(name="customName")
+    def custom_name(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The name (will override default name) of the rule.
+        """
+        return pulumi.get(self, "custom_name")
 
     @property
     @pulumi.getter(name="customTags")
@@ -411,6 +548,14 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
         Options on default rules. Note that only a subset of fields can be updated on default rule options.
         """
         return pulumi.get(self, "options")
+
+    @property
+    @pulumi.getter
+    def queries(self) -> pulumi.Output[Optional[Sequence['outputs.SecurityMonitoringDefaultRuleQuery']]]:
+        """
+        Queries for selecting logs which are part of the rule.
+        """
+        return pulumi.get(self, "queries")
 
     @property
     @pulumi.getter

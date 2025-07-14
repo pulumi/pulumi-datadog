@@ -61,6 +61,8 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * The `pulumi import` command can be used, for example:
+ * 
  * ```sh
  * $ pulumi import datadog:index/rumRetentionFilter:RumRetentionFilter testing_rum_retention_filter &#34;&lt;application_id&gt;:&lt;retention_filter_id&gt;&#34;
  * ```

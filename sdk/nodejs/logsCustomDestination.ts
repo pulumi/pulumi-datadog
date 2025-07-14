@@ -31,6 +31,8 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
+ * The `pulumi import` command can be used, for example:
+ *
  * Custom destinations can be imported using the destination ID. Caution: auth credentials can not be imported.
  *
  * ```sh
@@ -95,6 +97,10 @@ export class LogsCustomDestination extends pulumi.CustomResource {
      */
     public readonly httpDestination!: pulumi.Output<outputs.LogsCustomDestinationHttpDestination | undefined>;
     /**
+     * The Microsoft Sentinel destination.
+     */
+    public readonly microsoftSentinelDestination!: pulumi.Output<outputs.LogsCustomDestinationMicrosoftSentinelDestination | undefined>;
+    /**
      * The custom destination name.
      */
     public readonly name!: pulumi.Output<string>;
@@ -126,6 +132,7 @@ export class LogsCustomDestination extends pulumi.CustomResource {
             resourceInputs["forwardTagsRestrictionListType"] = state ? state.forwardTagsRestrictionListType : undefined;
             resourceInputs["forwardTagsRestrictionLists"] = state ? state.forwardTagsRestrictionLists : undefined;
             resourceInputs["httpDestination"] = state ? state.httpDestination : undefined;
+            resourceInputs["microsoftSentinelDestination"] = state ? state.microsoftSentinelDestination : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["query"] = state ? state.query : undefined;
             resourceInputs["splunkDestination"] = state ? state.splunkDestination : undefined;
@@ -140,6 +147,7 @@ export class LogsCustomDestination extends pulumi.CustomResource {
             resourceInputs["forwardTagsRestrictionListType"] = args ? args.forwardTagsRestrictionListType : undefined;
             resourceInputs["forwardTagsRestrictionLists"] = args ? args.forwardTagsRestrictionLists : undefined;
             resourceInputs["httpDestination"] = args ? args.httpDestination : undefined;
+            resourceInputs["microsoftSentinelDestination"] = args ? args.microsoftSentinelDestination : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["query"] = args ? args.query : undefined;
             resourceInputs["splunkDestination"] = args ? args.splunkDestination : undefined;
@@ -182,6 +190,10 @@ export interface LogsCustomDestinationState {
      * The HTTP destination.
      */
     httpDestination?: pulumi.Input<inputs.LogsCustomDestinationHttpDestination>;
+    /**
+     * The Microsoft Sentinel destination.
+     */
+    microsoftSentinelDestination?: pulumi.Input<inputs.LogsCustomDestinationMicrosoftSentinelDestination>;
     /**
      * The custom destination name.
      */
@@ -229,6 +241,10 @@ export interface LogsCustomDestinationArgs {
      * The HTTP destination.
      */
     httpDestination?: pulumi.Input<inputs.LogsCustomDestinationHttpDestination>;
+    /**
+     * The Microsoft Sentinel destination.
+     */
+    microsoftSentinelDestination?: pulumi.Input<inputs.LogsCustomDestinationMicrosoftSentinelDestination>;
     /**
      * The custom destination name.
      */

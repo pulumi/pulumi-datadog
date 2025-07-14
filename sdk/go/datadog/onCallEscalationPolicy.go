@@ -61,7 +61,9 @@ import (
 //
 // ## Import
 //
-// Import an existing on_call_schedule
+// The `pulumi import` command can be used, for example:
+//
+// Import an existing on_call_escalation_policy
 //
 // ```sh
 // $ pulumi import datadog:index/onCallEscalationPolicy:OnCallEscalationPolicy test "b03a07d5-49da-43e9-83b4-5d84969b588b"
@@ -71,8 +73,8 @@ type OnCallEscalationPolicy struct {
 
 	// A human-readable name for the escalation policy.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// If true, pages will be automatically resolved if unacknowledged after the final step.
-	ResolvePageOnPolicyEnd pulumi.BoolPtrOutput `pulumi:"resolvePageOnPolicyEnd"`
+	// If true, pages will be automatically resolved if unacknowledged after the final step. Defaults to `false`.
+	ResolvePageOnPolicyEnd pulumi.BoolOutput `pulumi:"resolvePageOnPolicyEnd"`
 	// If set, policy will be retried this many times after the final step. Must be in the range 0-10. Value must be between 0 and 10. Defaults to `0`.
 	Retries pulumi.IntOutput `pulumi:"retries"`
 	// List of steps for the escalation policy.
@@ -90,6 +92,9 @@ func NewOnCallEscalationPolicy(ctx *pulumi.Context,
 
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.Steps == nil {
+		return nil, errors.New("invalid value for required argument 'Steps'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OnCallEscalationPolicy
@@ -116,7 +121,7 @@ func GetOnCallEscalationPolicy(ctx *pulumi.Context,
 type onCallEscalationPolicyState struct {
 	// A human-readable name for the escalation policy.
 	Name *string `pulumi:"name"`
-	// If true, pages will be automatically resolved if unacknowledged after the final step.
+	// If true, pages will be automatically resolved if unacknowledged after the final step. Defaults to `false`.
 	ResolvePageOnPolicyEnd *bool `pulumi:"resolvePageOnPolicyEnd"`
 	// If set, policy will be retried this many times after the final step. Must be in the range 0-10. Value must be between 0 and 10. Defaults to `0`.
 	Retries *int `pulumi:"retries"`
@@ -129,7 +134,7 @@ type onCallEscalationPolicyState struct {
 type OnCallEscalationPolicyState struct {
 	// A human-readable name for the escalation policy.
 	Name pulumi.StringPtrInput
-	// If true, pages will be automatically resolved if unacknowledged after the final step.
+	// If true, pages will be automatically resolved if unacknowledged after the final step. Defaults to `false`.
 	ResolvePageOnPolicyEnd pulumi.BoolPtrInput
 	// If set, policy will be retried this many times after the final step. Must be in the range 0-10. Value must be between 0 and 10. Defaults to `0`.
 	Retries pulumi.IntPtrInput
@@ -146,7 +151,7 @@ func (OnCallEscalationPolicyState) ElementType() reflect.Type {
 type onCallEscalationPolicyArgs struct {
 	// A human-readable name for the escalation policy.
 	Name string `pulumi:"name"`
-	// If true, pages will be automatically resolved if unacknowledged after the final step.
+	// If true, pages will be automatically resolved if unacknowledged after the final step. Defaults to `false`.
 	ResolvePageOnPolicyEnd *bool `pulumi:"resolvePageOnPolicyEnd"`
 	// If set, policy will be retried this many times after the final step. Must be in the range 0-10. Value must be between 0 and 10. Defaults to `0`.
 	Retries *int `pulumi:"retries"`
@@ -160,7 +165,7 @@ type onCallEscalationPolicyArgs struct {
 type OnCallEscalationPolicyArgs struct {
 	// A human-readable name for the escalation policy.
 	Name pulumi.StringInput
-	// If true, pages will be automatically resolved if unacknowledged after the final step.
+	// If true, pages will be automatically resolved if unacknowledged after the final step. Defaults to `false`.
 	ResolvePageOnPolicyEnd pulumi.BoolPtrInput
 	// If set, policy will be retried this many times after the final step. Must be in the range 0-10. Value must be between 0 and 10. Defaults to `0`.
 	Retries pulumi.IntPtrInput
@@ -262,9 +267,9 @@ func (o OnCallEscalationPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *OnCallEscalationPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// If true, pages will be automatically resolved if unacknowledged after the final step.
-func (o OnCallEscalationPolicyOutput) ResolvePageOnPolicyEnd() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *OnCallEscalationPolicy) pulumi.BoolPtrOutput { return v.ResolvePageOnPolicyEnd }).(pulumi.BoolPtrOutput)
+// If true, pages will be automatically resolved if unacknowledged after the final step. Defaults to `false`.
+func (o OnCallEscalationPolicyOutput) ResolvePageOnPolicyEnd() pulumi.BoolOutput {
+	return o.ApplyT(func(v *OnCallEscalationPolicy) pulumi.BoolOutput { return v.ResolvePageOnPolicyEnd }).(pulumi.BoolOutput)
 }
 
 // If set, policy will be retried this many times after the final step. Must be in the range 0-10. Value must be between 0 and 10. Defaults to `0`.

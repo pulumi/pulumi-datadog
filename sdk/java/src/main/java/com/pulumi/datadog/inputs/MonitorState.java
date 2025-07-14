@@ -489,23 +489,9 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.requireFullWindow);
     }
 
-    /**
-     * A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
-     * updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
-     * identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
-     * field.
-     * 
-     */
     @Import(name="restrictedRoles")
     private @Nullable Output<List<String>> restrictedRoles;
 
-    /**
-     * @return A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
-     * updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
-     * identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
-     * field.
-     * 
-     */
     public Optional<Output<List<String>>> restrictedRoles() {
         return Optional.ofNullable(this.restrictedRoles);
     }
@@ -1306,42 +1292,15 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
             return requireFullWindow(Output.of(requireFullWindow));
         }
 
-        /**
-         * @param restrictedRoles A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
-         * updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
-         * identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
-         * field.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restrictedRoles(@Nullable Output<List<String>> restrictedRoles) {
             $.restrictedRoles = restrictedRoles;
             return this;
         }
 
-        /**
-         * @param restrictedRoles A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
-         * updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
-         * identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
-         * field.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restrictedRoles(List<String> restrictedRoles) {
             return restrictedRoles(Output.of(restrictedRoles));
         }
 
-        /**
-         * @param restrictedRoles A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
-         * updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
-         * identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
-         * field.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restrictedRoles(String... restrictedRoles) {
             return restrictedRoles(List.of(restrictedRoles));
         }

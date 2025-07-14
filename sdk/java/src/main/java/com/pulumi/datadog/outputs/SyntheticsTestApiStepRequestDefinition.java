@@ -8,12 +8,18 @@ import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class SyntheticsTestApiStepRequestDefinition {
+    /**
+     * @return For SSL test, whether or not the test should allow self signed certificates.
+     * 
+     */
+    private @Nullable Boolean acceptSelfSigned;
     /**
      * @return Allows loading insecure content for a request in an API test or in a multistep API test step.
      * 
@@ -40,6 +46,11 @@ public final class SyntheticsTestApiStepRequestDefinition {
      */
     private @Nullable List<String> certificateDomains;
     /**
+     * @return For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+     * 
+     */
+    private @Nullable Boolean checkCertificateRevocation;
+    /**
      * @return DNS server to use for DNS tests (`subtype = &#34;dns&#34;`).
      * 
      */
@@ -55,6 +66,11 @@ public final class SyntheticsTestApiStepRequestDefinition {
      */
     private @Nullable Boolean followRedirects;
     /**
+     * @return Form data to be sent when `body_type` is `multipart/form-data`.
+     * 
+     */
+    private @Nullable Map<String,String> form;
+    /**
      * @return Host name to perform the test with.
      * 
      */
@@ -64,6 +80,11 @@ public final class SyntheticsTestApiStepRequestDefinition {
      * 
      */
     private @Nullable String httpVersion;
+    /**
+     * @return Whether the message is base64-encoded.
+     * 
+     */
+    private @Nullable Boolean isMessageBase64Encoded;
     /**
      * @return For UDP and websocket tests, message to send with the request.
      * 
@@ -136,6 +157,13 @@ public final class SyntheticsTestApiStepRequestDefinition {
 
     private SyntheticsTestApiStepRequestDefinition() {}
     /**
+     * @return For SSL test, whether or not the test should allow self signed certificates.
+     * 
+     */
+    public Optional<Boolean> acceptSelfSigned() {
+        return Optional.ofNullable(this.acceptSelfSigned);
+    }
+    /**
      * @return Allows loading insecure content for a request in an API test or in a multistep API test step.
      * 
      */
@@ -171,6 +199,13 @@ public final class SyntheticsTestApiStepRequestDefinition {
         return this.certificateDomains == null ? List.of() : this.certificateDomains;
     }
     /**
+     * @return For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+     * 
+     */
+    public Optional<Boolean> checkCertificateRevocation() {
+        return Optional.ofNullable(this.checkCertificateRevocation);
+    }
+    /**
      * @return DNS server to use for DNS tests (`subtype = &#34;dns&#34;`).
      * 
      */
@@ -192,6 +227,13 @@ public final class SyntheticsTestApiStepRequestDefinition {
         return Optional.ofNullable(this.followRedirects);
     }
     /**
+     * @return Form data to be sent when `body_type` is `multipart/form-data`.
+     * 
+     */
+    public Map<String,String> form() {
+        return this.form == null ? Map.of() : this.form;
+    }
+    /**
      * @return Host name to perform the test with.
      * 
      */
@@ -204,6 +246,13 @@ public final class SyntheticsTestApiStepRequestDefinition {
      */
     public Optional<String> httpVersion() {
         return Optional.ofNullable(this.httpVersion);
+    }
+    /**
+     * @return Whether the message is base64-encoded.
+     * 
+     */
+    public Optional<Boolean> isMessageBase64Encoded() {
+        return Optional.ofNullable(this.isMessageBase64Encoded);
     }
     /**
      * @return For UDP and websocket tests, message to send with the request.
@@ -310,16 +359,20 @@ public final class SyntheticsTestApiStepRequestDefinition {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean acceptSelfSigned;
         private @Nullable Boolean allowInsecure;
         private @Nullable String body;
         private @Nullable String bodyType;
         private @Nullable String callType;
         private @Nullable List<String> certificateDomains;
+        private @Nullable Boolean checkCertificateRevocation;
         private @Nullable String dnsServer;
         private @Nullable String dnsServerPort;
         private @Nullable Boolean followRedirects;
+        private @Nullable Map<String,String> form;
         private @Nullable String host;
         private @Nullable String httpVersion;
+        private @Nullable Boolean isMessageBase64Encoded;
         private @Nullable String message;
         private @Nullable String method;
         private @Nullable Boolean noSavingResponseBody;
@@ -336,16 +389,20 @@ public final class SyntheticsTestApiStepRequestDefinition {
         public Builder() {}
         public Builder(SyntheticsTestApiStepRequestDefinition defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.acceptSelfSigned = defaults.acceptSelfSigned;
     	      this.allowInsecure = defaults.allowInsecure;
     	      this.body = defaults.body;
     	      this.bodyType = defaults.bodyType;
     	      this.callType = defaults.callType;
     	      this.certificateDomains = defaults.certificateDomains;
+    	      this.checkCertificateRevocation = defaults.checkCertificateRevocation;
     	      this.dnsServer = defaults.dnsServer;
     	      this.dnsServerPort = defaults.dnsServerPort;
     	      this.followRedirects = defaults.followRedirects;
+    	      this.form = defaults.form;
     	      this.host = defaults.host;
     	      this.httpVersion = defaults.httpVersion;
+    	      this.isMessageBase64Encoded = defaults.isMessageBase64Encoded;
     	      this.message = defaults.message;
     	      this.method = defaults.method;
     	      this.noSavingResponseBody = defaults.noSavingResponseBody;
@@ -361,6 +418,12 @@ public final class SyntheticsTestApiStepRequestDefinition {
     	      this.url = defaults.url;
         }
 
+        @CustomType.Setter
+        public Builder acceptSelfSigned(@Nullable Boolean acceptSelfSigned) {
+
+            this.acceptSelfSigned = acceptSelfSigned;
+            return this;
+        }
         @CustomType.Setter
         public Builder allowInsecure(@Nullable Boolean allowInsecure) {
 
@@ -395,6 +458,12 @@ public final class SyntheticsTestApiStepRequestDefinition {
             return certificateDomains(List.of(certificateDomains));
         }
         @CustomType.Setter
+        public Builder checkCertificateRevocation(@Nullable Boolean checkCertificateRevocation) {
+
+            this.checkCertificateRevocation = checkCertificateRevocation;
+            return this;
+        }
+        @CustomType.Setter
         public Builder dnsServer(@Nullable String dnsServer) {
 
             this.dnsServer = dnsServer;
@@ -413,6 +482,12 @@ public final class SyntheticsTestApiStepRequestDefinition {
             return this;
         }
         @CustomType.Setter
+        public Builder form(@Nullable Map<String,String> form) {
+
+            this.form = form;
+            return this;
+        }
+        @CustomType.Setter
         public Builder host(@Nullable String host) {
 
             this.host = host;
@@ -422,6 +497,12 @@ public final class SyntheticsTestApiStepRequestDefinition {
         public Builder httpVersion(@Nullable String httpVersion) {
 
             this.httpVersion = httpVersion;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder isMessageBase64Encoded(@Nullable Boolean isMessageBase64Encoded) {
+
+            this.isMessageBase64Encoded = isMessageBase64Encoded;
             return this;
         }
         @CustomType.Setter
@@ -504,16 +585,20 @@ public final class SyntheticsTestApiStepRequestDefinition {
         }
         public SyntheticsTestApiStepRequestDefinition build() {
             final var _resultValue = new SyntheticsTestApiStepRequestDefinition();
+            _resultValue.acceptSelfSigned = acceptSelfSigned;
             _resultValue.allowInsecure = allowInsecure;
             _resultValue.body = body;
             _resultValue.bodyType = bodyType;
             _resultValue.callType = callType;
             _resultValue.certificateDomains = certificateDomains;
+            _resultValue.checkCertificateRevocation = checkCertificateRevocation;
             _resultValue.dnsServer = dnsServer;
             _resultValue.dnsServerPort = dnsServerPort;
             _resultValue.followRedirects = followRedirects;
+            _resultValue.form = form;
             _resultValue.host = host;
             _resultValue.httpVersion = httpVersion;
+            _resultValue.isMessageBase64Encoded = isMessageBase64Encoded;
             _resultValue.message = message;
             _resultValue.method = method;
             _resultValue.noSavingResponseBody = noSavingResponseBody;

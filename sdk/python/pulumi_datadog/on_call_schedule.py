@@ -177,6 +177,8 @@ class OnCallSchedule(pulumi.CustomResource):
 
         ## Import
 
+        The `pulumi import` command can be used, for example:
+
         Import an existing on_call_schedule
 
         ```sh
@@ -200,6 +202,8 @@ class OnCallSchedule(pulumi.CustomResource):
         Provides a Datadog On-Call schedule resource. This can be used to create and manage Datadog On-Call schedules.
 
         ## Import
+
+        The `pulumi import` command can be used, for example:
 
         Import an existing on_call_schedule
 

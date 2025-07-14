@@ -55,6 +55,8 @@ import (
 //
 // ## Import
 //
+// The `pulumi import` command can be used, for example:
+//
 // ```sh
 // $ pulumi import datadog:index/monitor:Monitor bytes_received_localhost 2081
 // ```
@@ -144,12 +146,8 @@ type Monitor struct {
 	// A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends
 	// you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a customSchedule set,
 	// `requireFullWindow` must be false and will be ignored.
-	RequireFullWindow pulumi.BoolPtrOutput `pulumi:"requireFullWindow"`
-	// A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
-	// updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
-	// identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
-	// field.
-	RestrictedRoles pulumi.StringArrayOutput `pulumi:"restrictedRoles"`
+	RequireFullWindow pulumi.BoolPtrOutput     `pulumi:"requireFullWindow"`
+	RestrictedRoles   pulumi.StringArrayOutput `pulumi:"restrictedRoles"`
 	// Configuration options for scheduling.
 	SchedulingOptions MonitorSchedulingOptionArrayOutput `pulumi:"schedulingOptions"`
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
@@ -292,12 +290,8 @@ type monitorState struct {
 	// A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends
 	// you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a customSchedule set,
 	// `requireFullWindow` must be false and will be ignored.
-	RequireFullWindow *bool `pulumi:"requireFullWindow"`
-	// A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
-	// updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
-	// identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
-	// field.
-	RestrictedRoles []string `pulumi:"restrictedRoles"`
+	RequireFullWindow *bool    `pulumi:"requireFullWindow"`
+	RestrictedRoles   []string `pulumi:"restrictedRoles"`
 	// Configuration options for scheduling.
 	SchedulingOptions []MonitorSchedulingOption `pulumi:"schedulingOptions"`
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
@@ -400,11 +394,7 @@ type MonitorState struct {
 	// you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a customSchedule set,
 	// `requireFullWindow` must be false and will be ignored.
 	RequireFullWindow pulumi.BoolPtrInput
-	// A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
-	// updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
-	// identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
-	// field.
-	RestrictedRoles pulumi.StringArrayInput
+	RestrictedRoles   pulumi.StringArrayInput
 	// Configuration options for scheduling.
 	SchedulingOptions MonitorSchedulingOptionArrayInput
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
@@ -510,12 +500,8 @@ type monitorArgs struct {
 	// A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends
 	// you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a customSchedule set,
 	// `requireFullWindow` must be false and will be ignored.
-	RequireFullWindow *bool `pulumi:"requireFullWindow"`
-	// A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
-	// updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
-	// identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
-	// field.
-	RestrictedRoles []string `pulumi:"restrictedRoles"`
+	RequireFullWindow *bool    `pulumi:"requireFullWindow"`
+	RestrictedRoles   []string `pulumi:"restrictedRoles"`
 	// Configuration options for scheduling.
 	SchedulingOptions []MonitorSchedulingOption `pulumi:"schedulingOptions"`
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
@@ -619,11 +605,7 @@ type MonitorArgs struct {
 	// you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a customSchedule set,
 	// `requireFullWindow` must be false and will be ignored.
 	RequireFullWindow pulumi.BoolPtrInput
-	// A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
-	// updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
-	// identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
-	// field.
-	RestrictedRoles pulumi.StringArrayInput
+	RestrictedRoles   pulumi.StringArrayInput
 	// Configuration options for scheduling.
 	SchedulingOptions MonitorSchedulingOptionArrayInput
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
@@ -893,10 +875,6 @@ func (o MonitorOutput) RequireFullWindow() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.BoolPtrOutput { return v.RequireFullWindow }).(pulumi.BoolPtrOutput)
 }
 
-// A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
-// updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
-// identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
-// field.
 func (o MonitorOutput) RestrictedRoles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringArrayOutput { return v.RestrictedRoles }).(pulumi.StringArrayOutput)
 }

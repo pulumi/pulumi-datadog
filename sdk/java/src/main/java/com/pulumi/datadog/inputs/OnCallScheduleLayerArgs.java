@@ -64,9 +64,17 @@ public final class OnCallScheduleLayerArgs extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.id);
     }
 
+    /**
+     * Rotation interval for this layer.
+     * 
+     */
     @Import(name="interval")
     private @Nullable Output<OnCallScheduleLayerIntervalArgs> interval;
 
+    /**
+     * @return Rotation interval for this layer.
+     * 
+     */
     public Optional<Output<OnCallScheduleLayerIntervalArgs>> interval() {
         return Optional.ofNullable(this.interval);
     }
@@ -105,15 +113,15 @@ public final class OnCallScheduleLayerArgs extends com.pulumi.resources.Resource
      * The date/time when the rotation for this layer starts (in ISO 8601).
      * 
      */
-    @Import(name="rotationStart")
-    private @Nullable Output<String> rotationStart;
+    @Import(name="rotationStart", required=true)
+    private Output<String> rotationStart;
 
     /**
      * @return The date/time when the rotation for this layer starts (in ISO 8601).
      * 
      */
-    public Optional<Output<String>> rotationStart() {
-        return Optional.ofNullable(this.rotationStart);
+    public Output<String> rotationStart() {
+        return this.rotationStart;
     }
 
     /**
@@ -225,11 +233,23 @@ public final class OnCallScheduleLayerArgs extends com.pulumi.resources.Resource
             return id(Output.of(id));
         }
 
+        /**
+         * @param interval Rotation interval for this layer.
+         * 
+         * @return builder
+         * 
+         */
         public Builder interval(@Nullable Output<OnCallScheduleLayerIntervalArgs> interval) {
             $.interval = interval;
             return this;
         }
 
+        /**
+         * @param interval Rotation interval for this layer.
+         * 
+         * @return builder
+         * 
+         */
         public Builder interval(OnCallScheduleLayerIntervalArgs interval) {
             return interval(Output.of(interval));
         }
@@ -292,7 +312,7 @@ public final class OnCallScheduleLayerArgs extends com.pulumi.resources.Resource
          * @return builder
          * 
          */
-        public Builder rotationStart(@Nullable Output<String> rotationStart) {
+        public Builder rotationStart(Output<String> rotationStart) {
             $.rotationStart = rotationStart;
             return this;
         }
@@ -344,6 +364,9 @@ public final class OnCallScheduleLayerArgs extends com.pulumi.resources.Resource
             }
             if ($.name == null) {
                 throw new MissingRequiredPropertyException("OnCallScheduleLayerArgs", "name");
+            }
+            if ($.rotationStart == null) {
+                throw new MissingRequiredPropertyException("OnCallScheduleLayerArgs", "rotationStart");
             }
             if ($.users == null) {
                 throw new MissingRequiredPropertyException("OnCallScheduleLayerArgs", "users");

@@ -13,6 +13,7 @@ import com.pulumi.datadog.inputs.SecurityMonitoringDefaultRuleState;
 import com.pulumi.datadog.outputs.SecurityMonitoringDefaultRuleCase;
 import com.pulumi.datadog.outputs.SecurityMonitoringDefaultRuleFilter;
 import com.pulumi.datadog.outputs.SecurityMonitoringDefaultRuleOptions;
+import com.pulumi.datadog.outputs.SecurityMonitoringDefaultRuleQuery;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -64,6 +65,8 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * The `pulumi import` command can be used, for example:
+ * 
  * Default rules need to be imported using their ID before applying.
  * 
  * resource &#34;datadog_security_monitoring_default_rule&#34; &#34;adefaultrule&#34; {
@@ -90,6 +93,34 @@ public class SecurityMonitoringDefaultRule extends com.pulumi.resources.CustomRe
      */
     public Output<Optional<List<SecurityMonitoringDefaultRuleCase>>> cases() {
         return Codegen.optional(this.cases);
+    }
+    /**
+     * Custom Message (will override default message) for generated signals.
+     * 
+     */
+    @Export(name="customMessage", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> customMessage;
+
+    /**
+     * @return Custom Message (will override default message) for generated signals.
+     * 
+     */
+    public Output<Optional<String>> customMessage() {
+        return Codegen.optional(this.customMessage);
+    }
+    /**
+     * The name (will override default name) of the rule.
+     * 
+     */
+    @Export(name="customName", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> customName;
+
+    /**
+     * @return The name (will override default name) of the rule.
+     * 
+     */
+    public Output<Optional<String>> customName() {
+        return Codegen.optional(this.customName);
     }
     /**
      * Custom tags for generated signals.
@@ -146,6 +177,20 @@ public class SecurityMonitoringDefaultRule extends com.pulumi.resources.CustomRe
      */
     public Output<Optional<SecurityMonitoringDefaultRuleOptions>> options() {
         return Codegen.optional(this.options);
+    }
+    /**
+     * Queries for selecting logs which are part of the rule.
+     * 
+     */
+    @Export(name="queries", refs={List.class,SecurityMonitoringDefaultRuleQuery.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<SecurityMonitoringDefaultRuleQuery>> queries;
+
+    /**
+     * @return Queries for selecting logs which are part of the rule.
+     * 
+     */
+    public Output<Optional<List<SecurityMonitoringDefaultRuleQuery>>> queries() {
+        return Codegen.optional(this.queries);
     }
     /**
      * The rule type.

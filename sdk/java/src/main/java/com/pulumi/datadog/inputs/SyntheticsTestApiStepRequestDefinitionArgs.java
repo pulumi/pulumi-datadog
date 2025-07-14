@@ -9,6 +9,7 @@ import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -17,6 +18,21 @@ import javax.annotation.Nullable;
 public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final SyntheticsTestApiStepRequestDefinitionArgs Empty = new SyntheticsTestApiStepRequestDefinitionArgs();
+
+    /**
+     * For SSL test, whether or not the test should allow self signed certificates.
+     * 
+     */
+    @Import(name="acceptSelfSigned")
+    private @Nullable Output<Boolean> acceptSelfSigned;
+
+    /**
+     * @return For SSL test, whether or not the test should allow self signed certificates.
+     * 
+     */
+    public Optional<Output<Boolean>> acceptSelfSigned() {
+        return Optional.ofNullable(this.acceptSelfSigned);
+    }
 
     /**
      * Allows loading insecure content for a request in an API test or in a multistep API test step.
@@ -94,6 +110,21 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
     }
 
     /**
+     * For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+     * 
+     */
+    @Import(name="checkCertificateRevocation")
+    private @Nullable Output<Boolean> checkCertificateRevocation;
+
+    /**
+     * @return For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+     * 
+     */
+    public Optional<Output<Boolean>> checkCertificateRevocation() {
+        return Optional.ofNullable(this.checkCertificateRevocation);
+    }
+
+    /**
      * DNS server to use for DNS tests (`subtype = &#34;dns&#34;`).
      * 
      */
@@ -139,6 +170,21 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
     }
 
     /**
+     * Form data to be sent when `body_type` is `multipart/form-data`.
+     * 
+     */
+    @Import(name="form")
+    private @Nullable Output<Map<String,String>> form;
+
+    /**
+     * @return Form data to be sent when `body_type` is `multipart/form-data`.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> form() {
+        return Optional.ofNullable(this.form);
+    }
+
+    /**
      * Host name to perform the test with.
      * 
      */
@@ -166,6 +212,21 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
      */
     public Optional<Output<String>> httpVersion() {
         return Optional.ofNullable(this.httpVersion);
+    }
+
+    /**
+     * Whether the message is base64-encoded.
+     * 
+     */
+    @Import(name="isMessageBase64Encoded")
+    private @Nullable Output<Boolean> isMessageBase64Encoded;
+
+    /**
+     * @return Whether the message is base64-encoded.
+     * 
+     */
+    public Optional<Output<Boolean>> isMessageBase64Encoded() {
+        return Optional.ofNullable(this.isMessageBase64Encoded);
     }
 
     /**
@@ -374,16 +435,20 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
     private SyntheticsTestApiStepRequestDefinitionArgs() {}
 
     private SyntheticsTestApiStepRequestDefinitionArgs(SyntheticsTestApiStepRequestDefinitionArgs $) {
+        this.acceptSelfSigned = $.acceptSelfSigned;
         this.allowInsecure = $.allowInsecure;
         this.body = $.body;
         this.bodyType = $.bodyType;
         this.callType = $.callType;
         this.certificateDomains = $.certificateDomains;
+        this.checkCertificateRevocation = $.checkCertificateRevocation;
         this.dnsServer = $.dnsServer;
         this.dnsServerPort = $.dnsServerPort;
         this.followRedirects = $.followRedirects;
+        this.form = $.form;
         this.host = $.host;
         this.httpVersion = $.httpVersion;
+        this.isMessageBase64Encoded = $.isMessageBase64Encoded;
         this.message = $.message;
         this.method = $.method;
         this.noSavingResponseBody = $.noSavingResponseBody;
@@ -415,6 +480,27 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
 
         public Builder(SyntheticsTestApiStepRequestDefinitionArgs defaults) {
             $ = new SyntheticsTestApiStepRequestDefinitionArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param acceptSelfSigned For SSL test, whether or not the test should allow self signed certificates.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder acceptSelfSigned(@Nullable Output<Boolean> acceptSelfSigned) {
+            $.acceptSelfSigned = acceptSelfSigned;
+            return this;
+        }
+
+        /**
+         * @param acceptSelfSigned For SSL test, whether or not the test should allow self signed certificates.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder acceptSelfSigned(Boolean acceptSelfSigned) {
+            return acceptSelfSigned(Output.of(acceptSelfSigned));
         }
 
         /**
@@ -533,6 +619,27 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
         }
 
         /**
+         * @param checkCertificateRevocation For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder checkCertificateRevocation(@Nullable Output<Boolean> checkCertificateRevocation) {
+            $.checkCertificateRevocation = checkCertificateRevocation;
+            return this;
+        }
+
+        /**
+         * @param checkCertificateRevocation For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder checkCertificateRevocation(Boolean checkCertificateRevocation) {
+            return checkCertificateRevocation(Output.of(checkCertificateRevocation));
+        }
+
+        /**
          * @param dnsServer DNS server to use for DNS tests (`subtype = &#34;dns&#34;`).
          * 
          * @return builder
@@ -596,6 +703,27 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
         }
 
         /**
+         * @param form Form data to be sent when `body_type` is `multipart/form-data`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder form(@Nullable Output<Map<String,String>> form) {
+            $.form = form;
+            return this;
+        }
+
+        /**
+         * @param form Form data to be sent when `body_type` is `multipart/form-data`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder form(Map<String,String> form) {
+            return form(Output.of(form));
+        }
+
+        /**
          * @param host Host name to perform the test with.
          * 
          * @return builder
@@ -635,6 +763,27 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
          */
         public Builder httpVersion(String httpVersion) {
             return httpVersion(Output.of(httpVersion));
+        }
+
+        /**
+         * @param isMessageBase64Encoded Whether the message is base64-encoded.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isMessageBase64Encoded(@Nullable Output<Boolean> isMessageBase64Encoded) {
+            $.isMessageBase64Encoded = isMessageBase64Encoded;
+            return this;
+        }
+
+        /**
+         * @param isMessageBase64Encoded Whether the message is base64-encoded.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isMessageBase64Encoded(Boolean isMessageBase64Encoded) {
+            return isMessageBase64Encoded(Output.of(isMessageBase64Encoded));
         }
 
         /**

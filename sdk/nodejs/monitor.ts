@@ -35,6 +35,8 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
+ * The `pulumi import` command can be used, for example:
+ *
  * ```sh
  * $ pulumi import datadog:index/monitor:Monitor bytes_received_localhost 2081
  * ```
@@ -203,12 +205,6 @@ export class Monitor extends pulumi.CustomResource {
      * `requireFullWindow` must be false and will be ignored.
      */
     public readonly requireFullWindow!: pulumi.Output<boolean | undefined>;
-    /**
-     * A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
-     * updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
-     * identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
-     * field.
-     */
     public readonly restrictedRoles!: pulumi.Output<string[] | undefined>;
     /**
      * Configuration options for scheduling.
@@ -477,12 +473,6 @@ export interface MonitorState {
      * `requireFullWindow` must be false and will be ignored.
      */
     requireFullWindow?: pulumi.Input<boolean>;
-    /**
-     * A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
-     * updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
-     * identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
-     * field.
-     */
     restrictedRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Configuration options for scheduling.
@@ -651,12 +641,6 @@ export interface MonitorArgs {
      * `requireFullWindow` must be false and will be ignored.
      */
     requireFullWindow?: pulumi.Input<boolean>;
-    /**
-     * A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
-     * updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
-     * identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
-     * field.
-     */
     restrictedRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Configuration options for scheduling.

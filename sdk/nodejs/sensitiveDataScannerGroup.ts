@@ -23,11 +23,26 @@ import * as utilities from "./utilities";
  *         query: "service:my-service",
  *     },
  *     isEnabled: true,
- *     productLists: ["apm"],
+ *     productLists: [
+ *         "apm",
+ *         "logs",
+ *     ],
+ *     samplings: [
+ *         {
+ *             product: "apm",
+ *             rate: 100,
+ *         },
+ *         {
+ *             product: "logs",
+ *             rate: 10,
+ *         },
+ *     ],
  * });
  * ```
  *
  * ## Import
+ *
+ * The `pulumi import` command can be used, for example:
  *
  * ```sh
  * $ pulumi import datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup new_list "<group_id>"
@@ -81,6 +96,10 @@ export class SensitiveDataScannerGroup extends pulumi.CustomResource {
      * List of products the scanning group applies. Valid values are `logs`, `rum`, `events`, `apm`.
      */
     public readonly productLists!: pulumi.Output<string[]>;
+    /**
+     * List of sampling configurations per product type for the scanning group.
+     */
+    public readonly samplings!: pulumi.Output<outputs.SensitiveDataScannerGroupSampling[] | undefined>;
 
     /**
      * Create a SensitiveDataScannerGroup resource with the given unique name, arguments, and options.
@@ -100,6 +119,7 @@ export class SensitiveDataScannerGroup extends pulumi.CustomResource {
             resourceInputs["isEnabled"] = state ? state.isEnabled : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["productLists"] = state ? state.productLists : undefined;
+            resourceInputs["samplings"] = state ? state.samplings : undefined;
         } else {
             const args = argsOrState as SensitiveDataScannerGroupArgs | undefined;
             if ((!args || args.filter === undefined) && !opts.urn) {
@@ -119,6 +139,7 @@ export class SensitiveDataScannerGroup extends pulumi.CustomResource {
             resourceInputs["isEnabled"] = args ? args.isEnabled : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["productLists"] = args ? args.productLists : undefined;
+            resourceInputs["samplings"] = args ? args.samplings : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SensitiveDataScannerGroup.__pulumiType, name, resourceInputs, opts);
@@ -149,6 +170,10 @@ export interface SensitiveDataScannerGroupState {
      * List of products the scanning group applies. Valid values are `logs`, `rum`, `events`, `apm`.
      */
     productLists?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of sampling configurations per product type for the scanning group.
+     */
+    samplings?: pulumi.Input<pulumi.Input<inputs.SensitiveDataScannerGroupSampling>[]>;
 }
 
 /**
@@ -175,4 +200,8 @@ export interface SensitiveDataScannerGroupArgs {
      * List of products the scanning group applies. Valid values are `logs`, `rum`, `events`, `apm`.
      */
     productLists: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of sampling configurations per product type for the scanning group.
+     */
+    samplings?: pulumi.Input<pulumi.Input<inputs.SensitiveDataScannerGroupSampling>[]>;
 }

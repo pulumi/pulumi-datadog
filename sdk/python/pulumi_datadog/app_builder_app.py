@@ -242,6 +242,8 @@ class AppBuilderApp(pulumi.CustomResource):
 
         ## Import
 
+        The `pulumi import` command can be used, for example:
+
         ```sh
         $ pulumi import datadog:index/appBuilderApp:AppBuilderApp my_app 11111111-2222-3333-4444-555555555555
         ```
@@ -265,6 +267,8 @@ class AppBuilderApp(pulumi.CustomResource):
         ## Example Usage
 
         ## Import
+
+        The `pulumi import` command can be used, for example:
 
         ```sh
         $ pulumi import datadog:index/appBuilderApp:AppBuilderApp my_app 11111111-2222-3333-4444-555555555555

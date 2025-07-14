@@ -77,6 +77,8 @@ class SecurityMonitoringRuleJson(pulumi.CustomResource):
 
         ## Import
 
+        The `pulumi import` command can be used, for example:
+
         ```sh
         $ pulumi import datadog:index/securityMonitoringRuleJson:SecurityMonitoringRuleJson security_rule_json aaa-yyy-vvv
         ```
@@ -95,6 +97,8 @@ class SecurityMonitoringRuleJson(pulumi.CustomResource):
         Provides a Datadog Security Monitoring Rule JSON resource. This can be used to create and manage Datadog security monitoring rules using raw JSON.
 
         ## Import
+
+        The `pulumi import` command can be used, for example:
 
         ```sh
         $ pulumi import datadog:index/securityMonitoringRuleJson:SecurityMonitoringRuleJson security_rule_json aaa-yyy-vvv

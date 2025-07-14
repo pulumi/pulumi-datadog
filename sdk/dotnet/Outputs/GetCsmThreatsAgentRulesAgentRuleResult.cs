@@ -13,14 +13,18 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class GetCsmThreatsAgentRulesAgentRuleResult
     {
+        public readonly ImmutableArray<Outputs.GetCsmThreatsAgentRulesAgentRuleActionResult> Actions;
         public readonly string Description;
         public readonly bool Enabled;
         public readonly string Expression;
         public readonly string Id;
         public readonly string Name;
+        public readonly ImmutableArray<string> ProductTags;
 
         [OutputConstructor]
         private GetCsmThreatsAgentRulesAgentRuleResult(
+            ImmutableArray<Outputs.GetCsmThreatsAgentRulesAgentRuleActionResult> actions,
+
             string description,
 
             bool enabled,
@@ -29,13 +33,17 @@ namespace Pulumi.Datadog.Outputs
 
             string id,
 
-            string name)
+            string name,
+
+            ImmutableArray<string> productTags)
         {
+            Actions = actions;
             Description = description;
             Enabled = enabled;
             Expression = expression;
             Id = id;
             Name = name;
+            ProductTags = productTags;
         }
     }
 }

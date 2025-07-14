@@ -13,6 +13,12 @@ namespace Pulumi.Datadog.Inputs
     public sealed class SyntheticsTestApiStepRequestDefinitionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// For SSL test, whether or not the test should allow self signed certificates.
+        /// </summary>
+        [Input("acceptSelfSigned")]
+        public Input<bool>? AcceptSelfSigned { get; set; }
+
+        /// <summary>
         /// Allows loading insecure content for a request in an API test or in a multistep API test step.
         /// </summary>
         [Input("allowInsecure")]
@@ -49,6 +55,12 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
+        /// For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+        /// </summary>
+        [Input("checkCertificateRevocation")]
+        public Input<bool>? CheckCertificateRevocation { get; set; }
+
+        /// <summary>
         /// DNS server to use for DNS tests (`subtype = "dns"`).
         /// </summary>
         [Input("dnsServer")]
@@ -66,6 +78,18 @@ namespace Pulumi.Datadog.Inputs
         [Input("followRedirects")]
         public Input<bool>? FollowRedirects { get; set; }
 
+        [Input("form")]
+        private InputMap<string>? _form;
+
+        /// <summary>
+        /// Form data to be sent when `body_type` is `multipart/form-data`.
+        /// </summary>
+        public InputMap<string> Form
+        {
+            get => _form ?? (_form = new InputMap<string>());
+            set => _form = value;
+        }
+
         /// <summary>
         /// Host name to perform the test with.
         /// </summary>
@@ -77,6 +101,12 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("httpVersion")]
         public Input<string>? HttpVersion { get; set; }
+
+        /// <summary>
+        /// Whether the message is base64-encoded.
+        /// </summary>
+        [Input("isMessageBase64Encoded")]
+        public Input<bool>? IsMessageBase64Encoded { get; set; }
 
         /// <summary>
         /// For UDP and websocket tests, message to send with the request.

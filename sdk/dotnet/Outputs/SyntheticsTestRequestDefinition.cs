@@ -38,6 +38,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? DnsServerPort;
         /// <summary>
+        /// Form data to be sent when `body_type` is `multipart/form-data`.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Form;
+        /// <summary>
         /// Host name to perform the test with.
         /// </summary>
         public readonly string? Host;
@@ -45,6 +49,10 @@ namespace Pulumi.Datadog.Outputs
         /// HTTP version to use for an HTTP request in an API test or step. **Deprecated.** Use `http_version` in the `options_list` field instead.
         /// </summary>
         public readonly string? HttpVersion;
+        /// <summary>
+        /// Whether the message is base64-encoded.
+        /// </summary>
+        public readonly bool? IsMessageBase64Encoded;
         /// <summary>
         /// For UDP and websocket tests, message to send with the request.
         /// </summary>
@@ -112,9 +120,13 @@ namespace Pulumi.Datadog.Outputs
 
             string? dnsServerPort,
 
+            ImmutableDictionary<string, string>? form,
+
             string? host,
 
             string? httpVersion,
+
+            bool? isMessageBase64Encoded,
 
             string? message,
 
@@ -148,8 +160,10 @@ namespace Pulumi.Datadog.Outputs
             CertificateDomains = certificateDomains;
             DnsServer = dnsServer;
             DnsServerPort = dnsServerPort;
+            Form = form;
             Host = host;
             HttpVersion = httpVersion;
+            IsMessageBase64Encoded = isMessageBase64Encoded;
             Message = message;
             Method = method;
             NoSavingResponseBody = noSavingResponseBody;

@@ -76,6 +76,8 @@ namespace Pulumi.Datadog
     /// 
     /// ## Import
     /// 
+    /// The `pulumi import` command can be used, for example:
+    /// 
     /// ```sh
     /// $ pulumi import datadog:index/logsIndex:LogsIndex name&gt; &lt;indexName&gt;
     /// ```

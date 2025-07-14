@@ -33,6 +33,8 @@ namespace Pulumi.Datadog
     /// 
     /// ## Import
     /// 
+    /// The `pulumi import` command can be used, for example:
+    /// 
     /// Cloud Workload Security Agent rules can be imported using ID, e.g.
     /// 
     /// ```sh

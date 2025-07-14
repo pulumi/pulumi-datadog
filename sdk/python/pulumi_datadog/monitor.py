@@ -114,10 +114,6 @@ class MonitorArgs:
         :param pulumi.Input[builtins.bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends
                you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set,
                `require_full_window` must be false and will be ignored.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] restricted_roles: A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
-               updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
-               identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
-               field.
         :param pulumi.Input[Sequence[pulumi.Input['MonitorSchedulingOptionArgs']]] scheduling_options: Configuration options for scheduling.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] tags: A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
                page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
@@ -563,12 +559,6 @@ class MonitorArgs:
     @property
     @pulumi.getter(name="restrictedRoles")
     def restricted_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
-        """
-        A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
-        updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
-        identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
-        field.
-        """
         return pulumi.get(self, "restricted_roles")
 
     @restricted_roles.setter
@@ -727,10 +717,6 @@ class _MonitorState:
         :param pulumi.Input[builtins.bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends
                you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set,
                `require_full_window` must be false and will be ignored.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] restricted_roles: A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
-               updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
-               identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
-               field.
         :param pulumi.Input[Sequence[pulumi.Input['MonitorSchedulingOptionArgs']]] scheduling_options: Configuration options for scheduling.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] tags: A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
                page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
@@ -1169,12 +1155,6 @@ class _MonitorState:
     @property
     @pulumi.getter(name="restrictedRoles")
     def restricted_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
-        """
-        A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
-        updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
-        identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
-        field.
-        """
         return pulumi.get(self, "restricted_roles")
 
     @restricted_roles.setter
@@ -1324,6 +1304,8 @@ class Monitor(pulumi.CustomResource):
 
         ## Import
 
+        The `pulumi import` command can be used, for example:
+
         ```sh
         $ pulumi import datadog:index/monitor:Monitor bytes_received_localhost 2081
         ```
@@ -1383,10 +1365,6 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends
                you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set,
                `require_full_window` must be false and will be ignored.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] restricted_roles: A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
-               updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
-               identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
-               field.
         :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorSchedulingOptionArgs', 'MonitorSchedulingOptionArgsDict']]]] scheduling_options: Configuration options for scheduling.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] tags: A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
                page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
@@ -1430,6 +1408,8 @@ class Monitor(pulumi.CustomResource):
         ```
 
         ## Import
+
+        The `pulumi import` command can be used, for example:
 
         ```sh
         $ pulumi import datadog:index/monitor:Monitor bytes_received_localhost 2081
@@ -1639,10 +1619,6 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends
                you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set,
                `require_full_window` must be false and will be ignored.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] restricted_roles: A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
-               updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
-               identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
-               field.
         :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorSchedulingOptionArgs', 'MonitorSchedulingOptionArgsDict']]]] scheduling_options: Configuration options for scheduling.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] tags: A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
                page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
@@ -1938,12 +1914,6 @@ class Monitor(pulumi.CustomResource):
     @property
     @pulumi.getter(name="restrictedRoles")
     def restricted_roles(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
-        """
-        A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
-        updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
-        identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
-        field.
-        """
         return pulumi.get(self, "restricted_roles")
 
     @property

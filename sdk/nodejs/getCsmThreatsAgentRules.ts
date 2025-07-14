@@ -9,10 +9,22 @@ import * as utilities from "./utilities";
 /**
  * Use this data source to retrieve information about existing Agent rules.
  */
-export function getCsmThreatsAgentRules(opts?: pulumi.InvokeOptions): Promise<GetCsmThreatsAgentRulesResult> {
+export function getCsmThreatsAgentRules(args?: GetCsmThreatsAgentRulesArgs, opts?: pulumi.InvokeOptions): Promise<GetCsmThreatsAgentRulesResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getCsmThreatsAgentRules:getCsmThreatsAgentRules", {
+        "policyId": args.policyId,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getCsmThreatsAgentRules.
+ */
+export interface GetCsmThreatsAgentRulesArgs {
+    /**
+     * Listing only the rules in the policy with this field as the ID
+     */
+    policyId?: string;
 }
 
 /**
@@ -28,15 +40,31 @@ export interface GetCsmThreatsAgentRulesResult {
      */
     readonly agentRulesIds: string[];
     /**
-     * The ID of this resource.
+     * The ID of the data source
      */
     readonly id: string;
+    /**
+     * Listing only the rules in the policy with this field as the ID
+     */
+    readonly policyId?: string;
 }
 /**
  * Use this data source to retrieve information about existing Agent rules.
  */
-export function getCsmThreatsAgentRulesOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCsmThreatsAgentRulesResult> {
+export function getCsmThreatsAgentRulesOutput(args?: GetCsmThreatsAgentRulesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCsmThreatsAgentRulesResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("datadog:index/getCsmThreatsAgentRules:getCsmThreatsAgentRules", {
+        "policyId": args.policyId,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getCsmThreatsAgentRules.
+ */
+export interface GetCsmThreatsAgentRulesOutputArgs {
+    /**
+     * Listing only the rules in the policy with this field as the ID
+     */
+    policyId?: pulumi.Input<string>;
 }

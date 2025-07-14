@@ -32,14 +32,14 @@ public final class SyntheticsTestMobileOptionsListMonitorOptionsArgs extends com
     }
 
     /**
-     * Valid values are `show_all`, `hide_all`, `hide_query`, `hide_handles`.
+     * The name of the preset for the notification for the monitor. Valid values are `show_all`, `hide_all`, `hide_query`, `hide_handles`.
      * 
      */
     @Import(name="notificationPresetName")
     private @Nullable Output<String> notificationPresetName;
 
     /**
-     * @return Valid values are `show_all`, `hide_all`, `hide_query`, `hide_handles`.
+     * @return The name of the preset for the notification for the monitor. Valid values are `show_all`, `hide_all`, `hide_query`, `hide_handles`.
      * 
      */
     public Optional<Output<String>> notificationPresetName() {
@@ -125,7 +125,7 @@ public final class SyntheticsTestMobileOptionsListMonitorOptionsArgs extends com
         }
 
         /**
-         * @param notificationPresetName Valid values are `show_all`, `hide_all`, `hide_query`, `hide_handles`.
+         * @param notificationPresetName The name of the preset for the notification for the monitor. Valid values are `show_all`, `hide_all`, `hide_query`, `hide_handles`.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class SyntheticsTestMobileOptionsListMonitorOptionsArgs extends com
         }
 
         /**
-         * @param notificationPresetName Valid values are `show_all`, `hide_all`, `hide_query`, `hide_handles`.
+         * @param notificationPresetName The name of the preset for the notification for the monitor. Valid values are `show_all`, `hide_all`, `hide_query`, `hide_handles`.
          * 
          * @return builder
          * 

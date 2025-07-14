@@ -49,6 +49,8 @@ import (
 //
 // ## Import
 //
+// The `pulumi import` command can be used, for example:
+//
 // Default rules need to be imported using their ID before applying.
 //
 // resource "datadog_security_monitoring_default_rule" "adefaultrule" {
@@ -63,6 +65,10 @@ type SecurityMonitoringDefaultRule struct {
 
 	// Cases of the rule, this is used to update notifications.
 	Cases SecurityMonitoringDefaultRuleCaseArrayOutput `pulumi:"cases"`
+	// Custom Message (will override default message) for generated signals.
+	CustomMessage pulumi.StringPtrOutput `pulumi:"customMessage"`
+	// The name (will override default name) of the rule.
+	CustomName pulumi.StringPtrOutput `pulumi:"customName"`
 	// Custom tags for generated signals.
 	CustomTags pulumi.StringArrayOutput `pulumi:"customTags"`
 	// Enable the rule. Defaults to `true`.
@@ -71,6 +77,8 @@ type SecurityMonitoringDefaultRule struct {
 	Filters SecurityMonitoringDefaultRuleFilterArrayOutput `pulumi:"filters"`
 	// Options on default rules. Note that only a subset of fields can be updated on default rule options.
 	Options SecurityMonitoringDefaultRuleOptionsPtrOutput `pulumi:"options"`
+	// Queries for selecting logs which are part of the rule.
+	Queries SecurityMonitoringDefaultRuleQueryArrayOutput `pulumi:"queries"`
 	// The rule type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -107,6 +115,10 @@ func GetSecurityMonitoringDefaultRule(ctx *pulumi.Context,
 type securityMonitoringDefaultRuleState struct {
 	// Cases of the rule, this is used to update notifications.
 	Cases []SecurityMonitoringDefaultRuleCase `pulumi:"cases"`
+	// Custom Message (will override default message) for generated signals.
+	CustomMessage *string `pulumi:"customMessage"`
+	// The name (will override default name) of the rule.
+	CustomName *string `pulumi:"customName"`
 	// Custom tags for generated signals.
 	CustomTags []string `pulumi:"customTags"`
 	// Enable the rule. Defaults to `true`.
@@ -115,6 +127,8 @@ type securityMonitoringDefaultRuleState struct {
 	Filters []SecurityMonitoringDefaultRuleFilter `pulumi:"filters"`
 	// Options on default rules. Note that only a subset of fields can be updated on default rule options.
 	Options *SecurityMonitoringDefaultRuleOptions `pulumi:"options"`
+	// Queries for selecting logs which are part of the rule.
+	Queries []SecurityMonitoringDefaultRuleQuery `pulumi:"queries"`
 	// The rule type.
 	Type *string `pulumi:"type"`
 }
@@ -122,6 +136,10 @@ type securityMonitoringDefaultRuleState struct {
 type SecurityMonitoringDefaultRuleState struct {
 	// Cases of the rule, this is used to update notifications.
 	Cases SecurityMonitoringDefaultRuleCaseArrayInput
+	// Custom Message (will override default message) for generated signals.
+	CustomMessage pulumi.StringPtrInput
+	// The name (will override default name) of the rule.
+	CustomName pulumi.StringPtrInput
 	// Custom tags for generated signals.
 	CustomTags pulumi.StringArrayInput
 	// Enable the rule. Defaults to `true`.
@@ -130,6 +148,8 @@ type SecurityMonitoringDefaultRuleState struct {
 	Filters SecurityMonitoringDefaultRuleFilterArrayInput
 	// Options on default rules. Note that only a subset of fields can be updated on default rule options.
 	Options SecurityMonitoringDefaultRuleOptionsPtrInput
+	// Queries for selecting logs which are part of the rule.
+	Queries SecurityMonitoringDefaultRuleQueryArrayInput
 	// The rule type.
 	Type pulumi.StringPtrInput
 }
@@ -141,6 +161,10 @@ func (SecurityMonitoringDefaultRuleState) ElementType() reflect.Type {
 type securityMonitoringDefaultRuleArgs struct {
 	// Cases of the rule, this is used to update notifications.
 	Cases []SecurityMonitoringDefaultRuleCase `pulumi:"cases"`
+	// Custom Message (will override default message) for generated signals.
+	CustomMessage *string `pulumi:"customMessage"`
+	// The name (will override default name) of the rule.
+	CustomName *string `pulumi:"customName"`
 	// Custom tags for generated signals.
 	CustomTags []string `pulumi:"customTags"`
 	// Enable the rule. Defaults to `true`.
@@ -149,12 +173,18 @@ type securityMonitoringDefaultRuleArgs struct {
 	Filters []SecurityMonitoringDefaultRuleFilter `pulumi:"filters"`
 	// Options on default rules. Note that only a subset of fields can be updated on default rule options.
 	Options *SecurityMonitoringDefaultRuleOptions `pulumi:"options"`
+	// Queries for selecting logs which are part of the rule.
+	Queries []SecurityMonitoringDefaultRuleQuery `pulumi:"queries"`
 }
 
 // The set of arguments for constructing a SecurityMonitoringDefaultRule resource.
 type SecurityMonitoringDefaultRuleArgs struct {
 	// Cases of the rule, this is used to update notifications.
 	Cases SecurityMonitoringDefaultRuleCaseArrayInput
+	// Custom Message (will override default message) for generated signals.
+	CustomMessage pulumi.StringPtrInput
+	// The name (will override default name) of the rule.
+	CustomName pulumi.StringPtrInput
 	// Custom tags for generated signals.
 	CustomTags pulumi.StringArrayInput
 	// Enable the rule. Defaults to `true`.
@@ -163,6 +193,8 @@ type SecurityMonitoringDefaultRuleArgs struct {
 	Filters SecurityMonitoringDefaultRuleFilterArrayInput
 	// Options on default rules. Note that only a subset of fields can be updated on default rule options.
 	Options SecurityMonitoringDefaultRuleOptionsPtrInput
+	// Queries for selecting logs which are part of the rule.
+	Queries SecurityMonitoringDefaultRuleQueryArrayInput
 }
 
 func (SecurityMonitoringDefaultRuleArgs) ElementType() reflect.Type {
@@ -257,6 +289,16 @@ func (o SecurityMonitoringDefaultRuleOutput) Cases() SecurityMonitoringDefaultRu
 	return o.ApplyT(func(v *SecurityMonitoringDefaultRule) SecurityMonitoringDefaultRuleCaseArrayOutput { return v.Cases }).(SecurityMonitoringDefaultRuleCaseArrayOutput)
 }
 
+// Custom Message (will override default message) for generated signals.
+func (o SecurityMonitoringDefaultRuleOutput) CustomMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityMonitoringDefaultRule) pulumi.StringPtrOutput { return v.CustomMessage }).(pulumi.StringPtrOutput)
+}
+
+// The name (will override default name) of the rule.
+func (o SecurityMonitoringDefaultRuleOutput) CustomName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityMonitoringDefaultRule) pulumi.StringPtrOutput { return v.CustomName }).(pulumi.StringPtrOutput)
+}
+
 // Custom tags for generated signals.
 func (o SecurityMonitoringDefaultRuleOutput) CustomTags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SecurityMonitoringDefaultRule) pulumi.StringArrayOutput { return v.CustomTags }).(pulumi.StringArrayOutput)
@@ -277,6 +319,11 @@ func (o SecurityMonitoringDefaultRuleOutput) Filters() SecurityMonitoringDefault
 // Options on default rules. Note that only a subset of fields can be updated on default rule options.
 func (o SecurityMonitoringDefaultRuleOutput) Options() SecurityMonitoringDefaultRuleOptionsPtrOutput {
 	return o.ApplyT(func(v *SecurityMonitoringDefaultRule) SecurityMonitoringDefaultRuleOptionsPtrOutput { return v.Options }).(SecurityMonitoringDefaultRuleOptionsPtrOutput)
+}
+
+// Queries for selecting logs which are part of the rule.
+func (o SecurityMonitoringDefaultRuleOutput) Queries() SecurityMonitoringDefaultRuleQueryArrayOutput {
+	return o.ApplyT(func(v *SecurityMonitoringDefaultRule) SecurityMonitoringDefaultRuleQueryArrayOutput { return v.Queries }).(SecurityMonitoringDefaultRuleQueryArrayOutput)
 }
 
 // The rule type.

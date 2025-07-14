@@ -775,7 +775,7 @@ func (o IntegrationAccountLogsConfigPtrOutput) LambdaForwarder() IntegrationAcco
 type IntegrationAccountLogsConfigLambdaForwarder struct {
 	// List of Datadog Lambda Log Forwarder ARNs in your AWS account. Defaults to `[]`.
 	Lambdas []string `pulumi:"lambdas"`
-	// List of service IDs set to enable automatic log collection. Use `aws.getIntegrationAvailableLogsServices` data source to get allowed values. Defaults to `[]`.
+	// List of service IDs set to enable automatic log collection. Use `aws.getIntegrationAvailableLogsServices` data source or [the AWS Logs Integration API](https://docs.datadoghq.com/api/latest/aws-logs-integration/?#get-list-of-aws-log-ready-services) to get allowed values. Defaults to `[]`.
 	Sources []string `pulumi:"sources"`
 }
 
@@ -793,7 +793,7 @@ type IntegrationAccountLogsConfigLambdaForwarderInput interface {
 type IntegrationAccountLogsConfigLambdaForwarderArgs struct {
 	// List of Datadog Lambda Log Forwarder ARNs in your AWS account. Defaults to `[]`.
 	Lambdas pulumi.StringArrayInput `pulumi:"lambdas"`
-	// List of service IDs set to enable automatic log collection. Use `aws.getIntegrationAvailableLogsServices` data source to get allowed values. Defaults to `[]`.
+	// List of service IDs set to enable automatic log collection. Use `aws.getIntegrationAvailableLogsServices` data source or [the AWS Logs Integration API](https://docs.datadoghq.com/api/latest/aws-logs-integration/?#get-list-of-aws-log-ready-services) to get allowed values. Defaults to `[]`.
 	Sources pulumi.StringArrayInput `pulumi:"sources"`
 }
 
@@ -879,7 +879,7 @@ func (o IntegrationAccountLogsConfigLambdaForwarderOutput) Lambdas() pulumi.Stri
 	return o.ApplyT(func(v IntegrationAccountLogsConfigLambdaForwarder) []string { return v.Lambdas }).(pulumi.StringArrayOutput)
 }
 
-// List of service IDs set to enable automatic log collection. Use `aws.getIntegrationAvailableLogsServices` data source to get allowed values. Defaults to `[]`.
+// List of service IDs set to enable automatic log collection. Use `aws.getIntegrationAvailableLogsServices` data source or [the AWS Logs Integration API](https://docs.datadoghq.com/api/latest/aws-logs-integration/?#get-list-of-aws-log-ready-services) to get allowed values. Defaults to `[]`.
 func (o IntegrationAccountLogsConfigLambdaForwarderOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IntegrationAccountLogsConfigLambdaForwarder) []string { return v.Sources }).(pulumi.StringArrayOutput)
 }
@@ -918,7 +918,7 @@ func (o IntegrationAccountLogsConfigLambdaForwarderPtrOutput) Lambdas() pulumi.S
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of service IDs set to enable automatic log collection. Use `aws.getIntegrationAvailableLogsServices` data source to get allowed values. Defaults to `[]`.
+// List of service IDs set to enable automatic log collection. Use `aws.getIntegrationAvailableLogsServices` data source or [the AWS Logs Integration API](https://docs.datadoghq.com/api/latest/aws-logs-integration/?#get-list-of-aws-log-ready-services) to get allowed values. Defaults to `[]`.
 func (o IntegrationAccountLogsConfigLambdaForwarderPtrOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IntegrationAccountLogsConfigLambdaForwarder) []string {
 		if v == nil {

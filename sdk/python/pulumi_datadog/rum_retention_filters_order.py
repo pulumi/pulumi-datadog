@@ -109,6 +109,8 @@ class RumRetentionFiltersOrder(pulumi.CustomResource):
 
         ## Import
 
+        The `pulumi import` command can be used, for example:
+
         ```sh
         $ pulumi import datadog:index/rumRetentionFiltersOrder:RumRetentionFiltersOrder testing_rum_retention_filters_order "<application_id>"
         ```
@@ -128,6 +130,8 @@ class RumRetentionFiltersOrder(pulumi.CustomResource):
         Provides a Datadog RumRetentionFiltersOrder resource. This is used to manage the order of Datadog RUM retention filters. Please note that retention_filter_ids should contain all IDs of retention filters, including the default ones created internally for a given RUM application.
 
         ## Import
+
+        The `pulumi import` command can be used, for example:
 
         ```sh
         $ pulumi import datadog:index/rumRetentionFiltersOrder:RumRetentionFiltersOrder testing_rum_retention_filters_order "<application_id>"

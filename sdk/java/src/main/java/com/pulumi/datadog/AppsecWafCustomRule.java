@@ -30,6 +30,8 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * The `pulumi import` command can be used, for example:
+ * 
  * ```sh
  * $ pulumi import datadog:index/appsecWafCustomRule:AppsecWafCustomRule new_list &#34;&#34;
  * ```

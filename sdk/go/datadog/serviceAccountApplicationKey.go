@@ -44,6 +44,8 @@ import (
 //
 // ## Import
 //
+// The `pulumi import` command can be used, for example:
+//
 // Importing a service account's application key cannot import the value of the key.
 //
 // ```sh

@@ -14,20 +14,49 @@ namespace Pulumi.Datadog
         /// <summary>
         /// Use this data source to retrieve information about existing Agent rules.
         /// </summary>
-        public static Task<GetCsmThreatsAgentRulesResult> InvokeAsync(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCsmThreatsAgentRulesResult>("datadog:index/getCsmThreatsAgentRules:getCsmThreatsAgentRules", InvokeArgs.Empty, options.WithDefaults());
+        public static Task<GetCsmThreatsAgentRulesResult> InvokeAsync(GetCsmThreatsAgentRulesArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCsmThreatsAgentRulesResult>("datadog:index/getCsmThreatsAgentRules:getCsmThreatsAgentRules", args ?? new GetCsmThreatsAgentRulesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve information about existing Agent rules.
         /// </summary>
-        public static Output<GetCsmThreatsAgentRulesResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetCsmThreatsAgentRulesResult>("datadog:index/getCsmThreatsAgentRules:getCsmThreatsAgentRules", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetCsmThreatsAgentRulesResult> Invoke(GetCsmThreatsAgentRulesInvokeArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCsmThreatsAgentRulesResult>("datadog:index/getCsmThreatsAgentRules:getCsmThreatsAgentRules", args ?? new GetCsmThreatsAgentRulesInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve information about existing Agent rules.
         /// </summary>
-        public static Output<GetCsmThreatsAgentRulesResult> Invoke(InvokeOutputOptions options)
-            => global::Pulumi.Deployment.Instance.Invoke<GetCsmThreatsAgentRulesResult>("datadog:index/getCsmThreatsAgentRules:getCsmThreatsAgentRules", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetCsmThreatsAgentRulesResult> Invoke(GetCsmThreatsAgentRulesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCsmThreatsAgentRulesResult>("datadog:index/getCsmThreatsAgentRules:getCsmThreatsAgentRules", args ?? new GetCsmThreatsAgentRulesInvokeArgs(), options.WithDefaults());
+    }
+
+
+    public sealed class GetCsmThreatsAgentRulesArgs : global::Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Listing only the rules in the policy with this field as the ID
+        /// </summary>
+        [Input("policyId")]
+        public string? PolicyId { get; set; }
+
+        public GetCsmThreatsAgentRulesArgs()
+        {
+        }
+        public static new GetCsmThreatsAgentRulesArgs Empty => new GetCsmThreatsAgentRulesArgs();
+    }
+
+    public sealed class GetCsmThreatsAgentRulesInvokeArgs : global::Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Listing only the rules in the policy with this field as the ID
+        /// </summary>
+        [Input("policyId")]
+        public Input<string>? PolicyId { get; set; }
+
+        public GetCsmThreatsAgentRulesInvokeArgs()
+        {
+        }
+        public static new GetCsmThreatsAgentRulesInvokeArgs Empty => new GetCsmThreatsAgentRulesInvokeArgs();
     }
 
 
@@ -43,9 +72,13 @@ namespace Pulumi.Datadog
         /// </summary>
         public readonly ImmutableArray<string> AgentRulesIds;
         /// <summary>
-        /// The ID of this resource.
+        /// The ID of the data source
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Listing only the rules in the policy with this field as the ID
+        /// </summary>
+        public readonly string? PolicyId;
 
         [OutputConstructor]
         private GetCsmThreatsAgentRulesResult(
@@ -53,11 +86,14 @@ namespace Pulumi.Datadog
 
             ImmutableArray<string> agentRulesIds,
 
-            string id)
+            string id,
+
+            string? policyId)
         {
             AgentRules = agentRules;
             AgentRulesIds = agentRulesIds;
             Id = id;
+            PolicyId = policyId;
         }
     }
 }

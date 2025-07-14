@@ -17,7 +17,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a Datadog MonitorNotificationRule resource. *Note: This resource is in Preview. [Request access](https://www.datadoghq.com/product-preview/monitor-notification-rules/).*
+ * Provides a Datadog MonitorNotificationRule resource.
  * 
  * ## Example Usage
  * 
@@ -25,6 +25,8 @@ import javax.annotation.Nullable;
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
+ * 
+ * The `pulumi import` command can be used, for example:
  * 
  * ```sh
  * $ pulumi import datadog:index/monitorNotificationRule:MonitorNotificationRule new_list &#34;00e000000-0000-1234-0000-000000000000&#34;

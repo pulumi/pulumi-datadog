@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// Content of the certificate.
         /// </summary>
-        public readonly string Content;
+        public readonly string? Content;
         /// <summary>
         /// File name for the certificate.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private SyntheticsTestApiStepRequestClientCertificateKey(
-            string content,
+            string? content,
 
             string? filename)
         {

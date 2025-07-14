@@ -15,7 +15,6 @@ import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -75,7 +74,9 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Import an existing on_call_schedule
+ * The `pulumi import` command can be used, for example:
+ * 
+ * Import an existing on_call_escalation_policy
  * 
  * ```sh
  * $ pulumi import datadog:index/onCallEscalationPolicy:OnCallEscalationPolicy test &#34;b03a07d5-49da-43e9-83b4-5d84969b588b&#34;
@@ -99,18 +100,18 @@ public class OnCallEscalationPolicy extends com.pulumi.resources.CustomResource 
         return this.name;
     }
     /**
-     * If true, pages will be automatically resolved if unacknowledged after the final step.
+     * If true, pages will be automatically resolved if unacknowledged after the final step. Defaults to `false`.
      * 
      */
     @Export(name="resolvePageOnPolicyEnd", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> resolvePageOnPolicyEnd;
+    private Output<Boolean> resolvePageOnPolicyEnd;
 
     /**
-     * @return If true, pages will be automatically resolved if unacknowledged after the final step.
+     * @return If true, pages will be automatically resolved if unacknowledged after the final step. Defaults to `false`.
      * 
      */
-    public Output<Optional<Boolean>> resolvePageOnPolicyEnd() {
-        return Codegen.optional(this.resolvePageOnPolicyEnd);
+    public Output<Boolean> resolvePageOnPolicyEnd() {
+        return this.resolvePageOnPolicyEnd;
     }
     /**
      * If set, policy will be retried this many times after the final step. Must be in the range 0-10. Value must be between 0 and 10. Defaults to `0`.
@@ -131,14 +132,14 @@ public class OnCallEscalationPolicy extends com.pulumi.resources.CustomResource 
      * 
      */
     @Export(name="steps", refs={List.class,OnCallEscalationPolicyStep.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<OnCallEscalationPolicyStep>> steps;
+    private Output<List<OnCallEscalationPolicyStep>> steps;
 
     /**
      * @return List of steps for the escalation policy.
      * 
      */
-    public Output<Optional<List<OnCallEscalationPolicyStep>>> steps() {
-        return Codegen.optional(this.steps);
+    public Output<List<OnCallEscalationPolicyStep>> steps() {
+        return this.steps;
     }
     /**
      * A list of team ids associated with the escalation policy.

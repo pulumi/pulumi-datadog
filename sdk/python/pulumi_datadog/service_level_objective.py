@@ -606,6 +606,8 @@ class ServiceLevelObjective(pulumi.CustomResource):
 
         ## Import
 
+        The `pulumi import` command can be used, for example:
+
         Service Level Objectives can be imported using their string ID, e.g.
 
         ```sh
@@ -739,6 +741,8 @@ class ServiceLevelObjective(pulumi.CustomResource):
         ```
 
         ## Import
+
+        The `pulumi import` command can be used, for example:
 
         Service Level Objectives can be imported using their string ID, e.g.
 

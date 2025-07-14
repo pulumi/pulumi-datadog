@@ -51,6 +51,8 @@ import (
 //
 // ## Import
 //
+// The `pulumi import` command can be used, for example:
+//
 // Custom destinations can be imported using the destination ID. Caution: auth credentials can not be imported.
 //
 // ```sh
@@ -76,6 +78,8 @@ type LogsCustomDestination struct {
 	ForwardTagsRestrictionLists pulumi.StringArrayOutput `pulumi:"forwardTagsRestrictionLists"`
 	// The HTTP destination.
 	HttpDestination LogsCustomDestinationHttpDestinationPtrOutput `pulumi:"httpDestination"`
+	// The Microsoft Sentinel destination.
+	MicrosoftSentinelDestination LogsCustomDestinationMicrosoftSentinelDestinationPtrOutput `pulumi:"microsoftSentinelDestination"`
 	// The custom destination name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The custom destination query filter. Logs matching this query are forwarded to the destination.
@@ -134,6 +138,8 @@ type logsCustomDestinationState struct {
 	ForwardTagsRestrictionLists []string `pulumi:"forwardTagsRestrictionLists"`
 	// The HTTP destination.
 	HttpDestination *LogsCustomDestinationHttpDestination `pulumi:"httpDestination"`
+	// The Microsoft Sentinel destination.
+	MicrosoftSentinelDestination *LogsCustomDestinationMicrosoftSentinelDestination `pulumi:"microsoftSentinelDestination"`
 	// The custom destination name.
 	Name *string `pulumi:"name"`
 	// The custom destination query filter. Logs matching this query are forwarded to the destination.
@@ -160,6 +166,8 @@ type LogsCustomDestinationState struct {
 	ForwardTagsRestrictionLists pulumi.StringArrayInput
 	// The HTTP destination.
 	HttpDestination LogsCustomDestinationHttpDestinationPtrInput
+	// The Microsoft Sentinel destination.
+	MicrosoftSentinelDestination LogsCustomDestinationMicrosoftSentinelDestinationPtrInput
 	// The custom destination name.
 	Name pulumi.StringPtrInput
 	// The custom destination query filter. Logs matching this query are forwarded to the destination.
@@ -190,6 +198,8 @@ type logsCustomDestinationArgs struct {
 	ForwardTagsRestrictionLists []string `pulumi:"forwardTagsRestrictionLists"`
 	// The HTTP destination.
 	HttpDestination *LogsCustomDestinationHttpDestination `pulumi:"httpDestination"`
+	// The Microsoft Sentinel destination.
+	MicrosoftSentinelDestination *LogsCustomDestinationMicrosoftSentinelDestination `pulumi:"microsoftSentinelDestination"`
 	// The custom destination name.
 	Name string `pulumi:"name"`
 	// The custom destination query filter. Logs matching this query are forwarded to the destination.
@@ -217,6 +227,8 @@ type LogsCustomDestinationArgs struct {
 	ForwardTagsRestrictionLists pulumi.StringArrayInput
 	// The HTTP destination.
 	HttpDestination LogsCustomDestinationHttpDestinationPtrInput
+	// The Microsoft Sentinel destination.
+	MicrosoftSentinelDestination LogsCustomDestinationMicrosoftSentinelDestinationPtrInput
 	// The custom destination name.
 	Name pulumi.StringInput
 	// The custom destination query filter. Logs matching this query are forwarded to the destination.
@@ -349,6 +361,13 @@ func (o LogsCustomDestinationOutput) ForwardTagsRestrictionLists() pulumi.String
 // The HTTP destination.
 func (o LogsCustomDestinationOutput) HttpDestination() LogsCustomDestinationHttpDestinationPtrOutput {
 	return o.ApplyT(func(v *LogsCustomDestination) LogsCustomDestinationHttpDestinationPtrOutput { return v.HttpDestination }).(LogsCustomDestinationHttpDestinationPtrOutput)
+}
+
+// The Microsoft Sentinel destination.
+func (o LogsCustomDestinationOutput) MicrosoftSentinelDestination() LogsCustomDestinationMicrosoftSentinelDestinationPtrOutput {
+	return o.ApplyT(func(v *LogsCustomDestination) LogsCustomDestinationMicrosoftSentinelDestinationPtrOutput {
+		return v.MicrosoftSentinelDestination
+	}).(LogsCustomDestinationMicrosoftSentinelDestinationPtrOutput)
 }
 
 // The custom destination name.

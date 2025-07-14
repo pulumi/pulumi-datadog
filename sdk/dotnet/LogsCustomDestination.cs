@@ -43,6 +43,8 @@ namespace Pulumi.Datadog
     /// 
     /// ## Import
     /// 
+    /// The `pulumi import` command can be used, for example:
+    /// 
     /// Custom destinations can be imported using the destination ID. Caution: auth credentials can not be imported.
     /// 
     /// ```sh
@@ -92,6 +94,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Output("httpDestination")]
         public Output<Outputs.LogsCustomDestinationHttpDestination?> HttpDestination { get; private set; } = null!;
+
+        /// <summary>
+        /// The Microsoft Sentinel destination.
+        /// </summary>
+        [Output("microsoftSentinelDestination")]
+        public Output<Outputs.LogsCustomDestinationMicrosoftSentinelDestination?> MicrosoftSentinelDestination { get; private set; } = null!;
 
         /// <summary>
         /// The custom destination name.
@@ -205,6 +213,12 @@ namespace Pulumi.Datadog
         public Input<Inputs.LogsCustomDestinationHttpDestinationArgs>? HttpDestination { get; set; }
 
         /// <summary>
+        /// The Microsoft Sentinel destination.
+        /// </summary>
+        [Input("microsoftSentinelDestination")]
+        public Input<Inputs.LogsCustomDestinationMicrosoftSentinelDestinationArgs>? MicrosoftSentinelDestination { get; set; }
+
+        /// <summary>
         /// The custom destination name.
         /// </summary>
         [Input("name", required: true)]
@@ -276,6 +290,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("httpDestination")]
         public Input<Inputs.LogsCustomDestinationHttpDestinationGetArgs>? HttpDestination { get; set; }
+
+        /// <summary>
+        /// The Microsoft Sentinel destination.
+        /// </summary>
+        [Input("microsoftSentinelDestination")]
+        public Input<Inputs.LogsCustomDestinationMicrosoftSentinelDestinationGetArgs>? MicrosoftSentinelDestination { get; set; }
 
         /// <summary>
         /// The custom destination name.

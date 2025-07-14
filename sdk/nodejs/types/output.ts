@@ -376,6 +376,62 @@ export interface ComplianceCustomFrameworkRequirementControl {
     rulesIds: string[];
 }
 
+export interface CostBudgetEntry {
+    amount: number;
+    month: number;
+    tagFilters?: outputs.CostBudgetEntryTagFilter[];
+}
+
+export interface CostBudgetEntryTagFilter {
+    tagKey: string;
+    tagValue: string;
+}
+
+export interface CsmThreatsAgentRuleAction {
+    /**
+     * Hash action configuration
+     */
+    hash?: outputs.CsmThreatsAgentRuleActionHash;
+    /**
+     * Set action configuration
+     */
+    set?: outputs.CsmThreatsAgentRuleActionSet;
+}
+
+export interface CsmThreatsAgentRuleActionHash {
+}
+
+export interface CsmThreatsAgentRuleActionSet {
+    /**
+     * Whether to append to the set
+     */
+    append: boolean;
+    /**
+     * The field to get the value from
+     */
+    field: string;
+    /**
+     * The name of the set action
+     */
+    name: string;
+    /**
+     * The scope of the set action (process, container, cgroup, or empty)
+     */
+    scope: string;
+    /**
+     * The maximum size of the set
+     */
+    size: number;
+    /**
+     * The time to live for the set in nanoseconds
+     */
+    ttl: number;
+    /**
+     * The value to set
+     */
+    value: string;
+}
+
 export interface DashboardListDashItem {
     /**
      * The ID of the dashboard to add
@@ -9443,12 +9499,52 @@ export interface GetCloudWorkloadSecurityAgentRulesAgentRule {
     name: string;
 }
 
+export interface GetCostBudgetEntry {
+    amount: number;
+    month: number;
+    tagFilters?: outputs.GetCostBudgetEntryTagFilter[];
+}
+
+export interface GetCostBudgetEntryTagFilter {
+    tagKey: string;
+    tagValue: string;
+}
+
 export interface GetCsmThreatsAgentRulesAgentRule {
+    actions: outputs.GetCsmThreatsAgentRulesAgentRuleAction[];
     description: string;
     enabled: boolean;
     expression: string;
     id: string;
     name: string;
+    productTags: string[];
+}
+
+export interface GetCsmThreatsAgentRulesAgentRuleAction {
+    hash: outputs.GetCsmThreatsAgentRulesAgentRuleActionHash;
+    set: outputs.GetCsmThreatsAgentRulesAgentRuleActionSet;
+}
+
+export interface GetCsmThreatsAgentRulesAgentRuleActionHash {
+}
+
+export interface GetCsmThreatsAgentRulesAgentRuleActionSet {
+    append: boolean;
+    field: string;
+    name: string;
+    scope: string;
+    size: number;
+    ttl: number;
+    value: string;
+}
+
+export interface GetCsmThreatsPoliciesPolicy {
+    description: string;
+    enabled: boolean;
+    hostTagsLists: string[][];
+    id: string;
+    name: string;
+    tags: string[];
 }
 
 export interface GetHostsHostList {
@@ -10362,6 +10458,29 @@ export interface LogsCustomDestinationHttpDestinationCustomHeaderAuth {
      * The header value of the authentication. This field is not returned by the API.
      */
     headerValue: string;
+}
+
+export interface LogsCustomDestinationMicrosoftSentinelDestination {
+    /**
+     * Client ID from the Datadog Azure Integration.
+     */
+    clientId: string;
+    /**
+     * Azure Data Collection Endpoint.
+     */
+    dataCollectionEndpoint: string;
+    /**
+     * Azure Data Collection Rule ID.
+     */
+    dataCollectionRuleId: string;
+    /**
+     * Azure stream name.
+     */
+    streamName: string;
+    /**
+     * Tenant ID from the Datadog Azure Integration.
+     */
+    tenantId: string;
 }
 
 export interface LogsCustomDestinationSplunkDestination {
@@ -13359,7 +13478,7 @@ export interface ObservabilityPipelineConfigSourcesSyslogNgTls {
 
 export interface OnCallEscalationPolicyStep {
     /**
-     * Specifies how this escalation step will assign targets. Can be `default` (page all targets at once) or `round-robin`. Valid values are `assignment`, `round-robin`. Defaults to `"default"`.
+     * Specifies how this escalation step will assign targets. Can be `default` (page all targets at once) or `round-robin`. Valid values are `default`, `round-robin`. Defaults to `"default"`.
      */
     assignment: string;
     /**
@@ -13373,7 +13492,7 @@ export interface OnCallEscalationPolicyStep {
     /**
      * List of targets for the step.
      */
-    targets?: outputs.OnCallEscalationPolicyStepTarget[];
+    targets: outputs.OnCallEscalationPolicyStepTarget[];
 }
 
 export interface OnCallEscalationPolicyStepTarget {
@@ -13404,6 +13523,9 @@ export interface OnCallScheduleLayer {
      * The ID of this layer.
      */
     id: string;
+    /**
+     * Rotation interval for this layer.
+     */
     interval?: outputs.OnCallScheduleLayerInterval;
     /**
      * The name of this layer. Should be unique within the schedule.
@@ -13416,7 +13538,7 @@ export interface OnCallScheduleLayer {
     /**
      * The date/time when the rotation for this layer starts (in ISO 8601).
      */
-    rotationStart?: string;
+    rotationStart: string;
     /**
      * List of user IDs for the layer. Can either be a valid user id or null
      */
@@ -13438,19 +13560,19 @@ export interface OnCallScheduleLayerRestriction {
     /**
      * The weekday when the restriction period ends. Valid values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
      */
-    endDay?: string;
+    endDay: string;
     /**
      * The time of day when the restriction ends (hh:mm:ss).
      */
-    endTime?: string;
+    endTime: string;
     /**
      * The weekday when the restriction period starts. Valid values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
      */
-    startDay?: string;
+    startDay: string;
     /**
      * The time of day when the restriction begins (hh:mm:ss).
      */
-    startTime?: string;
+    startTime: string;
 }
 
 export interface OnCallTeamRoutingRulesRule {
@@ -25940,9 +26062,13 @@ export interface RumMetricUniqueness {
 
 export interface SecurityMonitoringDefaultRuleCase {
     /**
+     * Status of the rule case to override. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+     */
+    customStatus?: string;
+    /**
      * Notification targets for each rule case.
      */
-    notifications: string[];
+    notifications?: string[];
     /**
      * Status of the rule case to match. Valid values are `info`, `low`, `medium`, `high`, `critical`.
      */
@@ -25965,6 +26091,64 @@ export interface SecurityMonitoringDefaultRuleOptions {
      * If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `logDetection`. Defaults to `false`.
      */
     decreaseCriticalityBasedOnEnv?: boolean;
+}
+
+export interface SecurityMonitoringDefaultRuleQuery {
+    /**
+     * **Deprecated**. It won't be applied anymore. **Deprecated.** `agentRule` has been deprecated in favor of new Agent Rule resource.
+     *
+     * @deprecated `agentRule` has been deprecated in favor of new Agent Rule resource.
+     */
+    agentRules?: outputs.SecurityMonitoringDefaultRuleQueryAgentRule[];
+    /**
+     * The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`. Defaults to `"count"`.
+     */
+    aggregation?: string;
+    /**
+     * Query extension to append to the logs query.
+     */
+    customQueryExtension?: string;
+    /**
+     * Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`. Defaults to `"logs"`.
+     */
+    dataSource?: string;
+    /**
+     * Field for which the cardinality is measured. Sent as an array.
+     */
+    distinctFields?: string[];
+    /**
+     * Fields to group by.
+     */
+    groupByFields?: string[];
+    /**
+     * The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+     *
+     * @deprecated Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+     */
+    metric?: string;
+    /**
+     * Group of target fields to aggregate over when using the `sum`, `max`, `geoData`, or `newValue` aggregations. The `sum`, `max`, and `geoData` aggregations only accept one value in this list, whereas the `newValue` aggregation accepts up to five values.
+     */
+    metrics: string[];
+    /**
+     * Name of the query. Not compatible with `newValue` aggregations.
+     */
+    name?: string;
+    /**
+     * Query to run on logs.
+     */
+    query: string;
+}
+
+export interface SecurityMonitoringDefaultRuleQueryAgentRule {
+    /**
+     * **Deprecated**. It won't be applied anymore.
+     */
+    agentRuleId: string;
+    /**
+     * **Deprecated**. It won't be applied anymore.
+     */
+    expression: string;
 }
 
 export interface SecurityMonitoringFilterExclusionFilter {
@@ -26270,6 +26454,17 @@ export interface SensitiveDataScannerGroupFilter {
     query: string;
 }
 
+export interface SensitiveDataScannerGroupSampling {
+    /**
+     * Product that the sampling rate applies to. Valid values are `logs`, `rum`, `events`, `apm`.
+     */
+    product: string;
+    /**
+     * Percentage rate at which data for the product type is scanned.
+     */
+    rate: number;
+}
+
 export interface SensitiveDataScannerRuleIncludedKeywordConfiguration {
     /**
      * Number of characters before the match to find a keyword validating the match. It must be between 1 and 50 (inclusive).
@@ -26546,7 +26741,7 @@ export interface SyntheticsTestApiStep {
     requestQuery?: {[key: string]: string};
     retry?: outputs.SyntheticsTestApiStepRetry;
     /**
-     * The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `wait`. Defaults to `"http"`.
+     * The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `ssl`, `dns`, `tcp`, `udp`, `icmp`, `websocket`, `wait`. Defaults to `"http"`.
      */
     subtype?: string;
     /**
@@ -26561,7 +26756,7 @@ export interface SyntheticsTestApiStepAssertion {
      */
     code?: string;
     /**
-     * Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+     * Assertion operator. **Note:** Only some combinations of `type` and `operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test).
      */
     operator?: string;
     /**
@@ -26569,7 +26764,7 @@ export interface SyntheticsTestApiStepAssertion {
      */
     property?: string;
     /**
-     * Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
+     * Expected value. **Note:** Depends on the assertion type. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test).
      */
     target?: string;
     /**
@@ -26589,7 +26784,7 @@ export interface SyntheticsTestApiStepAssertion {
      */
     timingsScope?: string;
     /**
-     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
+     * Type of assertion. **Note:** Only some combinations of `type` and `operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
      */
     type: string;
 }
@@ -26747,7 +26942,7 @@ export interface SyntheticsTestApiStepRequestClientCertificateCert {
     /**
      * Content of the certificate.
      */
-    content: string;
+    content?: string;
     /**
      * File name for the certificate.
      */
@@ -26758,7 +26953,7 @@ export interface SyntheticsTestApiStepRequestClientCertificateKey {
     /**
      * Content of the certificate.
      */
-    content: string;
+    content?: string;
     /**
      * File name for the certificate.
      */
@@ -26766,6 +26961,10 @@ export interface SyntheticsTestApiStepRequestClientCertificateKey {
 }
 
 export interface SyntheticsTestApiStepRequestDefinition {
+    /**
+     * For SSL test, whether or not the test should allow self signed certificates.
+     */
+    acceptSelfSigned?: boolean;
     /**
      * Allows loading insecure content for a request in an API test or in a multistep API test step.
      */
@@ -26787,6 +26986,10 @@ export interface SyntheticsTestApiStepRequestDefinition {
      */
     certificateDomains?: string[];
     /**
+     * For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+     */
+    checkCertificateRevocation?: boolean;
+    /**
      * DNS server to use for DNS tests (`subtype = "dns"`).
      */
     dnsServer?: string;
@@ -26799,6 +27002,10 @@ export interface SyntheticsTestApiStepRequestDefinition {
      */
     followRedirects?: boolean;
     /**
+     * Form data to be sent when `bodyType` is `multipart/form-data`.
+     */
+    form?: {[key: string]: string};
+    /**
      * Host name to perform the test with.
      */
     host?: string;
@@ -26806,6 +27013,10 @@ export interface SyntheticsTestApiStepRequestDefinition {
      * HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `"any"`.
      */
     httpVersion?: string;
+    /**
+     * Whether the message is base64-encoded.
+     */
+    isMessageBase64Encoded?: boolean;
     /**
      * For UDP and websocket tests, message to send with the request.
      */
@@ -26917,7 +27128,7 @@ export interface SyntheticsTestAssertion {
      */
     code?: string;
     /**
-     * Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+     * Assertion operator. **Note:** Only some combinations of `type` and `operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test).
      */
     operator?: string;
     /**
@@ -26925,7 +27136,7 @@ export interface SyntheticsTestAssertion {
      */
     property?: string;
     /**
-     * Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
+     * Expected value. **Note:** Depends on the assertion type. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test).
      */
     target?: string;
     /**
@@ -26945,7 +27156,7 @@ export interface SyntheticsTestAssertion {
      */
     timingsScope?: string;
     /**
-     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
+     * Type of assertion. **Note:** Only some combinations of `type` and `operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
      */
     type: string;
 }
@@ -27041,12 +27252,16 @@ export interface SyntheticsTestBrowserStep {
      */
     timeout?: number;
     /**
-     * Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `assertRequests`, `click`, `extractFromJavascript`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `hover`, `playSubTest`, `pressKey`, `refresh`, `runApiTest`, `scroll`, `selectOption`, `typeText`, `uploadFiles`, `wait`.
+     * Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `assertRequests`, `click`, `extractFromJavascript`, `extractFromEmailBody`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `hover`, `playSubTest`, `pressKey`, `refresh`, `runApiTest`, `scroll`, `selectOption`, `typeText`, `uploadFiles`, `wait`.
      */
     type: string;
 }
 
 export interface SyntheticsTestBrowserStepParams {
+    /**
+     * Whether to append the `value` to existing text input content for a "typeText" step. By default, content is cleared before text input.
+     */
+    appendToContent?: boolean;
     /**
      * Name of the attribute to use for an "assert attribute" step.
      */
@@ -27072,7 +27287,7 @@ export interface SyntheticsTestBrowserStepParams {
      */
     delay?: number;
     /**
-     * Element to use for the step, JSON encoded string.
+     * Element to use for the step, JSON encoded string. Refer to the examples for a usage example showing the schema.
      */
     element?: string;
     /**
@@ -27095,6 +27310,10 @@ export interface SyntheticsTestBrowserStepParams {
      * Modifier to use for a "press key" step.
      */
     modifiers?: string[];
+    /**
+     * Pattern to use for an "extractFromEmailBody" step.
+     */
+    pattern?: outputs.SyntheticsTestBrowserStepParamsPattern;
     /**
      * ID of the tab to play the subtest.
      */
@@ -27147,6 +27366,17 @@ export interface SyntheticsTestBrowserStepParamsElementUserLocatorValue {
      */
     type?: string;
     value: string;
+}
+
+export interface SyntheticsTestBrowserStepParamsPattern {
+    /**
+     * Type of pattern to use for the step. Valid values are `regex`, `xPath`.
+     */
+    type?: string;
+    /**
+     * Pattern to use for the step.
+     */
+    value?: string;
 }
 
 export interface SyntheticsTestBrowserStepParamsVariable {
@@ -27288,7 +27518,7 @@ export interface SyntheticsTestMobileOptionsListMonitorOptions {
      */
     escalationMessage?: string;
     /**
-     * Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`.
+     * The name of the preset for the notification for the monitor. Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`.
      */
     notificationPresetName?: string;
     /**
@@ -27561,6 +27791,10 @@ export interface SyntheticsTestOptionsListMonitorOptions {
      */
     escalationMessage?: string;
     /**
+     * The name of the preset for the notification for the monitor. Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`.
+     */
+    notificationPresetName?: string;
+    /**
      * Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
      */
     renotifyInterval?: number;
@@ -27702,7 +27936,7 @@ export interface SyntheticsTestRequestClientCertificateCert {
     /**
      * Content of the certificate.
      */
-    content: string;
+    content?: string;
     /**
      * File name for the certificate.
      */
@@ -27713,7 +27947,7 @@ export interface SyntheticsTestRequestClientCertificateKey {
     /**
      * Content of the certificate.
      */
-    content: string;
+    content?: string;
     /**
      * File name for the certificate.
      */
@@ -27746,6 +27980,10 @@ export interface SyntheticsTestRequestDefinition {
      */
     dnsServerPort?: string;
     /**
+     * Form data to be sent when `bodyType` is `multipart/form-data`.
+     */
+    form?: {[key: string]: string};
+    /**
      * Host name to perform the test with.
      */
     host?: string;
@@ -27755,6 +27993,10 @@ export interface SyntheticsTestRequestDefinition {
      * @deprecated Use `httpVersion` in the `optionsList` field instead.
      */
     httpVersion?: string;
+    /**
+     * Whether the message is base64-encoded.
+     */
+    isMessageBase64Encoded?: boolean;
     /**
      * For UDP and websocket tests, message to send with the request.
      */
@@ -27912,7 +28154,7 @@ export namespace aws {
          */
         lambdas: string[];
         /**
-         * List of service IDs set to enable automatic log collection. Use `datadog.aws.getIntegrationAvailableLogsServices` data source to get allowed values. Defaults to `[]`.
+         * List of service IDs set to enable automatic log collection. Use `datadog.aws.getIntegrationAvailableLogsServices` data source or [the AWS Logs Integration API](https://docs.datadoghq.com/api/latest/aws-logs-integration/?#get-list-of-aws-log-ready-services) to get allowed values. Defaults to `[]`.
          */
         sources: string[];
     }

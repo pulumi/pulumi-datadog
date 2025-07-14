@@ -23,25 +23,24 @@ __all__ = ['OnCallEscalationPolicyArgs', 'OnCallEscalationPolicy']
 class OnCallEscalationPolicyArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[builtins.str],
+                 steps: pulumi.Input[Sequence[pulumi.Input['OnCallEscalationPolicyStepArgs']]],
                  resolve_page_on_policy_end: Optional[pulumi.Input[builtins.bool]] = None,
                  retries: Optional[pulumi.Input[builtins.int]] = None,
-                 steps: Optional[pulumi.Input[Sequence[pulumi.Input['OnCallEscalationPolicyStepArgs']]]] = None,
                  teams: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a OnCallEscalationPolicy resource.
         :param pulumi.Input[builtins.str] name: A human-readable name for the escalation policy.
-        :param pulumi.Input[builtins.bool] resolve_page_on_policy_end: If true, pages will be automatically resolved if unacknowledged after the final step.
-        :param pulumi.Input[builtins.int] retries: If set, policy will be retried this many times after the final step. Must be in the range 0-10. Value must be between 0 and 10. Defaults to `0`.
         :param pulumi.Input[Sequence[pulumi.Input['OnCallEscalationPolicyStepArgs']]] steps: List of steps for the escalation policy.
+        :param pulumi.Input[builtins.bool] resolve_page_on_policy_end: If true, pages will be automatically resolved if unacknowledged after the final step. Defaults to `false`.
+        :param pulumi.Input[builtins.int] retries: If set, policy will be retried this many times after the final step. Must be in the range 0-10. Value must be between 0 and 10. Defaults to `0`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] teams: A list of team ids associated with the escalation policy.
         """
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "steps", steps)
         if resolve_page_on_policy_end is not None:
             pulumi.set(__self__, "resolve_page_on_policy_end", resolve_page_on_policy_end)
         if retries is not None:
             pulumi.set(__self__, "retries", retries)
-        if steps is not None:
-            pulumi.set(__self__, "steps", steps)
         if teams is not None:
             pulumi.set(__self__, "teams", teams)
 
@@ -58,10 +57,22 @@ class OnCallEscalationPolicyArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def steps(self) -> pulumi.Input[Sequence[pulumi.Input['OnCallEscalationPolicyStepArgs']]]:
+        """
+        List of steps for the escalation policy.
+        """
+        return pulumi.get(self, "steps")
+
+    @steps.setter
+    def steps(self, value: pulumi.Input[Sequence[pulumi.Input['OnCallEscalationPolicyStepArgs']]]):
+        pulumi.set(self, "steps", value)
+
+    @property
     @pulumi.getter(name="resolvePageOnPolicyEnd")
     def resolve_page_on_policy_end(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        If true, pages will be automatically resolved if unacknowledged after the final step.
+        If true, pages will be automatically resolved if unacknowledged after the final step. Defaults to `false`.
         """
         return pulumi.get(self, "resolve_page_on_policy_end")
 
@@ -80,18 +91,6 @@ class OnCallEscalationPolicyArgs:
     @retries.setter
     def retries(self, value: Optional[pulumi.Input[builtins.int]]):
         pulumi.set(self, "retries", value)
-
-    @property
-    @pulumi.getter
-    def steps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OnCallEscalationPolicyStepArgs']]]]:
-        """
-        List of steps for the escalation policy.
-        """
-        return pulumi.get(self, "steps")
-
-    @steps.setter
-    def steps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OnCallEscalationPolicyStepArgs']]]]):
-        pulumi.set(self, "steps", value)
 
     @property
     @pulumi.getter
@@ -117,7 +116,7 @@ class _OnCallEscalationPolicyState:
         """
         Input properties used for looking up and filtering OnCallEscalationPolicy resources.
         :param pulumi.Input[builtins.str] name: A human-readable name for the escalation policy.
-        :param pulumi.Input[builtins.bool] resolve_page_on_policy_end: If true, pages will be automatically resolved if unacknowledged after the final step.
+        :param pulumi.Input[builtins.bool] resolve_page_on_policy_end: If true, pages will be automatically resolved if unacknowledged after the final step. Defaults to `false`.
         :param pulumi.Input[builtins.int] retries: If set, policy will be retried this many times after the final step. Must be in the range 0-10. Value must be between 0 and 10. Defaults to `0`.
         :param pulumi.Input[Sequence[pulumi.Input['OnCallEscalationPolicyStepArgs']]] steps: List of steps for the escalation policy.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] teams: A list of team ids associated with the escalation policy.
@@ -149,7 +148,7 @@ class _OnCallEscalationPolicyState:
     @pulumi.getter(name="resolvePageOnPolicyEnd")
     def resolve_page_on_policy_end(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        If true, pages will be automatically resolved if unacknowledged after the final step.
+        If true, pages will be automatically resolved if unacknowledged after the final step. Defaults to `false`.
         """
         return pulumi.get(self, "resolve_page_on_policy_end")
 
@@ -238,7 +237,9 @@ class OnCallEscalationPolicy(pulumi.CustomResource):
 
         ## Import
 
-        Import an existing on_call_schedule
+        The `pulumi import` command can be used, for example:
+
+        Import an existing on_call_escalation_policy
 
         ```sh
         $ pulumi import datadog:index/onCallEscalationPolicy:OnCallEscalationPolicy test "b03a07d5-49da-43e9-83b4-5d84969b588b"
@@ -247,7 +248,7 @@ class OnCallEscalationPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] name: A human-readable name for the escalation policy.
-        :param pulumi.Input[builtins.bool] resolve_page_on_policy_end: If true, pages will be automatically resolved if unacknowledged after the final step.
+        :param pulumi.Input[builtins.bool] resolve_page_on_policy_end: If true, pages will be automatically resolved if unacknowledged after the final step. Defaults to `false`.
         :param pulumi.Input[builtins.int] retries: If set, policy will be retried this many times after the final step. Must be in the range 0-10. Value must be between 0 and 10. Defaults to `0`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['OnCallEscalationPolicyStepArgs', 'OnCallEscalationPolicyStepArgsDict']]]] steps: List of steps for the escalation policy.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] teams: A list of team ids associated with the escalation policy.
@@ -290,7 +291,9 @@ class OnCallEscalationPolicy(pulumi.CustomResource):
 
         ## Import
 
-        Import an existing on_call_schedule
+        The `pulumi import` command can be used, for example:
+
+        Import an existing on_call_escalation_policy
 
         ```sh
         $ pulumi import datadog:index/onCallEscalationPolicy:OnCallEscalationPolicy test "b03a07d5-49da-43e9-83b4-5d84969b588b"
@@ -330,6 +333,8 @@ class OnCallEscalationPolicy(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["resolve_page_on_policy_end"] = resolve_page_on_policy_end
             __props__.__dict__["retries"] = retries
+            if steps is None and not opts.urn:
+                raise TypeError("Missing required property 'steps'")
             __props__.__dict__["steps"] = steps
             __props__.__dict__["teams"] = teams
         super(OnCallEscalationPolicy, __self__).__init__(
@@ -355,7 +360,7 @@ class OnCallEscalationPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] name: A human-readable name for the escalation policy.
-        :param pulumi.Input[builtins.bool] resolve_page_on_policy_end: If true, pages will be automatically resolved if unacknowledged after the final step.
+        :param pulumi.Input[builtins.bool] resolve_page_on_policy_end: If true, pages will be automatically resolved if unacknowledged after the final step. Defaults to `false`.
         :param pulumi.Input[builtins.int] retries: If set, policy will be retried this many times after the final step. Must be in the range 0-10. Value must be between 0 and 10. Defaults to `0`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['OnCallEscalationPolicyStepArgs', 'OnCallEscalationPolicyStepArgsDict']]]] steps: List of steps for the escalation policy.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] teams: A list of team ids associated with the escalation policy.
@@ -381,9 +386,9 @@ class OnCallEscalationPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resolvePageOnPolicyEnd")
-    def resolve_page_on_policy_end(self) -> pulumi.Output[Optional[builtins.bool]]:
+    def resolve_page_on_policy_end(self) -> pulumi.Output[builtins.bool]:
         """
-        If true, pages will be automatically resolved if unacknowledged after the final step.
+        If true, pages will be automatically resolved if unacknowledged after the final step. Defaults to `false`.
         """
         return pulumi.get(self, "resolve_page_on_policy_end")
 
@@ -397,7 +402,7 @@ class OnCallEscalationPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def steps(self) -> pulumi.Output[Optional[Sequence['outputs.OnCallEscalationPolicyStep']]]:
+    def steps(self) -> pulumi.Output[Sequence['outputs.OnCallEscalationPolicyStep']]:
         """
         List of steps for the escalation policy.
         """

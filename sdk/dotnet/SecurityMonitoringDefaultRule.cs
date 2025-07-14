@@ -43,6 +43,8 @@ namespace Pulumi.Datadog
     /// 
     /// ## Import
     /// 
+    /// The `pulumi import` command can be used, for example:
+    /// 
     /// Default rules need to be imported using their ID before applying.
     /// 
     /// resource "datadog_security_monitoring_default_rule" "adefaultrule" {
@@ -61,6 +63,18 @@ namespace Pulumi.Datadog
         /// </summary>
         [Output("cases")]
         public Output<ImmutableArray<Outputs.SecurityMonitoringDefaultRuleCase>> Cases { get; private set; } = null!;
+
+        /// <summary>
+        /// Custom Message (will override default message) for generated signals.
+        /// </summary>
+        [Output("customMessage")]
+        public Output<string?> CustomMessage { get; private set; } = null!;
+
+        /// <summary>
+        /// The name (will override default name) of the rule.
+        /// </summary>
+        [Output("customName")]
+        public Output<string?> CustomName { get; private set; } = null!;
 
         /// <summary>
         /// Custom tags for generated signals.
@@ -85,6 +99,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Output("options")]
         public Output<Outputs.SecurityMonitoringDefaultRuleOptions?> Options { get; private set; } = null!;
+
+        /// <summary>
+        /// Queries for selecting logs which are part of the rule.
+        /// </summary>
+        [Output("queries")]
+        public Output<ImmutableArray<Outputs.SecurityMonitoringDefaultRuleQuery>> Queries { get; private set; } = null!;
 
         /// <summary>
         /// The rule type.
@@ -150,6 +170,18 @@ namespace Pulumi.Datadog
             set => _cases = value;
         }
 
+        /// <summary>
+        /// Custom Message (will override default message) for generated signals.
+        /// </summary>
+        [Input("customMessage")]
+        public Input<string>? CustomMessage { get; set; }
+
+        /// <summary>
+        /// The name (will override default name) of the rule.
+        /// </summary>
+        [Input("customName")]
+        public Input<string>? CustomName { get; set; }
+
         [Input("customTags")]
         private InputList<string>? _customTags;
 
@@ -186,6 +218,18 @@ namespace Pulumi.Datadog
         [Input("options")]
         public Input<Inputs.SecurityMonitoringDefaultRuleOptionsArgs>? Options { get; set; }
 
+        [Input("queries")]
+        private InputList<Inputs.SecurityMonitoringDefaultRuleQueryArgs>? _queries;
+
+        /// <summary>
+        /// Queries for selecting logs which are part of the rule.
+        /// </summary>
+        public InputList<Inputs.SecurityMonitoringDefaultRuleQueryArgs> Queries
+        {
+            get => _queries ?? (_queries = new InputList<Inputs.SecurityMonitoringDefaultRuleQueryArgs>());
+            set => _queries = value;
+        }
+
         public SecurityMonitoringDefaultRuleArgs()
         {
         }
@@ -205,6 +249,18 @@ namespace Pulumi.Datadog
             get => _cases ?? (_cases = new InputList<Inputs.SecurityMonitoringDefaultRuleCaseGetArgs>());
             set => _cases = value;
         }
+
+        /// <summary>
+        /// Custom Message (will override default message) for generated signals.
+        /// </summary>
+        [Input("customMessage")]
+        public Input<string>? CustomMessage { get; set; }
+
+        /// <summary>
+        /// The name (will override default name) of the rule.
+        /// </summary>
+        [Input("customName")]
+        public Input<string>? CustomName { get; set; }
 
         [Input("customTags")]
         private InputList<string>? _customTags;
@@ -241,6 +297,18 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("options")]
         public Input<Inputs.SecurityMonitoringDefaultRuleOptionsGetArgs>? Options { get; set; }
+
+        [Input("queries")]
+        private InputList<Inputs.SecurityMonitoringDefaultRuleQueryGetArgs>? _queries;
+
+        /// <summary>
+        /// Queries for selecting logs which are part of the rule.
+        /// </summary>
+        public InputList<Inputs.SecurityMonitoringDefaultRuleQueryGetArgs> Queries
+        {
+            get => _queries ?? (_queries = new InputList<Inputs.SecurityMonitoringDefaultRuleQueryGetArgs>());
+            set => _queries = value;
+        }
 
         /// <summary>
         /// The rule type.

@@ -47,6 +47,8 @@ namespace Pulumi.Datadog
     /// 
     /// ## Import
     /// 
+    /// The `pulumi import` command can be used, for example:
+    /// 
     /// Roles can be imported using their ID, e.g.
     /// 
     /// ```sh

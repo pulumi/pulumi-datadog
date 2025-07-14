@@ -19,6 +19,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? EscalationMessage { get; set; }
 
         /// <summary>
+        /// The name of the preset for the notification for the monitor. Valid values are `show_all`, `hide_all`, `hide_query`, `hide_handles`.
+        /// </summary>
+        [Input("notificationPresetName")]
+        public Input<string>? NotificationPresetName { get; set; }
+
+        /// <summary>
         /// Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
         /// </summary>
         [Input("renotifyInterval")]
