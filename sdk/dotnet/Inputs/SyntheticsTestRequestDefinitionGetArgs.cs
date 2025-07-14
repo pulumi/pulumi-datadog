@@ -54,6 +54,18 @@ namespace Pulumi.Datadog.Inputs
         [Input("dnsServerPort")]
         public Input<string>? DnsServerPort { get; set; }
 
+        [Input("form")]
+        private InputMap<string>? _form;
+
+        /// <summary>
+        /// Form data to be sent when `body_type` is `multipart/form-data`.
+        /// </summary>
+        public InputMap<string> Form
+        {
+            get => _form ?? (_form = new InputMap<string>());
+            set => _form = value;
+        }
+
         /// <summary>
         /// Host name to perform the test with.
         /// </summary>
@@ -65,6 +77,12 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("httpVersion")]
         public Input<string>? HttpVersion { get; set; }
+
+        /// <summary>
+        /// Whether the message is base64-encoded.
+        /// </summary>
+        [Input("isMessageBase64Encoded")]
+        public Input<bool>? IsMessageBase64Encoded { get; set; }
 
         /// <summary>
         /// For UDP and websocket tests, message to send with the request.

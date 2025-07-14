@@ -123,6 +123,8 @@ class IntegrationLogCollection(pulumi.CustomResource):
 
         ## Import
 
+        The `pulumi import` command can be used, for example:
+
         Amazon Web Services log collection integrations can be imported using the `account ID`.
 
         ```sh
@@ -158,6 +160,8 @@ class IntegrationLogCollection(pulumi.CustomResource):
         ```
 
         ## Import
+
+        The `pulumi import` command can be used, for example:
 
         Amazon Web Services log collection integrations can be imported using the `account ID`.
 

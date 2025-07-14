@@ -203,6 +203,8 @@ class LogsMetric(pulumi.CustomResource):
 
         ## Import
 
+        The `pulumi import` command can be used, for example:
+
         ```sh
         $ pulumi import datadog:index/logsMetric:LogsMetric testing_logs_metric testing.logs.metric
         ```
@@ -251,6 +253,8 @@ class LogsMetric(pulumi.CustomResource):
         ```
 
         ## Import
+
+        The `pulumi import` command can be used, for example:
 
         ```sh
         $ pulumi import datadog:index/logsMetric:LogsMetric testing_logs_metric testing.logs.metric

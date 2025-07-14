@@ -4,7 +4,6 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,7 +15,7 @@ public final class SyntheticsTestRequestClientCertificateCert {
      * @return Content of the certificate.
      * 
      */
-    private String content;
+    private @Nullable String content;
     /**
      * @return File name for the certificate.
      * 
@@ -28,8 +27,8 @@ public final class SyntheticsTestRequestClientCertificateCert {
      * @return Content of the certificate.
      * 
      */
-    public String content() {
-        return this.content;
+    public Optional<String> content() {
+        return Optional.ofNullable(this.content);
     }
     /**
      * @return File name for the certificate.
@@ -48,7 +47,7 @@ public final class SyntheticsTestRequestClientCertificateCert {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String content;
+        private @Nullable String content;
         private @Nullable String filename;
         public Builder() {}
         public Builder(SyntheticsTestRequestClientCertificateCert defaults) {
@@ -58,10 +57,8 @@ public final class SyntheticsTestRequestClientCertificateCert {
         }
 
         @CustomType.Setter
-        public Builder content(String content) {
-            if (content == null) {
-              throw new MissingRequiredPropertyException("SyntheticsTestRequestClientCertificateCert", "content");
-            }
+        public Builder content(@Nullable String content) {
+
             this.content = content;
             return this;
         }

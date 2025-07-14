@@ -5,7 +5,7 @@ Subject: [PATCH] docs fixups
 
 
 diff --git a/docs/resources/dashboard_list.md b/docs/resources/dashboard_list.md
-index 7e38f433..6e27b53a 100644
+index 44f9ff91..5fc1c303 100644
 --- a/docs/resources/dashboard_list.md
 +++ b/docs/resources/dashboard_list.md
 @@ -15,7 +15,12 @@ Provides a Datadog dashboard_list resource. This can be used to create and manag

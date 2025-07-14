@@ -261,14 +261,14 @@ public final class SyntheticsTestApiStepArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `wait`. Defaults to `&#34;http&#34;`.
+     * The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `ssl`, `dns`, `tcp`, `udp`, `icmp`, `websocket`, `wait`. Defaults to `&#34;http&#34;`.
      * 
      */
     @Import(name="subtype")
     private @Nullable Output<String> subtype;
 
     /**
-     * @return The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `wait`. Defaults to `&#34;http&#34;`.
+     * @return The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `ssl`, `dns`, `tcp`, `udp`, `icmp`, `websocket`, `wait`. Defaults to `&#34;http&#34;`.
      * 
      */
     public Optional<Output<String>> subtype() {
@@ -686,7 +686,7 @@ public final class SyntheticsTestApiStepArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param subtype The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `wait`. Defaults to `&#34;http&#34;`.
+         * @param subtype The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `ssl`, `dns`, `tcp`, `udp`, `icmp`, `websocket`, `wait`. Defaults to `&#34;http&#34;`.
          * 
          * @return builder
          * 
@@ -697,7 +697,7 @@ public final class SyntheticsTestApiStepArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param subtype The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `wait`. Defaults to `&#34;http&#34;`.
+         * @param subtype The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `ssl`, `dns`, `tcp`, `udp`, `icmp`, `websocket`, `wait`. Defaults to `&#34;http&#34;`.
          * 
          * @return builder
          * 

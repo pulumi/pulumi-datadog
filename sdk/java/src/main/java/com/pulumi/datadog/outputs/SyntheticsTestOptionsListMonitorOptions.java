@@ -18,6 +18,11 @@ public final class SyntheticsTestOptionsListMonitorOptions {
      */
     private @Nullable String escalationMessage;
     /**
+     * @return The name of the preset for the notification for the monitor. Valid values are `show_all`, `hide_all`, `hide_query`, `hide_handles`.
+     * 
+     */
+    private @Nullable String notificationPresetName;
+    /**
      * @return Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
      * 
      */
@@ -35,6 +40,13 @@ public final class SyntheticsTestOptionsListMonitorOptions {
      */
     public Optional<String> escalationMessage() {
         return Optional.ofNullable(this.escalationMessage);
+    }
+    /**
+     * @return The name of the preset for the notification for the monitor. Valid values are `show_all`, `hide_all`, `hide_query`, `hide_handles`.
+     * 
+     */
+    public Optional<String> notificationPresetName() {
+        return Optional.ofNullable(this.notificationPresetName);
     }
     /**
      * @return Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
@@ -61,12 +73,14 @@ public final class SyntheticsTestOptionsListMonitorOptions {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String escalationMessage;
+        private @Nullable String notificationPresetName;
         private @Nullable Integer renotifyInterval;
         private @Nullable Integer renotifyOccurrences;
         public Builder() {}
         public Builder(SyntheticsTestOptionsListMonitorOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.escalationMessage = defaults.escalationMessage;
+    	      this.notificationPresetName = defaults.notificationPresetName;
     	      this.renotifyInterval = defaults.renotifyInterval;
     	      this.renotifyOccurrences = defaults.renotifyOccurrences;
         }
@@ -75,6 +89,12 @@ public final class SyntheticsTestOptionsListMonitorOptions {
         public Builder escalationMessage(@Nullable String escalationMessage) {
 
             this.escalationMessage = escalationMessage;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder notificationPresetName(@Nullable String notificationPresetName) {
+
+            this.notificationPresetName = notificationPresetName;
             return this;
         }
         @CustomType.Setter
@@ -92,6 +112,7 @@ public final class SyntheticsTestOptionsListMonitorOptions {
         public SyntheticsTestOptionsListMonitorOptions build() {
             final var _resultValue = new SyntheticsTestOptionsListMonitorOptions();
             _resultValue.escalationMessage = escalationMessage;
+            _resultValue.notificationPresetName = notificationPresetName;
             _resultValue.renotifyInterval = renotifyInterval;
             _resultValue.renotifyOccurrences = renotifyOccurrences;
             return _resultValue;

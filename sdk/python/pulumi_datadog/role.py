@@ -207,6 +207,8 @@ class Role(pulumi.CustomResource):
 
         ## Import
 
+        The `pulumi import` command can be used, for example:
+
         Roles can be imported using their ID, e.g.
 
         ```sh
@@ -250,6 +252,8 @@ class Role(pulumi.CustomResource):
         ```
 
         ## Import
+
+        The `pulumi import` command can be used, for example:
 
         Roles can be imported using their ID, e.g.
 

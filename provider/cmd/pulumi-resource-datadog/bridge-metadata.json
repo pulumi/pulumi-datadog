@@ -198,9 +198,57 @@
                     }
                 }
             },
+            "datadog_compliance_resource_evaluation_filter": {
+                "current": "datadog:index/complianceResourceEvaluationFilter:ComplianceResourceEvaluationFilter",
+                "majorVersion": 4,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "datadog_cost_budget": {
+                "current": "datadog:index/costBudget:CostBudget",
+                "majorVersion": 4,
+                "fields": {
+                    "entries": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "tag_filters": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "datadog_csm_threats_agent_rule": {
                 "current": "datadog:index/csmThreatsAgentRule:CsmThreatsAgentRule",
-                "majorVersion": 4
+                "majorVersion": 4,
+                "fields": {
+                    "actions": {
+                        "maxItemsOne": false
+                    },
+                    "product_tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "datadog_csm_threats_policy": {
+                "current": "datadog:index/csmThreatsPolicy:CsmThreatsPolicy",
+                "majorVersion": 4,
+                "fields": {
+                    "host_tags_lists": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "maxItemsOne": false
+                        }
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "datadog_dashboard": {
                 "current": "datadog:index/dashboard:Dashboard",
@@ -12543,6 +12591,9 @@
                             }
                         }
                     },
+                    "microsoft_sentinel_destination": {
+                        "maxItemsOne": true
+                    },
                     "splunk_destination": {
                         "maxItemsOne": true
                     }
@@ -17122,6 +17173,25 @@
                     },
                     "options": {
                         "maxItemsOne": true
+                    },
+                    "query": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "agent_rule": {
+                                    "maxItemsOne": false
+                                },
+                                "distinct_fields": {
+                                    "maxItemsOne": false
+                                },
+                                "group_by_fields": {
+                                    "maxItemsOne": false
+                                },
+                                "metrics": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -17279,6 +17349,9 @@
                         "maxItemsOne": true
                     },
                     "product_list": {
+                        "maxItemsOne": false
+                    },
+                    "samplings": {
                         "maxItemsOne": false
                     }
                 }
@@ -17578,6 +17651,9 @@
                                             "modifiers": {
                                                 "maxItemsOne": false
                                             },
+                                            "pattern": {
+                                                "maxItemsOne": true
+                                            },
                                             "variable": {
                                                 "maxItemsOne": true
                                             }
@@ -17854,14 +17930,65 @@
                     }
                 }
             },
+            "datadog_cost_budget": {
+                "current": "datadog:index/getCostBudget:getCostBudget",
+                "majorVersion": 4,
+                "fields": {
+                    "entries": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "tag_filters": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "datadog_csm_threats_agent_rules": {
                 "current": "datadog:index/getCsmThreatsAgentRules:getCsmThreatsAgentRules",
                 "majorVersion": 4,
                 "fields": {
                     "agent_rules": {
-                        "maxItemsOne": false
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "actions": {
+                                    "maxItemsOne": false
+                                },
+                                "product_tags": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     },
                     "agent_rules_ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "datadog_csm_threats_policies": {
+                "current": "datadog:index/getCsmThreatsPolicies:getCsmThreatsPolicies",
+                "majorVersion": 4,
+                "fields": {
+                    "policies": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "host_tags_lists": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "maxItemsOne": false
+                                    }
+                                },
+                                "tags": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "policy_ids": {
                         "maxItemsOne": false
                     }
                 }
@@ -18542,7 +18669,10 @@
             "datadog:index/cloudConfigurationRule:CloudConfigurationRule": 0,
             "datadog:index/cloudWorkloadSecurityAgentRule:CloudWorkloadSecurityAgentRule": 0,
             "datadog:index/complianceCustomFramework:ComplianceCustomFramework": 1,
+            "datadog:index/complianceResourceEvaluationFilter:ComplianceResourceEvaluationFilter": 1,
+            "datadog:index/costBudget:CostBudget": 1,
             "datadog:index/csmThreatsAgentRule:CsmThreatsAgentRule": 1,
+            "datadog:index/csmThreatsPolicy:CsmThreatsPolicy": 1,
             "datadog:index/dashboard:Dashboard": 0,
             "datadog:index/dashboardJson:DashboardJson": 0,
             "datadog:index/dashboardList:DashboardList": 1,
@@ -18625,7 +18755,9 @@
             "datadog:index/getAppBuilderApp:getAppBuilderApp": 1,
             "datadog:index/getApplicationKey:getApplicationKey": 1,
             "datadog:index/getCloudWorkloadSecurityAgentRules:getCloudWorkloadSecurityAgentRules": 0,
+            "datadog:index/getCostBudget:getCostBudget": 1,
             "datadog:index/getCsmThreatsAgentRules:getCsmThreatsAgentRules": 1,
+            "datadog:index/getCsmThreatsPolicies:getCsmThreatsPolicies": 1,
             "datadog:index/getDashboard:getDashboard": 0,
             "datadog:index/getDashboardList:getDashboardList": 1,
             "datadog:index/getHosts:getHosts": 1,

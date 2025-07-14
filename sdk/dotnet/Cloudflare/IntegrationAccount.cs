@@ -35,6 +35,8 @@ namespace Pulumi.Datadog.Cloudflare
     /// 
     /// ## Import
     /// 
+    /// The `pulumi import` command can be used, for example:
+    /// 
     /// ```sh
     /// $ pulumi import datadog:cloudflare/integrationAccount:IntegrationAccount new_list "&lt;ID&gt;"
     /// ```

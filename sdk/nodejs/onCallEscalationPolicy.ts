@@ -39,7 +39,9 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * Import an existing on_call_schedule
+ * The `pulumi import` command can be used, for example:
+ *
+ * Import an existing on_call_escalation_policy
  *
  * ```sh
  * $ pulumi import datadog:index/onCallEscalationPolicy:OnCallEscalationPolicy test "b03a07d5-49da-43e9-83b4-5d84969b588b"
@@ -78,9 +80,9 @@ export class OnCallEscalationPolicy extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * If true, pages will be automatically resolved if unacknowledged after the final step.
+     * If true, pages will be automatically resolved if unacknowledged after the final step. Defaults to `false`.
      */
-    public readonly resolvePageOnPolicyEnd!: pulumi.Output<boolean | undefined>;
+    public readonly resolvePageOnPolicyEnd!: pulumi.Output<boolean>;
     /**
      * If set, policy will be retried this many times after the final step. Must be in the range 0-10. Value must be between 0 and 10. Defaults to `0`.
      */
@@ -88,7 +90,7 @@ export class OnCallEscalationPolicy extends pulumi.CustomResource {
     /**
      * List of steps for the escalation policy.
      */
-    public readonly steps!: pulumi.Output<outputs.OnCallEscalationPolicyStep[] | undefined>;
+    public readonly steps!: pulumi.Output<outputs.OnCallEscalationPolicyStep[]>;
     /**
      * A list of team ids associated with the escalation policy.
      */
@@ -117,6 +119,9 @@ export class OnCallEscalationPolicy extends pulumi.CustomResource {
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
+            if ((!args || args.steps === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'steps'");
+            }
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resolvePageOnPolicyEnd"] = args ? args.resolvePageOnPolicyEnd : undefined;
             resourceInputs["retries"] = args ? args.retries : undefined;
@@ -137,7 +142,7 @@ export interface OnCallEscalationPolicyState {
      */
     name?: pulumi.Input<string>;
     /**
-     * If true, pages will be automatically resolved if unacknowledged after the final step.
+     * If true, pages will be automatically resolved if unacknowledged after the final step. Defaults to `false`.
      */
     resolvePageOnPolicyEnd?: pulumi.Input<boolean>;
     /**
@@ -163,7 +168,7 @@ export interface OnCallEscalationPolicyArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * If true, pages will be automatically resolved if unacknowledged after the final step.
+     * If true, pages will be automatically resolved if unacknowledged after the final step. Defaults to `false`.
      */
     resolvePageOnPolicyEnd?: pulumi.Input<boolean>;
     /**
@@ -173,7 +178,7 @@ export interface OnCallEscalationPolicyArgs {
     /**
      * List of steps for the escalation policy.
      */
-    steps?: pulumi.Input<pulumi.Input<inputs.OnCallEscalationPolicyStep>[]>;
+    steps: pulumi.Input<pulumi.Input<inputs.OnCallEscalationPolicyStep>[]>;
     /**
      * A list of team ids associated with the escalation policy.
      */

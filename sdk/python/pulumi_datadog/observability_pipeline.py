@@ -114,6 +114,8 @@ class ObservabilityPipeline(pulumi.CustomResource):
 
         ## Import
 
+        The `pulumi import` command can be used, for example:
+
         ```sh
         $ pulumi import datadog:index/observabilityPipeline:ObservabilityPipeline example_pipeline 8beabbc4-1f4d-11f0-942b-da7ad0900001
         ```
@@ -135,6 +137,8 @@ class ObservabilityPipeline(pulumi.CustomResource):
         Datadog recommends using the `-parallelism=1` option to apply this resource.
 
         ## Import
+
+        The `pulumi import` command can be used, for example:
 
         ```sh
         $ pulumi import datadog:index/observabilityPipeline:ObservabilityPipeline example_pipeline 8beabbc4-1f4d-11f0-942b-da7ad0900001

@@ -47,6 +47,8 @@ namespace Pulumi.Datadog
     /// 
     /// ## Import
     /// 
+    /// The `pulumi import` command can be used, for example:
+    /// 
     /// Security monitoring filters can be imported using ID, e.g.
     /// 
     /// ```sh

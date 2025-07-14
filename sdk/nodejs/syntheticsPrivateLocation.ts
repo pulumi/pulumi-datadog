@@ -27,6 +27,8 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
+ * The `pulumi import` command can be used, for example:
+ *
  * Synthetics private locations can be imported using their string ID, e.g.
  *
  * ```sh
@@ -62,6 +64,10 @@ export class SyntheticsPrivateLocation extends pulumi.CustomResource {
     }
 
     /**
+     * API key used to generate the private location configuration.
+     */
+    public readonly apiKey!: pulumi.Output<string | undefined>;
+    /**
      * Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
      */
     public /*out*/ readonly config!: pulumi.Output<string>;
@@ -95,6 +101,7 @@ export class SyntheticsPrivateLocation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SyntheticsPrivateLocationState | undefined;
+            resourceInputs["apiKey"] = state ? state.apiKey : undefined;
             resourceInputs["config"] = state ? state.config : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["metadata"] = state ? state.metadata : undefined;
@@ -105,6 +112,7 @@ export class SyntheticsPrivateLocation extends pulumi.CustomResource {
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
+            resourceInputs["apiKey"] = args?.apiKey ? pulumi.secret(args.apiKey) : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["metadata"] = args ? args.metadata : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -112,7 +120,7 @@ export class SyntheticsPrivateLocation extends pulumi.CustomResource {
             resourceInputs["config"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["config"] };
+        const secretOpts = { additionalSecretOutputs: ["apiKey", "config"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(SyntheticsPrivateLocation.__pulumiType, name, resourceInputs, opts);
     }
@@ -122,6 +130,10 @@ export class SyntheticsPrivateLocation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SyntheticsPrivateLocation resources.
  */
 export interface SyntheticsPrivateLocationState {
+    /**
+     * API key used to generate the private location configuration.
+     */
+    apiKey?: pulumi.Input<string>;
     /**
      * Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
      */
@@ -148,6 +160,10 @@ export interface SyntheticsPrivateLocationState {
  * The set of arguments for constructing a SyntheticsPrivateLocation resource.
  */
 export interface SyntheticsPrivateLocationArgs {
+    /**
+     * API key used to generate the private location configuration.
+     */
+    apiKey?: pulumi.Input<string>;
     /**
      * Description of the private location. Defaults to `""`.
      */

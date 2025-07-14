@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OnCallEscalationPolicyStep {
     /**
-     * @return Specifies how this escalation step will assign targets. Can be `default` (page all targets at once) or `round-robin`. Valid values are `assignment`, `round-robin`. Defaults to `&#34;default&#34;`.
+     * @return Specifies how this escalation step will assign targets. Can be `default` (page all targets at once) or `round-robin`. Valid values are `default`, `round-robin`. Defaults to `&#34;default&#34;`.
      * 
      */
     private @Nullable String assignment;
@@ -34,11 +34,11 @@ public final class OnCallEscalationPolicyStep {
      * @return List of targets for the step.
      * 
      */
-    private @Nullable List<OnCallEscalationPolicyStepTarget> targets;
+    private List<OnCallEscalationPolicyStepTarget> targets;
 
     private OnCallEscalationPolicyStep() {}
     /**
-     * @return Specifies how this escalation step will assign targets. Can be `default` (page all targets at once) or `round-robin`. Valid values are `assignment`, `round-robin`. Defaults to `&#34;default&#34;`.
+     * @return Specifies how this escalation step will assign targets. Can be `default` (page all targets at once) or `round-robin`. Valid values are `default`, `round-robin`. Defaults to `&#34;default&#34;`.
      * 
      */
     public Optional<String> assignment() {
@@ -63,7 +63,7 @@ public final class OnCallEscalationPolicyStep {
      * 
      */
     public List<OnCallEscalationPolicyStepTarget> targets() {
-        return this.targets == null ? List.of() : this.targets;
+        return this.targets;
     }
 
     public static Builder builder() {
@@ -78,7 +78,7 @@ public final class OnCallEscalationPolicyStep {
         private @Nullable String assignment;
         private Integer escalateAfterSeconds;
         private @Nullable String id;
-        private @Nullable List<OnCallEscalationPolicyStepTarget> targets;
+        private List<OnCallEscalationPolicyStepTarget> targets;
         public Builder() {}
         public Builder(OnCallEscalationPolicyStep defaults) {
     	      Objects.requireNonNull(defaults);
@@ -109,8 +109,10 @@ public final class OnCallEscalationPolicyStep {
             return this;
         }
         @CustomType.Setter
-        public Builder targets(@Nullable List<OnCallEscalationPolicyStepTarget> targets) {
-
+        public Builder targets(List<OnCallEscalationPolicyStepTarget> targets) {
+            if (targets == null) {
+              throw new MissingRequiredPropertyException("OnCallEscalationPolicyStep", "targets");
+            }
             this.targets = targets;
             return this;
         }

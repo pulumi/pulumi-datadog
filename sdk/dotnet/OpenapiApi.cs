@@ -14,6 +14,8 @@ namespace Pulumi.Datadog
     /// 
     /// ## Import
     /// 
+    /// The `pulumi import` command can be used, for example:
+    /// 
     /// ```sh
     /// $ pulumi import datadog:index/openapiApi:OpenapiApi new_list "90646597-5fdb-4a17-a240-647003f8c028"
     /// ```

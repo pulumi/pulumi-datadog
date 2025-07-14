@@ -30,6 +30,10 @@ public final class OnCallScheduleLayer {
      * 
      */
     private @Nullable String id;
+    /**
+     * @return Rotation interval for this layer.
+     * 
+     */
     private @Nullable OnCallScheduleLayerInterval interval;
     /**
      * @return The name of this layer. Should be unique within the schedule.
@@ -45,7 +49,7 @@ public final class OnCallScheduleLayer {
      * @return The date/time when the rotation for this layer starts (in ISO 8601).
      * 
      */
-    private @Nullable String rotationStart;
+    private String rotationStart;
     /**
      * @return List of user IDs for the layer. Can either be a valid user id or null
      * 
@@ -74,6 +78,10 @@ public final class OnCallScheduleLayer {
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
+    /**
+     * @return Rotation interval for this layer.
+     * 
+     */
     public Optional<OnCallScheduleLayerInterval> interval() {
         return Optional.ofNullable(this.interval);
     }
@@ -95,8 +103,8 @@ public final class OnCallScheduleLayer {
      * @return The date/time when the rotation for this layer starts (in ISO 8601).
      * 
      */
-    public Optional<String> rotationStart() {
-        return Optional.ofNullable(this.rotationStart);
+    public String rotationStart() {
+        return this.rotationStart;
     }
     /**
      * @return List of user IDs for the layer. Can either be a valid user id or null
@@ -121,7 +129,7 @@ public final class OnCallScheduleLayer {
         private @Nullable OnCallScheduleLayerInterval interval;
         private String name;
         private @Nullable List<OnCallScheduleLayerRestriction> restrictions;
-        private @Nullable String rotationStart;
+        private String rotationStart;
         private List<String> users;
         public Builder() {}
         public Builder(OnCallScheduleLayer defaults) {
@@ -180,8 +188,10 @@ public final class OnCallScheduleLayer {
             return restrictions(List.of(restrictions));
         }
         @CustomType.Setter
-        public Builder rotationStart(@Nullable String rotationStart) {
-
+        public Builder rotationStart(String rotationStart) {
+            if (rotationStart == null) {
+              throw new MissingRequiredPropertyException("OnCallScheduleLayer", "rotationStart");
+            }
             this.rotationStart = rotationStart;
             return this;
         }

@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.SyntheticsTestBrowserStepParamsElementUserLocatorArgs;
+import com.pulumi.datadog.inputs.SyntheticsTestBrowserStepParamsPatternArgs;
 import com.pulumi.datadog.inputs.SyntheticsTestBrowserStepParamsVariableArgs;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -19,6 +20,21 @@ import javax.annotation.Nullable;
 public final class SyntheticsTestBrowserStepParamsArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final SyntheticsTestBrowserStepParamsArgs Empty = new SyntheticsTestBrowserStepParamsArgs();
+
+    /**
+     * Whether to append the `value` to existing text input content for a &#34;typeText&#34; step. By default, content is cleared before text input.
+     * 
+     */
+    @Import(name="appendToContent")
+    private @Nullable Output<Boolean> appendToContent;
+
+    /**
+     * @return Whether to append the `value` to existing text input content for a &#34;typeText&#34; step. By default, content is cleared before text input.
+     * 
+     */
+    public Optional<Output<Boolean>> appendToContent() {
+        return Optional.ofNullable(this.appendToContent);
+    }
 
     /**
      * Name of the attribute to use for an &#34;assert attribute&#34; step.
@@ -111,14 +127,14 @@ public final class SyntheticsTestBrowserStepParamsArgs extends com.pulumi.resour
     }
 
     /**
-     * Element to use for the step, JSON encoded string.
+     * Element to use for the step, JSON encoded string. Refer to the examples for a usage example showing the schema.
      * 
      */
     @Import(name="element")
     private @Nullable Output<String> element;
 
     /**
-     * @return Element to use for the step, JSON encoded string.
+     * @return Element to use for the step, JSON encoded string. Refer to the examples for a usage example showing the schema.
      * 
      */
     public Optional<Output<String>> element() {
@@ -198,6 +214,21 @@ public final class SyntheticsTestBrowserStepParamsArgs extends com.pulumi.resour
      */
     public Optional<Output<List<String>>> modifiers() {
         return Optional.ofNullable(this.modifiers);
+    }
+
+    /**
+     * Pattern to use for an &#34;extractFromEmailBody&#34; step.
+     * 
+     */
+    @Import(name="pattern")
+    private @Nullable Output<SyntheticsTestBrowserStepParamsPatternArgs> pattern;
+
+    /**
+     * @return Pattern to use for an &#34;extractFromEmailBody&#34; step.
+     * 
+     */
+    public Optional<Output<SyntheticsTestBrowserStepParamsPatternArgs>> pattern() {
+        return Optional.ofNullable(this.pattern);
     }
 
     /**
@@ -338,6 +369,7 @@ public final class SyntheticsTestBrowserStepParamsArgs extends com.pulumi.resour
     private SyntheticsTestBrowserStepParamsArgs() {}
 
     private SyntheticsTestBrowserStepParamsArgs(SyntheticsTestBrowserStepParamsArgs $) {
+        this.appendToContent = $.appendToContent;
         this.attribute = $.attribute;
         this.check = $.check;
         this.clickType = $.clickType;
@@ -350,6 +382,7 @@ public final class SyntheticsTestBrowserStepParamsArgs extends com.pulumi.resour
         this.file = $.file;
         this.files = $.files;
         this.modifiers = $.modifiers;
+        this.pattern = $.pattern;
         this.playingTabId = $.playingTabId;
         this.request = $.request;
         this.requests = $.requests;
@@ -377,6 +410,27 @@ public final class SyntheticsTestBrowserStepParamsArgs extends com.pulumi.resour
 
         public Builder(SyntheticsTestBrowserStepParamsArgs defaults) {
             $ = new SyntheticsTestBrowserStepParamsArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param appendToContent Whether to append the `value` to existing text input content for a &#34;typeText&#34; step. By default, content is cleared before text input.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder appendToContent(@Nullable Output<Boolean> appendToContent) {
+            $.appendToContent = appendToContent;
+            return this;
+        }
+
+        /**
+         * @param appendToContent Whether to append the `value` to existing text input content for a &#34;typeText&#34; step. By default, content is cleared before text input.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder appendToContent(Boolean appendToContent) {
+            return appendToContent(Output.of(appendToContent));
         }
 
         /**
@@ -506,7 +560,7 @@ public final class SyntheticsTestBrowserStepParamsArgs extends com.pulumi.resour
         }
 
         /**
-         * @param element Element to use for the step, JSON encoded string.
+         * @param element Element to use for the step, JSON encoded string. Refer to the examples for a usage example showing the schema.
          * 
          * @return builder
          * 
@@ -517,7 +571,7 @@ public final class SyntheticsTestBrowserStepParamsArgs extends com.pulumi.resour
         }
 
         /**
-         * @param element Element to use for the step, JSON encoded string.
+         * @param element Element to use for the step, JSON encoded string. Refer to the examples for a usage example showing the schema.
          * 
          * @return builder
          * 
@@ -639,6 +693,27 @@ public final class SyntheticsTestBrowserStepParamsArgs extends com.pulumi.resour
          */
         public Builder modifiers(String... modifiers) {
             return modifiers(List.of(modifiers));
+        }
+
+        /**
+         * @param pattern Pattern to use for an &#34;extractFromEmailBody&#34; step.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pattern(@Nullable Output<SyntheticsTestBrowserStepParamsPatternArgs> pattern) {
+            $.pattern = pattern;
+            return this;
+        }
+
+        /**
+         * @param pattern Pattern to use for an &#34;extractFromEmailBody&#34; step.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pattern(SyntheticsTestBrowserStepParamsPatternArgs pattern) {
+            return pattern(Output.of(pattern));
         }
 
         /**

@@ -5,9 +5,11 @@ package com.pulumi.datadog;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.CsmThreatsAgentRuleActionArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -18,14 +20,29 @@ public final class CsmThreatsAgentRuleArgs extends com.pulumi.resources.Resource
     public static final CsmThreatsAgentRuleArgs Empty = new CsmThreatsAgentRuleArgs();
 
     /**
-     * A description for the Agent rule. Defaults to `&#34;&#34;`.
+     * The list of actions the rule can perform
+     * 
+     */
+    @Import(name="actions")
+    private @Nullable Output<List<CsmThreatsAgentRuleActionArgs>> actions;
+
+    /**
+     * @return The list of actions the rule can perform
+     * 
+     */
+    public Optional<Output<List<CsmThreatsAgentRuleActionArgs>>> actions() {
+        return Optional.ofNullable(this.actions);
+    }
+
+    /**
+     * A description for the Agent rule.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description for the Agent rule. Defaults to `&#34;&#34;`.
+     * @return A description for the Agent rule.
      * 
      */
     public Optional<Output<String>> description() {
@@ -33,18 +50,18 @@ public final class CsmThreatsAgentRuleArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Indicates Whether the Agent rule is enabled.
+     * Indicates whether the Agent rule is enabled. Must not be used without policy_id.
      * 
      */
-    @Import(name="enabled", required=true)
-    private Output<Boolean> enabled;
+    @Import(name="enabled")
+    private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Indicates Whether the Agent rule is enabled.
+     * @return Indicates whether the Agent rule is enabled. Must not be used without policy_id.
      * 
      */
-    public Output<Boolean> enabled() {
-        return this.enabled;
+    public Optional<Output<Boolean>> enabled() {
+        return Optional.ofNullable(this.enabled);
     }
 
     /**
@@ -77,13 +94,46 @@ public final class CsmThreatsAgentRuleArgs extends com.pulumi.resources.Resource
         return this.name;
     }
 
+    /**
+     * The ID of the agent policy in which the rule is saved
+     * 
+     */
+    @Import(name="policyId")
+    private @Nullable Output<String> policyId;
+
+    /**
+     * @return The ID of the agent policy in which the rule is saved
+     * 
+     */
+    public Optional<Output<String>> policyId() {
+        return Optional.ofNullable(this.policyId);
+    }
+
+    /**
+     * The list of product tags associated with the rule
+     * 
+     */
+    @Import(name="productTags")
+    private @Nullable Output<List<String>> productTags;
+
+    /**
+     * @return The list of product tags associated with the rule
+     * 
+     */
+    public Optional<Output<List<String>>> productTags() {
+        return Optional.ofNullable(this.productTags);
+    }
+
     private CsmThreatsAgentRuleArgs() {}
 
     private CsmThreatsAgentRuleArgs(CsmThreatsAgentRuleArgs $) {
+        this.actions = $.actions;
         this.description = $.description;
         this.enabled = $.enabled;
         this.expression = $.expression;
         this.name = $.name;
+        this.policyId = $.policyId;
+        this.productTags = $.productTags;
     }
 
     public static Builder builder() {
@@ -105,7 +155,38 @@ public final class CsmThreatsAgentRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param description A description for the Agent rule. Defaults to `&#34;&#34;`.
+         * @param actions The list of actions the rule can perform
+         * 
+         * @return builder
+         * 
+         */
+        public Builder actions(@Nullable Output<List<CsmThreatsAgentRuleActionArgs>> actions) {
+            $.actions = actions;
+            return this;
+        }
+
+        /**
+         * @param actions The list of actions the rule can perform
+         * 
+         * @return builder
+         * 
+         */
+        public Builder actions(List<CsmThreatsAgentRuleActionArgs> actions) {
+            return actions(Output.of(actions));
+        }
+
+        /**
+         * @param actions The list of actions the rule can perform
+         * 
+         * @return builder
+         * 
+         */
+        public Builder actions(CsmThreatsAgentRuleActionArgs... actions) {
+            return actions(List.of(actions));
+        }
+
+        /**
+         * @param description A description for the Agent rule.
          * 
          * @return builder
          * 
@@ -116,7 +197,7 @@ public final class CsmThreatsAgentRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param description A description for the Agent rule. Defaults to `&#34;&#34;`.
+         * @param description A description for the Agent rule.
          * 
          * @return builder
          * 
@@ -126,18 +207,18 @@ public final class CsmThreatsAgentRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param enabled Indicates Whether the Agent rule is enabled.
+         * @param enabled Indicates whether the Agent rule is enabled. Must not be used without policy_id.
          * 
          * @return builder
          * 
          */
-        public Builder enabled(Output<Boolean> enabled) {
+        public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
         /**
-         * @param enabled Indicates Whether the Agent rule is enabled.
+         * @param enabled Indicates whether the Agent rule is enabled. Must not be used without policy_id.
          * 
          * @return builder
          * 
@@ -188,10 +269,59 @@ public final class CsmThreatsAgentRuleArgs extends com.pulumi.resources.Resource
             return name(Output.of(name));
         }
 
+        /**
+         * @param policyId The ID of the agent policy in which the rule is saved
+         * 
+         * @return builder
+         * 
+         */
+        public Builder policyId(@Nullable Output<String> policyId) {
+            $.policyId = policyId;
+            return this;
+        }
+
+        /**
+         * @param policyId The ID of the agent policy in which the rule is saved
+         * 
+         * @return builder
+         * 
+         */
+        public Builder policyId(String policyId) {
+            return policyId(Output.of(policyId));
+        }
+
+        /**
+         * @param productTags The list of product tags associated with the rule
+         * 
+         * @return builder
+         * 
+         */
+        public Builder productTags(@Nullable Output<List<String>> productTags) {
+            $.productTags = productTags;
+            return this;
+        }
+
+        /**
+         * @param productTags The list of product tags associated with the rule
+         * 
+         * @return builder
+         * 
+         */
+        public Builder productTags(List<String> productTags) {
+            return productTags(Output.of(productTags));
+        }
+
+        /**
+         * @param productTags The list of product tags associated with the rule
+         * 
+         * @return builder
+         * 
+         */
+        public Builder productTags(String... productTags) {
+            return productTags(List.of(productTags));
+        }
+
         public CsmThreatsAgentRuleArgs build() {
-            if ($.enabled == null) {
-                throw new MissingRequiredPropertyException("CsmThreatsAgentRuleArgs", "enabled");
-            }
             if ($.expression == null) {
                 throw new MissingRequiredPropertyException("CsmThreatsAgentRuleArgs", "expression");
             }

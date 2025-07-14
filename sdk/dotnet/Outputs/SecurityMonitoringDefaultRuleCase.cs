@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class SecurityMonitoringDefaultRuleCase
     {
         /// <summary>
+        /// Status of the rule case to override. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+        /// </summary>
+        public readonly string? CustomStatus;
+        /// <summary>
         /// Notification targets for each rule case.
         /// </summary>
         public readonly ImmutableArray<string> Notifications;
@@ -24,10 +28,13 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private SecurityMonitoringDefaultRuleCase(
+            string? customStatus,
+
             ImmutableArray<string> notifications,
 
             string status)
         {
+            CustomStatus = customStatus;
             Notifications = notifications;
             Status = status;
         }

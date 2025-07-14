@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class SyntheticsTestBrowserStepParams
     {
         /// <summary>
+        /// Whether to append the `value` to existing text input content for a "typeText" step. By default, content is cleared before text input.
+        /// </summary>
+        public readonly bool? AppendToContent;
+        /// <summary>
         /// Name of the attribute to use for an "assert attribute" step.
         /// </summary>
         public readonly string? Attribute;
@@ -38,7 +42,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly int? Delay;
         /// <summary>
-        /// Element to use for the step, JSON encoded string.
+        /// Element to use for the step, JSON encoded string. Refer to the examples for a usage example showing the schema.
         /// </summary>
         public readonly string? Element;
         /// <summary>
@@ -61,6 +65,10 @@ namespace Pulumi.Datadog.Outputs
         /// Modifier to use for a "press key" step.
         /// </summary>
         public readonly ImmutableArray<string> Modifiers;
+        /// <summary>
+        /// Pattern to use for an "extractFromEmailBody" step.
+        /// </summary>
+        public readonly Outputs.SyntheticsTestBrowserStepParamsPattern? Pattern;
         /// <summary>
         /// ID of the tab to play the subtest.
         /// </summary>
@@ -100,6 +108,8 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private SyntheticsTestBrowserStepParams(
+            bool? appendToContent,
+
             string? attribute,
 
             string? check,
@@ -124,6 +134,8 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<string> modifiers,
 
+            Outputs.SyntheticsTestBrowserStepParamsPattern? pattern,
+
             string? playingTabId,
 
             string? request,
@@ -142,6 +154,7 @@ namespace Pulumi.Datadog.Outputs
 
             int? y)
         {
+            AppendToContent = appendToContent;
             Attribute = attribute;
             Check = check;
             ClickType = clickType;
@@ -154,6 +167,7 @@ namespace Pulumi.Datadog.Outputs
             File = file;
             Files = files;
             Modifiers = modifiers;
+            Pattern = pattern;
             PlayingTabId = playingTabId;
             Request = request;
             Requests = requests;

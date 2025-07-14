@@ -19,6 +19,21 @@ public final class SyntheticsPrivateLocationArgs extends com.pulumi.resources.Re
     public static final SyntheticsPrivateLocationArgs Empty = new SyntheticsPrivateLocationArgs();
 
     /**
+     * API key used to generate the private location configuration.
+     * 
+     */
+    @Import(name="apiKey")
+    private @Nullable Output<String> apiKey;
+
+    /**
+     * @return API key used to generate the private location configuration.
+     * 
+     */
+    public Optional<Output<String>> apiKey() {
+        return Optional.ofNullable(this.apiKey);
+    }
+
+    /**
      * Description of the private location. Defaults to `&#34;&#34;`.
      * 
      */
@@ -81,6 +96,7 @@ public final class SyntheticsPrivateLocationArgs extends com.pulumi.resources.Re
     private SyntheticsPrivateLocationArgs() {}
 
     private SyntheticsPrivateLocationArgs(SyntheticsPrivateLocationArgs $) {
+        this.apiKey = $.apiKey;
         this.description = $.description;
         this.metadata = $.metadata;
         this.name = $.name;
@@ -103,6 +119,27 @@ public final class SyntheticsPrivateLocationArgs extends com.pulumi.resources.Re
 
         public Builder(SyntheticsPrivateLocationArgs defaults) {
             $ = new SyntheticsPrivateLocationArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param apiKey API key used to generate the private location configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiKey(@Nullable Output<String> apiKey) {
+            $.apiKey = apiKey;
+            return this;
+        }
+
+        /**
+         * @param apiKey API key used to generate the private location configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiKey(String apiKey) {
+            return apiKey(Output.of(apiKey));
         }
 
         /**

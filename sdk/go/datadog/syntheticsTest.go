@@ -444,6 +444,21 @@ import (
 //	}
 //	json1 := string(tmpJSON1)
 //	tmpJSON2, err := json.Marshal(map[string]interface{}{
+//		"userLocator": map[string]interface{}{
+//			"failTestOnCannotLocate": true,
+//			"values": []map[string]interface{}{
+//				map[string]interface{}{
+//					"type":  "css",
+//					"value": "#simple-file-upload",
+//				},
+//			},
+//		},
+//	})
+//	if err != nil {
+//		return err
+//	}
+//	json2 := string(tmpJSON2)
+//	tmpJSON3, err := json.Marshal(map[string]interface{}{
 //		"count": map[string]interface{}{
 //			"type":  "equals",
 //			"value": 1,
@@ -453,7 +468,7 @@ import (
 //	if err != nil {
 //		return err
 //	}
-//	json2 := string(tmpJSON2)
+//	json3 := string(tmpJSON3)
 //	// Example Usage (Synthetics Browser test)
 //	// Create a new Datadog Synthetics Browser test starting on https://www.example.org
 //	_, err = datadog.NewSyntheticsTest(ctx, "test_browser", &datadog.SyntheticsTestArgs{
@@ -492,21 +507,21 @@ import (
 //				Name: pulumi.String("Upload a file"),
 //				Type: pulumi.String("uploadFiles"),
 //				Params: &datadog.SyntheticsTestBrowserStepParamsArgs{
-//					Files:   pulumi.String(json1),
-//					Element: pulumi.String("*[@id='simple-file-upload']"),
+//					Files: pulumi.String(json1),
 //					ElementUserLocator: &datadog.SyntheticsTestBrowserStepParamsElementUserLocatorArgs{
 //						Value: &datadog.SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs{
 //							Type:  pulumi.String("css"),
 //							Value: pulumi.String("#simple-file-upload"),
 //						},
 //					},
+//					Element: pulumi.String(json2),
 //				},
 //			},
 //			&datadog.SyntheticsTestBrowserStepArgs{
 //				Name: pulumi.String("Test sending http requests"),
 //				Type: pulumi.String("assertRequests"),
 //				Params: &datadog.SyntheticsTestBrowserStepParamsArgs{
-//					Requests: pulumi.String(json2),
+//					Requests: pulumi.String(json3),
 //				},
 //			},
 //		},

@@ -23,17 +23,21 @@ __all__ = ['SyntheticsPrivateLocationArgs', 'SyntheticsPrivateLocation']
 class SyntheticsPrivateLocationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[builtins.str],
+                 api_key: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  metadata: Optional[pulumi.Input['SyntheticsPrivateLocationMetadataArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a SyntheticsPrivateLocation resource.
         :param pulumi.Input[builtins.str] name: Synthetics private location name.
+        :param pulumi.Input[builtins.str] api_key: API key used to generate the private location configuration.
         :param pulumi.Input[builtins.str] description: Description of the private location. Defaults to `""`.
         :param pulumi.Input['SyntheticsPrivateLocationMetadataArgs'] metadata: The private location metadata
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] tags: A list of tags to associate with your synthetics private location.
         """
         pulumi.set(__self__, "name", name)
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if metadata is not None:
@@ -52,6 +56,18 @@ class SyntheticsPrivateLocationArgs:
     @name.setter
     def name(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        API key used to generate the private location configuration.
+        """
+        return pulumi.get(self, "api_key")
+
+    @api_key.setter
+    def api_key(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "api_key", value)
 
     @property
     @pulumi.getter
@@ -93,6 +109,7 @@ class SyntheticsPrivateLocationArgs:
 @pulumi.input_type
 class _SyntheticsPrivateLocationState:
     def __init__(__self__, *,
+                 api_key: Optional[pulumi.Input[builtins.str]] = None,
                  config: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  metadata: Optional[pulumi.Input['SyntheticsPrivateLocationMetadataArgs']] = None,
@@ -100,12 +117,15 @@ class _SyntheticsPrivateLocationState:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering SyntheticsPrivateLocation resources.
+        :param pulumi.Input[builtins.str] api_key: API key used to generate the private location configuration.
         :param pulumi.Input[builtins.str] config: Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
         :param pulumi.Input[builtins.str] description: Description of the private location. Defaults to `""`.
         :param pulumi.Input['SyntheticsPrivateLocationMetadataArgs'] metadata: The private location metadata
         :param pulumi.Input[builtins.str] name: Synthetics private location name.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] tags: A list of tags to associate with your synthetics private location.
         """
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
         if config is not None:
             pulumi.set(__self__, "config", config)
         if description is not None:
@@ -116,6 +136,18 @@ class _SyntheticsPrivateLocationState:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        API key used to generate the private location configuration.
+        """
+        return pulumi.get(self, "api_key")
+
+    @api_key.setter
+    def api_key(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "api_key", value)
 
     @property
     @pulumi.getter
@@ -184,6 +216,7 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 api_key: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  metadata: Optional[pulumi.Input[Union['SyntheticsPrivateLocationMetadataArgs', 'SyntheticsPrivateLocationMetadataArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
@@ -209,6 +242,8 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
 
         ## Import
 
+        The `pulumi import` command can be used, for example:
+
         Synthetics private locations can be imported using their string ID, e.g.
 
         ```sh
@@ -217,6 +252,7 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] api_key: API key used to generate the private location configuration.
         :param pulumi.Input[builtins.str] description: Description of the private location. Defaults to `""`.
         :param pulumi.Input[Union['SyntheticsPrivateLocationMetadataArgs', 'SyntheticsPrivateLocationMetadataArgsDict']] metadata: The private location metadata
         :param pulumi.Input[builtins.str] name: Synthetics private location name.
@@ -248,6 +284,8 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
 
         ## Import
 
+        The `pulumi import` command can be used, for example:
+
         Synthetics private locations can be imported using their string ID, e.g.
 
         ```sh
@@ -269,6 +307,7 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 api_key: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  metadata: Optional[pulumi.Input[Union['SyntheticsPrivateLocationMetadataArgs', 'SyntheticsPrivateLocationMetadataArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
@@ -282,6 +321,7 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SyntheticsPrivateLocationArgs.__new__(SyntheticsPrivateLocationArgs)
 
+            __props__.__dict__["api_key"] = None if api_key is None else pulumi.Output.secret(api_key)
             __props__.__dict__["description"] = description
             __props__.__dict__["metadata"] = metadata
             if name is None and not opts.urn:
@@ -289,7 +329,7 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["config"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["config"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["apiKey", "config"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(SyntheticsPrivateLocation, __self__).__init__(
             'datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation',
@@ -301,6 +341,7 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            api_key: Optional[pulumi.Input[builtins.str]] = None,
             config: Optional[pulumi.Input[builtins.str]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
             metadata: Optional[pulumi.Input[Union['SyntheticsPrivateLocationMetadataArgs', 'SyntheticsPrivateLocationMetadataArgsDict']]] = None,
@@ -313,6 +354,7 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] api_key: API key used to generate the private location configuration.
         :param pulumi.Input[builtins.str] config: Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
         :param pulumi.Input[builtins.str] description: Description of the private location. Defaults to `""`.
         :param pulumi.Input[Union['SyntheticsPrivateLocationMetadataArgs', 'SyntheticsPrivateLocationMetadataArgsDict']] metadata: The private location metadata
@@ -323,12 +365,21 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
 
         __props__ = _SyntheticsPrivateLocationState.__new__(_SyntheticsPrivateLocationState)
 
+        __props__.__dict__["api_key"] = api_key
         __props__.__dict__["config"] = config
         __props__.__dict__["description"] = description
         __props__.__dict__["metadata"] = metadata
         __props__.__dict__["name"] = name
         __props__.__dict__["tags"] = tags
         return SyntheticsPrivateLocation(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        API key used to generate the private location configuration.
+        """
+        return pulumi.get(self, "api_key")
 
     @property
     @pulumi.getter

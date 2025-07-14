@@ -59,6 +59,8 @@ import (
 //
 // ## Import
 //
+// The `pulumi import` command can be used, for example:
+//
 // This resource is imported using team_id and user_id seperated by `:`.
 //
 // ```sh

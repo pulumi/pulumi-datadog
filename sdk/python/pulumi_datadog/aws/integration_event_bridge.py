@@ -188,6 +188,8 @@ class IntegrationEventBridge(pulumi.CustomResource):
 
         ## Import
 
+        The `pulumi import` command can be used, for example:
+
         Amazon Web Service EventBridge integrations are imported using the Event Source name as listed for an integrated AWS account in Datadog
 
         ```sh
@@ -225,6 +227,8 @@ class IntegrationEventBridge(pulumi.CustomResource):
         ```
 
         ## Import
+
+        The `pulumi import` command can be used, for example:
 
         Amazon Web Service EventBridge integrations are imported using the Event Source name as listed for an integrated AWS account in Datadog
 

@@ -15,26 +15,26 @@ namespace Pulumi.Datadog.Inputs
         /// <summary>
         /// The weekday when the restriction period ends. Valid values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
         /// </summary>
-        [Input("endDay")]
-        public Input<string>? EndDay { get; set; }
+        [Input("endDay", required: true)]
+        public Input<string> EndDay { get; set; } = null!;
 
         /// <summary>
         /// The time of day when the restriction ends (hh:mm:ss).
         /// </summary>
-        [Input("endTime")]
-        public Input<string>? EndTime { get; set; }
+        [Input("endTime", required: true)]
+        public Input<string> EndTime { get; set; } = null!;
 
         /// <summary>
         /// The weekday when the restriction period starts. Valid values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
         /// </summary>
-        [Input("startDay")]
-        public Input<string>? StartDay { get; set; }
+        [Input("startDay", required: true)]
+        public Input<string> StartDay { get; set; } = null!;
 
         /// <summary>
         /// The time of day when the restriction begins (hh:mm:ss).
         /// </summary>
-        [Input("startTime")]
-        public Input<string>? StartTime { get; set; }
+        [Input("startTime", required: true)]
+        public Input<string> StartTime { get; set; } = null!;
 
         public OnCallScheduleLayerRestrictionGetArgs()
         {

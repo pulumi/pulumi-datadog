@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -22,6 +24,8 @@ import * as utilities from "./utilities";
  * ```
  *
  * ## Import
+ *
+ * The `pulumi import` command can be used, for example:
  *
  * CSM Agent Rules can be imported using ID. For example:
  *
@@ -58,11 +62,15 @@ export class CsmThreatsAgentRule extends pulumi.CustomResource {
     }
 
     /**
-     * A description for the Agent rule. Defaults to `""`.
+     * The list of actions the rule can perform
+     */
+    public readonly actions!: pulumi.Output<outputs.CsmThreatsAgentRuleAction[] | undefined>;
+    /**
+     * A description for the Agent rule.
      */
     public readonly description!: pulumi.Output<string>;
     /**
-     * Indicates Whether the Agent rule is enabled.
+     * Indicates whether the Agent rule is enabled. Must not be used without policy_id.
      */
     public readonly enabled!: pulumi.Output<boolean>;
     /**
@@ -73,6 +81,14 @@ export class CsmThreatsAgentRule extends pulumi.CustomResource {
      * The name of the Agent rule.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The ID of the agent policy in which the rule is saved
+     */
+    public readonly policyId!: pulumi.Output<string | undefined>;
+    /**
+     * The list of product tags associated with the rule
+     */
+    public readonly productTags!: pulumi.Output<string[]>;
 
     /**
      * Create a CsmThreatsAgentRule resource with the given unique name, arguments, and options.
@@ -87,25 +103,28 @@ export class CsmThreatsAgentRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CsmThreatsAgentRuleState | undefined;
+            resourceInputs["actions"] = state ? state.actions : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["expression"] = state ? state.expression : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["policyId"] = state ? state.policyId : undefined;
+            resourceInputs["productTags"] = state ? state.productTags : undefined;
         } else {
             const args = argsOrState as CsmThreatsAgentRuleArgs | undefined;
-            if ((!args || args.enabled === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'enabled'");
-            }
             if ((!args || args.expression === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'expression'");
             }
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
+            resourceInputs["actions"] = args ? args.actions : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["expression"] = args ? args.expression : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["policyId"] = args ? args.policyId : undefined;
+            resourceInputs["productTags"] = args ? args.productTags : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CsmThreatsAgentRule.__pulumiType, name, resourceInputs, opts);
@@ -117,11 +136,15 @@ export class CsmThreatsAgentRule extends pulumi.CustomResource {
  */
 export interface CsmThreatsAgentRuleState {
     /**
-     * A description for the Agent rule. Defaults to `""`.
+     * The list of actions the rule can perform
+     */
+    actions?: pulumi.Input<pulumi.Input<inputs.CsmThreatsAgentRuleAction>[]>;
+    /**
+     * A description for the Agent rule.
      */
     description?: pulumi.Input<string>;
     /**
-     * Indicates Whether the Agent rule is enabled.
+     * Indicates whether the Agent rule is enabled. Must not be used without policy_id.
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -132,6 +155,14 @@ export interface CsmThreatsAgentRuleState {
      * The name of the Agent rule.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The ID of the agent policy in which the rule is saved
+     */
+    policyId?: pulumi.Input<string>;
+    /**
+     * The list of product tags associated with the rule
+     */
+    productTags?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -139,13 +170,17 @@ export interface CsmThreatsAgentRuleState {
  */
 export interface CsmThreatsAgentRuleArgs {
     /**
-     * A description for the Agent rule. Defaults to `""`.
+     * The list of actions the rule can perform
+     */
+    actions?: pulumi.Input<pulumi.Input<inputs.CsmThreatsAgentRuleAction>[]>;
+    /**
+     * A description for the Agent rule.
      */
     description?: pulumi.Input<string>;
     /**
-     * Indicates Whether the Agent rule is enabled.
+     * Indicates whether the Agent rule is enabled. Must not be used without policy_id.
      */
-    enabled: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * The SECL expression of the Agent rule
      */
@@ -154,4 +189,12 @@ export interface CsmThreatsAgentRuleArgs {
      * The name of the Agent rule.
      */
     name: pulumi.Input<string>;
+    /**
+     * The ID of the agent policy in which the rule is saved
+     */
+    policyId?: pulumi.Input<string>;
+    /**
+     * The list of product tags associated with the rule
+     */
+    productTags?: pulumi.Input<pulumi.Input<string>[]>;
 }

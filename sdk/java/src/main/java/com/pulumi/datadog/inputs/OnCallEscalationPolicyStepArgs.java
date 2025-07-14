@@ -20,14 +20,14 @@ public final class OnCallEscalationPolicyStepArgs extends com.pulumi.resources.R
     public static final OnCallEscalationPolicyStepArgs Empty = new OnCallEscalationPolicyStepArgs();
 
     /**
-     * Specifies how this escalation step will assign targets. Can be `default` (page all targets at once) or `round-robin`. Valid values are `assignment`, `round-robin`. Defaults to `&#34;default&#34;`.
+     * Specifies how this escalation step will assign targets. Can be `default` (page all targets at once) or `round-robin`. Valid values are `default`, `round-robin`. Defaults to `&#34;default&#34;`.
      * 
      */
     @Import(name="assignment")
     private @Nullable Output<String> assignment;
 
     /**
-     * @return Specifies how this escalation step will assign targets. Can be `default` (page all targets at once) or `round-robin`. Valid values are `assignment`, `round-robin`. Defaults to `&#34;default&#34;`.
+     * @return Specifies how this escalation step will assign targets. Can be `default` (page all targets at once) or `round-robin`. Valid values are `default`, `round-robin`. Defaults to `&#34;default&#34;`.
      * 
      */
     public Optional<Output<String>> assignment() {
@@ -68,15 +68,15 @@ public final class OnCallEscalationPolicyStepArgs extends com.pulumi.resources.R
      * List of targets for the step.
      * 
      */
-    @Import(name="targets")
-    private @Nullable Output<List<OnCallEscalationPolicyStepTargetArgs>> targets;
+    @Import(name="targets", required=true)
+    private Output<List<OnCallEscalationPolicyStepTargetArgs>> targets;
 
     /**
      * @return List of targets for the step.
      * 
      */
-    public Optional<Output<List<OnCallEscalationPolicyStepTargetArgs>>> targets() {
-        return Optional.ofNullable(this.targets);
+    public Output<List<OnCallEscalationPolicyStepTargetArgs>> targets() {
+        return this.targets;
     }
 
     private OnCallEscalationPolicyStepArgs() {}
@@ -107,7 +107,7 @@ public final class OnCallEscalationPolicyStepArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param assignment Specifies how this escalation step will assign targets. Can be `default` (page all targets at once) or `round-robin`. Valid values are `assignment`, `round-robin`. Defaults to `&#34;default&#34;`.
+         * @param assignment Specifies how this escalation step will assign targets. Can be `default` (page all targets at once) or `round-robin`. Valid values are `default`, `round-robin`. Defaults to `&#34;default&#34;`.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class OnCallEscalationPolicyStepArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param assignment Specifies how this escalation step will assign targets. Can be `default` (page all targets at once) or `round-robin`. Valid values are `assignment`, `round-robin`. Defaults to `&#34;default&#34;`.
+         * @param assignment Specifies how this escalation step will assign targets. Can be `default` (page all targets at once) or `round-robin`. Valid values are `default`, `round-robin`. Defaults to `&#34;default&#34;`.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class OnCallEscalationPolicyStepArgs extends com.pulumi.resources.R
          * @return builder
          * 
          */
-        public Builder targets(@Nullable Output<List<OnCallEscalationPolicyStepTargetArgs>> targets) {
+        public Builder targets(Output<List<OnCallEscalationPolicyStepTargetArgs>> targets) {
             $.targets = targets;
             return this;
         }
@@ -203,6 +203,9 @@ public final class OnCallEscalationPolicyStepArgs extends com.pulumi.resources.R
         public OnCallEscalationPolicyStepArgs build() {
             if ($.escalateAfterSeconds == null) {
                 throw new MissingRequiredPropertyException("OnCallEscalationPolicyStepArgs", "escalateAfterSeconds");
+            }
+            if ($.targets == null) {
+                throw new MissingRequiredPropertyException("OnCallEscalationPolicyStepArgs", "targets");
             }
             return $;
         }

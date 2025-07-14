@@ -60,6 +60,8 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * The `pulumi import` command can be used, for example:
+ * 
  * Synthetics private locations can be imported using their string ID, e.g.
  * 
  * ```sh
@@ -69,6 +71,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation")
 public class SyntheticsPrivateLocation extends com.pulumi.resources.CustomResource {
+    /**
+     * API key used to generate the private location configuration.
+     * 
+     */
+    @Export(name="apiKey", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> apiKey;
+
+    /**
+     * @return API key used to generate the private location configuration.
+     * 
+     */
+    public Output<Optional<String>> apiKey() {
+        return Codegen.optional(this.apiKey);
+    }
     /**
      * Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
      * 
@@ -180,6 +196,7 @@ public class SyntheticsPrivateLocation extends com.pulumi.resources.CustomResour
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
+                "apiKey",
                 "config"
             ))
             .build();

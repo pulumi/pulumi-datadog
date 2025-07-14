@@ -26,6 +26,8 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
+ * The `pulumi import` command can be used, for example:
+ *
  * Default rules need to be imported using their ID before applying.
  *
  * resource "datadog_security_monitoring_default_rule" "adefaultrule" {
@@ -69,6 +71,14 @@ export class SecurityMonitoringDefaultRule extends pulumi.CustomResource {
      */
     public readonly cases!: pulumi.Output<outputs.SecurityMonitoringDefaultRuleCase[] | undefined>;
     /**
+     * Custom Message (will override default message) for generated signals.
+     */
+    public readonly customMessage!: pulumi.Output<string | undefined>;
+    /**
+     * The name (will override default name) of the rule.
+     */
+    public readonly customName!: pulumi.Output<string | undefined>;
+    /**
      * Custom tags for generated signals.
      */
     public readonly customTags!: pulumi.Output<string[] | undefined>;
@@ -84,6 +94,10 @@ export class SecurityMonitoringDefaultRule extends pulumi.CustomResource {
      * Options on default rules. Note that only a subset of fields can be updated on default rule options.
      */
     public readonly options!: pulumi.Output<outputs.SecurityMonitoringDefaultRuleOptions | undefined>;
+    /**
+     * Queries for selecting logs which are part of the rule.
+     */
+    public readonly queries!: pulumi.Output<outputs.SecurityMonitoringDefaultRuleQuery[] | undefined>;
     /**
      * The rule type.
      */
@@ -103,18 +117,24 @@ export class SecurityMonitoringDefaultRule extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as SecurityMonitoringDefaultRuleState | undefined;
             resourceInputs["cases"] = state ? state.cases : undefined;
+            resourceInputs["customMessage"] = state ? state.customMessage : undefined;
+            resourceInputs["customName"] = state ? state.customName : undefined;
             resourceInputs["customTags"] = state ? state.customTags : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["filters"] = state ? state.filters : undefined;
             resourceInputs["options"] = state ? state.options : undefined;
+            resourceInputs["queries"] = state ? state.queries : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as SecurityMonitoringDefaultRuleArgs | undefined;
             resourceInputs["cases"] = args ? args.cases : undefined;
+            resourceInputs["customMessage"] = args ? args.customMessage : undefined;
+            resourceInputs["customName"] = args ? args.customName : undefined;
             resourceInputs["customTags"] = args ? args.customTags : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["filters"] = args ? args.filters : undefined;
             resourceInputs["options"] = args ? args.options : undefined;
+            resourceInputs["queries"] = args ? args.queries : undefined;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -131,6 +151,14 @@ export interface SecurityMonitoringDefaultRuleState {
      */
     cases?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringDefaultRuleCase>[]>;
     /**
+     * Custom Message (will override default message) for generated signals.
+     */
+    customMessage?: pulumi.Input<string>;
+    /**
+     * The name (will override default name) of the rule.
+     */
+    customName?: pulumi.Input<string>;
+    /**
      * Custom tags for generated signals.
      */
     customTags?: pulumi.Input<pulumi.Input<string>[]>;
@@ -146,6 +174,10 @@ export interface SecurityMonitoringDefaultRuleState {
      * Options on default rules. Note that only a subset of fields can be updated on default rule options.
      */
     options?: pulumi.Input<inputs.SecurityMonitoringDefaultRuleOptions>;
+    /**
+     * Queries for selecting logs which are part of the rule.
+     */
+    queries?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringDefaultRuleQuery>[]>;
     /**
      * The rule type.
      */
@@ -161,6 +193,14 @@ export interface SecurityMonitoringDefaultRuleArgs {
      */
     cases?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringDefaultRuleCase>[]>;
     /**
+     * Custom Message (will override default message) for generated signals.
+     */
+    customMessage?: pulumi.Input<string>;
+    /**
+     * The name (will override default name) of the rule.
+     */
+    customName?: pulumi.Input<string>;
+    /**
      * Custom tags for generated signals.
      */
     customTags?: pulumi.Input<pulumi.Input<string>[]>;
@@ -176,4 +216,8 @@ export interface SecurityMonitoringDefaultRuleArgs {
      * Options on default rules. Note that only a subset of fields can be updated on default rule options.
      */
     options?: pulumi.Input<inputs.SecurityMonitoringDefaultRuleOptions>;
+    /**
+     * Queries for selecting logs which are part of the rule.
+     */
+    queries?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringDefaultRuleQuery>[]>;
 }

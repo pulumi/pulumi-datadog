@@ -72,6 +72,8 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * The `pulumi import` command can be used, for example:
+ * 
  * ```sh
  * $ pulumi import datadog:confluent/integrationResource:IntegrationResource new_list &#34;confluent_account_id:confluent_resource_id&#34;
  * ```

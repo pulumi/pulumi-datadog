@@ -154,6 +154,8 @@ class SpansMetric(pulumi.CustomResource):
 
         ## Import
 
+        The `pulumi import` command can be used, for example:
+
         ```sh
         $ pulumi import datadog:index/spansMetric:SpansMetric testing_spans_metric testing.span.metric
         ```
@@ -172,6 +174,8 @@ class SpansMetric(pulumi.CustomResource):
         Provides a Datadog SpansMetric resource. This can be used to create and manage Datadog spans_metric.
 
         ## Import
+
+        The `pulumi import` command can be used, for example:
 
         ```sh
         $ pulumi import datadog:index/spansMetric:SpansMetric testing_spans_metric testing.span.metric

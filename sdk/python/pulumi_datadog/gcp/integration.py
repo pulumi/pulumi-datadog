@@ -436,6 +436,8 @@ class Integration(pulumi.CustomResource):
 
         ## Import
 
+        The `pulumi import` command can be used, for example:
+
         Google Cloud Platform integrations can be imported using their project ID, e.g.
 
         ```sh
@@ -467,6 +469,8 @@ class Integration(pulumi.CustomResource):
         This resource is deprecated—use the `gcp.IntegrationSts` resource instead. Provides a Datadog - Google Cloud Platform integration resource. This can be used to create and manage Datadog - Google Cloud Platform integration.
 
         ## Import
+
+        The `pulumi import` command can be used, for example:
 
         Google Cloud Platform integrations can be imported using their project ID, e.g.
 

@@ -8,6 +8,7 @@ import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -45,6 +46,11 @@ public final class SyntheticsTestRequestDefinition {
      */
     private @Nullable String dnsServerPort;
     /**
+     * @return Form data to be sent when `body_type` is `multipart/form-data`.
+     * 
+     */
+    private @Nullable Map<String,String> form;
+    /**
      * @return Host name to perform the test with.
      * 
      */
@@ -58,6 +64,11 @@ public final class SyntheticsTestRequestDefinition {
      */
     @Deprecated /* Use `http_version` in the `options_list` field instead. */
     private @Nullable String httpVersion;
+    /**
+     * @return Whether the message is base64-encoded.
+     * 
+     */
+    private @Nullable Boolean isMessageBase64Encoded;
     /**
      * @return For UDP and websocket tests, message to send with the request.
      * 
@@ -172,6 +183,13 @@ public final class SyntheticsTestRequestDefinition {
         return Optional.ofNullable(this.dnsServerPort);
     }
     /**
+     * @return Form data to be sent when `body_type` is `multipart/form-data`.
+     * 
+     */
+    public Map<String,String> form() {
+        return this.form == null ? Map.of() : this.form;
+    }
+    /**
      * @return Host name to perform the test with.
      * 
      */
@@ -188,6 +206,13 @@ public final class SyntheticsTestRequestDefinition {
     @Deprecated /* Use `http_version` in the `options_list` field instead. */
     public Optional<String> httpVersion() {
         return Optional.ofNullable(this.httpVersion);
+    }
+    /**
+     * @return Whether the message is base64-encoded.
+     * 
+     */
+    public Optional<Boolean> isMessageBase64Encoded() {
+        return Optional.ofNullable(this.isMessageBase64Encoded);
     }
     /**
      * @return For UDP and websocket tests, message to send with the request.
@@ -300,8 +325,10 @@ public final class SyntheticsTestRequestDefinition {
         private @Nullable List<String> certificateDomains;
         private @Nullable String dnsServer;
         private @Nullable String dnsServerPort;
+        private @Nullable Map<String,String> form;
         private @Nullable String host;
         private @Nullable String httpVersion;
+        private @Nullable Boolean isMessageBase64Encoded;
         private @Nullable String message;
         private @Nullable String method;
         private @Nullable Boolean noSavingResponseBody;
@@ -324,8 +351,10 @@ public final class SyntheticsTestRequestDefinition {
     	      this.certificateDomains = defaults.certificateDomains;
     	      this.dnsServer = defaults.dnsServer;
     	      this.dnsServerPort = defaults.dnsServerPort;
+    	      this.form = defaults.form;
     	      this.host = defaults.host;
     	      this.httpVersion = defaults.httpVersion;
+    	      this.isMessageBase64Encoded = defaults.isMessageBase64Encoded;
     	      this.message = defaults.message;
     	      this.method = defaults.method;
     	      this.noSavingResponseBody = defaults.noSavingResponseBody;
@@ -381,6 +410,12 @@ public final class SyntheticsTestRequestDefinition {
             return this;
         }
         @CustomType.Setter
+        public Builder form(@Nullable Map<String,String> form) {
+
+            this.form = form;
+            return this;
+        }
+        @CustomType.Setter
         public Builder host(@Nullable String host) {
 
             this.host = host;
@@ -390,6 +425,12 @@ public final class SyntheticsTestRequestDefinition {
         public Builder httpVersion(@Nullable String httpVersion) {
 
             this.httpVersion = httpVersion;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder isMessageBase64Encoded(@Nullable Boolean isMessageBase64Encoded) {
+
+            this.isMessageBase64Encoded = isMessageBase64Encoded;
             return this;
         }
         @CustomType.Setter
@@ -478,8 +519,10 @@ public final class SyntheticsTestRequestDefinition {
             _resultValue.certificateDomains = certificateDomains;
             _resultValue.dnsServer = dnsServer;
             _resultValue.dnsServerPort = dnsServerPort;
+            _resultValue.form = form;
             _resultValue.host = host;
             _resultValue.httpVersion = httpVersion;
+            _resultValue.isMessageBase64Encoded = isMessageBase64Encoded;
             _resultValue.message = message;
             _resultValue.method = method;
             _resultValue.noSavingResponseBody = noSavingResponseBody;

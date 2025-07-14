@@ -14,6 +14,8 @@ namespace Pulumi.Datadog.Gcp
     /// 
     /// ## Import
     /// 
+    /// The `pulumi import` command can be used, for example:
+    /// 
     /// Google Cloud Platform integrations can be imported using their project ID, e.g.
     /// 
     /// ```sh

@@ -70,10 +70,25 @@ export type ComplianceCustomFramework = import("./complianceCustomFramework").Co
 export const ComplianceCustomFramework: typeof import("./complianceCustomFramework").ComplianceCustomFramework = null as any;
 utilities.lazyLoad(exports, ["ComplianceCustomFramework"], () => require("./complianceCustomFramework"));
 
+export { ComplianceResourceEvaluationFilterArgs, ComplianceResourceEvaluationFilterState } from "./complianceResourceEvaluationFilter";
+export type ComplianceResourceEvaluationFilter = import("./complianceResourceEvaluationFilter").ComplianceResourceEvaluationFilter;
+export const ComplianceResourceEvaluationFilter: typeof import("./complianceResourceEvaluationFilter").ComplianceResourceEvaluationFilter = null as any;
+utilities.lazyLoad(exports, ["ComplianceResourceEvaluationFilter"], () => require("./complianceResourceEvaluationFilter"));
+
+export { CostBudgetArgs, CostBudgetState } from "./costBudget";
+export type CostBudget = import("./costBudget").CostBudget;
+export const CostBudget: typeof import("./costBudget").CostBudget = null as any;
+utilities.lazyLoad(exports, ["CostBudget"], () => require("./costBudget"));
+
 export { CsmThreatsAgentRuleArgs, CsmThreatsAgentRuleState } from "./csmThreatsAgentRule";
 export type CsmThreatsAgentRule = import("./csmThreatsAgentRule").CsmThreatsAgentRule;
 export const CsmThreatsAgentRule: typeof import("./csmThreatsAgentRule").CsmThreatsAgentRule = null as any;
 utilities.lazyLoad(exports, ["CsmThreatsAgentRule"], () => require("./csmThreatsAgentRule"));
+
+export { CsmThreatsPolicyArgs, CsmThreatsPolicyState } from "./csmThreatsPolicy";
+export type CsmThreatsPolicy = import("./csmThreatsPolicy").CsmThreatsPolicy;
+export const CsmThreatsPolicy: typeof import("./csmThreatsPolicy").CsmThreatsPolicy = null as any;
+utilities.lazyLoad(exports, ["CsmThreatsPolicy"], () => require("./csmThreatsPolicy"));
 
 export { DashboardArgs, DashboardState } from "./dashboard";
 export type Dashboard = import("./dashboard").Dashboard;
@@ -135,10 +150,20 @@ export const getCloudWorkloadSecurityAgentRules: typeof import("./getCloudWorklo
 export const getCloudWorkloadSecurityAgentRulesOutput: typeof import("./getCloudWorkloadSecurityAgentRules").getCloudWorkloadSecurityAgentRulesOutput = null as any;
 utilities.lazyLoad(exports, ["getCloudWorkloadSecurityAgentRules","getCloudWorkloadSecurityAgentRulesOutput"], () => require("./getCloudWorkloadSecurityAgentRules"));
 
-export { GetCsmThreatsAgentRulesResult } from "./getCsmThreatsAgentRules";
+export { GetCostBudgetArgs, GetCostBudgetResult, GetCostBudgetOutputArgs } from "./getCostBudget";
+export const getCostBudget: typeof import("./getCostBudget").getCostBudget = null as any;
+export const getCostBudgetOutput: typeof import("./getCostBudget").getCostBudgetOutput = null as any;
+utilities.lazyLoad(exports, ["getCostBudget","getCostBudgetOutput"], () => require("./getCostBudget"));
+
+export { GetCsmThreatsAgentRulesArgs, GetCsmThreatsAgentRulesResult, GetCsmThreatsAgentRulesOutputArgs } from "./getCsmThreatsAgentRules";
 export const getCsmThreatsAgentRules: typeof import("./getCsmThreatsAgentRules").getCsmThreatsAgentRules = null as any;
 export const getCsmThreatsAgentRulesOutput: typeof import("./getCsmThreatsAgentRules").getCsmThreatsAgentRulesOutput = null as any;
 utilities.lazyLoad(exports, ["getCsmThreatsAgentRules","getCsmThreatsAgentRulesOutput"], () => require("./getCsmThreatsAgentRules"));
+
+export { GetCsmThreatsPoliciesResult } from "./getCsmThreatsPolicies";
+export const getCsmThreatsPolicies: typeof import("./getCsmThreatsPolicies").getCsmThreatsPolicies = null as any;
+export const getCsmThreatsPoliciesOutput: typeof import("./getCsmThreatsPolicies").getCsmThreatsPoliciesOutput = null as any;
+utilities.lazyLoad(exports, ["getCsmThreatsPolicies","getCsmThreatsPoliciesOutput"], () => require("./getCsmThreatsPolicies"));
 
 export { GetDashboardArgs, GetDashboardResult, GetDashboardOutputArgs } from "./getDashboard";
 export const getDashboard: typeof import("./getDashboard").getDashboard = null as any;
@@ -683,8 +708,14 @@ const _module = {
                 return new CloudWorkloadSecurityAgentRule(name, <any>undefined, { urn })
             case "datadog:index/complianceCustomFramework:ComplianceCustomFramework":
                 return new ComplianceCustomFramework(name, <any>undefined, { urn })
+            case "datadog:index/complianceResourceEvaluationFilter:ComplianceResourceEvaluationFilter":
+                return new ComplianceResourceEvaluationFilter(name, <any>undefined, { urn })
+            case "datadog:index/costBudget:CostBudget":
+                return new CostBudget(name, <any>undefined, { urn })
             case "datadog:index/csmThreatsAgentRule:CsmThreatsAgentRule":
                 return new CsmThreatsAgentRule(name, <any>undefined, { urn })
+            case "datadog:index/csmThreatsPolicy:CsmThreatsPolicy":
+                return new CsmThreatsPolicy(name, <any>undefined, { urn })
             case "datadog:index/dashboard:Dashboard":
                 return new Dashboard(name, <any>undefined, { urn })
             case "datadog:index/dashboardJson:DashboardJson":
@@ -831,7 +862,10 @@ pulumi.runtime.registerResourceModule("datadog", "index/childOrganization", _mod
 pulumi.runtime.registerResourceModule("datadog", "index/cloudConfigurationRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/cloudWorkloadSecurityAgentRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/complianceCustomFramework", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/complianceResourceEvaluationFilter", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/costBudget", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/csmThreatsAgentRule", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/csmThreatsPolicy", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/dashboard", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/dashboardJson", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/dashboardList", _module)

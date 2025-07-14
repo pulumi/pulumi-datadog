@@ -13,6 +13,928 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBy struct {
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// The maximum number of items in the group.
+	Limit *int `pulumi:"limit"`
+	// A list of exactly one element describing the sort query to use.
+	SortQuery *PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQuery `pulumi:"sortQuery"`
+}
+
+// PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByInput is an input type that accepts PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArgs and PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByOutput values.
+// You can construct a concrete instance of `PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByInput` via:
+//
+//	PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArgs{...}
+type PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByOutput() PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByOutput
+	ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByOutputWithContext(context.Context) PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByOutput
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArgs struct {
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// The maximum number of items in the group.
+	Limit pulumi.IntPtrInput `pulumi:"limit"`
+	// A list of exactly one element describing the sort query to use.
+	SortQuery PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrInput `pulumi:"sortQuery"`
+}
+
+func (PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBy)(nil)).Elem()
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArgs) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByOutput() PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByOutput {
+	return i.ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArgs) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByOutput)
+}
+
+// PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArrayInput is an input type that accepts PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArray and PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArrayOutput values.
+// You can construct a concrete instance of `PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArrayInput` via:
+//
+//	PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArray{ PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArgs{...} }
+type PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArrayInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArrayOutput() PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArrayOutput
+	ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArrayOutputWithContext(context.Context) PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArrayOutput
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArray []PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByInput
+
+func (PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBy)(nil)).Elem()
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArray) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArrayOutput() PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArrayOutput {
+	return i.ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArrayOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArray) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArrayOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArrayOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBy)(nil)).Elem()
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByOutput) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByOutput() PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByOutput) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByOutput {
+	return o
+}
+
+// The facet name.
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBy) *string { return v.Facet }).(pulumi.StringPtrOutput)
+}
+
+// The maximum number of items in the group.
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByOutput) Limit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBy) *int { return v.Limit }).(pulumi.IntPtrOutput)
+}
+
+// A list of exactly one element describing the sort query to use.
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByOutput) SortQuery() PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBy) *PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQuery {
+		return v.SortQuery
+	}).(PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArrayOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBy)(nil)).Elem()
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArrayOutput) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArrayOutput() PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArrayOutput) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArrayOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArrayOutput) Index(i pulumi.IntInput) PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBy {
+		return vs[0].([]PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBy)[vs[1].(int)]
+	}).(PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQuery struct {
+	// The aggregation method.
+	Aggregation string `pulumi:"aggregation"`
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// Widget sorting methods. Valid values are `asc`, `desc`.
+	Order string `pulumi:"order"`
+}
+
+// PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryInput is an input type that accepts PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryArgs and PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryOutput values.
+// You can construct a concrete instance of `PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryInput` via:
+//
+//	PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryArgs{...}
+type PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryOutput() PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryOutput
+	ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryOutputWithContext(context.Context) PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryOutput
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryArgs struct {
+	// The aggregation method.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// Widget sorting methods. Valid values are `asc`, `desc`.
+	Order pulumi.StringInput `pulumi:"order"`
+}
+
+func (PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQuery)(nil)).Elem()
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryArgs) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryOutput() PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryOutput {
+	return i.ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryArgs) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryOutput)
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryArgs) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrOutput {
+	return i.ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryArgs) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryOutput).ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrInput is an input type that accepts PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryArgs, PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtr and PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrInput` via:
+//
+//	        PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrOutput
+	ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrOutputWithContext(context.Context) PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrOutput
+}
+
+type powerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrType PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryArgs
+
+func PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtr(v *PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryArgs) PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrInput {
+	return (*powerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrType)(v)
+}
+
+func (*powerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQuery)(nil)).Elem()
+}
+
+func (i *powerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrType) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrOutput {
+	return i.ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrType) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryOutput) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryOutput() PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryOutput) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryOutput) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrOutput {
+	return o.ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryOutput) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQuery) *PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQuery {
+		return &v
+	}).(PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrOutput)
+}
+
+// The aggregation method.
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryOutput) Aggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQuery) string {
+		return v.Aggregation
+	}).(pulumi.StringOutput)
+}
+
+// The facet name.
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQuery) *string { return v.Facet }).(pulumi.StringPtrOutput)
+}
+
+// Widget sorting methods. Valid values are `asc`, `desc`.
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryOutput) Order() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQuery) string { return v.Order }).(pulumi.StringOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrOutput) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrOutput) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrOutput) Elem() PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQuery) PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQuery {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQuery
+		return ret
+	}).(PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryOutput)
+}
+
+// The aggregation method.
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrOutput) Aggregation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Aggregation
+	}).(pulumi.StringPtrOutput)
+}
+
+// The facet name.
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Facet
+	}).(pulumi.StringPtrOutput)
+}
+
+// Widget sorting methods. Valid values are `asc`, `desc`.
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrOutput) Order() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Order
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiCompute struct {
+	// The aggregation method.
+	Aggregation string `pulumi:"aggregation"`
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval *int `pulumi:"interval"`
+}
+
+// PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeInput is an input type that accepts PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArgs and PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeOutput values.
+// You can construct a concrete instance of `PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeInput` via:
+//
+//	PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArgs{...}
+type PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeOutput() PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeOutput
+	ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeOutputWithContext(context.Context) PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeOutput
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArgs struct {
+	// The aggregation method.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
+}
+
+func (PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiCompute)(nil)).Elem()
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArgs) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeOutput() PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeOutput {
+	return i.ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArgs) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeOutput)
+}
+
+// PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArrayInput is an input type that accepts PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArray and PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArrayOutput values.
+// You can construct a concrete instance of `PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArrayInput` via:
+//
+//	PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArray{ PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArgs{...} }
+type PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArrayInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArrayOutput() PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArrayOutput
+	ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArrayOutputWithContext(context.Context) PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArrayOutput
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArray []PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeInput
+
+func (PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiCompute)(nil)).Elem()
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArray) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArrayOutput() PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArrayOutput {
+	return i.ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArrayOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArray) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArrayOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArrayOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiCompute)(nil)).Elem()
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeOutput) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeOutput() PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeOutput) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeOutput {
+	return o
+}
+
+// The aggregation method.
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeOutput) Aggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiCompute) string { return v.Aggregation }).(pulumi.StringOutput)
+}
+
+// The facet name.
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiCompute) *string { return v.Facet }).(pulumi.StringPtrOutput)
+}
+
+// Define the time interval in seconds.
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiCompute) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArrayOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiCompute)(nil)).Elem()
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArrayOutput) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArrayOutput() PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArrayOutput) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArrayOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArrayOutput) Index(i pulumi.IntInput) PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiCompute {
+		return vs[0].([]PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiCompute)[vs[1].(int)]
+	}).(PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXSecurityQuery struct {
+	// `computeQuery` or `multiCompute` is required. The map keys are listed below.
+	ComputeQuery *PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQuery `pulumi:"computeQuery"`
+	// Multiple `groupBy` blocks are allowed using the structure below.
+	GroupBies []PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy `pulumi:"groupBies"`
+	// The name of the index to query.
+	Index string `pulumi:"index"`
+	// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+	MultiComputes []PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryMultiCompute `pulumi:"multiComputes"`
+	// The search query to use.
+	SearchQuery *string `pulumi:"searchQuery"`
+}
+
+// PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryInput is an input type that accepts PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryArgs and PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryOutput values.
+// You can construct a concrete instance of `PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryInput` via:
+//
+//	PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryArgs{...}
+type PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryOutput() PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryOutput
+	ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryOutputWithContext(context.Context) PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryOutput
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryArgs struct {
+	// `computeQuery` or `multiCompute` is required. The map keys are listed below.
+	ComputeQuery PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrInput `pulumi:"computeQuery"`
+	// Multiple `groupBy` blocks are allowed using the structure below.
+	GroupBies PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArrayInput `pulumi:"groupBies"`
+	// The name of the index to query.
+	Index pulumi.StringInput `pulumi:"index"`
+	// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+	MultiComputes PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryMultiComputeArrayInput `pulumi:"multiComputes"`
+	// The search query to use.
+	SearchQuery pulumi.StringPtrInput `pulumi:"searchQuery"`
+}
+
+func (PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXSecurityQuery)(nil)).Elem()
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryArgs) ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryOutput() PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryOutput {
+	return i.ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryArgs) ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryOutput)
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryArgs) ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtrOutput {
+	return i.ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryArgs) ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryOutput).ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtrInput is an input type that accepts PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryArgs, PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtr and PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtrInput` via:
+//
+//	        PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtrOutput
+	ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtrOutputWithContext(context.Context) PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtrOutput
+}
+
+type powerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtrType PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryArgs
+
+func PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtr(v *PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryArgs) PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtrInput {
+	return (*powerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtrType)(v)
+}
+
+func (*powerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetScatterplotDefinitionRequestXSecurityQuery)(nil)).Elem()
+}
+
+func (i *powerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtrType) ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtrOutput {
+	return i.ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtrType) ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtrOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXSecurityQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryOutput) ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryOutput() PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryOutput) ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryOutput) ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtrOutput {
+	return o.ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryOutput) ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetScatterplotDefinitionRequestXSecurityQuery) *PowerpackWidgetScatterplotDefinitionRequestXSecurityQuery {
+		return &v
+	}).(PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtrOutput)
+}
+
+// `computeQuery` or `multiCompute` is required. The map keys are listed below.
+func (o PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryOutput) ComputeQuery() PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXSecurityQuery) *PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQuery {
+		return v.ComputeQuery
+	}).(PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrOutput)
+}
+
+// Multiple `groupBy` blocks are allowed using the structure below.
+func (o PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryOutput) GroupBies() PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArrayOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXSecurityQuery) []PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy {
+		return v.GroupBies
+	}).(PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArrayOutput)
+}
+
+// The name of the index to query.
+func (o PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryOutput) Index() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXSecurityQuery) string { return v.Index }).(pulumi.StringOutput)
+}
+
+// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+func (o PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryOutput) MultiComputes() PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryMultiComputeArrayOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXSecurityQuery) []PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryMultiCompute {
+		return v.MultiComputes
+	}).(PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryMultiComputeArrayOutput)
+}
+
+// The search query to use.
+func (o PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryOutput) SearchQuery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXSecurityQuery) *string { return v.SearchQuery }).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetScatterplotDefinitionRequestXSecurityQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtrOutput) ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtrOutput) ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtrOutput) Elem() PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXSecurityQuery) PowerpackWidgetScatterplotDefinitionRequestXSecurityQuery {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetScatterplotDefinitionRequestXSecurityQuery
+		return ret
+	}).(PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryOutput)
+}
+
+// `computeQuery` or `multiCompute` is required. The map keys are listed below.
+func (o PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtrOutput) ComputeQuery() PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXSecurityQuery) *PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQuery {
+		if v == nil {
+			return nil
+		}
+		return v.ComputeQuery
+	}).(PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrOutput)
+}
+
+// Multiple `groupBy` blocks are allowed using the structure below.
+func (o PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtrOutput) GroupBies() PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArrayOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXSecurityQuery) []PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy {
+		if v == nil {
+			return nil
+		}
+		return v.GroupBies
+	}).(PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArrayOutput)
+}
+
+// The name of the index to query.
+func (o PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtrOutput) Index() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXSecurityQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Index
+	}).(pulumi.StringPtrOutput)
+}
+
+// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+func (o PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtrOutput) MultiComputes() PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryMultiComputeArrayOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXSecurityQuery) []PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryMultiCompute {
+		if v == nil {
+			return nil
+		}
+		return v.MultiComputes
+	}).(PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryMultiComputeArrayOutput)
+}
+
+// The search query to use.
+func (o PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtrOutput) SearchQuery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXSecurityQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SearchQuery
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQuery struct {
+	// The aggregation method.
+	Aggregation string `pulumi:"aggregation"`
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval *int `pulumi:"interval"`
+}
+
+// PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryInput is an input type that accepts PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryArgs and PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryOutput values.
+// You can construct a concrete instance of `PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryInput` via:
+//
+//	PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryArgs{...}
+type PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryOutput() PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryOutput
+	ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryOutputWithContext(context.Context) PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryOutput
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryArgs struct {
+	// The aggregation method.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
+}
+
+func (PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQuery)(nil)).Elem()
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryArgs) ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryOutput() PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryOutput {
+	return i.ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryArgs) ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryOutput)
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryArgs) ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrOutput {
+	return i.ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryArgs) ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryOutput).ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrInput is an input type that accepts PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryArgs, PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtr and PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrInput` via:
+//
+//	        PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrOutput
+	ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrOutputWithContext(context.Context) PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrOutput
+}
+
+type powerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrType PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryArgs
+
+func PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtr(v *PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryArgs) PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrInput {
+	return (*powerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrType)(v)
+}
+
+func (*powerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQuery)(nil)).Elem()
+}
+
+func (i *powerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrType) ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrOutput {
+	return i.ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrType) ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryOutput) ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryOutput() PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryOutput) ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryOutput) ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrOutput {
+	return o.ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryOutput) ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQuery) *PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQuery {
+		return &v
+	}).(PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrOutput)
+}
+
+// The aggregation method.
+func (o PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryOutput) Aggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQuery) string {
+		return v.Aggregation
+	}).(pulumi.StringOutput)
+}
+
+// The facet name.
+func (o PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQuery) *string { return v.Facet }).(pulumi.StringPtrOutput)
+}
+
+// Define the time interval in seconds.
+func (o PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQuery) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrOutput) ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrOutput) ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrOutput) Elem() PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQuery) PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQuery {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQuery
+		return ret
+	}).(PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryOutput)
+}
+
+// The aggregation method.
+func (o PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrOutput) Aggregation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Aggregation
+	}).(pulumi.StringPtrOutput)
+}
+
+// The facet name.
+func (o PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Facet
+	}).(pulumi.StringPtrOutput)
+}
+
+// Define the time interval in seconds.
+func (o PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQuery) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Interval
+	}).(pulumi.IntPtrOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy struct {
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// The maximum number of items in the group.
+	Limit *int `pulumi:"limit"`
+	// A list of exactly one element describing the sort query to use.
+	SortQuery *PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySortQuery `pulumi:"sortQuery"`
+}
+
+// PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByInput is an input type that accepts PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArgs and PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByOutput values.
+// You can construct a concrete instance of `PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByInput` via:
+//
+//	PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArgs{...}
+type PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByOutput() PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByOutput
+	ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByOutputWithContext(context.Context) PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByOutput
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArgs struct {
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// The maximum number of items in the group.
+	Limit pulumi.IntPtrInput `pulumi:"limit"`
+	// A list of exactly one element describing the sort query to use.
+	SortQuery PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySortQueryPtrInput `pulumi:"sortQuery"`
+}
+
+func (PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy)(nil)).Elem()
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArgs) ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByOutput() PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByOutput {
+	return i.ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArgs) ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByOutput)
+}
+
+// PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArrayInput is an input type that accepts PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArray and PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArrayOutput values.
+// You can construct a concrete instance of `PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArrayInput` via:
+//
+//	PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArray{ PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArgs{...} }
+type PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArrayInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArrayOutput() PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArrayOutput
+	ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArrayOutputWithContext(context.Context) PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArrayOutput
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArray []PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByInput
+
+func (PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy)(nil)).Elem()
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArray) ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArrayOutput() PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArrayOutput {
+	return i.ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArrayOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArray) ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArrayOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArrayOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy)(nil)).Elem()
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByOutput) ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByOutput() PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByOutput) ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByOutput {
+	return o
+}
+
+// The facet name.
+func (o PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy) *string { return v.Facet }).(pulumi.StringPtrOutput)
+}
+
+// The maximum number of items in the group.
+func (o PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByOutput) Limit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy) *int { return v.Limit }).(pulumi.IntPtrOutput)
+}
+
+// A list of exactly one element describing the sort query to use.
+func (o PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByOutput) SortQuery() PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySortQueryPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy) *PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySortQuery {
+		return v.SortQuery
+	}).(PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySortQueryPtrOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArrayOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy)(nil)).Elem()
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArrayOutput) ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArrayOutput() PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArrayOutput) ToPowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArrayOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArrayOutput) Index(i pulumi.IntInput) PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy {
+		return vs[0].([]PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy)[vs[1].(int)]
+	}).(PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByOutput)
+}
+
 type PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySortQuery struct {
 	// The aggregation method.
 	Aggregation string `pulumi:"aggregation"`
@@ -42467,6 +43389,8 @@ func (o RumMetricUniquenessPtrOutput) When() pulumi.StringPtrOutput {
 }
 
 type SecurityMonitoringDefaultRuleCase struct {
+	// Status of the rule case to override. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+	CustomStatus *string `pulumi:"customStatus"`
 	// Notification targets for each rule case.
 	Notifications []string `pulumi:"notifications"`
 	// Status of the rule case to match. Valid values are `info`, `low`, `medium`, `high`, `critical`.
@@ -42485,6 +43409,8 @@ type SecurityMonitoringDefaultRuleCaseInput interface {
 }
 
 type SecurityMonitoringDefaultRuleCaseArgs struct {
+	// Status of the rule case to override. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+	CustomStatus pulumi.StringPtrInput `pulumi:"customStatus"`
 	// Notification targets for each rule case.
 	Notifications pulumi.StringArrayInput `pulumi:"notifications"`
 	// Status of the rule case to match. Valid values are `info`, `low`, `medium`, `high`, `critical`.
@@ -42540,6 +43466,11 @@ func (o SecurityMonitoringDefaultRuleCaseOutput) ToSecurityMonitoringDefaultRule
 
 func (o SecurityMonitoringDefaultRuleCaseOutput) ToSecurityMonitoringDefaultRuleCaseOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleCaseOutput {
 	return o
+}
+
+// Status of the rule case to override. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+func (o SecurityMonitoringDefaultRuleCaseOutput) CustomStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityMonitoringDefaultRuleCase) *string { return v.CustomStatus }).(pulumi.StringPtrOutput)
 }
 
 // Notification targets for each rule case.
@@ -42813,6 +43744,304 @@ func (o SecurityMonitoringDefaultRuleOptionsPtrOutput) DecreaseCriticalityBasedO
 		}
 		return v.DecreaseCriticalityBasedOnEnv
 	}).(pulumi.BoolPtrOutput)
+}
+
+type SecurityMonitoringDefaultRuleQuery struct {
+	// **Deprecated**. It won't be applied anymore. **Deprecated.** `agentRule` has been deprecated in favor of new Agent Rule resource.
+	//
+	// Deprecated: `agentRule` has been deprecated in favor of new Agent Rule resource.
+	AgentRules []SecurityMonitoringDefaultRuleQueryAgentRule `pulumi:"agentRules"`
+	// The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`. Defaults to `"count"`.
+	Aggregation *string `pulumi:"aggregation"`
+	// Query extension to append to the logs query.
+	CustomQueryExtension *string `pulumi:"customQueryExtension"`
+	// Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`. Defaults to `"logs"`.
+	DataSource *string `pulumi:"dataSource"`
+	// Field for which the cardinality is measured. Sent as an array.
+	DistinctFields []string `pulumi:"distinctFields"`
+	// Fields to group by.
+	GroupByFields []string `pulumi:"groupByFields"`
+	// The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+	//
+	// Deprecated: Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+	Metric *string `pulumi:"metric"`
+	// Group of target fields to aggregate over when using the `sum`, `max`, `geoData`, or `newValue` aggregations. The `sum`, `max`, and `geoData` aggregations only accept one value in this list, whereas the `newValue` aggregation accepts up to five values.
+	Metrics []string `pulumi:"metrics"`
+	// Name of the query. Not compatible with `newValue` aggregations.
+	Name *string `pulumi:"name"`
+	// Query to run on logs.
+	Query string `pulumi:"query"`
+}
+
+// SecurityMonitoringDefaultRuleQueryInput is an input type that accepts SecurityMonitoringDefaultRuleQueryArgs and SecurityMonitoringDefaultRuleQueryOutput values.
+// You can construct a concrete instance of `SecurityMonitoringDefaultRuleQueryInput` via:
+//
+//	SecurityMonitoringDefaultRuleQueryArgs{...}
+type SecurityMonitoringDefaultRuleQueryInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringDefaultRuleQueryOutput() SecurityMonitoringDefaultRuleQueryOutput
+	ToSecurityMonitoringDefaultRuleQueryOutputWithContext(context.Context) SecurityMonitoringDefaultRuleQueryOutput
+}
+
+type SecurityMonitoringDefaultRuleQueryArgs struct {
+	// **Deprecated**. It won't be applied anymore. **Deprecated.** `agentRule` has been deprecated in favor of new Agent Rule resource.
+	//
+	// Deprecated: `agentRule` has been deprecated in favor of new Agent Rule resource.
+	AgentRules SecurityMonitoringDefaultRuleQueryAgentRuleArrayInput `pulumi:"agentRules"`
+	// The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`. Defaults to `"count"`.
+	Aggregation pulumi.StringPtrInput `pulumi:"aggregation"`
+	// Query extension to append to the logs query.
+	CustomQueryExtension pulumi.StringPtrInput `pulumi:"customQueryExtension"`
+	// Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`. Defaults to `"logs"`.
+	DataSource pulumi.StringPtrInput `pulumi:"dataSource"`
+	// Field for which the cardinality is measured. Sent as an array.
+	DistinctFields pulumi.StringArrayInput `pulumi:"distinctFields"`
+	// Fields to group by.
+	GroupByFields pulumi.StringArrayInput `pulumi:"groupByFields"`
+	// The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+	//
+	// Deprecated: Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+	Metric pulumi.StringPtrInput `pulumi:"metric"`
+	// Group of target fields to aggregate over when using the `sum`, `max`, `geoData`, or `newValue` aggregations. The `sum`, `max`, and `geoData` aggregations only accept one value in this list, whereas the `newValue` aggregation accepts up to five values.
+	Metrics pulumi.StringArrayInput `pulumi:"metrics"`
+	// Name of the query. Not compatible with `newValue` aggregations.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Query to run on logs.
+	Query pulumi.StringInput `pulumi:"query"`
+}
+
+func (SecurityMonitoringDefaultRuleQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringDefaultRuleQuery)(nil)).Elem()
+}
+
+func (i SecurityMonitoringDefaultRuleQueryArgs) ToSecurityMonitoringDefaultRuleQueryOutput() SecurityMonitoringDefaultRuleQueryOutput {
+	return i.ToSecurityMonitoringDefaultRuleQueryOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringDefaultRuleQueryArgs) ToSecurityMonitoringDefaultRuleQueryOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringDefaultRuleQueryOutput)
+}
+
+// SecurityMonitoringDefaultRuleQueryArrayInput is an input type that accepts SecurityMonitoringDefaultRuleQueryArray and SecurityMonitoringDefaultRuleQueryArrayOutput values.
+// You can construct a concrete instance of `SecurityMonitoringDefaultRuleQueryArrayInput` via:
+//
+//	SecurityMonitoringDefaultRuleQueryArray{ SecurityMonitoringDefaultRuleQueryArgs{...} }
+type SecurityMonitoringDefaultRuleQueryArrayInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringDefaultRuleQueryArrayOutput() SecurityMonitoringDefaultRuleQueryArrayOutput
+	ToSecurityMonitoringDefaultRuleQueryArrayOutputWithContext(context.Context) SecurityMonitoringDefaultRuleQueryArrayOutput
+}
+
+type SecurityMonitoringDefaultRuleQueryArray []SecurityMonitoringDefaultRuleQueryInput
+
+func (SecurityMonitoringDefaultRuleQueryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityMonitoringDefaultRuleQuery)(nil)).Elem()
+}
+
+func (i SecurityMonitoringDefaultRuleQueryArray) ToSecurityMonitoringDefaultRuleQueryArrayOutput() SecurityMonitoringDefaultRuleQueryArrayOutput {
+	return i.ToSecurityMonitoringDefaultRuleQueryArrayOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringDefaultRuleQueryArray) ToSecurityMonitoringDefaultRuleQueryArrayOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleQueryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringDefaultRuleQueryArrayOutput)
+}
+
+type SecurityMonitoringDefaultRuleQueryOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringDefaultRuleQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringDefaultRuleQuery)(nil)).Elem()
+}
+
+func (o SecurityMonitoringDefaultRuleQueryOutput) ToSecurityMonitoringDefaultRuleQueryOutput() SecurityMonitoringDefaultRuleQueryOutput {
+	return o
+}
+
+func (o SecurityMonitoringDefaultRuleQueryOutput) ToSecurityMonitoringDefaultRuleQueryOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleQueryOutput {
+	return o
+}
+
+// **Deprecated**. It won't be applied anymore. **Deprecated.** `agentRule` has been deprecated in favor of new Agent Rule resource.
+//
+// Deprecated: `agentRule` has been deprecated in favor of new Agent Rule resource.
+func (o SecurityMonitoringDefaultRuleQueryOutput) AgentRules() SecurityMonitoringDefaultRuleQueryAgentRuleArrayOutput {
+	return o.ApplyT(func(v SecurityMonitoringDefaultRuleQuery) []SecurityMonitoringDefaultRuleQueryAgentRule {
+		return v.AgentRules
+	}).(SecurityMonitoringDefaultRuleQueryAgentRuleArrayOutput)
+}
+
+// The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`. Defaults to `"count"`.
+func (o SecurityMonitoringDefaultRuleQueryOutput) Aggregation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityMonitoringDefaultRuleQuery) *string { return v.Aggregation }).(pulumi.StringPtrOutput)
+}
+
+// Query extension to append to the logs query.
+func (o SecurityMonitoringDefaultRuleQueryOutput) CustomQueryExtension() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityMonitoringDefaultRuleQuery) *string { return v.CustomQueryExtension }).(pulumi.StringPtrOutput)
+}
+
+// Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`. Defaults to `"logs"`.
+func (o SecurityMonitoringDefaultRuleQueryOutput) DataSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityMonitoringDefaultRuleQuery) *string { return v.DataSource }).(pulumi.StringPtrOutput)
+}
+
+// Field for which the cardinality is measured. Sent as an array.
+func (o SecurityMonitoringDefaultRuleQueryOutput) DistinctFields() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityMonitoringDefaultRuleQuery) []string { return v.DistinctFields }).(pulumi.StringArrayOutput)
+}
+
+// Fields to group by.
+func (o SecurityMonitoringDefaultRuleQueryOutput) GroupByFields() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityMonitoringDefaultRuleQuery) []string { return v.GroupByFields }).(pulumi.StringArrayOutput)
+}
+
+// The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+//
+// Deprecated: Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+func (o SecurityMonitoringDefaultRuleQueryOutput) Metric() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityMonitoringDefaultRuleQuery) *string { return v.Metric }).(pulumi.StringPtrOutput)
+}
+
+// Group of target fields to aggregate over when using the `sum`, `max`, `geoData`, or `newValue` aggregations. The `sum`, `max`, and `geoData` aggregations only accept one value in this list, whereas the `newValue` aggregation accepts up to five values.
+func (o SecurityMonitoringDefaultRuleQueryOutput) Metrics() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityMonitoringDefaultRuleQuery) []string { return v.Metrics }).(pulumi.StringArrayOutput)
+}
+
+// Name of the query. Not compatible with `newValue` aggregations.
+func (o SecurityMonitoringDefaultRuleQueryOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityMonitoringDefaultRuleQuery) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Query to run on logs.
+func (o SecurityMonitoringDefaultRuleQueryOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityMonitoringDefaultRuleQuery) string { return v.Query }).(pulumi.StringOutput)
+}
+
+type SecurityMonitoringDefaultRuleQueryArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringDefaultRuleQueryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityMonitoringDefaultRuleQuery)(nil)).Elem()
+}
+
+func (o SecurityMonitoringDefaultRuleQueryArrayOutput) ToSecurityMonitoringDefaultRuleQueryArrayOutput() SecurityMonitoringDefaultRuleQueryArrayOutput {
+	return o
+}
+
+func (o SecurityMonitoringDefaultRuleQueryArrayOutput) ToSecurityMonitoringDefaultRuleQueryArrayOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleQueryArrayOutput {
+	return o
+}
+
+func (o SecurityMonitoringDefaultRuleQueryArrayOutput) Index(i pulumi.IntInput) SecurityMonitoringDefaultRuleQueryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityMonitoringDefaultRuleQuery {
+		return vs[0].([]SecurityMonitoringDefaultRuleQuery)[vs[1].(int)]
+	}).(SecurityMonitoringDefaultRuleQueryOutput)
+}
+
+type SecurityMonitoringDefaultRuleQueryAgentRule struct {
+	// **Deprecated**. It won't be applied anymore.
+	AgentRuleId string `pulumi:"agentRuleId"`
+	// **Deprecated**. It won't be applied anymore.
+	Expression string `pulumi:"expression"`
+}
+
+// SecurityMonitoringDefaultRuleQueryAgentRuleInput is an input type that accepts SecurityMonitoringDefaultRuleQueryAgentRuleArgs and SecurityMonitoringDefaultRuleQueryAgentRuleOutput values.
+// You can construct a concrete instance of `SecurityMonitoringDefaultRuleQueryAgentRuleInput` via:
+//
+//	SecurityMonitoringDefaultRuleQueryAgentRuleArgs{...}
+type SecurityMonitoringDefaultRuleQueryAgentRuleInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringDefaultRuleQueryAgentRuleOutput() SecurityMonitoringDefaultRuleQueryAgentRuleOutput
+	ToSecurityMonitoringDefaultRuleQueryAgentRuleOutputWithContext(context.Context) SecurityMonitoringDefaultRuleQueryAgentRuleOutput
+}
+
+type SecurityMonitoringDefaultRuleQueryAgentRuleArgs struct {
+	// **Deprecated**. It won't be applied anymore.
+	AgentRuleId pulumi.StringInput `pulumi:"agentRuleId"`
+	// **Deprecated**. It won't be applied anymore.
+	Expression pulumi.StringInput `pulumi:"expression"`
+}
+
+func (SecurityMonitoringDefaultRuleQueryAgentRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringDefaultRuleQueryAgentRule)(nil)).Elem()
+}
+
+func (i SecurityMonitoringDefaultRuleQueryAgentRuleArgs) ToSecurityMonitoringDefaultRuleQueryAgentRuleOutput() SecurityMonitoringDefaultRuleQueryAgentRuleOutput {
+	return i.ToSecurityMonitoringDefaultRuleQueryAgentRuleOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringDefaultRuleQueryAgentRuleArgs) ToSecurityMonitoringDefaultRuleQueryAgentRuleOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleQueryAgentRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringDefaultRuleQueryAgentRuleOutput)
+}
+
+// SecurityMonitoringDefaultRuleQueryAgentRuleArrayInput is an input type that accepts SecurityMonitoringDefaultRuleQueryAgentRuleArray and SecurityMonitoringDefaultRuleQueryAgentRuleArrayOutput values.
+// You can construct a concrete instance of `SecurityMonitoringDefaultRuleQueryAgentRuleArrayInput` via:
+//
+//	SecurityMonitoringDefaultRuleQueryAgentRuleArray{ SecurityMonitoringDefaultRuleQueryAgentRuleArgs{...} }
+type SecurityMonitoringDefaultRuleQueryAgentRuleArrayInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringDefaultRuleQueryAgentRuleArrayOutput() SecurityMonitoringDefaultRuleQueryAgentRuleArrayOutput
+	ToSecurityMonitoringDefaultRuleQueryAgentRuleArrayOutputWithContext(context.Context) SecurityMonitoringDefaultRuleQueryAgentRuleArrayOutput
+}
+
+type SecurityMonitoringDefaultRuleQueryAgentRuleArray []SecurityMonitoringDefaultRuleQueryAgentRuleInput
+
+func (SecurityMonitoringDefaultRuleQueryAgentRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityMonitoringDefaultRuleQueryAgentRule)(nil)).Elem()
+}
+
+func (i SecurityMonitoringDefaultRuleQueryAgentRuleArray) ToSecurityMonitoringDefaultRuleQueryAgentRuleArrayOutput() SecurityMonitoringDefaultRuleQueryAgentRuleArrayOutput {
+	return i.ToSecurityMonitoringDefaultRuleQueryAgentRuleArrayOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringDefaultRuleQueryAgentRuleArray) ToSecurityMonitoringDefaultRuleQueryAgentRuleArrayOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleQueryAgentRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringDefaultRuleQueryAgentRuleArrayOutput)
+}
+
+type SecurityMonitoringDefaultRuleQueryAgentRuleOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringDefaultRuleQueryAgentRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringDefaultRuleQueryAgentRule)(nil)).Elem()
+}
+
+func (o SecurityMonitoringDefaultRuleQueryAgentRuleOutput) ToSecurityMonitoringDefaultRuleQueryAgentRuleOutput() SecurityMonitoringDefaultRuleQueryAgentRuleOutput {
+	return o
+}
+
+func (o SecurityMonitoringDefaultRuleQueryAgentRuleOutput) ToSecurityMonitoringDefaultRuleQueryAgentRuleOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleQueryAgentRuleOutput {
+	return o
+}
+
+// **Deprecated**. It won't be applied anymore.
+func (o SecurityMonitoringDefaultRuleQueryAgentRuleOutput) AgentRuleId() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityMonitoringDefaultRuleQueryAgentRule) string { return v.AgentRuleId }).(pulumi.StringOutput)
+}
+
+// **Deprecated**. It won't be applied anymore.
+func (o SecurityMonitoringDefaultRuleQueryAgentRuleOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityMonitoringDefaultRuleQueryAgentRule) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+type SecurityMonitoringDefaultRuleQueryAgentRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringDefaultRuleQueryAgentRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityMonitoringDefaultRuleQueryAgentRule)(nil)).Elem()
+}
+
+func (o SecurityMonitoringDefaultRuleQueryAgentRuleArrayOutput) ToSecurityMonitoringDefaultRuleQueryAgentRuleArrayOutput() SecurityMonitoringDefaultRuleQueryAgentRuleArrayOutput {
+	return o
+}
+
+func (o SecurityMonitoringDefaultRuleQueryAgentRuleArrayOutput) ToSecurityMonitoringDefaultRuleQueryAgentRuleArrayOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleQueryAgentRuleArrayOutput {
+	return o
+}
+
+func (o SecurityMonitoringDefaultRuleQueryAgentRuleArrayOutput) Index(i pulumi.IntInput) SecurityMonitoringDefaultRuleQueryAgentRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityMonitoringDefaultRuleQueryAgentRule {
+		return vs[0].([]SecurityMonitoringDefaultRuleQueryAgentRule)[vs[1].(int)]
+	}).(SecurityMonitoringDefaultRuleQueryAgentRuleOutput)
 }
 
 type SecurityMonitoringFilterExclusionFilter struct {
@@ -45327,6 +46556,112 @@ func (o SensitiveDataScannerGroupFilterPtrOutput) Query() pulumi.StringPtrOutput
 		}
 		return &v.Query
 	}).(pulumi.StringPtrOutput)
+}
+
+type SensitiveDataScannerGroupSampling struct {
+	// Product that the sampling rate applies to. Valid values are `logs`, `rum`, `events`, `apm`.
+	Product string `pulumi:"product"`
+	// Percentage rate at which data for the product type is scanned.
+	Rate float64 `pulumi:"rate"`
+}
+
+// SensitiveDataScannerGroupSamplingInput is an input type that accepts SensitiveDataScannerGroupSamplingArgs and SensitiveDataScannerGroupSamplingOutput values.
+// You can construct a concrete instance of `SensitiveDataScannerGroupSamplingInput` via:
+//
+//	SensitiveDataScannerGroupSamplingArgs{...}
+type SensitiveDataScannerGroupSamplingInput interface {
+	pulumi.Input
+
+	ToSensitiveDataScannerGroupSamplingOutput() SensitiveDataScannerGroupSamplingOutput
+	ToSensitiveDataScannerGroupSamplingOutputWithContext(context.Context) SensitiveDataScannerGroupSamplingOutput
+}
+
+type SensitiveDataScannerGroupSamplingArgs struct {
+	// Product that the sampling rate applies to. Valid values are `logs`, `rum`, `events`, `apm`.
+	Product pulumi.StringInput `pulumi:"product"`
+	// Percentage rate at which data for the product type is scanned.
+	Rate pulumi.Float64Input `pulumi:"rate"`
+}
+
+func (SensitiveDataScannerGroupSamplingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SensitiveDataScannerGroupSampling)(nil)).Elem()
+}
+
+func (i SensitiveDataScannerGroupSamplingArgs) ToSensitiveDataScannerGroupSamplingOutput() SensitiveDataScannerGroupSamplingOutput {
+	return i.ToSensitiveDataScannerGroupSamplingOutputWithContext(context.Background())
+}
+
+func (i SensitiveDataScannerGroupSamplingArgs) ToSensitiveDataScannerGroupSamplingOutputWithContext(ctx context.Context) SensitiveDataScannerGroupSamplingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SensitiveDataScannerGroupSamplingOutput)
+}
+
+// SensitiveDataScannerGroupSamplingArrayInput is an input type that accepts SensitiveDataScannerGroupSamplingArray and SensitiveDataScannerGroupSamplingArrayOutput values.
+// You can construct a concrete instance of `SensitiveDataScannerGroupSamplingArrayInput` via:
+//
+//	SensitiveDataScannerGroupSamplingArray{ SensitiveDataScannerGroupSamplingArgs{...} }
+type SensitiveDataScannerGroupSamplingArrayInput interface {
+	pulumi.Input
+
+	ToSensitiveDataScannerGroupSamplingArrayOutput() SensitiveDataScannerGroupSamplingArrayOutput
+	ToSensitiveDataScannerGroupSamplingArrayOutputWithContext(context.Context) SensitiveDataScannerGroupSamplingArrayOutput
+}
+
+type SensitiveDataScannerGroupSamplingArray []SensitiveDataScannerGroupSamplingInput
+
+func (SensitiveDataScannerGroupSamplingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SensitiveDataScannerGroupSampling)(nil)).Elem()
+}
+
+func (i SensitiveDataScannerGroupSamplingArray) ToSensitiveDataScannerGroupSamplingArrayOutput() SensitiveDataScannerGroupSamplingArrayOutput {
+	return i.ToSensitiveDataScannerGroupSamplingArrayOutputWithContext(context.Background())
+}
+
+func (i SensitiveDataScannerGroupSamplingArray) ToSensitiveDataScannerGroupSamplingArrayOutputWithContext(ctx context.Context) SensitiveDataScannerGroupSamplingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SensitiveDataScannerGroupSamplingArrayOutput)
+}
+
+type SensitiveDataScannerGroupSamplingOutput struct{ *pulumi.OutputState }
+
+func (SensitiveDataScannerGroupSamplingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SensitiveDataScannerGroupSampling)(nil)).Elem()
+}
+
+func (o SensitiveDataScannerGroupSamplingOutput) ToSensitiveDataScannerGroupSamplingOutput() SensitiveDataScannerGroupSamplingOutput {
+	return o
+}
+
+func (o SensitiveDataScannerGroupSamplingOutput) ToSensitiveDataScannerGroupSamplingOutputWithContext(ctx context.Context) SensitiveDataScannerGroupSamplingOutput {
+	return o
+}
+
+// Product that the sampling rate applies to. Valid values are `logs`, `rum`, `events`, `apm`.
+func (o SensitiveDataScannerGroupSamplingOutput) Product() pulumi.StringOutput {
+	return o.ApplyT(func(v SensitiveDataScannerGroupSampling) string { return v.Product }).(pulumi.StringOutput)
+}
+
+// Percentage rate at which data for the product type is scanned.
+func (o SensitiveDataScannerGroupSamplingOutput) Rate() pulumi.Float64Output {
+	return o.ApplyT(func(v SensitiveDataScannerGroupSampling) float64 { return v.Rate }).(pulumi.Float64Output)
+}
+
+type SensitiveDataScannerGroupSamplingArrayOutput struct{ *pulumi.OutputState }
+
+func (SensitiveDataScannerGroupSamplingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SensitiveDataScannerGroupSampling)(nil)).Elem()
+}
+
+func (o SensitiveDataScannerGroupSamplingArrayOutput) ToSensitiveDataScannerGroupSamplingArrayOutput() SensitiveDataScannerGroupSamplingArrayOutput {
+	return o
+}
+
+func (o SensitiveDataScannerGroupSamplingArrayOutput) ToSensitiveDataScannerGroupSamplingArrayOutputWithContext(ctx context.Context) SensitiveDataScannerGroupSamplingArrayOutput {
+	return o
+}
+
+func (o SensitiveDataScannerGroupSamplingArrayOutput) Index(i pulumi.IntInput) SensitiveDataScannerGroupSamplingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SensitiveDataScannerGroupSampling {
+		return vs[0].([]SensitiveDataScannerGroupSampling)[vs[1].(int)]
+	}).(SensitiveDataScannerGroupSamplingOutput)
 }
 
 type SensitiveDataScannerRuleIncludedKeywordConfiguration struct {
@@ -48095,7 +49430,7 @@ type SyntheticsTestApiStep struct {
 	// Query arguments name and value map.
 	RequestQuery map[string]string           `pulumi:"requestQuery"`
 	Retry        *SyntheticsTestApiStepRetry `pulumi:"retry"`
-	// The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `wait`. Defaults to `"http"`.
+	// The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `ssl`, `dns`, `tcp`, `udp`, `icmp`, `websocket`, `wait`. Defaults to `"http"`.
 	Subtype *string `pulumi:"subtype"`
 	// The time to wait in seconds. Minimum value: 0. Maximum value: 180.
 	Value *int `pulumi:"value"`
@@ -48144,7 +49479,7 @@ type SyntheticsTestApiStepArgs struct {
 	// Query arguments name and value map.
 	RequestQuery pulumi.StringMapInput              `pulumi:"requestQuery"`
 	Retry        SyntheticsTestApiStepRetryPtrInput `pulumi:"retry"`
-	// The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `wait`. Defaults to `"http"`.
+	// The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `ssl`, `dns`, `tcp`, `udp`, `icmp`, `websocket`, `wait`. Defaults to `"http"`.
 	Subtype pulumi.StringPtrInput `pulumi:"subtype"`
 	// The time to wait in seconds. Minimum value: 0. Maximum value: 180.
 	Value pulumi.IntPtrInput `pulumi:"value"`
@@ -48282,7 +49617,7 @@ func (o SyntheticsTestApiStepOutput) Retry() SyntheticsTestApiStepRetryPtrOutput
 	return o.ApplyT(func(v SyntheticsTestApiStep) *SyntheticsTestApiStepRetry { return v.Retry }).(SyntheticsTestApiStepRetryPtrOutput)
 }
 
-// The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `wait`. Defaults to `"http"`.
+// The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `ssl`, `dns`, `tcp`, `udp`, `icmp`, `websocket`, `wait`. Defaults to `"http"`.
 func (o SyntheticsTestApiStepOutput) Subtype() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStep) *string { return v.Subtype }).(pulumi.StringPtrOutput)
 }
@@ -48315,11 +49650,11 @@ func (o SyntheticsTestApiStepArrayOutput) Index(i pulumi.IntInput) SyntheticsTes
 type SyntheticsTestApiStepAssertion struct {
 	// If assertion type is `javascript`, this is the JavaScript code that performs the assertions.
 	Code *string `pulumi:"code"`
-	// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+	// Assertion operator. **Note:** Only some combinations of `type` and `operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test).
 	Operator *string `pulumi:"operator"`
 	// If assertion type is `header`, this is the header name.
 	Property *string `pulumi:"property"`
-	// Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
+	// Expected value. **Note:** Depends on the assertion type. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test).
 	Target *string `pulumi:"target"`
 	// Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
 	Targetjsonpath *SyntheticsTestApiStepAssertionTargetjsonpath `pulumi:"targetjsonpath"`
@@ -48329,7 +49664,7 @@ type SyntheticsTestApiStepAssertion struct {
 	Targetxpath *SyntheticsTestApiStepAssertionTargetxpath `pulumi:"targetxpath"`
 	// Timings scope for response time assertions. Valid values are `all`, `withoutDNS`.
 	TimingsScope *string `pulumi:"timingsScope"`
-	// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
+	// Type of assertion. **Note:** Only some combinations of `type` and `operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
 	Type string `pulumi:"type"`
 }
 
@@ -48347,11 +49682,11 @@ type SyntheticsTestApiStepAssertionInput interface {
 type SyntheticsTestApiStepAssertionArgs struct {
 	// If assertion type is `javascript`, this is the JavaScript code that performs the assertions.
 	Code pulumi.StringPtrInput `pulumi:"code"`
-	// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+	// Assertion operator. **Note:** Only some combinations of `type` and `operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test).
 	Operator pulumi.StringPtrInput `pulumi:"operator"`
 	// If assertion type is `header`, this is the header name.
 	Property pulumi.StringPtrInput `pulumi:"property"`
-	// Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
+	// Expected value. **Note:** Depends on the assertion type. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test).
 	Target pulumi.StringPtrInput `pulumi:"target"`
 	// Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
 	Targetjsonpath SyntheticsTestApiStepAssertionTargetjsonpathPtrInput `pulumi:"targetjsonpath"`
@@ -48361,7 +49696,7 @@ type SyntheticsTestApiStepAssertionArgs struct {
 	Targetxpath SyntheticsTestApiStepAssertionTargetxpathPtrInput `pulumi:"targetxpath"`
 	// Timings scope for response time assertions. Valid values are `all`, `withoutDNS`.
 	TimingsScope pulumi.StringPtrInput `pulumi:"timingsScope"`
-	// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
+	// Type of assertion. **Note:** Only some combinations of `type` and `operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -48421,7 +49756,7 @@ func (o SyntheticsTestApiStepAssertionOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepAssertion) *string { return v.Code }).(pulumi.StringPtrOutput)
 }
 
-// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+// Assertion operator. **Note:** Only some combinations of `type` and `operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test).
 func (o SyntheticsTestApiStepAssertionOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepAssertion) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
@@ -48431,7 +49766,7 @@ func (o SyntheticsTestApiStepAssertionOutput) Property() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v SyntheticsTestApiStepAssertion) *string { return v.Property }).(pulumi.StringPtrOutput)
 }
 
-// Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
+// Expected value. **Note:** Depends on the assertion type. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test).
 func (o SyntheticsTestApiStepAssertionOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepAssertion) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
@@ -48462,7 +49797,7 @@ func (o SyntheticsTestApiStepAssertionOutput) TimingsScope() pulumi.StringPtrOut
 	return o.ApplyT(func(v SyntheticsTestApiStepAssertion) *string { return v.TimingsScope }).(pulumi.StringPtrOutput)
 }
 
-// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
+// Type of assertion. **Note:** Only some combinations of `type` and `operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
 func (o SyntheticsTestApiStepAssertionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepAssertion) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -49795,7 +51130,7 @@ func (o SyntheticsTestApiStepRequestClientCertificatePtrOutput) Key() Synthetics
 
 type SyntheticsTestApiStepRequestClientCertificateCert struct {
 	// Content of the certificate.
-	Content string `pulumi:"content"`
+	Content *string `pulumi:"content"`
 	// File name for the certificate.
 	Filename *string `pulumi:"filename"`
 }
@@ -49813,7 +51148,7 @@ type SyntheticsTestApiStepRequestClientCertificateCertInput interface {
 
 type SyntheticsTestApiStepRequestClientCertificateCertArgs struct {
 	// Content of the certificate.
-	Content pulumi.StringInput `pulumi:"content"`
+	Content pulumi.StringPtrInput `pulumi:"content"`
 	// File name for the certificate.
 	Filename pulumi.StringPtrInput `pulumi:"filename"`
 }
@@ -49896,8 +51231,8 @@ func (o SyntheticsTestApiStepRequestClientCertificateCertOutput) ToSyntheticsTes
 }
 
 // Content of the certificate.
-func (o SyntheticsTestApiStepRequestClientCertificateCertOutput) Content() pulumi.StringOutput {
-	return o.ApplyT(func(v SyntheticsTestApiStepRequestClientCertificateCert) string { return v.Content }).(pulumi.StringOutput)
+func (o SyntheticsTestApiStepRequestClientCertificateCertOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestClientCertificateCert) *string { return v.Content }).(pulumi.StringPtrOutput)
 }
 
 // File name for the certificate.
@@ -49935,7 +51270,7 @@ func (o SyntheticsTestApiStepRequestClientCertificateCertPtrOutput) Content() pu
 		if v == nil {
 			return nil
 		}
-		return &v.Content
+		return v.Content
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -49951,7 +51286,7 @@ func (o SyntheticsTestApiStepRequestClientCertificateCertPtrOutput) Filename() p
 
 type SyntheticsTestApiStepRequestClientCertificateKey struct {
 	// Content of the certificate.
-	Content string `pulumi:"content"`
+	Content *string `pulumi:"content"`
 	// File name for the certificate.
 	Filename *string `pulumi:"filename"`
 }
@@ -49969,7 +51304,7 @@ type SyntheticsTestApiStepRequestClientCertificateKeyInput interface {
 
 type SyntheticsTestApiStepRequestClientCertificateKeyArgs struct {
 	// Content of the certificate.
-	Content pulumi.StringInput `pulumi:"content"`
+	Content pulumi.StringPtrInput `pulumi:"content"`
 	// File name for the certificate.
 	Filename pulumi.StringPtrInput `pulumi:"filename"`
 }
@@ -50052,8 +51387,8 @@ func (o SyntheticsTestApiStepRequestClientCertificateKeyOutput) ToSyntheticsTest
 }
 
 // Content of the certificate.
-func (o SyntheticsTestApiStepRequestClientCertificateKeyOutput) Content() pulumi.StringOutput {
-	return o.ApplyT(func(v SyntheticsTestApiStepRequestClientCertificateKey) string { return v.Content }).(pulumi.StringOutput)
+func (o SyntheticsTestApiStepRequestClientCertificateKeyOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestClientCertificateKey) *string { return v.Content }).(pulumi.StringPtrOutput)
 }
 
 // File name for the certificate.
@@ -50091,7 +51426,7 @@ func (o SyntheticsTestApiStepRequestClientCertificateKeyPtrOutput) Content() pul
 		if v == nil {
 			return nil
 		}
-		return &v.Content
+		return v.Content
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -50106,6 +51441,8 @@ func (o SyntheticsTestApiStepRequestClientCertificateKeyPtrOutput) Filename() pu
 }
 
 type SyntheticsTestApiStepRequestDefinition struct {
+	// For SSL test, whether or not the test should allow self signed certificates.
+	AcceptSelfSigned *bool `pulumi:"acceptSelfSigned"`
 	// Allows loading insecure content for a request in an API test or in a multistep API test step.
 	AllowInsecure *bool `pulumi:"allowInsecure"`
 	// The request body.
@@ -50116,16 +51453,22 @@ type SyntheticsTestApiStepRequestDefinition struct {
 	CallType *string `pulumi:"callType"`
 	// By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `certificateDomains`.
 	CertificateDomains []string `pulumi:"certificateDomains"`
+	// For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+	CheckCertificateRevocation *bool `pulumi:"checkCertificateRevocation"`
 	// DNS server to use for DNS tests (`subtype = "dns"`).
 	DnsServer *string `pulumi:"dnsServer"`
 	// DNS server port to use for DNS tests.
 	DnsServerPort *string `pulumi:"dnsServerPort"`
 	// Determines whether or not the API HTTP test should follow redirects.
 	FollowRedirects *bool `pulumi:"followRedirects"`
+	// Form data to be sent when `bodyType` is `multipart/form-data`.
+	Form map[string]string `pulumi:"form"`
 	// Host name to perform the test with.
 	Host *string `pulumi:"host"`
 	// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `"any"`.
 	HttpVersion *string `pulumi:"httpVersion"`
+	// Whether the message is base64-encoded.
+	IsMessageBase64Encoded *bool `pulumi:"isMessageBase64Encoded"`
 	// For UDP and websocket tests, message to send with the request.
 	Message *string `pulumi:"message"`
 	// Either the HTTP method/verb to use or a gRPC method available on the service set in the `service` field. Required if `subtype` is `HTTP` or if `subtype` is `grpc` and `callType` is `unary`.
@@ -50168,6 +51511,8 @@ type SyntheticsTestApiStepRequestDefinitionInput interface {
 }
 
 type SyntheticsTestApiStepRequestDefinitionArgs struct {
+	// For SSL test, whether or not the test should allow self signed certificates.
+	AcceptSelfSigned pulumi.BoolPtrInput `pulumi:"acceptSelfSigned"`
 	// Allows loading insecure content for a request in an API test or in a multistep API test step.
 	AllowInsecure pulumi.BoolPtrInput `pulumi:"allowInsecure"`
 	// The request body.
@@ -50178,16 +51523,22 @@ type SyntheticsTestApiStepRequestDefinitionArgs struct {
 	CallType pulumi.StringPtrInput `pulumi:"callType"`
 	// By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `certificateDomains`.
 	CertificateDomains pulumi.StringArrayInput `pulumi:"certificateDomains"`
+	// For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+	CheckCertificateRevocation pulumi.BoolPtrInput `pulumi:"checkCertificateRevocation"`
 	// DNS server to use for DNS tests (`subtype = "dns"`).
 	DnsServer pulumi.StringPtrInput `pulumi:"dnsServer"`
 	// DNS server port to use for DNS tests.
 	DnsServerPort pulumi.StringPtrInput `pulumi:"dnsServerPort"`
 	// Determines whether or not the API HTTP test should follow redirects.
 	FollowRedirects pulumi.BoolPtrInput `pulumi:"followRedirects"`
+	// Form data to be sent when `bodyType` is `multipart/form-data`.
+	Form pulumi.StringMapInput `pulumi:"form"`
 	// Host name to perform the test with.
 	Host pulumi.StringPtrInput `pulumi:"host"`
 	// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `"any"`.
 	HttpVersion pulumi.StringPtrInput `pulumi:"httpVersion"`
+	// Whether the message is base64-encoded.
+	IsMessageBase64Encoded pulumi.BoolPtrInput `pulumi:"isMessageBase64Encoded"`
 	// For UDP and websocket tests, message to send with the request.
 	Message pulumi.StringPtrInput `pulumi:"message"`
 	// Either the HTTP method/verb to use or a gRPC method available on the service set in the `service` field. Required if `subtype` is `HTTP` or if `subtype` is `grpc` and `callType` is `unary`.
@@ -50295,6 +51646,11 @@ func (o SyntheticsTestApiStepRequestDefinitionOutput) ToSyntheticsTestApiStepReq
 	}).(SyntheticsTestApiStepRequestDefinitionPtrOutput)
 }
 
+// For SSL test, whether or not the test should allow self signed certificates.
+func (o SyntheticsTestApiStepRequestDefinitionOutput) AcceptSelfSigned() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *bool { return v.AcceptSelfSigned }).(pulumi.BoolPtrOutput)
+}
+
 // Allows loading insecure content for a request in an API test or in a multistep API test step.
 func (o SyntheticsTestApiStepRequestDefinitionOutput) AllowInsecure() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *bool { return v.AllowInsecure }).(pulumi.BoolPtrOutput)
@@ -50320,6 +51676,11 @@ func (o SyntheticsTestApiStepRequestDefinitionOutput) CertificateDomains() pulum
 	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) []string { return v.CertificateDomains }).(pulumi.StringArrayOutput)
 }
 
+// For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+func (o SyntheticsTestApiStepRequestDefinitionOutput) CheckCertificateRevocation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *bool { return v.CheckCertificateRevocation }).(pulumi.BoolPtrOutput)
+}
+
 // DNS server to use for DNS tests (`subtype = "dns"`).
 func (o SyntheticsTestApiStepRequestDefinitionOutput) DnsServer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *string { return v.DnsServer }).(pulumi.StringPtrOutput)
@@ -50335,6 +51696,11 @@ func (o SyntheticsTestApiStepRequestDefinitionOutput) FollowRedirects() pulumi.B
 	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *bool { return v.FollowRedirects }).(pulumi.BoolPtrOutput)
 }
 
+// Form data to be sent when `bodyType` is `multipart/form-data`.
+func (o SyntheticsTestApiStepRequestDefinitionOutput) Form() pulumi.StringMapOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) map[string]string { return v.Form }).(pulumi.StringMapOutput)
+}
+
 // Host name to perform the test with.
 func (o SyntheticsTestApiStepRequestDefinitionOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *string { return v.Host }).(pulumi.StringPtrOutput)
@@ -50343,6 +51709,11 @@ func (o SyntheticsTestApiStepRequestDefinitionOutput) Host() pulumi.StringPtrOut
 // HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `"any"`.
 func (o SyntheticsTestApiStepRequestDefinitionOutput) HttpVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *string { return v.HttpVersion }).(pulumi.StringPtrOutput)
+}
+
+// Whether the message is base64-encoded.
+func (o SyntheticsTestApiStepRequestDefinitionOutput) IsMessageBase64Encoded() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *bool { return v.IsMessageBase64Encoded }).(pulumi.BoolPtrOutput)
 }
 
 // For UDP and websocket tests, message to send with the request.
@@ -50436,6 +51807,16 @@ func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) Elem() SyntheticsTestAp
 	}).(SyntheticsTestApiStepRequestDefinitionOutput)
 }
 
+// For SSL test, whether or not the test should allow self signed certificates.
+func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) AcceptSelfSigned() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AcceptSelfSigned
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Allows loading insecure content for a request in an API test or in a multistep API test step.
 func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) AllowInsecure() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) *bool {
@@ -50486,6 +51867,16 @@ func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) CertificateDomains() pu
 	}).(pulumi.StringArrayOutput)
 }
 
+// For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) CheckCertificateRevocation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CheckCertificateRevocation
+	}).(pulumi.BoolPtrOutput)
+}
+
 // DNS server to use for DNS tests (`subtype = "dns"`).
 func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) DnsServer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) *string {
@@ -50516,6 +51907,16 @@ func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) FollowRedirects() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Form data to be sent when `bodyType` is `multipart/form-data`.
+func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) Form() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Form
+	}).(pulumi.StringMapOutput)
+}
+
 // Host name to perform the test with.
 func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) *string {
@@ -50534,6 +51935,16 @@ func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) HttpVersion() pulumi.St
 		}
 		return v.HttpVersion
 	}).(pulumi.StringPtrOutput)
+}
+
+// Whether the message is base64-encoded.
+func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) IsMessageBase64Encoded() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsMessageBase64Encoded
+	}).(pulumi.BoolPtrOutput)
 }
 
 // For UDP and websocket tests, message to send with the request.
@@ -51125,11 +52536,11 @@ func (o SyntheticsTestApiStepRetryPtrOutput) Interval() pulumi.IntPtrOutput {
 type SyntheticsTestAssertion struct {
 	// If assertion type is `javascript`, this is the JavaScript code that performs the assertions.
 	Code *string `pulumi:"code"`
-	// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+	// Assertion operator. **Note:** Only some combinations of `type` and `operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test).
 	Operator *string `pulumi:"operator"`
 	// If assertion type is `header`, this is the header name.
 	Property *string `pulumi:"property"`
-	// Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
+	// Expected value. **Note:** Depends on the assertion type. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test).
 	Target *string `pulumi:"target"`
 	// Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
 	Targetjsonpath *SyntheticsTestAssertionTargetjsonpath `pulumi:"targetjsonpath"`
@@ -51139,7 +52550,7 @@ type SyntheticsTestAssertion struct {
 	Targetxpath *SyntheticsTestAssertionTargetxpath `pulumi:"targetxpath"`
 	// Timings scope for response time assertions. Valid values are `all`, `withoutDNS`.
 	TimingsScope *string `pulumi:"timingsScope"`
-	// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
+	// Type of assertion. **Note:** Only some combinations of `type` and `operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
 	Type string `pulumi:"type"`
 }
 
@@ -51157,11 +52568,11 @@ type SyntheticsTestAssertionInput interface {
 type SyntheticsTestAssertionArgs struct {
 	// If assertion type is `javascript`, this is the JavaScript code that performs the assertions.
 	Code pulumi.StringPtrInput `pulumi:"code"`
-	// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+	// Assertion operator. **Note:** Only some combinations of `type` and `operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test).
 	Operator pulumi.StringPtrInput `pulumi:"operator"`
 	// If assertion type is `header`, this is the header name.
 	Property pulumi.StringPtrInput `pulumi:"property"`
-	// Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
+	// Expected value. **Note:** Depends on the assertion type. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test).
 	Target pulumi.StringPtrInput `pulumi:"target"`
 	// Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
 	Targetjsonpath SyntheticsTestAssertionTargetjsonpathPtrInput `pulumi:"targetjsonpath"`
@@ -51171,7 +52582,7 @@ type SyntheticsTestAssertionArgs struct {
 	Targetxpath SyntheticsTestAssertionTargetxpathPtrInput `pulumi:"targetxpath"`
 	// Timings scope for response time assertions. Valid values are `all`, `withoutDNS`.
 	TimingsScope pulumi.StringPtrInput `pulumi:"timingsScope"`
-	// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
+	// Type of assertion. **Note:** Only some combinations of `type` and `operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -51231,7 +52642,7 @@ func (o SyntheticsTestAssertionOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestAssertion) *string { return v.Code }).(pulumi.StringPtrOutput)
 }
 
-// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+// Assertion operator. **Note:** Only some combinations of `type` and `operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test).
 func (o SyntheticsTestAssertionOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestAssertion) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
@@ -51241,7 +52652,7 @@ func (o SyntheticsTestAssertionOutput) Property() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestAssertion) *string { return v.Property }).(pulumi.StringPtrOutput)
 }
 
-// Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
+// Expected value. **Note:** Depends on the assertion type. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test).
 func (o SyntheticsTestAssertionOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestAssertion) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
@@ -51266,7 +52677,7 @@ func (o SyntheticsTestAssertionOutput) TimingsScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestAssertion) *string { return v.TimingsScope }).(pulumi.StringPtrOutput)
 }
 
-// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
+// Type of assertion. **Note:** Only some combinations of `type` and `operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
 func (o SyntheticsTestAssertionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SyntheticsTestAssertion) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -51839,7 +53250,7 @@ type SyntheticsTestBrowserStep struct {
 	PublicId *string `pulumi:"publicId"`
 	// Used to override the default timeout of a step.
 	Timeout *int `pulumi:"timeout"`
-	// Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `assertRequests`, `click`, `extractFromJavascript`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `hover`, `playSubTest`, `pressKey`, `refresh`, `runApiTest`, `scroll`, `selectOption`, `typeText`, `uploadFiles`, `wait`.
+	// Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `assertRequests`, `click`, `extractFromJavascript`, `extractFromEmailBody`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `hover`, `playSubTest`, `pressKey`, `refresh`, `runApiTest`, `scroll`, `selectOption`, `typeText`, `uploadFiles`, `wait`.
 	Type string `pulumi:"type"`
 }
 
@@ -51877,7 +53288,7 @@ type SyntheticsTestBrowserStepArgs struct {
 	PublicId pulumi.StringPtrInput `pulumi:"publicId"`
 	// Used to override the default timeout of a step.
 	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
-	// Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `assertRequests`, `click`, `extractFromJavascript`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `hover`, `playSubTest`, `pressKey`, `refresh`, `runApiTest`, `scroll`, `selectOption`, `typeText`, `uploadFiles`, `wait`.
+	// Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `assertRequests`, `click`, `extractFromJavascript`, `extractFromEmailBody`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `hover`, `playSubTest`, `pressKey`, `refresh`, `runApiTest`, `scroll`, `selectOption`, `typeText`, `uploadFiles`, `wait`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -51987,7 +53398,7 @@ func (o SyntheticsTestBrowserStepOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestBrowserStep) *int { return v.Timeout }).(pulumi.IntPtrOutput)
 }
 
-// Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `assertRequests`, `click`, `extractFromJavascript`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `hover`, `playSubTest`, `pressKey`, `refresh`, `runApiTest`, `scroll`, `selectOption`, `typeText`, `uploadFiles`, `wait`.
+// Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `assertRequests`, `click`, `extractFromJavascript`, `extractFromEmailBody`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `hover`, `playSubTest`, `pressKey`, `refresh`, `runApiTest`, `scroll`, `selectOption`, `typeText`, `uploadFiles`, `wait`.
 func (o SyntheticsTestBrowserStepOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SyntheticsTestBrowserStep) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -52013,6 +53424,8 @@ func (o SyntheticsTestBrowserStepArrayOutput) Index(i pulumi.IntInput) Synthetic
 }
 
 type SyntheticsTestBrowserStepParams struct {
+	// Whether to append the `value` to existing text input content for a "typeText" step. By default, content is cleared before text input.
+	AppendToContent *bool `pulumi:"appendToContent"`
 	// Name of the attribute to use for an "assert attribute" step.
 	Attribute *string `pulumi:"attribute"`
 	// Check type to use for an assertion step. Valid values are `equals`, `notEquals`, `contains`, `notContains`, `startsWith`, `notStartsWith`, `greater`, `lower`, `greaterEquals`, `lowerEquals`, `matchRegex`, `between`, `isEmpty`, `notIsEmpty`.
@@ -52025,7 +53438,7 @@ type SyntheticsTestBrowserStepParams struct {
 	Code *string `pulumi:"code"`
 	// Delay between each key stroke for a "type test" step.
 	Delay *int `pulumi:"delay"`
-	// Element to use for the step, JSON encoded string.
+	// Element to use for the step, JSON encoded string. Refer to the examples for a usage example showing the schema.
 	Element *string `pulumi:"element"`
 	// Custom user selector to use for the step.
 	ElementUserLocator *SyntheticsTestBrowserStepParamsElementUserLocator `pulumi:"elementUserLocator"`
@@ -52037,6 +53450,8 @@ type SyntheticsTestBrowserStepParams struct {
 	Files *string `pulumi:"files"`
 	// Modifier to use for a "press key" step.
 	Modifiers []string `pulumi:"modifiers"`
+	// Pattern to use for an "extractFromEmailBody" step.
+	Pattern *SyntheticsTestBrowserStepParamsPattern `pulumi:"pattern"`
 	// ID of the tab to play the subtest.
 	PlayingTabId *string `pulumi:"playingTabId"`
 	// Request for an API step.
@@ -52069,6 +53484,8 @@ type SyntheticsTestBrowserStepParamsInput interface {
 }
 
 type SyntheticsTestBrowserStepParamsArgs struct {
+	// Whether to append the `value` to existing text input content for a "typeText" step. By default, content is cleared before text input.
+	AppendToContent pulumi.BoolPtrInput `pulumi:"appendToContent"`
 	// Name of the attribute to use for an "assert attribute" step.
 	Attribute pulumi.StringPtrInput `pulumi:"attribute"`
 	// Check type to use for an assertion step. Valid values are `equals`, `notEquals`, `contains`, `notContains`, `startsWith`, `notStartsWith`, `greater`, `lower`, `greaterEquals`, `lowerEquals`, `matchRegex`, `between`, `isEmpty`, `notIsEmpty`.
@@ -52081,7 +53498,7 @@ type SyntheticsTestBrowserStepParamsArgs struct {
 	Code pulumi.StringPtrInput `pulumi:"code"`
 	// Delay between each key stroke for a "type test" step.
 	Delay pulumi.IntPtrInput `pulumi:"delay"`
-	// Element to use for the step, JSON encoded string.
+	// Element to use for the step, JSON encoded string. Refer to the examples for a usage example showing the schema.
 	Element pulumi.StringPtrInput `pulumi:"element"`
 	// Custom user selector to use for the step.
 	ElementUserLocator SyntheticsTestBrowserStepParamsElementUserLocatorPtrInput `pulumi:"elementUserLocator"`
@@ -52093,6 +53510,8 @@ type SyntheticsTestBrowserStepParamsArgs struct {
 	Files pulumi.StringPtrInput `pulumi:"files"`
 	// Modifier to use for a "press key" step.
 	Modifiers pulumi.StringArrayInput `pulumi:"modifiers"`
+	// Pattern to use for an "extractFromEmailBody" step.
+	Pattern SyntheticsTestBrowserStepParamsPatternPtrInput `pulumi:"pattern"`
 	// ID of the tab to play the subtest.
 	PlayingTabId pulumi.StringPtrInput `pulumi:"playingTabId"`
 	// Request for an API step.
@@ -52139,6 +53558,11 @@ func (o SyntheticsTestBrowserStepParamsOutput) ToSyntheticsTestBrowserStepParams
 	return o
 }
 
+// Whether to append the `value` to existing text input content for a "typeText" step. By default, content is cleared before text input.
+func (o SyntheticsTestBrowserStepParamsOutput) AppendToContent() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *bool { return v.AppendToContent }).(pulumi.BoolPtrOutput)
+}
+
 // Name of the attribute to use for an "assert attribute" step.
 func (o SyntheticsTestBrowserStepParamsOutput) Attribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *string { return v.Attribute }).(pulumi.StringPtrOutput)
@@ -52169,7 +53593,7 @@ func (o SyntheticsTestBrowserStepParamsOutput) Delay() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *int { return v.Delay }).(pulumi.IntPtrOutput)
 }
 
-// Element to use for the step, JSON encoded string.
+// Element to use for the step, JSON encoded string. Refer to the examples for a usage example showing the schema.
 func (o SyntheticsTestBrowserStepParamsOutput) Element() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *string { return v.Element }).(pulumi.StringPtrOutput)
 }
@@ -52199,6 +53623,11 @@ func (o SyntheticsTestBrowserStepParamsOutput) Files() pulumi.StringPtrOutput {
 // Modifier to use for a "press key" step.
 func (o SyntheticsTestBrowserStepParamsOutput) Modifiers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) []string { return v.Modifiers }).(pulumi.StringArrayOutput)
+}
+
+// Pattern to use for an "extractFromEmailBody" step.
+func (o SyntheticsTestBrowserStepParamsOutput) Pattern() SyntheticsTestBrowserStepParamsPatternPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *SyntheticsTestBrowserStepParamsPattern { return v.Pattern }).(SyntheticsTestBrowserStepParamsPatternPtrOutput)
 }
 
 // ID of the tab to play the subtest.
@@ -52549,6 +53978,162 @@ func (o SyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutput) Value()
 			return nil
 		}
 		return &v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestBrowserStepParamsPattern struct {
+	// Type of pattern to use for the step. Valid values are `regex`, `xPath`.
+	Type *string `pulumi:"type"`
+	// Pattern to use for the step.
+	Value *string `pulumi:"value"`
+}
+
+// SyntheticsTestBrowserStepParamsPatternInput is an input type that accepts SyntheticsTestBrowserStepParamsPatternArgs and SyntheticsTestBrowserStepParamsPatternOutput values.
+// You can construct a concrete instance of `SyntheticsTestBrowserStepParamsPatternInput` via:
+//
+//	SyntheticsTestBrowserStepParamsPatternArgs{...}
+type SyntheticsTestBrowserStepParamsPatternInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestBrowserStepParamsPatternOutput() SyntheticsTestBrowserStepParamsPatternOutput
+	ToSyntheticsTestBrowserStepParamsPatternOutputWithContext(context.Context) SyntheticsTestBrowserStepParamsPatternOutput
+}
+
+type SyntheticsTestBrowserStepParamsPatternArgs struct {
+	// Type of pattern to use for the step. Valid values are `regex`, `xPath`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// Pattern to use for the step.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (SyntheticsTestBrowserStepParamsPatternArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestBrowserStepParamsPattern)(nil)).Elem()
+}
+
+func (i SyntheticsTestBrowserStepParamsPatternArgs) ToSyntheticsTestBrowserStepParamsPatternOutput() SyntheticsTestBrowserStepParamsPatternOutput {
+	return i.ToSyntheticsTestBrowserStepParamsPatternOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestBrowserStepParamsPatternArgs) ToSyntheticsTestBrowserStepParamsPatternOutputWithContext(ctx context.Context) SyntheticsTestBrowserStepParamsPatternOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestBrowserStepParamsPatternOutput)
+}
+
+func (i SyntheticsTestBrowserStepParamsPatternArgs) ToSyntheticsTestBrowserStepParamsPatternPtrOutput() SyntheticsTestBrowserStepParamsPatternPtrOutput {
+	return i.ToSyntheticsTestBrowserStepParamsPatternPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestBrowserStepParamsPatternArgs) ToSyntheticsTestBrowserStepParamsPatternPtrOutputWithContext(ctx context.Context) SyntheticsTestBrowserStepParamsPatternPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestBrowserStepParamsPatternOutput).ToSyntheticsTestBrowserStepParamsPatternPtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestBrowserStepParamsPatternPtrInput is an input type that accepts SyntheticsTestBrowserStepParamsPatternArgs, SyntheticsTestBrowserStepParamsPatternPtr and SyntheticsTestBrowserStepParamsPatternPtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestBrowserStepParamsPatternPtrInput` via:
+//
+//	        SyntheticsTestBrowserStepParamsPatternArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestBrowserStepParamsPatternPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestBrowserStepParamsPatternPtrOutput() SyntheticsTestBrowserStepParamsPatternPtrOutput
+	ToSyntheticsTestBrowserStepParamsPatternPtrOutputWithContext(context.Context) SyntheticsTestBrowserStepParamsPatternPtrOutput
+}
+
+type syntheticsTestBrowserStepParamsPatternPtrType SyntheticsTestBrowserStepParamsPatternArgs
+
+func SyntheticsTestBrowserStepParamsPatternPtr(v *SyntheticsTestBrowserStepParamsPatternArgs) SyntheticsTestBrowserStepParamsPatternPtrInput {
+	return (*syntheticsTestBrowserStepParamsPatternPtrType)(v)
+}
+
+func (*syntheticsTestBrowserStepParamsPatternPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestBrowserStepParamsPattern)(nil)).Elem()
+}
+
+func (i *syntheticsTestBrowserStepParamsPatternPtrType) ToSyntheticsTestBrowserStepParamsPatternPtrOutput() SyntheticsTestBrowserStepParamsPatternPtrOutput {
+	return i.ToSyntheticsTestBrowserStepParamsPatternPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestBrowserStepParamsPatternPtrType) ToSyntheticsTestBrowserStepParamsPatternPtrOutputWithContext(ctx context.Context) SyntheticsTestBrowserStepParamsPatternPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestBrowserStepParamsPatternPtrOutput)
+}
+
+type SyntheticsTestBrowserStepParamsPatternOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestBrowserStepParamsPatternOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestBrowserStepParamsPattern)(nil)).Elem()
+}
+
+func (o SyntheticsTestBrowserStepParamsPatternOutput) ToSyntheticsTestBrowserStepParamsPatternOutput() SyntheticsTestBrowserStepParamsPatternOutput {
+	return o
+}
+
+func (o SyntheticsTestBrowserStepParamsPatternOutput) ToSyntheticsTestBrowserStepParamsPatternOutputWithContext(ctx context.Context) SyntheticsTestBrowserStepParamsPatternOutput {
+	return o
+}
+
+func (o SyntheticsTestBrowserStepParamsPatternOutput) ToSyntheticsTestBrowserStepParamsPatternPtrOutput() SyntheticsTestBrowserStepParamsPatternPtrOutput {
+	return o.ToSyntheticsTestBrowserStepParamsPatternPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestBrowserStepParamsPatternOutput) ToSyntheticsTestBrowserStepParamsPatternPtrOutputWithContext(ctx context.Context) SyntheticsTestBrowserStepParamsPatternPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestBrowserStepParamsPattern) *SyntheticsTestBrowserStepParamsPattern {
+		return &v
+	}).(SyntheticsTestBrowserStepParamsPatternPtrOutput)
+}
+
+// Type of pattern to use for the step. Valid values are `regex`, `xPath`.
+func (o SyntheticsTestBrowserStepParamsPatternOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserStepParamsPattern) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Pattern to use for the step.
+func (o SyntheticsTestBrowserStepParamsPatternOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserStepParamsPattern) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestBrowserStepParamsPatternPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestBrowserStepParamsPatternPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestBrowserStepParamsPattern)(nil)).Elem()
+}
+
+func (o SyntheticsTestBrowserStepParamsPatternPtrOutput) ToSyntheticsTestBrowserStepParamsPatternPtrOutput() SyntheticsTestBrowserStepParamsPatternPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestBrowserStepParamsPatternPtrOutput) ToSyntheticsTestBrowserStepParamsPatternPtrOutputWithContext(ctx context.Context) SyntheticsTestBrowserStepParamsPatternPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestBrowserStepParamsPatternPtrOutput) Elem() SyntheticsTestBrowserStepParamsPatternOutput {
+	return o.ApplyT(func(v *SyntheticsTestBrowserStepParamsPattern) SyntheticsTestBrowserStepParamsPattern {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestBrowserStepParamsPattern
+		return ret
+	}).(SyntheticsTestBrowserStepParamsPatternOutput)
+}
+
+// Type of pattern to use for the step. Valid values are `regex`, `xPath`.
+func (o SyntheticsTestBrowserStepParamsPatternPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestBrowserStepParamsPattern) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Pattern to use for the step.
+func (o SyntheticsTestBrowserStepParamsPatternPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestBrowserStepParamsPattern) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Value
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -53834,7 +55419,7 @@ func (o SyntheticsTestMobileOptionsListMobileApplicationPtrOutput) ReferenceType
 type SyntheticsTestMobileOptionsListMonitorOptions struct {
 	// A message to include with a re-notification.
 	EscalationMessage *string `pulumi:"escalationMessage"`
-	// Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`.
+	// The name of the preset for the notification for the monitor. Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`.
 	NotificationPresetName *string `pulumi:"notificationPresetName"`
 	// Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
 	RenotifyInterval *int `pulumi:"renotifyInterval"`
@@ -53856,7 +55441,7 @@ type SyntheticsTestMobileOptionsListMonitorOptionsInput interface {
 type SyntheticsTestMobileOptionsListMonitorOptionsArgs struct {
 	// A message to include with a re-notification.
 	EscalationMessage pulumi.StringPtrInput `pulumi:"escalationMessage"`
-	// Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`.
+	// The name of the preset for the notification for the monitor. Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`.
 	NotificationPresetName pulumi.StringPtrInput `pulumi:"notificationPresetName"`
 	// Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
 	RenotifyInterval pulumi.IntPtrInput `pulumi:"renotifyInterval"`
@@ -53946,7 +55531,7 @@ func (o SyntheticsTestMobileOptionsListMonitorOptionsOutput) EscalationMessage()
 	return o.ApplyT(func(v SyntheticsTestMobileOptionsListMonitorOptions) *string { return v.EscalationMessage }).(pulumi.StringPtrOutput)
 }
 
-// Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`.
+// The name of the preset for the notification for the monitor. Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`.
 func (o SyntheticsTestMobileOptionsListMonitorOptionsOutput) NotificationPresetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestMobileOptionsListMonitorOptions) *string { return v.NotificationPresetName }).(pulumi.StringPtrOutput)
 }
@@ -53995,7 +55580,7 @@ func (o SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput) EscalationMessag
 	}).(pulumi.StringPtrOutput)
 }
 
-// Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`.
+// The name of the preset for the notification for the monitor. Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`.
 func (o SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput) NotificationPresetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestMobileOptionsListMonitorOptions) *string {
 		if v == nil {
@@ -56327,6 +57912,8 @@ func (o SyntheticsTestOptionsListCiPtrOutput) ExecutionRule() pulumi.StringPtrOu
 type SyntheticsTestOptionsListMonitorOptions struct {
 	// A message to include with a re-notification.
 	EscalationMessage *string `pulumi:"escalationMessage"`
+	// The name of the preset for the notification for the monitor. Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`.
+	NotificationPresetName *string `pulumi:"notificationPresetName"`
 	// Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
 	RenotifyInterval *int `pulumi:"renotifyInterval"`
 	// The number of times a monitor renotifies. It can only be set if `renotifyInterval` is set.
@@ -56347,6 +57934,8 @@ type SyntheticsTestOptionsListMonitorOptionsInput interface {
 type SyntheticsTestOptionsListMonitorOptionsArgs struct {
 	// A message to include with a re-notification.
 	EscalationMessage pulumi.StringPtrInput `pulumi:"escalationMessage"`
+	// The name of the preset for the notification for the monitor. Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`.
+	NotificationPresetName pulumi.StringPtrInput `pulumi:"notificationPresetName"`
 	// Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
 	RenotifyInterval pulumi.IntPtrInput `pulumi:"renotifyInterval"`
 	// The number of times a monitor renotifies. It can only be set if `renotifyInterval` is set.
@@ -56435,6 +58024,11 @@ func (o SyntheticsTestOptionsListMonitorOptionsOutput) EscalationMessage() pulum
 	return o.ApplyT(func(v SyntheticsTestOptionsListMonitorOptions) *string { return v.EscalationMessage }).(pulumi.StringPtrOutput)
 }
 
+// The name of the preset for the notification for the monitor. Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`.
+func (o SyntheticsTestOptionsListMonitorOptionsOutput) NotificationPresetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsListMonitorOptions) *string { return v.NotificationPresetName }).(pulumi.StringPtrOutput)
+}
+
 // Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
 func (o SyntheticsTestOptionsListMonitorOptionsOutput) RenotifyInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestOptionsListMonitorOptions) *int { return v.RenotifyInterval }).(pulumi.IntPtrOutput)
@@ -56476,6 +58070,16 @@ func (o SyntheticsTestOptionsListMonitorOptionsPtrOutput) EscalationMessage() pu
 			return nil
 		}
 		return v.EscalationMessage
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the preset for the notification for the monitor. Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`.
+func (o SyntheticsTestOptionsListMonitorOptionsPtrOutput) NotificationPresetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsListMonitorOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NotificationPresetName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -57696,7 +59300,7 @@ func (o SyntheticsTestRequestClientCertificatePtrOutput) Key() SyntheticsTestReq
 
 type SyntheticsTestRequestClientCertificateCert struct {
 	// Content of the certificate.
-	Content string `pulumi:"content"`
+	Content *string `pulumi:"content"`
 	// File name for the certificate.
 	Filename *string `pulumi:"filename"`
 }
@@ -57714,7 +59318,7 @@ type SyntheticsTestRequestClientCertificateCertInput interface {
 
 type SyntheticsTestRequestClientCertificateCertArgs struct {
 	// Content of the certificate.
-	Content pulumi.StringInput `pulumi:"content"`
+	Content pulumi.StringPtrInput `pulumi:"content"`
 	// File name for the certificate.
 	Filename pulumi.StringPtrInput `pulumi:"filename"`
 }
@@ -57797,8 +59401,8 @@ func (o SyntheticsTestRequestClientCertificateCertOutput) ToSyntheticsTestReques
 }
 
 // Content of the certificate.
-func (o SyntheticsTestRequestClientCertificateCertOutput) Content() pulumi.StringOutput {
-	return o.ApplyT(func(v SyntheticsTestRequestClientCertificateCert) string { return v.Content }).(pulumi.StringOutput)
+func (o SyntheticsTestRequestClientCertificateCertOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestClientCertificateCert) *string { return v.Content }).(pulumi.StringPtrOutput)
 }
 
 // File name for the certificate.
@@ -57836,7 +59440,7 @@ func (o SyntheticsTestRequestClientCertificateCertPtrOutput) Content() pulumi.St
 		if v == nil {
 			return nil
 		}
-		return &v.Content
+		return v.Content
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -57852,7 +59456,7 @@ func (o SyntheticsTestRequestClientCertificateCertPtrOutput) Filename() pulumi.S
 
 type SyntheticsTestRequestClientCertificateKey struct {
 	// Content of the certificate.
-	Content string `pulumi:"content"`
+	Content *string `pulumi:"content"`
 	// File name for the certificate.
 	Filename *string `pulumi:"filename"`
 }
@@ -57870,7 +59474,7 @@ type SyntheticsTestRequestClientCertificateKeyInput interface {
 
 type SyntheticsTestRequestClientCertificateKeyArgs struct {
 	// Content of the certificate.
-	Content pulumi.StringInput `pulumi:"content"`
+	Content pulumi.StringPtrInput `pulumi:"content"`
 	// File name for the certificate.
 	Filename pulumi.StringPtrInput `pulumi:"filename"`
 }
@@ -57953,8 +59557,8 @@ func (o SyntheticsTestRequestClientCertificateKeyOutput) ToSyntheticsTestRequest
 }
 
 // Content of the certificate.
-func (o SyntheticsTestRequestClientCertificateKeyOutput) Content() pulumi.StringOutput {
-	return o.ApplyT(func(v SyntheticsTestRequestClientCertificateKey) string { return v.Content }).(pulumi.StringOutput)
+func (o SyntheticsTestRequestClientCertificateKeyOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestClientCertificateKey) *string { return v.Content }).(pulumi.StringPtrOutput)
 }
 
 // File name for the certificate.
@@ -57992,7 +59596,7 @@ func (o SyntheticsTestRequestClientCertificateKeyPtrOutput) Content() pulumi.Str
 		if v == nil {
 			return nil
 		}
-		return &v.Content
+		return v.Content
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -58019,12 +59623,16 @@ type SyntheticsTestRequestDefinition struct {
 	DnsServer *string `pulumi:"dnsServer"`
 	// DNS server port to use for DNS tests.
 	DnsServerPort *string `pulumi:"dnsServerPort"`
+	// Form data to be sent when `bodyType` is `multipart/form-data`.
+	Form map[string]string `pulumi:"form"`
 	// Host name to perform the test with.
 	Host *string `pulumi:"host"`
 	// HTTP version to use for an HTTP request in an API test or step. **Deprecated.** Use `httpVersion` in the `optionsList` field instead.
 	//
 	// Deprecated: Use `httpVersion` in the `optionsList` field instead.
 	HttpVersion *string `pulumi:"httpVersion"`
+	// Whether the message is base64-encoded.
+	IsMessageBase64Encoded *bool `pulumi:"isMessageBase64Encoded"`
 	// For UDP and websocket tests, message to send with the request.
 	Message *string `pulumi:"message"`
 	// Either the HTTP method/verb to use or a gRPC method available on the service set in the `service` field. Required if `subtype` is `HTTP` or if `subtype` is `grpc` and `callType` is `unary`.
@@ -58079,12 +59687,16 @@ type SyntheticsTestRequestDefinitionArgs struct {
 	DnsServer pulumi.StringPtrInput `pulumi:"dnsServer"`
 	// DNS server port to use for DNS tests.
 	DnsServerPort pulumi.StringPtrInput `pulumi:"dnsServerPort"`
+	// Form data to be sent when `bodyType` is `multipart/form-data`.
+	Form pulumi.StringMapInput `pulumi:"form"`
 	// Host name to perform the test with.
 	Host pulumi.StringPtrInput `pulumi:"host"`
 	// HTTP version to use for an HTTP request in an API test or step. **Deprecated.** Use `httpVersion` in the `optionsList` field instead.
 	//
 	// Deprecated: Use `httpVersion` in the `optionsList` field instead.
 	HttpVersion pulumi.StringPtrInput `pulumi:"httpVersion"`
+	// Whether the message is base64-encoded.
+	IsMessageBase64Encoded pulumi.BoolPtrInput `pulumi:"isMessageBase64Encoded"`
 	// For UDP and websocket tests, message to send with the request.
 	Message pulumi.StringPtrInput `pulumi:"message"`
 	// Either the HTTP method/verb to use or a gRPC method available on the service set in the `service` field. Required if `subtype` is `HTTP` or if `subtype` is `grpc` and `callType` is `unary`.
@@ -58222,6 +59834,11 @@ func (o SyntheticsTestRequestDefinitionOutput) DnsServerPort() pulumi.StringPtrO
 	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *string { return v.DnsServerPort }).(pulumi.StringPtrOutput)
 }
 
+// Form data to be sent when `bodyType` is `multipart/form-data`.
+func (o SyntheticsTestRequestDefinitionOutput) Form() pulumi.StringMapOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestDefinition) map[string]string { return v.Form }).(pulumi.StringMapOutput)
+}
+
 // Host name to perform the test with.
 func (o SyntheticsTestRequestDefinitionOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *string { return v.Host }).(pulumi.StringPtrOutput)
@@ -58232,6 +59849,11 @@ func (o SyntheticsTestRequestDefinitionOutput) Host() pulumi.StringPtrOutput {
 // Deprecated: Use `httpVersion` in the `optionsList` field instead.
 func (o SyntheticsTestRequestDefinitionOutput) HttpVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *string { return v.HttpVersion }).(pulumi.StringPtrOutput)
+}
+
+// Whether the message is base64-encoded.
+func (o SyntheticsTestRequestDefinitionOutput) IsMessageBase64Encoded() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *bool { return v.IsMessageBase64Encoded }).(pulumi.BoolPtrOutput)
 }
 
 // For UDP and websocket tests, message to send with the request.
@@ -58385,6 +60007,16 @@ func (o SyntheticsTestRequestDefinitionPtrOutput) DnsServerPort() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// Form data to be sent when `bodyType` is `multipart/form-data`.
+func (o SyntheticsTestRequestDefinitionPtrOutput) Form() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestDefinition) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Form
+	}).(pulumi.StringMapOutput)
+}
+
 // Host name to perform the test with.
 func (o SyntheticsTestRequestDefinitionPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestRequestDefinition) *string {
@@ -58405,6 +60037,16 @@ func (o SyntheticsTestRequestDefinitionPtrOutput) HttpVersion() pulumi.StringPtr
 		}
 		return v.HttpVersion
 	}).(pulumi.StringPtrOutput)
+}
+
+// Whether the message is base64-encoded.
+func (o SyntheticsTestRequestDefinitionPtrOutput) IsMessageBase64Encoded() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestDefinition) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsMessageBase64Encoded
+	}).(pulumi.BoolPtrOutput)
 }
 
 // For UDP and websocket tests, message to send with the request.
@@ -60133,12 +61775,220 @@ func (o GetCloudWorkloadSecurityAgentRulesAgentRuleArrayOutput) Index(i pulumi.I
 	}).(GetCloudWorkloadSecurityAgentRulesAgentRuleOutput)
 }
 
+type GetCostBudgetEntry struct {
+	Amount     float64                       `pulumi:"amount"`
+	Month      int                           `pulumi:"month"`
+	TagFilters []GetCostBudgetEntryTagFilter `pulumi:"tagFilters"`
+}
+
+// GetCostBudgetEntryInput is an input type that accepts GetCostBudgetEntryArgs and GetCostBudgetEntryOutput values.
+// You can construct a concrete instance of `GetCostBudgetEntryInput` via:
+//
+//	GetCostBudgetEntryArgs{...}
+type GetCostBudgetEntryInput interface {
+	pulumi.Input
+
+	ToGetCostBudgetEntryOutput() GetCostBudgetEntryOutput
+	ToGetCostBudgetEntryOutputWithContext(context.Context) GetCostBudgetEntryOutput
+}
+
+type GetCostBudgetEntryArgs struct {
+	Amount     pulumi.Float64Input                   `pulumi:"amount"`
+	Month      pulumi.IntInput                       `pulumi:"month"`
+	TagFilters GetCostBudgetEntryTagFilterArrayInput `pulumi:"tagFilters"`
+}
+
+func (GetCostBudgetEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostBudgetEntry)(nil)).Elem()
+}
+
+func (i GetCostBudgetEntryArgs) ToGetCostBudgetEntryOutput() GetCostBudgetEntryOutput {
+	return i.ToGetCostBudgetEntryOutputWithContext(context.Background())
+}
+
+func (i GetCostBudgetEntryArgs) ToGetCostBudgetEntryOutputWithContext(ctx context.Context) GetCostBudgetEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostBudgetEntryOutput)
+}
+
+// GetCostBudgetEntryArrayInput is an input type that accepts GetCostBudgetEntryArray and GetCostBudgetEntryArrayOutput values.
+// You can construct a concrete instance of `GetCostBudgetEntryArrayInput` via:
+//
+//	GetCostBudgetEntryArray{ GetCostBudgetEntryArgs{...} }
+type GetCostBudgetEntryArrayInput interface {
+	pulumi.Input
+
+	ToGetCostBudgetEntryArrayOutput() GetCostBudgetEntryArrayOutput
+	ToGetCostBudgetEntryArrayOutputWithContext(context.Context) GetCostBudgetEntryArrayOutput
+}
+
+type GetCostBudgetEntryArray []GetCostBudgetEntryInput
+
+func (GetCostBudgetEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostBudgetEntry)(nil)).Elem()
+}
+
+func (i GetCostBudgetEntryArray) ToGetCostBudgetEntryArrayOutput() GetCostBudgetEntryArrayOutput {
+	return i.ToGetCostBudgetEntryArrayOutputWithContext(context.Background())
+}
+
+func (i GetCostBudgetEntryArray) ToGetCostBudgetEntryArrayOutputWithContext(ctx context.Context) GetCostBudgetEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostBudgetEntryArrayOutput)
+}
+
+type GetCostBudgetEntryOutput struct{ *pulumi.OutputState }
+
+func (GetCostBudgetEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostBudgetEntry)(nil)).Elem()
+}
+
+func (o GetCostBudgetEntryOutput) ToGetCostBudgetEntryOutput() GetCostBudgetEntryOutput {
+	return o
+}
+
+func (o GetCostBudgetEntryOutput) ToGetCostBudgetEntryOutputWithContext(ctx context.Context) GetCostBudgetEntryOutput {
+	return o
+}
+
+func (o GetCostBudgetEntryOutput) Amount() pulumi.Float64Output {
+	return o.ApplyT(func(v GetCostBudgetEntry) float64 { return v.Amount }).(pulumi.Float64Output)
+}
+
+func (o GetCostBudgetEntryOutput) Month() pulumi.IntOutput {
+	return o.ApplyT(func(v GetCostBudgetEntry) int { return v.Month }).(pulumi.IntOutput)
+}
+
+func (o GetCostBudgetEntryOutput) TagFilters() GetCostBudgetEntryTagFilterArrayOutput {
+	return o.ApplyT(func(v GetCostBudgetEntry) []GetCostBudgetEntryTagFilter { return v.TagFilters }).(GetCostBudgetEntryTagFilterArrayOutput)
+}
+
+type GetCostBudgetEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCostBudgetEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostBudgetEntry)(nil)).Elem()
+}
+
+func (o GetCostBudgetEntryArrayOutput) ToGetCostBudgetEntryArrayOutput() GetCostBudgetEntryArrayOutput {
+	return o
+}
+
+func (o GetCostBudgetEntryArrayOutput) ToGetCostBudgetEntryArrayOutputWithContext(ctx context.Context) GetCostBudgetEntryArrayOutput {
+	return o
+}
+
+func (o GetCostBudgetEntryArrayOutput) Index(i pulumi.IntInput) GetCostBudgetEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostBudgetEntry {
+		return vs[0].([]GetCostBudgetEntry)[vs[1].(int)]
+	}).(GetCostBudgetEntryOutput)
+}
+
+type GetCostBudgetEntryTagFilter struct {
+	TagKey   string `pulumi:"tagKey"`
+	TagValue string `pulumi:"tagValue"`
+}
+
+// GetCostBudgetEntryTagFilterInput is an input type that accepts GetCostBudgetEntryTagFilterArgs and GetCostBudgetEntryTagFilterOutput values.
+// You can construct a concrete instance of `GetCostBudgetEntryTagFilterInput` via:
+//
+//	GetCostBudgetEntryTagFilterArgs{...}
+type GetCostBudgetEntryTagFilterInput interface {
+	pulumi.Input
+
+	ToGetCostBudgetEntryTagFilterOutput() GetCostBudgetEntryTagFilterOutput
+	ToGetCostBudgetEntryTagFilterOutputWithContext(context.Context) GetCostBudgetEntryTagFilterOutput
+}
+
+type GetCostBudgetEntryTagFilterArgs struct {
+	TagKey   pulumi.StringInput `pulumi:"tagKey"`
+	TagValue pulumi.StringInput `pulumi:"tagValue"`
+}
+
+func (GetCostBudgetEntryTagFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostBudgetEntryTagFilter)(nil)).Elem()
+}
+
+func (i GetCostBudgetEntryTagFilterArgs) ToGetCostBudgetEntryTagFilterOutput() GetCostBudgetEntryTagFilterOutput {
+	return i.ToGetCostBudgetEntryTagFilterOutputWithContext(context.Background())
+}
+
+func (i GetCostBudgetEntryTagFilterArgs) ToGetCostBudgetEntryTagFilterOutputWithContext(ctx context.Context) GetCostBudgetEntryTagFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostBudgetEntryTagFilterOutput)
+}
+
+// GetCostBudgetEntryTagFilterArrayInput is an input type that accepts GetCostBudgetEntryTagFilterArray and GetCostBudgetEntryTagFilterArrayOutput values.
+// You can construct a concrete instance of `GetCostBudgetEntryTagFilterArrayInput` via:
+//
+//	GetCostBudgetEntryTagFilterArray{ GetCostBudgetEntryTagFilterArgs{...} }
+type GetCostBudgetEntryTagFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetCostBudgetEntryTagFilterArrayOutput() GetCostBudgetEntryTagFilterArrayOutput
+	ToGetCostBudgetEntryTagFilterArrayOutputWithContext(context.Context) GetCostBudgetEntryTagFilterArrayOutput
+}
+
+type GetCostBudgetEntryTagFilterArray []GetCostBudgetEntryTagFilterInput
+
+func (GetCostBudgetEntryTagFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostBudgetEntryTagFilter)(nil)).Elem()
+}
+
+func (i GetCostBudgetEntryTagFilterArray) ToGetCostBudgetEntryTagFilterArrayOutput() GetCostBudgetEntryTagFilterArrayOutput {
+	return i.ToGetCostBudgetEntryTagFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetCostBudgetEntryTagFilterArray) ToGetCostBudgetEntryTagFilterArrayOutputWithContext(ctx context.Context) GetCostBudgetEntryTagFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostBudgetEntryTagFilterArrayOutput)
+}
+
+type GetCostBudgetEntryTagFilterOutput struct{ *pulumi.OutputState }
+
+func (GetCostBudgetEntryTagFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostBudgetEntryTagFilter)(nil)).Elem()
+}
+
+func (o GetCostBudgetEntryTagFilterOutput) ToGetCostBudgetEntryTagFilterOutput() GetCostBudgetEntryTagFilterOutput {
+	return o
+}
+
+func (o GetCostBudgetEntryTagFilterOutput) ToGetCostBudgetEntryTagFilterOutputWithContext(ctx context.Context) GetCostBudgetEntryTagFilterOutput {
+	return o
+}
+
+func (o GetCostBudgetEntryTagFilterOutput) TagKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCostBudgetEntryTagFilter) string { return v.TagKey }).(pulumi.StringOutput)
+}
+
+func (o GetCostBudgetEntryTagFilterOutput) TagValue() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCostBudgetEntryTagFilter) string { return v.TagValue }).(pulumi.StringOutput)
+}
+
+type GetCostBudgetEntryTagFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCostBudgetEntryTagFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostBudgetEntryTagFilter)(nil)).Elem()
+}
+
+func (o GetCostBudgetEntryTagFilterArrayOutput) ToGetCostBudgetEntryTagFilterArrayOutput() GetCostBudgetEntryTagFilterArrayOutput {
+	return o
+}
+
+func (o GetCostBudgetEntryTagFilterArrayOutput) ToGetCostBudgetEntryTagFilterArrayOutputWithContext(ctx context.Context) GetCostBudgetEntryTagFilterArrayOutput {
+	return o
+}
+
+func (o GetCostBudgetEntryTagFilterArrayOutput) Index(i pulumi.IntInput) GetCostBudgetEntryTagFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostBudgetEntryTagFilter {
+		return vs[0].([]GetCostBudgetEntryTagFilter)[vs[1].(int)]
+	}).(GetCostBudgetEntryTagFilterOutput)
+}
+
 type GetCsmThreatsAgentRulesAgentRule struct {
-	Description string `pulumi:"description"`
-	Enabled     bool   `pulumi:"enabled"`
-	Expression  string `pulumi:"expression"`
-	Id          string `pulumi:"id"`
-	Name        string `pulumi:"name"`
+	Actions     []GetCsmThreatsAgentRulesAgentRuleAction `pulumi:"actions"`
+	Description string                                   `pulumi:"description"`
+	Enabled     bool                                     `pulumi:"enabled"`
+	Expression  string                                   `pulumi:"expression"`
+	Id          string                                   `pulumi:"id"`
+	Name        string                                   `pulumi:"name"`
+	ProductTags []string                                 `pulumi:"productTags"`
 }
 
 // GetCsmThreatsAgentRulesAgentRuleInput is an input type that accepts GetCsmThreatsAgentRulesAgentRuleArgs and GetCsmThreatsAgentRulesAgentRuleOutput values.
@@ -60153,11 +62003,13 @@ type GetCsmThreatsAgentRulesAgentRuleInput interface {
 }
 
 type GetCsmThreatsAgentRulesAgentRuleArgs struct {
-	Description pulumi.StringInput `pulumi:"description"`
-	Enabled     pulumi.BoolInput   `pulumi:"enabled"`
-	Expression  pulumi.StringInput `pulumi:"expression"`
-	Id          pulumi.StringInput `pulumi:"id"`
-	Name        pulumi.StringInput `pulumi:"name"`
+	Actions     GetCsmThreatsAgentRulesAgentRuleActionArrayInput `pulumi:"actions"`
+	Description pulumi.StringInput                               `pulumi:"description"`
+	Enabled     pulumi.BoolInput                                 `pulumi:"enabled"`
+	Expression  pulumi.StringInput                               `pulumi:"expression"`
+	Id          pulumi.StringInput                               `pulumi:"id"`
+	Name        pulumi.StringInput                               `pulumi:"name"`
+	ProductTags pulumi.StringArrayInput                          `pulumi:"productTags"`
 }
 
 func (GetCsmThreatsAgentRulesAgentRuleArgs) ElementType() reflect.Type {
@@ -60211,6 +62063,10 @@ func (o GetCsmThreatsAgentRulesAgentRuleOutput) ToGetCsmThreatsAgentRulesAgentRu
 	return o
 }
 
+func (o GetCsmThreatsAgentRulesAgentRuleOutput) Actions() GetCsmThreatsAgentRulesAgentRuleActionArrayOutput {
+	return o.ApplyT(func(v GetCsmThreatsAgentRulesAgentRule) []GetCsmThreatsAgentRulesAgentRuleAction { return v.Actions }).(GetCsmThreatsAgentRulesAgentRuleActionArrayOutput)
+}
+
 func (o GetCsmThreatsAgentRulesAgentRuleOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCsmThreatsAgentRulesAgentRule) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -60231,6 +62087,10 @@ func (o GetCsmThreatsAgentRulesAgentRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCsmThreatsAgentRulesAgentRule) string { return v.Name }).(pulumi.StringOutput)
 }
 
+func (o GetCsmThreatsAgentRulesAgentRuleOutput) ProductTags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCsmThreatsAgentRulesAgentRule) []string { return v.ProductTags }).(pulumi.StringArrayOutput)
+}
+
 type GetCsmThreatsAgentRulesAgentRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (GetCsmThreatsAgentRulesAgentRuleArrayOutput) ElementType() reflect.Type {
@@ -60249,6 +62109,360 @@ func (o GetCsmThreatsAgentRulesAgentRuleArrayOutput) Index(i pulumi.IntInput) Ge
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCsmThreatsAgentRulesAgentRule {
 		return vs[0].([]GetCsmThreatsAgentRulesAgentRule)[vs[1].(int)]
 	}).(GetCsmThreatsAgentRulesAgentRuleOutput)
+}
+
+type GetCsmThreatsAgentRulesAgentRuleAction struct {
+	Hash GetCsmThreatsAgentRulesAgentRuleActionHash `pulumi:"hash"`
+	Set  GetCsmThreatsAgentRulesAgentRuleActionSet  `pulumi:"set"`
+}
+
+// GetCsmThreatsAgentRulesAgentRuleActionInput is an input type that accepts GetCsmThreatsAgentRulesAgentRuleActionArgs and GetCsmThreatsAgentRulesAgentRuleActionOutput values.
+// You can construct a concrete instance of `GetCsmThreatsAgentRulesAgentRuleActionInput` via:
+//
+//	GetCsmThreatsAgentRulesAgentRuleActionArgs{...}
+type GetCsmThreatsAgentRulesAgentRuleActionInput interface {
+	pulumi.Input
+
+	ToGetCsmThreatsAgentRulesAgentRuleActionOutput() GetCsmThreatsAgentRulesAgentRuleActionOutput
+	ToGetCsmThreatsAgentRulesAgentRuleActionOutputWithContext(context.Context) GetCsmThreatsAgentRulesAgentRuleActionOutput
+}
+
+type GetCsmThreatsAgentRulesAgentRuleActionArgs struct {
+	Hash GetCsmThreatsAgentRulesAgentRuleActionHashInput `pulumi:"hash"`
+	Set  GetCsmThreatsAgentRulesAgentRuleActionSetInput  `pulumi:"set"`
+}
+
+func (GetCsmThreatsAgentRulesAgentRuleActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCsmThreatsAgentRulesAgentRuleAction)(nil)).Elem()
+}
+
+func (i GetCsmThreatsAgentRulesAgentRuleActionArgs) ToGetCsmThreatsAgentRulesAgentRuleActionOutput() GetCsmThreatsAgentRulesAgentRuleActionOutput {
+	return i.ToGetCsmThreatsAgentRulesAgentRuleActionOutputWithContext(context.Background())
+}
+
+func (i GetCsmThreatsAgentRulesAgentRuleActionArgs) ToGetCsmThreatsAgentRulesAgentRuleActionOutputWithContext(ctx context.Context) GetCsmThreatsAgentRulesAgentRuleActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCsmThreatsAgentRulesAgentRuleActionOutput)
+}
+
+// GetCsmThreatsAgentRulesAgentRuleActionArrayInput is an input type that accepts GetCsmThreatsAgentRulesAgentRuleActionArray and GetCsmThreatsAgentRulesAgentRuleActionArrayOutput values.
+// You can construct a concrete instance of `GetCsmThreatsAgentRulesAgentRuleActionArrayInput` via:
+//
+//	GetCsmThreatsAgentRulesAgentRuleActionArray{ GetCsmThreatsAgentRulesAgentRuleActionArgs{...} }
+type GetCsmThreatsAgentRulesAgentRuleActionArrayInput interface {
+	pulumi.Input
+
+	ToGetCsmThreatsAgentRulesAgentRuleActionArrayOutput() GetCsmThreatsAgentRulesAgentRuleActionArrayOutput
+	ToGetCsmThreatsAgentRulesAgentRuleActionArrayOutputWithContext(context.Context) GetCsmThreatsAgentRulesAgentRuleActionArrayOutput
+}
+
+type GetCsmThreatsAgentRulesAgentRuleActionArray []GetCsmThreatsAgentRulesAgentRuleActionInput
+
+func (GetCsmThreatsAgentRulesAgentRuleActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCsmThreatsAgentRulesAgentRuleAction)(nil)).Elem()
+}
+
+func (i GetCsmThreatsAgentRulesAgentRuleActionArray) ToGetCsmThreatsAgentRulesAgentRuleActionArrayOutput() GetCsmThreatsAgentRulesAgentRuleActionArrayOutput {
+	return i.ToGetCsmThreatsAgentRulesAgentRuleActionArrayOutputWithContext(context.Background())
+}
+
+func (i GetCsmThreatsAgentRulesAgentRuleActionArray) ToGetCsmThreatsAgentRulesAgentRuleActionArrayOutputWithContext(ctx context.Context) GetCsmThreatsAgentRulesAgentRuleActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCsmThreatsAgentRulesAgentRuleActionArrayOutput)
+}
+
+type GetCsmThreatsAgentRulesAgentRuleActionOutput struct{ *pulumi.OutputState }
+
+func (GetCsmThreatsAgentRulesAgentRuleActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCsmThreatsAgentRulesAgentRuleAction)(nil)).Elem()
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleActionOutput) ToGetCsmThreatsAgentRulesAgentRuleActionOutput() GetCsmThreatsAgentRulesAgentRuleActionOutput {
+	return o
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleActionOutput) ToGetCsmThreatsAgentRulesAgentRuleActionOutputWithContext(ctx context.Context) GetCsmThreatsAgentRulesAgentRuleActionOutput {
+	return o
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleActionOutput) Hash() GetCsmThreatsAgentRulesAgentRuleActionHashOutput {
+	return o.ApplyT(func(v GetCsmThreatsAgentRulesAgentRuleAction) GetCsmThreatsAgentRulesAgentRuleActionHash {
+		return v.Hash
+	}).(GetCsmThreatsAgentRulesAgentRuleActionHashOutput)
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleActionOutput) Set() GetCsmThreatsAgentRulesAgentRuleActionSetOutput {
+	return o.ApplyT(func(v GetCsmThreatsAgentRulesAgentRuleAction) GetCsmThreatsAgentRulesAgentRuleActionSet { return v.Set }).(GetCsmThreatsAgentRulesAgentRuleActionSetOutput)
+}
+
+type GetCsmThreatsAgentRulesAgentRuleActionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCsmThreatsAgentRulesAgentRuleActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCsmThreatsAgentRulesAgentRuleAction)(nil)).Elem()
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleActionArrayOutput) ToGetCsmThreatsAgentRulesAgentRuleActionArrayOutput() GetCsmThreatsAgentRulesAgentRuleActionArrayOutput {
+	return o
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleActionArrayOutput) ToGetCsmThreatsAgentRulesAgentRuleActionArrayOutputWithContext(ctx context.Context) GetCsmThreatsAgentRulesAgentRuleActionArrayOutput {
+	return o
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleActionArrayOutput) Index(i pulumi.IntInput) GetCsmThreatsAgentRulesAgentRuleActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCsmThreatsAgentRulesAgentRuleAction {
+		return vs[0].([]GetCsmThreatsAgentRulesAgentRuleAction)[vs[1].(int)]
+	}).(GetCsmThreatsAgentRulesAgentRuleActionOutput)
+}
+
+type GetCsmThreatsAgentRulesAgentRuleActionHash struct {
+}
+
+// GetCsmThreatsAgentRulesAgentRuleActionHashInput is an input type that accepts GetCsmThreatsAgentRulesAgentRuleActionHashArgs and GetCsmThreatsAgentRulesAgentRuleActionHashOutput values.
+// You can construct a concrete instance of `GetCsmThreatsAgentRulesAgentRuleActionHashInput` via:
+//
+//	GetCsmThreatsAgentRulesAgentRuleActionHashArgs{...}
+type GetCsmThreatsAgentRulesAgentRuleActionHashInput interface {
+	pulumi.Input
+
+	ToGetCsmThreatsAgentRulesAgentRuleActionHashOutput() GetCsmThreatsAgentRulesAgentRuleActionHashOutput
+	ToGetCsmThreatsAgentRulesAgentRuleActionHashOutputWithContext(context.Context) GetCsmThreatsAgentRulesAgentRuleActionHashOutput
+}
+
+type GetCsmThreatsAgentRulesAgentRuleActionHashArgs struct {
+}
+
+func (GetCsmThreatsAgentRulesAgentRuleActionHashArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCsmThreatsAgentRulesAgentRuleActionHash)(nil)).Elem()
+}
+
+func (i GetCsmThreatsAgentRulesAgentRuleActionHashArgs) ToGetCsmThreatsAgentRulesAgentRuleActionHashOutput() GetCsmThreatsAgentRulesAgentRuleActionHashOutput {
+	return i.ToGetCsmThreatsAgentRulesAgentRuleActionHashOutputWithContext(context.Background())
+}
+
+func (i GetCsmThreatsAgentRulesAgentRuleActionHashArgs) ToGetCsmThreatsAgentRulesAgentRuleActionHashOutputWithContext(ctx context.Context) GetCsmThreatsAgentRulesAgentRuleActionHashOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCsmThreatsAgentRulesAgentRuleActionHashOutput)
+}
+
+type GetCsmThreatsAgentRulesAgentRuleActionHashOutput struct{ *pulumi.OutputState }
+
+func (GetCsmThreatsAgentRulesAgentRuleActionHashOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCsmThreatsAgentRulesAgentRuleActionHash)(nil)).Elem()
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleActionHashOutput) ToGetCsmThreatsAgentRulesAgentRuleActionHashOutput() GetCsmThreatsAgentRulesAgentRuleActionHashOutput {
+	return o
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleActionHashOutput) ToGetCsmThreatsAgentRulesAgentRuleActionHashOutputWithContext(ctx context.Context) GetCsmThreatsAgentRulesAgentRuleActionHashOutput {
+	return o
+}
+
+type GetCsmThreatsAgentRulesAgentRuleActionSet struct {
+	Append bool   `pulumi:"append"`
+	Field  string `pulumi:"field"`
+	Name   string `pulumi:"name"`
+	Scope  string `pulumi:"scope"`
+	Size   int    `pulumi:"size"`
+	Ttl    int    `pulumi:"ttl"`
+	Value  string `pulumi:"value"`
+}
+
+// GetCsmThreatsAgentRulesAgentRuleActionSetInput is an input type that accepts GetCsmThreatsAgentRulesAgentRuleActionSetArgs and GetCsmThreatsAgentRulesAgentRuleActionSetOutput values.
+// You can construct a concrete instance of `GetCsmThreatsAgentRulesAgentRuleActionSetInput` via:
+//
+//	GetCsmThreatsAgentRulesAgentRuleActionSetArgs{...}
+type GetCsmThreatsAgentRulesAgentRuleActionSetInput interface {
+	pulumi.Input
+
+	ToGetCsmThreatsAgentRulesAgentRuleActionSetOutput() GetCsmThreatsAgentRulesAgentRuleActionSetOutput
+	ToGetCsmThreatsAgentRulesAgentRuleActionSetOutputWithContext(context.Context) GetCsmThreatsAgentRulesAgentRuleActionSetOutput
+}
+
+type GetCsmThreatsAgentRulesAgentRuleActionSetArgs struct {
+	Append pulumi.BoolInput   `pulumi:"append"`
+	Field  pulumi.StringInput `pulumi:"field"`
+	Name   pulumi.StringInput `pulumi:"name"`
+	Scope  pulumi.StringInput `pulumi:"scope"`
+	Size   pulumi.IntInput    `pulumi:"size"`
+	Ttl    pulumi.IntInput    `pulumi:"ttl"`
+	Value  pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetCsmThreatsAgentRulesAgentRuleActionSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCsmThreatsAgentRulesAgentRuleActionSet)(nil)).Elem()
+}
+
+func (i GetCsmThreatsAgentRulesAgentRuleActionSetArgs) ToGetCsmThreatsAgentRulesAgentRuleActionSetOutput() GetCsmThreatsAgentRulesAgentRuleActionSetOutput {
+	return i.ToGetCsmThreatsAgentRulesAgentRuleActionSetOutputWithContext(context.Background())
+}
+
+func (i GetCsmThreatsAgentRulesAgentRuleActionSetArgs) ToGetCsmThreatsAgentRulesAgentRuleActionSetOutputWithContext(ctx context.Context) GetCsmThreatsAgentRulesAgentRuleActionSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCsmThreatsAgentRulesAgentRuleActionSetOutput)
+}
+
+type GetCsmThreatsAgentRulesAgentRuleActionSetOutput struct{ *pulumi.OutputState }
+
+func (GetCsmThreatsAgentRulesAgentRuleActionSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCsmThreatsAgentRulesAgentRuleActionSet)(nil)).Elem()
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleActionSetOutput) ToGetCsmThreatsAgentRulesAgentRuleActionSetOutput() GetCsmThreatsAgentRulesAgentRuleActionSetOutput {
+	return o
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleActionSetOutput) ToGetCsmThreatsAgentRulesAgentRuleActionSetOutputWithContext(ctx context.Context) GetCsmThreatsAgentRulesAgentRuleActionSetOutput {
+	return o
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleActionSetOutput) Append() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCsmThreatsAgentRulesAgentRuleActionSet) bool { return v.Append }).(pulumi.BoolOutput)
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleActionSetOutput) Field() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCsmThreatsAgentRulesAgentRuleActionSet) string { return v.Field }).(pulumi.StringOutput)
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleActionSetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCsmThreatsAgentRulesAgentRuleActionSet) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleActionSetOutput) Scope() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCsmThreatsAgentRulesAgentRuleActionSet) string { return v.Scope }).(pulumi.StringOutput)
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleActionSetOutput) Size() pulumi.IntOutput {
+	return o.ApplyT(func(v GetCsmThreatsAgentRulesAgentRuleActionSet) int { return v.Size }).(pulumi.IntOutput)
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleActionSetOutput) Ttl() pulumi.IntOutput {
+	return o.ApplyT(func(v GetCsmThreatsAgentRulesAgentRuleActionSet) int { return v.Ttl }).(pulumi.IntOutput)
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleActionSetOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCsmThreatsAgentRulesAgentRuleActionSet) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetCsmThreatsPoliciesPolicy struct {
+	Description   string     `pulumi:"description"`
+	Enabled       bool       `pulumi:"enabled"`
+	HostTagsLists [][]string `pulumi:"hostTagsLists"`
+	Id            string     `pulumi:"id"`
+	Name          string     `pulumi:"name"`
+	Tags          []string   `pulumi:"tags"`
+}
+
+// GetCsmThreatsPoliciesPolicyInput is an input type that accepts GetCsmThreatsPoliciesPolicyArgs and GetCsmThreatsPoliciesPolicyOutput values.
+// You can construct a concrete instance of `GetCsmThreatsPoliciesPolicyInput` via:
+//
+//	GetCsmThreatsPoliciesPolicyArgs{...}
+type GetCsmThreatsPoliciesPolicyInput interface {
+	pulumi.Input
+
+	ToGetCsmThreatsPoliciesPolicyOutput() GetCsmThreatsPoliciesPolicyOutput
+	ToGetCsmThreatsPoliciesPolicyOutputWithContext(context.Context) GetCsmThreatsPoliciesPolicyOutput
+}
+
+type GetCsmThreatsPoliciesPolicyArgs struct {
+	Description   pulumi.StringInput           `pulumi:"description"`
+	Enabled       pulumi.BoolInput             `pulumi:"enabled"`
+	HostTagsLists pulumi.StringArrayArrayInput `pulumi:"hostTagsLists"`
+	Id            pulumi.StringInput           `pulumi:"id"`
+	Name          pulumi.StringInput           `pulumi:"name"`
+	Tags          pulumi.StringArrayInput      `pulumi:"tags"`
+}
+
+func (GetCsmThreatsPoliciesPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCsmThreatsPoliciesPolicy)(nil)).Elem()
+}
+
+func (i GetCsmThreatsPoliciesPolicyArgs) ToGetCsmThreatsPoliciesPolicyOutput() GetCsmThreatsPoliciesPolicyOutput {
+	return i.ToGetCsmThreatsPoliciesPolicyOutputWithContext(context.Background())
+}
+
+func (i GetCsmThreatsPoliciesPolicyArgs) ToGetCsmThreatsPoliciesPolicyOutputWithContext(ctx context.Context) GetCsmThreatsPoliciesPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCsmThreatsPoliciesPolicyOutput)
+}
+
+// GetCsmThreatsPoliciesPolicyArrayInput is an input type that accepts GetCsmThreatsPoliciesPolicyArray and GetCsmThreatsPoliciesPolicyArrayOutput values.
+// You can construct a concrete instance of `GetCsmThreatsPoliciesPolicyArrayInput` via:
+//
+//	GetCsmThreatsPoliciesPolicyArray{ GetCsmThreatsPoliciesPolicyArgs{...} }
+type GetCsmThreatsPoliciesPolicyArrayInput interface {
+	pulumi.Input
+
+	ToGetCsmThreatsPoliciesPolicyArrayOutput() GetCsmThreatsPoliciesPolicyArrayOutput
+	ToGetCsmThreatsPoliciesPolicyArrayOutputWithContext(context.Context) GetCsmThreatsPoliciesPolicyArrayOutput
+}
+
+type GetCsmThreatsPoliciesPolicyArray []GetCsmThreatsPoliciesPolicyInput
+
+func (GetCsmThreatsPoliciesPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCsmThreatsPoliciesPolicy)(nil)).Elem()
+}
+
+func (i GetCsmThreatsPoliciesPolicyArray) ToGetCsmThreatsPoliciesPolicyArrayOutput() GetCsmThreatsPoliciesPolicyArrayOutput {
+	return i.ToGetCsmThreatsPoliciesPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i GetCsmThreatsPoliciesPolicyArray) ToGetCsmThreatsPoliciesPolicyArrayOutputWithContext(ctx context.Context) GetCsmThreatsPoliciesPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCsmThreatsPoliciesPolicyArrayOutput)
+}
+
+type GetCsmThreatsPoliciesPolicyOutput struct{ *pulumi.OutputState }
+
+func (GetCsmThreatsPoliciesPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCsmThreatsPoliciesPolicy)(nil)).Elem()
+}
+
+func (o GetCsmThreatsPoliciesPolicyOutput) ToGetCsmThreatsPoliciesPolicyOutput() GetCsmThreatsPoliciesPolicyOutput {
+	return o
+}
+
+func (o GetCsmThreatsPoliciesPolicyOutput) ToGetCsmThreatsPoliciesPolicyOutputWithContext(ctx context.Context) GetCsmThreatsPoliciesPolicyOutput {
+	return o
+}
+
+func (o GetCsmThreatsPoliciesPolicyOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCsmThreatsPoliciesPolicy) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetCsmThreatsPoliciesPolicyOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCsmThreatsPoliciesPolicy) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+func (o GetCsmThreatsPoliciesPolicyOutput) HostTagsLists() pulumi.StringArrayArrayOutput {
+	return o.ApplyT(func(v GetCsmThreatsPoliciesPolicy) [][]string { return v.HostTagsLists }).(pulumi.StringArrayArrayOutput)
+}
+
+func (o GetCsmThreatsPoliciesPolicyOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCsmThreatsPoliciesPolicy) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetCsmThreatsPoliciesPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCsmThreatsPoliciesPolicy) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetCsmThreatsPoliciesPolicyOutput) Tags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCsmThreatsPoliciesPolicy) []string { return v.Tags }).(pulumi.StringArrayOutput)
+}
+
+type GetCsmThreatsPoliciesPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCsmThreatsPoliciesPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCsmThreatsPoliciesPolicy)(nil)).Elem()
+}
+
+func (o GetCsmThreatsPoliciesPolicyArrayOutput) ToGetCsmThreatsPoliciesPolicyArrayOutput() GetCsmThreatsPoliciesPolicyArrayOutput {
+	return o
+}
+
+func (o GetCsmThreatsPoliciesPolicyArrayOutput) ToGetCsmThreatsPoliciesPolicyArrayOutputWithContext(ctx context.Context) GetCsmThreatsPoliciesPolicyArrayOutput {
+	return o
+}
+
+func (o GetCsmThreatsPoliciesPolicyArrayOutput) Index(i pulumi.IntInput) GetCsmThreatsPoliciesPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCsmThreatsPoliciesPolicy {
+		return vs[0].([]GetCsmThreatsPoliciesPolicy)[vs[1].(int)]
+	}).(GetCsmThreatsPoliciesPolicyOutput)
 }
 
 type GetHostsHostList struct {
@@ -66209,6 +68423,18 @@ func (o GetUsersUserArrayOutput) Index(i pulumi.IntInput) GetUsersUserOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByInput)(nil)).Elem(), PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArrayInput)(nil)).Elem(), PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryInput)(nil)).Elem(), PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrInput)(nil)).Elem(), PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeInput)(nil)).Elem(), PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArrayInput)(nil)).Elem(), PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryInput)(nil)).Elem(), PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtrInput)(nil)).Elem(), PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryInput)(nil)).Elem(), PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrInput)(nil)).Elem(), PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByInput)(nil)).Elem(), PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArrayInput)(nil)).Elem(), PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySortQueryInput)(nil)).Elem(), PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySortQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySortQueryPtrInput)(nil)).Elem(), PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySortQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryMultiComputeInput)(nil)).Elem(), PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryMultiComputeArgs{})
@@ -66701,6 +68927,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringDefaultRuleFilterArrayInput)(nil)).Elem(), SecurityMonitoringDefaultRuleFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringDefaultRuleOptionsInput)(nil)).Elem(), SecurityMonitoringDefaultRuleOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringDefaultRuleOptionsPtrInput)(nil)).Elem(), SecurityMonitoringDefaultRuleOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringDefaultRuleQueryInput)(nil)).Elem(), SecurityMonitoringDefaultRuleQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringDefaultRuleQueryArrayInput)(nil)).Elem(), SecurityMonitoringDefaultRuleQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringDefaultRuleQueryAgentRuleInput)(nil)).Elem(), SecurityMonitoringDefaultRuleQueryAgentRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringDefaultRuleQueryAgentRuleArrayInput)(nil)).Elem(), SecurityMonitoringDefaultRuleQueryAgentRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringFilterExclusionFilterInput)(nil)).Elem(), SecurityMonitoringFilterExclusionFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringFilterExclusionFilterArrayInput)(nil)).Elem(), SecurityMonitoringFilterExclusionFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleCaseInput)(nil)).Elem(), SecurityMonitoringRuleCaseArgs{})
@@ -66735,6 +68965,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityNotificationRuleSelectorsPtrInput)(nil)).Elem(), SecurityNotificationRuleSelectorsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SensitiveDataScannerGroupFilterInput)(nil)).Elem(), SensitiveDataScannerGroupFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SensitiveDataScannerGroupFilterPtrInput)(nil)).Elem(), SensitiveDataScannerGroupFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SensitiveDataScannerGroupSamplingInput)(nil)).Elem(), SensitiveDataScannerGroupSamplingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SensitiveDataScannerGroupSamplingArrayInput)(nil)).Elem(), SensitiveDataScannerGroupSamplingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SensitiveDataScannerRuleIncludedKeywordConfigurationInput)(nil)).Elem(), SensitiveDataScannerRuleIncludedKeywordConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SensitiveDataScannerRuleIncludedKeywordConfigurationPtrInput)(nil)).Elem(), SensitiveDataScannerRuleIncludedKeywordConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SensitiveDataScannerRuleTextReplacementInput)(nil)).Elem(), SensitiveDataScannerRuleTextReplacementArgs{})
@@ -66815,6 +69047,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestBrowserStepParamsElementUserLocatorPtrInput)(nil)).Elem(), SyntheticsTestBrowserStepParamsElementUserLocatorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestBrowserStepParamsElementUserLocatorValueInput)(nil)).Elem(), SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestBrowserStepParamsElementUserLocatorValuePtrInput)(nil)).Elem(), SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestBrowserStepParamsPatternInput)(nil)).Elem(), SyntheticsTestBrowserStepParamsPatternArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestBrowserStepParamsPatternPtrInput)(nil)).Elem(), SyntheticsTestBrowserStepParamsPatternArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestBrowserStepParamsVariableInput)(nil)).Elem(), SyntheticsTestBrowserStepParamsVariableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestBrowserStepParamsVariablePtrInput)(nil)).Elem(), SyntheticsTestBrowserStepParamsVariableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestBrowserVariableInput)(nil)).Elem(), SyntheticsTestBrowserVariableArgs{})
@@ -66898,8 +69132,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetActionConnectionHttpTokenAuthUrlParameterArrayInput)(nil)).Elem(), GetActionConnectionHttpTokenAuthUrlParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudWorkloadSecurityAgentRulesAgentRuleInput)(nil)).Elem(), GetCloudWorkloadSecurityAgentRulesAgentRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudWorkloadSecurityAgentRulesAgentRuleArrayInput)(nil)).Elem(), GetCloudWorkloadSecurityAgentRulesAgentRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostBudgetEntryInput)(nil)).Elem(), GetCostBudgetEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostBudgetEntryArrayInput)(nil)).Elem(), GetCostBudgetEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostBudgetEntryTagFilterInput)(nil)).Elem(), GetCostBudgetEntryTagFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostBudgetEntryTagFilterArrayInput)(nil)).Elem(), GetCostBudgetEntryTagFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCsmThreatsAgentRulesAgentRuleInput)(nil)).Elem(), GetCsmThreatsAgentRulesAgentRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCsmThreatsAgentRulesAgentRuleArrayInput)(nil)).Elem(), GetCsmThreatsAgentRulesAgentRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCsmThreatsAgentRulesAgentRuleActionInput)(nil)).Elem(), GetCsmThreatsAgentRulesAgentRuleActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCsmThreatsAgentRulesAgentRuleActionArrayInput)(nil)).Elem(), GetCsmThreatsAgentRulesAgentRuleActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCsmThreatsAgentRulesAgentRuleActionHashInput)(nil)).Elem(), GetCsmThreatsAgentRulesAgentRuleActionHashArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCsmThreatsAgentRulesAgentRuleActionSetInput)(nil)).Elem(), GetCsmThreatsAgentRulesAgentRuleActionSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCsmThreatsPoliciesPolicyInput)(nil)).Elem(), GetCsmThreatsPoliciesPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCsmThreatsPoliciesPolicyArrayInput)(nil)).Elem(), GetCsmThreatsPoliciesPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetHostsHostListInput)(nil)).Elem(), GetHostsHostListArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetHostsHostListArrayInput)(nil)).Elem(), GetHostsHostListArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetHostsHostListMetaInput)(nil)).Elem(), GetHostsHostListMetaArgs{})
@@ -66989,6 +69233,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamsTeamArrayInput)(nil)).Elem(), GetTeamsTeamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserInput)(nil)).Elem(), GetUsersUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserArrayInput)(nil)).Elem(), GetUsersUserArray{})
+	pulumi.RegisterOutputType(PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArrayOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArrayOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArrayOutput{})
 	pulumi.RegisterOutputType(PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySortQueryOutput{})
 	pulumi.RegisterOutputType(PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySortQueryPtrOutput{})
 	pulumi.RegisterOutputType(PowerpackWidgetScatterplotDefinitionRequestXSecurityQueryMultiComputeOutput{})
@@ -67481,6 +69737,10 @@ func init() {
 	pulumi.RegisterOutputType(SecurityMonitoringDefaultRuleFilterArrayOutput{})
 	pulumi.RegisterOutputType(SecurityMonitoringDefaultRuleOptionsOutput{})
 	pulumi.RegisterOutputType(SecurityMonitoringDefaultRuleOptionsPtrOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringDefaultRuleQueryOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringDefaultRuleQueryArrayOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringDefaultRuleQueryAgentRuleOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringDefaultRuleQueryAgentRuleArrayOutput{})
 	pulumi.RegisterOutputType(SecurityMonitoringFilterExclusionFilterOutput{})
 	pulumi.RegisterOutputType(SecurityMonitoringFilterExclusionFilterArrayOutput{})
 	pulumi.RegisterOutputType(SecurityMonitoringRuleCaseOutput{})
@@ -67515,6 +69775,8 @@ func init() {
 	pulumi.RegisterOutputType(SecurityNotificationRuleSelectorsPtrOutput{})
 	pulumi.RegisterOutputType(SensitiveDataScannerGroupFilterOutput{})
 	pulumi.RegisterOutputType(SensitiveDataScannerGroupFilterPtrOutput{})
+	pulumi.RegisterOutputType(SensitiveDataScannerGroupSamplingOutput{})
+	pulumi.RegisterOutputType(SensitiveDataScannerGroupSamplingArrayOutput{})
 	pulumi.RegisterOutputType(SensitiveDataScannerRuleIncludedKeywordConfigurationOutput{})
 	pulumi.RegisterOutputType(SensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(SensitiveDataScannerRuleTextReplacementOutput{})
@@ -67595,6 +69857,8 @@ func init() {
 	pulumi.RegisterOutputType(SyntheticsTestBrowserStepParamsElementUserLocatorPtrOutput{})
 	pulumi.RegisterOutputType(SyntheticsTestBrowserStepParamsElementUserLocatorValueOutput{})
 	pulumi.RegisterOutputType(SyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestBrowserStepParamsPatternOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestBrowserStepParamsPatternPtrOutput{})
 	pulumi.RegisterOutputType(SyntheticsTestBrowserStepParamsVariableOutput{})
 	pulumi.RegisterOutputType(SyntheticsTestBrowserStepParamsVariablePtrOutput{})
 	pulumi.RegisterOutputType(SyntheticsTestBrowserVariableOutput{})
@@ -67678,8 +69942,18 @@ func init() {
 	pulumi.RegisterOutputType(GetActionConnectionHttpTokenAuthUrlParameterArrayOutput{})
 	pulumi.RegisterOutputType(GetCloudWorkloadSecurityAgentRulesAgentRuleOutput{})
 	pulumi.RegisterOutputType(GetCloudWorkloadSecurityAgentRulesAgentRuleArrayOutput{})
+	pulumi.RegisterOutputType(GetCostBudgetEntryOutput{})
+	pulumi.RegisterOutputType(GetCostBudgetEntryArrayOutput{})
+	pulumi.RegisterOutputType(GetCostBudgetEntryTagFilterOutput{})
+	pulumi.RegisterOutputType(GetCostBudgetEntryTagFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetCsmThreatsAgentRulesAgentRuleOutput{})
 	pulumi.RegisterOutputType(GetCsmThreatsAgentRulesAgentRuleArrayOutput{})
+	pulumi.RegisterOutputType(GetCsmThreatsAgentRulesAgentRuleActionOutput{})
+	pulumi.RegisterOutputType(GetCsmThreatsAgentRulesAgentRuleActionArrayOutput{})
+	pulumi.RegisterOutputType(GetCsmThreatsAgentRulesAgentRuleActionHashOutput{})
+	pulumi.RegisterOutputType(GetCsmThreatsAgentRulesAgentRuleActionSetOutput{})
+	pulumi.RegisterOutputType(GetCsmThreatsPoliciesPolicyOutput{})
+	pulumi.RegisterOutputType(GetCsmThreatsPoliciesPolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetHostsHostListOutput{})
 	pulumi.RegisterOutputType(GetHostsHostListArrayOutput{})
 	pulumi.RegisterOutputType(GetHostsHostListMetaOutput{})

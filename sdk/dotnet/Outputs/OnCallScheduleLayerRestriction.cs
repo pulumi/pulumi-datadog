@@ -16,29 +16,29 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The weekday when the restriction period ends. Valid values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
         /// </summary>
-        public readonly string? EndDay;
+        public readonly string EndDay;
         /// <summary>
         /// The time of day when the restriction ends (hh:mm:ss).
         /// </summary>
-        public readonly string? EndTime;
+        public readonly string EndTime;
         /// <summary>
         /// The weekday when the restriction period starts. Valid values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
         /// </summary>
-        public readonly string? StartDay;
+        public readonly string StartDay;
         /// <summary>
         /// The time of day when the restriction begins (hh:mm:ss).
         /// </summary>
-        public readonly string? StartTime;
+        public readonly string StartTime;
 
         [OutputConstructor]
         private OnCallScheduleLayerRestriction(
-            string? endDay,
+            string endDay,
 
-            string? endTime,
+            string endTime,
 
-            string? startDay,
+            string startDay,
 
-            string? startTime)
+            string startTime)
         {
             EndDay = endDay;
             EndTime = endTime;

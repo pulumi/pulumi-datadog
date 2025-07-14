@@ -28,6 +28,8 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * The `pulumi import` command can be used, for example:
+ * 
  * ```sh
  * $ pulumi import datadog:index/spansMetric:SpansMetric testing_spans_metric testing.span.metric
  * ```

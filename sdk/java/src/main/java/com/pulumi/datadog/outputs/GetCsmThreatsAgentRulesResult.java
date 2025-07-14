@@ -9,6 +9,8 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCsmThreatsAgentRulesResult {
@@ -23,10 +25,15 @@ public final class GetCsmThreatsAgentRulesResult {
      */
     private List<String> agentRulesIds;
     /**
-     * @return The ID of this resource.
+     * @return The ID of the data source
      * 
      */
     private String id;
+    /**
+     * @return Listing only the rules in the policy with this field as the ID
+     * 
+     */
+    private @Nullable String policyId;
 
     private GetCsmThreatsAgentRulesResult() {}
     /**
@@ -44,11 +51,18 @@ public final class GetCsmThreatsAgentRulesResult {
         return this.agentRulesIds;
     }
     /**
-     * @return The ID of this resource.
+     * @return The ID of the data source
      * 
      */
     public String id() {
         return this.id;
+    }
+    /**
+     * @return Listing only the rules in the policy with this field as the ID
+     * 
+     */
+    public Optional<String> policyId() {
+        return Optional.ofNullable(this.policyId);
     }
 
     public static Builder builder() {
@@ -63,12 +77,14 @@ public final class GetCsmThreatsAgentRulesResult {
         private List<GetCsmThreatsAgentRulesAgentRule> agentRules;
         private List<String> agentRulesIds;
         private String id;
+        private @Nullable String policyId;
         public Builder() {}
         public Builder(GetCsmThreatsAgentRulesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.agentRules = defaults.agentRules;
     	      this.agentRulesIds = defaults.agentRulesIds;
     	      this.id = defaults.id;
+    	      this.policyId = defaults.policyId;
         }
 
         @CustomType.Setter
@@ -101,11 +117,18 @@ public final class GetCsmThreatsAgentRulesResult {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
+        public Builder policyId(@Nullable String policyId) {
+
+            this.policyId = policyId;
+            return this;
+        }
         public GetCsmThreatsAgentRulesResult build() {
             final var _resultValue = new GetCsmThreatsAgentRulesResult();
             _resultValue.agentRules = agentRules;
             _resultValue.agentRulesIds = agentRulesIds;
             _resultValue.id = id;
+            _resultValue.policyId = policyId;
             return _resultValue;
         }
     }

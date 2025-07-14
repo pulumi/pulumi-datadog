@@ -14,6 +14,8 @@ namespace Pulumi.Datadog
     /// 
     /// ## Import
     /// 
+    /// The `pulumi import` command can be used, for example:
+    /// 
     /// Import existing APM retention filter order
     /// 
     /// Note: Value of &lt;foo&gt; can be anything as this id is not stored by the resource

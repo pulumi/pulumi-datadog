@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Aws.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Lambdas;
         /// <summary>
-        /// List of service IDs set to enable automatic log collection. Use `datadog.aws.getIntegrationAvailableLogsServices` data source to get allowed values. Defaults to `[]`.
+        /// List of service IDs set to enable automatic log collection. Use `datadog.aws.getIntegrationAvailableLogsServices` data source or [the AWS Logs Integration API](https://docs.datadoghq.com/api/latest/aws-logs-integration/?#get-list-of-aws-log-ready-services) to get allowed values. Defaults to `[]`.
         /// </summary>
         public readonly ImmutableArray<string> Sources;
 

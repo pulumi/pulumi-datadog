@@ -145,6 +145,8 @@ class ActionConnection(pulumi.CustomResource):
 
         ## Import
 
+        The `pulumi import` command can be used, for example:
+
         ```sh
         $ pulumi import datadog:index/actionConnection:ActionConnection my_connection 11111111-2222-3333-4444-555555555555
         ```
@@ -165,6 +167,8 @@ class ActionConnection(pulumi.CustomResource):
         A connection that can be used in Actions, including in the Workflow Automation and App Builder products.
 
         ## Import
+
+        The `pulumi import` command can be used, for example:
 
         ```sh
         $ pulumi import datadog:index/actionConnection:ActionConnection my_connection 11111111-2222-3333-4444-555555555555

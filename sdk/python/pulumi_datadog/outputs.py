@@ -47,6 +47,11 @@ __all__ = [
     'CloudConfigurationRuleFilter',
     'ComplianceCustomFrameworkRequirement',
     'ComplianceCustomFrameworkRequirementControl',
+    'CostBudgetEntry',
+    'CostBudgetEntryTagFilter',
+    'CsmThreatsAgentRuleAction',
+    'CsmThreatsAgentRuleActionHash',
+    'CsmThreatsAgentRuleActionSet',
     'DashboardListDashItem',
     'DashboardTemplateVariable',
     'DashboardTemplateVariablePreset',
@@ -456,6 +461,7 @@ __all__ = [
     'LogsCustomDestinationHttpDestination',
     'LogsCustomDestinationHttpDestinationBasicAuth',
     'LogsCustomDestinationHttpDestinationCustomHeaderAuth',
+    'LogsCustomDestinationMicrosoftSentinelDestination',
     'LogsCustomDestinationSplunkDestination',
     'LogsCustomPipelineFilter',
     'LogsCustomPipelineProcessor',
@@ -1262,6 +1268,8 @@ __all__ = [
     'SecurityMonitoringDefaultRuleCase',
     'SecurityMonitoringDefaultRuleFilter',
     'SecurityMonitoringDefaultRuleOptions',
+    'SecurityMonitoringDefaultRuleQuery',
+    'SecurityMonitoringDefaultRuleQueryAgentRule',
     'SecurityMonitoringFilterExclusionFilter',
     'SecurityMonitoringRuleCase',
     'SecurityMonitoringRuleCaseAction',
@@ -1279,6 +1287,7 @@ __all__ = [
     'SecurityMonitoringRuleThirdPartyCase',
     'SecurityNotificationRuleSelectors',
     'SensitiveDataScannerGroupFilter',
+    'SensitiveDataScannerGroupSampling',
     'SensitiveDataScannerRuleIncludedKeywordConfiguration',
     'SensitiveDataScannerRuleTextReplacement',
     'ServiceLevelObjectiveQuery',
@@ -1320,6 +1329,7 @@ __all__ = [
     'SyntheticsTestBrowserStepParams',
     'SyntheticsTestBrowserStepParamsElementUserLocator',
     'SyntheticsTestBrowserStepParamsElementUserLocatorValue',
+    'SyntheticsTestBrowserStepParamsPattern',
     'SyntheticsTestBrowserStepParamsVariable',
     'SyntheticsTestBrowserVariable',
     'SyntheticsTestConfigVariable',
@@ -1362,7 +1372,13 @@ __all__ = [
     'GetActionConnectionHttpTokenAuthTokenResult',
     'GetActionConnectionHttpTokenAuthUrlParameterResult',
     'GetCloudWorkloadSecurityAgentRulesAgentRuleResult',
+    'GetCostBudgetEntryResult',
+    'GetCostBudgetEntryTagFilterResult',
     'GetCsmThreatsAgentRulesAgentRuleResult',
+    'GetCsmThreatsAgentRulesAgentRuleActionResult',
+    'GetCsmThreatsAgentRulesAgentRuleActionHashResult',
+    'GetCsmThreatsAgentRulesAgentRuleActionSetResult',
+    'GetCsmThreatsPoliciesPolicyResult',
     'GetHostsHostListResult',
     'GetHostsHostListMetaResult',
     'GetHostsHostListMetricsResult',
@@ -2710,6 +2726,215 @@ class ComplianceCustomFrameworkRequirementControl(dict):
         The set of rules IDs for the control. Length must be at least 1.
         """
         return pulumi.get(self, "rules_ids")
+
+
+@pulumi.output_type
+class CostBudgetEntry(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tagFilters":
+            suggest = "tag_filters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CostBudgetEntry. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CostBudgetEntry.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CostBudgetEntry.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 amount: builtins.float,
+                 month: builtins.int,
+                 tag_filters: Optional[Sequence['outputs.CostBudgetEntryTagFilter']] = None):
+        pulumi.set(__self__, "amount", amount)
+        pulumi.set(__self__, "month", month)
+        if tag_filters is not None:
+            pulumi.set(__self__, "tag_filters", tag_filters)
+
+    @property
+    @pulumi.getter
+    def amount(self) -> builtins.float:
+        return pulumi.get(self, "amount")
+
+    @property
+    @pulumi.getter
+    def month(self) -> builtins.int:
+        return pulumi.get(self, "month")
+
+    @property
+    @pulumi.getter(name="tagFilters")
+    def tag_filters(self) -> Optional[Sequence['outputs.CostBudgetEntryTagFilter']]:
+        return pulumi.get(self, "tag_filters")
+
+
+@pulumi.output_type
+class CostBudgetEntryTagFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tagKey":
+            suggest = "tag_key"
+        elif key == "tagValue":
+            suggest = "tag_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CostBudgetEntryTagFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CostBudgetEntryTagFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CostBudgetEntryTagFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 tag_key: builtins.str,
+                 tag_value: builtins.str):
+        pulumi.set(__self__, "tag_key", tag_key)
+        pulumi.set(__self__, "tag_value", tag_value)
+
+    @property
+    @pulumi.getter(name="tagKey")
+    def tag_key(self) -> builtins.str:
+        return pulumi.get(self, "tag_key")
+
+    @property
+    @pulumi.getter(name="tagValue")
+    def tag_value(self) -> builtins.str:
+        return pulumi.get(self, "tag_value")
+
+
+@pulumi.output_type
+class CsmThreatsAgentRuleAction(dict):
+    def __init__(__self__, *,
+                 hash: Optional['outputs.CsmThreatsAgentRuleActionHash'] = None,
+                 set: Optional['outputs.CsmThreatsAgentRuleActionSet'] = None):
+        """
+        :param 'CsmThreatsAgentRuleActionHashArgs' hash: Hash action configuration
+        :param 'CsmThreatsAgentRuleActionSetArgs' set: Set action configuration
+        """
+        if hash is not None:
+            pulumi.set(__self__, "hash", hash)
+        if set is not None:
+            pulumi.set(__self__, "set", set)
+
+    @property
+    @pulumi.getter
+    def hash(self) -> Optional['outputs.CsmThreatsAgentRuleActionHash']:
+        """
+        Hash action configuration
+        """
+        return pulumi.get(self, "hash")
+
+    @property
+    @pulumi.getter
+    def set(self) -> Optional['outputs.CsmThreatsAgentRuleActionSet']:
+        """
+        Set action configuration
+        """
+        return pulumi.get(self, "set")
+
+
+@pulumi.output_type
+class CsmThreatsAgentRuleActionHash(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class CsmThreatsAgentRuleActionSet(dict):
+    def __init__(__self__, *,
+                 name: builtins.str,
+                 append: Optional[builtins.bool] = None,
+                 field: Optional[builtins.str] = None,
+                 scope: Optional[builtins.str] = None,
+                 size: Optional[builtins.int] = None,
+                 ttl: Optional[builtins.int] = None,
+                 value: Optional[builtins.str] = None):
+        """
+        :param builtins.str name: The name of the set action
+        :param builtins.bool append: Whether to append to the set
+        :param builtins.str field: The field to get the value from
+        :param builtins.str scope: The scope of the set action (process, container, cgroup, or empty)
+        :param builtins.int size: The maximum size of the set
+        :param builtins.int ttl: The time to live for the set in nanoseconds
+        :param builtins.str value: The value to set
+        """
+        pulumi.set(__self__, "name", name)
+        if append is not None:
+            pulumi.set(__self__, "append", append)
+        if field is not None:
+            pulumi.set(__self__, "field", field)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+        if ttl is not None:
+            pulumi.set(__self__, "ttl", ttl)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        The name of the set action
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def append(self) -> Optional[builtins.bool]:
+        """
+        Whether to append to the set
+        """
+        return pulumi.get(self, "append")
+
+    @property
+    @pulumi.getter
+    def field(self) -> Optional[builtins.str]:
+        """
+        The field to get the value from
+        """
+        return pulumi.get(self, "field")
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[builtins.str]:
+        """
+        The scope of the set action (process, container, cgroup, or empty)
+        """
+        return pulumi.get(self, "scope")
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[builtins.int]:
+        """
+        The maximum size of the set
+        """
+        return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter
+    def ttl(self) -> Optional[builtins.int]:
+        """
+        The time to live for the set in nanoseconds
+        """
+        return pulumi.get(self, "ttl")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        """
+        The value to set
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -35082,6 +35307,93 @@ class LogsCustomDestinationHttpDestinationCustomHeaderAuth(dict):
 
 
 @pulumi.output_type
+class LogsCustomDestinationMicrosoftSentinelDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "dataCollectionEndpoint":
+            suggest = "data_collection_endpoint"
+        elif key == "dataCollectionRuleId":
+            suggest = "data_collection_rule_id"
+        elif key == "streamName":
+            suggest = "stream_name"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsCustomDestinationMicrosoftSentinelDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsCustomDestinationMicrosoftSentinelDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsCustomDestinationMicrosoftSentinelDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: builtins.str,
+                 data_collection_endpoint: builtins.str,
+                 data_collection_rule_id: builtins.str,
+                 stream_name: builtins.str,
+                 tenant_id: builtins.str):
+        """
+        :param builtins.str client_id: Client ID from the Datadog Azure Integration.
+        :param builtins.str data_collection_endpoint: Azure Data Collection Endpoint.
+        :param builtins.str data_collection_rule_id: Azure Data Collection Rule ID.
+        :param builtins.str stream_name: Azure stream name.
+        :param builtins.str tenant_id: Tenant ID from the Datadog Azure Integration.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "data_collection_endpoint", data_collection_endpoint)
+        pulumi.set(__self__, "data_collection_rule_id", data_collection_rule_id)
+        pulumi.set(__self__, "stream_name", stream_name)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> builtins.str:
+        """
+        Client ID from the Datadog Azure Integration.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="dataCollectionEndpoint")
+    def data_collection_endpoint(self) -> builtins.str:
+        """
+        Azure Data Collection Endpoint.
+        """
+        return pulumi.get(self, "data_collection_endpoint")
+
+    @property
+    @pulumi.getter(name="dataCollectionRuleId")
+    def data_collection_rule_id(self) -> builtins.str:
+        """
+        Azure Data Collection Rule ID.
+        """
+        return pulumi.get(self, "data_collection_rule_id")
+
+    @property
+    @pulumi.getter(name="streamName")
+    def stream_name(self) -> builtins.str:
+        """
+        Azure stream name.
+        """
+        return pulumi.get(self, "stream_name")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> builtins.str:
+        """
+        Tenant ID from the Datadog Azure Integration.
+        """
+        return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
 class LogsCustomDestinationSplunkDestination(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -45587,22 +45899,21 @@ class OnCallEscalationPolicyStep(dict):
 
     def __init__(__self__, *,
                  escalate_after_seconds: builtins.int,
+                 targets: Sequence['outputs.OnCallEscalationPolicyStepTarget'],
                  assignment: Optional[builtins.str] = None,
-                 id: Optional[builtins.str] = None,
-                 targets: Optional[Sequence['outputs.OnCallEscalationPolicyStepTarget']] = None):
+                 id: Optional[builtins.str] = None):
         """
         :param builtins.int escalate_after_seconds: Defines how many seconds to wait before escalating to the next step. Value must be between 60 and 36000.
-        :param builtins.str assignment: Specifies how this escalation step will assign targets. Can be `default` (page all targets at once) or `round-robin`. Valid values are `assignment`, `round-robin`. Defaults to `"default"`.
-        :param builtins.str id: The ID of this step.
         :param Sequence['OnCallEscalationPolicyStepTargetArgs'] targets: List of targets for the step.
+        :param builtins.str assignment: Specifies how this escalation step will assign targets. Can be `default` (page all targets at once) or `round-robin`. Valid values are `default`, `round-robin`. Defaults to `"default"`.
+        :param builtins.str id: The ID of this step.
         """
         pulumi.set(__self__, "escalate_after_seconds", escalate_after_seconds)
+        pulumi.set(__self__, "targets", targets)
         if assignment is not None:
             pulumi.set(__self__, "assignment", assignment)
         if id is not None:
             pulumi.set(__self__, "id", id)
-        if targets is not None:
-            pulumi.set(__self__, "targets", targets)
 
     @property
     @pulumi.getter(name="escalateAfterSeconds")
@@ -45614,9 +45925,17 @@ class OnCallEscalationPolicyStep(dict):
 
     @property
     @pulumi.getter
+    def targets(self) -> Sequence['outputs.OnCallEscalationPolicyStepTarget']:
+        """
+        List of targets for the step.
+        """
+        return pulumi.get(self, "targets")
+
+    @property
+    @pulumi.getter
     def assignment(self) -> Optional[builtins.str]:
         """
-        Specifies how this escalation step will assign targets. Can be `default` (page all targets at once) or `round-robin`. Valid values are `assignment`, `round-robin`. Defaults to `"default"`.
+        Specifies how this escalation step will assign targets. Can be `default` (page all targets at once) or `round-robin`. Valid values are `default`, `round-robin`. Defaults to `"default"`.
         """
         return pulumi.get(self, "assignment")
 
@@ -45627,14 +45946,6 @@ class OnCallEscalationPolicyStep(dict):
         The ID of this step.
         """
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def targets(self) -> Optional[Sequence['outputs.OnCallEscalationPolicyStepTarget']]:
-        """
-        List of targets for the step.
-        """
-        return pulumi.get(self, "targets")
 
 
 @pulumi.output_type
@@ -45687,10 +45998,10 @@ class OnCallScheduleLayer(dict):
         suggest = None
         if key == "effectiveDate":
             suggest = "effective_date"
-        elif key == "endDate":
-            suggest = "end_date"
         elif key == "rotationStart":
             suggest = "rotation_start"
+        elif key == "endDate":
+            suggest = "end_date"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in OnCallScheduleLayer. Access the value via the '{suggest}' property getter instead.")
@@ -45706,23 +46017,25 @@ class OnCallScheduleLayer(dict):
     def __init__(__self__, *,
                  effective_date: builtins.str,
                  name: builtins.str,
+                 rotation_start: builtins.str,
                  users: Sequence[builtins.str],
                  end_date: Optional[builtins.str] = None,
                  id: Optional[builtins.str] = None,
                  interval: Optional['outputs.OnCallScheduleLayerInterval'] = None,
-                 restrictions: Optional[Sequence['outputs.OnCallScheduleLayerRestriction']] = None,
-                 rotation_start: Optional[builtins.str] = None):
+                 restrictions: Optional[Sequence['outputs.OnCallScheduleLayerRestriction']] = None):
         """
         :param builtins.str effective_date: The date/time when this layer should become active (in ISO 8601).
         :param builtins.str name: The name of this layer. Should be unique within the schedule.
+        :param builtins.str rotation_start: The date/time when the rotation for this layer starts (in ISO 8601).
         :param Sequence[builtins.str] users: List of user IDs for the layer. Can either be a valid user id or null
         :param builtins.str end_date: The date/time after which this layer no longer applies (in ISO 8601).
         :param builtins.str id: The ID of this layer.
+        :param 'OnCallScheduleLayerIntervalArgs' interval: Rotation interval for this layer.
         :param Sequence['OnCallScheduleLayerRestrictionArgs'] restrictions: List of restrictions for the layer.
-        :param builtins.str rotation_start: The date/time when the rotation for this layer starts (in ISO 8601).
         """
         pulumi.set(__self__, "effective_date", effective_date)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "rotation_start", rotation_start)
         pulumi.set(__self__, "users", users)
         if end_date is not None:
             pulumi.set(__self__, "end_date", end_date)
@@ -45732,8 +46045,6 @@ class OnCallScheduleLayer(dict):
             pulumi.set(__self__, "interval", interval)
         if restrictions is not None:
             pulumi.set(__self__, "restrictions", restrictions)
-        if rotation_start is not None:
-            pulumi.set(__self__, "rotation_start", rotation_start)
 
     @property
     @pulumi.getter(name="effectiveDate")
@@ -45750,6 +46061,14 @@ class OnCallScheduleLayer(dict):
         The name of this layer. Should be unique within the schedule.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="rotationStart")
+    def rotation_start(self) -> builtins.str:
+        """
+        The date/time when the rotation for this layer starts (in ISO 8601).
+        """
+        return pulumi.get(self, "rotation_start")
 
     @property
     @pulumi.getter
@@ -45778,6 +46097,9 @@ class OnCallScheduleLayer(dict):
     @property
     @pulumi.getter
     def interval(self) -> Optional['outputs.OnCallScheduleLayerInterval']:
+        """
+        Rotation interval for this layer.
+        """
         return pulumi.get(self, "interval")
 
     @property
@@ -45787,14 +46109,6 @@ class OnCallScheduleLayer(dict):
         List of restrictions for the layer.
         """
         return pulumi.get(self, "restrictions")
-
-    @property
-    @pulumi.getter(name="rotationStart")
-    def rotation_start(self) -> Optional[builtins.str]:
-        """
-        The date/time when the rotation for this layer starts (in ISO 8601).
-        """
-        return pulumi.get(self, "rotation_start")
 
 
 @pulumi.output_type
@@ -45854,28 +46168,24 @@ class OnCallScheduleLayerRestriction(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 end_day: Optional[builtins.str] = None,
-                 end_time: Optional[builtins.str] = None,
-                 start_day: Optional[builtins.str] = None,
-                 start_time: Optional[builtins.str] = None):
+                 end_day: builtins.str,
+                 end_time: builtins.str,
+                 start_day: builtins.str,
+                 start_time: builtins.str):
         """
         :param builtins.str end_day: The weekday when the restriction period ends. Valid values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
         :param builtins.str end_time: The time of day when the restriction ends (hh:mm:ss).
         :param builtins.str start_day: The weekday when the restriction period starts. Valid values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
         :param builtins.str start_time: The time of day when the restriction begins (hh:mm:ss).
         """
-        if end_day is not None:
-            pulumi.set(__self__, "end_day", end_day)
-        if end_time is not None:
-            pulumi.set(__self__, "end_time", end_time)
-        if start_day is not None:
-            pulumi.set(__self__, "start_day", start_day)
-        if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
+        pulumi.set(__self__, "end_day", end_day)
+        pulumi.set(__self__, "end_time", end_time)
+        pulumi.set(__self__, "start_day", start_day)
+        pulumi.set(__self__, "start_time", start_time)
 
     @property
     @pulumi.getter(name="endDay")
-    def end_day(self) -> Optional[builtins.str]:
+    def end_day(self) -> builtins.str:
         """
         The weekday when the restriction period ends. Valid values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
         """
@@ -45883,7 +46193,7 @@ class OnCallScheduleLayerRestriction(dict):
 
     @property
     @pulumi.getter(name="endTime")
-    def end_time(self) -> Optional[builtins.str]:
+    def end_time(self) -> builtins.str:
         """
         The time of day when the restriction ends (hh:mm:ss).
         """
@@ -45891,7 +46201,7 @@ class OnCallScheduleLayerRestriction(dict):
 
     @property
     @pulumi.getter(name="startDay")
-    def start_day(self) -> Optional[builtins.str]:
+    def start_day(self) -> builtins.str:
         """
         The weekday when the restriction period starts. Valid values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
         """
@@ -45899,7 +46209,7 @@ class OnCallScheduleLayerRestriction(dict):
 
     @property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> Optional[builtins.str]:
+    def start_time(self) -> builtins.str:
         """
         The time of day when the restriction begins (hh:mm:ss).
         """
@@ -89271,23 +89581,37 @@ class RumMetricUniqueness(dict):
 
 @pulumi.output_type
 class SecurityMonitoringDefaultRuleCase(dict):
-    def __init__(__self__, *,
-                 notifications: Sequence[builtins.str],
-                 status: builtins.str):
-        """
-        :param Sequence[builtins.str] notifications: Notification targets for each rule case.
-        :param builtins.str status: Status of the rule case to match. Valid values are `info`, `low`, `medium`, `high`, `critical`.
-        """
-        pulumi.set(__self__, "notifications", notifications)
-        pulumi.set(__self__, "status", status)
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customStatus":
+            suggest = "custom_status"
 
-    @property
-    @pulumi.getter
-    def notifications(self) -> Sequence[builtins.str]:
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityMonitoringDefaultRuleCase. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityMonitoringDefaultRuleCase.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityMonitoringDefaultRuleCase.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 status: builtins.str,
+                 custom_status: Optional[builtins.str] = None,
+                 notifications: Optional[Sequence[builtins.str]] = None):
         """
-        Notification targets for each rule case.
+        :param builtins.str status: Status of the rule case to match. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+        :param builtins.str custom_status: Status of the rule case to override. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+        :param Sequence[builtins.str] notifications: Notification targets for each rule case.
         """
-        return pulumi.get(self, "notifications")
+        pulumi.set(__self__, "status", status)
+        if custom_status is not None:
+            pulumi.set(__self__, "custom_status", custom_status)
+        if notifications is not None:
+            pulumi.set(__self__, "notifications", notifications)
 
     @property
     @pulumi.getter
@@ -89296,6 +89620,22 @@ class SecurityMonitoringDefaultRuleCase(dict):
         Status of the rule case to match. Valid values are `info`, `low`, `medium`, `high`, `critical`.
         """
         return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="customStatus")
+    def custom_status(self) -> Optional[builtins.str]:
+        """
+        Status of the rule case to override. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+        """
+        return pulumi.get(self, "custom_status")
+
+    @property
+    @pulumi.getter
+    def notifications(self) -> Optional[Sequence[builtins.str]]:
+        """
+        Notification targets for each rule case.
+        """
+        return pulumi.get(self, "notifications")
 
 
 @pulumi.output_type
@@ -89361,6 +89701,205 @@ class SecurityMonitoringDefaultRuleOptions(dict):
         If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `log_detection`. Defaults to `false`.
         """
         return pulumi.get(self, "decrease_criticality_based_on_env")
+
+
+@pulumi.output_type
+class SecurityMonitoringDefaultRuleQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "agentRules":
+            suggest = "agent_rules"
+        elif key == "customQueryExtension":
+            suggest = "custom_query_extension"
+        elif key == "dataSource":
+            suggest = "data_source"
+        elif key == "distinctFields":
+            suggest = "distinct_fields"
+        elif key == "groupByFields":
+            suggest = "group_by_fields"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityMonitoringDefaultRuleQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityMonitoringDefaultRuleQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityMonitoringDefaultRuleQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 query: builtins.str,
+                 agent_rules: Optional[Sequence['outputs.SecurityMonitoringDefaultRuleQueryAgentRule']] = None,
+                 aggregation: Optional[builtins.str] = None,
+                 custom_query_extension: Optional[builtins.str] = None,
+                 data_source: Optional[builtins.str] = None,
+                 distinct_fields: Optional[Sequence[builtins.str]] = None,
+                 group_by_fields: Optional[Sequence[builtins.str]] = None,
+                 metric: Optional[builtins.str] = None,
+                 metrics: Optional[Sequence[builtins.str]] = None,
+                 name: Optional[builtins.str] = None):
+        """
+        :param builtins.str query: Query to run on logs.
+        :param Sequence['SecurityMonitoringDefaultRuleQueryAgentRuleArgs'] agent_rules: **Deprecated**. It won't be applied anymore. **Deprecated.** `agent_rule` has been deprecated in favor of new Agent Rule resource.
+        :param builtins.str aggregation: The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`. Defaults to `"count"`.
+        :param builtins.str custom_query_extension: Query extension to append to the logs query.
+        :param builtins.str data_source: Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`, `events`. Defaults to `"logs"`.
+        :param Sequence[builtins.str] distinct_fields: Field for which the cardinality is measured. Sent as an array.
+        :param Sequence[builtins.str] group_by_fields: Fields to group by.
+        :param builtins.str metric: The target field to aggregate over when using the `sum`, `max`, or `geo_data` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+        :param Sequence[builtins.str] metrics: Group of target fields to aggregate over when using the `sum`, `max`, `geo_data`, or `new_value` aggregations. The `sum`, `max`, and `geo_data` aggregations only accept one value in this list, whereas the `new_value` aggregation accepts up to five values.
+        :param builtins.str name: Name of the query. Not compatible with `new_value` aggregations.
+        """
+        pulumi.set(__self__, "query", query)
+        if agent_rules is not None:
+            pulumi.set(__self__, "agent_rules", agent_rules)
+        if aggregation is not None:
+            pulumi.set(__self__, "aggregation", aggregation)
+        if custom_query_extension is not None:
+            pulumi.set(__self__, "custom_query_extension", custom_query_extension)
+        if data_source is not None:
+            pulumi.set(__self__, "data_source", data_source)
+        if distinct_fields is not None:
+            pulumi.set(__self__, "distinct_fields", distinct_fields)
+        if group_by_fields is not None:
+            pulumi.set(__self__, "group_by_fields", group_by_fields)
+        if metric is not None:
+            pulumi.set(__self__, "metric", metric)
+        if metrics is not None:
+            pulumi.set(__self__, "metrics", metrics)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def query(self) -> builtins.str:
+        """
+        Query to run on logs.
+        """
+        return pulumi.get(self, "query")
+
+    @property
+    @pulumi.getter(name="agentRules")
+    @_utilities.deprecated("""`agent_rule` has been deprecated in favor of new Agent Rule resource.""")
+    def agent_rules(self) -> Optional[Sequence['outputs.SecurityMonitoringDefaultRuleQueryAgentRule']]:
+        """
+        **Deprecated**. It won't be applied anymore. **Deprecated.** `agent_rule` has been deprecated in favor of new Agent Rule resource.
+        """
+        return pulumi.get(self, "agent_rules")
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> Optional[builtins.str]:
+        """
+        The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`. Defaults to `"count"`.
+        """
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter(name="customQueryExtension")
+    def custom_query_extension(self) -> Optional[builtins.str]:
+        """
+        Query extension to append to the logs query.
+        """
+        return pulumi.get(self, "custom_query_extension")
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> Optional[builtins.str]:
+        """
+        Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`, `events`. Defaults to `"logs"`.
+        """
+        return pulumi.get(self, "data_source")
+
+    @property
+    @pulumi.getter(name="distinctFields")
+    def distinct_fields(self) -> Optional[Sequence[builtins.str]]:
+        """
+        Field for which the cardinality is measured. Sent as an array.
+        """
+        return pulumi.get(self, "distinct_fields")
+
+    @property
+    @pulumi.getter(name="groupByFields")
+    def group_by_fields(self) -> Optional[Sequence[builtins.str]]:
+        """
+        Fields to group by.
+        """
+        return pulumi.get(self, "group_by_fields")
+
+    @property
+    @pulumi.getter
+    @_utilities.deprecated("""Configure `metrics` instead. This attribute will be removed in the next major version of the provider.""")
+    def metric(self) -> Optional[builtins.str]:
+        """
+        The target field to aggregate over when using the `sum`, `max`, or `geo_data` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+        """
+        return pulumi.get(self, "metric")
+
+    @property
+    @pulumi.getter
+    def metrics(self) -> Optional[Sequence[builtins.str]]:
+        """
+        Group of target fields to aggregate over when using the `sum`, `max`, `geo_data`, or `new_value` aggregations. The `sum`, `max`, and `geo_data` aggregations only accept one value in this list, whereas the `new_value` aggregation accepts up to five values.
+        """
+        return pulumi.get(self, "metrics")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of the query. Not compatible with `new_value` aggregations.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class SecurityMonitoringDefaultRuleQueryAgentRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "agentRuleId":
+            suggest = "agent_rule_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityMonitoringDefaultRuleQueryAgentRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityMonitoringDefaultRuleQueryAgentRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityMonitoringDefaultRuleQueryAgentRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 agent_rule_id: builtins.str,
+                 expression: builtins.str):
+        """
+        :param builtins.str agent_rule_id: **Deprecated**. It won't be applied anymore.
+        :param builtins.str expression: **Deprecated**. It won't be applied anymore.
+        """
+        pulumi.set(__self__, "agent_rule_id", agent_rule_id)
+        pulumi.set(__self__, "expression", expression)
+
+    @property
+    @pulumi.getter(name="agentRuleId")
+    def agent_rule_id(self) -> builtins.str:
+        """
+        **Deprecated**. It won't be applied anymore.
+        """
+        return pulumi.get(self, "agent_rule_id")
+
+    @property
+    @pulumi.getter
+    def expression(self) -> builtins.str:
+        """
+        **Deprecated**. It won't be applied anymore.
+        """
+        return pulumi.get(self, "expression")
 
 
 @pulumi.output_type
@@ -90424,6 +90963,35 @@ class SensitiveDataScannerGroupFilter(dict):
 
 
 @pulumi.output_type
+class SensitiveDataScannerGroupSampling(dict):
+    def __init__(__self__, *,
+                 product: builtins.str,
+                 rate: builtins.float):
+        """
+        :param builtins.str product: Product that the sampling rate applies to. Valid values are `logs`, `rum`, `events`, `apm`.
+        :param builtins.float rate: Percentage rate at which data for the product type is scanned.
+        """
+        pulumi.set(__self__, "product", product)
+        pulumi.set(__self__, "rate", rate)
+
+    @property
+    @pulumi.getter
+    def product(self) -> builtins.str:
+        """
+        Product that the sampling rate applies to. Valid values are `logs`, `rum`, `events`, `apm`.
+        """
+        return pulumi.get(self, "product")
+
+    @property
+    @pulumi.getter
+    def rate(self) -> builtins.float:
+        """
+        Percentage rate at which data for the product type is scanned.
+        """
+        return pulumi.get(self, "rate")
+
+
+@pulumi.output_type
 class SensitiveDataScannerRuleIncludedKeywordConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -91326,7 +91894,7 @@ class SyntheticsTestApiStep(dict):
         :param Mapping[str, builtins.str] request_metadata: Metadata to include when performing the gRPC request.
         :param 'SyntheticsTestApiStepRequestProxyArgs' request_proxy: The proxy to perform the test.
         :param Mapping[str, builtins.str] request_query: Query arguments name and value map.
-        :param builtins.str subtype: The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `wait`. Defaults to `"http"`.
+        :param builtins.str subtype: The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `ssl`, `dns`, `tcp`, `udp`, `icmp`, `websocket`, `wait`. Defaults to `"http"`.
         :param builtins.int value: The time to wait in seconds. Minimum value: 0. Maximum value: 180.
         """
         pulumi.set(__self__, "name", name)
@@ -91494,7 +92062,7 @@ class SyntheticsTestApiStep(dict):
     @pulumi.getter
     def subtype(self) -> Optional[builtins.str]:
         """
-        The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `wait`. Defaults to `"http"`.
+        The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `ssl`, `dns`, `tcp`, `udp`, `icmp`, `websocket`, `wait`. Defaults to `"http"`.
         """
         return pulumi.get(self, "subtype")
 
@@ -91537,11 +92105,11 @@ class SyntheticsTestApiStepAssertion(dict):
                  targetxpath: Optional['outputs.SyntheticsTestApiStepAssertionTargetxpath'] = None,
                  timings_scope: Optional[builtins.str] = None):
         """
-        :param builtins.str type: Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
+        :param builtins.str type: Type of assertion. **Note:** Only some combinations of `type` and `operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
         :param builtins.str code: If assertion type is `javascript`, this is the JavaScript code that performs the assertions.
-        :param builtins.str operator: Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+        :param builtins.str operator: Assertion operator. **Note:** Only some combinations of `type` and `operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test).
         :param builtins.str property: If assertion type is `header`, this is the header name.
-        :param builtins.str target: Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
+        :param builtins.str target: Expected value. **Note:** Depends on the assertion type. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test).
         :param 'SyntheticsTestApiStepAssertionTargetjsonpathArgs' targetjsonpath: Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
         :param 'SyntheticsTestApiStepAssertionTargetjsonschemaArgs' targetjsonschema: Expected structure if `operator` is `validatesJSONSchema`. Exactly one nested block is allowed with the structure below.
         :param 'SyntheticsTestApiStepAssertionTargetxpathArgs' targetxpath: Expected structure if `operator` is `validatesXPath`. Exactly one nested block is allowed with the structure below.
@@ -91569,7 +92137,7 @@ class SyntheticsTestApiStepAssertion(dict):
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
+        Type of assertion. **Note:** Only some combinations of `type` and `operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
         """
         return pulumi.get(self, "type")
 
@@ -91585,7 +92153,7 @@ class SyntheticsTestApiStepAssertion(dict):
     @pulumi.getter
     def operator(self) -> Optional[builtins.str]:
         """
-        Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+        Assertion operator. **Note:** Only some combinations of `type` and `operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test).
         """
         return pulumi.get(self, "operator")
 
@@ -91593,7 +92161,7 @@ class SyntheticsTestApiStepAssertion(dict):
     @pulumi.getter
     def target(self) -> Optional[builtins.str]:
         """
-        Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
+        Expected value. **Note:** Depends on the assertion type. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test).
         """
         return pulumi.get(self, "target")
 
@@ -92112,19 +92680,20 @@ class SyntheticsTestApiStepRequestClientCertificate(dict):
 @pulumi.output_type
 class SyntheticsTestApiStepRequestClientCertificateCert(dict):
     def __init__(__self__, *,
-                 content: builtins.str,
+                 content: Optional[builtins.str] = None,
                  filename: Optional[builtins.str] = None):
         """
         :param builtins.str content: Content of the certificate.
         :param builtins.str filename: File name for the certificate.
         """
-        pulumi.set(__self__, "content", content)
+        if content is not None:
+            pulumi.set(__self__, "content", content)
         if filename is not None:
             pulumi.set(__self__, "filename", filename)
 
     @property
     @pulumi.getter
-    def content(self) -> builtins.str:
+    def content(self) -> Optional[builtins.str]:
         """
         Content of the certificate.
         """
@@ -92142,19 +92711,20 @@ class SyntheticsTestApiStepRequestClientCertificateCert(dict):
 @pulumi.output_type
 class SyntheticsTestApiStepRequestClientCertificateKey(dict):
     def __init__(__self__, *,
-                 content: builtins.str,
+                 content: Optional[builtins.str] = None,
                  filename: Optional[builtins.str] = None):
         """
         :param builtins.str content: Content of the certificate.
         :param builtins.str filename: File name for the certificate.
         """
-        pulumi.set(__self__, "content", content)
+        if content is not None:
+            pulumi.set(__self__, "content", content)
         if filename is not None:
             pulumi.set(__self__, "filename", filename)
 
     @property
     @pulumi.getter
-    def content(self) -> builtins.str:
+    def content(self) -> Optional[builtins.str]:
         """
         Content of the certificate.
         """
@@ -92174,7 +92744,9 @@ class SyntheticsTestApiStepRequestDefinition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "allowInsecure":
+        if key == "acceptSelfSigned":
+            suggest = "accept_self_signed"
+        elif key == "allowInsecure":
             suggest = "allow_insecure"
         elif key == "bodyType":
             suggest = "body_type"
@@ -92182,6 +92754,8 @@ class SyntheticsTestApiStepRequestDefinition(dict):
             suggest = "call_type"
         elif key == "certificateDomains":
             suggest = "certificate_domains"
+        elif key == "checkCertificateRevocation":
+            suggest = "check_certificate_revocation"
         elif key == "dnsServer":
             suggest = "dns_server"
         elif key == "dnsServerPort":
@@ -92190,6 +92764,8 @@ class SyntheticsTestApiStepRequestDefinition(dict):
             suggest = "follow_redirects"
         elif key == "httpVersion":
             suggest = "http_version"
+        elif key == "isMessageBase64Encoded":
+            suggest = "is_message_base64_encoded"
         elif key == "noSavingResponseBody":
             suggest = "no_saving_response_body"
         elif key == "numberOfPackets":
@@ -92215,16 +92791,20 @@ class SyntheticsTestApiStepRequestDefinition(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 accept_self_signed: Optional[builtins.bool] = None,
                  allow_insecure: Optional[builtins.bool] = None,
                  body: Optional[builtins.str] = None,
                  body_type: Optional[builtins.str] = None,
                  call_type: Optional[builtins.str] = None,
                  certificate_domains: Optional[Sequence[builtins.str]] = None,
+                 check_certificate_revocation: Optional[builtins.bool] = None,
                  dns_server: Optional[builtins.str] = None,
                  dns_server_port: Optional[builtins.str] = None,
                  follow_redirects: Optional[builtins.bool] = None,
+                 form: Optional[Mapping[str, builtins.str]] = None,
                  host: Optional[builtins.str] = None,
                  http_version: Optional[builtins.str] = None,
+                 is_message_base64_encoded: Optional[builtins.bool] = None,
                  message: Optional[builtins.str] = None,
                  method: Optional[builtins.str] = None,
                  no_saving_response_body: Optional[builtins.bool] = None,
@@ -92239,16 +92819,20 @@ class SyntheticsTestApiStepRequestDefinition(dict):
                  timeout: Optional[builtins.int] = None,
                  url: Optional[builtins.str] = None):
         """
+        :param builtins.bool accept_self_signed: For SSL test, whether or not the test should allow self signed certificates.
         :param builtins.bool allow_insecure: Allows loading insecure content for a request in an API test or in a multistep API test step.
         :param builtins.str body: The request body.
         :param builtins.str body_type: Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`, `application/octet-stream`, `multipart/form-data`.
         :param builtins.str call_type: The type of gRPC call to perform. Valid values are `healthcheck`, `unary`.
         :param Sequence[builtins.str] certificate_domains: By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `certificate_domains`.
+        :param builtins.bool check_certificate_revocation: For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
         :param builtins.str dns_server: DNS server to use for DNS tests (`subtype = "dns"`).
         :param builtins.str dns_server_port: DNS server port to use for DNS tests.
         :param builtins.bool follow_redirects: Determines whether or not the API HTTP test should follow redirects.
+        :param Mapping[str, builtins.str] form: Form data to be sent when `body_type` is `multipart/form-data`.
         :param builtins.str host: Host name to perform the test with.
         :param builtins.str http_version: HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `"any"`.
+        :param builtins.bool is_message_base64_encoded: Whether the message is base64-encoded.
         :param builtins.str message: For UDP and websocket tests, message to send with the request.
         :param builtins.str method: Either the HTTP method/verb to use or a gRPC method available on the service set in the `service` field. Required if `subtype` is `HTTP` or if `subtype` is `grpc` and `callType` is `unary`.
         :param builtins.bool no_saving_response_body: Determines whether or not to save the response body.
@@ -92263,6 +92847,8 @@ class SyntheticsTestApiStepRequestDefinition(dict):
         :param builtins.int timeout: Timeout in seconds for the test.
         :param builtins.str url: The URL to send the request to.
         """
+        if accept_self_signed is not None:
+            pulumi.set(__self__, "accept_self_signed", accept_self_signed)
         if allow_insecure is not None:
             pulumi.set(__self__, "allow_insecure", allow_insecure)
         if body is not None:
@@ -92273,16 +92859,22 @@ class SyntheticsTestApiStepRequestDefinition(dict):
             pulumi.set(__self__, "call_type", call_type)
         if certificate_domains is not None:
             pulumi.set(__self__, "certificate_domains", certificate_domains)
+        if check_certificate_revocation is not None:
+            pulumi.set(__self__, "check_certificate_revocation", check_certificate_revocation)
         if dns_server is not None:
             pulumi.set(__self__, "dns_server", dns_server)
         if dns_server_port is not None:
             pulumi.set(__self__, "dns_server_port", dns_server_port)
         if follow_redirects is not None:
             pulumi.set(__self__, "follow_redirects", follow_redirects)
+        if form is not None:
+            pulumi.set(__self__, "form", form)
         if host is not None:
             pulumi.set(__self__, "host", host)
         if http_version is not None:
             pulumi.set(__self__, "http_version", http_version)
+        if is_message_base64_encoded is not None:
+            pulumi.set(__self__, "is_message_base64_encoded", is_message_base64_encoded)
         if message is not None:
             pulumi.set(__self__, "message", message)
         if method is not None:
@@ -92309,6 +92901,14 @@ class SyntheticsTestApiStepRequestDefinition(dict):
             pulumi.set(__self__, "timeout", timeout)
         if url is not None:
             pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter(name="acceptSelfSigned")
+    def accept_self_signed(self) -> Optional[builtins.bool]:
+        """
+        For SSL test, whether or not the test should allow self signed certificates.
+        """
+        return pulumi.get(self, "accept_self_signed")
 
     @property
     @pulumi.getter(name="allowInsecure")
@@ -92351,6 +92951,14 @@ class SyntheticsTestApiStepRequestDefinition(dict):
         return pulumi.get(self, "certificate_domains")
 
     @property
+    @pulumi.getter(name="checkCertificateRevocation")
+    def check_certificate_revocation(self) -> Optional[builtins.bool]:
+        """
+        For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+        """
+        return pulumi.get(self, "check_certificate_revocation")
+
+    @property
     @pulumi.getter(name="dnsServer")
     def dns_server(self) -> Optional[builtins.str]:
         """
@@ -92376,6 +92984,14 @@ class SyntheticsTestApiStepRequestDefinition(dict):
 
     @property
     @pulumi.getter
+    def form(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        Form data to be sent when `body_type` is `multipart/form-data`.
+        """
+        return pulumi.get(self, "form")
+
+    @property
+    @pulumi.getter
     def host(self) -> Optional[builtins.str]:
         """
         Host name to perform the test with.
@@ -92389,6 +93005,14 @@ class SyntheticsTestApiStepRequestDefinition(dict):
         HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `"any"`.
         """
         return pulumi.get(self, "http_version")
+
+    @property
+    @pulumi.getter(name="isMessageBase64Encoded")
+    def is_message_base64_encoded(self) -> Optional[builtins.bool]:
+        """
+        Whether the message is base64-encoded.
+        """
+        return pulumi.get(self, "is_message_base64_encoded")
 
     @property
     @pulumi.getter
@@ -92682,11 +93306,11 @@ class SyntheticsTestAssertion(dict):
                  targetxpath: Optional['outputs.SyntheticsTestAssertionTargetxpath'] = None,
                  timings_scope: Optional[builtins.str] = None):
         """
-        :param builtins.str type: Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
+        :param builtins.str type: Type of assertion. **Note:** Only some combinations of `type` and `operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
         :param builtins.str code: If assertion type is `javascript`, this is the JavaScript code that performs the assertions.
-        :param builtins.str operator: Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+        :param builtins.str operator: Assertion operator. **Note:** Only some combinations of `type` and `operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test).
         :param builtins.str property: If assertion type is `header`, this is the header name.
-        :param builtins.str target: Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
+        :param builtins.str target: Expected value. **Note:** Depends on the assertion type. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test).
         :param 'SyntheticsTestAssertionTargetjsonpathArgs' targetjsonpath: Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
         :param 'SyntheticsTestAssertionTargetjsonschemaArgs' targetjsonschema: Expected structure if `operator` is `validatesJSONSchema`. Exactly one nested block is allowed with the structure below.
         :param 'SyntheticsTestAssertionTargetxpathArgs' targetxpath: Expected structure if `operator` is `validatesXPath`. Exactly one nested block is allowed with the structure below.
@@ -92714,7 +93338,7 @@ class SyntheticsTestAssertion(dict):
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
+        Type of assertion. **Note:** Only some combinations of `type` and `operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
         """
         return pulumi.get(self, "type")
 
@@ -92730,7 +93354,7 @@ class SyntheticsTestAssertion(dict):
     @pulumi.getter
     def operator(self) -> Optional[builtins.str]:
         """
-        Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+        Assertion operator. **Note:** Only some combinations of `type` and `operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test).
         """
         return pulumi.get(self, "operator")
 
@@ -92738,7 +93362,7 @@ class SyntheticsTestAssertion(dict):
     @pulumi.getter
     def target(self) -> Optional[builtins.str]:
         """
-        Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
+        Expected value. **Note:** Depends on the assertion type. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test).
         """
         return pulumi.get(self, "target")
 
@@ -92956,7 +93580,7 @@ class SyntheticsTestBrowserStep(dict):
         """
         :param builtins.str name: Name of the step.
         :param 'SyntheticsTestBrowserStepParamsArgs' params: Parameters for the step.
-        :param builtins.str type: Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `assertRequests`, `click`, `extractFromJavascript`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `hover`, `playSubTest`, `pressKey`, `refresh`, `runApiTest`, `scroll`, `selectOption`, `typeText`, `uploadFiles`, `wait`.
+        :param builtins.str type: Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `assertRequests`, `click`, `extractFromJavascript`, `extractFromEmailBody`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `hover`, `playSubTest`, `pressKey`, `refresh`, `runApiTest`, `scroll`, `selectOption`, `typeText`, `uploadFiles`, `wait`.
         :param builtins.bool allow_failure: Determines if the step should be allowed to fail.
         :param builtins.bool always_execute: Determines whether or not to always execute this step even if the previous step failed or was skipped.
         :param builtins.bool exit_if_succeed: Determines whether or not to exit the test if the step succeeds.
@@ -93009,7 +93633,7 @@ class SyntheticsTestBrowserStep(dict):
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `assertRequests`, `click`, `extractFromJavascript`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `hover`, `playSubTest`, `pressKey`, `refresh`, `runApiTest`, `scroll`, `selectOption`, `typeText`, `uploadFiles`, `wait`.
+        Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `assertRequests`, `click`, `extractFromJavascript`, `extractFromEmailBody`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `hover`, `playSubTest`, `pressKey`, `refresh`, `runApiTest`, `scroll`, `selectOption`, `typeText`, `uploadFiles`, `wait`.
         """
         return pulumi.get(self, "type")
 
@@ -93091,7 +93715,9 @@ class SyntheticsTestBrowserStepParams(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "clickType":
+        if key == "appendToContent":
+            suggest = "append_to_content"
+        elif key == "clickType":
             suggest = "click_type"
         elif key == "clickWithJavascript":
             suggest = "click_with_javascript"
@@ -93116,6 +93742,7 @@ class SyntheticsTestBrowserStepParams(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 append_to_content: Optional[builtins.bool] = None,
                  attribute: Optional[builtins.str] = None,
                  check: Optional[builtins.str] = None,
                  click_type: Optional[builtins.str] = None,
@@ -93128,6 +93755,7 @@ class SyntheticsTestBrowserStepParams(dict):
                  file: Optional[builtins.str] = None,
                  files: Optional[builtins.str] = None,
                  modifiers: Optional[Sequence[builtins.str]] = None,
+                 pattern: Optional['outputs.SyntheticsTestBrowserStepParamsPattern'] = None,
                  playing_tab_id: Optional[builtins.str] = None,
                  request: Optional[builtins.str] = None,
                  requests: Optional[builtins.str] = None,
@@ -93138,18 +93766,20 @@ class SyntheticsTestBrowserStepParams(dict):
                  x: Optional[builtins.int] = None,
                  y: Optional[builtins.int] = None):
         """
+        :param builtins.bool append_to_content: Whether to append the `value` to existing text input content for a "typeText" step. By default, content is cleared before text input.
         :param builtins.str attribute: Name of the attribute to use for an "assert attribute" step.
         :param builtins.str check: Check type to use for an assertion step. Valid values are `equals`, `notEquals`, `contains`, `notContains`, `startsWith`, `notStartsWith`, `greater`, `lower`, `greaterEquals`, `lowerEquals`, `matchRegex`, `between`, `isEmpty`, `notIsEmpty`.
         :param builtins.str click_type: Type of click to use for a "click" step.
         :param builtins.bool click_with_javascript: Whether to use `element.click()` for a "click" step. This is a more reliable way to interact with elements but does not emulate a real user interaction.
         :param builtins.str code: Javascript code to use for the step.
         :param builtins.int delay: Delay between each key stroke for a "type test" step.
-        :param builtins.str element: Element to use for the step, JSON encoded string.
+        :param builtins.str element: Element to use for the step, JSON encoded string. Refer to the examples for a usage example showing the schema.
         :param 'SyntheticsTestBrowserStepParamsElementUserLocatorArgs' element_user_locator: Custom user selector to use for the step.
         :param builtins.str email: Details of the email for an "assert email" step, JSON encoded string.
         :param builtins.str file: JSON encoded string used for an "assert download" step. Refer to the examples for a usage example showing the schema.
         :param builtins.str files: Details of the files for an "upload files" step, JSON encoded string. Refer to the examples for a usage example showing the schema.
         :param Sequence[builtins.str] modifiers: Modifier to use for a "press key" step.
+        :param 'SyntheticsTestBrowserStepParamsPatternArgs' pattern: Pattern to use for an "extractFromEmailBody" step.
         :param builtins.str playing_tab_id: ID of the tab to play the subtest.
         :param builtins.str request: Request for an API step.
         :param builtins.str requests: Details of the requests for an "assert request" step, JSON encoded string. Refer to the examples for a usage example showing the schema.
@@ -93160,6 +93790,8 @@ class SyntheticsTestBrowserStepParams(dict):
         :param builtins.int x: X coordinates for a "scroll step".
         :param builtins.int y: Y coordinates for a "scroll step".
         """
+        if append_to_content is not None:
+            pulumi.set(__self__, "append_to_content", append_to_content)
         if attribute is not None:
             pulumi.set(__self__, "attribute", attribute)
         if check is not None:
@@ -93184,6 +93816,8 @@ class SyntheticsTestBrowserStepParams(dict):
             pulumi.set(__self__, "files", files)
         if modifiers is not None:
             pulumi.set(__self__, "modifiers", modifiers)
+        if pattern is not None:
+            pulumi.set(__self__, "pattern", pattern)
         if playing_tab_id is not None:
             pulumi.set(__self__, "playing_tab_id", playing_tab_id)
         if request is not None:
@@ -93202,6 +93836,14 @@ class SyntheticsTestBrowserStepParams(dict):
             pulumi.set(__self__, "x", x)
         if y is not None:
             pulumi.set(__self__, "y", y)
+
+    @property
+    @pulumi.getter(name="appendToContent")
+    def append_to_content(self) -> Optional[builtins.bool]:
+        """
+        Whether to append the `value` to existing text input content for a "typeText" step. By default, content is cleared before text input.
+        """
+        return pulumi.get(self, "append_to_content")
 
     @property
     @pulumi.getter
@@ -93255,7 +93897,7 @@ class SyntheticsTestBrowserStepParams(dict):
     @pulumi.getter
     def element(self) -> Optional[builtins.str]:
         """
-        Element to use for the step, JSON encoded string.
+        Element to use for the step, JSON encoded string. Refer to the examples for a usage example showing the schema.
         """
         return pulumi.get(self, "element")
 
@@ -93298,6 +93940,14 @@ class SyntheticsTestBrowserStepParams(dict):
         Modifier to use for a "press key" step.
         """
         return pulumi.get(self, "modifiers")
+
+    @property
+    @pulumi.getter
+    def pattern(self) -> Optional['outputs.SyntheticsTestBrowserStepParamsPattern']:
+        """
+        Pattern to use for an "extractFromEmailBody" step.
+        """
+        return pulumi.get(self, "pattern")
 
     @property
     @pulumi.getter(name="playingTabId")
@@ -93439,6 +94089,37 @@ class SyntheticsTestBrowserStepParamsElementUserLocatorValue(dict):
         Defaults to `"css"`.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class SyntheticsTestBrowserStepParamsPattern(dict):
+    def __init__(__self__, *,
+                 type: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        """
+        :param builtins.str type: Type of pattern to use for the step. Valid values are `regex`, `x_path`.
+        :param builtins.str value: Pattern to use for the step.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[builtins.str]:
+        """
+        Type of pattern to use for the step. Valid values are `regex`, `x_path`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        """
+        Pattern to use for the step.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -93989,7 +94670,7 @@ class SyntheticsTestMobileOptionsListMonitorOptions(dict):
                  renotify_occurrences: Optional[builtins.int] = None):
         """
         :param builtins.str escalation_message: A message to include with a re-notification.
-        :param builtins.str notification_preset_name: Valid values are `show_all`, `hide_all`, `hide_query`, `hide_handles`.
+        :param builtins.str notification_preset_name: The name of the preset for the notification for the monitor. Valid values are `show_all`, `hide_all`, `hide_query`, `hide_handles`.
         :param builtins.int renotify_interval: Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
         :param builtins.int renotify_occurrences: The number of times a monitor renotifies. It can only be set if `renotify_interval` is set.
         """
@@ -94014,7 +94695,7 @@ class SyntheticsTestMobileOptionsListMonitorOptions(dict):
     @pulumi.getter(name="notificationPresetName")
     def notification_preset_name(self) -> Optional[builtins.str]:
         """
-        Valid values are `show_all`, `hide_all`, `hide_query`, `hide_handles`.
+        The name of the preset for the notification for the monitor. Valid values are `show_all`, `hide_all`, `hide_query`, `hide_handles`.
         """
         return pulumi.get(self, "notification_preset_name")
 
@@ -95039,6 +95720,8 @@ class SyntheticsTestOptionsListMonitorOptions(dict):
         suggest = None
         if key == "escalationMessage":
             suggest = "escalation_message"
+        elif key == "notificationPresetName":
+            suggest = "notification_preset_name"
         elif key == "renotifyInterval":
             suggest = "renotify_interval"
         elif key == "renotifyOccurrences":
@@ -95057,15 +95740,19 @@ class SyntheticsTestOptionsListMonitorOptions(dict):
 
     def __init__(__self__, *,
                  escalation_message: Optional[builtins.str] = None,
+                 notification_preset_name: Optional[builtins.str] = None,
                  renotify_interval: Optional[builtins.int] = None,
                  renotify_occurrences: Optional[builtins.int] = None):
         """
         :param builtins.str escalation_message: A message to include with a re-notification.
+        :param builtins.str notification_preset_name: The name of the preset for the notification for the monitor. Valid values are `show_all`, `hide_all`, `hide_query`, `hide_handles`.
         :param builtins.int renotify_interval: Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
         :param builtins.int renotify_occurrences: The number of times a monitor renotifies. It can only be set if `renotify_interval` is set.
         """
         if escalation_message is not None:
             pulumi.set(__self__, "escalation_message", escalation_message)
+        if notification_preset_name is not None:
+            pulumi.set(__self__, "notification_preset_name", notification_preset_name)
         if renotify_interval is not None:
             pulumi.set(__self__, "renotify_interval", renotify_interval)
         if renotify_occurrences is not None:
@@ -95078,6 +95765,14 @@ class SyntheticsTestOptionsListMonitorOptions(dict):
         A message to include with a re-notification.
         """
         return pulumi.get(self, "escalation_message")
+
+    @property
+    @pulumi.getter(name="notificationPresetName")
+    def notification_preset_name(self) -> Optional[builtins.str]:
+        """
+        The name of the preset for the notification for the monitor. Valid values are `show_all`, `hide_all`, `hide_query`, `hide_handles`.
+        """
+        return pulumi.get(self, "notification_preset_name")
 
     @property
     @pulumi.getter(name="renotifyInterval")
@@ -95540,19 +96235,20 @@ class SyntheticsTestRequestClientCertificate(dict):
 @pulumi.output_type
 class SyntheticsTestRequestClientCertificateCert(dict):
     def __init__(__self__, *,
-                 content: builtins.str,
+                 content: Optional[builtins.str] = None,
                  filename: Optional[builtins.str] = None):
         """
         :param builtins.str content: Content of the certificate.
         :param builtins.str filename: File name for the certificate.
         """
-        pulumi.set(__self__, "content", content)
+        if content is not None:
+            pulumi.set(__self__, "content", content)
         if filename is not None:
             pulumi.set(__self__, "filename", filename)
 
     @property
     @pulumi.getter
-    def content(self) -> builtins.str:
+    def content(self) -> Optional[builtins.str]:
         """
         Content of the certificate.
         """
@@ -95570,19 +96266,20 @@ class SyntheticsTestRequestClientCertificateCert(dict):
 @pulumi.output_type
 class SyntheticsTestRequestClientCertificateKey(dict):
     def __init__(__self__, *,
-                 content: builtins.str,
+                 content: Optional[builtins.str] = None,
                  filename: Optional[builtins.str] = None):
         """
         :param builtins.str content: Content of the certificate.
         :param builtins.str filename: File name for the certificate.
         """
-        pulumi.set(__self__, "content", content)
+        if content is not None:
+            pulumi.set(__self__, "content", content)
         if filename is not None:
             pulumi.set(__self__, "filename", filename)
 
     @property
     @pulumi.getter
-    def content(self) -> builtins.str:
+    def content(self) -> Optional[builtins.str]:
         """
         Content of the certificate.
         """
@@ -95614,6 +96311,8 @@ class SyntheticsTestRequestDefinition(dict):
             suggest = "dns_server_port"
         elif key == "httpVersion":
             suggest = "http_version"
+        elif key == "isMessageBase64Encoded":
+            suggest = "is_message_base64_encoded"
         elif key == "noSavingResponseBody":
             suggest = "no_saving_response_body"
         elif key == "numberOfPackets":
@@ -95645,8 +96344,10 @@ class SyntheticsTestRequestDefinition(dict):
                  certificate_domains: Optional[Sequence[builtins.str]] = None,
                  dns_server: Optional[builtins.str] = None,
                  dns_server_port: Optional[builtins.str] = None,
+                 form: Optional[Mapping[str, builtins.str]] = None,
                  host: Optional[builtins.str] = None,
                  http_version: Optional[builtins.str] = None,
+                 is_message_base64_encoded: Optional[builtins.bool] = None,
                  message: Optional[builtins.str] = None,
                  method: Optional[builtins.str] = None,
                  no_saving_response_body: Optional[builtins.bool] = None,
@@ -95667,8 +96368,10 @@ class SyntheticsTestRequestDefinition(dict):
         :param Sequence[builtins.str] certificate_domains: By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `certificate_domains`.
         :param builtins.str dns_server: DNS server to use for DNS tests (`subtype = "dns"`).
         :param builtins.str dns_server_port: DNS server port to use for DNS tests.
+        :param Mapping[str, builtins.str] form: Form data to be sent when `body_type` is `multipart/form-data`.
         :param builtins.str host: Host name to perform the test with.
         :param builtins.str http_version: HTTP version to use for an HTTP request in an API test or step. **Deprecated.** Use `http_version` in the `options_list` field instead.
+        :param builtins.bool is_message_base64_encoded: Whether the message is base64-encoded.
         :param builtins.str message: For UDP and websocket tests, message to send with the request.
         :param builtins.str method: Either the HTTP method/verb to use or a gRPC method available on the service set in the `service` field. Required if `subtype` is `HTTP` or if `subtype` is `grpc` and `callType` is `unary`.
         :param builtins.bool no_saving_response_body: Determines whether or not to save the response body.
@@ -95695,10 +96398,14 @@ class SyntheticsTestRequestDefinition(dict):
             pulumi.set(__self__, "dns_server", dns_server)
         if dns_server_port is not None:
             pulumi.set(__self__, "dns_server_port", dns_server_port)
+        if form is not None:
+            pulumi.set(__self__, "form", form)
         if host is not None:
             pulumi.set(__self__, "host", host)
         if http_version is not None:
             pulumi.set(__self__, "http_version", http_version)
+        if is_message_base64_encoded is not None:
+            pulumi.set(__self__, "is_message_base64_encoded", is_message_base64_encoded)
         if message is not None:
             pulumi.set(__self__, "message", message)
         if method is not None:
@@ -95776,6 +96483,14 @@ class SyntheticsTestRequestDefinition(dict):
 
     @property
     @pulumi.getter
+    def form(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        Form data to be sent when `body_type` is `multipart/form-data`.
+        """
+        return pulumi.get(self, "form")
+
+    @property
+    @pulumi.getter
     def host(self) -> Optional[builtins.str]:
         """
         Host name to perform the test with.
@@ -95790,6 +96505,14 @@ class SyntheticsTestRequestDefinition(dict):
         HTTP version to use for an HTTP request in an API test or step. **Deprecated.** Use `http_version` in the `options_list` field instead.
         """
         return pulumi.get(self, "http_version")
+
+    @property
+    @pulumi.getter(name="isMessageBase64Encoded")
+    def is_message_base64_encoded(self) -> Optional[builtins.bool]:
+        """
+        Whether the message is base64-encoded.
+        """
+        return pulumi.get(self, "is_message_base64_encoded")
 
     @property
     @pulumi.getter
@@ -96363,18 +97086,73 @@ class GetCloudWorkloadSecurityAgentRulesAgentRuleResult(dict):
 
 
 @pulumi.output_type
+class GetCostBudgetEntryResult(dict):
+    def __init__(__self__, *,
+                 amount: builtins.float,
+                 month: builtins.int,
+                 tag_filters: Optional[Sequence['outputs.GetCostBudgetEntryTagFilterResult']] = None):
+        pulumi.set(__self__, "amount", amount)
+        pulumi.set(__self__, "month", month)
+        if tag_filters is not None:
+            pulumi.set(__self__, "tag_filters", tag_filters)
+
+    @property
+    @pulumi.getter
+    def amount(self) -> builtins.float:
+        return pulumi.get(self, "amount")
+
+    @property
+    @pulumi.getter
+    def month(self) -> builtins.int:
+        return pulumi.get(self, "month")
+
+    @property
+    @pulumi.getter(name="tagFilters")
+    def tag_filters(self) -> Optional[Sequence['outputs.GetCostBudgetEntryTagFilterResult']]:
+        return pulumi.get(self, "tag_filters")
+
+
+@pulumi.output_type
+class GetCostBudgetEntryTagFilterResult(dict):
+    def __init__(__self__, *,
+                 tag_key: builtins.str,
+                 tag_value: builtins.str):
+        pulumi.set(__self__, "tag_key", tag_key)
+        pulumi.set(__self__, "tag_value", tag_value)
+
+    @property
+    @pulumi.getter(name="tagKey")
+    def tag_key(self) -> builtins.str:
+        return pulumi.get(self, "tag_key")
+
+    @property
+    @pulumi.getter(name="tagValue")
+    def tag_value(self) -> builtins.str:
+        return pulumi.get(self, "tag_value")
+
+
+@pulumi.output_type
 class GetCsmThreatsAgentRulesAgentRuleResult(dict):
     def __init__(__self__, *,
+                 actions: Sequence['outputs.GetCsmThreatsAgentRulesAgentRuleActionResult'],
                  description: builtins.str,
                  enabled: builtins.bool,
                  expression: builtins.str,
                  id: builtins.str,
-                 name: builtins.str):
+                 name: builtins.str,
+                 product_tags: Sequence[builtins.str]):
+        pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "expression", expression)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "product_tags", product_tags)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Sequence['outputs.GetCsmThreatsAgentRulesAgentRuleActionResult']:
+        return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter
@@ -96400,6 +97178,137 @@ class GetCsmThreatsAgentRulesAgentRuleResult(dict):
     @pulumi.getter
     def name(self) -> builtins.str:
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="productTags")
+    def product_tags(self) -> Sequence[builtins.str]:
+        return pulumi.get(self, "product_tags")
+
+
+@pulumi.output_type
+class GetCsmThreatsAgentRulesAgentRuleActionResult(dict):
+    def __init__(__self__, *,
+                 hash: 'outputs.GetCsmThreatsAgentRulesAgentRuleActionHashResult',
+                 set: 'outputs.GetCsmThreatsAgentRulesAgentRuleActionSetResult'):
+        pulumi.set(__self__, "hash", hash)
+        pulumi.set(__self__, "set", set)
+
+    @property
+    @pulumi.getter
+    def hash(self) -> 'outputs.GetCsmThreatsAgentRulesAgentRuleActionHashResult':
+        return pulumi.get(self, "hash")
+
+    @property
+    @pulumi.getter
+    def set(self) -> 'outputs.GetCsmThreatsAgentRulesAgentRuleActionSetResult':
+        return pulumi.get(self, "set")
+
+
+@pulumi.output_type
+class GetCsmThreatsAgentRulesAgentRuleActionHashResult(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class GetCsmThreatsAgentRulesAgentRuleActionSetResult(dict):
+    def __init__(__self__, *,
+                 append: builtins.bool,
+                 field: builtins.str,
+                 name: builtins.str,
+                 scope: builtins.str,
+                 size: builtins.int,
+                 ttl: builtins.int,
+                 value: builtins.str):
+        pulumi.set(__self__, "append", append)
+        pulumi.set(__self__, "field", field)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "scope", scope)
+        pulumi.set(__self__, "size", size)
+        pulumi.set(__self__, "ttl", ttl)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def append(self) -> builtins.bool:
+        return pulumi.get(self, "append")
+
+    @property
+    @pulumi.getter
+    def field(self) -> builtins.str:
+        return pulumi.get(self, "field")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def scope(self) -> builtins.str:
+        return pulumi.get(self, "scope")
+
+    @property
+    @pulumi.getter
+    def size(self) -> builtins.int:
+        return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter
+    def ttl(self) -> builtins.int:
+        return pulumi.get(self, "ttl")
+
+    @property
+    @pulumi.getter
+    def value(self) -> builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetCsmThreatsPoliciesPolicyResult(dict):
+    def __init__(__self__, *,
+                 description: builtins.str,
+                 enabled: builtins.bool,
+                 host_tags_lists: Sequence[Sequence[builtins.str]],
+                 id: builtins.str,
+                 name: builtins.str,
+                 tags: Sequence[builtins.str]):
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "host_tags_lists", host_tags_lists)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def description(self) -> builtins.str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> builtins.bool:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="hostTagsLists")
+    def host_tags_lists(self) -> Sequence[Sequence[builtins.str]]:
+        return pulumi.get(self, "host_tags_lists")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.str:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Sequence[builtins.str]:
+        return pulumi.get(self, "tags")
 
 
 @pulumi.output_type

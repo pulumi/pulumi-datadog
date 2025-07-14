@@ -14,40 +14,43 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['CsmThreatsAgentRuleArgs', 'CsmThreatsAgentRule']
 
 @pulumi.input_type
 class CsmThreatsAgentRuleArgs:
     def __init__(__self__, *,
-                 enabled: pulumi.Input[builtins.bool],
                  expression: pulumi.Input[builtins.str],
                  name: pulumi.Input[builtins.str],
-                 description: Optional[pulumi.Input[builtins.str]] = None):
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input['CsmThreatsAgentRuleActionArgs']]]] = None,
+                 description: Optional[pulumi.Input[builtins.str]] = None,
+                 enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 policy_id: Optional[pulumi.Input[builtins.str]] = None,
+                 product_tags: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a CsmThreatsAgentRule resource.
-        :param pulumi.Input[builtins.bool] enabled: Indicates Whether the Agent rule is enabled.
         :param pulumi.Input[builtins.str] expression: The SECL expression of the Agent rule
         :param pulumi.Input[builtins.str] name: The name of the Agent rule.
-        :param pulumi.Input[builtins.str] description: A description for the Agent rule. Defaults to `""`.
+        :param pulumi.Input[Sequence[pulumi.Input['CsmThreatsAgentRuleActionArgs']]] actions: The list of actions the rule can perform
+        :param pulumi.Input[builtins.str] description: A description for the Agent rule.
+        :param pulumi.Input[builtins.bool] enabled: Indicates whether the Agent rule is enabled. Must not be used without policy_id.
+        :param pulumi.Input[builtins.str] policy_id: The ID of the agent policy in which the rule is saved
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] product_tags: The list of product tags associated with the rule
         """
-        pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "expression", expression)
         pulumi.set(__self__, "name", name)
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
         if description is not None:
             pulumi.set(__self__, "description", description)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> pulumi.Input[builtins.bool]:
-        """
-        Indicates Whether the Agent rule is enabled.
-        """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: pulumi.Input[builtins.bool]):
-        pulumi.set(self, "enabled", value)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if policy_id is not None:
+            pulumi.set(__self__, "policy_id", policy_id)
+        if product_tags is not None:
+            pulumi.set(__self__, "product_tags", product_tags)
 
     @property
     @pulumi.getter
@@ -75,45 +78,21 @@ class CsmThreatsAgentRuleArgs:
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[builtins.str]]:
+    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CsmThreatsAgentRuleActionArgs']]]]:
         """
-        A description for the Agent rule. Defaults to `""`.
+        The list of actions the rule can perform
         """
-        return pulumi.get(self, "description")
+        return pulumi.get(self, "actions")
 
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "description", value)
-
-
-@pulumi.input_type
-class _CsmThreatsAgentRuleState:
-    def __init__(__self__, *,
-                 description: Optional[pulumi.Input[builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[builtins.bool]] = None,
-                 expression: Optional[pulumi.Input[builtins.str]] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None):
-        """
-        Input properties used for looking up and filtering CsmThreatsAgentRule resources.
-        :param pulumi.Input[builtins.str] description: A description for the Agent rule. Defaults to `""`.
-        :param pulumi.Input[builtins.bool] enabled: Indicates Whether the Agent rule is enabled.
-        :param pulumi.Input[builtins.str] expression: The SECL expression of the Agent rule
-        :param pulumi.Input[builtins.str] name: The name of the Agent rule.
-        """
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-        if expression is not None:
-            pulumi.set(__self__, "expression", expression)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
+    @actions.setter
+    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CsmThreatsAgentRuleActionArgs']]]]):
+        pulumi.set(self, "actions", value)
 
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        A description for the Agent rule. Defaults to `""`.
+        A description for the Agent rule.
         """
         return pulumi.get(self, "description")
 
@@ -125,7 +104,103 @@ class _CsmThreatsAgentRuleState:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Indicates Whether the Agent rule is enabled.
+        Indicates whether the Agent rule is enabled. Must not be used without policy_id.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="policyId")
+    def policy_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The ID of the agent policy in which the rule is saved
+        """
+        return pulumi.get(self, "policy_id")
+
+    @policy_id.setter
+    def policy_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "policy_id", value)
+
+    @property
+    @pulumi.getter(name="productTags")
+    def product_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        The list of product tags associated with the rule
+        """
+        return pulumi.get(self, "product_tags")
+
+    @product_tags.setter
+    def product_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "product_tags", value)
+
+
+@pulumi.input_type
+class _CsmThreatsAgentRuleState:
+    def __init__(__self__, *,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input['CsmThreatsAgentRuleActionArgs']]]] = None,
+                 description: Optional[pulumi.Input[builtins.str]] = None,
+                 enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 expression: Optional[pulumi.Input[builtins.str]] = None,
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 policy_id: Optional[pulumi.Input[builtins.str]] = None,
+                 product_tags: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+        """
+        Input properties used for looking up and filtering CsmThreatsAgentRule resources.
+        :param pulumi.Input[Sequence[pulumi.Input['CsmThreatsAgentRuleActionArgs']]] actions: The list of actions the rule can perform
+        :param pulumi.Input[builtins.str] description: A description for the Agent rule.
+        :param pulumi.Input[builtins.bool] enabled: Indicates whether the Agent rule is enabled. Must not be used without policy_id.
+        :param pulumi.Input[builtins.str] expression: The SECL expression of the Agent rule
+        :param pulumi.Input[builtins.str] name: The name of the Agent rule.
+        :param pulumi.Input[builtins.str] policy_id: The ID of the agent policy in which the rule is saved
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] product_tags: The list of product tags associated with the rule
+        """
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if expression is not None:
+            pulumi.set(__self__, "expression", expression)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if policy_id is not None:
+            pulumi.set(__self__, "policy_id", policy_id)
+        if product_tags is not None:
+            pulumi.set(__self__, "product_tags", product_tags)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CsmThreatsAgentRuleActionArgs']]]]:
+        """
+        The list of actions the rule can perform
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CsmThreatsAgentRuleActionArgs']]]]):
+        pulumi.set(self, "actions", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        A description for the Agent rule.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Indicates whether the Agent rule is enabled. Must not be used without policy_id.
         """
         return pulumi.get(self, "enabled")
 
@@ -157,6 +232,30 @@ class _CsmThreatsAgentRuleState:
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter(name="policyId")
+    def policy_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The ID of the agent policy in which the rule is saved
+        """
+        return pulumi.get(self, "policy_id")
+
+    @policy_id.setter
+    def policy_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "policy_id", value)
+
+    @property
+    @pulumi.getter(name="productTags")
+    def product_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        The list of product tags associated with the rule
+        """
+        return pulumi.get(self, "product_tags")
+
+    @product_tags.setter
+    def product_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "product_tags", value)
+
 
 @pulumi.type_token("datadog:index/csmThreatsAgentRule:CsmThreatsAgentRule")
 class CsmThreatsAgentRule(pulumi.CustomResource):
@@ -164,10 +263,13 @@ class CsmThreatsAgentRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CsmThreatsAgentRuleActionArgs', 'CsmThreatsAgentRuleActionArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  expression: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 policy_id: Optional[pulumi.Input[builtins.str]] = None,
+                 product_tags: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a Datadog CSM Threats Agent Rule API resource.
@@ -187,6 +289,8 @@ class CsmThreatsAgentRule(pulumi.CustomResource):
 
         ## Import
 
+        The `pulumi import` command can be used, for example:
+
         CSM Agent Rules can be imported using ID. For example:
 
         ```sh
@@ -195,10 +299,13 @@ class CsmThreatsAgentRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] description: A description for the Agent rule. Defaults to `""`.
-        :param pulumi.Input[builtins.bool] enabled: Indicates Whether the Agent rule is enabled.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CsmThreatsAgentRuleActionArgs', 'CsmThreatsAgentRuleActionArgsDict']]]] actions: The list of actions the rule can perform
+        :param pulumi.Input[builtins.str] description: A description for the Agent rule.
+        :param pulumi.Input[builtins.bool] enabled: Indicates whether the Agent rule is enabled. Must not be used without policy_id.
         :param pulumi.Input[builtins.str] expression: The SECL expression of the Agent rule
         :param pulumi.Input[builtins.str] name: The name of the Agent rule.
+        :param pulumi.Input[builtins.str] policy_id: The ID of the agent policy in which the rule is saved
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] product_tags: The list of product tags associated with the rule
         """
         ...
     @overload
@@ -224,6 +331,8 @@ class CsmThreatsAgentRule(pulumi.CustomResource):
 
         ## Import
 
+        The `pulumi import` command can be used, for example:
+
         CSM Agent Rules can be imported using ID. For example:
 
         ```sh
@@ -245,10 +354,13 @@ class CsmThreatsAgentRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CsmThreatsAgentRuleActionArgs', 'CsmThreatsAgentRuleActionArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  expression: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 policy_id: Optional[pulumi.Input[builtins.str]] = None,
+                 product_tags: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -258,9 +370,8 @@ class CsmThreatsAgentRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CsmThreatsAgentRuleArgs.__new__(CsmThreatsAgentRuleArgs)
 
+            __props__.__dict__["actions"] = actions
             __props__.__dict__["description"] = description
-            if enabled is None and not opts.urn:
-                raise TypeError("Missing required property 'enabled'")
             __props__.__dict__["enabled"] = enabled
             if expression is None and not opts.urn:
                 raise TypeError("Missing required property 'expression'")
@@ -268,6 +379,8 @@ class CsmThreatsAgentRule(pulumi.CustomResource):
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
+            __props__.__dict__["policy_id"] = policy_id
+            __props__.__dict__["product_tags"] = product_tags
         super(CsmThreatsAgentRule, __self__).__init__(
             'datadog:index/csmThreatsAgentRule:CsmThreatsAgentRule',
             resource_name,
@@ -278,10 +391,13 @@ class CsmThreatsAgentRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CsmThreatsAgentRuleActionArgs', 'CsmThreatsAgentRuleActionArgsDict']]]]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
             enabled: Optional[pulumi.Input[builtins.bool]] = None,
             expression: Optional[pulumi.Input[builtins.str]] = None,
-            name: Optional[pulumi.Input[builtins.str]] = None) -> 'CsmThreatsAgentRule':
+            name: Optional[pulumi.Input[builtins.str]] = None,
+            policy_id: Optional[pulumi.Input[builtins.str]] = None,
+            product_tags: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None) -> 'CsmThreatsAgentRule':
         """
         Get an existing CsmThreatsAgentRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -289,26 +405,40 @@ class CsmThreatsAgentRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] description: A description for the Agent rule. Defaults to `""`.
-        :param pulumi.Input[builtins.bool] enabled: Indicates Whether the Agent rule is enabled.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CsmThreatsAgentRuleActionArgs', 'CsmThreatsAgentRuleActionArgsDict']]]] actions: The list of actions the rule can perform
+        :param pulumi.Input[builtins.str] description: A description for the Agent rule.
+        :param pulumi.Input[builtins.bool] enabled: Indicates whether the Agent rule is enabled. Must not be used without policy_id.
         :param pulumi.Input[builtins.str] expression: The SECL expression of the Agent rule
         :param pulumi.Input[builtins.str] name: The name of the Agent rule.
+        :param pulumi.Input[builtins.str] policy_id: The ID of the agent policy in which the rule is saved
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] product_tags: The list of product tags associated with the rule
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _CsmThreatsAgentRuleState.__new__(_CsmThreatsAgentRuleState)
 
+        __props__.__dict__["actions"] = actions
         __props__.__dict__["description"] = description
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["expression"] = expression
         __props__.__dict__["name"] = name
+        __props__.__dict__["policy_id"] = policy_id
+        __props__.__dict__["product_tags"] = product_tags
         return CsmThreatsAgentRule(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> pulumi.Output[Optional[Sequence['outputs.CsmThreatsAgentRuleAction']]]:
+        """
+        The list of actions the rule can perform
+        """
+        return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[builtins.str]:
         """
-        A description for the Agent rule. Defaults to `""`.
+        A description for the Agent rule.
         """
         return pulumi.get(self, "description")
 
@@ -316,7 +446,7 @@ class CsmThreatsAgentRule(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[builtins.bool]:
         """
-        Indicates Whether the Agent rule is enabled.
+        Indicates whether the Agent rule is enabled. Must not be used without policy_id.
         """
         return pulumi.get(self, "enabled")
 
@@ -335,4 +465,20 @@ class CsmThreatsAgentRule(pulumi.CustomResource):
         The name of the Agent rule.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="policyId")
+    def policy_id(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The ID of the agent policy in which the rule is saved
+        """
+        return pulumi.get(self, "policy_id")
+
+    @property
+    @pulumi.getter(name="productTags")
+    def product_tags(self) -> pulumi.Output[Sequence[builtins.str]]:
+        """
+        The list of product tags associated with the rule
+        """
+        return pulumi.get(self, "product_tags")
 

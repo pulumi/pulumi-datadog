@@ -125,6 +125,8 @@ class RestrictionPolicy(pulumi.CustomResource):
 
         ## Import
 
+        The `pulumi import` command can be used, for example:
+
         ```sh
         $ pulumi import datadog:index/restrictionPolicy:RestrictionPolicy new_list "<policy_id>"
         ```
@@ -164,6 +166,8 @@ class RestrictionPolicy(pulumi.CustomResource):
         ```
 
         ## Import
+
+        The `pulumi import` command can be used, for example:
 
         ```sh
         $ pulumi import datadog:index/restrictionPolicy:RestrictionPolicy new_list "<policy_id>"

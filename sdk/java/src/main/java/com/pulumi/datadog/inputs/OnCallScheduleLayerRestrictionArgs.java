@@ -5,10 +5,9 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class OnCallScheduleLayerRestrictionArgs extends com.pulumi.resources.ResourceArgs {
@@ -19,60 +18,60 @@ public final class OnCallScheduleLayerRestrictionArgs extends com.pulumi.resourc
      * The weekday when the restriction period ends. Valid values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
      * 
      */
-    @Import(name="endDay")
-    private @Nullable Output<String> endDay;
+    @Import(name="endDay", required=true)
+    private Output<String> endDay;
 
     /**
      * @return The weekday when the restriction period ends. Valid values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
      * 
      */
-    public Optional<Output<String>> endDay() {
-        return Optional.ofNullable(this.endDay);
+    public Output<String> endDay() {
+        return this.endDay;
     }
 
     /**
      * The time of day when the restriction ends (hh:mm:ss).
      * 
      */
-    @Import(name="endTime")
-    private @Nullable Output<String> endTime;
+    @Import(name="endTime", required=true)
+    private Output<String> endTime;
 
     /**
      * @return The time of day when the restriction ends (hh:mm:ss).
      * 
      */
-    public Optional<Output<String>> endTime() {
-        return Optional.ofNullable(this.endTime);
+    public Output<String> endTime() {
+        return this.endTime;
     }
 
     /**
      * The weekday when the restriction period starts. Valid values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
      * 
      */
-    @Import(name="startDay")
-    private @Nullable Output<String> startDay;
+    @Import(name="startDay", required=true)
+    private Output<String> startDay;
 
     /**
      * @return The weekday when the restriction period starts. Valid values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
      * 
      */
-    public Optional<Output<String>> startDay() {
-        return Optional.ofNullable(this.startDay);
+    public Output<String> startDay() {
+        return this.startDay;
     }
 
     /**
      * The time of day when the restriction begins (hh:mm:ss).
      * 
      */
-    @Import(name="startTime")
-    private @Nullable Output<String> startTime;
+    @Import(name="startTime", required=true)
+    private Output<String> startTime;
 
     /**
      * @return The time of day when the restriction begins (hh:mm:ss).
      * 
      */
-    public Optional<Output<String>> startTime() {
-        return Optional.ofNullable(this.startTime);
+    public Output<String> startTime() {
+        return this.startTime;
     }
 
     private OnCallScheduleLayerRestrictionArgs() {}
@@ -108,7 +107,7 @@ public final class OnCallScheduleLayerRestrictionArgs extends com.pulumi.resourc
          * @return builder
          * 
          */
-        public Builder endDay(@Nullable Output<String> endDay) {
+        public Builder endDay(Output<String> endDay) {
             $.endDay = endDay;
             return this;
         }
@@ -129,7 +128,7 @@ public final class OnCallScheduleLayerRestrictionArgs extends com.pulumi.resourc
          * @return builder
          * 
          */
-        public Builder endTime(@Nullable Output<String> endTime) {
+        public Builder endTime(Output<String> endTime) {
             $.endTime = endTime;
             return this;
         }
@@ -150,7 +149,7 @@ public final class OnCallScheduleLayerRestrictionArgs extends com.pulumi.resourc
          * @return builder
          * 
          */
-        public Builder startDay(@Nullable Output<String> startDay) {
+        public Builder startDay(Output<String> startDay) {
             $.startDay = startDay;
             return this;
         }
@@ -171,7 +170,7 @@ public final class OnCallScheduleLayerRestrictionArgs extends com.pulumi.resourc
          * @return builder
          * 
          */
-        public Builder startTime(@Nullable Output<String> startTime) {
+        public Builder startTime(Output<String> startTime) {
             $.startTime = startTime;
             return this;
         }
@@ -187,6 +186,18 @@ public final class OnCallScheduleLayerRestrictionArgs extends com.pulumi.resourc
         }
 
         public OnCallScheduleLayerRestrictionArgs build() {
+            if ($.endDay == null) {
+                throw new MissingRequiredPropertyException("OnCallScheduleLayerRestrictionArgs", "endDay");
+            }
+            if ($.endTime == null) {
+                throw new MissingRequiredPropertyException("OnCallScheduleLayerRestrictionArgs", "endTime");
+            }
+            if ($.startDay == null) {
+                throw new MissingRequiredPropertyException("OnCallScheduleLayerRestrictionArgs", "startDay");
+            }
+            if ($.startTime == null) {
+                throw new MissingRequiredPropertyException("OnCallScheduleLayerRestrictionArgs", "startTime");
+            }
             return $;
         }
     }

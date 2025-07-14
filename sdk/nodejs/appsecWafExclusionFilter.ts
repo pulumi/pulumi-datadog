@@ -42,6 +42,8 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
+ * The `pulumi import` command can be used, for example:
+ *
  * ```sh
  * $ pulumi import datadog:index/appsecWafExclusionFilter:AppsecWafExclusionFilter passlist_entry "45b7032f-0ac4-4b2f-9118-363523c625f6"
  * ```

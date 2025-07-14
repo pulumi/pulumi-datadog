@@ -425,6 +425,8 @@ class IntegrationSts(pulumi.CustomResource):
 
         ## Import
 
+        The `pulumi import` command can be used, for example:
+
         ```sh
         $ pulumi import datadog:gcp/integrationSts:IntegrationSts foo "9c303af3-b963-45e0-8c8f-469b9e1a213f"
         ```
@@ -453,6 +455,8 @@ class IntegrationSts(pulumi.CustomResource):
         Provides a Datadog Integration GCP Sts resource. This can be used to create and manage Datadog - Google Cloud Platform integration.
 
         ## Import
+
+        The `pulumi import` command can be used, for example:
 
         ```sh
         $ pulumi import datadog:gcp/integrationSts:IntegrationSts foo "9c303af3-b963-45e0-8c8f-469b9e1a213f"

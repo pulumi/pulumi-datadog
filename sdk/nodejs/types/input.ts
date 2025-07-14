@@ -376,6 +376,62 @@ export interface ComplianceCustomFrameworkRequirementControl {
     rulesIds: pulumi.Input<pulumi.Input<string>[]>;
 }
 
+export interface CostBudgetEntry {
+    amount: pulumi.Input<number>;
+    month: pulumi.Input<number>;
+    tagFilters?: pulumi.Input<pulumi.Input<inputs.CostBudgetEntryTagFilter>[]>;
+}
+
+export interface CostBudgetEntryTagFilter {
+    tagKey: pulumi.Input<string>;
+    tagValue: pulumi.Input<string>;
+}
+
+export interface CsmThreatsAgentRuleAction {
+    /**
+     * Hash action configuration
+     */
+    hash?: pulumi.Input<inputs.CsmThreatsAgentRuleActionHash>;
+    /**
+     * Set action configuration
+     */
+    set?: pulumi.Input<inputs.CsmThreatsAgentRuleActionSet>;
+}
+
+export interface CsmThreatsAgentRuleActionHash {
+}
+
+export interface CsmThreatsAgentRuleActionSet {
+    /**
+     * Whether to append to the set
+     */
+    append?: pulumi.Input<boolean>;
+    /**
+     * The field to get the value from
+     */
+    field?: pulumi.Input<string>;
+    /**
+     * The name of the set action
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The scope of the set action (process, container, cgroup, or empty)
+     */
+    scope?: pulumi.Input<string>;
+    /**
+     * The maximum size of the set
+     */
+    size?: pulumi.Input<number>;
+    /**
+     * The time to live for the set in nanoseconds
+     */
+    ttl?: pulumi.Input<number>;
+    /**
+     * The value to set
+     */
+    value?: pulumi.Input<string>;
+}
+
 export interface DashboardListDashItem {
     /**
      * The ID of the dashboard to add
@@ -9521,6 +9577,28 @@ export interface GetActionConnectionHttpTokenAuthUrlParameterArgs {
     value?: pulumi.Input<string>;
 }
 
+export interface GetCostBudgetEntry {
+    amount?: number;
+    month?: number;
+    tagFilters?: inputs.GetCostBudgetEntryTagFilter[];
+}
+
+export interface GetCostBudgetEntryArgs {
+    amount?: pulumi.Input<number>;
+    month?: pulumi.Input<number>;
+    tagFilters?: pulumi.Input<pulumi.Input<inputs.GetCostBudgetEntryTagFilterArgs>[]>;
+}
+
+export interface GetCostBudgetEntryTagFilter {
+    tagKey?: string;
+    tagValue?: string;
+}
+
+export interface GetCostBudgetEntryTagFilterArgs {
+    tagKey?: pulumi.Input<string>;
+    tagValue?: pulumi.Input<string>;
+}
+
 export interface GetTeamsTeam {
     /**
      * Free-form markdown description/content for the team's homepage.
@@ -9740,6 +9818,29 @@ export interface LogsCustomDestinationHttpDestinationCustomHeaderAuth {
      * The header value of the authentication. This field is not returned by the API.
      */
     headerValue: pulumi.Input<string>;
+}
+
+export interface LogsCustomDestinationMicrosoftSentinelDestination {
+    /**
+     * Client ID from the Datadog Azure Integration.
+     */
+    clientId: pulumi.Input<string>;
+    /**
+     * Azure Data Collection Endpoint.
+     */
+    dataCollectionEndpoint: pulumi.Input<string>;
+    /**
+     * Azure Data Collection Rule ID.
+     */
+    dataCollectionRuleId: pulumi.Input<string>;
+    /**
+     * Azure stream name.
+     */
+    streamName: pulumi.Input<string>;
+    /**
+     * Tenant ID from the Datadog Azure Integration.
+     */
+    tenantId: pulumi.Input<string>;
 }
 
 export interface LogsCustomDestinationSplunkDestination {
@@ -12737,7 +12838,7 @@ export interface ObservabilityPipelineConfigSourcesSyslogNgTls {
 
 export interface OnCallEscalationPolicyStep {
     /**
-     * Specifies how this escalation step will assign targets. Can be `default` (page all targets at once) or `round-robin`. Valid values are `assignment`, `round-robin`. Defaults to `"default"`.
+     * Specifies how this escalation step will assign targets. Can be `default` (page all targets at once) or `round-robin`. Valid values are `default`, `round-robin`. Defaults to `"default"`.
      */
     assignment?: pulumi.Input<string>;
     /**
@@ -12751,7 +12852,7 @@ export interface OnCallEscalationPolicyStep {
     /**
      * List of targets for the step.
      */
-    targets?: pulumi.Input<pulumi.Input<inputs.OnCallEscalationPolicyStepTarget>[]>;
+    targets: pulumi.Input<pulumi.Input<inputs.OnCallEscalationPolicyStepTarget>[]>;
 }
 
 export interface OnCallEscalationPolicyStepTarget {
@@ -12782,6 +12883,9 @@ export interface OnCallScheduleLayer {
      * The ID of this layer.
      */
     id?: pulumi.Input<string>;
+    /**
+     * Rotation interval for this layer.
+     */
     interval?: pulumi.Input<inputs.OnCallScheduleLayerInterval>;
     /**
      * The name of this layer. Should be unique within the schedule.
@@ -12794,7 +12898,7 @@ export interface OnCallScheduleLayer {
     /**
      * The date/time when the rotation for this layer starts (in ISO 8601).
      */
-    rotationStart?: pulumi.Input<string>;
+    rotationStart: pulumi.Input<string>;
     /**
      * List of user IDs for the layer. Can either be a valid user id or null
      */
@@ -12816,19 +12920,19 @@ export interface OnCallScheduleLayerRestriction {
     /**
      * The weekday when the restriction period ends. Valid values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
      */
-    endDay?: pulumi.Input<string>;
+    endDay: pulumi.Input<string>;
     /**
      * The time of day when the restriction ends (hh:mm:ss).
      */
-    endTime?: pulumi.Input<string>;
+    endTime: pulumi.Input<string>;
     /**
      * The weekday when the restriction period starts. Valid values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
      */
-    startDay?: pulumi.Input<string>;
+    startDay: pulumi.Input<string>;
     /**
      * The time of day when the restriction begins (hh:mm:ss).
      */
-    startTime?: pulumi.Input<string>;
+    startTime: pulumi.Input<string>;
 }
 
 export interface OnCallTeamRoutingRulesRule {
@@ -25325,9 +25429,13 @@ export interface RumMetricUniqueness {
 
 export interface SecurityMonitoringDefaultRuleCase {
     /**
+     * Status of the rule case to override. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+     */
+    customStatus?: pulumi.Input<string>;
+    /**
      * Notification targets for each rule case.
      */
-    notifications: pulumi.Input<pulumi.Input<string>[]>;
+    notifications?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Status of the rule case to match. Valid values are `info`, `low`, `medium`, `high`, `critical`.
      */
@@ -25350,6 +25458,64 @@ export interface SecurityMonitoringDefaultRuleOptions {
      * If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `logDetection`. Defaults to `false`.
      */
     decreaseCriticalityBasedOnEnv?: pulumi.Input<boolean>;
+}
+
+export interface SecurityMonitoringDefaultRuleQuery {
+    /**
+     * **Deprecated**. It won't be applied anymore. **Deprecated.** `agentRule` has been deprecated in favor of new Agent Rule resource.
+     *
+     * @deprecated `agentRule` has been deprecated in favor of new Agent Rule resource.
+     */
+    agentRules?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringDefaultRuleQueryAgentRule>[]>;
+    /**
+     * The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`. Defaults to `"count"`.
+     */
+    aggregation?: pulumi.Input<string>;
+    /**
+     * Query extension to append to the logs query.
+     */
+    customQueryExtension?: pulumi.Input<string>;
+    /**
+     * Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`. Defaults to `"logs"`.
+     */
+    dataSource?: pulumi.Input<string>;
+    /**
+     * Field for which the cardinality is measured. Sent as an array.
+     */
+    distinctFields?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Fields to group by.
+     */
+    groupByFields?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+     *
+     * @deprecated Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * Group of target fields to aggregate over when using the `sum`, `max`, `geoData`, or `newValue` aggregations. The `sum`, `max`, and `geoData` aggregations only accept one value in this list, whereas the `newValue` aggregation accepts up to five values.
+     */
+    metrics?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Name of the query. Not compatible with `newValue` aggregations.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Query to run on logs.
+     */
+    query: pulumi.Input<string>;
+}
+
+export interface SecurityMonitoringDefaultRuleQueryAgentRule {
+    /**
+     * **Deprecated**. It won't be applied anymore.
+     */
+    agentRuleId: pulumi.Input<string>;
+    /**
+     * **Deprecated**. It won't be applied anymore.
+     */
+    expression: pulumi.Input<string>;
 }
 
 export interface SecurityMonitoringFilterExclusionFilter {
@@ -25655,6 +25821,17 @@ export interface SensitiveDataScannerGroupFilter {
     query: pulumi.Input<string>;
 }
 
+export interface SensitiveDataScannerGroupSampling {
+    /**
+     * Product that the sampling rate applies to. Valid values are `logs`, `rum`, `events`, `apm`.
+     */
+    product: pulumi.Input<string>;
+    /**
+     * Percentage rate at which data for the product type is scanned.
+     */
+    rate: pulumi.Input<number>;
+}
+
 export interface SensitiveDataScannerRuleIncludedKeywordConfiguration {
     /**
      * Number of characters before the match to find a keyword validating the match. It must be between 1 and 50 (inclusive).
@@ -25931,7 +26108,7 @@ export interface SyntheticsTestApiStep {
     requestQuery?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     retry?: pulumi.Input<inputs.SyntheticsTestApiStepRetry>;
     /**
-     * The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `wait`. Defaults to `"http"`.
+     * The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `ssl`, `dns`, `tcp`, `udp`, `icmp`, `websocket`, `wait`. Defaults to `"http"`.
      */
     subtype?: pulumi.Input<string>;
     /**
@@ -25946,7 +26123,7 @@ export interface SyntheticsTestApiStepAssertion {
      */
     code?: pulumi.Input<string>;
     /**
-     * Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+     * Assertion operator. **Note:** Only some combinations of `type` and `operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test).
      */
     operator?: pulumi.Input<string>;
     /**
@@ -25954,7 +26131,7 @@ export interface SyntheticsTestApiStepAssertion {
      */
     property?: pulumi.Input<string>;
     /**
-     * Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
+     * Expected value. **Note:** Depends on the assertion type. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test).
      */
     target?: pulumi.Input<string>;
     /**
@@ -25974,7 +26151,7 @@ export interface SyntheticsTestApiStepAssertion {
      */
     timingsScope?: pulumi.Input<string>;
     /**
-     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
+     * Type of assertion. **Note:** Only some combinations of `type` and `operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
      */
     type: pulumi.Input<string>;
 }
@@ -26132,7 +26309,7 @@ export interface SyntheticsTestApiStepRequestClientCertificateCert {
     /**
      * Content of the certificate.
      */
-    content: pulumi.Input<string>;
+    content?: pulumi.Input<string>;
     /**
      * File name for the certificate.
      */
@@ -26143,7 +26320,7 @@ export interface SyntheticsTestApiStepRequestClientCertificateKey {
     /**
      * Content of the certificate.
      */
-    content: pulumi.Input<string>;
+    content?: pulumi.Input<string>;
     /**
      * File name for the certificate.
      */
@@ -26151,6 +26328,10 @@ export interface SyntheticsTestApiStepRequestClientCertificateKey {
 }
 
 export interface SyntheticsTestApiStepRequestDefinition {
+    /**
+     * For SSL test, whether or not the test should allow self signed certificates.
+     */
+    acceptSelfSigned?: pulumi.Input<boolean>;
     /**
      * Allows loading insecure content for a request in an API test or in a multistep API test step.
      */
@@ -26172,6 +26353,10 @@ export interface SyntheticsTestApiStepRequestDefinition {
      */
     certificateDomains?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+     */
+    checkCertificateRevocation?: pulumi.Input<boolean>;
+    /**
      * DNS server to use for DNS tests (`subtype = "dns"`).
      */
     dnsServer?: pulumi.Input<string>;
@@ -26184,6 +26369,10 @@ export interface SyntheticsTestApiStepRequestDefinition {
      */
     followRedirects?: pulumi.Input<boolean>;
     /**
+     * Form data to be sent when `bodyType` is `multipart/form-data`.
+     */
+    form?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * Host name to perform the test with.
      */
     host?: pulumi.Input<string>;
@@ -26191,6 +26380,10 @@ export interface SyntheticsTestApiStepRequestDefinition {
      * HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `"any"`.
      */
     httpVersion?: pulumi.Input<string>;
+    /**
+     * Whether the message is base64-encoded.
+     */
+    isMessageBase64Encoded?: pulumi.Input<boolean>;
     /**
      * For UDP and websocket tests, message to send with the request.
      */
@@ -26302,7 +26495,7 @@ export interface SyntheticsTestAssertion {
      */
     code?: pulumi.Input<string>;
     /**
-     * Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+     * Assertion operator. **Note:** Only some combinations of `type` and `operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test).
      */
     operator?: pulumi.Input<string>;
     /**
@@ -26310,7 +26503,7 @@ export interface SyntheticsTestAssertion {
      */
     property?: pulumi.Input<string>;
     /**
-     * Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
+     * Expected value. **Note:** Depends on the assertion type. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test).
      */
     target?: pulumi.Input<string>;
     /**
@@ -26330,7 +26523,7 @@ export interface SyntheticsTestAssertion {
      */
     timingsScope?: pulumi.Input<string>;
     /**
-     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
+     * Type of assertion. **Note:** Only some combinations of `type` and `operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
      */
     type: pulumi.Input<string>;
 }
@@ -26426,12 +26619,16 @@ export interface SyntheticsTestBrowserStep {
      */
     timeout?: pulumi.Input<number>;
     /**
-     * Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `assertRequests`, `click`, `extractFromJavascript`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `hover`, `playSubTest`, `pressKey`, `refresh`, `runApiTest`, `scroll`, `selectOption`, `typeText`, `uploadFiles`, `wait`.
+     * Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `assertRequests`, `click`, `extractFromJavascript`, `extractFromEmailBody`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `hover`, `playSubTest`, `pressKey`, `refresh`, `runApiTest`, `scroll`, `selectOption`, `typeText`, `uploadFiles`, `wait`.
      */
     type: pulumi.Input<string>;
 }
 
 export interface SyntheticsTestBrowserStepParams {
+    /**
+     * Whether to append the `value` to existing text input content for a "typeText" step. By default, content is cleared before text input.
+     */
+    appendToContent?: pulumi.Input<boolean>;
     /**
      * Name of the attribute to use for an "assert attribute" step.
      */
@@ -26457,7 +26654,7 @@ export interface SyntheticsTestBrowserStepParams {
      */
     delay?: pulumi.Input<number>;
     /**
-     * Element to use for the step, JSON encoded string.
+     * Element to use for the step, JSON encoded string. Refer to the examples for a usage example showing the schema.
      */
     element?: pulumi.Input<string>;
     /**
@@ -26480,6 +26677,10 @@ export interface SyntheticsTestBrowserStepParams {
      * Modifier to use for a "press key" step.
      */
     modifiers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Pattern to use for an "extractFromEmailBody" step.
+     */
+    pattern?: pulumi.Input<inputs.SyntheticsTestBrowserStepParamsPattern>;
     /**
      * ID of the tab to play the subtest.
      */
@@ -26532,6 +26733,17 @@ export interface SyntheticsTestBrowserStepParamsElementUserLocatorValue {
      */
     type?: pulumi.Input<string>;
     value: pulumi.Input<string>;
+}
+
+export interface SyntheticsTestBrowserStepParamsPattern {
+    /**
+     * Type of pattern to use for the step. Valid values are `regex`, `xPath`.
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * Pattern to use for the step.
+     */
+    value?: pulumi.Input<string>;
 }
 
 export interface SyntheticsTestBrowserStepParamsVariable {
@@ -26673,7 +26885,7 @@ export interface SyntheticsTestMobileOptionsListMonitorOptions {
      */
     escalationMessage?: pulumi.Input<string>;
     /**
-     * Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`.
+     * The name of the preset for the notification for the monitor. Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`.
      */
     notificationPresetName?: pulumi.Input<string>;
     /**
@@ -26946,6 +27158,10 @@ export interface SyntheticsTestOptionsListMonitorOptions {
      */
     escalationMessage?: pulumi.Input<string>;
     /**
+     * The name of the preset for the notification for the monitor. Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`.
+     */
+    notificationPresetName?: pulumi.Input<string>;
+    /**
      * Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
      */
     renotifyInterval?: pulumi.Input<number>;
@@ -27087,7 +27303,7 @@ export interface SyntheticsTestRequestClientCertificateCert {
     /**
      * Content of the certificate.
      */
-    content: pulumi.Input<string>;
+    content?: pulumi.Input<string>;
     /**
      * File name for the certificate.
      */
@@ -27098,7 +27314,7 @@ export interface SyntheticsTestRequestClientCertificateKey {
     /**
      * Content of the certificate.
      */
-    content: pulumi.Input<string>;
+    content?: pulumi.Input<string>;
     /**
      * File name for the certificate.
      */
@@ -27131,6 +27347,10 @@ export interface SyntheticsTestRequestDefinition {
      */
     dnsServerPort?: pulumi.Input<string>;
     /**
+     * Form data to be sent when `bodyType` is `multipart/form-data`.
+     */
+    form?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * Host name to perform the test with.
      */
     host?: pulumi.Input<string>;
@@ -27140,6 +27360,10 @@ export interface SyntheticsTestRequestDefinition {
      * @deprecated Use `httpVersion` in the `optionsList` field instead.
      */
     httpVersion?: pulumi.Input<string>;
+    /**
+     * Whether the message is base64-encoded.
+     */
+    isMessageBase64Encoded?: pulumi.Input<boolean>;
     /**
      * For UDP and websocket tests, message to send with the request.
      */
@@ -27285,7 +27509,7 @@ export namespace aws {
          */
         lambdas?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * List of service IDs set to enable automatic log collection. Use `datadog.aws.getIntegrationAvailableLogsServices` data source to get allowed values. Defaults to `[]`.
+         * List of service IDs set to enable automatic log collection. Use `datadog.aws.getIntegrationAvailableLogsServices` data source or [the AWS Logs Integration API](https://docs.datadoghq.com/api/latest/aws-logs-integration/?#get-list-of-aws-log-ready-services) to get allowed values. Defaults to `[]`.
          */
         sources?: pulumi.Input<pulumi.Input<string>[]>;
     }

@@ -18,6 +18,21 @@ public final class SyntheticsPrivateLocationState extends com.pulumi.resources.R
     public static final SyntheticsPrivateLocationState Empty = new SyntheticsPrivateLocationState();
 
     /**
+     * API key used to generate the private location configuration.
+     * 
+     */
+    @Import(name="apiKey")
+    private @Nullable Output<String> apiKey;
+
+    /**
+     * @return API key used to generate the private location configuration.
+     * 
+     */
+    public Optional<Output<String>> apiKey() {
+        return Optional.ofNullable(this.apiKey);
+    }
+
+    /**
      * Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
      * 
      */
@@ -95,6 +110,7 @@ public final class SyntheticsPrivateLocationState extends com.pulumi.resources.R
     private SyntheticsPrivateLocationState() {}
 
     private SyntheticsPrivateLocationState(SyntheticsPrivateLocationState $) {
+        this.apiKey = $.apiKey;
         this.config = $.config;
         this.description = $.description;
         this.metadata = $.metadata;
@@ -118,6 +134,27 @@ public final class SyntheticsPrivateLocationState extends com.pulumi.resources.R
 
         public Builder(SyntheticsPrivateLocationState defaults) {
             $ = new SyntheticsPrivateLocationState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param apiKey API key used to generate the private location configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiKey(@Nullable Output<String> apiKey) {
+            $.apiKey = apiKey;
+            return this;
+        }
+
+        /**
+         * @param apiKey API key used to generate the private location configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiKey(String apiKey) {
+            return apiKey(Output.of(apiKey));
         }
 
         /**

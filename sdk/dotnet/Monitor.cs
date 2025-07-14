@@ -47,6 +47,8 @@ namespace Pulumi.Datadog
     /// 
     /// ## Import
     /// 
+    /// The `pulumi import` command can be used, for example:
+    /// 
     /// ```sh
     /// $ pulumi import datadog:index/monitor:Monitor bytes_received_localhost 2081
     /// ```
@@ -240,12 +242,6 @@ namespace Pulumi.Datadog
         [Output("requireFullWindow")]
         public Output<bool?> RequireFullWindow { get; private set; } = null!;
 
-        /// <summary>
-        /// A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
-        /// updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
-        /// identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
-        /// field.
-        /// </summary>
         [Output("restrictedRoles")]
         public Output<ImmutableArray<string>> RestrictedRoles { get; private set; } = null!;
 
@@ -532,13 +528,6 @@ namespace Pulumi.Datadog
 
         [Input("restrictedRoles")]
         private InputList<string>? _restrictedRoles;
-
-        /// <summary>
-        /// A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
-        /// updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
-        /// identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
-        /// field.
-        /// </summary>
         public InputList<string> RestrictedRoles
         {
             get => _restrictedRoles ?? (_restrictedRoles = new InputList<string>());
@@ -802,13 +791,6 @@ namespace Pulumi.Datadog
 
         [Input("restrictedRoles")]
         private InputList<string>? _restrictedRoles;
-
-        /// <summary>
-        /// A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
-        /// updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
-        /// identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
-        /// field.
-        /// </summary>
         public InputList<string> RestrictedRoles
         {
             get => _restrictedRoles ?? (_restrictedRoles = new InputList<string>());

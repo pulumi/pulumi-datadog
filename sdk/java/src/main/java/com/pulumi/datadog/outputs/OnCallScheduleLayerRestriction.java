@@ -4,10 +4,9 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class OnCallScheduleLayerRestriction {
@@ -15,51 +14,51 @@ public final class OnCallScheduleLayerRestriction {
      * @return The weekday when the restriction period ends. Valid values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
      * 
      */
-    private @Nullable String endDay;
+    private String endDay;
     /**
      * @return The time of day when the restriction ends (hh:mm:ss).
      * 
      */
-    private @Nullable String endTime;
+    private String endTime;
     /**
      * @return The weekday when the restriction period starts. Valid values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
      * 
      */
-    private @Nullable String startDay;
+    private String startDay;
     /**
      * @return The time of day when the restriction begins (hh:mm:ss).
      * 
      */
-    private @Nullable String startTime;
+    private String startTime;
 
     private OnCallScheduleLayerRestriction() {}
     /**
      * @return The weekday when the restriction period ends. Valid values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
      * 
      */
-    public Optional<String> endDay() {
-        return Optional.ofNullable(this.endDay);
+    public String endDay() {
+        return this.endDay;
     }
     /**
      * @return The time of day when the restriction ends (hh:mm:ss).
      * 
      */
-    public Optional<String> endTime() {
-        return Optional.ofNullable(this.endTime);
+    public String endTime() {
+        return this.endTime;
     }
     /**
      * @return The weekday when the restriction period starts. Valid values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
      * 
      */
-    public Optional<String> startDay() {
-        return Optional.ofNullable(this.startDay);
+    public String startDay() {
+        return this.startDay;
     }
     /**
      * @return The time of day when the restriction begins (hh:mm:ss).
      * 
      */
-    public Optional<String> startTime() {
-        return Optional.ofNullable(this.startTime);
+    public String startTime() {
+        return this.startTime;
     }
 
     public static Builder builder() {
@@ -71,10 +70,10 @@ public final class OnCallScheduleLayerRestriction {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable String endDay;
-        private @Nullable String endTime;
-        private @Nullable String startDay;
-        private @Nullable String startTime;
+        private String endDay;
+        private String endTime;
+        private String startDay;
+        private String startTime;
         public Builder() {}
         public Builder(OnCallScheduleLayerRestriction defaults) {
     	      Objects.requireNonNull(defaults);
@@ -85,26 +84,34 @@ public final class OnCallScheduleLayerRestriction {
         }
 
         @CustomType.Setter
-        public Builder endDay(@Nullable String endDay) {
-
+        public Builder endDay(String endDay) {
+            if (endDay == null) {
+              throw new MissingRequiredPropertyException("OnCallScheduleLayerRestriction", "endDay");
+            }
             this.endDay = endDay;
             return this;
         }
         @CustomType.Setter
-        public Builder endTime(@Nullable String endTime) {
-
+        public Builder endTime(String endTime) {
+            if (endTime == null) {
+              throw new MissingRequiredPropertyException("OnCallScheduleLayerRestriction", "endTime");
+            }
             this.endTime = endTime;
             return this;
         }
         @CustomType.Setter
-        public Builder startDay(@Nullable String startDay) {
-
+        public Builder startDay(String startDay) {
+            if (startDay == null) {
+              throw new MissingRequiredPropertyException("OnCallScheduleLayerRestriction", "startDay");
+            }
             this.startDay = startDay;
             return this;
         }
         @CustomType.Setter
-        public Builder startTime(@Nullable String startTime) {
-
+        public Builder startTime(String startTime) {
+            if (startTime == null) {
+              throw new MissingRequiredPropertyException("OnCallScheduleLayerRestriction", "startTime");
+            }
             this.startTime = startTime;
             return this;
         }

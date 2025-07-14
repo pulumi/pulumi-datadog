@@ -12,6 +12,7 @@ import com.pulumi.datadog.Utilities;
 import com.pulumi.datadog.inputs.LogsCustomDestinationState;
 import com.pulumi.datadog.outputs.LogsCustomDestinationElasticsearchDestination;
 import com.pulumi.datadog.outputs.LogsCustomDestinationHttpDestination;
+import com.pulumi.datadog.outputs.LogsCustomDestinationMicrosoftSentinelDestination;
 import com.pulumi.datadog.outputs.LogsCustomDestinationSplunkDestination;
 import java.lang.Boolean;
 import java.lang.String;
@@ -69,6 +70,8 @@ import javax.annotation.Nullable;
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
+ * 
+ * The `pulumi import` command can be used, for example:
  * 
  * Custom destinations can be imported using the destination ID. Caution: auth credentials can not be imported.
  * 
@@ -172,6 +175,20 @@ public class LogsCustomDestination extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<LogsCustomDestinationHttpDestination>> httpDestination() {
         return Codegen.optional(this.httpDestination);
+    }
+    /**
+     * The Microsoft Sentinel destination.
+     * 
+     */
+    @Export(name="microsoftSentinelDestination", refs={LogsCustomDestinationMicrosoftSentinelDestination.class}, tree="[0]")
+    private Output</* @Nullable */ LogsCustomDestinationMicrosoftSentinelDestination> microsoftSentinelDestination;
+
+    /**
+     * @return The Microsoft Sentinel destination.
+     * 
+     */
+    public Output<Optional<LogsCustomDestinationMicrosoftSentinelDestination>> microsoftSentinelDestination() {
+        return Codegen.optional(this.microsoftSentinelDestination);
     }
     /**
      * The custom destination name.

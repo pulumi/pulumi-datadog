@@ -33,6 +33,8 @@ namespace Pulumi.Datadog
     /// 
     /// ## Import
     /// 
+    /// The `pulumi import` command can be used, for example:
+    /// 
     /// ```sh
     /// $ pulumi import datadog:index/rumApplication:RumApplication rum_application a1b2c3d4-a1b2-a1b2-a1b2-a1b2c3d4e5f6
     /// ```

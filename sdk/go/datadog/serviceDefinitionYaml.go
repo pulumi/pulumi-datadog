@@ -242,6 +242,8 @@ import (
 //
 // ## Import
 //
+// The `pulumi import` command can be used, for example:
+//
 // ```sh
 // $ pulumi import datadog:index/serviceDefinitionYaml:ServiceDefinitionYaml service_definition "<dd-service>"
 // ```

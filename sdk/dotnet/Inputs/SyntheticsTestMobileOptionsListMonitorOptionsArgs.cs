@@ -19,7 +19,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? EscalationMessage { get; set; }
 
         /// <summary>
-        /// Valid values are `show_all`, `hide_all`, `hide_query`, `hide_handles`.
+        /// The name of the preset for the notification for the monitor. Valid values are `show_all`, `hide_all`, `hide_query`, `hide_handles`.
         /// </summary>
         [Input("notificationPresetName")]
         public Input<string>? NotificationPresetName { get; set; }

@@ -536,7 +536,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
                  validate: Optional[pulumi.Input[builtins.bool]] = None,
                  __props__=None):
         """
-        Provides a Datadog Security Monitoring Rule API resource. This can be used to create and manage Datadog security monitoring rules. To change settings for a default rule use `datadog_security_default_rule` instead.
+        Provides a Datadog Security Monitoring Rule API resource. This can be used to create and manage Datadog security monitoring rules. To change settings for a default rule, use `SecurityMonitoringDefaultRule` instead.
 
         ## Example Usage
 
@@ -578,6 +578,8 @@ class SecurityMonitoringRule(pulumi.CustomResource):
         ```
 
         ## Import
+
+        The `pulumi import` command can be used, for example:
 
         Security monitoring rules can be imported using ID, e.g.
 
@@ -610,7 +612,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
                  args: SecurityMonitoringRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Datadog Security Monitoring Rule API resource. This can be used to create and manage Datadog security monitoring rules. To change settings for a default rule use `datadog_security_default_rule` instead.
+        Provides a Datadog Security Monitoring Rule API resource. This can be used to create and manage Datadog security monitoring rules. To change settings for a default rule, use `SecurityMonitoringDefaultRule` instead.
 
         ## Example Usage
 
@@ -652,6 +654,8 @@ class SecurityMonitoringRule(pulumi.CustomResource):
         ```
 
         ## Import
+
+        The `pulumi import` command can be used, for example:
 
         Security monitoring rules can be imported using ID, e.g.
 

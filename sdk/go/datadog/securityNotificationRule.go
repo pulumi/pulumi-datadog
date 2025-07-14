@@ -16,6 +16,8 @@ import (
 //
 // ## Import
 //
+// The `pulumi import` command can be used, for example:
+//
 // ```sh
 // $ pulumi import datadog:index/securityNotificationRule:SecurityNotificationRule signal_rule yq9-t9l-bso
 // ```

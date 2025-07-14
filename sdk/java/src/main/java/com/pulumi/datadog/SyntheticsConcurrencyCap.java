@@ -54,6 +54,8 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * The `pulumi import` command can be used, for example:
+ * 
  * The Synthetics concurrency cap can be imported. &lt;name&gt; can be whatever you specify in your code. Datadog does not store the name on the server.
  * 
  * ```sh

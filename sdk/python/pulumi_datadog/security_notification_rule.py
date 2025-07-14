@@ -322,6 +322,8 @@ class SecurityNotificationRule(pulumi.CustomResource):
 
         ## Import
 
+        The `pulumi import` command can be used, for example:
+
         ```sh
         $ pulumi import datadog:index/securityNotificationRule:SecurityNotificationRule signal_rule yq9-t9l-bso
         ```
@@ -344,6 +346,8 @@ class SecurityNotificationRule(pulumi.CustomResource):
         Provides a Datadog Security Monitoring Notification Rule API resource for creating and managing Datadog security notification rules.
 
         ## Import
+
+        The `pulumi import` command can be used, for example:
 
         ```sh
         $ pulumi import datadog:index/securityNotificationRule:SecurityNotificationRule signal_rule yq9-t9l-bso

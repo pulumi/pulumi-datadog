@@ -6,6 +6,7 @@ package com.pulumi.datadog;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.SensitiveDataScannerGroupFilterArgs;
+import com.pulumi.datadog.inputs.SensitiveDataScannerGroupSamplingArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
@@ -94,6 +95,21 @@ public final class SensitiveDataScannerGroupArgs extends com.pulumi.resources.Re
         return this.productLists;
     }
 
+    /**
+     * List of sampling configurations per product type for the scanning group.
+     * 
+     */
+    @Import(name="samplings")
+    private @Nullable Output<List<SensitiveDataScannerGroupSamplingArgs>> samplings;
+
+    /**
+     * @return List of sampling configurations per product type for the scanning group.
+     * 
+     */
+    public Optional<Output<List<SensitiveDataScannerGroupSamplingArgs>>> samplings() {
+        return Optional.ofNullable(this.samplings);
+    }
+
     private SensitiveDataScannerGroupArgs() {}
 
     private SensitiveDataScannerGroupArgs(SensitiveDataScannerGroupArgs $) {
@@ -102,6 +118,7 @@ public final class SensitiveDataScannerGroupArgs extends com.pulumi.resources.Re
         this.isEnabled = $.isEnabled;
         this.name = $.name;
         this.productLists = $.productLists;
+        this.samplings = $.samplings;
     }
 
     public static Builder builder() {
@@ -235,6 +252,37 @@ public final class SensitiveDataScannerGroupArgs extends com.pulumi.resources.Re
          */
         public Builder productLists(String... productLists) {
             return productLists(List.of(productLists));
+        }
+
+        /**
+         * @param samplings List of sampling configurations per product type for the scanning group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder samplings(@Nullable Output<List<SensitiveDataScannerGroupSamplingArgs>> samplings) {
+            $.samplings = samplings;
+            return this;
+        }
+
+        /**
+         * @param samplings List of sampling configurations per product type for the scanning group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder samplings(List<SensitiveDataScannerGroupSamplingArgs> samplings) {
+            return samplings(Output.of(samplings));
+        }
+
+        /**
+         * @param samplings List of sampling configurations per product type for the scanning group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder samplings(SensitiveDataScannerGroupSamplingArgs... samplings) {
+            return samplings(List.of(samplings));
         }
 
         public SensitiveDataScannerGroupArgs build() {

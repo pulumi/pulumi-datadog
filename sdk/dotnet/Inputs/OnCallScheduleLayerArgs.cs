@@ -30,6 +30,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// Rotation interval for this layer.
+        /// </summary>
         [Input("interval")]
         public Input<Inputs.OnCallScheduleLayerIntervalArgs>? Interval { get; set; }
 
@@ -54,8 +57,8 @@ namespace Pulumi.Datadog.Inputs
         /// <summary>
         /// The date/time when the rotation for this layer starts (in ISO 8601).
         /// </summary>
-        [Input("rotationStart")]
-        public Input<string>? RotationStart { get; set; }
+        [Input("rotationStart", required: true)]
+        public Input<string> RotationStart { get; set; } = null!;
 
         [Input("users", required: true)]
         private InputList<string>? _users;

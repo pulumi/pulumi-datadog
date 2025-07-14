@@ -459,13 +459,22 @@ import javax.annotation.Nullable;
  *                                 jsonProperty("size", 11),
  *                                 jsonProperty("content", "Hello world")
  *                             ))))
- *                         .element("*[}{@literal @}{@code id='simple-file-upload']")
  *                         .elementUserLocator(SyntheticsTestBrowserStepParamsElementUserLocatorArgs.builder()
  *                             .value(SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs.builder()
  *                                 .type("css")
  *                                 .value("#simple-file-upload")
  *                                 .build())
  *                             .build())
+ *                         .element(serializeJson(
+ *                             jsonObject(
+ *                                 jsonProperty("userLocator", jsonObject(
+ *                                     jsonProperty("failTestOnCannotLocate", true),
+ *                                     jsonProperty("values", jsonArray(jsonObject(
+ *                                         jsonProperty("type", "css"),
+ *                                         jsonProperty("value", "#simple-file-upload")
+ *                                     )))
+ *                                 ))
+ *                             )))
  *                         .build())
  *                     .build(),
  *                 SyntheticsTestBrowserStepArgs.builder()

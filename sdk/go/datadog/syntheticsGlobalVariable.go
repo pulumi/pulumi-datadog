@@ -49,6 +49,8 @@ import (
 //
 // ## Import
 //
+// The `pulumi import` command can be used, for example:
+//
 // Synthetics global variables can be imported using their string ID, e.g.
 //
 // ```sh

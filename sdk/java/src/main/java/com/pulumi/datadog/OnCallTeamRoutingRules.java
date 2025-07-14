@@ -26,6 +26,8 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * The `pulumi import` command can be used, for example:
+ * 
  * Import an existing on_call_schedule
  * 
  * ```sh

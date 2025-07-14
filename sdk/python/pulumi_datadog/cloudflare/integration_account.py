@@ -188,6 +188,8 @@ class IntegrationAccount(pulumi.CustomResource):
 
         ## Import
 
+        The `pulumi import` command can be used, for example:
+
         ```sh
         $ pulumi import datadog:cloudflare/integrationAccount:IntegrationAccount new_list "<ID>"
         ```
@@ -222,6 +224,8 @@ class IntegrationAccount(pulumi.CustomResource):
         ```
 
         ## Import
+
+        The `pulumi import` command can be used, for example:
 
         ```sh
         $ pulumi import datadog:cloudflare/integrationAccount:IntegrationAccount new_list "<ID>"

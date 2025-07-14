@@ -47,6 +47,8 @@ import (
 //
 // ## Import
 //
+// The `pulumi import` command can be used, for example:
+//
 // Synthetics private locations can be imported using their string ID, e.g.
 //
 // ```sh
@@ -55,6 +57,8 @@ import (
 type SyntheticsPrivateLocation struct {
 	pulumi.CustomResourceState
 
+	// API key used to generate the private location configuration.
+	ApiKey pulumi.StringPtrOutput `pulumi:"apiKey"`
 	// Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
 	Config pulumi.StringOutput `pulumi:"config"`
 	// Description of the private location. Defaults to `""`.
@@ -77,7 +81,11 @@ func NewSyntheticsPrivateLocation(ctx *pulumi.Context,
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
+	if args.ApiKey != nil {
+		args.ApiKey = pulumi.ToSecret(args.ApiKey).(pulumi.StringPtrInput)
+	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"apiKey",
 		"config",
 	})
 	opts = append(opts, secrets)
@@ -104,6 +112,8 @@ func GetSyntheticsPrivateLocation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SyntheticsPrivateLocation resources.
 type syntheticsPrivateLocationState struct {
+	// API key used to generate the private location configuration.
+	ApiKey *string `pulumi:"apiKey"`
 	// Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
 	Config *string `pulumi:"config"`
 	// Description of the private location. Defaults to `""`.
@@ -117,6 +127,8 @@ type syntheticsPrivateLocationState struct {
 }
 
 type SyntheticsPrivateLocationState struct {
+	// API key used to generate the private location configuration.
+	ApiKey pulumi.StringPtrInput
 	// Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
 	Config pulumi.StringPtrInput
 	// Description of the private location. Defaults to `""`.
@@ -134,6 +146,8 @@ func (SyntheticsPrivateLocationState) ElementType() reflect.Type {
 }
 
 type syntheticsPrivateLocationArgs struct {
+	// API key used to generate the private location configuration.
+	ApiKey *string `pulumi:"apiKey"`
 	// Description of the private location. Defaults to `""`.
 	Description *string `pulumi:"description"`
 	// The private location metadata
@@ -146,6 +160,8 @@ type syntheticsPrivateLocationArgs struct {
 
 // The set of arguments for constructing a SyntheticsPrivateLocation resource.
 type SyntheticsPrivateLocationArgs struct {
+	// API key used to generate the private location configuration.
+	ApiKey pulumi.StringPtrInput
 	// Description of the private location. Defaults to `""`.
 	Description pulumi.StringPtrInput
 	// The private location metadata
@@ -241,6 +257,11 @@ func (o SyntheticsPrivateLocationOutput) ToSyntheticsPrivateLocationOutput() Syn
 
 func (o SyntheticsPrivateLocationOutput) ToSyntheticsPrivateLocationOutputWithContext(ctx context.Context) SyntheticsPrivateLocationOutput {
 	return o
+}
+
+// API key used to generate the private location configuration.
+func (o SyntheticsPrivateLocationOutput) ApiKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsPrivateLocation) pulumi.StringPtrOutput { return v.ApiKey }).(pulumi.StringPtrOutput)
 }
 
 // Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.

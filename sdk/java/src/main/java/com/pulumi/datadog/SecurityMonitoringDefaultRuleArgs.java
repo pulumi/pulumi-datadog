@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.SecurityMonitoringDefaultRuleCaseArgs;
 import com.pulumi.datadog.inputs.SecurityMonitoringDefaultRuleFilterArgs;
 import com.pulumi.datadog.inputs.SecurityMonitoringDefaultRuleOptionsArgs;
+import com.pulumi.datadog.inputs.SecurityMonitoringDefaultRuleQueryArgs;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -33,6 +34,36 @@ public final class SecurityMonitoringDefaultRuleArgs extends com.pulumi.resource
      */
     public Optional<Output<List<SecurityMonitoringDefaultRuleCaseArgs>>> cases() {
         return Optional.ofNullable(this.cases);
+    }
+
+    /**
+     * Custom Message (will override default message) for generated signals.
+     * 
+     */
+    @Import(name="customMessage")
+    private @Nullable Output<String> customMessage;
+
+    /**
+     * @return Custom Message (will override default message) for generated signals.
+     * 
+     */
+    public Optional<Output<String>> customMessage() {
+        return Optional.ofNullable(this.customMessage);
+    }
+
+    /**
+     * The name (will override default name) of the rule.
+     * 
+     */
+    @Import(name="customName")
+    private @Nullable Output<String> customName;
+
+    /**
+     * @return The name (will override default name) of the rule.
+     * 
+     */
+    public Optional<Output<String>> customName() {
+        return Optional.ofNullable(this.customName);
     }
 
     /**
@@ -95,14 +126,32 @@ public final class SecurityMonitoringDefaultRuleArgs extends com.pulumi.resource
         return Optional.ofNullable(this.options);
     }
 
+    /**
+     * Queries for selecting logs which are part of the rule.
+     * 
+     */
+    @Import(name="queries")
+    private @Nullable Output<List<SecurityMonitoringDefaultRuleQueryArgs>> queries;
+
+    /**
+     * @return Queries for selecting logs which are part of the rule.
+     * 
+     */
+    public Optional<Output<List<SecurityMonitoringDefaultRuleQueryArgs>>> queries() {
+        return Optional.ofNullable(this.queries);
+    }
+
     private SecurityMonitoringDefaultRuleArgs() {}
 
     private SecurityMonitoringDefaultRuleArgs(SecurityMonitoringDefaultRuleArgs $) {
         this.cases = $.cases;
+        this.customMessage = $.customMessage;
+        this.customName = $.customName;
         this.customTags = $.customTags;
         this.enabled = $.enabled;
         this.filters = $.filters;
         this.options = $.options;
+        this.queries = $.queries;
     }
 
     public static Builder builder() {
@@ -152,6 +201,48 @@ public final class SecurityMonitoringDefaultRuleArgs extends com.pulumi.resource
          */
         public Builder cases(SecurityMonitoringDefaultRuleCaseArgs... cases) {
             return cases(List.of(cases));
+        }
+
+        /**
+         * @param customMessage Custom Message (will override default message) for generated signals.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customMessage(@Nullable Output<String> customMessage) {
+            $.customMessage = customMessage;
+            return this;
+        }
+
+        /**
+         * @param customMessage Custom Message (will override default message) for generated signals.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customMessage(String customMessage) {
+            return customMessage(Output.of(customMessage));
+        }
+
+        /**
+         * @param customName The name (will override default name) of the rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customName(@Nullable Output<String> customName) {
+            $.customName = customName;
+            return this;
+        }
+
+        /**
+         * @param customName The name (will override default name) of the rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customName(String customName) {
+            return customName(Output.of(customName));
         }
 
         /**
@@ -256,6 +347,37 @@ public final class SecurityMonitoringDefaultRuleArgs extends com.pulumi.resource
          */
         public Builder options(SecurityMonitoringDefaultRuleOptionsArgs options) {
             return options(Output.of(options));
+        }
+
+        /**
+         * @param queries Queries for selecting logs which are part of the rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder queries(@Nullable Output<List<SecurityMonitoringDefaultRuleQueryArgs>> queries) {
+            $.queries = queries;
+            return this;
+        }
+
+        /**
+         * @param queries Queries for selecting logs which are part of the rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder queries(List<SecurityMonitoringDefaultRuleQueryArgs> queries) {
+            return queries(Output.of(queries));
+        }
+
+        /**
+         * @param queries Queries for selecting logs which are part of the rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder queries(SecurityMonitoringDefaultRuleQueryArgs... queries) {
+            return queries(List.of(queries));
         }
 
         public SecurityMonitoringDefaultRuleArgs build() {

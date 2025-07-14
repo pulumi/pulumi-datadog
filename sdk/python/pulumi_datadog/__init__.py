@@ -19,7 +19,10 @@ from .child_organization import *
 from .cloud_configuration_rule import *
 from .cloud_workload_security_agent_rule import *
 from .compliance_custom_framework import *
+from .compliance_resource_evaluation_filter import *
+from .cost_budget import *
 from .csm_threats_agent_rule import *
+from .csm_threats_policy import *
 from .dashboard import *
 from .dashboard_json import *
 from .dashboard_list import *
@@ -32,7 +35,9 @@ from .get_apm_retention_filters_order import *
 from .get_app_builder_app import *
 from .get_application_key import *
 from .get_cloud_workload_security_agent_rules import *
+from .get_cost_budget import *
 from .get_csm_threats_agent_rules import *
+from .get_csm_threats_policies import *
 from .get_dashboard import *
 from .get_dashboard_list import *
 from .get_hosts import *
@@ -399,10 +404,34 @@ _utilities.register(
  },
  {
   "pkg": "datadog",
+  "mod": "index/complianceResourceEvaluationFilter",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/complianceResourceEvaluationFilter:ComplianceResourceEvaluationFilter": "ComplianceResourceEvaluationFilter"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/costBudget",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/costBudget:CostBudget": "CostBudget"
+  }
+ },
+ {
+  "pkg": "datadog",
   "mod": "index/csmThreatsAgentRule",
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/csmThreatsAgentRule:CsmThreatsAgentRule": "CsmThreatsAgentRule"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/csmThreatsPolicy",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/csmThreatsPolicy:CsmThreatsPolicy": "CsmThreatsPolicy"
   }
  },
  {

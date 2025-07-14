@@ -442,6 +442,8 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
 
         ## Import
 
+        The `pulumi import` command can be used, for example:
+
         ```sh
         $ pulumi import datadog:index/sensitiveDataScannerRule:SensitiveDataScannerRule new_list "<rule_id>"
         ```
@@ -471,6 +473,8 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
         Provides a Datadog SensitiveDataScannerRule resource. This can be used to create and manage Datadog sensitive_data_scanner_rule. Setting the `create_before_destroy` lifecycle Meta-argument to `true` is highly recommended if modifying the `included_keyword_configuration` field to avoid unexpectedly disabling Sensitive Data Scanner groups.
 
         ## Import
+
+        The `pulumi import` command can be used, for example:
 
         ```sh
         $ pulumi import datadog:index/sensitiveDataScannerRule:SensitiveDataScannerRule new_list "<rule_id>"

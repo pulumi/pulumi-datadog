@@ -17,7 +17,7 @@ public final class IntegrationAccountLogsConfigLambdaForwarder {
      */
     private @Nullable List<String> lambdas;
     /**
-     * @return List of service IDs set to enable automatic log collection. Use `datadog.aws.getIntegrationAvailableLogsServices` data source to get allowed values. Defaults to `[]`.
+     * @return List of service IDs set to enable automatic log collection. Use `datadog.aws.getIntegrationAvailableLogsServices` data source or [the AWS Logs Integration API](https://docs.datadoghq.com/api/latest/aws-logs-integration/?#get-list-of-aws-log-ready-services) to get allowed values. Defaults to `[]`.
      * 
      */
     private @Nullable List<String> sources;
@@ -31,7 +31,7 @@ public final class IntegrationAccountLogsConfigLambdaForwarder {
         return this.lambdas == null ? List.of() : this.lambdas;
     }
     /**
-     * @return List of service IDs set to enable automatic log collection. Use `datadog.aws.getIntegrationAvailableLogsServices` data source to get allowed values. Defaults to `[]`.
+     * @return List of service IDs set to enable automatic log collection. Use `datadog.aws.getIntegrationAvailableLogsServices` data source or [the AWS Logs Integration API](https://docs.datadoghq.com/api/latest/aws-logs-integration/?#get-list-of-aws-log-ready-services) to get allowed values. Defaults to `[]`.
      * 
      */
     public List<String> sources() {

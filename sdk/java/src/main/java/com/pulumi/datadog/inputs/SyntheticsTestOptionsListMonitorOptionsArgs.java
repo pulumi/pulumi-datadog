@@ -32,6 +32,21 @@ public final class SyntheticsTestOptionsListMonitorOptionsArgs extends com.pulum
     }
 
     /**
+     * The name of the preset for the notification for the monitor. Valid values are `show_all`, `hide_all`, `hide_query`, `hide_handles`.
+     * 
+     */
+    @Import(name="notificationPresetName")
+    private @Nullable Output<String> notificationPresetName;
+
+    /**
+     * @return The name of the preset for the notification for the monitor. Valid values are `show_all`, `hide_all`, `hide_query`, `hide_handles`.
+     * 
+     */
+    public Optional<Output<String>> notificationPresetName() {
+        return Optional.ofNullable(this.notificationPresetName);
+    }
+
+    /**
      * Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
      * 
      */
@@ -65,6 +80,7 @@ public final class SyntheticsTestOptionsListMonitorOptionsArgs extends com.pulum
 
     private SyntheticsTestOptionsListMonitorOptionsArgs(SyntheticsTestOptionsListMonitorOptionsArgs $) {
         this.escalationMessage = $.escalationMessage;
+        this.notificationPresetName = $.notificationPresetName;
         this.renotifyInterval = $.renotifyInterval;
         this.renotifyOccurrences = $.renotifyOccurrences;
     }
@@ -106,6 +122,27 @@ public final class SyntheticsTestOptionsListMonitorOptionsArgs extends com.pulum
          */
         public Builder escalationMessage(String escalationMessage) {
             return escalationMessage(Output.of(escalationMessage));
+        }
+
+        /**
+         * @param notificationPresetName The name of the preset for the notification for the monitor. Valid values are `show_all`, `hide_all`, `hide_query`, `hide_handles`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder notificationPresetName(@Nullable Output<String> notificationPresetName) {
+            $.notificationPresetName = notificationPresetName;
+            return this;
+        }
+
+        /**
+         * @param notificationPresetName The name of the preset for the notification for the monitor. Valid values are `show_all`, `hide_all`, `hide_query`, `hide_handles`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder notificationPresetName(String notificationPresetName) {
+            return notificationPresetName(Output.of(notificationPresetName));
         }
 
         /**

@@ -8,14 +8,21 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class SecurityMonitoringDefaultRuleCase {
     /**
+     * @return Status of the rule case to override. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+     * 
+     */
+    private @Nullable String customStatus;
+    /**
      * @return Notification targets for each rule case.
      * 
      */
-    private List<String> notifications;
+    private @Nullable List<String> notifications;
     /**
      * @return Status of the rule case to match. Valid values are `info`, `low`, `medium`, `high`, `critical`.
      * 
@@ -24,11 +31,18 @@ public final class SecurityMonitoringDefaultRuleCase {
 
     private SecurityMonitoringDefaultRuleCase() {}
     /**
+     * @return Status of the rule case to override. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+     * 
+     */
+    public Optional<String> customStatus() {
+        return Optional.ofNullable(this.customStatus);
+    }
+    /**
      * @return Notification targets for each rule case.
      * 
      */
     public List<String> notifications() {
-        return this.notifications;
+        return this.notifications == null ? List.of() : this.notifications;
     }
     /**
      * @return Status of the rule case to match. Valid values are `info`, `low`, `medium`, `high`, `critical`.
@@ -47,20 +61,26 @@ public final class SecurityMonitoringDefaultRuleCase {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> notifications;
+        private @Nullable String customStatus;
+        private @Nullable List<String> notifications;
         private String status;
         public Builder() {}
         public Builder(SecurityMonitoringDefaultRuleCase defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.customStatus = defaults.customStatus;
     	      this.notifications = defaults.notifications;
     	      this.status = defaults.status;
         }
 
         @CustomType.Setter
-        public Builder notifications(List<String> notifications) {
-            if (notifications == null) {
-              throw new MissingRequiredPropertyException("SecurityMonitoringDefaultRuleCase", "notifications");
-            }
+        public Builder customStatus(@Nullable String customStatus) {
+
+            this.customStatus = customStatus;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder notifications(@Nullable List<String> notifications) {
+
             this.notifications = notifications;
             return this;
         }
@@ -77,6 +97,7 @@ public final class SecurityMonitoringDefaultRuleCase {
         }
         public SecurityMonitoringDefaultRuleCase build() {
             final var _resultValue = new SecurityMonitoringDefaultRuleCase();
+            _resultValue.customStatus = customStatus;
             _resultValue.notifications = notifications;
             _resultValue.status = status;
             return _resultValue;

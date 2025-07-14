@@ -162,6 +162,8 @@ class IntegrationService(pulumi.CustomResource):
 
         ## Import
 
+        The `pulumi import` command can be used, for example:
+
         ```sh
         $ pulumi import datadog:fastly/integrationService:IntegrationService new_list "account-id:service-id"
         ```
@@ -201,6 +203,8 @@ class IntegrationService(pulumi.CustomResource):
         ```
 
         ## Import
+
+        The `pulumi import` command can be used, for example:
 
         ```sh
         $ pulumi import datadog:fastly/integrationService:IntegrationService new_list "account-id:service-id"

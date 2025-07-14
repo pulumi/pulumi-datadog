@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.LogsCustomDestinationElasticsearchDestinationArgs;
 import com.pulumi.datadog.inputs.LogsCustomDestinationHttpDestinationArgs;
+import com.pulumi.datadog.inputs.LogsCustomDestinationMicrosoftSentinelDestinationArgs;
 import com.pulumi.datadog.inputs.LogsCustomDestinationSplunkDestinationArgs;
 import java.lang.Boolean;
 import java.lang.String;
@@ -121,6 +122,21 @@ public final class LogsCustomDestinationState extends com.pulumi.resources.Resou
     }
 
     /**
+     * The Microsoft Sentinel destination.
+     * 
+     */
+    @Import(name="microsoftSentinelDestination")
+    private @Nullable Output<LogsCustomDestinationMicrosoftSentinelDestinationArgs> microsoftSentinelDestination;
+
+    /**
+     * @return The Microsoft Sentinel destination.
+     * 
+     */
+    public Optional<Output<LogsCustomDestinationMicrosoftSentinelDestinationArgs>> microsoftSentinelDestination() {
+        return Optional.ofNullable(this.microsoftSentinelDestination);
+    }
+
+    /**
      * The custom destination name.
      * 
      */
@@ -174,6 +190,7 @@ public final class LogsCustomDestinationState extends com.pulumi.resources.Resou
         this.forwardTagsRestrictionListType = $.forwardTagsRestrictionListType;
         this.forwardTagsRestrictionLists = $.forwardTagsRestrictionLists;
         this.httpDestination = $.httpDestination;
+        this.microsoftSentinelDestination = $.microsoftSentinelDestination;
         this.name = $.name;
         this.query = $.query;
         this.splunkDestination = $.splunkDestination;
@@ -343,6 +360,27 @@ public final class LogsCustomDestinationState extends com.pulumi.resources.Resou
          */
         public Builder httpDestination(LogsCustomDestinationHttpDestinationArgs httpDestination) {
             return httpDestination(Output.of(httpDestination));
+        }
+
+        /**
+         * @param microsoftSentinelDestination The Microsoft Sentinel destination.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder microsoftSentinelDestination(@Nullable Output<LogsCustomDestinationMicrosoftSentinelDestinationArgs> microsoftSentinelDestination) {
+            $.microsoftSentinelDestination = microsoftSentinelDestination;
+            return this;
+        }
+
+        /**
+         * @param microsoftSentinelDestination The Microsoft Sentinel destination.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder microsoftSentinelDestination(LogsCustomDestinationMicrosoftSentinelDestinationArgs microsoftSentinelDestination) {
+            return microsoftSentinelDestination(Output.of(microsoftSentinelDestination));
         }
 
         /**

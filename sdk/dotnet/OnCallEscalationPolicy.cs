@@ -57,7 +57,9 @@ namespace Pulumi.Datadog
     /// 
     /// ## Import
     /// 
-    /// Import an existing on_call_schedule
+    /// The `pulumi import` command can be used, for example:
+    /// 
+    /// Import an existing on_call_escalation_policy
     /// 
     /// ```sh
     /// $ pulumi import datadog:index/onCallEscalationPolicy:OnCallEscalationPolicy test "b03a07d5-49da-43e9-83b4-5d84969b588b"
@@ -73,10 +75,10 @@ namespace Pulumi.Datadog
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// If true, pages will be automatically resolved if unacknowledged after the final step.
+        /// If true, pages will be automatically resolved if unacknowledged after the final step. Defaults to `false`.
         /// </summary>
         [Output("resolvePageOnPolicyEnd")]
-        public Output<bool?> ResolvePageOnPolicyEnd { get; private set; } = null!;
+        public Output<bool> ResolvePageOnPolicyEnd { get; private set; } = null!;
 
         /// <summary>
         /// If set, policy will be retried this many times after the final step. Must be in the range 0-10. Value must be between 0 and 10. Defaults to `0`.
@@ -149,7 +151,7 @@ namespace Pulumi.Datadog
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// If true, pages will be automatically resolved if unacknowledged after the final step.
+        /// If true, pages will be automatically resolved if unacknowledged after the final step. Defaults to `false`.
         /// </summary>
         [Input("resolvePageOnPolicyEnd")]
         public Input<bool>? ResolvePageOnPolicyEnd { get; set; }
@@ -160,7 +162,7 @@ namespace Pulumi.Datadog
         [Input("retries")]
         public Input<int>? Retries { get; set; }
 
-        [Input("steps")]
+        [Input("steps", required: true)]
         private InputList<Inputs.OnCallEscalationPolicyStepArgs>? _steps;
 
         /// <summary>
@@ -199,7 +201,7 @@ namespace Pulumi.Datadog
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// If true, pages will be automatically resolved if unacknowledged after the final step.
+        /// If true, pages will be automatically resolved if unacknowledged after the final step. Defaults to `false`.
         /// </summary>
         [Input("resolvePageOnPolicyEnd")]
         public Input<bool>? ResolvePageOnPolicyEnd { get; set; }

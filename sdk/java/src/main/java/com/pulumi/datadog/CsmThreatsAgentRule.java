@@ -10,8 +10,11 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.datadog.CsmThreatsAgentRuleArgs;
 import com.pulumi.datadog.Utilities;
 import com.pulumi.datadog.inputs.CsmThreatsAgentRuleState;
+import com.pulumi.datadog.outputs.CsmThreatsAgentRuleAction;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -57,6 +60,8 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * The `pulumi import` command can be used, for example:
+ * 
  * CSM Agent Rules can be imported using ID. For example:
  * 
  * ```sh
@@ -67,28 +72,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="datadog:index/csmThreatsAgentRule:CsmThreatsAgentRule")
 public class CsmThreatsAgentRule extends com.pulumi.resources.CustomResource {
     /**
-     * A description for the Agent rule. Defaults to `&#34;&#34;`.
+     * The list of actions the rule can perform
+     * 
+     */
+    @Export(name="actions", refs={List.class,CsmThreatsAgentRuleAction.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<CsmThreatsAgentRuleAction>> actions;
+
+    /**
+     * @return The list of actions the rule can perform
+     * 
+     */
+    public Output<Optional<List<CsmThreatsAgentRuleAction>>> actions() {
+        return Codegen.optional(this.actions);
+    }
+    /**
+     * A description for the Agent rule.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
-     * @return A description for the Agent rule. Defaults to `&#34;&#34;`.
+     * @return A description for the Agent rule.
      * 
      */
     public Output<String> description() {
         return this.description;
     }
     /**
-     * Indicates Whether the Agent rule is enabled.
+     * Indicates whether the Agent rule is enabled. Must not be used without policy_id.
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enabled;
 
     /**
-     * @return Indicates Whether the Agent rule is enabled.
+     * @return Indicates whether the Agent rule is enabled. Must not be used without policy_id.
      * 
      */
     public Output<Boolean> enabled() {
@@ -121,6 +140,34 @@ public class CsmThreatsAgentRule extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * The ID of the agent policy in which the rule is saved
+     * 
+     */
+    @Export(name="policyId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> policyId;
+
+    /**
+     * @return The ID of the agent policy in which the rule is saved
+     * 
+     */
+    public Output<Optional<String>> policyId() {
+        return Codegen.optional(this.policyId);
+    }
+    /**
+     * The list of product tags associated with the rule
+     * 
+     */
+    @Export(name="productTags", refs={List.class,String.class}, tree="[0,1]")
+    private Output<List<String>> productTags;
+
+    /**
+     * @return The list of product tags associated with the rule
+     * 
+     */
+    public Output<List<String>> productTags() {
+        return this.productTags;
     }
 
     /**

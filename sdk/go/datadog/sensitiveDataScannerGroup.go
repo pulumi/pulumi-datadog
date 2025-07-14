@@ -38,6 +38,17 @@ import (
 //				IsEnabled: pulumi.Bool(true),
 //				ProductLists: pulumi.StringArray{
 //					pulumi.String("apm"),
+//					pulumi.String("logs"),
+//				},
+//				Samplings: datadog.SensitiveDataScannerGroupSamplingArray{
+//					&datadog.SensitiveDataScannerGroupSamplingArgs{
+//						Product: pulumi.String("apm"),
+//						Rate:    pulumi.Float64(100),
+//					},
+//					&datadog.SensitiveDataScannerGroupSamplingArgs{
+//						Product: pulumi.String("logs"),
+//						Rate:    pulumi.Float64(10),
+//					},
 //				},
 //			})
 //			if err != nil {
@@ -50,6 +61,8 @@ import (
 // ```
 //
 // ## Import
+//
+// The `pulumi import` command can be used, for example:
 //
 // ```sh
 // $ pulumi import datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup new_list "<group_id>"
@@ -67,6 +80,8 @@ type SensitiveDataScannerGroup struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// List of products the scanning group applies. Valid values are `logs`, `rum`, `events`, `apm`.
 	ProductLists pulumi.StringArrayOutput `pulumi:"productLists"`
+	// List of sampling configurations per product type for the scanning group.
+	Samplings SensitiveDataScannerGroupSamplingArrayOutput `pulumi:"samplings"`
 }
 
 // NewSensitiveDataScannerGroup registers a new resource with the given unique name, arguments, and options.
@@ -121,6 +136,8 @@ type sensitiveDataScannerGroupState struct {
 	Name *string `pulumi:"name"`
 	// List of products the scanning group applies. Valid values are `logs`, `rum`, `events`, `apm`.
 	ProductLists []string `pulumi:"productLists"`
+	// List of sampling configurations per product type for the scanning group.
+	Samplings []SensitiveDataScannerGroupSampling `pulumi:"samplings"`
 }
 
 type SensitiveDataScannerGroupState struct {
@@ -134,6 +151,8 @@ type SensitiveDataScannerGroupState struct {
 	Name pulumi.StringPtrInput
 	// List of products the scanning group applies. Valid values are `logs`, `rum`, `events`, `apm`.
 	ProductLists pulumi.StringArrayInput
+	// List of sampling configurations per product type for the scanning group.
+	Samplings SensitiveDataScannerGroupSamplingArrayInput
 }
 
 func (SensitiveDataScannerGroupState) ElementType() reflect.Type {
@@ -151,6 +170,8 @@ type sensitiveDataScannerGroupArgs struct {
 	Name string `pulumi:"name"`
 	// List of products the scanning group applies. Valid values are `logs`, `rum`, `events`, `apm`.
 	ProductLists []string `pulumi:"productLists"`
+	// List of sampling configurations per product type for the scanning group.
+	Samplings []SensitiveDataScannerGroupSampling `pulumi:"samplings"`
 }
 
 // The set of arguments for constructing a SensitiveDataScannerGroup resource.
@@ -165,6 +186,8 @@ type SensitiveDataScannerGroupArgs struct {
 	Name pulumi.StringInput
 	// List of products the scanning group applies. Valid values are `logs`, `rum`, `events`, `apm`.
 	ProductLists pulumi.StringArrayInput
+	// List of sampling configurations per product type for the scanning group.
+	Samplings SensitiveDataScannerGroupSamplingArrayInput
 }
 
 func (SensitiveDataScannerGroupArgs) ElementType() reflect.Type {
@@ -277,6 +300,11 @@ func (o SensitiveDataScannerGroupOutput) Name() pulumi.StringOutput {
 // List of products the scanning group applies. Valid values are `logs`, `rum`, `events`, `apm`.
 func (o SensitiveDataScannerGroupOutput) ProductLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SensitiveDataScannerGroup) pulumi.StringArrayOutput { return v.ProductLists }).(pulumi.StringArrayOutput)
+}
+
+// List of sampling configurations per product type for the scanning group.
+func (o SensitiveDataScannerGroupOutput) Samplings() SensitiveDataScannerGroupSamplingArrayOutput {
+	return o.ApplyT(func(v *SensitiveDataScannerGroup) SensitiveDataScannerGroupSamplingArrayOutput { return v.Samplings }).(SensitiveDataScannerGroupSamplingArrayOutput)
 }
 
 type SensitiveDataScannerGroupArrayOutput struct{ *pulumi.OutputState }

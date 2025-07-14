@@ -319,6 +319,8 @@ class DowntimeSchedule(pulumi.CustomResource):
 
         ## Import
 
+        The `pulumi import` command can be used, for example:
+
         ```sh
         $ pulumi import datadog:index/downtimeSchedule:DowntimeSchedule new_list "00e000000-0000-1234-0000-000000000000"
         ```
@@ -342,6 +344,8 @@ class DowntimeSchedule(pulumi.CustomResource):
         Provides a Datadog DowntimeSchedule resource. This can be used to create and manage Datadog downtimes.
 
         ## Import
+
+        The `pulumi import` command can be used, for example:
 
         ```sh
         $ pulumi import datadog:index/downtimeSchedule:DowntimeSchedule new_list "00e000000-0000-1234-0000-000000000000"

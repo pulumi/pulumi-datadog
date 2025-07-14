@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class SyntheticsTestApiStepRequestDefinition
     {
         /// <summary>
+        /// For SSL test, whether or not the test should allow self signed certificates.
+        /// </summary>
+        public readonly bool? AcceptSelfSigned;
+        /// <summary>
         /// Allows loading insecure content for a request in an API test or in a multistep API test step.
         /// </summary>
         public readonly bool? AllowInsecure;
@@ -34,6 +38,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<string> CertificateDomains;
         /// <summary>
+        /// For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+        /// </summary>
+        public readonly bool? CheckCertificateRevocation;
+        /// <summary>
         /// DNS server to use for DNS tests (`subtype = "dns"`).
         /// </summary>
         public readonly string? DnsServer;
@@ -46,6 +54,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? FollowRedirects;
         /// <summary>
+        /// Form data to be sent when `body_type` is `multipart/form-data`.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Form;
+        /// <summary>
         /// Host name to perform the test with.
         /// </summary>
         public readonly string? Host;
@@ -53,6 +65,10 @@ namespace Pulumi.Datadog.Outputs
         /// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `"any"`.
         /// </summary>
         public readonly string? HttpVersion;
+        /// <summary>
+        /// Whether the message is base64-encoded.
+        /// </summary>
+        public readonly bool? IsMessageBase64Encoded;
         /// <summary>
         /// For UDP and websocket tests, message to send with the request.
         /// </summary>
@@ -108,6 +124,8 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private SyntheticsTestApiStepRequestDefinition(
+            bool? acceptSelfSigned,
+
             bool? allowInsecure,
 
             string? body,
@@ -118,15 +136,21 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<string> certificateDomains,
 
+            bool? checkCertificateRevocation,
+
             string? dnsServer,
 
             string? dnsServerPort,
 
             bool? followRedirects,
 
+            ImmutableDictionary<string, string>? form,
+
             string? host,
 
             string? httpVersion,
+
+            bool? isMessageBase64Encoded,
 
             string? message,
 
@@ -154,16 +178,20 @@ namespace Pulumi.Datadog.Outputs
 
             string? url)
         {
+            AcceptSelfSigned = acceptSelfSigned;
             AllowInsecure = allowInsecure;
             Body = body;
             BodyType = bodyType;
             CallType = callType;
             CertificateDomains = certificateDomains;
+            CheckCertificateRevocation = checkCertificateRevocation;
             DnsServer = dnsServer;
             DnsServerPort = dnsServerPort;
             FollowRedirects = followRedirects;
+            Form = form;
             Host = host;
             HttpVersion = httpVersion;
+            IsMessageBase64Encoded = isMessageBase64Encoded;
             Message = message;
             Method = method;
             NoSavingResponseBody = noSavingResponseBody;

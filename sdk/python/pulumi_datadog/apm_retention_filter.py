@@ -241,6 +241,8 @@ class ApmRetentionFilter(pulumi.CustomResource):
 
         ## Import
 
+        The `pulumi import` command can be used, for example:
+
         Import existing APM retention filter
 
         ```sh
@@ -266,6 +268,8 @@ class ApmRetentionFilter(pulumi.CustomResource):
         The object describing the configuration of the retention filter to create/update.
 
         ## Import
+
+        The `pulumi import` command can be used, for example:
 
         Import existing APM retention filter
 

@@ -27,6 +27,8 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
+ * The `pulumi import` command can be used, for example:
+ *
  * ```sh
  * $ pulumi import datadog:index/serviceAccount:ServiceAccount example_sa 6f1b44c0-30b2-11eb-86bc-279f7c1ebaa4
  * ```

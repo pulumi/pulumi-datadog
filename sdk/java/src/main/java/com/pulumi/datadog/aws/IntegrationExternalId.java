@@ -47,6 +47,8 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * The `pulumi import` command can be used, for example:
+ * 
  * Amazon Web Services external IDs can be imported using the ID value.
  * 
  * ```sh

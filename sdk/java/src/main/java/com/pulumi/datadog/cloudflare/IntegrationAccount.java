@@ -58,6 +58,8 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * The `pulumi import` command can be used, for example:
+ * 
  * ```sh
  * $ pulumi import datadog:cloudflare/integrationAccount:IntegrationAccount new_list &#34;&lt;ID&gt;&#34;
  * ```

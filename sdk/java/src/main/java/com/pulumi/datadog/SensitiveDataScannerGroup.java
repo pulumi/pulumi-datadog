@@ -11,6 +11,7 @@ import com.pulumi.datadog.SensitiveDataScannerGroupArgs;
 import com.pulumi.datadog.Utilities;
 import com.pulumi.datadog.inputs.SensitiveDataScannerGroupState;
 import com.pulumi.datadog.outputs.SensitiveDataScannerGroupFilter;
+import com.pulumi.datadog.outputs.SensitiveDataScannerGroupSampling;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -33,6 +34,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.datadog.SensitiveDataScannerGroup;
  * import com.pulumi.datadog.SensitiveDataScannerGroupArgs;
  * import com.pulumi.datadog.inputs.SensitiveDataScannerGroupFilterArgs;
+ * import com.pulumi.datadog.inputs.SensitiveDataScannerGroupSamplingArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -54,7 +56,18 @@ import javax.annotation.Nullable;
  *                 .query("service:my-service")
  *                 .build())
  *             .isEnabled(true)
- *             .productLists("apm")
+ *             .productLists(            
+ *                 "apm",
+ *                 "logs")
+ *             .samplings(            
+ *                 SensitiveDataScannerGroupSamplingArgs.builder()
+ *                     .product("apm")
+ *                     .rate(100.0)
+ *                     .build(),
+ *                 SensitiveDataScannerGroupSamplingArgs.builder()
+ *                     .product("logs")
+ *                     .rate(10.0)
+ *                     .build())
  *             .build());
  * 
  *     }
@@ -64,6 +77,8 @@ import javax.annotation.Nullable;
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
+ * 
+ * The `pulumi import` command can be used, for example:
  * 
  * ```sh
  * $ pulumi import datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup new_list &#34;&lt;group_id&gt;&#34;
@@ -141,6 +156,20 @@ public class SensitiveDataScannerGroup extends com.pulumi.resources.CustomResour
      */
     public Output<List<String>> productLists() {
         return this.productLists;
+    }
+    /**
+     * List of sampling configurations per product type for the scanning group.
+     * 
+     */
+    @Export(name="samplings", refs={List.class,SensitiveDataScannerGroupSampling.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<SensitiveDataScannerGroupSampling>> samplings;
+
+    /**
+     * @return List of sampling configurations per product type for the scanning group.
+     * 
+     */
+    public Output<Optional<List<SensitiveDataScannerGroupSampling>>> samplings() {
+        return Codegen.optional(this.samplings);
     }
 
     /**

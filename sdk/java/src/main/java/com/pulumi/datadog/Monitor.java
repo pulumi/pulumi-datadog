@@ -74,6 +74,8 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * The `pulumi import` command can be used, for example:
+ * 
  * ```sh
  * $ pulumi import datadog:index/monitor:Monitor bytes_received_localhost 2081
  * ```
@@ -513,23 +515,9 @@ public class Monitor extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> requireFullWindow() {
         return Codegen.optional(this.requireFullWindow);
     }
-    /**
-     * A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
-     * updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
-     * identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
-     * field.
-     * 
-     */
     @Export(name="restrictedRoles", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> restrictedRoles;
 
-    /**
-     * @return A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
-     * updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
-     * identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
-     * field.
-     * 
-     */
     public Output<Optional<List<String>>> restrictedRoles() {
         return Codegen.optional(this.restrictedRoles);
     }

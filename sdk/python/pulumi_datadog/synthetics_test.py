@@ -1341,13 +1341,21 @@ class SyntheticsTest(pulumi.CustomResource):
                             "size": 11,
                             "content": "Hello world",
                         }]),
-                        "element": "*[@id='simple-file-upload']",
                         "element_user_locator": {
                             "value": {
                                 "type": "css",
                                 "value": "#simple-file-upload",
                             },
                         },
+                        "element": json.dumps({
+                            "userLocator": {
+                                "failTestOnCannotLocate": True,
+                                "values": [{
+                                    "type": "css",
+                                    "value": "#simple-file-upload",
+                                }],
+                            },
+                        }),
                     },
                 },
                 {
@@ -2048,13 +2056,21 @@ class SyntheticsTest(pulumi.CustomResource):
                             "size": 11,
                             "content": "Hello world",
                         }]),
-                        "element": "*[@id='simple-file-upload']",
                         "element_user_locator": {
                             "value": {
                                 "type": "css",
                                 "value": "#simple-file-upload",
                             },
                         },
+                        "element": json.dumps({
+                            "userLocator": {
+                                "failTestOnCannotLocate": True,
+                                "values": [{
+                                    "type": "css",
+                                    "value": "#simple-file-upload",
+                                }],
+                            },
+                        }),
                     },
                 },
                 {

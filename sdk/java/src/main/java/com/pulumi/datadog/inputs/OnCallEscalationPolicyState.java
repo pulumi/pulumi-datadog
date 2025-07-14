@@ -35,14 +35,14 @@ public final class OnCallEscalationPolicyState extends com.pulumi.resources.Reso
     }
 
     /**
-     * If true, pages will be automatically resolved if unacknowledged after the final step.
+     * If true, pages will be automatically resolved if unacknowledged after the final step. Defaults to `false`.
      * 
      */
     @Import(name="resolvePageOnPolicyEnd")
     private @Nullable Output<Boolean> resolvePageOnPolicyEnd;
 
     /**
-     * @return If true, pages will be automatically resolved if unacknowledged after the final step.
+     * @return If true, pages will be automatically resolved if unacknowledged after the final step. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> resolvePageOnPolicyEnd() {
@@ -144,7 +144,7 @@ public final class OnCallEscalationPolicyState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param resolvePageOnPolicyEnd If true, pages will be automatically resolved if unacknowledged after the final step.
+         * @param resolvePageOnPolicyEnd If true, pages will be automatically resolved if unacknowledged after the final step. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -155,7 +155,7 @@ public final class OnCallEscalationPolicyState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param resolvePageOnPolicyEnd If true, pages will be automatically resolved if unacknowledged after the final step.
+         * @param resolvePageOnPolicyEnd If true, pages will be automatically resolved if unacknowledged after the final step. Defaults to `false`.
          * 
          * @return builder
          * 

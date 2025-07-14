@@ -278,7 +278,7 @@ if not MYPY:
         """
         sources: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         """
-        List of service IDs set to enable automatic log collection. Use `aws_get_integration_available_logs_services` data source to get allowed values. Defaults to `[]`.
+        List of service IDs set to enable automatic log collection. Use `aws_get_integration_available_logs_services` data source or [the AWS Logs Integration API](https://docs.datadoghq.com/api/latest/aws-logs-integration/?#get-list-of-aws-log-ready-services) to get allowed values. Defaults to `[]`.
         """
 elif False:
     IntegrationAccountLogsConfigLambdaForwarderArgsDict: TypeAlias = Mapping[str, Any]
@@ -290,7 +290,7 @@ class IntegrationAccountLogsConfigLambdaForwarderArgs:
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] lambdas: List of Datadog Lambda Log Forwarder ARNs in your AWS account. Defaults to `[]`.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] sources: List of service IDs set to enable automatic log collection. Use `aws_get_integration_available_logs_services` data source to get allowed values. Defaults to `[]`.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] sources: List of service IDs set to enable automatic log collection. Use `aws_get_integration_available_logs_services` data source or [the AWS Logs Integration API](https://docs.datadoghq.com/api/latest/aws-logs-integration/?#get-list-of-aws-log-ready-services) to get allowed values. Defaults to `[]`.
         """
         if lambdas is not None:
             pulumi.set(__self__, "lambdas", lambdas)
@@ -313,7 +313,7 @@ class IntegrationAccountLogsConfigLambdaForwarderArgs:
     @pulumi.getter
     def sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        List of service IDs set to enable automatic log collection. Use `aws_get_integration_available_logs_services` data source to get allowed values. Defaults to `[]`.
+        List of service IDs set to enable automatic log collection. Use `aws_get_integration_available_logs_services` data source or [the AWS Logs Integration API](https://docs.datadoghq.com/api/latest/aws-logs-integration/?#get-list-of-aws-log-ready-services) to get allowed values. Defaults to `[]`.
         """
         return pulumi.get(self, "sources")
 
