@@ -542,7 +542,7 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def options(self) -> pulumi.Output[Optional['outputs.SecurityMonitoringDefaultRuleOptions']]:
+    def options(self) -> pulumi.Output['outputs.SecurityMonitoringDefaultRuleOptions']:
         """
         Options on default rules. Note that only a subset of fields can be updated on default rule options.
         """

@@ -23,12 +23,18 @@ class ProviderArgs:
                  api_key: Optional[pulumi.Input[_builtins.str]] = None,
                  api_url: Optional[pulumi.Input[_builtins.str]] = None,
                  app_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 aws_access_key_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 aws_secret_access_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 aws_session_token: Optional[pulumi.Input[_builtins.str]] = None,
+                 cloud_provider_region: Optional[pulumi.Input[_builtins.str]] = None,
+                 cloud_provider_type: Optional[pulumi.Input[_builtins.str]] = None,
                  default_tags: Optional[pulumi.Input['ProviderDefaultTagsArgs']] = None,
                  http_client_retry_backoff_base: Optional[pulumi.Input[_builtins.int]] = None,
                  http_client_retry_backoff_multiplier: Optional[pulumi.Input[_builtins.int]] = None,
                  http_client_retry_enabled: Optional[pulumi.Input[_builtins.str]] = None,
                  http_client_retry_max_retries: Optional[pulumi.Input[_builtins.int]] = None,
                  http_client_retry_timeout: Optional[pulumi.Input[_builtins.int]] = None,
+                 org_uuid: Optional[pulumi.Input[_builtins.str]] = None,
                  validate: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Provider resource.
@@ -40,6 +46,16 @@ class ProviderArgs:
                `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/
                for all available regions.
         :param pulumi.Input[_builtins.str] app_key: (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
+        :param pulumi.Input[_builtins.str] aws_access_key_id: The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID`
+               environment variable. Required when using `cloud_provider_type` set to `aws`.
+        :param pulumi.Input[_builtins.str] aws_secret_access_key: The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the
+               `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
+        :param pulumi.Input[_builtins.str] aws_session_token: The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN`
+               environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
+        :param pulumi.Input[_builtins.str] cloud_provider_region: The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
+        :param pulumi.Input[_builtins.str] cloud_provider_type: Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app
+               keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact
+               [support](https://docs.datadoghq.com/help/).
         :param pulumi.Input['ProviderDefaultTagsArgs'] default_tags: [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration
                block containing settings to apply default resource tags across all resources.
         :param pulumi.Input[_builtins.int] http_client_retry_backoff_base: The HTTP request retry back off base. Defaults to 2.
@@ -47,6 +63,8 @@ class ProviderArgs:
         :param pulumi.Input[_builtins.str] http_client_retry_enabled: Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
         :param pulumi.Input[_builtins.int] http_client_retry_max_retries: The HTTP request maximum retry number. Defaults to 3.
         :param pulumi.Input[_builtins.int] http_client_retry_timeout: The HTTP request retry timeout period. Defaults to 60 seconds.
+        :param pulumi.Input[_builtins.str] org_uuid: The organization UUID; used for cloud-provider-based authentication. See the [Datadog API
+               documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
         :param pulumi.Input[_builtins.str] validate: Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default
                is true. When false, api_key won't be checked.
         """
@@ -56,6 +74,16 @@ class ProviderArgs:
             pulumi.set(__self__, "api_url", api_url)
         if app_key is not None:
             pulumi.set(__self__, "app_key", app_key)
+        if aws_access_key_id is not None:
+            pulumi.set(__self__, "aws_access_key_id", aws_access_key_id)
+        if aws_secret_access_key is not None:
+            pulumi.set(__self__, "aws_secret_access_key", aws_secret_access_key)
+        if aws_session_token is not None:
+            pulumi.set(__self__, "aws_session_token", aws_session_token)
+        if cloud_provider_region is not None:
+            pulumi.set(__self__, "cloud_provider_region", cloud_provider_region)
+        if cloud_provider_type is not None:
+            pulumi.set(__self__, "cloud_provider_type", cloud_provider_type)
         if default_tags is not None:
             pulumi.set(__self__, "default_tags", default_tags)
         if http_client_retry_backoff_base is not None:
@@ -68,6 +96,8 @@ class ProviderArgs:
             pulumi.set(__self__, "http_client_retry_max_retries", http_client_retry_max_retries)
         if http_client_retry_timeout is not None:
             pulumi.set(__self__, "http_client_retry_timeout", http_client_retry_timeout)
+        if org_uuid is not None:
+            pulumi.set(__self__, "org_uuid", org_uuid)
         if validate is not None:
             pulumi.set(__self__, "validate", validate)
 
@@ -111,6 +141,71 @@ class ProviderArgs:
     @app_key.setter
     def app_key(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "app_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="awsAccessKeyId")
+    def aws_access_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID`
+        environment variable. Required when using `cloud_provider_type` set to `aws`.
+        """
+        return pulumi.get(self, "aws_access_key_id")
+
+    @aws_access_key_id.setter
+    def aws_access_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "aws_access_key_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="awsSecretAccessKey")
+    def aws_secret_access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the
+        `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
+        """
+        return pulumi.get(self, "aws_secret_access_key")
+
+    @aws_secret_access_key.setter
+    def aws_secret_access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "aws_secret_access_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="awsSessionToken")
+    def aws_session_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN`
+        environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
+        """
+        return pulumi.get(self, "aws_session_token")
+
+    @aws_session_token.setter
+    def aws_session_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "aws_session_token", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudProviderRegion")
+    def cloud_provider_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
+        """
+        return pulumi.get(self, "cloud_provider_region")
+
+    @cloud_provider_region.setter
+    def cloud_provider_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "cloud_provider_region", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudProviderType")
+    def cloud_provider_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app
+        keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact
+        [support](https://docs.datadoghq.com/help/).
+        """
+        return pulumi.get(self, "cloud_provider_type")
+
+    @cloud_provider_type.setter
+    def cloud_provider_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "cloud_provider_type", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultTags")
@@ -186,6 +281,19 @@ class ProviderArgs:
         pulumi.set(self, "http_client_retry_timeout", value)
 
     @_builtins.property
+    @pulumi.getter(name="orgUuid")
+    def org_uuid(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The organization UUID; used for cloud-provider-based authentication. See the [Datadog API
+        documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+        """
+        return pulumi.get(self, "org_uuid")
+
+    @org_uuid.setter
+    def org_uuid(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "org_uuid", value)
+
+    @_builtins.property
     @pulumi.getter
     def validate(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -208,12 +316,18 @@ class Provider(pulumi.ProviderResource):
                  api_key: Optional[pulumi.Input[_builtins.str]] = None,
                  api_url: Optional[pulumi.Input[_builtins.str]] = None,
                  app_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 aws_access_key_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 aws_secret_access_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 aws_session_token: Optional[pulumi.Input[_builtins.str]] = None,
+                 cloud_provider_region: Optional[pulumi.Input[_builtins.str]] = None,
+                 cloud_provider_type: Optional[pulumi.Input[_builtins.str]] = None,
                  default_tags: Optional[pulumi.Input[Union['ProviderDefaultTagsArgs', 'ProviderDefaultTagsArgsDict']]] = None,
                  http_client_retry_backoff_base: Optional[pulumi.Input[_builtins.int]] = None,
                  http_client_retry_backoff_multiplier: Optional[pulumi.Input[_builtins.int]] = None,
                  http_client_retry_enabled: Optional[pulumi.Input[_builtins.str]] = None,
                  http_client_retry_max_retries: Optional[pulumi.Input[_builtins.int]] = None,
                  http_client_retry_timeout: Optional[pulumi.Input[_builtins.int]] = None,
+                 org_uuid: Optional[pulumi.Input[_builtins.str]] = None,
                  validate: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
@@ -232,6 +346,16 @@ class Provider(pulumi.ProviderResource):
                `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/
                for all available regions.
         :param pulumi.Input[_builtins.str] app_key: (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
+        :param pulumi.Input[_builtins.str] aws_access_key_id: The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID`
+               environment variable. Required when using `cloud_provider_type` set to `aws`.
+        :param pulumi.Input[_builtins.str] aws_secret_access_key: The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the
+               `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
+        :param pulumi.Input[_builtins.str] aws_session_token: The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN`
+               environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
+        :param pulumi.Input[_builtins.str] cloud_provider_region: The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
+        :param pulumi.Input[_builtins.str] cloud_provider_type: Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app
+               keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact
+               [support](https://docs.datadoghq.com/help/).
         :param pulumi.Input[Union['ProviderDefaultTagsArgs', 'ProviderDefaultTagsArgsDict']] default_tags: [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration
                block containing settings to apply default resource tags across all resources.
         :param pulumi.Input[_builtins.int] http_client_retry_backoff_base: The HTTP request retry back off base. Defaults to 2.
@@ -239,6 +363,8 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[_builtins.str] http_client_retry_enabled: Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
         :param pulumi.Input[_builtins.int] http_client_retry_max_retries: The HTTP request maximum retry number. Defaults to 3.
         :param pulumi.Input[_builtins.int] http_client_retry_timeout: The HTTP request retry timeout period. Defaults to 60 seconds.
+        :param pulumi.Input[_builtins.str] org_uuid: The organization UUID; used for cloud-provider-based authentication. See the [Datadog API
+               documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
         :param pulumi.Input[_builtins.str] validate: Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default
                is true. When false, api_key won't be checked.
         """
@@ -272,12 +398,18 @@ class Provider(pulumi.ProviderResource):
                  api_key: Optional[pulumi.Input[_builtins.str]] = None,
                  api_url: Optional[pulumi.Input[_builtins.str]] = None,
                  app_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 aws_access_key_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 aws_secret_access_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 aws_session_token: Optional[pulumi.Input[_builtins.str]] = None,
+                 cloud_provider_region: Optional[pulumi.Input[_builtins.str]] = None,
+                 cloud_provider_type: Optional[pulumi.Input[_builtins.str]] = None,
                  default_tags: Optional[pulumi.Input[Union['ProviderDefaultTagsArgs', 'ProviderDefaultTagsArgsDict']]] = None,
                  http_client_retry_backoff_base: Optional[pulumi.Input[_builtins.int]] = None,
                  http_client_retry_backoff_multiplier: Optional[pulumi.Input[_builtins.int]] = None,
                  http_client_retry_enabled: Optional[pulumi.Input[_builtins.str]] = None,
                  http_client_retry_max_retries: Optional[pulumi.Input[_builtins.int]] = None,
                  http_client_retry_timeout: Optional[pulumi.Input[_builtins.int]] = None,
+                 org_uuid: Optional[pulumi.Input[_builtins.str]] = None,
                  validate: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -291,14 +423,20 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["api_key"] = None if api_key is None else pulumi.Output.secret(api_key)
             __props__.__dict__["api_url"] = api_url
             __props__.__dict__["app_key"] = None if app_key is None else pulumi.Output.secret(app_key)
+            __props__.__dict__["aws_access_key_id"] = None if aws_access_key_id is None else pulumi.Output.secret(aws_access_key_id)
+            __props__.__dict__["aws_secret_access_key"] = None if aws_secret_access_key is None else pulumi.Output.secret(aws_secret_access_key)
+            __props__.__dict__["aws_session_token"] = None if aws_session_token is None else pulumi.Output.secret(aws_session_token)
+            __props__.__dict__["cloud_provider_region"] = cloud_provider_region
+            __props__.__dict__["cloud_provider_type"] = cloud_provider_type
             __props__.__dict__["default_tags"] = pulumi.Output.from_input(default_tags).apply(pulumi.runtime.to_json) if default_tags is not None else None
             __props__.__dict__["http_client_retry_backoff_base"] = pulumi.Output.from_input(http_client_retry_backoff_base).apply(pulumi.runtime.to_json) if http_client_retry_backoff_base is not None else None
             __props__.__dict__["http_client_retry_backoff_multiplier"] = pulumi.Output.from_input(http_client_retry_backoff_multiplier).apply(pulumi.runtime.to_json) if http_client_retry_backoff_multiplier is not None else None
             __props__.__dict__["http_client_retry_enabled"] = http_client_retry_enabled
             __props__.__dict__["http_client_retry_max_retries"] = pulumi.Output.from_input(http_client_retry_max_retries).apply(pulumi.runtime.to_json) if http_client_retry_max_retries is not None else None
             __props__.__dict__["http_client_retry_timeout"] = pulumi.Output.from_input(http_client_retry_timeout).apply(pulumi.runtime.to_json) if http_client_retry_timeout is not None else None
+            __props__.__dict__["org_uuid"] = org_uuid
             __props__.__dict__["validate"] = validate
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["apiKey", "appKey"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["apiKey", "appKey", "awsAccessKeyId", "awsSecretAccessKey", "awsSessionToken"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Provider, __self__).__init__(
             'datadog',
@@ -336,12 +474,66 @@ class Provider(pulumi.ProviderResource):
         return pulumi.get(self, "app_key")
 
     @_builtins.property
+    @pulumi.getter(name="awsAccessKeyId")
+    def aws_access_key_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID`
+        environment variable. Required when using `cloud_provider_type` set to `aws`.
+        """
+        return pulumi.get(self, "aws_access_key_id")
+
+    @_builtins.property
+    @pulumi.getter(name="awsSecretAccessKey")
+    def aws_secret_access_key(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the
+        `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
+        """
+        return pulumi.get(self, "aws_secret_access_key")
+
+    @_builtins.property
+    @pulumi.getter(name="awsSessionToken")
+    def aws_session_token(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN`
+        environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
+        """
+        return pulumi.get(self, "aws_session_token")
+
+    @_builtins.property
+    @pulumi.getter(name="cloudProviderRegion")
+    def cloud_provider_region(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
+        """
+        return pulumi.get(self, "cloud_provider_region")
+
+    @_builtins.property
+    @pulumi.getter(name="cloudProviderType")
+    def cloud_provider_type(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app
+        keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact
+        [support](https://docs.datadoghq.com/help/).
+        """
+        return pulumi.get(self, "cloud_provider_type")
+
+    @_builtins.property
     @pulumi.getter(name="httpClientRetryEnabled")
     def http_client_retry_enabled(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
         """
         return pulumi.get(self, "http_client_retry_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="orgUuid")
+    def org_uuid(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The organization UUID; used for cloud-provider-based authentication. See the [Datadog API
+        documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+        """
+        return pulumi.get(self, "org_uuid")
 
     @_builtins.property
     @pulumi.getter

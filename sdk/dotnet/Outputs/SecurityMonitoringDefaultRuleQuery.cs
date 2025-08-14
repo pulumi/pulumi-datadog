@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.SecurityMonitoringDefaultRuleQueryAgentRule> AgentRules;
         /// <summary>
-        /// The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`. Defaults to `"count"`.
+        /// The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`.
         /// </summary>
         public readonly string? Aggregation;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? CustomQueryExtension;
         /// <summary>
-        /// Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`, `events`. Defaults to `"logs"`.
+        /// Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`, `events`.
         /// </summary>
         public readonly string? DataSource;
         /// <summary>
@@ -52,7 +52,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// Query to run on logs.
         /// </summary>
-        public readonly string Query;
+        public readonly string? Query;
 
         [OutputConstructor]
         private SecurityMonitoringDefaultRuleQuery(
@@ -74,7 +74,7 @@ namespace Pulumi.Datadog.Outputs
 
             string? name,
 
-            string query)
+            string? query)
         {
             AgentRules = agentRules;
             Aggregation = aggregation;

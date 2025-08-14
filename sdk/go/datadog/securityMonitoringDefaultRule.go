@@ -76,7 +76,7 @@ type SecurityMonitoringDefaultRule struct {
 	// Additional queries to filter matched events before they are processed.
 	Filters SecurityMonitoringDefaultRuleFilterArrayOutput `pulumi:"filters"`
 	// Options on default rules. Note that only a subset of fields can be updated on default rule options.
-	Options SecurityMonitoringDefaultRuleOptionsPtrOutput `pulumi:"options"`
+	Options SecurityMonitoringDefaultRuleOptionsOutput `pulumi:"options"`
 	// Queries for selecting logs which are part of the rule.
 	Queries SecurityMonitoringDefaultRuleQueryArrayOutput `pulumi:"queries"`
 	// The rule type.
@@ -317,8 +317,8 @@ func (o SecurityMonitoringDefaultRuleOutput) Filters() SecurityMonitoringDefault
 }
 
 // Options on default rules. Note that only a subset of fields can be updated on default rule options.
-func (o SecurityMonitoringDefaultRuleOutput) Options() SecurityMonitoringDefaultRuleOptionsPtrOutput {
-	return o.ApplyT(func(v *SecurityMonitoringDefaultRule) SecurityMonitoringDefaultRuleOptionsPtrOutput { return v.Options }).(SecurityMonitoringDefaultRuleOptionsPtrOutput)
+func (o SecurityMonitoringDefaultRuleOutput) Options() SecurityMonitoringDefaultRuleOptionsOutput {
+	return o.ApplyT(func(v *SecurityMonitoringDefaultRule) SecurityMonitoringDefaultRuleOptionsOutput { return v.Options }).(SecurityMonitoringDefaultRuleOptionsOutput)
 }
 
 // Queries for selecting logs which are part of the rule.

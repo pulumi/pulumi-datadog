@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class SyntheticsTestOptionsListArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// For SSL test, whether or not the test should allow self signed certificates.
+        /// For SSL tests, whether or not the test should allow self signed certificates.
         /// </summary>
         [Input("acceptSelfSigned")]
         public Input<bool>? AcceptSelfSigned { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<bool>? AllowInsecure { get; set; }
 
         /// <summary>
-        /// For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+        /// For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
         /// </summary>
         [Input("checkCertificateRevocation")]
         public Input<bool>? CheckCertificateRevocation { get; set; }
@@ -35,6 +35,12 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("ci")]
         public Input<Inputs.SyntheticsTestOptionsListCiArgs>? Ci { get; set; }
+
+        /// <summary>
+        /// For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA
+        /// </summary>
+        [Input("disableAiaIntermediateFetching")]
+        public Input<bool>? DisableAiaIntermediateFetching { get; set; }
 
         /// <summary>
         /// Disable Cross-Origin Resource Sharing for browser tests.

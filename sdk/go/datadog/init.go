@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "datadog:index/actionConnection:ActionConnection":
 		r = &ActionConnection{}
+	case "datadog:index/agentlessScanningAwsScanOptions:AgentlessScanningAwsScanOptions":
+		r = &AgentlessScanningAwsScanOptions{}
 	case "datadog:index/apiKey:ApiKey":
 		r = &ApiKey{}
 	case "datadog:index/apmRetentionFilter:ApmRetentionFilter":
@@ -31,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ApmRetentionFilterOrder{}
 	case "datadog:index/appBuilderApp:AppBuilderApp":
 		r = &AppBuilderApp{}
+	case "datadog:index/appKeyRegistration:AppKeyRegistration":
+		r = &AppKeyRegistration{}
 	case "datadog:index/applicationKey:ApplicationKey":
 		r = &ApplicationKey{}
 	case "datadog:index/appsecWafCustomRule:AppsecWafCustomRule":
@@ -67,6 +71,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Downtime{}
 	case "datadog:index/downtimeSchedule:DowntimeSchedule":
 		r = &DowntimeSchedule{}
+	case "datadog:index/incidentType:IncidentType":
+		r = &IncidentType{}
 	case "datadog:index/ipAllowlist:IpAllowlist":
 		r = &IpAllowlist{}
 	case "datadog:index/logsArchive:LogsArchive":
@@ -221,6 +227,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"datadog",
+		"index/agentlessScanningAwsScanOptions",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
 		"index/apiKey",
 		&module{version},
 	)
@@ -237,6 +248,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/appBuilderApp",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/appKeyRegistration",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -327,6 +343,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/downtimeSchedule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/incidentType",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -39,6 +39,46 @@ public final class Config {
         return Codegen.stringProp("appKey").config(config).get();
     }
 /**
+ * The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID`
+ * environment variable. Required when using `cloud_provider_type` set to `aws`.
+ * 
+ */
+    public Optional<String> awsAccessKeyId() {
+        return Codegen.stringProp("awsAccessKeyId").config(config).get();
+    }
+/**
+ * The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the
+ * `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
+ * 
+ */
+    public Optional<String> awsSecretAccessKey() {
+        return Codegen.stringProp("awsSecretAccessKey").config(config).get();
+    }
+/**
+ * The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN`
+ * environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
+ * 
+ */
+    public Optional<String> awsSessionToken() {
+        return Codegen.stringProp("awsSessionToken").config(config).get();
+    }
+/**
+ * The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
+ * 
+ */
+    public Optional<String> cloudProviderRegion() {
+        return Codegen.stringProp("cloudProviderRegion").config(config).get();
+    }
+/**
+ * Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app
+ * keys. Only [`aws`] is supported. This feature is in Preview. If you&#39;d like to enable it for your organization, contact
+ * [support](https://docs.datadoghq.com/help/).
+ * 
+ */
+    public Optional<String> cloudProviderType() {
+        return Codegen.stringProp("cloudProviderType").config(config).get();
+    }
+/**
  * [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration
  * block containing settings to apply default resource tags across all resources.
  * 
@@ -80,6 +120,14 @@ public final class Config {
  */
     public Optional<Integer> httpClientRetryTimeout() {
         return Codegen.integerProp("httpClientRetryTimeout").config(config).get();
+    }
+/**
+ * The organization UUID; used for cloud-provider-based authentication. See the [Datadog API
+ * documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+ * 
+ */
+    public Optional<String> orgUuid() {
+        return Codegen.stringProp("orgUuid").config(config).get();
     }
 /**
  * Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default

@@ -93,7 +93,7 @@ export class SecurityMonitoringDefaultRule extends pulumi.CustomResource {
     /**
      * Options on default rules. Note that only a subset of fields can be updated on default rule options.
      */
-    public readonly options!: pulumi.Output<outputs.SecurityMonitoringDefaultRuleOptions | undefined>;
+    public readonly options!: pulumi.Output<outputs.SecurityMonitoringDefaultRuleOptions>;
     /**
      * Queries for selecting logs which are part of the rule.
      */

@@ -9867,6 +9867,10 @@ export interface LogsCustomPipelineProcessor {
      */
     arithmeticProcessor?: pulumi.Input<inputs.LogsCustomPipelineProcessorArithmeticProcessor>;
     /**
+     * Array Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#array-processor)
+     */
+    arrayProcessor?: pulumi.Input<inputs.LogsCustomPipelineProcessorArrayProcessor>;
+    /**
      * Attribute Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#remapper)
      */
     attributeRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorAttributeRemapper>;
@@ -9878,6 +9882,10 @@ export interface LogsCustomPipelineProcessor {
      * Date Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-date-remapper)
      */
     dateRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorDateRemapper>;
+    /**
+     * Decoder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#decoder-processor)
+     */
+    decoderProcessor?: pulumi.Input<inputs.LogsCustomPipelineProcessorDecoderProcessor>;
     /**
      * Date GeoIP Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#geoip-parser)
      */
@@ -9950,6 +9958,81 @@ export interface LogsCustomPipelineProcessorArithmeticProcessor {
      * Name of the attribute that contains the result of the arithmetic operation.
      */
     target: pulumi.Input<string>;
+}
+
+export interface LogsCustomPipelineProcessorArrayProcessor {
+    /**
+     * Boolean value to enable your processor.
+     */
+    isEnabled?: pulumi.Input<boolean>;
+    /**
+     * Your processor name.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Operation to perform on the array.
+     */
+    operation: pulumi.Input<inputs.LogsCustomPipelineProcessorArrayProcessorOperation>;
+}
+
+export interface LogsCustomPipelineProcessorArrayProcessorOperation {
+    /**
+     * Operation that appends a value to a target array attribute.
+     */
+    append?: pulumi.Input<inputs.LogsCustomPipelineProcessorArrayProcessorOperationAppend>;
+    /**
+     * Operation that computes the length of a source array and stores the result in a target attribute.
+     */
+    length?: pulumi.Input<inputs.LogsCustomPipelineProcessorArrayProcessorOperationLength>;
+    /**
+     * Operation that finds an object in a source array using a filter, and then extracts a value from that found object and puts that value into the target attribute.
+     */
+    select?: pulumi.Input<inputs.LogsCustomPipelineProcessorArrayProcessorOperationSelect>;
+}
+
+export interface LogsCustomPipelineProcessorArrayProcessorOperationAppend {
+    /**
+     * Remove or preserve the remapped source element. Defaults to `true`.
+     */
+    preserveSource?: pulumi.Input<boolean>;
+    /**
+     * Attribute path containing the value to append.
+     */
+    source: pulumi.Input<string>;
+    /**
+     * Attribute path of the array to append to.
+     */
+    target: pulumi.Input<string>;
+}
+
+export interface LogsCustomPipelineProcessorArrayProcessorOperationLength {
+    /**
+     * Attribute path of the array to compute the length of.
+     */
+    source: pulumi.Input<string>;
+    /**
+     * Attribute that receives the computed length.
+     */
+    target: pulumi.Input<string>;
+}
+
+export interface LogsCustomPipelineProcessorArrayProcessorOperationSelect {
+    /**
+     * Filter expression (e.g. key1:value1 OR key2:value2) used to find the matching element.
+     */
+    filter: pulumi.Input<string>;
+    /**
+     * Attribute path of the array to search into.
+     */
+    source: pulumi.Input<string>;
+    /**
+     * Attribute that receives the extracted value.
+     */
+    target: pulumi.Input<string>;
+    /**
+     * Attribute key from the matching object that should be extracted.
+     */
+    valueToExtract: pulumi.Input<string>;
 }
 
 export interface LogsCustomPipelineProcessorAttributeRemapper {
@@ -10035,6 +10118,33 @@ export interface LogsCustomPipelineProcessorDateRemapper {
      * List of source attributes.
      */
     sources: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface LogsCustomPipelineProcessorDecoderProcessor {
+    /**
+     * Encoding type: base64 or base16
+     */
+    binaryToTextEncoding: pulumi.Input<string>;
+    /**
+     * Input representation: utf-8 or integer
+     */
+    inputRepresentation: pulumi.Input<string>;
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: pulumi.Input<boolean>;
+    /**
+     * Name of the processor.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Encoded message
+     */
+    source: pulumi.Input<string>;
+    /**
+     * Decoded message
+     */
+    target: pulumi.Input<string>;
 }
 
 export interface LogsCustomPipelineProcessorGeoIpParser {
@@ -10151,6 +10261,10 @@ export interface LogsCustomPipelineProcessorPipelineProcessor {
      */
     arithmeticProcessor?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor>;
     /**
+     * Array Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#array-processor)
+     */
+    arrayProcessor?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorArrayProcessor>;
+    /**
      * Attribute Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#remapper)
      */
     attributeRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper>;
@@ -10162,6 +10276,10 @@ export interface LogsCustomPipelineProcessorPipelineProcessor {
      * Date Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-date-remapper)
      */
     dateRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorDateRemapper>;
+    /**
+     * Decoder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#decoder-processor)
+     */
+    decoderProcessor?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorDecoderProcessor>;
     /**
      * Date GeoIP Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#geoip-parser)
      */
@@ -10233,6 +10351,81 @@ export interface LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor
      * Name of the attribute that contains the result of the arithmetic operation.
      */
     target: pulumi.Input<string>;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorArrayProcessor {
+    /**
+     * Boolean value to enable your processor.
+     */
+    isEnabled?: pulumi.Input<boolean>;
+    /**
+     * Your processor name.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Operation to perform on the array.
+     */
+    operation: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperation>;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperation {
+    /**
+     * Operation that appends a value to a target array attribute.
+     */
+    append?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationAppend>;
+    /**
+     * Operation that computes the length of a source array and stores the result in a target attribute.
+     */
+    length?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationLength>;
+    /**
+     * Operation that finds an object in a source array using a filter, and then extracts a value from that found object and puts that value into the target attribute.
+     */
+    select?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationSelect>;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationAppend {
+    /**
+     * Remove or preserve the remapped source element. Defaults to `true`.
+     */
+    preserveSource?: pulumi.Input<boolean>;
+    /**
+     * Attribute path containing the value to append.
+     */
+    source: pulumi.Input<string>;
+    /**
+     * Attribute path of the array to append to.
+     */
+    target: pulumi.Input<string>;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationLength {
+    /**
+     * Attribute path of the array to compute the length of.
+     */
+    source: pulumi.Input<string>;
+    /**
+     * Attribute that receives the computed length.
+     */
+    target: pulumi.Input<string>;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationSelect {
+    /**
+     * Filter expression (e.g. key1:value1 OR key2:value2) used to find the matching element.
+     */
+    filter: pulumi.Input<string>;
+    /**
+     * Attribute path of the array to search into.
+     */
+    source: pulumi.Input<string>;
+    /**
+     * Attribute that receives the extracted value.
+     */
+    target: pulumi.Input<string>;
+    /**
+     * Attribute key from the matching object that should be extracted.
+     */
+    valueToExtract: pulumi.Input<string>;
 }
 
 export interface LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper {
@@ -10318,6 +10511,33 @@ export interface LogsCustomPipelineProcessorPipelineProcessorDateRemapper {
      * List of source attributes.
      */
     sources: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorDecoderProcessor {
+    /**
+     * Encoding type: base64 or base16
+     */
+    binaryToTextEncoding: pulumi.Input<string>;
+    /**
+     * Input representation: utf-8 or integer
+     */
+    inputRepresentation: pulumi.Input<string>;
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: pulumi.Input<boolean>;
+    /**
+     * Name of the processor.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Encoded message
+     */
+    source: pulumi.Input<string>;
+    /**
+     * Decoded message
+     */
+    target: pulumi.Input<string>;
 }
 
 export interface LogsCustomPipelineProcessorPipelineProcessorGeoIpParser {
@@ -25455,7 +25675,7 @@ export interface SecurityMonitoringDefaultRuleFilter {
 
 export interface SecurityMonitoringDefaultRuleOptions {
     /**
-     * If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `logDetection`. Defaults to `false`.
+     * If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `logDetection`.
      */
     decreaseCriticalityBasedOnEnv?: pulumi.Input<boolean>;
 }
@@ -25468,7 +25688,7 @@ export interface SecurityMonitoringDefaultRuleQuery {
      */
     agentRules?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringDefaultRuleQueryAgentRule>[]>;
     /**
-     * The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`. Defaults to `"count"`.
+     * The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`.
      */
     aggregation?: pulumi.Input<string>;
     /**
@@ -25476,7 +25696,7 @@ export interface SecurityMonitoringDefaultRuleQuery {
      */
     customQueryExtension?: pulumi.Input<string>;
     /**
-     * Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`. Defaults to `"logs"`.
+     * Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`.
      */
     dataSource?: pulumi.Input<string>;
     /**
@@ -25504,7 +25724,7 @@ export interface SecurityMonitoringDefaultRuleQuery {
     /**
      * Query to run on logs.
      */
-    query: pulumi.Input<string>;
+    query?: pulumi.Input<string>;
 }
 
 export interface SecurityMonitoringDefaultRuleQueryAgentRule {
@@ -25558,7 +25778,7 @@ export interface SecurityMonitoringRuleCaseAction {
      */
     options?: pulumi.Input<inputs.SecurityMonitoringRuleCaseActionOptions>;
     /**
-     * Type of action to perform when the case triggers. Valid values are `blockIp`, `blockUser`, `userBehavior`.
+     * Type of action to perform when the case triggers. Valid values are `blockIp`, `blockUser`, `userBehavior`, `flagIp`.
      */
     type: pulumi.Input<string>;
 }
@@ -26083,7 +26303,7 @@ export interface SyntheticsTestApiStep {
      */
     requestClientCertificate?: pulumi.Input<inputs.SyntheticsTestApiStepRequestClientCertificate>;
     /**
-     * The request for the api step.
+     * The request for the API step.
      */
     requestDefinition?: pulumi.Input<inputs.SyntheticsTestApiStepRequestDefinition>;
     /**
@@ -26108,7 +26328,7 @@ export interface SyntheticsTestApiStep {
     requestQuery?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     retry?: pulumi.Input<inputs.SyntheticsTestApiStepRetry>;
     /**
-     * The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `ssl`, `dns`, `tcp`, `udp`, `icmp`, `websocket`, `wait`. Defaults to `"http"`.
+     * The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`, `ssl`, `dns`, `tcp`, `udp`, `icmp`, `websocket`, `wait`. Defaults to `"http"`.
      */
     subtype?: pulumi.Input<string>;
     /**
@@ -26329,7 +26549,7 @@ export interface SyntheticsTestApiStepRequestClientCertificateKey {
 
 export interface SyntheticsTestApiStepRequestDefinition {
     /**
-     * For SSL test, whether or not the test should allow self signed certificates.
+     * For SSL tests, whether or not the test should allow self signed certificates.
      */
     acceptSelfSigned?: pulumi.Input<boolean>;
     /**
@@ -26353,9 +26573,13 @@ export interface SyntheticsTestApiStepRequestDefinition {
      */
     certificateDomains?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+     * For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
      */
     checkCertificateRevocation?: pulumi.Input<boolean>;
+    /**
+     * For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA
+     */
+    disableAiaIntermediateFetching?: pulumi.Input<boolean>;
     /**
      * DNS server to use for DNS tests (`subtype = "dns"`).
      */
@@ -26385,7 +26609,7 @@ export interface SyntheticsTestApiStepRequestDefinition {
      */
     isMessageBase64Encoded?: pulumi.Input<boolean>;
     /**
-     * For UDP and websocket tests, message to send with the request.
+     * For gRPC, UDP and websocket tests, message to send with the request.
      */
     message?: pulumi.Input<string>;
     /**
@@ -27067,7 +27291,7 @@ export interface SyntheticsTestMobileStepParamsVariable {
 
 export interface SyntheticsTestOptionsList {
     /**
-     * For SSL test, whether or not the test should allow self signed certificates.
+     * For SSL tests, whether or not the test should allow self signed certificates.
      */
     acceptSelfSigned?: pulumi.Input<boolean>;
     /**
@@ -27075,13 +27299,17 @@ export interface SyntheticsTestOptionsList {
      */
     allowInsecure?: pulumi.Input<boolean>;
     /**
-     * For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+     * For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
      */
     checkCertificateRevocation?: pulumi.Input<boolean>;
     /**
      * CI/CD options for a Synthetic test.
      */
     ci?: pulumi.Input<inputs.SyntheticsTestOptionsListCi>;
+    /**
+     * For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA
+     */
+    disableAiaIntermediateFetching?: pulumi.Input<boolean>;
     /**
      * Disable Cross-Origin Resource Sharing for browser tests.
      */
@@ -27365,7 +27593,7 @@ export interface SyntheticsTestRequestDefinition {
      */
     isMessageBase64Encoded?: pulumi.Input<boolean>;
     /**
-     * For UDP and websocket tests, message to send with the request.
+     * For gRPC, UDP and websocket tests, message to send with the request.
      */
     message?: pulumi.Input<string>;
     /**

@@ -76,6 +76,86 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.appKey);
     }
     /**
+     * The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID`
+     * environment variable. Required when using `cloud_provider_type` set to `aws`.
+     * 
+     */
+    @Export(name="awsAccessKeyId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> awsAccessKeyId;
+
+    /**
+     * @return The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID`
+     * environment variable. Required when using `cloud_provider_type` set to `aws`.
+     * 
+     */
+    public Output<Optional<String>> awsAccessKeyId() {
+        return Codegen.optional(this.awsAccessKeyId);
+    }
+    /**
+     * The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the
+     * `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
+     * 
+     */
+    @Export(name="awsSecretAccessKey", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> awsSecretAccessKey;
+
+    /**
+     * @return The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the
+     * `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
+     * 
+     */
+    public Output<Optional<String>> awsSecretAccessKey() {
+        return Codegen.optional(this.awsSecretAccessKey);
+    }
+    /**
+     * The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN`
+     * environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
+     * 
+     */
+    @Export(name="awsSessionToken", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> awsSessionToken;
+
+    /**
+     * @return The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN`
+     * environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
+     * 
+     */
+    public Output<Optional<String>> awsSessionToken() {
+        return Codegen.optional(this.awsSessionToken);
+    }
+    /**
+     * The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
+     * 
+     */
+    @Export(name="cloudProviderRegion", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> cloudProviderRegion;
+
+    /**
+     * @return The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
+     * 
+     */
+    public Output<Optional<String>> cloudProviderRegion() {
+        return Codegen.optional(this.cloudProviderRegion);
+    }
+    /**
+     * Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app
+     * keys. Only [`aws`] is supported. This feature is in Preview. If you&#39;d like to enable it for your organization, contact
+     * [support](https://docs.datadoghq.com/help/).
+     * 
+     */
+    @Export(name="cloudProviderType", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> cloudProviderType;
+
+    /**
+     * @return Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app
+     * keys. Only [`aws`] is supported. This feature is in Preview. If you&#39;d like to enable it for your organization, contact
+     * [support](https://docs.datadoghq.com/help/).
+     * 
+     */
+    public Output<Optional<String>> cloudProviderType() {
+        return Codegen.optional(this.cloudProviderType);
+    }
+    /**
      * Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
      * 
      */
@@ -88,6 +168,22 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      */
     public Output<Optional<String>> httpClientRetryEnabled() {
         return Codegen.optional(this.httpClientRetryEnabled);
+    }
+    /**
+     * The organization UUID; used for cloud-provider-based authentication. See the [Datadog API
+     * documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+     * 
+     */
+    @Export(name="orgUuid", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> orgUuid;
+
+    /**
+     * @return The organization UUID; used for cloud-provider-based authentication. See the [Datadog API
+     * documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+     * 
+     */
+    public Output<Optional<String>> orgUuid() {
+        return Codegen.optional(this.orgUuid);
     }
     /**
      * Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default
@@ -143,7 +239,10 @@ public class Provider extends com.pulumi.resources.ProviderResource {
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
                 "apiKey",
-                "appKey"
+                "appKey",
+                "awsAccessKeyId",
+                "awsSecretAccessKey",
+                "awsSessionToken"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

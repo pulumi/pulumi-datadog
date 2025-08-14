@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * This data source retrieves the definition of an existing Datadog workflow from Workflow Automation for use in other resources.
+ * This data source retrieves the definition of an existing Datadog workflow from Workflow Automation for use in other resources. This data source requires a registered application key.
  *
  * ## Example Usage
  *
@@ -65,7 +65,7 @@ export interface GetWorkflowAutomationResult {
     readonly tags: string[];
 }
 /**
- * This data source retrieves the definition of an existing Datadog workflow from Workflow Automation for use in other resources.
+ * This data source retrieves the definition of an existing Datadog workflow from Workflow Automation for use in other resources. This data source requires a registered application key.
  *
  * ## Example Usage
  *

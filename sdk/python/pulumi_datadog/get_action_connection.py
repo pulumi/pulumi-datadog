@@ -92,7 +92,7 @@ def get_action_connection(aws: Optional[Union['GetActionConnectionAwsArgs', 'Get
                           id: Optional[_builtins.str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetActionConnectionResult:
     """
-    A connection that can be used in Actions, including in the Workflow Automation and App Builder products.
+    A connection that can be used in Actions, including in the Workflow Automation and App Builder products. This data source requires a registered application key.
 
     ## Example Usage
 
@@ -125,7 +125,7 @@ def get_action_connection_output(aws: Optional[pulumi.Input[Optional[Union['GetA
                                  id: Optional[pulumi.Input[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetActionConnectionResult]:
     """
-    A connection that can be used in Actions, including in the Workflow Automation and App Builder products.
+    A connection that can be used in Actions, including in the Workflow Automation and App Builder products. This data source requires a registered application key.
 
     ## Example Usage
 

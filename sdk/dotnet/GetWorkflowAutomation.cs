@@ -12,7 +12,7 @@ namespace Pulumi.Datadog
     public static class GetWorkflowAutomation
     {
         /// <summary>
-        /// This data source retrieves the definition of an existing Datadog workflow from Workflow Automation for use in other resources.
+        /// This data source retrieves the definition of an existing Datadog workflow from Workflow Automation for use in other resources. This data source requires a registered application key.
         /// 
         /// ## Example Usage
         /// 
@@ -36,7 +36,7 @@ namespace Pulumi.Datadog
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkflowAutomationResult>("datadog:index/getWorkflowAutomation:getWorkflowAutomation", args ?? new GetWorkflowAutomationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// This data source retrieves the definition of an existing Datadog workflow from Workflow Automation for use in other resources.
+        /// This data source retrieves the definition of an existing Datadog workflow from Workflow Automation for use in other resources. This data source requires a registered application key.
         /// 
         /// ## Example Usage
         /// 
@@ -60,7 +60,7 @@ namespace Pulumi.Datadog
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkflowAutomationResult>("datadog:index/getWorkflowAutomation:getWorkflowAutomation", args ?? new GetWorkflowAutomationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// This data source retrieves the definition of an existing Datadog workflow from Workflow Automation for use in other resources.
+        /// This data source retrieves the definition of an existing Datadog workflow from Workflow Automation for use in other resources. This data source requires a registered application key.
         /// 
         /// ## Example Usage
         /// 

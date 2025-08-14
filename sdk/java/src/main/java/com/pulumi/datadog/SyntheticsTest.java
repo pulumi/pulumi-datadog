@@ -768,14 +768,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="datadog:index/syntheticsTest:SyntheticsTest")
 public class SyntheticsTest extends com.pulumi.resources.CustomResource {
     /**
-     * Steps for multi-step api tests
+     * Steps for multistep API tests
      * 
      */
     @Export(name="apiSteps", refs={List.class,SyntheticsTestApiStep.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SyntheticsTestApiStep>> apiSteps;
 
     /**
-     * @return Steps for multi-step api tests
+     * @return Steps for multistep API tests
      * 
      */
     public Output<Optional<List<SyntheticsTestApiStep>>> apiSteps() {

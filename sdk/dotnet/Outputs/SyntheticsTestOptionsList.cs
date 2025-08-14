@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class SyntheticsTestOptionsList
     {
         /// <summary>
-        /// For SSL test, whether or not the test should allow self signed certificates.
+        /// For SSL tests, whether or not the test should allow self signed certificates.
         /// </summary>
         public readonly bool? AcceptSelfSigned;
         /// <summary>
@@ -22,13 +22,17 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? AllowInsecure;
         /// <summary>
-        /// For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+        /// For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
         /// </summary>
         public readonly bool? CheckCertificateRevocation;
         /// <summary>
         /// CI/CD options for a Synthetic test.
         /// </summary>
         public readonly Outputs.SyntheticsTestOptionsListCi? Ci;
+        /// <summary>
+        /// For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA
+        /// </summary>
+        public readonly bool? DisableAiaIntermediateFetching;
         /// <summary>
         /// Disable Cross-Origin Resource Sharing for browser tests.
         /// </summary>
@@ -99,6 +103,8 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.SyntheticsTestOptionsListCi? ci,
 
+            bool? disableAiaIntermediateFetching,
+
             bool? disableCors,
 
             bool? disableCsp,
@@ -137,6 +143,7 @@ namespace Pulumi.Datadog.Outputs
             AllowInsecure = allowInsecure;
             CheckCertificateRevocation = checkCertificateRevocation;
             Ci = ci;
+            DisableAiaIntermediateFetching = disableAiaIntermediateFetching;
             DisableCors = disableCors;
             DisableCsp = disableCsp;
             FollowRedirects = followRedirects;

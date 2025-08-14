@@ -12,7 +12,7 @@ namespace Pulumi.Datadog
     public static class GetAppBuilderApp
     {
         /// <summary>
-        /// This data source retrieves the definition of an existing Datadog App from App Builder for use in other resources, such as embedding Apps in Dashboards.
+        /// This data source retrieves the definition of an existing Datadog App from App Builder for use in other resources, such as embedding Apps in Dashboards. This data source requires a registered application key.
         /// 
         /// ## Example Usage
         /// 
@@ -36,7 +36,7 @@ namespace Pulumi.Datadog
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppBuilderAppResult>("datadog:index/getAppBuilderApp:getAppBuilderApp", args ?? new GetAppBuilderAppArgs(), options.WithDefaults());
 
         /// <summary>
-        /// This data source retrieves the definition of an existing Datadog App from App Builder for use in other resources, such as embedding Apps in Dashboards.
+        /// This data source retrieves the definition of an existing Datadog App from App Builder for use in other resources, such as embedding Apps in Dashboards. This data source requires a registered application key.
         /// 
         /// ## Example Usage
         /// 
@@ -60,7 +60,7 @@ namespace Pulumi.Datadog
             => global::Pulumi.Deployment.Instance.Invoke<GetAppBuilderAppResult>("datadog:index/getAppBuilderApp:getAppBuilderApp", args ?? new GetAppBuilderAppInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// This data source retrieves the definition of an existing Datadog App from App Builder for use in other resources, such as embedding Apps in Dashboards.
+        /// This data source retrieves the definition of an existing Datadog App from App Builder for use in other resources, such as embedding Apps in Dashboards. This data source requires a registered application key.
         /// 
         /// ## Example Usage
         /// 

@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class SyntheticsTestApiStepRequestDefinition
     {
         /// <summary>
-        /// For SSL test, whether or not the test should allow self signed certificates.
+        /// For SSL tests, whether or not the test should allow self signed certificates.
         /// </summary>
         public readonly bool? AcceptSelfSigned;
         /// <summary>
@@ -38,9 +38,13 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<string> CertificateDomains;
         /// <summary>
-        /// For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+        /// For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
         /// </summary>
         public readonly bool? CheckCertificateRevocation;
+        /// <summary>
+        /// For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA
+        /// </summary>
+        public readonly bool? DisableAiaIntermediateFetching;
         /// <summary>
         /// DNS server to use for DNS tests (`subtype = "dns"`).
         /// </summary>
@@ -70,7 +74,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? IsMessageBase64Encoded;
         /// <summary>
-        /// For UDP and websocket tests, message to send with the request.
+        /// For gRPC, UDP and websocket tests, message to send with the request.
         /// </summary>
         public readonly string? Message;
         /// <summary>
@@ -138,6 +142,8 @@ namespace Pulumi.Datadog.Outputs
 
             bool? checkCertificateRevocation,
 
+            bool? disableAiaIntermediateFetching,
+
             string? dnsServer,
 
             string? dnsServerPort,
@@ -185,6 +191,7 @@ namespace Pulumi.Datadog.Outputs
             CallType = callType;
             CertificateDomains = certificateDomains;
             CheckCertificateRevocation = checkCertificateRevocation;
+            DisableAiaIntermediateFetching = disableAiaIntermediateFetching;
             DnsServer = dnsServer;
             DnsServerPort = dnsServerPort;
             FollowRedirects = followRedirects;

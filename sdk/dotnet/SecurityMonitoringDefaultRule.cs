@@ -98,7 +98,7 @@ namespace Pulumi.Datadog
         /// Options on default rules. Note that only a subset of fields can be updated on default rule options.
         /// </summary>
         [Output("options")]
-        public Output<Outputs.SecurityMonitoringDefaultRuleOptions?> Options { get; private set; } = null!;
+        public Output<Outputs.SecurityMonitoringDefaultRuleOptions> Options { get; private set; } = null!;
 
         /// <summary>
         /// Queries for selecting logs which are part of the rule.

@@ -6,9 +6,11 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorArithmeticProcessorArgs;
+import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorArrayProcessorArgs;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorAttributeRemapperArgs;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorCategoryProcessorArgs;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorDateRemapperArgs;
+import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorDecoderProcessorArgs;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorGeoIpParserArgs;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorGrokParserArgs;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorLookupProcessorArgs;
@@ -44,6 +46,21 @@ public final class LogsCustomPipelineProcessorArgs extends com.pulumi.resources.
      */
     public Optional<Output<LogsCustomPipelineProcessorArithmeticProcessorArgs>> arithmeticProcessor() {
         return Optional.ofNullable(this.arithmeticProcessor);
+    }
+
+    /**
+     * Array Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#array-processor)
+     * 
+     */
+    @Import(name="arrayProcessor")
+    private @Nullable Output<LogsCustomPipelineProcessorArrayProcessorArgs> arrayProcessor;
+
+    /**
+     * @return Array Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#array-processor)
+     * 
+     */
+    public Optional<Output<LogsCustomPipelineProcessorArrayProcessorArgs>> arrayProcessor() {
+        return Optional.ofNullable(this.arrayProcessor);
     }
 
     /**
@@ -89,6 +106,21 @@ public final class LogsCustomPipelineProcessorArgs extends com.pulumi.resources.
      */
     public Optional<Output<LogsCustomPipelineProcessorDateRemapperArgs>> dateRemapper() {
         return Optional.ofNullable(this.dateRemapper);
+    }
+
+    /**
+     * Decoder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#decoder-processor)
+     * 
+     */
+    @Import(name="decoderProcessor")
+    private @Nullable Output<LogsCustomPipelineProcessorDecoderProcessorArgs> decoderProcessor;
+
+    /**
+     * @return Decoder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#decoder-processor)
+     * 
+     */
+    public Optional<Output<LogsCustomPipelineProcessorDecoderProcessorArgs>> decoderProcessor() {
+        return Optional.ofNullable(this.decoderProcessor);
     }
 
     /**
@@ -282,9 +314,11 @@ public final class LogsCustomPipelineProcessorArgs extends com.pulumi.resources.
 
     private LogsCustomPipelineProcessorArgs(LogsCustomPipelineProcessorArgs $) {
         this.arithmeticProcessor = $.arithmeticProcessor;
+        this.arrayProcessor = $.arrayProcessor;
         this.attributeRemapper = $.attributeRemapper;
         this.categoryProcessor = $.categoryProcessor;
         this.dateRemapper = $.dateRemapper;
+        this.decoderProcessor = $.decoderProcessor;
         this.geoIpParser = $.geoIpParser;
         this.grokParser = $.grokParser;
         this.lookupProcessor = $.lookupProcessor;
@@ -337,6 +371,27 @@ public final class LogsCustomPipelineProcessorArgs extends com.pulumi.resources.
          */
         public Builder arithmeticProcessor(LogsCustomPipelineProcessorArithmeticProcessorArgs arithmeticProcessor) {
             return arithmeticProcessor(Output.of(arithmeticProcessor));
+        }
+
+        /**
+         * @param arrayProcessor Array Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#array-processor)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arrayProcessor(@Nullable Output<LogsCustomPipelineProcessorArrayProcessorArgs> arrayProcessor) {
+            $.arrayProcessor = arrayProcessor;
+            return this;
+        }
+
+        /**
+         * @param arrayProcessor Array Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#array-processor)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arrayProcessor(LogsCustomPipelineProcessorArrayProcessorArgs arrayProcessor) {
+            return arrayProcessor(Output.of(arrayProcessor));
         }
 
         /**
@@ -400,6 +455,27 @@ public final class LogsCustomPipelineProcessorArgs extends com.pulumi.resources.
          */
         public Builder dateRemapper(LogsCustomPipelineProcessorDateRemapperArgs dateRemapper) {
             return dateRemapper(Output.of(dateRemapper));
+        }
+
+        /**
+         * @param decoderProcessor Decoder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#decoder-processor)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder decoderProcessor(@Nullable Output<LogsCustomPipelineProcessorDecoderProcessorArgs> decoderProcessor) {
+            $.decoderProcessor = decoderProcessor;
+            return this;
+        }
+
+        /**
+         * @param decoderProcessor Decoder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#decoder-processor)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder decoderProcessor(LogsCustomPipelineProcessorDecoderProcessorArgs decoderProcessor) {
+            return decoderProcessor(Output.of(decoderProcessor));
         }
 
         /**

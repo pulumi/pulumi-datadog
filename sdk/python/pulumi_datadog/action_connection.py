@@ -140,7 +140,7 @@ class ActionConnection(pulumi.CustomResource):
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        A connection that can be used in Actions, including in the Workflow Automation and App Builder products.
+        A connection that can be used in Actions, including in the Workflow Automation and App Builder products. This resource requires a registered application key.
 
         ## Import
 
@@ -163,7 +163,7 @@ class ActionConnection(pulumi.CustomResource):
                  args: ActionConnectionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        A connection that can be used in Actions, including in the Workflow Automation and App Builder products.
+        A connection that can be used in Actions, including in the Workflow Automation and App Builder products. This resource requires a registered application key.
 
         ## Import
 

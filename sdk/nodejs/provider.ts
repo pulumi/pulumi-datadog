@@ -45,9 +45,39 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly appKey!: pulumi.Output<string | undefined>;
     /**
+     * The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID`
+     * environment variable. Required when using `cloudProviderType` set to `aws`.
+     */
+    public readonly awsAccessKeyId!: pulumi.Output<string | undefined>;
+    /**
+     * The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the
+     * `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloudProviderType` set to `aws`.
+     */
+    public readonly awsSecretAccessKey!: pulumi.Output<string | undefined>;
+    /**
+     * The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN`
+     * environment variable. Required when using `cloudProviderType` set to `aws` and using temporary credentials.
+     */
+    public readonly awsSessionToken!: pulumi.Output<string | undefined>;
+    /**
+     * The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
+     */
+    public readonly cloudProviderRegion!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app
+     * keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact
+     * [support](https://docs.datadoghq.com/help/).
+     */
+    public readonly cloudProviderType!: pulumi.Output<string | undefined>;
+    /**
      * Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
      */
     public readonly httpClientRetryEnabled!: pulumi.Output<string | undefined>;
+    /**
+     * The organization UUID; used for cloud-provider-based authentication. See the [Datadog API
+     * documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+     */
+    public readonly orgUuid!: pulumi.Output<string | undefined>;
     /**
      * Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default
      * is true. When false, apiKey won't be checked.
@@ -68,16 +98,22 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["apiKey"] = args?.apiKey ? pulumi.secret(args.apiKey) : undefined;
             resourceInputs["apiUrl"] = args ? args.apiUrl : undefined;
             resourceInputs["appKey"] = args?.appKey ? pulumi.secret(args.appKey) : undefined;
+            resourceInputs["awsAccessKeyId"] = args?.awsAccessKeyId ? pulumi.secret(args.awsAccessKeyId) : undefined;
+            resourceInputs["awsSecretAccessKey"] = args?.awsSecretAccessKey ? pulumi.secret(args.awsSecretAccessKey) : undefined;
+            resourceInputs["awsSessionToken"] = args?.awsSessionToken ? pulumi.secret(args.awsSessionToken) : undefined;
+            resourceInputs["cloudProviderRegion"] = args ? args.cloudProviderRegion : undefined;
+            resourceInputs["cloudProviderType"] = args ? args.cloudProviderType : undefined;
             resourceInputs["defaultTags"] = pulumi.output(args ? args.defaultTags : undefined).apply(JSON.stringify);
             resourceInputs["httpClientRetryBackoffBase"] = pulumi.output(args ? args.httpClientRetryBackoffBase : undefined).apply(JSON.stringify);
             resourceInputs["httpClientRetryBackoffMultiplier"] = pulumi.output(args ? args.httpClientRetryBackoffMultiplier : undefined).apply(JSON.stringify);
             resourceInputs["httpClientRetryEnabled"] = args ? args.httpClientRetryEnabled : undefined;
             resourceInputs["httpClientRetryMaxRetries"] = pulumi.output(args ? args.httpClientRetryMaxRetries : undefined).apply(JSON.stringify);
             resourceInputs["httpClientRetryTimeout"] = pulumi.output(args ? args.httpClientRetryTimeout : undefined).apply(JSON.stringify);
+            resourceInputs["orgUuid"] = args ? args.orgUuid : undefined;
             resourceInputs["validate"] = args ? args.validate : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["apiKey", "appKey"] };
+        const secretOpts = { additionalSecretOutputs: ["apiKey", "appKey", "awsAccessKeyId", "awsSecretAccessKey", "awsSessionToken"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Provider.__pulumiType, name, resourceInputs, opts);
     }
@@ -114,6 +150,31 @@ export interface ProviderArgs {
      */
     appKey?: pulumi.Input<string>;
     /**
+     * The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID`
+     * environment variable. Required when using `cloudProviderType` set to `aws`.
+     */
+    awsAccessKeyId?: pulumi.Input<string>;
+    /**
+     * The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the
+     * `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloudProviderType` set to `aws`.
+     */
+    awsSecretAccessKey?: pulumi.Input<string>;
+    /**
+     * The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN`
+     * environment variable. Required when using `cloudProviderType` set to `aws` and using temporary credentials.
+     */
+    awsSessionToken?: pulumi.Input<string>;
+    /**
+     * The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
+     */
+    cloudProviderRegion?: pulumi.Input<string>;
+    /**
+     * Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app
+     * keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact
+     * [support](https://docs.datadoghq.com/help/).
+     */
+    cloudProviderType?: pulumi.Input<string>;
+    /**
      * [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration
      * block containing settings to apply default resource tags across all resources.
      */
@@ -138,6 +199,11 @@ export interface ProviderArgs {
      * The HTTP request retry timeout period. Defaults to 60 seconds.
      */
     httpClientRetryTimeout?: pulumi.Input<number>;
+    /**
+     * The organization UUID; used for cloud-provider-based authentication. See the [Datadog API
+     * documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+     */
+    orgUuid?: pulumi.Input<string>;
     /**
      * Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default
      * is true. When false, apiKey won't be checked.

@@ -71,6 +71,29 @@
                 "description": "(Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.\n",
                 "secret": true
             },
+            "awsAccessKeyId": {
+                "type": "string",
+                "description": "The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID`\nenvironment variable. Required when using `cloud_provider_type` set to `aws`.\n",
+                "secret": true
+            },
+            "awsSecretAccessKey": {
+                "type": "string",
+                "description": "The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the\n`AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.\n",
+                "secret": true
+            },
+            "awsSessionToken": {
+                "type": "string",
+                "description": "The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN`\nenvironment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.\n",
+                "secret": true
+            },
+            "cloudProviderRegion": {
+                "type": "string",
+                "description": "The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.\n"
+            },
+            "cloudProviderType": {
+                "type": "string",
+                "description": "Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app\nkeys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact\n[support](https://docs.datadoghq.com/help/).\n"
+            },
             "defaultTags": {
                 "$ref": "#/types/datadog:config/defaultTags:defaultTags",
                 "description": "[Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration\nblock containing settings to apply default resource tags across all resources.\n"
@@ -94,6 +117,10 @@
             "httpClientRetryTimeout": {
                 "type": "integer",
                 "description": "The HTTP request retry timeout period. Defaults to 60 seconds.\n"
+            },
+            "orgUuid": {
+                "type": "string",
+                "description": "The organization UUID; used for cloud-provider-based authentication. See the [Datadog API\ndocumentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.\n"
             },
             "validate": {
                 "type": "string",
@@ -12925,6 +12952,10 @@
                     "$ref": "#/types/datadog:index/LogsCustomPipelineProcessorArithmeticProcessor:LogsCustomPipelineProcessorArithmeticProcessor",
                     "description": "Arithmetic Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#arithmetic-processor)\n"
                 },
+                "arrayProcessor": {
+                    "$ref": "#/types/datadog:index/LogsCustomPipelineProcessorArrayProcessor:LogsCustomPipelineProcessorArrayProcessor",
+                    "description": "Array Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#array-processor)\n"
+                },
                 "attributeRemapper": {
                     "$ref": "#/types/datadog:index/LogsCustomPipelineProcessorAttributeRemapper:LogsCustomPipelineProcessorAttributeRemapper",
                     "description": "Attribute Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#remapper)\n"
@@ -12936,6 +12967,10 @@
                 "dateRemapper": {
                     "$ref": "#/types/datadog:index/LogsCustomPipelineProcessorDateRemapper:LogsCustomPipelineProcessorDateRemapper",
                     "description": "Date Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-date-remapper)\n"
+                },
+                "decoderProcessor": {
+                    "$ref": "#/types/datadog:index/LogsCustomPipelineProcessorDecoderProcessor:LogsCustomPipelineProcessorDecoderProcessor",
+                    "description": "Decoder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#decoder-processor)\n"
                 },
                 "geoIpParser": {
                     "$ref": "#/types/datadog:index/LogsCustomPipelineProcessorGeoIpParser:LogsCustomPipelineProcessorGeoIpParser",
@@ -13018,6 +13053,108 @@
             "required": [
                 "expression",
                 "target"
+            ]
+        },
+        "datadog:index/LogsCustomPipelineProcessorArrayProcessor:LogsCustomPipelineProcessorArrayProcessor": {
+            "properties": {
+                "isEnabled": {
+                    "type": "boolean",
+                    "description": "Boolean value to enable your processor.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Your processor name.\n"
+                },
+                "operation": {
+                    "$ref": "#/types/datadog:index/LogsCustomPipelineProcessorArrayProcessorOperation:LogsCustomPipelineProcessorArrayProcessorOperation",
+                    "description": "Operation to perform on the array.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "operation"
+            ]
+        },
+        "datadog:index/LogsCustomPipelineProcessorArrayProcessorOperation:LogsCustomPipelineProcessorArrayProcessorOperation": {
+            "properties": {
+                "append": {
+                    "$ref": "#/types/datadog:index/LogsCustomPipelineProcessorArrayProcessorOperationAppend:LogsCustomPipelineProcessorArrayProcessorOperationAppend",
+                    "description": "Operation that appends a value to a target array attribute.\n"
+                },
+                "length": {
+                    "$ref": "#/types/datadog:index/LogsCustomPipelineProcessorArrayProcessorOperationLength:LogsCustomPipelineProcessorArrayProcessorOperationLength",
+                    "description": "Operation that computes the length of a source array and stores the result in a target attribute.\n"
+                },
+                "select": {
+                    "$ref": "#/types/datadog:index/LogsCustomPipelineProcessorArrayProcessorOperationSelect:LogsCustomPipelineProcessorArrayProcessorOperationSelect",
+                    "description": "Operation that finds an object in a source array using a filter, and then extracts a value from that found object and puts that value into the target attribute.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/LogsCustomPipelineProcessorArrayProcessorOperationAppend:LogsCustomPipelineProcessorArrayProcessorOperationAppend": {
+            "properties": {
+                "preserveSource": {
+                    "type": "boolean",
+                    "description": "Remove or preserve the remapped source element. Defaults to `true`.\n"
+                },
+                "source": {
+                    "type": "string",
+                    "description": "Attribute path containing the value to append.\n"
+                },
+                "target": {
+                    "type": "string",
+                    "description": "Attribute path of the array to append to.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "source",
+                "target"
+            ]
+        },
+        "datadog:index/LogsCustomPipelineProcessorArrayProcessorOperationLength:LogsCustomPipelineProcessorArrayProcessorOperationLength": {
+            "properties": {
+                "source": {
+                    "type": "string",
+                    "description": "Attribute path of the array to compute the length of.\n"
+                },
+                "target": {
+                    "type": "string",
+                    "description": "Attribute that receives the computed length.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "source",
+                "target"
+            ]
+        },
+        "datadog:index/LogsCustomPipelineProcessorArrayProcessorOperationSelect:LogsCustomPipelineProcessorArrayProcessorOperationSelect": {
+            "properties": {
+                "filter": {
+                    "type": "string",
+                    "description": "Filter expression (e.g. key1:value1 OR key2:value2) used to find the matching element.\n"
+                },
+                "source": {
+                    "type": "string",
+                    "description": "Attribute path of the array to search into.\n"
+                },
+                "target": {
+                    "type": "string",
+                    "description": "Attribute that receives the extracted value.\n"
+                },
+                "valueToExtract": {
+                    "type": "string",
+                    "description": "Attribute key from the matching object that should be extracted.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "filter",
+                "source",
+                "target",
+                "valueToExtract"
             ]
         },
         "datadog:index/LogsCustomPipelineProcessorAttributeRemapper:LogsCustomPipelineProcessorAttributeRemapper": {
@@ -13146,6 +13283,41 @@
             "type": "object",
             "required": [
                 "sources"
+            ]
+        },
+        "datadog:index/LogsCustomPipelineProcessorDecoderProcessor:LogsCustomPipelineProcessorDecoderProcessor": {
+            "properties": {
+                "binaryToTextEncoding": {
+                    "type": "string",
+                    "description": "Encoding type: base64 or base16\n"
+                },
+                "inputRepresentation": {
+                    "type": "string",
+                    "description": "Input representation: utf-8 or integer\n"
+                },
+                "isEnabled": {
+                    "type": "boolean",
+                    "description": "If the processor is enabled or not.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the processor.\n"
+                },
+                "source": {
+                    "type": "string",
+                    "description": "Encoded message\n"
+                },
+                "target": {
+                    "type": "string",
+                    "description": "Decoded message\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "binaryToTextEncoding",
+                "inputRepresentation",
+                "source",
+                "target"
             ]
         },
         "datadog:index/LogsCustomPipelineProcessorGeoIpParser:LogsCustomPipelineProcessorGeoIpParser": {
@@ -13347,6 +13519,10 @@
                     "$ref": "#/types/datadog:index/LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor:LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor",
                     "description": "Arithmetic Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#arithmetic-processor)\n"
                 },
+                "arrayProcessor": {
+                    "$ref": "#/types/datadog:index/LogsCustomPipelineProcessorPipelineProcessorArrayProcessor:LogsCustomPipelineProcessorPipelineProcessorArrayProcessor",
+                    "description": "Array Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#array-processor)\n"
+                },
                 "attributeRemapper": {
                     "$ref": "#/types/datadog:index/LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper:LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper",
                     "description": "Attribute Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#remapper)\n"
@@ -13358,6 +13534,10 @@
                 "dateRemapper": {
                     "$ref": "#/types/datadog:index/LogsCustomPipelineProcessorPipelineProcessorDateRemapper:LogsCustomPipelineProcessorPipelineProcessorDateRemapper",
                     "description": "Date Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-date-remapper)\n"
+                },
+                "decoderProcessor": {
+                    "$ref": "#/types/datadog:index/LogsCustomPipelineProcessorPipelineProcessorDecoderProcessor:LogsCustomPipelineProcessorPipelineProcessorDecoderProcessor",
+                    "description": "Decoder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#decoder-processor)\n"
                 },
                 "geoIpParser": {
                     "$ref": "#/types/datadog:index/LogsCustomPipelineProcessorPipelineProcessorGeoIpParser:LogsCustomPipelineProcessorPipelineProcessorGeoIpParser",
@@ -13437,6 +13617,108 @@
             "required": [
                 "expression",
                 "target"
+            ]
+        },
+        "datadog:index/LogsCustomPipelineProcessorPipelineProcessorArrayProcessor:LogsCustomPipelineProcessorPipelineProcessorArrayProcessor": {
+            "properties": {
+                "isEnabled": {
+                    "type": "boolean",
+                    "description": "Boolean value to enable your processor.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Your processor name.\n"
+                },
+                "operation": {
+                    "$ref": "#/types/datadog:index/LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperation:LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperation",
+                    "description": "Operation to perform on the array.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "operation"
+            ]
+        },
+        "datadog:index/LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperation:LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperation": {
+            "properties": {
+                "append": {
+                    "$ref": "#/types/datadog:index/LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationAppend:LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationAppend",
+                    "description": "Operation that appends a value to a target array attribute.\n"
+                },
+                "length": {
+                    "$ref": "#/types/datadog:index/LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationLength:LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationLength",
+                    "description": "Operation that computes the length of a source array and stores the result in a target attribute.\n"
+                },
+                "select": {
+                    "$ref": "#/types/datadog:index/LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationSelect:LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationSelect",
+                    "description": "Operation that finds an object in a source array using a filter, and then extracts a value from that found object and puts that value into the target attribute.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationAppend:LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationAppend": {
+            "properties": {
+                "preserveSource": {
+                    "type": "boolean",
+                    "description": "Remove or preserve the remapped source element. Defaults to `true`.\n"
+                },
+                "source": {
+                    "type": "string",
+                    "description": "Attribute path containing the value to append.\n"
+                },
+                "target": {
+                    "type": "string",
+                    "description": "Attribute path of the array to append to.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "source",
+                "target"
+            ]
+        },
+        "datadog:index/LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationLength:LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationLength": {
+            "properties": {
+                "source": {
+                    "type": "string",
+                    "description": "Attribute path of the array to compute the length of.\n"
+                },
+                "target": {
+                    "type": "string",
+                    "description": "Attribute that receives the computed length.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "source",
+                "target"
+            ]
+        },
+        "datadog:index/LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationSelect:LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationSelect": {
+            "properties": {
+                "filter": {
+                    "type": "string",
+                    "description": "Filter expression (e.g. key1:value1 OR key2:value2) used to find the matching element.\n"
+                },
+                "source": {
+                    "type": "string",
+                    "description": "Attribute path of the array to search into.\n"
+                },
+                "target": {
+                    "type": "string",
+                    "description": "Attribute that receives the extracted value.\n"
+                },
+                "valueToExtract": {
+                    "type": "string",
+                    "description": "Attribute key from the matching object that should be extracted.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "filter",
+                "source",
+                "target",
+                "valueToExtract"
             ]
         },
         "datadog:index/LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper:LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper": {
@@ -13565,6 +13847,41 @@
             "type": "object",
             "required": [
                 "sources"
+            ]
+        },
+        "datadog:index/LogsCustomPipelineProcessorPipelineProcessorDecoderProcessor:LogsCustomPipelineProcessorPipelineProcessorDecoderProcessor": {
+            "properties": {
+                "binaryToTextEncoding": {
+                    "type": "string",
+                    "description": "Encoding type: base64 or base16\n"
+                },
+                "inputRepresentation": {
+                    "type": "string",
+                    "description": "Input representation: utf-8 or integer\n"
+                },
+                "isEnabled": {
+                    "type": "boolean",
+                    "description": "If the processor is enabled or not.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the processor.\n"
+                },
+                "source": {
+                    "type": "string",
+                    "description": "Encoded message\n"
+                },
+                "target": {
+                    "type": "string",
+                    "description": "Decoded message\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "binaryToTextEncoding",
+                "inputRepresentation",
+                "source",
+                "target"
             ]
         },
         "datadog:index/LogsCustomPipelineProcessorPipelineProcessorGeoIpParser:LogsCustomPipelineProcessorPipelineProcessorGeoIpParser": {
@@ -33769,10 +34086,17 @@
             "properties": {
                 "decreaseCriticalityBasedOnEnv": {
                     "type": "boolean",
-                    "description": "If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `log_detection`. Defaults to `false`.\n"
+                    "description": "If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `log_detection`.\n"
                 }
             },
-            "type": "object"
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "decreaseCriticalityBasedOnEnv"
+                    ]
+                }
+            }
         },
         "datadog:index/SecurityMonitoringDefaultRuleQuery:SecurityMonitoringDefaultRuleQuery": {
             "properties": {
@@ -33786,7 +34110,7 @@
                 },
                 "aggregation": {
                     "type": "string",
-                    "description": "The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`. Defaults to `\"count\"`.\n"
+                    "description": "The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`.\n"
                 },
                 "customQueryExtension": {
                     "type": "string",
@@ -33794,7 +34118,7 @@
                 },
                 "dataSource": {
                     "type": "string",
-                    "description": "Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`, `events`. Defaults to `\"logs\"`.\n"
+                    "description": "Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`, `events`.\n"
                 },
                 "distinctFields": {
                     "type": "array",
@@ -33832,13 +34156,17 @@
                 }
             },
             "type": "object",
-            "required": [
-                "query"
-            ],
             "language": {
                 "nodejs": {
                     "requiredOutputs": [
+                        "aggregation",
+                        "customQueryExtension",
+                        "dataSource",
+                        "distinctFields",
+                        "groupByFields",
+                        "metric",
                         "metrics",
+                        "name",
                         "query"
                     ]
                 }
@@ -33920,7 +34248,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "Type of action to perform when the case triggers. Valid values are `block_ip`, `block_user`, `user_behavior`.\n"
+                    "description": "Type of action to perform when the case triggers. Valid values are `block_ip`, `block_user`, `user_behavior`, `flag_ip`.\n"
                 }
             },
             "type": "object",
@@ -34709,7 +35037,7 @@
                 },
                 "requestDefinition": {
                     "$ref": "#/types/datadog:index/SyntheticsTestApiStepRequestDefinition:SyntheticsTestApiStepRequestDefinition",
-                    "description": "The request for the api step.\n"
+                    "description": "The request for the API step.\n"
                 },
                 "requestFiles": {
                     "type": "array",
@@ -34748,7 +35076,7 @@
                 },
                 "subtype": {
                     "type": "string",
-                    "description": "The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `ssl`, `dns`, `tcp`, `udp`, `icmp`, `websocket`, `wait`. Defaults to `\"http\"`.\n"
+                    "description": "The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`, `ssl`, `dns`, `tcp`, `udp`, `icmp`, `websocket`, `wait`. Defaults to `\"http\"`.\n"
                 },
                 "value": {
                     "type": "integer",
@@ -35034,7 +35362,7 @@
             "properties": {
                 "acceptSelfSigned": {
                     "type": "boolean",
-                    "description": "For SSL test, whether or not the test should allow self signed certificates.\n"
+                    "description": "For SSL tests, whether or not the test should allow self signed certificates.\n"
                 },
                 "allowInsecure": {
                     "type": "boolean",
@@ -35061,7 +35389,11 @@
                 },
                 "checkCertificateRevocation": {
                     "type": "boolean",
-                    "description": "For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.\n"
+                    "description": "For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.\n"
+                },
+                "disableAiaIntermediateFetching": {
+                    "type": "boolean",
+                    "description": "For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA\n"
                 },
                 "dnsServer": {
                     "type": "string",
@@ -35096,7 +35428,7 @@
                 },
                 "message": {
                     "type": "string",
-                    "description": "For UDP and websocket tests, message to send with the request.\n"
+                    "description": "For gRPC, UDP and websocket tests, message to send with the request.\n"
                 },
                 "method": {
                     "type": "string",
@@ -36029,7 +36361,7 @@
             "properties": {
                 "acceptSelfSigned": {
                     "type": "boolean",
-                    "description": "For SSL test, whether or not the test should allow self signed certificates.\n"
+                    "description": "For SSL tests, whether or not the test should allow self signed certificates.\n"
                 },
                 "allowInsecure": {
                     "type": "boolean",
@@ -36037,11 +36369,15 @@
                 },
                 "checkCertificateRevocation": {
                     "type": "boolean",
-                    "description": "For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.\n"
+                    "description": "For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.\n"
                 },
                 "ci": {
                     "$ref": "#/types/datadog:index/SyntheticsTestOptionsListCi:SyntheticsTestOptionsListCi",
                     "description": "CI/CD options for a Synthetic test.\n"
+                },
+                "disableAiaIntermediateFetching": {
+                    "type": "boolean",
+                    "description": "For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA\n"
                 },
                 "disableCors": {
                     "type": "boolean",
@@ -36395,7 +36731,7 @@
                 },
                 "message": {
                     "type": "string",
-                    "description": "For UDP and websocket tests, message to send with the request.\n"
+                    "description": "For gRPC, UDP and websocket tests, message to send with the request.\n"
                 },
                 "method": {
                     "type": "string",
@@ -38542,6 +38878,29 @@
                 "description": "(Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.\n",
                 "secret": true
             },
+            "awsAccessKeyId": {
+                "type": "string",
+                "description": "The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID`\nenvironment variable. Required when using `cloud_provider_type` set to `aws`.\n",
+                "secret": true
+            },
+            "awsSecretAccessKey": {
+                "type": "string",
+                "description": "The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the\n`AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.\n",
+                "secret": true
+            },
+            "awsSessionToken": {
+                "type": "string",
+                "description": "The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN`\nenvironment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.\n",
+                "secret": true
+            },
+            "cloudProviderRegion": {
+                "type": "string",
+                "description": "The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.\n"
+            },
+            "cloudProviderType": {
+                "type": "string",
+                "description": "Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app\nkeys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact\n[support](https://docs.datadoghq.com/help/).\n"
+            },
             "defaultTags": {
                 "$ref": "#/types/datadog:index/ProviderDefaultTags:ProviderDefaultTags",
                 "description": "[Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration\nblock containing settings to apply default resource tags across all resources.\n"
@@ -38565,6 +38924,10 @@
             "httpClientRetryTimeout": {
                 "type": "integer",
                 "description": "The HTTP request retry timeout period. Defaults to 60 seconds.\n"
+            },
+            "orgUuid": {
+                "type": "string",
+                "description": "The organization UUID; used for cloud-provider-based authentication. See the [Datadog API\ndocumentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.\n"
             },
             "validate": {
                 "type": "string",
@@ -38586,6 +38949,29 @@
                 "description": "(Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.\n",
                 "secret": true
             },
+            "awsAccessKeyId": {
+                "type": "string",
+                "description": "The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID`\nenvironment variable. Required when using `cloud_provider_type` set to `aws`.\n",
+                "secret": true
+            },
+            "awsSecretAccessKey": {
+                "type": "string",
+                "description": "The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the\n`AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.\n",
+                "secret": true
+            },
+            "awsSessionToken": {
+                "type": "string",
+                "description": "The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN`\nenvironment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.\n",
+                "secret": true
+            },
+            "cloudProviderRegion": {
+                "type": "string",
+                "description": "The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.\n"
+            },
+            "cloudProviderType": {
+                "type": "string",
+                "description": "Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app\nkeys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact\n[support](https://docs.datadoghq.com/help/).\n"
+            },
             "defaultTags": {
                 "$ref": "#/types/datadog:index/ProviderDefaultTags:ProviderDefaultTags",
                 "description": "[Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration\nblock containing settings to apply default resource tags across all resources.\n"
@@ -38609,6 +38995,10 @@
             "httpClientRetryTimeout": {
                 "type": "integer",
                 "description": "The HTTP request retry timeout period. Defaults to 60 seconds.\n"
+            },
+            "orgUuid": {
+                "type": "string",
+                "description": "The organization UUID; used for cloud-provider-based authentication. See the [Datadog API\ndocumentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.\n"
             },
             "validate": {
                 "type": "string",
@@ -40173,7 +40563,7 @@
             }
         },
         "datadog:index/actionConnection:ActionConnection": {
-            "description": "A connection that can be used in Actions, including in the Workflow Automation and App Builder products.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nconfiguration:\n  token1:\n    type: string\n  token2:\n    type: string\nresources:\n  awsConnection:\n    type: datadog:ActionConnection\n    name: aws_connection\n    properties:\n      name: My AWS Connection\n      aws:\n        - assumeRole:\n            - accountId: '123456789012'\n              role: role2\n  httpConnection:\n    type: datadog:ActionConnection\n    name: http_connection\n    properties:\n      name: My HTTP connection with token auth\n      http:\n        - baseUrl: https://catfact.ninja\n          tokenAuth:\n            - tokens:\n                - type: SECRET\n                  name: token1\n                  value: ${token1}\n                - type: SECRET\n                  name: token2\n                  value: ${token2}\n              headers:\n                - name: header-one\n                  value: headerval\n                - name: h2\n                  value: '{{ token1 }} test'\n              urlParameters:\n                - name: param1\n                  value: '{{ token1 }}'\n                - name: param2\n                  value: paramVal2\n              body:\n                - contentType: application/json\n                  content:\n                    fn::toJSON:\n                      key: mykey\n                      value: 'maybe with a secret: {{ token2 }}'\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nThe `pulumi import` command can be used, for example:\n\n```sh\n$ pulumi import datadog:index/actionConnection:ActionConnection my_connection 11111111-2222-3333-4444-555555555555\n```\n\n",
+            "description": "A connection that can be used in Actions, including in the Workflow Automation and App Builder products. This resource requires a registered application key.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nconfiguration:\n  token1:\n    type: string\n  token2:\n    type: string\nresources:\n  awsConnection:\n    type: datadog:ActionConnection\n    name: aws_connection\n    properties:\n      name: My AWS Connection\n      aws:\n        - assumeRole:\n            - accountId: '123456789012'\n              role: role2\n  httpConnection:\n    type: datadog:ActionConnection\n    name: http_connection\n    properties:\n      name: My HTTP connection with token auth\n      http:\n        - baseUrl: https://catfact.ninja\n          tokenAuth:\n            - tokens:\n                - type: SECRET\n                  name: token1\n                  value: ${token1}\n                - type: SECRET\n                  name: token2\n                  value: ${token2}\n              headers:\n                - name: header-one\n                  value: headerval\n                - name: h2\n                  value: '{{ token1 }} test'\n              urlParameters:\n                - name: param1\n                  value: '{{ token1 }}'\n                - name: param2\n                  value: paramVal2\n              body:\n                - contentType: application/json\n                  content:\n                    fn::toJSON:\n                      key: mykey\n                      value: 'maybe with a secret: {{ token2 }}'\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nThe `pulumi import` command can be used, for example:\n\n```sh\n$ pulumi import datadog:index/actionConnection:ActionConnection my_connection 11111111-2222-3333-4444-555555555555\n```\n\n",
             "properties": {
                 "aws": {
                     "$ref": "#/types/datadog:index/ActionConnectionAws:ActionConnectionAws",
@@ -40222,6 +40612,93 @@
                     "name": {
                         "type": "string",
                         "description": "Name of the connection\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "datadog:index/agentlessScanningAwsScanOptions:AgentlessScanningAwsScanOptions": {
+            "description": "Provides a Datadog Agentless Scanning AWS scan options resource. This can be used to activate and configure Agentless scan options for an AWS account.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Configure agentless scanning for an AWS account\nconst example = new datadog.AgentlessScanningAwsScanOptions(\"example\", {\n    awsAccountId: \"123456789012\",\n    lambda: true,\n    sensitiveData: false,\n    vulnContainersOs: true,\n    vulnHostOs: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Configure agentless scanning for an AWS account\nexample = datadog.AgentlessScanningAwsScanOptions(\"example\",\n    aws_account_id=\"123456789012\",\n    lambda_=True,\n    sensitive_data=False,\n    vuln_containers_os=True,\n    vuln_host_os=True)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Configure agentless scanning for an AWS account\n    var example = new Datadog.AgentlessScanningAwsScanOptions(\"example\", new()\n    {\n        AwsAccountId = \"123456789012\",\n        Lambda = true,\n        SensitiveData = false,\n        VulnContainersOs = true,\n        VulnHostOs = true,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t// Configure agentless scanning for an AWS account\n\t\t_, err := datadog.NewAgentlessScanningAwsScanOptions(ctx, \"example\", \u0026datadog.AgentlessScanningAwsScanOptionsArgs{\n\t\t\tAwsAccountId:     pulumi.String(\"123456789012\"),\n\t\t\tLambda:           pulumi.Bool(true),\n\t\t\tSensitiveData:    pulumi.Bool(false),\n\t\t\tVulnContainersOs: pulumi.Bool(true),\n\t\t\tVulnHostOs:       pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.AgentlessScanningAwsScanOptions;\nimport com.pulumi.datadog.AgentlessScanningAwsScanOptionsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // Configure agentless scanning for an AWS account\n        var example = new AgentlessScanningAwsScanOptions(\"example\", AgentlessScanningAwsScanOptionsArgs.builder()\n            .awsAccountId(\"123456789012\")\n            .lambda(true)\n            .sensitiveData(false)\n            .vulnContainersOs(true)\n            .vulnHostOs(true)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Configure agentless scanning for an AWS account\n  example:\n    type: datadog:AgentlessScanningAwsScanOptions\n    properties:\n      awsAccountId: '123456789012'\n      lambda: true\n      sensitiveData: false\n      vulnContainersOs: true\n      vulnHostOs: true\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nThe `pulumi import` command can be used, for example:\n\n#!/bin/bash\n\nImport existing agentless scanning aws scan options by AWS Account ID\n\n```sh\n$ pulumi import datadog:index/agentlessScanningAwsScanOptions:AgentlessScanningAwsScanOptions example 123456789012\n```\n\n",
+            "properties": {
+                "awsAccountId": {
+                    "type": "string",
+                    "description": "The AWS Account ID for which agentless scanning is configured.\n"
+                },
+                "lambda": {
+                    "type": "boolean",
+                    "description": "Indicates if scanning of Lambda functions is enabled.\n"
+                },
+                "sensitiveData": {
+                    "type": "boolean",
+                    "description": "Indicates if scanning for sensitive data is enabled.\n"
+                },
+                "vulnContainersOs": {
+                    "type": "boolean",
+                    "description": "Indicates if scanning for vulnerabilities in containers is enabled.\n"
+                },
+                "vulnHostOs": {
+                    "type": "boolean",
+                    "description": "Indicates if scanning for vulnerabilities in hosts is enabled.\n"
+                }
+            },
+            "required": [
+                "awsAccountId",
+                "lambda",
+                "sensitiveData",
+                "vulnContainersOs",
+                "vulnHostOs"
+            ],
+            "inputProperties": {
+                "awsAccountId": {
+                    "type": "string",
+                    "description": "The AWS Account ID for which agentless scanning is configured.\n"
+                },
+                "lambda": {
+                    "type": "boolean",
+                    "description": "Indicates if scanning of Lambda functions is enabled.\n"
+                },
+                "sensitiveData": {
+                    "type": "boolean",
+                    "description": "Indicates if scanning for sensitive data is enabled.\n"
+                },
+                "vulnContainersOs": {
+                    "type": "boolean",
+                    "description": "Indicates if scanning for vulnerabilities in containers is enabled.\n"
+                },
+                "vulnHostOs": {
+                    "type": "boolean",
+                    "description": "Indicates if scanning for vulnerabilities in hosts is enabled.\n"
+                }
+            },
+            "requiredInputs": [
+                "awsAccountId",
+                "lambda",
+                "sensitiveData",
+                "vulnContainersOs",
+                "vulnHostOs"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering AgentlessScanningAwsScanOptions resources.\n",
+                "properties": {
+                    "awsAccountId": {
+                        "type": "string",
+                        "description": "The AWS Account ID for which agentless scanning is configured.\n"
+                    },
+                    "lambda": {
+                        "type": "boolean",
+                        "description": "Indicates if scanning of Lambda functions is enabled.\n"
+                    },
+                    "sensitiveData": {
+                        "type": "boolean",
+                        "description": "Indicates if scanning for sensitive data is enabled.\n"
+                    },
+                    "vulnContainersOs": {
+                        "type": "boolean",
+                        "description": "Indicates if scanning for vulnerabilities in containers is enabled.\n"
+                    },
+                    "vulnHostOs": {
+                        "type": "boolean",
+                        "description": "Indicates if scanning for vulnerabilities in hosts is enabled.\n"
                     }
                 },
                 "type": "object"
@@ -40380,7 +40857,7 @@
             }
         },
         "datadog:index/apmRetentionFilterOrder:ApmRetentionFilterOrder": {
-            "description": "Provides a Datadog [APM Retention Filters API](https://docs.datadoghq.com/api/v2/apm-retention-filters/) resource, which is used to manage Datadog APM retention filters order.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  # Create APM retention filter\n  foo:\n    type: datadog:ApmRetentionFilter\n    properties:\n      name: Sample order\n      rate: '1.0'\n      filter:\n        - query: '*'\n      filterType: spans-sampling-processor\n      enabled: false\n  # Create APM reention filter order\n  bar:\n    type: datadog:ApmRetentionFilterOrder\n    properties:\n      filterIds:\n        - ${foo.id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nThe `pulumi import` command can be used, for example:\n\nImport existing APM retention filter order\n\nNote: Value of \u003cfoo\u003e can be anything as this id is not stored by the resource\n\n```sh\n$ pulumi import datadog:index/apmRetentionFilterOrder:ApmRetentionFilterOrder bar \u003cfoo\u003e\n```\n\n",
+            "description": "Provides a Datadog [APM Retention Filters API](https://docs.datadoghq.com/api/v2/apm-retention-filters/) resource, which is used to manage Datadog APM retention filters order.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  # Create APM retention filter\n  foo:\n    type: datadog:ApmRetentionFilter\n    properties:\n      name: Sample order\n      rate: '1.0'\n      filter:\n        - query: '*'\n      filterType: spans-sampling-processor\n      enabled: false\n  # Create APM retention filter order\n  bar:\n    type: datadog:ApmRetentionFilterOrder\n    properties:\n      filterIds:\n        - ${foo.id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nThe `pulumi import` command can be used, for example:\n\nImport existing APM retention filter order\n\nNote: Value of \u003cfoo\u003e can be anything as this id is not stored by the resource\n\n```sh\n$ pulumi import datadog:index/apmRetentionFilterOrder:ApmRetentionFilterOrder bar \u003cfoo\u003e\n```\n\n",
             "properties": {
                 "filterIds": {
                     "type": "array",
@@ -40519,6 +40996,37 @@
                     "rootInstanceName": {
                         "type": "string",
                         "description": "The name of the root component of the app. This must be a grid component that contains all other components. If specified, this will override the root instance name of the App in the App JSON. String length must be at least 1.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "datadog:index/appKeyRegistration:AppKeyRegistration": {
+            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst appKeyRegistration = new datadog.AppKeyRegistration(\"app_key_registration\", {appKeyId: \"11111111-2222-3333-4444-555555555555\"});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\napp_key_registration = datadog.AppKeyRegistration(\"app_key_registration\", app_key_id=\"11111111-2222-3333-4444-555555555555\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var appKeyRegistration = new Datadog.AppKeyRegistration(\"app_key_registration\", new()\n    {\n        AppKeyId = \"11111111-2222-3333-4444-555555555555\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewAppKeyRegistration(ctx, \"app_key_registration\", \u0026datadog.AppKeyRegistrationArgs{\n\t\t\tAppKeyId: pulumi.String(\"11111111-2222-3333-4444-555555555555\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.AppKeyRegistration;\nimport com.pulumi.datadog.AppKeyRegistrationArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var appKeyRegistration = new AppKeyRegistration(\"appKeyRegistration\", AppKeyRegistrationArgs.builder()\n            .appKeyId(\"11111111-2222-3333-4444-555555555555\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  appKeyRegistration:\n    type: datadog:AppKeyRegistration\n    name: app_key_registration\n    properties:\n      appKeyId: 11111111-2222-3333-4444-555555555555\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nThe `pulumi import` command can be used, for example:\n\n```sh\n$ pulumi import datadog:index/appKeyRegistration:AppKeyRegistration my_app_key_registration 11111111-2222-3333-4444-555555555555\n```\n\n",
+            "properties": {
+                "appKeyId": {
+                    "type": "string",
+                    "description": "The Application Key ID to register.\n"
+                }
+            },
+            "required": [
+                "appKeyId"
+            ],
+            "inputProperties": {
+                "appKeyId": {
+                    "type": "string",
+                    "description": "The Application Key ID to register.\n"
+                }
+            },
+            "requiredInputs": [
+                "appKeyId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering AppKeyRegistration resources.\n",
+                "properties": {
+                    "appKeyId": {
+                        "type": "string",
+                        "description": "The Application Key ID to register.\n"
                     }
                 },
                 "type": "object"
@@ -42630,6 +43138,62 @@
                 "type": "object"
             }
         },
+        "datadog:index/incidentType:IncidentType": {
+            "description": "Provides a Datadog incident type resource. This can be used to create and manage Datadog incident types.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Basic incident type\nconst example = new datadog.IncidentType(\"example\", {\n    name: \"Security Incident\",\n    description: \"Security-related incidents requiring immediate attention\",\n    isDefault: false,\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Basic incident type\nexample = datadog.IncidentType(\"example\",\n    name=\"Security Incident\",\n    description=\"Security-related incidents requiring immediate attention\",\n    is_default=False)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Basic incident type\n    var example = new Datadog.IncidentType(\"example\", new()\n    {\n        Name = \"Security Incident\",\n        Description = \"Security-related incidents requiring immediate attention\",\n        IsDefault = false,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t// Basic incident type\n\t\t_, err := datadog.NewIncidentType(ctx, \"example\", \u0026datadog.IncidentTypeArgs{\n\t\t\tName:        pulumi.String(\"Security Incident\"),\n\t\t\tDescription: pulumi.String(\"Security-related incidents requiring immediate attention\"),\n\t\t\tIsDefault:   pulumi.Bool(false),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.IncidentType;\nimport com.pulumi.datadog.IncidentTypeArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // Basic incident type\n        var example = new IncidentType(\"example\", IncidentTypeArgs.builder()\n            .name(\"Security Incident\")\n            .description(\"Security-related incidents requiring immediate attention\")\n            .isDefault(false)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Basic incident type\n  example:\n    type: datadog:IncidentType\n    properties:\n      name: Security Incident\n      description: Security-related incidents requiring immediate attention\n      isDefault: false\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nThe `pulumi import` command can be used, for example:\n\n```sh\n$ pulumi import datadog:index/incidentType:IncidentType example \"12345678-1234-1234-1234-1234567890ab\"\n```\n\n",
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "Description of the incident type. The description can have a maximum of 512 characters.\n"
+                },
+                "isDefault": {
+                    "type": "boolean",
+                    "description": "Whether this incident type is the default type.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the incident type. Must be between 1 and 50 characters.\n"
+                }
+            },
+            "required": [
+                "isDefault",
+                "name"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "Description of the incident type. The description can have a maximum of 512 characters.\n"
+                },
+                "isDefault": {
+                    "type": "boolean",
+                    "description": "Whether this incident type is the default type.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the incident type. Must be between 1 and 50 characters.\n"
+                }
+            },
+            "requiredInputs": [
+                "name"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering IncidentType resources.\n",
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "Description of the incident type. The description can have a maximum of 512 characters.\n"
+                    },
+                    "isDefault": {
+                        "type": "boolean",
+                        "description": "Whether this incident type is the default type.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the incident type. Must be between 1 and 50 characters.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "datadog:index/ipAllowlist:IpAllowlist": {
             "description": "Provides the Datadog IP allowlist resource. This can be used to manage the Datadog IP allowlist\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst example = new datadog.IpAllowlist(\"example\", {\n    enabled: false,\n    entries: [\n        {\n            cidrBlock: \"127.0.0.0/32\",\n            note: \"1st Example IP Range\",\n        },\n        {\n            cidrBlock: \"192.0.2.0/24\",\n            note: \"2nd Example IP Range\",\n        },\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nexample = datadog.IpAllowlist(\"example\",\n    enabled=False,\n    entries=[\n        {\n            \"cidr_block\": \"127.0.0.0/32\",\n            \"note\": \"1st Example IP Range\",\n        },\n        {\n            \"cidr_block\": \"192.0.2.0/24\",\n            \"note\": \"2nd Example IP Range\",\n        },\n    ])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Datadog.IpAllowlist(\"example\", new()\n    {\n        Enabled = false,\n        Entries = new[]\n        {\n            new Datadog.Inputs.IpAllowlistEntryArgs\n            {\n                CidrBlock = \"127.0.0.0/32\",\n                Note = \"1st Example IP Range\",\n            },\n            new Datadog.Inputs.IpAllowlistEntryArgs\n            {\n                CidrBlock = \"192.0.2.0/24\",\n                Note = \"2nd Example IP Range\",\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewIpAllowlist(ctx, \"example\", \u0026datadog.IpAllowlistArgs{\n\t\t\tEnabled: pulumi.Bool(false),\n\t\t\tEntries: datadog.IpAllowlistEntryArray{\n\t\t\t\t\u0026datadog.IpAllowlistEntryArgs{\n\t\t\t\t\tCidrBlock: pulumi.String(\"127.0.0.0/32\"),\n\t\t\t\t\tNote:      pulumi.String(\"1st Example IP Range\"),\n\t\t\t\t},\n\t\t\t\t\u0026datadog.IpAllowlistEntryArgs{\n\t\t\t\t\tCidrBlock: pulumi.String(\"192.0.2.0/24\"),\n\t\t\t\t\tNote:      pulumi.String(\"2nd Example IP Range\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.IpAllowlist;\nimport com.pulumi.datadog.IpAllowlistArgs;\nimport com.pulumi.datadog.inputs.IpAllowlistEntryArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new IpAllowlist(\"example\", IpAllowlistArgs.builder()\n            .enabled(false)\n            .entries(            \n                IpAllowlistEntryArgs.builder()\n                    .cidrBlock(\"127.0.0.0/32\")\n                    .note(\"1st Example IP Range\")\n                    .build(),\n                IpAllowlistEntryArgs.builder()\n                    .cidrBlock(\"192.0.2.0/24\")\n                    .note(\"2nd Example IP Range\")\n                    .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: datadog:IpAllowlist\n    properties:\n      enabled: false\n      entries:\n        - cidrBlock: 127.0.0.0/32\n          note: 1st Example IP Range\n        - cidrBlock: 192.0.2.0/24\n          note: 2nd Example IP Range\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "properties": {
@@ -44365,7 +44929,7 @@
             }
         },
         "datadog:index/onCallEscalationPolicy:OnCallEscalationPolicy": {
-            "description": "Provides a Datadog On-Call escalation policy resource. This can be used to create and manage Datadog On-Call escalation policies.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst policyTest = new datadog.OnCallEscalationPolicy(\"policy_test\", {\n    name: \"Policy Name\",\n    resolvePageOnPolicyEnd: true,\n    retries: 3,\n    steps: [{\n        assignment: \"round-robin\",\n        escalateAfterSeconds: 300,\n        targets: [\n            {\n                team: \"00000000-aba2-0000-0000-000000000000\",\n            },\n            {\n                user: \"00000000-aba2-0000-0000-000000000000\",\n            },\n            {\n                schedule: \"00000000-aba2-0000-0000-000000000000\",\n            },\n        ],\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\npolicy_test = datadog.OnCallEscalationPolicy(\"policy_test\",\n    name=\"Policy Name\",\n    resolve_page_on_policy_end=True,\n    retries=3,\n    steps=[{\n        \"assignment\": \"round-robin\",\n        \"escalate_after_seconds\": 300,\n        \"targets\": [\n            {\n                \"team\": \"00000000-aba2-0000-0000-000000000000\",\n            },\n            {\n                \"user\": \"00000000-aba2-0000-0000-000000000000\",\n            },\n            {\n                \"schedule\": \"00000000-aba2-0000-0000-000000000000\",\n            },\n        ],\n    }])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var policyTest = new Datadog.OnCallEscalationPolicy(\"policy_test\", new()\n    {\n        Name = \"Policy Name\",\n        ResolvePageOnPolicyEnd = true,\n        Retries = 3,\n        Steps = new[]\n        {\n            new Datadog.Inputs.OnCallEscalationPolicyStepArgs\n            {\n                Assignment = \"round-robin\",\n                EscalateAfterSeconds = 300,\n                Targets = new[]\n                {\n                    new Datadog.Inputs.OnCallEscalationPolicyStepTargetArgs\n                    {\n                        Team = \"00000000-aba2-0000-0000-000000000000\",\n                    },\n                    new Datadog.Inputs.OnCallEscalationPolicyStepTargetArgs\n                    {\n                        User = \"00000000-aba2-0000-0000-000000000000\",\n                    },\n                    new Datadog.Inputs.OnCallEscalationPolicyStepTargetArgs\n                    {\n                        Schedule = \"00000000-aba2-0000-0000-000000000000\",\n                    },\n                },\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewOnCallEscalationPolicy(ctx, \"policy_test\", \u0026datadog.OnCallEscalationPolicyArgs{\n\t\t\tName:                   pulumi.String(\"Policy Name\"),\n\t\t\tResolvePageOnPolicyEnd: pulumi.Bool(true),\n\t\t\tRetries:                pulumi.Int(3),\n\t\t\tSteps: datadog.OnCallEscalationPolicyStepArray{\n\t\t\t\t\u0026datadog.OnCallEscalationPolicyStepArgs{\n\t\t\t\t\tAssignment:           pulumi.String(\"round-robin\"),\n\t\t\t\t\tEscalateAfterSeconds: pulumi.Int(300),\n\t\t\t\t\tTargets: datadog.OnCallEscalationPolicyStepTargetArray{\n\t\t\t\t\t\t\u0026datadog.OnCallEscalationPolicyStepTargetArgs{\n\t\t\t\t\t\t\tTeam: pulumi.String(\"00000000-aba2-0000-0000-000000000000\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\u0026datadog.OnCallEscalationPolicyStepTargetArgs{\n\t\t\t\t\t\t\tUser: pulumi.String(\"00000000-aba2-0000-0000-000000000000\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\u0026datadog.OnCallEscalationPolicyStepTargetArgs{\n\t\t\t\t\t\t\tSchedule: pulumi.String(\"00000000-aba2-0000-0000-000000000000\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.OnCallEscalationPolicy;\nimport com.pulumi.datadog.OnCallEscalationPolicyArgs;\nimport com.pulumi.datadog.inputs.OnCallEscalationPolicyStepArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var policyTest = new OnCallEscalationPolicy(\"policyTest\", OnCallEscalationPolicyArgs.builder()\n            .name(\"Policy Name\")\n            .resolvePageOnPolicyEnd(true)\n            .retries(3)\n            .steps(OnCallEscalationPolicyStepArgs.builder()\n                .assignment(\"round-robin\")\n                .escalateAfterSeconds(300)\n                .targets(                \n                    OnCallEscalationPolicyStepTargetArgs.builder()\n                        .team(\"00000000-aba2-0000-0000-000000000000\")\n                        .build(),\n                    OnCallEscalationPolicyStepTargetArgs.builder()\n                        .user(\"00000000-aba2-0000-0000-000000000000\")\n                        .build(),\n                    OnCallEscalationPolicyStepTargetArgs.builder()\n                        .schedule(\"00000000-aba2-0000-0000-000000000000\")\n                        .build())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  policyTest:\n    type: datadog:OnCallEscalationPolicy\n    name: policy_test\n    properties:\n      name: Policy Name\n      resolvePageOnPolicyEnd: true\n      retries: 3\n      steps:\n        - assignment: round-robin\n          escalateAfterSeconds: 300\n          targets:\n            - team: 00000000-aba2-0000-0000-000000000000\n            - user: 00000000-aba2-0000-0000-000000000000\n            - schedule: 00000000-aba2-0000-0000-000000000000\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nThe `pulumi import` command can be used, for example:\n\nImport an existing on_call_escalation_policy\n\n```sh\n$ pulumi import datadog:index/onCallEscalationPolicy:OnCallEscalationPolicy test \"b03a07d5-49da-43e9-83b4-5d84969b588b\"\n```\n\n",
+            "description": "Provides a Datadog On-Call escalation policy resource. This can be used to create and manage Datadog On-Call escalation policies.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst policyTest = new datadog.OnCallEscalationPolicy(\"policy_test\", {\n    name: \"Policy Name\",\n    resolvePageOnPolicyEnd: true,\n    retries: 3,\n    steps: [{\n        assignment: \"round-robin\",\n        escalateAfterSeconds: 300,\n        targets: [\n            {\n                team: \"00000000-aba2-0000-0000-000000000000\",\n            },\n            {\n                user: \"00000000-aba2-0000-0000-000000000000\",\n            },\n            {\n                schedule: \"00000000-aba2-0000-0000-000000000000\",\n            },\n        ],\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\npolicy_test = datadog.OnCallEscalationPolicy(\"policy_test\",\n    name=\"Policy Name\",\n    resolve_page_on_policy_end=True,\n    retries=3,\n    steps=[{\n        \"assignment\": \"round-robin\",\n        \"escalate_after_seconds\": 300,\n        \"targets\": [\n            {\n                \"team\": \"00000000-aba2-0000-0000-000000000000\",\n            },\n            {\n                \"user\": \"00000000-aba2-0000-0000-000000000000\",\n            },\n            {\n                \"schedule\": \"00000000-aba2-0000-0000-000000000000\",\n            },\n        ],\n    }])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var policyTest = new Datadog.OnCallEscalationPolicy(\"policy_test\", new()\n    {\n        Name = \"Policy Name\",\n        ResolvePageOnPolicyEnd = true,\n        Retries = 3,\n        Steps = new[]\n        {\n            new Datadog.Inputs.OnCallEscalationPolicyStepArgs\n            {\n                Assignment = \"round-robin\",\n                EscalateAfterSeconds = 300,\n                Targets = new[]\n                {\n                    new Datadog.Inputs.OnCallEscalationPolicyStepTargetArgs\n                    {\n                        Team = \"00000000-aba2-0000-0000-000000000000\",\n                    },\n                    new Datadog.Inputs.OnCallEscalationPolicyStepTargetArgs\n                    {\n                        User = \"00000000-aba2-0000-0000-000000000000\",\n                    },\n                    new Datadog.Inputs.OnCallEscalationPolicyStepTargetArgs\n                    {\n                        Schedule = \"00000000-aba2-0000-0000-000000000000\",\n                    },\n                },\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewOnCallEscalationPolicy(ctx, \"policy_test\", \u0026datadog.OnCallEscalationPolicyArgs{\n\t\t\tName:                   pulumi.String(\"Policy Name\"),\n\t\t\tResolvePageOnPolicyEnd: pulumi.Bool(true),\n\t\t\tRetries:                pulumi.Int(3),\n\t\t\tSteps: datadog.OnCallEscalationPolicyStepArray{\n\t\t\t\t\u0026datadog.OnCallEscalationPolicyStepArgs{\n\t\t\t\t\tAssignment:           pulumi.String(\"round-robin\"),\n\t\t\t\t\tEscalateAfterSeconds: pulumi.Int(300),\n\t\t\t\t\tTargets: datadog.OnCallEscalationPolicyStepTargetArray{\n\t\t\t\t\t\t\u0026datadog.OnCallEscalationPolicyStepTargetArgs{\n\t\t\t\t\t\t\tTeam: pulumi.String(\"00000000-aba2-0000-0000-000000000000\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\u0026datadog.OnCallEscalationPolicyStepTargetArgs{\n\t\t\t\t\t\t\tUser: pulumi.String(\"00000000-aba2-0000-0000-000000000000\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\u0026datadog.OnCallEscalationPolicyStepTargetArgs{\n\t\t\t\t\t\t\tSchedule: pulumi.String(\"00000000-aba2-0000-0000-000000000000\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.OnCallEscalationPolicy;\nimport com.pulumi.datadog.OnCallEscalationPolicyArgs;\nimport com.pulumi.datadog.inputs.OnCallEscalationPolicyStepArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var policyTest = new OnCallEscalationPolicy(\"policyTest\", OnCallEscalationPolicyArgs.builder()\n            .name(\"Policy Name\")\n            .resolvePageOnPolicyEnd(true)\n            .retries(3)\n            .steps(OnCallEscalationPolicyStepArgs.builder()\n                .assignment(\"round-robin\")\n                .escalateAfterSeconds(300)\n                .targets(                \n                    OnCallEscalationPolicyStepTargetArgs.builder()\n                        .team(\"00000000-aba2-0000-0000-000000000000\")\n                        .build(),\n                    OnCallEscalationPolicyStepTargetArgs.builder()\n                        .user(\"00000000-aba2-0000-0000-000000000000\")\n                        .build(),\n                    OnCallEscalationPolicyStepTargetArgs.builder()\n                        .schedule(\"00000000-aba2-0000-0000-000000000000\")\n                        .build())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  policyTest:\n    type: datadog:OnCallEscalationPolicy\n    name: policy_test\n    properties:\n      name: Policy Name\n      resolvePageOnPolicyEnd: true\n      retries: 3\n      steps:\n        - assignment: round-robin\n          escalateAfterSeconds: 300\n          targets:\n            - team: 00000000-aba2-0000-0000-000000000000\n            - user: 00000000-aba2-0000-0000-000000000000\n            - schedule: 00000000-aba2-0000-0000-000000000000\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nThe `pulumi import` command can be used, for example:\n\nImport an existing on_call_escalation_policy\n\n```sh\n$ pulumi import datadog:index/onCallEscalationPolicy:OnCallEscalationPolicy policy_test \"b03a07d5-49da-43e9-83b4-5d84969b588b\"\n```\n\n",
             "properties": {
                 "name": {
                     "type": "string",
@@ -45336,6 +45900,7 @@
                 }
             },
             "required": [
+                "options",
                 "type"
             ],
             "inputProperties": {
@@ -47448,7 +48013,7 @@
                     "items": {
                         "$ref": "#/types/datadog:index/SyntheticsTestApiStep:SyntheticsTestApiStep"
                     },
-                    "description": "Steps for multi-step api tests\n"
+                    "description": "Steps for multistep API tests\n"
                 },
                 "assertions": {
                     "type": "array",
@@ -47613,7 +48178,7 @@
                     "items": {
                         "$ref": "#/types/datadog:index/SyntheticsTestApiStep:SyntheticsTestApiStep"
                     },
-                    "description": "Steps for multi-step api tests\n"
+                    "description": "Steps for multistep API tests\n"
                 },
                 "assertions": {
                     "type": "array",
@@ -47775,7 +48340,7 @@
                         "items": {
                             "$ref": "#/types/datadog:index/SyntheticsTestApiStep:SyntheticsTestApiStep"
                         },
-                        "description": "Steps for multi-step api tests\n"
+                        "description": "Steps for multistep API tests\n"
                     },
                     "assertions": {
                         "type": "array",
@@ -49079,7 +49644,7 @@
             }
         },
         "datadog:index/getActionConnection:getActionConnection": {
-            "description": "A connection that can be used in Actions, including in the Workflow Automation and App Builder products.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst myConnection = datadog.getActionConnection({\n    id: \"11111111-2222-3333-4444-555555555555\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nmy_connection = datadog.get_action_connection(id=\"11111111-2222-3333-4444-555555555555\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var myConnection = Datadog.GetActionConnection.Invoke(new()\n    {\n        Id = \"11111111-2222-3333-4444-555555555555\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.LookupActionConnection(ctx, \u0026datadog.LookupActionConnectionArgs{\n\t\t\tId: \"11111111-2222-3333-4444-555555555555\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.DatadogFunctions;\nimport com.pulumi.datadog.inputs.GetActionConnectionArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var myConnection = DatadogFunctions.getActionConnection(GetActionConnectionArgs.builder()\n            .id(\"11111111-2222-3333-4444-555555555555\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  myConnection:\n    fn::invoke:\n      function: datadog:getActionConnection\n      arguments:\n        id: 11111111-2222-3333-4444-555555555555\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "description": "A connection that can be used in Actions, including in the Workflow Automation and App Builder products. This data source requires a registered application key.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst myConnection = datadog.getActionConnection({\n    id: \"11111111-2222-3333-4444-555555555555\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nmy_connection = datadog.get_action_connection(id=\"11111111-2222-3333-4444-555555555555\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var myConnection = Datadog.GetActionConnection.Invoke(new()\n    {\n        Id = \"11111111-2222-3333-4444-555555555555\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.LookupActionConnection(ctx, \u0026datadog.LookupActionConnectionArgs{\n\t\t\tId: \"11111111-2222-3333-4444-555555555555\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.DatadogFunctions;\nimport com.pulumi.datadog.inputs.GetActionConnectionArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var myConnection = DatadogFunctions.getActionConnection(GetActionConnectionArgs.builder()\n            .id(\"11111111-2222-3333-4444-555555555555\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  myConnection:\n    fn::invoke:\n      function: datadog:getActionConnection\n      arguments:\n        id: 11111111-2222-3333-4444-555555555555\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getActionConnection.\n",
                 "properties": {
@@ -49205,7 +49770,7 @@
             }
         },
         "datadog:index/getAppBuilderApp:getAppBuilderApp": {
-            "description": "This data source retrieves the definition of an existing Datadog App from App Builder for use in other resources, such as embedding Apps in Dashboards.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst myApp = datadog.getAppBuilderApp({\n    id: \"11111111-2222-3333-4444-555555555555\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nmy_app = datadog.get_app_builder_app(id=\"11111111-2222-3333-4444-555555555555\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var myApp = Datadog.GetAppBuilderApp.Invoke(new()\n    {\n        Id = \"11111111-2222-3333-4444-555555555555\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.LookupAppBuilderApp(ctx, \u0026datadog.LookupAppBuilderAppArgs{\n\t\t\tId: \"11111111-2222-3333-4444-555555555555\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.DatadogFunctions;\nimport com.pulumi.datadog.inputs.GetAppBuilderAppArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var myApp = DatadogFunctions.getAppBuilderApp(GetAppBuilderAppArgs.builder()\n            .id(\"11111111-2222-3333-4444-555555555555\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  myApp:\n    fn::invoke:\n      function: datadog:getAppBuilderApp\n      arguments:\n        id: 11111111-2222-3333-4444-555555555555\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "description": "This data source retrieves the definition of an existing Datadog App from App Builder for use in other resources, such as embedding Apps in Dashboards. This data source requires a registered application key.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst myApp = datadog.getAppBuilderApp({\n    id: \"11111111-2222-3333-4444-555555555555\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nmy_app = datadog.get_app_builder_app(id=\"11111111-2222-3333-4444-555555555555\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var myApp = Datadog.GetAppBuilderApp.Invoke(new()\n    {\n        Id = \"11111111-2222-3333-4444-555555555555\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.LookupAppBuilderApp(ctx, \u0026datadog.LookupAppBuilderAppArgs{\n\t\t\tId: \"11111111-2222-3333-4444-555555555555\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.DatadogFunctions;\nimport com.pulumi.datadog.inputs.GetAppBuilderAppArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var myApp = DatadogFunctions.getAppBuilderApp(GetAppBuilderAppArgs.builder()\n            .id(\"11111111-2222-3333-4444-555555555555\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  myApp:\n    fn::invoke:\n      function: datadog:getAppBuilderApp\n      arguments:\n        id: 11111111-2222-3333-4444-555555555555\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getAppBuilderApp.\n",
                 "properties": {
@@ -49641,6 +50206,50 @@
                 "type": "object"
             }
         },
+        "datadog:index/getIncidentType:getIncidentType": {
+            "description": "Use this data source to retrieve information about an existing incident type.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst example = datadog.getIncidentType({\n    id: \"01234567-89ab-cdef-0123-456789abcdef\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nexample = datadog.get_incident_type(id=\"01234567-89ab-cdef-0123-456789abcdef\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Datadog.GetIncidentType.Invoke(new()\n    {\n        Id = \"01234567-89ab-cdef-0123-456789abcdef\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.LookupIncidentType(ctx, \u0026datadog.LookupIncidentTypeArgs{\n\t\t\tId: \"01234567-89ab-cdef-0123-456789abcdef\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.DatadogFunctions;\nimport com.pulumi.datadog.inputs.GetIncidentTypeArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = DatadogFunctions.getIncidentType(GetIncidentTypeArgs.builder()\n            .id(\"01234567-89ab-cdef-0123-456789abcdef\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      function: datadog:getIncidentType\n      arguments:\n        id: 01234567-89ab-cdef-0123-456789abcdef\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getIncidentType.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The ID of the incident type.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getIncidentType.\n",
+                "properties": {
+                    "description": {
+                        "description": "Description of the incident type.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The ID of the incident type.\n",
+                        "type": "string"
+                    },
+                    "isDefault": {
+                        "description": "Whether this incident type is the default type.\n",
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "description": "Name of the incident type.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "description",
+                    "id",
+                    "isDefault",
+                    "name"
+                ],
+                "type": "object"
+            }
+        },
         "datadog:index/getIpRanges:getIpRanges": {
             "description": "Use this data source to retrieve information about Datadog's IP addresses.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst test = datadog.getIpRanges({});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\ntest = datadog.get_ip_ranges()\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test = Datadog.GetIpRanges.Invoke();\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.GetIpRanges(ctx, map[string]interface{}{}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.DatadogFunctions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var test = DatadogFunctions.getIpRanges(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);\n\n    }\n}\n```\n```yaml\nvariables:\n  test:\n    fn::invoke:\n      function: datadog:getIpRanges\n      arguments: {}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "outputs": {
@@ -49947,6 +50556,75 @@
                 "required": [
                     "id",
                     "pipelineIds"
+                ],
+                "type": "object"
+            }
+        },
+        "datadog:index/getMetricMetadata:getMetricMetadata": {
+            "description": "Use this data source to retrieve metadata associated with a metric to use in other resources.\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getMetricMetadata.\n",
+                "properties": {
+                    "metricName": {
+                        "type": "string",
+                        "description": "The metric for which to fetch metadata.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "metricName"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getMetricMetadata.\n",
+                "properties": {
+                    "description": {
+                        "description": "The metric description.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The ID of this resource.\n",
+                        "type": "string"
+                    },
+                    "integration": {
+                        "description": "The metric integration.\n",
+                        "type": "string"
+                    },
+                    "metricName": {
+                        "description": "The metric for which to fetch metadata.\n",
+                        "type": "string"
+                    },
+                    "perUnit": {
+                        "description": "The per unit of the metric.\n",
+                        "type": "string"
+                    },
+                    "shortName": {
+                        "description": "The metric short name.\n",
+                        "type": "string"
+                    },
+                    "statsdInterval": {
+                        "description": "The metric statsd interval.\n",
+                        "type": "integer"
+                    },
+                    "type": {
+                        "description": "The metric type.\n",
+                        "type": "string"
+                    },
+                    "unit": {
+                        "description": "The metric unit.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "description",
+                    "id",
+                    "integration",
+                    "metricName",
+                    "perUnit",
+                    "shortName",
+                    "statsdInterval",
+                    "type",
+                    "unit"
                 ],
                 "type": "object"
             }
@@ -51653,7 +52331,7 @@
             }
         },
         "datadog:index/getWorkflowAutomation:getWorkflowAutomation": {
-            "description": "This data source retrieves the definition of an existing Datadog workflow from Workflow Automation for use in other resources.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst myWorkflow = datadog.getWorkflowAutomation({\n    id: \"11111111-2222-3333-4444-555555555555\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nmy_workflow = datadog.get_workflow_automation(id=\"11111111-2222-3333-4444-555555555555\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var myWorkflow = Datadog.GetWorkflowAutomation.Invoke(new()\n    {\n        Id = \"11111111-2222-3333-4444-555555555555\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.LookupWorkflowAutomation(ctx, \u0026datadog.LookupWorkflowAutomationArgs{\n\t\t\tId: \"11111111-2222-3333-4444-555555555555\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.DatadogFunctions;\nimport com.pulumi.datadog.inputs.GetWorkflowAutomationArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var myWorkflow = DatadogFunctions.getWorkflowAutomation(GetWorkflowAutomationArgs.builder()\n            .id(\"11111111-2222-3333-4444-555555555555\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  myWorkflow:\n    fn::invoke:\n      function: datadog:getWorkflowAutomation\n      arguments:\n        id: 11111111-2222-3333-4444-555555555555\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "description": "This data source retrieves the definition of an existing Datadog workflow from Workflow Automation for use in other resources. This data source requires a registered application key.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst myWorkflow = datadog.getWorkflowAutomation({\n    id: \"11111111-2222-3333-4444-555555555555\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nmy_workflow = datadog.get_workflow_automation(id=\"11111111-2222-3333-4444-555555555555\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var myWorkflow = Datadog.GetWorkflowAutomation.Invoke(new()\n    {\n        Id = \"11111111-2222-3333-4444-555555555555\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.LookupWorkflowAutomation(ctx, \u0026datadog.LookupWorkflowAutomationArgs{\n\t\t\tId: \"11111111-2222-3333-4444-555555555555\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.DatadogFunctions;\nimport com.pulumi.datadog.inputs.GetWorkflowAutomationArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var myWorkflow = DatadogFunctions.getWorkflowAutomation(GetWorkflowAutomationArgs.builder()\n            .id(\"11111111-2222-3333-4444-555555555555\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  myWorkflow:\n    fn::invoke:\n      function: datadog:getWorkflowAutomation\n      arguments:\n        id: 11111111-2222-3333-4444-555555555555\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getWorkflowAutomation.\n",
                 "properties": {

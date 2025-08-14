@@ -155,6 +155,17 @@ func Provider() tfbridge.ProviderInfo {
 					"https://github.com/pulumi/pulumi-datadog",
 				),
 			},
+
+			"datadog_app_key_registration": {
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"id": {Name: "appKeyId"},
+				},
+				ComputeID: tfbridge.DelegateIDField(
+					"appKeyId",
+					"datadog",
+					"https://github.com/pulumi/pulumi-datadog",
+				),
+			},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"datadog_integration_aws_logs_services": {Tok: makeDataSource(awsMod, "getIntegrationLogsServices")},

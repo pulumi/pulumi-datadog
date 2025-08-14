@@ -19,7 +19,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.SecurityMonitoringRuleCaseActionOptionsGetArgs>? Options { get; set; }
 
         /// <summary>
-        /// Type of action to perform when the case triggers. Valid values are `block_ip`, `block_user`, `user_behavior`.
+        /// Type of action to perform when the case triggers. Valid values are `block_ip`, `block_user`, `user_behavior`, `flag_ip`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

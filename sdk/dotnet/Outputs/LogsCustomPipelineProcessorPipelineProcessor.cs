@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor? ArithmeticProcessor;
         /// <summary>
+        /// Array Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#array-processor)
+        /// </summary>
+        public readonly Outputs.LogsCustomPipelineProcessorPipelineProcessorArrayProcessor? ArrayProcessor;
+        /// <summary>
         /// Attribute Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#remapper)
         /// </summary>
         public readonly Outputs.LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper? AttributeRemapper;
@@ -29,6 +33,10 @@ namespace Pulumi.Datadog.Outputs
         /// Date Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-date-remapper)
         /// </summary>
         public readonly Outputs.LogsCustomPipelineProcessorPipelineProcessorDateRemapper? DateRemapper;
+        /// <summary>
+        /// Decoder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#decoder-processor)
+        /// </summary>
+        public readonly Outputs.LogsCustomPipelineProcessorPipelineProcessorDecoderProcessor? DecoderProcessor;
         /// <summary>
         /// Date GeoIP Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#geoip-parser)
         /// </summary>
@@ -82,11 +90,15 @@ namespace Pulumi.Datadog.Outputs
         private LogsCustomPipelineProcessorPipelineProcessor(
             Outputs.LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor? arithmeticProcessor,
 
+            Outputs.LogsCustomPipelineProcessorPipelineProcessorArrayProcessor? arrayProcessor,
+
             Outputs.LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper? attributeRemapper,
 
             Outputs.LogsCustomPipelineProcessorPipelineProcessorCategoryProcessor? categoryProcessor,
 
             Outputs.LogsCustomPipelineProcessorPipelineProcessorDateRemapper? dateRemapper,
+
+            Outputs.LogsCustomPipelineProcessorPipelineProcessorDecoderProcessor? decoderProcessor,
 
             Outputs.LogsCustomPipelineProcessorPipelineProcessorGeoIpParser? geoIpParser,
 
@@ -113,9 +125,11 @@ namespace Pulumi.Datadog.Outputs
             Outputs.LogsCustomPipelineProcessorPipelineProcessorUserAgentParser? userAgentParser)
         {
             ArithmeticProcessor = arithmeticProcessor;
+            ArrayProcessor = arrayProcessor;
             AttributeRemapper = attributeRemapper;
             CategoryProcessor = categoryProcessor;
             DateRemapper = dateRemapper;
+            DecoderProcessor = decoderProcessor;
             GeoIpParser = geoIpParser;
             GrokParser = grokParser;
             LookupProcessor = lookupProcessor;

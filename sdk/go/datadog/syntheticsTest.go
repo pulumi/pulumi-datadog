@@ -838,7 +838,7 @@ import (
 type SyntheticsTest struct {
 	pulumi.CustomResourceState
 
-	// Steps for multi-step api tests
+	// Steps for multistep API tests
 	ApiSteps SyntheticsTestApiStepArrayOutput `pulumi:"apiSteps"`
 	// Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
 	Assertions SyntheticsTestAssertionArrayOutput `pulumi:"assertions"`
@@ -938,7 +938,7 @@ func GetSyntheticsTest(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SyntheticsTest resources.
 type syntheticsTestState struct {
-	// Steps for multi-step api tests
+	// Steps for multistep API tests
 	ApiSteps []SyntheticsTestApiStep `pulumi:"apiSteps"`
 	// Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
 	Assertions []SyntheticsTestAssertion `pulumi:"assertions"`
@@ -997,7 +997,7 @@ type syntheticsTestState struct {
 }
 
 type SyntheticsTestState struct {
-	// Steps for multi-step api tests
+	// Steps for multistep API tests
 	ApiSteps SyntheticsTestApiStepArrayInput
 	// Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
 	Assertions SyntheticsTestAssertionArrayInput
@@ -1060,7 +1060,7 @@ func (SyntheticsTestState) ElementType() reflect.Type {
 }
 
 type syntheticsTestArgs struct {
-	// Steps for multi-step api tests
+	// Steps for multistep API tests
 	ApiSteps []SyntheticsTestApiStep `pulumi:"apiSteps"`
 	// Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
 	Assertions []SyntheticsTestAssertion `pulumi:"assertions"`
@@ -1118,7 +1118,7 @@ type syntheticsTestArgs struct {
 
 // The set of arguments for constructing a SyntheticsTest resource.
 type SyntheticsTestArgs struct {
-	// Steps for multi-step api tests
+	// Steps for multistep API tests
 	ApiSteps SyntheticsTestApiStepArrayInput
 	// Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
 	Assertions SyntheticsTestAssertionArrayInput
@@ -1261,7 +1261,7 @@ func (o SyntheticsTestOutput) ToSyntheticsTestOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Steps for multi-step api tests
+// Steps for multistep API tests
 func (o SyntheticsTestOutput) ApiSteps() SyntheticsTestApiStepArrayOutput {
 	return o.ApplyT(func(v *SyntheticsTest) SyntheticsTestApiStepArrayOutput { return v.ApiSteps }).(SyntheticsTestApiStepArrayOutput)
 }

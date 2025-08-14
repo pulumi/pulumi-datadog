@@ -24,6 +24,10 @@
                     }
                 }
             },
+            "datadog_agentless_scanning_aws_scan_options": {
+                "current": "datadog:index/agentlessScanningAwsScanOptions:AgentlessScanningAwsScanOptions",
+                "majorVersion": 4
+            },
             "datadog_api_key": {
                 "current": "datadog:index/apiKey:ApiKey",
                 "majorVersion": 4
@@ -43,6 +47,10 @@
             },
             "datadog_app_builder_app": {
                 "current": "datadog:index/appBuilderApp:AppBuilderApp",
+                "majorVersion": 4
+            },
+            "datadog_app_key_registration": {
+                "current": "datadog:index/appKeyRegistration:AppKeyRegistration",
                 "majorVersion": 4
             },
             "datadog_application_key": {
@@ -12310,6 +12318,10 @@
                     }
                 }
             },
+            "datadog_incident_type": {
+                "current": "datadog:index/incidentType:IncidentType",
+                "majorVersion": 4
+            },
             "datadog_integration_aws": {
                 "current": "datadog:aws/integration:Integration",
                 "majorVersion": 4,
@@ -12613,6 +12625,29 @@
                                 "arithmetic_processor": {
                                     "maxItemsOne": true
                                 },
+                                "array_processor": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "operation": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "append": {
+                                                            "maxItemsOne": true
+                                                        },
+                                                        "length": {
+                                                            "maxItemsOne": true
+                                                        },
+                                                        "select": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
                                 "attribute_remapper": {
                                     "maxItemsOne": true,
                                     "elem": {
@@ -12649,6 +12684,9 @@
                                             }
                                         }
                                     }
+                                },
+                                "decoder_processor": {
+                                    "maxItemsOne": true
                                 },
                                 "geo_ip_parser": {
                                     "maxItemsOne": true,
@@ -12707,6 +12745,29 @@
                                                         "arithmetic_processor": {
                                                             "maxItemsOne": true
                                                         },
+                                                        "array_processor": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "operation": {
+                                                                        "maxItemsOne": true,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "append": {
+                                                                                    "maxItemsOne": true
+                                                                                },
+                                                                                "length": {
+                                                                                    "maxItemsOne": true
+                                                                                },
+                                                                                "select": {
+                                                                                    "maxItemsOne": true
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
                                                         "attribute_remapper": {
                                                             "maxItemsOne": true,
                                                             "elem": {
@@ -12743,6 +12804,9 @@
                                                                     }
                                                                 }
                                                             }
+                                                        },
+                                                        "decoder_processor": {
+                                                            "maxItemsOne": true
                                                         },
                                                         "geo_ip_parser": {
                                                             "maxItemsOne": true,
@@ -18028,6 +18092,10 @@
                     }
                 }
             },
+            "datadog_incident_type": {
+                "current": "datadog:index/getIncidentType:getIncidentType",
+                "majorVersion": 4
+            },
             "datadog_integration_aws_available_logs_services": {
                 "current": "datadog:aws/getIntegrationAvailableLogsServices:getIntegrationAvailableLogsServices",
                 "majorVersion": 4,
@@ -18198,6 +18266,10 @@
                         "maxItemsOne": false
                     }
                 }
+            },
+            "datadog_metric_metadata": {
+                "current": "datadog:index/getMetricMetadata:getMetricMetadata",
+                "majorVersion": 4
             },
             "datadog_metric_tags": {
                 "current": "datadog:index/getMetricTags:getMetricTags",
@@ -18657,10 +18729,12 @@
             "datadog:gcp/integration:Integration": 1,
             "datadog:gcp/integrationSts:IntegrationSts": 1,
             "datadog:index/actionConnection:ActionConnection": 1,
+            "datadog:index/agentlessScanningAwsScanOptions:AgentlessScanningAwsScanOptions": 1,
             "datadog:index/apiKey:ApiKey": 1,
             "datadog:index/apmRetentionFilter:ApmRetentionFilter": 1,
             "datadog:index/apmRetentionFilterOrder:ApmRetentionFilterOrder": 1,
             "datadog:index/appBuilderApp:AppBuilderApp": 1,
+            "datadog:index/appKeyRegistration:AppKeyRegistration": 1,
             "datadog:index/applicationKey:ApplicationKey": 1,
             "datadog:index/appsecWafCustomRule:AppsecWafCustomRule": 1,
             "datadog:index/appsecWafExclusionFilter:AppsecWafExclusionFilter": 1,
@@ -18679,6 +18753,7 @@
             "datadog:index/domainAllowlist:DomainAllowlist": 1,
             "datadog:index/downtime:Downtime": 0,
             "datadog:index/downtimeSchedule:DowntimeSchedule": 1,
+            "datadog:index/incidentType:IncidentType": 1,
             "datadog:index/ipAllowlist:IpAllowlist": 1,
             "datadog:index/logsArchive:LogsArchive": 0,
             "datadog:index/logsArchiveOrder:LogsArchiveOrder": 0,
@@ -18761,12 +18836,14 @@
             "datadog:index/getDashboard:getDashboard": 0,
             "datadog:index/getDashboardList:getDashboardList": 1,
             "datadog:index/getHosts:getHosts": 1,
+            "datadog:index/getIncidentType:getIncidentType": 1,
             "datadog:index/getIpRanges:getIpRanges": 1,
             "datadog:index/getLogsArchivesOrder:getLogsArchivesOrder": 0,
             "datadog:index/getLogsIndexes:getLogsIndexes": 0,
             "datadog:index/getLogsIndexesOrder:getLogsIndexesOrder": 0,
             "datadog:index/getLogsPipelines:getLogsPipelines": 0,
             "datadog:index/getLogsPipelinesOrder:getLogsPipelinesOrder": 1,
+            "datadog:index/getMetricMetadata:getMetricMetadata": 1,
             "datadog:index/getMetricTags:getMetricTags": 1,
             "datadog:index/getMonitor:getMonitor": 0,
             "datadog:index/getMonitorConfigPolicies:getMonitorConfigPolicies": 0,

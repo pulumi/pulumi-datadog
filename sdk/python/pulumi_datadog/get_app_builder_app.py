@@ -124,7 +124,7 @@ class AwaitableGetAppBuilderAppResult(GetAppBuilderAppResult):
 def get_app_builder_app(id: Optional[_builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppBuilderAppResult:
     """
-    This data source retrieves the definition of an existing Datadog App from App Builder for use in other resources, such as embedding Apps in Dashboards.
+    This data source retrieves the definition of an existing Datadog App from App Builder for use in other resources, such as embedding Apps in Dashboards. This data source requires a registered application key.
 
     ## Example Usage
 
@@ -154,7 +154,7 @@ def get_app_builder_app(id: Optional[_builtins.str] = None,
 def get_app_builder_app_output(id: Optional[pulumi.Input[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppBuilderAppResult]:
     """
-    This data source retrieves the definition of an existing Datadog App from App Builder for use in other resources, such as embedding Apps in Dashboards.
+    This data source retrieves the definition of an existing Datadog App from App Builder for use in other resources, such as embedding Apps in Dashboards. This data source requires a registered application key.
 
     ## Example Usage
 

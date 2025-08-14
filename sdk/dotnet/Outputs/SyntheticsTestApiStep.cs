@@ -50,7 +50,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.SyntheticsTestApiStepRequestClientCertificate? RequestClientCertificate;
         /// <summary>
-        /// The request for the api step.
+        /// The request for the API step.
         /// </summary>
         public readonly Outputs.SyntheticsTestApiStepRequestDefinition? RequestDefinition;
         /// <summary>
@@ -75,7 +75,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly ImmutableDictionary<string, string>? RequestQuery;
         public readonly Outputs.SyntheticsTestApiStepRetry? Retry;
         /// <summary>
-        /// The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `ssl`, `dns`, `tcp`, `udp`, `icmp`, `websocket`, `wait`. Defaults to `"http"`.
+        /// The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`, `ssl`, `dns`, `tcp`, `udp`, `icmp`, `websocket`, `wait`. Defaults to `"http"`.
         /// </summary>
         public readonly string? Subtype;
         /// <summary>

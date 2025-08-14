@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class SyntheticsTestApiStepRequestDefinitionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// For SSL test, whether or not the test should allow self signed certificates.
+        /// For SSL tests, whether or not the test should allow self signed certificates.
         /// </summary>
         [Input("acceptSelfSigned")]
         public Input<bool>? AcceptSelfSigned { get; set; }
@@ -55,10 +55,16 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+        /// For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
         /// </summary>
         [Input("checkCertificateRevocation")]
         public Input<bool>? CheckCertificateRevocation { get; set; }
+
+        /// <summary>
+        /// For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA
+        /// </summary>
+        [Input("disableAiaIntermediateFetching")]
+        public Input<bool>? DisableAiaIntermediateFetching { get; set; }
 
         /// <summary>
         /// DNS server to use for DNS tests (`subtype = "dns"`).
@@ -109,7 +115,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<bool>? IsMessageBase64Encoded { get; set; }
 
         /// <summary>
-        /// For UDP and websocket tests, message to send with the request.
+        /// For gRPC, UDP and websocket tests, message to send with the request.
         /// </summary>
         [Input("message")]
         public Input<string>? Message { get; set; }

@@ -112,7 +112,7 @@ class AwaitableGetWorkflowAutomationResult(GetWorkflowAutomationResult):
 def get_workflow_automation(id: Optional[_builtins.str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkflowAutomationResult:
     """
-    This data source retrieves the definition of an existing Datadog workflow from Workflow Automation for use in other resources.
+    This data source retrieves the definition of an existing Datadog workflow from Workflow Automation for use in other resources. This data source requires a registered application key.
 
     ## Example Usage
 
@@ -141,7 +141,7 @@ def get_workflow_automation(id: Optional[_builtins.str] = None,
 def get_workflow_automation_output(id: Optional[pulumi.Input[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkflowAutomationResult]:
     """
-    This data source retrieves the definition of an existing Datadog workflow from Workflow Automation for use in other resources.
+    This data source retrieves the definition of an existing Datadog workflow from Workflow Automation for use in other resources. This data source requires a registered application key.
 
     ## Example Usage
 

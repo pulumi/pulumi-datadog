@@ -42,10 +42,52 @@ namespace Pulumi.Datadog
         public Output<string?> AppKey { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID`
+        /// environment variable. Required when using `cloud_provider_type` set to `aws`.
+        /// </summary>
+        [Output("awsAccessKeyId")]
+        public Output<string?> AwsAccessKeyId { get; private set; } = null!;
+
+        /// <summary>
+        /// The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the
+        /// `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
+        /// </summary>
+        [Output("awsSecretAccessKey")]
+        public Output<string?> AwsSecretAccessKey { get; private set; } = null!;
+
+        /// <summary>
+        /// The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN`
+        /// environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
+        /// </summary>
+        [Output("awsSessionToken")]
+        public Output<string?> AwsSessionToken { get; private set; } = null!;
+
+        /// <summary>
+        /// The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
+        /// </summary>
+        [Output("cloudProviderRegion")]
+        public Output<string?> CloudProviderRegion { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app
+        /// keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact
+        /// [support](https://docs.datadoghq.com/help/).
+        /// </summary>
+        [Output("cloudProviderType")]
+        public Output<string?> CloudProviderType { get; private set; } = null!;
+
+        /// <summary>
         /// Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
         /// </summary>
         [Output("httpClientRetryEnabled")]
         public Output<string?> HttpClientRetryEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// The organization UUID; used for cloud-provider-based authentication. See the [Datadog API
+        /// documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+        /// </summary>
+        [Output("orgUuid")]
+        public Output<string?> OrgUuid { get; private set; } = null!;
 
         /// <summary>
         /// Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default
@@ -76,6 +118,9 @@ namespace Pulumi.Datadog
                 {
                     "apiKey",
                     "appKey",
+                    "awsAccessKeyId",
+                    "awsSecretAccessKey",
+                    "awsSessionToken",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -136,6 +181,71 @@ namespace Pulumi.Datadog
             }
         }
 
+        [Input("awsAccessKeyId")]
+        private Input<string>? _awsAccessKeyId;
+
+        /// <summary>
+        /// The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID`
+        /// environment variable. Required when using `cloud_provider_type` set to `aws`.
+        /// </summary>
+        public Input<string>? AwsAccessKeyId
+        {
+            get => _awsAccessKeyId;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _awsAccessKeyId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("awsSecretAccessKey")]
+        private Input<string>? _awsSecretAccessKey;
+
+        /// <summary>
+        /// The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the
+        /// `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
+        /// </summary>
+        public Input<string>? AwsSecretAccessKey
+        {
+            get => _awsSecretAccessKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _awsSecretAccessKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("awsSessionToken")]
+        private Input<string>? _awsSessionToken;
+
+        /// <summary>
+        /// The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN`
+        /// environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
+        /// </summary>
+        public Input<string>? AwsSessionToken
+        {
+            get => _awsSessionToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _awsSessionToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
+        /// </summary>
+        [Input("cloudProviderRegion")]
+        public Input<string>? CloudProviderRegion { get; set; }
+
+        /// <summary>
+        /// Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app
+        /// keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact
+        /// [support](https://docs.datadoghq.com/help/).
+        /// </summary>
+        [Input("cloudProviderType")]
+        public Input<string>? CloudProviderType { get; set; }
+
         /// <summary>
         /// [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration
         /// block containing settings to apply default resource tags across all resources.
@@ -172,6 +282,13 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("httpClientRetryTimeout", json: true)]
         public Input<int>? HttpClientRetryTimeout { get; set; }
+
+        /// <summary>
+        /// The organization UUID; used for cloud-provider-based authentication. See the [Datadog API
+        /// documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+        /// </summary>
+        [Input("orgUuid")]
+        public Input<string>? OrgUuid { get; set; }
 
         /// <summary>
         /// Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default
