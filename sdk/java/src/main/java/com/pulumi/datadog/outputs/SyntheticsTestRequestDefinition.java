@@ -70,7 +70,7 @@ public final class SyntheticsTestRequestDefinition {
      */
     private @Nullable Boolean isMessageBase64Encoded;
     /**
-     * @return For UDP and websocket tests, message to send with the request.
+     * @return For gRPC, UDP and websocket tests, message to send with the request.
      * 
      */
     private @Nullable String message;
@@ -215,7 +215,7 @@ public final class SyntheticsTestRequestDefinition {
         return Optional.ofNullable(this.isMessageBase64Encoded);
     }
     /**
-     * @return For UDP and websocket tests, message to send with the request.
+     * @return For gRPC, UDP and websocket tests, message to send with the request.
      * 
      */
     public Optional<String> message() {

@@ -7,10 +7,12 @@ from . import _utilities
 import typing
 # Export this package's modules as members:
 from .action_connection import *
+from .agentless_scanning_aws_scan_options import *
 from .api_key import *
 from .apm_retention_filter import *
 from .apm_retention_filter_order import *
 from .app_builder_app import *
+from .app_key_registration import *
 from .application_key import *
 from .appsec_waf_custom_rule import *
 from .appsec_waf_exclusion_filter import *
@@ -41,12 +43,14 @@ from .get_csm_threats_policies import *
 from .get_dashboard import *
 from .get_dashboard_list import *
 from .get_hosts import *
+from .get_incident_type import *
 from .get_ip_ranges import *
 from .get_logs_archives_order import *
 from .get_logs_indexes import *
 from .get_logs_indexes_order import *
 from .get_logs_pipelines import *
 from .get_logs_pipelines_order import *
+from .get_metric_metadata import *
 from .get_metric_tags import *
 from .get_monitor import *
 from .get_monitor_config_policies import *
@@ -76,6 +80,7 @@ from .get_teams import *
 from .get_user import *
 from .get_users import *
 from .get_workflow_automation import *
+from .incident_type import *
 from .ip_allowlist import *
 from .logs_archive import *
 from .logs_archive_order import *
@@ -308,6 +313,14 @@ _utilities.register(
  },
  {
   "pkg": "datadog",
+  "mod": "index/agentlessScanningAwsScanOptions",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/agentlessScanningAwsScanOptions:AgentlessScanningAwsScanOptions": "AgentlessScanningAwsScanOptions"
+  }
+ },
+ {
+  "pkg": "datadog",
   "mod": "index/apiKey",
   "fqn": "pulumi_datadog",
   "classes": {
@@ -336,6 +349,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/appBuilderApp:AppBuilderApp": "AppBuilderApp"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/appKeyRegistration",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/appKeyRegistration:AppKeyRegistration": "AppKeyRegistration"
   }
  },
  {
@@ -480,6 +501,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/downtimeSchedule:DowntimeSchedule": "DowntimeSchedule"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/incidentType",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/incidentType:IncidentType": "IncidentType"
   }
  },
  {

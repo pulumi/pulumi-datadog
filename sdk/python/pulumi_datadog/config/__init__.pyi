@@ -35,6 +35,36 @@ appKey: Optional[str]
 (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
 """
 
+awsAccessKeyId: Optional[str]
+"""
+The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID`
+environment variable. Required when using `cloud_provider_type` set to `aws`.
+"""
+
+awsSecretAccessKey: Optional[str]
+"""
+The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the
+`AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
+"""
+
+awsSessionToken: Optional[str]
+"""
+The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN`
+environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
+"""
+
+cloudProviderRegion: Optional[str]
+"""
+The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
+"""
+
+cloudProviderType: Optional[str]
+"""
+Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app
+keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact
+[support](https://docs.datadoghq.com/help/).
+"""
+
 defaultTags: Optional[str]
 """
 [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration
@@ -64,6 +94,12 @@ The HTTP request maximum retry number. Defaults to 3.
 httpClientRetryTimeout: Optional[int]
 """
 The HTTP request retry timeout period. Defaults to 60 seconds.
+"""
+
+orgUuid: Optional[str]
+"""
+The organization UUID; used for cloud-provider-based authentication. See the [Datadog API
+documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
 """
 
 validate: Optional[str]

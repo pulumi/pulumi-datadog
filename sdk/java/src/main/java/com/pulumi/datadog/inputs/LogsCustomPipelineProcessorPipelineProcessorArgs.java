@@ -6,9 +6,11 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessorArgs;
+import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorPipelineProcessorArrayProcessorArgs;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperArgs;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorArgs;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorPipelineProcessorDateRemapperArgs;
+import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorPipelineProcessorDecoderProcessorArgs;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorPipelineProcessorGeoIpParserArgs;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorPipelineProcessorGrokParserArgs;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorPipelineProcessorLookupProcessorArgs;
@@ -43,6 +45,21 @@ public final class LogsCustomPipelineProcessorPipelineProcessorArgs extends com.
      */
     public Optional<Output<LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessorArgs>> arithmeticProcessor() {
         return Optional.ofNullable(this.arithmeticProcessor);
+    }
+
+    /**
+     * Array Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#array-processor)
+     * 
+     */
+    @Import(name="arrayProcessor")
+    private @Nullable Output<LogsCustomPipelineProcessorPipelineProcessorArrayProcessorArgs> arrayProcessor;
+
+    /**
+     * @return Array Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#array-processor)
+     * 
+     */
+    public Optional<Output<LogsCustomPipelineProcessorPipelineProcessorArrayProcessorArgs>> arrayProcessor() {
+        return Optional.ofNullable(this.arrayProcessor);
     }
 
     /**
@@ -88,6 +105,21 @@ public final class LogsCustomPipelineProcessorPipelineProcessorArgs extends com.
      */
     public Optional<Output<LogsCustomPipelineProcessorPipelineProcessorDateRemapperArgs>> dateRemapper() {
         return Optional.ofNullable(this.dateRemapper);
+    }
+
+    /**
+     * Decoder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#decoder-processor)
+     * 
+     */
+    @Import(name="decoderProcessor")
+    private @Nullable Output<LogsCustomPipelineProcessorPipelineProcessorDecoderProcessorArgs> decoderProcessor;
+
+    /**
+     * @return Decoder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#decoder-processor)
+     * 
+     */
+    public Optional<Output<LogsCustomPipelineProcessorPipelineProcessorDecoderProcessorArgs>> decoderProcessor() {
+        return Optional.ofNullable(this.decoderProcessor);
     }
 
     /**
@@ -274,9 +306,11 @@ public final class LogsCustomPipelineProcessorPipelineProcessorArgs extends com.
 
     private LogsCustomPipelineProcessorPipelineProcessorArgs(LogsCustomPipelineProcessorPipelineProcessorArgs $) {
         this.arithmeticProcessor = $.arithmeticProcessor;
+        this.arrayProcessor = $.arrayProcessor;
         this.attributeRemapper = $.attributeRemapper;
         this.categoryProcessor = $.categoryProcessor;
         this.dateRemapper = $.dateRemapper;
+        this.decoderProcessor = $.decoderProcessor;
         this.geoIpParser = $.geoIpParser;
         this.grokParser = $.grokParser;
         this.lookupProcessor = $.lookupProcessor;
@@ -328,6 +362,27 @@ public final class LogsCustomPipelineProcessorPipelineProcessorArgs extends com.
          */
         public Builder arithmeticProcessor(LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessorArgs arithmeticProcessor) {
             return arithmeticProcessor(Output.of(arithmeticProcessor));
+        }
+
+        /**
+         * @param arrayProcessor Array Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#array-processor)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arrayProcessor(@Nullable Output<LogsCustomPipelineProcessorPipelineProcessorArrayProcessorArgs> arrayProcessor) {
+            $.arrayProcessor = arrayProcessor;
+            return this;
+        }
+
+        /**
+         * @param arrayProcessor Array Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#array-processor)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arrayProcessor(LogsCustomPipelineProcessorPipelineProcessorArrayProcessorArgs arrayProcessor) {
+            return arrayProcessor(Output.of(arrayProcessor));
         }
 
         /**
@@ -391,6 +446,27 @@ public final class LogsCustomPipelineProcessorPipelineProcessorArgs extends com.
          */
         public Builder dateRemapper(LogsCustomPipelineProcessorPipelineProcessorDateRemapperArgs dateRemapper) {
             return dateRemapper(Output.of(dateRemapper));
+        }
+
+        /**
+         * @param decoderProcessor Decoder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#decoder-processor)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder decoderProcessor(@Nullable Output<LogsCustomPipelineProcessorPipelineProcessorDecoderProcessorArgs> decoderProcessor) {
+            $.decoderProcessor = decoderProcessor;
+            return this;
+        }
+
+        /**
+         * @param decoderProcessor Decoder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#decoder-processor)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder decoderProcessor(LogsCustomPipelineProcessorPipelineProcessorDecoderProcessorArgs decoderProcessor) {
+            return decoderProcessor(Output.of(decoderProcessor));
         }
 
         /**

@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This data source retrieves the definition of an existing Datadog workflow from Workflow Automation for use in other resources.
+// This data source retrieves the definition of an existing Datadog workflow from Workflow Automation for use in other resources. This data source requires a registered application key.
 //
 // ## Example Usage
 //

@@ -725,7 +725,7 @@ export class SyntheticsTest extends pulumi.CustomResource {
     }
 
     /**
-     * Steps for multi-step api tests
+     * Steps for multistep API tests
      */
     public readonly apiSteps!: pulumi.Output<outputs.SyntheticsTestApiStep[] | undefined>;
     /**
@@ -931,7 +931,7 @@ export class SyntheticsTest extends pulumi.CustomResource {
  */
 export interface SyntheticsTestState {
     /**
-     * Steps for multi-step api tests
+     * Steps for multistep API tests
      */
     apiSteps?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestApiStep>[]>;
     /**
@@ -1047,7 +1047,7 @@ export interface SyntheticsTestState {
  */
 export interface SyntheticsTestArgs {
     /**
-     * Steps for multi-step api tests
+     * Steps for multistep API tests
      */
     apiSteps?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestApiStep>[]>;
     /**

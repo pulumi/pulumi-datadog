@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This data source retrieves the definition of an existing Datadog App from App Builder for use in other resources, such as embedding Apps in Dashboards.
+// This data source retrieves the definition of an existing Datadog App from App Builder for use in other resources, such as embedding Apps in Dashboards. This data source requires a registered application key.
 //
 // ## Example Usage
 //

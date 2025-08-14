@@ -24,8 +24,12 @@ import com.pulumi.datadog.inputs.GetDashboardListPlainArgs;
 import com.pulumi.datadog.inputs.GetDashboardPlainArgs;
 import com.pulumi.datadog.inputs.GetHostsArgs;
 import com.pulumi.datadog.inputs.GetHostsPlainArgs;
+import com.pulumi.datadog.inputs.GetIncidentTypeArgs;
+import com.pulumi.datadog.inputs.GetIncidentTypePlainArgs;
 import com.pulumi.datadog.inputs.GetLogsPipelinesArgs;
 import com.pulumi.datadog.inputs.GetLogsPipelinesPlainArgs;
+import com.pulumi.datadog.inputs.GetMetricMetadataArgs;
+import com.pulumi.datadog.inputs.GetMetricMetadataPlainArgs;
 import com.pulumi.datadog.inputs.GetMetricTagsArgs;
 import com.pulumi.datadog.inputs.GetMetricTagsPlainArgs;
 import com.pulumi.datadog.inputs.GetMonitorArgs;
@@ -86,12 +90,14 @@ import com.pulumi.datadog.outputs.GetCsmThreatsPoliciesResult;
 import com.pulumi.datadog.outputs.GetDashboardListResult;
 import com.pulumi.datadog.outputs.GetDashboardResult;
 import com.pulumi.datadog.outputs.GetHostsResult;
+import com.pulumi.datadog.outputs.GetIncidentTypeResult;
 import com.pulumi.datadog.outputs.GetIpRangesResult;
 import com.pulumi.datadog.outputs.GetLogsArchivesOrderResult;
 import com.pulumi.datadog.outputs.GetLogsIndexesOrderResult;
 import com.pulumi.datadog.outputs.GetLogsIndexesResult;
 import com.pulumi.datadog.outputs.GetLogsPipelinesOrderResult;
 import com.pulumi.datadog.outputs.GetLogsPipelinesResult;
+import com.pulumi.datadog.outputs.GetMetricMetadataResult;
 import com.pulumi.datadog.outputs.GetMetricTagsResult;
 import com.pulumi.datadog.outputs.GetMonitorConfigPoliciesResult;
 import com.pulumi.datadog.outputs.GetMonitorResult;
@@ -129,7 +135,7 @@ import java.util.concurrent.CompletableFuture;
 
 public final class DatadogFunctions {
     /**
-     * A connection that can be used in Actions, including in the Workflow Automation and App Builder products.
+     * A connection that can be used in Actions, including in the Workflow Automation and App Builder products. This data source requires a registered application key.
      * 
      * ## Example Usage
      * 
@@ -171,7 +177,7 @@ public final class DatadogFunctions {
         return getActionConnection(args, InvokeOptions.Empty);
     }
     /**
-     * A connection that can be used in Actions, including in the Workflow Automation and App Builder products.
+     * A connection that can be used in Actions, including in the Workflow Automation and App Builder products. This data source requires a registered application key.
      * 
      * ## Example Usage
      * 
@@ -213,7 +219,7 @@ public final class DatadogFunctions {
         return getActionConnectionPlain(args, InvokeOptions.Empty);
     }
     /**
-     * A connection that can be used in Actions, including in the Workflow Automation and App Builder products.
+     * A connection that can be used in Actions, including in the Workflow Automation and App Builder products. This data source requires a registered application key.
      * 
      * ## Example Usage
      * 
@@ -255,7 +261,7 @@ public final class DatadogFunctions {
         return Deployment.getInstance().invoke("datadog:index/getActionConnection:getActionConnection", TypeShape.of(GetActionConnectionResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * A connection that can be used in Actions, including in the Workflow Automation and App Builder products.
+     * A connection that can be used in Actions, including in the Workflow Automation and App Builder products. This data source requires a registered application key.
      * 
      * ## Example Usage
      * 
@@ -297,7 +303,7 @@ public final class DatadogFunctions {
         return Deployment.getInstance().invoke("datadog:index/getActionConnection:getActionConnection", TypeShape.of(GetActionConnectionResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * A connection that can be used in Actions, including in the Workflow Automation and App Builder products.
+     * A connection that can be used in Actions, including in the Workflow Automation and App Builder products. This data source requires a registered application key.
      * 
      * ## Example Usage
      * 
@@ -906,7 +912,7 @@ public final class DatadogFunctions {
         return Deployment.getInstance().invokeAsync("datadog:index/getApmRetentionFiltersOrder:getApmRetentionFiltersOrder", TypeShape.of(GetApmRetentionFiltersOrderResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * This data source retrieves the definition of an existing Datadog App from App Builder for use in other resources, such as embedding Apps in Dashboards.
+     * This data source retrieves the definition of an existing Datadog App from App Builder for use in other resources, such as embedding Apps in Dashboards. This data source requires a registered application key.
      * 
      * ## Example Usage
      * 
@@ -948,7 +954,7 @@ public final class DatadogFunctions {
         return getAppBuilderApp(args, InvokeOptions.Empty);
     }
     /**
-     * This data source retrieves the definition of an existing Datadog App from App Builder for use in other resources, such as embedding Apps in Dashboards.
+     * This data source retrieves the definition of an existing Datadog App from App Builder for use in other resources, such as embedding Apps in Dashboards. This data source requires a registered application key.
      * 
      * ## Example Usage
      * 
@@ -990,7 +996,7 @@ public final class DatadogFunctions {
         return getAppBuilderAppPlain(args, InvokeOptions.Empty);
     }
     /**
-     * This data source retrieves the definition of an existing Datadog App from App Builder for use in other resources, such as embedding Apps in Dashboards.
+     * This data source retrieves the definition of an existing Datadog App from App Builder for use in other resources, such as embedding Apps in Dashboards. This data source requires a registered application key.
      * 
      * ## Example Usage
      * 
@@ -1032,7 +1038,7 @@ public final class DatadogFunctions {
         return Deployment.getInstance().invoke("datadog:index/getAppBuilderApp:getAppBuilderApp", TypeShape.of(GetAppBuilderAppResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * This data source retrieves the definition of an existing Datadog App from App Builder for use in other resources, such as embedding Apps in Dashboards.
+     * This data source retrieves the definition of an existing Datadog App from App Builder for use in other resources, such as embedding Apps in Dashboards. This data source requires a registered application key.
      * 
      * ## Example Usage
      * 
@@ -1074,7 +1080,7 @@ public final class DatadogFunctions {
         return Deployment.getInstance().invoke("datadog:index/getAppBuilderApp:getAppBuilderApp", TypeShape.of(GetAppBuilderAppResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * This data source retrieves the definition of an existing Datadog App from App Builder for use in other resources, such as embedding Apps in Dashboards.
+     * This data source retrieves the definition of an existing Datadog App from App Builder for use in other resources, such as embedding Apps in Dashboards. This data source requires a registered application key.
      * 
      * ## Example Usage
      * 
@@ -2411,6 +2417,216 @@ public final class DatadogFunctions {
         return Deployment.getInstance().invokeAsync("datadog:index/getHosts:getHosts", TypeShape.of(GetHostsResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to retrieve information about an existing incident type.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetIncidentTypeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DatadogFunctions.getIncidentType(GetIncidentTypeArgs.builder()
+     *             .id("01234567-89ab-cdef-0123-456789abcdef")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetIncidentTypeResult> getIncidentType(GetIncidentTypeArgs args) {
+        return getIncidentType(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing incident type.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetIncidentTypeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DatadogFunctions.getIncidentType(GetIncidentTypeArgs.builder()
+     *             .id("01234567-89ab-cdef-0123-456789abcdef")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetIncidentTypeResult> getIncidentTypePlain(GetIncidentTypePlainArgs args) {
+        return getIncidentTypePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing incident type.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetIncidentTypeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DatadogFunctions.getIncidentType(GetIncidentTypeArgs.builder()
+     *             .id("01234567-89ab-cdef-0123-456789abcdef")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetIncidentTypeResult> getIncidentType(GetIncidentTypeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getIncidentType:getIncidentType", TypeShape.of(GetIncidentTypeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing incident type.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetIncidentTypeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DatadogFunctions.getIncidentType(GetIncidentTypeArgs.builder()
+     *             .id("01234567-89ab-cdef-0123-456789abcdef")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetIncidentTypeResult> getIncidentType(GetIncidentTypeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getIncidentType:getIncidentType", TypeShape.of(GetIncidentTypeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing incident type.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetIncidentTypeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DatadogFunctions.getIncidentType(GetIncidentTypeArgs.builder()
+     *             .id("01234567-89ab-cdef-0123-456789abcdef")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetIncidentTypeResult> getIncidentTypePlain(GetIncidentTypePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getIncidentType:getIncidentType", TypeShape.of(GetIncidentTypeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Use this data source to retrieve information about Datadog&#39;s IP addresses.
      * 
      * ## Example Usage
@@ -3634,6 +3850,41 @@ public final class DatadogFunctions {
      */
     public static CompletableFuture<GetLogsPipelinesOrderResult> getLogsPipelinesOrderPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:index/getLogsPipelinesOrder:getLogsPipelinesOrder", TypeShape.of(GetLogsPipelinesOrderResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve metadata associated with a metric to use in other resources.
+     * 
+     */
+    public static Output<GetMetricMetadataResult> getMetricMetadata(GetMetricMetadataArgs args) {
+        return getMetricMetadata(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve metadata associated with a metric to use in other resources.
+     * 
+     */
+    public static CompletableFuture<GetMetricMetadataResult> getMetricMetadataPlain(GetMetricMetadataPlainArgs args) {
+        return getMetricMetadataPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve metadata associated with a metric to use in other resources.
+     * 
+     */
+    public static Output<GetMetricMetadataResult> getMetricMetadata(GetMetricMetadataArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getMetricMetadata:getMetricMetadata", TypeShape.of(GetMetricMetadataResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve metadata associated with a metric to use in other resources.
+     * 
+     */
+    public static Output<GetMetricMetadataResult> getMetricMetadata(GetMetricMetadataArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getMetricMetadata:getMetricMetadata", TypeShape.of(GetMetricMetadataResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve metadata associated with a metric to use in other resources.
+     * 
+     */
+    public static CompletableFuture<GetMetricMetadataResult> getMetricMetadataPlain(GetMetricMetadataPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getMetricMetadata:getMetricMetadata", TypeShape.of(GetMetricMetadataResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve tags associated with a metric to use in other resources.
@@ -8793,7 +9044,7 @@ public final class DatadogFunctions {
         return Deployment.getInstance().invokeAsync("datadog:index/getUsers:getUsers", TypeShape.of(GetUsersResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * This data source retrieves the definition of an existing Datadog workflow from Workflow Automation for use in other resources.
+     * This data source retrieves the definition of an existing Datadog workflow from Workflow Automation for use in other resources. This data source requires a registered application key.
      * 
      * ## Example Usage
      * 
@@ -8835,7 +9086,7 @@ public final class DatadogFunctions {
         return getWorkflowAutomation(args, InvokeOptions.Empty);
     }
     /**
-     * This data source retrieves the definition of an existing Datadog workflow from Workflow Automation for use in other resources.
+     * This data source retrieves the definition of an existing Datadog workflow from Workflow Automation for use in other resources. This data source requires a registered application key.
      * 
      * ## Example Usage
      * 
@@ -8877,7 +9128,7 @@ public final class DatadogFunctions {
         return getWorkflowAutomationPlain(args, InvokeOptions.Empty);
     }
     /**
-     * This data source retrieves the definition of an existing Datadog workflow from Workflow Automation for use in other resources.
+     * This data source retrieves the definition of an existing Datadog workflow from Workflow Automation for use in other resources. This data source requires a registered application key.
      * 
      * ## Example Usage
      * 
@@ -8919,7 +9170,7 @@ public final class DatadogFunctions {
         return Deployment.getInstance().invoke("datadog:index/getWorkflowAutomation:getWorkflowAutomation", TypeShape.of(GetWorkflowAutomationResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * This data source retrieves the definition of an existing Datadog workflow from Workflow Automation for use in other resources.
+     * This data source retrieves the definition of an existing Datadog workflow from Workflow Automation for use in other resources. This data source requires a registered application key.
      * 
      * ## Example Usage
      * 
@@ -8961,7 +9212,7 @@ public final class DatadogFunctions {
         return Deployment.getInstance().invoke("datadog:index/getWorkflowAutomation:getWorkflowAutomation", TypeShape.of(GetWorkflowAutomationResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * This data source retrieves the definition of an existing Datadog workflow from Workflow Automation for use in other resources.
+     * This data source retrieves the definition of an existing Datadog workflow from Workflow Automation for use in other resources. This data source requires a registered application key.
      * 
      * ## Example Usage
      * 

@@ -48,6 +48,66 @@ Object.defineProperty(exports, "appKey", {
 });
 
 /**
+ * The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID`
+ * environment variable. Required when using `cloudProviderType` set to `aws`.
+ */
+export declare const awsAccessKeyId: string | undefined;
+Object.defineProperty(exports, "awsAccessKeyId", {
+    get() {
+        return __config.get("awsAccessKeyId");
+    },
+    enumerable: true,
+});
+
+/**
+ * The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the
+ * `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloudProviderType` set to `aws`.
+ */
+export declare const awsSecretAccessKey: string | undefined;
+Object.defineProperty(exports, "awsSecretAccessKey", {
+    get() {
+        return __config.get("awsSecretAccessKey");
+    },
+    enumerable: true,
+});
+
+/**
+ * The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN`
+ * environment variable. Required when using `cloudProviderType` set to `aws` and using temporary credentials.
+ */
+export declare const awsSessionToken: string | undefined;
+Object.defineProperty(exports, "awsSessionToken", {
+    get() {
+        return __config.get("awsSessionToken");
+    },
+    enumerable: true,
+});
+
+/**
+ * The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
+ */
+export declare const cloudProviderRegion: string | undefined;
+Object.defineProperty(exports, "cloudProviderRegion", {
+    get() {
+        return __config.get("cloudProviderRegion");
+    },
+    enumerable: true,
+});
+
+/**
+ * Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app
+ * keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact
+ * [support](https://docs.datadoghq.com/help/).
+ */
+export declare const cloudProviderType: string | undefined;
+Object.defineProperty(exports, "cloudProviderType", {
+    get() {
+        return __config.get("cloudProviderType");
+    },
+    enumerable: true,
+});
+
+/**
  * [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration
  * block containing settings to apply default resource tags across all resources.
  */
@@ -110,6 +170,18 @@ export declare const httpClientRetryTimeout: number | undefined;
 Object.defineProperty(exports, "httpClientRetryTimeout", {
     get() {
         return __config.getObject<number>("httpClientRetryTimeout");
+    },
+    enumerable: true,
+});
+
+/**
+ * The organization UUID; used for cloud-provider-based authentication. See the [Datadog API
+ * documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+ */
+export declare const orgUuid: string | undefined;
+Object.defineProperty(exports, "orgUuid", {
+    get() {
+        return __config.get("orgUuid");
     },
     enumerable: true,
 });

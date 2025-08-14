@@ -10507,6 +10507,10 @@ export interface LogsCustomPipelineProcessor {
      */
     arithmeticProcessor?: outputs.LogsCustomPipelineProcessorArithmeticProcessor;
     /**
+     * Array Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#array-processor)
+     */
+    arrayProcessor?: outputs.LogsCustomPipelineProcessorArrayProcessor;
+    /**
      * Attribute Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#remapper)
      */
     attributeRemapper?: outputs.LogsCustomPipelineProcessorAttributeRemapper;
@@ -10518,6 +10522,10 @@ export interface LogsCustomPipelineProcessor {
      * Date Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-date-remapper)
      */
     dateRemapper?: outputs.LogsCustomPipelineProcessorDateRemapper;
+    /**
+     * Decoder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#decoder-processor)
+     */
+    decoderProcessor?: outputs.LogsCustomPipelineProcessorDecoderProcessor;
     /**
      * Date GeoIP Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#geoip-parser)
      */
@@ -10590,6 +10598,81 @@ export interface LogsCustomPipelineProcessorArithmeticProcessor {
      * Name of the attribute that contains the result of the arithmetic operation.
      */
     target: string;
+}
+
+export interface LogsCustomPipelineProcessorArrayProcessor {
+    /**
+     * Boolean value to enable your processor.
+     */
+    isEnabled?: boolean;
+    /**
+     * Your processor name.
+     */
+    name?: string;
+    /**
+     * Operation to perform on the array.
+     */
+    operation: outputs.LogsCustomPipelineProcessorArrayProcessorOperation;
+}
+
+export interface LogsCustomPipelineProcessorArrayProcessorOperation {
+    /**
+     * Operation that appends a value to a target array attribute.
+     */
+    append?: outputs.LogsCustomPipelineProcessorArrayProcessorOperationAppend;
+    /**
+     * Operation that computes the length of a source array and stores the result in a target attribute.
+     */
+    length?: outputs.LogsCustomPipelineProcessorArrayProcessorOperationLength;
+    /**
+     * Operation that finds an object in a source array using a filter, and then extracts a value from that found object and puts that value into the target attribute.
+     */
+    select?: outputs.LogsCustomPipelineProcessorArrayProcessorOperationSelect;
+}
+
+export interface LogsCustomPipelineProcessorArrayProcessorOperationAppend {
+    /**
+     * Remove or preserve the remapped source element. Defaults to `true`.
+     */
+    preserveSource?: boolean;
+    /**
+     * Attribute path containing the value to append.
+     */
+    source: string;
+    /**
+     * Attribute path of the array to append to.
+     */
+    target: string;
+}
+
+export interface LogsCustomPipelineProcessorArrayProcessorOperationLength {
+    /**
+     * Attribute path of the array to compute the length of.
+     */
+    source: string;
+    /**
+     * Attribute that receives the computed length.
+     */
+    target: string;
+}
+
+export interface LogsCustomPipelineProcessorArrayProcessorOperationSelect {
+    /**
+     * Filter expression (e.g. key1:value1 OR key2:value2) used to find the matching element.
+     */
+    filter: string;
+    /**
+     * Attribute path of the array to search into.
+     */
+    source: string;
+    /**
+     * Attribute that receives the extracted value.
+     */
+    target: string;
+    /**
+     * Attribute key from the matching object that should be extracted.
+     */
+    valueToExtract: string;
 }
 
 export interface LogsCustomPipelineProcessorAttributeRemapper {
@@ -10675,6 +10758,33 @@ export interface LogsCustomPipelineProcessorDateRemapper {
      * List of source attributes.
      */
     sources: string[];
+}
+
+export interface LogsCustomPipelineProcessorDecoderProcessor {
+    /**
+     * Encoding type: base64 or base16
+     */
+    binaryToTextEncoding: string;
+    /**
+     * Input representation: utf-8 or integer
+     */
+    inputRepresentation: string;
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: boolean;
+    /**
+     * Name of the processor.
+     */
+    name?: string;
+    /**
+     * Encoded message
+     */
+    source: string;
+    /**
+     * Decoded message
+     */
+    target: string;
 }
 
 export interface LogsCustomPipelineProcessorGeoIpParser {
@@ -10791,6 +10901,10 @@ export interface LogsCustomPipelineProcessorPipelineProcessor {
      */
     arithmeticProcessor?: outputs.LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor;
     /**
+     * Array Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#array-processor)
+     */
+    arrayProcessor?: outputs.LogsCustomPipelineProcessorPipelineProcessorArrayProcessor;
+    /**
      * Attribute Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#remapper)
      */
     attributeRemapper?: outputs.LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper;
@@ -10802,6 +10916,10 @@ export interface LogsCustomPipelineProcessorPipelineProcessor {
      * Date Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-date-remapper)
      */
     dateRemapper?: outputs.LogsCustomPipelineProcessorPipelineProcessorDateRemapper;
+    /**
+     * Decoder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#decoder-processor)
+     */
+    decoderProcessor?: outputs.LogsCustomPipelineProcessorPipelineProcessorDecoderProcessor;
     /**
      * Date GeoIP Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#geoip-parser)
      */
@@ -10873,6 +10991,81 @@ export interface LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor
      * Name of the attribute that contains the result of the arithmetic operation.
      */
     target: string;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorArrayProcessor {
+    /**
+     * Boolean value to enable your processor.
+     */
+    isEnabled?: boolean;
+    /**
+     * Your processor name.
+     */
+    name?: string;
+    /**
+     * Operation to perform on the array.
+     */
+    operation: outputs.LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperation;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperation {
+    /**
+     * Operation that appends a value to a target array attribute.
+     */
+    append?: outputs.LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationAppend;
+    /**
+     * Operation that computes the length of a source array and stores the result in a target attribute.
+     */
+    length?: outputs.LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationLength;
+    /**
+     * Operation that finds an object in a source array using a filter, and then extracts a value from that found object and puts that value into the target attribute.
+     */
+    select?: outputs.LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationSelect;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationAppend {
+    /**
+     * Remove or preserve the remapped source element. Defaults to `true`.
+     */
+    preserveSource?: boolean;
+    /**
+     * Attribute path containing the value to append.
+     */
+    source: string;
+    /**
+     * Attribute path of the array to append to.
+     */
+    target: string;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationLength {
+    /**
+     * Attribute path of the array to compute the length of.
+     */
+    source: string;
+    /**
+     * Attribute that receives the computed length.
+     */
+    target: string;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationSelect {
+    /**
+     * Filter expression (e.g. key1:value1 OR key2:value2) used to find the matching element.
+     */
+    filter: string;
+    /**
+     * Attribute path of the array to search into.
+     */
+    source: string;
+    /**
+     * Attribute that receives the extracted value.
+     */
+    target: string;
+    /**
+     * Attribute key from the matching object that should be extracted.
+     */
+    valueToExtract: string;
 }
 
 export interface LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper {
@@ -10958,6 +11151,33 @@ export interface LogsCustomPipelineProcessorPipelineProcessorDateRemapper {
      * List of source attributes.
      */
     sources: string[];
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorDecoderProcessor {
+    /**
+     * Encoding type: base64 or base16
+     */
+    binaryToTextEncoding: string;
+    /**
+     * Input representation: utf-8 or integer
+     */
+    inputRepresentation: string;
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: boolean;
+    /**
+     * Name of the processor.
+     */
+    name?: string;
+    /**
+     * Encoded message
+     */
+    source: string;
+    /**
+     * Decoded message
+     */
+    target: string;
 }
 
 export interface LogsCustomPipelineProcessorPipelineProcessorGeoIpParser {
@@ -26088,9 +26308,9 @@ export interface SecurityMonitoringDefaultRuleFilter {
 
 export interface SecurityMonitoringDefaultRuleOptions {
     /**
-     * If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `logDetection`. Defaults to `false`.
+     * If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `logDetection`.
      */
-    decreaseCriticalityBasedOnEnv?: boolean;
+    decreaseCriticalityBasedOnEnv: boolean;
 }
 
 export interface SecurityMonitoringDefaultRuleQuery {
@@ -26101,31 +26321,31 @@ export interface SecurityMonitoringDefaultRuleQuery {
      */
     agentRules?: outputs.SecurityMonitoringDefaultRuleQueryAgentRule[];
     /**
-     * The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`. Defaults to `"count"`.
+     * The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`.
      */
-    aggregation?: string;
+    aggregation: string;
     /**
      * Query extension to append to the logs query.
      */
-    customQueryExtension?: string;
+    customQueryExtension: string;
     /**
-     * Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`. Defaults to `"logs"`.
+     * Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`.
      */
-    dataSource?: string;
+    dataSource: string;
     /**
      * Field for which the cardinality is measured. Sent as an array.
      */
-    distinctFields?: string[];
+    distinctFields: string[];
     /**
      * Fields to group by.
      */
-    groupByFields?: string[];
+    groupByFields: string[];
     /**
      * The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
      *
      * @deprecated Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
      */
-    metric?: string;
+    metric: string;
     /**
      * Group of target fields to aggregate over when using the `sum`, `max`, `geoData`, or `newValue` aggregations. The `sum`, `max`, and `geoData` aggregations only accept one value in this list, whereas the `newValue` aggregation accepts up to five values.
      */
@@ -26133,7 +26353,7 @@ export interface SecurityMonitoringDefaultRuleQuery {
     /**
      * Name of the query. Not compatible with `newValue` aggregations.
      */
-    name?: string;
+    name: string;
     /**
      * Query to run on logs.
      */
@@ -26191,7 +26411,7 @@ export interface SecurityMonitoringRuleCaseAction {
      */
     options?: outputs.SecurityMonitoringRuleCaseActionOptions;
     /**
-     * Type of action to perform when the case triggers. Valid values are `blockIp`, `blockUser`, `userBehavior`.
+     * Type of action to perform when the case triggers. Valid values are `blockIp`, `blockUser`, `userBehavior`, `flagIp`.
      */
     type: string;
 }
@@ -26716,7 +26936,7 @@ export interface SyntheticsTestApiStep {
      */
     requestClientCertificate?: outputs.SyntheticsTestApiStepRequestClientCertificate;
     /**
-     * The request for the api step.
+     * The request for the API step.
      */
     requestDefinition?: outputs.SyntheticsTestApiStepRequestDefinition;
     /**
@@ -26741,7 +26961,7 @@ export interface SyntheticsTestApiStep {
     requestQuery?: {[key: string]: string};
     retry?: outputs.SyntheticsTestApiStepRetry;
     /**
-     * The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `ssl`, `dns`, `tcp`, `udp`, `icmp`, `websocket`, `wait`. Defaults to `"http"`.
+     * The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`, `ssl`, `dns`, `tcp`, `udp`, `icmp`, `websocket`, `wait`. Defaults to `"http"`.
      */
     subtype?: string;
     /**
@@ -26962,7 +27182,7 @@ export interface SyntheticsTestApiStepRequestClientCertificateKey {
 
 export interface SyntheticsTestApiStepRequestDefinition {
     /**
-     * For SSL test, whether or not the test should allow self signed certificates.
+     * For SSL tests, whether or not the test should allow self signed certificates.
      */
     acceptSelfSigned?: boolean;
     /**
@@ -26986,9 +27206,13 @@ export interface SyntheticsTestApiStepRequestDefinition {
      */
     certificateDomains?: string[];
     /**
-     * For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+     * For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
      */
     checkCertificateRevocation?: boolean;
+    /**
+     * For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA
+     */
+    disableAiaIntermediateFetching?: boolean;
     /**
      * DNS server to use for DNS tests (`subtype = "dns"`).
      */
@@ -27018,7 +27242,7 @@ export interface SyntheticsTestApiStepRequestDefinition {
      */
     isMessageBase64Encoded?: boolean;
     /**
-     * For UDP and websocket tests, message to send with the request.
+     * For gRPC, UDP and websocket tests, message to send with the request.
      */
     message?: string;
     /**
@@ -27700,7 +27924,7 @@ export interface SyntheticsTestMobileStepParamsVariable {
 
 export interface SyntheticsTestOptionsList {
     /**
-     * For SSL test, whether or not the test should allow self signed certificates.
+     * For SSL tests, whether or not the test should allow self signed certificates.
      */
     acceptSelfSigned?: boolean;
     /**
@@ -27708,13 +27932,17 @@ export interface SyntheticsTestOptionsList {
      */
     allowInsecure?: boolean;
     /**
-     * For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+     * For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
      */
     checkCertificateRevocation?: boolean;
     /**
      * CI/CD options for a Synthetic test.
      */
     ci?: outputs.SyntheticsTestOptionsListCi;
+    /**
+     * For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA
+     */
+    disableAiaIntermediateFetching?: boolean;
     /**
      * Disable Cross-Origin Resource Sharing for browser tests.
      */
@@ -27998,7 +28226,7 @@ export interface SyntheticsTestRequestDefinition {
      */
     isMessageBase64Encoded?: boolean;
     /**
-     * For UDP and websocket tests, message to send with the request.
+     * For gRPC, UDP and websocket tests, message to send with the request.
      */
     message?: string;
     /**

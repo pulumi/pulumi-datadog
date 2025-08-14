@@ -19,7 +19,7 @@ public final class SecurityMonitoringRuleCaseAction {
      */
     private @Nullable SecurityMonitoringRuleCaseActionOptions options;
     /**
-     * @return Type of action to perform when the case triggers. Valid values are `block_ip`, `block_user`, `user_behavior`.
+     * @return Type of action to perform when the case triggers. Valid values are `block_ip`, `block_user`, `user_behavior`, `flag_ip`.
      * 
      */
     private String type;
@@ -33,7 +33,7 @@ public final class SecurityMonitoringRuleCaseAction {
         return Optional.ofNullable(this.options);
     }
     /**
-     * @return Type of action to perform when the case triggers. Valid values are `block_ip`, `block_user`, `user_behavior`.
+     * @return Type of action to perform when the case triggers. Valid values are `block_ip`, `block_user`, `user_behavior`, `flag_ip`.
      * 
      */
     public String type() {

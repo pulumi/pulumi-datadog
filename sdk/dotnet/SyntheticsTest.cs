@@ -936,7 +936,7 @@ namespace Pulumi.Datadog
     public partial class SyntheticsTest : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Steps for multi-step api tests
+        /// Steps for multistep API tests
         /// </summary>
         [Output("apiSteps")]
         public Output<ImmutableArray<Outputs.SyntheticsTestApiStep>> ApiSteps { get; private set; } = null!;
@@ -1153,7 +1153,7 @@ namespace Pulumi.Datadog
         private InputList<Inputs.SyntheticsTestApiStepArgs>? _apiSteps;
 
         /// <summary>
-        /// Steps for multi-step api tests
+        /// Steps for multistep API tests
         /// </summary>
         public InputList<Inputs.SyntheticsTestApiStepArgs> ApiSteps
         {
@@ -1407,7 +1407,7 @@ namespace Pulumi.Datadog
         private InputList<Inputs.SyntheticsTestApiStepGetArgs>? _apiSteps;
 
         /// <summary>
-        /// Steps for multi-step api tests
+        /// Steps for multistep API tests
         /// </summary>
         public InputList<Inputs.SyntheticsTestApiStepGetArgs> ApiSteps
         {

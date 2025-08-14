@@ -67,6 +67,61 @@ namespace Pulumi.Datadog
             set => _appKey.Set(value);
         }
 
+        private static readonly __Value<string?> _awsAccessKeyId = new __Value<string?>(() => __config.Get("awsAccessKeyId"));
+        /// <summary>
+        /// The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID`
+        /// environment variable. Required when using `cloud_provider_type` set to `aws`.
+        /// </summary>
+        public static string? AwsAccessKeyId
+        {
+            get => _awsAccessKeyId.Get();
+            set => _awsAccessKeyId.Set(value);
+        }
+
+        private static readonly __Value<string?> _awsSecretAccessKey = new __Value<string?>(() => __config.Get("awsSecretAccessKey"));
+        /// <summary>
+        /// The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the
+        /// `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
+        /// </summary>
+        public static string? AwsSecretAccessKey
+        {
+            get => _awsSecretAccessKey.Get();
+            set => _awsSecretAccessKey.Set(value);
+        }
+
+        private static readonly __Value<string?> _awsSessionToken = new __Value<string?>(() => __config.Get("awsSessionToken"));
+        /// <summary>
+        /// The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN`
+        /// environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
+        /// </summary>
+        public static string? AwsSessionToken
+        {
+            get => _awsSessionToken.Get();
+            set => _awsSessionToken.Set(value);
+        }
+
+        private static readonly __Value<string?> _cloudProviderRegion = new __Value<string?>(() => __config.Get("cloudProviderRegion"));
+        /// <summary>
+        /// The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
+        /// </summary>
+        public static string? CloudProviderRegion
+        {
+            get => _cloudProviderRegion.Get();
+            set => _cloudProviderRegion.Set(value);
+        }
+
+        private static readonly __Value<string?> _cloudProviderType = new __Value<string?>(() => __config.Get("cloudProviderType"));
+        /// <summary>
+        /// Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app
+        /// keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact
+        /// [support](https://docs.datadoghq.com/help/).
+        /// </summary>
+        public static string? CloudProviderType
+        {
+            get => _cloudProviderType.Get();
+            set => _cloudProviderType.Set(value);
+        }
+
         private static readonly __Value<Pulumi.Datadog.Config.Types.DefaultTags?> _defaultTags = new __Value<Pulumi.Datadog.Config.Types.DefaultTags?>(() => __config.GetObject<Pulumi.Datadog.Config.Types.DefaultTags>("defaultTags"));
         /// <summary>
         /// [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration
@@ -126,6 +181,17 @@ namespace Pulumi.Datadog
         {
             get => _httpClientRetryTimeout.Get();
             set => _httpClientRetryTimeout.Set(value);
+        }
+
+        private static readonly __Value<string?> _orgUuid = new __Value<string?>(() => __config.Get("orgUuid"));
+        /// <summary>
+        /// The organization UUID; used for cloud-provider-based authentication. See the [Datadog API
+        /// documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+        /// </summary>
+        public static string? OrgUuid
+        {
+            get => _orgUuid.Get();
+            set => _orgUuid.Set(value);
         }
 
         private static readonly __Value<string?> _validate = new __Value<string?>(() => __config.Get("validate"));

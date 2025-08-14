@@ -19,6 +19,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.LogsCustomPipelineProcessorArithmeticProcessorGetArgs>? ArithmeticProcessor { get; set; }
 
         /// <summary>
+        /// Array Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#array-processor)
+        /// </summary>
+        [Input("arrayProcessor")]
+        public Input<Inputs.LogsCustomPipelineProcessorArrayProcessorGetArgs>? ArrayProcessor { get; set; }
+
+        /// <summary>
         /// Attribute Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#remapper)
         /// </summary>
         [Input("attributeRemapper")]
@@ -35,6 +41,12 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("dateRemapper")]
         public Input<Inputs.LogsCustomPipelineProcessorDateRemapperGetArgs>? DateRemapper { get; set; }
+
+        /// <summary>
+        /// Decoder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#decoder-processor)
+        /// </summary>
+        [Input("decoderProcessor")]
+        public Input<Inputs.LogsCustomPipelineProcessorDecoderProcessorGetArgs>? DecoderProcessor { get; set; }
 
         /// <summary>
         /// Date GeoIP Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#geoip-parser)

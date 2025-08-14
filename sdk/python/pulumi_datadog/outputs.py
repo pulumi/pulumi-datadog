@@ -465,11 +465,17 @@ __all__ = [
     'LogsCustomPipelineFilter',
     'LogsCustomPipelineProcessor',
     'LogsCustomPipelineProcessorArithmeticProcessor',
+    'LogsCustomPipelineProcessorArrayProcessor',
+    'LogsCustomPipelineProcessorArrayProcessorOperation',
+    'LogsCustomPipelineProcessorArrayProcessorOperationAppend',
+    'LogsCustomPipelineProcessorArrayProcessorOperationLength',
+    'LogsCustomPipelineProcessorArrayProcessorOperationSelect',
     'LogsCustomPipelineProcessorAttributeRemapper',
     'LogsCustomPipelineProcessorCategoryProcessor',
     'LogsCustomPipelineProcessorCategoryProcessorCategory',
     'LogsCustomPipelineProcessorCategoryProcessorCategoryFilter',
     'LogsCustomPipelineProcessorDateRemapper',
+    'LogsCustomPipelineProcessorDecoderProcessor',
     'LogsCustomPipelineProcessorGeoIpParser',
     'LogsCustomPipelineProcessorGrokParser',
     'LogsCustomPipelineProcessorGrokParserGrok',
@@ -479,11 +485,17 @@ __all__ = [
     'LogsCustomPipelineProcessorPipelineFilter',
     'LogsCustomPipelineProcessorPipelineProcessor',
     'LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor',
+    'LogsCustomPipelineProcessorPipelineProcessorArrayProcessor',
+    'LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperation',
+    'LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationAppend',
+    'LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationLength',
+    'LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationSelect',
     'LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper',
     'LogsCustomPipelineProcessorPipelineProcessorCategoryProcessor',
     'LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategory',
     'LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategoryFilter',
     'LogsCustomPipelineProcessorPipelineProcessorDateRemapper',
+    'LogsCustomPipelineProcessorPipelineProcessorDecoderProcessor',
     'LogsCustomPipelineProcessorPipelineProcessorGeoIpParser',
     'LogsCustomPipelineProcessorPipelineProcessorGrokParser',
     'LogsCustomPipelineProcessorPipelineProcessorGrokParserGrok',
@@ -35463,12 +35475,16 @@ class LogsCustomPipelineProcessor(dict):
         suggest = None
         if key == "arithmeticProcessor":
             suggest = "arithmetic_processor"
+        elif key == "arrayProcessor":
+            suggest = "array_processor"
         elif key == "attributeRemapper":
             suggest = "attribute_remapper"
         elif key == "categoryProcessor":
             suggest = "category_processor"
         elif key == "dateRemapper":
             suggest = "date_remapper"
+        elif key == "decoderProcessor":
+            suggest = "decoder_processor"
         elif key == "geoIpParser":
             suggest = "geo_ip_parser"
         elif key == "grokParser":
@@ -35507,9 +35523,11 @@ class LogsCustomPipelineProcessor(dict):
 
     def __init__(__self__, *,
                  arithmetic_processor: Optional['outputs.LogsCustomPipelineProcessorArithmeticProcessor'] = None,
+                 array_processor: Optional['outputs.LogsCustomPipelineProcessorArrayProcessor'] = None,
                  attribute_remapper: Optional['outputs.LogsCustomPipelineProcessorAttributeRemapper'] = None,
                  category_processor: Optional['outputs.LogsCustomPipelineProcessorCategoryProcessor'] = None,
                  date_remapper: Optional['outputs.LogsCustomPipelineProcessorDateRemapper'] = None,
+                 decoder_processor: Optional['outputs.LogsCustomPipelineProcessorDecoderProcessor'] = None,
                  geo_ip_parser: Optional['outputs.LogsCustomPipelineProcessorGeoIpParser'] = None,
                  grok_parser: Optional['outputs.LogsCustomPipelineProcessorGrokParser'] = None,
                  lookup_processor: Optional['outputs.LogsCustomPipelineProcessorLookupProcessor'] = None,
@@ -35525,9 +35543,11 @@ class LogsCustomPipelineProcessor(dict):
                  user_agent_parser: Optional['outputs.LogsCustomPipelineProcessorUserAgentParser'] = None):
         """
         :param 'LogsCustomPipelineProcessorArithmeticProcessorArgs' arithmetic_processor: Arithmetic Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#arithmetic-processor)
+        :param 'LogsCustomPipelineProcessorArrayProcessorArgs' array_processor: Array Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#array-processor)
         :param 'LogsCustomPipelineProcessorAttributeRemapperArgs' attribute_remapper: Attribute Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#remapper)
         :param 'LogsCustomPipelineProcessorCategoryProcessorArgs' category_processor: Category Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#category-processor)
         :param 'LogsCustomPipelineProcessorDateRemapperArgs' date_remapper: Date Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-date-remapper)
+        :param 'LogsCustomPipelineProcessorDecoderProcessorArgs' decoder_processor: Decoder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#decoder-processor)
         :param 'LogsCustomPipelineProcessorGeoIpParserArgs' geo_ip_parser: Date GeoIP Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#geoip-parser)
         :param 'LogsCustomPipelineProcessorGrokParserArgs' grok_parser: Grok Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#grok-parser)
         :param 'LogsCustomPipelineProcessorLookupProcessorArgs' lookup_processor: Lookup Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
@@ -35543,12 +35563,16 @@ class LogsCustomPipelineProcessor(dict):
         """
         if arithmetic_processor is not None:
             pulumi.set(__self__, "arithmetic_processor", arithmetic_processor)
+        if array_processor is not None:
+            pulumi.set(__self__, "array_processor", array_processor)
         if attribute_remapper is not None:
             pulumi.set(__self__, "attribute_remapper", attribute_remapper)
         if category_processor is not None:
             pulumi.set(__self__, "category_processor", category_processor)
         if date_remapper is not None:
             pulumi.set(__self__, "date_remapper", date_remapper)
+        if decoder_processor is not None:
+            pulumi.set(__self__, "decoder_processor", decoder_processor)
         if geo_ip_parser is not None:
             pulumi.set(__self__, "geo_ip_parser", geo_ip_parser)
         if grok_parser is not None:
@@ -35585,6 +35609,14 @@ class LogsCustomPipelineProcessor(dict):
         return pulumi.get(self, "arithmetic_processor")
 
     @_builtins.property
+    @pulumi.getter(name="arrayProcessor")
+    def array_processor(self) -> Optional['outputs.LogsCustomPipelineProcessorArrayProcessor']:
+        """
+        Array Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#array-processor)
+        """
+        return pulumi.get(self, "array_processor")
+
+    @_builtins.property
     @pulumi.getter(name="attributeRemapper")
     def attribute_remapper(self) -> Optional['outputs.LogsCustomPipelineProcessorAttributeRemapper']:
         """
@@ -35607,6 +35639,14 @@ class LogsCustomPipelineProcessor(dict):
         Date Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-date-remapper)
         """
         return pulumi.get(self, "date_remapper")
+
+    @_builtins.property
+    @pulumi.getter(name="decoderProcessor")
+    def decoder_processor(self) -> Optional['outputs.LogsCustomPipelineProcessorDecoderProcessor']:
+        """
+        Decoder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#decoder-processor)
+        """
+        return pulumi.get(self, "decoder_processor")
 
     @_builtins.property
     @pulumi.getter(name="geoIpParser")
@@ -35792,6 +35832,263 @@ class LogsCustomPipelineProcessorArithmeticProcessor(dict):
         Your pipeline name.
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class LogsCustomPipelineProcessorArrayProcessor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEnabled":
+            suggest = "is_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsCustomPipelineProcessorArrayProcessor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsCustomPipelineProcessorArrayProcessor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsCustomPipelineProcessorArrayProcessor.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 operation: 'outputs.LogsCustomPipelineProcessorArrayProcessorOperation',
+                 is_enabled: Optional[_builtins.bool] = None,
+                 name: Optional[_builtins.str] = None):
+        """
+        :param 'LogsCustomPipelineProcessorArrayProcessorOperationArgs' operation: Operation to perform on the array.
+        :param _builtins.bool is_enabled: Boolean value to enable your processor.
+        :param _builtins.str name: Your processor name.
+        """
+        pulumi.set(__self__, "operation", operation)
+        if is_enabled is not None:
+            pulumi.set(__self__, "is_enabled", is_enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def operation(self) -> 'outputs.LogsCustomPipelineProcessorArrayProcessorOperation':
+        """
+        Operation to perform on the array.
+        """
+        return pulumi.get(self, "operation")
+
+    @_builtins.property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Boolean value to enable your processor.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        Your processor name.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class LogsCustomPipelineProcessorArrayProcessorOperation(dict):
+    def __init__(__self__, *,
+                 append: Optional['outputs.LogsCustomPipelineProcessorArrayProcessorOperationAppend'] = None,
+                 length: Optional['outputs.LogsCustomPipelineProcessorArrayProcessorOperationLength'] = None,
+                 select: Optional['outputs.LogsCustomPipelineProcessorArrayProcessorOperationSelect'] = None):
+        """
+        :param 'LogsCustomPipelineProcessorArrayProcessorOperationAppendArgs' append: Operation that appends a value to a target array attribute.
+        :param 'LogsCustomPipelineProcessorArrayProcessorOperationLengthArgs' length: Operation that computes the length of a source array and stores the result in a target attribute.
+        :param 'LogsCustomPipelineProcessorArrayProcessorOperationSelectArgs' select: Operation that finds an object in a source array using a filter, and then extracts a value from that found object and puts that value into the target attribute.
+        """
+        if append is not None:
+            pulumi.set(__self__, "append", append)
+        if length is not None:
+            pulumi.set(__self__, "length", length)
+        if select is not None:
+            pulumi.set(__self__, "select", select)
+
+    @_builtins.property
+    @pulumi.getter
+    def append(self) -> Optional['outputs.LogsCustomPipelineProcessorArrayProcessorOperationAppend']:
+        """
+        Operation that appends a value to a target array attribute.
+        """
+        return pulumi.get(self, "append")
+
+    @_builtins.property
+    @pulumi.getter
+    def length(self) -> Optional['outputs.LogsCustomPipelineProcessorArrayProcessorOperationLength']:
+        """
+        Operation that computes the length of a source array and stores the result in a target attribute.
+        """
+        return pulumi.get(self, "length")
+
+    @_builtins.property
+    @pulumi.getter
+    def select(self) -> Optional['outputs.LogsCustomPipelineProcessorArrayProcessorOperationSelect']:
+        """
+        Operation that finds an object in a source array using a filter, and then extracts a value from that found object and puts that value into the target attribute.
+        """
+        return pulumi.get(self, "select")
+
+
+@pulumi.output_type
+class LogsCustomPipelineProcessorArrayProcessorOperationAppend(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "preserveSource":
+            suggest = "preserve_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsCustomPipelineProcessorArrayProcessorOperationAppend. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsCustomPipelineProcessorArrayProcessorOperationAppend.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsCustomPipelineProcessorArrayProcessorOperationAppend.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 source: _builtins.str,
+                 target: _builtins.str,
+                 preserve_source: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.str source: Attribute path containing the value to append.
+        :param _builtins.str target: Attribute path of the array to append to.
+        :param _builtins.bool preserve_source: Remove or preserve the remapped source element. Defaults to `true`.
+        """
+        pulumi.set(__self__, "source", source)
+        pulumi.set(__self__, "target", target)
+        if preserve_source is not None:
+            pulumi.set(__self__, "preserve_source", preserve_source)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> _builtins.str:
+        """
+        Attribute path containing the value to append.
+        """
+        return pulumi.get(self, "source")
+
+    @_builtins.property
+    @pulumi.getter
+    def target(self) -> _builtins.str:
+        """
+        Attribute path of the array to append to.
+        """
+        return pulumi.get(self, "target")
+
+    @_builtins.property
+    @pulumi.getter(name="preserveSource")
+    def preserve_source(self) -> Optional[_builtins.bool]:
+        """
+        Remove or preserve the remapped source element. Defaults to `true`.
+        """
+        return pulumi.get(self, "preserve_source")
+
+
+@pulumi.output_type
+class LogsCustomPipelineProcessorArrayProcessorOperationLength(dict):
+    def __init__(__self__, *,
+                 source: _builtins.str,
+                 target: _builtins.str):
+        """
+        :param _builtins.str source: Attribute path of the array to compute the length of.
+        :param _builtins.str target: Attribute that receives the computed length.
+        """
+        pulumi.set(__self__, "source", source)
+        pulumi.set(__self__, "target", target)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> _builtins.str:
+        """
+        Attribute path of the array to compute the length of.
+        """
+        return pulumi.get(self, "source")
+
+    @_builtins.property
+    @pulumi.getter
+    def target(self) -> _builtins.str:
+        """
+        Attribute that receives the computed length.
+        """
+        return pulumi.get(self, "target")
+
+
+@pulumi.output_type
+class LogsCustomPipelineProcessorArrayProcessorOperationSelect(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "valueToExtract":
+            suggest = "value_to_extract"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsCustomPipelineProcessorArrayProcessorOperationSelect. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsCustomPipelineProcessorArrayProcessorOperationSelect.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsCustomPipelineProcessorArrayProcessorOperationSelect.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 filter: _builtins.str,
+                 source: _builtins.str,
+                 target: _builtins.str,
+                 value_to_extract: _builtins.str):
+        """
+        :param _builtins.str filter: Filter expression (e.g. key1:value1 OR key2:value2) used to find the matching element.
+        :param _builtins.str source: Attribute path of the array to search into.
+        :param _builtins.str target: Attribute that receives the extracted value.
+        :param _builtins.str value_to_extract: Attribute key from the matching object that should be extracted.
+        """
+        pulumi.set(__self__, "filter", filter)
+        pulumi.set(__self__, "source", source)
+        pulumi.set(__self__, "target", target)
+        pulumi.set(__self__, "value_to_extract", value_to_extract)
+
+    @_builtins.property
+    @pulumi.getter
+    def filter(self) -> _builtins.str:
+        """
+        Filter expression (e.g. key1:value1 OR key2:value2) used to find the matching element.
+        """
+        return pulumi.get(self, "filter")
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> _builtins.str:
+        """
+        Attribute path of the array to search into.
+        """
+        return pulumi.get(self, "source")
+
+    @_builtins.property
+    @pulumi.getter
+    def target(self) -> _builtins.str:
+        """
+        Attribute that receives the extracted value.
+        """
+        return pulumi.get(self, "target")
+
+    @_builtins.property
+    @pulumi.getter(name="valueToExtract")
+    def value_to_extract(self) -> _builtins.str:
+        """
+        Attribute key from the matching object that should be extracted.
+        """
+        return pulumi.get(self, "value_to_extract")
 
 
 @pulumi.output_type
@@ -36080,6 +36377,102 @@ class LogsCustomPipelineProcessorDateRemapper(dict):
         List of source attributes.
         """
         return pulumi.get(self, "sources")
+
+    @_builtins.property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> Optional[_builtins.bool]:
+        """
+        If the processor is enabled or not.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        Name of the processor.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class LogsCustomPipelineProcessorDecoderProcessor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "binaryToTextEncoding":
+            suggest = "binary_to_text_encoding"
+        elif key == "inputRepresentation":
+            suggest = "input_representation"
+        elif key == "isEnabled":
+            suggest = "is_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsCustomPipelineProcessorDecoderProcessor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsCustomPipelineProcessorDecoderProcessor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsCustomPipelineProcessorDecoderProcessor.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 binary_to_text_encoding: _builtins.str,
+                 input_representation: _builtins.str,
+                 source: _builtins.str,
+                 target: _builtins.str,
+                 is_enabled: Optional[_builtins.bool] = None,
+                 name: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str binary_to_text_encoding: Encoding type: base64 or base16
+        :param _builtins.str input_representation: Input representation: utf-8 or integer
+        :param _builtins.str source: Encoded message
+        :param _builtins.str target: Decoded message
+        :param _builtins.bool is_enabled: If the processor is enabled or not.
+        :param _builtins.str name: Name of the processor.
+        """
+        pulumi.set(__self__, "binary_to_text_encoding", binary_to_text_encoding)
+        pulumi.set(__self__, "input_representation", input_representation)
+        pulumi.set(__self__, "source", source)
+        pulumi.set(__self__, "target", target)
+        if is_enabled is not None:
+            pulumi.set(__self__, "is_enabled", is_enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter(name="binaryToTextEncoding")
+    def binary_to_text_encoding(self) -> _builtins.str:
+        """
+        Encoding type: base64 or base16
+        """
+        return pulumi.get(self, "binary_to_text_encoding")
+
+    @_builtins.property
+    @pulumi.getter(name="inputRepresentation")
+    def input_representation(self) -> _builtins.str:
+        """
+        Input representation: utf-8 or integer
+        """
+        return pulumi.get(self, "input_representation")
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> _builtins.str:
+        """
+        Encoded message
+        """
+        return pulumi.get(self, "source")
+
+    @_builtins.property
+    @pulumi.getter
+    def target(self) -> _builtins.str:
+        """
+        Decoded message
+        """
+        return pulumi.get(self, "target")
 
     @_builtins.property
     @pulumi.getter(name="isEnabled")
@@ -36543,12 +36936,16 @@ class LogsCustomPipelineProcessorPipelineProcessor(dict):
         suggest = None
         if key == "arithmeticProcessor":
             suggest = "arithmetic_processor"
+        elif key == "arrayProcessor":
+            suggest = "array_processor"
         elif key == "attributeRemapper":
             suggest = "attribute_remapper"
         elif key == "categoryProcessor":
             suggest = "category_processor"
         elif key == "dateRemapper":
             suggest = "date_remapper"
+        elif key == "decoderProcessor":
+            suggest = "decoder_processor"
         elif key == "geoIpParser":
             suggest = "geo_ip_parser"
         elif key == "grokParser":
@@ -36587,9 +36984,11 @@ class LogsCustomPipelineProcessorPipelineProcessor(dict):
 
     def __init__(__self__, *,
                  arithmetic_processor: Optional['outputs.LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor'] = None,
+                 array_processor: Optional['outputs.LogsCustomPipelineProcessorPipelineProcessorArrayProcessor'] = None,
                  attribute_remapper: Optional['outputs.LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper'] = None,
                  category_processor: Optional['outputs.LogsCustomPipelineProcessorPipelineProcessorCategoryProcessor'] = None,
                  date_remapper: Optional['outputs.LogsCustomPipelineProcessorPipelineProcessorDateRemapper'] = None,
+                 decoder_processor: Optional['outputs.LogsCustomPipelineProcessorPipelineProcessorDecoderProcessor'] = None,
                  geo_ip_parser: Optional['outputs.LogsCustomPipelineProcessorPipelineProcessorGeoIpParser'] = None,
                  grok_parser: Optional['outputs.LogsCustomPipelineProcessorPipelineProcessorGrokParser'] = None,
                  lookup_processor: Optional['outputs.LogsCustomPipelineProcessorPipelineProcessorLookupProcessor'] = None,
@@ -36604,9 +37003,11 @@ class LogsCustomPipelineProcessorPipelineProcessor(dict):
                  user_agent_parser: Optional['outputs.LogsCustomPipelineProcessorPipelineProcessorUserAgentParser'] = None):
         """
         :param 'LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessorArgs' arithmetic_processor: Arithmetic Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#arithmetic-processor)
+        :param 'LogsCustomPipelineProcessorPipelineProcessorArrayProcessorArgs' array_processor: Array Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#array-processor)
         :param 'LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperArgs' attribute_remapper: Attribute Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#remapper)
         :param 'LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorArgs' category_processor: Category Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#category-processor)
         :param 'LogsCustomPipelineProcessorPipelineProcessorDateRemapperArgs' date_remapper: Date Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-date-remapper)
+        :param 'LogsCustomPipelineProcessorPipelineProcessorDecoderProcessorArgs' decoder_processor: Decoder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#decoder-processor)
         :param 'LogsCustomPipelineProcessorPipelineProcessorGeoIpParserArgs' geo_ip_parser: Date GeoIP Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#geoip-parser)
         :param 'LogsCustomPipelineProcessorPipelineProcessorGrokParserArgs' grok_parser: Grok Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#grok-parser)
         :param 'LogsCustomPipelineProcessorPipelineProcessorLookupProcessorArgs' lookup_processor: Lookup Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
@@ -36622,12 +37023,16 @@ class LogsCustomPipelineProcessorPipelineProcessor(dict):
         """
         if arithmetic_processor is not None:
             pulumi.set(__self__, "arithmetic_processor", arithmetic_processor)
+        if array_processor is not None:
+            pulumi.set(__self__, "array_processor", array_processor)
         if attribute_remapper is not None:
             pulumi.set(__self__, "attribute_remapper", attribute_remapper)
         if category_processor is not None:
             pulumi.set(__self__, "category_processor", category_processor)
         if date_remapper is not None:
             pulumi.set(__self__, "date_remapper", date_remapper)
+        if decoder_processor is not None:
+            pulumi.set(__self__, "decoder_processor", decoder_processor)
         if geo_ip_parser is not None:
             pulumi.set(__self__, "geo_ip_parser", geo_ip_parser)
         if grok_parser is not None:
@@ -36662,6 +37067,14 @@ class LogsCustomPipelineProcessorPipelineProcessor(dict):
         return pulumi.get(self, "arithmetic_processor")
 
     @_builtins.property
+    @pulumi.getter(name="arrayProcessor")
+    def array_processor(self) -> Optional['outputs.LogsCustomPipelineProcessorPipelineProcessorArrayProcessor']:
+        """
+        Array Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#array-processor)
+        """
+        return pulumi.get(self, "array_processor")
+
+    @_builtins.property
     @pulumi.getter(name="attributeRemapper")
     def attribute_remapper(self) -> Optional['outputs.LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper']:
         """
@@ -36684,6 +37097,14 @@ class LogsCustomPipelineProcessorPipelineProcessor(dict):
         Date Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-date-remapper)
         """
         return pulumi.get(self, "date_remapper")
+
+    @_builtins.property
+    @pulumi.getter(name="decoderProcessor")
+    def decoder_processor(self) -> Optional['outputs.LogsCustomPipelineProcessorPipelineProcessorDecoderProcessor']:
+        """
+        Decoder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#decoder-processor)
+        """
+        return pulumi.get(self, "decoder_processor")
 
     @_builtins.property
     @pulumi.getter(name="geoIpParser")
@@ -36864,6 +37285,263 @@ class LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor(dict):
         Your pipeline name.
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class LogsCustomPipelineProcessorPipelineProcessorArrayProcessor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEnabled":
+            suggest = "is_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsCustomPipelineProcessorPipelineProcessorArrayProcessor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsCustomPipelineProcessorPipelineProcessorArrayProcessor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsCustomPipelineProcessorPipelineProcessorArrayProcessor.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 operation: 'outputs.LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperation',
+                 is_enabled: Optional[_builtins.bool] = None,
+                 name: Optional[_builtins.str] = None):
+        """
+        :param 'LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationArgs' operation: Operation to perform on the array.
+        :param _builtins.bool is_enabled: Boolean value to enable your processor.
+        :param _builtins.str name: Your processor name.
+        """
+        pulumi.set(__self__, "operation", operation)
+        if is_enabled is not None:
+            pulumi.set(__self__, "is_enabled", is_enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def operation(self) -> 'outputs.LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperation':
+        """
+        Operation to perform on the array.
+        """
+        return pulumi.get(self, "operation")
+
+    @_builtins.property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Boolean value to enable your processor.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        Your processor name.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperation(dict):
+    def __init__(__self__, *,
+                 append: Optional['outputs.LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationAppend'] = None,
+                 length: Optional['outputs.LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationLength'] = None,
+                 select: Optional['outputs.LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationSelect'] = None):
+        """
+        :param 'LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationAppendArgs' append: Operation that appends a value to a target array attribute.
+        :param 'LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationLengthArgs' length: Operation that computes the length of a source array and stores the result in a target attribute.
+        :param 'LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationSelectArgs' select: Operation that finds an object in a source array using a filter, and then extracts a value from that found object and puts that value into the target attribute.
+        """
+        if append is not None:
+            pulumi.set(__self__, "append", append)
+        if length is not None:
+            pulumi.set(__self__, "length", length)
+        if select is not None:
+            pulumi.set(__self__, "select", select)
+
+    @_builtins.property
+    @pulumi.getter
+    def append(self) -> Optional['outputs.LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationAppend']:
+        """
+        Operation that appends a value to a target array attribute.
+        """
+        return pulumi.get(self, "append")
+
+    @_builtins.property
+    @pulumi.getter
+    def length(self) -> Optional['outputs.LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationLength']:
+        """
+        Operation that computes the length of a source array and stores the result in a target attribute.
+        """
+        return pulumi.get(self, "length")
+
+    @_builtins.property
+    @pulumi.getter
+    def select(self) -> Optional['outputs.LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationSelect']:
+        """
+        Operation that finds an object in a source array using a filter, and then extracts a value from that found object and puts that value into the target attribute.
+        """
+        return pulumi.get(self, "select")
+
+
+@pulumi.output_type
+class LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationAppend(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "preserveSource":
+            suggest = "preserve_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationAppend. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationAppend.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationAppend.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 source: _builtins.str,
+                 target: _builtins.str,
+                 preserve_source: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.str source: Attribute path containing the value to append.
+        :param _builtins.str target: Attribute path of the array to append to.
+        :param _builtins.bool preserve_source: Remove or preserve the remapped source element. Defaults to `true`.
+        """
+        pulumi.set(__self__, "source", source)
+        pulumi.set(__self__, "target", target)
+        if preserve_source is not None:
+            pulumi.set(__self__, "preserve_source", preserve_source)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> _builtins.str:
+        """
+        Attribute path containing the value to append.
+        """
+        return pulumi.get(self, "source")
+
+    @_builtins.property
+    @pulumi.getter
+    def target(self) -> _builtins.str:
+        """
+        Attribute path of the array to append to.
+        """
+        return pulumi.get(self, "target")
+
+    @_builtins.property
+    @pulumi.getter(name="preserveSource")
+    def preserve_source(self) -> Optional[_builtins.bool]:
+        """
+        Remove or preserve the remapped source element. Defaults to `true`.
+        """
+        return pulumi.get(self, "preserve_source")
+
+
+@pulumi.output_type
+class LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationLength(dict):
+    def __init__(__self__, *,
+                 source: _builtins.str,
+                 target: _builtins.str):
+        """
+        :param _builtins.str source: Attribute path of the array to compute the length of.
+        :param _builtins.str target: Attribute that receives the computed length.
+        """
+        pulumi.set(__self__, "source", source)
+        pulumi.set(__self__, "target", target)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> _builtins.str:
+        """
+        Attribute path of the array to compute the length of.
+        """
+        return pulumi.get(self, "source")
+
+    @_builtins.property
+    @pulumi.getter
+    def target(self) -> _builtins.str:
+        """
+        Attribute that receives the computed length.
+        """
+        return pulumi.get(self, "target")
+
+
+@pulumi.output_type
+class LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationSelect(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "valueToExtract":
+            suggest = "value_to_extract"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationSelect. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationSelect.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationSelect.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 filter: _builtins.str,
+                 source: _builtins.str,
+                 target: _builtins.str,
+                 value_to_extract: _builtins.str):
+        """
+        :param _builtins.str filter: Filter expression (e.g. key1:value1 OR key2:value2) used to find the matching element.
+        :param _builtins.str source: Attribute path of the array to search into.
+        :param _builtins.str target: Attribute that receives the extracted value.
+        :param _builtins.str value_to_extract: Attribute key from the matching object that should be extracted.
+        """
+        pulumi.set(__self__, "filter", filter)
+        pulumi.set(__self__, "source", source)
+        pulumi.set(__self__, "target", target)
+        pulumi.set(__self__, "value_to_extract", value_to_extract)
+
+    @_builtins.property
+    @pulumi.getter
+    def filter(self) -> _builtins.str:
+        """
+        Filter expression (e.g. key1:value1 OR key2:value2) used to find the matching element.
+        """
+        return pulumi.get(self, "filter")
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> _builtins.str:
+        """
+        Attribute path of the array to search into.
+        """
+        return pulumi.get(self, "source")
+
+    @_builtins.property
+    @pulumi.getter
+    def target(self) -> _builtins.str:
+        """
+        Attribute that receives the extracted value.
+        """
+        return pulumi.get(self, "target")
+
+    @_builtins.property
+    @pulumi.getter(name="valueToExtract")
+    def value_to_extract(self) -> _builtins.str:
+        """
+        Attribute key from the matching object that should be extracted.
+        """
+        return pulumi.get(self, "value_to_extract")
 
 
 @pulumi.output_type
@@ -37152,6 +37830,102 @@ class LogsCustomPipelineProcessorPipelineProcessorDateRemapper(dict):
         List of source attributes.
         """
         return pulumi.get(self, "sources")
+
+    @_builtins.property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> Optional[_builtins.bool]:
+        """
+        If the processor is enabled or not.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        Name of the processor.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class LogsCustomPipelineProcessorPipelineProcessorDecoderProcessor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "binaryToTextEncoding":
+            suggest = "binary_to_text_encoding"
+        elif key == "inputRepresentation":
+            suggest = "input_representation"
+        elif key == "isEnabled":
+            suggest = "is_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsCustomPipelineProcessorPipelineProcessorDecoderProcessor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsCustomPipelineProcessorPipelineProcessorDecoderProcessor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsCustomPipelineProcessorPipelineProcessorDecoderProcessor.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 binary_to_text_encoding: _builtins.str,
+                 input_representation: _builtins.str,
+                 source: _builtins.str,
+                 target: _builtins.str,
+                 is_enabled: Optional[_builtins.bool] = None,
+                 name: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str binary_to_text_encoding: Encoding type: base64 or base16
+        :param _builtins.str input_representation: Input representation: utf-8 or integer
+        :param _builtins.str source: Encoded message
+        :param _builtins.str target: Decoded message
+        :param _builtins.bool is_enabled: If the processor is enabled or not.
+        :param _builtins.str name: Name of the processor.
+        """
+        pulumi.set(__self__, "binary_to_text_encoding", binary_to_text_encoding)
+        pulumi.set(__self__, "input_representation", input_representation)
+        pulumi.set(__self__, "source", source)
+        pulumi.set(__self__, "target", target)
+        if is_enabled is not None:
+            pulumi.set(__self__, "is_enabled", is_enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter(name="binaryToTextEncoding")
+    def binary_to_text_encoding(self) -> _builtins.str:
+        """
+        Encoding type: base64 or base16
+        """
+        return pulumi.get(self, "binary_to_text_encoding")
+
+    @_builtins.property
+    @pulumi.getter(name="inputRepresentation")
+    def input_representation(self) -> _builtins.str:
+        """
+        Input representation: utf-8 or integer
+        """
+        return pulumi.get(self, "input_representation")
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> _builtins.str:
+        """
+        Encoded message
+        """
+        return pulumi.get(self, "source")
+
+    @_builtins.property
+    @pulumi.getter
+    def target(self) -> _builtins.str:
+        """
+        Decoded message
+        """
+        return pulumi.get(self, "target")
 
     @_builtins.property
     @pulumi.getter(name="isEnabled")
@@ -89688,7 +90462,7 @@ class SecurityMonitoringDefaultRuleOptions(dict):
     def __init__(__self__, *,
                  decrease_criticality_based_on_env: Optional[_builtins.bool] = None):
         """
-        :param _builtins.bool decrease_criticality_based_on_env: If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `log_detection`. Defaults to `false`.
+        :param _builtins.bool decrease_criticality_based_on_env: If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `log_detection`.
         """
         if decrease_criticality_based_on_env is not None:
             pulumi.set(__self__, "decrease_criticality_based_on_env", decrease_criticality_based_on_env)
@@ -89697,7 +90471,7 @@ class SecurityMonitoringDefaultRuleOptions(dict):
     @pulumi.getter(name="decreaseCriticalityBasedOnEnv")
     def decrease_criticality_based_on_env(self) -> Optional[_builtins.bool]:
         """
-        If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `log_detection`. Defaults to `false`.
+        If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `log_detection`.
         """
         return pulumi.get(self, "decrease_criticality_based_on_env")
 
@@ -89730,7 +90504,6 @@ class SecurityMonitoringDefaultRuleQuery(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 query: _builtins.str,
                  agent_rules: Optional[Sequence['outputs.SecurityMonitoringDefaultRuleQueryAgentRule']] = None,
                  aggregation: Optional[_builtins.str] = None,
                  custom_query_extension: Optional[_builtins.str] = None,
@@ -89739,20 +90512,20 @@ class SecurityMonitoringDefaultRuleQuery(dict):
                  group_by_fields: Optional[Sequence[_builtins.str]] = None,
                  metric: Optional[_builtins.str] = None,
                  metrics: Optional[Sequence[_builtins.str]] = None,
-                 name: Optional[_builtins.str] = None):
+                 name: Optional[_builtins.str] = None,
+                 query: Optional[_builtins.str] = None):
         """
-        :param _builtins.str query: Query to run on logs.
         :param Sequence['SecurityMonitoringDefaultRuleQueryAgentRuleArgs'] agent_rules: **Deprecated**. It won't be applied anymore. **Deprecated.** `agent_rule` has been deprecated in favor of new Agent Rule resource.
-        :param _builtins.str aggregation: The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`. Defaults to `"count"`.
+        :param _builtins.str aggregation: The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`.
         :param _builtins.str custom_query_extension: Query extension to append to the logs query.
-        :param _builtins.str data_source: Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`, `events`. Defaults to `"logs"`.
+        :param _builtins.str data_source: Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`, `events`.
         :param Sequence[_builtins.str] distinct_fields: Field for which the cardinality is measured. Sent as an array.
         :param Sequence[_builtins.str] group_by_fields: Fields to group by.
         :param _builtins.str metric: The target field to aggregate over when using the `sum`, `max`, or `geo_data` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
         :param Sequence[_builtins.str] metrics: Group of target fields to aggregate over when using the `sum`, `max`, `geo_data`, or `new_value` aggregations. The `sum`, `max`, and `geo_data` aggregations only accept one value in this list, whereas the `new_value` aggregation accepts up to five values.
         :param _builtins.str name: Name of the query. Not compatible with `new_value` aggregations.
+        :param _builtins.str query: Query to run on logs.
         """
-        pulumi.set(__self__, "query", query)
         if agent_rules is not None:
             pulumi.set(__self__, "agent_rules", agent_rules)
         if aggregation is not None:
@@ -89771,14 +90544,8 @@ class SecurityMonitoringDefaultRuleQuery(dict):
             pulumi.set(__self__, "metrics", metrics)
         if name is not None:
             pulumi.set(__self__, "name", name)
-
-    @_builtins.property
-    @pulumi.getter
-    def query(self) -> _builtins.str:
-        """
-        Query to run on logs.
-        """
-        return pulumi.get(self, "query")
+        if query is not None:
+            pulumi.set(__self__, "query", query)
 
     @_builtins.property
     @pulumi.getter(name="agentRules")
@@ -89793,7 +90560,7 @@ class SecurityMonitoringDefaultRuleQuery(dict):
     @pulumi.getter
     def aggregation(self) -> Optional[_builtins.str]:
         """
-        The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`. Defaults to `"count"`.
+        The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`.
         """
         return pulumi.get(self, "aggregation")
 
@@ -89809,7 +90576,7 @@ class SecurityMonitoringDefaultRuleQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> Optional[_builtins.str]:
         """
-        Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`, `events`. Defaults to `"logs"`.
+        Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`, `events`.
         """
         return pulumi.get(self, "data_source")
 
@@ -89853,6 +90620,14 @@ class SecurityMonitoringDefaultRuleQuery(dict):
         Name of the query. Not compatible with `new_value` aggregations.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def query(self) -> Optional[_builtins.str]:
+        """
+        Query to run on logs.
+        """
+        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -90002,7 +90777,7 @@ class SecurityMonitoringRuleCaseAction(dict):
                  type: _builtins.str,
                  options: Optional['outputs.SecurityMonitoringRuleCaseActionOptions'] = None):
         """
-        :param _builtins.str type: Type of action to perform when the case triggers. Valid values are `block_ip`, `block_user`, `user_behavior`.
+        :param _builtins.str type: Type of action to perform when the case triggers. Valid values are `block_ip`, `block_user`, `user_behavior`, `flag_ip`.
         :param 'SecurityMonitoringRuleCaseActionOptionsArgs' options: Options for the action.
         """
         pulumi.set(__self__, "type", type)
@@ -90013,7 +90788,7 @@ class SecurityMonitoringRuleCaseAction(dict):
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Type of action to perform when the case triggers. Valid values are `block_ip`, `block_user`, `user_behavior`.
+        Type of action to perform when the case triggers. Valid values are `block_ip`, `block_user`, `user_behavior`, `flag_ip`.
         """
         return pulumi.get(self, "type")
 
@@ -91887,13 +92662,13 @@ class SyntheticsTestApiStep(dict):
         :param _builtins.bool is_critical: Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
         :param 'SyntheticsTestApiStepRequestBasicauthArgs' request_basicauth: The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
         :param 'SyntheticsTestApiStepRequestClientCertificateArgs' request_client_certificate: Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
-        :param 'SyntheticsTestApiStepRequestDefinitionArgs' request_definition: The request for the api step.
+        :param 'SyntheticsTestApiStepRequestDefinitionArgs' request_definition: The request for the API step.
         :param Sequence['SyntheticsTestApiStepRequestFileArgs'] request_files: Files to be used as part of the request in the test.
         :param Mapping[str, _builtins.str] request_headers: Header name and value map.
         :param Mapping[str, _builtins.str] request_metadata: Metadata to include when performing the gRPC request.
         :param 'SyntheticsTestApiStepRequestProxyArgs' request_proxy: The proxy to perform the test.
         :param Mapping[str, _builtins.str] request_query: Query arguments name and value map.
-        :param _builtins.str subtype: The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `ssl`, `dns`, `tcp`, `udp`, `icmp`, `websocket`, `wait`. Defaults to `"http"`.
+        :param _builtins.str subtype: The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`, `ssl`, `dns`, `tcp`, `udp`, `icmp`, `websocket`, `wait`. Defaults to `"http"`.
         :param _builtins.int value: The time to wait in seconds. Minimum value: 0. Maximum value: 180.
         """
         pulumi.set(__self__, "name", name)
@@ -92008,7 +92783,7 @@ class SyntheticsTestApiStep(dict):
     @pulumi.getter(name="requestDefinition")
     def request_definition(self) -> Optional['outputs.SyntheticsTestApiStepRequestDefinition']:
         """
-        The request for the api step.
+        The request for the API step.
         """
         return pulumi.get(self, "request_definition")
 
@@ -92061,7 +92836,7 @@ class SyntheticsTestApiStep(dict):
     @pulumi.getter
     def subtype(self) -> Optional[_builtins.str]:
         """
-        The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `ssl`, `dns`, `tcp`, `udp`, `icmp`, `websocket`, `wait`. Defaults to `"http"`.
+        The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`, `ssl`, `dns`, `tcp`, `udp`, `icmp`, `websocket`, `wait`. Defaults to `"http"`.
         """
         return pulumi.get(self, "subtype")
 
@@ -92755,6 +93530,8 @@ class SyntheticsTestApiStepRequestDefinition(dict):
             suggest = "certificate_domains"
         elif key == "checkCertificateRevocation":
             suggest = "check_certificate_revocation"
+        elif key == "disableAiaIntermediateFetching":
+            suggest = "disable_aia_intermediate_fetching"
         elif key == "dnsServer":
             suggest = "dns_server"
         elif key == "dnsServerPort":
@@ -92797,6 +93574,7 @@ class SyntheticsTestApiStepRequestDefinition(dict):
                  call_type: Optional[_builtins.str] = None,
                  certificate_domains: Optional[Sequence[_builtins.str]] = None,
                  check_certificate_revocation: Optional[_builtins.bool] = None,
+                 disable_aia_intermediate_fetching: Optional[_builtins.bool] = None,
                  dns_server: Optional[_builtins.str] = None,
                  dns_server_port: Optional[_builtins.str] = None,
                  follow_redirects: Optional[_builtins.bool] = None,
@@ -92818,13 +93596,14 @@ class SyntheticsTestApiStepRequestDefinition(dict):
                  timeout: Optional[_builtins.int] = None,
                  url: Optional[_builtins.str] = None):
         """
-        :param _builtins.bool accept_self_signed: For SSL test, whether or not the test should allow self signed certificates.
+        :param _builtins.bool accept_self_signed: For SSL tests, whether or not the test should allow self signed certificates.
         :param _builtins.bool allow_insecure: Allows loading insecure content for a request in an API test or in a multistep API test step.
         :param _builtins.str body: The request body.
         :param _builtins.str body_type: Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`, `application/octet-stream`, `multipart/form-data`.
         :param _builtins.str call_type: The type of gRPC call to perform. Valid values are `healthcheck`, `unary`.
         :param Sequence[_builtins.str] certificate_domains: By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `certificate_domains`.
-        :param _builtins.bool check_certificate_revocation: For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+        :param _builtins.bool check_certificate_revocation: For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
+        :param _builtins.bool disable_aia_intermediate_fetching: For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA
         :param _builtins.str dns_server: DNS server to use for DNS tests (`subtype = "dns"`).
         :param _builtins.str dns_server_port: DNS server port to use for DNS tests.
         :param _builtins.bool follow_redirects: Determines whether or not the API HTTP test should follow redirects.
@@ -92832,7 +93611,7 @@ class SyntheticsTestApiStepRequestDefinition(dict):
         :param _builtins.str host: Host name to perform the test with.
         :param _builtins.str http_version: HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `"any"`.
         :param _builtins.bool is_message_base64_encoded: Whether the message is base64-encoded.
-        :param _builtins.str message: For UDP and websocket tests, message to send with the request.
+        :param _builtins.str message: For gRPC, UDP and websocket tests, message to send with the request.
         :param _builtins.str method: Either the HTTP method/verb to use or a gRPC method available on the service set in the `service` field. Required if `subtype` is `HTTP` or if `subtype` is `grpc` and `callType` is `unary`.
         :param _builtins.bool no_saving_response_body: Determines whether or not to save the response body.
         :param _builtins.int number_of_packets: Number of pings to use per test for ICMP tests (`subtype = "icmp"`) between 0 and 10.
@@ -92860,6 +93639,8 @@ class SyntheticsTestApiStepRequestDefinition(dict):
             pulumi.set(__self__, "certificate_domains", certificate_domains)
         if check_certificate_revocation is not None:
             pulumi.set(__self__, "check_certificate_revocation", check_certificate_revocation)
+        if disable_aia_intermediate_fetching is not None:
+            pulumi.set(__self__, "disable_aia_intermediate_fetching", disable_aia_intermediate_fetching)
         if dns_server is not None:
             pulumi.set(__self__, "dns_server", dns_server)
         if dns_server_port is not None:
@@ -92905,7 +93686,7 @@ class SyntheticsTestApiStepRequestDefinition(dict):
     @pulumi.getter(name="acceptSelfSigned")
     def accept_self_signed(self) -> Optional[_builtins.bool]:
         """
-        For SSL test, whether or not the test should allow self signed certificates.
+        For SSL tests, whether or not the test should allow self signed certificates.
         """
         return pulumi.get(self, "accept_self_signed")
 
@@ -92953,9 +93734,17 @@ class SyntheticsTestApiStepRequestDefinition(dict):
     @pulumi.getter(name="checkCertificateRevocation")
     def check_certificate_revocation(self) -> Optional[_builtins.bool]:
         """
-        For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+        For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
         """
         return pulumi.get(self, "check_certificate_revocation")
+
+    @_builtins.property
+    @pulumi.getter(name="disableAiaIntermediateFetching")
+    def disable_aia_intermediate_fetching(self) -> Optional[_builtins.bool]:
+        """
+        For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA
+        """
+        return pulumi.get(self, "disable_aia_intermediate_fetching")
 
     @_builtins.property
     @pulumi.getter(name="dnsServer")
@@ -93017,7 +93806,7 @@ class SyntheticsTestApiStepRequestDefinition(dict):
     @pulumi.getter
     def message(self) -> Optional[_builtins.str]:
         """
-        For UDP and websocket tests, message to send with the request.
+        For gRPC, UDP and websocket tests, message to send with the request.
         """
         return pulumi.get(self, "message")
 
@@ -95391,6 +96180,8 @@ class SyntheticsTestOptionsList(dict):
             suggest = "allow_insecure"
         elif key == "checkCertificateRevocation":
             suggest = "check_certificate_revocation"
+        elif key == "disableAiaIntermediateFetching":
+            suggest = "disable_aia_intermediate_fetching"
         elif key == "disableCors":
             suggest = "disable_cors"
         elif key == "disableCsp":
@@ -95437,6 +96228,7 @@ class SyntheticsTestOptionsList(dict):
                  allow_insecure: Optional[_builtins.bool] = None,
                  check_certificate_revocation: Optional[_builtins.bool] = None,
                  ci: Optional['outputs.SyntheticsTestOptionsListCi'] = None,
+                 disable_aia_intermediate_fetching: Optional[_builtins.bool] = None,
                  disable_cors: Optional[_builtins.bool] = None,
                  disable_csp: Optional[_builtins.bool] = None,
                  follow_redirects: Optional[_builtins.bool] = None,
@@ -95455,10 +96247,11 @@ class SyntheticsTestOptionsList(dict):
                  scheduling: Optional['outputs.SyntheticsTestOptionsListScheduling'] = None):
         """
         :param _builtins.int tick_every: How often the test should run (in seconds). Valid range is `30-604800` for API tests and `60-604800` for browser tests.
-        :param _builtins.bool accept_self_signed: For SSL test, whether or not the test should allow self signed certificates.
+        :param _builtins.bool accept_self_signed: For SSL tests, whether or not the test should allow self signed certificates.
         :param _builtins.bool allow_insecure: Allows loading insecure content for a request in an API test or in a multistep API test step.
-        :param _builtins.bool check_certificate_revocation: For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+        :param _builtins.bool check_certificate_revocation: For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
         :param 'SyntheticsTestOptionsListCiArgs' ci: CI/CD options for a Synthetic test.
+        :param _builtins.bool disable_aia_intermediate_fetching: For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA
         :param _builtins.bool disable_cors: Disable Cross-Origin Resource Sharing for browser tests.
         :param _builtins.bool disable_csp: Disable Content Security Policy for browser tests.
         :param _builtins.bool follow_redirects: Determines whether or not the API HTTP test should follow redirects.
@@ -95482,6 +96275,8 @@ class SyntheticsTestOptionsList(dict):
             pulumi.set(__self__, "check_certificate_revocation", check_certificate_revocation)
         if ci is not None:
             pulumi.set(__self__, "ci", ci)
+        if disable_aia_intermediate_fetching is not None:
+            pulumi.set(__self__, "disable_aia_intermediate_fetching", disable_aia_intermediate_fetching)
         if disable_cors is not None:
             pulumi.set(__self__, "disable_cors", disable_cors)
         if disable_csp is not None:
@@ -95527,7 +96322,7 @@ class SyntheticsTestOptionsList(dict):
     @pulumi.getter(name="acceptSelfSigned")
     def accept_self_signed(self) -> Optional[_builtins.bool]:
         """
-        For SSL test, whether or not the test should allow self signed certificates.
+        For SSL tests, whether or not the test should allow self signed certificates.
         """
         return pulumi.get(self, "accept_self_signed")
 
@@ -95543,7 +96338,7 @@ class SyntheticsTestOptionsList(dict):
     @pulumi.getter(name="checkCertificateRevocation")
     def check_certificate_revocation(self) -> Optional[_builtins.bool]:
         """
-        For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+        For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
         """
         return pulumi.get(self, "check_certificate_revocation")
 
@@ -95554,6 +96349,14 @@ class SyntheticsTestOptionsList(dict):
         CI/CD options for a Synthetic test.
         """
         return pulumi.get(self, "ci")
+
+    @_builtins.property
+    @pulumi.getter(name="disableAiaIntermediateFetching")
+    def disable_aia_intermediate_fetching(self) -> Optional[_builtins.bool]:
+        """
+        For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA
+        """
+        return pulumi.get(self, "disable_aia_intermediate_fetching")
 
     @_builtins.property
     @pulumi.getter(name="disableCors")
@@ -96371,7 +97174,7 @@ class SyntheticsTestRequestDefinition(dict):
         :param _builtins.str host: Host name to perform the test with.
         :param _builtins.str http_version: HTTP version to use for an HTTP request in an API test or step. **Deprecated.** Use `http_version` in the `options_list` field instead.
         :param _builtins.bool is_message_base64_encoded: Whether the message is base64-encoded.
-        :param _builtins.str message: For UDP and websocket tests, message to send with the request.
+        :param _builtins.str message: For gRPC, UDP and websocket tests, message to send with the request.
         :param _builtins.str method: Either the HTTP method/verb to use or a gRPC method available on the service set in the `service` field. Required if `subtype` is `HTTP` or if `subtype` is `grpc` and `callType` is `unary`.
         :param _builtins.bool no_saving_response_body: Determines whether or not to save the response body.
         :param _builtins.int number_of_packets: Number of pings to use per test for ICMP tests (`subtype = "icmp"`) between 0 and 10.
@@ -96517,7 +97320,7 @@ class SyntheticsTestRequestDefinition(dict):
     @pulumi.getter
     def message(self) -> Optional[_builtins.str]:
         """
-        For UDP and websocket tests, message to send with the request.
+        For gRPC, UDP and websocket tests, message to send with the request.
         """
         return pulumi.get(self, "message")
 

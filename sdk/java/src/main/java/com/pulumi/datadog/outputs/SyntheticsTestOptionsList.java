@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SyntheticsTestOptionsList {
     /**
-     * @return For SSL test, whether or not the test should allow self signed certificates.
+     * @return For SSL tests, whether or not the test should allow self signed certificates.
      * 
      */
     private @Nullable Boolean acceptSelfSigned;
@@ -31,7 +31,7 @@ public final class SyntheticsTestOptionsList {
      */
     private @Nullable Boolean allowInsecure;
     /**
-     * @return For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+     * @return For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
      * 
      */
     private @Nullable Boolean checkCertificateRevocation;
@@ -40,6 +40,11 @@ public final class SyntheticsTestOptionsList {
      * 
      */
     private @Nullable SyntheticsTestOptionsListCi ci;
+    /**
+     * @return For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA
+     * 
+     */
+    private @Nullable Boolean disableAiaIntermediateFetching;
     /**
      * @return Disable Cross-Origin Resource Sharing for browser tests.
      * 
@@ -120,7 +125,7 @@ public final class SyntheticsTestOptionsList {
 
     private SyntheticsTestOptionsList() {}
     /**
-     * @return For SSL test, whether or not the test should allow self signed certificates.
+     * @return For SSL tests, whether or not the test should allow self signed certificates.
      * 
      */
     public Optional<Boolean> acceptSelfSigned() {
@@ -134,7 +139,7 @@ public final class SyntheticsTestOptionsList {
         return Optional.ofNullable(this.allowInsecure);
     }
     /**
-     * @return For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+     * @return For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
      * 
      */
     public Optional<Boolean> checkCertificateRevocation() {
@@ -146,6 +151,13 @@ public final class SyntheticsTestOptionsList {
      */
     public Optional<SyntheticsTestOptionsListCi> ci() {
         return Optional.ofNullable(this.ci);
+    }
+    /**
+     * @return For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA
+     * 
+     */
+    public Optional<Boolean> disableAiaIntermediateFetching() {
+        return Optional.ofNullable(this.disableAiaIntermediateFetching);
     }
     /**
      * @return Disable Cross-Origin Resource Sharing for browser tests.
@@ -272,6 +284,7 @@ public final class SyntheticsTestOptionsList {
         private @Nullable Boolean allowInsecure;
         private @Nullable Boolean checkCertificateRevocation;
         private @Nullable SyntheticsTestOptionsListCi ci;
+        private @Nullable Boolean disableAiaIntermediateFetching;
         private @Nullable Boolean disableCors;
         private @Nullable Boolean disableCsp;
         private @Nullable Boolean followRedirects;
@@ -296,6 +309,7 @@ public final class SyntheticsTestOptionsList {
     	      this.allowInsecure = defaults.allowInsecure;
     	      this.checkCertificateRevocation = defaults.checkCertificateRevocation;
     	      this.ci = defaults.ci;
+    	      this.disableAiaIntermediateFetching = defaults.disableAiaIntermediateFetching;
     	      this.disableCors = defaults.disableCors;
     	      this.disableCsp = defaults.disableCsp;
     	      this.followRedirects = defaults.followRedirects;
@@ -337,6 +351,12 @@ public final class SyntheticsTestOptionsList {
         public Builder ci(@Nullable SyntheticsTestOptionsListCi ci) {
 
             this.ci = ci;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder disableAiaIntermediateFetching(@Nullable Boolean disableAiaIntermediateFetching) {
+
+            this.disableAiaIntermediateFetching = disableAiaIntermediateFetching;
             return this;
         }
         @CustomType.Setter
@@ -452,6 +472,7 @@ public final class SyntheticsTestOptionsList {
             _resultValue.allowInsecure = allowInsecure;
             _resultValue.checkCertificateRevocation = checkCertificateRevocation;
             _resultValue.ci = ci;
+            _resultValue.disableAiaIntermediateFetching = disableAiaIntermediateFetching;
             _resultValue.disableCors = disableCors;
             _resultValue.disableCsp = disableCsp;
             _resultValue.followRedirects = followRedirects;

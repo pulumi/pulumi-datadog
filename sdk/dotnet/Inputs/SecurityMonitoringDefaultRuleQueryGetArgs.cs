@@ -26,7 +26,7 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`. Defaults to `"count"`.
+        /// The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`.
         /// </summary>
         [Input("aggregation")]
         public Input<string>? Aggregation { get; set; }
@@ -38,7 +38,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? CustomQueryExtension { get; set; }
 
         /// <summary>
-        /// Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`, `events`. Defaults to `"logs"`.
+        /// Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`, `events`.
         /// </summary>
         [Input("dataSource")]
         public Input<string>? DataSource { get; set; }
@@ -94,8 +94,8 @@ namespace Pulumi.Datadog.Inputs
         /// <summary>
         /// Query to run on logs.
         /// </summary>
-        [Input("query", required: true)]
-        public Input<string> Query { get; set; } = null!;
+        [Input("query")]
+        public Input<string>? Query { get; set; }
 
         public SecurityMonitoringDefaultRuleQueryGetArgs()
         {

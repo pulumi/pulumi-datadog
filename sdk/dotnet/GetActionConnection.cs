@@ -12,7 +12,7 @@ namespace Pulumi.Datadog
     public static class GetActionConnection
     {
         /// <summary>
-        /// A connection that can be used in Actions, including in the Workflow Automation and App Builder products.
+        /// A connection that can be used in Actions, including in the Workflow Automation and App Builder products. This data source requires a registered application key.
         /// 
         /// ## Example Usage
         /// 
@@ -36,7 +36,7 @@ namespace Pulumi.Datadog
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetActionConnectionResult>("datadog:index/getActionConnection:getActionConnection", args ?? new GetActionConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A connection that can be used in Actions, including in the Workflow Automation and App Builder products.
+        /// A connection that can be used in Actions, including in the Workflow Automation and App Builder products. This data source requires a registered application key.
         /// 
         /// ## Example Usage
         /// 
@@ -60,7 +60,7 @@ namespace Pulumi.Datadog
             => global::Pulumi.Deployment.Instance.Invoke<GetActionConnectionResult>("datadog:index/getActionConnection:getActionConnection", args ?? new GetActionConnectionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A connection that can be used in Actions, including in the Workflow Automation and App Builder products.
+        /// A connection that can be used in Actions, including in the Workflow Automation and App Builder products. This data source requires a registered application key.
         /// 
         /// ## Example Usage
         /// 

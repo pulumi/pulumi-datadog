@@ -178,14 +178,14 @@ public final class SyntheticsTestRequestDefinitionArgs extends com.pulumi.resour
     }
 
     /**
-     * For UDP and websocket tests, message to send with the request.
+     * For gRPC, UDP and websocket tests, message to send with the request.
      * 
      */
     @Import(name="message")
     private @Nullable Output<String> message;
 
     /**
-     * @return For UDP and websocket tests, message to send with the request.
+     * @return For gRPC, UDP and websocket tests, message to send with the request.
      * 
      */
     public Optional<Output<String>> message() {
@@ -655,7 +655,7 @@ public final class SyntheticsTestRequestDefinitionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param message For UDP and websocket tests, message to send with the request.
+         * @param message For gRPC, UDP and websocket tests, message to send with the request.
          * 
          * @return builder
          * 
@@ -666,7 +666,7 @@ public final class SyntheticsTestRequestDefinitionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param message For UDP and websocket tests, message to send with the request.
+         * @param message For gRPC, UDP and websocket tests, message to send with the request.
          * 
          * @return builder
          * 

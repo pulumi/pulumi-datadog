@@ -20,14 +20,14 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
     public static final SyntheticsTestApiStepRequestDefinitionArgs Empty = new SyntheticsTestApiStepRequestDefinitionArgs();
 
     /**
-     * For SSL test, whether or not the test should allow self signed certificates.
+     * For SSL tests, whether or not the test should allow self signed certificates.
      * 
      */
     @Import(name="acceptSelfSigned")
     private @Nullable Output<Boolean> acceptSelfSigned;
 
     /**
-     * @return For SSL test, whether or not the test should allow self signed certificates.
+     * @return For SSL tests, whether or not the test should allow self signed certificates.
      * 
      */
     public Optional<Output<Boolean>> acceptSelfSigned() {
@@ -110,18 +110,33 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
     }
 
     /**
-     * For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+     * For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
      * 
      */
     @Import(name="checkCertificateRevocation")
     private @Nullable Output<Boolean> checkCertificateRevocation;
 
     /**
-     * @return For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+     * @return For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
      * 
      */
     public Optional<Output<Boolean>> checkCertificateRevocation() {
         return Optional.ofNullable(this.checkCertificateRevocation);
+    }
+
+    /**
+     * For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA
+     * 
+     */
+    @Import(name="disableAiaIntermediateFetching")
+    private @Nullable Output<Boolean> disableAiaIntermediateFetching;
+
+    /**
+     * @return For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA
+     * 
+     */
+    public Optional<Output<Boolean>> disableAiaIntermediateFetching() {
+        return Optional.ofNullable(this.disableAiaIntermediateFetching);
     }
 
     /**
@@ -230,14 +245,14 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
     }
 
     /**
-     * For UDP and websocket tests, message to send with the request.
+     * For gRPC, UDP and websocket tests, message to send with the request.
      * 
      */
     @Import(name="message")
     private @Nullable Output<String> message;
 
     /**
-     * @return For UDP and websocket tests, message to send with the request.
+     * @return For gRPC, UDP and websocket tests, message to send with the request.
      * 
      */
     public Optional<Output<String>> message() {
@@ -442,6 +457,7 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
         this.callType = $.callType;
         this.certificateDomains = $.certificateDomains;
         this.checkCertificateRevocation = $.checkCertificateRevocation;
+        this.disableAiaIntermediateFetching = $.disableAiaIntermediateFetching;
         this.dnsServer = $.dnsServer;
         this.dnsServerPort = $.dnsServerPort;
         this.followRedirects = $.followRedirects;
@@ -483,7 +499,7 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
         }
 
         /**
-         * @param acceptSelfSigned For SSL test, whether or not the test should allow self signed certificates.
+         * @param acceptSelfSigned For SSL tests, whether or not the test should allow self signed certificates.
          * 
          * @return builder
          * 
@@ -494,7 +510,7 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
         }
 
         /**
-         * @param acceptSelfSigned For SSL test, whether or not the test should allow self signed certificates.
+         * @param acceptSelfSigned For SSL tests, whether or not the test should allow self signed certificates.
          * 
          * @return builder
          * 
@@ -619,7 +635,7 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
         }
 
         /**
-         * @param checkCertificateRevocation For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+         * @param checkCertificateRevocation For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
          * 
          * @return builder
          * 
@@ -630,13 +646,34 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
         }
 
         /**
-         * @param checkCertificateRevocation For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+         * @param checkCertificateRevocation For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
          * 
          * @return builder
          * 
          */
         public Builder checkCertificateRevocation(Boolean checkCertificateRevocation) {
             return checkCertificateRevocation(Output.of(checkCertificateRevocation));
+        }
+
+        /**
+         * @param disableAiaIntermediateFetching For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disableAiaIntermediateFetching(@Nullable Output<Boolean> disableAiaIntermediateFetching) {
+            $.disableAiaIntermediateFetching = disableAiaIntermediateFetching;
+            return this;
+        }
+
+        /**
+         * @param disableAiaIntermediateFetching For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disableAiaIntermediateFetching(Boolean disableAiaIntermediateFetching) {
+            return disableAiaIntermediateFetching(Output.of(disableAiaIntermediateFetching));
         }
 
         /**
@@ -787,7 +824,7 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
         }
 
         /**
-         * @param message For UDP and websocket tests, message to send with the request.
+         * @param message For gRPC, UDP and websocket tests, message to send with the request.
          * 
          * @return builder
          * 
@@ -798,7 +835,7 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
         }
 
         /**
-         * @param message For UDP and websocket tests, message to send with the request.
+         * @param message For gRPC, UDP and websocket tests, message to send with the request.
          * 
          * @return builder
          * 

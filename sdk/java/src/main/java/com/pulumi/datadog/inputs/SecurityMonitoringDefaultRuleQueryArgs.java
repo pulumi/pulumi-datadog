@@ -6,7 +6,6 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.SecurityMonitoringDefaultRuleQueryAgentRuleArgs;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -42,14 +41,14 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
     }
 
     /**
-     * The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`. Defaults to `&#34;count&#34;`.
+     * The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`.
      * 
      */
     @Import(name="aggregation")
     private @Nullable Output<String> aggregation;
 
     /**
-     * @return The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`. Defaults to `&#34;count&#34;`.
+     * @return The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`.
      * 
      */
     public Optional<Output<String>> aggregation() {
@@ -72,14 +71,14 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
     }
 
     /**
-     * Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`, `events`. Defaults to `&#34;logs&#34;`.
+     * Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`, `events`.
      * 
      */
     @Import(name="dataSource")
     private @Nullable Output<String> dataSource;
 
     /**
-     * @return Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`, `events`. Defaults to `&#34;logs&#34;`.
+     * @return Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`, `events`.
      * 
      */
     public Optional<Output<String>> dataSource() {
@@ -173,15 +172,15 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
      * Query to run on logs.
      * 
      */
-    @Import(name="query", required=true)
-    private Output<String> query;
+    @Import(name="query")
+    private @Nullable Output<String> query;
 
     /**
      * @return Query to run on logs.
      * 
      */
-    public Output<String> query() {
-        return this.query;
+    public Optional<Output<String>> query() {
+        return Optional.ofNullable(this.query);
     }
 
     private SecurityMonitoringDefaultRuleQueryArgs() {}
@@ -261,7 +260,7 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
         }
 
         /**
-         * @param aggregation The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`. Defaults to `&#34;count&#34;`.
+         * @param aggregation The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`.
          * 
          * @return builder
          * 
@@ -272,7 +271,7 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
         }
 
         /**
-         * @param aggregation The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`. Defaults to `&#34;count&#34;`.
+         * @param aggregation The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`.
          * 
          * @return builder
          * 
@@ -303,7 +302,7 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
         }
 
         /**
-         * @param dataSource Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`, `events`. Defaults to `&#34;logs&#34;`.
+         * @param dataSource Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`, `events`.
          * 
          * @return builder
          * 
@@ -314,7 +313,7 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
         }
 
         /**
-         * @param dataSource Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`, `events`. Defaults to `&#34;logs&#34;`.
+         * @param dataSource Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`, `events`.
          * 
          * @return builder
          * 
@@ -472,7 +471,7 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
          * @return builder
          * 
          */
-        public Builder query(Output<String> query) {
+        public Builder query(@Nullable Output<String> query) {
             $.query = query;
             return this;
         }
@@ -488,9 +487,6 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
         }
 
         public SecurityMonitoringDefaultRuleQueryArgs build() {
-            if ($.query == null) {
-                throw new MissingRequiredPropertyException("SecurityMonitoringDefaultRuleQueryArgs", "query");
-            }
             return $;
         }
     }

@@ -55,7 +55,7 @@ class SyntheticsTestArgs:
         :param pulumi.Input[_builtins.str] name: Name of Datadog synthetics test.
         :param pulumi.Input[_builtins.str] status: Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
         :param pulumi.Input[_builtins.str] type: Synthetics test type. Valid values are `api`, `browser`, `mobile`.
-        :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestApiStepArgs']]] api_steps: Steps for multi-step api tests
+        :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestApiStepArgs']]] api_steps: Steps for multistep API tests
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestAssertionArgs']]] assertions: Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestBrowserStepArgs']]] browser_steps: Steps for browser tests.
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestBrowserVariableArgs']]] browser_variables: Variables used for a browser test steps. Multiple `variable` blocks are allowed with the structure below.
@@ -183,7 +183,7 @@ class SyntheticsTestArgs:
     @pulumi.getter(name="apiSteps")
     def api_steps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestApiStepArgs']]]]:
         """
-        Steps for multi-step api tests
+        Steps for multistep API tests
         """
         return pulumi.get(self, "api_steps")
 
@@ -496,7 +496,7 @@ class _SyntheticsTestState:
                  variables_from_script: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SyntheticsTest resources.
-        :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestApiStepArgs']]] api_steps: Steps for multi-step api tests
+        :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestApiStepArgs']]] api_steps: Steps for multistep API tests
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestAssertionArgs']]] assertions: Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestBrowserStepArgs']]] browser_steps: Steps for browser tests.
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestBrowserVariableArgs']]] browser_variables: Variables used for a browser test steps. Multiple `variable` blocks are allowed with the structure below.
@@ -587,7 +587,7 @@ class _SyntheticsTestState:
     @pulumi.getter(name="apiSteps")
     def api_steps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestApiStepArgs']]]]:
         """
-        Steps for multi-step api tests
+        Steps for multistep API tests
         """
         return pulumi.get(self, "api_steps")
 
@@ -1643,7 +1643,7 @@ class SyntheticsTest(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestApiStepArgs', 'SyntheticsTestApiStepArgsDict']]]] api_steps: Steps for multi-step api tests
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestApiStepArgs', 'SyntheticsTestApiStepArgsDict']]]] api_steps: Steps for multistep API tests
         :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestAssertionArgs', 'SyntheticsTestAssertionArgsDict']]]] assertions: Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestBrowserStepArgs', 'SyntheticsTestBrowserStepArgsDict']]]] browser_steps: Steps for browser tests.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestBrowserVariableArgs', 'SyntheticsTestBrowserVariableArgsDict']]]] browser_variables: Variables used for a browser test steps. Multiple `variable` blocks are allowed with the structure below.
@@ -2491,7 +2491,7 @@ class SyntheticsTest(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestApiStepArgs', 'SyntheticsTestApiStepArgsDict']]]] api_steps: Steps for multi-step api tests
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestApiStepArgs', 'SyntheticsTestApiStepArgsDict']]]] api_steps: Steps for multistep API tests
         :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestAssertionArgs', 'SyntheticsTestAssertionArgsDict']]]] assertions: Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestBrowserStepArgs', 'SyntheticsTestBrowserStepArgsDict']]]] browser_steps: Steps for browser tests.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestBrowserVariableArgs', 'SyntheticsTestBrowserVariableArgsDict']]]] browser_variables: Variables used for a browser test steps. Multiple `variable` blocks are allowed with the structure below.
@@ -2558,7 +2558,7 @@ class SyntheticsTest(pulumi.CustomResource):
     @pulumi.getter(name="apiSteps")
     def api_steps(self) -> pulumi.Output[Optional[Sequence['outputs.SyntheticsTestApiStep']]]:
         """
-        Steps for multi-step api tests
+        Steps for multistep API tests
         """
         return pulumi.get(self, "api_steps")
 

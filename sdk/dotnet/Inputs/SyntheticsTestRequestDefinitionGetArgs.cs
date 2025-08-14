@@ -85,7 +85,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<bool>? IsMessageBase64Encoded { get; set; }
 
         /// <summary>
-        /// For UDP and websocket tests, message to send with the request.
+        /// For gRPC, UDP and websocket tests, message to send with the request.
         /// </summary>
         [Input("message")]
         public Input<string>? Message { get; set; }

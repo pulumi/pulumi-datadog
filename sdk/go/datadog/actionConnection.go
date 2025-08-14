@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A connection that can be used in Actions, including in the Workflow Automation and App Builder products.
+// A connection that can be used in Actions, including in the Workflow Automation and App Builder products. This resource requires a registered application key.
 //
 // ## Import
 //

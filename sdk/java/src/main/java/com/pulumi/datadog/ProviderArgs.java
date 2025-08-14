@@ -73,6 +73,91 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID`
+     * environment variable. Required when using `cloud_provider_type` set to `aws`.
+     * 
+     */
+    @Import(name="awsAccessKeyId")
+    private @Nullable Output<String> awsAccessKeyId;
+
+    /**
+     * @return The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID`
+     * environment variable. Required when using `cloud_provider_type` set to `aws`.
+     * 
+     */
+    public Optional<Output<String>> awsAccessKeyId() {
+        return Optional.ofNullable(this.awsAccessKeyId);
+    }
+
+    /**
+     * The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the
+     * `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
+     * 
+     */
+    @Import(name="awsSecretAccessKey")
+    private @Nullable Output<String> awsSecretAccessKey;
+
+    /**
+     * @return The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the
+     * `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
+     * 
+     */
+    public Optional<Output<String>> awsSecretAccessKey() {
+        return Optional.ofNullable(this.awsSecretAccessKey);
+    }
+
+    /**
+     * The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN`
+     * environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
+     * 
+     */
+    @Import(name="awsSessionToken")
+    private @Nullable Output<String> awsSessionToken;
+
+    /**
+     * @return The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN`
+     * environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
+     * 
+     */
+    public Optional<Output<String>> awsSessionToken() {
+        return Optional.ofNullable(this.awsSessionToken);
+    }
+
+    /**
+     * The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
+     * 
+     */
+    @Import(name="cloudProviderRegion")
+    private @Nullable Output<String> cloudProviderRegion;
+
+    /**
+     * @return The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
+     * 
+     */
+    public Optional<Output<String>> cloudProviderRegion() {
+        return Optional.ofNullable(this.cloudProviderRegion);
+    }
+
+    /**
+     * Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app
+     * keys. Only [`aws`] is supported. This feature is in Preview. If you&#39;d like to enable it for your organization, contact
+     * [support](https://docs.datadoghq.com/help/).
+     * 
+     */
+    @Import(name="cloudProviderType")
+    private @Nullable Output<String> cloudProviderType;
+
+    /**
+     * @return Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app
+     * keys. Only [`aws`] is supported. This feature is in Preview. If you&#39;d like to enable it for your organization, contact
+     * [support](https://docs.datadoghq.com/help/).
+     * 
+     */
+    public Optional<Output<String>> cloudProviderType() {
+        return Optional.ofNullable(this.cloudProviderType);
+    }
+
+    /**
      * [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration
      * block containing settings to apply default resource tags across all resources.
      * 
@@ -165,6 +250,23 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The organization UUID; used for cloud-provider-based authentication. See the [Datadog API
+     * documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+     * 
+     */
+    @Import(name="orgUuid")
+    private @Nullable Output<String> orgUuid;
+
+    /**
+     * @return The organization UUID; used for cloud-provider-based authentication. See the [Datadog API
+     * documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+     * 
+     */
+    public Optional<Output<String>> orgUuid() {
+        return Optional.ofNullable(this.orgUuid);
+    }
+
+    /**
      * Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default
      * is true. When false, api_key won&#39;t be checked.
      * 
@@ -187,12 +289,18 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.apiKey = $.apiKey;
         this.apiUrl = $.apiUrl;
         this.appKey = $.appKey;
+        this.awsAccessKeyId = $.awsAccessKeyId;
+        this.awsSecretAccessKey = $.awsSecretAccessKey;
+        this.awsSessionToken = $.awsSessionToken;
+        this.cloudProviderRegion = $.cloudProviderRegion;
+        this.cloudProviderType = $.cloudProviderType;
         this.defaultTags = $.defaultTags;
         this.httpClientRetryBackoffBase = $.httpClientRetryBackoffBase;
         this.httpClientRetryBackoffMultiplier = $.httpClientRetryBackoffMultiplier;
         this.httpClientRetryEnabled = $.httpClientRetryEnabled;
         this.httpClientRetryMaxRetries = $.httpClientRetryMaxRetries;
         this.httpClientRetryTimeout = $.httpClientRetryTimeout;
+        this.orgUuid = $.orgUuid;
         this.validate = $.validate;
     }
 
@@ -285,6 +393,121 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder appKey(String appKey) {
             return appKey(Output.of(appKey));
+        }
+
+        /**
+         * @param awsAccessKeyId The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID`
+         * environment variable. Required when using `cloud_provider_type` set to `aws`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsAccessKeyId(@Nullable Output<String> awsAccessKeyId) {
+            $.awsAccessKeyId = awsAccessKeyId;
+            return this;
+        }
+
+        /**
+         * @param awsAccessKeyId The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID`
+         * environment variable. Required when using `cloud_provider_type` set to `aws`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsAccessKeyId(String awsAccessKeyId) {
+            return awsAccessKeyId(Output.of(awsAccessKeyId));
+        }
+
+        /**
+         * @param awsSecretAccessKey The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the
+         * `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsSecretAccessKey(@Nullable Output<String> awsSecretAccessKey) {
+            $.awsSecretAccessKey = awsSecretAccessKey;
+            return this;
+        }
+
+        /**
+         * @param awsSecretAccessKey The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the
+         * `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsSecretAccessKey(String awsSecretAccessKey) {
+            return awsSecretAccessKey(Output.of(awsSecretAccessKey));
+        }
+
+        /**
+         * @param awsSessionToken The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN`
+         * environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsSessionToken(@Nullable Output<String> awsSessionToken) {
+            $.awsSessionToken = awsSessionToken;
+            return this;
+        }
+
+        /**
+         * @param awsSessionToken The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN`
+         * environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsSessionToken(String awsSessionToken) {
+            return awsSessionToken(Output.of(awsSessionToken));
+        }
+
+        /**
+         * @param cloudProviderRegion The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cloudProviderRegion(@Nullable Output<String> cloudProviderRegion) {
+            $.cloudProviderRegion = cloudProviderRegion;
+            return this;
+        }
+
+        /**
+         * @param cloudProviderRegion The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cloudProviderRegion(String cloudProviderRegion) {
+            return cloudProviderRegion(Output.of(cloudProviderRegion));
+        }
+
+        /**
+         * @param cloudProviderType Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app
+         * keys. Only [`aws`] is supported. This feature is in Preview. If you&#39;d like to enable it for your organization, contact
+         * [support](https://docs.datadoghq.com/help/).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cloudProviderType(@Nullable Output<String> cloudProviderType) {
+            $.cloudProviderType = cloudProviderType;
+            return this;
+        }
+
+        /**
+         * @param cloudProviderType Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app
+         * keys. Only [`aws`] is supported. This feature is in Preview. If you&#39;d like to enable it for your organization, contact
+         * [support](https://docs.datadoghq.com/help/).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cloudProviderType(String cloudProviderType) {
+            return cloudProviderType(Output.of(cloudProviderType));
         }
 
         /**
@@ -413,6 +636,29 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder httpClientRetryTimeout(Integer httpClientRetryTimeout) {
             return httpClientRetryTimeout(Output.of(httpClientRetryTimeout));
+        }
+
+        /**
+         * @param orgUuid The organization UUID; used for cloud-provider-based authentication. See the [Datadog API
+         * documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder orgUuid(@Nullable Output<String> orgUuid) {
+            $.orgUuid = orgUuid;
+            return this;
+        }
+
+        /**
+         * @param orgUuid The organization UUID; used for cloud-provider-based authentication. See the [Datadog API
+         * documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder orgUuid(String orgUuid) {
+            return orgUuid(Output.of(orgUuid));
         }
 
         /**

@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SyntheticsTestApiStepRequestDefinition {
     /**
-     * @return For SSL test, whether or not the test should allow self signed certificates.
+     * @return For SSL tests, whether or not the test should allow self signed certificates.
      * 
      */
     private @Nullable Boolean acceptSelfSigned;
@@ -46,10 +46,15 @@ public final class SyntheticsTestApiStepRequestDefinition {
      */
     private @Nullable List<String> certificateDomains;
     /**
-     * @return For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+     * @return For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
      * 
      */
     private @Nullable Boolean checkCertificateRevocation;
+    /**
+     * @return For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA
+     * 
+     */
+    private @Nullable Boolean disableAiaIntermediateFetching;
     /**
      * @return DNS server to use for DNS tests (`subtype = &#34;dns&#34;`).
      * 
@@ -86,7 +91,7 @@ public final class SyntheticsTestApiStepRequestDefinition {
      */
     private @Nullable Boolean isMessageBase64Encoded;
     /**
-     * @return For UDP and websocket tests, message to send with the request.
+     * @return For gRPC, UDP and websocket tests, message to send with the request.
      * 
      */
     private @Nullable String message;
@@ -157,7 +162,7 @@ public final class SyntheticsTestApiStepRequestDefinition {
 
     private SyntheticsTestApiStepRequestDefinition() {}
     /**
-     * @return For SSL test, whether or not the test should allow self signed certificates.
+     * @return For SSL tests, whether or not the test should allow self signed certificates.
      * 
      */
     public Optional<Boolean> acceptSelfSigned() {
@@ -199,11 +204,18 @@ public final class SyntheticsTestApiStepRequestDefinition {
         return this.certificateDomains == null ? List.of() : this.certificateDomains;
     }
     /**
-     * @return For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+     * @return For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
      * 
      */
     public Optional<Boolean> checkCertificateRevocation() {
         return Optional.ofNullable(this.checkCertificateRevocation);
+    }
+    /**
+     * @return For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA
+     * 
+     */
+    public Optional<Boolean> disableAiaIntermediateFetching() {
+        return Optional.ofNullable(this.disableAiaIntermediateFetching);
     }
     /**
      * @return DNS server to use for DNS tests (`subtype = &#34;dns&#34;`).
@@ -255,7 +267,7 @@ public final class SyntheticsTestApiStepRequestDefinition {
         return Optional.ofNullable(this.isMessageBase64Encoded);
     }
     /**
-     * @return For UDP and websocket tests, message to send with the request.
+     * @return For gRPC, UDP and websocket tests, message to send with the request.
      * 
      */
     public Optional<String> message() {
@@ -366,6 +378,7 @@ public final class SyntheticsTestApiStepRequestDefinition {
         private @Nullable String callType;
         private @Nullable List<String> certificateDomains;
         private @Nullable Boolean checkCertificateRevocation;
+        private @Nullable Boolean disableAiaIntermediateFetching;
         private @Nullable String dnsServer;
         private @Nullable String dnsServerPort;
         private @Nullable Boolean followRedirects;
@@ -396,6 +409,7 @@ public final class SyntheticsTestApiStepRequestDefinition {
     	      this.callType = defaults.callType;
     	      this.certificateDomains = defaults.certificateDomains;
     	      this.checkCertificateRevocation = defaults.checkCertificateRevocation;
+    	      this.disableAiaIntermediateFetching = defaults.disableAiaIntermediateFetching;
     	      this.dnsServer = defaults.dnsServer;
     	      this.dnsServerPort = defaults.dnsServerPort;
     	      this.followRedirects = defaults.followRedirects;
@@ -461,6 +475,12 @@ public final class SyntheticsTestApiStepRequestDefinition {
         public Builder checkCertificateRevocation(@Nullable Boolean checkCertificateRevocation) {
 
             this.checkCertificateRevocation = checkCertificateRevocation;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder disableAiaIntermediateFetching(@Nullable Boolean disableAiaIntermediateFetching) {
+
+            this.disableAiaIntermediateFetching = disableAiaIntermediateFetching;
             return this;
         }
         @CustomType.Setter
@@ -592,6 +612,7 @@ public final class SyntheticsTestApiStepRequestDefinition {
             _resultValue.callType = callType;
             _resultValue.certificateDomains = certificateDomains;
             _resultValue.checkCertificateRevocation = checkCertificateRevocation;
+            _resultValue.disableAiaIntermediateFetching = disableAiaIntermediateFetching;
             _resultValue.dnsServer = dnsServer;
             _resultValue.dnsServerPort = dnsServerPort;
             _resultValue.followRedirects = followRedirects;

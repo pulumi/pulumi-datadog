@@ -13,6 +13,1981 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQuery struct {
+	// The aggregation method.
+	Aggregation string `pulumi:"aggregation"`
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval *int `pulumi:"interval"`
+}
+
+// PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryInput is an input type that accepts PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryArgs and PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryOutput values.
+// You can construct a concrete instance of `PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryInput` via:
+//
+//	PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryArgs{...}
+type PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryOutput() PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryOutput
+	ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryOutputWithContext(context.Context) PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryOutput
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryArgs struct {
+	// The aggregation method.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
+}
+
+func (PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQuery)(nil)).Elem()
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryArgs) ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryOutput() PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryOutput {
+	return i.ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryArgs) ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryOutput)
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryArgs) ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryPtrOutput {
+	return i.ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryArgs) ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryOutput).ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryPtrInput is an input type that accepts PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryArgs, PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryPtr and PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryPtrInput` via:
+//
+//	        PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryPtrOutput
+	ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryPtrOutputWithContext(context.Context) PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryPtrOutput
+}
+
+type powerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryPtrType PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryArgs
+
+func PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryPtr(v *PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryArgs) PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryPtrInput {
+	return (*powerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryPtrType)(v)
+}
+
+func (*powerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQuery)(nil)).Elem()
+}
+
+func (i *powerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryPtrType) ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryPtrOutput {
+	return i.ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryPtrType) ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryPtrOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryOutput) ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryOutput() PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryOutput) ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryOutput) ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryPtrOutput {
+	return o.ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryOutput) ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQuery) *PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQuery {
+		return &v
+	}).(PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryPtrOutput)
+}
+
+// The aggregation method.
+func (o PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryOutput) Aggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQuery) string { return v.Aggregation }).(pulumi.StringOutput)
+}
+
+// The facet name.
+func (o PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQuery) *string { return v.Facet }).(pulumi.StringPtrOutput)
+}
+
+// Define the time interval in seconds.
+func (o PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQuery) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryPtrOutput) ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryPtrOutput) ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryPtrOutput) Elem() PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQuery) PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQuery {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQuery
+		return ret
+	}).(PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryOutput)
+}
+
+// The aggregation method.
+func (o PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryPtrOutput) Aggregation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Aggregation
+	}).(pulumi.StringPtrOutput)
+}
+
+// The facet name.
+func (o PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryPtrOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Facet
+	}).(pulumi.StringPtrOutput)
+}
+
+// Define the time interval in seconds.
+func (o PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryPtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQuery) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Interval
+	}).(pulumi.IntPtrOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBy struct {
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// The maximum number of items in the group.
+	Limit *int `pulumi:"limit"`
+	// A list of exactly one element describing the sort query to use.
+	SortQuery *PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQuery `pulumi:"sortQuery"`
+}
+
+// PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByInput is an input type that accepts PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByArgs and PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByOutput values.
+// You can construct a concrete instance of `PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByInput` via:
+//
+//	PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByArgs{...}
+type PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByOutput() PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByOutput
+	ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByOutputWithContext(context.Context) PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByOutput
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByArgs struct {
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// The maximum number of items in the group.
+	Limit pulumi.IntPtrInput `pulumi:"limit"`
+	// A list of exactly one element describing the sort query to use.
+	SortQuery PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrInput `pulumi:"sortQuery"`
+}
+
+func (PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBy)(nil)).Elem()
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByArgs) ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByOutput() PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByOutput {
+	return i.ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByArgs) ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByOutput)
+}
+
+// PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByArrayInput is an input type that accepts PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByArray and PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByArrayOutput values.
+// You can construct a concrete instance of `PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByArrayInput` via:
+//
+//	PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByArray{ PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByArgs{...} }
+type PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByArrayInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByArrayOutput() PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByArrayOutput
+	ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByArrayOutputWithContext(context.Context) PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByArrayOutput
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByArray []PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByInput
+
+func (PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBy)(nil)).Elem()
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByArray) ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByArrayOutput() PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByArrayOutput {
+	return i.ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByArrayOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByArray) ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByArrayOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByArrayOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBy)(nil)).Elem()
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByOutput) ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByOutput() PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByOutput) ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByOutput {
+	return o
+}
+
+// The facet name.
+func (o PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBy) *string { return v.Facet }).(pulumi.StringPtrOutput)
+}
+
+// The maximum number of items in the group.
+func (o PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByOutput) Limit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBy) *int { return v.Limit }).(pulumi.IntPtrOutput)
+}
+
+// A list of exactly one element describing the sort query to use.
+func (o PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByOutput) SortQuery() PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBy) *PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQuery {
+		return v.SortQuery
+	}).(PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByArrayOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBy)(nil)).Elem()
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByArrayOutput) ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByArrayOutput() PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByArrayOutput) ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByArrayOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByArrayOutput) Index(i pulumi.IntInput) PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBy {
+		return vs[0].([]PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBy)[vs[1].(int)]
+	}).(PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQuery struct {
+	// The aggregation method.
+	Aggregation string `pulumi:"aggregation"`
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// Widget sorting methods. Valid values are `asc`, `desc`.
+	Order string `pulumi:"order"`
+}
+
+// PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryInput is an input type that accepts PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryArgs and PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryOutput values.
+// You can construct a concrete instance of `PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryInput` via:
+//
+//	PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryArgs{...}
+type PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryOutput() PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryOutput
+	ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryOutputWithContext(context.Context) PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryOutput
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryArgs struct {
+	// The aggregation method.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// Widget sorting methods. Valid values are `asc`, `desc`.
+	Order pulumi.StringInput `pulumi:"order"`
+}
+
+func (PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQuery)(nil)).Elem()
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryArgs) ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryOutput() PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryOutput {
+	return i.ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryArgs) ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryOutput)
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryArgs) ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrOutput {
+	return i.ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryArgs) ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryOutput).ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrInput is an input type that accepts PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryArgs, PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtr and PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrInput` via:
+//
+//	        PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrOutput
+	ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrOutputWithContext(context.Context) PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrOutput
+}
+
+type powerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrType PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryArgs
+
+func PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtr(v *PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryArgs) PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrInput {
+	return (*powerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrType)(v)
+}
+
+func (*powerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQuery)(nil)).Elem()
+}
+
+func (i *powerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrType) ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrOutput {
+	return i.ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrType) ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryOutput) ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryOutput() PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryOutput) ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryOutput) ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrOutput {
+	return o.ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryOutput) ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQuery) *PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQuery {
+		return &v
+	}).(PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrOutput)
+}
+
+// The aggregation method.
+func (o PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryOutput) Aggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQuery) string {
+		return v.Aggregation
+	}).(pulumi.StringOutput)
+}
+
+// The facet name.
+func (o PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQuery) *string { return v.Facet }).(pulumi.StringPtrOutput)
+}
+
+// Widget sorting methods. Valid values are `asc`, `desc`.
+func (o PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryOutput) Order() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQuery) string { return v.Order }).(pulumi.StringOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrOutput) ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrOutput) ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrOutput) Elem() PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQuery) PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQuery {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQuery
+		return ret
+	}).(PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryOutput)
+}
+
+// The aggregation method.
+func (o PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrOutput) Aggregation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Aggregation
+	}).(pulumi.StringPtrOutput)
+}
+
+// The facet name.
+func (o PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Facet
+	}).(pulumi.StringPtrOutput)
+}
+
+// Widget sorting methods. Valid values are `asc`, `desc`.
+func (o PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrOutput) Order() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Order
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiCompute struct {
+	// The aggregation method.
+	Aggregation string `pulumi:"aggregation"`
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval *int `pulumi:"interval"`
+}
+
+// PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeInput is an input type that accepts PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeArgs and PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeOutput values.
+// You can construct a concrete instance of `PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeInput` via:
+//
+//	PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeArgs{...}
+type PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeOutput() PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeOutput
+	ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeOutputWithContext(context.Context) PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeOutput
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeArgs struct {
+	// The aggregation method.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
+}
+
+func (PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiCompute)(nil)).Elem()
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeArgs) ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeOutput() PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeOutput {
+	return i.ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeArgs) ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeOutput)
+}
+
+// PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeArrayInput is an input type that accepts PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeArray and PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeArrayOutput values.
+// You can construct a concrete instance of `PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeArrayInput` via:
+//
+//	PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeArray{ PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeArgs{...} }
+type PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeArrayInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeArrayOutput() PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeArrayOutput
+	ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeArrayOutputWithContext(context.Context) PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeArrayOutput
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeArray []PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeInput
+
+func (PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiCompute)(nil)).Elem()
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeArray) ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeArrayOutput() PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeArrayOutput {
+	return i.ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeArrayOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeArray) ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeArrayOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeArrayOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiCompute)(nil)).Elem()
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeOutput) ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeOutput() PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeOutput) ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeOutput {
+	return o
+}
+
+// The aggregation method.
+func (o PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeOutput) Aggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiCompute) string { return v.Aggregation }).(pulumi.StringOutput)
+}
+
+// The facet name.
+func (o PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiCompute) *string { return v.Facet }).(pulumi.StringPtrOutput)
+}
+
+// Define the time interval in seconds.
+func (o PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiCompute) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeArrayOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiCompute)(nil)).Elem()
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeArrayOutput) ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeArrayOutput() PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeArrayOutput) ToPowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeArrayOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeArrayOutput) Index(i pulumi.IntInput) PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiCompute {
+		return vs[0].([]PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiCompute)[vs[1].(int)]
+	}).(PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXLogQuery struct {
+	// `computeQuery` or `multiCompute` is required. The map keys are listed below.
+	ComputeQuery *PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQuery `pulumi:"computeQuery"`
+	// Multiple `groupBy` blocks are allowed using the structure below.
+	GroupBies []PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBy `pulumi:"groupBies"`
+	// The name of the index to query.
+	Index string `pulumi:"index"`
+	// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+	MultiComputes []PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiCompute `pulumi:"multiComputes"`
+	// The search query to use.
+	SearchQuery *string `pulumi:"searchQuery"`
+}
+
+// PowerpackWidgetScatterplotDefinitionRequestXLogQueryInput is an input type that accepts PowerpackWidgetScatterplotDefinitionRequestXLogQueryArgs and PowerpackWidgetScatterplotDefinitionRequestXLogQueryOutput values.
+// You can construct a concrete instance of `PowerpackWidgetScatterplotDefinitionRequestXLogQueryInput` via:
+//
+//	PowerpackWidgetScatterplotDefinitionRequestXLogQueryArgs{...}
+type PowerpackWidgetScatterplotDefinitionRequestXLogQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryOutput() PowerpackWidgetScatterplotDefinitionRequestXLogQueryOutput
+	ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryOutputWithContext(context.Context) PowerpackWidgetScatterplotDefinitionRequestXLogQueryOutput
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXLogQueryArgs struct {
+	// `computeQuery` or `multiCompute` is required. The map keys are listed below.
+	ComputeQuery PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrInput `pulumi:"computeQuery"`
+	// Multiple `groupBy` blocks are allowed using the structure below.
+	GroupBies PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByArrayInput `pulumi:"groupBies"`
+	// The name of the index to query.
+	Index pulumi.StringInput `pulumi:"index"`
+	// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+	MultiComputes PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArrayInput `pulumi:"multiComputes"`
+	// The search query to use.
+	SearchQuery pulumi.StringPtrInput `pulumi:"searchQuery"`
+}
+
+func (PowerpackWidgetScatterplotDefinitionRequestXLogQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXLogQuery)(nil)).Elem()
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXLogQueryArgs) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryOutput() PowerpackWidgetScatterplotDefinitionRequestXLogQueryOutput {
+	return i.ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXLogQueryArgs) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXLogQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetScatterplotDefinitionRequestXLogQueryOutput)
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXLogQueryArgs) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXLogQueryPtrOutput {
+	return i.ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXLogQueryArgs) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXLogQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetScatterplotDefinitionRequestXLogQueryOutput).ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetScatterplotDefinitionRequestXLogQueryPtrInput is an input type that accepts PowerpackWidgetScatterplotDefinitionRequestXLogQueryArgs, PowerpackWidgetScatterplotDefinitionRequestXLogQueryPtr and PowerpackWidgetScatterplotDefinitionRequestXLogQueryPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetScatterplotDefinitionRequestXLogQueryPtrInput` via:
+//
+//	        PowerpackWidgetScatterplotDefinitionRequestXLogQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetScatterplotDefinitionRequestXLogQueryPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXLogQueryPtrOutput
+	ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryPtrOutputWithContext(context.Context) PowerpackWidgetScatterplotDefinitionRequestXLogQueryPtrOutput
+}
+
+type powerpackWidgetScatterplotDefinitionRequestXLogQueryPtrType PowerpackWidgetScatterplotDefinitionRequestXLogQueryArgs
+
+func PowerpackWidgetScatterplotDefinitionRequestXLogQueryPtr(v *PowerpackWidgetScatterplotDefinitionRequestXLogQueryArgs) PowerpackWidgetScatterplotDefinitionRequestXLogQueryPtrInput {
+	return (*powerpackWidgetScatterplotDefinitionRequestXLogQueryPtrType)(v)
+}
+
+func (*powerpackWidgetScatterplotDefinitionRequestXLogQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetScatterplotDefinitionRequestXLogQuery)(nil)).Elem()
+}
+
+func (i *powerpackWidgetScatterplotDefinitionRequestXLogQueryPtrType) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXLogQueryPtrOutput {
+	return i.ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetScatterplotDefinitionRequestXLogQueryPtrType) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXLogQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetScatterplotDefinitionRequestXLogQueryPtrOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXLogQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetScatterplotDefinitionRequestXLogQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXLogQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryOutput) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryOutput() PowerpackWidgetScatterplotDefinitionRequestXLogQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryOutput) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXLogQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryOutput) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXLogQueryPtrOutput {
+	return o.ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryOutput) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXLogQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetScatterplotDefinitionRequestXLogQuery) *PowerpackWidgetScatterplotDefinitionRequestXLogQuery {
+		return &v
+	}).(PowerpackWidgetScatterplotDefinitionRequestXLogQueryPtrOutput)
+}
+
+// `computeQuery` or `multiCompute` is required. The map keys are listed below.
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryOutput) ComputeQuery() PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXLogQuery) *PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQuery {
+		return v.ComputeQuery
+	}).(PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrOutput)
+}
+
+// Multiple `groupBy` blocks are allowed using the structure below.
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryOutput) GroupBies() PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByArrayOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXLogQuery) []PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBy {
+		return v.GroupBies
+	}).(PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByArrayOutput)
+}
+
+// The name of the index to query.
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryOutput) Index() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXLogQuery) string { return v.Index }).(pulumi.StringOutput)
+}
+
+// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryOutput) MultiComputes() PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArrayOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXLogQuery) []PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiCompute {
+		return v.MultiComputes
+	}).(PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArrayOutput)
+}
+
+// The search query to use.
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryOutput) SearchQuery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXLogQuery) *string { return v.SearchQuery }).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXLogQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetScatterplotDefinitionRequestXLogQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetScatterplotDefinitionRequestXLogQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryPtrOutput) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXLogQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryPtrOutput) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXLogQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryPtrOutput) Elem() PowerpackWidgetScatterplotDefinitionRequestXLogQueryOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXLogQuery) PowerpackWidgetScatterplotDefinitionRequestXLogQuery {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetScatterplotDefinitionRequestXLogQuery
+		return ret
+	}).(PowerpackWidgetScatterplotDefinitionRequestXLogQueryOutput)
+}
+
+// `computeQuery` or `multiCompute` is required. The map keys are listed below.
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryPtrOutput) ComputeQuery() PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXLogQuery) *PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQuery {
+		if v == nil {
+			return nil
+		}
+		return v.ComputeQuery
+	}).(PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrOutput)
+}
+
+// Multiple `groupBy` blocks are allowed using the structure below.
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryPtrOutput) GroupBies() PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByArrayOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXLogQuery) []PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBy {
+		if v == nil {
+			return nil
+		}
+		return v.GroupBies
+	}).(PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByArrayOutput)
+}
+
+// The name of the index to query.
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryPtrOutput) Index() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXLogQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Index
+	}).(pulumi.StringPtrOutput)
+}
+
+// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryPtrOutput) MultiComputes() PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArrayOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXLogQuery) []PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiCompute {
+		if v == nil {
+			return nil
+		}
+		return v.MultiComputes
+	}).(PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArrayOutput)
+}
+
+// The search query to use.
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryPtrOutput) SearchQuery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXLogQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SearchQuery
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQuery struct {
+	// The aggregation method.
+	Aggregation string `pulumi:"aggregation"`
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval *int `pulumi:"interval"`
+}
+
+// PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryInput is an input type that accepts PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryArgs and PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryOutput values.
+// You can construct a concrete instance of `PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryInput` via:
+//
+//	PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryArgs{...}
+type PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryOutput() PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryOutput
+	ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryOutputWithContext(context.Context) PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryOutput
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryArgs struct {
+	// The aggregation method.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
+}
+
+func (PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQuery)(nil)).Elem()
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryArgs) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryOutput() PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryOutput {
+	return i.ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryArgs) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryOutput)
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryArgs) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrOutput {
+	return i.ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryArgs) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryOutput).ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrInput is an input type that accepts PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryArgs, PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtr and PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrInput` via:
+//
+//	        PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrOutput
+	ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrOutputWithContext(context.Context) PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrOutput
+}
+
+type powerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrType PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryArgs
+
+func PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtr(v *PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryArgs) PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrInput {
+	return (*powerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrType)(v)
+}
+
+func (*powerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQuery)(nil)).Elem()
+}
+
+func (i *powerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrType) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrOutput {
+	return i.ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrType) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryOutput) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryOutput() PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryOutput) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryOutput) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrOutput {
+	return o.ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryOutput) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQuery) *PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQuery {
+		return &v
+	}).(PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrOutput)
+}
+
+// The aggregation method.
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryOutput) Aggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQuery) string { return v.Aggregation }).(pulumi.StringOutput)
+}
+
+// The facet name.
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQuery) *string { return v.Facet }).(pulumi.StringPtrOutput)
+}
+
+// Define the time interval in seconds.
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQuery) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrOutput) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrOutput) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrOutput) Elem() PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQuery) PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQuery {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQuery
+		return ret
+	}).(PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryOutput)
+}
+
+// The aggregation method.
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrOutput) Aggregation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Aggregation
+	}).(pulumi.StringPtrOutput)
+}
+
+// The facet name.
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Facet
+	}).(pulumi.StringPtrOutput)
+}
+
+// Define the time interval in seconds.
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQuery) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Interval
+	}).(pulumi.IntPtrOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBy struct {
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// The maximum number of items in the group.
+	Limit *int `pulumi:"limit"`
+	// A list of exactly one element describing the sort query to use.
+	SortQuery *PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQuery `pulumi:"sortQuery"`
+}
+
+// PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByInput is an input type that accepts PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByArgs and PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByOutput values.
+// You can construct a concrete instance of `PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByInput` via:
+//
+//	PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByArgs{...}
+type PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByOutput() PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByOutput
+	ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByOutputWithContext(context.Context) PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByOutput
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByArgs struct {
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// The maximum number of items in the group.
+	Limit pulumi.IntPtrInput `pulumi:"limit"`
+	// A list of exactly one element describing the sort query to use.
+	SortQuery PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrInput `pulumi:"sortQuery"`
+}
+
+func (PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBy)(nil)).Elem()
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByArgs) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByOutput() PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByOutput {
+	return i.ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByArgs) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByOutput)
+}
+
+// PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByArrayInput is an input type that accepts PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByArray and PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByArrayOutput values.
+// You can construct a concrete instance of `PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByArrayInput` via:
+//
+//	PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByArray{ PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByArgs{...} }
+type PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByArrayInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByArrayOutput() PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByArrayOutput
+	ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByArrayOutputWithContext(context.Context) PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByArrayOutput
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByArray []PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByInput
+
+func (PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBy)(nil)).Elem()
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByArray) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByArrayOutput() PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByArrayOutput {
+	return i.ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByArrayOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByArray) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByArrayOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByArrayOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBy)(nil)).Elem()
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByOutput) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByOutput() PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByOutput) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByOutput {
+	return o
+}
+
+// The facet name.
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBy) *string { return v.Facet }).(pulumi.StringPtrOutput)
+}
+
+// The maximum number of items in the group.
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByOutput) Limit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBy) *int { return v.Limit }).(pulumi.IntPtrOutput)
+}
+
+// A list of exactly one element describing the sort query to use.
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByOutput) SortQuery() PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBy) *PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQuery {
+		return v.SortQuery
+	}).(PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByArrayOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBy)(nil)).Elem()
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByArrayOutput) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByArrayOutput() PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByArrayOutput) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByArrayOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByArrayOutput) Index(i pulumi.IntInput) PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBy {
+		return vs[0].([]PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBy)[vs[1].(int)]
+	}).(PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQuery struct {
+	// The aggregation method.
+	Aggregation string `pulumi:"aggregation"`
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// Widget sorting methods. Valid values are `asc`, `desc`.
+	Order string `pulumi:"order"`
+}
+
+// PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryInput is an input type that accepts PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryArgs and PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryOutput values.
+// You can construct a concrete instance of `PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryInput` via:
+//
+//	PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryArgs{...}
+type PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryOutput() PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryOutput
+	ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryOutputWithContext(context.Context) PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryOutput
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryArgs struct {
+	// The aggregation method.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// Widget sorting methods. Valid values are `asc`, `desc`.
+	Order pulumi.StringInput `pulumi:"order"`
+}
+
+func (PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQuery)(nil)).Elem()
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryArgs) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryOutput() PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryOutput {
+	return i.ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryArgs) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryOutput)
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryArgs) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrOutput {
+	return i.ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryArgs) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryOutput).ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrInput is an input type that accepts PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryArgs, PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtr and PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrInput` via:
+//
+//	        PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrOutput
+	ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrOutputWithContext(context.Context) PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrOutput
+}
+
+type powerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrType PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryArgs
+
+func PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtr(v *PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryArgs) PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrInput {
+	return (*powerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrType)(v)
+}
+
+func (*powerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQuery)(nil)).Elem()
+}
+
+func (i *powerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrType) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrOutput {
+	return i.ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrType) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryOutput) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryOutput() PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryOutput) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryOutput) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrOutput {
+	return o.ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryOutput) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQuery) *PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQuery {
+		return &v
+	}).(PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrOutput)
+}
+
+// The aggregation method.
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryOutput) Aggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQuery) string {
+		return v.Aggregation
+	}).(pulumi.StringOutput)
+}
+
+// The facet name.
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQuery) *string { return v.Facet }).(pulumi.StringPtrOutput)
+}
+
+// Widget sorting methods. Valid values are `asc`, `desc`.
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryOutput) Order() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQuery) string { return v.Order }).(pulumi.StringOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrOutput) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrOutput) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrOutput) Elem() PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQuery) PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQuery {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQuery
+		return ret
+	}).(PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryOutput)
+}
+
+// The aggregation method.
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrOutput) Aggregation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Aggregation
+	}).(pulumi.StringPtrOutput)
+}
+
+// The facet name.
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Facet
+	}).(pulumi.StringPtrOutput)
+}
+
+// Widget sorting methods. Valid values are `asc`, `desc`.
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrOutput) Order() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Order
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiCompute struct {
+	// The aggregation method.
+	Aggregation string `pulumi:"aggregation"`
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval *int `pulumi:"interval"`
+}
+
+// PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeInput is an input type that accepts PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArgs and PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeOutput values.
+// You can construct a concrete instance of `PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeInput` via:
+//
+//	PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArgs{...}
+type PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeOutput() PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeOutput
+	ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeOutputWithContext(context.Context) PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeOutput
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArgs struct {
+	// The aggregation method.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
+}
+
+func (PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiCompute)(nil)).Elem()
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArgs) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeOutput() PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeOutput {
+	return i.ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArgs) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeOutput)
+}
+
+// PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArrayInput is an input type that accepts PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArray and PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArrayOutput values.
+// You can construct a concrete instance of `PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArrayInput` via:
+//
+//	PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArray{ PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArgs{...} }
+type PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArrayInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArrayOutput() PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArrayOutput
+	ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArrayOutputWithContext(context.Context) PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArrayOutput
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArray []PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeInput
+
+func (PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiCompute)(nil)).Elem()
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArray) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArrayOutput() PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArrayOutput {
+	return i.ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArrayOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArray) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArrayOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArrayOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiCompute)(nil)).Elem()
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeOutput) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeOutput() PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeOutput) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeOutput {
+	return o
+}
+
+// The aggregation method.
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeOutput) Aggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiCompute) string { return v.Aggregation }).(pulumi.StringOutput)
+}
+
+// The facet name.
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiCompute) *string { return v.Facet }).(pulumi.StringPtrOutput)
+}
+
+// Define the time interval in seconds.
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiCompute) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArrayOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiCompute)(nil)).Elem()
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArrayOutput) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArrayOutput() PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArrayOutput) ToPowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArrayOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArrayOutput) Index(i pulumi.IntInput) PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiCompute {
+		return vs[0].([]PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiCompute)[vs[1].(int)]
+	}).(PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXProcessQuery struct {
+	// A list of processes.
+	FilterBies []string `pulumi:"filterBies"`
+	// The max number of items in the filter list.
+	Limit *int `pulumi:"limit"`
+	// Your chosen metric.
+	Metric string `pulumi:"metric"`
+	// Your chosen search term.
+	SearchBy *string `pulumi:"searchBy"`
+}
+
+// PowerpackWidgetScatterplotDefinitionRequestXProcessQueryInput is an input type that accepts PowerpackWidgetScatterplotDefinitionRequestXProcessQueryArgs and PowerpackWidgetScatterplotDefinitionRequestXProcessQueryOutput values.
+// You can construct a concrete instance of `PowerpackWidgetScatterplotDefinitionRequestXProcessQueryInput` via:
+//
+//	PowerpackWidgetScatterplotDefinitionRequestXProcessQueryArgs{...}
+type PowerpackWidgetScatterplotDefinitionRequestXProcessQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetScatterplotDefinitionRequestXProcessQueryOutput() PowerpackWidgetScatterplotDefinitionRequestXProcessQueryOutput
+	ToPowerpackWidgetScatterplotDefinitionRequestXProcessQueryOutputWithContext(context.Context) PowerpackWidgetScatterplotDefinitionRequestXProcessQueryOutput
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXProcessQueryArgs struct {
+	// A list of processes.
+	FilterBies pulumi.StringArrayInput `pulumi:"filterBies"`
+	// The max number of items in the filter list.
+	Limit pulumi.IntPtrInput `pulumi:"limit"`
+	// Your chosen metric.
+	Metric pulumi.StringInput `pulumi:"metric"`
+	// Your chosen search term.
+	SearchBy pulumi.StringPtrInput `pulumi:"searchBy"`
+}
+
+func (PowerpackWidgetScatterplotDefinitionRequestXProcessQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXProcessQuery)(nil)).Elem()
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXProcessQueryArgs) ToPowerpackWidgetScatterplotDefinitionRequestXProcessQueryOutput() PowerpackWidgetScatterplotDefinitionRequestXProcessQueryOutput {
+	return i.ToPowerpackWidgetScatterplotDefinitionRequestXProcessQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXProcessQueryArgs) ToPowerpackWidgetScatterplotDefinitionRequestXProcessQueryOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXProcessQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetScatterplotDefinitionRequestXProcessQueryOutput)
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXProcessQueryArgs) ToPowerpackWidgetScatterplotDefinitionRequestXProcessQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXProcessQueryPtrOutput {
+	return i.ToPowerpackWidgetScatterplotDefinitionRequestXProcessQueryPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXProcessQueryArgs) ToPowerpackWidgetScatterplotDefinitionRequestXProcessQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXProcessQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetScatterplotDefinitionRequestXProcessQueryOutput).ToPowerpackWidgetScatterplotDefinitionRequestXProcessQueryPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetScatterplotDefinitionRequestXProcessQueryPtrInput is an input type that accepts PowerpackWidgetScatterplotDefinitionRequestXProcessQueryArgs, PowerpackWidgetScatterplotDefinitionRequestXProcessQueryPtr and PowerpackWidgetScatterplotDefinitionRequestXProcessQueryPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetScatterplotDefinitionRequestXProcessQueryPtrInput` via:
+//
+//	        PowerpackWidgetScatterplotDefinitionRequestXProcessQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetScatterplotDefinitionRequestXProcessQueryPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetScatterplotDefinitionRequestXProcessQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXProcessQueryPtrOutput
+	ToPowerpackWidgetScatterplotDefinitionRequestXProcessQueryPtrOutputWithContext(context.Context) PowerpackWidgetScatterplotDefinitionRequestXProcessQueryPtrOutput
+}
+
+type powerpackWidgetScatterplotDefinitionRequestXProcessQueryPtrType PowerpackWidgetScatterplotDefinitionRequestXProcessQueryArgs
+
+func PowerpackWidgetScatterplotDefinitionRequestXProcessQueryPtr(v *PowerpackWidgetScatterplotDefinitionRequestXProcessQueryArgs) PowerpackWidgetScatterplotDefinitionRequestXProcessQueryPtrInput {
+	return (*powerpackWidgetScatterplotDefinitionRequestXProcessQueryPtrType)(v)
+}
+
+func (*powerpackWidgetScatterplotDefinitionRequestXProcessQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetScatterplotDefinitionRequestXProcessQuery)(nil)).Elem()
+}
+
+func (i *powerpackWidgetScatterplotDefinitionRequestXProcessQueryPtrType) ToPowerpackWidgetScatterplotDefinitionRequestXProcessQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXProcessQueryPtrOutput {
+	return i.ToPowerpackWidgetScatterplotDefinitionRequestXProcessQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetScatterplotDefinitionRequestXProcessQueryPtrType) ToPowerpackWidgetScatterplotDefinitionRequestXProcessQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXProcessQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetScatterplotDefinitionRequestXProcessQueryPtrOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXProcessQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetScatterplotDefinitionRequestXProcessQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXProcessQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXProcessQueryOutput) ToPowerpackWidgetScatterplotDefinitionRequestXProcessQueryOutput() PowerpackWidgetScatterplotDefinitionRequestXProcessQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXProcessQueryOutput) ToPowerpackWidgetScatterplotDefinitionRequestXProcessQueryOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXProcessQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXProcessQueryOutput) ToPowerpackWidgetScatterplotDefinitionRequestXProcessQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXProcessQueryPtrOutput {
+	return o.ToPowerpackWidgetScatterplotDefinitionRequestXProcessQueryPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXProcessQueryOutput) ToPowerpackWidgetScatterplotDefinitionRequestXProcessQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXProcessQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetScatterplotDefinitionRequestXProcessQuery) *PowerpackWidgetScatterplotDefinitionRequestXProcessQuery {
+		return &v
+	}).(PowerpackWidgetScatterplotDefinitionRequestXProcessQueryPtrOutput)
+}
+
+// A list of processes.
+func (o PowerpackWidgetScatterplotDefinitionRequestXProcessQueryOutput) FilterBies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXProcessQuery) []string { return v.FilterBies }).(pulumi.StringArrayOutput)
+}
+
+// The max number of items in the filter list.
+func (o PowerpackWidgetScatterplotDefinitionRequestXProcessQueryOutput) Limit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXProcessQuery) *int { return v.Limit }).(pulumi.IntPtrOutput)
+}
+
+// Your chosen metric.
+func (o PowerpackWidgetScatterplotDefinitionRequestXProcessQueryOutput) Metric() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXProcessQuery) string { return v.Metric }).(pulumi.StringOutput)
+}
+
+// Your chosen search term.
+func (o PowerpackWidgetScatterplotDefinitionRequestXProcessQueryOutput) SearchBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXProcessQuery) *string { return v.SearchBy }).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXProcessQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetScatterplotDefinitionRequestXProcessQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetScatterplotDefinitionRequestXProcessQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXProcessQueryPtrOutput) ToPowerpackWidgetScatterplotDefinitionRequestXProcessQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXProcessQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXProcessQueryPtrOutput) ToPowerpackWidgetScatterplotDefinitionRequestXProcessQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXProcessQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXProcessQueryPtrOutput) Elem() PowerpackWidgetScatterplotDefinitionRequestXProcessQueryOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXProcessQuery) PowerpackWidgetScatterplotDefinitionRequestXProcessQuery {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetScatterplotDefinitionRequestXProcessQuery
+		return ret
+	}).(PowerpackWidgetScatterplotDefinitionRequestXProcessQueryOutput)
+}
+
+// A list of processes.
+func (o PowerpackWidgetScatterplotDefinitionRequestXProcessQueryPtrOutput) FilterBies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXProcessQuery) []string {
+		if v == nil {
+			return nil
+		}
+		return v.FilterBies
+	}).(pulumi.StringArrayOutput)
+}
+
+// The max number of items in the filter list.
+func (o PowerpackWidgetScatterplotDefinitionRequestXProcessQueryPtrOutput) Limit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXProcessQuery) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Limit
+	}).(pulumi.IntPtrOutput)
+}
+
+// Your chosen metric.
+func (o PowerpackWidgetScatterplotDefinitionRequestXProcessQueryPtrOutput) Metric() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXProcessQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Metric
+	}).(pulumi.StringPtrOutput)
+}
+
+// Your chosen search term.
+func (o PowerpackWidgetScatterplotDefinitionRequestXProcessQueryPtrOutput) SearchBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXProcessQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SearchBy
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXRumQuery struct {
+	// `computeQuery` or `multiCompute` is required. The map keys are listed below.
+	ComputeQuery *PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQuery `pulumi:"computeQuery"`
+	// Multiple `groupBy` blocks are allowed using the structure below.
+	GroupBies []PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBy `pulumi:"groupBies"`
+	// The name of the index to query.
+	Index string `pulumi:"index"`
+	// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+	MultiComputes []PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiCompute `pulumi:"multiComputes"`
+	// The search query to use.
+	SearchQuery *string `pulumi:"searchQuery"`
+}
+
+// PowerpackWidgetScatterplotDefinitionRequestXRumQueryInput is an input type that accepts PowerpackWidgetScatterplotDefinitionRequestXRumQueryArgs and PowerpackWidgetScatterplotDefinitionRequestXRumQueryOutput values.
+// You can construct a concrete instance of `PowerpackWidgetScatterplotDefinitionRequestXRumQueryInput` via:
+//
+//	PowerpackWidgetScatterplotDefinitionRequestXRumQueryArgs{...}
+type PowerpackWidgetScatterplotDefinitionRequestXRumQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryOutput() PowerpackWidgetScatterplotDefinitionRequestXRumQueryOutput
+	ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryOutputWithContext(context.Context) PowerpackWidgetScatterplotDefinitionRequestXRumQueryOutput
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXRumQueryArgs struct {
+	// `computeQuery` or `multiCompute` is required. The map keys are listed below.
+	ComputeQuery PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrInput `pulumi:"computeQuery"`
+	// Multiple `groupBy` blocks are allowed using the structure below.
+	GroupBies PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArrayInput `pulumi:"groupBies"`
+	// The name of the index to query.
+	Index pulumi.StringInput `pulumi:"index"`
+	// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+	MultiComputes PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArrayInput `pulumi:"multiComputes"`
+	// The search query to use.
+	SearchQuery pulumi.StringPtrInput `pulumi:"searchQuery"`
+}
+
+func (PowerpackWidgetScatterplotDefinitionRequestXRumQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXRumQuery)(nil)).Elem()
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXRumQueryArgs) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryOutput() PowerpackWidgetScatterplotDefinitionRequestXRumQueryOutput {
+	return i.ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXRumQueryArgs) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXRumQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetScatterplotDefinitionRequestXRumQueryOutput)
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXRumQueryArgs) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXRumQueryPtrOutput {
+	return i.ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXRumQueryArgs) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXRumQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetScatterplotDefinitionRequestXRumQueryOutput).ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetScatterplotDefinitionRequestXRumQueryPtrInput is an input type that accepts PowerpackWidgetScatterplotDefinitionRequestXRumQueryArgs, PowerpackWidgetScatterplotDefinitionRequestXRumQueryPtr and PowerpackWidgetScatterplotDefinitionRequestXRumQueryPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetScatterplotDefinitionRequestXRumQueryPtrInput` via:
+//
+//	        PowerpackWidgetScatterplotDefinitionRequestXRumQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetScatterplotDefinitionRequestXRumQueryPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXRumQueryPtrOutput
+	ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryPtrOutputWithContext(context.Context) PowerpackWidgetScatterplotDefinitionRequestXRumQueryPtrOutput
+}
+
+type powerpackWidgetScatterplotDefinitionRequestXRumQueryPtrType PowerpackWidgetScatterplotDefinitionRequestXRumQueryArgs
+
+func PowerpackWidgetScatterplotDefinitionRequestXRumQueryPtr(v *PowerpackWidgetScatterplotDefinitionRequestXRumQueryArgs) PowerpackWidgetScatterplotDefinitionRequestXRumQueryPtrInput {
+	return (*powerpackWidgetScatterplotDefinitionRequestXRumQueryPtrType)(v)
+}
+
+func (*powerpackWidgetScatterplotDefinitionRequestXRumQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetScatterplotDefinitionRequestXRumQuery)(nil)).Elem()
+}
+
+func (i *powerpackWidgetScatterplotDefinitionRequestXRumQueryPtrType) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXRumQueryPtrOutput {
+	return i.ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetScatterplotDefinitionRequestXRumQueryPtrType) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXRumQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetScatterplotDefinitionRequestXRumQueryPtrOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXRumQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetScatterplotDefinitionRequestXRumQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXRumQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryOutput) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryOutput() PowerpackWidgetScatterplotDefinitionRequestXRumQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryOutput) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXRumQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryOutput) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXRumQueryPtrOutput {
+	return o.ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryOutput) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXRumQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetScatterplotDefinitionRequestXRumQuery) *PowerpackWidgetScatterplotDefinitionRequestXRumQuery {
+		return &v
+	}).(PowerpackWidgetScatterplotDefinitionRequestXRumQueryPtrOutput)
+}
+
+// `computeQuery` or `multiCompute` is required. The map keys are listed below.
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryOutput) ComputeQuery() PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXRumQuery) *PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQuery {
+		return v.ComputeQuery
+	}).(PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrOutput)
+}
+
+// Multiple `groupBy` blocks are allowed using the structure below.
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryOutput) GroupBies() PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArrayOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXRumQuery) []PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBy {
+		return v.GroupBies
+	}).(PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArrayOutput)
+}
+
+// The name of the index to query.
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryOutput) Index() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXRumQuery) string { return v.Index }).(pulumi.StringOutput)
+}
+
+// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryOutput) MultiComputes() PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArrayOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXRumQuery) []PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiCompute {
+		return v.MultiComputes
+	}).(PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArrayOutput)
+}
+
+// The search query to use.
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryOutput) SearchQuery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXRumQuery) *string { return v.SearchQuery }).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXRumQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetScatterplotDefinitionRequestXRumQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetScatterplotDefinitionRequestXRumQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryPtrOutput) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXRumQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryPtrOutput) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXRumQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryPtrOutput) Elem() PowerpackWidgetScatterplotDefinitionRequestXRumQueryOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXRumQuery) PowerpackWidgetScatterplotDefinitionRequestXRumQuery {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetScatterplotDefinitionRequestXRumQuery
+		return ret
+	}).(PowerpackWidgetScatterplotDefinitionRequestXRumQueryOutput)
+}
+
+// `computeQuery` or `multiCompute` is required. The map keys are listed below.
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryPtrOutput) ComputeQuery() PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXRumQuery) *PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQuery {
+		if v == nil {
+			return nil
+		}
+		return v.ComputeQuery
+	}).(PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrOutput)
+}
+
+// Multiple `groupBy` blocks are allowed using the structure below.
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryPtrOutput) GroupBies() PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArrayOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXRumQuery) []PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBy {
+		if v == nil {
+			return nil
+		}
+		return v.GroupBies
+	}).(PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArrayOutput)
+}
+
+// The name of the index to query.
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryPtrOutput) Index() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXRumQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Index
+	}).(pulumi.StringPtrOutput)
+}
+
+// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryPtrOutput) MultiComputes() PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArrayOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXRumQuery) []PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiCompute {
+		if v == nil {
+			return nil
+		}
+		return v.MultiComputes
+	}).(PowerpackWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArrayOutput)
+}
+
+// The search query to use.
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryPtrOutput) SearchQuery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXRumQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SearchQuery
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQuery struct {
+	// The aggregation method.
+	Aggregation string `pulumi:"aggregation"`
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval *int `pulumi:"interval"`
+}
+
+// PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryInput is an input type that accepts PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryArgs and PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryOutput values.
+// You can construct a concrete instance of `PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryInput` via:
+//
+//	PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryArgs{...}
+type PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryOutput() PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryOutput
+	ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryOutputWithContext(context.Context) PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryOutput
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryArgs struct {
+	// The aggregation method.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
+}
+
+func (PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQuery)(nil)).Elem()
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryArgs) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryOutput() PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryOutput {
+	return i.ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryArgs) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryOutput)
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryArgs) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrOutput {
+	return i.ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryArgs) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryOutput).ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrInput is an input type that accepts PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryArgs, PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtr and PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrInput` via:
+//
+//	        PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrOutput
+	ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrOutputWithContext(context.Context) PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrOutput
+}
+
+type powerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrType PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryArgs
+
+func PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtr(v *PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryArgs) PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrInput {
+	return (*powerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrType)(v)
+}
+
+func (*powerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQuery)(nil)).Elem()
+}
+
+func (i *powerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrType) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrOutput {
+	return i.ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrType) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryOutput) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryOutput() PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryOutput) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryOutput) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrOutput {
+	return o.ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryOutput) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQuery) *PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQuery {
+		return &v
+	}).(PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrOutput)
+}
+
+// The aggregation method.
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryOutput) Aggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQuery) string { return v.Aggregation }).(pulumi.StringOutput)
+}
+
+// The facet name.
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQuery) *string { return v.Facet }).(pulumi.StringPtrOutput)
+}
+
+// Define the time interval in seconds.
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQuery) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+type PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrOutput) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrOutput() PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrOutput) ToPowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrOutput) Elem() PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQuery) PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQuery {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQuery
+		return ret
+	}).(PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryOutput)
+}
+
+// The aggregation method.
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrOutput) Aggregation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Aggregation
+	}).(pulumi.StringPtrOutput)
+}
+
+// The facet name.
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Facet
+	}).(pulumi.StringPtrOutput)
+}
+
+// Define the time interval in seconds.
+func (o PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQuery) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Interval
+	}).(pulumi.IntPtrOutput)
+}
+
 type PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBy struct {
 	// The facet name.
 	Facet *string `pulumi:"facet"`
@@ -43610,7 +45585,7 @@ func (o SecurityMonitoringDefaultRuleFilterArrayOutput) Index(i pulumi.IntInput)
 }
 
 type SecurityMonitoringDefaultRuleOptions struct {
-	// If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `logDetection`. Defaults to `false`.
+	// If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `logDetection`.
 	DecreaseCriticalityBasedOnEnv *bool `pulumi:"decreaseCriticalityBasedOnEnv"`
 }
 
@@ -43626,7 +45601,7 @@ type SecurityMonitoringDefaultRuleOptionsInput interface {
 }
 
 type SecurityMonitoringDefaultRuleOptionsArgs struct {
-	// If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `logDetection`. Defaults to `false`.
+	// If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `logDetection`.
 	DecreaseCriticalityBasedOnEnv pulumi.BoolPtrInput `pulumi:"decreaseCriticalityBasedOnEnv"`
 }
 
@@ -43707,7 +45682,7 @@ func (o SecurityMonitoringDefaultRuleOptionsOutput) ToSecurityMonitoringDefaultR
 	}).(SecurityMonitoringDefaultRuleOptionsPtrOutput)
 }
 
-// If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `logDetection`. Defaults to `false`.
+// If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `logDetection`.
 func (o SecurityMonitoringDefaultRuleOptionsOutput) DecreaseCriticalityBasedOnEnv() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SecurityMonitoringDefaultRuleOptions) *bool { return v.DecreaseCriticalityBasedOnEnv }).(pulumi.BoolPtrOutput)
 }
@@ -43736,7 +45711,7 @@ func (o SecurityMonitoringDefaultRuleOptionsPtrOutput) Elem() SecurityMonitoring
 	}).(SecurityMonitoringDefaultRuleOptionsOutput)
 }
 
-// If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `logDetection`. Defaults to `false`.
+// If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `logDetection`.
 func (o SecurityMonitoringDefaultRuleOptionsPtrOutput) DecreaseCriticalityBasedOnEnv() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SecurityMonitoringDefaultRuleOptions) *bool {
 		if v == nil {
@@ -43751,11 +45726,11 @@ type SecurityMonitoringDefaultRuleQuery struct {
 	//
 	// Deprecated: `agentRule` has been deprecated in favor of new Agent Rule resource.
 	AgentRules []SecurityMonitoringDefaultRuleQueryAgentRule `pulumi:"agentRules"`
-	// The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`. Defaults to `"count"`.
+	// The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`.
 	Aggregation *string `pulumi:"aggregation"`
 	// Query extension to append to the logs query.
 	CustomQueryExtension *string `pulumi:"customQueryExtension"`
-	// Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`. Defaults to `"logs"`.
+	// Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`.
 	DataSource *string `pulumi:"dataSource"`
 	// Field for which the cardinality is measured. Sent as an array.
 	DistinctFields []string `pulumi:"distinctFields"`
@@ -43770,7 +45745,7 @@ type SecurityMonitoringDefaultRuleQuery struct {
 	// Name of the query. Not compatible with `newValue` aggregations.
 	Name *string `pulumi:"name"`
 	// Query to run on logs.
-	Query string `pulumi:"query"`
+	Query *string `pulumi:"query"`
 }
 
 // SecurityMonitoringDefaultRuleQueryInput is an input type that accepts SecurityMonitoringDefaultRuleQueryArgs and SecurityMonitoringDefaultRuleQueryOutput values.
@@ -43789,11 +45764,11 @@ type SecurityMonitoringDefaultRuleQueryArgs struct {
 	//
 	// Deprecated: `agentRule` has been deprecated in favor of new Agent Rule resource.
 	AgentRules SecurityMonitoringDefaultRuleQueryAgentRuleArrayInput `pulumi:"agentRules"`
-	// The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`. Defaults to `"count"`.
+	// The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`.
 	Aggregation pulumi.StringPtrInput `pulumi:"aggregation"`
 	// Query extension to append to the logs query.
 	CustomQueryExtension pulumi.StringPtrInput `pulumi:"customQueryExtension"`
-	// Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`. Defaults to `"logs"`.
+	// Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`.
 	DataSource pulumi.StringPtrInput `pulumi:"dataSource"`
 	// Field for which the cardinality is measured. Sent as an array.
 	DistinctFields pulumi.StringArrayInput `pulumi:"distinctFields"`
@@ -43808,7 +45783,7 @@ type SecurityMonitoringDefaultRuleQueryArgs struct {
 	// Name of the query. Not compatible with `newValue` aggregations.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Query to run on logs.
-	Query pulumi.StringInput `pulumi:"query"`
+	Query pulumi.StringPtrInput `pulumi:"query"`
 }
 
 func (SecurityMonitoringDefaultRuleQueryArgs) ElementType() reflect.Type {
@@ -43871,7 +45846,7 @@ func (o SecurityMonitoringDefaultRuleQueryOutput) AgentRules() SecurityMonitorin
 	}).(SecurityMonitoringDefaultRuleQueryAgentRuleArrayOutput)
 }
 
-// The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`. Defaults to `"count"`.
+// The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`.
 func (o SecurityMonitoringDefaultRuleQueryOutput) Aggregation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityMonitoringDefaultRuleQuery) *string { return v.Aggregation }).(pulumi.StringPtrOutput)
 }
@@ -43881,7 +45856,7 @@ func (o SecurityMonitoringDefaultRuleQueryOutput) CustomQueryExtension() pulumi.
 	return o.ApplyT(func(v SecurityMonitoringDefaultRuleQuery) *string { return v.CustomQueryExtension }).(pulumi.StringPtrOutput)
 }
 
-// Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`. Defaults to `"logs"`.
+// Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`.
 func (o SecurityMonitoringDefaultRuleQueryOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityMonitoringDefaultRuleQuery) *string { return v.DataSource }).(pulumi.StringPtrOutput)
 }
@@ -43914,8 +45889,8 @@ func (o SecurityMonitoringDefaultRuleQueryOutput) Name() pulumi.StringPtrOutput 
 }
 
 // Query to run on logs.
-func (o SecurityMonitoringDefaultRuleQueryOutput) Query() pulumi.StringOutput {
-	return o.ApplyT(func(v SecurityMonitoringDefaultRuleQuery) string { return v.Query }).(pulumi.StringOutput)
+func (o SecurityMonitoringDefaultRuleQueryOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityMonitoringDefaultRuleQuery) *string { return v.Query }).(pulumi.StringPtrOutput)
 }
 
 type SecurityMonitoringDefaultRuleQueryArrayOutput struct{ *pulumi.OutputState }
@@ -44286,7 +46261,7 @@ func (o SecurityMonitoringRuleCaseArrayOutput) Index(i pulumi.IntInput) Security
 type SecurityMonitoringRuleCaseAction struct {
 	// Options for the action.
 	Options *SecurityMonitoringRuleCaseActionOptions `pulumi:"options"`
-	// Type of action to perform when the case triggers. Valid values are `blockIp`, `blockUser`, `userBehavior`.
+	// Type of action to perform when the case triggers. Valid values are `blockIp`, `blockUser`, `userBehavior`, `flagIp`.
 	Type string `pulumi:"type"`
 }
 
@@ -44304,7 +46279,7 @@ type SecurityMonitoringRuleCaseActionInput interface {
 type SecurityMonitoringRuleCaseActionArgs struct {
 	// Options for the action.
 	Options SecurityMonitoringRuleCaseActionOptionsPtrInput `pulumi:"options"`
-	// Type of action to perform when the case triggers. Valid values are `blockIp`, `blockUser`, `userBehavior`.
+	// Type of action to perform when the case triggers. Valid values are `blockIp`, `blockUser`, `userBehavior`, `flagIp`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -44364,7 +46339,7 @@ func (o SecurityMonitoringRuleCaseActionOutput) Options() SecurityMonitoringRule
 	return o.ApplyT(func(v SecurityMonitoringRuleCaseAction) *SecurityMonitoringRuleCaseActionOptions { return v.Options }).(SecurityMonitoringRuleCaseActionOptionsPtrOutput)
 }
 
-// Type of action to perform when the case triggers. Valid values are `blockIp`, `blockUser`, `userBehavior`.
+// Type of action to perform when the case triggers. Valid values are `blockIp`, `blockUser`, `userBehavior`, `flagIp`.
 func (o SecurityMonitoringRuleCaseActionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityMonitoringRuleCaseAction) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -49417,7 +51392,7 @@ type SyntheticsTestApiStep struct {
 	RequestBasicauth *SyntheticsTestApiStepRequestBasicauth `pulumi:"requestBasicauth"`
 	// Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
 	RequestClientCertificate *SyntheticsTestApiStepRequestClientCertificate `pulumi:"requestClientCertificate"`
-	// The request for the api step.
+	// The request for the API step.
 	RequestDefinition *SyntheticsTestApiStepRequestDefinition `pulumi:"requestDefinition"`
 	// Files to be used as part of the request in the test.
 	RequestFiles []SyntheticsTestApiStepRequestFile `pulumi:"requestFiles"`
@@ -49430,7 +51405,7 @@ type SyntheticsTestApiStep struct {
 	// Query arguments name and value map.
 	RequestQuery map[string]string           `pulumi:"requestQuery"`
 	Retry        *SyntheticsTestApiStepRetry `pulumi:"retry"`
-	// The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `ssl`, `dns`, `tcp`, `udp`, `icmp`, `websocket`, `wait`. Defaults to `"http"`.
+	// The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`, `ssl`, `dns`, `tcp`, `udp`, `icmp`, `websocket`, `wait`. Defaults to `"http"`.
 	Subtype *string `pulumi:"subtype"`
 	// The time to wait in seconds. Minimum value: 0. Maximum value: 180.
 	Value *int `pulumi:"value"`
@@ -49466,7 +51441,7 @@ type SyntheticsTestApiStepArgs struct {
 	RequestBasicauth SyntheticsTestApiStepRequestBasicauthPtrInput `pulumi:"requestBasicauth"`
 	// Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
 	RequestClientCertificate SyntheticsTestApiStepRequestClientCertificatePtrInput `pulumi:"requestClientCertificate"`
-	// The request for the api step.
+	// The request for the API step.
 	RequestDefinition SyntheticsTestApiStepRequestDefinitionPtrInput `pulumi:"requestDefinition"`
 	// Files to be used as part of the request in the test.
 	RequestFiles SyntheticsTestApiStepRequestFileArrayInput `pulumi:"requestFiles"`
@@ -49479,7 +51454,7 @@ type SyntheticsTestApiStepArgs struct {
 	// Query arguments name and value map.
 	RequestQuery pulumi.StringMapInput              `pulumi:"requestQuery"`
 	Retry        SyntheticsTestApiStepRetryPtrInput `pulumi:"retry"`
-	// The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `ssl`, `dns`, `tcp`, `udp`, `icmp`, `websocket`, `wait`. Defaults to `"http"`.
+	// The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`, `ssl`, `dns`, `tcp`, `udp`, `icmp`, `websocket`, `wait`. Defaults to `"http"`.
 	Subtype pulumi.StringPtrInput `pulumi:"subtype"`
 	// The time to wait in seconds. Minimum value: 0. Maximum value: 180.
 	Value pulumi.IntPtrInput `pulumi:"value"`
@@ -49583,7 +51558,7 @@ func (o SyntheticsTestApiStepOutput) RequestClientCertificate() SyntheticsTestAp
 	}).(SyntheticsTestApiStepRequestClientCertificatePtrOutput)
 }
 
-// The request for the api step.
+// The request for the API step.
 func (o SyntheticsTestApiStepOutput) RequestDefinition() SyntheticsTestApiStepRequestDefinitionPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStep) *SyntheticsTestApiStepRequestDefinition { return v.RequestDefinition }).(SyntheticsTestApiStepRequestDefinitionPtrOutput)
 }
@@ -49617,7 +51592,7 @@ func (o SyntheticsTestApiStepOutput) Retry() SyntheticsTestApiStepRetryPtrOutput
 	return o.ApplyT(func(v SyntheticsTestApiStep) *SyntheticsTestApiStepRetry { return v.Retry }).(SyntheticsTestApiStepRetryPtrOutput)
 }
 
-// The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `ssl`, `dns`, `tcp`, `udp`, `icmp`, `websocket`, `wait`. Defaults to `"http"`.
+// The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`, `ssl`, `dns`, `tcp`, `udp`, `icmp`, `websocket`, `wait`. Defaults to `"http"`.
 func (o SyntheticsTestApiStepOutput) Subtype() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStep) *string { return v.Subtype }).(pulumi.StringPtrOutput)
 }
@@ -51441,7 +53416,7 @@ func (o SyntheticsTestApiStepRequestClientCertificateKeyPtrOutput) Filename() pu
 }
 
 type SyntheticsTestApiStepRequestDefinition struct {
-	// For SSL test, whether or not the test should allow self signed certificates.
+	// For SSL tests, whether or not the test should allow self signed certificates.
 	AcceptSelfSigned *bool `pulumi:"acceptSelfSigned"`
 	// Allows loading insecure content for a request in an API test or in a multistep API test step.
 	AllowInsecure *bool `pulumi:"allowInsecure"`
@@ -51453,8 +53428,10 @@ type SyntheticsTestApiStepRequestDefinition struct {
 	CallType *string `pulumi:"callType"`
 	// By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `certificateDomains`.
 	CertificateDomains []string `pulumi:"certificateDomains"`
-	// For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+	// For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
 	CheckCertificateRevocation *bool `pulumi:"checkCertificateRevocation"`
+	// For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA
+	DisableAiaIntermediateFetching *bool `pulumi:"disableAiaIntermediateFetching"`
 	// DNS server to use for DNS tests (`subtype = "dns"`).
 	DnsServer *string `pulumi:"dnsServer"`
 	// DNS server port to use for DNS tests.
@@ -51469,7 +53446,7 @@ type SyntheticsTestApiStepRequestDefinition struct {
 	HttpVersion *string `pulumi:"httpVersion"`
 	// Whether the message is base64-encoded.
 	IsMessageBase64Encoded *bool `pulumi:"isMessageBase64Encoded"`
-	// For UDP and websocket tests, message to send with the request.
+	// For gRPC, UDP and websocket tests, message to send with the request.
 	Message *string `pulumi:"message"`
 	// Either the HTTP method/verb to use or a gRPC method available on the service set in the `service` field. Required if `subtype` is `HTTP` or if `subtype` is `grpc` and `callType` is `unary`.
 	Method *string `pulumi:"method"`
@@ -51511,7 +53488,7 @@ type SyntheticsTestApiStepRequestDefinitionInput interface {
 }
 
 type SyntheticsTestApiStepRequestDefinitionArgs struct {
-	// For SSL test, whether or not the test should allow self signed certificates.
+	// For SSL tests, whether or not the test should allow self signed certificates.
 	AcceptSelfSigned pulumi.BoolPtrInput `pulumi:"acceptSelfSigned"`
 	// Allows loading insecure content for a request in an API test or in a multistep API test step.
 	AllowInsecure pulumi.BoolPtrInput `pulumi:"allowInsecure"`
@@ -51523,8 +53500,10 @@ type SyntheticsTestApiStepRequestDefinitionArgs struct {
 	CallType pulumi.StringPtrInput `pulumi:"callType"`
 	// By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `certificateDomains`.
 	CertificateDomains pulumi.StringArrayInput `pulumi:"certificateDomains"`
-	// For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+	// For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
 	CheckCertificateRevocation pulumi.BoolPtrInput `pulumi:"checkCertificateRevocation"`
+	// For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA
+	DisableAiaIntermediateFetching pulumi.BoolPtrInput `pulumi:"disableAiaIntermediateFetching"`
 	// DNS server to use for DNS tests (`subtype = "dns"`).
 	DnsServer pulumi.StringPtrInput `pulumi:"dnsServer"`
 	// DNS server port to use for DNS tests.
@@ -51539,7 +53518,7 @@ type SyntheticsTestApiStepRequestDefinitionArgs struct {
 	HttpVersion pulumi.StringPtrInput `pulumi:"httpVersion"`
 	// Whether the message is base64-encoded.
 	IsMessageBase64Encoded pulumi.BoolPtrInput `pulumi:"isMessageBase64Encoded"`
-	// For UDP and websocket tests, message to send with the request.
+	// For gRPC, UDP and websocket tests, message to send with the request.
 	Message pulumi.StringPtrInput `pulumi:"message"`
 	// Either the HTTP method/verb to use or a gRPC method available on the service set in the `service` field. Required if `subtype` is `HTTP` or if `subtype` is `grpc` and `callType` is `unary`.
 	Method pulumi.StringPtrInput `pulumi:"method"`
@@ -51646,7 +53625,7 @@ func (o SyntheticsTestApiStepRequestDefinitionOutput) ToSyntheticsTestApiStepReq
 	}).(SyntheticsTestApiStepRequestDefinitionPtrOutput)
 }
 
-// For SSL test, whether or not the test should allow self signed certificates.
+// For SSL tests, whether or not the test should allow self signed certificates.
 func (o SyntheticsTestApiStepRequestDefinitionOutput) AcceptSelfSigned() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *bool { return v.AcceptSelfSigned }).(pulumi.BoolPtrOutput)
 }
@@ -51676,9 +53655,14 @@ func (o SyntheticsTestApiStepRequestDefinitionOutput) CertificateDomains() pulum
 	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) []string { return v.CertificateDomains }).(pulumi.StringArrayOutput)
 }
 
-// For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+// For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
 func (o SyntheticsTestApiStepRequestDefinitionOutput) CheckCertificateRevocation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *bool { return v.CheckCertificateRevocation }).(pulumi.BoolPtrOutput)
+}
+
+// For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA
+func (o SyntheticsTestApiStepRequestDefinitionOutput) DisableAiaIntermediateFetching() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *bool { return v.DisableAiaIntermediateFetching }).(pulumi.BoolPtrOutput)
 }
 
 // DNS server to use for DNS tests (`subtype = "dns"`).
@@ -51716,7 +53700,7 @@ func (o SyntheticsTestApiStepRequestDefinitionOutput) IsMessageBase64Encoded() p
 	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *bool { return v.IsMessageBase64Encoded }).(pulumi.BoolPtrOutput)
 }
 
-// For UDP and websocket tests, message to send with the request.
+// For gRPC, UDP and websocket tests, message to send with the request.
 func (o SyntheticsTestApiStepRequestDefinitionOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
@@ -51807,7 +53791,7 @@ func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) Elem() SyntheticsTestAp
 	}).(SyntheticsTestApiStepRequestDefinitionOutput)
 }
 
-// For SSL test, whether or not the test should allow self signed certificates.
+// For SSL tests, whether or not the test should allow self signed certificates.
 func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) AcceptSelfSigned() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) *bool {
 		if v == nil {
@@ -51867,13 +53851,23 @@ func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) CertificateDomains() pu
 	}).(pulumi.StringArrayOutput)
 }
 
-// For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+// For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
 func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) CheckCertificateRevocation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) *bool {
 		if v == nil {
 			return nil
 		}
 		return v.CheckCertificateRevocation
+	}).(pulumi.BoolPtrOutput)
+}
+
+// For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA
+func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) DisableAiaIntermediateFetching() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DisableAiaIntermediateFetching
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -51947,7 +53941,7 @@ func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) IsMessageBase64Encoded(
 	}).(pulumi.BoolPtrOutput)
 }
 
-// For UDP and websocket tests, message to send with the request.
+// For gRPC, UDP and websocket tests, message to send with the request.
 func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) *string {
 		if v == nil {
@@ -57260,14 +59254,16 @@ func (o SyntheticsTestMobileStepParamsVariablePtrOutput) Name() pulumi.StringPtr
 }
 
 type SyntheticsTestOptionsList struct {
-	// For SSL test, whether or not the test should allow self signed certificates.
+	// For SSL tests, whether or not the test should allow self signed certificates.
 	AcceptSelfSigned *bool `pulumi:"acceptSelfSigned"`
 	// Allows loading insecure content for a request in an API test or in a multistep API test step.
 	AllowInsecure *bool `pulumi:"allowInsecure"`
-	// For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+	// For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
 	CheckCertificateRevocation *bool `pulumi:"checkCertificateRevocation"`
 	// CI/CD options for a Synthetic test.
 	Ci *SyntheticsTestOptionsListCi `pulumi:"ci"`
+	// For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA
+	DisableAiaIntermediateFetching *bool `pulumi:"disableAiaIntermediateFetching"`
 	// Disable Cross-Origin Resource Sharing for browser tests.
 	DisableCors *bool `pulumi:"disableCors"`
 	// Disable Content Security Policy for browser tests.
@@ -57315,14 +59311,16 @@ type SyntheticsTestOptionsListInput interface {
 }
 
 type SyntheticsTestOptionsListArgs struct {
-	// For SSL test, whether or not the test should allow self signed certificates.
+	// For SSL tests, whether or not the test should allow self signed certificates.
 	AcceptSelfSigned pulumi.BoolPtrInput `pulumi:"acceptSelfSigned"`
 	// Allows loading insecure content for a request in an API test or in a multistep API test step.
 	AllowInsecure pulumi.BoolPtrInput `pulumi:"allowInsecure"`
-	// For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+	// For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
 	CheckCertificateRevocation pulumi.BoolPtrInput `pulumi:"checkCertificateRevocation"`
 	// CI/CD options for a Synthetic test.
 	Ci SyntheticsTestOptionsListCiPtrInput `pulumi:"ci"`
+	// For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA
+	DisableAiaIntermediateFetching pulumi.BoolPtrInput `pulumi:"disableAiaIntermediateFetching"`
 	// Disable Cross-Origin Resource Sharing for browser tests.
 	DisableCors pulumi.BoolPtrInput `pulumi:"disableCors"`
 	// Disable Content Security Policy for browser tests.
@@ -57435,7 +59433,7 @@ func (o SyntheticsTestOptionsListOutput) ToSyntheticsTestOptionsListPtrOutputWit
 	}).(SyntheticsTestOptionsListPtrOutput)
 }
 
-// For SSL test, whether or not the test should allow self signed certificates.
+// For SSL tests, whether or not the test should allow self signed certificates.
 func (o SyntheticsTestOptionsListOutput) AcceptSelfSigned() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestOptionsList) *bool { return v.AcceptSelfSigned }).(pulumi.BoolPtrOutput)
 }
@@ -57445,7 +59443,7 @@ func (o SyntheticsTestOptionsListOutput) AllowInsecure() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestOptionsList) *bool { return v.AllowInsecure }).(pulumi.BoolPtrOutput)
 }
 
-// For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+// For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
 func (o SyntheticsTestOptionsListOutput) CheckCertificateRevocation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestOptionsList) *bool { return v.CheckCertificateRevocation }).(pulumi.BoolPtrOutput)
 }
@@ -57453,6 +59451,11 @@ func (o SyntheticsTestOptionsListOutput) CheckCertificateRevocation() pulumi.Boo
 // CI/CD options for a Synthetic test.
 func (o SyntheticsTestOptionsListOutput) Ci() SyntheticsTestOptionsListCiPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestOptionsList) *SyntheticsTestOptionsListCi { return v.Ci }).(SyntheticsTestOptionsListCiPtrOutput)
+}
+
+// For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA
+func (o SyntheticsTestOptionsListOutput) DisableAiaIntermediateFetching() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsList) *bool { return v.DisableAiaIntermediateFetching }).(pulumi.BoolPtrOutput)
 }
 
 // Disable Cross-Origin Resource Sharing for browser tests.
@@ -57563,7 +59566,7 @@ func (o SyntheticsTestOptionsListPtrOutput) Elem() SyntheticsTestOptionsListOutp
 	}).(SyntheticsTestOptionsListOutput)
 }
 
-// For SSL test, whether or not the test should allow self signed certificates.
+// For SSL tests, whether or not the test should allow self signed certificates.
 func (o SyntheticsTestOptionsListPtrOutput) AcceptSelfSigned() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestOptionsList) *bool {
 		if v == nil {
@@ -57583,7 +59586,7 @@ func (o SyntheticsTestOptionsListPtrOutput) AllowInsecure() pulumi.BoolPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
-// For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+// For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
 func (o SyntheticsTestOptionsListPtrOutput) CheckCertificateRevocation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestOptionsList) *bool {
 		if v == nil {
@@ -57601,6 +59604,16 @@ func (o SyntheticsTestOptionsListPtrOutput) Ci() SyntheticsTestOptionsListCiPtrO
 		}
 		return v.Ci
 	}).(SyntheticsTestOptionsListCiPtrOutput)
+}
+
+// For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA
+func (o SyntheticsTestOptionsListPtrOutput) DisableAiaIntermediateFetching() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DisableAiaIntermediateFetching
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Disable Cross-Origin Resource Sharing for browser tests.
@@ -59633,7 +61646,7 @@ type SyntheticsTestRequestDefinition struct {
 	HttpVersion *string `pulumi:"httpVersion"`
 	// Whether the message is base64-encoded.
 	IsMessageBase64Encoded *bool `pulumi:"isMessageBase64Encoded"`
-	// For UDP and websocket tests, message to send with the request.
+	// For gRPC, UDP and websocket tests, message to send with the request.
 	Message *string `pulumi:"message"`
 	// Either the HTTP method/verb to use or a gRPC method available on the service set in the `service` field. Required if `subtype` is `HTTP` or if `subtype` is `grpc` and `callType` is `unary`.
 	Method *string `pulumi:"method"`
@@ -59697,7 +61710,7 @@ type SyntheticsTestRequestDefinitionArgs struct {
 	HttpVersion pulumi.StringPtrInput `pulumi:"httpVersion"`
 	// Whether the message is base64-encoded.
 	IsMessageBase64Encoded pulumi.BoolPtrInput `pulumi:"isMessageBase64Encoded"`
-	// For UDP and websocket tests, message to send with the request.
+	// For gRPC, UDP and websocket tests, message to send with the request.
 	Message pulumi.StringPtrInput `pulumi:"message"`
 	// Either the HTTP method/verb to use or a gRPC method available on the service set in the `service` field. Required if `subtype` is `HTTP` or if `subtype` is `grpc` and `callType` is `unary`.
 	Method pulumi.StringPtrInput `pulumi:"method"`
@@ -59856,7 +61869,7 @@ func (o SyntheticsTestRequestDefinitionOutput) IsMessageBase64Encoded() pulumi.B
 	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *bool { return v.IsMessageBase64Encoded }).(pulumi.BoolPtrOutput)
 }
 
-// For UDP and websocket tests, message to send with the request.
+// For gRPC, UDP and websocket tests, message to send with the request.
 func (o SyntheticsTestRequestDefinitionOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
@@ -60049,7 +62062,7 @@ func (o SyntheticsTestRequestDefinitionPtrOutput) IsMessageBase64Encoded() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
-// For UDP and websocket tests, message to send with the request.
+// For gRPC, UDP and websocket tests, message to send with the request.
 func (o SyntheticsTestRequestDefinitionPtrOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestRequestDefinition) *string {
 		if v == nil {
@@ -68423,6 +70436,30 @@ func (o GetUsersUserArrayOutput) Index(i pulumi.IntInput) GetUsersUserOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryInput)(nil)).Elem(), PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryPtrInput)(nil)).Elem(), PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByInput)(nil)).Elem(), PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByArrayInput)(nil)).Elem(), PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryInput)(nil)).Elem(), PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrInput)(nil)).Elem(), PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeInput)(nil)).Elem(), PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeArrayInput)(nil)).Elem(), PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXLogQueryInput)(nil)).Elem(), PowerpackWidgetScatterplotDefinitionRequestXLogQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXLogQueryPtrInput)(nil)).Elem(), PowerpackWidgetScatterplotDefinitionRequestXLogQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryInput)(nil)).Elem(), PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrInput)(nil)).Elem(), PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByInput)(nil)).Elem(), PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByArrayInput)(nil)).Elem(), PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryInput)(nil)).Elem(), PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrInput)(nil)).Elem(), PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeInput)(nil)).Elem(), PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArrayInput)(nil)).Elem(), PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXProcessQueryInput)(nil)).Elem(), PowerpackWidgetScatterplotDefinitionRequestXProcessQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXProcessQueryPtrInput)(nil)).Elem(), PowerpackWidgetScatterplotDefinitionRequestXProcessQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXRumQueryInput)(nil)).Elem(), PowerpackWidgetScatterplotDefinitionRequestXRumQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXRumQueryPtrInput)(nil)).Elem(), PowerpackWidgetScatterplotDefinitionRequestXRumQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryInput)(nil)).Elem(), PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrInput)(nil)).Elem(), PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByInput)(nil)).Elem(), PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArrayInput)(nil)).Elem(), PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryInput)(nil)).Elem(), PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryArgs{})
@@ -69233,6 +71270,30 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamsTeamArrayInput)(nil)).Elem(), GetTeamsTeamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserInput)(nil)).Elem(), GetUsersUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserArrayInput)(nil)).Elem(), GetUsersUserArray{})
+	pulumi.RegisterOutputType(PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetScatterplotDefinitionRequestXApmQueryComputeQueryPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupByArrayOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetScatterplotDefinitionRequestXApmQueryMultiComputeArrayOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetScatterplotDefinitionRequestXLogQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetScatterplotDefinitionRequestXLogQueryPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetScatterplotDefinitionRequestXLogQueryComputeQueryPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupByArrayOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArrayOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetScatterplotDefinitionRequestXProcessQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetScatterplotDefinitionRequestXProcessQueryPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetScatterplotDefinitionRequestXRumQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetScatterplotDefinitionRequestXRumQueryPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetScatterplotDefinitionRequestXRumQueryComputeQueryPtrOutput{})
 	pulumi.RegisterOutputType(PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByOutput{})
 	pulumi.RegisterOutputType(PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupByArrayOutput{})
 	pulumi.RegisterOutputType(PowerpackWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryOutput{})

@@ -10,6 +10,11 @@ export type ActionConnection = import("./actionConnection").ActionConnection;
 export const ActionConnection: typeof import("./actionConnection").ActionConnection = null as any;
 utilities.lazyLoad(exports, ["ActionConnection"], () => require("./actionConnection"));
 
+export { AgentlessScanningAwsScanOptionsArgs, AgentlessScanningAwsScanOptionsState } from "./agentlessScanningAwsScanOptions";
+export type AgentlessScanningAwsScanOptions = import("./agentlessScanningAwsScanOptions").AgentlessScanningAwsScanOptions;
+export const AgentlessScanningAwsScanOptions: typeof import("./agentlessScanningAwsScanOptions").AgentlessScanningAwsScanOptions = null as any;
+utilities.lazyLoad(exports, ["AgentlessScanningAwsScanOptions"], () => require("./agentlessScanningAwsScanOptions"));
+
 export { ApiKeyArgs, ApiKeyState } from "./apiKey";
 export type ApiKey = import("./apiKey").ApiKey;
 export const ApiKey: typeof import("./apiKey").ApiKey = null as any;
@@ -29,6 +34,11 @@ export { AppBuilderAppArgs, AppBuilderAppState } from "./appBuilderApp";
 export type AppBuilderApp = import("./appBuilderApp").AppBuilderApp;
 export const AppBuilderApp: typeof import("./appBuilderApp").AppBuilderApp = null as any;
 utilities.lazyLoad(exports, ["AppBuilderApp"], () => require("./appBuilderApp"));
+
+export { AppKeyRegistrationArgs, AppKeyRegistrationState } from "./appKeyRegistration";
+export type AppKeyRegistration = import("./appKeyRegistration").AppKeyRegistration;
+export const AppKeyRegistration: typeof import("./appKeyRegistration").AppKeyRegistration = null as any;
+utilities.lazyLoad(exports, ["AppKeyRegistration"], () => require("./appKeyRegistration"));
 
 export { ApplicationKeyArgs, ApplicationKeyState } from "./applicationKey";
 export type ApplicationKey = import("./applicationKey").ApplicationKey;
@@ -180,6 +190,11 @@ export const getHosts: typeof import("./getHosts").getHosts = null as any;
 export const getHostsOutput: typeof import("./getHosts").getHostsOutput = null as any;
 utilities.lazyLoad(exports, ["getHosts","getHostsOutput"], () => require("./getHosts"));
 
+export { GetIncidentTypeArgs, GetIncidentTypeResult, GetIncidentTypeOutputArgs } from "./getIncidentType";
+export const getIncidentType: typeof import("./getIncidentType").getIncidentType = null as any;
+export const getIncidentTypeOutput: typeof import("./getIncidentType").getIncidentTypeOutput = null as any;
+utilities.lazyLoad(exports, ["getIncidentType","getIncidentTypeOutput"], () => require("./getIncidentType"));
+
 export { GetIpRangesResult } from "./getIpRanges";
 export const getIpRanges: typeof import("./getIpRanges").getIpRanges = null as any;
 export const getIpRangesOutput: typeof import("./getIpRanges").getIpRangesOutput = null as any;
@@ -209,6 +224,11 @@ export { GetLogsPipelinesOrderResult } from "./getLogsPipelinesOrder";
 export const getLogsPipelinesOrder: typeof import("./getLogsPipelinesOrder").getLogsPipelinesOrder = null as any;
 export const getLogsPipelinesOrderOutput: typeof import("./getLogsPipelinesOrder").getLogsPipelinesOrderOutput = null as any;
 utilities.lazyLoad(exports, ["getLogsPipelinesOrder","getLogsPipelinesOrderOutput"], () => require("./getLogsPipelinesOrder"));
+
+export { GetMetricMetadataArgs, GetMetricMetadataResult, GetMetricMetadataOutputArgs } from "./getMetricMetadata";
+export const getMetricMetadata: typeof import("./getMetricMetadata").getMetricMetadata = null as any;
+export const getMetricMetadataOutput: typeof import("./getMetricMetadata").getMetricMetadataOutput = null as any;
+utilities.lazyLoad(exports, ["getMetricMetadata","getMetricMetadataOutput"], () => require("./getMetricMetadata"));
 
 export { GetMetricTagsArgs, GetMetricTagsResult, GetMetricTagsOutputArgs } from "./getMetricTags";
 export const getMetricTags: typeof import("./getMetricTags").getMetricTags = null as any;
@@ -354,6 +374,11 @@ export { GetWorkflowAutomationArgs, GetWorkflowAutomationResult, GetWorkflowAuto
 export const getWorkflowAutomation: typeof import("./getWorkflowAutomation").getWorkflowAutomation = null as any;
 export const getWorkflowAutomationOutput: typeof import("./getWorkflowAutomation").getWorkflowAutomationOutput = null as any;
 utilities.lazyLoad(exports, ["getWorkflowAutomation","getWorkflowAutomationOutput"], () => require("./getWorkflowAutomation"));
+
+export { IncidentTypeArgs, IncidentTypeState } from "./incidentType";
+export type IncidentType = import("./incidentType").IncidentType;
+export const IncidentType: typeof import("./incidentType").IncidentType = null as any;
+utilities.lazyLoad(exports, ["IncidentType"], () => require("./incidentType"));
 
 export { IpAllowlistArgs, IpAllowlistState } from "./ipAllowlist";
 export type IpAllowlist = import("./ipAllowlist").IpAllowlist;
@@ -684,6 +709,8 @@ const _module = {
         switch (type) {
             case "datadog:index/actionConnection:ActionConnection":
                 return new ActionConnection(name, <any>undefined, { urn })
+            case "datadog:index/agentlessScanningAwsScanOptions:AgentlessScanningAwsScanOptions":
+                return new AgentlessScanningAwsScanOptions(name, <any>undefined, { urn })
             case "datadog:index/apiKey:ApiKey":
                 return new ApiKey(name, <any>undefined, { urn })
             case "datadog:index/apmRetentionFilter:ApmRetentionFilter":
@@ -692,6 +719,8 @@ const _module = {
                 return new ApmRetentionFilterOrder(name, <any>undefined, { urn })
             case "datadog:index/appBuilderApp:AppBuilderApp":
                 return new AppBuilderApp(name, <any>undefined, { urn })
+            case "datadog:index/appKeyRegistration:AppKeyRegistration":
+                return new AppKeyRegistration(name, <any>undefined, { urn })
             case "datadog:index/applicationKey:ApplicationKey":
                 return new ApplicationKey(name, <any>undefined, { urn })
             case "datadog:index/appsecWafCustomRule:AppsecWafCustomRule":
@@ -728,6 +757,8 @@ const _module = {
                 return new Downtime(name, <any>undefined, { urn })
             case "datadog:index/downtimeSchedule:DowntimeSchedule":
                 return new DowntimeSchedule(name, <any>undefined, { urn })
+            case "datadog:index/incidentType:IncidentType":
+                return new IncidentType(name, <any>undefined, { urn })
             case "datadog:index/ipAllowlist:IpAllowlist":
                 return new IpAllowlist(name, <any>undefined, { urn })
             case "datadog:index/logsArchive:LogsArchive":
@@ -850,10 +881,12 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("datadog", "index/actionConnection", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/agentlessScanningAwsScanOptions", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/apiKey", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/apmRetentionFilter", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/apmRetentionFilterOrder", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/appBuilderApp", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/appKeyRegistration", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/applicationKey", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/appsecWafCustomRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/appsecWafExclusionFilter", _module)
@@ -872,6 +905,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/dashboardList", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/domainAllowlist", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/downtime", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/downtimeSchedule", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/incidentType", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/ipAllowlist", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/logsArchive", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/logsArchiveOrder", _module)

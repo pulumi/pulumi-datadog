@@ -5,7 +5,6 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.SecurityMonitoringDefaultRuleQueryAgentRule;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -24,7 +23,7 @@ public final class SecurityMonitoringDefaultRuleQuery {
     @Deprecated /* `agent_rule` has been deprecated in favor of new Agent Rule resource. */
     private @Nullable List<SecurityMonitoringDefaultRuleQueryAgentRule> agentRules;
     /**
-     * @return The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`. Defaults to `&#34;count&#34;`.
+     * @return The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`.
      * 
      */
     private @Nullable String aggregation;
@@ -34,7 +33,7 @@ public final class SecurityMonitoringDefaultRuleQuery {
      */
     private @Nullable String customQueryExtension;
     /**
-     * @return Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`, `events`. Defaults to `&#34;logs&#34;`.
+     * @return Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`, `events`.
      * 
      */
     private @Nullable String dataSource;
@@ -71,7 +70,7 @@ public final class SecurityMonitoringDefaultRuleQuery {
      * @return Query to run on logs.
      * 
      */
-    private String query;
+    private @Nullable String query;
 
     private SecurityMonitoringDefaultRuleQuery() {}
     /**
@@ -86,7 +85,7 @@ public final class SecurityMonitoringDefaultRuleQuery {
         return this.agentRules == null ? List.of() : this.agentRules;
     }
     /**
-     * @return The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`. Defaults to `&#34;count&#34;`.
+     * @return The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`.
      * 
      */
     public Optional<String> aggregation() {
@@ -100,7 +99,7 @@ public final class SecurityMonitoringDefaultRuleQuery {
         return Optional.ofNullable(this.customQueryExtension);
     }
     /**
-     * @return Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`, `events`. Defaults to `&#34;logs&#34;`.
+     * @return Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`, `events`.
      * 
      */
     public Optional<String> dataSource() {
@@ -149,8 +148,8 @@ public final class SecurityMonitoringDefaultRuleQuery {
      * @return Query to run on logs.
      * 
      */
-    public String query() {
-        return this.query;
+    public Optional<String> query() {
+        return Optional.ofNullable(this.query);
     }
 
     public static Builder builder() {
@@ -171,7 +170,7 @@ public final class SecurityMonitoringDefaultRuleQuery {
         private @Nullable String metric;
         private @Nullable List<String> metrics;
         private @Nullable String name;
-        private String query;
+        private @Nullable String query;
         public Builder() {}
         public Builder(SecurityMonitoringDefaultRuleQuery defaults) {
     	      Objects.requireNonNull(defaults);
@@ -254,10 +253,8 @@ public final class SecurityMonitoringDefaultRuleQuery {
             return this;
         }
         @CustomType.Setter
-        public Builder query(String query) {
-            if (query == null) {
-              throw new MissingRequiredPropertyException("SecurityMonitoringDefaultRuleQuery", "query");
-            }
+        public Builder query(@Nullable String query) {
+
             this.query = query;
             return this;
         }

@@ -33,14 +33,14 @@ public final class SyntheticsTestArgs extends com.pulumi.resources.ResourceArgs 
     public static final SyntheticsTestArgs Empty = new SyntheticsTestArgs();
 
     /**
-     * Steps for multi-step api tests
+     * Steps for multistep API tests
      * 
      */
     @Import(name="apiSteps")
     private @Nullable Output<List<SyntheticsTestApiStepArgs>> apiSteps;
 
     /**
-     * @return Steps for multi-step api tests
+     * @return Steps for multistep API tests
      * 
      */
     public Optional<Output<List<SyntheticsTestApiStepArgs>>> apiSteps() {
@@ -488,7 +488,7 @@ public final class SyntheticsTestArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param apiSteps Steps for multi-step api tests
+         * @param apiSteps Steps for multistep API tests
          * 
          * @return builder
          * 
@@ -499,7 +499,7 @@ public final class SyntheticsTestArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param apiSteps Steps for multi-step api tests
+         * @param apiSteps Steps for multistep API tests
          * 
          * @return builder
          * 
@@ -509,7 +509,7 @@ public final class SyntheticsTestArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param apiSteps Steps for multi-step api tests
+         * @param apiSteps Steps for multistep API tests
          * 
          * @return builder
          * 

@@ -79,7 +79,7 @@ import javax.annotation.Nullable;
  * Import an existing on_call_escalation_policy
  * 
  * ```sh
- * $ pulumi import datadog:index/onCallEscalationPolicy:OnCallEscalationPolicy test &#34;b03a07d5-49da-43e9-83b4-5d84969b588b&#34;
+ * $ pulumi import datadog:index/onCallEscalationPolicy:OnCallEscalationPolicy policy_test &#34;b03a07d5-49da-43e9-83b4-5d84969b588b&#34;
  * ```
  * 
  */

@@ -169,14 +169,14 @@ public class SecurityMonitoringDefaultRule extends com.pulumi.resources.CustomRe
      * 
      */
     @Export(name="options", refs={SecurityMonitoringDefaultRuleOptions.class}, tree="[0]")
-    private Output</* @Nullable */ SecurityMonitoringDefaultRuleOptions> options;
+    private Output<SecurityMonitoringDefaultRuleOptions> options;
 
     /**
      * @return Options on default rules. Note that only a subset of fields can be updated on default rule options.
      * 
      */
-    public Output<Optional<SecurityMonitoringDefaultRuleOptions>> options() {
-        return Codegen.optional(this.options);
+    public Output<SecurityMonitoringDefaultRuleOptions> options() {
+        return this.options;
     }
     /**
      * Queries for selecting logs which are part of the rule.

@@ -54,7 +54,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? IsMessageBase64Encoded;
         /// <summary>
-        /// For UDP and websocket tests, message to send with the request.
+        /// For gRPC, UDP and websocket tests, message to send with the request.
         /// </summary>
         public readonly string? Message;
         /// <summary>

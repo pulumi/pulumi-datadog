@@ -25,14 +25,14 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
     public static final SyntheticsTestOptionsListArgs Empty = new SyntheticsTestOptionsListArgs();
 
     /**
-     * For SSL test, whether or not the test should allow self signed certificates.
+     * For SSL tests, whether or not the test should allow self signed certificates.
      * 
      */
     @Import(name="acceptSelfSigned")
     private @Nullable Output<Boolean> acceptSelfSigned;
 
     /**
-     * @return For SSL test, whether or not the test should allow self signed certificates.
+     * @return For SSL tests, whether or not the test should allow self signed certificates.
      * 
      */
     public Optional<Output<Boolean>> acceptSelfSigned() {
@@ -55,14 +55,14 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+     * For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
      * 
      */
     @Import(name="checkCertificateRevocation")
     private @Nullable Output<Boolean> checkCertificateRevocation;
 
     /**
-     * @return For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+     * @return For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
      * 
      */
     public Optional<Output<Boolean>> checkCertificateRevocation() {
@@ -82,6 +82,21 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
      */
     public Optional<Output<SyntheticsTestOptionsListCiArgs>> ci() {
         return Optional.ofNullable(this.ci);
+    }
+
+    /**
+     * For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA
+     * 
+     */
+    @Import(name="disableAiaIntermediateFetching")
+    private @Nullable Output<Boolean> disableAiaIntermediateFetching;
+
+    /**
+     * @return For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA
+     * 
+     */
+    public Optional<Output<Boolean>> disableAiaIntermediateFetching() {
+        return Optional.ofNullable(this.disableAiaIntermediateFetching);
     }
 
     /**
@@ -330,6 +345,7 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
         this.allowInsecure = $.allowInsecure;
         this.checkCertificateRevocation = $.checkCertificateRevocation;
         this.ci = $.ci;
+        this.disableAiaIntermediateFetching = $.disableAiaIntermediateFetching;
         this.disableCors = $.disableCors;
         this.disableCsp = $.disableCsp;
         this.followRedirects = $.followRedirects;
@@ -368,7 +384,7 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param acceptSelfSigned For SSL test, whether or not the test should allow self signed certificates.
+         * @param acceptSelfSigned For SSL tests, whether or not the test should allow self signed certificates.
          * 
          * @return builder
          * 
@@ -379,7 +395,7 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param acceptSelfSigned For SSL test, whether or not the test should allow self signed certificates.
+         * @param acceptSelfSigned For SSL tests, whether or not the test should allow self signed certificates.
          * 
          * @return builder
          * 
@@ -410,7 +426,7 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param checkCertificateRevocation For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+         * @param checkCertificateRevocation For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
          * 
          * @return builder
          * 
@@ -421,7 +437,7 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param checkCertificateRevocation For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+         * @param checkCertificateRevocation For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
          * 
          * @return builder
          * 
@@ -449,6 +465,27 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
          */
         public Builder ci(SyntheticsTestOptionsListCiArgs ci) {
             return ci(Output.of(ci));
+        }
+
+        /**
+         * @param disableAiaIntermediateFetching For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disableAiaIntermediateFetching(@Nullable Output<Boolean> disableAiaIntermediateFetching) {
+            $.disableAiaIntermediateFetching = disableAiaIntermediateFetching;
+            return this;
+        }
+
+        /**
+         * @param disableAiaIntermediateFetching For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disableAiaIntermediateFetching(Boolean disableAiaIntermediateFetching) {
+            return disableAiaIntermediateFetching(Output.of(disableAiaIntermediateFetching));
         }
 
         /**

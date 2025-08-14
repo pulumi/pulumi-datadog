@@ -33,14 +33,14 @@ public final class SecurityMonitoringRuleCaseActionArgs extends com.pulumi.resou
     }
 
     /**
-     * Type of action to perform when the case triggers. Valid values are `block_ip`, `block_user`, `user_behavior`.
+     * Type of action to perform when the case triggers. Valid values are `block_ip`, `block_user`, `user_behavior`, `flag_ip`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Type of action to perform when the case triggers. Valid values are `block_ip`, `block_user`, `user_behavior`.
+     * @return Type of action to perform when the case triggers. Valid values are `block_ip`, `block_user`, `user_behavior`, `flag_ip`.
      * 
      */
     public Output<String> type() {
@@ -94,7 +94,7 @@ public final class SecurityMonitoringRuleCaseActionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param type Type of action to perform when the case triggers. Valid values are `block_ip`, `block_user`, `user_behavior`.
+         * @param type Type of action to perform when the case triggers. Valid values are `block_ip`, `block_user`, `user_behavior`, `flag_ip`.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class SecurityMonitoringRuleCaseActionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param type Type of action to perform when the case triggers. Valid values are `block_ip`, `block_user`, `user_behavior`.
+         * @param type Type of action to perform when the case triggers. Valid values are `block_ip`, `block_user`, `user_behavior`, `flag_ip`.
          * 
          * @return builder
          * 
