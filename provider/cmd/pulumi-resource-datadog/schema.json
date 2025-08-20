@@ -52393,7 +52393,7 @@
                 "properties": {
                     "__self__": {
                         "type": "ref",
-                        "$ref": "#/resources/pulumi:providers:datadog"
+                        "$ref": "#/provider"
                     }
                 },
                 "type": "pulumi:providers:datadog/terraformConfig",
