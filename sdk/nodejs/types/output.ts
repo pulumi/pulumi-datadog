@@ -9303,6 +9303,17 @@ export interface DashboardWidgetWidgetLayout {
     y: number;
 }
 
+export interface DatasetProductFilter {
+    /**
+     * A list of tag-based filters used to restrict access to the product type. Each filter is formatted as `@tag.key:value`.
+     */
+    filters: string[];
+    /**
+     * The product type of the dataset. Supported types: `apm`, `rum`, `synthetics`, `metrics`, `logs`, `sdRepoinfo`, `errorTracking`, `cloudCost`, and `mlObs`.
+     */
+    product: string;
+}
+
 export interface DowntimeRecurrence {
     /**
      * How often to repeat as an integer. For example to repeat every 3 days, select a `type` of `days` and a `period` of `3`.
@@ -11899,9 +11910,21 @@ export interface ObservabilityPipelineConfigDestinations {
      */
     amazonOpensearches?: outputs.ObservabilityPipelineConfigDestinationsAmazonOpensearch[];
     /**
+     * The `amazonS3` destination sends your logs in Datadog-rehydratable format to an Amazon S3 bucket for archiving.
+     */
+    amazonS3s?: outputs.ObservabilityPipelineConfigDestinationsAmazonS3[];
+    /**
+     * The `amazonSecurityLake` destination sends your logs to Amazon Security Lake.
+     */
+    amazonSecurityLakes?: outputs.ObservabilityPipelineConfigDestinationsAmazonSecurityLake[];
+    /**
      * The `azureStorage` destination forwards logs to an Azure Blob Storage container.
      */
     azureStorages?: outputs.ObservabilityPipelineConfigDestinationsAzureStorage[];
+    /**
+     * The `crowdstrikeNextGenSiem` destination forwards logs to CrowdStrike Next Gen SIEM.
+     */
+    crowdstrikeNextGenSiems?: outputs.ObservabilityPipelineConfigDestinationsCrowdstrikeNextGenSiem[];
     /**
      * The `datadogLogs` destination forwards logs to Datadog Log Management.
      */
@@ -11938,6 +11961,10 @@ export interface ObservabilityPipelineConfigDestinations {
      * The `sentinelOne` destination sends logs to SentinelOne.
      */
     sentinelOnes?: outputs.ObservabilityPipelineConfigDestinationsSentinelOne[];
+    /**
+     * The `socket` destination sends logs over TCP or UDP to a remote server.
+     */
+    sockets?: outputs.ObservabilityPipelineConfigDestinationsSocket[];
     /**
      * The `splunkHec` destination forwards logs to Splunk using the HTTP Event Collector (HEC).
      */
@@ -11991,6 +12018,113 @@ export interface ObservabilityPipelineConfigDestinationsAmazonOpensearchAuth {
     strategy: string;
 }
 
+export interface ObservabilityPipelineConfigDestinationsAmazonS3 {
+    /**
+     * AWS authentication credentials used for accessing AWS services. If omitted, the system's default credentials are used (for example, the IAM role and environment variables).
+     */
+    auth?: outputs.ObservabilityPipelineConfigDestinationsAmazonS3Auth;
+    /**
+     * S3 bucket name.
+     */
+    bucket: string;
+    /**
+     * Unique identifier for the destination component.
+     */
+    id: string;
+    /**
+     * A list of component IDs whose output is used as the `input` for this component.
+     */
+    inputs: string[];
+    /**
+     * Prefix for object keys.
+     */
+    keyPrefix: string;
+    /**
+     * AWS region of the S3 bucket.
+     */
+    region: string;
+    /**
+     * S3 storage class. Valid values are `STANDARD`, `REDUCED_REDUNDANCY`, `INTELLIGENT_TIERING`, `STANDARD_IA`, `EXPRESS_ONEZONE`, `ONEZONE_IA`, `GLACIER`, `GLACIER_IR`, `DEEP_ARCHIVE`.
+     */
+    storageClass: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationsAmazonS3Auth {
+    /**
+     * The Amazon Resource Name (ARN) of the role to assume.
+     */
+    assumeRole?: string;
+    /**
+     * A unique identifier for cross-account role assumption.
+     */
+    externalId?: string;
+    /**
+     * A session identifier used for logging and tracing the assumed role session.
+     */
+    sessionName?: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationsAmazonSecurityLake {
+    /**
+     * AWS authentication credentials used for accessing AWS services. If omitted, the system's default credentials are used (for example, the IAM role and environment variables).
+     */
+    auth?: outputs.ObservabilityPipelineConfigDestinationsAmazonSecurityLakeAuth;
+    /**
+     * Name of the Amazon S3 bucket in Security Lake (3-63 characters).
+     */
+    bucket: string;
+    /**
+     * Custom source name for the logs in Security Lake.
+     */
+    customSourceName: string;
+    /**
+     * Unique identifier for the destination component.
+     */
+    id: string;
+    /**
+     * A list of component IDs whose output is used as the `input` for this component.
+     */
+    inputs: string[];
+    /**
+     * AWS region of the Security Lake bucket.
+     */
+    region: string;
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     */
+    tls?: outputs.ObservabilityPipelineConfigDestinationsAmazonSecurityLakeTls;
+}
+
+export interface ObservabilityPipelineConfigDestinationsAmazonSecurityLakeAuth {
+    /**
+     * The Amazon Resource Name (ARN) of the role to assume.
+     */
+    assumeRole?: string;
+    /**
+     * A unique identifier for cross-account role assumption.
+     */
+    externalId?: string;
+    /**
+     * A session identifier used for logging and tracing the assumed role session.
+     */
+    sessionName?: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationsAmazonSecurityLakeTls {
+    /**
+     * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
+     */
+    caFile?: string;
+    /**
+     * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     */
+    crtFile?: string;
+    /**
+     * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     */
+    keyFile?: string;
+}
+
 export interface ObservabilityPipelineConfigDestinationsAzureStorage {
     /**
      * Optional prefix for blobs written to the container.
@@ -12008,6 +12142,55 @@ export interface ObservabilityPipelineConfigDestinationsAzureStorage {
      * A list of component IDs whose output is used as the `input` for this component.
      */
     inputs: string[];
+}
+
+export interface ObservabilityPipelineConfigDestinationsCrowdstrikeNextGenSiem {
+    /**
+     * Compression configuration for log events.
+     */
+    compression?: outputs.ObservabilityPipelineConfigDestinationsCrowdstrikeNextGenSiemCompression;
+    /**
+     * Encoding format for log events. Valid values are `json`, `rawMessage`.
+     */
+    encoding: string;
+    /**
+     * Unique identifier for the destination component.
+     */
+    id: string;
+    /**
+     * A list of component IDs whose output is used as the `input` for this component.
+     */
+    inputs: string[];
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     */
+    tls?: outputs.ObservabilityPipelineConfigDestinationsCrowdstrikeNextGenSiemTls;
+}
+
+export interface ObservabilityPipelineConfigDestinationsCrowdstrikeNextGenSiemCompression {
+    /**
+     * Compression algorithm for log events.
+     */
+    algorithm?: string;
+    /**
+     * Compression level.
+     */
+    level?: number;
+}
+
+export interface ObservabilityPipelineConfigDestinationsCrowdstrikeNextGenSiemTls {
+    /**
+     * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
+     */
+    caFile?: string;
+    /**
+     * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     */
+    crtFile?: string;
+    /**
+     * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     */
+    keyFile?: string;
 }
 
 export interface ObservabilityPipelineConfigDestinationsDatadogLog {
@@ -12205,7 +12388,7 @@ export interface ObservabilityPipelineConfigDestinationsRsyslog {
 
 export interface ObservabilityPipelineConfigDestinationsRsyslogTls {
     /**
-     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
      */
     caFile?: string;
     /**
@@ -12231,6 +12414,66 @@ export interface ObservabilityPipelineConfigDestinationsSentinelOne {
      * The SentinelOne region to send logs to.
      */
     region: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationsSocket {
+    /**
+     * Encoding format for log events. Valid values are `json`, `rawMessage`.
+     */
+    encoding: string;
+    /**
+     * Defines the framing method for outgoing messages.
+     */
+    framing?: outputs.ObservabilityPipelineConfigDestinationsSocketFraming;
+    /**
+     * The unique identifier for this destination.
+     */
+    id: string;
+    /**
+     * A list of component IDs whose output is used as the `input` for this destination.
+     */
+    inputs: string[];
+    /**
+     * The protocol used to send logs. Valid values are `tcp`, `udp`.
+     */
+    mode: string;
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     */
+    tls?: outputs.ObservabilityPipelineConfigDestinationsSocketTls;
+}
+
+export interface ObservabilityPipelineConfigDestinationsSocketFraming {
+    /**
+     * Used when `method` is `characterDelimited`. Specifies the delimiter character.
+     */
+    characterDelimited?: outputs.ObservabilityPipelineConfigDestinationsSocketFramingCharacterDelimited;
+    /**
+     * The framing method. Valid values are `newlineDelimited`, `bytes`, `characterDelimited`.
+     */
+    method: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationsSocketFramingCharacterDelimited {
+    /**
+     * A single ASCII character used as a delimiter.
+     */
+    delimiter?: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationsSocketTls {
+    /**
+     * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
+     */
+    caFile?: string;
+    /**
+     * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     */
+    crtFile?: string;
+    /**
+     * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     */
+    keyFile?: string;
 }
 
 export interface ObservabilityPipelineConfigDestinationsSplunkHec {
@@ -12323,7 +12566,7 @@ export interface ObservabilityPipelineConfigDestinationsSyslogNg {
 
 export interface ObservabilityPipelineConfigDestinationsSyslogNgTls {
     /**
-     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
      */
     caFile?: string;
     /**
@@ -12345,6 +12588,11 @@ export interface ObservabilityPipelineConfigProcessors {
      * The `addFields` processor adds static key-value fields to logs.
      */
     addFields?: outputs.ObservabilityPipelineConfigProcessorsAddField[];
+    /**
+     * The `customProcessor` processor transforms events using Vector Remap Language (VRL) scripts with advanced filtering capabilities.
+     */
+    customProcessors?: outputs.ObservabilityPipelineConfigProcessorsCustomProcessor[];
+    datadogTags?: outputs.ObservabilityPipelineConfigProcessorsDatadogTag[];
     /**
      * The `dedupe` processor removes duplicate fields in log events.
      */
@@ -12461,6 +12709,59 @@ export interface ObservabilityPipelineConfigProcessorsAddFieldField {
      * The value to assign to the field.
      */
     value: string;
+}
+
+export interface ObservabilityPipelineConfigProcessorsCustomProcessor {
+    /**
+     * The unique identifier for this processor.
+     */
+    id: string;
+    /**
+     * A list of component IDs whose output is used as the input for this processor.
+     */
+    inputs: string[];
+    /**
+     * Array of VRL remap configurations. Each remap defines a transformation rule with its own filter and VRL script.
+     */
+    remaps?: outputs.ObservabilityPipelineConfigProcessorsCustomProcessorRemap[];
+}
+
+export interface ObservabilityPipelineConfigProcessorsCustomProcessorRemap {
+    /**
+     * Whether to drop events that cause errors during transformation.
+     */
+    dropOnError: boolean;
+    /**
+     * Whether this remap rule is enabled.
+     */
+    enabled: boolean;
+    /**
+     * A Datadog search query used to filter events for this specific remap rule.
+     */
+    include: string;
+    /**
+     * A descriptive name for this remap rule.
+     */
+    name: string;
+    /**
+     * The VRL script source code that defines the transformation logic.
+     */
+    source: string;
+}
+
+export interface ObservabilityPipelineConfigProcessorsDatadogTag {
+    /**
+     * Valid values are `include`, `exclude`.
+     */
+    action: string;
+    id: string;
+    include: string;
+    inputs: string[];
+    keys: string[];
+    /**
+     * Valid values are `filter`.
+     */
+    mode: string;
 }
 
 export interface ObservabilityPipelineConfigProcessorsDedupe {
@@ -13177,6 +13478,10 @@ export interface ObservabilityPipelineConfigSources {
      */
     rsyslogs?: outputs.ObservabilityPipelineConfigSourcesRsyslog[];
     /**
+     * The `socket` source ingests logs over TCP or UDP.
+     */
+    sockets?: outputs.ObservabilityPipelineConfigSourcesSocket[];
+    /**
      * The `splunkHec` source implements the Splunk HTTP Event Collector (HEC) API.
      */
     splunkHecs?: outputs.ObservabilityPipelineConfigSourcesSplunkHec[];
@@ -13196,7 +13501,7 @@ export interface ObservabilityPipelineConfigSources {
 
 export interface ObservabilityPipelineConfigSourcesAmazonDataFirehose {
     /**
-     * AWS authentication credentials used for accessing AWS services such as S3. If omitted, the system’s default credentials are used (for example, the IAM role and environment variables).
+     * AWS authentication credentials used for accessing AWS services such as S3. If omitted, the system's default credentials are used (for example, the IAM role and environment variables).
      */
     auth?: outputs.ObservabilityPipelineConfigSourcesAmazonDataFirehoseAuth;
     /**
@@ -13226,7 +13531,7 @@ export interface ObservabilityPipelineConfigSourcesAmazonDataFirehoseAuth {
 
 export interface ObservabilityPipelineConfigSourcesAmazonDataFirehoseTls {
     /**
-     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
      */
     caFile?: string;
     /**
@@ -13241,7 +13546,7 @@ export interface ObservabilityPipelineConfigSourcesAmazonDataFirehoseTls {
 
 export interface ObservabilityPipelineConfigSourcesAmazonS3 {
     /**
-     * AWS authentication credentials used for accessing AWS services such as S3. If omitted, the system’s default credentials are used (for example, the IAM role and environment variables).
+     * AWS authentication credentials used for accessing AWS services such as S3. If omitted, the system's default credentials are used (for example, the IAM role and environment variables).
      */
     auth?: outputs.ObservabilityPipelineConfigSourcesAmazonS3Auth;
     /**
@@ -13275,7 +13580,7 @@ export interface ObservabilityPipelineConfigSourcesAmazonS3Auth {
 
 export interface ObservabilityPipelineConfigSourcesAmazonS3Tls {
     /**
-     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
      */
     caFile?: string;
     /**
@@ -13301,7 +13606,7 @@ export interface ObservabilityPipelineConfigSourcesDatadogAgent {
 
 export interface ObservabilityPipelineConfigSourcesDatadogAgentTls {
     /**
-     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
      */
     caFile?: string;
     /**
@@ -13327,7 +13632,7 @@ export interface ObservabilityPipelineConfigSourcesFluentBit {
 
 export interface ObservabilityPipelineConfigSourcesFluentBitTls {
     /**
-     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
      */
     caFile?: string;
     /**
@@ -13353,7 +13658,7 @@ export interface ObservabilityPipelineConfigSourcesFluentd {
 
 export interface ObservabilityPipelineConfigSourcesFluentdTls {
     /**
-     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
      */
     caFile?: string;
     /**
@@ -13402,7 +13707,7 @@ export interface ObservabilityPipelineConfigSourcesGooglePubsubAuth {
 
 export interface ObservabilityPipelineConfigSourcesGooglePubsubTls {
     /**
-     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
      */
     caFile?: string;
     /**
@@ -13444,7 +13749,7 @@ export interface ObservabilityPipelineConfigSourcesHttpClient {
 
 export interface ObservabilityPipelineConfigSourcesHttpClientTls {
     /**
-     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
      */
     caFile?: string;
     /**
@@ -13478,7 +13783,7 @@ export interface ObservabilityPipelineConfigSourcesHttpServer {
 
 export interface ObservabilityPipelineConfigSourcesHttpServerTls {
     /**
-     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
      */
     caFile?: string;
     /**
@@ -13538,7 +13843,7 @@ export interface ObservabilityPipelineConfigSourcesKafkaSasl {
 
 export interface ObservabilityPipelineConfigSourcesKafkaTls {
     /**
-     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
      */
     caFile?: string;
     /**
@@ -13564,7 +13869,7 @@ export interface ObservabilityPipelineConfigSourcesLogstash {
 
 export interface ObservabilityPipelineConfigSourcesLogstashTls {
     /**
-     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
      */
     caFile?: string;
     /**
@@ -13594,7 +13899,59 @@ export interface ObservabilityPipelineConfigSourcesRsyslog {
 
 export interface ObservabilityPipelineConfigSourcesRsyslogTls {
     /**
-     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
+     */
+    caFile?: string;
+    /**
+     * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     */
+    crtFile?: string;
+    /**
+     * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     */
+    keyFile?: string;
+}
+
+export interface ObservabilityPipelineConfigSourcesSocket {
+    /**
+     * Defines the framing method for incoming messages.
+     */
+    framing?: outputs.ObservabilityPipelineConfigSourcesSocketFraming;
+    /**
+     * The unique identifier for this component.
+     */
+    id: string;
+    /**
+     * The protocol used to receive logs. Valid values are `tcp`, `udp`.
+     */
+    mode: string;
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     */
+    tls?: outputs.ObservabilityPipelineConfigSourcesSocketTls;
+}
+
+export interface ObservabilityPipelineConfigSourcesSocketFraming {
+    /**
+     * Used when `method` is `characterDelimited`. Specifies the delimiter character.
+     */
+    characterDelimited?: outputs.ObservabilityPipelineConfigSourcesSocketFramingCharacterDelimited;
+    /**
+     * The framing method. Valid values are `newlineDelimited`, `bytes`, `characterDelimited`, `octetCounting`, `chunkedGelf`.
+     */
+    method?: string;
+}
+
+export interface ObservabilityPipelineConfigSourcesSocketFramingCharacterDelimited {
+    /**
+     * A single ASCII character used as a delimiter.
+     */
+    delimiter?: string;
+}
+
+export interface ObservabilityPipelineConfigSourcesSocketTls {
+    /**
+     * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
      */
     caFile?: string;
     /**
@@ -13620,7 +13977,7 @@ export interface ObservabilityPipelineConfigSourcesSplunkHec {
 
 export interface ObservabilityPipelineConfigSourcesSplunkHecTls {
     /**
-     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
      */
     caFile?: string;
     /**
@@ -13646,7 +14003,7 @@ export interface ObservabilityPipelineConfigSourcesSplunkTcp {
 
 export interface ObservabilityPipelineConfigSourcesSplunkTcpTls {
     /**
-     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
      */
     caFile?: string;
     /**
@@ -13683,7 +14040,7 @@ export interface ObservabilityPipelineConfigSourcesSyslogNg {
 
 export interface ObservabilityPipelineConfigSourcesSyslogNgTls {
     /**
-     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
      */
     caFile?: string;
     /**

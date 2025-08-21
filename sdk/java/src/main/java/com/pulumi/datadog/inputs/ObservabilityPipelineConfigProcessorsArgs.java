@@ -7,6 +7,8 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorsAddEnvVarArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorsAddFieldArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorsCustomProcessorArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorsDatadogTagArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorsDedupeArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorsEnrichmentTableArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorsFilterArgs;
@@ -59,6 +61,28 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
      */
     public Optional<Output<List<ObservabilityPipelineConfigProcessorsAddFieldArgs>>> addFields() {
         return Optional.ofNullable(this.addFields);
+    }
+
+    /**
+     * The `custom_processor` processor transforms events using Vector Remap Language (VRL) scripts with advanced filtering capabilities.
+     * 
+     */
+    @Import(name="customProcessors")
+    private @Nullable Output<List<ObservabilityPipelineConfigProcessorsCustomProcessorArgs>> customProcessors;
+
+    /**
+     * @return The `custom_processor` processor transforms events using Vector Remap Language (VRL) scripts with advanced filtering capabilities.
+     * 
+     */
+    public Optional<Output<List<ObservabilityPipelineConfigProcessorsCustomProcessorArgs>>> customProcessors() {
+        return Optional.ofNullable(this.customProcessors);
+    }
+
+    @Import(name="datadogTags")
+    private @Nullable Output<List<ObservabilityPipelineConfigProcessorsDatadogTagArgs>> datadogTags;
+
+    public Optional<Output<List<ObservabilityPipelineConfigProcessorsDatadogTagArgs>>> datadogTags() {
+        return Optional.ofNullable(this.datadogTags);
     }
 
     /**
@@ -276,6 +300,8 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
     private ObservabilityPipelineConfigProcessorsArgs(ObservabilityPipelineConfigProcessorsArgs $) {
         this.addEnvVars = $.addEnvVars;
         this.addFields = $.addFields;
+        this.customProcessors = $.customProcessors;
+        this.datadogTags = $.datadogTags;
         this.dedupes = $.dedupes;
         this.enrichmentTables = $.enrichmentTables;
         this.filters = $.filters;
@@ -370,6 +396,50 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
          */
         public Builder addFields(ObservabilityPipelineConfigProcessorsAddFieldArgs... addFields) {
             return addFields(List.of(addFields));
+        }
+
+        /**
+         * @param customProcessors The `custom_processor` processor transforms events using Vector Remap Language (VRL) scripts with advanced filtering capabilities.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customProcessors(@Nullable Output<List<ObservabilityPipelineConfigProcessorsCustomProcessorArgs>> customProcessors) {
+            $.customProcessors = customProcessors;
+            return this;
+        }
+
+        /**
+         * @param customProcessors The `custom_processor` processor transforms events using Vector Remap Language (VRL) scripts with advanced filtering capabilities.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customProcessors(List<ObservabilityPipelineConfigProcessorsCustomProcessorArgs> customProcessors) {
+            return customProcessors(Output.of(customProcessors));
+        }
+
+        /**
+         * @param customProcessors The `custom_processor` processor transforms events using Vector Remap Language (VRL) scripts with advanced filtering capabilities.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customProcessors(ObservabilityPipelineConfigProcessorsCustomProcessorArgs... customProcessors) {
+            return customProcessors(List.of(customProcessors));
+        }
+
+        public Builder datadogTags(@Nullable Output<List<ObservabilityPipelineConfigProcessorsDatadogTagArgs>> datadogTags) {
+            $.datadogTags = datadogTags;
+            return this;
+        }
+
+        public Builder datadogTags(List<ObservabilityPipelineConfigProcessorsDatadogTagArgs> datadogTags) {
+            return datadogTags(Output.of(datadogTags));
+        }
+
+        public Builder datadogTags(ObservabilityPipelineConfigProcessorsDatadogTagArgs... datadogTags) {
+            return datadogTags(List.of(datadogTags));
         }
 
         /**

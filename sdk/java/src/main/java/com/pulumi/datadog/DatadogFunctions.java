@@ -1712,12 +1712,80 @@ public final class DatadogFunctions {
     /**
      * Use this data source to retrieve information about existing Agent rules.
      * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetCsmThreatsAgentRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DatadogFunctions.getCsmThreatsAgentRules(GetCsmThreatsAgentRulesArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetCsmThreatsAgentRulesResult> getCsmThreatsAgentRules() {
         return getCsmThreatsAgentRules(GetCsmThreatsAgentRulesArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Use this data source to retrieve information about existing Agent rules.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetCsmThreatsAgentRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DatadogFunctions.getCsmThreatsAgentRules(GetCsmThreatsAgentRulesArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCsmThreatsAgentRulesResult> getCsmThreatsAgentRulesPlain() {
@@ -1726,12 +1794,80 @@ public final class DatadogFunctions {
     /**
      * Use this data source to retrieve information about existing Agent rules.
      * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetCsmThreatsAgentRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DatadogFunctions.getCsmThreatsAgentRules(GetCsmThreatsAgentRulesArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetCsmThreatsAgentRulesResult> getCsmThreatsAgentRules(GetCsmThreatsAgentRulesArgs args) {
         return getCsmThreatsAgentRules(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to retrieve information about existing Agent rules.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetCsmThreatsAgentRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DatadogFunctions.getCsmThreatsAgentRules(GetCsmThreatsAgentRulesArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCsmThreatsAgentRulesResult> getCsmThreatsAgentRulesPlain(GetCsmThreatsAgentRulesPlainArgs args) {
@@ -1740,6 +1876,40 @@ public final class DatadogFunctions {
     /**
      * Use this data source to retrieve information about existing Agent rules.
      * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetCsmThreatsAgentRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DatadogFunctions.getCsmThreatsAgentRules(GetCsmThreatsAgentRulesArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetCsmThreatsAgentRulesResult> getCsmThreatsAgentRules(GetCsmThreatsAgentRulesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("datadog:index/getCsmThreatsAgentRules:getCsmThreatsAgentRules", TypeShape.of(GetCsmThreatsAgentRulesResult.class), args, Utilities.withVersion(options));
@@ -1747,12 +1917,80 @@ public final class DatadogFunctions {
     /**
      * Use this data source to retrieve information about existing Agent rules.
      * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetCsmThreatsAgentRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DatadogFunctions.getCsmThreatsAgentRules(GetCsmThreatsAgentRulesArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetCsmThreatsAgentRulesResult> getCsmThreatsAgentRules(GetCsmThreatsAgentRulesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("datadog:index/getCsmThreatsAgentRules:getCsmThreatsAgentRules", TypeShape.of(GetCsmThreatsAgentRulesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve information about existing Agent rules.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetCsmThreatsAgentRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DatadogFunctions.getCsmThreatsAgentRules(GetCsmThreatsAgentRulesArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCsmThreatsAgentRulesResult> getCsmThreatsAgentRulesPlain(GetCsmThreatsAgentRulesPlainArgs args, InvokeOptions options) {

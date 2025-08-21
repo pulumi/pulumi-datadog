@@ -9,20 +9,6 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog CSM Threats Agent Rule API resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * const myAgentRule = new datadog.CsmThreatsAgentRule("my_agent_rule", {
- *     name: "my_agent_rule",
- *     enabled: true,
- *     description: "im a rule",
- *     expression: "open.file.name == \"etc/shadow/password\"",
- * });
- * ```
- *
  * ## Import
  *
  * The `pulumi import` command can be used, for example:
@@ -31,6 +17,12 @@ import * as utilities from "./utilities";
  *
  * ```sh
  * $ pulumi import datadog:index/csmThreatsAgentRule:CsmThreatsAgentRule my_agent_rule m0o-hto-lkb
+ * ```
+ *
+ * # CSM Agent Rules can also be imported using the policy ID and the rule ID. For example:
+ *
+ * ```sh
+ * $ pulumi import datadog:index/csmThreatsAgentRule:CsmThreatsAgentRule my_agent_rule jm4-lwh-8cs:m0o-hto-lkb
  * ```
  */
 export class CsmThreatsAgentRule extends pulumi.CustomResource {

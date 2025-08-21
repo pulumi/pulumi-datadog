@@ -58,6 +58,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigSourcesRsyslog> Rsyslogs;
         /// <summary>
+        /// The `socket` source ingests logs over TCP or UDP.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigSourcesSocket> Sockets;
+        /// <summary>
         /// The `splunk_hec` source implements the Splunk HTTP Event Collector (HEC) API.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigSourcesSplunkHec> SplunkHecs;
@@ -98,6 +102,8 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.ObservabilityPipelineConfigSourcesRsyslog> rsyslogs,
 
+            ImmutableArray<Outputs.ObservabilityPipelineConfigSourcesSocket> sockets,
+
             ImmutableArray<Outputs.ObservabilityPipelineConfigSourcesSplunkHec> splunkHecs,
 
             ImmutableArray<Outputs.ObservabilityPipelineConfigSourcesSplunkTcp> splunkTcps,
@@ -117,6 +123,7 @@ namespace Pulumi.Datadog.Outputs
             Kafkas = kafkas;
             Logstashes = logstashes;
             Rsyslogs = rsyslogs;
+            Sockets = sockets;
             SplunkHecs = splunkHecs;
             SplunkTcps = splunkTcps;
             SumoLogics = sumoLogics;

@@ -6,6 +6,39 @@ import * as utilities from "./utilities";
 
 /**
  * Provides a Datadog CSM Threats policy API resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const myPolicy = new datadog.CsmThreatsPolicy("my_policy", {
+ *     name: "my_policy",
+ *     description: "My policy",
+ *     enabled: true,
+ *     hostTagsLists: [
+ *         [
+ *             "env:prod",
+ *             "team:backend",
+ *         ],
+ *         [
+ *             "env:prod",
+ *             "team:frontend",
+ *         ],
+ *     ],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * The `pulumi import` command can be used, for example:
+ *
+ * # CSM Policies can be imported using IDs. For example:
+ *
+ * ```sh
+ * $ pulumi import datadog:index/csmThreatsPolicy:CsmThreatsPolicy my_policy jm4-lwh-8cs
+ * ```
  */
 export class CsmThreatsPolicy extends pulumi.CustomResource {
     /**

@@ -8,6 +8,15 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve information about existing Agent rules.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const test = datadog.getCsmThreatsAgentRules({});
+ * ```
  */
 export function getCsmThreatsAgentRules(args?: GetCsmThreatsAgentRulesArgs, opts?: pulumi.InvokeOptions): Promise<GetCsmThreatsAgentRulesResult> {
     args = args || {};
@@ -50,6 +59,15 @@ export interface GetCsmThreatsAgentRulesResult {
 }
 /**
  * Use this data source to retrieve information about existing Agent rules.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const test = datadog.getCsmThreatsAgentRules({});
+ * ```
  */
 export function getCsmThreatsAgentRulesOutput(args?: GetCsmThreatsAgentRulesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCsmThreatsAgentRulesResult> {
     args = args || {};

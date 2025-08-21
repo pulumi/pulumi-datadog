@@ -421,6 +421,27 @@ import * as utilities from "./utilities";
  *                 }),
  *             },
  *         },
+ *         {
+ *             name: "Run api test",
+ *             type: "runApiTest",
+ *             params: {
+ *                 request: JSON.stringify({
+ *                     config: {
+ *                         assertions: [{
+ *                             type: "statusCode",
+ *                             operator: "is",
+ *                             target: 200,
+ *                         }],
+ *                         request: {
+ *                             method: "GET",
+ *                             url: "https://example.com",
+ *                         },
+ *                     },
+ *                     options: {},
+ *                     subtype: "http",
+ *                 }),
+ *             },
+ *         },
  *     ],
  *     browserVariables: [
  *         {

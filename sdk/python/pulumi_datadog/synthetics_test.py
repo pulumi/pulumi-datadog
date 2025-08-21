@@ -1370,6 +1370,27 @@ class SyntheticsTest(pulumi.CustomResource):
                         }),
                     },
                 },
+                {
+                    "name": "Run api test",
+                    "type": "runApiTest",
+                    "params": {
+                        "request": json.dumps({
+                            "config": {
+                                "assertions": [{
+                                    "type": "statusCode",
+                                    "operator": "is",
+                                    "target": 200,
+                                }],
+                                "request": {
+                                    "method": "GET",
+                                    "url": "https://example.com",
+                                },
+                            },
+                            "options": {},
+                            "subtype": "http",
+                        }),
+                    },
+                },
             ],
             browser_variables=[
                 {
@@ -2082,6 +2103,27 @@ class SyntheticsTest(pulumi.CustomResource):
                                 "value": 1,
                             },
                             "url": "https://www.example.org",
+                        }),
+                    },
+                },
+                {
+                    "name": "Run api test",
+                    "type": "runApiTest",
+                    "params": {
+                        "request": json.dumps({
+                            "config": {
+                                "assertions": [{
+                                    "type": "statusCode",
+                                    "operator": "is",
+                                    "target": 200,
+                                }],
+                                "request": {
+                                    "method": "GET",
+                                    "url": "https://example.com",
+                                },
+                            },
+                            "options": {},
+                            "subtype": "http",
                         }),
                     },
                 },

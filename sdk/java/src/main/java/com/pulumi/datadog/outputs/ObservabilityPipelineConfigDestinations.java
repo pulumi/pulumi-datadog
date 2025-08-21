@@ -5,7 +5,10 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationsAmazonOpensearch;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationsAmazonS3;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationsAmazonSecurityLake;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationsAzureStorage;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationsCrowdstrikeNextGenSiem;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationsDatadogLog;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationsElasticsearch;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationsGoogleChronicle;
@@ -15,6 +18,7 @@ import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationsNewReli
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationsOpensearch;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationsRsyslog;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationsSentinelOne;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationsSocket;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationsSplunkHec;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationsSumoLogic;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationsSyslogNg;
@@ -30,10 +34,25 @@ public final class ObservabilityPipelineConfigDestinations {
      */
     private @Nullable List<ObservabilityPipelineConfigDestinationsAmazonOpensearch> amazonOpensearches;
     /**
+     * @return The `amazon_s3` destination sends your logs in Datadog-rehydratable format to an Amazon S3 bucket for archiving.
+     * 
+     */
+    private @Nullable List<ObservabilityPipelineConfigDestinationsAmazonS3> amazonS3s;
+    /**
+     * @return The `amazon_security_lake` destination sends your logs to Amazon Security Lake.
+     * 
+     */
+    private @Nullable List<ObservabilityPipelineConfigDestinationsAmazonSecurityLake> amazonSecurityLakes;
+    /**
      * @return The `azure_storage` destination forwards logs to an Azure Blob Storage container.
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigDestinationsAzureStorage> azureStorages;
+    /**
+     * @return The `crowdstrike_next_gen_siem` destination forwards logs to CrowdStrike Next Gen SIEM.
+     * 
+     */
+    private @Nullable List<ObservabilityPipelineConfigDestinationsCrowdstrikeNextGenSiem> crowdstrikeNextGenSiems;
     /**
      * @return The `datadog_logs` destination forwards logs to Datadog Log Management.
      * 
@@ -80,6 +99,11 @@ public final class ObservabilityPipelineConfigDestinations {
      */
     private @Nullable List<ObservabilityPipelineConfigDestinationsSentinelOne> sentinelOnes;
     /**
+     * @return The `socket` destination sends logs over TCP or UDP to a remote server.
+     * 
+     */
+    private @Nullable List<ObservabilityPipelineConfigDestinationsSocket> sockets;
+    /**
      * @return The `splunk_hec` destination forwards logs to Splunk using the HTTP Event Collector (HEC).
      * 
      */
@@ -104,11 +128,32 @@ public final class ObservabilityPipelineConfigDestinations {
         return this.amazonOpensearches == null ? List.of() : this.amazonOpensearches;
     }
     /**
+     * @return The `amazon_s3` destination sends your logs in Datadog-rehydratable format to an Amazon S3 bucket for archiving.
+     * 
+     */
+    public List<ObservabilityPipelineConfigDestinationsAmazonS3> amazonS3s() {
+        return this.amazonS3s == null ? List.of() : this.amazonS3s;
+    }
+    /**
+     * @return The `amazon_security_lake` destination sends your logs to Amazon Security Lake.
+     * 
+     */
+    public List<ObservabilityPipelineConfigDestinationsAmazonSecurityLake> amazonSecurityLakes() {
+        return this.amazonSecurityLakes == null ? List.of() : this.amazonSecurityLakes;
+    }
+    /**
      * @return The `azure_storage` destination forwards logs to an Azure Blob Storage container.
      * 
      */
     public List<ObservabilityPipelineConfigDestinationsAzureStorage> azureStorages() {
         return this.azureStorages == null ? List.of() : this.azureStorages;
+    }
+    /**
+     * @return The `crowdstrike_next_gen_siem` destination forwards logs to CrowdStrike Next Gen SIEM.
+     * 
+     */
+    public List<ObservabilityPipelineConfigDestinationsCrowdstrikeNextGenSiem> crowdstrikeNextGenSiems() {
+        return this.crowdstrikeNextGenSiems == null ? List.of() : this.crowdstrikeNextGenSiems;
     }
     /**
      * @return The `datadog_logs` destination forwards logs to Datadog Log Management.
@@ -174,6 +219,13 @@ public final class ObservabilityPipelineConfigDestinations {
         return this.sentinelOnes == null ? List.of() : this.sentinelOnes;
     }
     /**
+     * @return The `socket` destination sends logs over TCP or UDP to a remote server.
+     * 
+     */
+    public List<ObservabilityPipelineConfigDestinationsSocket> sockets() {
+        return this.sockets == null ? List.of() : this.sockets;
+    }
+    /**
      * @return The `splunk_hec` destination forwards logs to Splunk using the HTTP Event Collector (HEC).
      * 
      */
@@ -205,7 +257,10 @@ public final class ObservabilityPipelineConfigDestinations {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<ObservabilityPipelineConfigDestinationsAmazonOpensearch> amazonOpensearches;
+        private @Nullable List<ObservabilityPipelineConfigDestinationsAmazonS3> amazonS3s;
+        private @Nullable List<ObservabilityPipelineConfigDestinationsAmazonSecurityLake> amazonSecurityLakes;
         private @Nullable List<ObservabilityPipelineConfigDestinationsAzureStorage> azureStorages;
+        private @Nullable List<ObservabilityPipelineConfigDestinationsCrowdstrikeNextGenSiem> crowdstrikeNextGenSiems;
         private @Nullable List<ObservabilityPipelineConfigDestinationsDatadogLog> datadogLogs;
         private @Nullable List<ObservabilityPipelineConfigDestinationsElasticsearch> elasticsearches;
         private @Nullable List<ObservabilityPipelineConfigDestinationsGoogleChronicle> googleChronicles;
@@ -215,6 +270,7 @@ public final class ObservabilityPipelineConfigDestinations {
         private @Nullable List<ObservabilityPipelineConfigDestinationsOpensearch> opensearches;
         private @Nullable List<ObservabilityPipelineConfigDestinationsRsyslog> rsyslogs;
         private @Nullable List<ObservabilityPipelineConfigDestinationsSentinelOne> sentinelOnes;
+        private @Nullable List<ObservabilityPipelineConfigDestinationsSocket> sockets;
         private @Nullable List<ObservabilityPipelineConfigDestinationsSplunkHec> splunkHecs;
         private @Nullable List<ObservabilityPipelineConfigDestinationsSumoLogic> sumoLogics;
         private @Nullable List<ObservabilityPipelineConfigDestinationsSyslogNg> syslogNgs;
@@ -222,7 +278,10 @@ public final class ObservabilityPipelineConfigDestinations {
         public Builder(ObservabilityPipelineConfigDestinations defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.amazonOpensearches = defaults.amazonOpensearches;
+    	      this.amazonS3s = defaults.amazonS3s;
+    	      this.amazonSecurityLakes = defaults.amazonSecurityLakes;
     	      this.azureStorages = defaults.azureStorages;
+    	      this.crowdstrikeNextGenSiems = defaults.crowdstrikeNextGenSiems;
     	      this.datadogLogs = defaults.datadogLogs;
     	      this.elasticsearches = defaults.elasticsearches;
     	      this.googleChronicles = defaults.googleChronicles;
@@ -232,6 +291,7 @@ public final class ObservabilityPipelineConfigDestinations {
     	      this.opensearches = defaults.opensearches;
     	      this.rsyslogs = defaults.rsyslogs;
     	      this.sentinelOnes = defaults.sentinelOnes;
+    	      this.sockets = defaults.sockets;
     	      this.splunkHecs = defaults.splunkHecs;
     	      this.sumoLogics = defaults.sumoLogics;
     	      this.syslogNgs = defaults.syslogNgs;
@@ -247,6 +307,24 @@ public final class ObservabilityPipelineConfigDestinations {
             return amazonOpensearches(List.of(amazonOpensearches));
         }
         @CustomType.Setter
+        public Builder amazonS3s(@Nullable List<ObservabilityPipelineConfigDestinationsAmazonS3> amazonS3s) {
+
+            this.amazonS3s = amazonS3s;
+            return this;
+        }
+        public Builder amazonS3s(ObservabilityPipelineConfigDestinationsAmazonS3... amazonS3s) {
+            return amazonS3s(List.of(amazonS3s));
+        }
+        @CustomType.Setter
+        public Builder amazonSecurityLakes(@Nullable List<ObservabilityPipelineConfigDestinationsAmazonSecurityLake> amazonSecurityLakes) {
+
+            this.amazonSecurityLakes = amazonSecurityLakes;
+            return this;
+        }
+        public Builder amazonSecurityLakes(ObservabilityPipelineConfigDestinationsAmazonSecurityLake... amazonSecurityLakes) {
+            return amazonSecurityLakes(List.of(amazonSecurityLakes));
+        }
+        @CustomType.Setter
         public Builder azureStorages(@Nullable List<ObservabilityPipelineConfigDestinationsAzureStorage> azureStorages) {
 
             this.azureStorages = azureStorages;
@@ -254,6 +332,15 @@ public final class ObservabilityPipelineConfigDestinations {
         }
         public Builder azureStorages(ObservabilityPipelineConfigDestinationsAzureStorage... azureStorages) {
             return azureStorages(List.of(azureStorages));
+        }
+        @CustomType.Setter
+        public Builder crowdstrikeNextGenSiems(@Nullable List<ObservabilityPipelineConfigDestinationsCrowdstrikeNextGenSiem> crowdstrikeNextGenSiems) {
+
+            this.crowdstrikeNextGenSiems = crowdstrikeNextGenSiems;
+            return this;
+        }
+        public Builder crowdstrikeNextGenSiems(ObservabilityPipelineConfigDestinationsCrowdstrikeNextGenSiem... crowdstrikeNextGenSiems) {
+            return crowdstrikeNextGenSiems(List.of(crowdstrikeNextGenSiems));
         }
         @CustomType.Setter
         public Builder datadogLogs(@Nullable List<ObservabilityPipelineConfigDestinationsDatadogLog> datadogLogs) {
@@ -337,6 +424,15 @@ public final class ObservabilityPipelineConfigDestinations {
             return sentinelOnes(List.of(sentinelOnes));
         }
         @CustomType.Setter
+        public Builder sockets(@Nullable List<ObservabilityPipelineConfigDestinationsSocket> sockets) {
+
+            this.sockets = sockets;
+            return this;
+        }
+        public Builder sockets(ObservabilityPipelineConfigDestinationsSocket... sockets) {
+            return sockets(List.of(sockets));
+        }
+        @CustomType.Setter
         public Builder splunkHecs(@Nullable List<ObservabilityPipelineConfigDestinationsSplunkHec> splunkHecs) {
 
             this.splunkHecs = splunkHecs;
@@ -366,7 +462,10 @@ public final class ObservabilityPipelineConfigDestinations {
         public ObservabilityPipelineConfigDestinations build() {
             final var _resultValue = new ObservabilityPipelineConfigDestinations();
             _resultValue.amazonOpensearches = amazonOpensearches;
+            _resultValue.amazonS3s = amazonS3s;
+            _resultValue.amazonSecurityLakes = amazonSecurityLakes;
             _resultValue.azureStorages = azureStorages;
+            _resultValue.crowdstrikeNextGenSiems = crowdstrikeNextGenSiems;
             _resultValue.datadogLogs = datadogLogs;
             _resultValue.elasticsearches = elasticsearches;
             _resultValue.googleChronicles = googleChronicles;
@@ -376,6 +475,7 @@ public final class ObservabilityPipelineConfigDestinations {
             _resultValue.opensearches = opensearches;
             _resultValue.rsyslogs = rsyslogs;
             _resultValue.sentinelOnes = sentinelOnes;
+            _resultValue.sockets = sockets;
             _resultValue.splunkHecs = splunkHecs;
             _resultValue.sumoLogics = sumoLogics;
             _resultValue.syslogNgs = syslogNgs;

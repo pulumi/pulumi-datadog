@@ -490,6 +490,30 @@ import javax.annotation.Nullable;
  *                                 jsonProperty("url", "https://www.example.org")
  *                             )))
  *                         .build())
+ *                     .build(),
+ *                 SyntheticsTestBrowserStepArgs.builder()
+ *                     .name("Run api test")
+ *                     .type("runApiTest")
+ *                     .params(SyntheticsTestBrowserStepParamsArgs.builder()
+ *                         .request(serializeJson(
+ *                             jsonObject(
+ *                                 jsonProperty("config", jsonObject(
+ *                                     jsonProperty("assertions", jsonArray(jsonObject(
+ *                                         jsonProperty("type", "statusCode"),
+ *                                         jsonProperty("operator", "is"),
+ *                                         jsonProperty("target", 200)
+ *                                     ))),
+ *                                     jsonProperty("request", jsonObject(
+ *                                         jsonProperty("method", "GET"),
+ *                                         jsonProperty("url", "https://example.com")
+ *                                     ))
+ *                                 )),
+ *                                 jsonProperty("options", jsonObject(
+ * 
+ *                                 )),
+ *                                 jsonProperty("subtype", "http")
+ *                             )))
+ *                         .build())
  *                     .build())
  *             .browserVariables(            
  *                 SyntheticsTestBrowserVariableArgs.builder()

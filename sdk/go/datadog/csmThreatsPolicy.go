@@ -13,6 +13,54 @@ import (
 )
 
 // Provides a Datadog CSM Threats policy API resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.NewCsmThreatsPolicy(ctx, "my_policy", &datadog.CsmThreatsPolicyArgs{
+//				Name:        pulumi.String("my_policy"),
+//				Description: pulumi.String("My policy"),
+//				Enabled:     pulumi.Bool(true),
+//				HostTagsLists: pulumi.StringArrayArray{
+//					pulumi.StringArray{
+//						pulumi.String("env:prod"),
+//						pulumi.String("team:backend"),
+//					},
+//					pulumi.StringArray{
+//						pulumi.String("env:prod"),
+//						pulumi.String("team:frontend"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// The `pulumi import` command can be used, for example:
+//
+// # CSM Policies can be imported using IDs. For example:
+//
+// ```sh
+// $ pulumi import datadog:index/csmThreatsPolicy:CsmThreatsPolicy my_policy jm4-lwh-8cs
+// ```
 type CsmThreatsPolicy struct {
 	pulumi.CustomResourceState
 

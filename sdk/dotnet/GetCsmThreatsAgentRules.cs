@@ -13,18 +13,63 @@ namespace Pulumi.Datadog
     {
         /// <summary>
         /// Use this data source to retrieve information about existing Agent rules.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Datadog = Pulumi.Datadog;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Datadog.GetCsmThreatsAgentRules.Invoke();
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetCsmThreatsAgentRulesResult> InvokeAsync(GetCsmThreatsAgentRulesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCsmThreatsAgentRulesResult>("datadog:index/getCsmThreatsAgentRules:getCsmThreatsAgentRules", args ?? new GetCsmThreatsAgentRulesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve information about existing Agent rules.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Datadog = Pulumi.Datadog;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Datadog.GetCsmThreatsAgentRules.Invoke();
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetCsmThreatsAgentRulesResult> Invoke(GetCsmThreatsAgentRulesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCsmThreatsAgentRulesResult>("datadog:index/getCsmThreatsAgentRules:getCsmThreatsAgentRules", args ?? new GetCsmThreatsAgentRulesInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve information about existing Agent rules.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Datadog = Pulumi.Datadog;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Datadog.GetCsmThreatsAgentRules.Invoke();
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetCsmThreatsAgentRulesResult> Invoke(GetCsmThreatsAgentRulesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCsmThreatsAgentRulesResult>("datadog:index/getCsmThreatsAgentRules:getCsmThreatsAgentRules", args ?? new GetCsmThreatsAgentRulesInvokeArgs(), options.WithDefaults());

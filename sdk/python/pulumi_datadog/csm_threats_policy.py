@@ -206,6 +206,38 @@ class CsmThreatsPolicy(pulumi.CustomResource):
         """
         Provides a Datadog CSM Threats policy API resource.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        my_policy = datadog.CsmThreatsPolicy("my_policy",
+            name="my_policy",
+            description="My policy",
+            enabled=True,
+            host_tags_lists=[
+                [
+                    "env:prod",
+                    "team:backend",
+                ],
+                [
+                    "env:prod",
+                    "team:frontend",
+                ],
+            ])
+        ```
+
+        ## Import
+
+        The `pulumi import` command can be used, for example:
+
+        # CSM Policies can be imported using IDs. For example:
+
+        ```sh
+        $ pulumi import datadog:index/csmThreatsPolicy:CsmThreatsPolicy my_policy jm4-lwh-8cs
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description for the policy.
@@ -222,6 +254,38 @@ class CsmThreatsPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog CSM Threats policy API resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        my_policy = datadog.CsmThreatsPolicy("my_policy",
+            name="my_policy",
+            description="My policy",
+            enabled=True,
+            host_tags_lists=[
+                [
+                    "env:prod",
+                    "team:backend",
+                ],
+                [
+                    "env:prod",
+                    "team:frontend",
+                ],
+            ])
+        ```
+
+        ## Import
+
+        The `pulumi import` command can be used, for example:
+
+        # CSM Policies can be imported using IDs. For example:
+
+        ```sh
+        $ pulumi import datadog:index/csmThreatsPolicy:CsmThreatsPolicy my_policy jm4-lwh-8cs
+        ```
 
         :param str resource_name: The name of the resource.
         :param CsmThreatsPolicyArgs args: The arguments to use to populate this resource's properties.

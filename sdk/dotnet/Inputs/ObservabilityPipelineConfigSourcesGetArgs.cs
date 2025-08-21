@@ -144,6 +144,18 @@ namespace Pulumi.Datadog.Inputs
             set => _rsyslogs = value;
         }
 
+        [Input("sockets")]
+        private InputList<Inputs.ObservabilityPipelineConfigSourcesSocketGetArgs>? _sockets;
+
+        /// <summary>
+        /// The `socket` source ingests logs over TCP or UDP.
+        /// </summary>
+        public InputList<Inputs.ObservabilityPipelineConfigSourcesSocketGetArgs> Sockets
+        {
+            get => _sockets ?? (_sockets = new InputList<Inputs.ObservabilityPipelineConfigSourcesSocketGetArgs>());
+            set => _sockets = value;
+        }
+
         [Input("splunkHecs")]
         private InputList<Inputs.ObservabilityPipelineConfigSourcesSplunkHecGetArgs>? _splunkHecs;
 

@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ObservabilityPipelineConfigSourcesFluentdTlsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+        /// Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
         /// </summary>
         [Input("caFile")]
         public Input<string>? CaFile { get; set; }

@@ -8,6 +8,7 @@ import com.pulumi.core.TypeShape;
 import com.pulumi.datadog.Utilities;
 import com.pulumi.datadog.aws.outputs.GetIntegrationAvailableLogsServicesResult;
 import com.pulumi.datadog.aws.outputs.GetIntegrationAvailableNamespacesResult;
+import com.pulumi.datadog.aws.outputs.GetIntegrationIamPermissionsResult;
 import com.pulumi.datadog.aws.outputs.GetIntegrationLogsServicesResult;
 import com.pulumi.datadog.aws.outputs.GetIntegrationNamespaceRulesResult;
 import com.pulumi.deployment.Deployment;
@@ -114,6 +115,55 @@ public final class AwsFunctions {
      */
     public static CompletableFuture<GetIntegrationAvailableNamespacesResult> getIntegrationAvailableNamespacesPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:aws/getIntegrationAvailableNamespaces:getIntegrationAvailableNamespaces", TypeShape.of(GetIntegrationAvailableNamespacesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the IAM permissions required for AWS integration. This provides the list of IAM actions that should be included in the AWS role policy for Datadog integration.
+     * 
+     */
+    public static Output<GetIntegrationIamPermissionsResult> getIntegrationIamPermissions() {
+        return getIntegrationIamPermissions(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the IAM permissions required for AWS integration. This provides the list of IAM actions that should be included in the AWS role policy for Datadog integration.
+     * 
+     */
+    public static CompletableFuture<GetIntegrationIamPermissionsResult> getIntegrationIamPermissionsPlain() {
+        return getIntegrationIamPermissionsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the IAM permissions required for AWS integration. This provides the list of IAM actions that should be included in the AWS role policy for Datadog integration.
+     * 
+     */
+    public static Output<GetIntegrationIamPermissionsResult> getIntegrationIamPermissions(InvokeArgs args) {
+        return getIntegrationIamPermissions(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the IAM permissions required for AWS integration. This provides the list of IAM actions that should be included in the AWS role policy for Datadog integration.
+     * 
+     */
+    public static CompletableFuture<GetIntegrationIamPermissionsResult> getIntegrationIamPermissionsPlain(InvokeArgs args) {
+        return getIntegrationIamPermissionsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the IAM permissions required for AWS integration. This provides the list of IAM actions that should be included in the AWS role policy for Datadog integration.
+     * 
+     */
+    public static Output<GetIntegrationIamPermissionsResult> getIntegrationIamPermissions(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:aws/getIntegrationIamPermissions:getIntegrationIamPermissions", TypeShape.of(GetIntegrationIamPermissionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the IAM permissions required for AWS integration. This provides the list of IAM actions that should be included in the AWS role policy for Datadog integration.
+     * 
+     */
+    public static Output<GetIntegrationIamPermissionsResult> getIntegrationIamPermissions(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:aws/getIntegrationIamPermissions:getIntegrationIamPermissions", TypeShape.of(GetIntegrationIamPermissionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the IAM permissions required for AWS integration. This provides the list of IAM actions that should be included in the AWS role policy for Datadog integration.
+     * 
+     */
+    public static CompletableFuture<GetIntegrationIamPermissionsResult> getIntegrationIamPermissionsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:aws/getIntegrationIamPermissions:getIntegrationIamPermissions", TypeShape.of(GetIntegrationIamPermissionsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve all AWS log ready services.

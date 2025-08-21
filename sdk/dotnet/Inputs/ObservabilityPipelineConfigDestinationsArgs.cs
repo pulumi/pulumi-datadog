@@ -24,6 +24,30 @@ namespace Pulumi.Datadog.Inputs
             set => _amazonOpensearches = value;
         }
 
+        [Input("amazonS3s")]
+        private InputList<Inputs.ObservabilityPipelineConfigDestinationsAmazonS3Args>? _amazonS3s;
+
+        /// <summary>
+        /// The `amazon_s3` destination sends your logs in Datadog-rehydratable format to an Amazon S3 bucket for archiving.
+        /// </summary>
+        public InputList<Inputs.ObservabilityPipelineConfigDestinationsAmazonS3Args> AmazonS3s
+        {
+            get => _amazonS3s ?? (_amazonS3s = new InputList<Inputs.ObservabilityPipelineConfigDestinationsAmazonS3Args>());
+            set => _amazonS3s = value;
+        }
+
+        [Input("amazonSecurityLakes")]
+        private InputList<Inputs.ObservabilityPipelineConfigDestinationsAmazonSecurityLakeArgs>? _amazonSecurityLakes;
+
+        /// <summary>
+        /// The `amazon_security_lake` destination sends your logs to Amazon Security Lake.
+        /// </summary>
+        public InputList<Inputs.ObservabilityPipelineConfigDestinationsAmazonSecurityLakeArgs> AmazonSecurityLakes
+        {
+            get => _amazonSecurityLakes ?? (_amazonSecurityLakes = new InputList<Inputs.ObservabilityPipelineConfigDestinationsAmazonSecurityLakeArgs>());
+            set => _amazonSecurityLakes = value;
+        }
+
         [Input("azureStorages")]
         private InputList<Inputs.ObservabilityPipelineConfigDestinationsAzureStorageArgs>? _azureStorages;
 
@@ -34,6 +58,18 @@ namespace Pulumi.Datadog.Inputs
         {
             get => _azureStorages ?? (_azureStorages = new InputList<Inputs.ObservabilityPipelineConfigDestinationsAzureStorageArgs>());
             set => _azureStorages = value;
+        }
+
+        [Input("crowdstrikeNextGenSiems")]
+        private InputList<Inputs.ObservabilityPipelineConfigDestinationsCrowdstrikeNextGenSiemArgs>? _crowdstrikeNextGenSiems;
+
+        /// <summary>
+        /// The `crowdstrike_next_gen_siem` destination forwards logs to CrowdStrike Next Gen SIEM.
+        /// </summary>
+        public InputList<Inputs.ObservabilityPipelineConfigDestinationsCrowdstrikeNextGenSiemArgs> CrowdstrikeNextGenSiems
+        {
+            get => _crowdstrikeNextGenSiems ?? (_crowdstrikeNextGenSiems = new InputList<Inputs.ObservabilityPipelineConfigDestinationsCrowdstrikeNextGenSiemArgs>());
+            set => _crowdstrikeNextGenSiems = value;
         }
 
         [Input("datadogLogs")]
@@ -142,6 +178,18 @@ namespace Pulumi.Datadog.Inputs
         {
             get => _sentinelOnes ?? (_sentinelOnes = new InputList<Inputs.ObservabilityPipelineConfigDestinationsSentinelOneArgs>());
             set => _sentinelOnes = value;
+        }
+
+        [Input("sockets")]
+        private InputList<Inputs.ObservabilityPipelineConfigDestinationsSocketArgs>? _sockets;
+
+        /// <summary>
+        /// The `socket` destination sends logs over TCP or UDP to a remote server.
+        /// </summary>
+        public InputList<Inputs.ObservabilityPipelineConfigDestinationsSocketArgs> Sockets
+        {
+            get => _sockets ?? (_sockets = new InputList<Inputs.ObservabilityPipelineConfigDestinationsSocketArgs>());
+            set => _sockets = value;
         }
 
         [Input("splunkHecs")]

@@ -91,6 +91,15 @@ def get_csm_threats_agent_rules(policy_id: Optional[_builtins.str] = None,
     """
     Use this data source to retrieve information about existing Agent rules.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_datadog as datadog
+
+    test = datadog.get_csm_threats_agent_rules()
+    ```
+
 
     :param _builtins.str policy_id: Listing only the rules in the policy with this field as the ID
     """
@@ -108,6 +117,15 @@ def get_csm_threats_agent_rules_output(policy_id: Optional[pulumi.Input[Optional
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCsmThreatsAgentRulesResult]:
     """
     Use this data source to retrieve information about existing Agent rules.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_datadog as datadog
+
+    test = datadog.get_csm_threats_agent_rules()
+    ```
 
 
     :param _builtins.str policy_id: Listing only the rules in the policy with this field as the ID

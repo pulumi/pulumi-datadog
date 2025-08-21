@@ -273,19 +273,6 @@ class CsmThreatsAgentRule(pulumi.CustomResource):
         """
         Provides a Datadog CSM Threats Agent Rule API resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        my_agent_rule = datadog.CsmThreatsAgentRule("my_agent_rule",
-            name="my_agent_rule",
-            enabled=True,
-            description="im a rule",
-            expression="open.file.name == \\"etc/shadow/password\\"")
-        ```
-
         ## Import
 
         The `pulumi import` command can be used, for example:
@@ -294,6 +281,12 @@ class CsmThreatsAgentRule(pulumi.CustomResource):
 
         ```sh
         $ pulumi import datadog:index/csmThreatsAgentRule:CsmThreatsAgentRule my_agent_rule m0o-hto-lkb
+        ```
+
+        # CSM Agent Rules can also be imported using the policy ID and the rule ID. For example:
+
+        ```sh
+        $ pulumi import datadog:index/csmThreatsAgentRule:CsmThreatsAgentRule my_agent_rule jm4-lwh-8cs:m0o-hto-lkb
         ```
 
         :param str resource_name: The name of the resource.
@@ -315,19 +308,6 @@ class CsmThreatsAgentRule(pulumi.CustomResource):
         """
         Provides a Datadog CSM Threats Agent Rule API resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        my_agent_rule = datadog.CsmThreatsAgentRule("my_agent_rule",
-            name="my_agent_rule",
-            enabled=True,
-            description="im a rule",
-            expression="open.file.name == \\"etc/shadow/password\\"")
-        ```
-
         ## Import
 
         The `pulumi import` command can be used, for example:
@@ -336,6 +316,12 @@ class CsmThreatsAgentRule(pulumi.CustomResource):
 
         ```sh
         $ pulumi import datadog:index/csmThreatsAgentRule:CsmThreatsAgentRule my_agent_rule m0o-hto-lkb
+        ```
+
+        # CSM Agent Rules can also be imported using the policy ID and the rule ID. For example:
+
+        ```sh
+        $ pulumi import datadog:index/csmThreatsAgentRule:CsmThreatsAgentRule my_agent_rule jm4-lwh-8cs:m0o-hto-lkb
         ```
 
         :param str resource_name: The name of the resource.

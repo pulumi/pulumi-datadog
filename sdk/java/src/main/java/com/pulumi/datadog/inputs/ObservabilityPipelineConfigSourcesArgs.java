@@ -16,6 +16,7 @@ import com.pulumi.datadog.inputs.ObservabilityPipelineConfigSourcesHttpServerArg
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigSourcesKafkaArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigSourcesLogstashArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigSourcesRsyslogArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigSourcesSocketArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigSourcesSplunkHecArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigSourcesSplunkTcpArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigSourcesSumoLogicArgs;
@@ -196,6 +197,21 @@ public final class ObservabilityPipelineConfigSourcesArgs extends com.pulumi.res
     }
 
     /**
+     * The `socket` source ingests logs over TCP or UDP.
+     * 
+     */
+    @Import(name="sockets")
+    private @Nullable Output<List<ObservabilityPipelineConfigSourcesSocketArgs>> sockets;
+
+    /**
+     * @return The `socket` source ingests logs over TCP or UDP.
+     * 
+     */
+    public Optional<Output<List<ObservabilityPipelineConfigSourcesSocketArgs>>> sockets() {
+        return Optional.ofNullable(this.sockets);
+    }
+
+    /**
      * The `splunk_hec` source implements the Splunk HTTP Event Collector (HEC) API.
      * 
      */
@@ -269,6 +285,7 @@ public final class ObservabilityPipelineConfigSourcesArgs extends com.pulumi.res
         this.kafkas = $.kafkas;
         this.logstashes = $.logstashes;
         this.rsyslogs = $.rsyslogs;
+        this.sockets = $.sockets;
         this.splunkHecs = $.splunkHecs;
         this.splunkTcps = $.splunkTcps;
         this.sumoLogics = $.sumoLogics;
@@ -632,6 +649,37 @@ public final class ObservabilityPipelineConfigSourcesArgs extends com.pulumi.res
          */
         public Builder rsyslogs(ObservabilityPipelineConfigSourcesRsyslogArgs... rsyslogs) {
             return rsyslogs(List.of(rsyslogs));
+        }
+
+        /**
+         * @param sockets The `socket` source ingests logs over TCP or UDP.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sockets(@Nullable Output<List<ObservabilityPipelineConfigSourcesSocketArgs>> sockets) {
+            $.sockets = sockets;
+            return this;
+        }
+
+        /**
+         * @param sockets The `socket` source ingests logs over TCP or UDP.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sockets(List<ObservabilityPipelineConfigSourcesSocketArgs> sockets) {
+            return sockets(Output.of(sockets));
+        }
+
+        /**
+         * @param sockets The `socket` source ingests logs over TCP or UDP.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sockets(ObservabilityPipelineConfigSourcesSocketArgs... sockets) {
+            return sockets(List.of(sockets));
         }
 
         /**

@@ -22,6 +22,11 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigProcessorsAddField> AddFields;
         /// <summary>
+        /// The `custom_processor` processor transforms events using Vector Remap Language (VRL) scripts with advanced filtering capabilities.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigProcessorsCustomProcessor> CustomProcessors;
+        public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigProcessorsDatadogTag> DatadogTags;
+        /// <summary>
         /// The `dedupe` processor removes duplicate fields in log events.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigProcessorsDedupe> Dedupes;
@@ -84,6 +89,10 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.ObservabilityPipelineConfigProcessorsAddField> addFields,
 
+            ImmutableArray<Outputs.ObservabilityPipelineConfigProcessorsCustomProcessor> customProcessors,
+
+            ImmutableArray<Outputs.ObservabilityPipelineConfigProcessorsDatadogTag> datadogTags,
+
             ImmutableArray<Outputs.ObservabilityPipelineConfigProcessorsDedupe> dedupes,
 
             ImmutableArray<Outputs.ObservabilityPipelineConfigProcessorsEnrichmentTable> enrichmentTables,
@@ -114,6 +123,8 @@ namespace Pulumi.Datadog.Outputs
         {
             AddEnvVars = addEnvVars;
             AddFields = addFields;
+            CustomProcessors = customProcessors;
+            DatadogTags = datadogTags;
             Dedupes = dedupes;
             EnrichmentTables = enrichmentTables;
             Filters = filters;

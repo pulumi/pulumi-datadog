@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ObservabilityPipelineConfigSourcesAmazonDataFirehoseGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// AWS authentication credentials used for accessing AWS services such as S3. If omitted, the system’s default credentials are used (for example, the IAM role and environment variables).
+        /// AWS authentication credentials used for accessing AWS services such as S3. If omitted, the system's default credentials are used (for example, the IAM role and environment variables).
         /// </summary>
         [Input("auth")]
         public Input<Inputs.ObservabilityPipelineConfigSourcesAmazonDataFirehoseAuthGetArgs>? Auth { get; set; }

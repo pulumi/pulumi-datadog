@@ -6,6 +6,8 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorsAddEnvVar;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorsAddField;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorsCustomProcessor;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorsDatadogTag;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorsDedupe;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorsEnrichmentTable;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorsFilter;
@@ -36,6 +38,12 @@ public final class ObservabilityPipelineConfigProcessors {
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigProcessorsAddField> addFields;
+    /**
+     * @return The `custom_processor` processor transforms events using Vector Remap Language (VRL) scripts with advanced filtering capabilities.
+     * 
+     */
+    private @Nullable List<ObservabilityPipelineConfigProcessorsCustomProcessor> customProcessors;
+    private @Nullable List<ObservabilityPipelineConfigProcessorsDatadogTag> datadogTags;
     /**
      * @return The `dedupe` processor removes duplicate fields in log events.
      * 
@@ -121,6 +129,16 @@ public final class ObservabilityPipelineConfigProcessors {
      */
     public List<ObservabilityPipelineConfigProcessorsAddField> addFields() {
         return this.addFields == null ? List.of() : this.addFields;
+    }
+    /**
+     * @return The `custom_processor` processor transforms events using Vector Remap Language (VRL) scripts with advanced filtering capabilities.
+     * 
+     */
+    public List<ObservabilityPipelineConfigProcessorsCustomProcessor> customProcessors() {
+        return this.customProcessors == null ? List.of() : this.customProcessors;
+    }
+    public List<ObservabilityPipelineConfigProcessorsDatadogTag> datadogTags() {
+        return this.datadogTags == null ? List.of() : this.datadogTags;
     }
     /**
      * @return The `dedupe` processor removes duplicate fields in log events.
@@ -232,6 +250,8 @@ public final class ObservabilityPipelineConfigProcessors {
     public static final class Builder {
         private @Nullable List<ObservabilityPipelineConfigProcessorsAddEnvVar> addEnvVars;
         private @Nullable List<ObservabilityPipelineConfigProcessorsAddField> addFields;
+        private @Nullable List<ObservabilityPipelineConfigProcessorsCustomProcessor> customProcessors;
+        private @Nullable List<ObservabilityPipelineConfigProcessorsDatadogTag> datadogTags;
         private @Nullable List<ObservabilityPipelineConfigProcessorsDedupe> dedupes;
         private @Nullable List<ObservabilityPipelineConfigProcessorsEnrichmentTable> enrichmentTables;
         private @Nullable List<ObservabilityPipelineConfigProcessorsFilter> filters;
@@ -251,6 +271,8 @@ public final class ObservabilityPipelineConfigProcessors {
     	      Objects.requireNonNull(defaults);
     	      this.addEnvVars = defaults.addEnvVars;
     	      this.addFields = defaults.addFields;
+    	      this.customProcessors = defaults.customProcessors;
+    	      this.datadogTags = defaults.datadogTags;
     	      this.dedupes = defaults.dedupes;
     	      this.enrichmentTables = defaults.enrichmentTables;
     	      this.filters = defaults.filters;
@@ -284,6 +306,24 @@ public final class ObservabilityPipelineConfigProcessors {
         }
         public Builder addFields(ObservabilityPipelineConfigProcessorsAddField... addFields) {
             return addFields(List.of(addFields));
+        }
+        @CustomType.Setter
+        public Builder customProcessors(@Nullable List<ObservabilityPipelineConfigProcessorsCustomProcessor> customProcessors) {
+
+            this.customProcessors = customProcessors;
+            return this;
+        }
+        public Builder customProcessors(ObservabilityPipelineConfigProcessorsCustomProcessor... customProcessors) {
+            return customProcessors(List.of(customProcessors));
+        }
+        @CustomType.Setter
+        public Builder datadogTags(@Nullable List<ObservabilityPipelineConfigProcessorsDatadogTag> datadogTags) {
+
+            this.datadogTags = datadogTags;
+            return this;
+        }
+        public Builder datadogTags(ObservabilityPipelineConfigProcessorsDatadogTag... datadogTags) {
+            return datadogTags(List.of(datadogTags));
         }
         @CustomType.Setter
         public Builder dedupes(@Nullable List<ObservabilityPipelineConfigProcessorsDedupe> dedupes) {
@@ -415,6 +455,8 @@ public final class ObservabilityPipelineConfigProcessors {
             final var _resultValue = new ObservabilityPipelineConfigProcessors();
             _resultValue.addEnvVars = addEnvVars;
             _resultValue.addFields = addFields;
+            _resultValue.customProcessors = customProcessors;
+            _resultValue.datadogTags = datadogTags;
             _resultValue.dedupes = dedupes;
             _resultValue.enrichmentTables = enrichmentTables;
             _resultValue.filters = filters;

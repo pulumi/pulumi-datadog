@@ -9303,6 +9303,17 @@ export interface DashboardWidgetWidgetLayout {
     y: pulumi.Input<number>;
 }
 
+export interface DatasetProductFilter {
+    /**
+     * A list of tag-based filters used to restrict access to the product type. Each filter is formatted as `@tag.key:value`.
+     */
+    filters: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The product type of the dataset. Supported types: `apm`, `rum`, `synthetics`, `metrics`, `logs`, `sdRepoinfo`, `errorTracking`, `cloudCost`, and `mlObs`.
+     */
+    product: pulumi.Input<string>;
+}
+
 export interface DowntimeRecurrence {
     /**
      * How often to repeat as an integer. For example to repeat every 3 days, select a `type` of `days` and a `period` of `3`.
@@ -11259,9 +11270,21 @@ export interface ObservabilityPipelineConfigDestinations {
      */
     amazonOpensearches?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigDestinationsAmazonOpensearch>[]>;
     /**
+     * The `amazonS3` destination sends your logs in Datadog-rehydratable format to an Amazon S3 bucket for archiving.
+     */
+    amazonS3s?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigDestinationsAmazonS3>[]>;
+    /**
+     * The `amazonSecurityLake` destination sends your logs to Amazon Security Lake.
+     */
+    amazonSecurityLakes?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigDestinationsAmazonSecurityLake>[]>;
+    /**
      * The `azureStorage` destination forwards logs to an Azure Blob Storage container.
      */
     azureStorages?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigDestinationsAzureStorage>[]>;
+    /**
+     * The `crowdstrikeNextGenSiem` destination forwards logs to CrowdStrike Next Gen SIEM.
+     */
+    crowdstrikeNextGenSiems?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigDestinationsCrowdstrikeNextGenSiem>[]>;
     /**
      * The `datadogLogs` destination forwards logs to Datadog Log Management.
      */
@@ -11298,6 +11321,10 @@ export interface ObservabilityPipelineConfigDestinations {
      * The `sentinelOne` destination sends logs to SentinelOne.
      */
     sentinelOnes?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigDestinationsSentinelOne>[]>;
+    /**
+     * The `socket` destination sends logs over TCP or UDP to a remote server.
+     */
+    sockets?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigDestinationsSocket>[]>;
     /**
      * The `splunkHec` destination forwards logs to Splunk using the HTTP Event Collector (HEC).
      */
@@ -11351,6 +11378,113 @@ export interface ObservabilityPipelineConfigDestinationsAmazonOpensearchAuth {
     strategy: pulumi.Input<string>;
 }
 
+export interface ObservabilityPipelineConfigDestinationsAmazonS3 {
+    /**
+     * AWS authentication credentials used for accessing AWS services. If omitted, the system's default credentials are used (for example, the IAM role and environment variables).
+     */
+    auth?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationsAmazonS3Auth>;
+    /**
+     * S3 bucket name.
+     */
+    bucket: pulumi.Input<string>;
+    /**
+     * Unique identifier for the destination component.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * A list of component IDs whose output is used as the `input` for this component.
+     */
+    inputs: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Prefix for object keys.
+     */
+    keyPrefix: pulumi.Input<string>;
+    /**
+     * AWS region of the S3 bucket.
+     */
+    region: pulumi.Input<string>;
+    /**
+     * S3 storage class. Valid values are `STANDARD`, `REDUCED_REDUNDANCY`, `INTELLIGENT_TIERING`, `STANDARD_IA`, `EXPRESS_ONEZONE`, `ONEZONE_IA`, `GLACIER`, `GLACIER_IR`, `DEEP_ARCHIVE`.
+     */
+    storageClass: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationsAmazonS3Auth {
+    /**
+     * The Amazon Resource Name (ARN) of the role to assume.
+     */
+    assumeRole?: pulumi.Input<string>;
+    /**
+     * A unique identifier for cross-account role assumption.
+     */
+    externalId?: pulumi.Input<string>;
+    /**
+     * A session identifier used for logging and tracing the assumed role session.
+     */
+    sessionName?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationsAmazonSecurityLake {
+    /**
+     * AWS authentication credentials used for accessing AWS services. If omitted, the system's default credentials are used (for example, the IAM role and environment variables).
+     */
+    auth?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationsAmazonSecurityLakeAuth>;
+    /**
+     * Name of the Amazon S3 bucket in Security Lake (3-63 characters).
+     */
+    bucket: pulumi.Input<string>;
+    /**
+     * Custom source name for the logs in Security Lake.
+     */
+    customSourceName: pulumi.Input<string>;
+    /**
+     * Unique identifier for the destination component.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * A list of component IDs whose output is used as the `input` for this component.
+     */
+    inputs: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * AWS region of the Security Lake bucket.
+     */
+    region: pulumi.Input<string>;
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     */
+    tls?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationsAmazonSecurityLakeTls>;
+}
+
+export interface ObservabilityPipelineConfigDestinationsAmazonSecurityLakeAuth {
+    /**
+     * The Amazon Resource Name (ARN) of the role to assume.
+     */
+    assumeRole?: pulumi.Input<string>;
+    /**
+     * A unique identifier for cross-account role assumption.
+     */
+    externalId?: pulumi.Input<string>;
+    /**
+     * A session identifier used for logging and tracing the assumed role session.
+     */
+    sessionName?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationsAmazonSecurityLakeTls {
+    /**
+     * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
+     */
+    caFile?: pulumi.Input<string>;
+    /**
+     * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     */
+    crtFile?: pulumi.Input<string>;
+    /**
+     * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     */
+    keyFile?: pulumi.Input<string>;
+}
+
 export interface ObservabilityPipelineConfigDestinationsAzureStorage {
     /**
      * Optional prefix for blobs written to the container.
@@ -11368,6 +11502,55 @@ export interface ObservabilityPipelineConfigDestinationsAzureStorage {
      * A list of component IDs whose output is used as the `input` for this component.
      */
     inputs: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface ObservabilityPipelineConfigDestinationsCrowdstrikeNextGenSiem {
+    /**
+     * Compression configuration for log events.
+     */
+    compression?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationsCrowdstrikeNextGenSiemCompression>;
+    /**
+     * Encoding format for log events. Valid values are `json`, `rawMessage`.
+     */
+    encoding: pulumi.Input<string>;
+    /**
+     * Unique identifier for the destination component.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * A list of component IDs whose output is used as the `input` for this component.
+     */
+    inputs: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     */
+    tls?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationsCrowdstrikeNextGenSiemTls>;
+}
+
+export interface ObservabilityPipelineConfigDestinationsCrowdstrikeNextGenSiemCompression {
+    /**
+     * Compression algorithm for log events.
+     */
+    algorithm?: pulumi.Input<string>;
+    /**
+     * Compression level.
+     */
+    level?: pulumi.Input<number>;
+}
+
+export interface ObservabilityPipelineConfigDestinationsCrowdstrikeNextGenSiemTls {
+    /**
+     * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
+     */
+    caFile?: pulumi.Input<string>;
+    /**
+     * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     */
+    crtFile?: pulumi.Input<string>;
+    /**
+     * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     */
+    keyFile?: pulumi.Input<string>;
 }
 
 export interface ObservabilityPipelineConfigDestinationsDatadogLog {
@@ -11565,7 +11748,7 @@ export interface ObservabilityPipelineConfigDestinationsRsyslog {
 
 export interface ObservabilityPipelineConfigDestinationsRsyslogTls {
     /**
-     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
      */
     caFile?: pulumi.Input<string>;
     /**
@@ -11591,6 +11774,66 @@ export interface ObservabilityPipelineConfigDestinationsSentinelOne {
      * The SentinelOne region to send logs to.
      */
     region: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationsSocket {
+    /**
+     * Encoding format for log events. Valid values are `json`, `rawMessage`.
+     */
+    encoding: pulumi.Input<string>;
+    /**
+     * Defines the framing method for outgoing messages.
+     */
+    framing?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationsSocketFraming>;
+    /**
+     * The unique identifier for this destination.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * A list of component IDs whose output is used as the `input` for this destination.
+     */
+    inputs: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The protocol used to send logs. Valid values are `tcp`, `udp`.
+     */
+    mode: pulumi.Input<string>;
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     */
+    tls?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationsSocketTls>;
+}
+
+export interface ObservabilityPipelineConfigDestinationsSocketFraming {
+    /**
+     * Used when `method` is `characterDelimited`. Specifies the delimiter character.
+     */
+    characterDelimited?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationsSocketFramingCharacterDelimited>;
+    /**
+     * The framing method. Valid values are `newlineDelimited`, `bytes`, `characterDelimited`.
+     */
+    method: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationsSocketFramingCharacterDelimited {
+    /**
+     * A single ASCII character used as a delimiter.
+     */
+    delimiter?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationsSocketTls {
+    /**
+     * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
+     */
+    caFile?: pulumi.Input<string>;
+    /**
+     * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     */
+    crtFile?: pulumi.Input<string>;
+    /**
+     * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     */
+    keyFile?: pulumi.Input<string>;
 }
 
 export interface ObservabilityPipelineConfigDestinationsSplunkHec {
@@ -11683,7 +11926,7 @@ export interface ObservabilityPipelineConfigDestinationsSyslogNg {
 
 export interface ObservabilityPipelineConfigDestinationsSyslogNgTls {
     /**
-     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
      */
     caFile?: pulumi.Input<string>;
     /**
@@ -11705,6 +11948,11 @@ export interface ObservabilityPipelineConfigProcessors {
      * The `addFields` processor adds static key-value fields to logs.
      */
     addFields?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsAddField>[]>;
+    /**
+     * The `customProcessor` processor transforms events using Vector Remap Language (VRL) scripts with advanced filtering capabilities.
+     */
+    customProcessors?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsCustomProcessor>[]>;
+    datadogTags?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsDatadogTag>[]>;
     /**
      * The `dedupe` processor removes duplicate fields in log events.
      */
@@ -11821,6 +12069,59 @@ export interface ObservabilityPipelineConfigProcessorsAddFieldField {
      * The value to assign to the field.
      */
     value: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigProcessorsCustomProcessor {
+    /**
+     * The unique identifier for this processor.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * A list of component IDs whose output is used as the input for this processor.
+     */
+    inputs: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Array of VRL remap configurations. Each remap defines a transformation rule with its own filter and VRL script.
+     */
+    remaps?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorsCustomProcessorRemap>[]>;
+}
+
+export interface ObservabilityPipelineConfigProcessorsCustomProcessorRemap {
+    /**
+     * Whether to drop events that cause errors during transformation.
+     */
+    dropOnError: pulumi.Input<boolean>;
+    /**
+     * Whether this remap rule is enabled.
+     */
+    enabled: pulumi.Input<boolean>;
+    /**
+     * A Datadog search query used to filter events for this specific remap rule.
+     */
+    include: pulumi.Input<string>;
+    /**
+     * A descriptive name for this remap rule.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The VRL script source code that defines the transformation logic.
+     */
+    source: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigProcessorsDatadogTag {
+    /**
+     * Valid values are `include`, `exclude`.
+     */
+    action: pulumi.Input<string>;
+    id: pulumi.Input<string>;
+    include: pulumi.Input<string>;
+    inputs: pulumi.Input<pulumi.Input<string>[]>;
+    keys: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Valid values are `filter`.
+     */
+    mode: pulumi.Input<string>;
 }
 
 export interface ObservabilityPipelineConfigProcessorsDedupe {
@@ -12537,6 +12838,10 @@ export interface ObservabilityPipelineConfigSources {
      */
     rsyslogs?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigSourcesRsyslog>[]>;
     /**
+     * The `socket` source ingests logs over TCP or UDP.
+     */
+    sockets?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigSourcesSocket>[]>;
+    /**
      * The `splunkHec` source implements the Splunk HTTP Event Collector (HEC) API.
      */
     splunkHecs?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigSourcesSplunkHec>[]>;
@@ -12556,7 +12861,7 @@ export interface ObservabilityPipelineConfigSources {
 
 export interface ObservabilityPipelineConfigSourcesAmazonDataFirehose {
     /**
-     * AWS authentication credentials used for accessing AWS services such as S3. If omitted, the system’s default credentials are used (for example, the IAM role and environment variables).
+     * AWS authentication credentials used for accessing AWS services such as S3. If omitted, the system's default credentials are used (for example, the IAM role and environment variables).
      */
     auth?: pulumi.Input<inputs.ObservabilityPipelineConfigSourcesAmazonDataFirehoseAuth>;
     /**
@@ -12586,7 +12891,7 @@ export interface ObservabilityPipelineConfigSourcesAmazonDataFirehoseAuth {
 
 export interface ObservabilityPipelineConfigSourcesAmazonDataFirehoseTls {
     /**
-     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
      */
     caFile?: pulumi.Input<string>;
     /**
@@ -12601,7 +12906,7 @@ export interface ObservabilityPipelineConfigSourcesAmazonDataFirehoseTls {
 
 export interface ObservabilityPipelineConfigSourcesAmazonS3 {
     /**
-     * AWS authentication credentials used for accessing AWS services such as S3. If omitted, the system’s default credentials are used (for example, the IAM role and environment variables).
+     * AWS authentication credentials used for accessing AWS services such as S3. If omitted, the system's default credentials are used (for example, the IAM role and environment variables).
      */
     auth?: pulumi.Input<inputs.ObservabilityPipelineConfigSourcesAmazonS3Auth>;
     /**
@@ -12635,7 +12940,7 @@ export interface ObservabilityPipelineConfigSourcesAmazonS3Auth {
 
 export interface ObservabilityPipelineConfigSourcesAmazonS3Tls {
     /**
-     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
      */
     caFile?: pulumi.Input<string>;
     /**
@@ -12661,7 +12966,7 @@ export interface ObservabilityPipelineConfigSourcesDatadogAgent {
 
 export interface ObservabilityPipelineConfigSourcesDatadogAgentTls {
     /**
-     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
      */
     caFile?: pulumi.Input<string>;
     /**
@@ -12687,7 +12992,7 @@ export interface ObservabilityPipelineConfigSourcesFluentBit {
 
 export interface ObservabilityPipelineConfigSourcesFluentBitTls {
     /**
-     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
      */
     caFile?: pulumi.Input<string>;
     /**
@@ -12713,7 +13018,7 @@ export interface ObservabilityPipelineConfigSourcesFluentd {
 
 export interface ObservabilityPipelineConfigSourcesFluentdTls {
     /**
-     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
      */
     caFile?: pulumi.Input<string>;
     /**
@@ -12762,7 +13067,7 @@ export interface ObservabilityPipelineConfigSourcesGooglePubsubAuth {
 
 export interface ObservabilityPipelineConfigSourcesGooglePubsubTls {
     /**
-     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
      */
     caFile?: pulumi.Input<string>;
     /**
@@ -12804,7 +13109,7 @@ export interface ObservabilityPipelineConfigSourcesHttpClient {
 
 export interface ObservabilityPipelineConfigSourcesHttpClientTls {
     /**
-     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
      */
     caFile?: pulumi.Input<string>;
     /**
@@ -12838,7 +13143,7 @@ export interface ObservabilityPipelineConfigSourcesHttpServer {
 
 export interface ObservabilityPipelineConfigSourcesHttpServerTls {
     /**
-     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
      */
     caFile?: pulumi.Input<string>;
     /**
@@ -12898,7 +13203,7 @@ export interface ObservabilityPipelineConfigSourcesKafkaSasl {
 
 export interface ObservabilityPipelineConfigSourcesKafkaTls {
     /**
-     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
      */
     caFile?: pulumi.Input<string>;
     /**
@@ -12924,7 +13229,7 @@ export interface ObservabilityPipelineConfigSourcesLogstash {
 
 export interface ObservabilityPipelineConfigSourcesLogstashTls {
     /**
-     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
      */
     caFile?: pulumi.Input<string>;
     /**
@@ -12954,7 +13259,59 @@ export interface ObservabilityPipelineConfigSourcesRsyslog {
 
 export interface ObservabilityPipelineConfigSourcesRsyslogTls {
     /**
-     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
+     */
+    caFile?: pulumi.Input<string>;
+    /**
+     * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     */
+    crtFile?: pulumi.Input<string>;
+    /**
+     * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     */
+    keyFile?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigSourcesSocket {
+    /**
+     * Defines the framing method for incoming messages.
+     */
+    framing?: pulumi.Input<inputs.ObservabilityPipelineConfigSourcesSocketFraming>;
+    /**
+     * The unique identifier for this component.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * The protocol used to receive logs. Valid values are `tcp`, `udp`.
+     */
+    mode: pulumi.Input<string>;
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     */
+    tls?: pulumi.Input<inputs.ObservabilityPipelineConfigSourcesSocketTls>;
+}
+
+export interface ObservabilityPipelineConfigSourcesSocketFraming {
+    /**
+     * Used when `method` is `characterDelimited`. Specifies the delimiter character.
+     */
+    characterDelimited?: pulumi.Input<inputs.ObservabilityPipelineConfigSourcesSocketFramingCharacterDelimited>;
+    /**
+     * The framing method. Valid values are `newlineDelimited`, `bytes`, `characterDelimited`, `octetCounting`, `chunkedGelf`.
+     */
+    method?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigSourcesSocketFramingCharacterDelimited {
+    /**
+     * A single ASCII character used as a delimiter.
+     */
+    delimiter?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigSourcesSocketTls {
+    /**
+     * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
      */
     caFile?: pulumi.Input<string>;
     /**
@@ -12980,7 +13337,7 @@ export interface ObservabilityPipelineConfigSourcesSplunkHec {
 
 export interface ObservabilityPipelineConfigSourcesSplunkHecTls {
     /**
-     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
      */
     caFile?: pulumi.Input<string>;
     /**
@@ -13006,7 +13363,7 @@ export interface ObservabilityPipelineConfigSourcesSplunkTcp {
 
 export interface ObservabilityPipelineConfigSourcesSplunkTcpTls {
     /**
-     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
      */
     caFile?: pulumi.Input<string>;
     /**
@@ -13043,7 +13400,7 @@ export interface ObservabilityPipelineConfigSourcesSyslogNg {
 
 export interface ObservabilityPipelineConfigSourcesSyslogNgTls {
     /**
-     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
      */
     caFile?: pulumi.Input<string>;
     /**
