@@ -6,7 +6,10 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationsAmazonOpensearchArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationsAmazonS3Args;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationsAmazonSecurityLakeArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationsAzureStorageArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationsCrowdstrikeNextGenSiemArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationsDatadogLogArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationsElasticsearchArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationsGoogleChronicleArgs;
@@ -16,6 +19,7 @@ import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationsNewRelic
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationsOpensearchArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationsRsyslogArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationsSentinelOneArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationsSocketArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationsSplunkHecArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationsSumoLogicArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationsSyslogNgArgs;
@@ -45,6 +49,36 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
     }
 
     /**
+     * The `amazon_s3` destination sends your logs in Datadog-rehydratable format to an Amazon S3 bucket for archiving.
+     * 
+     */
+    @Import(name="amazonS3s")
+    private @Nullable Output<List<ObservabilityPipelineConfigDestinationsAmazonS3Args>> amazonS3s;
+
+    /**
+     * @return The `amazon_s3` destination sends your logs in Datadog-rehydratable format to an Amazon S3 bucket for archiving.
+     * 
+     */
+    public Optional<Output<List<ObservabilityPipelineConfigDestinationsAmazonS3Args>>> amazonS3s() {
+        return Optional.ofNullable(this.amazonS3s);
+    }
+
+    /**
+     * The `amazon_security_lake` destination sends your logs to Amazon Security Lake.
+     * 
+     */
+    @Import(name="amazonSecurityLakes")
+    private @Nullable Output<List<ObservabilityPipelineConfigDestinationsAmazonSecurityLakeArgs>> amazonSecurityLakes;
+
+    /**
+     * @return The `amazon_security_lake` destination sends your logs to Amazon Security Lake.
+     * 
+     */
+    public Optional<Output<List<ObservabilityPipelineConfigDestinationsAmazonSecurityLakeArgs>>> amazonSecurityLakes() {
+        return Optional.ofNullable(this.amazonSecurityLakes);
+    }
+
+    /**
      * The `azure_storage` destination forwards logs to an Azure Blob Storage container.
      * 
      */
@@ -57,6 +91,21 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
      */
     public Optional<Output<List<ObservabilityPipelineConfigDestinationsAzureStorageArgs>>> azureStorages() {
         return Optional.ofNullable(this.azureStorages);
+    }
+
+    /**
+     * The `crowdstrike_next_gen_siem` destination forwards logs to CrowdStrike Next Gen SIEM.
+     * 
+     */
+    @Import(name="crowdstrikeNextGenSiems")
+    private @Nullable Output<List<ObservabilityPipelineConfigDestinationsCrowdstrikeNextGenSiemArgs>> crowdstrikeNextGenSiems;
+
+    /**
+     * @return The `crowdstrike_next_gen_siem` destination forwards logs to CrowdStrike Next Gen SIEM.
+     * 
+     */
+    public Optional<Output<List<ObservabilityPipelineConfigDestinationsCrowdstrikeNextGenSiemArgs>>> crowdstrikeNextGenSiems() {
+        return Optional.ofNullable(this.crowdstrikeNextGenSiems);
     }
 
     /**
@@ -195,6 +244,21 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
     }
 
     /**
+     * The `socket` destination sends logs over TCP or UDP to a remote server.
+     * 
+     */
+    @Import(name="sockets")
+    private @Nullable Output<List<ObservabilityPipelineConfigDestinationsSocketArgs>> sockets;
+
+    /**
+     * @return The `socket` destination sends logs over TCP or UDP to a remote server.
+     * 
+     */
+    public Optional<Output<List<ObservabilityPipelineConfigDestinationsSocketArgs>>> sockets() {
+        return Optional.ofNullable(this.sockets);
+    }
+
+    /**
      * The `splunk_hec` destination forwards logs to Splunk using the HTTP Event Collector (HEC).
      * 
      */
@@ -243,7 +307,10 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
 
     private ObservabilityPipelineConfigDestinationsArgs(ObservabilityPipelineConfigDestinationsArgs $) {
         this.amazonOpensearches = $.amazonOpensearches;
+        this.amazonS3s = $.amazonS3s;
+        this.amazonSecurityLakes = $.amazonSecurityLakes;
         this.azureStorages = $.azureStorages;
+        this.crowdstrikeNextGenSiems = $.crowdstrikeNextGenSiems;
         this.datadogLogs = $.datadogLogs;
         this.elasticsearches = $.elasticsearches;
         this.googleChronicles = $.googleChronicles;
@@ -253,6 +320,7 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
         this.opensearches = $.opensearches;
         this.rsyslogs = $.rsyslogs;
         this.sentinelOnes = $.sentinelOnes;
+        this.sockets = $.sockets;
         this.splunkHecs = $.splunkHecs;
         this.sumoLogics = $.sumoLogics;
         this.syslogNgs = $.syslogNgs;
@@ -308,6 +376,68 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
         }
 
         /**
+         * @param amazonS3s The `amazon_s3` destination sends your logs in Datadog-rehydratable format to an Amazon S3 bucket for archiving.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder amazonS3s(@Nullable Output<List<ObservabilityPipelineConfigDestinationsAmazonS3Args>> amazonS3s) {
+            $.amazonS3s = amazonS3s;
+            return this;
+        }
+
+        /**
+         * @param amazonS3s The `amazon_s3` destination sends your logs in Datadog-rehydratable format to an Amazon S3 bucket for archiving.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder amazonS3s(List<ObservabilityPipelineConfigDestinationsAmazonS3Args> amazonS3s) {
+            return amazonS3s(Output.of(amazonS3s));
+        }
+
+        /**
+         * @param amazonS3s The `amazon_s3` destination sends your logs in Datadog-rehydratable format to an Amazon S3 bucket for archiving.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder amazonS3s(ObservabilityPipelineConfigDestinationsAmazonS3Args... amazonS3s) {
+            return amazonS3s(List.of(amazonS3s));
+        }
+
+        /**
+         * @param amazonSecurityLakes The `amazon_security_lake` destination sends your logs to Amazon Security Lake.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder amazonSecurityLakes(@Nullable Output<List<ObservabilityPipelineConfigDestinationsAmazonSecurityLakeArgs>> amazonSecurityLakes) {
+            $.amazonSecurityLakes = amazonSecurityLakes;
+            return this;
+        }
+
+        /**
+         * @param amazonSecurityLakes The `amazon_security_lake` destination sends your logs to Amazon Security Lake.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder amazonSecurityLakes(List<ObservabilityPipelineConfigDestinationsAmazonSecurityLakeArgs> amazonSecurityLakes) {
+            return amazonSecurityLakes(Output.of(amazonSecurityLakes));
+        }
+
+        /**
+         * @param amazonSecurityLakes The `amazon_security_lake` destination sends your logs to Amazon Security Lake.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder amazonSecurityLakes(ObservabilityPipelineConfigDestinationsAmazonSecurityLakeArgs... amazonSecurityLakes) {
+            return amazonSecurityLakes(List.of(amazonSecurityLakes));
+        }
+
+        /**
          * @param azureStorages The `azure_storage` destination forwards logs to an Azure Blob Storage container.
          * 
          * @return builder
@@ -336,6 +466,37 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
          */
         public Builder azureStorages(ObservabilityPipelineConfigDestinationsAzureStorageArgs... azureStorages) {
             return azureStorages(List.of(azureStorages));
+        }
+
+        /**
+         * @param crowdstrikeNextGenSiems The `crowdstrike_next_gen_siem` destination forwards logs to CrowdStrike Next Gen SIEM.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder crowdstrikeNextGenSiems(@Nullable Output<List<ObservabilityPipelineConfigDestinationsCrowdstrikeNextGenSiemArgs>> crowdstrikeNextGenSiems) {
+            $.crowdstrikeNextGenSiems = crowdstrikeNextGenSiems;
+            return this;
+        }
+
+        /**
+         * @param crowdstrikeNextGenSiems The `crowdstrike_next_gen_siem` destination forwards logs to CrowdStrike Next Gen SIEM.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder crowdstrikeNextGenSiems(List<ObservabilityPipelineConfigDestinationsCrowdstrikeNextGenSiemArgs> crowdstrikeNextGenSiems) {
+            return crowdstrikeNextGenSiems(Output.of(crowdstrikeNextGenSiems));
+        }
+
+        /**
+         * @param crowdstrikeNextGenSiems The `crowdstrike_next_gen_siem` destination forwards logs to CrowdStrike Next Gen SIEM.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder crowdstrikeNextGenSiems(ObservabilityPipelineConfigDestinationsCrowdstrikeNextGenSiemArgs... crowdstrikeNextGenSiems) {
+            return crowdstrikeNextGenSiems(List.of(crowdstrikeNextGenSiems));
         }
 
         /**
@@ -615,6 +776,37 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
          */
         public Builder sentinelOnes(ObservabilityPipelineConfigDestinationsSentinelOneArgs... sentinelOnes) {
             return sentinelOnes(List.of(sentinelOnes));
+        }
+
+        /**
+         * @param sockets The `socket` destination sends logs over TCP or UDP to a remote server.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sockets(@Nullable Output<List<ObservabilityPipelineConfigDestinationsSocketArgs>> sockets) {
+            $.sockets = sockets;
+            return this;
+        }
+
+        /**
+         * @param sockets The `socket` destination sends logs over TCP or UDP to a remote server.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sockets(List<ObservabilityPipelineConfigDestinationsSocketArgs> sockets) {
+            return sockets(Output.of(sockets));
+        }
+
+        /**
+         * @param sockets The `socket` destination sends logs over TCP or UDP to a remote server.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sockets(ObservabilityPipelineConfigDestinationsSocketArgs... sockets) {
+            return sockets(List.of(sockets));
         }
 
         /**

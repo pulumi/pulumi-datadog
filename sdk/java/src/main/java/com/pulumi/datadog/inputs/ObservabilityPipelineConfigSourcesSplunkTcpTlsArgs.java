@@ -16,14 +16,14 @@ public final class ObservabilityPipelineConfigSourcesSplunkTcpTlsArgs extends co
     public static final ObservabilityPipelineConfigSourcesSplunkTcpTlsArgs Empty = new ObservabilityPipelineConfigSourcesSplunkTcpTlsArgs();
 
     /**
-     * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     * Path to the Certificate Authority (CA) file used to validate the server&#39;s TLS certificate.
      * 
      */
     @Import(name="caFile")
     private @Nullable Output<String> caFile;
 
     /**
-     * @return Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     * @return Path to the Certificate Authority (CA) file used to validate the server&#39;s TLS certificate.
      * 
      */
     public Optional<Output<String>> caFile() {
@@ -87,7 +87,7 @@ public final class ObservabilityPipelineConfigSourcesSplunkTcpTlsArgs extends co
         }
 
         /**
-         * @param caFile Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+         * @param caFile Path to the Certificate Authority (CA) file used to validate the server&#39;s TLS certificate.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class ObservabilityPipelineConfigSourcesSplunkTcpTlsArgs extends co
         }
 
         /**
-         * @param caFile Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+         * @param caFile Path to the Certificate Authority (CA) file used to validate the server&#39;s TLS certificate.
          * 
          * @return builder
          * 

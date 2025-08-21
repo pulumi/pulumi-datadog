@@ -18,9 +18,21 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsAmazonOpensearch> AmazonOpensearches;
         /// <summary>
+        /// The `amazon_s3` destination sends your logs in Datadog-rehydratable format to an Amazon S3 bucket for archiving.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsAmazonS3> AmazonS3s;
+        /// <summary>
+        /// The `amazon_security_lake` destination sends your logs to Amazon Security Lake.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsAmazonSecurityLake> AmazonSecurityLakes;
+        /// <summary>
         /// The `azure_storage` destination forwards logs to an Azure Blob Storage container.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsAzureStorage> AzureStorages;
+        /// <summary>
+        /// The `crowdstrike_next_gen_siem` destination forwards logs to CrowdStrike Next Gen SIEM.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsCrowdstrikeNextGenSiem> CrowdstrikeNextGenSiems;
         /// <summary>
         /// The `datadog_logs` destination forwards logs to Datadog Log Management.
         /// </summary>
@@ -58,6 +70,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsSentinelOne> SentinelOnes;
         /// <summary>
+        /// The `socket` destination sends logs over TCP or UDP to a remote server.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsSocket> Sockets;
+        /// <summary>
         /// The `splunk_hec` destination forwards logs to Splunk using the HTTP Event Collector (HEC).
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsSplunkHec> SplunkHecs;
@@ -74,7 +90,13 @@ namespace Pulumi.Datadog.Outputs
         private ObservabilityPipelineConfigDestinations(
             ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsAmazonOpensearch> amazonOpensearches,
 
+            ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsAmazonS3> amazonS3s,
+
+            ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsAmazonSecurityLake> amazonSecurityLakes,
+
             ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsAzureStorage> azureStorages,
+
+            ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsCrowdstrikeNextGenSiem> crowdstrikeNextGenSiems,
 
             ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsDatadogLog> datadogLogs,
 
@@ -94,6 +116,8 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsSentinelOne> sentinelOnes,
 
+            ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsSocket> sockets,
+
             ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsSplunkHec> splunkHecs,
 
             ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsSumoLogic> sumoLogics,
@@ -101,7 +125,10 @@ namespace Pulumi.Datadog.Outputs
             ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsSyslogNg> syslogNgs)
         {
             AmazonOpensearches = amazonOpensearches;
+            AmazonS3s = amazonS3s;
+            AmazonSecurityLakes = amazonSecurityLakes;
             AzureStorages = azureStorages;
+            CrowdstrikeNextGenSiems = crowdstrikeNextGenSiems;
             DatadogLogs = datadogLogs;
             Elasticsearches = elasticsearches;
             GoogleChronicles = googleChronicles;
@@ -111,6 +138,7 @@ namespace Pulumi.Datadog.Outputs
             Opensearches = opensearches;
             Rsyslogs = rsyslogs;
             SentinelOnes = sentinelOnes;
+            Sockets = sockets;
             SplunkHecs = splunkHecs;
             SumoLogics = sumoLogics;
             SyslogNgs = syslogNgs;

@@ -36,6 +36,26 @@ namespace Pulumi.Datadog.Inputs
             set => _addFields = value;
         }
 
+        [Input("customProcessors")]
+        private InputList<Inputs.ObservabilityPipelineConfigProcessorsCustomProcessorGetArgs>? _customProcessors;
+
+        /// <summary>
+        /// The `custom_processor` processor transforms events using Vector Remap Language (VRL) scripts with advanced filtering capabilities.
+        /// </summary>
+        public InputList<Inputs.ObservabilityPipelineConfigProcessorsCustomProcessorGetArgs> CustomProcessors
+        {
+            get => _customProcessors ?? (_customProcessors = new InputList<Inputs.ObservabilityPipelineConfigProcessorsCustomProcessorGetArgs>());
+            set => _customProcessors = value;
+        }
+
+        [Input("datadogTags")]
+        private InputList<Inputs.ObservabilityPipelineConfigProcessorsDatadogTagGetArgs>? _datadogTags;
+        public InputList<Inputs.ObservabilityPipelineConfigProcessorsDatadogTagGetArgs> DatadogTags
+        {
+            get => _datadogTags ?? (_datadogTags = new InputList<Inputs.ObservabilityPipelineConfigProcessorsDatadogTagGetArgs>());
+            set => _datadogTags = value;
+        }
+
         [Input("dedupes")]
         private InputList<Inputs.ObservabilityPipelineConfigProcessorsDedupeGetArgs>? _dedupes;
 

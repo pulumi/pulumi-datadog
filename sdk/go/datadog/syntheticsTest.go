@@ -469,6 +469,27 @@ import (
 //		return err
 //	}
 //	json3 := string(tmpJSON3)
+//	tmpJSON4, err := json.Marshal(map[string]interface{}{
+//		"config": map[string]interface{}{
+//			"assertions": []map[string]interface{}{
+//				map[string]interface{}{
+//					"type":     "statusCode",
+//					"operator": "is",
+//					"target":   200,
+//				},
+//			},
+//			"request": map[string]interface{}{
+//				"method": "GET",
+//				"url":    "https://example.com",
+//			},
+//		},
+//		"options": map[string]interface{}{},
+//		"subtype": "http",
+//	})
+//	if err != nil {
+//		return err
+//	}
+//	json4 := string(tmpJSON4)
 //	// Example Usage (Synthetics Browser test)
 //	// Create a new Datadog Synthetics Browser test starting on https://www.example.org
 //	_, err = datadog.NewSyntheticsTest(ctx, "test_browser", &datadog.SyntheticsTestArgs{
@@ -522,6 +543,13 @@ import (
 //				Type: pulumi.String("assertRequests"),
 //				Params: &datadog.SyntheticsTestBrowserStepParamsArgs{
 //					Requests: pulumi.String(json3),
+//				},
+//			},
+//			&datadog.SyntheticsTestBrowserStepArgs{
+//				Name: pulumi.String("Run api test"),
+//				Type: pulumi.String("runApiTest"),
+//				Params: &datadog.SyntheticsTestBrowserStepParamsArgs{
+//					Request: pulumi.String(json4),
 //				},
 //			},
 //		},

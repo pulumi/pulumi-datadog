@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigSourcesAmazonDataFirehose
     {
         /// <summary>
-        /// AWS authentication credentials used for accessing AWS services such as S3. If omitted, the system’s default credentials are used (for example, the IAM role and environment variables).
+        /// AWS authentication credentials used for accessing AWS services such as S3. If omitted, the system's default credentials are used (for example, the IAM role and environment variables).
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigSourcesAmazonDataFirehoseAuth? Auth;
         /// <summary>

@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ObservabilityPipelineConfigSourcesDatadogAgentTls {
     /**
-     * @return Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     * @return Path to the Certificate Authority (CA) file used to validate the server&#39;s TLS certificate.
      * 
      */
     private @Nullable String caFile;
@@ -29,7 +29,7 @@ public final class ObservabilityPipelineConfigSourcesDatadogAgentTls {
 
     private ObservabilityPipelineConfigSourcesDatadogAgentTls() {}
     /**
-     * @return Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+     * @return Path to the Certificate Authority (CA) file used to validate the server&#39;s TLS certificate.
      * 
      */
     public Optional<String> caFile() {

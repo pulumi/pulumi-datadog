@@ -19,14 +19,14 @@ public final class ObservabilityPipelineConfigSourcesAmazonS3Args extends com.pu
     public static final ObservabilityPipelineConfigSourcesAmazonS3Args Empty = new ObservabilityPipelineConfigSourcesAmazonS3Args();
 
     /**
-     * AWS authentication credentials used for accessing AWS services such as S3. If omitted, the system’s default credentials are used (for example, the IAM role and environment variables).
+     * AWS authentication credentials used for accessing AWS services such as S3. If omitted, the system&#39;s default credentials are used (for example, the IAM role and environment variables).
      * 
      */
     @Import(name="auth")
     private @Nullable Output<ObservabilityPipelineConfigSourcesAmazonS3AuthArgs> auth;
 
     /**
-     * @return AWS authentication credentials used for accessing AWS services such as S3. If omitted, the system’s default credentials are used (for example, the IAM role and environment variables).
+     * @return AWS authentication credentials used for accessing AWS services such as S3. If omitted, the system&#39;s default credentials are used (for example, the IAM role and environment variables).
      * 
      */
     public Optional<Output<ObservabilityPipelineConfigSourcesAmazonS3AuthArgs>> auth() {
@@ -106,7 +106,7 @@ public final class ObservabilityPipelineConfigSourcesAmazonS3Args extends com.pu
         }
 
         /**
-         * @param auth AWS authentication credentials used for accessing AWS services such as S3. If omitted, the system’s default credentials are used (for example, the IAM role and environment variables).
+         * @param auth AWS authentication credentials used for accessing AWS services such as S3. If omitted, the system&#39;s default credentials are used (for example, the IAM role and environment variables).
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class ObservabilityPipelineConfigSourcesAmazonS3Args extends com.pu
         }
 
         /**
-         * @param auth AWS authentication credentials used for accessing AWS services such as S3. If omitted, the system’s default credentials are used (for example, the IAM role and environment variables).
+         * @param auth AWS authentication credentials used for accessing AWS services such as S3. If omitted, the system&#39;s default credentials are used (for example, the IAM role and environment variables).
          * 
          * @return builder
          * 

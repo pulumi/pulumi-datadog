@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ObservabilityPipelineConfigSourcesAmazonS3 {
     /**
-     * @return AWS authentication credentials used for accessing AWS services such as S3. If omitted, the system’s default credentials are used (for example, the IAM role and environment variables).
+     * @return AWS authentication credentials used for accessing AWS services such as S3. If omitted, the system&#39;s default credentials are used (for example, the IAM role and environment variables).
      * 
      */
     private @Nullable ObservabilityPipelineConfigSourcesAmazonS3Auth auth;
@@ -37,7 +37,7 @@ public final class ObservabilityPipelineConfigSourcesAmazonS3 {
 
     private ObservabilityPipelineConfigSourcesAmazonS3() {}
     /**
-     * @return AWS authentication credentials used for accessing AWS services such as S3. If omitted, the system’s default credentials are used (for example, the IAM role and environment variables).
+     * @return AWS authentication credentials used for accessing AWS services such as S3. If omitted, the system&#39;s default credentials are used (for example, the IAM role and environment variables).
      * 
      */
     public Optional<ObservabilityPipelineConfigSourcesAmazonS3Auth> auth() {

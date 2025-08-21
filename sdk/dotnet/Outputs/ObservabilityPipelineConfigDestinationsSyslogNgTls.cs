@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigDestinationsSyslogNgTls
     {
         /// <summary>
-        /// Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+        /// Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
         /// </summary>
         public readonly string? CaFile;
         /// <summary>

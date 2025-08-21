@@ -15,6 +15,11 @@ export const getIntegrationAvailableNamespaces: typeof import("./getIntegrationA
 export const getIntegrationAvailableNamespacesOutput: typeof import("./getIntegrationAvailableNamespaces").getIntegrationAvailableNamespacesOutput = null as any;
 utilities.lazyLoad(exports, ["getIntegrationAvailableNamespaces","getIntegrationAvailableNamespacesOutput"], () => require("./getIntegrationAvailableNamespaces"));
 
+export { GetIntegrationIamPermissionsResult } from "./getIntegrationIamPermissions";
+export const getIntegrationIamPermissions: typeof import("./getIntegrationIamPermissions").getIntegrationIamPermissions = null as any;
+export const getIntegrationIamPermissionsOutput: typeof import("./getIntegrationIamPermissions").getIntegrationIamPermissionsOutput = null as any;
+utilities.lazyLoad(exports, ["getIntegrationIamPermissions","getIntegrationIamPermissionsOutput"], () => require("./getIntegrationIamPermissions"));
+
 export { GetIntegrationLogsServicesResult } from "./getIntegrationLogsServices";
 export const getIntegrationLogsServices: typeof import("./getIntegrationLogsServices").getIntegrationLogsServices = null as any;
 export const getIntegrationLogsServicesOutput: typeof import("./getIntegrationLogsServices").getIntegrationLogsServicesOutput = null as any;

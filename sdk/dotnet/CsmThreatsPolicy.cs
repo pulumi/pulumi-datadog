@@ -11,6 +11,49 @@ namespace Pulumi.Datadog
 {
     /// <summary>
     /// Provides a Datadog CSM Threats policy API resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var myPolicy = new Datadog.CsmThreatsPolicy("my_policy", new()
+    ///     {
+    ///         Name = "my_policy",
+    ///         Description = "My policy",
+    ///         Enabled = true,
+    ///         HostTagsLists = new[]
+    ///         {
+    ///             new[]
+    ///             {
+    ///                 "env:prod",
+    ///                 "team:backend",
+    ///             },
+    ///             new[]
+    ///             {
+    ///                 "env:prod",
+    ///                 "team:frontend",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// The `pulumi import` command can be used, for example:
+    /// 
+    /// # CSM Policies can be imported using IDs. For example:
+    /// 
+    /// ```sh
+    /// $ pulumi import datadog:index/csmThreatsPolicy:CsmThreatsPolicy my_policy jm4-lwh-8cs
+    /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/csmThreatsPolicy:CsmThreatsPolicy")]
     public partial class CsmThreatsPolicy : global::Pulumi.CustomResource

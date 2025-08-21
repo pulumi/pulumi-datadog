@@ -15,6 +15,7 @@ import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourcesHttpServer;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourcesKafka;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourcesLogstash;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourcesRsyslog;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourcesSocket;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourcesSplunkHec;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourcesSplunkTcp;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourcesSumoLogic;
@@ -80,6 +81,11 @@ public final class ObservabilityPipelineConfigSources {
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigSourcesRsyslog> rsyslogs;
+    /**
+     * @return The `socket` source ingests logs over TCP or UDP.
+     * 
+     */
+    private @Nullable List<ObservabilityPipelineConfigSourcesSocket> sockets;
     /**
      * @return The `splunk_hec` source implements the Splunk HTTP Event Collector (HEC) API.
      * 
@@ -180,6 +186,13 @@ public final class ObservabilityPipelineConfigSources {
         return this.rsyslogs == null ? List.of() : this.rsyslogs;
     }
     /**
+     * @return The `socket` source ingests logs over TCP or UDP.
+     * 
+     */
+    public List<ObservabilityPipelineConfigSourcesSocket> sockets() {
+        return this.sockets == null ? List.of() : this.sockets;
+    }
+    /**
      * @return The `splunk_hec` source implements the Splunk HTTP Event Collector (HEC) API.
      * 
      */
@@ -228,6 +241,7 @@ public final class ObservabilityPipelineConfigSources {
         private @Nullable List<ObservabilityPipelineConfigSourcesKafka> kafkas;
         private @Nullable List<ObservabilityPipelineConfigSourcesLogstash> logstashes;
         private @Nullable List<ObservabilityPipelineConfigSourcesRsyslog> rsyslogs;
+        private @Nullable List<ObservabilityPipelineConfigSourcesSocket> sockets;
         private @Nullable List<ObservabilityPipelineConfigSourcesSplunkHec> splunkHecs;
         private @Nullable List<ObservabilityPipelineConfigSourcesSplunkTcp> splunkTcps;
         private @Nullable List<ObservabilityPipelineConfigSourcesSumoLogic> sumoLogics;
@@ -246,6 +260,7 @@ public final class ObservabilityPipelineConfigSources {
     	      this.kafkas = defaults.kafkas;
     	      this.logstashes = defaults.logstashes;
     	      this.rsyslogs = defaults.rsyslogs;
+    	      this.sockets = defaults.sockets;
     	      this.splunkHecs = defaults.splunkHecs;
     	      this.splunkTcps = defaults.splunkTcps;
     	      this.sumoLogics = defaults.sumoLogics;
@@ -352,6 +367,15 @@ public final class ObservabilityPipelineConfigSources {
             return rsyslogs(List.of(rsyslogs));
         }
         @CustomType.Setter
+        public Builder sockets(@Nullable List<ObservabilityPipelineConfigSourcesSocket> sockets) {
+
+            this.sockets = sockets;
+            return this;
+        }
+        public Builder sockets(ObservabilityPipelineConfigSourcesSocket... sockets) {
+            return sockets(List.of(sockets));
+        }
+        @CustomType.Setter
         public Builder splunkHecs(@Nullable List<ObservabilityPipelineConfigSourcesSplunkHec> splunkHecs) {
 
             this.splunkHecs = splunkHecs;
@@ -400,6 +424,7 @@ public final class ObservabilityPipelineConfigSources {
             _resultValue.kafkas = kafkas;
             _resultValue.logstashes = logstashes;
             _resultValue.rsyslogs = rsyslogs;
+            _resultValue.sockets = sockets;
             _resultValue.splunkHecs = splunkHecs;
             _resultValue.splunkTcps = splunkTcps;
             _resultValue.sumoLogics = sumoLogics;

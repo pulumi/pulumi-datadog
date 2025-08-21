@@ -580,6 +580,38 @@ namespace Pulumi.Datadog
     ///                     }),
     ///                 },
     ///             },
+    ///             new Datadog.Inputs.SyntheticsTestBrowserStepArgs
+    ///             {
+    ///                 Name = "Run api test",
+    ///                 Type = "runApiTest",
+    ///                 Params = new Datadog.Inputs.SyntheticsTestBrowserStepParamsArgs
+    ///                 {
+    ///                     Request = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["config"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["assertions"] = new[]
+    ///                             {
+    ///                                 new Dictionary&lt;string, object?&gt;
+    ///                                 {
+    ///                                     ["type"] = "statusCode",
+    ///                                     ["operator"] = "is",
+    ///                                     ["target"] = 200,
+    ///                                 },
+    ///                             },
+    ///                             ["request"] = new Dictionary&lt;string, object?&gt;
+    ///                             {
+    ///                                 ["method"] = "GET",
+    ///                                 ["url"] = "https://example.com",
+    ///                             },
+    ///                         },
+    ///                         ["options"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                         },
+    ///                         ["subtype"] = "http",
+    ///                     }),
+    ///                 },
+    ///             },
     ///         },
     ///         BrowserVariables = new[]
     ///         {

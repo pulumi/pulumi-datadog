@@ -19,6 +19,60 @@ import javax.annotation.Nullable;
 /**
  * Provides a Datadog CSM Threats policy API resource.
  * 
+ * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.CsmThreatsPolicy;
+ * import com.pulumi.datadog.CsmThreatsPolicyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var myPolicy = new CsmThreatsPolicy("myPolicy", CsmThreatsPolicyArgs.builder()
+ *             .name("my_policy")
+ *             .description("My policy")
+ *             .enabled(true)
+ *             .hostTagsLists(            
+ *                                 
+ *                     "env:prod",
+ *                     "team:backend",
+ *                                 
+ *                     "env:prod",
+ *                     "team:frontend")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## Import
+ * 
+ * The `pulumi import` command can be used, for example:
+ * 
+ * # CSM Policies can be imported using IDs. For example:
+ * 
+ * ```sh
+ * $ pulumi import datadog:index/csmThreatsPolicy:CsmThreatsPolicy my_policy jm4-lwh-8cs
+ * ```
+ * 
  */
 @ResourceType(type="datadog:index/csmThreatsPolicy:CsmThreatsPolicy")
 public class CsmThreatsPolicy extends com.pulumi.resources.CustomResource {
