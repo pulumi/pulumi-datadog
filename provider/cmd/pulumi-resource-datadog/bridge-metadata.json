@@ -12261,6 +12261,25 @@
                     }
                 }
             },
+            "datadog_dataset": {
+                "current": "datadog:index/dataset:Dataset",
+                "majorVersion": 4,
+                "fields": {
+                    "principals": {
+                        "maxItemsOne": false
+                    },
+                    "product_filters": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "filters": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "datadog_domain_allowlist": {
                 "current": "datadog:index/domainAllowlist:DomainAllowlist",
                 "majorVersion": 4,
@@ -13209,7 +13228,37 @@
                                             }
                                         }
                                     },
+                                    "amazon_s3": {
+                                        "maxItemsOne": false,
+                                        "elem": {
+                                            "fields": {
+                                                "inputs": {
+                                                    "maxItemsOne": false
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "amazon_security_lake": {
+                                        "maxItemsOne": false,
+                                        "elem": {
+                                            "fields": {
+                                                "inputs": {
+                                                    "maxItemsOne": false
+                                                }
+                                            }
+                                        }
+                                    },
                                     "azure_storage": {
+                                        "maxItemsOne": false,
+                                        "elem": {
+                                            "fields": {
+                                                "inputs": {
+                                                    "maxItemsOne": false
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "crowdstrike_next_gen_siem": {
                                         "maxItemsOne": false,
                                         "elem": {
                                             "fields": {
@@ -13312,6 +13361,16 @@
                                             }
                                         }
                                     },
+                                    "socket": {
+                                        "maxItemsOne": false,
+                                        "elem": {
+                                            "fields": {
+                                                "inputs": {
+                                                    "maxItemsOne": false
+                                                }
+                                            }
+                                        }
+                                    },
                                     "splunk_hec": {
                                         "maxItemsOne": false,
                                         "elem": {
@@ -13370,6 +13429,32 @@
                                                     "maxItemsOne": false
                                                 },
                                                 "inputs": {
+                                                    "maxItemsOne": false
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "custom_processor": {
+                                        "maxItemsOne": false,
+                                        "elem": {
+                                            "fields": {
+                                                "inputs": {
+                                                    "maxItemsOne": false
+                                                },
+                                                "remaps": {
+                                                    "maxItemsOne": false
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "datadog_tags": {
+                                        "maxItemsOne": false,
+                                        "elem": {
+                                            "fields": {
+                                                "inputs": {
+                                                    "maxItemsOne": false
+                                                },
+                                                "keys": {
                                                     "maxItemsOne": false
                                                 }
                                             }
@@ -13662,6 +13747,9 @@
                                         "maxItemsOne": false
                                     },
                                     "rsyslog": {
+                                        "maxItemsOne": false
+                                    },
+                                    "socket": {
                                         "maxItemsOne": false
                                     },
                                     "splunk_hec": {
@@ -18114,6 +18202,15 @@
                     }
                 }
             },
+            "datadog_integration_aws_iam_permissions": {
+                "current": "datadog:aws/getIntegrationIamPermissions:getIntegrationIamPermissions",
+                "majorVersion": 4,
+                "fields": {
+                    "iam_permissions": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "datadog_integration_aws_logs_services": {
                 "current": "datadog:aws/getIntegrationLogsServices:getIntegrationLogsServices",
                 "majorVersion": 4,
@@ -18750,6 +18847,7 @@
             "datadog:index/dashboard:Dashboard": 0,
             "datadog:index/dashboardJson:DashboardJson": 0,
             "datadog:index/dashboardList:DashboardList": 1,
+            "datadog:index/dataset:Dataset": 1,
             "datadog:index/domainAllowlist:DomainAllowlist": 1,
             "datadog:index/downtime:Downtime": 0,
             "datadog:index/downtimeSchedule:DowntimeSchedule": 1,
@@ -18822,6 +18920,7 @@
         "functions": {
             "datadog:aws/getIntegrationAvailableLogsServices:getIntegrationAvailableLogsServices": 1,
             "datadog:aws/getIntegrationAvailableNamespaces:getIntegrationAvailableNamespaces": 1,
+            "datadog:aws/getIntegrationIamPermissions:getIntegrationIamPermissions": 1,
             "datadog:aws/getIntegrationLogsServices:getIntegrationLogsServices": 0,
             "datadog:aws/getIntegrationNamespaceRules:getIntegrationNamespaceRules": 1,
             "datadog:index/getActionConnection:getActionConnection": 1,
