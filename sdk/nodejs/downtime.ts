@@ -48,59 +48,59 @@ export class Downtime extends pulumi.CustomResource {
     /**
      * When true indicates this downtime is being actively applied
      */
-    public /*out*/ readonly active!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly active: pulumi.Output<boolean>;
     /**
      * The id corresponding to the downtime object definition of the active child for the original parent recurring downtime. This field will only exist on recurring downtimes.
      */
-    public /*out*/ readonly activeChildId!: pulumi.Output<number>;
+    declare public /*out*/ readonly activeChildId: pulumi.Output<number>;
     /**
      * When true indicates this downtime is not being applied
      */
-    public /*out*/ readonly disabled!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly disabled: pulumi.Output<boolean>;
     /**
      * Optionally specify an end date when this downtime should expire. Accepts a Unix timestamp in UTC.
      */
-    public readonly end!: pulumi.Output<number | undefined>;
+    declare public readonly end: pulumi.Output<number | undefined>;
     /**
      * String representing date and time to end the downtime in RFC3339 format.
      */
-    public readonly endDate!: pulumi.Output<string | undefined>;
+    declare public readonly endDate: pulumi.Output<string | undefined>;
     /**
      * An optional message to provide when creating the downtime, can include notification handles
      */
-    public readonly message!: pulumi.Output<string | undefined>;
+    declare public readonly message: pulumi.Output<string | undefined>;
     /**
      * When specified, this downtime will only apply to this monitor
      */
-    public readonly monitorId!: pulumi.Output<number | undefined>;
+    declare public readonly monitorId: pulumi.Output<number | undefined>;
     /**
      * A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
      */
-    public readonly monitorTags!: pulumi.Output<string[] | undefined>;
+    declare public readonly monitorTags: pulumi.Output<string[] | undefined>;
     /**
      * When true the first recovery notification during the downtime will be muted Defaults to `false`.
      */
-    public readonly muteFirstRecoveryNotification!: pulumi.Output<boolean | undefined>;
+    declare public readonly muteFirstRecoveryNotification: pulumi.Output<boolean | undefined>;
     /**
      * Optional recurring schedule for this downtime
      */
-    public readonly recurrence!: pulumi.Output<outputs.DowntimeRecurrence | undefined>;
+    declare public readonly recurrence: pulumi.Output<outputs.DowntimeRecurrence | undefined>;
     /**
      * specify the group scope to which this downtime applies. For everything use '*'
      */
-    public readonly scopes!: pulumi.Output<string[]>;
+    declare public readonly scopes: pulumi.Output<string[]>;
     /**
      * Specify when this downtime should start. Accepts a Unix timestamp in UTC.
      */
-    public readonly start!: pulumi.Output<number | undefined>;
+    declare public readonly start: pulumi.Output<number | undefined>;
     /**
      * String representing date and time to start the downtime in RFC3339 format.
      */
-    public readonly startDate!: pulumi.Output<string | undefined>;
+    declare public readonly startDate: pulumi.Output<string | undefined>;
     /**
      * The timezone for the downtime. Follows IANA timezone database identifiers. Defaults to `"UTC"`.
      */
-    public readonly timezone!: pulumi.Output<string | undefined>;
+    declare public readonly timezone: pulumi.Output<string | undefined>;
 
     /**
      * Create a Downtime resource with the given unique name, arguments, and options.
@@ -115,36 +115,36 @@ export class Downtime extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DowntimeState | undefined;
-            resourceInputs["active"] = state ? state.active : undefined;
-            resourceInputs["activeChildId"] = state ? state.activeChildId : undefined;
-            resourceInputs["disabled"] = state ? state.disabled : undefined;
-            resourceInputs["end"] = state ? state.end : undefined;
-            resourceInputs["endDate"] = state ? state.endDate : undefined;
-            resourceInputs["message"] = state ? state.message : undefined;
-            resourceInputs["monitorId"] = state ? state.monitorId : undefined;
-            resourceInputs["monitorTags"] = state ? state.monitorTags : undefined;
-            resourceInputs["muteFirstRecoveryNotification"] = state ? state.muteFirstRecoveryNotification : undefined;
-            resourceInputs["recurrence"] = state ? state.recurrence : undefined;
-            resourceInputs["scopes"] = state ? state.scopes : undefined;
-            resourceInputs["start"] = state ? state.start : undefined;
-            resourceInputs["startDate"] = state ? state.startDate : undefined;
-            resourceInputs["timezone"] = state ? state.timezone : undefined;
+            resourceInputs["active"] = state?.active;
+            resourceInputs["activeChildId"] = state?.activeChildId;
+            resourceInputs["disabled"] = state?.disabled;
+            resourceInputs["end"] = state?.end;
+            resourceInputs["endDate"] = state?.endDate;
+            resourceInputs["message"] = state?.message;
+            resourceInputs["monitorId"] = state?.monitorId;
+            resourceInputs["monitorTags"] = state?.monitorTags;
+            resourceInputs["muteFirstRecoveryNotification"] = state?.muteFirstRecoveryNotification;
+            resourceInputs["recurrence"] = state?.recurrence;
+            resourceInputs["scopes"] = state?.scopes;
+            resourceInputs["start"] = state?.start;
+            resourceInputs["startDate"] = state?.startDate;
+            resourceInputs["timezone"] = state?.timezone;
         } else {
             const args = argsOrState as DowntimeArgs | undefined;
-            if ((!args || args.scopes === undefined) && !opts.urn) {
+            if (args?.scopes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scopes'");
             }
-            resourceInputs["end"] = args ? args.end : undefined;
-            resourceInputs["endDate"] = args ? args.endDate : undefined;
-            resourceInputs["message"] = args ? args.message : undefined;
-            resourceInputs["monitorId"] = args ? args.monitorId : undefined;
-            resourceInputs["monitorTags"] = args ? args.monitorTags : undefined;
-            resourceInputs["muteFirstRecoveryNotification"] = args ? args.muteFirstRecoveryNotification : undefined;
-            resourceInputs["recurrence"] = args ? args.recurrence : undefined;
-            resourceInputs["scopes"] = args ? args.scopes : undefined;
-            resourceInputs["start"] = args ? args.start : undefined;
-            resourceInputs["startDate"] = args ? args.startDate : undefined;
-            resourceInputs["timezone"] = args ? args.timezone : undefined;
+            resourceInputs["end"] = args?.end;
+            resourceInputs["endDate"] = args?.endDate;
+            resourceInputs["message"] = args?.message;
+            resourceInputs["monitorId"] = args?.monitorId;
+            resourceInputs["monitorTags"] = args?.monitorTags;
+            resourceInputs["muteFirstRecoveryNotification"] = args?.muteFirstRecoveryNotification;
+            resourceInputs["recurrence"] = args?.recurrence;
+            resourceInputs["scopes"] = args?.scopes;
+            resourceInputs["start"] = args?.start;
+            resourceInputs["startDate"] = args?.startDate;
+            resourceInputs["timezone"] = args?.timezone;
             resourceInputs["active"] = undefined /*out*/;
             resourceInputs["activeChildId"] = undefined /*out*/;
             resourceInputs["disabled"] = undefined /*out*/;

@@ -90,63 +90,63 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
     /**
      * Cases for generating signals.
      */
-    public readonly cases!: pulumi.Output<outputs.SecurityMonitoringRuleCase[] | undefined>;
+    declare public readonly cases: pulumi.Output<outputs.SecurityMonitoringRuleCase[] | undefined>;
     /**
      * Whether the rule is enabled. Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
      */
-    public readonly filters!: pulumi.Output<outputs.SecurityMonitoringRuleFilter[] | undefined>;
+    declare public readonly filters: pulumi.Output<outputs.SecurityMonitoringRuleFilter[] | undefined>;
     /**
      * Additional grouping to perform on top of the query grouping.
      */
-    public readonly groupSignalsBies!: pulumi.Output<string[] | undefined>;
+    declare public readonly groupSignalsBies: pulumi.Output<string[] | undefined>;
     /**
      * Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
      */
-    public readonly hasExtendedTitle!: pulumi.Output<boolean | undefined>;
+    declare public readonly hasExtendedTitle: pulumi.Output<boolean | undefined>;
     /**
      * Message for generated signals.
      */
-    public readonly message!: pulumi.Output<string>;
+    declare public readonly message: pulumi.Output<string>;
     /**
      * The name of the rule.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Options on rules.
      */
-    public readonly options!: pulumi.Output<outputs.SecurityMonitoringRuleOptions | undefined>;
+    declare public readonly options: pulumi.Output<outputs.SecurityMonitoringRuleOptions | undefined>;
     /**
      * Queries for selecting logs which are part of the rule.
      */
-    public readonly queries!: pulumi.Output<outputs.SecurityMonitoringRuleQuery[] | undefined>;
+    declare public readonly queries: pulumi.Output<outputs.SecurityMonitoringRuleQuery[] | undefined>;
     /**
      * Reference tables for filtering query results.
      */
-    public readonly referenceTables!: pulumi.Output<outputs.SecurityMonitoringRuleReferenceTable[] | undefined>;
+    declare public readonly referenceTables: pulumi.Output<outputs.SecurityMonitoringRuleReferenceTable[] | undefined>;
     /**
      * Queries for selecting logs which are part of the rule.
      */
-    public readonly signalQueries!: pulumi.Output<outputs.SecurityMonitoringRuleSignalQuery[] | undefined>;
+    declare public readonly signalQueries: pulumi.Output<outputs.SecurityMonitoringRuleSignalQuery[] | undefined>;
     /**
      * Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
      */
-    public readonly tags!: pulumi.Output<string[]>;
+    declare public readonly tags: pulumi.Output<string[]>;
     /**
      * Cases for generating signals for third-party rules. Only required and accepted for third-party rules
      */
-    public readonly thirdPartyCases!: pulumi.Output<outputs.SecurityMonitoringRuleThirdPartyCase[] | undefined>;
+    declare public readonly thirdPartyCases: pulumi.Output<outputs.SecurityMonitoringRuleThirdPartyCase[] | undefined>;
     /**
      * The rule type. Valid values are `applicationSecurity`, `logDetection`, `workloadSecurity`, `signalCorrelation`. Defaults to `"logDetection"`.
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    declare public readonly type: pulumi.Output<string | undefined>;
     /**
      * Whether or not to validate the Rule.
      */
-    public readonly validate!: pulumi.Output<boolean | undefined>;
+    declare public readonly validate: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a SecurityMonitoringRule resource with the given unique name, arguments, and options.
@@ -161,44 +161,44 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecurityMonitoringRuleState | undefined;
-            resourceInputs["cases"] = state ? state.cases : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["filters"] = state ? state.filters : undefined;
-            resourceInputs["groupSignalsBies"] = state ? state.groupSignalsBies : undefined;
-            resourceInputs["hasExtendedTitle"] = state ? state.hasExtendedTitle : undefined;
-            resourceInputs["message"] = state ? state.message : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["options"] = state ? state.options : undefined;
-            resourceInputs["queries"] = state ? state.queries : undefined;
-            resourceInputs["referenceTables"] = state ? state.referenceTables : undefined;
-            resourceInputs["signalQueries"] = state ? state.signalQueries : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["thirdPartyCases"] = state ? state.thirdPartyCases : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["validate"] = state ? state.validate : undefined;
+            resourceInputs["cases"] = state?.cases;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["filters"] = state?.filters;
+            resourceInputs["groupSignalsBies"] = state?.groupSignalsBies;
+            resourceInputs["hasExtendedTitle"] = state?.hasExtendedTitle;
+            resourceInputs["message"] = state?.message;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["options"] = state?.options;
+            resourceInputs["queries"] = state?.queries;
+            resourceInputs["referenceTables"] = state?.referenceTables;
+            resourceInputs["signalQueries"] = state?.signalQueries;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["thirdPartyCases"] = state?.thirdPartyCases;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["validate"] = state?.validate;
         } else {
             const args = argsOrState as SecurityMonitoringRuleArgs | undefined;
-            if ((!args || args.message === undefined) && !opts.urn) {
+            if (args?.message === undefined && !opts.urn) {
                 throw new Error("Missing required property 'message'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["cases"] = args ? args.cases : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["filters"] = args ? args.filters : undefined;
-            resourceInputs["groupSignalsBies"] = args ? args.groupSignalsBies : undefined;
-            resourceInputs["hasExtendedTitle"] = args ? args.hasExtendedTitle : undefined;
-            resourceInputs["message"] = args ? args.message : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["options"] = args ? args.options : undefined;
-            resourceInputs["queries"] = args ? args.queries : undefined;
-            resourceInputs["referenceTables"] = args ? args.referenceTables : undefined;
-            resourceInputs["signalQueries"] = args ? args.signalQueries : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["thirdPartyCases"] = args ? args.thirdPartyCases : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["validate"] = args ? args.validate : undefined;
+            resourceInputs["cases"] = args?.cases;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["filters"] = args?.filters;
+            resourceInputs["groupSignalsBies"] = args?.groupSignalsBies;
+            resourceInputs["hasExtendedTitle"] = args?.hasExtendedTitle;
+            resourceInputs["message"] = args?.message;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["options"] = args?.options;
+            resourceInputs["queries"] = args?.queries;
+            resourceInputs["referenceTables"] = args?.referenceTables;
+            resourceInputs["signalQueries"] = args?.signalQueries;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["thirdPartyCases"] = args?.thirdPartyCases;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["validate"] = args?.validate;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SecurityMonitoringRule.__pulumiType, name, resourceInputs, opts);

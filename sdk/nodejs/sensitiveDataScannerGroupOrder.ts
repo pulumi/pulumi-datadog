@@ -60,7 +60,7 @@ export class SensitiveDataScannerGroupOrder extends pulumi.CustomResource {
     /**
      * The list of Sensitive Data Scanner group IDs, in order. Logs are tested against the query filter of each index one by one following the order of the list.
      */
-    public readonly groupIds!: pulumi.Output<string[]>;
+    declare public readonly groupIds: pulumi.Output<string[]>;
 
     /**
      * Create a SensitiveDataScannerGroupOrder resource with the given unique name, arguments, and options.
@@ -75,13 +75,13 @@ export class SensitiveDataScannerGroupOrder extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SensitiveDataScannerGroupOrderState | undefined;
-            resourceInputs["groupIds"] = state ? state.groupIds : undefined;
+            resourceInputs["groupIds"] = state?.groupIds;
         } else {
             const args = argsOrState as SensitiveDataScannerGroupOrderArgs | undefined;
-            if ((!args || args.groupIds === undefined) && !opts.urn) {
+            if (args?.groupIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupIds'");
             }
-            resourceInputs["groupIds"] = args ? args.groupIds : undefined;
+            resourceInputs["groupIds"] = args?.groupIds;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SensitiveDataScannerGroupOrder.__pulumiType, name, resourceInputs, opts);

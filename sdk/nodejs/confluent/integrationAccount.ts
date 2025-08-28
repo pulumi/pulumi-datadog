@@ -67,15 +67,15 @@ export class IntegrationAccount extends pulumi.CustomResource {
     /**
      * The API key associated with your Confluent account.
      */
-    public readonly apiKey!: pulumi.Output<string>;
+    declare public readonly apiKey: pulumi.Output<string>;
     /**
      * The API secret associated with your Confluent account.
      */
-    public readonly apiSecret!: pulumi.Output<string>;
+    declare public readonly apiSecret: pulumi.Output<string>;
     /**
      * A list of strings representing tags. Can be a single key, or key-value pairs separated by a colon.
      */
-    public readonly tags!: pulumi.Output<string[] | undefined>;
+    declare public readonly tags: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a IntegrationAccount resource with the given unique name, arguments, and options.
@@ -90,20 +90,20 @@ export class IntegrationAccount extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationAccountState | undefined;
-            resourceInputs["apiKey"] = state ? state.apiKey : undefined;
-            resourceInputs["apiSecret"] = state ? state.apiSecret : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["apiKey"] = state?.apiKey;
+            resourceInputs["apiSecret"] = state?.apiSecret;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as IntegrationAccountArgs | undefined;
-            if ((!args || args.apiKey === undefined) && !opts.urn) {
+            if (args?.apiKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiKey'");
             }
-            if ((!args || args.apiSecret === undefined) && !opts.urn) {
+            if (args?.apiSecret === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiSecret'");
             }
-            resourceInputs["apiKey"] = args ? args.apiKey : undefined;
+            resourceInputs["apiKey"] = args?.apiKey;
             resourceInputs["apiSecret"] = args?.apiSecret ? pulumi.secret(args.apiSecret) : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["apiSecret"] };

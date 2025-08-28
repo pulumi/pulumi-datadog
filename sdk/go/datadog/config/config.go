@@ -16,12 +16,7 @@ func GetApiKey(ctx *pulumi.Context) string {
 	return config.Get(ctx, "datadog:apiKey")
 }
 
-// The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`.
-// Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value,
-// while `https://api.datadoghq.com/api/` is not. And if you're working with "EU" version of Datadog, use
-// `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`,
-// `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/
-// for all available regions.
+// The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`. Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And if you're working with "EU" version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/ for all available regions.
 func GetApiUrl(ctx *pulumi.Context) string {
 	return config.Get(ctx, "datadog:apiUrl")
 }
@@ -31,20 +26,17 @@ func GetAppKey(ctx *pulumi.Context) string {
 	return config.Get(ctx, "datadog:appKey")
 }
 
-// The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID`
-// environment variable. Required when using `cloudProviderType` set to `aws`.
+// The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloudProviderType` set to `aws`.
 func GetAwsAccessKeyId(ctx *pulumi.Context) string {
 	return config.Get(ctx, "datadog:awsAccessKeyId")
 }
 
-// The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the
-// `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloudProviderType` set to `aws`.
+// The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloudProviderType` set to `aws`.
 func GetAwsSecretAccessKey(ctx *pulumi.Context) string {
 	return config.Get(ctx, "datadog:awsSecretAccessKey")
 }
 
-// The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN`
-// environment variable. Required when using `cloudProviderType` set to `aws` and using temporary credentials.
+// The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloudProviderType` set to `aws` and using temporary credentials.
 func GetAwsSessionToken(ctx *pulumi.Context) string {
 	return config.Get(ctx, "datadog:awsSessionToken")
 }
@@ -54,15 +46,12 @@ func GetCloudProviderRegion(ctx *pulumi.Context) string {
 	return config.Get(ctx, "datadog:cloudProviderRegion")
 }
 
-// Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app
-// keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact
-// [support](https://docs.datadoghq.com/help/).
+// Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
 func GetCloudProviderType(ctx *pulumi.Context) string {
 	return config.Get(ctx, "datadog:cloudProviderType")
 }
 
-// [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration
-// block containing settings to apply default resource tags across all resources.
+// [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
 func GetDefaultTags(ctx *pulumi.Context) string {
 	return config.Get(ctx, "datadog:defaultTags")
 }
@@ -92,14 +81,12 @@ func GetHttpClientRetryTimeout(ctx *pulumi.Context) int {
 	return config.GetInt(ctx, "datadog:httpClientRetryTimeout")
 }
 
-// The organization UUID; used for cloud-provider-based authentication. See the [Datadog API
-// documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+// The organization UUID; used for cloud-provider-based authentication. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
 func GetOrgUuid(ctx *pulumi.Context) string {
 	return config.Get(ctx, "datadog:orgUuid")
 }
 
-// Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default
-// is true. When false, apiKey won't be checked.
+// Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, apiKey won't be checked.
 func GetValidate(ctx *pulumi.Context) string {
 	return config.Get(ctx, "datadog:validate")
 }

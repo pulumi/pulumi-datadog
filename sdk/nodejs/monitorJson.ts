@@ -77,11 +77,11 @@ export class MonitorJson extends pulumi.CustomResource {
     /**
      * The JSON formatted definition of the monitor.
      */
-    public readonly monitor!: pulumi.Output<string>;
+    declare public readonly monitor: pulumi.Output<string>;
     /**
      * The URL of the monitor.
      */
-    public readonly url!: pulumi.Output<string>;
+    declare public readonly url: pulumi.Output<string>;
 
     /**
      * Create a MonitorJson resource with the given unique name, arguments, and options.
@@ -96,15 +96,15 @@ export class MonitorJson extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MonitorJsonState | undefined;
-            resourceInputs["monitor"] = state ? state.monitor : undefined;
-            resourceInputs["url"] = state ? state.url : undefined;
+            resourceInputs["monitor"] = state?.monitor;
+            resourceInputs["url"] = state?.url;
         } else {
             const args = argsOrState as MonitorJsonArgs | undefined;
-            if ((!args || args.monitor === undefined) && !opts.urn) {
+            if (args?.monitor === undefined && !opts.urn) {
                 throw new Error("Missing required property 'monitor'");
             }
-            resourceInputs["monitor"] = args ? args.monitor : undefined;
-            resourceInputs["url"] = args ? args.url : undefined;
+            resourceInputs["monitor"] = args?.monitor;
+            resourceInputs["url"] = args?.url;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(MonitorJson.__pulumiType, name, resourceInputs, opts);

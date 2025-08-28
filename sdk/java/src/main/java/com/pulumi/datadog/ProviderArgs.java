@@ -33,24 +33,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`.
-     * Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value,
-     * while `https://api.datadoghq.com/api/` is not. And if you&#39;re working with &#34;EU&#34; version of Datadog, use
-     * `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`,
-     * `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/
-     * for all available regions.
+     * The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`. Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And if you&#39;re working with &#34;EU&#34; version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/ for all available regions.
      * 
      */
     @Import(name="apiUrl")
     private @Nullable Output<String> apiUrl;
 
     /**
-     * @return The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`.
-     * Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value,
-     * while `https://api.datadoghq.com/api/` is not. And if you&#39;re working with &#34;EU&#34; version of Datadog, use
-     * `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`,
-     * `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/
-     * for all available regions.
+     * @return The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`. Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And if you&#39;re working with &#34;EU&#34; version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/ for all available regions.
      * 
      */
     public Optional<Output<String>> apiUrl() {
@@ -73,16 +63,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID`
-     * environment variable. Required when using `cloud_provider_type` set to `aws`.
+     * The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloud_provider_type` set to `aws`.
      * 
      */
     @Import(name="awsAccessKeyId")
     private @Nullable Output<String> awsAccessKeyId;
 
     /**
-     * @return The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID`
-     * environment variable. Required when using `cloud_provider_type` set to `aws`.
+     * @return The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloud_provider_type` set to `aws`.
      * 
      */
     public Optional<Output<String>> awsAccessKeyId() {
@@ -90,16 +78,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the
-     * `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
+     * The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
      * 
      */
     @Import(name="awsSecretAccessKey")
     private @Nullable Output<String> awsSecretAccessKey;
 
     /**
-     * @return The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the
-     * `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
+     * @return The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
      * 
      */
     public Optional<Output<String>> awsSecretAccessKey() {
@@ -107,16 +93,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN`
-     * environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
+     * The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
      * 
      */
     @Import(name="awsSessionToken")
     private @Nullable Output<String> awsSessionToken;
 
     /**
-     * @return The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN`
-     * environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
+     * @return The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
      * 
      */
     public Optional<Output<String>> awsSessionToken() {
@@ -139,18 +123,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app
-     * keys. Only [`aws`] is supported. This feature is in Preview. If you&#39;d like to enable it for your organization, contact
-     * [support](https://docs.datadoghq.com/help/).
+     * Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you&#39;d like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
      * 
      */
     @Import(name="cloudProviderType")
     private @Nullable Output<String> cloudProviderType;
 
     /**
-     * @return Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app
-     * keys. Only [`aws`] is supported. This feature is in Preview. If you&#39;d like to enable it for your organization, contact
-     * [support](https://docs.datadoghq.com/help/).
+     * @return Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you&#39;d like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
      * 
      */
     public Optional<Output<String>> cloudProviderType() {
@@ -158,16 +138,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration
-     * block containing settings to apply default resource tags across all resources.
+     * [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
      * 
      */
     @Import(name="defaultTags", json=true)
     private @Nullable Output<ProviderDefaultTagsArgs> defaultTags;
 
     /**
-     * @return [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration
-     * block containing settings to apply default resource tags across all resources.
+     * @return [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
      * 
      */
     public Optional<Output<ProviderDefaultTagsArgs>> defaultTags() {
@@ -250,16 +228,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The organization UUID; used for cloud-provider-based authentication. See the [Datadog API
-     * documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+     * The organization UUID; used for cloud-provider-based authentication. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
      * 
      */
     @Import(name="orgUuid")
     private @Nullable Output<String> orgUuid;
 
     /**
-     * @return The organization UUID; used for cloud-provider-based authentication. See the [Datadog API
-     * documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+     * @return The organization UUID; used for cloud-provider-based authentication. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
      * 
      */
     public Optional<Output<String>> orgUuid() {
@@ -267,16 +243,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default
-     * is true. When false, api_key won&#39;t be checked.
+     * Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, api_key won&#39;t be checked.
      * 
      */
     @Import(name="validate")
     private @Nullable Output<String> validate;
 
     /**
-     * @return Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default
-     * is true. When false, api_key won&#39;t be checked.
+     * @return Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, api_key won&#39;t be checked.
      * 
      */
     public Optional<Output<String>> validate() {
@@ -344,12 +318,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiUrl The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`.
-         * Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value,
-         * while `https://api.datadoghq.com/api/` is not. And if you&#39;re working with &#34;EU&#34; version of Datadog, use
-         * `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`,
-         * `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/
-         * for all available regions.
+         * @param apiUrl The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`. Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And if you&#39;re working with &#34;EU&#34; version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/ for all available regions.
          * 
          * @return builder
          * 
@@ -360,12 +329,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiUrl The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`.
-         * Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value,
-         * while `https://api.datadoghq.com/api/` is not. And if you&#39;re working with &#34;EU&#34; version of Datadog, use
-         * `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`,
-         * `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/
-         * for all available regions.
+         * @param apiUrl The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`. Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And if you&#39;re working with &#34;EU&#34; version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/ for all available regions.
          * 
          * @return builder
          * 
@@ -396,8 +360,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param awsAccessKeyId The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID`
-         * environment variable. Required when using `cloud_provider_type` set to `aws`.
+         * @param awsAccessKeyId The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloud_provider_type` set to `aws`.
          * 
          * @return builder
          * 
@@ -408,8 +371,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param awsAccessKeyId The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID`
-         * environment variable. Required when using `cloud_provider_type` set to `aws`.
+         * @param awsAccessKeyId The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloud_provider_type` set to `aws`.
          * 
          * @return builder
          * 
@@ -419,8 +381,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param awsSecretAccessKey The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the
-         * `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
+         * @param awsSecretAccessKey The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
          * 
          * @return builder
          * 
@@ -431,8 +392,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param awsSecretAccessKey The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the
-         * `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
+         * @param awsSecretAccessKey The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
          * 
          * @return builder
          * 
@@ -442,8 +402,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param awsSessionToken The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN`
-         * environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
+         * @param awsSessionToken The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
          * 
          * @return builder
          * 
@@ -454,8 +413,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param awsSessionToken The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN`
-         * environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
+         * @param awsSessionToken The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
          * 
          * @return builder
          * 
@@ -486,9 +444,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cloudProviderType Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app
-         * keys. Only [`aws`] is supported. This feature is in Preview. If you&#39;d like to enable it for your organization, contact
-         * [support](https://docs.datadoghq.com/help/).
+         * @param cloudProviderType Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you&#39;d like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
          * 
          * @return builder
          * 
@@ -499,9 +455,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cloudProviderType Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app
-         * keys. Only [`aws`] is supported. This feature is in Preview. If you&#39;d like to enable it for your organization, contact
-         * [support](https://docs.datadoghq.com/help/).
+         * @param cloudProviderType Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you&#39;d like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
          * 
          * @return builder
          * 
@@ -511,8 +465,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultTags [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration
-         * block containing settings to apply default resource tags across all resources.
+         * @param defaultTags [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
          * 
          * @return builder
          * 
@@ -523,8 +476,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultTags [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration
-         * block containing settings to apply default resource tags across all resources.
+         * @param defaultTags [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
          * 
          * @return builder
          * 
@@ -639,8 +591,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param orgUuid The organization UUID; used for cloud-provider-based authentication. See the [Datadog API
-         * documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+         * @param orgUuid The organization UUID; used for cloud-provider-based authentication. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
          * 
          * @return builder
          * 
@@ -651,8 +602,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param orgUuid The organization UUID; used for cloud-provider-based authentication. See the [Datadog API
-         * documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+         * @param orgUuid The organization UUID; used for cloud-provider-based authentication. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
          * 
          * @return builder
          * 
@@ -662,8 +612,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param validate Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default
-         * is true. When false, api_key won&#39;t be checked.
+         * @param validate Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, api_key won&#39;t be checked.
          * 
          * @return builder
          * 
@@ -674,8 +623,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param validate Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default
-         * is true. When false, api_key won&#39;t be checked.
+         * @param validate Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, api_key won&#39;t be checked.
          * 
          * @return builder
          * 

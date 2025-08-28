@@ -21,12 +21,7 @@ Object.defineProperty(exports, "apiKey", {
 });
 
 /**
- * The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`.
- * Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value,
- * while `https://api.datadoghq.com/api/` is not. And if you're working with "EU" version of Datadog, use
- * `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`,
- * `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/
- * for all available regions.
+ * The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`. Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And if you're working with "EU" version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/ for all available regions.
  */
 export declare const apiUrl: string | undefined;
 Object.defineProperty(exports, "apiUrl", {
@@ -48,8 +43,7 @@ Object.defineProperty(exports, "appKey", {
 });
 
 /**
- * The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID`
- * environment variable. Required when using `cloudProviderType` set to `aws`.
+ * The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloudProviderType` set to `aws`.
  */
 export declare const awsAccessKeyId: string | undefined;
 Object.defineProperty(exports, "awsAccessKeyId", {
@@ -60,8 +54,7 @@ Object.defineProperty(exports, "awsAccessKeyId", {
 });
 
 /**
- * The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the
- * `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloudProviderType` set to `aws`.
+ * The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloudProviderType` set to `aws`.
  */
 export declare const awsSecretAccessKey: string | undefined;
 Object.defineProperty(exports, "awsSecretAccessKey", {
@@ -72,8 +65,7 @@ Object.defineProperty(exports, "awsSecretAccessKey", {
 });
 
 /**
- * The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN`
- * environment variable. Required when using `cloudProviderType` set to `aws` and using temporary credentials.
+ * The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloudProviderType` set to `aws` and using temporary credentials.
  */
 export declare const awsSessionToken: string | undefined;
 Object.defineProperty(exports, "awsSessionToken", {
@@ -95,9 +87,7 @@ Object.defineProperty(exports, "cloudProviderRegion", {
 });
 
 /**
- * Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app
- * keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact
- * [support](https://docs.datadoghq.com/help/).
+ * Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
  */
 export declare const cloudProviderType: string | undefined;
 Object.defineProperty(exports, "cloudProviderType", {
@@ -108,8 +98,7 @@ Object.defineProperty(exports, "cloudProviderType", {
 });
 
 /**
- * [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration
- * block containing settings to apply default resource tags across all resources.
+ * [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
  */
 export declare const defaultTags: outputs.config.DefaultTags | undefined;
 Object.defineProperty(exports, "defaultTags", {
@@ -175,8 +164,7 @@ Object.defineProperty(exports, "httpClientRetryTimeout", {
 });
 
 /**
- * The organization UUID; used for cloud-provider-based authentication. See the [Datadog API
- * documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+ * The organization UUID; used for cloud-provider-based authentication. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
  */
 export declare const orgUuid: string | undefined;
 Object.defineProperty(exports, "orgUuid", {
@@ -187,8 +175,7 @@ Object.defineProperty(exports, "orgUuid", {
 });
 
 /**
- * Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default
- * is true. When false, apiKey won't be checked.
+ * Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, apiKey won't be checked.
  */
 export declare const validate: string | undefined;
 Object.defineProperty(exports, "validate", {

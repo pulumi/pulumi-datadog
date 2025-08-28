@@ -63,19 +63,19 @@ export class IntegrationEventBridge extends pulumi.CustomResource {
     /**
      * Your AWS Account ID without dashes.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    declare public readonly accountId: pulumi.Output<string>;
     /**
      * True if Datadog should create the event bus in addition to the event source. Requires the `events:CreateEventBus` permission. Defaults to `true`.
      */
-    public readonly createEventBus!: pulumi.Output<boolean>;
+    declare public readonly createEventBus: pulumi.Output<boolean>;
     /**
      * The given part of the event source name, which is then combined with an assigned suffix to form the full name.
      */
-    public readonly eventGeneratorName!: pulumi.Output<string>;
+    declare public readonly eventGeneratorName: pulumi.Output<string>;
     /**
      * The event source's [AWS region](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints).
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a IntegrationEventBridge resource with the given unique name, arguments, and options.
@@ -90,25 +90,25 @@ export class IntegrationEventBridge extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationEventBridgeState | undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["createEventBus"] = state ? state.createEventBus : undefined;
-            resourceInputs["eventGeneratorName"] = state ? state.eventGeneratorName : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["accountId"] = state?.accountId;
+            resourceInputs["createEventBus"] = state?.createEventBus;
+            resourceInputs["eventGeneratorName"] = state?.eventGeneratorName;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as IntegrationEventBridgeArgs | undefined;
-            if ((!args || args.accountId === undefined) && !opts.urn) {
+            if (args?.accountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountId'");
             }
-            if ((!args || args.eventGeneratorName === undefined) && !opts.urn) {
+            if (args?.eventGeneratorName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventGeneratorName'");
             }
-            if ((!args || args.region === undefined) && !opts.urn) {
+            if (args?.region === undefined && !opts.urn) {
                 throw new Error("Missing required property 'region'");
             }
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["createEventBus"] = args ? args.createEventBus : undefined;
-            resourceInputs["eventGeneratorName"] = args ? args.eventGeneratorName : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["createEventBus"] = args?.createEventBus;
+            resourceInputs["eventGeneratorName"] = args?.eventGeneratorName;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IntegrationEventBridge.__pulumiType, name, resourceInputs, opts);

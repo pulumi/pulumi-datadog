@@ -66,27 +66,27 @@ export class SyntheticsPrivateLocation extends pulumi.CustomResource {
     /**
      * API key used to generate the private location configuration.
      */
-    public readonly apiKey!: pulumi.Output<string | undefined>;
+    declare public readonly apiKey: pulumi.Output<string | undefined>;
     /**
      * Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
      */
-    public /*out*/ readonly config!: pulumi.Output<string>;
+    declare public /*out*/ readonly config: pulumi.Output<string>;
     /**
      * Description of the private location. Defaults to `""`.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * The private location metadata
      */
-    public readonly metadata!: pulumi.Output<outputs.SyntheticsPrivateLocationMetadata | undefined>;
+    declare public readonly metadata: pulumi.Output<outputs.SyntheticsPrivateLocationMetadata | undefined>;
     /**
      * Synthetics private location name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A list of tags to associate with your synthetics private location.
      */
-    public readonly tags!: pulumi.Output<string[]>;
+    declare public readonly tags: pulumi.Output<string[]>;
 
     /**
      * Create a SyntheticsPrivateLocation resource with the given unique name, arguments, and options.
@@ -101,22 +101,22 @@ export class SyntheticsPrivateLocation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SyntheticsPrivateLocationState | undefined;
-            resourceInputs["apiKey"] = state ? state.apiKey : undefined;
-            resourceInputs["config"] = state ? state.config : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["metadata"] = state ? state.metadata : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["apiKey"] = state?.apiKey;
+            resourceInputs["config"] = state?.config;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["metadata"] = state?.metadata;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as SyntheticsPrivateLocationArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
             resourceInputs["apiKey"] = args?.apiKey ? pulumi.secret(args.apiKey) : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["config"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

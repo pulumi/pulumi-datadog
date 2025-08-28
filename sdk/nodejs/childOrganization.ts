@@ -50,31 +50,31 @@ export class ChildOrganization extends pulumi.CustomResource {
     /**
      * Datadog API key.
      */
-    public /*out*/ readonly apiKeys!: pulumi.Output<outputs.ChildOrganizationApiKey[]>;
+    declare public /*out*/ readonly apiKeys: pulumi.Output<outputs.ChildOrganizationApiKey[]>;
     /**
      * An application key with its associated metadata.
      */
-    public /*out*/ readonly applicationKeys!: pulumi.Output<outputs.ChildOrganizationApplicationKey[]>;
+    declare public /*out*/ readonly applicationKeys: pulumi.Output<outputs.ChildOrganizationApplicationKey[]>;
     /**
      * Description of the organization.
      */
-    public /*out*/ readonly description!: pulumi.Output<string>;
+    declare public /*out*/ readonly description: pulumi.Output<string>;
     /**
      * Name for Child Organization after creation.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The `publicId` of the organization you are operating within.
      */
-    public /*out*/ readonly publicId!: pulumi.Output<string>;
+    declare public /*out*/ readonly publicId: pulumi.Output<string>;
     /**
      * Organization settings
      */
-    public /*out*/ readonly settings!: pulumi.Output<outputs.ChildOrganizationSetting[]>;
+    declare public /*out*/ readonly settings: pulumi.Output<outputs.ChildOrganizationSetting[]>;
     /**
      * Information about a user
      */
-    public /*out*/ readonly users!: pulumi.Output<outputs.ChildOrganizationUser[]>;
+    declare public /*out*/ readonly users: pulumi.Output<outputs.ChildOrganizationUser[]>;
 
     /**
      * Create a ChildOrganization resource with the given unique name, arguments, and options.
@@ -89,19 +89,19 @@ export class ChildOrganization extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ChildOrganizationState | undefined;
-            resourceInputs["apiKeys"] = state ? state.apiKeys : undefined;
-            resourceInputs["applicationKeys"] = state ? state.applicationKeys : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["publicId"] = state ? state.publicId : undefined;
-            resourceInputs["settings"] = state ? state.settings : undefined;
-            resourceInputs["users"] = state ? state.users : undefined;
+            resourceInputs["apiKeys"] = state?.apiKeys;
+            resourceInputs["applicationKeys"] = state?.applicationKeys;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["publicId"] = state?.publicId;
+            resourceInputs["settings"] = state?.settings;
+            resourceInputs["users"] = state?.users;
         } else {
             const args = argsOrState as ChildOrganizationArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["name"] = args?.name;
             resourceInputs["apiKeys"] = undefined /*out*/;
             resourceInputs["applicationKeys"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

@@ -267,7 +267,7 @@ export class SoftwareCatalog extends pulumi.CustomResource {
     /**
      * The catalog entity definition. Entity must be a valid entity YAML/JSON structure.
      */
-    public readonly entity!: pulumi.Output<string>;
+    declare public readonly entity: pulumi.Output<string>;
 
     /**
      * Create a SoftwareCatalog resource with the given unique name, arguments, and options.
@@ -282,13 +282,13 @@ export class SoftwareCatalog extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SoftwareCatalogState | undefined;
-            resourceInputs["entity"] = state ? state.entity : undefined;
+            resourceInputs["entity"] = state?.entity;
         } else {
             const args = argsOrState as SoftwareCatalogArgs | undefined;
-            if ((!args || args.entity === undefined) && !opts.urn) {
+            if (args?.entity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'entity'");
             }
-            resourceInputs["entity"] = args ? args.entity : undefined;
+            resourceInputs["entity"] = args?.entity;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SoftwareCatalog.__pulumiType, name, resourceInputs, opts);

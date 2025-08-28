@@ -79,27 +79,27 @@ export class SensitiveDataScannerGroup extends pulumi.CustomResource {
     /**
      * Description of the Datadog scanning group.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Filter object the scanning group applies.
      */
-    public readonly filter!: pulumi.Output<outputs.SensitiveDataScannerGroupFilter>;
+    declare public readonly filter: pulumi.Output<outputs.SensitiveDataScannerGroupFilter>;
     /**
      * Whether or not the scanning group is enabled. If the group doesn't contain any rule or if all the rules in it are disabled, the group is force-disabled by our backend
      */
-    public readonly isEnabled!: pulumi.Output<boolean>;
+    declare public readonly isEnabled: pulumi.Output<boolean>;
     /**
      * Name of the Datadog scanning group.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * List of products the scanning group applies. Valid values are `logs`, `rum`, `events`, `apm`.
      */
-    public readonly productLists!: pulumi.Output<string[]>;
+    declare public readonly productLists: pulumi.Output<string[]>;
     /**
      * List of sampling configurations per product type for the scanning group.
      */
-    public readonly samplings!: pulumi.Output<outputs.SensitiveDataScannerGroupSampling[] | undefined>;
+    declare public readonly samplings: pulumi.Output<outputs.SensitiveDataScannerGroupSampling[] | undefined>;
 
     /**
      * Create a SensitiveDataScannerGroup resource with the given unique name, arguments, and options.
@@ -114,32 +114,32 @@ export class SensitiveDataScannerGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SensitiveDataScannerGroupState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["filter"] = state ? state.filter : undefined;
-            resourceInputs["isEnabled"] = state ? state.isEnabled : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["productLists"] = state ? state.productLists : undefined;
-            resourceInputs["samplings"] = state ? state.samplings : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["filter"] = state?.filter;
+            resourceInputs["isEnabled"] = state?.isEnabled;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["productLists"] = state?.productLists;
+            resourceInputs["samplings"] = state?.samplings;
         } else {
             const args = argsOrState as SensitiveDataScannerGroupArgs | undefined;
-            if ((!args || args.filter === undefined) && !opts.urn) {
+            if (args?.filter === undefined && !opts.urn) {
                 throw new Error("Missing required property 'filter'");
             }
-            if ((!args || args.isEnabled === undefined) && !opts.urn) {
+            if (args?.isEnabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'isEnabled'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.productLists === undefined) && !opts.urn) {
+            if (args?.productLists === undefined && !opts.urn) {
                 throw new Error("Missing required property 'productLists'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["filter"] = args ? args.filter : undefined;
-            resourceInputs["isEnabled"] = args ? args.isEnabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["productLists"] = args ? args.productLists : undefined;
-            resourceInputs["samplings"] = args ? args.samplings : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["filter"] = args?.filter;
+            resourceInputs["isEnabled"] = args?.isEnabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["productLists"] = args?.productLists;
+            resourceInputs["samplings"] = args?.samplings;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SensitiveDataScannerGroup.__pulumiType, name, resourceInputs, opts);

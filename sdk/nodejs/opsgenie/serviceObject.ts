@@ -56,16 +56,16 @@ export class ServiceObject extends pulumi.CustomResource {
     /**
      * The custom url for a custom region.
      */
-    public readonly customUrl!: pulumi.Output<string | undefined>;
+    declare public readonly customUrl: pulumi.Output<string | undefined>;
     /**
      * The name for the Opsgenie service.
      */
-    public readonly name!: pulumi.Output<string>;
-    public readonly opsgenieApiKey!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
+    declare public readonly opsgenieApiKey: pulumi.Output<string>;
     /**
      * The region for the Opsgenie service. Valid values are `us`, `eu`, `custom`.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a ServiceObject resource with the given unique name, arguments, and options.
@@ -80,25 +80,25 @@ export class ServiceObject extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceObjectState | undefined;
-            resourceInputs["customUrl"] = state ? state.customUrl : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["opsgenieApiKey"] = state ? state.opsgenieApiKey : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["customUrl"] = state?.customUrl;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["opsgenieApiKey"] = state?.opsgenieApiKey;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as ServiceObjectArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.opsgenieApiKey === undefined) && !opts.urn) {
+            if (args?.opsgenieApiKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'opsgenieApiKey'");
             }
-            if ((!args || args.region === undefined) && !opts.urn) {
+            if (args?.region === undefined && !opts.urn) {
                 throw new Error("Missing required property 'region'");
             }
-            resourceInputs["customUrl"] = args ? args.customUrl : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["customUrl"] = args?.customUrl;
+            resourceInputs["name"] = args?.name;
             resourceInputs["opsgenieApiKey"] = args?.opsgenieApiKey ? pulumi.secret(args.opsgenieApiKey) : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["opsgenieApiKey"] };

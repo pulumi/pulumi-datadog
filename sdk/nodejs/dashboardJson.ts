@@ -540,16 +540,16 @@ export class DashboardJson extends pulumi.CustomResource {
     /**
      * The JSON formatted definition of the Dashboard.
      */
-    public readonly dashboard!: pulumi.Output<string>;
-    public readonly dashboardLists!: pulumi.Output<number[] | undefined>;
+    declare public readonly dashboard: pulumi.Output<string>;
+    declare public readonly dashboardLists: pulumi.Output<number[] | undefined>;
     /**
      * The list of dashboard lists this dashboard should be removed from. Internal only.
      */
-    public /*out*/ readonly dashboardListsRemoveds!: pulumi.Output<number[]>;
+    declare public /*out*/ readonly dashboardListsRemoveds: pulumi.Output<number[]>;
     /**
      * The URL of the dashboard.
      */
-    public readonly url!: pulumi.Output<string>;
+    declare public readonly url: pulumi.Output<string>;
 
     /**
      * Create a DashboardJson resource with the given unique name, arguments, and options.
@@ -564,18 +564,18 @@ export class DashboardJson extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DashboardJsonState | undefined;
-            resourceInputs["dashboard"] = state ? state.dashboard : undefined;
-            resourceInputs["dashboardLists"] = state ? state.dashboardLists : undefined;
-            resourceInputs["dashboardListsRemoveds"] = state ? state.dashboardListsRemoveds : undefined;
-            resourceInputs["url"] = state ? state.url : undefined;
+            resourceInputs["dashboard"] = state?.dashboard;
+            resourceInputs["dashboardLists"] = state?.dashboardLists;
+            resourceInputs["dashboardListsRemoveds"] = state?.dashboardListsRemoveds;
+            resourceInputs["url"] = state?.url;
         } else {
             const args = argsOrState as DashboardJsonArgs | undefined;
-            if ((!args || args.dashboard === undefined) && !opts.urn) {
+            if (args?.dashboard === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dashboard'");
             }
-            resourceInputs["dashboard"] = args ? args.dashboard : undefined;
-            resourceInputs["dashboardLists"] = args ? args.dashboardLists : undefined;
-            resourceInputs["url"] = args ? args.url : undefined;
+            resourceInputs["dashboard"] = args?.dashboard;
+            resourceInputs["dashboardLists"] = args?.dashboardLists;
+            resourceInputs["url"] = args?.url;
             resourceInputs["dashboardListsRemoveds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

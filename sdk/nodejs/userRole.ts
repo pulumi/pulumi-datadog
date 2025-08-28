@@ -68,11 +68,11 @@ export class UserRole extends pulumi.CustomResource {
     /**
      * ID of the role that the user is assigned to.
      */
-    public readonly roleId!: pulumi.Output<string>;
+    declare public readonly roleId: pulumi.Output<string>;
     /**
      * The ID of the user.
      */
-    public readonly userId!: pulumi.Output<string>;
+    declare public readonly userId: pulumi.Output<string>;
 
     /**
      * Create a UserRole resource with the given unique name, arguments, and options.
@@ -87,18 +87,18 @@ export class UserRole extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserRoleState | undefined;
-            resourceInputs["roleId"] = state ? state.roleId : undefined;
-            resourceInputs["userId"] = state ? state.userId : undefined;
+            resourceInputs["roleId"] = state?.roleId;
+            resourceInputs["userId"] = state?.userId;
         } else {
             const args = argsOrState as UserRoleArgs | undefined;
-            if ((!args || args.roleId === undefined) && !opts.urn) {
+            if (args?.roleId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleId'");
             }
-            if ((!args || args.userId === undefined) && !opts.urn) {
+            if (args?.userId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userId'");
             }
-            resourceInputs["roleId"] = args ? args.roleId : undefined;
-            resourceInputs["userId"] = args ? args.userId : undefined;
+            resourceInputs["roleId"] = args?.roleId;
+            resourceInputs["userId"] = args?.userId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(UserRole.__pulumiType, name, resourceInputs, opts);

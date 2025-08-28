@@ -48,51 +48,51 @@ export class SensitiveDataScannerRule extends pulumi.CustomResource {
     /**
      * Description of the rule.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Attributes excluded from the scan. If namespaces is provided, it has to be a sub-path of the namespaces array.
      */
-    public readonly excludedNamespaces!: pulumi.Output<string[] | undefined>;
+    declare public readonly excludedNamespaces: pulumi.Output<string[] | undefined>;
     /**
      * Id of the scanning group the rule belongs to.
      */
-    public readonly groupId!: pulumi.Output<string>;
+    declare public readonly groupId: pulumi.Output<string>;
     /**
      * Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. If the rule has the `standardPatternId` field, then discarding this field will apply the recommended keywords. Setting the `createBeforeDestroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
      */
-    public readonly includedKeywordConfiguration!: pulumi.Output<outputs.SensitiveDataScannerRuleIncludedKeywordConfiguration | undefined>;
+    declare public readonly includedKeywordConfiguration: pulumi.Output<outputs.SensitiveDataScannerRuleIncludedKeywordConfiguration | undefined>;
     /**
      * Whether or not the rule is enabled.
      */
-    public readonly isEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly isEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Name of the rule.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * Attributes included in the scan. If namespaces is empty or missing, all attributes except excludedNamespaces are scanned. If both are missing the whole event is scanned.
      */
-    public readonly namespaces!: pulumi.Output<string[] | undefined>;
+    declare public readonly namespaces: pulumi.Output<string[] | undefined>;
     /**
      * Not included if there is a relationship to a standard pattern.
      */
-    public readonly pattern!: pulumi.Output<string | undefined>;
+    declare public readonly pattern: pulumi.Output<string | undefined>;
     /**
      * Priority level of the rule (optional). Used to order sensitive data discovered in the sds summary page. It must be between 1 and 5 (1 being the most important).
      */
-    public readonly priority!: pulumi.Output<number>;
+    declare public readonly priority: pulumi.Output<number>;
     /**
      * Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.
      */
-    public readonly standardPatternId!: pulumi.Output<string | undefined>;
+    declare public readonly standardPatternId: pulumi.Output<string | undefined>;
     /**
      * List of tags.
      */
-    public readonly tags!: pulumi.Output<string[] | undefined>;
+    declare public readonly tags: pulumi.Output<string[] | undefined>;
     /**
      * Object describing how the scanned event will be replaced. Defaults to `type: none`
      */
-    public readonly textReplacement!: pulumi.Output<outputs.SensitiveDataScannerRuleTextReplacement | undefined>;
+    declare public readonly textReplacement: pulumi.Output<outputs.SensitiveDataScannerRuleTextReplacement | undefined>;
 
     /**
      * Create a SensitiveDataScannerRule resource with the given unique name, arguments, and options.
@@ -107,35 +107,35 @@ export class SensitiveDataScannerRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SensitiveDataScannerRuleState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["excludedNamespaces"] = state ? state.excludedNamespaces : undefined;
-            resourceInputs["groupId"] = state ? state.groupId : undefined;
-            resourceInputs["includedKeywordConfiguration"] = state ? state.includedKeywordConfiguration : undefined;
-            resourceInputs["isEnabled"] = state ? state.isEnabled : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["namespaces"] = state ? state.namespaces : undefined;
-            resourceInputs["pattern"] = state ? state.pattern : undefined;
-            resourceInputs["priority"] = state ? state.priority : undefined;
-            resourceInputs["standardPatternId"] = state ? state.standardPatternId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["textReplacement"] = state ? state.textReplacement : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["excludedNamespaces"] = state?.excludedNamespaces;
+            resourceInputs["groupId"] = state?.groupId;
+            resourceInputs["includedKeywordConfiguration"] = state?.includedKeywordConfiguration;
+            resourceInputs["isEnabled"] = state?.isEnabled;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["namespaces"] = state?.namespaces;
+            resourceInputs["pattern"] = state?.pattern;
+            resourceInputs["priority"] = state?.priority;
+            resourceInputs["standardPatternId"] = state?.standardPatternId;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["textReplacement"] = state?.textReplacement;
         } else {
             const args = argsOrState as SensitiveDataScannerRuleArgs | undefined;
-            if ((!args || args.groupId === undefined) && !opts.urn) {
+            if (args?.groupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupId'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["excludedNamespaces"] = args ? args.excludedNamespaces : undefined;
-            resourceInputs["groupId"] = args ? args.groupId : undefined;
-            resourceInputs["includedKeywordConfiguration"] = args ? args.includedKeywordConfiguration : undefined;
-            resourceInputs["isEnabled"] = args ? args.isEnabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["namespaces"] = args ? args.namespaces : undefined;
-            resourceInputs["pattern"] = args ? args.pattern : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["standardPatternId"] = args ? args.standardPatternId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["textReplacement"] = args ? args.textReplacement : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["excludedNamespaces"] = args?.excludedNamespaces;
+            resourceInputs["groupId"] = args?.groupId;
+            resourceInputs["includedKeywordConfiguration"] = args?.includedKeywordConfiguration;
+            resourceInputs["isEnabled"] = args?.isEnabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["namespaces"] = args?.namespaces;
+            resourceInputs["pattern"] = args?.pattern;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["standardPatternId"] = args?.standardPatternId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["textReplacement"] = args?.textReplacement;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SensitiveDataScannerRule.__pulumiType, name, resourceInputs, opts);

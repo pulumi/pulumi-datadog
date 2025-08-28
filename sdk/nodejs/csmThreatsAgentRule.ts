@@ -56,31 +56,31 @@ export class CsmThreatsAgentRule extends pulumi.CustomResource {
     /**
      * The list of actions the rule can perform
      */
-    public readonly actions!: pulumi.Output<outputs.CsmThreatsAgentRuleAction[] | undefined>;
+    declare public readonly actions: pulumi.Output<outputs.CsmThreatsAgentRuleAction[] | undefined>;
     /**
      * A description for the Agent rule.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * Indicates whether the Agent rule is enabled. Must not be used without policy_id.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * The SECL expression of the Agent rule
      */
-    public readonly expression!: pulumi.Output<string>;
+    declare public readonly expression: pulumi.Output<string>;
     /**
      * The name of the Agent rule.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the agent policy in which the rule is saved
      */
-    public readonly policyId!: pulumi.Output<string | undefined>;
+    declare public readonly policyId: pulumi.Output<string | undefined>;
     /**
      * The list of product tags associated with the rule
      */
-    public readonly productTags!: pulumi.Output<string[]>;
+    declare public readonly productTags: pulumi.Output<string[]>;
 
     /**
      * Create a CsmThreatsAgentRule resource with the given unique name, arguments, and options.
@@ -95,28 +95,28 @@ export class CsmThreatsAgentRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CsmThreatsAgentRuleState | undefined;
-            resourceInputs["actions"] = state ? state.actions : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["expression"] = state ? state.expression : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["policyId"] = state ? state.policyId : undefined;
-            resourceInputs["productTags"] = state ? state.productTags : undefined;
+            resourceInputs["actions"] = state?.actions;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["expression"] = state?.expression;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["policyId"] = state?.policyId;
+            resourceInputs["productTags"] = state?.productTags;
         } else {
             const args = argsOrState as CsmThreatsAgentRuleArgs | undefined;
-            if ((!args || args.expression === undefined) && !opts.urn) {
+            if (args?.expression === undefined && !opts.urn) {
                 throw new Error("Missing required property 'expression'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["actions"] = args ? args.actions : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["expression"] = args ? args.expression : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["policyId"] = args ? args.policyId : undefined;
-            resourceInputs["productTags"] = args ? args.productTags : undefined;
+            resourceInputs["actions"] = args?.actions;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["expression"] = args?.expression;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["policyId"] = args?.policyId;
+            resourceInputs["productTags"] = args?.productTags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CsmThreatsAgentRule.__pulumiType, name, resourceInputs, opts);

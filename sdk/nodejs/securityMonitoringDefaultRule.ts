@@ -69,39 +69,39 @@ export class SecurityMonitoringDefaultRule extends pulumi.CustomResource {
     /**
      * Cases of the rule, this is used to update notifications.
      */
-    public readonly cases!: pulumi.Output<outputs.SecurityMonitoringDefaultRuleCase[] | undefined>;
+    declare public readonly cases: pulumi.Output<outputs.SecurityMonitoringDefaultRuleCase[] | undefined>;
     /**
      * Custom Message (will override default message) for generated signals.
      */
-    public readonly customMessage!: pulumi.Output<string | undefined>;
+    declare public readonly customMessage: pulumi.Output<string | undefined>;
     /**
      * The name (will override default name) of the rule.
      */
-    public readonly customName!: pulumi.Output<string | undefined>;
+    declare public readonly customName: pulumi.Output<string | undefined>;
     /**
      * Custom tags for generated signals.
      */
-    public readonly customTags!: pulumi.Output<string[] | undefined>;
+    declare public readonly customTags: pulumi.Output<string[] | undefined>;
     /**
      * Enable the rule. Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Additional queries to filter matched events before they are processed.
      */
-    public readonly filters!: pulumi.Output<outputs.SecurityMonitoringDefaultRuleFilter[] | undefined>;
+    declare public readonly filters: pulumi.Output<outputs.SecurityMonitoringDefaultRuleFilter[] | undefined>;
     /**
      * Options on default rules. Note that only a subset of fields can be updated on default rule options.
      */
-    public readonly options!: pulumi.Output<outputs.SecurityMonitoringDefaultRuleOptions>;
+    declare public readonly options: pulumi.Output<outputs.SecurityMonitoringDefaultRuleOptions>;
     /**
      * Queries for selecting logs which are part of the rule.
      */
-    public readonly queries!: pulumi.Output<outputs.SecurityMonitoringDefaultRuleQuery[] | undefined>;
+    declare public readonly queries: pulumi.Output<outputs.SecurityMonitoringDefaultRuleQuery[] | undefined>;
     /**
      * The rule type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a SecurityMonitoringDefaultRule resource with the given unique name, arguments, and options.
@@ -116,25 +116,25 @@ export class SecurityMonitoringDefaultRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecurityMonitoringDefaultRuleState | undefined;
-            resourceInputs["cases"] = state ? state.cases : undefined;
-            resourceInputs["customMessage"] = state ? state.customMessage : undefined;
-            resourceInputs["customName"] = state ? state.customName : undefined;
-            resourceInputs["customTags"] = state ? state.customTags : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["filters"] = state ? state.filters : undefined;
-            resourceInputs["options"] = state ? state.options : undefined;
-            resourceInputs["queries"] = state ? state.queries : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["cases"] = state?.cases;
+            resourceInputs["customMessage"] = state?.customMessage;
+            resourceInputs["customName"] = state?.customName;
+            resourceInputs["customTags"] = state?.customTags;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["filters"] = state?.filters;
+            resourceInputs["options"] = state?.options;
+            resourceInputs["queries"] = state?.queries;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as SecurityMonitoringDefaultRuleArgs | undefined;
-            resourceInputs["cases"] = args ? args.cases : undefined;
-            resourceInputs["customMessage"] = args ? args.customMessage : undefined;
-            resourceInputs["customName"] = args ? args.customName : undefined;
-            resourceInputs["customTags"] = args ? args.customTags : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["filters"] = args ? args.filters : undefined;
-            resourceInputs["options"] = args ? args.options : undefined;
-            resourceInputs["queries"] = args ? args.queries : undefined;
+            resourceInputs["cases"] = args?.cases;
+            resourceInputs["customMessage"] = args?.customMessage;
+            resourceInputs["customName"] = args?.customName;
+            resourceInputs["customTags"] = args?.customTags;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["filters"] = args?.filters;
+            resourceInputs["options"] = args?.options;
+            resourceInputs["queries"] = args?.queries;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -50,7 +50,7 @@ export class ApmRetentionFilterOrder extends pulumi.CustomResource {
     /**
      * The filter IDs list. The order of filters IDs in this attribute defines the overall APM retention filters order.
      */
-    public readonly filterIds!: pulumi.Output<string[]>;
+    declare public readonly filterIds: pulumi.Output<string[]>;
 
     /**
      * Create a ApmRetentionFilterOrder resource with the given unique name, arguments, and options.
@@ -65,13 +65,13 @@ export class ApmRetentionFilterOrder extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApmRetentionFilterOrderState | undefined;
-            resourceInputs["filterIds"] = state ? state.filterIds : undefined;
+            resourceInputs["filterIds"] = state?.filterIds;
         } else {
             const args = argsOrState as ApmRetentionFilterOrderArgs | undefined;
-            if ((!args || args.filterIds === undefined) && !opts.urn) {
+            if (args?.filterIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'filterIds'");
             }
-            resourceInputs["filterIds"] = args ? args.filterIds : undefined;
+            resourceInputs["filterIds"] = args?.filterIds;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ApmRetentionFilterOrder.__pulumiType, name, resourceInputs, opts);

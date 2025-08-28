@@ -20,37 +20,25 @@ type Provider struct {
 
 	// (Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.
 	ApiKey pulumi.StringPtrOutput `pulumi:"apiKey"`
-	// The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`.
-	// Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value,
-	// while `https://api.datadoghq.com/api/` is not. And if you're working with "EU" version of Datadog, use
-	// `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`,
-	// `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/
-	// for all available regions.
+	// The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`. Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And if you're working with "EU" version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/ for all available regions.
 	ApiUrl pulumi.StringPtrOutput `pulumi:"apiUrl"`
 	// (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
 	AppKey pulumi.StringPtrOutput `pulumi:"appKey"`
-	// The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID`
-	// environment variable. Required when using `cloudProviderType` set to `aws`.
+	// The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloudProviderType` set to `aws`.
 	AwsAccessKeyId pulumi.StringPtrOutput `pulumi:"awsAccessKeyId"`
-	// The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the
-	// `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloudProviderType` set to `aws`.
+	// The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloudProviderType` set to `aws`.
 	AwsSecretAccessKey pulumi.StringPtrOutput `pulumi:"awsSecretAccessKey"`
-	// The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN`
-	// environment variable. Required when using `cloudProviderType` set to `aws` and using temporary credentials.
+	// The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloudProviderType` set to `aws` and using temporary credentials.
 	AwsSessionToken pulumi.StringPtrOutput `pulumi:"awsSessionToken"`
 	// The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
 	CloudProviderRegion pulumi.StringPtrOutput `pulumi:"cloudProviderRegion"`
-	// Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app
-	// keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact
-	// [support](https://docs.datadoghq.com/help/).
+	// Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
 	CloudProviderType pulumi.StringPtrOutput `pulumi:"cloudProviderType"`
 	// Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
 	HttpClientRetryEnabled pulumi.StringPtrOutput `pulumi:"httpClientRetryEnabled"`
-	// The organization UUID; used for cloud-provider-based authentication. See the [Datadog API
-	// documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+	// The organization UUID; used for cloud-provider-based authentication. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
 	OrgUuid pulumi.StringPtrOutput `pulumi:"orgUuid"`
-	// Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default
-	// is true. When false, apiKey won't be checked.
+	// Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, apiKey won't be checked.
 	Validate pulumi.StringPtrOutput `pulumi:"validate"`
 }
 
@@ -96,32 +84,21 @@ func NewProvider(ctx *pulumi.Context,
 type providerArgs struct {
 	// (Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.
 	ApiKey *string `pulumi:"apiKey"`
-	// The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`.
-	// Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value,
-	// while `https://api.datadoghq.com/api/` is not. And if you're working with "EU" version of Datadog, use
-	// `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`,
-	// `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/
-	// for all available regions.
+	// The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`. Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And if you're working with "EU" version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/ for all available regions.
 	ApiUrl *string `pulumi:"apiUrl"`
 	// (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
 	AppKey *string `pulumi:"appKey"`
-	// The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID`
-	// environment variable. Required when using `cloudProviderType` set to `aws`.
+	// The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloudProviderType` set to `aws`.
 	AwsAccessKeyId *string `pulumi:"awsAccessKeyId"`
-	// The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the
-	// `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloudProviderType` set to `aws`.
+	// The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloudProviderType` set to `aws`.
 	AwsSecretAccessKey *string `pulumi:"awsSecretAccessKey"`
-	// The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN`
-	// environment variable. Required when using `cloudProviderType` set to `aws` and using temporary credentials.
+	// The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloudProviderType` set to `aws` and using temporary credentials.
 	AwsSessionToken *string `pulumi:"awsSessionToken"`
 	// The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
 	CloudProviderRegion *string `pulumi:"cloudProviderRegion"`
-	// Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app
-	// keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact
-	// [support](https://docs.datadoghq.com/help/).
+	// Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
 	CloudProviderType *string `pulumi:"cloudProviderType"`
-	// [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration
-	// block containing settings to apply default resource tags across all resources.
+	// [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
 	DefaultTags *ProviderDefaultTags `pulumi:"defaultTags"`
 	// The HTTP request retry back off base. Defaults to 2.
 	HttpClientRetryBackoffBase *int `pulumi:"httpClientRetryBackoffBase"`
@@ -133,11 +110,9 @@ type providerArgs struct {
 	HttpClientRetryMaxRetries *int `pulumi:"httpClientRetryMaxRetries"`
 	// The HTTP request retry timeout period. Defaults to 60 seconds.
 	HttpClientRetryTimeout *int `pulumi:"httpClientRetryTimeout"`
-	// The organization UUID; used for cloud-provider-based authentication. See the [Datadog API
-	// documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+	// The organization UUID; used for cloud-provider-based authentication. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
 	OrgUuid *string `pulumi:"orgUuid"`
-	// Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default
-	// is true. When false, apiKey won't be checked.
+	// Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, apiKey won't be checked.
 	Validate *string `pulumi:"validate"`
 }
 
@@ -145,32 +120,21 @@ type providerArgs struct {
 type ProviderArgs struct {
 	// (Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.
 	ApiKey pulumi.StringPtrInput
-	// The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`.
-	// Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value,
-	// while `https://api.datadoghq.com/api/` is not. And if you're working with "EU" version of Datadog, use
-	// `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`,
-	// `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/
-	// for all available regions.
+	// The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`. Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And if you're working with "EU" version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/ for all available regions.
 	ApiUrl pulumi.StringPtrInput
 	// (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
 	AppKey pulumi.StringPtrInput
-	// The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID`
-	// environment variable. Required when using `cloudProviderType` set to `aws`.
+	// The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloudProviderType` set to `aws`.
 	AwsAccessKeyId pulumi.StringPtrInput
-	// The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the
-	// `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloudProviderType` set to `aws`.
+	// The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloudProviderType` set to `aws`.
 	AwsSecretAccessKey pulumi.StringPtrInput
-	// The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN`
-	// environment variable. Required when using `cloudProviderType` set to `aws` and using temporary credentials.
+	// The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloudProviderType` set to `aws` and using temporary credentials.
 	AwsSessionToken pulumi.StringPtrInput
 	// The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
 	CloudProviderRegion pulumi.StringPtrInput
-	// Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app
-	// keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact
-	// [support](https://docs.datadoghq.com/help/).
+	// Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
 	CloudProviderType pulumi.StringPtrInput
-	// [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration
-	// block containing settings to apply default resource tags across all resources.
+	// [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
 	DefaultTags ProviderDefaultTagsPtrInput
 	// The HTTP request retry back off base. Defaults to 2.
 	HttpClientRetryBackoffBase pulumi.IntPtrInput
@@ -182,11 +146,9 @@ type ProviderArgs struct {
 	HttpClientRetryMaxRetries pulumi.IntPtrInput
 	// The HTTP request retry timeout period. Defaults to 60 seconds.
 	HttpClientRetryTimeout pulumi.IntPtrInput
-	// The organization UUID; used for cloud-provider-based authentication. See the [Datadog API
-	// documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+	// The organization UUID; used for cloud-provider-based authentication. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
 	OrgUuid pulumi.StringPtrInput
-	// Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default
-	// is true. When false, apiKey won't be checked.
+	// Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, apiKey won't be checked.
 	Validate pulumi.StringPtrInput
 }
 
@@ -255,12 +217,7 @@ func (o ProviderOutput) ApiKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ApiKey }).(pulumi.StringPtrOutput)
 }
 
-// The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`.
-// Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value,
-// while `https://api.datadoghq.com/api/` is not. And if you're working with "EU" version of Datadog, use
-// `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`,
-// `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/
-// for all available regions.
+// The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`. Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And if you're working with "EU" version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/ for all available regions.
 func (o ProviderOutput) ApiUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ApiUrl }).(pulumi.StringPtrOutput)
 }
@@ -270,20 +227,17 @@ func (o ProviderOutput) AppKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.AppKey }).(pulumi.StringPtrOutput)
 }
 
-// The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID`
-// environment variable. Required when using `cloudProviderType` set to `aws`.
+// The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloudProviderType` set to `aws`.
 func (o ProviderOutput) AwsAccessKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.AwsAccessKeyId }).(pulumi.StringPtrOutput)
 }
 
-// The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the
-// `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloudProviderType` set to `aws`.
+// The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloudProviderType` set to `aws`.
 func (o ProviderOutput) AwsSecretAccessKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.AwsSecretAccessKey }).(pulumi.StringPtrOutput)
 }
 
-// The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN`
-// environment variable. Required when using `cloudProviderType` set to `aws` and using temporary credentials.
+// The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloudProviderType` set to `aws` and using temporary credentials.
 func (o ProviderOutput) AwsSessionToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.AwsSessionToken }).(pulumi.StringPtrOutput)
 }
@@ -293,9 +247,7 @@ func (o ProviderOutput) CloudProviderRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.CloudProviderRegion }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app
-// keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact
-// [support](https://docs.datadoghq.com/help/).
+// Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
 func (o ProviderOutput) CloudProviderType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.CloudProviderType }).(pulumi.StringPtrOutput)
 }
@@ -305,14 +257,12 @@ func (o ProviderOutput) HttpClientRetryEnabled() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.HttpClientRetryEnabled }).(pulumi.StringPtrOutput)
 }
 
-// The organization UUID; used for cloud-provider-based authentication. See the [Datadog API
-// documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+// The organization UUID; used for cloud-provider-based authentication. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
 func (o ProviderOutput) OrgUuid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.OrgUuid }).(pulumi.StringPtrOutput)
 }
 
-// Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default
-// is true. When false, apiKey won't be checked.
+// Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, apiKey won't be checked.
 func (o ProviderOutput) Validate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Validate }).(pulumi.StringPtrOutput)
 }

@@ -87,35 +87,35 @@ export class SloCorrection extends pulumi.CustomResource {
     /**
      * Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
      */
-    public readonly category!: pulumi.Output<string>;
+    declare public readonly category: pulumi.Output<string>;
     /**
      * Description of the correction being made.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Length of time in seconds for a specified `rrule` recurring SLO correction (required if specifying `rrule`)
      */
-    public readonly duration!: pulumi.Output<number | undefined>;
+    declare public readonly duration: pulumi.Output<number | undefined>;
     /**
      * Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified
      */
-    public readonly end!: pulumi.Output<number | undefined>;
+    declare public readonly end: pulumi.Output<number | undefined>;
     /**
      * Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
      */
-    public readonly rrule!: pulumi.Output<string | undefined>;
+    declare public readonly rrule: pulumi.Output<string | undefined>;
     /**
      * ID of the SLO that this correction will be applied to.
      */
-    public readonly sloId!: pulumi.Output<string>;
+    declare public readonly sloId: pulumi.Output<string>;
     /**
      * Starting time of the correction in epoch seconds.
      */
-    public readonly start!: pulumi.Output<number>;
+    declare public readonly start: pulumi.Output<number>;
     /**
      * The timezone to display in the UI for the correction times (defaults to "UTC")
      */
-    public readonly timezone!: pulumi.Output<string | undefined>;
+    declare public readonly timezone: pulumi.Output<string | undefined>;
 
     /**
      * Create a SloCorrection resource with the given unique name, arguments, and options.
@@ -130,33 +130,33 @@ export class SloCorrection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SloCorrectionState | undefined;
-            resourceInputs["category"] = state ? state.category : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["duration"] = state ? state.duration : undefined;
-            resourceInputs["end"] = state ? state.end : undefined;
-            resourceInputs["rrule"] = state ? state.rrule : undefined;
-            resourceInputs["sloId"] = state ? state.sloId : undefined;
-            resourceInputs["start"] = state ? state.start : undefined;
-            resourceInputs["timezone"] = state ? state.timezone : undefined;
+            resourceInputs["category"] = state?.category;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["duration"] = state?.duration;
+            resourceInputs["end"] = state?.end;
+            resourceInputs["rrule"] = state?.rrule;
+            resourceInputs["sloId"] = state?.sloId;
+            resourceInputs["start"] = state?.start;
+            resourceInputs["timezone"] = state?.timezone;
         } else {
             const args = argsOrState as SloCorrectionArgs | undefined;
-            if ((!args || args.category === undefined) && !opts.urn) {
+            if (args?.category === undefined && !opts.urn) {
                 throw new Error("Missing required property 'category'");
             }
-            if ((!args || args.sloId === undefined) && !opts.urn) {
+            if (args?.sloId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sloId'");
             }
-            if ((!args || args.start === undefined) && !opts.urn) {
+            if (args?.start === undefined && !opts.urn) {
                 throw new Error("Missing required property 'start'");
             }
-            resourceInputs["category"] = args ? args.category : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["duration"] = args ? args.duration : undefined;
-            resourceInputs["end"] = args ? args.end : undefined;
-            resourceInputs["rrule"] = args ? args.rrule : undefined;
-            resourceInputs["sloId"] = args ? args.sloId : undefined;
-            resourceInputs["start"] = args ? args.start : undefined;
-            resourceInputs["timezone"] = args ? args.timezone : undefined;
+            resourceInputs["category"] = args?.category;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["duration"] = args?.duration;
+            resourceInputs["end"] = args?.end;
+            resourceInputs["rrule"] = args?.rrule;
+            resourceInputs["sloId"] = args?.sloId;
+            resourceInputs["start"] = args?.start;
+            resourceInputs["timezone"] = args?.timezone;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SloCorrection.__pulumiType, name, resourceInputs, opts);

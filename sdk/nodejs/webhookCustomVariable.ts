@@ -60,15 +60,15 @@ export class WebhookCustomVariable extends pulumi.CustomResource {
     /**
      * Whether the custom variable is secret or not.
      */
-    public readonly isSecret!: pulumi.Output<boolean>;
+    declare public readonly isSecret: pulumi.Output<boolean>;
     /**
      * The name of the variable. It corresponds with `<CUSTOM_VARIABLE_NAME>`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The value of the custom variable.
      */
-    public readonly value!: pulumi.Output<string>;
+    declare public readonly value: pulumi.Output<string>;
 
     /**
      * Create a WebhookCustomVariable resource with the given unique name, arguments, and options.
@@ -83,22 +83,22 @@ export class WebhookCustomVariable extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WebhookCustomVariableState | undefined;
-            resourceInputs["isSecret"] = state ? state.isSecret : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["value"] = state ? state.value : undefined;
+            resourceInputs["isSecret"] = state?.isSecret;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["value"] = state?.value;
         } else {
             const args = argsOrState as WebhookCustomVariableArgs | undefined;
-            if ((!args || args.isSecret === undefined) && !opts.urn) {
+            if (args?.isSecret === undefined && !opts.urn) {
                 throw new Error("Missing required property 'isSecret'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.value === undefined) && !opts.urn) {
+            if (args?.value === undefined && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
-            resourceInputs["isSecret"] = args ? args.isSecret : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["isSecret"] = args?.isSecret;
+            resourceInputs["name"] = args?.name;
             resourceInputs["value"] = args?.value ? pulumi.secret(args.value) : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

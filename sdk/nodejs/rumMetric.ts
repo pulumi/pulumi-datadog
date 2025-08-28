@@ -45,18 +45,18 @@ export class RumMetric extends pulumi.CustomResource {
         return obj['__pulumiType'] === RumMetric.__pulumiType;
     }
 
-    public readonly compute!: pulumi.Output<outputs.RumMetricCompute | undefined>;
+    declare public readonly compute: pulumi.Output<outputs.RumMetricCompute | undefined>;
     /**
      * The type of RUM events to filter on.
      */
-    public readonly eventType!: pulumi.Output<string>;
-    public readonly filter!: pulumi.Output<outputs.RumMetricFilter | undefined>;
-    public readonly groupBies!: pulumi.Output<outputs.RumMetricGroupBy[] | undefined>;
+    declare public readonly eventType: pulumi.Output<string>;
+    declare public readonly filter: pulumi.Output<outputs.RumMetricFilter | undefined>;
+    declare public readonly groupBies: pulumi.Output<outputs.RumMetricGroupBy[] | undefined>;
     /**
      * The name of the RUM-based metric. This field can't be updated after creation.
      */
-    public readonly name!: pulumi.Output<string>;
-    public readonly uniqueness!: pulumi.Output<outputs.RumMetricUniqueness | undefined>;
+    declare public readonly name: pulumi.Output<string>;
+    declare public readonly uniqueness: pulumi.Output<outputs.RumMetricUniqueness | undefined>;
 
     /**
      * Create a RumMetric resource with the given unique name, arguments, and options.
@@ -71,26 +71,26 @@ export class RumMetric extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RumMetricState | undefined;
-            resourceInputs["compute"] = state ? state.compute : undefined;
-            resourceInputs["eventType"] = state ? state.eventType : undefined;
-            resourceInputs["filter"] = state ? state.filter : undefined;
-            resourceInputs["groupBies"] = state ? state.groupBies : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["uniqueness"] = state ? state.uniqueness : undefined;
+            resourceInputs["compute"] = state?.compute;
+            resourceInputs["eventType"] = state?.eventType;
+            resourceInputs["filter"] = state?.filter;
+            resourceInputs["groupBies"] = state?.groupBies;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["uniqueness"] = state?.uniqueness;
         } else {
             const args = argsOrState as RumMetricArgs | undefined;
-            if ((!args || args.eventType === undefined) && !opts.urn) {
+            if (args?.eventType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventType'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["compute"] = args ? args.compute : undefined;
-            resourceInputs["eventType"] = args ? args.eventType : undefined;
-            resourceInputs["filter"] = args ? args.filter : undefined;
-            resourceInputs["groupBies"] = args ? args.groupBies : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["uniqueness"] = args ? args.uniqueness : undefined;
+            resourceInputs["compute"] = args?.compute;
+            resourceInputs["eventType"] = args?.eventType;
+            resourceInputs["filter"] = args?.filter;
+            resourceInputs["groupBies"] = args?.groupBies;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["uniqueness"] = args?.uniqueness;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RumMetric.__pulumiType, name, resourceInputs, opts);

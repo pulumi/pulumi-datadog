@@ -66,35 +66,35 @@ export class SecurityMonitoringSuppression extends pulumi.CustomResource {
     /**
      * An exclusion query on the input data of the security rules, which could be logs, Agent events, or other types of data based on the security rule. Events matching this query are ignored by any detection rules referenced in the suppression rule.
      */
-    public readonly dataExclusionQuery!: pulumi.Output<string | undefined>;
+    declare public readonly dataExclusionQuery: pulumi.Output<string | undefined>;
     /**
      * A description for the suppression rule.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Whether the suppression rule is enabled.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * A RFC3339 timestamp giving an expiration date for the suppression rule. After this date, it won't suppress signals anymore.
      */
-    public readonly expirationDate!: pulumi.Output<string | undefined>;
+    declare public readonly expirationDate: pulumi.Output<string | undefined>;
     /**
      * The name of the suppression rule.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The rule query of the suppression rule, with the same syntax as the search bar for detection rules.
      */
-    public readonly ruleQuery!: pulumi.Output<string>;
+    declare public readonly ruleQuery: pulumi.Output<string>;
     /**
      * A RFC3339 timestamp giving a start date for the suppression rule. Before this date, it doesn't suppress signals.
      */
-    public readonly startDate!: pulumi.Output<string | undefined>;
+    declare public readonly startDate: pulumi.Output<string | undefined>;
     /**
      * The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
      */
-    public readonly suppressionQuery!: pulumi.Output<string | undefined>;
+    declare public readonly suppressionQuery: pulumi.Output<string | undefined>;
 
     /**
      * Create a SecurityMonitoringSuppression resource with the given unique name, arguments, and options.
@@ -109,33 +109,33 @@ export class SecurityMonitoringSuppression extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecurityMonitoringSuppressionState | undefined;
-            resourceInputs["dataExclusionQuery"] = state ? state.dataExclusionQuery : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["expirationDate"] = state ? state.expirationDate : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["ruleQuery"] = state ? state.ruleQuery : undefined;
-            resourceInputs["startDate"] = state ? state.startDate : undefined;
-            resourceInputs["suppressionQuery"] = state ? state.suppressionQuery : undefined;
+            resourceInputs["dataExclusionQuery"] = state?.dataExclusionQuery;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["expirationDate"] = state?.expirationDate;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["ruleQuery"] = state?.ruleQuery;
+            resourceInputs["startDate"] = state?.startDate;
+            resourceInputs["suppressionQuery"] = state?.suppressionQuery;
         } else {
             const args = argsOrState as SecurityMonitoringSuppressionArgs | undefined;
-            if ((!args || args.enabled === undefined) && !opts.urn) {
+            if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.ruleQuery === undefined) && !opts.urn) {
+            if (args?.ruleQuery === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ruleQuery'");
             }
-            resourceInputs["dataExclusionQuery"] = args ? args.dataExclusionQuery : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["expirationDate"] = args ? args.expirationDate : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["ruleQuery"] = args ? args.ruleQuery : undefined;
-            resourceInputs["startDate"] = args ? args.startDate : undefined;
-            resourceInputs["suppressionQuery"] = args ? args.suppressionQuery : undefined;
+            resourceInputs["dataExclusionQuery"] = args?.dataExclusionQuery;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["expirationDate"] = args?.expirationDate;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["ruleQuery"] = args?.ruleQuery;
+            resourceInputs["startDate"] = args?.startDate;
+            resourceInputs["suppressionQuery"] = args?.suppressionQuery;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SecurityMonitoringSuppression.__pulumiType, name, resourceInputs, opts);

@@ -48,51 +48,51 @@ export class Integration extends pulumi.CustomResource {
     /**
      * Silence monitors for expected GCE instance shutdowns. Defaults to `false`.
      */
-    public readonly automute!: pulumi.Output<boolean>;
+    declare public readonly automute: pulumi.Output<boolean>;
     /**
      * Your email found in your JSON service account key.
      */
-    public readonly clientEmail!: pulumi.Output<string>;
+    declare public readonly clientEmail: pulumi.Output<string>;
     /**
      * Your ID found in your JSON service account key.
      */
-    public readonly clientId!: pulumi.Output<string>;
+    declare public readonly clientId: pulumi.Output<string>;
     /**
      * Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
      */
-    public readonly cloudRunRevisionFilters!: pulumi.Output<string[] | undefined>;
+    declare public readonly cloudRunRevisionFilters: pulumi.Output<string[] | undefined>;
     /**
      * Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled. Defaults to `false`.
      */
-    public readonly cspmResourceCollectionEnabled!: pulumi.Output<boolean>;
+    declare public readonly cspmResourceCollectionEnabled: pulumi.Output<boolean>;
     /**
      * Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. Defaults to `""`.
      */
-    public readonly hostFilters!: pulumi.Output<string>;
+    declare public readonly hostFilters: pulumi.Output<string>;
     /**
      * When enabled, Datadog scans for all resource change data in your Google Cloud environment.
      */
-    public readonly isResourceChangeCollectionEnabled!: pulumi.Output<boolean>;
+    declare public readonly isResourceChangeCollectionEnabled: pulumi.Output<boolean>;
     /**
      * When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
      */
-    public readonly isSecurityCommandCenterEnabled!: pulumi.Output<boolean>;
+    declare public readonly isSecurityCommandCenterEnabled: pulumi.Output<boolean>;
     /**
      * Your private key name found in your JSON service account key.
      */
-    public readonly privateKey!: pulumi.Output<string>;
+    declare public readonly privateKey: pulumi.Output<string>;
     /**
      * Your private key ID found in your JSON service account key.
      */
-    public readonly privateKeyId!: pulumi.Output<string>;
+    declare public readonly privateKeyId: pulumi.Output<string>;
     /**
      * Your Google Cloud project ID found in your JSON service account key.
      */
-    public readonly projectId!: pulumi.Output<string>;
+    declare public readonly projectId: pulumi.Output<string>;
     /**
      * When enabled, Datadog scans for all resources in your GCP environment.
      */
-    public readonly resourceCollectionEnabled!: pulumi.Output<boolean>;
+    declare public readonly resourceCollectionEnabled: pulumi.Output<boolean>;
 
     /**
      * Create a Integration resource with the given unique name, arguments, and options.
@@ -107,47 +107,47 @@ export class Integration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationState | undefined;
-            resourceInputs["automute"] = state ? state.automute : undefined;
-            resourceInputs["clientEmail"] = state ? state.clientEmail : undefined;
-            resourceInputs["clientId"] = state ? state.clientId : undefined;
-            resourceInputs["cloudRunRevisionFilters"] = state ? state.cloudRunRevisionFilters : undefined;
-            resourceInputs["cspmResourceCollectionEnabled"] = state ? state.cspmResourceCollectionEnabled : undefined;
-            resourceInputs["hostFilters"] = state ? state.hostFilters : undefined;
-            resourceInputs["isResourceChangeCollectionEnabled"] = state ? state.isResourceChangeCollectionEnabled : undefined;
-            resourceInputs["isSecurityCommandCenterEnabled"] = state ? state.isSecurityCommandCenterEnabled : undefined;
-            resourceInputs["privateKey"] = state ? state.privateKey : undefined;
-            resourceInputs["privateKeyId"] = state ? state.privateKeyId : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["resourceCollectionEnabled"] = state ? state.resourceCollectionEnabled : undefined;
+            resourceInputs["automute"] = state?.automute;
+            resourceInputs["clientEmail"] = state?.clientEmail;
+            resourceInputs["clientId"] = state?.clientId;
+            resourceInputs["cloudRunRevisionFilters"] = state?.cloudRunRevisionFilters;
+            resourceInputs["cspmResourceCollectionEnabled"] = state?.cspmResourceCollectionEnabled;
+            resourceInputs["hostFilters"] = state?.hostFilters;
+            resourceInputs["isResourceChangeCollectionEnabled"] = state?.isResourceChangeCollectionEnabled;
+            resourceInputs["isSecurityCommandCenterEnabled"] = state?.isSecurityCommandCenterEnabled;
+            resourceInputs["privateKey"] = state?.privateKey;
+            resourceInputs["privateKeyId"] = state?.privateKeyId;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["resourceCollectionEnabled"] = state?.resourceCollectionEnabled;
         } else {
             const args = argsOrState as IntegrationArgs | undefined;
-            if ((!args || args.clientEmail === undefined) && !opts.urn) {
+            if (args?.clientEmail === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientEmail'");
             }
-            if ((!args || args.clientId === undefined) && !opts.urn) {
+            if (args?.clientId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientId'");
             }
-            if ((!args || args.privateKey === undefined) && !opts.urn) {
+            if (args?.privateKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateKey'");
             }
-            if ((!args || args.privateKeyId === undefined) && !opts.urn) {
+            if (args?.privateKeyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateKeyId'");
             }
-            if ((!args || args.projectId === undefined) && !opts.urn) {
+            if (args?.projectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            resourceInputs["automute"] = args ? args.automute : undefined;
-            resourceInputs["clientEmail"] = args ? args.clientEmail : undefined;
-            resourceInputs["clientId"] = args ? args.clientId : undefined;
-            resourceInputs["cloudRunRevisionFilters"] = args ? args.cloudRunRevisionFilters : undefined;
-            resourceInputs["cspmResourceCollectionEnabled"] = args ? args.cspmResourceCollectionEnabled : undefined;
-            resourceInputs["hostFilters"] = args ? args.hostFilters : undefined;
-            resourceInputs["isResourceChangeCollectionEnabled"] = args ? args.isResourceChangeCollectionEnabled : undefined;
-            resourceInputs["isSecurityCommandCenterEnabled"] = args ? args.isSecurityCommandCenterEnabled : undefined;
+            resourceInputs["automute"] = args?.automute;
+            resourceInputs["clientEmail"] = args?.clientEmail;
+            resourceInputs["clientId"] = args?.clientId;
+            resourceInputs["cloudRunRevisionFilters"] = args?.cloudRunRevisionFilters;
+            resourceInputs["cspmResourceCollectionEnabled"] = args?.cspmResourceCollectionEnabled;
+            resourceInputs["hostFilters"] = args?.hostFilters;
+            resourceInputs["isResourceChangeCollectionEnabled"] = args?.isResourceChangeCollectionEnabled;
+            resourceInputs["isSecurityCommandCenterEnabled"] = args?.isSecurityCommandCenterEnabled;
             resourceInputs["privateKey"] = args?.privateKey ? pulumi.secret(args.privateKey) : undefined;
-            resourceInputs["privateKeyId"] = args ? args.privateKeyId : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["resourceCollectionEnabled"] = args ? args.resourceCollectionEnabled : undefined;
+            resourceInputs["privateKeyId"] = args?.privateKeyId;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["resourceCollectionEnabled"] = args?.resourceCollectionEnabled;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["privateKey"] };

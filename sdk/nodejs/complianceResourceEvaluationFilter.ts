@@ -58,19 +58,20 @@ export class ComplianceResourceEvaluationFilter extends pulumi.CustomResource {
     }
 
     /**
-     * The cloud provider of the filter's targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud
-     * providers.
+     * The cloud provider of the filter's targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud providers.
      */
-    public readonly cloudProvider!: pulumi.Output<string>;
+    declare public readonly cloudProvider: pulumi.Output<string>;
     /**
-     * The ID of the of the filter's targeted resource. Different cloud providers target different resource IDs: - `aws`:
-     * account ID - `gcp`: project ID - `azure`: subscription ID
+     * The ID of the of the filter's targeted resource. Different cloud providers target different resource IDs:
+     *   - `aws`: account ID
+     *   - `gcp`: project ID
+     *   - `azure`: subscription ID
      */
-    public readonly resourceId!: pulumi.Output<string>;
+    declare public readonly resourceId: pulumi.Output<string>;
     /**
      * List of tags to filter misconfiguration detections. Each entry should follow the format: "key":"value".
      */
-    public readonly tags!: pulumi.Output<string[]>;
+    declare public readonly tags: pulumi.Output<string[]>;
 
     /**
      * Create a ComplianceResourceEvaluationFilter resource with the given unique name, arguments, and options.
@@ -85,23 +86,23 @@ export class ComplianceResourceEvaluationFilter extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ComplianceResourceEvaluationFilterState | undefined;
-            resourceInputs["cloudProvider"] = state ? state.cloudProvider : undefined;
-            resourceInputs["resourceId"] = state ? state.resourceId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["cloudProvider"] = state?.cloudProvider;
+            resourceInputs["resourceId"] = state?.resourceId;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as ComplianceResourceEvaluationFilterArgs | undefined;
-            if ((!args || args.cloudProvider === undefined) && !opts.urn) {
+            if (args?.cloudProvider === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cloudProvider'");
             }
-            if ((!args || args.resourceId === undefined) && !opts.urn) {
+            if (args?.resourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            if ((!args || args.tags === undefined) && !opts.urn) {
+            if (args?.tags === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tags'");
             }
-            resourceInputs["cloudProvider"] = args ? args.cloudProvider : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["cloudProvider"] = args?.cloudProvider;
+            resourceInputs["resourceId"] = args?.resourceId;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ComplianceResourceEvaluationFilter.__pulumiType, name, resourceInputs, opts);
@@ -113,13 +114,14 @@ export class ComplianceResourceEvaluationFilter extends pulumi.CustomResource {
  */
 export interface ComplianceResourceEvaluationFilterState {
     /**
-     * The cloud provider of the filter's targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud
-     * providers.
+     * The cloud provider of the filter's targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud providers.
      */
     cloudProvider?: pulumi.Input<string>;
     /**
-     * The ID of the of the filter's targeted resource. Different cloud providers target different resource IDs: - `aws`:
-     * account ID - `gcp`: project ID - `azure`: subscription ID
+     * The ID of the of the filter's targeted resource. Different cloud providers target different resource IDs:
+     *   - `aws`: account ID
+     *   - `gcp`: project ID
+     *   - `azure`: subscription ID
      */
     resourceId?: pulumi.Input<string>;
     /**
@@ -133,13 +135,14 @@ export interface ComplianceResourceEvaluationFilterState {
  */
 export interface ComplianceResourceEvaluationFilterArgs {
     /**
-     * The cloud provider of the filter's targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud
-     * providers.
+     * The cloud provider of the filter's targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud providers.
      */
     cloudProvider: pulumi.Input<string>;
     /**
-     * The ID of the of the filter's targeted resource. Different cloud providers target different resource IDs: - `aws`:
-     * account ID - `gcp`: project ID - `azure`: subscription ID
+     * The ID of the of the filter's targeted resource. Different cloud providers target different resource IDs:
+     *   - `aws`: account ID
+     *   - `gcp`: project ID
+     *   - `azure`: subscription ID
      */
     resourceId: pulumi.Input<string>;
     /**

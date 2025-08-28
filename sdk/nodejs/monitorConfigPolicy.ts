@@ -59,11 +59,11 @@ export class MonitorConfigPolicy extends pulumi.CustomResource {
     /**
      * The monitor config policy type Valid values are `tag`.
      */
-    public readonly policyType!: pulumi.Output<string>;
+    declare public readonly policyType: pulumi.Output<string>;
     /**
      * Config for a tag policy. Only set if `policyType` is `tag`.
      */
-    public readonly tagPolicy!: pulumi.Output<outputs.MonitorConfigPolicyTagPolicy | undefined>;
+    declare public readonly tagPolicy: pulumi.Output<outputs.MonitorConfigPolicyTagPolicy | undefined>;
 
     /**
      * Create a MonitorConfigPolicy resource with the given unique name, arguments, and options.
@@ -78,15 +78,15 @@ export class MonitorConfigPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MonitorConfigPolicyState | undefined;
-            resourceInputs["policyType"] = state ? state.policyType : undefined;
-            resourceInputs["tagPolicy"] = state ? state.tagPolicy : undefined;
+            resourceInputs["policyType"] = state?.policyType;
+            resourceInputs["tagPolicy"] = state?.tagPolicy;
         } else {
             const args = argsOrState as MonitorConfigPolicyArgs | undefined;
-            if ((!args || args.policyType === undefined) && !opts.urn) {
+            if (args?.policyType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyType'");
             }
-            resourceInputs["policyType"] = args ? args.policyType : undefined;
-            resourceInputs["tagPolicy"] = args ? args.tagPolicy : undefined;
+            resourceInputs["policyType"] = args?.policyType;
+            resourceInputs["tagPolicy"] = args?.tagPolicy;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(MonitorConfigPolicy.__pulumiType, name, resourceInputs, opts);

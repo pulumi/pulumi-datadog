@@ -48,51 +48,51 @@ export class IntegrationSts extends pulumi.CustomResource {
     /**
      * Tags to be associated with GCP metrics and service checks from your account.
      */
-    public readonly accountTags!: pulumi.Output<string[] | undefined>;
+    declare public readonly accountTags: pulumi.Output<string[] | undefined>;
     /**
      * Silence monitors for expected GCE instance shutdowns.
      */
-    public readonly automute!: pulumi.Output<boolean>;
+    declare public readonly automute: pulumi.Output<boolean>;
     /**
      * Your service account email address.
      */
-    public readonly clientEmail!: pulumi.Output<string>;
+    declare public readonly clientEmail: pulumi.Output<string>;
     /**
      * Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
      */
-    public readonly cloudRunRevisionFilters!: pulumi.Output<string[] | undefined>;
+    declare public readonly cloudRunRevisionFilters: pulumi.Output<string[] | undefined>;
     /**
      * Datadog's STS Delegate Email.
      */
-    public /*out*/ readonly delegateAccountEmail!: pulumi.Output<string>;
+    declare public /*out*/ readonly delegateAccountEmail: pulumi.Output<string>;
     /**
      * Your Host Filters.
      */
-    public readonly hostFilters!: pulumi.Output<string[] | undefined>;
+    declare public readonly hostFilters: pulumi.Output<string[] | undefined>;
     /**
      * Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled.
      */
-    public readonly isCspmEnabled!: pulumi.Output<boolean>;
+    declare public readonly isCspmEnabled: pulumi.Output<boolean>;
     /**
      * When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
      */
-    public readonly isPerProjectQuotaEnabled!: pulumi.Output<boolean>;
+    declare public readonly isPerProjectQuotaEnabled: pulumi.Output<boolean>;
     /**
      * When enabled, Datadog scans for all resource change data in your Google Cloud environment.
      */
-    public readonly isResourceChangeCollectionEnabled!: pulumi.Output<boolean>;
+    declare public readonly isResourceChangeCollectionEnabled: pulumi.Output<boolean>;
     /**
      * When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
      */
-    public readonly isSecurityCommandCenterEnabled!: pulumi.Output<boolean>;
+    declare public readonly isSecurityCommandCenterEnabled: pulumi.Output<boolean>;
     /**
      * Configuration for a GCP metric namespace.
      */
-    public readonly metricNamespaceConfigs!: pulumi.Output<outputs.gcp.IntegrationStsMetricNamespaceConfig[] | undefined>;
+    declare public readonly metricNamespaceConfigs: pulumi.Output<outputs.gcp.IntegrationStsMetricNamespaceConfig[] | undefined>;
     /**
      * When enabled, Datadog scans for all resources in your GCP environment.
      */
-    public readonly resourceCollectionEnabled!: pulumi.Output<boolean>;
+    declare public readonly resourceCollectionEnabled: pulumi.Output<boolean>;
 
     /**
      * Create a IntegrationSts resource with the given unique name, arguments, and options.
@@ -107,34 +107,34 @@ export class IntegrationSts extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationStsState | undefined;
-            resourceInputs["accountTags"] = state ? state.accountTags : undefined;
-            resourceInputs["automute"] = state ? state.automute : undefined;
-            resourceInputs["clientEmail"] = state ? state.clientEmail : undefined;
-            resourceInputs["cloudRunRevisionFilters"] = state ? state.cloudRunRevisionFilters : undefined;
-            resourceInputs["delegateAccountEmail"] = state ? state.delegateAccountEmail : undefined;
-            resourceInputs["hostFilters"] = state ? state.hostFilters : undefined;
-            resourceInputs["isCspmEnabled"] = state ? state.isCspmEnabled : undefined;
-            resourceInputs["isPerProjectQuotaEnabled"] = state ? state.isPerProjectQuotaEnabled : undefined;
-            resourceInputs["isResourceChangeCollectionEnabled"] = state ? state.isResourceChangeCollectionEnabled : undefined;
-            resourceInputs["isSecurityCommandCenterEnabled"] = state ? state.isSecurityCommandCenterEnabled : undefined;
-            resourceInputs["metricNamespaceConfigs"] = state ? state.metricNamespaceConfigs : undefined;
-            resourceInputs["resourceCollectionEnabled"] = state ? state.resourceCollectionEnabled : undefined;
+            resourceInputs["accountTags"] = state?.accountTags;
+            resourceInputs["automute"] = state?.automute;
+            resourceInputs["clientEmail"] = state?.clientEmail;
+            resourceInputs["cloudRunRevisionFilters"] = state?.cloudRunRevisionFilters;
+            resourceInputs["delegateAccountEmail"] = state?.delegateAccountEmail;
+            resourceInputs["hostFilters"] = state?.hostFilters;
+            resourceInputs["isCspmEnabled"] = state?.isCspmEnabled;
+            resourceInputs["isPerProjectQuotaEnabled"] = state?.isPerProjectQuotaEnabled;
+            resourceInputs["isResourceChangeCollectionEnabled"] = state?.isResourceChangeCollectionEnabled;
+            resourceInputs["isSecurityCommandCenterEnabled"] = state?.isSecurityCommandCenterEnabled;
+            resourceInputs["metricNamespaceConfigs"] = state?.metricNamespaceConfigs;
+            resourceInputs["resourceCollectionEnabled"] = state?.resourceCollectionEnabled;
         } else {
             const args = argsOrState as IntegrationStsArgs | undefined;
-            if ((!args || args.clientEmail === undefined) && !opts.urn) {
+            if (args?.clientEmail === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientEmail'");
             }
-            resourceInputs["accountTags"] = args ? args.accountTags : undefined;
-            resourceInputs["automute"] = args ? args.automute : undefined;
-            resourceInputs["clientEmail"] = args ? args.clientEmail : undefined;
-            resourceInputs["cloudRunRevisionFilters"] = args ? args.cloudRunRevisionFilters : undefined;
-            resourceInputs["hostFilters"] = args ? args.hostFilters : undefined;
-            resourceInputs["isCspmEnabled"] = args ? args.isCspmEnabled : undefined;
-            resourceInputs["isPerProjectQuotaEnabled"] = args ? args.isPerProjectQuotaEnabled : undefined;
-            resourceInputs["isResourceChangeCollectionEnabled"] = args ? args.isResourceChangeCollectionEnabled : undefined;
-            resourceInputs["isSecurityCommandCenterEnabled"] = args ? args.isSecurityCommandCenterEnabled : undefined;
-            resourceInputs["metricNamespaceConfigs"] = args ? args.metricNamespaceConfigs : undefined;
-            resourceInputs["resourceCollectionEnabled"] = args ? args.resourceCollectionEnabled : undefined;
+            resourceInputs["accountTags"] = args?.accountTags;
+            resourceInputs["automute"] = args?.automute;
+            resourceInputs["clientEmail"] = args?.clientEmail;
+            resourceInputs["cloudRunRevisionFilters"] = args?.cloudRunRevisionFilters;
+            resourceInputs["hostFilters"] = args?.hostFilters;
+            resourceInputs["isCspmEnabled"] = args?.isCspmEnabled;
+            resourceInputs["isPerProjectQuotaEnabled"] = args?.isPerProjectQuotaEnabled;
+            resourceInputs["isResourceChangeCollectionEnabled"] = args?.isResourceChangeCollectionEnabled;
+            resourceInputs["isSecurityCommandCenterEnabled"] = args?.isSecurityCommandCenterEnabled;
+            resourceInputs["metricNamespaceConfigs"] = args?.metricNamespaceConfigs;
+            resourceInputs["resourceCollectionEnabled"] = args?.resourceCollectionEnabled;
             resourceInputs["delegateAccountEmail"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

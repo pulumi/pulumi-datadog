@@ -67,11 +67,11 @@ export class RestrictionPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === RestrictionPolicy.__pulumiType;
     }
 
-    public readonly bindings!: pulumi.Output<outputs.RestrictionPolicyBinding[] | undefined>;
+    declare public readonly bindings: pulumi.Output<outputs.RestrictionPolicyBinding[] | undefined>;
     /**
      * Identifier for the resource, formatted as resource*type:resource*id.
      */
-    public readonly resourceId!: pulumi.Output<string>;
+    declare public readonly resourceId: pulumi.Output<string>;
 
     /**
      * Create a RestrictionPolicy resource with the given unique name, arguments, and options.
@@ -86,15 +86,15 @@ export class RestrictionPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RestrictionPolicyState | undefined;
-            resourceInputs["bindings"] = state ? state.bindings : undefined;
-            resourceInputs["resourceId"] = state ? state.resourceId : undefined;
+            resourceInputs["bindings"] = state?.bindings;
+            resourceInputs["resourceId"] = state?.resourceId;
         } else {
             const args = argsOrState as RestrictionPolicyArgs | undefined;
-            if ((!args || args.resourceId === undefined) && !opts.urn) {
+            if (args?.resourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            resourceInputs["bindings"] = args ? args.bindings : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["bindings"] = args?.bindings;
+            resourceInputs["resourceId"] = args?.resourceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RestrictionPolicy.__pulumiType, name, resourceInputs, opts);

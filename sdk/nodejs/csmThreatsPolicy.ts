@@ -71,23 +71,23 @@ export class CsmThreatsPolicy extends pulumi.CustomResource {
     /**
      * A description for the policy.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * Indicates whether the policy is enabled. Defaults to `false`.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * Host tags that define where the policy is deployed. Inner values are ANDed, outer arrays are ORed.
      */
-    public readonly hostTagsLists!: pulumi.Output<string[][] | undefined>;
+    declare public readonly hostTagsLists: pulumi.Output<string[][] | undefined>;
     /**
      * The name of the policy.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Host tags that define where the policy is deployed. Deprecated, use host*tags*lists instead.
      */
-    public readonly tags!: pulumi.Output<string[]>;
+    declare public readonly tags: pulumi.Output<string[]>;
 
     /**
      * Create a CsmThreatsPolicy resource with the given unique name, arguments, and options.
@@ -102,21 +102,21 @@ export class CsmThreatsPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CsmThreatsPolicyState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["hostTagsLists"] = state ? state.hostTagsLists : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["hostTagsLists"] = state?.hostTagsLists;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as CsmThreatsPolicyArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["hostTagsLists"] = args ? args.hostTagsLists : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["hostTagsLists"] = args?.hostTagsLists;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CsmThreatsPolicy.__pulumiType, name, resourceInputs, opts);

@@ -80,35 +80,35 @@ export class Powerpack extends pulumi.CustomResource {
     /**
      * The description of the powerpack.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The layout of the powerpack on a free-form dashboard.
      */
-    public readonly layout!: pulumi.Output<outputs.PowerpackLayout>;
+    declare public readonly layout: pulumi.Output<outputs.PowerpackLayout>;
     /**
      * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      */
-    public readonly liveSpan!: pulumi.Output<string | undefined>;
+    declare public readonly liveSpan: pulumi.Output<string | undefined>;
     /**
      * The name for the powerpack.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * Whether or not title should be displayed in the powerpack.
      */
-    public readonly showTitle!: pulumi.Output<boolean | undefined>;
+    declare public readonly showTitle: pulumi.Output<boolean | undefined>;
     /**
      * List of tags to identify this powerpack.
      */
-    public readonly tags!: pulumi.Output<string[] | undefined>;
+    declare public readonly tags: pulumi.Output<string[] | undefined>;
     /**
      * The list of template variables for this powerpack.
      */
-    public readonly templateVariables!: pulumi.Output<outputs.PowerpackTemplateVariable[] | undefined>;
+    declare public readonly templateVariables: pulumi.Output<outputs.PowerpackTemplateVariable[] | undefined>;
     /**
      * The list of widgets to display in the powerpack.
      */
-    public readonly widgets!: pulumi.Output<outputs.PowerpackWidget[] | undefined>;
+    declare public readonly widgets: pulumi.Output<outputs.PowerpackWidget[] | undefined>;
 
     /**
      * Create a Powerpack resource with the given unique name, arguments, and options.
@@ -123,24 +123,24 @@ export class Powerpack extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PowerpackState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["layout"] = state ? state.layout : undefined;
-            resourceInputs["liveSpan"] = state ? state.liveSpan : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["showTitle"] = state ? state.showTitle : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["templateVariables"] = state ? state.templateVariables : undefined;
-            resourceInputs["widgets"] = state ? state.widgets : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["layout"] = state?.layout;
+            resourceInputs["liveSpan"] = state?.liveSpan;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["showTitle"] = state?.showTitle;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["templateVariables"] = state?.templateVariables;
+            resourceInputs["widgets"] = state?.widgets;
         } else {
             const args = argsOrState as PowerpackArgs | undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["layout"] = args ? args.layout : undefined;
-            resourceInputs["liveSpan"] = args ? args.liveSpan : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["showTitle"] = args ? args.showTitle : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["templateVariables"] = args ? args.templateVariables : undefined;
-            resourceInputs["widgets"] = args ? args.widgets : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["layout"] = args?.layout;
+            resourceInputs["liveSpan"] = args?.liveSpan;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["showTitle"] = args?.showTitle;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["templateVariables"] = args?.templateVariables;
+            resourceInputs["widgets"] = args?.widgets;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Powerpack.__pulumiType, name, resourceInputs, opts);

@@ -95,27 +95,27 @@ export class WorkflowAutomation extends pulumi.CustomResource {
     /**
      * Description of the workflow.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * Name of the workflow. String length must be at least 1.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Set the workflow to published or unpublished. Workflows in an unpublished state are only executable through manual runs. Automatic triggers such as Schedule do not execute the workflow until it is published.
      */
-    public readonly published!: pulumi.Output<boolean>;
+    declare public readonly published: pulumi.Output<boolean>;
     /**
      * The spec defines what the workflow does.
      */
-    public readonly specJson!: pulumi.Output<string>;
+    declare public readonly specJson: pulumi.Output<string>;
     /**
      * Tags of the workflow.
      */
-    public readonly tags!: pulumi.Output<string[]>;
+    declare public readonly tags: pulumi.Output<string[]>;
     /**
      * If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here. String length must be at least 16.
      */
-    public readonly webhookSecret!: pulumi.Output<string | undefined>;
+    declare public readonly webhookSecret: pulumi.Output<string | undefined>;
 
     /**
      * Create a WorkflowAutomation resource with the given unique name, arguments, and options.
@@ -130,34 +130,34 @@ export class WorkflowAutomation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkflowAutomationState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["published"] = state ? state.published : undefined;
-            resourceInputs["specJson"] = state ? state.specJson : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["webhookSecret"] = state ? state.webhookSecret : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["published"] = state?.published;
+            resourceInputs["specJson"] = state?.specJson;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["webhookSecret"] = state?.webhookSecret;
         } else {
             const args = argsOrState as WorkflowAutomationArgs | undefined;
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.published === undefined) && !opts.urn) {
+            if (args?.published === undefined && !opts.urn) {
                 throw new Error("Missing required property 'published'");
             }
-            if ((!args || args.specJson === undefined) && !opts.urn) {
+            if (args?.specJson === undefined && !opts.urn) {
                 throw new Error("Missing required property 'specJson'");
             }
-            if ((!args || args.tags === undefined) && !opts.urn) {
+            if (args?.tags === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tags'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["published"] = args ? args.published : undefined;
-            resourceInputs["specJson"] = args ? args.specJson : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["published"] = args?.published;
+            resourceInputs["specJson"] = args?.specJson;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["webhookSecret"] = args?.webhookSecret ? pulumi.secret(args.webhookSecret) : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

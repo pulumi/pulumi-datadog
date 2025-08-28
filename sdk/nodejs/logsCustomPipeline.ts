@@ -221,12 +221,12 @@ export class LogsCustomPipeline extends pulumi.CustomResource {
         return obj['__pulumiType'] === LogsCustomPipeline.__pulumiType;
     }
 
-    public readonly description!: pulumi.Output<string | undefined>;
-    public readonly filters!: pulumi.Output<outputs.LogsCustomPipelineFilter[]>;
-    public readonly isEnabled!: pulumi.Output<boolean | undefined>;
-    public readonly name!: pulumi.Output<string>;
-    public readonly processors!: pulumi.Output<outputs.LogsCustomPipelineProcessor[] | undefined>;
-    public readonly tags!: pulumi.Output<string[]>;
+    declare public readonly description: pulumi.Output<string | undefined>;
+    declare public readonly filters: pulumi.Output<outputs.LogsCustomPipelineFilter[]>;
+    declare public readonly isEnabled: pulumi.Output<boolean | undefined>;
+    declare public readonly name: pulumi.Output<string>;
+    declare public readonly processors: pulumi.Output<outputs.LogsCustomPipelineProcessor[] | undefined>;
+    declare public readonly tags: pulumi.Output<string[]>;
 
     /**
      * Create a LogsCustomPipeline resource with the given unique name, arguments, and options.
@@ -241,26 +241,26 @@ export class LogsCustomPipeline extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LogsCustomPipelineState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["filters"] = state ? state.filters : undefined;
-            resourceInputs["isEnabled"] = state ? state.isEnabled : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["processors"] = state ? state.processors : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["filters"] = state?.filters;
+            resourceInputs["isEnabled"] = state?.isEnabled;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["processors"] = state?.processors;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as LogsCustomPipelineArgs | undefined;
-            if ((!args || args.filters === undefined) && !opts.urn) {
+            if (args?.filters === undefined && !opts.urn) {
                 throw new Error("Missing required property 'filters'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["filters"] = args ? args.filters : undefined;
-            resourceInputs["isEnabled"] = args ? args.isEnabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["processors"] = args ? args.processors : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["filters"] = args?.filters;
+            resourceInputs["isEnabled"] = args?.isEnabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["processors"] = args?.processors;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LogsCustomPipeline.__pulumiType, name, resourceInputs, opts);
