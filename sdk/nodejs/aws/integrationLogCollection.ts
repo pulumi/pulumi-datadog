@@ -63,11 +63,11 @@ export class IntegrationLogCollection extends pulumi.CustomResource {
     /**
      * Your AWS Account ID without dashes.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    declare public readonly accountId: pulumi.Output<string>;
     /**
      * A list of services to collect logs from. See the [api docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on which services are supported.
      */
-    public readonly services!: pulumi.Output<string[]>;
+    declare public readonly services: pulumi.Output<string[]>;
 
     /**
      * Create a IntegrationLogCollection resource with the given unique name, arguments, and options.
@@ -82,18 +82,18 @@ export class IntegrationLogCollection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationLogCollectionState | undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["services"] = state ? state.services : undefined;
+            resourceInputs["accountId"] = state?.accountId;
+            resourceInputs["services"] = state?.services;
         } else {
             const args = argsOrState as IntegrationLogCollectionArgs | undefined;
-            if ((!args || args.accountId === undefined) && !opts.urn) {
+            if (args?.accountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountId'");
             }
-            if ((!args || args.services === undefined) && !opts.urn) {
+            if (args?.services === undefined && !opts.urn) {
                 throw new Error("Missing required property 'services'");
             }
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["services"] = args ? args.services : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["services"] = args?.services;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IntegrationLogCollection.__pulumiType, name, resourceInputs, opts);

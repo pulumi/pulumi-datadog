@@ -63,11 +63,11 @@ export class LogsPipelineOrder extends pulumi.CustomResource {
     /**
      * The name attribute in the resource `datadog.LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource name. No related field is available in [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
      */
-    public readonly pipelines!: pulumi.Output<string[]>;
+    declare public readonly pipelines: pulumi.Output<string[]>;
 
     /**
      * Create a LogsPipelineOrder resource with the given unique name, arguments, and options.
@@ -82,18 +82,18 @@ export class LogsPipelineOrder extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LogsPipelineOrderState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["pipelines"] = state ? state.pipelines : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["pipelines"] = state?.pipelines;
         } else {
             const args = argsOrState as LogsPipelineOrderArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.pipelines === undefined) && !opts.urn) {
+            if (args?.pipelines === undefined && !opts.urn) {
                 throw new Error("Missing required property 'pipelines'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["pipelines"] = args ? args.pipelines : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["pipelines"] = args?.pipelines;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LogsPipelineOrder.__pulumiType, name, resourceInputs, opts);

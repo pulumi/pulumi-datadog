@@ -38,11 +38,11 @@ export class IntegrationTeamsWorkflowsWebhookHandle extends pulumi.CustomResourc
     /**
      * Your Microsoft Workflows webhook handle name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Your Microsoft Workflows webhook URL.
      */
-    public readonly url!: pulumi.Output<string>;
+    declare public readonly url: pulumi.Output<string>;
 
     /**
      * Create a IntegrationTeamsWorkflowsWebhookHandle resource with the given unique name, arguments, and options.
@@ -57,17 +57,17 @@ export class IntegrationTeamsWorkflowsWebhookHandle extends pulumi.CustomResourc
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationTeamsWorkflowsWebhookHandleState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["url"] = state ? state.url : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["url"] = state?.url;
         } else {
             const args = argsOrState as IntegrationTeamsWorkflowsWebhookHandleArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.url === undefined) && !opts.urn) {
+            if (args?.url === undefined && !opts.urn) {
                 throw new Error("Missing required property 'url'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["name"] = args?.name;
             resourceInputs["url"] = args?.url ? pulumi.secret(args.url) : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -79,33 +79,33 @@ export class AppsecWafExclusionFilter extends pulumi.CustomResource {
     /**
      * A description for the exclusion filter.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * Indicates whether the exclusion filter is enabled.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * The event query matched by the legacy exclusion filter. Cannot be created nor updated.
      */
-    public readonly eventQuery!: pulumi.Output<string | undefined>;
+    declare public readonly eventQuery: pulumi.Output<string | undefined>;
     /**
      * The client IP addresses matched by the exclusion filter (CIDR notation is supported).
      */
-    public readonly ipLists!: pulumi.Output<string[] | undefined>;
+    declare public readonly ipLists: pulumi.Output<string[] | undefined>;
     /**
      * The action taken when the exclusion filter matches. When set to `monitor`, security traces are emitted but the requests are not blocked. By default, security traces are not emitted and the requests are not blocked.
      */
-    public readonly onMatch!: pulumi.Output<string | undefined>;
+    declare public readonly onMatch: pulumi.Output<string | undefined>;
     /**
      * A list of parameters matched by the exclusion filter in the HTTP query string and HTTP request body. Nested parameters can be matched by joining fields with a dot character.
      */
-    public readonly parameters!: pulumi.Output<string[] | undefined>;
+    declare public readonly parameters: pulumi.Output<string[] | undefined>;
     /**
      * The HTTP path glob expression matched by the exclusion filter.
      */
-    public readonly pathGlob!: pulumi.Output<string | undefined>;
-    public readonly rulesTargets!: pulumi.Output<outputs.AppsecWafExclusionFilterRulesTarget[] | undefined>;
-    public readonly scopes!: pulumi.Output<outputs.AppsecWafExclusionFilterScope[] | undefined>;
+    declare public readonly pathGlob: pulumi.Output<string | undefined>;
+    declare public readonly rulesTargets: pulumi.Output<outputs.AppsecWafExclusionFilterRulesTarget[] | undefined>;
+    declare public readonly scopes: pulumi.Output<outputs.AppsecWafExclusionFilterScope[] | undefined>;
 
     /**
      * Create a AppsecWafExclusionFilter resource with the given unique name, arguments, and options.
@@ -120,32 +120,32 @@ export class AppsecWafExclusionFilter extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AppsecWafExclusionFilterState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["eventQuery"] = state ? state.eventQuery : undefined;
-            resourceInputs["ipLists"] = state ? state.ipLists : undefined;
-            resourceInputs["onMatch"] = state ? state.onMatch : undefined;
-            resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["pathGlob"] = state ? state.pathGlob : undefined;
-            resourceInputs["rulesTargets"] = state ? state.rulesTargets : undefined;
-            resourceInputs["scopes"] = state ? state.scopes : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["eventQuery"] = state?.eventQuery;
+            resourceInputs["ipLists"] = state?.ipLists;
+            resourceInputs["onMatch"] = state?.onMatch;
+            resourceInputs["parameters"] = state?.parameters;
+            resourceInputs["pathGlob"] = state?.pathGlob;
+            resourceInputs["rulesTargets"] = state?.rulesTargets;
+            resourceInputs["scopes"] = state?.scopes;
         } else {
             const args = argsOrState as AppsecWafExclusionFilterArgs | undefined;
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.enabled === undefined) && !opts.urn) {
+            if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["eventQuery"] = args ? args.eventQuery : undefined;
-            resourceInputs["ipLists"] = args ? args.ipLists : undefined;
-            resourceInputs["onMatch"] = args ? args.onMatch : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["pathGlob"] = args ? args.pathGlob : undefined;
-            resourceInputs["rulesTargets"] = args ? args.rulesTargets : undefined;
-            resourceInputs["scopes"] = args ? args.scopes : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["eventQuery"] = args?.eventQuery;
+            resourceInputs["ipLists"] = args?.ipLists;
+            resourceInputs["onMatch"] = args?.onMatch;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["pathGlob"] = args?.pathGlob;
+            resourceInputs["rulesTargets"] = args?.rulesTargets;
+            resourceInputs["scopes"] = args?.scopes;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AppsecWafExclusionFilter.__pulumiType, name, resourceInputs, opts);

@@ -45,29 +45,29 @@ export class AppsecWafCustomRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === AppsecWafCustomRule.__pulumiType;
     }
 
-    public readonly action!: pulumi.Output<outputs.AppsecWafCustomRuleAction | undefined>;
+    declare public readonly action: pulumi.Output<outputs.AppsecWafCustomRuleAction | undefined>;
     /**
      * Indicates whether the WAF custom rule will block the request.
      */
-    public readonly blocking!: pulumi.Output<boolean>;
-    public readonly conditions!: pulumi.Output<outputs.AppsecWafCustomRuleCondition[] | undefined>;
+    declare public readonly blocking: pulumi.Output<boolean>;
+    declare public readonly conditions: pulumi.Output<outputs.AppsecWafCustomRuleCondition[] | undefined>;
     /**
      * Indicates whether the WAF custom rule is enabled.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * The Name of the WAF custom rule.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The path glob for the WAF custom rule.
      */
-    public readonly pathGlob!: pulumi.Output<string | undefined>;
-    public readonly scopes!: pulumi.Output<outputs.AppsecWafCustomRuleScope[] | undefined>;
+    declare public readonly pathGlob: pulumi.Output<string | undefined>;
+    declare public readonly scopes: pulumi.Output<outputs.AppsecWafCustomRuleScope[] | undefined>;
     /**
      * Tags associated with the WAF custom rule. `category` and `type` tags are required. Supported categories include `businessLogic`, `attackAttempt` and `securityResponse`.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a AppsecWafCustomRule resource with the given unique name, arguments, and options.
@@ -82,36 +82,36 @@ export class AppsecWafCustomRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AppsecWafCustomRuleState | undefined;
-            resourceInputs["action"] = state ? state.action : undefined;
-            resourceInputs["blocking"] = state ? state.blocking : undefined;
-            resourceInputs["conditions"] = state ? state.conditions : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["pathGlob"] = state ? state.pathGlob : undefined;
-            resourceInputs["scopes"] = state ? state.scopes : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["action"] = state?.action;
+            resourceInputs["blocking"] = state?.blocking;
+            resourceInputs["conditions"] = state?.conditions;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["pathGlob"] = state?.pathGlob;
+            resourceInputs["scopes"] = state?.scopes;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as AppsecWafCustomRuleArgs | undefined;
-            if ((!args || args.blocking === undefined) && !opts.urn) {
+            if (args?.blocking === undefined && !opts.urn) {
                 throw new Error("Missing required property 'blocking'");
             }
-            if ((!args || args.enabled === undefined) && !opts.urn) {
+            if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.tags === undefined) && !opts.urn) {
+            if (args?.tags === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tags'");
             }
-            resourceInputs["action"] = args ? args.action : undefined;
-            resourceInputs["blocking"] = args ? args.blocking : undefined;
-            resourceInputs["conditions"] = args ? args.conditions : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["pathGlob"] = args ? args.pathGlob : undefined;
-            resourceInputs["scopes"] = args ? args.scopes : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["action"] = args?.action;
+            resourceInputs["blocking"] = args?.blocking;
+            resourceInputs["conditions"] = args?.conditions;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["pathGlob"] = args?.pathGlob;
+            resourceInputs["scopes"] = args?.scopes;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AppsecWafCustomRule.__pulumiType, name, resourceInputs, opts);

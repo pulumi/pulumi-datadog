@@ -72,23 +72,23 @@ export class IntegrationResource extends pulumi.CustomResource {
     /**
      * Confluent Account ID.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    declare public readonly accountId: pulumi.Output<string>;
     /**
      * Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags. Defaults to `false`.
      */
-    public readonly enableCustomMetrics!: pulumi.Output<boolean>;
+    declare public readonly enableCustomMetrics: pulumi.Output<boolean>;
     /**
      * The ID associated with a Confluent resource.
      */
-    public readonly resourceId!: pulumi.Output<string>;
+    declare public readonly resourceId: pulumi.Output<string>;
     /**
      * The resource type of the Resource. Can be `kafka`, `connector`, `ksql`, or `schemaRegistry`.
      */
-    public readonly resourceType!: pulumi.Output<string | undefined>;
+    declare public readonly resourceType: pulumi.Output<string | undefined>;
     /**
      * A list of strings representing tags. Can be a single key, or key-value pairs separated by a colon.
      */
-    public readonly tags!: pulumi.Output<string[] | undefined>;
+    declare public readonly tags: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a IntegrationResource resource with the given unique name, arguments, and options.
@@ -103,24 +103,24 @@ export class IntegrationResource extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationResourceState | undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["enableCustomMetrics"] = state ? state.enableCustomMetrics : undefined;
-            resourceInputs["resourceId"] = state ? state.resourceId : undefined;
-            resourceInputs["resourceType"] = state ? state.resourceType : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["accountId"] = state?.accountId;
+            resourceInputs["enableCustomMetrics"] = state?.enableCustomMetrics;
+            resourceInputs["resourceId"] = state?.resourceId;
+            resourceInputs["resourceType"] = state?.resourceType;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as IntegrationResourceArgs | undefined;
-            if ((!args || args.accountId === undefined) && !opts.urn) {
+            if (args?.accountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountId'");
             }
-            if ((!args || args.resourceId === undefined) && !opts.urn) {
+            if (args?.resourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["enableCustomMetrics"] = args ? args.enableCustomMetrics : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
-            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["enableCustomMetrics"] = args?.enableCustomMetrics;
+            resourceInputs["resourceId"] = args?.resourceId;
+            resourceInputs["resourceType"] = args?.resourceType;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IntegrationResource.__pulumiType, name, resourceInputs, opts);

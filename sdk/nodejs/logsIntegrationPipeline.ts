@@ -59,7 +59,7 @@ export class LogsIntegrationPipeline extends pulumi.CustomResource {
     /**
      * Boolean value to enable your pipeline.
      */
-    public readonly isEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly isEnabled: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a LogsIntegrationPipeline resource with the given unique name, arguments, and options.
@@ -74,10 +74,10 @@ export class LogsIntegrationPipeline extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LogsIntegrationPipelineState | undefined;
-            resourceInputs["isEnabled"] = state ? state.isEnabled : undefined;
+            resourceInputs["isEnabled"] = state?.isEnabled;
         } else {
             const args = argsOrState as LogsIntegrationPipelineArgs | undefined;
-            resourceInputs["isEnabled"] = args ? args.isEnabled : undefined;
+            resourceInputs["isEnabled"] = args?.isEnabled;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LogsIntegrationPipeline.__pulumiType, name, resourceInputs, opts);

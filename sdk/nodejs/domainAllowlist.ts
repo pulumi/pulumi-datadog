@@ -50,11 +50,11 @@ export class DomainAllowlist extends pulumi.CustomResource {
     /**
      * The domains within the domain allowlist.
      */
-    public readonly domains!: pulumi.Output<string[]>;
+    declare public readonly domains: pulumi.Output<string[]>;
     /**
      * Whether the Email Domain Allowlist is enabled.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
 
     /**
      * Create a DomainAllowlist resource with the given unique name, arguments, and options.
@@ -69,18 +69,18 @@ export class DomainAllowlist extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DomainAllowlistState | undefined;
-            resourceInputs["domains"] = state ? state.domains : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["domains"] = state?.domains;
+            resourceInputs["enabled"] = state?.enabled;
         } else {
             const args = argsOrState as DomainAllowlistArgs | undefined;
-            if ((!args || args.domains === undefined) && !opts.urn) {
+            if (args?.domains === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domains'");
             }
-            if ((!args || args.enabled === undefined) && !opts.urn) {
+            if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            resourceInputs["domains"] = args ? args.domains : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["domains"] = args?.domains;
+            resourceInputs["enabled"] = args?.enabled;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DomainAllowlist.__pulumiType, name, resourceInputs, opts);

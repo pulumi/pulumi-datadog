@@ -153,59 +153,59 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
     /**
      * A description of this service level objective.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * A boolean indicating whether this monitor can be deleted even if it's referenced by other resources (for example, dashboards).
      */
-    public readonly forceDelete!: pulumi.Output<boolean | undefined>;
+    declare public readonly forceDelete: pulumi.Output<boolean | undefined>;
     /**
      * A static set of groups to filter monitor-based SLOs
      */
-    public readonly groups!: pulumi.Output<string[] | undefined>;
+    declare public readonly groups: pulumi.Output<string[] | undefined>;
     /**
      * A static set of monitor IDs to use as part of the SLO
      */
-    public readonly monitorIds!: pulumi.Output<number[] | undefined>;
+    declare public readonly monitorIds: pulumi.Output<number[] | undefined>;
     /**
      * Name of Datadog service level objective
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The metric query of good / total events
      */
-    public readonly query!: pulumi.Output<outputs.ServiceLevelObjectiveQuery | undefined>;
+    declare public readonly query: pulumi.Output<outputs.ServiceLevelObjectiveQuery | undefined>;
     /**
      * A map of SLI specifications to use as part of the SLO.
      */
-    public readonly sliSpecification!: pulumi.Output<outputs.ServiceLevelObjectiveSliSpecification | undefined>;
+    declare public readonly sliSpecification: pulumi.Output<outputs.ServiceLevelObjectiveSliSpecification | undefined>;
     /**
      * A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. **Note**: it's not currently possible to filter by these tags when querying via the API. If default tags are present at the provider level, they will be added to this resource.
      */
-    public readonly tags!: pulumi.Output<string[]>;
+    declare public readonly tags: pulumi.Output<string[]>;
     /**
      * The objective's target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
      */
-    public readonly targetThreshold!: pulumi.Output<number>;
+    declare public readonly targetThreshold: pulumi.Output<number>;
     /**
      * A list of thresholds and targets that define the service level objectives from the provided SLIs.
      */
-    public readonly thresholds!: pulumi.Output<outputs.ServiceLevelObjectiveThreshold[]>;
+    declare public readonly thresholds: pulumi.Output<outputs.ServiceLevelObjectiveThreshold[]>;
     /**
      * The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
      */
-    public readonly timeframe!: pulumi.Output<string>;
+    declare public readonly timeframe: pulumi.Output<string>;
     /**
      * The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`, `timeSlice`.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * Whether or not to validate the SLO. It checks if monitors added to a monitor SLO already exist.
      */
-    public readonly validate!: pulumi.Output<boolean | undefined>;
+    declare public readonly validate: pulumi.Output<boolean | undefined>;
     /**
      * The objective's warning value in `(0,100)`. This must be greater than the target value and match the corresponding thresholds of the primary time frame.
      */
-    public readonly warningThreshold!: pulumi.Output<number>;
+    declare public readonly warningThreshold: pulumi.Output<number>;
 
     /**
      * Create a ServiceLevelObjective resource with the given unique name, arguments, and options.
@@ -220,45 +220,45 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceLevelObjectiveState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["forceDelete"] = state ? state.forceDelete : undefined;
-            resourceInputs["groups"] = state ? state.groups : undefined;
-            resourceInputs["monitorIds"] = state ? state.monitorIds : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["query"] = state ? state.query : undefined;
-            resourceInputs["sliSpecification"] = state ? state.sliSpecification : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["targetThreshold"] = state ? state.targetThreshold : undefined;
-            resourceInputs["thresholds"] = state ? state.thresholds : undefined;
-            resourceInputs["timeframe"] = state ? state.timeframe : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["validate"] = state ? state.validate : undefined;
-            resourceInputs["warningThreshold"] = state ? state.warningThreshold : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["forceDelete"] = state?.forceDelete;
+            resourceInputs["groups"] = state?.groups;
+            resourceInputs["monitorIds"] = state?.monitorIds;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["query"] = state?.query;
+            resourceInputs["sliSpecification"] = state?.sliSpecification;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["targetThreshold"] = state?.targetThreshold;
+            resourceInputs["thresholds"] = state?.thresholds;
+            resourceInputs["timeframe"] = state?.timeframe;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["validate"] = state?.validate;
+            resourceInputs["warningThreshold"] = state?.warningThreshold;
         } else {
             const args = argsOrState as ServiceLevelObjectiveArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.thresholds === undefined) && !opts.urn) {
+            if (args?.thresholds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'thresholds'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["forceDelete"] = args ? args.forceDelete : undefined;
-            resourceInputs["groups"] = args ? args.groups : undefined;
-            resourceInputs["monitorIds"] = args ? args.monitorIds : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["query"] = args ? args.query : undefined;
-            resourceInputs["sliSpecification"] = args ? args.sliSpecification : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetThreshold"] = args ? args.targetThreshold : undefined;
-            resourceInputs["thresholds"] = args ? args.thresholds : undefined;
-            resourceInputs["timeframe"] = args ? args.timeframe : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["validate"] = args ? args.validate : undefined;
-            resourceInputs["warningThreshold"] = args ? args.warningThreshold : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["forceDelete"] = args?.forceDelete;
+            resourceInputs["groups"] = args?.groups;
+            resourceInputs["monitorIds"] = args?.monitorIds;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["query"] = args?.query;
+            resourceInputs["sliSpecification"] = args?.sliSpecification;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetThreshold"] = args?.targetThreshold;
+            resourceInputs["thresholds"] = args?.thresholds;
+            resourceInputs["timeframe"] = args?.timeframe;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["validate"] = args?.validate;
+            resourceInputs["warningThreshold"] = args?.warningThreshold;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ServiceLevelObjective.__pulumiType, name, resourceInputs, opts);

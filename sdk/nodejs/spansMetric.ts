@@ -45,13 +45,13 @@ export class SpansMetric extends pulumi.CustomResource {
         return obj['__pulumiType'] === SpansMetric.__pulumiType;
     }
 
-    public readonly compute!: pulumi.Output<outputs.SpansMetricCompute | undefined>;
-    public readonly filter!: pulumi.Output<outputs.SpansMetricFilter | undefined>;
-    public readonly groupBies!: pulumi.Output<outputs.SpansMetricGroupBy[] | undefined>;
+    declare public readonly compute: pulumi.Output<outputs.SpansMetricCompute | undefined>;
+    declare public readonly filter: pulumi.Output<outputs.SpansMetricFilter | undefined>;
+    declare public readonly groupBies: pulumi.Output<outputs.SpansMetricGroupBy[] | undefined>;
     /**
      * The name of the span-based metric. This field can't be updated after creation.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a SpansMetric resource with the given unique name, arguments, and options.
@@ -66,19 +66,19 @@ export class SpansMetric extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpansMetricState | undefined;
-            resourceInputs["compute"] = state ? state.compute : undefined;
-            resourceInputs["filter"] = state ? state.filter : undefined;
-            resourceInputs["groupBies"] = state ? state.groupBies : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["compute"] = state?.compute;
+            resourceInputs["filter"] = state?.filter;
+            resourceInputs["groupBies"] = state?.groupBies;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as SpansMetricArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["compute"] = args ? args.compute : undefined;
-            resourceInputs["filter"] = args ? args.filter : undefined;
-            resourceInputs["groupBies"] = args ? args.groupBies : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["compute"] = args?.compute;
+            resourceInputs["filter"] = args?.filter;
+            resourceInputs["groupBies"] = args?.groupBies;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SpansMetric.__pulumiType, name, resourceInputs, opts);

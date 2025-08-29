@@ -62,31 +62,31 @@ export class MetricMetadata extends pulumi.CustomResource {
     /**
      * A description of the metric.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name of the metric.
      */
-    public readonly metric!: pulumi.Output<string>;
+    declare public readonly metric: pulumi.Output<string>;
     /**
      * Per unit of the metric such as `second` in `bytes per second`.
      */
-    public readonly perUnit!: pulumi.Output<string | undefined>;
+    declare public readonly perUnit: pulumi.Output<string | undefined>;
     /**
      * A short name of the metric.
      */
-    public readonly shortName!: pulumi.Output<string | undefined>;
+    declare public readonly shortName: pulumi.Output<string | undefined>;
     /**
      * If applicable, statsd flush interval in seconds for the metric.
      */
-    public readonly statsdInterval!: pulumi.Output<number | undefined>;
+    declare public readonly statsdInterval: pulumi.Output<number | undefined>;
     /**
      * Metric type such as `count`, `gauge`, or `rate`. Updating a metric of type `distribution` is not supported. If you would like to see the `distribution` type returned, contact [Datadog support](https://docs.datadoghq.com/help/).
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    declare public readonly type: pulumi.Output<string | undefined>;
     /**
      * Primary unit of the metric such as `byte` or `operation`.
      */
-    public readonly unit!: pulumi.Output<string | undefined>;
+    declare public readonly unit: pulumi.Output<string | undefined>;
 
     /**
      * Create a MetricMetadata resource with the given unique name, arguments, and options.
@@ -101,25 +101,25 @@ export class MetricMetadata extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MetricMetadataState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["metric"] = state ? state.metric : undefined;
-            resourceInputs["perUnit"] = state ? state.perUnit : undefined;
-            resourceInputs["shortName"] = state ? state.shortName : undefined;
-            resourceInputs["statsdInterval"] = state ? state.statsdInterval : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["unit"] = state ? state.unit : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["metric"] = state?.metric;
+            resourceInputs["perUnit"] = state?.perUnit;
+            resourceInputs["shortName"] = state?.shortName;
+            resourceInputs["statsdInterval"] = state?.statsdInterval;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["unit"] = state?.unit;
         } else {
             const args = argsOrState as MetricMetadataArgs | undefined;
-            if ((!args || args.metric === undefined) && !opts.urn) {
+            if (args?.metric === undefined && !opts.urn) {
                 throw new Error("Missing required property 'metric'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["metric"] = args ? args.metric : undefined;
-            resourceInputs["perUnit"] = args ? args.perUnit : undefined;
-            resourceInputs["shortName"] = args ? args.shortName : undefined;
-            resourceInputs["statsdInterval"] = args ? args.statsdInterval : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["unit"] = args ? args.unit : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["metric"] = args?.metric;
+            resourceInputs["perUnit"] = args?.perUnit;
+            resourceInputs["shortName"] = args?.shortName;
+            resourceInputs["statsdInterval"] = args?.statsdInterval;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["unit"] = args?.unit;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(MetricMetadata.__pulumiType, name, resourceInputs, opts);

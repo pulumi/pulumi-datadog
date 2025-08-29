@@ -63,31 +63,31 @@ export class User extends pulumi.CustomResource {
     /**
      * Whether the user is disabled. Defaults to `false`.
      */
-    public readonly disabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly disabled: pulumi.Output<boolean | undefined>;
     /**
      * Email address for user.
      */
-    public readonly email!: pulumi.Output<string>;
+    declare public readonly email: pulumi.Output<string>;
     /**
      * User's name. Should be set only for password authentication, as it is overridden by Google or SAML authentication.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A list of role IDs to assign to the user.
      */
-    public readonly roles!: pulumi.Output<string[]>;
+    declare public readonly roles: pulumi.Output<string[]>;
     /**
      * Whether an invitation email should be sent when the user is created. Defaults to `true`.
      */
-    public readonly sendUserInvitation!: pulumi.Output<boolean | undefined>;
+    declare public readonly sendUserInvitation: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the user invitation that was sent when creating the user.
      */
-    public /*out*/ readonly userInvitationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly userInvitationId: pulumi.Output<string>;
     /**
      * Returns `true` if the user is verified.
      */
-    public /*out*/ readonly verified!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly verified: pulumi.Output<boolean>;
 
     /**
      * Create a User resource with the given unique name, arguments, and options.
@@ -102,23 +102,23 @@ export class User extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserState | undefined;
-            resourceInputs["disabled"] = state ? state.disabled : undefined;
-            resourceInputs["email"] = state ? state.email : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["roles"] = state ? state.roles : undefined;
-            resourceInputs["sendUserInvitation"] = state ? state.sendUserInvitation : undefined;
-            resourceInputs["userInvitationId"] = state ? state.userInvitationId : undefined;
-            resourceInputs["verified"] = state ? state.verified : undefined;
+            resourceInputs["disabled"] = state?.disabled;
+            resourceInputs["email"] = state?.email;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["roles"] = state?.roles;
+            resourceInputs["sendUserInvitation"] = state?.sendUserInvitation;
+            resourceInputs["userInvitationId"] = state?.userInvitationId;
+            resourceInputs["verified"] = state?.verified;
         } else {
             const args = argsOrState as UserArgs | undefined;
-            if ((!args || args.email === undefined) && !opts.urn) {
+            if (args?.email === undefined && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
-            resourceInputs["disabled"] = args ? args.disabled : undefined;
-            resourceInputs["email"] = args ? args.email : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["roles"] = args ? args.roles : undefined;
-            resourceInputs["sendUserInvitation"] = args ? args.sendUserInvitation : undefined;
+            resourceInputs["disabled"] = args?.disabled;
+            resourceInputs["email"] = args?.email;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["roles"] = args?.roles;
+            resourceInputs["sendUserInvitation"] = args?.sendUserInvitation;
             resourceInputs["userInvitationId"] = undefined /*out*/;
             resourceInputs["verified"] = undefined /*out*/;
         }

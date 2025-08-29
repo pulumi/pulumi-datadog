@@ -40,31 +40,31 @@ export class CostBudget extends pulumi.CustomResource {
     /**
      * The ID of the budget.
      */
-    public readonly budgetId!: pulumi.Output<string>;
+    declare public readonly budgetId: pulumi.Output<string>;
     /**
      * The month when the budget ends (YYYYMM).
      */
-    public readonly endMonth!: pulumi.Output<number>;
+    declare public readonly endMonth: pulumi.Output<number>;
     /**
      * The entries of the budget.
      */
-    public readonly entries!: pulumi.Output<outputs.CostBudgetEntry[] | undefined>;
+    declare public readonly entries: pulumi.Output<outputs.CostBudgetEntry[] | undefined>;
     /**
      * The cost query used to track against the budget.
      */
-    public readonly metricsQuery!: pulumi.Output<string>;
+    declare public readonly metricsQuery: pulumi.Output<string>;
     /**
      * The name of the budget.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The month when the budget starts (YYYYMM).
      */
-    public readonly startMonth!: pulumi.Output<number>;
+    declare public readonly startMonth: pulumi.Output<number>;
     /**
      * The sum of all budget entries' amounts.
      */
-    public /*out*/ readonly totalAmount!: pulumi.Output<number>;
+    declare public /*out*/ readonly totalAmount: pulumi.Output<number>;
 
     /**
      * Create a CostBudget resource with the given unique name, arguments, and options.
@@ -79,33 +79,33 @@ export class CostBudget extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CostBudgetState | undefined;
-            resourceInputs["budgetId"] = state ? state.budgetId : undefined;
-            resourceInputs["endMonth"] = state ? state.endMonth : undefined;
-            resourceInputs["entries"] = state ? state.entries : undefined;
-            resourceInputs["metricsQuery"] = state ? state.metricsQuery : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["startMonth"] = state ? state.startMonth : undefined;
-            resourceInputs["totalAmount"] = state ? state.totalAmount : undefined;
+            resourceInputs["budgetId"] = state?.budgetId;
+            resourceInputs["endMonth"] = state?.endMonth;
+            resourceInputs["entries"] = state?.entries;
+            resourceInputs["metricsQuery"] = state?.metricsQuery;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["startMonth"] = state?.startMonth;
+            resourceInputs["totalAmount"] = state?.totalAmount;
         } else {
             const args = argsOrState as CostBudgetArgs | undefined;
-            if ((!args || args.endMonth === undefined) && !opts.urn) {
+            if (args?.endMonth === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endMonth'");
             }
-            if ((!args || args.metricsQuery === undefined) && !opts.urn) {
+            if (args?.metricsQuery === undefined && !opts.urn) {
                 throw new Error("Missing required property 'metricsQuery'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.startMonth === undefined) && !opts.urn) {
+            if (args?.startMonth === undefined && !opts.urn) {
                 throw new Error("Missing required property 'startMonth'");
             }
-            resourceInputs["budgetId"] = args ? args.budgetId : undefined;
-            resourceInputs["endMonth"] = args ? args.endMonth : undefined;
-            resourceInputs["entries"] = args ? args.entries : undefined;
-            resourceInputs["metricsQuery"] = args ? args.metricsQuery : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["startMonth"] = args ? args.startMonth : undefined;
+            resourceInputs["budgetId"] = args?.budgetId;
+            resourceInputs["endMonth"] = args?.endMonth;
+            resourceInputs["entries"] = args?.entries;
+            resourceInputs["metricsQuery"] = args?.metricsQuery;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["startMonth"] = args?.startMonth;
             resourceInputs["totalAmount"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

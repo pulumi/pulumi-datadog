@@ -63,27 +63,27 @@ export class RumRetentionFilter extends pulumi.CustomResource {
     /**
      * RUM application ID.
      */
-    public readonly applicationId!: pulumi.Output<string>;
+    declare public readonly applicationId: pulumi.Output<string>;
     /**
      * Whether the retention filter is to be enabled. Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * The type of RUM events to filter on.
      */
-    public readonly eventType!: pulumi.Output<string>;
+    declare public readonly eventType: pulumi.Output<string>;
     /**
      * The name of a RUM retention filter.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The Query string for a RUM retention filter. Defaults to `""`.
      */
-    public readonly query!: pulumi.Output<string>;
+    declare public readonly query: pulumi.Output<string>;
     /**
      * The sample rate for a RUM retention filter, between 0 and 100.
      */
-    public readonly sampleRate!: pulumi.Output<number>;
+    declare public readonly sampleRate: pulumi.Output<number>;
 
     /**
      * Create a RumRetentionFilter resource with the given unique name, arguments, and options.
@@ -98,32 +98,32 @@ export class RumRetentionFilter extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RumRetentionFilterState | undefined;
-            resourceInputs["applicationId"] = state ? state.applicationId : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["eventType"] = state ? state.eventType : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["query"] = state ? state.query : undefined;
-            resourceInputs["sampleRate"] = state ? state.sampleRate : undefined;
+            resourceInputs["applicationId"] = state?.applicationId;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["eventType"] = state?.eventType;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["query"] = state?.query;
+            resourceInputs["sampleRate"] = state?.sampleRate;
         } else {
             const args = argsOrState as RumRetentionFilterArgs | undefined;
-            if ((!args || args.applicationId === undefined) && !opts.urn) {
+            if (args?.applicationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if ((!args || args.eventType === undefined) && !opts.urn) {
+            if (args?.eventType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventType'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.sampleRate === undefined) && !opts.urn) {
+            if (args?.sampleRate === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sampleRate'");
             }
-            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["eventType"] = args ? args.eventType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["query"] = args ? args.query : undefined;
-            resourceInputs["sampleRate"] = args ? args.sampleRate : undefined;
+            resourceInputs["applicationId"] = args?.applicationId;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["eventType"] = args?.eventType;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["query"] = args?.query;
+            resourceInputs["sampleRate"] = args?.sampleRate;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RumRetentionFilter.__pulumiType, name, resourceInputs, opts);

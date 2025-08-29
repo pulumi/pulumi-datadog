@@ -48,51 +48,51 @@ export class SecurityNotificationRule extends pulumi.CustomResource {
     /**
      * Indicates when this rule was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<number>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<number>;
     /**
      * The handle of the rule creator.
      */
-    public /*out*/ readonly createdByHandle!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdByHandle: pulumi.Output<string>;
     /**
      * The name of the rule creator.
      */
-    public /*out*/ readonly createdByName!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdByName: pulumi.Output<string>;
     /**
      * Indicates whether the rule is enabled. Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * Indicates when this rule was last modified.
      */
-    public /*out*/ readonly modifiedAt!: pulumi.Output<number>;
+    declare public /*out*/ readonly modifiedAt: pulumi.Output<number>;
     /**
      * The handle of the rule last modifier.
      */
-    public /*out*/ readonly modifiedByHandle!: pulumi.Output<string>;
+    declare public /*out*/ readonly modifiedByHandle: pulumi.Output<string>;
     /**
      * The name of the rule last modifier.
      */
-    public /*out*/ readonly modifiedByName!: pulumi.Output<string>;
+    declare public /*out*/ readonly modifiedByName: pulumi.Output<string>;
     /**
      * The name of the rule (must be unique).
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Defines selectors to filter security issues that generate notifications.
      */
-    public readonly selectors!: pulumi.Output<outputs.SecurityNotificationRuleSelectors | undefined>;
+    declare public readonly selectors: pulumi.Output<outputs.SecurityNotificationRuleSelectors | undefined>;
     /**
      * The list of handle targets for the notifications. A target must be prefixed with an @. It can be an email address (@bob@email.com), or any installed integration. For example, a Slack recipient (@slack-ops), or a Teams recipient (@teams-ops).
      */
-    public readonly targets!: pulumi.Output<string[]>;
+    declare public readonly targets: pulumi.Output<string[]>;
     /**
      * Specifies the time period, in seconds, used to aggregate the notification. Defaults to `0`.
      */
-    public readonly timeAggregation!: pulumi.Output<number>;
+    declare public readonly timeAggregation: pulumi.Output<number>;
     /**
      * The rule version (incremented at each update).
      */
-    public /*out*/ readonly version!: pulumi.Output<number>;
+    declare public /*out*/ readonly version: pulumi.Output<number>;
 
     /**
      * Create a SecurityNotificationRule resource with the given unique name, arguments, and options.
@@ -107,31 +107,31 @@ export class SecurityNotificationRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecurityNotificationRuleState | undefined;
-            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
-            resourceInputs["createdByHandle"] = state ? state.createdByHandle : undefined;
-            resourceInputs["createdByName"] = state ? state.createdByName : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["modifiedAt"] = state ? state.modifiedAt : undefined;
-            resourceInputs["modifiedByHandle"] = state ? state.modifiedByHandle : undefined;
-            resourceInputs["modifiedByName"] = state ? state.modifiedByName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["selectors"] = state ? state.selectors : undefined;
-            resourceInputs["targets"] = state ? state.targets : undefined;
-            resourceInputs["timeAggregation"] = state ? state.timeAggregation : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["createdAt"] = state?.createdAt;
+            resourceInputs["createdByHandle"] = state?.createdByHandle;
+            resourceInputs["createdByName"] = state?.createdByName;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["modifiedAt"] = state?.modifiedAt;
+            resourceInputs["modifiedByHandle"] = state?.modifiedByHandle;
+            resourceInputs["modifiedByName"] = state?.modifiedByName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["selectors"] = state?.selectors;
+            resourceInputs["targets"] = state?.targets;
+            resourceInputs["timeAggregation"] = state?.timeAggregation;
+            resourceInputs["version"] = state?.version;
         } else {
             const args = argsOrState as SecurityNotificationRuleArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.targets === undefined) && !opts.urn) {
+            if (args?.targets === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targets'");
             }
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["selectors"] = args ? args.selectors : undefined;
-            resourceInputs["targets"] = args ? args.targets : undefined;
-            resourceInputs["timeAggregation"] = args ? args.timeAggregation : undefined;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["selectors"] = args?.selectors;
+            resourceInputs["targets"] = args?.targets;
+            resourceInputs["timeAggregation"] = args?.timeAggregation;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdByHandle"] = undefined /*out*/;
             resourceInputs["createdByName"] = undefined /*out*/;

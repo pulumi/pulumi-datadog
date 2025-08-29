@@ -748,113 +748,113 @@ export class SyntheticsTest extends pulumi.CustomResource {
     /**
      * Steps for multistep API tests
      */
-    public readonly apiSteps!: pulumi.Output<outputs.SyntheticsTestApiStep[] | undefined>;
+    declare public readonly apiSteps: pulumi.Output<outputs.SyntheticsTestApiStep[] | undefined>;
     /**
      * Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
      */
-    public readonly assertions!: pulumi.Output<outputs.SyntheticsTestAssertion[] | undefined>;
+    declare public readonly assertions: pulumi.Output<outputs.SyntheticsTestAssertion[] | undefined>;
     /**
      * Steps for browser tests.
      */
-    public readonly browserSteps!: pulumi.Output<outputs.SyntheticsTestBrowserStep[] | undefined>;
+    declare public readonly browserSteps: pulumi.Output<outputs.SyntheticsTestBrowserStep[] | undefined>;
     /**
      * Variables used for a browser test steps. Multiple `variable` blocks are allowed with the structure below.
      */
-    public readonly browserVariables!: pulumi.Output<outputs.SyntheticsTestBrowserVariable[] | undefined>;
+    declare public readonly browserVariables: pulumi.Output<outputs.SyntheticsTestBrowserVariable[] | undefined>;
     /**
      * Initial application arguments for the mobile test.
      */
-    public readonly configInitialApplicationArguments!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly configInitialApplicationArguments: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Variables used for the test configuration. Multiple `configVariable` blocks are allowed with the structure below.
      */
-    public readonly configVariables!: pulumi.Output<outputs.SyntheticsTestConfigVariable[] | undefined>;
+    declare public readonly configVariables: pulumi.Output<outputs.SyntheticsTestConfigVariable[] | undefined>;
     /**
      * Required if `type = "browser"`. Array with the different device IDs used to run the test.
      */
-    public readonly deviceIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly deviceIds: pulumi.Output<string[] | undefined>;
     /**
      * A boolean indicating whether this synthetics test can be deleted even if it's referenced by other resources (for example, SLOs and composite monitors).
      */
-    public readonly forceDeleteDependencies!: pulumi.Output<boolean | undefined>;
+    declare public readonly forceDeleteDependencies: pulumi.Output<boolean | undefined>;
     /**
      * Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations or find the possible values listed in [this API response](https://app.datadoghq.com/api/v1/synthetics/locations?only_public=true).
      */
-    public readonly locations!: pulumi.Output<string[]>;
+    declare public readonly locations: pulumi.Output<string[]>;
     /**
      * A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events. Defaults to `""`.
      */
-    public readonly message!: pulumi.Output<string | undefined>;
-    public readonly mobileOptionsList!: pulumi.Output<outputs.SyntheticsTestMobileOptionsList | undefined>;
+    declare public readonly message: pulumi.Output<string | undefined>;
+    declare public readonly mobileOptionsList: pulumi.Output<outputs.SyntheticsTestMobileOptionsList | undefined>;
     /**
      * Steps for mobile tests
      */
-    public readonly mobileSteps!: pulumi.Output<outputs.SyntheticsTestMobileStep[] | undefined>;
+    declare public readonly mobileSteps: pulumi.Output<outputs.SyntheticsTestMobileStep[] | undefined>;
     /**
      * ID of the monitor associated with the Datadog synthetics test.
      */
-    public /*out*/ readonly monitorId!: pulumi.Output<number>;
+    declare public /*out*/ readonly monitorId: pulumi.Output<number>;
     /**
      * Name of Datadog synthetics test.
      */
-    public readonly name!: pulumi.Output<string>;
-    public readonly optionsList!: pulumi.Output<outputs.SyntheticsTestOptionsList | undefined>;
+    declare public readonly name: pulumi.Output<string>;
+    declare public readonly optionsList: pulumi.Output<outputs.SyntheticsTestOptionsList | undefined>;
     /**
      * The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
      */
-    public readonly requestBasicauth!: pulumi.Output<outputs.SyntheticsTestRequestBasicauth | undefined>;
+    declare public readonly requestBasicauth: pulumi.Output<outputs.SyntheticsTestRequestBasicauth | undefined>;
     /**
      * Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
      */
-    public readonly requestClientCertificate!: pulumi.Output<outputs.SyntheticsTestRequestClientCertificate | undefined>;
+    declare public readonly requestClientCertificate: pulumi.Output<outputs.SyntheticsTestRequestClientCertificate | undefined>;
     /**
      * Required if `type = "api"`. The synthetics test request.
      */
-    public readonly requestDefinition!: pulumi.Output<outputs.SyntheticsTestRequestDefinition | undefined>;
+    declare public readonly requestDefinition: pulumi.Output<outputs.SyntheticsTestRequestDefinition | undefined>;
     /**
      * Files to be used as part of the request in the test.
      */
-    public readonly requestFiles!: pulumi.Output<outputs.SyntheticsTestRequestFile[] | undefined>;
+    declare public readonly requestFiles: pulumi.Output<outputs.SyntheticsTestRequestFile[] | undefined>;
     /**
      * Header name and value map.
      */
-    public readonly requestHeaders!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly requestHeaders: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Metadata to include when performing the gRPC request.
      */
-    public readonly requestMetadata!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly requestMetadata: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The proxy to perform the test.
      */
-    public readonly requestProxy!: pulumi.Output<outputs.SyntheticsTestRequestProxy | undefined>;
+    declare public readonly requestProxy: pulumi.Output<outputs.SyntheticsTestRequestProxy | undefined>;
     /**
      * Query arguments name and value map.
      */
-    public readonly requestQuery!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly requestQuery: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
      */
-    public readonly setCookie!: pulumi.Output<string | undefined>;
+    declare public readonly setCookie: pulumi.Output<string | undefined>;
     /**
      * Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
      */
-    public readonly status!: pulumi.Output<string>;
+    declare public readonly status: pulumi.Output<string>;
     /**
      * The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
      */
-    public readonly subtype!: pulumi.Output<string | undefined>;
+    declare public readonly subtype: pulumi.Output<string | undefined>;
     /**
      * A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
      */
-    public readonly tags!: pulumi.Output<string[] | undefined>;
+    declare public readonly tags: pulumi.Output<string[] | undefined>;
     /**
      * Synthetics test type. Valid values are `api`, `browser`, `mobile`.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * Variables defined from JavaScript code for API HTTP tests.
      */
-    public readonly variablesFromScript!: pulumi.Output<string | undefined>;
+    declare public readonly variablesFromScript: pulumi.Output<string | undefined>;
 
     /**
      * Create a SyntheticsTest resource with the given unique name, arguments, and options.
@@ -869,77 +869,77 @@ export class SyntheticsTest extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SyntheticsTestState | undefined;
-            resourceInputs["apiSteps"] = state ? state.apiSteps : undefined;
-            resourceInputs["assertions"] = state ? state.assertions : undefined;
-            resourceInputs["browserSteps"] = state ? state.browserSteps : undefined;
-            resourceInputs["browserVariables"] = state ? state.browserVariables : undefined;
-            resourceInputs["configInitialApplicationArguments"] = state ? state.configInitialApplicationArguments : undefined;
-            resourceInputs["configVariables"] = state ? state.configVariables : undefined;
-            resourceInputs["deviceIds"] = state ? state.deviceIds : undefined;
-            resourceInputs["forceDeleteDependencies"] = state ? state.forceDeleteDependencies : undefined;
-            resourceInputs["locations"] = state ? state.locations : undefined;
-            resourceInputs["message"] = state ? state.message : undefined;
-            resourceInputs["mobileOptionsList"] = state ? state.mobileOptionsList : undefined;
-            resourceInputs["mobileSteps"] = state ? state.mobileSteps : undefined;
-            resourceInputs["monitorId"] = state ? state.monitorId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["optionsList"] = state ? state.optionsList : undefined;
-            resourceInputs["requestBasicauth"] = state ? state.requestBasicauth : undefined;
-            resourceInputs["requestClientCertificate"] = state ? state.requestClientCertificate : undefined;
-            resourceInputs["requestDefinition"] = state ? state.requestDefinition : undefined;
-            resourceInputs["requestFiles"] = state ? state.requestFiles : undefined;
-            resourceInputs["requestHeaders"] = state ? state.requestHeaders : undefined;
-            resourceInputs["requestMetadata"] = state ? state.requestMetadata : undefined;
-            resourceInputs["requestProxy"] = state ? state.requestProxy : undefined;
-            resourceInputs["requestQuery"] = state ? state.requestQuery : undefined;
-            resourceInputs["setCookie"] = state ? state.setCookie : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["subtype"] = state ? state.subtype : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["variablesFromScript"] = state ? state.variablesFromScript : undefined;
+            resourceInputs["apiSteps"] = state?.apiSteps;
+            resourceInputs["assertions"] = state?.assertions;
+            resourceInputs["browserSteps"] = state?.browserSteps;
+            resourceInputs["browserVariables"] = state?.browserVariables;
+            resourceInputs["configInitialApplicationArguments"] = state?.configInitialApplicationArguments;
+            resourceInputs["configVariables"] = state?.configVariables;
+            resourceInputs["deviceIds"] = state?.deviceIds;
+            resourceInputs["forceDeleteDependencies"] = state?.forceDeleteDependencies;
+            resourceInputs["locations"] = state?.locations;
+            resourceInputs["message"] = state?.message;
+            resourceInputs["mobileOptionsList"] = state?.mobileOptionsList;
+            resourceInputs["mobileSteps"] = state?.mobileSteps;
+            resourceInputs["monitorId"] = state?.monitorId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["optionsList"] = state?.optionsList;
+            resourceInputs["requestBasicauth"] = state?.requestBasicauth;
+            resourceInputs["requestClientCertificate"] = state?.requestClientCertificate;
+            resourceInputs["requestDefinition"] = state?.requestDefinition;
+            resourceInputs["requestFiles"] = state?.requestFiles;
+            resourceInputs["requestHeaders"] = state?.requestHeaders;
+            resourceInputs["requestMetadata"] = state?.requestMetadata;
+            resourceInputs["requestProxy"] = state?.requestProxy;
+            resourceInputs["requestQuery"] = state?.requestQuery;
+            resourceInputs["setCookie"] = state?.setCookie;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["subtype"] = state?.subtype;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["variablesFromScript"] = state?.variablesFromScript;
         } else {
             const args = argsOrState as SyntheticsTestArgs | undefined;
-            if ((!args || args.locations === undefined) && !opts.urn) {
+            if (args?.locations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'locations'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.status === undefined) && !opts.urn) {
+            if (args?.status === undefined && !opts.urn) {
                 throw new Error("Missing required property 'status'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["apiSteps"] = args ? args.apiSteps : undefined;
-            resourceInputs["assertions"] = args ? args.assertions : undefined;
-            resourceInputs["browserSteps"] = args ? args.browserSteps : undefined;
-            resourceInputs["browserVariables"] = args ? args.browserVariables : undefined;
-            resourceInputs["configInitialApplicationArguments"] = args ? args.configInitialApplicationArguments : undefined;
-            resourceInputs["configVariables"] = args ? args.configVariables : undefined;
-            resourceInputs["deviceIds"] = args ? args.deviceIds : undefined;
-            resourceInputs["forceDeleteDependencies"] = args ? args.forceDeleteDependencies : undefined;
-            resourceInputs["locations"] = args ? args.locations : undefined;
-            resourceInputs["message"] = args ? args.message : undefined;
-            resourceInputs["mobileOptionsList"] = args ? args.mobileOptionsList : undefined;
-            resourceInputs["mobileSteps"] = args ? args.mobileSteps : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["optionsList"] = args ? args.optionsList : undefined;
-            resourceInputs["requestBasicauth"] = args ? args.requestBasicauth : undefined;
-            resourceInputs["requestClientCertificate"] = args ? args.requestClientCertificate : undefined;
-            resourceInputs["requestDefinition"] = args ? args.requestDefinition : undefined;
-            resourceInputs["requestFiles"] = args ? args.requestFiles : undefined;
-            resourceInputs["requestHeaders"] = args ? args.requestHeaders : undefined;
-            resourceInputs["requestMetadata"] = args ? args.requestMetadata : undefined;
-            resourceInputs["requestProxy"] = args ? args.requestProxy : undefined;
-            resourceInputs["requestQuery"] = args ? args.requestQuery : undefined;
-            resourceInputs["setCookie"] = args ? args.setCookie : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["subtype"] = args ? args.subtype : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["variablesFromScript"] = args ? args.variablesFromScript : undefined;
+            resourceInputs["apiSteps"] = args?.apiSteps;
+            resourceInputs["assertions"] = args?.assertions;
+            resourceInputs["browserSteps"] = args?.browserSteps;
+            resourceInputs["browserVariables"] = args?.browserVariables;
+            resourceInputs["configInitialApplicationArguments"] = args?.configInitialApplicationArguments;
+            resourceInputs["configVariables"] = args?.configVariables;
+            resourceInputs["deviceIds"] = args?.deviceIds;
+            resourceInputs["forceDeleteDependencies"] = args?.forceDeleteDependencies;
+            resourceInputs["locations"] = args?.locations;
+            resourceInputs["message"] = args?.message;
+            resourceInputs["mobileOptionsList"] = args?.mobileOptionsList;
+            resourceInputs["mobileSteps"] = args?.mobileSteps;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["optionsList"] = args?.optionsList;
+            resourceInputs["requestBasicauth"] = args?.requestBasicauth;
+            resourceInputs["requestClientCertificate"] = args?.requestClientCertificate;
+            resourceInputs["requestDefinition"] = args?.requestDefinition;
+            resourceInputs["requestFiles"] = args?.requestFiles;
+            resourceInputs["requestHeaders"] = args?.requestHeaders;
+            resourceInputs["requestMetadata"] = args?.requestMetadata;
+            resourceInputs["requestProxy"] = args?.requestProxy;
+            resourceInputs["requestQuery"] = args?.requestQuery;
+            resourceInputs["setCookie"] = args?.setCookie;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["subtype"] = args?.subtype;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["variablesFromScript"] = args?.variablesFromScript;
             resourceInputs["monitorId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

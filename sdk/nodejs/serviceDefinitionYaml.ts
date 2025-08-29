@@ -203,7 +203,7 @@ export class ServiceDefinitionYaml extends pulumi.CustomResource {
     /**
      * The YAML/JSON formatted definition of the service
      */
-    public readonly serviceDefinition!: pulumi.Output<string>;
+    declare public readonly serviceDefinition: pulumi.Output<string>;
 
     /**
      * Create a ServiceDefinitionYaml resource with the given unique name, arguments, and options.
@@ -218,13 +218,13 @@ export class ServiceDefinitionYaml extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceDefinitionYamlState | undefined;
-            resourceInputs["serviceDefinition"] = state ? state.serviceDefinition : undefined;
+            resourceInputs["serviceDefinition"] = state?.serviceDefinition;
         } else {
             const args = argsOrState as ServiceDefinitionYamlArgs | undefined;
-            if ((!args || args.serviceDefinition === undefined) && !opts.urn) {
+            if (args?.serviceDefinition === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceDefinition'");
             }
-            resourceInputs["serviceDefinition"] = args ? args.serviceDefinition : undefined;
+            resourceInputs["serviceDefinition"] = args?.serviceDefinition;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ServiceDefinitionYaml.__pulumiType, name, resourceInputs, opts);

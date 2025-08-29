@@ -67,15 +67,15 @@ export class IntegrationService extends pulumi.CustomResource {
     /**
      * Fastly Account id.
      */
-    public readonly accountId!: pulumi.Output<string | undefined>;
+    declare public readonly accountId: pulumi.Output<string | undefined>;
     /**
      * The ID of the Fastly service.
      */
-    public readonly serviceId!: pulumi.Output<string>;
+    declare public readonly serviceId: pulumi.Output<string>;
     /**
      * A list of tags for the Fastly service.
      */
-    public readonly tags!: pulumi.Output<string[] | undefined>;
+    declare public readonly tags: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a IntegrationService resource with the given unique name, arguments, and options.
@@ -90,17 +90,17 @@ export class IntegrationService extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationServiceState | undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["serviceId"] = state ? state.serviceId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["accountId"] = state?.accountId;
+            resourceInputs["serviceId"] = state?.serviceId;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as IntegrationServiceArgs | undefined;
-            if ((!args || args.serviceId === undefined) && !opts.urn) {
+            if (args?.serviceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceId'");
             }
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["serviceId"] = args ? args.serviceId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["serviceId"] = args?.serviceId;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IntegrationService.__pulumiType, name, resourceInputs, opts);

@@ -87,39 +87,39 @@ export class LogsIndex extends pulumi.CustomResource {
     /**
      * The number of log events you can send in this index per day before you are rate-limited.
      */
-    public readonly dailyLimit!: pulumi.Output<number | undefined>;
+    declare public readonly dailyLimit: pulumi.Output<number | undefined>;
     /**
      * Object containing options to override the default daily limit reset time.
      */
-    public readonly dailyLimitReset!: pulumi.Output<outputs.LogsIndexDailyLimitReset>;
+    declare public readonly dailyLimitReset: pulumi.Output<outputs.LogsIndexDailyLimitReset>;
     /**
      * A percentage threshold of the daily quota at which a Datadog warning event is generated.
      */
-    public readonly dailyLimitWarningThresholdPercentage!: pulumi.Output<number>;
+    declare public readonly dailyLimitWarningThresholdPercentage: pulumi.Output<number>;
     /**
      * If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current dailyLimit is maintained.
      */
-    public readonly disableDailyLimit!: pulumi.Output<boolean>;
+    declare public readonly disableDailyLimit: pulumi.Output<boolean>;
     /**
      * List of exclusion filters.
      */
-    public readonly exclusionFilters!: pulumi.Output<outputs.LogsIndexExclusionFilter[] | undefined>;
+    declare public readonly exclusionFilters: pulumi.Output<outputs.LogsIndexExclusionFilter[] | undefined>;
     /**
      * Logs filter
      */
-    public readonly filters!: pulumi.Output<outputs.LogsIndexFilter[]>;
+    declare public readonly filters: pulumi.Output<outputs.LogsIndexFilter[]>;
     /**
      * The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
      */
-    public readonly flexRetentionDays!: pulumi.Output<number>;
+    declare public readonly flexRetentionDays: pulumi.Output<number>;
     /**
      * The name of the index. Index names cannot be modified after creation. If this value is changed, a new index will be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
      */
-    public readonly retentionDays!: pulumi.Output<number>;
+    declare public readonly retentionDays: pulumi.Output<number>;
 
     /**
      * Create a LogsIndex resource with the given unique name, arguments, and options.
@@ -134,32 +134,32 @@ export class LogsIndex extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LogsIndexState | undefined;
-            resourceInputs["dailyLimit"] = state ? state.dailyLimit : undefined;
-            resourceInputs["dailyLimitReset"] = state ? state.dailyLimitReset : undefined;
-            resourceInputs["dailyLimitWarningThresholdPercentage"] = state ? state.dailyLimitWarningThresholdPercentage : undefined;
-            resourceInputs["disableDailyLimit"] = state ? state.disableDailyLimit : undefined;
-            resourceInputs["exclusionFilters"] = state ? state.exclusionFilters : undefined;
-            resourceInputs["filters"] = state ? state.filters : undefined;
-            resourceInputs["flexRetentionDays"] = state ? state.flexRetentionDays : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["retentionDays"] = state ? state.retentionDays : undefined;
+            resourceInputs["dailyLimit"] = state?.dailyLimit;
+            resourceInputs["dailyLimitReset"] = state?.dailyLimitReset;
+            resourceInputs["dailyLimitWarningThresholdPercentage"] = state?.dailyLimitWarningThresholdPercentage;
+            resourceInputs["disableDailyLimit"] = state?.disableDailyLimit;
+            resourceInputs["exclusionFilters"] = state?.exclusionFilters;
+            resourceInputs["filters"] = state?.filters;
+            resourceInputs["flexRetentionDays"] = state?.flexRetentionDays;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["retentionDays"] = state?.retentionDays;
         } else {
             const args = argsOrState as LogsIndexArgs | undefined;
-            if ((!args || args.filters === undefined) && !opts.urn) {
+            if (args?.filters === undefined && !opts.urn) {
                 throw new Error("Missing required property 'filters'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["dailyLimit"] = args ? args.dailyLimit : undefined;
-            resourceInputs["dailyLimitReset"] = args ? args.dailyLimitReset : undefined;
-            resourceInputs["dailyLimitWarningThresholdPercentage"] = args ? args.dailyLimitWarningThresholdPercentage : undefined;
-            resourceInputs["disableDailyLimit"] = args ? args.disableDailyLimit : undefined;
-            resourceInputs["exclusionFilters"] = args ? args.exclusionFilters : undefined;
-            resourceInputs["filters"] = args ? args.filters : undefined;
-            resourceInputs["flexRetentionDays"] = args ? args.flexRetentionDays : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["retentionDays"] = args ? args.retentionDays : undefined;
+            resourceInputs["dailyLimit"] = args?.dailyLimit;
+            resourceInputs["dailyLimitReset"] = args?.dailyLimitReset;
+            resourceInputs["dailyLimitWarningThresholdPercentage"] = args?.dailyLimitWarningThresholdPercentage;
+            resourceInputs["disableDailyLimit"] = args?.disableDailyLimit;
+            resourceInputs["exclusionFilters"] = args?.exclusionFilters;
+            resourceInputs["filters"] = args?.filters;
+            resourceInputs["flexRetentionDays"] = args?.flexRetentionDays;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["retentionDays"] = args?.retentionDays;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LogsIndex.__pulumiType, name, resourceInputs, opts);

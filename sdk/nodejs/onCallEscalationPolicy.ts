@@ -78,23 +78,23 @@ export class OnCallEscalationPolicy extends pulumi.CustomResource {
     /**
      * A human-readable name for the escalation policy.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * If true, pages will be automatically resolved if unacknowledged after the final step. Defaults to `false`.
      */
-    public readonly resolvePageOnPolicyEnd!: pulumi.Output<boolean>;
+    declare public readonly resolvePageOnPolicyEnd: pulumi.Output<boolean>;
     /**
      * If set, policy will be retried this many times after the final step. Must be in the range 0-10. Value must be between 0 and 10. Defaults to `0`.
      */
-    public readonly retries!: pulumi.Output<number>;
+    declare public readonly retries: pulumi.Output<number>;
     /**
      * List of steps for the escalation policy.
      */
-    public readonly steps!: pulumi.Output<outputs.OnCallEscalationPolicyStep[]>;
+    declare public readonly steps: pulumi.Output<outputs.OnCallEscalationPolicyStep[]>;
     /**
      * A list of team ids associated with the escalation policy.
      */
-    public readonly teams!: pulumi.Output<string[]>;
+    declare public readonly teams: pulumi.Output<string[]>;
 
     /**
      * Create a OnCallEscalationPolicy resource with the given unique name, arguments, and options.
@@ -109,24 +109,24 @@ export class OnCallEscalationPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OnCallEscalationPolicyState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resolvePageOnPolicyEnd"] = state ? state.resolvePageOnPolicyEnd : undefined;
-            resourceInputs["retries"] = state ? state.retries : undefined;
-            resourceInputs["steps"] = state ? state.steps : undefined;
-            resourceInputs["teams"] = state ? state.teams : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resolvePageOnPolicyEnd"] = state?.resolvePageOnPolicyEnd;
+            resourceInputs["retries"] = state?.retries;
+            resourceInputs["steps"] = state?.steps;
+            resourceInputs["teams"] = state?.teams;
         } else {
             const args = argsOrState as OnCallEscalationPolicyArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.steps === undefined) && !opts.urn) {
+            if (args?.steps === undefined && !opts.urn) {
                 throw new Error("Missing required property 'steps'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resolvePageOnPolicyEnd"] = args ? args.resolvePageOnPolicyEnd : undefined;
-            resourceInputs["retries"] = args ? args.retries : undefined;
-            resourceInputs["steps"] = args ? args.steps : undefined;
-            resourceInputs["teams"] = args ? args.teams : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resolvePageOnPolicyEnd"] = args?.resolvePageOnPolicyEnd;
+            resourceInputs["retries"] = args?.retries;
+            resourceInputs["steps"] = args?.steps;
+            resourceInputs["teams"] = args?.teams;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(OnCallEscalationPolicy.__pulumiType, name, resourceInputs, opts);

@@ -86,27 +86,27 @@ export class MetricTagConfiguration extends pulumi.CustomResource {
     /**
      * A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metricType` of count, rate, or gauge.
      */
-    public readonly aggregations!: pulumi.Output<outputs.MetricTagConfigurationAggregation[]>;
+    declare public readonly aggregations: pulumi.Output<outputs.MetricTagConfigurationAggregation[]>;
     /**
      * Toggle to include/exclude tags as queryable for your metric. Can only be applied to metrics that have one or more tags configured. Defaults to `false`.
      */
-    public readonly excludeTagsMode!: pulumi.Output<boolean | undefined>;
+    declare public readonly excludeTagsMode: pulumi.Output<boolean | undefined>;
     /**
      * Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metricType` of distribution.
      */
-    public readonly includePercentiles!: pulumi.Output<boolean | undefined>;
+    declare public readonly includePercentiles: pulumi.Output<boolean | undefined>;
     /**
      * The metric name for this resource.
      */
-    public readonly metricName!: pulumi.Output<string>;
+    declare public readonly metricName: pulumi.Output<string>;
     /**
      * The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
      */
-    public readonly metricType!: pulumi.Output<string>;
+    declare public readonly metricType: pulumi.Output<string>;
     /**
      * A list of tag keys that will be queryable for your metric.
      */
-    public readonly tags!: pulumi.Output<string[]>;
+    declare public readonly tags: pulumi.Output<string[]>;
 
     /**
      * Create a MetricTagConfiguration resource with the given unique name, arguments, and options.
@@ -121,29 +121,29 @@ export class MetricTagConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MetricTagConfigurationState | undefined;
-            resourceInputs["aggregations"] = state ? state.aggregations : undefined;
-            resourceInputs["excludeTagsMode"] = state ? state.excludeTagsMode : undefined;
-            resourceInputs["includePercentiles"] = state ? state.includePercentiles : undefined;
-            resourceInputs["metricName"] = state ? state.metricName : undefined;
-            resourceInputs["metricType"] = state ? state.metricType : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["aggregations"] = state?.aggregations;
+            resourceInputs["excludeTagsMode"] = state?.excludeTagsMode;
+            resourceInputs["includePercentiles"] = state?.includePercentiles;
+            resourceInputs["metricName"] = state?.metricName;
+            resourceInputs["metricType"] = state?.metricType;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as MetricTagConfigurationArgs | undefined;
-            if ((!args || args.metricName === undefined) && !opts.urn) {
+            if (args?.metricName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'metricName'");
             }
-            if ((!args || args.metricType === undefined) && !opts.urn) {
+            if (args?.metricType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'metricType'");
             }
-            if ((!args || args.tags === undefined) && !opts.urn) {
+            if (args?.tags === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tags'");
             }
-            resourceInputs["aggregations"] = args ? args.aggregations : undefined;
-            resourceInputs["excludeTagsMode"] = args ? args.excludeTagsMode : undefined;
-            resourceInputs["includePercentiles"] = args ? args.includePercentiles : undefined;
-            resourceInputs["metricName"] = args ? args.metricName : undefined;
-            resourceInputs["metricType"] = args ? args.metricType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["aggregations"] = args?.aggregations;
+            resourceInputs["excludeTagsMode"] = args?.excludeTagsMode;
+            resourceInputs["includePercentiles"] = args?.includePercentiles;
+            resourceInputs["metricName"] = args?.metricName;
+            resourceInputs["metricType"] = args?.metricType;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(MetricTagConfiguration.__pulumiType, name, resourceInputs, opts);

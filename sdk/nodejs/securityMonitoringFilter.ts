@@ -73,27 +73,27 @@ export class SecurityMonitoringFilter extends pulumi.CustomResource {
     /**
      * Exclusion filters to exclude some logs from the security filter.
      */
-    public readonly exclusionFilters!: pulumi.Output<outputs.SecurityMonitoringFilterExclusionFilter[] | undefined>;
+    declare public readonly exclusionFilters: pulumi.Output<outputs.SecurityMonitoringFilterExclusionFilter[] | undefined>;
     /**
      * The filtered data type. Valid values are `logs`. Defaults to `"logs"`.
      */
-    public readonly filteredDataType!: pulumi.Output<string | undefined>;
+    declare public readonly filteredDataType: pulumi.Output<string | undefined>;
     /**
      * Whether the security filter is enabled.
      */
-    public readonly isEnabled!: pulumi.Output<boolean>;
+    declare public readonly isEnabled: pulumi.Output<boolean>;
     /**
      * The name of the security filter.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The query of the security filter.
      */
-    public readonly query!: pulumi.Output<string>;
+    declare public readonly query: pulumi.Output<string>;
     /**
      * The version of the security filter.
      */
-    public /*out*/ readonly version!: pulumi.Output<number>;
+    declare public /*out*/ readonly version: pulumi.Output<number>;
 
     /**
      * Create a SecurityMonitoringFilter resource with the given unique name, arguments, and options.
@@ -108,28 +108,28 @@ export class SecurityMonitoringFilter extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecurityMonitoringFilterState | undefined;
-            resourceInputs["exclusionFilters"] = state ? state.exclusionFilters : undefined;
-            resourceInputs["filteredDataType"] = state ? state.filteredDataType : undefined;
-            resourceInputs["isEnabled"] = state ? state.isEnabled : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["query"] = state ? state.query : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["exclusionFilters"] = state?.exclusionFilters;
+            resourceInputs["filteredDataType"] = state?.filteredDataType;
+            resourceInputs["isEnabled"] = state?.isEnabled;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["query"] = state?.query;
+            resourceInputs["version"] = state?.version;
         } else {
             const args = argsOrState as SecurityMonitoringFilterArgs | undefined;
-            if ((!args || args.isEnabled === undefined) && !opts.urn) {
+            if (args?.isEnabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'isEnabled'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.query === undefined) && !opts.urn) {
+            if (args?.query === undefined && !opts.urn) {
                 throw new Error("Missing required property 'query'");
             }
-            resourceInputs["exclusionFilters"] = args ? args.exclusionFilters : undefined;
-            resourceInputs["filteredDataType"] = args ? args.filteredDataType : undefined;
-            resourceInputs["isEnabled"] = args ? args.isEnabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["query"] = args ? args.query : undefined;
+            resourceInputs["exclusionFilters"] = args?.exclusionFilters;
+            resourceInputs["filteredDataType"] = args?.filteredDataType;
+            resourceInputs["isEnabled"] = args?.isEnabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["query"] = args?.query;
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

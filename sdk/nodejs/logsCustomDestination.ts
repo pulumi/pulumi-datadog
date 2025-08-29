@@ -70,48 +70,48 @@ export class LogsCustomDestination extends pulumi.CustomResource {
     /**
      * The Elasticsearch destination.
      */
-    public readonly elasticsearchDestination!: pulumi.Output<outputs.LogsCustomDestinationElasticsearchDestination | undefined>;
+    declare public readonly elasticsearchDestination: pulumi.Output<outputs.LogsCustomDestinationElasticsearchDestination | undefined>;
     /**
      * Whether logs matching this custom destination should be forwarded or not.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * Whether tags from the forwarded logs should be forwarded or not.
      */
-    public readonly forwardTags!: pulumi.Output<boolean>;
+    declare public readonly forwardTags: pulumi.Output<boolean>;
     /**
      * How the `forwardTagsRestrictionList` parameter should be interpreted.
      * 			If `ALLOW_LIST`, then only tags whose keys on the forwarded logs match the ones on the restriction list
      * 			are forwarded.
      * 			`BLOCK_LIST` works the opposite way. It does not forward the tags matching the ones on the list. Valid values are `ALLOW_LIST`, `BLOCK_LIST`.
      */
-    public readonly forwardTagsRestrictionListType!: pulumi.Output<string>;
+    declare public readonly forwardTagsRestrictionListType: pulumi.Output<string>;
     /**
      * List of [tag keys](https://docs.datadoghq.com/getting_started/tagging/#define-tags) to be filtered.
      * 			An empty list represents no restriction is in place and either all or no tags will be
      * 			forwarded depending on `forwardTagsRestrictionListType` parameter.
      */
-    public readonly forwardTagsRestrictionLists!: pulumi.Output<string[]>;
+    declare public readonly forwardTagsRestrictionLists: pulumi.Output<string[]>;
     /**
      * The HTTP destination.
      */
-    public readonly httpDestination!: pulumi.Output<outputs.LogsCustomDestinationHttpDestination | undefined>;
+    declare public readonly httpDestination: pulumi.Output<outputs.LogsCustomDestinationHttpDestination | undefined>;
     /**
      * The Microsoft Sentinel destination.
      */
-    public readonly microsoftSentinelDestination!: pulumi.Output<outputs.LogsCustomDestinationMicrosoftSentinelDestination | undefined>;
+    declare public readonly microsoftSentinelDestination: pulumi.Output<outputs.LogsCustomDestinationMicrosoftSentinelDestination | undefined>;
     /**
      * The custom destination name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The custom destination query filter. Logs matching this query are forwarded to the destination.
      */
-    public readonly query!: pulumi.Output<string>;
+    declare public readonly query: pulumi.Output<string>;
     /**
      * The Splunk HTTP Event Collector (HEC) destination.
      */
-    public readonly splunkDestination!: pulumi.Output<outputs.LogsCustomDestinationSplunkDestination | undefined>;
+    declare public readonly splunkDestination: pulumi.Output<outputs.LogsCustomDestinationSplunkDestination | undefined>;
 
     /**
      * Create a LogsCustomDestination resource with the given unique name, arguments, and options.
@@ -126,31 +126,31 @@ export class LogsCustomDestination extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LogsCustomDestinationState | undefined;
-            resourceInputs["elasticsearchDestination"] = state ? state.elasticsearchDestination : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["forwardTags"] = state ? state.forwardTags : undefined;
-            resourceInputs["forwardTagsRestrictionListType"] = state ? state.forwardTagsRestrictionListType : undefined;
-            resourceInputs["forwardTagsRestrictionLists"] = state ? state.forwardTagsRestrictionLists : undefined;
-            resourceInputs["httpDestination"] = state ? state.httpDestination : undefined;
-            resourceInputs["microsoftSentinelDestination"] = state ? state.microsoftSentinelDestination : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["query"] = state ? state.query : undefined;
-            resourceInputs["splunkDestination"] = state ? state.splunkDestination : undefined;
+            resourceInputs["elasticsearchDestination"] = state?.elasticsearchDestination;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["forwardTags"] = state?.forwardTags;
+            resourceInputs["forwardTagsRestrictionListType"] = state?.forwardTagsRestrictionListType;
+            resourceInputs["forwardTagsRestrictionLists"] = state?.forwardTagsRestrictionLists;
+            resourceInputs["httpDestination"] = state?.httpDestination;
+            resourceInputs["microsoftSentinelDestination"] = state?.microsoftSentinelDestination;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["query"] = state?.query;
+            resourceInputs["splunkDestination"] = state?.splunkDestination;
         } else {
             const args = argsOrState as LogsCustomDestinationArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["elasticsearchDestination"] = args ? args.elasticsearchDestination : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["forwardTags"] = args ? args.forwardTags : undefined;
-            resourceInputs["forwardTagsRestrictionListType"] = args ? args.forwardTagsRestrictionListType : undefined;
-            resourceInputs["forwardTagsRestrictionLists"] = args ? args.forwardTagsRestrictionLists : undefined;
-            resourceInputs["httpDestination"] = args ? args.httpDestination : undefined;
-            resourceInputs["microsoftSentinelDestination"] = args ? args.microsoftSentinelDestination : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["query"] = args ? args.query : undefined;
-            resourceInputs["splunkDestination"] = args ? args.splunkDestination : undefined;
+            resourceInputs["elasticsearchDestination"] = args?.elasticsearchDestination;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["forwardTags"] = args?.forwardTags;
+            resourceInputs["forwardTagsRestrictionListType"] = args?.forwardTagsRestrictionListType;
+            resourceInputs["forwardTagsRestrictionLists"] = args?.forwardTagsRestrictionLists;
+            resourceInputs["httpDestination"] = args?.httpDestination;
+            resourceInputs["microsoftSentinelDestination"] = args?.microsoftSentinelDestination;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["query"] = args?.query;
+            resourceInputs["splunkDestination"] = args?.splunkDestination;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LogsCustomDestination.__pulumiType, name, resourceInputs, opts);

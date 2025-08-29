@@ -60,27 +60,27 @@ export class Team extends pulumi.CustomResource {
     /**
      * Free-form markdown description/content for the team's homepage.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * The team's identifier
      */
-    public readonly handle!: pulumi.Output<string>;
+    declare public readonly handle: pulumi.Output<string>;
     /**
      * The number of links belonging to the team.
      */
-    public /*out*/ readonly linkCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly linkCount: pulumi.Output<number>;
     /**
      * The name of the team.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A brief summary of the team, derived from the `description`.
      */
-    public /*out*/ readonly summary!: pulumi.Output<string>;
+    declare public /*out*/ readonly summary: pulumi.Output<string>;
     /**
      * The number of users belonging to the team.
      */
-    public /*out*/ readonly userCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly userCount: pulumi.Output<number>;
 
     /**
      * Create a Team resource with the given unique name, arguments, and options.
@@ -95,26 +95,26 @@ export class Team extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TeamState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["handle"] = state ? state.handle : undefined;
-            resourceInputs["linkCount"] = state ? state.linkCount : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["summary"] = state ? state.summary : undefined;
-            resourceInputs["userCount"] = state ? state.userCount : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["handle"] = state?.handle;
+            resourceInputs["linkCount"] = state?.linkCount;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["summary"] = state?.summary;
+            resourceInputs["userCount"] = state?.userCount;
         } else {
             const args = argsOrState as TeamArgs | undefined;
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.handle === undefined) && !opts.urn) {
+            if (args?.handle === undefined && !opts.urn) {
                 throw new Error("Missing required property 'handle'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["handle"] = args ? args.handle : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["handle"] = args?.handle;
+            resourceInputs["name"] = args?.name;
             resourceInputs["linkCount"] = undefined /*out*/;
             resourceInputs["summary"] = undefined /*out*/;
             resourceInputs["userCount"] = undefined /*out*/;

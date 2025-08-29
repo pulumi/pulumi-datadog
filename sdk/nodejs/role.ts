@@ -69,23 +69,23 @@ export class Role extends pulumi.CustomResource {
         return obj['__pulumiType'] === Role.__pulumiType;
     }
 
-    public readonly defaultPermissionsOptOut!: pulumi.Output<boolean | undefined>;
+    declare public readonly defaultPermissionsOptOut: pulumi.Output<boolean | undefined>;
     /**
      * Name of the role.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Set of objects containing the permission ID and the name of the permissions granted to this role.
      */
-    public readonly permissions!: pulumi.Output<outputs.RolePermission[] | undefined>;
+    declare public readonly permissions: pulumi.Output<outputs.RolePermission[] | undefined>;
     /**
      * Number of users that have this role.
      */
-    public /*out*/ readonly userCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly userCount: pulumi.Output<number>;
     /**
      * If set to `false`, skip the validation call done during plan.
      */
-    public readonly validate!: pulumi.Output<boolean | undefined>;
+    declare public readonly validate: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Role resource with the given unique name, arguments, and options.
@@ -100,20 +100,20 @@ export class Role extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RoleState | undefined;
-            resourceInputs["defaultPermissionsOptOut"] = state ? state.defaultPermissionsOptOut : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["permissions"] = state ? state.permissions : undefined;
-            resourceInputs["userCount"] = state ? state.userCount : undefined;
-            resourceInputs["validate"] = state ? state.validate : undefined;
+            resourceInputs["defaultPermissionsOptOut"] = state?.defaultPermissionsOptOut;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["permissions"] = state?.permissions;
+            resourceInputs["userCount"] = state?.userCount;
+            resourceInputs["validate"] = state?.validate;
         } else {
             const args = argsOrState as RoleArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["defaultPermissionsOptOut"] = args ? args.defaultPermissionsOptOut : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["permissions"] = args ? args.permissions : undefined;
-            resourceInputs["validate"] = args ? args.validate : undefined;
+            resourceInputs["defaultPermissionsOptOut"] = args?.defaultPermissionsOptOut;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["permissions"] = args?.permissions;
+            resourceInputs["validate"] = args?.validate;
             resourceInputs["userCount"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

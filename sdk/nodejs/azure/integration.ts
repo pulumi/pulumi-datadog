@@ -72,60 +72,60 @@ export class Integration extends pulumi.CustomResource {
     /**
      * This comma-separated list of tags (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure App Service Plans. Only App Service Plans that match one of the defined tags are imported into Datadog. The rest, including the apps and functions running on them, are ignored. This also filters the metrics for any App or Function running on the App Service Plan(s). Defaults to `""`.
      */
-    public readonly appServicePlanFilters!: pulumi.Output<string>;
+    declare public readonly appServicePlanFilters: pulumi.Output<string>;
     /**
      * Silence monitors for expected Azure VM shutdowns. Defaults to `false`.
      */
-    public readonly automute!: pulumi.Output<boolean>;
+    declare public readonly automute: pulumi.Output<boolean>;
     /**
      * Your Azure web application ID.
      */
-    public readonly clientId!: pulumi.Output<string>;
+    declare public readonly clientId: pulumi.Output<string>;
     /**
      * (Required for Initial Creation) Your Azure web application secret key.
      */
-    public readonly clientSecret!: pulumi.Output<string>;
+    declare public readonly clientSecret: pulumi.Output<string>;
     /**
      * This comma-separated list of tags (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure Container Apps. Only Container Apps that match one of the defined tags are imported into Datadog. Defaults to `""`.
      */
-    public readonly containerAppFilters!: pulumi.Output<string>;
+    declare public readonly containerAppFilters: pulumi.Output<string>;
     /**
      * When enabled, Datadog’s Cloud Security Management product scans resource configurations monitored by this app registration.
      * Note: This requires `resourceCollectionEnabled` to be set to true. Defaults to `false`.
      */
-    public readonly cspmEnabled!: pulumi.Output<boolean>;
+    declare public readonly cspmEnabled: pulumi.Output<boolean>;
     /**
      * Enable custom metrics for your organization. Defaults to `false`.
      */
-    public readonly customMetricsEnabled!: pulumi.Output<boolean>;
+    declare public readonly customMetricsEnabled: pulumi.Output<boolean>;
     /**
      * String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red` Defaults to `""`.
      */
-    public readonly hostFilters!: pulumi.Output<string>;
+    declare public readonly hostFilters: pulumi.Output<string>;
     /**
      * Enable Azure metrics for your organization. Defaults to `true`.
      */
-    public readonly metricsEnabled!: pulumi.Output<boolean>;
+    declare public readonly metricsEnabled: pulumi.Output<boolean>;
     /**
      * Enable Azure metrics for your organization for resource providers where no resource provider config is specified. Defaults to `true`.
      */
-    public readonly metricsEnabledDefault!: pulumi.Output<boolean>;
+    declare public readonly metricsEnabledDefault: pulumi.Output<boolean>;
     /**
      * When enabled, Datadog collects metadata and configuration info from cloud resources (such as compute instances, databases, and load balancers) monitored by this app registration.
      */
-    public readonly resourceCollectionEnabled!: pulumi.Output<boolean>;
+    declare public readonly resourceCollectionEnabled: pulumi.Output<boolean>;
     /**
      * Configuration settings applied to resources from the specified Azure resource providers.
      */
-    public readonly resourceProviderConfigs!: pulumi.Output<outputs.azure.IntegrationResourceProviderConfig[]>;
+    declare public readonly resourceProviderConfigs: pulumi.Output<outputs.azure.IntegrationResourceProviderConfig[]>;
     /**
      * Your Azure Active Directory ID.
      */
-    public readonly tenantName!: pulumi.Output<string>;
+    declare public readonly tenantName: pulumi.Output<string>;
     /**
      * Enable azure.usage metrics for your organization. Defaults to `true`.
      */
-    public readonly usageMetricsEnabled!: pulumi.Output<boolean>;
+    declare public readonly usageMetricsEnabled: pulumi.Output<boolean>;
 
     /**
      * Create a Integration resource with the given unique name, arguments, and options.
@@ -140,45 +140,45 @@ export class Integration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationState | undefined;
-            resourceInputs["appServicePlanFilters"] = state ? state.appServicePlanFilters : undefined;
-            resourceInputs["automute"] = state ? state.automute : undefined;
-            resourceInputs["clientId"] = state ? state.clientId : undefined;
-            resourceInputs["clientSecret"] = state ? state.clientSecret : undefined;
-            resourceInputs["containerAppFilters"] = state ? state.containerAppFilters : undefined;
-            resourceInputs["cspmEnabled"] = state ? state.cspmEnabled : undefined;
-            resourceInputs["customMetricsEnabled"] = state ? state.customMetricsEnabled : undefined;
-            resourceInputs["hostFilters"] = state ? state.hostFilters : undefined;
-            resourceInputs["metricsEnabled"] = state ? state.metricsEnabled : undefined;
-            resourceInputs["metricsEnabledDefault"] = state ? state.metricsEnabledDefault : undefined;
-            resourceInputs["resourceCollectionEnabled"] = state ? state.resourceCollectionEnabled : undefined;
-            resourceInputs["resourceProviderConfigs"] = state ? state.resourceProviderConfigs : undefined;
-            resourceInputs["tenantName"] = state ? state.tenantName : undefined;
-            resourceInputs["usageMetricsEnabled"] = state ? state.usageMetricsEnabled : undefined;
+            resourceInputs["appServicePlanFilters"] = state?.appServicePlanFilters;
+            resourceInputs["automute"] = state?.automute;
+            resourceInputs["clientId"] = state?.clientId;
+            resourceInputs["clientSecret"] = state?.clientSecret;
+            resourceInputs["containerAppFilters"] = state?.containerAppFilters;
+            resourceInputs["cspmEnabled"] = state?.cspmEnabled;
+            resourceInputs["customMetricsEnabled"] = state?.customMetricsEnabled;
+            resourceInputs["hostFilters"] = state?.hostFilters;
+            resourceInputs["metricsEnabled"] = state?.metricsEnabled;
+            resourceInputs["metricsEnabledDefault"] = state?.metricsEnabledDefault;
+            resourceInputs["resourceCollectionEnabled"] = state?.resourceCollectionEnabled;
+            resourceInputs["resourceProviderConfigs"] = state?.resourceProviderConfigs;
+            resourceInputs["tenantName"] = state?.tenantName;
+            resourceInputs["usageMetricsEnabled"] = state?.usageMetricsEnabled;
         } else {
             const args = argsOrState as IntegrationArgs | undefined;
-            if ((!args || args.clientId === undefined) && !opts.urn) {
+            if (args?.clientId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientId'");
             }
-            if ((!args || args.clientSecret === undefined) && !opts.urn) {
+            if (args?.clientSecret === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientSecret'");
             }
-            if ((!args || args.tenantName === undefined) && !opts.urn) {
+            if (args?.tenantName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tenantName'");
             }
-            resourceInputs["appServicePlanFilters"] = args ? args.appServicePlanFilters : undefined;
-            resourceInputs["automute"] = args ? args.automute : undefined;
-            resourceInputs["clientId"] = args ? args.clientId : undefined;
+            resourceInputs["appServicePlanFilters"] = args?.appServicePlanFilters;
+            resourceInputs["automute"] = args?.automute;
+            resourceInputs["clientId"] = args?.clientId;
             resourceInputs["clientSecret"] = args?.clientSecret ? pulumi.secret(args.clientSecret) : undefined;
-            resourceInputs["containerAppFilters"] = args ? args.containerAppFilters : undefined;
-            resourceInputs["cspmEnabled"] = args ? args.cspmEnabled : undefined;
-            resourceInputs["customMetricsEnabled"] = args ? args.customMetricsEnabled : undefined;
-            resourceInputs["hostFilters"] = args ? args.hostFilters : undefined;
-            resourceInputs["metricsEnabled"] = args ? args.metricsEnabled : undefined;
-            resourceInputs["metricsEnabledDefault"] = args ? args.metricsEnabledDefault : undefined;
-            resourceInputs["resourceCollectionEnabled"] = args ? args.resourceCollectionEnabled : undefined;
-            resourceInputs["resourceProviderConfigs"] = args ? args.resourceProviderConfigs : undefined;
-            resourceInputs["tenantName"] = args ? args.tenantName : undefined;
-            resourceInputs["usageMetricsEnabled"] = args ? args.usageMetricsEnabled : undefined;
+            resourceInputs["containerAppFilters"] = args?.containerAppFilters;
+            resourceInputs["cspmEnabled"] = args?.cspmEnabled;
+            resourceInputs["customMetricsEnabled"] = args?.customMetricsEnabled;
+            resourceInputs["hostFilters"] = args?.hostFilters;
+            resourceInputs["metricsEnabled"] = args?.metricsEnabled;
+            resourceInputs["metricsEnabledDefault"] = args?.metricsEnabledDefault;
+            resourceInputs["resourceCollectionEnabled"] = args?.resourceCollectionEnabled;
+            resourceInputs["resourceProviderConfigs"] = args?.resourceProviderConfigs;
+            resourceInputs["tenantName"] = args?.tenantName;
+            resourceInputs["usageMetricsEnabled"] = args?.usageMetricsEnabled;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["clientSecret"] };

@@ -53,7 +53,7 @@ export class AppKeyRegistration extends pulumi.CustomResource {
     /**
      * The Application Key ID to register.
      */
-    public readonly appKeyId!: pulumi.Output<string>;
+    declare public readonly appKeyId: pulumi.Output<string>;
 
     /**
      * Create a AppKeyRegistration resource with the given unique name, arguments, and options.
@@ -68,13 +68,13 @@ export class AppKeyRegistration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AppKeyRegistrationState | undefined;
-            resourceInputs["appKeyId"] = state ? state.appKeyId : undefined;
+            resourceInputs["appKeyId"] = state?.appKeyId;
         } else {
             const args = argsOrState as AppKeyRegistrationArgs | undefined;
-            if ((!args || args.appKeyId === undefined) && !opts.urn) {
+            if (args?.appKeyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appKeyId'");
             }
-            resourceInputs["appKeyId"] = args ? args.appKeyId : undefined;
+            resourceInputs["appKeyId"] = args?.appKeyId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AppKeyRegistration.__pulumiType, name, resourceInputs, opts);

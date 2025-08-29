@@ -50,11 +50,11 @@ export class ObservabilityPipeline extends pulumi.CustomResource {
     /**
      * Configuration for the pipeline.
      */
-    public readonly config!: pulumi.Output<outputs.ObservabilityPipelineConfig | undefined>;
+    declare public readonly config: pulumi.Output<outputs.ObservabilityPipelineConfig | undefined>;
     /**
      * The pipeline name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a ObservabilityPipeline resource with the given unique name, arguments, and options.
@@ -69,15 +69,15 @@ export class ObservabilityPipeline extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ObservabilityPipelineState | undefined;
-            resourceInputs["config"] = state ? state.config : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["config"] = state?.config;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as ObservabilityPipelineArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["config"] = args ? args.config : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["config"] = args?.config;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ObservabilityPipeline.__pulumiType, name, resourceInputs, opts);

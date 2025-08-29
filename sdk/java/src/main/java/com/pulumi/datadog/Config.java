@@ -20,12 +20,7 @@ public final class Config {
         return Codegen.stringProp("apiKey").config(config).get();
     }
 /**
- * The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`.
- * Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value,
- * while `https://api.datadoghq.com/api/` is not. And if you&#39;re working with &#34;EU&#34; version of Datadog, use
- * `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`,
- * `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/
- * for all available regions.
+ * The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`. Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And if you&#39;re working with &#34;EU&#34; version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/ for all available regions.
  * 
  */
     public Optional<String> apiUrl() {
@@ -39,24 +34,21 @@ public final class Config {
         return Codegen.stringProp("appKey").config(config).get();
     }
 /**
- * The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID`
- * environment variable. Required when using `cloud_provider_type` set to `aws`.
+ * The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloud_provider_type` set to `aws`.
  * 
  */
     public Optional<String> awsAccessKeyId() {
         return Codegen.stringProp("awsAccessKeyId").config(config).get();
     }
 /**
- * The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the
- * `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
+ * The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
  * 
  */
     public Optional<String> awsSecretAccessKey() {
         return Codegen.stringProp("awsSecretAccessKey").config(config).get();
     }
 /**
- * The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN`
- * environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
+ * The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
  * 
  */
     public Optional<String> awsSessionToken() {
@@ -70,17 +62,14 @@ public final class Config {
         return Codegen.stringProp("cloudProviderRegion").config(config).get();
     }
 /**
- * Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app
- * keys. Only [`aws`] is supported. This feature is in Preview. If you&#39;d like to enable it for your organization, contact
- * [support](https://docs.datadoghq.com/help/).
+ * Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you&#39;d like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
  * 
  */
     public Optional<String> cloudProviderType() {
         return Codegen.stringProp("cloudProviderType").config(config).get();
     }
 /**
- * [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration
- * block containing settings to apply default resource tags across all resources.
+ * [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
  * 
  */
     public Optional<DefaultTags> defaultTags() {
@@ -122,16 +111,14 @@ public final class Config {
         return Codegen.integerProp("httpClientRetryTimeout").config(config).get();
     }
 /**
- * The organization UUID; used for cloud-provider-based authentication. See the [Datadog API
- * documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+ * The organization UUID; used for cloud-provider-based authentication. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
  * 
  */
     public Optional<String> orgUuid() {
         return Codegen.stringProp("orgUuid").config(config).get();
     }
 /**
- * Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default
- * is true. When false, api_key won&#39;t be checked.
+ * Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, api_key won&#39;t be checked.
  * 
  */
     public Optional<String> validate() {

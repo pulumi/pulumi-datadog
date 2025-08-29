@@ -31,12 +31,7 @@ class _ExportableConfig(types.ModuleType):
     @_builtins.property
     def api_url(self) -> Optional[str]:
         """
-        The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`.
-        Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value,
-        while `https://api.datadoghq.com/api/` is not. And if you're working with "EU" version of Datadog, use
-        `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`,
-        `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/
-        for all available regions.
+        The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`. Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And if you're working with "EU" version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/ for all available regions.
         """
         return __config__.get('apiUrl')
 
@@ -50,24 +45,21 @@ class _ExportableConfig(types.ModuleType):
     @_builtins.property
     def aws_access_key_id(self) -> Optional[str]:
         """
-        The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID`
-        environment variable. Required when using `cloud_provider_type` set to `aws`.
+        The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloud_provider_type` set to `aws`.
         """
         return __config__.get('awsAccessKeyId')
 
     @_builtins.property
     def aws_secret_access_key(self) -> Optional[str]:
         """
-        The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the
-        `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
+        The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
         """
         return __config__.get('awsSecretAccessKey')
 
     @_builtins.property
     def aws_session_token(self) -> Optional[str]:
         """
-        The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN`
-        environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
+        The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
         """
         return __config__.get('awsSessionToken')
 
@@ -81,17 +73,14 @@ class _ExportableConfig(types.ModuleType):
     @_builtins.property
     def cloud_provider_type(self) -> Optional[str]:
         """
-        Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app
-        keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact
-        [support](https://docs.datadoghq.com/help/).
+        Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
         """
         return __config__.get('cloudProviderType')
 
     @_builtins.property
     def default_tags(self) -> Optional[str]:
         """
-        [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration
-        block containing settings to apply default resource tags across all resources.
+        [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
         """
         return __config__.get('defaultTags')
 
@@ -133,16 +122,14 @@ class _ExportableConfig(types.ModuleType):
     @_builtins.property
     def org_uuid(self) -> Optional[str]:
         """
-        The organization UUID; used for cloud-provider-based authentication. See the [Datadog API
-        documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+        The organization UUID; used for cloud-provider-based authentication. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
         """
         return __config__.get('orgUuid')
 
     @_builtins.property
     def validate(self) -> Optional[str]:
         """
-        Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default
-        is true. When false, api_key won't be checked.
+        Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, api_key won't be checked.
         """
         return __config__.get('validate')
 

@@ -76,19 +76,19 @@ export class LogsMetric extends pulumi.CustomResource {
     /**
      * The compute rule to compute the log-based metric. This field can't be updated after creation.
      */
-    public readonly compute!: pulumi.Output<outputs.LogsMetricCompute>;
+    declare public readonly compute: pulumi.Output<outputs.LogsMetricCompute>;
     /**
      * The log-based metric filter. Logs matching this filter will be aggregated in this metric.
      */
-    public readonly filter!: pulumi.Output<outputs.LogsMetricFilter>;
+    declare public readonly filter: pulumi.Output<outputs.LogsMetricFilter>;
     /**
      * The rules for the group by.
      */
-    public readonly groupBies!: pulumi.Output<outputs.LogsMetricGroupBy[] | undefined>;
+    declare public readonly groupBies: pulumi.Output<outputs.LogsMetricGroupBy[] | undefined>;
     /**
      * The name of the log-based metric. This field can't be updated after creation.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a LogsMetric resource with the given unique name, arguments, and options.
@@ -103,25 +103,25 @@ export class LogsMetric extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LogsMetricState | undefined;
-            resourceInputs["compute"] = state ? state.compute : undefined;
-            resourceInputs["filter"] = state ? state.filter : undefined;
-            resourceInputs["groupBies"] = state ? state.groupBies : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["compute"] = state?.compute;
+            resourceInputs["filter"] = state?.filter;
+            resourceInputs["groupBies"] = state?.groupBies;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as LogsMetricArgs | undefined;
-            if ((!args || args.compute === undefined) && !opts.urn) {
+            if (args?.compute === undefined && !opts.urn) {
                 throw new Error("Missing required property 'compute'");
             }
-            if ((!args || args.filter === undefined) && !opts.urn) {
+            if (args?.filter === undefined && !opts.urn) {
                 throw new Error("Missing required property 'filter'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["compute"] = args ? args.compute : undefined;
-            resourceInputs["filter"] = args ? args.filter : undefined;
-            resourceInputs["groupBies"] = args ? args.groupBies : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["compute"] = args?.compute;
+            resourceInputs["filter"] = args?.filter;
+            resourceInputs["groupBies"] = args?.groupBies;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LogsMetric.__pulumiType, name, resourceInputs, opts);

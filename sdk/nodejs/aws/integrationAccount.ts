@@ -46,39 +46,39 @@ export class IntegrationAccount extends pulumi.CustomResource {
     /**
      * Tags to apply to all metrics in the account. Defaults to `[]`.
      */
-    public readonly accountTags!: pulumi.Output<string[]>;
+    declare public readonly accountTags: pulumi.Output<string[]>;
     /**
      * Configure how Datadog authenticates to your AWS account. Either `awsAuthConfigKeys` or `awsAuthConfigRole` block is required within.
      */
-    public readonly authConfig!: pulumi.Output<outputs.aws.IntegrationAccountAuthConfig | undefined>;
+    declare public readonly authConfig: pulumi.Output<outputs.aws.IntegrationAccountAuthConfig | undefined>;
     /**
      * Your AWS Account ID without dashes.
      */
-    public readonly awsAccountId!: pulumi.Output<string>;
+    declare public readonly awsAccountId: pulumi.Output<string>;
     /**
      * AWS Account partition.
      */
-    public readonly awsPartition!: pulumi.Output<string>;
+    declare public readonly awsPartition: pulumi.Output<string>;
     /**
      * AWS regions to collect data from. Defaults to `includeAll` if block is empty.
      */
-    public readonly awsRegions!: pulumi.Output<outputs.aws.IntegrationAccountAwsRegions | undefined>;
+    declare public readonly awsRegions: pulumi.Output<outputs.aws.IntegrationAccountAwsRegions | undefined>;
     /**
      * Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambdaFowarder` block is required within, but may be empty to use defaults.
      */
-    public readonly logsConfig!: pulumi.Output<outputs.aws.IntegrationAccountLogsConfig | undefined>;
+    declare public readonly logsConfig: pulumi.Output<outputs.aws.IntegrationAccountLogsConfig | undefined>;
     /**
      * Configure metrics collection from AWS CloudWatch. The `namespaceFilters` block is required within, but may be empty to use defaults.
      */
-    public readonly metricsConfig!: pulumi.Output<outputs.aws.IntegrationAccountMetricsConfig | undefined>;
+    declare public readonly metricsConfig: pulumi.Output<outputs.aws.IntegrationAccountMetricsConfig | undefined>;
     /**
      * AWS resources collection config. May be empty to use defaults.
      */
-    public readonly resourcesConfig!: pulumi.Output<outputs.aws.IntegrationAccountResourcesConfig | undefined>;
+    declare public readonly resourcesConfig: pulumi.Output<outputs.aws.IntegrationAccountResourcesConfig | undefined>;
     /**
      * AWS traces collection config. The `xrayServices` block is required within, but may be empty to use defaults.
      */
-    public readonly tracesConfig!: pulumi.Output<outputs.aws.IntegrationAccountTracesConfig | undefined>;
+    declare public readonly tracesConfig: pulumi.Output<outputs.aws.IntegrationAccountTracesConfig | undefined>;
 
     /**
      * Create a IntegrationAccount resource with the given unique name, arguments, and options.
@@ -93,32 +93,32 @@ export class IntegrationAccount extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationAccountState | undefined;
-            resourceInputs["accountTags"] = state ? state.accountTags : undefined;
-            resourceInputs["authConfig"] = state ? state.authConfig : undefined;
-            resourceInputs["awsAccountId"] = state ? state.awsAccountId : undefined;
-            resourceInputs["awsPartition"] = state ? state.awsPartition : undefined;
-            resourceInputs["awsRegions"] = state ? state.awsRegions : undefined;
-            resourceInputs["logsConfig"] = state ? state.logsConfig : undefined;
-            resourceInputs["metricsConfig"] = state ? state.metricsConfig : undefined;
-            resourceInputs["resourcesConfig"] = state ? state.resourcesConfig : undefined;
-            resourceInputs["tracesConfig"] = state ? state.tracesConfig : undefined;
+            resourceInputs["accountTags"] = state?.accountTags;
+            resourceInputs["authConfig"] = state?.authConfig;
+            resourceInputs["awsAccountId"] = state?.awsAccountId;
+            resourceInputs["awsPartition"] = state?.awsPartition;
+            resourceInputs["awsRegions"] = state?.awsRegions;
+            resourceInputs["logsConfig"] = state?.logsConfig;
+            resourceInputs["metricsConfig"] = state?.metricsConfig;
+            resourceInputs["resourcesConfig"] = state?.resourcesConfig;
+            resourceInputs["tracesConfig"] = state?.tracesConfig;
         } else {
             const args = argsOrState as IntegrationAccountArgs | undefined;
-            if ((!args || args.awsAccountId === undefined) && !opts.urn) {
+            if (args?.awsAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'awsAccountId'");
             }
-            if ((!args || args.awsPartition === undefined) && !opts.urn) {
+            if (args?.awsPartition === undefined && !opts.urn) {
                 throw new Error("Missing required property 'awsPartition'");
             }
-            resourceInputs["accountTags"] = args ? args.accountTags : undefined;
-            resourceInputs["authConfig"] = args ? args.authConfig : undefined;
-            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
-            resourceInputs["awsPartition"] = args ? args.awsPartition : undefined;
-            resourceInputs["awsRegions"] = args ? args.awsRegions : undefined;
-            resourceInputs["logsConfig"] = args ? args.logsConfig : undefined;
-            resourceInputs["metricsConfig"] = args ? args.metricsConfig : undefined;
-            resourceInputs["resourcesConfig"] = args ? args.resourcesConfig : undefined;
-            resourceInputs["tracesConfig"] = args ? args.tracesConfig : undefined;
+            resourceInputs["accountTags"] = args?.accountTags;
+            resourceInputs["authConfig"] = args?.authConfig;
+            resourceInputs["awsAccountId"] = args?.awsAccountId;
+            resourceInputs["awsPartition"] = args?.awsPartition;
+            resourceInputs["awsRegions"] = args?.awsRegions;
+            resourceInputs["logsConfig"] = args?.logsConfig;
+            resourceInputs["metricsConfig"] = args?.metricsConfig;
+            resourceInputs["resourcesConfig"] = args?.resourcesConfig;
+            resourceInputs["tracesConfig"] = args?.tracesConfig;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IntegrationAccount.__pulumiType, name, resourceInputs, opts);

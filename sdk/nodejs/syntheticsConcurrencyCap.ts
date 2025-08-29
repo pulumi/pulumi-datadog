@@ -58,7 +58,7 @@ export class SyntheticsConcurrencyCap extends pulumi.CustomResource {
     /**
      * Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel. Value must be at least 1.
      */
-    public readonly onDemandConcurrencyCap!: pulumi.Output<number>;
+    declare public readonly onDemandConcurrencyCap: pulumi.Output<number>;
 
     /**
      * Create a SyntheticsConcurrencyCap resource with the given unique name, arguments, and options.
@@ -73,13 +73,13 @@ export class SyntheticsConcurrencyCap extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SyntheticsConcurrencyCapState | undefined;
-            resourceInputs["onDemandConcurrencyCap"] = state ? state.onDemandConcurrencyCap : undefined;
+            resourceInputs["onDemandConcurrencyCap"] = state?.onDemandConcurrencyCap;
         } else {
             const args = argsOrState as SyntheticsConcurrencyCapArgs | undefined;
-            if ((!args || args.onDemandConcurrencyCap === undefined) && !opts.urn) {
+            if (args?.onDemandConcurrencyCap === undefined && !opts.urn) {
                 throw new Error("Missing required property 'onDemandConcurrencyCap'");
             }
-            resourceInputs["onDemandConcurrencyCap"] = args ? args.onDemandConcurrencyCap : undefined;
+            resourceInputs["onDemandConcurrencyCap"] = args?.onDemandConcurrencyCap;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SyntheticsConcurrencyCap.__pulumiType, name, resourceInputs, opts);

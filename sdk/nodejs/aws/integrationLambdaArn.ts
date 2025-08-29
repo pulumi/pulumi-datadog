@@ -69,11 +69,11 @@ export class IntegrationLambdaArn extends pulumi.CustomResource {
     /**
      * Your AWS Account ID without dashes.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    declare public readonly accountId: pulumi.Output<string>;
     /**
      * The ARN of the Datadog forwarder Lambda.
      */
-    public readonly lambdaArn!: pulumi.Output<string>;
+    declare public readonly lambdaArn: pulumi.Output<string>;
 
     /**
      * Create a IntegrationLambdaArn resource with the given unique name, arguments, and options.
@@ -88,18 +88,18 @@ export class IntegrationLambdaArn extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationLambdaArnState | undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["lambdaArn"] = state ? state.lambdaArn : undefined;
+            resourceInputs["accountId"] = state?.accountId;
+            resourceInputs["lambdaArn"] = state?.lambdaArn;
         } else {
             const args = argsOrState as IntegrationLambdaArnArgs | undefined;
-            if ((!args || args.accountId === undefined) && !opts.urn) {
+            if (args?.accountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountId'");
             }
-            if ((!args || args.lambdaArn === undefined) && !opts.urn) {
+            if (args?.lambdaArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'lambdaArn'");
             }
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["lambdaArn"] = args ? args.lambdaArn : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["lambdaArn"] = args?.lambdaArn;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IntegrationLambdaArn.__pulumiType, name, resourceInputs, opts);

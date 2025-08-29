@@ -56,15 +56,15 @@ export class TeamPermissionSetting extends pulumi.CustomResource {
     /**
      * The identifier for the action. Valid values are `manageMembership`, `edit`.
      */
-    public readonly action!: pulumi.Output<string>;
+    declare public readonly action: pulumi.Output<string>;
     /**
      * ID of the team the team permission setting is associated with.
      */
-    public readonly teamId!: pulumi.Output<string>;
+    declare public readonly teamId: pulumi.Output<string>;
     /**
      * The action value. Valid values are dependent on the action. `manageMembership` action allows `admins`, `members`, `organization`, `userAccessManage` values. `edit` action allows `admins`, `members`, `teamsManage` values.
      */
-    public readonly value!: pulumi.Output<string>;
+    declare public readonly value: pulumi.Output<string>;
 
     /**
      * Create a TeamPermissionSetting resource with the given unique name, arguments, and options.
@@ -79,23 +79,23 @@ export class TeamPermissionSetting extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TeamPermissionSettingState | undefined;
-            resourceInputs["action"] = state ? state.action : undefined;
-            resourceInputs["teamId"] = state ? state.teamId : undefined;
-            resourceInputs["value"] = state ? state.value : undefined;
+            resourceInputs["action"] = state?.action;
+            resourceInputs["teamId"] = state?.teamId;
+            resourceInputs["value"] = state?.value;
         } else {
             const args = argsOrState as TeamPermissionSettingArgs | undefined;
-            if ((!args || args.action === undefined) && !opts.urn) {
+            if (args?.action === undefined && !opts.urn) {
                 throw new Error("Missing required property 'action'");
             }
-            if ((!args || args.teamId === undefined) && !opts.urn) {
+            if (args?.teamId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'teamId'");
             }
-            if ((!args || args.value === undefined) && !opts.urn) {
+            if (args?.value === undefined && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
-            resourceInputs["action"] = args ? args.action : undefined;
-            resourceInputs["teamId"] = args ? args.teamId : undefined;
-            resourceInputs["value"] = args ? args.value : undefined;
+            resourceInputs["action"] = args?.action;
+            resourceInputs["teamId"] = args?.teamId;
+            resourceInputs["value"] = args?.value;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TeamPermissionSetting.__pulumiType, name, resourceInputs, opts);

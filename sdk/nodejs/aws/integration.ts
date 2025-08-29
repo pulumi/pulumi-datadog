@@ -76,54 +76,54 @@ export class Integration extends pulumi.CustomResource {
     /**
      * Your AWS access key ID. Only required if your AWS account is a GovCloud or China account.
      */
-    public readonly accessKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly accessKeyId: pulumi.Output<string | undefined>;
     /**
      * Your AWS Account ID without dashes.
      */
-    public readonly accountId!: pulumi.Output<string | undefined>;
+    declare public readonly accountId: pulumi.Output<string | undefined>;
     /**
      * Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
      */
-    public readonly accountSpecificNamespaceRules!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly accountSpecificNamespaceRules: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional resources not covered under the general resource_collection.
      */
-    public readonly cspmResourceCollectionEnabled!: pulumi.Output<string>;
+    declare public readonly cspmResourceCollectionEnabled: pulumi.Output<string>;
     /**
      * An array of AWS regions to exclude from metrics collection.
      */
-    public readonly excludedRegions!: pulumi.Output<string[] | undefined>;
+    declare public readonly excludedRegions: pulumi.Output<string[] | undefined>;
     /**
      * Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cspmResourceCollectionEnabled`.
      */
-    public readonly extendedResourceCollectionEnabled!: pulumi.Output<string>;
-    public /*out*/ readonly externalId!: pulumi.Output<string>;
+    declare public readonly extendedResourceCollectionEnabled: pulumi.Output<string>;
+    declare public /*out*/ readonly externalId: pulumi.Output<string>;
     /**
      * Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
      */
-    public readonly filterTags!: pulumi.Output<string[] | undefined>;
+    declare public readonly filterTags: pulumi.Output<string[] | undefined>;
     /**
      * Array of tags (in the form `key:value`) to add to all hosts and metrics reporting through this integration.
      */
-    public readonly hostTags!: pulumi.Output<string[] | undefined>;
+    declare public readonly hostTags: pulumi.Output<string[] | undefined>;
     /**
      * Whether Datadog collects metrics for this AWS account.
      */
-    public readonly metricsCollectionEnabled!: pulumi.Output<string>;
+    declare public readonly metricsCollectionEnabled: pulumi.Output<string>;
     /**
      * Whether Datadog collects a standard set of resources from your AWS account. **Deprecated.** Deprecated in favor of `extendedResourceCollectionEnabled`.
      *
      * @deprecated Deprecated in favor of `extendedResourceCollectionEnabled`.
      */
-    public readonly resourceCollectionEnabled!: pulumi.Output<string>;
+    declare public readonly resourceCollectionEnabled: pulumi.Output<string>;
     /**
      * Your Datadog role delegation name.
      */
-    public readonly roleName!: pulumi.Output<string | undefined>;
+    declare public readonly roleName: pulumi.Output<string | undefined>;
     /**
      * Your AWS secret access key. Only required if your AWS account is a GovCloud or China account.
      */
-    public readonly secretAccessKey!: pulumi.Output<string | undefined>;
+    declare public readonly secretAccessKey: pulumi.Output<string | undefined>;
 
     /**
      * Create a Integration resource with the given unique name, arguments, and options.
@@ -138,32 +138,32 @@ export class Integration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationState | undefined;
-            resourceInputs["accessKeyId"] = state ? state.accessKeyId : undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["accountSpecificNamespaceRules"] = state ? state.accountSpecificNamespaceRules : undefined;
-            resourceInputs["cspmResourceCollectionEnabled"] = state ? state.cspmResourceCollectionEnabled : undefined;
-            resourceInputs["excludedRegions"] = state ? state.excludedRegions : undefined;
-            resourceInputs["extendedResourceCollectionEnabled"] = state ? state.extendedResourceCollectionEnabled : undefined;
-            resourceInputs["externalId"] = state ? state.externalId : undefined;
-            resourceInputs["filterTags"] = state ? state.filterTags : undefined;
-            resourceInputs["hostTags"] = state ? state.hostTags : undefined;
-            resourceInputs["metricsCollectionEnabled"] = state ? state.metricsCollectionEnabled : undefined;
-            resourceInputs["resourceCollectionEnabled"] = state ? state.resourceCollectionEnabled : undefined;
-            resourceInputs["roleName"] = state ? state.roleName : undefined;
-            resourceInputs["secretAccessKey"] = state ? state.secretAccessKey : undefined;
+            resourceInputs["accessKeyId"] = state?.accessKeyId;
+            resourceInputs["accountId"] = state?.accountId;
+            resourceInputs["accountSpecificNamespaceRules"] = state?.accountSpecificNamespaceRules;
+            resourceInputs["cspmResourceCollectionEnabled"] = state?.cspmResourceCollectionEnabled;
+            resourceInputs["excludedRegions"] = state?.excludedRegions;
+            resourceInputs["extendedResourceCollectionEnabled"] = state?.extendedResourceCollectionEnabled;
+            resourceInputs["externalId"] = state?.externalId;
+            resourceInputs["filterTags"] = state?.filterTags;
+            resourceInputs["hostTags"] = state?.hostTags;
+            resourceInputs["metricsCollectionEnabled"] = state?.metricsCollectionEnabled;
+            resourceInputs["resourceCollectionEnabled"] = state?.resourceCollectionEnabled;
+            resourceInputs["roleName"] = state?.roleName;
+            resourceInputs["secretAccessKey"] = state?.secretAccessKey;
         } else {
             const args = argsOrState as IntegrationArgs | undefined;
-            resourceInputs["accessKeyId"] = args ? args.accessKeyId : undefined;
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["accountSpecificNamespaceRules"] = args ? args.accountSpecificNamespaceRules : undefined;
-            resourceInputs["cspmResourceCollectionEnabled"] = args ? args.cspmResourceCollectionEnabled : undefined;
-            resourceInputs["excludedRegions"] = args ? args.excludedRegions : undefined;
-            resourceInputs["extendedResourceCollectionEnabled"] = args ? args.extendedResourceCollectionEnabled : undefined;
-            resourceInputs["filterTags"] = args ? args.filterTags : undefined;
-            resourceInputs["hostTags"] = args ? args.hostTags : undefined;
-            resourceInputs["metricsCollectionEnabled"] = args ? args.metricsCollectionEnabled : undefined;
-            resourceInputs["resourceCollectionEnabled"] = args ? args.resourceCollectionEnabled : undefined;
-            resourceInputs["roleName"] = args ? args.roleName : undefined;
+            resourceInputs["accessKeyId"] = args?.accessKeyId;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["accountSpecificNamespaceRules"] = args?.accountSpecificNamespaceRules;
+            resourceInputs["cspmResourceCollectionEnabled"] = args?.cspmResourceCollectionEnabled;
+            resourceInputs["excludedRegions"] = args?.excludedRegions;
+            resourceInputs["extendedResourceCollectionEnabled"] = args?.extendedResourceCollectionEnabled;
+            resourceInputs["filterTags"] = args?.filterTags;
+            resourceInputs["hostTags"] = args?.hostTags;
+            resourceInputs["metricsCollectionEnabled"] = args?.metricsCollectionEnabled;
+            resourceInputs["resourceCollectionEnabled"] = args?.resourceCollectionEnabled;
+            resourceInputs["roleName"] = args?.roleName;
             resourceInputs["secretAccessKey"] = args?.secretAccessKey ? pulumi.secret(args.secretAccessKey) : undefined;
             resourceInputs["externalId"] = undefined /*out*/;
         }

@@ -68,49 +68,49 @@ export class SyntheticsGlobalVariable extends pulumi.CustomResource {
     /**
      * Description of the global variable. Defaults to `""`.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * If set to true, the global variable is a FIDO variable. Defaults to `false`.
      */
-    public readonly isFido!: pulumi.Output<boolean>;
+    declare public readonly isFido: pulumi.Output<boolean>;
     /**
      * If set to true, the global variable is a TOTP variable. Defaults to `false`.
      */
-    public readonly isTotp!: pulumi.Output<boolean>;
+    declare public readonly isTotp: pulumi.Output<boolean>;
     /**
      * Synthetics global variable name. Must be all uppercase with underscores.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Additional options for the variable, such as a MFA token.
      */
-    public readonly options!: pulumi.Output<outputs.SyntheticsGlobalVariableOptions | undefined>;
+    declare public readonly options: pulumi.Output<outputs.SyntheticsGlobalVariableOptions | undefined>;
     /**
      * Id of the Synthetics test to use for a variable from test.
      */
-    public readonly parseTestId!: pulumi.Output<string | undefined>;
+    declare public readonly parseTestId: pulumi.Output<string | undefined>;
     /**
      * ID of the Synthetics test to use a source of the global variable value.
      */
-    public readonly parseTestOptions!: pulumi.Output<outputs.SyntheticsGlobalVariableParseTestOptions | undefined>;
+    declare public readonly parseTestOptions: pulumi.Output<outputs.SyntheticsGlobalVariableParseTestOptions | undefined>;
     /**
      * A list of role identifiers to associate with the Synthetics global variable. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
      *
      * @deprecated This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
      */
-    public readonly restrictedRoles!: pulumi.Output<string[] | undefined>;
+    declare public readonly restrictedRoles: pulumi.Output<string[] | undefined>;
     /**
      * If set to true, the value of the global variable is hidden. This setting is automatically set to `true` if `isTotp` or `isFido` is set to `true`. Defaults to `false`.
      */
-    public readonly secure!: pulumi.Output<boolean>;
+    declare public readonly secure: pulumi.Output<boolean>;
     /**
      * A list of tags to associate with your synthetics global variable.
      */
-    public readonly tags!: pulumi.Output<string[]>;
+    declare public readonly tags: pulumi.Output<string[]>;
     /**
      * The value of the global variable. Required unless `isFido` is set to `true`.
      */
-    public readonly value!: pulumi.Output<string | undefined>;
+    declare public readonly value: pulumi.Output<string | undefined>;
 
     /**
      * Create a SyntheticsGlobalVariable resource with the given unique name, arguments, and options.
@@ -125,32 +125,32 @@ export class SyntheticsGlobalVariable extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SyntheticsGlobalVariableState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["isFido"] = state ? state.isFido : undefined;
-            resourceInputs["isTotp"] = state ? state.isTotp : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["options"] = state ? state.options : undefined;
-            resourceInputs["parseTestId"] = state ? state.parseTestId : undefined;
-            resourceInputs["parseTestOptions"] = state ? state.parseTestOptions : undefined;
-            resourceInputs["restrictedRoles"] = state ? state.restrictedRoles : undefined;
-            resourceInputs["secure"] = state ? state.secure : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["value"] = state ? state.value : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["isFido"] = state?.isFido;
+            resourceInputs["isTotp"] = state?.isTotp;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["options"] = state?.options;
+            resourceInputs["parseTestId"] = state?.parseTestId;
+            resourceInputs["parseTestOptions"] = state?.parseTestOptions;
+            resourceInputs["restrictedRoles"] = state?.restrictedRoles;
+            resourceInputs["secure"] = state?.secure;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["value"] = state?.value;
         } else {
             const args = argsOrState as SyntheticsGlobalVariableArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["isFido"] = args ? args.isFido : undefined;
-            resourceInputs["isTotp"] = args ? args.isTotp : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["options"] = args ? args.options : undefined;
-            resourceInputs["parseTestId"] = args ? args.parseTestId : undefined;
-            resourceInputs["parseTestOptions"] = args ? args.parseTestOptions : undefined;
-            resourceInputs["restrictedRoles"] = args ? args.restrictedRoles : undefined;
-            resourceInputs["secure"] = args ? args.secure : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["isFido"] = args?.isFido;
+            resourceInputs["isTotp"] = args?.isTotp;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["options"] = args?.options;
+            resourceInputs["parseTestId"] = args?.parseTestId;
+            resourceInputs["parseTestOptions"] = args?.parseTestOptions;
+            resourceInputs["restrictedRoles"] = args?.restrictedRoles;
+            resourceInputs["secure"] = args?.secure;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["value"] = args?.value ? pulumi.secret(args.value) : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -46,7 +46,7 @@ export class OpenapiApi extends pulumi.CustomResource {
     /**
      * The textual content of the OpenAPI specification. Use `file()` in order to reference another file in the repository (see exmaple).
      */
-    public readonly spec!: pulumi.Output<string>;
+    declare public readonly spec: pulumi.Output<string>;
 
     /**
      * Create a OpenapiApi resource with the given unique name, arguments, and options.
@@ -61,13 +61,13 @@ export class OpenapiApi extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OpenapiApiState | undefined;
-            resourceInputs["spec"] = state ? state.spec : undefined;
+            resourceInputs["spec"] = state?.spec;
         } else {
             const args = argsOrState as OpenapiApiArgs | undefined;
-            if ((!args || args.spec === undefined) && !opts.urn) {
+            if (args?.spec === undefined && !opts.urn) {
                 throw new Error("Missing required property 'spec'");
             }
-            resourceInputs["spec"] = args ? args.spec : undefined;
+            resourceInputs["spec"] = args?.spec;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(OpenapiApi.__pulumiType, name, resourceInputs, opts);

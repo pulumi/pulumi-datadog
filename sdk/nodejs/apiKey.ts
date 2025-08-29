@@ -56,15 +56,15 @@ export class ApiKey extends pulumi.CustomResource {
     /**
      * The value of the API Key.
      */
-    public /*out*/ readonly key!: pulumi.Output<string>;
+    declare public /*out*/ readonly key: pulumi.Output<string>;
     /**
      * Name for API Key.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Whether the API key is used for remote config. Set to true only if remote config is enabled in `/organization-settings/remote-config`.
      */
-    public readonly remoteConfigReadEnabled!: pulumi.Output<boolean>;
+    declare public readonly remoteConfigReadEnabled: pulumi.Output<boolean>;
 
     /**
      * Create a ApiKey resource with the given unique name, arguments, and options.
@@ -79,16 +79,16 @@ export class ApiKey extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApiKeyState | undefined;
-            resourceInputs["key"] = state ? state.key : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["remoteConfigReadEnabled"] = state ? state.remoteConfigReadEnabled : undefined;
+            resourceInputs["key"] = state?.key;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["remoteConfigReadEnabled"] = state?.remoteConfigReadEnabled;
         } else {
             const args = argsOrState as ApiKeyArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["remoteConfigReadEnabled"] = args ? args.remoteConfigReadEnabled : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["remoteConfigReadEnabled"] = args?.remoteConfigReadEnabled;
             resourceInputs["key"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

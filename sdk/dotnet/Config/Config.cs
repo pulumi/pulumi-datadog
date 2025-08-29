@@ -44,12 +44,7 @@ namespace Pulumi.Datadog
 
         private static readonly __Value<string?> _apiUrl = new __Value<string?>(() => __config.Get("apiUrl"));
         /// <summary>
-        /// The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`.
-        /// Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value,
-        /// while `https://api.datadoghq.com/api/` is not. And if you're working with "EU" version of Datadog, use
-        /// `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`,
-        /// `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/
-        /// for all available regions.
+        /// The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`. Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And if you're working with "EU" version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/ for all available regions.
         /// </summary>
         public static string? ApiUrl
         {
@@ -69,8 +64,7 @@ namespace Pulumi.Datadog
 
         private static readonly __Value<string?> _awsAccessKeyId = new __Value<string?>(() => __config.Get("awsAccessKeyId"));
         /// <summary>
-        /// The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID`
-        /// environment variable. Required when using `cloud_provider_type` set to `aws`.
+        /// The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloud_provider_type` set to `aws`.
         /// </summary>
         public static string? AwsAccessKeyId
         {
@@ -80,8 +74,7 @@ namespace Pulumi.Datadog
 
         private static readonly __Value<string?> _awsSecretAccessKey = new __Value<string?>(() => __config.Get("awsSecretAccessKey"));
         /// <summary>
-        /// The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the
-        /// `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
+        /// The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
         /// </summary>
         public static string? AwsSecretAccessKey
         {
@@ -91,8 +84,7 @@ namespace Pulumi.Datadog
 
         private static readonly __Value<string?> _awsSessionToken = new __Value<string?>(() => __config.Get("awsSessionToken"));
         /// <summary>
-        /// The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN`
-        /// environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
+        /// The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
         /// </summary>
         public static string? AwsSessionToken
         {
@@ -112,9 +104,7 @@ namespace Pulumi.Datadog
 
         private static readonly __Value<string?> _cloudProviderType = new __Value<string?>(() => __config.Get("cloudProviderType"));
         /// <summary>
-        /// Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app
-        /// keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact
-        /// [support](https://docs.datadoghq.com/help/).
+        /// Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
         /// </summary>
         public static string? CloudProviderType
         {
@@ -124,8 +114,7 @@ namespace Pulumi.Datadog
 
         private static readonly __Value<Pulumi.Datadog.Config.Types.DefaultTags?> _defaultTags = new __Value<Pulumi.Datadog.Config.Types.DefaultTags?>(() => __config.GetObject<Pulumi.Datadog.Config.Types.DefaultTags>("defaultTags"));
         /// <summary>
-        /// [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration
-        /// block containing settings to apply default resource tags across all resources.
+        /// [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
         /// </summary>
         public static Pulumi.Datadog.Config.Types.DefaultTags? DefaultTags
         {
@@ -185,8 +174,7 @@ namespace Pulumi.Datadog
 
         private static readonly __Value<string?> _orgUuid = new __Value<string?>(() => __config.Get("orgUuid"));
         /// <summary>
-        /// The organization UUID; used for cloud-provider-based authentication. See the [Datadog API
-        /// documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+        /// The organization UUID; used for cloud-provider-based authentication. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
         /// </summary>
         public static string? OrgUuid
         {
@@ -196,8 +184,7 @@ namespace Pulumi.Datadog
 
         private static readonly __Value<string?> _validate = new __Value<string?>(() => __config.Get("validate"));
         /// <summary>
-        /// Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default
-        /// is true. When false, api_key won't be checked.
+        /// Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, api_key won't be checked.
         /// </summary>
         public static string? Validate
         {

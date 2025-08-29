@@ -101,23 +101,23 @@ export class ComplianceCustomFramework extends pulumi.CustomResource {
     /**
      * The framework handle. String length must be at least 1. This field is immutable.
      */
-    public readonly handle!: pulumi.Output<string>;
+    declare public readonly handle: pulumi.Output<string>;
     /**
      * The URL of the icon representing the framework
      */
-    public readonly iconUrl!: pulumi.Output<string | undefined>;
+    declare public readonly iconUrl: pulumi.Output<string | undefined>;
     /**
      * The framework name. String length must be at least 1.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The requirements of the framework. Length must be at least 1.
      */
-    public readonly requirements!: pulumi.Output<outputs.ComplianceCustomFrameworkRequirement[] | undefined>;
+    declare public readonly requirements: pulumi.Output<outputs.ComplianceCustomFrameworkRequirement[] | undefined>;
     /**
      * The framework version. String length must be at least 1. This field is immutable.
      */
-    public readonly version!: pulumi.Output<string>;
+    declare public readonly version: pulumi.Output<string>;
 
     /**
      * Create a ComplianceCustomFramework resource with the given unique name, arguments, and options.
@@ -132,27 +132,27 @@ export class ComplianceCustomFramework extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ComplianceCustomFrameworkState | undefined;
-            resourceInputs["handle"] = state ? state.handle : undefined;
-            resourceInputs["iconUrl"] = state ? state.iconUrl : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["requirements"] = state ? state.requirements : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["handle"] = state?.handle;
+            resourceInputs["iconUrl"] = state?.iconUrl;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["requirements"] = state?.requirements;
+            resourceInputs["version"] = state?.version;
         } else {
             const args = argsOrState as ComplianceCustomFrameworkArgs | undefined;
-            if ((!args || args.handle === undefined) && !opts.urn) {
+            if (args?.handle === undefined && !opts.urn) {
                 throw new Error("Missing required property 'handle'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.version === undefined) && !opts.urn) {
+            if (args?.version === undefined && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
-            resourceInputs["handle"] = args ? args.handle : undefined;
-            resourceInputs["iconUrl"] = args ? args.iconUrl : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["requirements"] = args ? args.requirements : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["handle"] = args?.handle;
+            resourceInputs["iconUrl"] = args?.iconUrl;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["requirements"] = args?.requirements;
+            resourceInputs["version"] = args?.version;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ComplianceCustomFramework.__pulumiType, name, resourceInputs, opts);
