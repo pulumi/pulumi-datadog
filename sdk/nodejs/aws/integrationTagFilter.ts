@@ -64,15 +64,15 @@ export class IntegrationTagFilter extends pulumi.CustomResource {
     /**
      * Your AWS Account ID without dashes.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    declare public readonly accountId: pulumi.Output<string>;
     /**
      * The namespace associated with the tag filter entry. Valid values are `elb`, `applicationElb`, `sqs`, `rds`, `custom`, `networkElb`, `lambda`, `stepFunctions`.
      */
-    public readonly namespace!: pulumi.Output<string>;
+    declare public readonly namespace: pulumi.Output<string>;
     /**
      * The tag filter string.
      */
-    public readonly tagFilterStr!: pulumi.Output<string>;
+    declare public readonly tagFilterStr: pulumi.Output<string>;
 
     /**
      * Create a IntegrationTagFilter resource with the given unique name, arguments, and options.
@@ -87,23 +87,23 @@ export class IntegrationTagFilter extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationTagFilterState | undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["namespace"] = state ? state.namespace : undefined;
-            resourceInputs["tagFilterStr"] = state ? state.tagFilterStr : undefined;
+            resourceInputs["accountId"] = state?.accountId;
+            resourceInputs["namespace"] = state?.namespace;
+            resourceInputs["tagFilterStr"] = state?.tagFilterStr;
         } else {
             const args = argsOrState as IntegrationTagFilterArgs | undefined;
-            if ((!args || args.accountId === undefined) && !opts.urn) {
+            if (args?.accountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountId'");
             }
-            if ((!args || args.namespace === undefined) && !opts.urn) {
+            if (args?.namespace === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespace'");
             }
-            if ((!args || args.tagFilterStr === undefined) && !opts.urn) {
+            if (args?.tagFilterStr === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tagFilterStr'");
             }
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["namespace"] = args ? args.namespace : undefined;
-            resourceInputs["tagFilterStr"] = args ? args.tagFilterStr : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["namespace"] = args?.namespace;
+            resourceInputs["tagFilterStr"] = args?.tagFilterStr;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IntegrationTagFilter.__pulumiType, name, resourceInputs, opts);

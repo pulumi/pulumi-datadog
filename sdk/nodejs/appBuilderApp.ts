@@ -46,27 +46,27 @@ export class AppBuilderApp extends pulumi.CustomResource {
     /**
      * If specified, this will override the Action Connection IDs for the specified Action Query Names in the App JSON. Otherwise, a map of the App's Action Query Names to Action Connection IDs will be returned in output.
      */
-    public readonly actionQueryNamesToConnectionIds!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly actionQueryNamesToConnectionIds: pulumi.Output<{[key: string]: string}>;
     /**
      * The JSON representation of the App. String length must be at least 1.
      */
-    public readonly appJson!: pulumi.Output<string>;
+    declare public readonly appJson: pulumi.Output<string>;
     /**
      * If specified, this will override the human-readable description of the App in the App JSON. String length must be at least 1.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * If specified, this will override the name of the App in the App JSON. String length must be at least 1.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Set the app to published or unpublished. Published apps are available to other users. To ensure the app is accessible to the correct users, you also need to set a [Restriction Policy](https://docs.datadoghq.com/api/latest/restriction-policies/) on the app if a policy does not yet exist. Defaults to `false`.
      */
-    public readonly published!: pulumi.Output<boolean>;
+    declare public readonly published: pulumi.Output<boolean>;
     /**
      * The name of the root component of the app. This must be a grid component that contains all other components. If specified, this will override the root instance name of the App in the App JSON. String length must be at least 1.
      */
-    public readonly rootInstanceName!: pulumi.Output<string>;
+    declare public readonly rootInstanceName: pulumi.Output<string>;
 
     /**
      * Create a AppBuilderApp resource with the given unique name, arguments, and options.
@@ -81,23 +81,23 @@ export class AppBuilderApp extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AppBuilderAppState | undefined;
-            resourceInputs["actionQueryNamesToConnectionIds"] = state ? state.actionQueryNamesToConnectionIds : undefined;
-            resourceInputs["appJson"] = state ? state.appJson : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["published"] = state ? state.published : undefined;
-            resourceInputs["rootInstanceName"] = state ? state.rootInstanceName : undefined;
+            resourceInputs["actionQueryNamesToConnectionIds"] = state?.actionQueryNamesToConnectionIds;
+            resourceInputs["appJson"] = state?.appJson;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["published"] = state?.published;
+            resourceInputs["rootInstanceName"] = state?.rootInstanceName;
         } else {
             const args = argsOrState as AppBuilderAppArgs | undefined;
-            if ((!args || args.appJson === undefined) && !opts.urn) {
+            if (args?.appJson === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appJson'");
             }
-            resourceInputs["actionQueryNamesToConnectionIds"] = args ? args.actionQueryNamesToConnectionIds : undefined;
-            resourceInputs["appJson"] = args ? args.appJson : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["published"] = args ? args.published : undefined;
-            resourceInputs["rootInstanceName"] = args ? args.rootInstanceName : undefined;
+            resourceInputs["actionQueryNamesToConnectionIds"] = args?.actionQueryNamesToConnectionIds;
+            resourceInputs["appJson"] = args?.appJson;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["published"] = args?.published;
+            resourceInputs["rootInstanceName"] = args?.rootInstanceName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AppBuilderApp.__pulumiType, name, resourceInputs, opts);

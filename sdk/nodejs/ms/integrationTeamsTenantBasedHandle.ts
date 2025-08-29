@@ -38,19 +38,19 @@ export class IntegrationTeamsTenantBasedHandle extends pulumi.CustomResource {
     /**
      * Your channel name.
      */
-    public readonly channelName!: pulumi.Output<string>;
+    declare public readonly channelName: pulumi.Output<string>;
     /**
      * Your tenant-based handle name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Your team name.
      */
-    public readonly teamName!: pulumi.Output<string>;
+    declare public readonly teamName: pulumi.Output<string>;
     /**
      * Your tenant name.
      */
-    public readonly tenantName!: pulumi.Output<string>;
+    declare public readonly tenantName: pulumi.Output<string>;
 
     /**
      * Create a IntegrationTeamsTenantBasedHandle resource with the given unique name, arguments, and options.
@@ -65,28 +65,28 @@ export class IntegrationTeamsTenantBasedHandle extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationTeamsTenantBasedHandleState | undefined;
-            resourceInputs["channelName"] = state ? state.channelName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["teamName"] = state ? state.teamName : undefined;
-            resourceInputs["tenantName"] = state ? state.tenantName : undefined;
+            resourceInputs["channelName"] = state?.channelName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["teamName"] = state?.teamName;
+            resourceInputs["tenantName"] = state?.tenantName;
         } else {
             const args = argsOrState as IntegrationTeamsTenantBasedHandleArgs | undefined;
-            if ((!args || args.channelName === undefined) && !opts.urn) {
+            if (args?.channelName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'channelName'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.teamName === undefined) && !opts.urn) {
+            if (args?.teamName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'teamName'");
             }
-            if ((!args || args.tenantName === undefined) && !opts.urn) {
+            if (args?.tenantName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tenantName'");
             }
-            resourceInputs["channelName"] = args ? args.channelName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["teamName"] = args ? args.teamName : undefined;
-            resourceInputs["tenantName"] = args ? args.tenantName : undefined;
+            resourceInputs["channelName"] = args?.channelName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["teamName"] = args?.teamName;
+            resourceInputs["tenantName"] = args?.tenantName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IntegrationTeamsTenantBasedHandle.__pulumiType, name, resourceInputs, opts);

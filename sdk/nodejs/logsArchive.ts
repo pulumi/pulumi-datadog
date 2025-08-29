@@ -66,35 +66,35 @@ export class LogsArchive extends pulumi.CustomResource {
     /**
      * Definition of an azure archive.
      */
-    public readonly azureArchive!: pulumi.Output<outputs.LogsArchiveAzureArchive | undefined>;
+    declare public readonly azureArchive: pulumi.Output<outputs.LogsArchiveAzureArchive | undefined>;
     /**
      * Definition of a GCS archive.
      */
-    public readonly gcsArchive!: pulumi.Output<outputs.LogsArchiveGcsArchive | undefined>;
+    declare public readonly gcsArchive: pulumi.Output<outputs.LogsArchiveGcsArchive | undefined>;
     /**
      * To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive. Defaults to `false`.
      */
-    public readonly includeTags!: pulumi.Output<boolean | undefined>;
+    declare public readonly includeTags: pulumi.Output<boolean | undefined>;
     /**
      * Your archive name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The archive query/filter. Logs matching this query are included in the archive.
      */
-    public readonly query!: pulumi.Output<string>;
+    declare public readonly query: pulumi.Output<string>;
     /**
      * To limit the rehydration scan size for the archive, set a value in GB.
      */
-    public readonly rehydrationMaxScanSizeInGb!: pulumi.Output<number | undefined>;
+    declare public readonly rehydrationMaxScanSizeInGb: pulumi.Output<number | undefined>;
     /**
      * An array of tags to add to rehydrated logs from an archive.
      */
-    public readonly rehydrationTags!: pulumi.Output<string[] | undefined>;
+    declare public readonly rehydrationTags: pulumi.Output<string[] | undefined>;
     /**
      * Definition of an s3 archive.
      */
-    public readonly s3Archive!: pulumi.Output<outputs.LogsArchiveS3Archive | undefined>;
+    declare public readonly s3Archive: pulumi.Output<outputs.LogsArchiveS3Archive | undefined>;
 
     /**
      * Create a LogsArchive resource with the given unique name, arguments, and options.
@@ -109,30 +109,30 @@ export class LogsArchive extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LogsArchiveState | undefined;
-            resourceInputs["azureArchive"] = state ? state.azureArchive : undefined;
-            resourceInputs["gcsArchive"] = state ? state.gcsArchive : undefined;
-            resourceInputs["includeTags"] = state ? state.includeTags : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["query"] = state ? state.query : undefined;
-            resourceInputs["rehydrationMaxScanSizeInGb"] = state ? state.rehydrationMaxScanSizeInGb : undefined;
-            resourceInputs["rehydrationTags"] = state ? state.rehydrationTags : undefined;
-            resourceInputs["s3Archive"] = state ? state.s3Archive : undefined;
+            resourceInputs["azureArchive"] = state?.azureArchive;
+            resourceInputs["gcsArchive"] = state?.gcsArchive;
+            resourceInputs["includeTags"] = state?.includeTags;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["query"] = state?.query;
+            resourceInputs["rehydrationMaxScanSizeInGb"] = state?.rehydrationMaxScanSizeInGb;
+            resourceInputs["rehydrationTags"] = state?.rehydrationTags;
+            resourceInputs["s3Archive"] = state?.s3Archive;
         } else {
             const args = argsOrState as LogsArchiveArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.query === undefined) && !opts.urn) {
+            if (args?.query === undefined && !opts.urn) {
                 throw new Error("Missing required property 'query'");
             }
-            resourceInputs["azureArchive"] = args ? args.azureArchive : undefined;
-            resourceInputs["gcsArchive"] = args ? args.gcsArchive : undefined;
-            resourceInputs["includeTags"] = args ? args.includeTags : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["query"] = args ? args.query : undefined;
-            resourceInputs["rehydrationMaxScanSizeInGb"] = args ? args.rehydrationMaxScanSizeInGb : undefined;
-            resourceInputs["rehydrationTags"] = args ? args.rehydrationTags : undefined;
-            resourceInputs["s3Archive"] = args ? args.s3Archive : undefined;
+            resourceInputs["azureArchive"] = args?.azureArchive;
+            resourceInputs["gcsArchive"] = args?.gcsArchive;
+            resourceInputs["includeTags"] = args?.includeTags;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["query"] = args?.query;
+            resourceInputs["rehydrationMaxScanSizeInGb"] = args?.rehydrationMaxScanSizeInGb;
+            resourceInputs["rehydrationTags"] = args?.rehydrationTags;
+            resourceInputs["s3Archive"] = args?.s3Archive;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LogsArchive.__pulumiType, name, resourceInputs, opts);

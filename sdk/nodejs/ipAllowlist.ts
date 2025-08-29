@@ -61,11 +61,11 @@ export class IpAllowlist extends pulumi.CustomResource {
     /**
      * Whether the IP Allowlist is enabled.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * Set of objects containing an IP address or range of IP addresses in the allowlist and an accompanying note.
      */
-    public readonly entries!: pulumi.Output<outputs.IpAllowlistEntry[] | undefined>;
+    declare public readonly entries: pulumi.Output<outputs.IpAllowlistEntry[] | undefined>;
 
     /**
      * Create a IpAllowlist resource with the given unique name, arguments, and options.
@@ -80,15 +80,15 @@ export class IpAllowlist extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IpAllowlistState | undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["entries"] = state ? state.entries : undefined;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["entries"] = state?.entries;
         } else {
             const args = argsOrState as IpAllowlistArgs | undefined;
-            if ((!args || args.enabled === undefined) && !opts.urn) {
+            if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["entries"] = args ? args.entries : undefined;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["entries"] = args?.entries;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IpAllowlist.__pulumiType, name, resourceInputs, opts);

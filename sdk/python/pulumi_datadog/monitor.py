@@ -59,65 +59,40 @@ class MonitorArgs:
         The set of arguments for constructing a Monitor resource.
         :param pulumi.Input[_builtins.str] message: A message to include with notifications for this monitor.
         :param pulumi.Input[_builtins.str] name: Name of Datadog monitor.
-        :param pulumi.Input[_builtins.str] type: The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the
-               Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type
-               cannot be changed after a monitor is created.
-        :param pulumi.Input[_builtins.bool] enable_logs_sample: A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log
-               monitors. Defaults to `false`.
-        :param pulumi.Input[_builtins.bool] enable_samples: Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline
-               monitors.
+        :param pulumi.Input[_builtins.str] type: The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type cannot be changed after a monitor is created.
+        :param pulumi.Input[_builtins.bool] enable_logs_sample: A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log monitors. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] enable_samples: Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline monitors.
         :param pulumi.Input[_builtins.str] escalation_message: A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
-        :param pulumi.Input[_builtins.int] evaluation_delay: (Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer. For example, if the
-               value is set to `300` (5min), the `timeframe` is set to `last_5m` and the time is 7:00, the monitor will evaluate data
-               from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have
-               data during evaluation.
-        :param pulumi.Input[_builtins.bool] force_delete: A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO,
-               composite monitor).
-        :param pulumi.Input[_builtins.str] group_retention_duration: The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour,
-               and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace
-               Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
-        :param pulumi.Input[_builtins.bool] groupby_simple_monitor: Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to
-               `false`.
+        :param pulumi.Input[_builtins.int] evaluation_delay: (Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.
+               
+               For example, if the value is set to `300` (5min), the `timeframe` is set to `last_5m` and the time is 7:00, the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have data during evaluation.
+        :param pulumi.Input[_builtins.bool] force_delete: A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO, composite monitor).
+        :param pulumi.Input[_builtins.str] group_retention_duration: The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour, and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
+        :param pulumi.Input[_builtins.bool] groupby_simple_monitor: Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] include_tags: A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
         :param pulumi.Input[_builtins.bool] locked: A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
-        :param pulumi.Input['MonitorMonitorThresholdWindowsArgs'] monitor_threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are
-               required for, anomaly monitors.
+        :param pulumi.Input['MonitorMonitorThresholdWindowsArgs'] monitor_threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are required for, anomaly monitors.
         :param pulumi.Input['MonitorMonitorThresholdsArgs'] monitor_thresholds: Alert thresholds of the monitor.
-        :param pulumi.Input[_builtins.int] new_group_delay: The time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
-               nonzero value.
-        :param pulumi.Input[_builtins.int] new_host_delay: **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
-               starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
-               and monitors not grouped by host. The only case when this should be used is to override the default and set
-               `new_host_delay` to zero for monitors grouped by host.
-        :param pulumi.Input[_builtins.int] no_data_timeframe: The number of minutes before a monitor will notify when data stops reporting. We recommend at least 2x the monitor
-               timeframe for metric alerts or 2 minutes for service checks.
+        :param pulumi.Input[_builtins.int] new_group_delay: The time (in seconds) to skip evaluations for new groups.
+               
+               `new_group_delay` overrides `new_host_delay` if it is set to a nonzero value.
+        :param pulumi.Input[_builtins.int] new_host_delay: **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors and monitors not grouped by host. The only case when this should be used is to override the default and set `new_host_delay` to zero for monitors grouped by host.
+        :param pulumi.Input[_builtins.int] no_data_timeframe: The number of minutes before a monitor will notify when data stops reporting.
+               
+               We recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
         :param pulumi.Input[_builtins.str] notification_preset_name: Toggles the display of additional content sent in the monitor notification.
         :param pulumi.Input[_builtins.bool] notify_audit: A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] notify_bies: Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor
-               grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
-               conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags
-               in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
-               to `[*]` configures the monitor to notify as a simple-alert.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] notify_bies: Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by` to `[*]` configures the monitor to notify as a simple-alert.
         :param pulumi.Input[_builtins.bool] notify_no_data: A boolean indicating whether this monitor will notify when data stops reporting.
-        :param pulumi.Input[_builtins.str] on_missing_data: Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
-               in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
-               evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than
-               `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not
-               available for Service Check, Composite, or SLO monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`,
-               `resolve`, and `default`.
+        :param pulumi.Input[_builtins.str] on_missing_data: Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not available for Service Check, Composite, or SLO monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
         :param pulumi.Input[_builtins.str] priority: Integer from 1 (high) to 5 (low) indicating alert severity.
-        :param pulumi.Input[_builtins.int] renotify_interval: The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
-               re-notify if it's not resolved.
+        :param pulumi.Input[_builtins.int] renotify_interval: The number of minutes after the last notification before a monitor will re-notify on the current status. It will only re-notify if it's not resolved.
         :param pulumi.Input[_builtins.int] renotify_occurrences: The number of re-notification messages that should be sent on the current status.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] renotify_statuses: The types of statuses for which re-notification messages should be sent.
-        :param pulumi.Input[_builtins.bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends
-               you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set,
-               `require_full_window` must be false and will be ignored.
+        :param pulumi.Input[_builtins.bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set, `require_full_window` must be false and will be ignored.
         :param pulumi.Input[Sequence[pulumi.Input['MonitorSchedulingOptionArgs']]] scheduling_options: Configuration options for scheduling.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
-               page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-        :param pulumi.Input[_builtins.int] timeout_h: The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The
-               minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
+        :param pulumi.Input[_builtins.int] timeout_h: The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
         :param pulumi.Input[_builtins.bool] validate: If set to `false`, skip the validation call done during plan.
         """
         pulumi.set(__self__, "message", message)
@@ -228,9 +203,7 @@ class MonitorArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
         """
-        The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the
-        Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type
-        cannot be changed after a monitor is created.
+        The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type cannot be changed after a monitor is created.
         """
         return pulumi.get(self, "type")
 
@@ -242,8 +215,7 @@ class MonitorArgs:
     @pulumi.getter(name="enableLogsSample")
     def enable_logs_sample(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log
-        monitors. Defaults to `false`.
+        A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log monitors. Defaults to `false`.
         """
         return pulumi.get(self, "enable_logs_sample")
 
@@ -255,8 +227,7 @@ class MonitorArgs:
     @pulumi.getter(name="enableSamples")
     def enable_samples(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline
-        monitors.
+        Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline monitors.
         """
         return pulumi.get(self, "enable_samples")
 
@@ -280,10 +251,9 @@ class MonitorArgs:
     @pulumi.getter(name="evaluationDelay")
     def evaluation_delay(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        (Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer. For example, if the
-        value is set to `300` (5min), the `timeframe` is set to `last_5m` and the time is 7:00, the monitor will evaluate data
-        from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have
-        data during evaluation.
+        (Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.
+
+        For example, if the value is set to `300` (5min), the `timeframe` is set to `last_5m` and the time is 7:00, the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have data during evaluation.
         """
         return pulumi.get(self, "evaluation_delay")
 
@@ -295,8 +265,7 @@ class MonitorArgs:
     @pulumi.getter(name="forceDelete")
     def force_delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO,
-        composite monitor).
+        A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO, composite monitor).
         """
         return pulumi.get(self, "force_delete")
 
@@ -308,9 +277,7 @@ class MonitorArgs:
     @pulumi.getter(name="groupRetentionDuration")
     def group_retention_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour,
-        and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace
-        Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
+        The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour, and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
         """
         return pulumi.get(self, "group_retention_duration")
 
@@ -322,8 +289,7 @@ class MonitorArgs:
     @pulumi.getter(name="groupbySimpleMonitor")
     def groupby_simple_monitor(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to
-        `false`.
+        Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to `false`.
         """
         return pulumi.get(self, "groupby_simple_monitor")
 
@@ -360,8 +326,7 @@ class MonitorArgs:
     @pulumi.getter(name="monitorThresholdWindows")
     def monitor_threshold_windows(self) -> Optional[pulumi.Input['MonitorMonitorThresholdWindowsArgs']]:
         """
-        A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are
-        required for, anomaly monitors.
+        A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are required for, anomaly monitors.
         """
         return pulumi.get(self, "monitor_threshold_windows")
 
@@ -385,8 +350,9 @@ class MonitorArgs:
     @pulumi.getter(name="newGroupDelay")
     def new_group_delay(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
-        nonzero value.
+        The time (in seconds) to skip evaluations for new groups.
+
+        `new_group_delay` overrides `new_host_delay` if it is set to a nonzero value.
         """
         return pulumi.get(self, "new_group_delay")
 
@@ -399,10 +365,7 @@ class MonitorArgs:
     @_utilities.deprecated("""Use `new_group_delay` except when setting `new_host_delay` to zero.""")
     def new_host_delay(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
-        starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
-        and monitors not grouped by host. The only case when this should be used is to override the default and set
-        `new_host_delay` to zero for monitors grouped by host.
+        **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors and monitors not grouped by host. The only case when this should be used is to override the default and set `new_host_delay` to zero for monitors grouped by host.
         """
         return pulumi.get(self, "new_host_delay")
 
@@ -414,8 +377,9 @@ class MonitorArgs:
     @pulumi.getter(name="noDataTimeframe")
     def no_data_timeframe(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The number of minutes before a monitor will notify when data stops reporting. We recommend at least 2x the monitor
-        timeframe for metric alerts or 2 minutes for service checks.
+        The number of minutes before a monitor will notify when data stops reporting.
+
+        We recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
         """
         return pulumi.get(self, "no_data_timeframe")
 
@@ -451,11 +415,7 @@ class MonitorArgs:
     @pulumi.getter(name="notifyBies")
     def notify_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor
-        grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
-        conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags
-        in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
-        to `[*]` configures the monitor to notify as a simple-alert.
+        Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by` to `[*]` configures the monitor to notify as a simple-alert.
         """
         return pulumi.get(self, "notify_bies")
 
@@ -479,12 +439,7 @@ class MonitorArgs:
     @pulumi.getter(name="onMissingData")
     def on_missing_data(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
-        in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
-        evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than
-        `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not
-        available for Service Check, Composite, or SLO monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`,
-        `resolve`, and `default`.
+        Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not available for Service Check, Composite, or SLO monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
         """
         return pulumi.get(self, "on_missing_data")
 
@@ -508,8 +463,7 @@ class MonitorArgs:
     @pulumi.getter(name="renotifyInterval")
     def renotify_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
-        re-notify if it's not resolved.
+        The number of minutes after the last notification before a monitor will re-notify on the current status. It will only re-notify if it's not resolved.
         """
         return pulumi.get(self, "renotify_interval")
 
@@ -545,9 +499,7 @@ class MonitorArgs:
     @pulumi.getter(name="requireFullWindow")
     def require_full_window(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends
-        you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set,
-        `require_full_window` must be false and will be ignored.
+        A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set, `require_full_window` must be false and will be ignored.
         """
         return pulumi.get(self, "require_full_window")
 
@@ -580,8 +532,7 @@ class MonitorArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
-        page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
+        A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
         """
         return pulumi.get(self, "tags")
 
@@ -593,8 +544,7 @@ class MonitorArgs:
     @pulumi.getter(name="timeoutH")
     def timeout_h(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The
-        minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
+        The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
         """
         return pulumi.get(self, "timeout_h")
 
@@ -663,67 +613,42 @@ class _MonitorState:
                  variables: Optional[pulumi.Input['MonitorVariablesArgs']] = None):
         """
         Input properties used for looking up and filtering Monitor resources.
-        :param pulumi.Input[_builtins.bool] enable_logs_sample: A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log
-               monitors. Defaults to `false`.
-        :param pulumi.Input[_builtins.bool] enable_samples: Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline
-               monitors.
+        :param pulumi.Input[_builtins.bool] enable_logs_sample: A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log monitors. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] enable_samples: Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline monitors.
         :param pulumi.Input[_builtins.str] escalation_message: A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
-        :param pulumi.Input[_builtins.int] evaluation_delay: (Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer. For example, if the
-               value is set to `300` (5min), the `timeframe` is set to `last_5m` and the time is 7:00, the monitor will evaluate data
-               from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have
-               data during evaluation.
-        :param pulumi.Input[_builtins.bool] force_delete: A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO,
-               composite monitor).
-        :param pulumi.Input[_builtins.str] group_retention_duration: The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour,
-               and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace
-               Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
-        :param pulumi.Input[_builtins.bool] groupby_simple_monitor: Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to
-               `false`.
+        :param pulumi.Input[_builtins.int] evaluation_delay: (Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.
+               
+               For example, if the value is set to `300` (5min), the `timeframe` is set to `last_5m` and the time is 7:00, the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have data during evaluation.
+        :param pulumi.Input[_builtins.bool] force_delete: A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO, composite monitor).
+        :param pulumi.Input[_builtins.str] group_retention_duration: The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour, and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
+        :param pulumi.Input[_builtins.bool] groupby_simple_monitor: Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] include_tags: A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
         :param pulumi.Input[_builtins.bool] locked: A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
         :param pulumi.Input[_builtins.str] message: A message to include with notifications for this monitor.
-        :param pulumi.Input['MonitorMonitorThresholdWindowsArgs'] monitor_threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are
-               required for, anomaly monitors.
+        :param pulumi.Input['MonitorMonitorThresholdWindowsArgs'] monitor_threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are required for, anomaly monitors.
         :param pulumi.Input['MonitorMonitorThresholdsArgs'] monitor_thresholds: Alert thresholds of the monitor.
         :param pulumi.Input[_builtins.str] name: Name of Datadog monitor.
-        :param pulumi.Input[_builtins.int] new_group_delay: The time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
-               nonzero value.
-        :param pulumi.Input[_builtins.int] new_host_delay: **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
-               starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
-               and monitors not grouped by host. The only case when this should be used is to override the default and set
-               `new_host_delay` to zero for monitors grouped by host.
-        :param pulumi.Input[_builtins.int] no_data_timeframe: The number of minutes before a monitor will notify when data stops reporting. We recommend at least 2x the monitor
-               timeframe for metric alerts or 2 minutes for service checks.
+        :param pulumi.Input[_builtins.int] new_group_delay: The time (in seconds) to skip evaluations for new groups.
+               
+               `new_group_delay` overrides `new_host_delay` if it is set to a nonzero value.
+        :param pulumi.Input[_builtins.int] new_host_delay: **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors and monitors not grouped by host. The only case when this should be used is to override the default and set `new_host_delay` to zero for monitors grouped by host.
+        :param pulumi.Input[_builtins.int] no_data_timeframe: The number of minutes before a monitor will notify when data stops reporting.
+               
+               We recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
         :param pulumi.Input[_builtins.str] notification_preset_name: Toggles the display of additional content sent in the monitor notification.
         :param pulumi.Input[_builtins.bool] notify_audit: A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] notify_bies: Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor
-               grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
-               conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags
-               in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
-               to `[*]` configures the monitor to notify as a simple-alert.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] notify_bies: Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by` to `[*]` configures the monitor to notify as a simple-alert.
         :param pulumi.Input[_builtins.bool] notify_no_data: A boolean indicating whether this monitor will notify when data stops reporting.
-        :param pulumi.Input[_builtins.str] on_missing_data: Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
-               in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
-               evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than
-               `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not
-               available for Service Check, Composite, or SLO monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`,
-               `resolve`, and `default`.
+        :param pulumi.Input[_builtins.str] on_missing_data: Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not available for Service Check, Composite, or SLO monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
         :param pulumi.Input[_builtins.str] priority: Integer from 1 (high) to 5 (low) indicating alert severity.
-        :param pulumi.Input[_builtins.int] renotify_interval: The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
-               re-notify if it's not resolved.
+        :param pulumi.Input[_builtins.int] renotify_interval: The number of minutes after the last notification before a monitor will re-notify on the current status. It will only re-notify if it's not resolved.
         :param pulumi.Input[_builtins.int] renotify_occurrences: The number of re-notification messages that should be sent on the current status.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] renotify_statuses: The types of statuses for which re-notification messages should be sent.
-        :param pulumi.Input[_builtins.bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends
-               you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set,
-               `require_full_window` must be false and will be ignored.
+        :param pulumi.Input[_builtins.bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set, `require_full_window` must be false and will be ignored.
         :param pulumi.Input[Sequence[pulumi.Input['MonitorSchedulingOptionArgs']]] scheduling_options: Configuration options for scheduling.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
-               page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-        :param pulumi.Input[_builtins.int] timeout_h: The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The
-               minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
-        :param pulumi.Input[_builtins.str] type: The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the
-               Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type
-               cannot be changed after a monitor is created.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
+        :param pulumi.Input[_builtins.int] timeout_h: The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
+        :param pulumi.Input[_builtins.str] type: The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type cannot be changed after a monitor is created.
         :param pulumi.Input[_builtins.bool] validate: If set to `false`, skip the validation call done during plan.
         """
         if enable_logs_sample is not None:
@@ -805,8 +730,7 @@ class _MonitorState:
     @pulumi.getter(name="enableLogsSample")
     def enable_logs_sample(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log
-        monitors. Defaults to `false`.
+        A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log monitors. Defaults to `false`.
         """
         return pulumi.get(self, "enable_logs_sample")
 
@@ -818,8 +742,7 @@ class _MonitorState:
     @pulumi.getter(name="enableSamples")
     def enable_samples(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline
-        monitors.
+        Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline monitors.
         """
         return pulumi.get(self, "enable_samples")
 
@@ -843,10 +766,9 @@ class _MonitorState:
     @pulumi.getter(name="evaluationDelay")
     def evaluation_delay(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        (Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer. For example, if the
-        value is set to `300` (5min), the `timeframe` is set to `last_5m` and the time is 7:00, the monitor will evaluate data
-        from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have
-        data during evaluation.
+        (Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.
+
+        For example, if the value is set to `300` (5min), the `timeframe` is set to `last_5m` and the time is 7:00, the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have data during evaluation.
         """
         return pulumi.get(self, "evaluation_delay")
 
@@ -858,8 +780,7 @@ class _MonitorState:
     @pulumi.getter(name="forceDelete")
     def force_delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO,
-        composite monitor).
+        A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO, composite monitor).
         """
         return pulumi.get(self, "force_delete")
 
@@ -871,9 +792,7 @@ class _MonitorState:
     @pulumi.getter(name="groupRetentionDuration")
     def group_retention_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour,
-        and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace
-        Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
+        The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour, and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
         """
         return pulumi.get(self, "group_retention_duration")
 
@@ -885,8 +804,7 @@ class _MonitorState:
     @pulumi.getter(name="groupbySimpleMonitor")
     def groupby_simple_monitor(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to
-        `false`.
+        Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to `false`.
         """
         return pulumi.get(self, "groupby_simple_monitor")
 
@@ -935,8 +853,7 @@ class _MonitorState:
     @pulumi.getter(name="monitorThresholdWindows")
     def monitor_threshold_windows(self) -> Optional[pulumi.Input['MonitorMonitorThresholdWindowsArgs']]:
         """
-        A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are
-        required for, anomaly monitors.
+        A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are required for, anomaly monitors.
         """
         return pulumi.get(self, "monitor_threshold_windows")
 
@@ -972,8 +889,9 @@ class _MonitorState:
     @pulumi.getter(name="newGroupDelay")
     def new_group_delay(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
-        nonzero value.
+        The time (in seconds) to skip evaluations for new groups.
+
+        `new_group_delay` overrides `new_host_delay` if it is set to a nonzero value.
         """
         return pulumi.get(self, "new_group_delay")
 
@@ -986,10 +904,7 @@ class _MonitorState:
     @_utilities.deprecated("""Use `new_group_delay` except when setting `new_host_delay` to zero.""")
     def new_host_delay(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
-        starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
-        and monitors not grouped by host. The only case when this should be used is to override the default and set
-        `new_host_delay` to zero for monitors grouped by host.
+        **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors and monitors not grouped by host. The only case when this should be used is to override the default and set `new_host_delay` to zero for monitors grouped by host.
         """
         return pulumi.get(self, "new_host_delay")
 
@@ -1001,8 +916,9 @@ class _MonitorState:
     @pulumi.getter(name="noDataTimeframe")
     def no_data_timeframe(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The number of minutes before a monitor will notify when data stops reporting. We recommend at least 2x the monitor
-        timeframe for metric alerts or 2 minutes for service checks.
+        The number of minutes before a monitor will notify when data stops reporting.
+
+        We recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
         """
         return pulumi.get(self, "no_data_timeframe")
 
@@ -1038,11 +954,7 @@ class _MonitorState:
     @pulumi.getter(name="notifyBies")
     def notify_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor
-        grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
-        conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags
-        in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
-        to `[*]` configures the monitor to notify as a simple-alert.
+        Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by` to `[*]` configures the monitor to notify as a simple-alert.
         """
         return pulumi.get(self, "notify_bies")
 
@@ -1066,12 +978,7 @@ class _MonitorState:
     @pulumi.getter(name="onMissingData")
     def on_missing_data(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
-        in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
-        evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than
-        `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not
-        available for Service Check, Composite, or SLO monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`,
-        `resolve`, and `default`.
+        Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not available for Service Check, Composite, or SLO monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
         """
         return pulumi.get(self, "on_missing_data")
 
@@ -1104,8 +1011,7 @@ class _MonitorState:
     @pulumi.getter(name="renotifyInterval")
     def renotify_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
-        re-notify if it's not resolved.
+        The number of minutes after the last notification before a monitor will re-notify on the current status. It will only re-notify if it's not resolved.
         """
         return pulumi.get(self, "renotify_interval")
 
@@ -1141,9 +1047,7 @@ class _MonitorState:
     @pulumi.getter(name="requireFullWindow")
     def require_full_window(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends
-        you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set,
-        `require_full_window` must be false and will be ignored.
+        A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set, `require_full_window` must be false and will be ignored.
         """
         return pulumi.get(self, "require_full_window")
 
@@ -1176,8 +1080,7 @@ class _MonitorState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
-        page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
+        A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
         """
         return pulumi.get(self, "tags")
 
@@ -1189,8 +1092,7 @@ class _MonitorState:
     @pulumi.getter(name="timeoutH")
     def timeout_h(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The
-        minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
+        The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
         """
         return pulumi.get(self, "timeout_h")
 
@@ -1202,9 +1104,7 @@ class _MonitorState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the
-        Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type
-        cannot be changed after a monitor is created.
+        The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type cannot be changed after a monitor is created.
         """
         return pulumi.get(self, "type")
 
@@ -1311,67 +1211,42 @@ class Monitor(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] enable_logs_sample: A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log
-               monitors. Defaults to `false`.
-        :param pulumi.Input[_builtins.bool] enable_samples: Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline
-               monitors.
+        :param pulumi.Input[_builtins.bool] enable_logs_sample: A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log monitors. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] enable_samples: Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline monitors.
         :param pulumi.Input[_builtins.str] escalation_message: A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
-        :param pulumi.Input[_builtins.int] evaluation_delay: (Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer. For example, if the
-               value is set to `300` (5min), the `timeframe` is set to `last_5m` and the time is 7:00, the monitor will evaluate data
-               from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have
-               data during evaluation.
-        :param pulumi.Input[_builtins.bool] force_delete: A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO,
-               composite monitor).
-        :param pulumi.Input[_builtins.str] group_retention_duration: The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour,
-               and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace
-               Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
-        :param pulumi.Input[_builtins.bool] groupby_simple_monitor: Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to
-               `false`.
+        :param pulumi.Input[_builtins.int] evaluation_delay: (Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.
+               
+               For example, if the value is set to `300` (5min), the `timeframe` is set to `last_5m` and the time is 7:00, the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have data during evaluation.
+        :param pulumi.Input[_builtins.bool] force_delete: A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO, composite monitor).
+        :param pulumi.Input[_builtins.str] group_retention_duration: The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour, and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
+        :param pulumi.Input[_builtins.bool] groupby_simple_monitor: Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] include_tags: A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
         :param pulumi.Input[_builtins.bool] locked: A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
         :param pulumi.Input[_builtins.str] message: A message to include with notifications for this monitor.
-        :param pulumi.Input[Union['MonitorMonitorThresholdWindowsArgs', 'MonitorMonitorThresholdWindowsArgsDict']] monitor_threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are
-               required for, anomaly monitors.
+        :param pulumi.Input[Union['MonitorMonitorThresholdWindowsArgs', 'MonitorMonitorThresholdWindowsArgsDict']] monitor_threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are required for, anomaly monitors.
         :param pulumi.Input[Union['MonitorMonitorThresholdsArgs', 'MonitorMonitorThresholdsArgsDict']] monitor_thresholds: Alert thresholds of the monitor.
         :param pulumi.Input[_builtins.str] name: Name of Datadog monitor.
-        :param pulumi.Input[_builtins.int] new_group_delay: The time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
-               nonzero value.
-        :param pulumi.Input[_builtins.int] new_host_delay: **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
-               starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
-               and monitors not grouped by host. The only case when this should be used is to override the default and set
-               `new_host_delay` to zero for monitors grouped by host.
-        :param pulumi.Input[_builtins.int] no_data_timeframe: The number of minutes before a monitor will notify when data stops reporting. We recommend at least 2x the monitor
-               timeframe for metric alerts or 2 minutes for service checks.
+        :param pulumi.Input[_builtins.int] new_group_delay: The time (in seconds) to skip evaluations for new groups.
+               
+               `new_group_delay` overrides `new_host_delay` if it is set to a nonzero value.
+        :param pulumi.Input[_builtins.int] new_host_delay: **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors and monitors not grouped by host. The only case when this should be used is to override the default and set `new_host_delay` to zero for monitors grouped by host.
+        :param pulumi.Input[_builtins.int] no_data_timeframe: The number of minutes before a monitor will notify when data stops reporting.
+               
+               We recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
         :param pulumi.Input[_builtins.str] notification_preset_name: Toggles the display of additional content sent in the monitor notification.
         :param pulumi.Input[_builtins.bool] notify_audit: A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] notify_bies: Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor
-               grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
-               conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags
-               in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
-               to `[*]` configures the monitor to notify as a simple-alert.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] notify_bies: Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by` to `[*]` configures the monitor to notify as a simple-alert.
         :param pulumi.Input[_builtins.bool] notify_no_data: A boolean indicating whether this monitor will notify when data stops reporting.
-        :param pulumi.Input[_builtins.str] on_missing_data: Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
-               in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
-               evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than
-               `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not
-               available for Service Check, Composite, or SLO monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`,
-               `resolve`, and `default`.
+        :param pulumi.Input[_builtins.str] on_missing_data: Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not available for Service Check, Composite, or SLO monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
         :param pulumi.Input[_builtins.str] priority: Integer from 1 (high) to 5 (low) indicating alert severity.
-        :param pulumi.Input[_builtins.int] renotify_interval: The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
-               re-notify if it's not resolved.
+        :param pulumi.Input[_builtins.int] renotify_interval: The number of minutes after the last notification before a monitor will re-notify on the current status. It will only re-notify if it's not resolved.
         :param pulumi.Input[_builtins.int] renotify_occurrences: The number of re-notification messages that should be sent on the current status.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] renotify_statuses: The types of statuses for which re-notification messages should be sent.
-        :param pulumi.Input[_builtins.bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends
-               you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set,
-               `require_full_window` must be false and will be ignored.
+        :param pulumi.Input[_builtins.bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set, `require_full_window` must be false and will be ignored.
         :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorSchedulingOptionArgs', 'MonitorSchedulingOptionArgsDict']]]] scheduling_options: Configuration options for scheduling.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
-               page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-        :param pulumi.Input[_builtins.int] timeout_h: The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The
-               minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
-        :param pulumi.Input[_builtins.str] type: The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the
-               Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type
-               cannot be changed after a monitor is created.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
+        :param pulumi.Input[_builtins.int] timeout_h: The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
+        :param pulumi.Input[_builtins.str] type: The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type cannot be changed after a monitor is created.
         :param pulumi.Input[_builtins.bool] validate: If set to `false`, skip the validation call done during plan.
         """
         ...
@@ -1565,67 +1440,42 @@ class Monitor(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] enable_logs_sample: A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log
-               monitors. Defaults to `false`.
-        :param pulumi.Input[_builtins.bool] enable_samples: Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline
-               monitors.
+        :param pulumi.Input[_builtins.bool] enable_logs_sample: A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log monitors. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] enable_samples: Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline monitors.
         :param pulumi.Input[_builtins.str] escalation_message: A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
-        :param pulumi.Input[_builtins.int] evaluation_delay: (Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer. For example, if the
-               value is set to `300` (5min), the `timeframe` is set to `last_5m` and the time is 7:00, the monitor will evaluate data
-               from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have
-               data during evaluation.
-        :param pulumi.Input[_builtins.bool] force_delete: A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO,
-               composite monitor).
-        :param pulumi.Input[_builtins.str] group_retention_duration: The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour,
-               and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace
-               Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
-        :param pulumi.Input[_builtins.bool] groupby_simple_monitor: Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to
-               `false`.
+        :param pulumi.Input[_builtins.int] evaluation_delay: (Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.
+               
+               For example, if the value is set to `300` (5min), the `timeframe` is set to `last_5m` and the time is 7:00, the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have data during evaluation.
+        :param pulumi.Input[_builtins.bool] force_delete: A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO, composite monitor).
+        :param pulumi.Input[_builtins.str] group_retention_duration: The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour, and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
+        :param pulumi.Input[_builtins.bool] groupby_simple_monitor: Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] include_tags: A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
         :param pulumi.Input[_builtins.bool] locked: A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
         :param pulumi.Input[_builtins.str] message: A message to include with notifications for this monitor.
-        :param pulumi.Input[Union['MonitorMonitorThresholdWindowsArgs', 'MonitorMonitorThresholdWindowsArgsDict']] monitor_threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are
-               required for, anomaly monitors.
+        :param pulumi.Input[Union['MonitorMonitorThresholdWindowsArgs', 'MonitorMonitorThresholdWindowsArgsDict']] monitor_threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are required for, anomaly monitors.
         :param pulumi.Input[Union['MonitorMonitorThresholdsArgs', 'MonitorMonitorThresholdsArgsDict']] monitor_thresholds: Alert thresholds of the monitor.
         :param pulumi.Input[_builtins.str] name: Name of Datadog monitor.
-        :param pulumi.Input[_builtins.int] new_group_delay: The time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
-               nonzero value.
-        :param pulumi.Input[_builtins.int] new_host_delay: **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
-               starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
-               and monitors not grouped by host. The only case when this should be used is to override the default and set
-               `new_host_delay` to zero for monitors grouped by host.
-        :param pulumi.Input[_builtins.int] no_data_timeframe: The number of minutes before a monitor will notify when data stops reporting. We recommend at least 2x the monitor
-               timeframe for metric alerts or 2 minutes for service checks.
+        :param pulumi.Input[_builtins.int] new_group_delay: The time (in seconds) to skip evaluations for new groups.
+               
+               `new_group_delay` overrides `new_host_delay` if it is set to a nonzero value.
+        :param pulumi.Input[_builtins.int] new_host_delay: **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors and monitors not grouped by host. The only case when this should be used is to override the default and set `new_host_delay` to zero for monitors grouped by host.
+        :param pulumi.Input[_builtins.int] no_data_timeframe: The number of minutes before a monitor will notify when data stops reporting.
+               
+               We recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
         :param pulumi.Input[_builtins.str] notification_preset_name: Toggles the display of additional content sent in the monitor notification.
         :param pulumi.Input[_builtins.bool] notify_audit: A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] notify_bies: Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor
-               grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
-               conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags
-               in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
-               to `[*]` configures the monitor to notify as a simple-alert.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] notify_bies: Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by` to `[*]` configures the monitor to notify as a simple-alert.
         :param pulumi.Input[_builtins.bool] notify_no_data: A boolean indicating whether this monitor will notify when data stops reporting.
-        :param pulumi.Input[_builtins.str] on_missing_data: Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
-               in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
-               evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than
-               `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not
-               available for Service Check, Composite, or SLO monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`,
-               `resolve`, and `default`.
+        :param pulumi.Input[_builtins.str] on_missing_data: Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not available for Service Check, Composite, or SLO monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
         :param pulumi.Input[_builtins.str] priority: Integer from 1 (high) to 5 (low) indicating alert severity.
-        :param pulumi.Input[_builtins.int] renotify_interval: The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
-               re-notify if it's not resolved.
+        :param pulumi.Input[_builtins.int] renotify_interval: The number of minutes after the last notification before a monitor will re-notify on the current status. It will only re-notify if it's not resolved.
         :param pulumi.Input[_builtins.int] renotify_occurrences: The number of re-notification messages that should be sent on the current status.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] renotify_statuses: The types of statuses for which re-notification messages should be sent.
-        :param pulumi.Input[_builtins.bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends
-               you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set,
-               `require_full_window` must be false and will be ignored.
+        :param pulumi.Input[_builtins.bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set, `require_full_window` must be false and will be ignored.
         :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorSchedulingOptionArgs', 'MonitorSchedulingOptionArgsDict']]]] scheduling_options: Configuration options for scheduling.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
-               page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-        :param pulumi.Input[_builtins.int] timeout_h: The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The
-               minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
-        :param pulumi.Input[_builtins.str] type: The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the
-               Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type
-               cannot be changed after a monitor is created.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
+        :param pulumi.Input[_builtins.int] timeout_h: The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
+        :param pulumi.Input[_builtins.str] type: The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type cannot be changed after a monitor is created.
         :param pulumi.Input[_builtins.bool] validate: If set to `false`, skip the validation call done during plan.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1672,8 +1522,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter(name="enableLogsSample")
     def enable_logs_sample(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log
-        monitors. Defaults to `false`.
+        A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log monitors. Defaults to `false`.
         """
         return pulumi.get(self, "enable_logs_sample")
 
@@ -1681,8 +1530,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter(name="enableSamples")
     def enable_samples(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline
-        monitors.
+        Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline monitors.
         """
         return pulumi.get(self, "enable_samples")
 
@@ -1698,10 +1546,9 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter(name="evaluationDelay")
     def evaluation_delay(self) -> pulumi.Output[_builtins.int]:
         """
-        (Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer. For example, if the
-        value is set to `300` (5min), the `timeframe` is set to `last_5m` and the time is 7:00, the monitor will evaluate data
-        from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have
-        data during evaluation.
+        (Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.
+
+        For example, if the value is set to `300` (5min), the `timeframe` is set to `last_5m` and the time is 7:00, the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have data during evaluation.
         """
         return pulumi.get(self, "evaluation_delay")
 
@@ -1709,8 +1556,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter(name="forceDelete")
     def force_delete(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO,
-        composite monitor).
+        A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO, composite monitor).
         """
         return pulumi.get(self, "force_delete")
 
@@ -1718,9 +1564,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter(name="groupRetentionDuration")
     def group_retention_duration(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour,
-        and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace
-        Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
+        The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour, and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
         """
         return pulumi.get(self, "group_retention_duration")
 
@@ -1728,8 +1572,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter(name="groupbySimpleMonitor")
     def groupby_simple_monitor(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to
-        `false`.
+        Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to `false`.
         """
         return pulumi.get(self, "groupby_simple_monitor")
 
@@ -1762,8 +1605,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter(name="monitorThresholdWindows")
     def monitor_threshold_windows(self) -> pulumi.Output[Optional['outputs.MonitorMonitorThresholdWindows']]:
         """
-        A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are
-        required for, anomaly monitors.
+        A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are required for, anomaly monitors.
         """
         return pulumi.get(self, "monitor_threshold_windows")
 
@@ -1787,8 +1629,9 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter(name="newGroupDelay")
     def new_group_delay(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        The time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
-        nonzero value.
+        The time (in seconds) to skip evaluations for new groups.
+
+        `new_group_delay` overrides `new_host_delay` if it is set to a nonzero value.
         """
         return pulumi.get(self, "new_group_delay")
 
@@ -1797,10 +1640,7 @@ class Monitor(pulumi.CustomResource):
     @_utilities.deprecated("""Use `new_group_delay` except when setting `new_host_delay` to zero.""")
     def new_host_delay(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
-        starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
-        and monitors not grouped by host. The only case when this should be used is to override the default and set
-        `new_host_delay` to zero for monitors grouped by host.
+        **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors and monitors not grouped by host. The only case when this should be used is to override the default and set `new_host_delay` to zero for monitors grouped by host.
         """
         return pulumi.get(self, "new_host_delay")
 
@@ -1808,8 +1648,9 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter(name="noDataTimeframe")
     def no_data_timeframe(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        The number of minutes before a monitor will notify when data stops reporting. We recommend at least 2x the monitor
-        timeframe for metric alerts or 2 minutes for service checks.
+        The number of minutes before a monitor will notify when data stops reporting.
+
+        We recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
         """
         return pulumi.get(self, "no_data_timeframe")
 
@@ -1833,11 +1674,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter(name="notifyBies")
     def notify_bies(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor
-        grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
-        conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags
-        in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
-        to `[*]` configures the monitor to notify as a simple-alert.
+        Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by` to `[*]` configures the monitor to notify as a simple-alert.
         """
         return pulumi.get(self, "notify_bies")
 
@@ -1853,12 +1690,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter(name="onMissingData")
     def on_missing_data(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
-        in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
-        evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than
-        `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not
-        available for Service Check, Composite, or SLO monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`,
-        `resolve`, and `default`.
+        Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not available for Service Check, Composite, or SLO monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
         """
         return pulumi.get(self, "on_missing_data")
 
@@ -1879,8 +1711,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter(name="renotifyInterval")
     def renotify_interval(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
-        re-notify if it's not resolved.
+        The number of minutes after the last notification before a monitor will re-notify on the current status. It will only re-notify if it's not resolved.
         """
         return pulumi.get(self, "renotify_interval")
 
@@ -1904,9 +1735,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter(name="requireFullWindow")
     def require_full_window(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends
-        you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set,
-        `require_full_window` must be false and will be ignored.
+        A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set, `require_full_window` must be false and will be ignored.
         """
         return pulumi.get(self, "require_full_window")
 
@@ -1927,8 +1756,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
-        page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
+        A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
         """
         return pulumi.get(self, "tags")
 
@@ -1936,8 +1764,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter(name="timeoutH")
     def timeout_h(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The
-        minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
+        The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
         """
         return pulumi.get(self, "timeout_h")
 
@@ -1945,9 +1772,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the
-        Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type
-        cannot be changed after a monitor is created.
+        The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type cannot be changed after a monitor is created.
         """
         return pulumi.get(self, "type")
 

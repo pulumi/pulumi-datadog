@@ -39,34 +39,21 @@ class ProviderArgs:
         """
         The set of arguments for constructing a Provider resource.
         :param pulumi.Input[_builtins.str] api_key: (Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.
-        :param pulumi.Input[_builtins.str] api_url: The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`.
-               Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value,
-               while `https://api.datadoghq.com/api/` is not. And if you're working with "EU" version of Datadog, use
-               `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`,
-               `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/
-               for all available regions.
+        :param pulumi.Input[_builtins.str] api_url: The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`. Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And if you're working with "EU" version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/ for all available regions.
         :param pulumi.Input[_builtins.str] app_key: (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
-        :param pulumi.Input[_builtins.str] aws_access_key_id: The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID`
-               environment variable. Required when using `cloud_provider_type` set to `aws`.
-        :param pulumi.Input[_builtins.str] aws_secret_access_key: The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the
-               `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
-        :param pulumi.Input[_builtins.str] aws_session_token: The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN`
-               environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
+        :param pulumi.Input[_builtins.str] aws_access_key_id: The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloud_provider_type` set to `aws`.
+        :param pulumi.Input[_builtins.str] aws_secret_access_key: The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
+        :param pulumi.Input[_builtins.str] aws_session_token: The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
         :param pulumi.Input[_builtins.str] cloud_provider_region: The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
-        :param pulumi.Input[_builtins.str] cloud_provider_type: Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app
-               keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact
-               [support](https://docs.datadoghq.com/help/).
-        :param pulumi.Input['ProviderDefaultTagsArgs'] default_tags: [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration
-               block containing settings to apply default resource tags across all resources.
+        :param pulumi.Input[_builtins.str] cloud_provider_type: Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
+        :param pulumi.Input['ProviderDefaultTagsArgs'] default_tags: [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
         :param pulumi.Input[_builtins.int] http_client_retry_backoff_base: The HTTP request retry back off base. Defaults to 2.
         :param pulumi.Input[_builtins.int] http_client_retry_backoff_multiplier: The HTTP request retry back off multiplier. Defaults to 2.
         :param pulumi.Input[_builtins.str] http_client_retry_enabled: Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
         :param pulumi.Input[_builtins.int] http_client_retry_max_retries: The HTTP request maximum retry number. Defaults to 3.
         :param pulumi.Input[_builtins.int] http_client_retry_timeout: The HTTP request retry timeout period. Defaults to 60 seconds.
-        :param pulumi.Input[_builtins.str] org_uuid: The organization UUID; used for cloud-provider-based authentication. See the [Datadog API
-               documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
-        :param pulumi.Input[_builtins.str] validate: Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default
-               is true. When false, api_key won't be checked.
+        :param pulumi.Input[_builtins.str] org_uuid: The organization UUID; used for cloud-provider-based authentication. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+        :param pulumi.Input[_builtins.str] validate: Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, api_key won't be checked.
         """
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
@@ -117,12 +104,7 @@ class ProviderArgs:
     @pulumi.getter(name="apiUrl")
     def api_url(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`.
-        Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value,
-        while `https://api.datadoghq.com/api/` is not. And if you're working with "EU" version of Datadog, use
-        `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`,
-        `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/
-        for all available regions.
+        The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`. Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And if you're working with "EU" version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/ for all available regions.
         """
         return pulumi.get(self, "api_url")
 
@@ -146,8 +128,7 @@ class ProviderArgs:
     @pulumi.getter(name="awsAccessKeyId")
     def aws_access_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID`
-        environment variable. Required when using `cloud_provider_type` set to `aws`.
+        The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloud_provider_type` set to `aws`.
         """
         return pulumi.get(self, "aws_access_key_id")
 
@@ -159,8 +140,7 @@ class ProviderArgs:
     @pulumi.getter(name="awsSecretAccessKey")
     def aws_secret_access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the
-        `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
+        The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
         """
         return pulumi.get(self, "aws_secret_access_key")
 
@@ -172,8 +152,7 @@ class ProviderArgs:
     @pulumi.getter(name="awsSessionToken")
     def aws_session_token(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN`
-        environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
+        The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
         """
         return pulumi.get(self, "aws_session_token")
 
@@ -197,9 +176,7 @@ class ProviderArgs:
     @pulumi.getter(name="cloudProviderType")
     def cloud_provider_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app
-        keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact
-        [support](https://docs.datadoghq.com/help/).
+        Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
         """
         return pulumi.get(self, "cloud_provider_type")
 
@@ -211,8 +188,7 @@ class ProviderArgs:
     @pulumi.getter(name="defaultTags")
     def default_tags(self) -> Optional[pulumi.Input['ProviderDefaultTagsArgs']]:
         """
-        [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration
-        block containing settings to apply default resource tags across all resources.
+        [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
         """
         return pulumi.get(self, "default_tags")
 
@@ -284,8 +260,7 @@ class ProviderArgs:
     @pulumi.getter(name="orgUuid")
     def org_uuid(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The organization UUID; used for cloud-provider-based authentication. See the [Datadog API
-        documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+        The organization UUID; used for cloud-provider-based authentication. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
         """
         return pulumi.get(self, "org_uuid")
 
@@ -297,8 +272,7 @@ class ProviderArgs:
     @pulumi.getter
     def validate(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default
-        is true. When false, api_key won't be checked.
+        Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, api_key won't be checked.
         """
         return pulumi.get(self, "validate")
 
@@ -339,34 +313,21 @@ class Provider(pulumi.ProviderResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_key: (Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.
-        :param pulumi.Input[_builtins.str] api_url: The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`.
-               Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value,
-               while `https://api.datadoghq.com/api/` is not. And if you're working with "EU" version of Datadog, use
-               `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`,
-               `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/
-               for all available regions.
+        :param pulumi.Input[_builtins.str] api_url: The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`. Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And if you're working with "EU" version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/ for all available regions.
         :param pulumi.Input[_builtins.str] app_key: (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
-        :param pulumi.Input[_builtins.str] aws_access_key_id: The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID`
-               environment variable. Required when using `cloud_provider_type` set to `aws`.
-        :param pulumi.Input[_builtins.str] aws_secret_access_key: The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the
-               `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
-        :param pulumi.Input[_builtins.str] aws_session_token: The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN`
-               environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
+        :param pulumi.Input[_builtins.str] aws_access_key_id: The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloud_provider_type` set to `aws`.
+        :param pulumi.Input[_builtins.str] aws_secret_access_key: The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
+        :param pulumi.Input[_builtins.str] aws_session_token: The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
         :param pulumi.Input[_builtins.str] cloud_provider_region: The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
-        :param pulumi.Input[_builtins.str] cloud_provider_type: Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app
-               keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact
-               [support](https://docs.datadoghq.com/help/).
-        :param pulumi.Input[Union['ProviderDefaultTagsArgs', 'ProviderDefaultTagsArgsDict']] default_tags: [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration
-               block containing settings to apply default resource tags across all resources.
+        :param pulumi.Input[_builtins.str] cloud_provider_type: Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
+        :param pulumi.Input[Union['ProviderDefaultTagsArgs', 'ProviderDefaultTagsArgsDict']] default_tags: [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
         :param pulumi.Input[_builtins.int] http_client_retry_backoff_base: The HTTP request retry back off base. Defaults to 2.
         :param pulumi.Input[_builtins.int] http_client_retry_backoff_multiplier: The HTTP request retry back off multiplier. Defaults to 2.
         :param pulumi.Input[_builtins.str] http_client_retry_enabled: Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
         :param pulumi.Input[_builtins.int] http_client_retry_max_retries: The HTTP request maximum retry number. Defaults to 3.
         :param pulumi.Input[_builtins.int] http_client_retry_timeout: The HTTP request retry timeout period. Defaults to 60 seconds.
-        :param pulumi.Input[_builtins.str] org_uuid: The organization UUID; used for cloud-provider-based authentication. See the [Datadog API
-               documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
-        :param pulumi.Input[_builtins.str] validate: Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default
-               is true. When false, api_key won't be checked.
+        :param pulumi.Input[_builtins.str] org_uuid: The organization UUID; used for cloud-provider-based authentication. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+        :param pulumi.Input[_builtins.str] validate: Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, api_key won't be checked.
         """
         ...
     @overload
@@ -456,12 +417,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="apiUrl")
     def api_url(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`.
-        Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value,
-        while `https://api.datadoghq.com/api/` is not. And if you're working with "EU" version of Datadog, use
-        `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`,
-        `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/
-        for all available regions.
+        The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`. Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And if you're working with "EU" version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/ for all available regions.
         """
         return pulumi.get(self, "api_url")
 
@@ -477,8 +433,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="awsAccessKeyId")
     def aws_access_key_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID`
-        environment variable. Required when using `cloud_provider_type` set to `aws`.
+        The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloud_provider_type` set to `aws`.
         """
         return pulumi.get(self, "aws_access_key_id")
 
@@ -486,8 +441,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="awsSecretAccessKey")
     def aws_secret_access_key(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the
-        `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
+        The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
         """
         return pulumi.get(self, "aws_secret_access_key")
 
@@ -495,8 +449,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="awsSessionToken")
     def aws_session_token(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN`
-        environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
+        The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
         """
         return pulumi.get(self, "aws_session_token")
 
@@ -512,9 +465,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="cloudProviderType")
     def cloud_provider_type(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app
-        keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact
-        [support](https://docs.datadoghq.com/help/).
+        Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
         """
         return pulumi.get(self, "cloud_provider_type")
 
@@ -530,8 +481,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="orgUuid")
     def org_uuid(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The organization UUID; used for cloud-provider-based authentication. See the [Datadog API
-        documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+        The organization UUID; used for cloud-provider-based authentication. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
         """
         return pulumi.get(self, "org_uuid")
 
@@ -539,8 +489,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter
     def validate(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default
-        is true. When false, api_key won't be checked.
+        Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, api_key won't be checked.
         """
         return pulumi.get(self, "validate")
 

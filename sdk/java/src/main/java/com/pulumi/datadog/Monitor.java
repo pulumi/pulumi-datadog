@@ -84,32 +84,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="datadog:index/monitor:Monitor")
 public class Monitor extends com.pulumi.resources.CustomResource {
     /**
-     * A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log
-     * monitors. Defaults to `false`.
+     * A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log monitors. Defaults to `false`.
      * 
      */
     @Export(name="enableLogsSample", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableLogsSample;
 
     /**
-     * @return A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log
-     * monitors. Defaults to `false`.
+     * @return A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log monitors. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> enableLogsSample() {
         return Codegen.optional(this.enableLogsSample);
     }
     /**
-     * Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline
-     * monitors.
+     * Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline monitors.
      * 
      */
     @Export(name="enableSamples", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableSamples;
 
     /**
-     * @return Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline
-     * monitors.
+     * @return Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline monitors.
      * 
      */
     public Output<Optional<Boolean>> enableSamples() {
@@ -130,70 +126,60 @@ public class Monitor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.escalationMessage);
     }
     /**
-     * (Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer. For example, if the
-     * value is set to `300` (5min), the `timeframe` is set to `last_5m` and the time is 7:00, the monitor will evaluate data
-     * from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have
-     * data during evaluation.
+     * (Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.
+     * 
+     * For example, if the value is set to `300` (5min), the `timeframe` is set to `last_5m` and the time is 7:00, the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have data during evaluation.
      * 
      */
     @Export(name="evaluationDelay", refs={Integer.class}, tree="[0]")
     private Output<Integer> evaluationDelay;
 
     /**
-     * @return (Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer. For example, if the
-     * value is set to `300` (5min), the `timeframe` is set to `last_5m` and the time is 7:00, the monitor will evaluate data
-     * from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have
-     * data during evaluation.
+     * @return (Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.
+     * 
+     * For example, if the value is set to `300` (5min), the `timeframe` is set to `last_5m` and the time is 7:00, the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have data during evaluation.
      * 
      */
     public Output<Integer> evaluationDelay() {
         return this.evaluationDelay;
     }
     /**
-     * A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO,
-     * composite monitor).
+     * A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO, composite monitor).
      * 
      */
     @Export(name="forceDelete", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> forceDelete;
 
     /**
-     * @return A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO,
-     * composite monitor).
+     * @return A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO, composite monitor).
      * 
      */
     public Output<Optional<Boolean>> forceDelete() {
         return Codegen.optional(this.forceDelete);
     }
     /**
-     * The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour,
-     * and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace
-     * Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
+     * The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour, and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
      * 
      */
     @Export(name="groupRetentionDuration", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> groupRetentionDuration;
 
     /**
-     * @return The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour,
-     * and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace
-     * Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
+     * @return The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour, and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
      * 
      */
     public Output<Optional<String>> groupRetentionDuration() {
         return Codegen.optional(this.groupRetentionDuration);
     }
     /**
-     * Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to
-     * `false`.
+     * Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to `false`.
      * 
      */
     @Export(name="groupbySimpleMonitor", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> groupbySimpleMonitor;
 
     /**
-     * @return Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to
-     * `false`.
+     * @return Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> groupbySimpleMonitor() {
@@ -246,16 +232,14 @@ public class Monitor extends com.pulumi.resources.CustomResource {
         return this.message;
     }
     /**
-     * A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are
-     * required for, anomaly monitors.
+     * A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are required for, anomaly monitors.
      * 
      */
     @Export(name="monitorThresholdWindows", refs={MonitorMonitorThresholdWindows.class}, tree="[0]")
     private Output</* @Nullable */ MonitorMonitorThresholdWindows> monitorThresholdWindows;
 
     /**
-     * @return A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are
-     * required for, anomaly monitors.
+     * @return A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are required for, anomaly monitors.
      * 
      */
     public Output<Optional<MonitorMonitorThresholdWindows>> monitorThresholdWindows() {
@@ -290,26 +274,25 @@ public class Monitor extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
-     * nonzero value.
+     * The time (in seconds) to skip evaluations for new groups.
+     * 
+     * `new_group_delay` overrides `new_host_delay` if it is set to a nonzero value.
      * 
      */
     @Export(name="newGroupDelay", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> newGroupDelay;
 
     /**
-     * @return The time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
-     * nonzero value.
+     * @return The time (in seconds) to skip evaluations for new groups.
+     * 
+     * `new_group_delay` overrides `new_host_delay` if it is set to a nonzero value.
      * 
      */
     public Output<Optional<Integer>> newGroupDelay() {
         return Codegen.optional(this.newGroupDelay);
     }
     /**
-     * **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
-     * starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
-     * and monitors not grouped by host. The only case when this should be used is to override the default and set
-     * `new_host_delay` to zero for monitors grouped by host.
+     * **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors and monitors not grouped by host. The only case when this should be used is to override the default and set `new_host_delay` to zero for monitors grouped by host.
      * 
      * @deprecated
      * Use `new_group_delay` except when setting `new_host_delay` to zero.
@@ -320,26 +303,25 @@ public class Monitor extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ Integer> newHostDelay;
 
     /**
-     * @return **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
-     * starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
-     * and monitors not grouped by host. The only case when this should be used is to override the default and set
-     * `new_host_delay` to zero for monitors grouped by host.
+     * @return **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors and monitors not grouped by host. The only case when this should be used is to override the default and set `new_host_delay` to zero for monitors grouped by host.
      * 
      */
     public Output<Optional<Integer>> newHostDelay() {
         return Codegen.optional(this.newHostDelay);
     }
     /**
-     * The number of minutes before a monitor will notify when data stops reporting. We recommend at least 2x the monitor
-     * timeframe for metric alerts or 2 minutes for service checks.
+     * The number of minutes before a monitor will notify when data stops reporting.
+     * 
+     * We recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
      * 
      */
     @Export(name="noDataTimeframe", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> noDataTimeframe;
 
     /**
-     * @return The number of minutes before a monitor will notify when data stops reporting. We recommend at least 2x the monitor
-     * timeframe for metric alerts or 2 minutes for service checks.
+     * @return The number of minutes before a monitor will notify when data stops reporting.
+     * 
+     * We recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
      * 
      */
     public Output<Optional<Integer>> noDataTimeframe() {
@@ -374,22 +356,14 @@ public class Monitor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.notifyAudit);
     }
     /**
-     * Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor
-     * grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
-     * conditions by setting `notify_by` to `[&#39;cluster&#39;]`. Tags mentioned in `notify_by` must be a subset of the grouping tags
-     * in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
-     * to `[*]` configures the monitor to notify as a simple-alert.
+     * Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notify_by` to `[&#39;cluster&#39;]`. Tags mentioned in `notify_by` must be a subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by` to `[*]` configures the monitor to notify as a simple-alert.
      * 
      */
     @Export(name="notifyBies", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> notifyBies;
 
     /**
-     * @return Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor
-     * grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
-     * conditions by setting `notify_by` to `[&#39;cluster&#39;]`. Tags mentioned in `notify_by` must be a subset of the grouping tags
-     * in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
-     * to `[*]` configures the monitor to notify as a simple-alert.
+     * @return Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notify_by` to `[&#39;cluster&#39;]`. Tags mentioned in `notify_by` must be a subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by` to `[*]` configures the monitor to notify as a simple-alert.
      * 
      */
     public Output<Optional<List<String>>> notifyBies() {
@@ -410,24 +384,14 @@ public class Monitor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.notifyNoData);
     }
     /**
-     * Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
-     * in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
-     * evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than
-     * `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not
-     * available for Service Check, Composite, or SLO monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`,
-     * `resolve`, and `default`.
+     * Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not available for Service Check, Composite, or SLO monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
      * 
      */
     @Export(name="onMissingData", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> onMissingData;
 
     /**
-     * @return Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
-     * in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
-     * evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than
-     * `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not
-     * available for Service Check, Composite, or SLO monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`,
-     * `resolve`, and `default`.
+     * @return Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not available for Service Check, Composite, or SLO monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
      * 
      */
     public Output<Optional<String>> onMissingData() {
@@ -454,16 +418,14 @@ public class Monitor extends com.pulumi.resources.CustomResource {
         return this.query;
     }
     /**
-     * The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
-     * re-notify if it&#39;s not resolved.
+     * The number of minutes after the last notification before a monitor will re-notify on the current status. It will only re-notify if it&#39;s not resolved.
      * 
      */
     @Export(name="renotifyInterval", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> renotifyInterval;
 
     /**
-     * @return The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
-     * re-notify if it&#39;s not resolved.
+     * @return The number of minutes after the last notification before a monitor will re-notify on the current status. It will only re-notify if it&#39;s not resolved.
      * 
      */
     public Output<Optional<Integer>> renotifyInterval() {
@@ -498,18 +460,14 @@ public class Monitor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.renotifyStatuses);
     }
     /**
-     * A boolean indicating whether this monitor needs a full window of data before it&#39;s evaluated. Datadog strongly recommends
-     * you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there&#39;s a custom_schedule set,
-     * `require_full_window` must be false and will be ignored.
+     * A boolean indicating whether this monitor needs a full window of data before it&#39;s evaluated. Datadog strongly recommends you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there&#39;s a custom_schedule set, `require_full_window` must be false and will be ignored.
      * 
      */
     @Export(name="requireFullWindow", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> requireFullWindow;
 
     /**
-     * @return A boolean indicating whether this monitor needs a full window of data before it&#39;s evaluated. Datadog strongly recommends
-     * you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there&#39;s a custom_schedule set,
-     * `require_full_window` must be false and will be ignored.
+     * @return A boolean indicating whether this monitor needs a full window of data before it&#39;s evaluated. Datadog strongly recommends you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there&#39;s a custom_schedule set, `require_full_window` must be false and will be ignored.
      * 
      */
     public Output<Optional<Boolean>> requireFullWindow() {
@@ -536,50 +494,42 @@ public class Monitor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.schedulingOptions);
     }
     /**
-     * A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
-     * page of the UI. Note: it&#39;s not currently possible to filter by these tags when querying via the API
+     * A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it&#39;s not currently possible to filter by these tags when querying via the API
      * 
      */
     @Export(name="tags", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> tags;
 
     /**
-     * @return A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
-     * page of the UI. Note: it&#39;s not currently possible to filter by these tags when querying via the API
+     * @return A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it&#39;s not currently possible to filter by these tags when querying via the API
      * 
      */
     public Output<List<String>> tags() {
         return this.tags;
     }
     /**
-     * The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The
-     * minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
+     * The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
      * 
      */
     @Export(name="timeoutH", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> timeoutH;
 
     /**
-     * @return The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The
-     * minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
+     * @return The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
      * 
      */
     public Output<Optional<Integer>> timeoutH() {
         return Codegen.optional(this.timeoutH);
     }
     /**
-     * The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the
-     * Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type
-     * cannot be changed after a monitor is created.
+     * The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type cannot be changed after a monitor is created.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the
-     * Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type
-     * cannot be changed after a monitor is created.
+     * @return The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type cannot be changed after a monitor is created.
      * 
      */
     public Output<String> type() {

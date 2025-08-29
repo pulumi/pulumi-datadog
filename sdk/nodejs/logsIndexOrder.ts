@@ -62,11 +62,11 @@ export class LogsIndexOrder extends pulumi.CustomResource {
     /**
      * The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
      */
-    public readonly indexes!: pulumi.Output<string[]>;
+    declare public readonly indexes: pulumi.Output<string[]>;
     /**
      * The unique name of the index order resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a LogsIndexOrder resource with the given unique name, arguments, and options.
@@ -81,15 +81,15 @@ export class LogsIndexOrder extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LogsIndexOrderState | undefined;
-            resourceInputs["indexes"] = state ? state.indexes : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["indexes"] = state?.indexes;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as LogsIndexOrderArgs | undefined;
-            if ((!args || args.indexes === undefined) && !opts.urn) {
+            if (args?.indexes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'indexes'");
             }
-            resourceInputs["indexes"] = args ? args.indexes : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["indexes"] = args?.indexes;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LogsIndexOrder.__pulumiType, name, resourceInputs, opts);

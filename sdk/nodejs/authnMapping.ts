@@ -66,19 +66,19 @@ export class AuthnMapping extends pulumi.CustomResource {
     /**
      * Identity provider key.
      */
-    public readonly key!: pulumi.Output<string>;
+    declare public readonly key: pulumi.Output<string>;
     /**
      * The ID of a role to attach to all users with the corresponding key and value. Cannot be used in conjunction with `team`.
      */
-    public readonly role!: pulumi.Output<string | undefined>;
+    declare public readonly role: pulumi.Output<string | undefined>;
     /**
      * The ID of a team to add all users with the corresponding key and value to. Cannot be used in conjunction with `role`.
      */
-    public readonly team!: pulumi.Output<string | undefined>;
+    declare public readonly team: pulumi.Output<string | undefined>;
     /**
      * Identity provider value.
      */
-    public readonly value!: pulumi.Output<string>;
+    declare public readonly value: pulumi.Output<string>;
 
     /**
      * Create a AuthnMapping resource with the given unique name, arguments, and options.
@@ -93,22 +93,22 @@ export class AuthnMapping extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AuthnMappingState | undefined;
-            resourceInputs["key"] = state ? state.key : undefined;
-            resourceInputs["role"] = state ? state.role : undefined;
-            resourceInputs["team"] = state ? state.team : undefined;
-            resourceInputs["value"] = state ? state.value : undefined;
+            resourceInputs["key"] = state?.key;
+            resourceInputs["role"] = state?.role;
+            resourceInputs["team"] = state?.team;
+            resourceInputs["value"] = state?.value;
         } else {
             const args = argsOrState as AuthnMappingArgs | undefined;
-            if ((!args || args.key === undefined) && !opts.urn) {
+            if (args?.key === undefined && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
-            if ((!args || args.value === undefined) && !opts.urn) {
+            if (args?.value === undefined && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
-            resourceInputs["key"] = args ? args.key : undefined;
-            resourceInputs["role"] = args ? args.role : undefined;
-            resourceInputs["team"] = args ? args.team : undefined;
-            resourceInputs["value"] = args ? args.value : undefined;
+            resourceInputs["key"] = args?.key;
+            resourceInputs["role"] = args?.role;
+            resourceInputs["team"] = args?.team;
+            resourceInputs["value"] = args?.value;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AuthnMapping.__pulumiType, name, resourceInputs, opts);

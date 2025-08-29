@@ -24,10 +24,11 @@ class ComplianceResourceEvaluationFilterArgs:
                  tags: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         The set of arguments for constructing a ComplianceResourceEvaluationFilter resource.
-        :param pulumi.Input[_builtins.str] cloud_provider: The cloud provider of the filter's targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud
-               providers.
-        :param pulumi.Input[_builtins.str] resource_id: The ID of the of the filter's targeted resource. Different cloud providers target different resource IDs: - `aws`:
-               account ID - `gcp`: project ID - `azure`: subscription ID
+        :param pulumi.Input[_builtins.str] cloud_provider: The cloud provider of the filter's targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud providers.
+        :param pulumi.Input[_builtins.str] resource_id: The ID of the of the filter's targeted resource. Different cloud providers target different resource IDs:
+                 - `aws`: account ID
+                 - `gcp`: project ID
+                 - `azure`: subscription ID
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: List of tags to filter misconfiguration detections. Each entry should follow the format: "key":"value".
         """
         pulumi.set(__self__, "cloud_provider", cloud_provider)
@@ -38,8 +39,7 @@ class ComplianceResourceEvaluationFilterArgs:
     @pulumi.getter(name="cloudProvider")
     def cloud_provider(self) -> pulumi.Input[_builtins.str]:
         """
-        The cloud provider of the filter's targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud
-        providers.
+        The cloud provider of the filter's targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud providers.
         """
         return pulumi.get(self, "cloud_provider")
 
@@ -51,8 +51,10 @@ class ComplianceResourceEvaluationFilterArgs:
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID of the of the filter's targeted resource. Different cloud providers target different resource IDs: - `aws`:
-        account ID - `gcp`: project ID - `azure`: subscription ID
+        The ID of the of the filter's targeted resource. Different cloud providers target different resource IDs:
+          - `aws`: account ID
+          - `gcp`: project ID
+          - `azure`: subscription ID
         """
         return pulumi.get(self, "resource_id")
 
@@ -81,10 +83,11 @@ class _ComplianceResourceEvaluationFilterState:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ComplianceResourceEvaluationFilter resources.
-        :param pulumi.Input[_builtins.str] cloud_provider: The cloud provider of the filter's targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud
-               providers.
-        :param pulumi.Input[_builtins.str] resource_id: The ID of the of the filter's targeted resource. Different cloud providers target different resource IDs: - `aws`:
-               account ID - `gcp`: project ID - `azure`: subscription ID
+        :param pulumi.Input[_builtins.str] cloud_provider: The cloud provider of the filter's targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud providers.
+        :param pulumi.Input[_builtins.str] resource_id: The ID of the of the filter's targeted resource. Different cloud providers target different resource IDs:
+                 - `aws`: account ID
+                 - `gcp`: project ID
+                 - `azure`: subscription ID
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: List of tags to filter misconfiguration detections. Each entry should follow the format: "key":"value".
         """
         if cloud_provider is not None:
@@ -98,8 +101,7 @@ class _ComplianceResourceEvaluationFilterState:
     @pulumi.getter(name="cloudProvider")
     def cloud_provider(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The cloud provider of the filter's targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud
-        providers.
+        The cloud provider of the filter's targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud providers.
         """
         return pulumi.get(self, "cloud_provider")
 
@@ -111,8 +113,10 @@ class _ComplianceResourceEvaluationFilterState:
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ID of the of the filter's targeted resource. Different cloud providers target different resource IDs: - `aws`:
-        account ID - `gcp`: project ID - `azure`: subscription ID
+        The ID of the of the filter's targeted resource. Different cloud providers target different resource IDs:
+          - `aws`: account ID
+          - `gcp`: project ID
+          - `azure`: subscription ID
         """
         return pulumi.get(self, "resource_id")
 
@@ -169,10 +173,11 @@ class ComplianceResourceEvaluationFilter(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cloud_provider: The cloud provider of the filter's targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud
-               providers.
-        :param pulumi.Input[_builtins.str] resource_id: The ID of the of the filter's targeted resource. Different cloud providers target different resource IDs: - `aws`:
-               account ID - `gcp`: project ID - `azure`: subscription ID
+        :param pulumi.Input[_builtins.str] cloud_provider: The cloud provider of the filter's targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud providers.
+        :param pulumi.Input[_builtins.str] resource_id: The ID of the of the filter's targeted resource. Different cloud providers target different resource IDs:
+                 - `aws`: account ID
+                 - `gcp`: project ID
+                 - `azure`: subscription ID
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: List of tags to filter misconfiguration detections. Each entry should follow the format: "key":"value".
         """
         ...
@@ -261,10 +266,11 @@ class ComplianceResourceEvaluationFilter(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cloud_provider: The cloud provider of the filter's targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud
-               providers.
-        :param pulumi.Input[_builtins.str] resource_id: The ID of the of the filter's targeted resource. Different cloud providers target different resource IDs: - `aws`:
-               account ID - `gcp`: project ID - `azure`: subscription ID
+        :param pulumi.Input[_builtins.str] cloud_provider: The cloud provider of the filter's targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud providers.
+        :param pulumi.Input[_builtins.str] resource_id: The ID of the of the filter's targeted resource. Different cloud providers target different resource IDs:
+                 - `aws`: account ID
+                 - `gcp`: project ID
+                 - `azure`: subscription ID
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: List of tags to filter misconfiguration detections. Each entry should follow the format: "key":"value".
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -280,8 +286,7 @@ class ComplianceResourceEvaluationFilter(pulumi.CustomResource):
     @pulumi.getter(name="cloudProvider")
     def cloud_provider(self) -> pulumi.Output[_builtins.str]:
         """
-        The cloud provider of the filter's targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud
-        providers.
+        The cloud provider of the filter's targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud providers.
         """
         return pulumi.get(self, "cloud_provider")
 
@@ -289,8 +294,10 @@ class ComplianceResourceEvaluationFilter(pulumi.CustomResource):
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the of the filter's targeted resource. Different cloud providers target different resource IDs: - `aws`:
-        account ID - `gcp`: project ID - `azure`: subscription ID
+        The ID of the of the filter's targeted resource. Different cloud providers target different resource IDs:
+          - `aws`: account ID
+          - `gcp`: project ID
+          - `azure`: subscription ID
         """
         return pulumi.get(self, "resource_id")
 

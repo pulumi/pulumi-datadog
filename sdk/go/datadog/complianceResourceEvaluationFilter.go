@@ -55,11 +55,12 @@ import (
 type ComplianceResourceEvaluationFilter struct {
 	pulumi.CustomResourceState
 
-	// The cloud provider of the filter's targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud
-	// providers.
+	// The cloud provider of the filter's targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud providers.
 	CloudProvider pulumi.StringOutput `pulumi:"cloudProvider"`
-	// The ID of the of the filter's targeted resource. Different cloud providers target different resource IDs: - `aws`:
-	// account ID - `gcp`: project ID - `azure`: subscription ID
+	// The ID of the of the filter's targeted resource. Different cloud providers target different resource IDs:
+	//   - `aws`: account ID
+	//   - `gcp`: project ID
+	//   - `azure`: subscription ID
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
 	// List of tags to filter misconfiguration detections. Each entry should follow the format: "key":"value".
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
@@ -104,22 +105,24 @@ func GetComplianceResourceEvaluationFilter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ComplianceResourceEvaluationFilter resources.
 type complianceResourceEvaluationFilterState struct {
-	// The cloud provider of the filter's targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud
-	// providers.
+	// The cloud provider of the filter's targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud providers.
 	CloudProvider *string `pulumi:"cloudProvider"`
-	// The ID of the of the filter's targeted resource. Different cloud providers target different resource IDs: - `aws`:
-	// account ID - `gcp`: project ID - `azure`: subscription ID
+	// The ID of the of the filter's targeted resource. Different cloud providers target different resource IDs:
+	//   - `aws`: account ID
+	//   - `gcp`: project ID
+	//   - `azure`: subscription ID
 	ResourceId *string `pulumi:"resourceId"`
 	// List of tags to filter misconfiguration detections. Each entry should follow the format: "key":"value".
 	Tags []string `pulumi:"tags"`
 }
 
 type ComplianceResourceEvaluationFilterState struct {
-	// The cloud provider of the filter's targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud
-	// providers.
+	// The cloud provider of the filter's targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud providers.
 	CloudProvider pulumi.StringPtrInput
-	// The ID of the of the filter's targeted resource. Different cloud providers target different resource IDs: - `aws`:
-	// account ID - `gcp`: project ID - `azure`: subscription ID
+	// The ID of the of the filter's targeted resource. Different cloud providers target different resource IDs:
+	//   - `aws`: account ID
+	//   - `gcp`: project ID
+	//   - `azure`: subscription ID
 	ResourceId pulumi.StringPtrInput
 	// List of tags to filter misconfiguration detections. Each entry should follow the format: "key":"value".
 	Tags pulumi.StringArrayInput
@@ -130,11 +133,12 @@ func (ComplianceResourceEvaluationFilterState) ElementType() reflect.Type {
 }
 
 type complianceResourceEvaluationFilterArgs struct {
-	// The cloud provider of the filter's targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud
-	// providers.
+	// The cloud provider of the filter's targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud providers.
 	CloudProvider string `pulumi:"cloudProvider"`
-	// The ID of the of the filter's targeted resource. Different cloud providers target different resource IDs: - `aws`:
-	// account ID - `gcp`: project ID - `azure`: subscription ID
+	// The ID of the of the filter's targeted resource. Different cloud providers target different resource IDs:
+	//   - `aws`: account ID
+	//   - `gcp`: project ID
+	//   - `azure`: subscription ID
 	ResourceId string `pulumi:"resourceId"`
 	// List of tags to filter misconfiguration detections. Each entry should follow the format: "key":"value".
 	Tags []string `pulumi:"tags"`
@@ -142,11 +146,12 @@ type complianceResourceEvaluationFilterArgs struct {
 
 // The set of arguments for constructing a ComplianceResourceEvaluationFilter resource.
 type ComplianceResourceEvaluationFilterArgs struct {
-	// The cloud provider of the filter's targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud
-	// providers.
+	// The cloud provider of the filter's targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud providers.
 	CloudProvider pulumi.StringInput
-	// The ID of the of the filter's targeted resource. Different cloud providers target different resource IDs: - `aws`:
-	// account ID - `gcp`: project ID - `azure`: subscription ID
+	// The ID of the of the filter's targeted resource. Different cloud providers target different resource IDs:
+	//   - `aws`: account ID
+	//   - `gcp`: project ID
+	//   - `azure`: subscription ID
 	ResourceId pulumi.StringInput
 	// List of tags to filter misconfiguration detections. Each entry should follow the format: "key":"value".
 	Tags pulumi.StringArrayInput
@@ -239,14 +244,15 @@ func (o ComplianceResourceEvaluationFilterOutput) ToComplianceResourceEvaluation
 	return o
 }
 
-// The cloud provider of the filter's targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud
-// providers.
+// The cloud provider of the filter's targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud providers.
 func (o ComplianceResourceEvaluationFilterOutput) CloudProvider() pulumi.StringOutput {
 	return o.ApplyT(func(v *ComplianceResourceEvaluationFilter) pulumi.StringOutput { return v.CloudProvider }).(pulumi.StringOutput)
 }
 
-// The ID of the of the filter's targeted resource. Different cloud providers target different resource IDs: - `aws`:
-// account ID - `gcp`: project ID - `azure`: subscription ID
+// The ID of the of the filter's targeted resource. Different cloud providers target different resource IDs:
+//   - `aws`: account ID
+//   - `gcp`: project ID
+//   - `azure`: subscription ID
 func (o ComplianceResourceEvaluationFilterOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ComplianceResourceEvaluationFilter) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
 }

@@ -48,30 +48,30 @@ export class DowntimeSchedule extends pulumi.CustomResource {
     /**
      * The timezone in which to display the downtime's start and end times in Datadog applications. This is not used as an offset for scheduling.
      */
-    public readonly displayTimezone!: pulumi.Output<string>;
+    declare public readonly displayTimezone: pulumi.Output<string>;
     /**
      * A message to include with notifications for this downtime. Email notifications can be sent to specific users by using the same `@username` notation as events.
      */
-    public readonly message!: pulumi.Output<string | undefined>;
-    public readonly monitorIdentifier!: pulumi.Output<outputs.DowntimeScheduleMonitorIdentifier | undefined>;
+    declare public readonly message: pulumi.Output<string | undefined>;
+    declare public readonly monitorIdentifier: pulumi.Output<outputs.DowntimeScheduleMonitorIdentifier | undefined>;
     /**
      * If the first recovery notification during a downtime should be muted.
      */
-    public readonly muteFirstRecoveryNotification!: pulumi.Output<boolean>;
+    declare public readonly muteFirstRecoveryNotification: pulumi.Output<boolean>;
     /**
      * States that will trigger a monitor notification when the `notifyEndTypes` action occurs.
      */
-    public readonly notifyEndStates!: pulumi.Output<string[]>;
+    declare public readonly notifyEndStates: pulumi.Output<string[]>;
     /**
      * Actions that will trigger a monitor notification if the downtime is in the `notifyEndTypes` state.
      */
-    public readonly notifyEndTypes!: pulumi.Output<string[]>;
-    public readonly oneTimeSchedule!: pulumi.Output<outputs.DowntimeScheduleOneTimeSchedule | undefined>;
-    public readonly recurringSchedule!: pulumi.Output<outputs.DowntimeScheduleRecurringSchedule | undefined>;
+    declare public readonly notifyEndTypes: pulumi.Output<string[]>;
+    declare public readonly oneTimeSchedule: pulumi.Output<outputs.DowntimeScheduleOneTimeSchedule | undefined>;
+    declare public readonly recurringSchedule: pulumi.Output<outputs.DowntimeScheduleRecurringSchedule | undefined>;
     /**
      * The scope to which the downtime applies. Must follow the [common search syntax](https://docs.datadoghq.com/logs/explorer/search_syntax/).
      */
-    public readonly scope!: pulumi.Output<string>;
+    declare public readonly scope: pulumi.Output<string>;
 
     /**
      * Create a DowntimeSchedule resource with the given unique name, arguments, and options.
@@ -86,29 +86,29 @@ export class DowntimeSchedule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DowntimeScheduleState | undefined;
-            resourceInputs["displayTimezone"] = state ? state.displayTimezone : undefined;
-            resourceInputs["message"] = state ? state.message : undefined;
-            resourceInputs["monitorIdentifier"] = state ? state.monitorIdentifier : undefined;
-            resourceInputs["muteFirstRecoveryNotification"] = state ? state.muteFirstRecoveryNotification : undefined;
-            resourceInputs["notifyEndStates"] = state ? state.notifyEndStates : undefined;
-            resourceInputs["notifyEndTypes"] = state ? state.notifyEndTypes : undefined;
-            resourceInputs["oneTimeSchedule"] = state ? state.oneTimeSchedule : undefined;
-            resourceInputs["recurringSchedule"] = state ? state.recurringSchedule : undefined;
-            resourceInputs["scope"] = state ? state.scope : undefined;
+            resourceInputs["displayTimezone"] = state?.displayTimezone;
+            resourceInputs["message"] = state?.message;
+            resourceInputs["monitorIdentifier"] = state?.monitorIdentifier;
+            resourceInputs["muteFirstRecoveryNotification"] = state?.muteFirstRecoveryNotification;
+            resourceInputs["notifyEndStates"] = state?.notifyEndStates;
+            resourceInputs["notifyEndTypes"] = state?.notifyEndTypes;
+            resourceInputs["oneTimeSchedule"] = state?.oneTimeSchedule;
+            resourceInputs["recurringSchedule"] = state?.recurringSchedule;
+            resourceInputs["scope"] = state?.scope;
         } else {
             const args = argsOrState as DowntimeScheduleArgs | undefined;
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["displayTimezone"] = args ? args.displayTimezone : undefined;
-            resourceInputs["message"] = args ? args.message : undefined;
-            resourceInputs["monitorIdentifier"] = args ? args.monitorIdentifier : undefined;
-            resourceInputs["muteFirstRecoveryNotification"] = args ? args.muteFirstRecoveryNotification : undefined;
-            resourceInputs["notifyEndStates"] = args ? args.notifyEndStates : undefined;
-            resourceInputs["notifyEndTypes"] = args ? args.notifyEndTypes : undefined;
-            resourceInputs["oneTimeSchedule"] = args ? args.oneTimeSchedule : undefined;
-            resourceInputs["recurringSchedule"] = args ? args.recurringSchedule : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["displayTimezone"] = args?.displayTimezone;
+            resourceInputs["message"] = args?.message;
+            resourceInputs["monitorIdentifier"] = args?.monitorIdentifier;
+            resourceInputs["muteFirstRecoveryNotification"] = args?.muteFirstRecoveryNotification;
+            resourceInputs["notifyEndStates"] = args?.notifyEndStates;
+            resourceInputs["notifyEndTypes"] = args?.notifyEndTypes;
+            resourceInputs["oneTimeSchedule"] = args?.oneTimeSchedule;
+            resourceInputs["recurringSchedule"] = args?.recurringSchedule;
+            resourceInputs["scope"] = args?.scope;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DowntimeSchedule.__pulumiType, name, resourceInputs, opts);

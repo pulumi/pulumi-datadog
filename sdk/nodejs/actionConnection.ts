@@ -48,15 +48,15 @@ export class ActionConnection extends pulumi.CustomResource {
     /**
      * Configuration for an AWS connection
      */
-    public readonly aws!: pulumi.Output<outputs.ActionConnectionAws | undefined>;
+    declare public readonly aws: pulumi.Output<outputs.ActionConnectionAws | undefined>;
     /**
      * Configuration for an HTTP connection
      */
-    public readonly http!: pulumi.Output<outputs.ActionConnectionHttp | undefined>;
+    declare public readonly http: pulumi.Output<outputs.ActionConnectionHttp | undefined>;
     /**
      * Name of the connection
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a ActionConnection resource with the given unique name, arguments, and options.
@@ -71,17 +71,17 @@ export class ActionConnection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ActionConnectionState | undefined;
-            resourceInputs["aws"] = state ? state.aws : undefined;
-            resourceInputs["http"] = state ? state.http : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["aws"] = state?.aws;
+            resourceInputs["http"] = state?.http;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as ActionConnectionArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["aws"] = args ? args.aws : undefined;
-            resourceInputs["http"] = args ? args.http : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["aws"] = args?.aws;
+            resourceInputs["http"] = args?.http;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ActionConnection.__pulumiType, name, resourceInputs, opts);

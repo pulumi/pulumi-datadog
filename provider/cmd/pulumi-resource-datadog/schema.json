@@ -59,72 +59,72 @@
         "variables": {
             "apiKey": {
                 "type": "string",
-                "description": "(Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.\n",
+                "description": "(Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.",
                 "secret": true
             },
             "apiUrl": {
                 "type": "string",
-                "description": "The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`.\nNote that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value,\nwhile `https://api.datadoghq.com/api/` is not. And if you're working with \"EU\" version of Datadog, use\n`https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`,\n`https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/\nfor all available regions.\n"
+                "description": "The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`. Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And if you're working with \"EU\" version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/ for all available regions."
             },
             "appKey": {
                 "type": "string",
-                "description": "(Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.\n",
+                "description": "(Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.",
                 "secret": true
             },
             "awsAccessKeyId": {
                 "type": "string",
-                "description": "The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID`\nenvironment variable. Required when using `cloud_provider_type` set to `aws`.\n",
+                "description": "The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloud_provider_type` set to `aws`.",
                 "secret": true
             },
             "awsSecretAccessKey": {
                 "type": "string",
-                "description": "The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the\n`AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.\n",
+                "description": "The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.",
                 "secret": true
             },
             "awsSessionToken": {
                 "type": "string",
-                "description": "The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN`\nenvironment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.\n",
+                "description": "The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.",
                 "secret": true
             },
             "cloudProviderRegion": {
                 "type": "string",
-                "description": "The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.\n"
+                "description": "The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS."
             },
             "cloudProviderType": {
                 "type": "string",
-                "description": "Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app\nkeys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact\n[support](https://docs.datadoghq.com/help/).\n"
+                "description": "Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/)."
             },
             "defaultTags": {
                 "$ref": "#/types/datadog:config/defaultTags:defaultTags",
-                "description": "[Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration\nblock containing settings to apply default resource tags across all resources.\n"
+                "description": "[Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources."
             },
             "httpClientRetryBackoffBase": {
                 "type": "integer",
-                "description": "The HTTP request retry back off base. Defaults to 2.\n"
+                "description": "The HTTP request retry back off base. Defaults to 2."
             },
             "httpClientRetryBackoffMultiplier": {
                 "type": "integer",
-                "description": "The HTTP request retry back off multiplier. Defaults to 2.\n"
+                "description": "The HTTP request retry back off multiplier. Defaults to 2."
             },
             "httpClientRetryEnabled": {
                 "type": "string",
-                "description": "Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.\n"
+                "description": "Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`."
             },
             "httpClientRetryMaxRetries": {
                 "type": "integer",
-                "description": "The HTTP request maximum retry number. Defaults to 3.\n"
+                "description": "The HTTP request maximum retry number. Defaults to 3."
             },
             "httpClientRetryTimeout": {
                 "type": "integer",
-                "description": "The HTTP request retry timeout period. Defaults to 60 seconds.\n"
+                "description": "The HTTP request retry timeout period. Defaults to 60 seconds."
             },
             "orgUuid": {
                 "type": "string",
-                "description": "The organization UUID; used for cloud-provider-based authentication. See the [Datadog API\ndocumentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.\n"
+                "description": "The organization UUID; used for cloud-provider-based authentication. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information."
             },
             "validate": {
                 "type": "string",
-                "description": "Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default\nis true. When false, api_key won't be checked.\n"
+                "description": "Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, api_key won't be checked."
             }
         }
     },
@@ -39377,143 +39377,143 @@
         "properties": {
             "apiKey": {
                 "type": "string",
-                "description": "(Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.\n",
+                "description": "(Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.",
                 "secret": true
             },
             "apiUrl": {
                 "type": "string",
-                "description": "The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`.\nNote that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value,\nwhile `https://api.datadoghq.com/api/` is not. And if you're working with \"EU\" version of Datadog, use\n`https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`,\n`https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/\nfor all available regions.\n"
+                "description": "The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`. Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And if you're working with \"EU\" version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/ for all available regions."
             },
             "appKey": {
                 "type": "string",
-                "description": "(Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.\n",
+                "description": "(Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.",
                 "secret": true
             },
             "awsAccessKeyId": {
                 "type": "string",
-                "description": "The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID`\nenvironment variable. Required when using `cloud_provider_type` set to `aws`.\n",
+                "description": "The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloud_provider_type` set to `aws`.",
                 "secret": true
             },
             "awsSecretAccessKey": {
                 "type": "string",
-                "description": "The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the\n`AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.\n",
+                "description": "The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.",
                 "secret": true
             },
             "awsSessionToken": {
                 "type": "string",
-                "description": "The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN`\nenvironment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.\n",
+                "description": "The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.",
                 "secret": true
             },
             "cloudProviderRegion": {
                 "type": "string",
-                "description": "The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.\n"
+                "description": "The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS."
             },
             "cloudProviderType": {
                 "type": "string",
-                "description": "Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app\nkeys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact\n[support](https://docs.datadoghq.com/help/).\n"
+                "description": "Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/)."
             },
             "defaultTags": {
                 "$ref": "#/types/datadog:index/ProviderDefaultTags:ProviderDefaultTags",
-                "description": "[Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration\nblock containing settings to apply default resource tags across all resources.\n"
+                "description": "[Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources."
             },
             "httpClientRetryBackoffBase": {
                 "type": "integer",
-                "description": "The HTTP request retry back off base. Defaults to 2.\n"
+                "description": "The HTTP request retry back off base. Defaults to 2."
             },
             "httpClientRetryBackoffMultiplier": {
                 "type": "integer",
-                "description": "The HTTP request retry back off multiplier. Defaults to 2.\n"
+                "description": "The HTTP request retry back off multiplier. Defaults to 2."
             },
             "httpClientRetryEnabled": {
                 "type": "string",
-                "description": "Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.\n"
+                "description": "Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`."
             },
             "httpClientRetryMaxRetries": {
                 "type": "integer",
-                "description": "The HTTP request maximum retry number. Defaults to 3.\n"
+                "description": "The HTTP request maximum retry number. Defaults to 3."
             },
             "httpClientRetryTimeout": {
                 "type": "integer",
-                "description": "The HTTP request retry timeout period. Defaults to 60 seconds.\n"
+                "description": "The HTTP request retry timeout period. Defaults to 60 seconds."
             },
             "orgUuid": {
                 "type": "string",
-                "description": "The organization UUID; used for cloud-provider-based authentication. See the [Datadog API\ndocumentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.\n"
+                "description": "The organization UUID; used for cloud-provider-based authentication. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information."
             },
             "validate": {
                 "type": "string",
-                "description": "Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default\nis true. When false, api_key won't be checked.\n"
+                "description": "Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, api_key won't be checked."
             }
         },
         "inputProperties": {
             "apiKey": {
                 "type": "string",
-                "description": "(Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.\n",
+                "description": "(Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.",
                 "secret": true
             },
             "apiUrl": {
                 "type": "string",
-                "description": "The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`.\nNote that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value,\nwhile `https://api.datadoghq.com/api/` is not. And if you're working with \"EU\" version of Datadog, use\n`https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`,\n`https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/\nfor all available regions.\n"
+                "description": "The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`. Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And if you're working with \"EU\" version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/ for all available regions."
             },
             "appKey": {
                 "type": "string",
-                "description": "(Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.\n",
+                "description": "(Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.",
                 "secret": true
             },
             "awsAccessKeyId": {
                 "type": "string",
-                "description": "The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID`\nenvironment variable. Required when using `cloud_provider_type` set to `aws`.\n",
+                "description": "The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloud_provider_type` set to `aws`.",
                 "secret": true
             },
             "awsSecretAccessKey": {
                 "type": "string",
-                "description": "The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the\n`AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.\n",
+                "description": "The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.",
                 "secret": true
             },
             "awsSessionToken": {
                 "type": "string",
-                "description": "The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN`\nenvironment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.\n",
+                "description": "The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.",
                 "secret": true
             },
             "cloudProviderRegion": {
                 "type": "string",
-                "description": "The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.\n"
+                "description": "The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS."
             },
             "cloudProviderType": {
                 "type": "string",
-                "description": "Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app\nkeys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact\n[support](https://docs.datadoghq.com/help/).\n"
+                "description": "Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/)."
             },
             "defaultTags": {
                 "$ref": "#/types/datadog:index/ProviderDefaultTags:ProviderDefaultTags",
-                "description": "[Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration\nblock containing settings to apply default resource tags across all resources.\n"
+                "description": "[Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources."
             },
             "httpClientRetryBackoffBase": {
                 "type": "integer",
-                "description": "The HTTP request retry back off base. Defaults to 2.\n"
+                "description": "The HTTP request retry back off base. Defaults to 2."
             },
             "httpClientRetryBackoffMultiplier": {
                 "type": "integer",
-                "description": "The HTTP request retry back off multiplier. Defaults to 2.\n"
+                "description": "The HTTP request retry back off multiplier. Defaults to 2."
             },
             "httpClientRetryEnabled": {
                 "type": "string",
-                "description": "Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.\n"
+                "description": "Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`."
             },
             "httpClientRetryMaxRetries": {
                 "type": "integer",
-                "description": "The HTTP request maximum retry number. Defaults to 3.\n"
+                "description": "The HTTP request maximum retry number. Defaults to 3."
             },
             "httpClientRetryTimeout": {
                 "type": "integer",
-                "description": "The HTTP request retry timeout period. Defaults to 60 seconds.\n"
+                "description": "The HTTP request retry timeout period. Defaults to 60 seconds."
             },
             "orgUuid": {
                 "type": "string",
-                "description": "The organization UUID; used for cloud-provider-based authentication. See the [Datadog API\ndocumentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.\n"
+                "description": "The organization UUID; used for cloud-provider-based authentication. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information."
             },
             "validate": {
                 "type": "string",
-                "description": "Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default\nis true. When false, api_key won't be checked.\n"
+                "description": "Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, api_key won't be checked."
             }
         },
         "methods": {
@@ -42458,18 +42458,18 @@
             "properties": {
                 "cloudProvider": {
                     "type": "string",
-                    "description": "The cloud provider of the filter's targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud\nproviders.\n"
+                    "description": "The cloud provider of the filter's targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud providers."
                 },
                 "resourceId": {
                     "type": "string",
-                    "description": "The ID of the of the filter's targeted resource. Different cloud providers target different resource IDs: - `aws`:\naccount ID - `gcp`: project ID - `azure`: subscription ID\n"
+                    "description": "The ID of the of the filter's targeted resource. Different cloud providers target different resource IDs:\n  - `aws`: account ID\n  - `gcp`: project ID\n  - `azure`: subscription ID"
                 },
                 "tags": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of tags to filter misconfiguration detections. Each entry should follow the format: \"key\":\"value\".\n"
+                    "description": "List of tags to filter misconfiguration detections. Each entry should follow the format: \"key\":\"value\"."
                 }
             },
             "required": [
@@ -42480,18 +42480,18 @@
             "inputProperties": {
                 "cloudProvider": {
                     "type": "string",
-                    "description": "The cloud provider of the filter's targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud\nproviders.\n"
+                    "description": "The cloud provider of the filter's targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud providers."
                 },
                 "resourceId": {
                     "type": "string",
-                    "description": "The ID of the of the filter's targeted resource. Different cloud providers target different resource IDs: - `aws`:\naccount ID - `gcp`: project ID - `azure`: subscription ID\n"
+                    "description": "The ID of the of the filter's targeted resource. Different cloud providers target different resource IDs:\n  - `aws`: account ID\n  - `gcp`: project ID\n  - `azure`: subscription ID"
                 },
                 "tags": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of tags to filter misconfiguration detections. Each entry should follow the format: \"key\":\"value\".\n"
+                    "description": "List of tags to filter misconfiguration detections. Each entry should follow the format: \"key\":\"value\"."
                 }
             },
             "requiredInputs": [
@@ -42504,18 +42504,18 @@
                 "properties": {
                     "cloudProvider": {
                         "type": "string",
-                        "description": "The cloud provider of the filter's targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud\nproviders.\n"
+                        "description": "The cloud provider of the filter's targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud providers."
                     },
                     "resourceId": {
                         "type": "string",
-                        "description": "The ID of the of the filter's targeted resource. Different cloud providers target different resource IDs: - `aws`:\naccount ID - `gcp`: project ID - `azure`: subscription ID\n"
+                        "description": "The ID of the of the filter's targeted resource. Different cloud providers target different resource IDs:\n  - `aws`: account ID\n  - `gcp`: project ID\n  - `azure`: subscription ID"
                     },
                     "tags": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "List of tags to filter misconfiguration detections. Each entry should follow the format: \"key\":\"value\".\n"
+                        "description": "List of tags to filter misconfiguration detections. Each entry should follow the format: \"key\":\"value\"."
                     }
                 },
                 "type": "object"
@@ -44862,39 +44862,39 @@
             "properties": {
                 "enableLogsSample": {
                     "type": "boolean",
-                    "description": "A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log\nmonitors. Defaults to `false`.\n"
+                    "description": "A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log monitors. Defaults to `false`."
                 },
                 "enableSamples": {
                     "type": "boolean",
-                    "description": "Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline\nmonitors.\n"
+                    "description": "Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline monitors."
                 },
                 "escalationMessage": {
                     "type": "string",
-                    "description": "A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.\n"
+                    "description": "A message to include with a re-notification. Supports the `@username` notification allowed elsewhere."
                 },
                 "evaluationDelay": {
                     "type": "integer",
-                    "description": "(Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer. For example, if the\nvalue is set to `300` (5min), the `timeframe` is set to `last_5m` and the time is 7:00, the monitor will evaluate data\nfrom 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have\ndata during evaluation.\n"
+                    "description": "(Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.\n\nFor example, if the value is set to `300` (5min), the `timeframe` is set to `last_5m` and the time is 7:00, the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have data during evaluation."
                 },
                 "forceDelete": {
                     "type": "boolean",
-                    "description": "A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO,\ncomposite monitor).\n"
+                    "description": "A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO, composite monitor)."
                 },
                 "groupRetentionDuration": {
                     "type": "string",
-                    "description": "The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour,\nand the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace\nAnalytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.\n"
+                    "description": "The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour, and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors."
                 },
                 "groupbySimpleMonitor": {
                     "type": "boolean",
-                    "description": "Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to\n`false`.\n"
+                    "description": "Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to `false`."
                 },
                 "includeTags": {
                     "type": "boolean",
-                    "description": "A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.\n"
+                    "description": "A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title."
                 },
                 "locked": {
                     "type": "boolean",
-                    "description": "A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.\n",
+                    "description": "A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.",
                     "deprecationMessage": "Use `restricted_roles`."
                 },
                 "message": {
@@ -44903,77 +44903,77 @@
                 },
                 "monitorThresholdWindows": {
                     "$ref": "#/types/datadog:index/MonitorMonitorThresholdWindows:MonitorMonitorThresholdWindows",
-                    "description": "A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are\nrequired for, anomaly monitors.\n"
+                    "description": "A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are required for, anomaly monitors."
                 },
                 "monitorThresholds": {
                     "$ref": "#/types/datadog:index/MonitorMonitorThresholds:MonitorMonitorThresholds",
-                    "description": "Alert thresholds of the monitor.\n"
+                    "description": "Alert thresholds of the monitor."
                 },
                 "name": {
                     "type": "string",
-                    "description": "Name of Datadog monitor.\n"
+                    "description": "Name of Datadog monitor."
                 },
                 "newGroupDelay": {
                     "type": "integer",
-                    "description": "The time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a\nnonzero value.\n"
+                    "description": "The time (in seconds) to skip evaluations for new groups.\n\n`new_group_delay` overrides `new_host_delay` if it is set to a nonzero value."
                 },
                 "newHostDelay": {
                     "type": "integer",
-                    "description": "**Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before\nstarting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors\nand monitors not grouped by host. The only case when this should be used is to override the default and set\n`new_host_delay` to zero for monitors grouped by host.\n",
+                    "description": "**Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors and monitors not grouped by host. The only case when this should be used is to override the default and set `new_host_delay` to zero for monitors grouped by host.",
                     "deprecationMessage": "Use `new_group_delay` except when setting `new_host_delay` to zero."
                 },
                 "noDataTimeframe": {
                     "type": "integer",
-                    "description": "The number of minutes before a monitor will notify when data stops reporting. We recommend at least 2x the monitor\ntimeframe for metric alerts or 2 minutes for service checks.\n"
+                    "description": "The number of minutes before a monitor will notify when data stops reporting.\n\nWe recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks."
                 },
                 "notificationPresetName": {
                     "type": "string",
-                    "description": "Toggles the display of additional content sent in the monitor notification.\n"
+                    "description": "Toggles the display of additional content sent in the monitor notification."
                 },
                 "notifyAudit": {
                     "type": "boolean",
-                    "description": "A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.\n"
+                    "description": "A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`."
                 },
                 "notifyBies": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor\ngrouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert\nconditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags\nin the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`\nto `[*]` configures the monitor to notify as a simple-alert.\n"
+                    "description": "Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by` to `[*]` configures the monitor to notify as a simple-alert."
                 },
                 "notifyNoData": {
                     "type": "boolean",
-                    "description": "A boolean indicating whether this monitor will notify when data stops reporting.\n"
+                    "description": "A boolean indicating whether this monitor will notify when data stops reporting."
                 },
                 "onMissingData": {
                     "type": "string",
-                    "description": "Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results\nin different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor\nevaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than\n`Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not\navailable for Service Check, Composite, or SLO monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`,\n`resolve`, and `default`.\n"
+                    "description": "Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not available for Service Check, Composite, or SLO monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`."
                 },
                 "priority": {
                     "type": "string",
-                    "description": "Integer from 1 (high) to 5 (low) indicating alert severity.\n"
+                    "description": "Integer from 1 (high) to 5 (low) indicating alert severity."
                 },
                 "query": {
                     "type": "string"
                 },
                 "renotifyInterval": {
                     "type": "integer",
-                    "description": "The number of minutes after the last notification before a monitor will re-notify on the current status. It will only\nre-notify if it's not resolved.\n"
+                    "description": "The number of minutes after the last notification before a monitor will re-notify on the current status. It will only re-notify if it's not resolved."
                 },
                 "renotifyOccurrences": {
                     "type": "integer",
-                    "description": "The number of re-notification messages that should be sent on the current status.\n"
+                    "description": "The number of re-notification messages that should be sent on the current status."
                 },
                 "renotifyStatuses": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "The types of statuses for which re-notification messages should be sent.\n"
+                    "description": "The types of statuses for which re-notification messages should be sent."
                 },
                 "requireFullWindow": {
                     "type": "boolean",
-                    "description": "A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends\nyou set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set,\n`require_full_window` must be false and will be ignored.\n"
+                    "description": "A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set, `require_full_window` must be false and will be ignored."
                 },
                 "restrictedRoles": {
                     "type": "array",
@@ -44986,26 +44986,26 @@
                     "items": {
                         "$ref": "#/types/datadog:index/MonitorSchedulingOption:MonitorSchedulingOption"
                     },
-                    "description": "Configuration options for scheduling.\n"
+                    "description": "Configuration options for scheduling."
                 },
                 "tags": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors\npage of the UI. Note: it's not currently possible to filter by these tags when querying via the API\n"
+                    "description": "A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API"
                 },
                 "timeoutH": {
                     "type": "integer",
-                    "description": "The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The\nminimum allowed value is 0 hours. The maximum allowed value is 24 hours.\n"
+                    "description": "The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The minimum allowed value is 0 hours. The maximum allowed value is 24 hours."
                 },
                 "type": {
                     "type": "string",
-                    "description": "The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the\nDatadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type\ncannot be changed after a monitor is created.\n"
+                    "description": "The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type cannot be changed after a monitor is created."
                 },
                 "validate": {
                     "type": "boolean",
-                    "description": "If set to `false`, skip the validation call done during plan.\n"
+                    "description": "If set to `false`, skip the validation call done during plan."
                 },
                 "variables": {
                     "$ref": "#/types/datadog:index/MonitorVariables:MonitorVariables"
@@ -45022,39 +45022,39 @@
             "inputProperties": {
                 "enableLogsSample": {
                     "type": "boolean",
-                    "description": "A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log\nmonitors. Defaults to `false`.\n"
+                    "description": "A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log monitors. Defaults to `false`."
                 },
                 "enableSamples": {
                     "type": "boolean",
-                    "description": "Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline\nmonitors.\n"
+                    "description": "Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline monitors."
                 },
                 "escalationMessage": {
                     "type": "string",
-                    "description": "A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.\n"
+                    "description": "A message to include with a re-notification. Supports the `@username` notification allowed elsewhere."
                 },
                 "evaluationDelay": {
                     "type": "integer",
-                    "description": "(Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer. For example, if the\nvalue is set to `300` (5min), the `timeframe` is set to `last_5m` and the time is 7:00, the monitor will evaluate data\nfrom 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have\ndata during evaluation.\n"
+                    "description": "(Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.\n\nFor example, if the value is set to `300` (5min), the `timeframe` is set to `last_5m` and the time is 7:00, the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have data during evaluation."
                 },
                 "forceDelete": {
                     "type": "boolean",
-                    "description": "A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO,\ncomposite monitor).\n"
+                    "description": "A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO, composite monitor)."
                 },
                 "groupRetentionDuration": {
                     "type": "string",
-                    "description": "The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour,\nand the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace\nAnalytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.\n"
+                    "description": "The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour, and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors."
                 },
                 "groupbySimpleMonitor": {
                     "type": "boolean",
-                    "description": "Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to\n`false`.\n"
+                    "description": "Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to `false`."
                 },
                 "includeTags": {
                     "type": "boolean",
-                    "description": "A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.\n"
+                    "description": "A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title."
                 },
                 "locked": {
                     "type": "boolean",
-                    "description": "A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.\n",
+                    "description": "A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.",
                     "deprecationMessage": "Use `restricted_roles`."
                 },
                 "message": {
@@ -45063,77 +45063,77 @@
                 },
                 "monitorThresholdWindows": {
                     "$ref": "#/types/datadog:index/MonitorMonitorThresholdWindows:MonitorMonitorThresholdWindows",
-                    "description": "A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are\nrequired for, anomaly monitors.\n"
+                    "description": "A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are required for, anomaly monitors."
                 },
                 "monitorThresholds": {
                     "$ref": "#/types/datadog:index/MonitorMonitorThresholds:MonitorMonitorThresholds",
-                    "description": "Alert thresholds of the monitor.\n"
+                    "description": "Alert thresholds of the monitor."
                 },
                 "name": {
                     "type": "string",
-                    "description": "Name of Datadog monitor.\n"
+                    "description": "Name of Datadog monitor."
                 },
                 "newGroupDelay": {
                     "type": "integer",
-                    "description": "The time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a\nnonzero value.\n"
+                    "description": "The time (in seconds) to skip evaluations for new groups.\n\n`new_group_delay` overrides `new_host_delay` if it is set to a nonzero value."
                 },
                 "newHostDelay": {
                     "type": "integer",
-                    "description": "**Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before\nstarting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors\nand monitors not grouped by host. The only case when this should be used is to override the default and set\n`new_host_delay` to zero for monitors grouped by host.\n",
+                    "description": "**Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors and monitors not grouped by host. The only case when this should be used is to override the default and set `new_host_delay` to zero for monitors grouped by host.",
                     "deprecationMessage": "Use `new_group_delay` except when setting `new_host_delay` to zero."
                 },
                 "noDataTimeframe": {
                     "type": "integer",
-                    "description": "The number of minutes before a monitor will notify when data stops reporting. We recommend at least 2x the monitor\ntimeframe for metric alerts or 2 minutes for service checks.\n"
+                    "description": "The number of minutes before a monitor will notify when data stops reporting.\n\nWe recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks."
                 },
                 "notificationPresetName": {
                     "type": "string",
-                    "description": "Toggles the display of additional content sent in the monitor notification.\n"
+                    "description": "Toggles the display of additional content sent in the monitor notification."
                 },
                 "notifyAudit": {
                     "type": "boolean",
-                    "description": "A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.\n"
+                    "description": "A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`."
                 },
                 "notifyBies": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor\ngrouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert\nconditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags\nin the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`\nto `[*]` configures the monitor to notify as a simple-alert.\n"
+                    "description": "Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by` to `[*]` configures the monitor to notify as a simple-alert."
                 },
                 "notifyNoData": {
                     "type": "boolean",
-                    "description": "A boolean indicating whether this monitor will notify when data stops reporting.\n"
+                    "description": "A boolean indicating whether this monitor will notify when data stops reporting."
                 },
                 "onMissingData": {
                     "type": "string",
-                    "description": "Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results\nin different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor\nevaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than\n`Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not\navailable for Service Check, Composite, or SLO monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`,\n`resolve`, and `default`.\n"
+                    "description": "Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not available for Service Check, Composite, or SLO monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`."
                 },
                 "priority": {
                     "type": "string",
-                    "description": "Integer from 1 (high) to 5 (low) indicating alert severity.\n"
+                    "description": "Integer from 1 (high) to 5 (low) indicating alert severity."
                 },
                 "query": {
                     "type": "string"
                 },
                 "renotifyInterval": {
                     "type": "integer",
-                    "description": "The number of minutes after the last notification before a monitor will re-notify on the current status. It will only\nre-notify if it's not resolved.\n"
+                    "description": "The number of minutes after the last notification before a monitor will re-notify on the current status. It will only re-notify if it's not resolved."
                 },
                 "renotifyOccurrences": {
                     "type": "integer",
-                    "description": "The number of re-notification messages that should be sent on the current status.\n"
+                    "description": "The number of re-notification messages that should be sent on the current status."
                 },
                 "renotifyStatuses": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "The types of statuses for which re-notification messages should be sent.\n"
+                    "description": "The types of statuses for which re-notification messages should be sent."
                 },
                 "requireFullWindow": {
                     "type": "boolean",
-                    "description": "A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends\nyou set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set,\n`require_full_window` must be false and will be ignored.\n"
+                    "description": "A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set, `require_full_window` must be false and will be ignored."
                 },
                 "restrictedRoles": {
                     "type": "array",
@@ -45146,27 +45146,27 @@
                     "items": {
                         "$ref": "#/types/datadog:index/MonitorSchedulingOption:MonitorSchedulingOption"
                     },
-                    "description": "Configuration options for scheduling.\n"
+                    "description": "Configuration options for scheduling."
                 },
                 "tags": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors\npage of the UI. Note: it's not currently possible to filter by these tags when querying via the API\n"
+                    "description": "A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API"
                 },
                 "timeoutH": {
                     "type": "integer",
-                    "description": "The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The\nminimum allowed value is 0 hours. The maximum allowed value is 24 hours.\n"
+                    "description": "The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The minimum allowed value is 0 hours. The maximum allowed value is 24 hours."
                 },
                 "type": {
                     "type": "string",
-                    "description": "The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the\nDatadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type\ncannot be changed after a monitor is created.\n",
+                    "description": "The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type cannot be changed after a monitor is created.",
                     "willReplaceOnChanges": true
                 },
                 "validate": {
                     "type": "boolean",
-                    "description": "If set to `false`, skip the validation call done during plan.\n"
+                    "description": "If set to `false`, skip the validation call done during plan."
                 },
                 "variables": {
                     "$ref": "#/types/datadog:index/MonitorVariables:MonitorVariables"
@@ -45183,39 +45183,39 @@
                 "properties": {
                     "enableLogsSample": {
                         "type": "boolean",
-                        "description": "A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log\nmonitors. Defaults to `false`.\n"
+                        "description": "A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log monitors. Defaults to `false`."
                     },
                     "enableSamples": {
                         "type": "boolean",
-                        "description": "Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline\nmonitors.\n"
+                        "description": "Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline monitors."
                     },
                     "escalationMessage": {
                         "type": "string",
-                        "description": "A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.\n"
+                        "description": "A message to include with a re-notification. Supports the `@username` notification allowed elsewhere."
                     },
                     "evaluationDelay": {
                         "type": "integer",
-                        "description": "(Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer. For example, if the\nvalue is set to `300` (5min), the `timeframe` is set to `last_5m` and the time is 7:00, the monitor will evaluate data\nfrom 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have\ndata during evaluation.\n"
+                        "description": "(Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.\n\nFor example, if the value is set to `300` (5min), the `timeframe` is set to `last_5m` and the time is 7:00, the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have data during evaluation."
                     },
                     "forceDelete": {
                         "type": "boolean",
-                        "description": "A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO,\ncomposite monitor).\n"
+                        "description": "A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO, composite monitor)."
                     },
                     "groupRetentionDuration": {
                         "type": "string",
-                        "description": "The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour,\nand the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace\nAnalytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.\n"
+                        "description": "The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour, and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors."
                     },
                     "groupbySimpleMonitor": {
                         "type": "boolean",
-                        "description": "Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to\n`false`.\n"
+                        "description": "Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to `false`."
                     },
                     "includeTags": {
                         "type": "boolean",
-                        "description": "A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.\n"
+                        "description": "A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title."
                     },
                     "locked": {
                         "type": "boolean",
-                        "description": "A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.\n",
+                        "description": "A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.",
                         "deprecationMessage": "Use `restricted_roles`."
                     },
                     "message": {
@@ -45224,77 +45224,77 @@
                     },
                     "monitorThresholdWindows": {
                         "$ref": "#/types/datadog:index/MonitorMonitorThresholdWindows:MonitorMonitorThresholdWindows",
-                        "description": "A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are\nrequired for, anomaly monitors.\n"
+                        "description": "A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are required for, anomaly monitors."
                     },
                     "monitorThresholds": {
                         "$ref": "#/types/datadog:index/MonitorMonitorThresholds:MonitorMonitorThresholds",
-                        "description": "Alert thresholds of the monitor.\n"
+                        "description": "Alert thresholds of the monitor."
                     },
                     "name": {
                         "type": "string",
-                        "description": "Name of Datadog monitor.\n"
+                        "description": "Name of Datadog monitor."
                     },
                     "newGroupDelay": {
                         "type": "integer",
-                        "description": "The time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a\nnonzero value.\n"
+                        "description": "The time (in seconds) to skip evaluations for new groups.\n\n`new_group_delay` overrides `new_host_delay` if it is set to a nonzero value."
                     },
                     "newHostDelay": {
                         "type": "integer",
-                        "description": "**Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before\nstarting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors\nand monitors not grouped by host. The only case when this should be used is to override the default and set\n`new_host_delay` to zero for monitors grouped by host.\n",
+                        "description": "**Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors and monitors not grouped by host. The only case when this should be used is to override the default and set `new_host_delay` to zero for monitors grouped by host.",
                         "deprecationMessage": "Use `new_group_delay` except when setting `new_host_delay` to zero."
                     },
                     "noDataTimeframe": {
                         "type": "integer",
-                        "description": "The number of minutes before a monitor will notify when data stops reporting. We recommend at least 2x the monitor\ntimeframe for metric alerts or 2 minutes for service checks.\n"
+                        "description": "The number of minutes before a monitor will notify when data stops reporting.\n\nWe recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks."
                     },
                     "notificationPresetName": {
                         "type": "string",
-                        "description": "Toggles the display of additional content sent in the monitor notification.\n"
+                        "description": "Toggles the display of additional content sent in the monitor notification."
                     },
                     "notifyAudit": {
                         "type": "boolean",
-                        "description": "A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.\n"
+                        "description": "A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`."
                     },
                     "notifyBies": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor\ngrouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert\nconditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags\nin the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`\nto `[*]` configures the monitor to notify as a simple-alert.\n"
+                        "description": "Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by` to `[*]` configures the monitor to notify as a simple-alert."
                     },
                     "notifyNoData": {
                         "type": "boolean",
-                        "description": "A boolean indicating whether this monitor will notify when data stops reporting.\n"
+                        "description": "A boolean indicating whether this monitor will notify when data stops reporting."
                     },
                     "onMissingData": {
                         "type": "string",
-                        "description": "Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results\nin different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor\nevaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than\n`Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not\navailable for Service Check, Composite, or SLO monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`,\n`resolve`, and `default`.\n"
+                        "description": "Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not available for Service Check, Composite, or SLO monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`."
                     },
                     "priority": {
                         "type": "string",
-                        "description": "Integer from 1 (high) to 5 (low) indicating alert severity.\n"
+                        "description": "Integer from 1 (high) to 5 (low) indicating alert severity."
                     },
                     "query": {
                         "type": "string"
                     },
                     "renotifyInterval": {
                         "type": "integer",
-                        "description": "The number of minutes after the last notification before a monitor will re-notify on the current status. It will only\nre-notify if it's not resolved.\n"
+                        "description": "The number of minutes after the last notification before a monitor will re-notify on the current status. It will only re-notify if it's not resolved."
                     },
                     "renotifyOccurrences": {
                         "type": "integer",
-                        "description": "The number of re-notification messages that should be sent on the current status.\n"
+                        "description": "The number of re-notification messages that should be sent on the current status."
                     },
                     "renotifyStatuses": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "The types of statuses for which re-notification messages should be sent.\n"
+                        "description": "The types of statuses for which re-notification messages should be sent."
                     },
                     "requireFullWindow": {
                         "type": "boolean",
-                        "description": "A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends\nyou set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set,\n`require_full_window` must be false and will be ignored.\n"
+                        "description": "A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set, `require_full_window` must be false and will be ignored."
                     },
                     "restrictedRoles": {
                         "type": "array",
@@ -45307,27 +45307,27 @@
                         "items": {
                             "$ref": "#/types/datadog:index/MonitorSchedulingOption:MonitorSchedulingOption"
                         },
-                        "description": "Configuration options for scheduling.\n"
+                        "description": "Configuration options for scheduling."
                     },
                     "tags": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors\npage of the UI. Note: it's not currently possible to filter by these tags when querying via the API\n"
+                        "description": "A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API"
                     },
                     "timeoutH": {
                         "type": "integer",
-                        "description": "The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The\nminimum allowed value is 0 hours. The maximum allowed value is 24 hours.\n"
+                        "description": "The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The minimum allowed value is 0 hours. The maximum allowed value is 24 hours."
                     },
                     "type": {
                         "type": "string",
-                        "description": "The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the\nDatadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type\ncannot be changed after a monitor is created.\n",
+                        "description": "The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type cannot be changed after a monitor is created.",
                         "willReplaceOnChanges": true
                     },
                     "validate": {
                         "type": "boolean",
-                        "description": "If set to `false`, skip the validation call done during plan.\n"
+                        "description": "If set to `false`, skip the validation call done during plan."
                     },
                     "variables": {
                         "$ref": "#/types/datadog:index/MonitorVariables:MonitorVariables"
@@ -50233,7 +50233,7 @@
                         "type": "array"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     }
                 },
@@ -50516,7 +50516,7 @@
                         "type": "array"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     }
                 },
@@ -50692,7 +50692,7 @@
                 "description": "A collection of values returned by getDashboard.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "name": {
@@ -51064,7 +51064,7 @@
                         "type": "array"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     }
                 },
@@ -51081,7 +51081,7 @@
                 "description": "A collection of values returned by getLogsIndexes.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "logsIndexes": {
@@ -51105,7 +51105,7 @@
                 "description": "A collection of values returned by getLogsIndexesOrder.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "indexNames": {
@@ -51139,7 +51139,7 @@
                 "description": "A collection of values returned by getLogsPipelines.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "isReadOnly": {
@@ -51350,7 +51350,7 @@
                         "type": "boolean"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "includeTags": {
@@ -51530,7 +51530,7 @@
                 "description": "A collection of values returned by getMonitorConfigPolicies.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "monitorConfigPolicies": {
@@ -51578,7 +51578,7 @@
                 "description": "A collection of values returned by getMonitors.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "monitorTagsFilters": {
@@ -51630,7 +51630,7 @@
                 "description": "A collection of values returned by getPermissions.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "includeRestricted": {
@@ -51709,7 +51709,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "name": {
@@ -51808,7 +51808,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "roles": {
@@ -51945,7 +51945,7 @@
                         "type": "array"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     }
                 },
@@ -51992,7 +51992,7 @@
                         "type": "boolean"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "nameFilter": {
@@ -52116,7 +52116,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "includedKeywords": {
@@ -52383,7 +52383,7 @@
                         "type": "boolean"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "ids": {
@@ -52595,7 +52595,7 @@
                 "description": "A collection of values returned by getSyntheticsTest.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "name": {
@@ -52858,7 +52858,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "mfaEnabled": {

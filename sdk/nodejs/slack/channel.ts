@@ -68,15 +68,15 @@ export class Channel extends pulumi.CustomResource {
     /**
      * Slack account name.
      */
-    public readonly accountName!: pulumi.Output<string>;
+    declare public readonly accountName: pulumi.Output<string>;
     /**
      * Slack channel name.
      */
-    public readonly channelName!: pulumi.Output<string>;
+    declare public readonly channelName: pulumi.Output<string>;
     /**
      * Configuration options for what is shown in an alert event message.
      */
-    public readonly display!: pulumi.Output<outputs.slack.ChannelDisplay>;
+    declare public readonly display: pulumi.Output<outputs.slack.ChannelDisplay>;
 
     /**
      * Create a Channel resource with the given unique name, arguments, and options.
@@ -91,23 +91,23 @@ export class Channel extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ChannelState | undefined;
-            resourceInputs["accountName"] = state ? state.accountName : undefined;
-            resourceInputs["channelName"] = state ? state.channelName : undefined;
-            resourceInputs["display"] = state ? state.display : undefined;
+            resourceInputs["accountName"] = state?.accountName;
+            resourceInputs["channelName"] = state?.channelName;
+            resourceInputs["display"] = state?.display;
         } else {
             const args = argsOrState as ChannelArgs | undefined;
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.channelName === undefined) && !opts.urn) {
+            if (args?.channelName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'channelName'");
             }
-            if ((!args || args.display === undefined) && !opts.urn) {
+            if (args?.display === undefined && !opts.urn) {
                 throw new Error("Missing required property 'display'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["channelName"] = args ? args.channelName : undefined;
-            resourceInputs["display"] = args ? args.display : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["channelName"] = args?.channelName;
+            resourceInputs["display"] = args?.display;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Channel.__pulumiType, name, resourceInputs, opts);

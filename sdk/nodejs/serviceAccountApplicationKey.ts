@@ -61,27 +61,27 @@ export class ServiceAccountApplicationKey extends pulumi.CustomResource {
     /**
      * Creation date of the application key.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The value of the service account application key. This value cannot be imported.
      */
-    public /*out*/ readonly key!: pulumi.Output<string>;
+    declare public /*out*/ readonly key: pulumi.Output<string>;
     /**
      * The last four characters of the application key.
      */
-    public /*out*/ readonly last4!: pulumi.Output<string>;
+    declare public /*out*/ readonly last4: pulumi.Output<string>;
     /**
      * Name of the application key.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
      */
-    public readonly scopes!: pulumi.Output<string[] | undefined>;
+    declare public readonly scopes: pulumi.Output<string[] | undefined>;
     /**
      * ID of the service account that owns this key.
      */
-    public readonly serviceAccountId!: pulumi.Output<string>;
+    declare public readonly serviceAccountId: pulumi.Output<string>;
 
     /**
      * Create a ServiceAccountApplicationKey resource with the given unique name, arguments, and options.
@@ -96,23 +96,23 @@ export class ServiceAccountApplicationKey extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceAccountApplicationKeyState | undefined;
-            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
-            resourceInputs["key"] = state ? state.key : undefined;
-            resourceInputs["last4"] = state ? state.last4 : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["scopes"] = state ? state.scopes : undefined;
-            resourceInputs["serviceAccountId"] = state ? state.serviceAccountId : undefined;
+            resourceInputs["createdAt"] = state?.createdAt;
+            resourceInputs["key"] = state?.key;
+            resourceInputs["last4"] = state?.last4;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["scopes"] = state?.scopes;
+            resourceInputs["serviceAccountId"] = state?.serviceAccountId;
         } else {
             const args = argsOrState as ServiceAccountApplicationKeyArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.serviceAccountId === undefined) && !opts.urn) {
+            if (args?.serviceAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceAccountId'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["scopes"] = args ? args.scopes : undefined;
-            resourceInputs["serviceAccountId"] = args ? args.serviceAccountId : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["scopes"] = args?.scopes;
+            resourceInputs["serviceAccountId"] = args?.serviceAccountId;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["key"] = undefined /*out*/;
             resourceInputs["last4"] = undefined /*out*/;

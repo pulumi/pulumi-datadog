@@ -59,11 +59,11 @@ export class IntegrationAccount extends pulumi.CustomResource {
     /**
      * The API key for the Fastly account.
      */
-    public readonly apiKey!: pulumi.Output<string>;
+    declare public readonly apiKey: pulumi.Output<string>;
     /**
      * The name of the Fastly account.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a IntegrationAccount resource with the given unique name, arguments, and options.
@@ -78,18 +78,18 @@ export class IntegrationAccount extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationAccountState | undefined;
-            resourceInputs["apiKey"] = state ? state.apiKey : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["apiKey"] = state?.apiKey;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as IntegrationAccountArgs | undefined;
-            if ((!args || args.apiKey === undefined) && !opts.urn) {
+            if (args?.apiKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiKey'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["apiKey"] = args ? args.apiKey : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["apiKey"] = args?.apiKey;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IntegrationAccount.__pulumiType, name, resourceInputs, opts);

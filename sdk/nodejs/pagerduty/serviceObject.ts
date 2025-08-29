@@ -61,11 +61,11 @@ export class ServiceObject extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceObject.__pulumiType;
     }
 
-    public readonly serviceKey!: pulumi.Output<string>;
+    declare public readonly serviceKey: pulumi.Output<string>;
     /**
      * Your Service name in PagerDuty.
      */
-    public readonly serviceName!: pulumi.Output<string>;
+    declare public readonly serviceName: pulumi.Output<string>;
 
     /**
      * Create a ServiceObject resource with the given unique name, arguments, and options.
@@ -80,18 +80,18 @@ export class ServiceObject extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceObjectState | undefined;
-            resourceInputs["serviceKey"] = state ? state.serviceKey : undefined;
-            resourceInputs["serviceName"] = state ? state.serviceName : undefined;
+            resourceInputs["serviceKey"] = state?.serviceKey;
+            resourceInputs["serviceName"] = state?.serviceName;
         } else {
             const args = argsOrState as ServiceObjectArgs | undefined;
-            if ((!args || args.serviceKey === undefined) && !opts.urn) {
+            if (args?.serviceKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceKey'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
             resourceInputs["serviceKey"] = args?.serviceKey ? pulumi.secret(args.serviceKey) : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["serviceName"] = args?.serviceName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["serviceKey"] };

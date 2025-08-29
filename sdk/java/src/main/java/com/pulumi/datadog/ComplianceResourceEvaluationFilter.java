@@ -67,32 +67,34 @@ import javax.annotation.Nullable;
 @ResourceType(type="datadog:index/complianceResourceEvaluationFilter:ComplianceResourceEvaluationFilter")
 public class ComplianceResourceEvaluationFilter extends com.pulumi.resources.CustomResource {
     /**
-     * The cloud provider of the filter&#39;s targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud
-     * providers.
+     * The cloud provider of the filter&#39;s targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud providers.
      * 
      */
     @Export(name="cloudProvider", refs={String.class}, tree="[0]")
     private Output<String> cloudProvider;
 
     /**
-     * @return The cloud provider of the filter&#39;s targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud
-     * providers.
+     * @return The cloud provider of the filter&#39;s targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud providers.
      * 
      */
     public Output<String> cloudProvider() {
         return this.cloudProvider;
     }
     /**
-     * The ID of the of the filter&#39;s targeted resource. Different cloud providers target different resource IDs: - `aws`:
-     * account ID - `gcp`: project ID - `azure`: subscription ID
+     * The ID of the of the filter&#39;s targeted resource. Different cloud providers target different resource IDs:
+     *   - `aws`: account ID
+     *   - `gcp`: project ID
+     *   - `azure`: subscription ID
      * 
      */
     @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
     /**
-     * @return The ID of the of the filter&#39;s targeted resource. Different cloud providers target different resource IDs: - `aws`:
-     * account ID - `gcp`: project ID - `azure`: subscription ID
+     * @return The ID of the of the filter&#39;s targeted resource. Different cloud providers target different resource IDs:
+     *   - `aws`: account ID
+     *   - `gcp`: project ID
+     *   - `azure`: subscription ID
      * 
      */
     public Output<String> resourceId() {

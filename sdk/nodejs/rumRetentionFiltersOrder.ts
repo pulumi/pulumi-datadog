@@ -46,11 +46,11 @@ export class RumRetentionFiltersOrder extends pulumi.CustomResource {
     /**
      * RUM application ID.
      */
-    public readonly applicationId!: pulumi.Output<string>;
+    declare public readonly applicationId: pulumi.Output<string>;
     /**
      * RUM retention filter ID list. The order of IDs in this attribute defines the order of RUM retention filters.
      */
-    public readonly retentionFilterIds!: pulumi.Output<string[]>;
+    declare public readonly retentionFilterIds: pulumi.Output<string[]>;
 
     /**
      * Create a RumRetentionFiltersOrder resource with the given unique name, arguments, and options.
@@ -65,18 +65,18 @@ export class RumRetentionFiltersOrder extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RumRetentionFiltersOrderState | undefined;
-            resourceInputs["applicationId"] = state ? state.applicationId : undefined;
-            resourceInputs["retentionFilterIds"] = state ? state.retentionFilterIds : undefined;
+            resourceInputs["applicationId"] = state?.applicationId;
+            resourceInputs["retentionFilterIds"] = state?.retentionFilterIds;
         } else {
             const args = argsOrState as RumRetentionFiltersOrderArgs | undefined;
-            if ((!args || args.applicationId === undefined) && !opts.urn) {
+            if (args?.applicationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if ((!args || args.retentionFilterIds === undefined) && !opts.urn) {
+            if (args?.retentionFilterIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'retentionFilterIds'");
             }
-            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
-            resourceInputs["retentionFilterIds"] = args ? args.retentionFilterIds : undefined;
+            resourceInputs["applicationId"] = args?.applicationId;
+            resourceInputs["retentionFilterIds"] = args?.retentionFilterIds;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RumRetentionFiltersOrder.__pulumiType, name, resourceInputs, opts);

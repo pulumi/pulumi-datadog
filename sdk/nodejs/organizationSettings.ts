@@ -58,23 +58,23 @@ export class OrganizationSettings extends pulumi.CustomResource {
     /**
      * Description of the organization.
      */
-    public /*out*/ readonly description!: pulumi.Output<string>;
+    declare public /*out*/ readonly description: pulumi.Output<string>;
     /**
      * Name for Organization.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The `publicId` of the organization you are operating within.
      */
-    public /*out*/ readonly publicId!: pulumi.Output<string>;
+    declare public /*out*/ readonly publicId: pulumi.Output<string>;
     /**
      * List of emails used for security event notifications from the organization.
      */
-    public readonly securityContacts!: pulumi.Output<string[]>;
+    declare public readonly securityContacts: pulumi.Output<string[]>;
     /**
      * Organization settings
      */
-    public readonly settings!: pulumi.Output<outputs.OrganizationSettingsSettings>;
+    declare public readonly settings: pulumi.Output<outputs.OrganizationSettingsSettings>;
 
     /**
      * Create a OrganizationSettings resource with the given unique name, arguments, and options.
@@ -89,16 +89,16 @@ export class OrganizationSettings extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OrganizationSettingsState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["publicId"] = state ? state.publicId : undefined;
-            resourceInputs["securityContacts"] = state ? state.securityContacts : undefined;
-            resourceInputs["settings"] = state ? state.settings : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["publicId"] = state?.publicId;
+            resourceInputs["securityContacts"] = state?.securityContacts;
+            resourceInputs["settings"] = state?.settings;
         } else {
             const args = argsOrState as OrganizationSettingsArgs | undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["securityContacts"] = args ? args.securityContacts : undefined;
-            resourceInputs["settings"] = args ? args.settings : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["securityContacts"] = args?.securityContacts;
+            resourceInputs["settings"] = args?.settings;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["publicId"] = undefined /*out*/;
         }

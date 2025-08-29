@@ -94,47 +94,47 @@ export class CloudConfigurationRule extends pulumi.CustomResource {
     /**
      * Whether the cloud configuration rule is enabled.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * Additional queries to filter matched events before they are processed. Defaults to empty list
      */
-    public readonly filters!: pulumi.Output<outputs.CloudConfigurationRuleFilter[] | undefined>;
+    declare public readonly filters: pulumi.Output<outputs.CloudConfigurationRuleFilter[] | undefined>;
     /**
      * Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. @resource.
      */
-    public readonly groupBies!: pulumi.Output<string[] | undefined>;
+    declare public readonly groupBies: pulumi.Output<string[] | undefined>;
     /**
      * The message associated to the rule that will be shown in findings and signals.
      */
-    public readonly message!: pulumi.Output<string>;
+    declare public readonly message: pulumi.Output<string>;
     /**
      * The name of the cloud configuration rule.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * This function will be deprecated soon. Use the notification rules function instead. Notification targets for signals. Defaults to empty list.
      */
-    public readonly notifications!: pulumi.Output<string[] | undefined>;
+    declare public readonly notifications: pulumi.Output<string[] | undefined>;
     /**
      * Policy written in Rego format.
      */
-    public readonly policy!: pulumi.Output<string>;
+    declare public readonly policy: pulumi.Output<string>;
     /**
      * Related resource types to be checked by the rule. Defaults to empty list.
      */
-    public readonly relatedResourceTypes!: pulumi.Output<string[] | undefined>;
+    declare public readonly relatedResourceTypes: pulumi.Output<string[] | undefined>;
     /**
      * Main resource type to be checked by the rule.
      */
-    public readonly resourceType!: pulumi.Output<string>;
+    declare public readonly resourceType: pulumi.Output<string>;
     /**
      * Severity of the rule and associated signals. Valid values are `info`, `low`, `medium`, `high`, `critical`.
      */
-    public readonly severity!: pulumi.Output<string>;
+    declare public readonly severity: pulumi.Output<string>;
     /**
      * Tags of the rule, propagated to findings and signals. Defaults to empty list.
      */
-    public readonly tags!: pulumi.Output<string[] | undefined>;
+    declare public readonly tags: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a CloudConfigurationRule resource with the given unique name, arguments, and options.
@@ -149,48 +149,48 @@ export class CloudConfigurationRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CloudConfigurationRuleState | undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["filters"] = state ? state.filters : undefined;
-            resourceInputs["groupBies"] = state ? state.groupBies : undefined;
-            resourceInputs["message"] = state ? state.message : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["notifications"] = state ? state.notifications : undefined;
-            resourceInputs["policy"] = state ? state.policy : undefined;
-            resourceInputs["relatedResourceTypes"] = state ? state.relatedResourceTypes : undefined;
-            resourceInputs["resourceType"] = state ? state.resourceType : undefined;
-            resourceInputs["severity"] = state ? state.severity : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["filters"] = state?.filters;
+            resourceInputs["groupBies"] = state?.groupBies;
+            resourceInputs["message"] = state?.message;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["notifications"] = state?.notifications;
+            resourceInputs["policy"] = state?.policy;
+            resourceInputs["relatedResourceTypes"] = state?.relatedResourceTypes;
+            resourceInputs["resourceType"] = state?.resourceType;
+            resourceInputs["severity"] = state?.severity;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as CloudConfigurationRuleArgs | undefined;
-            if ((!args || args.enabled === undefined) && !opts.urn) {
+            if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if ((!args || args.message === undefined) && !opts.urn) {
+            if (args?.message === undefined && !opts.urn) {
                 throw new Error("Missing required property 'message'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.policy === undefined) && !opts.urn) {
+            if (args?.policy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            if ((!args || args.resourceType === undefined) && !opts.urn) {
+            if (args?.resourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
             }
-            if ((!args || args.severity === undefined) && !opts.urn) {
+            if (args?.severity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'severity'");
             }
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["filters"] = args ? args.filters : undefined;
-            resourceInputs["groupBies"] = args ? args.groupBies : undefined;
-            resourceInputs["message"] = args ? args.message : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["notifications"] = args ? args.notifications : undefined;
-            resourceInputs["policy"] = args ? args.policy : undefined;
-            resourceInputs["relatedResourceTypes"] = args ? args.relatedResourceTypes : undefined;
-            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
-            resourceInputs["severity"] = args ? args.severity : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["filters"] = args?.filters;
+            resourceInputs["groupBies"] = args?.groupBies;
+            resourceInputs["message"] = args?.message;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["notifications"] = args?.notifications;
+            resourceInputs["policy"] = args?.policy;
+            resourceInputs["relatedResourceTypes"] = args?.relatedResourceTypes;
+            resourceInputs["resourceType"] = args?.resourceType;
+            resourceInputs["severity"] = args?.severity;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CloudConfigurationRule.__pulumiType, name, resourceInputs, opts);

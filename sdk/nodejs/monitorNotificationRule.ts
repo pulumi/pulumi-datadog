@@ -45,15 +45,15 @@ export class MonitorNotificationRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === MonitorNotificationRule.__pulumiType;
     }
 
-    public readonly filter!: pulumi.Output<outputs.MonitorNotificationRuleFilter | undefined>;
+    declare public readonly filter: pulumi.Output<outputs.MonitorNotificationRuleFilter | undefined>;
     /**
      * The name of the monitor notification rule.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * List of recipients to notify.
      */
-    public readonly recipients!: pulumi.Output<string[]>;
+    declare public readonly recipients: pulumi.Output<string[]>;
 
     /**
      * Create a MonitorNotificationRule resource with the given unique name, arguments, and options.
@@ -68,20 +68,20 @@ export class MonitorNotificationRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MonitorNotificationRuleState | undefined;
-            resourceInputs["filter"] = state ? state.filter : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["recipients"] = state ? state.recipients : undefined;
+            resourceInputs["filter"] = state?.filter;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["recipients"] = state?.recipients;
         } else {
             const args = argsOrState as MonitorNotificationRuleArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.recipients === undefined) && !opts.urn) {
+            if (args?.recipients === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recipients'");
             }
-            resourceInputs["filter"] = args ? args.filter : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["recipients"] = args ? args.recipients : undefined;
+            resourceInputs["filter"] = args?.filter;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["recipients"] = args?.recipients;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(MonitorNotificationRule.__pulumiType, name, resourceInputs, opts);

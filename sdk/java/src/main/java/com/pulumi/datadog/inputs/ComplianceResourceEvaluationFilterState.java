@@ -17,16 +17,14 @@ public final class ComplianceResourceEvaluationFilterState extends com.pulumi.re
     public static final ComplianceResourceEvaluationFilterState Empty = new ComplianceResourceEvaluationFilterState();
 
     /**
-     * The cloud provider of the filter&#39;s targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud
-     * providers.
+     * The cloud provider of the filter&#39;s targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud providers.
      * 
      */
     @Import(name="cloudProvider")
     private @Nullable Output<String> cloudProvider;
 
     /**
-     * @return The cloud provider of the filter&#39;s targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud
-     * providers.
+     * @return The cloud provider of the filter&#39;s targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud providers.
      * 
      */
     public Optional<Output<String>> cloudProvider() {
@@ -34,16 +32,20 @@ public final class ComplianceResourceEvaluationFilterState extends com.pulumi.re
     }
 
     /**
-     * The ID of the of the filter&#39;s targeted resource. Different cloud providers target different resource IDs: - `aws`:
-     * account ID - `gcp`: project ID - `azure`: subscription ID
+     * The ID of the of the filter&#39;s targeted resource. Different cloud providers target different resource IDs:
+     *   - `aws`: account ID
+     *   - `gcp`: project ID
+     *   - `azure`: subscription ID
      * 
      */
     @Import(name="resourceId")
     private @Nullable Output<String> resourceId;
 
     /**
-     * @return The ID of the of the filter&#39;s targeted resource. Different cloud providers target different resource IDs: - `aws`:
-     * account ID - `gcp`: project ID - `azure`: subscription ID
+     * @return The ID of the of the filter&#39;s targeted resource. Different cloud providers target different resource IDs:
+     *   - `aws`: account ID
+     *   - `gcp`: project ID
+     *   - `azure`: subscription ID
      * 
      */
     public Optional<Output<String>> resourceId() {
@@ -92,8 +94,7 @@ public final class ComplianceResourceEvaluationFilterState extends com.pulumi.re
         }
 
         /**
-         * @param cloudProvider The cloud provider of the filter&#39;s targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud
-         * providers.
+         * @param cloudProvider The cloud provider of the filter&#39;s targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud providers.
          * 
          * @return builder
          * 
@@ -104,8 +105,7 @@ public final class ComplianceResourceEvaluationFilterState extends com.pulumi.re
         }
 
         /**
-         * @param cloudProvider The cloud provider of the filter&#39;s targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud
-         * providers.
+         * @param cloudProvider The cloud provider of the filter&#39;s targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud providers.
          * 
          * @return builder
          * 
@@ -115,8 +115,10 @@ public final class ComplianceResourceEvaluationFilterState extends com.pulumi.re
         }
 
         /**
-         * @param resourceId The ID of the of the filter&#39;s targeted resource. Different cloud providers target different resource IDs: - `aws`:
-         * account ID - `gcp`: project ID - `azure`: subscription ID
+         * @param resourceId The ID of the of the filter&#39;s targeted resource. Different cloud providers target different resource IDs:
+         *   - `aws`: account ID
+         *   - `gcp`: project ID
+         *   - `azure`: subscription ID
          * 
          * @return builder
          * 
@@ -127,8 +129,10 @@ public final class ComplianceResourceEvaluationFilterState extends com.pulumi.re
         }
 
         /**
-         * @param resourceId The ID of the of the filter&#39;s targeted resource. Different cloud providers target different resource IDs: - `aws`:
-         * account ID - `gcp`: project ID - `azure`: subscription ID
+         * @param resourceId The ID of the of the filter&#39;s targeted resource. Different cloud providers target different resource IDs:
+         *   - `aws`: account ID
+         *   - `gcp`: project ID
+         *   - `azure`: subscription ID
          * 
          * @return builder
          * 

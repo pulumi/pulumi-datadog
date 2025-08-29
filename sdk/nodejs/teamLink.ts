@@ -66,19 +66,19 @@ export class TeamLink extends pulumi.CustomResource {
     /**
      * The link's label.
      */
-    public readonly label!: pulumi.Output<string>;
+    declare public readonly label: pulumi.Output<string>;
     /**
      * The link's position, used to sort links for the team.
      */
-    public readonly position!: pulumi.Output<number>;
+    declare public readonly position: pulumi.Output<number>;
     /**
      * ID of the team the link is associated with.
      */
-    public readonly teamId!: pulumi.Output<string>;
+    declare public readonly teamId: pulumi.Output<string>;
     /**
      * The URL for the link.
      */
-    public readonly url!: pulumi.Output<string>;
+    declare public readonly url: pulumi.Output<string>;
 
     /**
      * Create a TeamLink resource with the given unique name, arguments, and options.
@@ -93,25 +93,25 @@ export class TeamLink extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TeamLinkState | undefined;
-            resourceInputs["label"] = state ? state.label : undefined;
-            resourceInputs["position"] = state ? state.position : undefined;
-            resourceInputs["teamId"] = state ? state.teamId : undefined;
-            resourceInputs["url"] = state ? state.url : undefined;
+            resourceInputs["label"] = state?.label;
+            resourceInputs["position"] = state?.position;
+            resourceInputs["teamId"] = state?.teamId;
+            resourceInputs["url"] = state?.url;
         } else {
             const args = argsOrState as TeamLinkArgs | undefined;
-            if ((!args || args.label === undefined) && !opts.urn) {
+            if (args?.label === undefined && !opts.urn) {
                 throw new Error("Missing required property 'label'");
             }
-            if ((!args || args.teamId === undefined) && !opts.urn) {
+            if (args?.teamId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'teamId'");
             }
-            if ((!args || args.url === undefined) && !opts.urn) {
+            if (args?.url === undefined && !opts.urn) {
                 throw new Error("Missing required property 'url'");
             }
-            resourceInputs["label"] = args ? args.label : undefined;
-            resourceInputs["position"] = args ? args.position : undefined;
-            resourceInputs["teamId"] = args ? args.teamId : undefined;
-            resourceInputs["url"] = args ? args.url : undefined;
+            resourceInputs["label"] = args?.label;
+            resourceInputs["position"] = args?.position;
+            resourceInputs["teamId"] = args?.teamId;
+            resourceInputs["url"] = args?.url;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TeamLink.__pulumiType, name, resourceInputs, opts);

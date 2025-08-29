@@ -68,15 +68,15 @@ export class TeamMembership extends pulumi.CustomResource {
     /**
      * The user's role within the team. Valid values are `admin`.
      */
-    public readonly role!: pulumi.Output<string | undefined>;
+    declare public readonly role: pulumi.Output<string | undefined>;
     /**
      * ID of the team the team membership is associated with.
      */
-    public readonly teamId!: pulumi.Output<string>;
+    declare public readonly teamId: pulumi.Output<string>;
     /**
      * The ID of the user.
      */
-    public readonly userId!: pulumi.Output<string>;
+    declare public readonly userId: pulumi.Output<string>;
 
     /**
      * Create a TeamMembership resource with the given unique name, arguments, and options.
@@ -91,20 +91,20 @@ export class TeamMembership extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TeamMembershipState | undefined;
-            resourceInputs["role"] = state ? state.role : undefined;
-            resourceInputs["teamId"] = state ? state.teamId : undefined;
-            resourceInputs["userId"] = state ? state.userId : undefined;
+            resourceInputs["role"] = state?.role;
+            resourceInputs["teamId"] = state?.teamId;
+            resourceInputs["userId"] = state?.userId;
         } else {
             const args = argsOrState as TeamMembershipArgs | undefined;
-            if ((!args || args.teamId === undefined) && !opts.urn) {
+            if (args?.teamId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'teamId'");
             }
-            if ((!args || args.userId === undefined) && !opts.urn) {
+            if (args?.userId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userId'");
             }
-            resourceInputs["role"] = args ? args.role : undefined;
-            resourceInputs["teamId"] = args ? args.teamId : undefined;
-            resourceInputs["userId"] = args ? args.userId : undefined;
+            resourceInputs["role"] = args?.role;
+            resourceInputs["teamId"] = args?.teamId;
+            resourceInputs["userId"] = args?.userId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TeamMembership.__pulumiType, name, resourceInputs, opts);

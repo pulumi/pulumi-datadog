@@ -794,61 +794,61 @@ export class Dashboard extends pulumi.CustomResource {
         return obj['__pulumiType'] === Dashboard.__pulumiType;
     }
 
-    public readonly dashboardLists!: pulumi.Output<number[] | undefined>;
+    declare public readonly dashboardLists: pulumi.Output<number[] | undefined>;
     /**
      * A list of dashboard lists this dashboard should be removed from. Internal only.
      */
-    public /*out*/ readonly dashboardListsRemoveds!: pulumi.Output<number[]>;
+    declare public /*out*/ readonly dashboardListsRemoveds: pulumi.Output<number[]>;
     /**
      * The description of the dashboard.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Whether this dashboard is read-only. **Deprecated.** This field is deprecated and non-functional. Use `restrictedRoles` instead to define which roles are required to edit the dashboard. Defaults to `false`.
      *
      * @deprecated This field is deprecated and non-functional. Use `restrictedRoles` instead to define which roles are required to edit the dashboard.
      */
-    public readonly isReadOnly!: pulumi.Output<boolean | undefined>;
+    declare public readonly isReadOnly: pulumi.Output<boolean | undefined>;
     /**
      * The layout type of the dashboard. Valid values are `ordered`, `free`.
      */
-    public readonly layoutType!: pulumi.Output<string>;
+    declare public readonly layoutType: pulumi.Output<string>;
     /**
      * The list of handles for the users to notify when changes are made to this dashboard.
      */
-    public readonly notifyLists!: pulumi.Output<string[] | undefined>;
+    declare public readonly notifyLists: pulumi.Output<string[] | undefined>;
     /**
      * The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
      */
-    public readonly reflowType!: pulumi.Output<string | undefined>;
+    declare public readonly reflowType: pulumi.Output<string | undefined>;
     /**
      * UUIDs of roles whose associated users are authorized to edit the dashboard.
      */
-    public readonly restrictedRoles!: pulumi.Output<string[] | undefined>;
+    declare public readonly restrictedRoles: pulumi.Output<string[] | undefined>;
     /**
      * A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
      */
-    public readonly tags!: pulumi.Output<string[] | undefined>;
+    declare public readonly tags: pulumi.Output<string[] | undefined>;
     /**
      * The list of selectable template variable presets for this dashboard.
      */
-    public readonly templateVariablePresets!: pulumi.Output<outputs.DashboardTemplateVariablePreset[] | undefined>;
+    declare public readonly templateVariablePresets: pulumi.Output<outputs.DashboardTemplateVariablePreset[] | undefined>;
     /**
      * The list of template variables for this dashboard.
      */
-    public readonly templateVariables!: pulumi.Output<outputs.DashboardTemplateVariable[] | undefined>;
+    declare public readonly templateVariables: pulumi.Output<outputs.DashboardTemplateVariable[] | undefined>;
     /**
      * The title of the dashboard.
      */
-    public readonly title!: pulumi.Output<string>;
+    declare public readonly title: pulumi.Output<string>;
     /**
      * The URL of the dashboard.
      */
-    public readonly url!: pulumi.Output<string>;
+    declare public readonly url: pulumi.Output<string>;
     /**
      * The list of widgets to display on the dashboard.
      */
-    public readonly widgets!: pulumi.Output<outputs.DashboardWidget[] | undefined>;
+    declare public readonly widgets: pulumi.Output<outputs.DashboardWidget[] | undefined>;
 
     /**
      * Create a Dashboard resource with the given unique name, arguments, and options.
@@ -863,41 +863,41 @@ export class Dashboard extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DashboardState | undefined;
-            resourceInputs["dashboardLists"] = state ? state.dashboardLists : undefined;
-            resourceInputs["dashboardListsRemoveds"] = state ? state.dashboardListsRemoveds : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["isReadOnly"] = state ? state.isReadOnly : undefined;
-            resourceInputs["layoutType"] = state ? state.layoutType : undefined;
-            resourceInputs["notifyLists"] = state ? state.notifyLists : undefined;
-            resourceInputs["reflowType"] = state ? state.reflowType : undefined;
-            resourceInputs["restrictedRoles"] = state ? state.restrictedRoles : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["templateVariablePresets"] = state ? state.templateVariablePresets : undefined;
-            resourceInputs["templateVariables"] = state ? state.templateVariables : undefined;
-            resourceInputs["title"] = state ? state.title : undefined;
-            resourceInputs["url"] = state ? state.url : undefined;
-            resourceInputs["widgets"] = state ? state.widgets : undefined;
+            resourceInputs["dashboardLists"] = state?.dashboardLists;
+            resourceInputs["dashboardListsRemoveds"] = state?.dashboardListsRemoveds;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["isReadOnly"] = state?.isReadOnly;
+            resourceInputs["layoutType"] = state?.layoutType;
+            resourceInputs["notifyLists"] = state?.notifyLists;
+            resourceInputs["reflowType"] = state?.reflowType;
+            resourceInputs["restrictedRoles"] = state?.restrictedRoles;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["templateVariablePresets"] = state?.templateVariablePresets;
+            resourceInputs["templateVariables"] = state?.templateVariables;
+            resourceInputs["title"] = state?.title;
+            resourceInputs["url"] = state?.url;
+            resourceInputs["widgets"] = state?.widgets;
         } else {
             const args = argsOrState as DashboardArgs | undefined;
-            if ((!args || args.layoutType === undefined) && !opts.urn) {
+            if (args?.layoutType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'layoutType'");
             }
-            if ((!args || args.title === undefined) && !opts.urn) {
+            if (args?.title === undefined && !opts.urn) {
                 throw new Error("Missing required property 'title'");
             }
-            resourceInputs["dashboardLists"] = args ? args.dashboardLists : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["isReadOnly"] = args ? args.isReadOnly : undefined;
-            resourceInputs["layoutType"] = args ? args.layoutType : undefined;
-            resourceInputs["notifyLists"] = args ? args.notifyLists : undefined;
-            resourceInputs["reflowType"] = args ? args.reflowType : undefined;
-            resourceInputs["restrictedRoles"] = args ? args.restrictedRoles : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["templateVariablePresets"] = args ? args.templateVariablePresets : undefined;
-            resourceInputs["templateVariables"] = args ? args.templateVariables : undefined;
-            resourceInputs["title"] = args ? args.title : undefined;
-            resourceInputs["url"] = args ? args.url : undefined;
-            resourceInputs["widgets"] = args ? args.widgets : undefined;
+            resourceInputs["dashboardLists"] = args?.dashboardLists;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["isReadOnly"] = args?.isReadOnly;
+            resourceInputs["layoutType"] = args?.layoutType;
+            resourceInputs["notifyLists"] = args?.notifyLists;
+            resourceInputs["reflowType"] = args?.reflowType;
+            resourceInputs["restrictedRoles"] = args?.restrictedRoles;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["templateVariablePresets"] = args?.templateVariablePresets;
+            resourceInputs["templateVariables"] = args?.templateVariables;
+            resourceInputs["title"] = args?.title;
+            resourceInputs["url"] = args?.url;
+            resourceInputs["widgets"] = args?.widgets;
             resourceInputs["dashboardListsRemoveds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

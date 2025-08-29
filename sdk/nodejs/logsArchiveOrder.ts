@@ -60,7 +60,7 @@ export class LogsArchiveOrder extends pulumi.CustomResource {
     /**
      * The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If `archiveIds` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it will try to update the order.
      */
-    public readonly archiveIds!: pulumi.Output<string[]>;
+    declare public readonly archiveIds: pulumi.Output<string[]>;
 
     /**
      * Create a LogsArchiveOrder resource with the given unique name, arguments, and options.
@@ -75,10 +75,10 @@ export class LogsArchiveOrder extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LogsArchiveOrderState | undefined;
-            resourceInputs["archiveIds"] = state ? state.archiveIds : undefined;
+            resourceInputs["archiveIds"] = state?.archiveIds;
         } else {
             const args = argsOrState as LogsArchiveOrderArgs | undefined;
-            resourceInputs["archiveIds"] = args ? args.archiveIds : undefined;
+            resourceInputs["archiveIds"] = args?.archiveIds;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LogsArchiveOrder.__pulumiType, name, resourceInputs, opts);

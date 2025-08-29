@@ -68,15 +68,15 @@ export class Integration extends pulumi.CustomResource {
     /**
      * Your PagerDuty API token.
      */
-    public readonly apiToken!: pulumi.Output<string | undefined>;
+    declare public readonly apiToken: pulumi.Output<string | undefined>;
     /**
      * Array of your schedule URLs.
      */
-    public readonly schedules!: pulumi.Output<string[] | undefined>;
+    declare public readonly schedules: pulumi.Output<string[] | undefined>;
     /**
      * Your PagerDuty account’s personalized subdomain name.
      */
-    public readonly subdomain!: pulumi.Output<string>;
+    declare public readonly subdomain: pulumi.Output<string>;
 
     /**
      * Create a Integration resource with the given unique name, arguments, and options.
@@ -91,17 +91,17 @@ export class Integration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationState | undefined;
-            resourceInputs["apiToken"] = state ? state.apiToken : undefined;
-            resourceInputs["schedules"] = state ? state.schedules : undefined;
-            resourceInputs["subdomain"] = state ? state.subdomain : undefined;
+            resourceInputs["apiToken"] = state?.apiToken;
+            resourceInputs["schedules"] = state?.schedules;
+            resourceInputs["subdomain"] = state?.subdomain;
         } else {
             const args = argsOrState as IntegrationArgs | undefined;
-            if ((!args || args.subdomain === undefined) && !opts.urn) {
+            if (args?.subdomain === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subdomain'");
             }
             resourceInputs["apiToken"] = args?.apiToken ? pulumi.secret(args.apiToken) : undefined;
-            resourceInputs["schedules"] = args ? args.schedules : undefined;
-            resourceInputs["subdomain"] = args ? args.subdomain : undefined;
+            resourceInputs["schedules"] = args?.schedules;
+            resourceInputs["subdomain"] = args?.subdomain;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["apiToken"] };

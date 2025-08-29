@@ -46,7 +46,7 @@ export class SecurityMonitoringRuleJson extends pulumi.CustomResource {
     /**
      * The JSON definition of the Security Monitoring Rule.
      */
-    public readonly json!: pulumi.Output<string>;
+    declare public readonly json: pulumi.Output<string>;
 
     /**
      * Create a SecurityMonitoringRuleJson resource with the given unique name, arguments, and options.
@@ -61,13 +61,13 @@ export class SecurityMonitoringRuleJson extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecurityMonitoringRuleJsonState | undefined;
-            resourceInputs["json"] = state ? state.json : undefined;
+            resourceInputs["json"] = state?.json;
         } else {
             const args = argsOrState as SecurityMonitoringRuleJsonArgs | undefined;
-            if ((!args || args.json === undefined) && !opts.urn) {
+            if (args?.json === undefined && !opts.urn) {
                 throw new Error("Missing required property 'json'");
             }
-            resourceInputs["json"] = args ? args.json : undefined;
+            resourceInputs["json"] = args?.json;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SecurityMonitoringRuleJson.__pulumiType, name, resourceInputs, opts);

@@ -66,23 +66,23 @@ export class AgentlessScanningAwsScanOptions extends pulumi.CustomResource {
     /**
      * The AWS Account ID for which agentless scanning is configured.
      */
-    public readonly awsAccountId!: pulumi.Output<string>;
+    declare public readonly awsAccountId: pulumi.Output<string>;
     /**
      * Indicates if scanning of Lambda functions is enabled.
      */
-    public readonly lambda!: pulumi.Output<boolean>;
+    declare public readonly lambda: pulumi.Output<boolean>;
     /**
      * Indicates if scanning for sensitive data is enabled.
      */
-    public readonly sensitiveData!: pulumi.Output<boolean>;
+    declare public readonly sensitiveData: pulumi.Output<boolean>;
     /**
      * Indicates if scanning for vulnerabilities in containers is enabled.
      */
-    public readonly vulnContainersOs!: pulumi.Output<boolean>;
+    declare public readonly vulnContainersOs: pulumi.Output<boolean>;
     /**
      * Indicates if scanning for vulnerabilities in hosts is enabled.
      */
-    public readonly vulnHostOs!: pulumi.Output<boolean>;
+    declare public readonly vulnHostOs: pulumi.Output<boolean>;
 
     /**
      * Create a AgentlessScanningAwsScanOptions resource with the given unique name, arguments, and options.
@@ -97,33 +97,33 @@ export class AgentlessScanningAwsScanOptions extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AgentlessScanningAwsScanOptionsState | undefined;
-            resourceInputs["awsAccountId"] = state ? state.awsAccountId : undefined;
-            resourceInputs["lambda"] = state ? state.lambda : undefined;
-            resourceInputs["sensitiveData"] = state ? state.sensitiveData : undefined;
-            resourceInputs["vulnContainersOs"] = state ? state.vulnContainersOs : undefined;
-            resourceInputs["vulnHostOs"] = state ? state.vulnHostOs : undefined;
+            resourceInputs["awsAccountId"] = state?.awsAccountId;
+            resourceInputs["lambda"] = state?.lambda;
+            resourceInputs["sensitiveData"] = state?.sensitiveData;
+            resourceInputs["vulnContainersOs"] = state?.vulnContainersOs;
+            resourceInputs["vulnHostOs"] = state?.vulnHostOs;
         } else {
             const args = argsOrState as AgentlessScanningAwsScanOptionsArgs | undefined;
-            if ((!args || args.awsAccountId === undefined) && !opts.urn) {
+            if (args?.awsAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'awsAccountId'");
             }
-            if ((!args || args.lambda === undefined) && !opts.urn) {
+            if (args?.lambda === undefined && !opts.urn) {
                 throw new Error("Missing required property 'lambda'");
             }
-            if ((!args || args.sensitiveData === undefined) && !opts.urn) {
+            if (args?.sensitiveData === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sensitiveData'");
             }
-            if ((!args || args.vulnContainersOs === undefined) && !opts.urn) {
+            if (args?.vulnContainersOs === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vulnContainersOs'");
             }
-            if ((!args || args.vulnHostOs === undefined) && !opts.urn) {
+            if (args?.vulnHostOs === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vulnHostOs'");
             }
-            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
-            resourceInputs["lambda"] = args ? args.lambda : undefined;
-            resourceInputs["sensitiveData"] = args ? args.sensitiveData : undefined;
-            resourceInputs["vulnContainersOs"] = args ? args.vulnContainersOs : undefined;
-            resourceInputs["vulnHostOs"] = args ? args.vulnHostOs : undefined;
+            resourceInputs["awsAccountId"] = args?.awsAccountId;
+            resourceInputs["lambda"] = args?.lambda;
+            resourceInputs["sensitiveData"] = args?.sensitiveData;
+            resourceInputs["vulnContainersOs"] = args?.vulnContainersOs;
+            resourceInputs["vulnHostOs"] = args?.vulnHostOs;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AgentlessScanningAwsScanOptions.__pulumiType, name, resourceInputs, opts);

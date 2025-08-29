@@ -50,11 +50,11 @@ export class OnCallTeamRoutingRules extends pulumi.CustomResource {
     /**
      * List of team routing rules.
      */
-    public readonly rules!: pulumi.Output<outputs.OnCallTeamRoutingRulesRule[] | undefined>;
+    declare public readonly rules: pulumi.Output<outputs.OnCallTeamRoutingRulesRule[] | undefined>;
     /**
      * ID of the team to associate the routing rules with.
      */
-    public readonly teamId!: pulumi.Output<string>;
+    declare public readonly teamId: pulumi.Output<string>;
 
     /**
      * Create a OnCallTeamRoutingRules resource with the given unique name, arguments, and options.
@@ -69,15 +69,15 @@ export class OnCallTeamRoutingRules extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OnCallTeamRoutingRulesState | undefined;
-            resourceInputs["rules"] = state ? state.rules : undefined;
-            resourceInputs["teamId"] = state ? state.teamId : undefined;
+            resourceInputs["rules"] = state?.rules;
+            resourceInputs["teamId"] = state?.teamId;
         } else {
             const args = argsOrState as OnCallTeamRoutingRulesArgs | undefined;
-            if ((!args || args.teamId === undefined) && !opts.urn) {
+            if (args?.teamId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'teamId'");
             }
-            resourceInputs["rules"] = args ? args.rules : undefined;
-            resourceInputs["teamId"] = args ? args.teamId : undefined;
+            resourceInputs["rules"] = args?.rules;
+            resourceInputs["teamId"] = args?.teamId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(OnCallTeamRoutingRules.__pulumiType, name, resourceInputs, opts);

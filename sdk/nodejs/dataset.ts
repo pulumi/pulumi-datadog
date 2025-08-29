@@ -65,20 +65,20 @@ export class Dataset extends pulumi.CustomResource {
     /**
      * Indicates when the dataset was created (in ISO 8601).
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * Indicates who created the dataset.
      */
-    public /*out*/ readonly createdBy!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdBy: pulumi.Output<string>;
     /**
      * The name of the dataset.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `team`.
      */
-    public readonly principals!: pulumi.Output<string[]>;
-    public readonly productFilters!: pulumi.Output<outputs.DatasetProductFilter[] | undefined>;
+    declare public readonly principals: pulumi.Output<string[]>;
+    declare public readonly productFilters: pulumi.Output<outputs.DatasetProductFilter[] | undefined>;
 
     /**
      * Create a Dataset resource with the given unique name, arguments, and options.
@@ -93,22 +93,22 @@ export class Dataset extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DatasetState | undefined;
-            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
-            resourceInputs["createdBy"] = state ? state.createdBy : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["principals"] = state ? state.principals : undefined;
-            resourceInputs["productFilters"] = state ? state.productFilters : undefined;
+            resourceInputs["createdAt"] = state?.createdAt;
+            resourceInputs["createdBy"] = state?.createdBy;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["principals"] = state?.principals;
+            resourceInputs["productFilters"] = state?.productFilters;
         } else {
             const args = argsOrState as DatasetArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.principals === undefined) && !opts.urn) {
+            if (args?.principals === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principals'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["principals"] = args ? args.principals : undefined;
-            resourceInputs["productFilters"] = args ? args.productFilters : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["principals"] = args?.principals;
+            resourceInputs["productFilters"] = args?.productFilters;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
         }

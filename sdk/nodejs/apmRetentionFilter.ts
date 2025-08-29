@@ -50,27 +50,27 @@ export class ApmRetentionFilter extends pulumi.CustomResource {
     /**
      * the status of the retention filter.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * The spans filter. Spans matching this filter will be indexed and stored.
      */
-    public readonly filter!: pulumi.Output<outputs.ApmRetentionFilterFilter | undefined>;
+    declare public readonly filter: pulumi.Output<outputs.ApmRetentionFilterFilter | undefined>;
     /**
      * The type of the retention filter, currently only spans-processing-sampling is available. Valid values are `spans-sampling-processor`.
      */
-    public readonly filterType!: pulumi.Output<string>;
+    declare public readonly filterType: pulumi.Output<string>;
     /**
      * The name of the retention filter.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Sample rate to apply to spans going through this retention filter as a string; a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
      */
-    public readonly rate!: pulumi.Output<string>;
+    declare public readonly rate: pulumi.Output<string>;
     /**
      * Sample rate to apply to traces with spans going through this retention filter as a string; a value of 1.0 keeps all traces matching the query. Value must be between 0.00 and 1.00.
      */
-    public readonly traceRate!: pulumi.Output<string | undefined>;
+    declare public readonly traceRate: pulumi.Output<string | undefined>;
 
     /**
      * Create a ApmRetentionFilter resource with the given unique name, arguments, and options.
@@ -85,32 +85,32 @@ export class ApmRetentionFilter extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApmRetentionFilterState | undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["filter"] = state ? state.filter : undefined;
-            resourceInputs["filterType"] = state ? state.filterType : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["rate"] = state ? state.rate : undefined;
-            resourceInputs["traceRate"] = state ? state.traceRate : undefined;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["filter"] = state?.filter;
+            resourceInputs["filterType"] = state?.filterType;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["rate"] = state?.rate;
+            resourceInputs["traceRate"] = state?.traceRate;
         } else {
             const args = argsOrState as ApmRetentionFilterArgs | undefined;
-            if ((!args || args.enabled === undefined) && !opts.urn) {
+            if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if ((!args || args.filterType === undefined) && !opts.urn) {
+            if (args?.filterType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'filterType'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.rate === undefined) && !opts.urn) {
+            if (args?.rate === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rate'");
             }
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["filter"] = args ? args.filter : undefined;
-            resourceInputs["filterType"] = args ? args.filterType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["rate"] = args ? args.rate : undefined;
-            resourceInputs["traceRate"] = args ? args.traceRate : undefined;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["filter"] = args?.filter;
+            resourceInputs["filterType"] = args?.filterType;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["rate"] = args?.rate;
+            resourceInputs["traceRate"] = args?.traceRate;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ApmRetentionFilter.__pulumiType, name, resourceInputs, opts);
