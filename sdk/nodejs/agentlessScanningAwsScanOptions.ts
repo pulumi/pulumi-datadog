@@ -27,9 +27,9 @@ import * as utilities from "./utilities";
  *
  * The `pulumi import` command can be used, for example:
  *
- * #!/bin/bash
+ * #!/bin/sh
  *
- * Import existing agentless scanning aws scan options by AWS Account ID
+ * Import existing agentless scanning AWS scan options by AWS account ID
  *
  * ```sh
  * $ pulumi import datadog:index/agentlessScanningAwsScanOptions:AgentlessScanningAwsScanOptions example 123456789012
@@ -64,7 +64,7 @@ export class AgentlessScanningAwsScanOptions extends pulumi.CustomResource {
     }
 
     /**
-     * The AWS Account ID for which agentless scanning is configured.
+     * The AWS account ID for which agentless scanning is configured. Must be a valid AWS account ID.
      */
     declare public readonly awsAccountId: pulumi.Output<string>;
     /**
@@ -135,7 +135,7 @@ export class AgentlessScanningAwsScanOptions extends pulumi.CustomResource {
  */
 export interface AgentlessScanningAwsScanOptionsState {
     /**
-     * The AWS Account ID for which agentless scanning is configured.
+     * The AWS account ID for which agentless scanning is configured. Must be a valid AWS account ID.
      */
     awsAccountId?: pulumi.Input<string>;
     /**
@@ -161,7 +161,7 @@ export interface AgentlessScanningAwsScanOptionsState {
  */
 export interface AgentlessScanningAwsScanOptionsArgs {
     /**
-     * The AWS Account ID for which agentless scanning is configured.
+     * The AWS account ID for which agentless scanning is configured. Must be a valid AWS account ID.
      */
     awsAccountId: pulumi.Input<string>;
     /**

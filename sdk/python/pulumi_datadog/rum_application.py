@@ -20,13 +20,21 @@ __all__ = ['RumApplicationArgs', 'RumApplication']
 class RumApplicationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
+                 product_analytics_retention_state: Optional[pulumi.Input[_builtins.str]] = None,
+                 rum_event_processing_state: Optional[pulumi.Input[_builtins.str]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RumApplication resource.
         :param pulumi.Input[_builtins.str] name: Name of the RUM application.
+        :param pulumi.Input[_builtins.str] product_analytics_retention_state: Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.
+        :param pulumi.Input[_builtins.str] rum_event_processing_state: Configures which RUM events are processed and stored for the application. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
         :param pulumi.Input[_builtins.str] type: Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `"browser"`.
         """
         pulumi.set(__self__, "name", name)
+        if product_analytics_retention_state is not None:
+            pulumi.set(__self__, "product_analytics_retention_state", product_analytics_retention_state)
+        if rum_event_processing_state is not None:
+            pulumi.set(__self__, "rum_event_processing_state", rum_event_processing_state)
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -41,6 +49,30 @@ class RumApplicationArgs:
     @name.setter
     def name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="productAnalyticsRetentionState")
+    def product_analytics_retention_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.
+        """
+        return pulumi.get(self, "product_analytics_retention_state")
+
+    @product_analytics_retention_state.setter
+    def product_analytics_retention_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "product_analytics_retention_state", value)
+
+    @_builtins.property
+    @pulumi.getter(name="rumEventProcessingState")
+    def rum_event_processing_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Configures which RUM events are processed and stored for the application. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
+        """
+        return pulumi.get(self, "rum_event_processing_state")
+
+    @rum_event_processing_state.setter
+    def rum_event_processing_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "rum_event_processing_state", value)
 
     @_builtins.property
     @pulumi.getter
@@ -60,17 +92,25 @@ class _RumApplicationState:
     def __init__(__self__, *,
                  client_token: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 product_analytics_retention_state: Optional[pulumi.Input[_builtins.str]] = None,
+                 rum_event_processing_state: Optional[pulumi.Input[_builtins.str]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RumApplication resources.
         :param pulumi.Input[_builtins.str] client_token: The client token.
         :param pulumi.Input[_builtins.str] name: Name of the RUM application.
+        :param pulumi.Input[_builtins.str] product_analytics_retention_state: Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.
+        :param pulumi.Input[_builtins.str] rum_event_processing_state: Configures which RUM events are processed and stored for the application. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
         :param pulumi.Input[_builtins.str] type: Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `"browser"`.
         """
         if client_token is not None:
             pulumi.set(__self__, "client_token", client_token)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if product_analytics_retention_state is not None:
+            pulumi.set(__self__, "product_analytics_retention_state", product_analytics_retention_state)
+        if rum_event_processing_state is not None:
+            pulumi.set(__self__, "rum_event_processing_state", rum_event_processing_state)
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -99,6 +139,30 @@ class _RumApplicationState:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="productAnalyticsRetentionState")
+    def product_analytics_retention_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.
+        """
+        return pulumi.get(self, "product_analytics_retention_state")
+
+    @product_analytics_retention_state.setter
+    def product_analytics_retention_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "product_analytics_retention_state", value)
+
+    @_builtins.property
+    @pulumi.getter(name="rumEventProcessingState")
+    def rum_event_processing_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Configures which RUM events are processed and stored for the application. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
+        """
+        return pulumi.get(self, "rum_event_processing_state")
+
+    @rum_event_processing_state.setter
+    def rum_event_processing_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "rum_event_processing_state", value)
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -118,6 +182,8 @@ class RumApplication(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 product_analytics_retention_state: Optional[pulumi.Input[_builtins.str]] = None,
+                 rum_event_processing_state: Optional[pulumi.Input[_builtins.str]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
@@ -131,7 +197,9 @@ class RumApplication(pulumi.CustomResource):
 
         rum_application = datadog.RumApplication("rum_application",
             name="my-application",
-            type="browser")
+            type="browser",
+            rum_event_processing_state="ALL",
+            product_analytics_retention_state="NONE")
         ```
 
         ## Import
@@ -145,6 +213,8 @@ class RumApplication(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name of the RUM application.
+        :param pulumi.Input[_builtins.str] product_analytics_retention_state: Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.
+        :param pulumi.Input[_builtins.str] rum_event_processing_state: Configures which RUM events are processed and stored for the application. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
         :param pulumi.Input[_builtins.str] type: Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `"browser"`.
         """
         ...
@@ -164,7 +234,9 @@ class RumApplication(pulumi.CustomResource):
 
         rum_application = datadog.RumApplication("rum_application",
             name="my-application",
-            type="browser")
+            type="browser",
+            rum_event_processing_state="ALL",
+            product_analytics_retention_state="NONE")
         ```
 
         ## Import
@@ -191,6 +263,8 @@ class RumApplication(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 product_analytics_retention_state: Optional[pulumi.Input[_builtins.str]] = None,
+                 rum_event_processing_state: Optional[pulumi.Input[_builtins.str]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -204,6 +278,8 @@ class RumApplication(pulumi.CustomResource):
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
+            __props__.__dict__["product_analytics_retention_state"] = product_analytics_retention_state
+            __props__.__dict__["rum_event_processing_state"] = rum_event_processing_state
             __props__.__dict__["type"] = type
             __props__.__dict__["client_token"] = None
         super(RumApplication, __self__).__init__(
@@ -218,6 +294,8 @@ class RumApplication(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             client_token: Optional[pulumi.Input[_builtins.str]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
+            product_analytics_retention_state: Optional[pulumi.Input[_builtins.str]] = None,
+            rum_event_processing_state: Optional[pulumi.Input[_builtins.str]] = None,
             type: Optional[pulumi.Input[_builtins.str]] = None) -> 'RumApplication':
         """
         Get an existing RumApplication resource's state with the given name, id, and optional extra
@@ -228,6 +306,8 @@ class RumApplication(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] client_token: The client token.
         :param pulumi.Input[_builtins.str] name: Name of the RUM application.
+        :param pulumi.Input[_builtins.str] product_analytics_retention_state: Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.
+        :param pulumi.Input[_builtins.str] rum_event_processing_state: Configures which RUM events are processed and stored for the application. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
         :param pulumi.Input[_builtins.str] type: Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `"browser"`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -236,6 +316,8 @@ class RumApplication(pulumi.CustomResource):
 
         __props__.__dict__["client_token"] = client_token
         __props__.__dict__["name"] = name
+        __props__.__dict__["product_analytics_retention_state"] = product_analytics_retention_state
+        __props__.__dict__["rum_event_processing_state"] = rum_event_processing_state
         __props__.__dict__["type"] = type
         return RumApplication(resource_name, opts=opts, __props__=__props__)
 
@@ -254,6 +336,22 @@ class RumApplication(pulumi.CustomResource):
         Name of the RUM application.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="productAnalyticsRetentionState")
+    def product_analytics_retention_state(self) -> pulumi.Output[_builtins.str]:
+        """
+        Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.
+        """
+        return pulumi.get(self, "product_analytics_retention_state")
+
+    @_builtins.property
+    @pulumi.getter(name="rumEventProcessingState")
+    def rum_event_processing_state(self) -> pulumi.Output[_builtins.str]:
+        """
+        Configures which RUM events are processed and stored for the application. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
+        """
+        return pulumi.get(self, "rum_event_processing_state")
 
     @_builtins.property
     @pulumi.getter

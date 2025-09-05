@@ -37,7 +37,7 @@ class IntegrationAccountArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] account_tags: Tags to apply to all metrics in the account. Defaults to `[]`.
         :param pulumi.Input['IntegrationAccountAuthConfigArgs'] auth_config: Configure how Datadog authenticates to your AWS account. Either `aws_auth_config_keys` or `aws_auth_config_role` block is required within.
         :param pulumi.Input['IntegrationAccountAwsRegionsArgs'] aws_regions: AWS regions to collect data from. Defaults to `include_all` if block is empty.
-        :param pulumi.Input['IntegrationAccountLogsConfigArgs'] logs_config: Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_fowarder` block is required within, but may be empty to use defaults.
+        :param pulumi.Input['IntegrationAccountLogsConfigArgs'] logs_config: Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_forwarder` block is required within, but may be empty to use defaults.
         :param pulumi.Input['IntegrationAccountMetricsConfigArgs'] metrics_config: Configure metrics collection from AWS CloudWatch. The `namespace_filters` block is required within, but may be empty to use defaults.
         :param pulumi.Input['IntegrationAccountResourcesConfigArgs'] resources_config: AWS resources collection config. May be empty to use defaults.
         :param pulumi.Input['IntegrationAccountTracesConfigArgs'] traces_config: AWS traces collection config. The `xray_services` block is required within, but may be empty to use defaults.
@@ -123,7 +123,7 @@ class IntegrationAccountArgs:
     @pulumi.getter(name="logsConfig")
     def logs_config(self) -> Optional[pulumi.Input['IntegrationAccountLogsConfigArgs']]:
         """
-        Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_fowarder` block is required within, but may be empty to use defaults.
+        Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_forwarder` block is required within, but may be empty to use defaults.
         """
         return pulumi.get(self, "logs_config")
 
@@ -187,7 +187,7 @@ class _IntegrationAccountState:
         :param pulumi.Input[_builtins.str] aws_account_id: Your AWS Account ID without dashes.
         :param pulumi.Input[_builtins.str] aws_partition: AWS Account partition.
         :param pulumi.Input['IntegrationAccountAwsRegionsArgs'] aws_regions: AWS regions to collect data from. Defaults to `include_all` if block is empty.
-        :param pulumi.Input['IntegrationAccountLogsConfigArgs'] logs_config: Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_fowarder` block is required within, but may be empty to use defaults.
+        :param pulumi.Input['IntegrationAccountLogsConfigArgs'] logs_config: Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_forwarder` block is required within, but may be empty to use defaults.
         :param pulumi.Input['IntegrationAccountMetricsConfigArgs'] metrics_config: Configure metrics collection from AWS CloudWatch. The `namespace_filters` block is required within, but may be empty to use defaults.
         :param pulumi.Input['IntegrationAccountResourcesConfigArgs'] resources_config: AWS resources collection config. May be empty to use defaults.
         :param pulumi.Input['IntegrationAccountTracesConfigArgs'] traces_config: AWS traces collection config. The `xray_services` block is required within, but may be empty to use defaults.
@@ -275,7 +275,7 @@ class _IntegrationAccountState:
     @pulumi.getter(name="logsConfig")
     def logs_config(self) -> Optional[pulumi.Input['IntegrationAccountLogsConfigArgs']]:
         """
-        Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_fowarder` block is required within, but may be empty to use defaults.
+        Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_forwarder` block is required within, but may be empty to use defaults.
         """
         return pulumi.get(self, "logs_config")
 
@@ -352,7 +352,7 @@ class IntegrationAccount(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] aws_account_id: Your AWS Account ID without dashes.
         :param pulumi.Input[_builtins.str] aws_partition: AWS Account partition.
         :param pulumi.Input[Union['IntegrationAccountAwsRegionsArgs', 'IntegrationAccountAwsRegionsArgsDict']] aws_regions: AWS regions to collect data from. Defaults to `include_all` if block is empty.
-        :param pulumi.Input[Union['IntegrationAccountLogsConfigArgs', 'IntegrationAccountLogsConfigArgsDict']] logs_config: Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_fowarder` block is required within, but may be empty to use defaults.
+        :param pulumi.Input[Union['IntegrationAccountLogsConfigArgs', 'IntegrationAccountLogsConfigArgsDict']] logs_config: Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_forwarder` block is required within, but may be empty to use defaults.
         :param pulumi.Input[Union['IntegrationAccountMetricsConfigArgs', 'IntegrationAccountMetricsConfigArgsDict']] metrics_config: Configure metrics collection from AWS CloudWatch. The `namespace_filters` block is required within, but may be empty to use defaults.
         :param pulumi.Input[Union['IntegrationAccountResourcesConfigArgs', 'IntegrationAccountResourcesConfigArgsDict']] resources_config: AWS resources collection config. May be empty to use defaults.
         :param pulumi.Input[Union['IntegrationAccountTracesConfigArgs', 'IntegrationAccountTracesConfigArgsDict']] traces_config: AWS traces collection config. The `xray_services` block is required within, but may be empty to use defaults.
@@ -449,7 +449,7 @@ class IntegrationAccount(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] aws_account_id: Your AWS Account ID without dashes.
         :param pulumi.Input[_builtins.str] aws_partition: AWS Account partition.
         :param pulumi.Input[Union['IntegrationAccountAwsRegionsArgs', 'IntegrationAccountAwsRegionsArgsDict']] aws_regions: AWS regions to collect data from. Defaults to `include_all` if block is empty.
-        :param pulumi.Input[Union['IntegrationAccountLogsConfigArgs', 'IntegrationAccountLogsConfigArgsDict']] logs_config: Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_fowarder` block is required within, but may be empty to use defaults.
+        :param pulumi.Input[Union['IntegrationAccountLogsConfigArgs', 'IntegrationAccountLogsConfigArgsDict']] logs_config: Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_forwarder` block is required within, but may be empty to use defaults.
         :param pulumi.Input[Union['IntegrationAccountMetricsConfigArgs', 'IntegrationAccountMetricsConfigArgsDict']] metrics_config: Configure metrics collection from AWS CloudWatch. The `namespace_filters` block is required within, but may be empty to use defaults.
         :param pulumi.Input[Union['IntegrationAccountResourcesConfigArgs', 'IntegrationAccountResourcesConfigArgsDict']] resources_config: AWS resources collection config. May be empty to use defaults.
         :param pulumi.Input[Union['IntegrationAccountTracesConfigArgs', 'IntegrationAccountTracesConfigArgsDict']] traces_config: AWS traces collection config. The `xray_services` block is required within, but may be empty to use defaults.
@@ -513,7 +513,7 @@ class IntegrationAccount(pulumi.CustomResource):
     @pulumi.getter(name="logsConfig")
     def logs_config(self) -> pulumi.Output[Optional['outputs.IntegrationAccountLogsConfig']]:
         """
-        Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_fowarder` block is required within, but may be empty to use defaults.
+        Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_forwarder` block is required within, but may be empty to use defaults.
         """
         return pulumi.get(self, "logs_config")
 

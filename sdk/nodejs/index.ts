@@ -230,6 +230,11 @@ export const getLogsPipelinesOrder: typeof import("./getLogsPipelinesOrder").get
 export const getLogsPipelinesOrderOutput: typeof import("./getLogsPipelinesOrder").getLogsPipelinesOrderOutput = null as any;
 utilities.lazyLoad(exports, ["getLogsPipelinesOrder","getLogsPipelinesOrderOutput"], () => require("./getLogsPipelinesOrder"));
 
+export { GetMetricActiveTagsAndAggregationsArgs, GetMetricActiveTagsAndAggregationsResult, GetMetricActiveTagsAndAggregationsOutputArgs } from "./getMetricActiveTagsAndAggregations";
+export const getMetricActiveTagsAndAggregations: typeof import("./getMetricActiveTagsAndAggregations").getMetricActiveTagsAndAggregations = null as any;
+export const getMetricActiveTagsAndAggregationsOutput: typeof import("./getMetricActiveTagsAndAggregations").getMetricActiveTagsAndAggregationsOutput = null as any;
+utilities.lazyLoad(exports, ["getMetricActiveTagsAndAggregations","getMetricActiveTagsAndAggregationsOutput"], () => require("./getMetricActiveTagsAndAggregations"));
+
 export { GetMetricMetadataArgs, GetMetricMetadataResult, GetMetricMetadataOutputArgs } from "./getMetricMetadata";
 export const getMetricMetadata: typeof import("./getMetricMetadata").getMetricMetadata = null as any;
 export const getMetricMetadataOutput: typeof import("./getMetricMetadata").getMetricMetadataOutput = null as any;

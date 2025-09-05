@@ -39,9 +39,9 @@ namespace Pulumi.Datadog
     /// 
     /// The `pulumi import` command can be used, for example:
     /// 
-    /// #!/bin/bash
+    /// #!/bin/sh
     /// 
-    /// Import existing agentless scanning aws scan options by AWS Account ID
+    /// Import existing agentless scanning AWS scan options by AWS account ID
     /// 
     /// ```sh
     /// $ pulumi import datadog:index/agentlessScanningAwsScanOptions:AgentlessScanningAwsScanOptions example 123456789012
@@ -51,7 +51,7 @@ namespace Pulumi.Datadog
     public partial class AgentlessScanningAwsScanOptions : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The AWS Account ID for which agentless scanning is configured.
+        /// The AWS account ID for which agentless scanning is configured. Must be a valid AWS account ID.
         /// </summary>
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
@@ -127,7 +127,7 @@ namespace Pulumi.Datadog
     public sealed class AgentlessScanningAwsScanOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AWS Account ID for which agentless scanning is configured.
+        /// The AWS account ID for which agentless scanning is configured. Must be a valid AWS account ID.
         /// </summary>
         [Input("awsAccountId", required: true)]
         public Input<string> AwsAccountId { get; set; } = null!;
@@ -165,7 +165,7 @@ namespace Pulumi.Datadog
     public sealed class AgentlessScanningAwsScanOptionsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AWS Account ID for which agentless scanning is configured.
+        /// The AWS account ID for which agentless scanning is configured. Must be a valid AWS account ID.
         /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }

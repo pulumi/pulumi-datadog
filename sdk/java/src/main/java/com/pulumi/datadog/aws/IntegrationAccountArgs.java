@@ -99,14 +99,14 @@ public final class IntegrationAccountArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_fowarder` block is required within, but may be empty to use defaults.
+     * Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_forwarder` block is required within, but may be empty to use defaults.
      * 
      */
     @Import(name="logsConfig")
     private @Nullable Output<IntegrationAccountLogsConfigArgs> logsConfig;
 
     /**
-     * @return Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_fowarder` block is required within, but may be empty to use defaults.
+     * @return Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_forwarder` block is required within, but may be empty to use defaults.
      * 
      */
     public Optional<Output<IntegrationAccountLogsConfigArgs>> logsConfig() {
@@ -306,7 +306,7 @@ public final class IntegrationAccountArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param logsConfig Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_fowarder` block is required within, but may be empty to use defaults.
+         * @param logsConfig Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_forwarder` block is required within, but may be empty to use defaults.
          * 
          * @return builder
          * 
@@ -317,7 +317,7 @@ public final class IntegrationAccountArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param logsConfig Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_fowarder` block is required within, but may be empty to use defaults.
+         * @param logsConfig Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_forwarder` block is required within, but may be empty to use defaults.
          * 
          * @return builder
          * 

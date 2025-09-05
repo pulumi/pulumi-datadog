@@ -22,6 +22,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? ReplacementString;
         /// <summary>
+        /// Only valid when type == `replacement_string`. When enabled, matches can be unmasked in logs by users with ‘Data Scanner Unmask’ permission. As a security best practice, avoid masking for highly-sensitive, long-lived data.
+        /// </summary>
+        public readonly bool? ShouldSaveMatch;
+        /// <summary>
         /// Type of the replacement text. None means no replacement. hash means the data will be stubbed. replacement*string means that one can chose a text to replace the data. partial*replacement*from*beginning allows a user to partially replace the data from the beginning, and partial*replacement*from_end on the other hand, allows to replace data from the end. Valid values are `none`, `hash`, `replacement_string`, `partial_replacement_from_beginning`, `partial_replacement_from_end`.
         /// </summary>
         public readonly string Type;
@@ -32,10 +36,13 @@ namespace Pulumi.Datadog.Outputs
 
             string? replacementString,
 
+            bool? shouldSaveMatch,
+
             string type)
         {
             NumberOfChars = numberOfChars;
             ReplacementString = replacementString;
+            ShouldSaveMatch = shouldSaveMatch;
             Type = type;
         }
     }

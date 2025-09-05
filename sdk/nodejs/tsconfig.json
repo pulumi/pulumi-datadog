@@ -86,6 +86,7 @@
         "getLogsIndexesOrder.ts",
         "getLogsPipelines.ts",
         "getLogsPipelinesOrder.ts",
+        "getMetricActiveTagsAndAggregations.ts",
         "getMetricMetadata.ts",
         "getMetricTags.ts",
         "getMonitor.ts",

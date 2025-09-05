@@ -26,6 +26,8 @@ namespace Pulumi.Datadog
     ///     {
     ///         Name = "my-application",
     ///         Type = "browser",
+    ///         RumEventProcessingState = "ALL",
+    ///         ProductAnalyticsRetentionState = "NONE",
     ///     });
     /// 
     /// });
@@ -53,6 +55,18 @@ namespace Pulumi.Datadog
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.
+        /// </summary>
+        [Output("productAnalyticsRetentionState")]
+        public Output<string> ProductAnalyticsRetentionState { get; private set; } = null!;
+
+        /// <summary>
+        /// Configures which RUM events are processed and stored for the application. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
+        /// </summary>
+        [Output("rumEventProcessingState")]
+        public Output<string> RumEventProcessingState { get; private set; } = null!;
 
         /// <summary>
         /// Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `"browser"`.
@@ -113,6 +127,18 @@ namespace Pulumi.Datadog
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
+        /// Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.
+        /// </summary>
+        [Input("productAnalyticsRetentionState")]
+        public Input<string>? ProductAnalyticsRetentionState { get; set; }
+
+        /// <summary>
+        /// Configures which RUM events are processed and stored for the application. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
+        /// </summary>
+        [Input("rumEventProcessingState")]
+        public Input<string>? RumEventProcessingState { get; set; }
+
+        /// <summary>
         /// Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `"browser"`.
         /// </summary>
         [Input("type")]
@@ -137,6 +163,18 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.
+        /// </summary>
+        [Input("productAnalyticsRetentionState")]
+        public Input<string>? ProductAnalyticsRetentionState { get; set; }
+
+        /// <summary>
+        /// Configures which RUM events are processed and stored for the application. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
+        /// </summary>
+        [Input("rumEventProcessingState")]
+        public Input<string>? RumEventProcessingState { get; set; }
 
         /// <summary>
         /// Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `"browser"`.

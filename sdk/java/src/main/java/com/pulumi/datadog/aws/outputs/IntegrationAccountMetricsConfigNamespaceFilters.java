@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class IntegrationAccountMetricsConfigNamespaceFilters {
     /**
-     * @return Exclude only these namespaces from metrics collection. Use `datadog.aws.getIntegrationAvailableNamespaces` data source to get allowed values. Defaults to `[&#34;AWS/SQS&#34;, &#34;AWS/ElasticMapReduce&#34;]`. `AWS/SQS` and `AWS/ElasticMapReduce` are excluded by default to reduce your AWS CloudWatch costs from `GetMetricData` API calls.
+     * @return Exclude only these namespaces from metrics collection. Use `datadog.aws.getIntegrationAvailableNamespaces` data source to get allowed values. Defaults to `[&#34;AWS/SQS&#34;, &#34;AWS/ElasticMapReduce&#34;, &#34;AWS/Usage&#34;]`. `AWS/SQS`, `AWS/ElasticMapReduce`, and `AWS/Usage` are excluded by default to reduce your AWS CloudWatch costs from `GetMetricData` API calls.
      * 
      */
     private @Nullable List<String> excludeOnlies;
@@ -24,7 +24,7 @@ public final class IntegrationAccountMetricsConfigNamespaceFilters {
 
     private IntegrationAccountMetricsConfigNamespaceFilters() {}
     /**
-     * @return Exclude only these namespaces from metrics collection. Use `datadog.aws.getIntegrationAvailableNamespaces` data source to get allowed values. Defaults to `[&#34;AWS/SQS&#34;, &#34;AWS/ElasticMapReduce&#34;]`. `AWS/SQS` and `AWS/ElasticMapReduce` are excluded by default to reduce your AWS CloudWatch costs from `GetMetricData` API calls.
+     * @return Exclude only these namespaces from metrics collection. Use `datadog.aws.getIntegrationAvailableNamespaces` data source to get allowed values. Defaults to `[&#34;AWS/SQS&#34;, &#34;AWS/ElasticMapReduce&#34;, &#34;AWS/Usage&#34;]`. `AWS/SQS`, `AWS/ElasticMapReduce`, and `AWS/Usage` are excluded by default to reduce your AWS CloudWatch costs from `GetMetricData` API calls.
      * 
      */
     public List<String> excludeOnlies() {

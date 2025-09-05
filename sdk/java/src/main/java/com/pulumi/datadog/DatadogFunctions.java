@@ -28,6 +28,8 @@ import com.pulumi.datadog.inputs.GetIncidentTypeArgs;
 import com.pulumi.datadog.inputs.GetIncidentTypePlainArgs;
 import com.pulumi.datadog.inputs.GetLogsPipelinesArgs;
 import com.pulumi.datadog.inputs.GetLogsPipelinesPlainArgs;
+import com.pulumi.datadog.inputs.GetMetricActiveTagsAndAggregationsArgs;
+import com.pulumi.datadog.inputs.GetMetricActiveTagsAndAggregationsPlainArgs;
 import com.pulumi.datadog.inputs.GetMetricMetadataArgs;
 import com.pulumi.datadog.inputs.GetMetricMetadataPlainArgs;
 import com.pulumi.datadog.inputs.GetMetricTagsArgs;
@@ -97,6 +99,7 @@ import com.pulumi.datadog.outputs.GetLogsIndexesOrderResult;
 import com.pulumi.datadog.outputs.GetLogsIndexesResult;
 import com.pulumi.datadog.outputs.GetLogsPipelinesOrderResult;
 import com.pulumi.datadog.outputs.GetLogsPipelinesResult;
+import com.pulumi.datadog.outputs.GetMetricActiveTagsAndAggregationsResult;
 import com.pulumi.datadog.outputs.GetMetricMetadataResult;
 import com.pulumi.datadog.outputs.GetMetricTagsResult;
 import com.pulumi.datadog.outputs.GetMonitorConfigPoliciesResult;
@@ -4088,6 +4091,41 @@ public final class DatadogFunctions {
      */
     public static CompletableFuture<GetLogsPipelinesOrderResult> getLogsPipelinesOrderPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:index/getLogsPipelinesOrder:getLogsPipelinesOrder", TypeShape.of(GetLogsPipelinesOrderResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve active tags and aggregations associated with a metric to use in other resources.
+     * 
+     */
+    public static Output<GetMetricActiveTagsAndAggregationsResult> getMetricActiveTagsAndAggregations(GetMetricActiveTagsAndAggregationsArgs args) {
+        return getMetricActiveTagsAndAggregations(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve active tags and aggregations associated with a metric to use in other resources.
+     * 
+     */
+    public static CompletableFuture<GetMetricActiveTagsAndAggregationsResult> getMetricActiveTagsAndAggregationsPlain(GetMetricActiveTagsAndAggregationsPlainArgs args) {
+        return getMetricActiveTagsAndAggregationsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve active tags and aggregations associated with a metric to use in other resources.
+     * 
+     */
+    public static Output<GetMetricActiveTagsAndAggregationsResult> getMetricActiveTagsAndAggregations(GetMetricActiveTagsAndAggregationsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getMetricActiveTagsAndAggregations:getMetricActiveTagsAndAggregations", TypeShape.of(GetMetricActiveTagsAndAggregationsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve active tags and aggregations associated with a metric to use in other resources.
+     * 
+     */
+    public static Output<GetMetricActiveTagsAndAggregationsResult> getMetricActiveTagsAndAggregations(GetMetricActiveTagsAndAggregationsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getMetricActiveTagsAndAggregations:getMetricActiveTagsAndAggregations", TypeShape.of(GetMetricActiveTagsAndAggregationsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve active tags and aggregations associated with a metric to use in other resources.
+     * 
+     */
+    public static CompletableFuture<GetMetricActiveTagsAndAggregationsResult> getMetricActiveTagsAndAggregationsPlain(GetMetricActiveTagsAndAggregationsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getMetricActiveTagsAndAggregations:getMetricActiveTagsAndAggregations", TypeShape.of(GetMetricActiveTagsAndAggregationsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve metadata associated with a metric to use in other resources.

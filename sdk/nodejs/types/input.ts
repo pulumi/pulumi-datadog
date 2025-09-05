@@ -26430,6 +26430,10 @@ export interface SensitiveDataScannerRuleTextReplacement {
      */
     replacementString?: pulumi.Input<string>;
     /**
+     * Only valid when type == `replacementString`. When enabled, matches can be unmasked in logs by users with ‘Data Scanner Unmask’ permission. As a security best practice, avoid masking for highly-sensitive, long-lived data.
+     */
+    shouldSaveMatch?: pulumi.Input<boolean>;
+    /**
      * Type of the replacement text. None means no replacement. hash means the data will be stubbed. replacement*string means that one can chose a text to replace the data. partial*replacement*from*beginning allows a user to partially replace the data from the beginning, and partial*replacement*from_end on the other hand, allows to replace data from the end. Valid values are `none`, `hash`, `replacementString`, `partialReplacementFromBeginning`, `partialReplacementFromEnd`.
      */
     type: pulumi.Input<string>;
@@ -28094,9 +28098,31 @@ export namespace aws {
          */
         lambdas?: pulumi.Input<pulumi.Input<string>[]>;
         /**
+         * Configure log source collection for your Datadog Forwarder Lambda functions.
+         */
+        logSourceConfig?: pulumi.Input<inputs.aws.IntegrationAccountLogsConfigLambdaForwarderLogSourceConfig>;
+        /**
          * List of service IDs set to enable automatic log collection. Use `datadog.aws.getIntegrationAvailableLogsServices` data source or [the AWS Logs Integration API](https://docs.datadoghq.com/api/latest/aws-logs-integration/?#get-list-of-aws-log-ready-services) to get allowed values. Defaults to `[]`.
          */
         sources?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface IntegrationAccountLogsConfigLambdaForwarderLogSourceConfig {
+        /**
+         * AWS Logs Collection tag filters list.
+         */
+        tagFilters?: pulumi.Input<pulumi.Input<inputs.aws.IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilter>[]>;
+    }
+
+    export interface IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilter {
+        /**
+         * The AWS service for which the tag filters defined in `tags` will be applied.
+         */
+        source: pulumi.Input<string>;
+        /**
+         * The AWS resource tags to filter on for the service specified by `source`.
+         */
+        tags: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface IntegrationAccountMetricsConfig {
@@ -28128,7 +28154,7 @@ export namespace aws {
 
     export interface IntegrationAccountMetricsConfigNamespaceFilters {
         /**
-         * Exclude only these namespaces from metrics collection. Use `datadog.aws.getIntegrationAvailableNamespaces` data source to get allowed values. Defaults to `["AWS/SQS", "AWS/ElasticMapReduce"]`. `AWS/SQS` and `AWS/ElasticMapReduce` are excluded by default to reduce your AWS CloudWatch costs from `GetMetricData` API calls.
+         * Exclude only these namespaces from metrics collection. Use `datadog.aws.getIntegrationAvailableNamespaces` data source to get allowed values. Defaults to `["AWS/SQS", "AWS/ElasticMapReduce", "AWS/Usage"]`. `AWS/SQS`, `AWS/ElasticMapReduce`, and `AWS/Usage` are excluded by default to reduce your AWS CloudWatch costs from `GetMetricData` API calls.
          */
         excludeOnlies?: pulumi.Input<pulumi.Input<string>[]>;
         /**

@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -23,6 +24,11 @@ public final class SensitiveDataScannerRuleTextReplacement {
      * 
      */
     private @Nullable String replacementString;
+    /**
+     * @return Only valid when type == `replacement_string`. When enabled, matches can be unmasked in logs by users with ‘Data Scanner Unmask’ permission. As a security best practice, avoid masking for highly-sensitive, long-lived data.
+     * 
+     */
+    private @Nullable Boolean shouldSaveMatch;
     /**
      * @return Type of the replacement text. None means no replacement. hash means the data will be stubbed. replacement*string means that one can chose a text to replace the data. partial*replacement*from*beginning allows a user to partially replace the data from the beginning, and partial*replacement*from_end on the other hand, allows to replace data from the end. Valid values are `none`, `hash`, `replacement_string`, `partial_replacement_from_beginning`, `partial_replacement_from_end`.
      * 
@@ -45,6 +51,13 @@ public final class SensitiveDataScannerRuleTextReplacement {
         return Optional.ofNullable(this.replacementString);
     }
     /**
+     * @return Only valid when type == `replacement_string`. When enabled, matches can be unmasked in logs by users with ‘Data Scanner Unmask’ permission. As a security best practice, avoid masking for highly-sensitive, long-lived data.
+     * 
+     */
+    public Optional<Boolean> shouldSaveMatch() {
+        return Optional.ofNullable(this.shouldSaveMatch);
+    }
+    /**
      * @return Type of the replacement text. None means no replacement. hash means the data will be stubbed. replacement*string means that one can chose a text to replace the data. partial*replacement*from*beginning allows a user to partially replace the data from the beginning, and partial*replacement*from_end on the other hand, allows to replace data from the end. Valid values are `none`, `hash`, `replacement_string`, `partial_replacement_from_beginning`, `partial_replacement_from_end`.
      * 
      */
@@ -63,12 +76,14 @@ public final class SensitiveDataScannerRuleTextReplacement {
     public static final class Builder {
         private @Nullable Integer numberOfChars;
         private @Nullable String replacementString;
+        private @Nullable Boolean shouldSaveMatch;
         private String type;
         public Builder() {}
         public Builder(SensitiveDataScannerRuleTextReplacement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.numberOfChars = defaults.numberOfChars;
     	      this.replacementString = defaults.replacementString;
+    	      this.shouldSaveMatch = defaults.shouldSaveMatch;
     	      this.type = defaults.type;
         }
 
@@ -85,6 +100,12 @@ public final class SensitiveDataScannerRuleTextReplacement {
             return this;
         }
         @CustomType.Setter
+        public Builder shouldSaveMatch(@Nullable Boolean shouldSaveMatch) {
+
+            this.shouldSaveMatch = shouldSaveMatch;
+            return this;
+        }
+        @CustomType.Setter
         public Builder type(String type) {
             if (type == null) {
               throw new MissingRequiredPropertyException("SensitiveDataScannerRuleTextReplacement", "type");
@@ -96,6 +117,7 @@ public final class SensitiveDataScannerRuleTextReplacement {
             final var _resultValue = new SensitiveDataScannerRuleTextReplacement();
             _resultValue.numberOfChars = numberOfChars;
             _resultValue.replacementString = replacementString;
+            _resultValue.shouldSaveMatch = shouldSaveMatch;
             _resultValue.type = type;
             return _resultValue;
         }

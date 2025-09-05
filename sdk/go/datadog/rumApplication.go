@@ -29,8 +29,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datadog.NewRumApplication(ctx, "rum_application", &datadog.RumApplicationArgs{
-//				Name: pulumi.String("my-application"),
-//				Type: pulumi.String("browser"),
+//				Name:                           pulumi.String("my-application"),
+//				Type:                           pulumi.String("browser"),
+//				RumEventProcessingState:        pulumi.String("ALL"),
+//				ProductAnalyticsRetentionState: pulumi.String("NONE"),
 //			})
 //			if err != nil {
 //				return err
@@ -55,6 +57,10 @@ type RumApplication struct {
 	ClientToken pulumi.StringOutput `pulumi:"clientToken"`
 	// Name of the RUM application.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.
+	ProductAnalyticsRetentionState pulumi.StringOutput `pulumi:"productAnalyticsRetentionState"`
+	// Configures which RUM events are processed and stored for the application. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
+	RumEventProcessingState pulumi.StringOutput `pulumi:"rumEventProcessingState"`
 	// Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `"browser"`.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -96,6 +102,10 @@ type rumApplicationState struct {
 	ClientToken *string `pulumi:"clientToken"`
 	// Name of the RUM application.
 	Name *string `pulumi:"name"`
+	// Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.
+	ProductAnalyticsRetentionState *string `pulumi:"productAnalyticsRetentionState"`
+	// Configures which RUM events are processed and stored for the application. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
+	RumEventProcessingState *string `pulumi:"rumEventProcessingState"`
 	// Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `"browser"`.
 	Type *string `pulumi:"type"`
 }
@@ -105,6 +115,10 @@ type RumApplicationState struct {
 	ClientToken pulumi.StringPtrInput
 	// Name of the RUM application.
 	Name pulumi.StringPtrInput
+	// Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.
+	ProductAnalyticsRetentionState pulumi.StringPtrInput
+	// Configures which RUM events are processed and stored for the application. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
+	RumEventProcessingState pulumi.StringPtrInput
 	// Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `"browser"`.
 	Type pulumi.StringPtrInput
 }
@@ -116,6 +130,10 @@ func (RumApplicationState) ElementType() reflect.Type {
 type rumApplicationArgs struct {
 	// Name of the RUM application.
 	Name string `pulumi:"name"`
+	// Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.
+	ProductAnalyticsRetentionState *string `pulumi:"productAnalyticsRetentionState"`
+	// Configures which RUM events are processed and stored for the application. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
+	RumEventProcessingState *string `pulumi:"rumEventProcessingState"`
 	// Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `"browser"`.
 	Type *string `pulumi:"type"`
 }
@@ -124,6 +142,10 @@ type rumApplicationArgs struct {
 type RumApplicationArgs struct {
 	// Name of the RUM application.
 	Name pulumi.StringInput
+	// Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.
+	ProductAnalyticsRetentionState pulumi.StringPtrInput
+	// Configures which RUM events are processed and stored for the application. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
+	RumEventProcessingState pulumi.StringPtrInput
 	// Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `"browser"`.
 	Type pulumi.StringPtrInput
 }
@@ -223,6 +245,16 @@ func (o RumApplicationOutput) ClientToken() pulumi.StringOutput {
 // Name of the RUM application.
 func (o RumApplicationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RumApplication) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.
+func (o RumApplicationOutput) ProductAnalyticsRetentionState() pulumi.StringOutput {
+	return o.ApplyT(func(v *RumApplication) pulumi.StringOutput { return v.ProductAnalyticsRetentionState }).(pulumi.StringOutput)
+}
+
+// Configures which RUM events are processed and stored for the application. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
+func (o RumApplicationOutput) RumEventProcessingState() pulumi.StringOutput {
+	return o.ApplyT(func(v *RumApplication) pulumi.StringOutput { return v.RumEventProcessingState }).(pulumi.StringOutput)
 }
 
 // Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `"browser"`.

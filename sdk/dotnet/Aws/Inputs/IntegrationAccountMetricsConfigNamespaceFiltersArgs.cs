@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Aws.Inputs
         private InputList<string>? _excludeOnlies;
 
         /// <summary>
-        /// Exclude only these namespaces from metrics collection. Use `datadog.aws.getIntegrationAvailableNamespaces` data source to get allowed values. Defaults to `["AWS/SQS", "AWS/ElasticMapReduce"]`. `AWS/SQS` and `AWS/ElasticMapReduce` are excluded by default to reduce your AWS CloudWatch costs from `GetMetricData` API calls.
+        /// Exclude only these namespaces from metrics collection. Use `datadog.aws.getIntegrationAvailableNamespaces` data source to get allowed values. Defaults to `["AWS/SQS", "AWS/ElasticMapReduce", "AWS/Usage"]`. `AWS/SQS`, `AWS/ElasticMapReduce`, and `AWS/Usage` are excluded by default to reduce your AWS CloudWatch costs from `GetMetricData` API calls.
         /// </summary>
         public InputList<string> ExcludeOnlies
         {

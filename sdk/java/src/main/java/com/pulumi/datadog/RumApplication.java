@@ -44,6 +44,8 @@ import javax.annotation.Nullable;
  *         var rumApplication = new RumApplication("rumApplication", RumApplicationArgs.builder()
  *             .name("my-application")
  *             .type("browser")
+ *             .rumEventProcessingState("ALL")
+ *             .productAnalyticsRetentionState("NONE")
  *             .build());
  * 
  *     }
@@ -90,6 +92,34 @@ public class RumApplication extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.
+     * 
+     */
+    @Export(name="productAnalyticsRetentionState", refs={String.class}, tree="[0]")
+    private Output<String> productAnalyticsRetentionState;
+
+    /**
+     * @return Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.
+     * 
+     */
+    public Output<String> productAnalyticsRetentionState() {
+        return this.productAnalyticsRetentionState;
+    }
+    /**
+     * Configures which RUM events are processed and stored for the application. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
+     * 
+     */
+    @Export(name="rumEventProcessingState", refs={String.class}, tree="[0]")
+    private Output<String> rumEventProcessingState;
+
+    /**
+     * @return Configures which RUM events are processed and stored for the application. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
+     * 
+     */
+    public Output<String> rumEventProcessingState() {
+        return this.rumEventProcessingState;
     }
     /**
      * Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `&#34;browser&#34;`.
