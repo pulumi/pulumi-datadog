@@ -12377,6 +12377,20 @@
                                     "lambdas": {
                                         "maxItemsOne": false
                                     },
+                                    "log_source_config": {
+                                        "fields": {
+                                            "tag_filters": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "tags": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
                                     "sources": {
                                         "maxItemsOne": false
                                     }
@@ -18364,6 +18378,18 @@
                     }
                 }
             },
+            "datadog_metric_active_tags_and_aggregations": {
+                "current": "datadog:index/getMetricActiveTagsAndAggregations:getMetricActiveTagsAndAggregations",
+                "majorVersion": 4,
+                "fields": {
+                    "active_aggregations": {
+                        "maxItemsOne": false
+                    },
+                    "active_tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "datadog_metric_metadata": {
                 "current": "datadog:index/getMetricMetadata:getMetricMetadata",
                 "majorVersion": 4
@@ -18942,6 +18968,7 @@
             "datadog:index/getLogsIndexesOrder:getLogsIndexesOrder": 0,
             "datadog:index/getLogsPipelines:getLogsPipelines": 0,
             "datadog:index/getLogsPipelinesOrder:getLogsPipelinesOrder": 1,
+            "datadog:index/getMetricActiveTagsAndAggregations:getMetricActiveTagsAndAggregations": 1,
             "datadog:index/getMetricMetadata:getMetricMetadata": 1,
             "datadog:index/getMetricTags:getMetricTags": 1,
             "datadog:index/getMonitor:getMonitor": 0,

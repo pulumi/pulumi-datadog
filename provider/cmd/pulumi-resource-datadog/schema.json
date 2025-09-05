@@ -215,6 +215,10 @@
                     },
                     "description": "List of Datadog Lambda Log Forwarder ARNs in your AWS account. Defaults to `[]`.\n"
                 },
+                "logSourceConfig": {
+                    "$ref": "#/types/datadog:aws/IntegrationAccountLogsConfigLambdaForwarderLogSourceConfig:IntegrationAccountLogsConfigLambdaForwarderLogSourceConfig",
+                    "description": "Configure log source collection for your Datadog Forwarder Lambda functions.\n"
+                },
                 "sources": {
                     "type": "array",
                     "items": {
@@ -232,6 +236,38 @@
                     ]
                 }
             }
+        },
+        "datadog:aws/IntegrationAccountLogsConfigLambdaForwarderLogSourceConfig:IntegrationAccountLogsConfigLambdaForwarderLogSourceConfig": {
+            "properties": {
+                "tagFilters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:aws/IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilter:IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilter"
+                    },
+                    "description": "AWS Logs Collection tag filters list.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:aws/IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilter:IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilter": {
+            "properties": {
+                "source": {
+                    "type": "string",
+                    "description": "The AWS service for which the tag filters defined in `tags` will be applied.\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The AWS resource tags to filter on for the service specified by `source`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "source",
+                "tags"
+            ]
         },
         "datadog:aws/IntegrationAccountMetricsConfig:IntegrationAccountMetricsConfig": {
             "properties": {
@@ -282,7 +318,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Exclude only these namespaces from metrics collection. Use `datadog.aws.getIntegrationAvailableNamespaces` data source to get allowed values. Defaults to `[\"AWS/SQS\", \"AWS/ElasticMapReduce\"]`. `AWS/SQS` and `AWS/ElasticMapReduce` are excluded by default to reduce your AWS CloudWatch costs from `GetMetricData` API calls.\n"
+                    "description": "Exclude only these namespaces from metrics collection. Use `datadog.aws.getIntegrationAvailableNamespaces` data source to get allowed values. Defaults to `[\"AWS/SQS\", \"AWS/ElasticMapReduce\", \"AWS/Usage\"]`. `AWS/SQS`, `AWS/ElasticMapReduce`, and `AWS/Usage` are excluded by default to reduce your AWS CloudWatch costs from `GetMetricData` API calls.\n"
                 },
                 "includeOnlies": {
                     "type": "array",
@@ -35190,6 +35226,10 @@
                     "type": "string",
                     "description": "Required if type == 'replacement_string'.\n"
                 },
+                "shouldSaveMatch": {
+                    "type": "boolean",
+                    "description": "Only valid when type == `replacement_string`. When enabled, matches can be unmasked in logs by users with ‘Data Scanner Unmask’ permission. As a security best practice, avoid masking for highly-sensitive, long-lived data.\n"
+                },
                 "type": {
                     "type": "string",
                     "description": "Type of the replacement text. None means no replacement. hash means the data will be stubbed. replacement*string means that one can chose a text to replace the data. partial*replacement*from*beginning allows a user to partially replace the data from the beginning, and partial*replacement*from_end on the other hand, allows to replace data from the end. Valid values are `none`, `hash`, `replacement_string`, `partial_replacement_from_beginning`, `partial_replacement_from_end`.\n"
@@ -38161,6 +38201,26 @@
                 }
             }
         },
+        "datadog:index/getMetricActiveTagsAndAggregationsActiveAggregation:getMetricActiveTagsAndAggregationsActiveAggregation": {
+            "properties": {
+                "space": {
+                    "type": "string"
+                },
+                "time": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "space",
+                "time"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "datadog:index/getMonitorConfigPoliciesMonitorConfigPolicy:getMonitorConfigPoliciesMonitorConfigPolicy": {
             "properties": {
                 "id": {
@@ -39761,7 +39821,7 @@
                 },
                 "logsConfig": {
                     "$ref": "#/types/datadog:aws/IntegrationAccountLogsConfig:IntegrationAccountLogsConfig",
-                    "description": "Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_fowarder` block is required within, but may be empty to use defaults.\n"
+                    "description": "Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_forwarder` block is required within, but may be empty to use defaults.\n"
                 },
                 "metricsConfig": {
                     "$ref": "#/types/datadog:aws/IntegrationAccountMetricsConfig:IntegrationAccountMetricsConfig",
@@ -39807,7 +39867,7 @@
                 },
                 "logsConfig": {
                     "$ref": "#/types/datadog:aws/IntegrationAccountLogsConfig:IntegrationAccountLogsConfig",
-                    "description": "Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_fowarder` block is required within, but may be empty to use defaults.\n"
+                    "description": "Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_forwarder` block is required within, but may be empty to use defaults.\n"
                 },
                 "metricsConfig": {
                     "$ref": "#/types/datadog:aws/IntegrationAccountMetricsConfig:IntegrationAccountMetricsConfig",
@@ -39854,7 +39914,7 @@
                     },
                     "logsConfig": {
                         "$ref": "#/types/datadog:aws/IntegrationAccountLogsConfig:IntegrationAccountLogsConfig",
-                        "description": "Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_fowarder` block is required within, but may be empty to use defaults.\n"
+                        "description": "Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_forwarder` block is required within, but may be empty to use defaults.\n"
                     },
                     "metricsConfig": {
                         "$ref": "#/types/datadog:aws/IntegrationAccountMetricsConfig:IntegrationAccountMetricsConfig",
@@ -41129,11 +41189,11 @@
             }
         },
         "datadog:index/agentlessScanningAwsScanOptions:AgentlessScanningAwsScanOptions": {
-            "description": "Provides a Datadog Agentless Scanning AWS scan options resource. This can be used to activate and configure Agentless scan options for an AWS account.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Configure agentless scanning for an AWS account\nconst example = new datadog.AgentlessScanningAwsScanOptions(\"example\", {\n    awsAccountId: \"123456789012\",\n    lambda: true,\n    sensitiveData: false,\n    vulnContainersOs: true,\n    vulnHostOs: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Configure agentless scanning for an AWS account\nexample = datadog.AgentlessScanningAwsScanOptions(\"example\",\n    aws_account_id=\"123456789012\",\n    lambda_=True,\n    sensitive_data=False,\n    vuln_containers_os=True,\n    vuln_host_os=True)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Configure agentless scanning for an AWS account\n    var example = new Datadog.AgentlessScanningAwsScanOptions(\"example\", new()\n    {\n        AwsAccountId = \"123456789012\",\n        Lambda = true,\n        SensitiveData = false,\n        VulnContainersOs = true,\n        VulnHostOs = true,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t// Configure agentless scanning for an AWS account\n\t\t_, err := datadog.NewAgentlessScanningAwsScanOptions(ctx, \"example\", \u0026datadog.AgentlessScanningAwsScanOptionsArgs{\n\t\t\tAwsAccountId:     pulumi.String(\"123456789012\"),\n\t\t\tLambda:           pulumi.Bool(true),\n\t\t\tSensitiveData:    pulumi.Bool(false),\n\t\t\tVulnContainersOs: pulumi.Bool(true),\n\t\t\tVulnHostOs:       pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.AgentlessScanningAwsScanOptions;\nimport com.pulumi.datadog.AgentlessScanningAwsScanOptionsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // Configure agentless scanning for an AWS account\n        var example = new AgentlessScanningAwsScanOptions(\"example\", AgentlessScanningAwsScanOptionsArgs.builder()\n            .awsAccountId(\"123456789012\")\n            .lambda(true)\n            .sensitiveData(false)\n            .vulnContainersOs(true)\n            .vulnHostOs(true)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Configure agentless scanning for an AWS account\n  example:\n    type: datadog:AgentlessScanningAwsScanOptions\n    properties:\n      awsAccountId: '123456789012'\n      lambda: true\n      sensitiveData: false\n      vulnContainersOs: true\n      vulnHostOs: true\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nThe `pulumi import` command can be used, for example:\n\n#!/bin/bash\n\nImport existing agentless scanning aws scan options by AWS Account ID\n\n```sh\n$ pulumi import datadog:index/agentlessScanningAwsScanOptions:AgentlessScanningAwsScanOptions example 123456789012\n```\n\n",
+            "description": "Provides a Datadog Agentless Scanning AWS scan options resource. This can be used to activate and configure Agentless scan options for an AWS account.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Configure agentless scanning for an AWS account\nconst example = new datadog.AgentlessScanningAwsScanOptions(\"example\", {\n    awsAccountId: \"123456789012\",\n    lambda: true,\n    sensitiveData: false,\n    vulnContainersOs: true,\n    vulnHostOs: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Configure agentless scanning for an AWS account\nexample = datadog.AgentlessScanningAwsScanOptions(\"example\",\n    aws_account_id=\"123456789012\",\n    lambda_=True,\n    sensitive_data=False,\n    vuln_containers_os=True,\n    vuln_host_os=True)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Configure agentless scanning for an AWS account\n    var example = new Datadog.AgentlessScanningAwsScanOptions(\"example\", new()\n    {\n        AwsAccountId = \"123456789012\",\n        Lambda = true,\n        SensitiveData = false,\n        VulnContainersOs = true,\n        VulnHostOs = true,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t// Configure agentless scanning for an AWS account\n\t\t_, err := datadog.NewAgentlessScanningAwsScanOptions(ctx, \"example\", \u0026datadog.AgentlessScanningAwsScanOptionsArgs{\n\t\t\tAwsAccountId:     pulumi.String(\"123456789012\"),\n\t\t\tLambda:           pulumi.Bool(true),\n\t\t\tSensitiveData:    pulumi.Bool(false),\n\t\t\tVulnContainersOs: pulumi.Bool(true),\n\t\t\tVulnHostOs:       pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.AgentlessScanningAwsScanOptions;\nimport com.pulumi.datadog.AgentlessScanningAwsScanOptionsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // Configure agentless scanning for an AWS account\n        var example = new AgentlessScanningAwsScanOptions(\"example\", AgentlessScanningAwsScanOptionsArgs.builder()\n            .awsAccountId(\"123456789012\")\n            .lambda(true)\n            .sensitiveData(false)\n            .vulnContainersOs(true)\n            .vulnHostOs(true)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Configure agentless scanning for an AWS account\n  example:\n    type: datadog:AgentlessScanningAwsScanOptions\n    properties:\n      awsAccountId: '123456789012'\n      lambda: true\n      sensitiveData: false\n      vulnContainersOs: true\n      vulnHostOs: true\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nThe `pulumi import` command can be used, for example:\n\n#!/bin/sh\n\nImport existing agentless scanning AWS scan options by AWS account ID\n\n```sh\n$ pulumi import datadog:index/agentlessScanningAwsScanOptions:AgentlessScanningAwsScanOptions example 123456789012\n```\n\n",
             "properties": {
                 "awsAccountId": {
                     "type": "string",
-                    "description": "The AWS Account ID for which agentless scanning is configured.\n"
+                    "description": "The AWS account ID for which agentless scanning is configured. Must be a valid AWS account ID.\n"
                 },
                 "lambda": {
                     "type": "boolean",
@@ -41162,7 +41222,7 @@
             "inputProperties": {
                 "awsAccountId": {
                     "type": "string",
-                    "description": "The AWS Account ID for which agentless scanning is configured.\n"
+                    "description": "The AWS account ID for which agentless scanning is configured. Must be a valid AWS account ID.\n"
                 },
                 "lambda": {
                     "type": "boolean",
@@ -41193,7 +41253,7 @@
                 "properties": {
                     "awsAccountId": {
                         "type": "string",
-                        "description": "The AWS Account ID for which agentless scanning is configured.\n"
+                        "description": "The AWS account ID for which agentless scanning is configured. Must be a valid AWS account ID.\n"
                     },
                     "lambda": {
                         "type": "boolean",
@@ -45720,7 +45780,7 @@
             }
         },
         "datadog:index/onCallTeamRoutingRules:OnCallTeamRoutingRules": {
-            "description": "Provides a Datadog On-Call team routing rules resource.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  teamRulesTest:\n    type: datadog:OnCallTeamRoutingRules\n    name: team_rules_test\n    properties:\n      teamId: 00000000-aba2-0000-0000-000000000000\n      rules:\n        - query: tags.service:test\n          actions:\n            - sendSlackMessage:\n                - workspace: workspace\n                  channel: channel\n          timeRestrictions:\n            - timeZone: America/New_York\n              restrictions:\n                - endDay: monday\n                  endTime: 17:00:00\n                  startDay: monday\n                  startTime: 09:00:00\n        - escalationPolicy: 00000000-aba2-0000-0000-000000000000\n          urgency: dynamic\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nThe `pulumi import` command can be used, for example:\n\nImport an existing on_call_schedule\n\n```sh\n$ pulumi import datadog:index/onCallTeamRoutingRules:OnCallTeamRoutingRules test \"b03a07d5-49da-43e9-83b4-5d84969b588b\"\n```\n\n",
+            "description": "Provides a Datadog On-Call team routing rules resource.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  teamRulesTest:\n    type: datadog:OnCallTeamRoutingRules\n    name: team_rules_test\n    properties:\n      teamId: 00000000-aba2-0000-0000-000000000000\n      rules:\n        - query: tags.service:test\n          actions:\n            - sendSlackMessage:\n                - workspace: workspace\n                  channel: channel\n          timeRestrictions:\n            - timeZone: America/New_York\n              restrictions:\n                - endDay: monday\n                  endTime: 17:00:00\n                  startDay: monday\n                  startTime: 09:00:00\n        - escalationPolicy: 00000000-aba2-0000-0000-000000000000\n          urgency: dynamic\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nThe `pulumi import` command can be used, for example:\n\nImport existing on_call_team_routing_rules\n\n```sh\n$ pulumi import datadog:index/onCallTeamRoutingRules:OnCallTeamRoutingRules test \"b03a07d5-49da-43e9-83b4-5d84969b588b\"\n```\n\n",
             "properties": {
                 "rules": {
                     "type": "array",
@@ -46153,7 +46213,7 @@
             }
         },
         "datadog:index/rumApplication:RumApplication": {
-            "description": "Provides a Datadog RUM application resource. This can be used to create and manage Datadog RUM applications.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst rumApplication = new datadog.RumApplication(\"rum_application\", {\n    name: \"my-application\",\n    type: \"browser\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nrum_application = datadog.RumApplication(\"rum_application\",\n    name=\"my-application\",\n    type=\"browser\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var rumApplication = new Datadog.RumApplication(\"rum_application\", new()\n    {\n        Name = \"my-application\",\n        Type = \"browser\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewRumApplication(ctx, \"rum_application\", \u0026datadog.RumApplicationArgs{\n\t\t\tName: pulumi.String(\"my-application\"),\n\t\t\tType: pulumi.String(\"browser\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.RumApplication;\nimport com.pulumi.datadog.RumApplicationArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var rumApplication = new RumApplication(\"rumApplication\", RumApplicationArgs.builder()\n            .name(\"my-application\")\n            .type(\"browser\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  rumApplication:\n    type: datadog:RumApplication\n    name: rum_application\n    properties:\n      name: my-application\n      type: browser\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nThe `pulumi import` command can be used, for example:\n\n```sh\n$ pulumi import datadog:index/rumApplication:RumApplication rum_application a1b2c3d4-a1b2-a1b2-a1b2-a1b2c3d4e5f6\n```\n\n",
+            "description": "Provides a Datadog RUM application resource. This can be used to create and manage Datadog RUM applications.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst rumApplication = new datadog.RumApplication(\"rum_application\", {\n    name: \"my-application\",\n    type: \"browser\",\n    rumEventProcessingState: \"ALL\",\n    productAnalyticsRetentionState: \"NONE\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nrum_application = datadog.RumApplication(\"rum_application\",\n    name=\"my-application\",\n    type=\"browser\",\n    rum_event_processing_state=\"ALL\",\n    product_analytics_retention_state=\"NONE\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var rumApplication = new Datadog.RumApplication(\"rum_application\", new()\n    {\n        Name = \"my-application\",\n        Type = \"browser\",\n        RumEventProcessingState = \"ALL\",\n        ProductAnalyticsRetentionState = \"NONE\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewRumApplication(ctx, \"rum_application\", \u0026datadog.RumApplicationArgs{\n\t\t\tName:                           pulumi.String(\"my-application\"),\n\t\t\tType:                           pulumi.String(\"browser\"),\n\t\t\tRumEventProcessingState:        pulumi.String(\"ALL\"),\n\t\t\tProductAnalyticsRetentionState: pulumi.String(\"NONE\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.RumApplication;\nimport com.pulumi.datadog.RumApplicationArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var rumApplication = new RumApplication(\"rumApplication\", RumApplicationArgs.builder()\n            .name(\"my-application\")\n            .type(\"browser\")\n            .rumEventProcessingState(\"ALL\")\n            .productAnalyticsRetentionState(\"NONE\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  rumApplication:\n    type: datadog:RumApplication\n    name: rum_application\n    properties:\n      name: my-application\n      type: browser\n      rumEventProcessingState: ALL\n      productAnalyticsRetentionState: NONE\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nThe `pulumi import` command can be used, for example:\n\n```sh\n$ pulumi import datadog:index/rumApplication:RumApplication rum_application a1b2c3d4-a1b2-a1b2-a1b2-a1b2c3d4e5f6\n```\n\n",
             "properties": {
                 "clientToken": {
                     "type": "string",
@@ -46163,6 +46223,14 @@
                     "type": "string",
                     "description": "Name of the RUM application.\n"
                 },
+                "productAnalyticsRetentionState": {
+                    "type": "string",
+                    "description": "Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.\n"
+                },
+                "rumEventProcessingState": {
+                    "type": "string",
+                    "description": "Configures which RUM events are processed and stored for the application. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.\n"
+                },
                 "type": {
                     "type": "string",
                     "description": "Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `\"browser\"`.\n"
@@ -46171,12 +46239,22 @@
             "required": [
                 "clientToken",
                 "name",
+                "productAnalyticsRetentionState",
+                "rumEventProcessingState",
                 "type"
             ],
             "inputProperties": {
                 "name": {
                     "type": "string",
                     "description": "Name of the RUM application.\n"
+                },
+                "productAnalyticsRetentionState": {
+                    "type": "string",
+                    "description": "Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.\n"
+                },
+                "rumEventProcessingState": {
+                    "type": "string",
+                    "description": "Configures which RUM events are processed and stored for the application. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.\n"
                 },
                 "type": {
                     "type": "string",
@@ -46196,6 +46274,14 @@
                     "name": {
                         "type": "string",
                         "description": "Name of the RUM application.\n"
+                    },
+                    "productAnalyticsRetentionState": {
+                        "type": "string",
+                        "description": "Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.\n"
+                    },
+                    "rumEventProcessingState": {
+                        "type": "string",
+                        "description": "Configures which RUM events are processed and stored for the application. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.\n"
                     },
                     "type": {
                         "type": "string",
@@ -51181,6 +51267,64 @@
                 "required": [
                     "id",
                     "pipelineIds"
+                ],
+                "type": "object"
+            }
+        },
+        "datadog:index/getMetricActiveTagsAndAggregations:getMetricActiveTagsAndAggregations": {
+            "description": "Use this data source to retrieve active tags and aggregations associated with a metric to use in other resources.\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getMetricActiveTagsAndAggregations.\n",
+                "properties": {
+                    "metric": {
+                        "type": "string",
+                        "description": "The metric for which to fetch tags.\n"
+                    },
+                    "window": {
+                        "type": "integer",
+                        "description": "The number of seconds to look back from now.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "metric"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getMetricActiveTagsAndAggregations.\n",
+                "properties": {
+                    "activeAggregations": {
+                        "description": "The active aggregations associated with the metric.\n",
+                        "items": {
+                            "$ref": "#/types/datadog:index/getMetricActiveTagsAndAggregationsActiveAggregation:getMetricActiveTagsAndAggregationsActiveAggregation"
+                        },
+                        "type": "array"
+                    },
+                    "activeTags": {
+                        "description": "The active tags associated with the metric.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "The ID of this resource.\n",
+                        "type": "string"
+                    },
+                    "metric": {
+                        "description": "The metric for which to fetch tags.\n",
+                        "type": "string"
+                    },
+                    "window": {
+                        "description": "The number of seconds to look back from now.\n",
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "activeAggregations",
+                    "activeTags",
+                    "id",
+                    "metric"
                 ],
                 "type": "object"
             }
