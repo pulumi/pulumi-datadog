@@ -49,9 +49,9 @@ import (
 //
 // The `pulumi import` command can be used, for example:
 //
-// #!/bin/bash
+// #!/bin/sh
 //
-// # Import existing agentless scanning aws scan options by AWS Account ID
+// # Import existing agentless scanning AWS scan options by AWS account ID
 //
 // ```sh
 // $ pulumi import datadog:index/agentlessScanningAwsScanOptions:AgentlessScanningAwsScanOptions example 123456789012
@@ -59,7 +59,7 @@ import (
 type AgentlessScanningAwsScanOptions struct {
 	pulumi.CustomResourceState
 
-	// The AWS Account ID for which agentless scanning is configured.
+	// The AWS account ID for which agentless scanning is configured. Must be a valid AWS account ID.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// Indicates if scanning of Lambda functions is enabled.
 	Lambda pulumi.BoolOutput `pulumi:"lambda"`
@@ -116,7 +116,7 @@ func GetAgentlessScanningAwsScanOptions(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AgentlessScanningAwsScanOptions resources.
 type agentlessScanningAwsScanOptionsState struct {
-	// The AWS Account ID for which agentless scanning is configured.
+	// The AWS account ID for which agentless scanning is configured. Must be a valid AWS account ID.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// Indicates if scanning of Lambda functions is enabled.
 	Lambda *bool `pulumi:"lambda"`
@@ -129,7 +129,7 @@ type agentlessScanningAwsScanOptionsState struct {
 }
 
 type AgentlessScanningAwsScanOptionsState struct {
-	// The AWS Account ID for which agentless scanning is configured.
+	// The AWS account ID for which agentless scanning is configured. Must be a valid AWS account ID.
 	AwsAccountId pulumi.StringPtrInput
 	// Indicates if scanning of Lambda functions is enabled.
 	Lambda pulumi.BoolPtrInput
@@ -146,7 +146,7 @@ func (AgentlessScanningAwsScanOptionsState) ElementType() reflect.Type {
 }
 
 type agentlessScanningAwsScanOptionsArgs struct {
-	// The AWS Account ID for which agentless scanning is configured.
+	// The AWS account ID for which agentless scanning is configured. Must be a valid AWS account ID.
 	AwsAccountId string `pulumi:"awsAccountId"`
 	// Indicates if scanning of Lambda functions is enabled.
 	Lambda bool `pulumi:"lambda"`
@@ -160,7 +160,7 @@ type agentlessScanningAwsScanOptionsArgs struct {
 
 // The set of arguments for constructing a AgentlessScanningAwsScanOptions resource.
 type AgentlessScanningAwsScanOptionsArgs struct {
-	// The AWS Account ID for which agentless scanning is configured.
+	// The AWS account ID for which agentless scanning is configured. Must be a valid AWS account ID.
 	AwsAccountId pulumi.StringInput
 	// Indicates if scanning of Lambda functions is enabled.
 	Lambda pulumi.BoolInput
@@ -259,7 +259,7 @@ func (o AgentlessScanningAwsScanOptionsOutput) ToAgentlessScanningAwsScanOptions
 	return o
 }
 
-// The AWS Account ID for which agentless scanning is configured.
+// The AWS account ID for which agentless scanning is configured. Must be a valid AWS account ID.
 func (o AgentlessScanningAwsScanOptionsOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentlessScanningAwsScanOptions) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }

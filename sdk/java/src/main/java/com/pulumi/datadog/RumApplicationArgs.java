@@ -32,6 +32,36 @@ public final class RumApplicationArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.
+     * 
+     */
+    @Import(name="productAnalyticsRetentionState")
+    private @Nullable Output<String> productAnalyticsRetentionState;
+
+    /**
+     * @return Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.
+     * 
+     */
+    public Optional<Output<String>> productAnalyticsRetentionState() {
+        return Optional.ofNullable(this.productAnalyticsRetentionState);
+    }
+
+    /**
+     * Configures which RUM events are processed and stored for the application. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
+     * 
+     */
+    @Import(name="rumEventProcessingState")
+    private @Nullable Output<String> rumEventProcessingState;
+
+    /**
+     * @return Configures which RUM events are processed and stored for the application. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
+     * 
+     */
+    public Optional<Output<String>> rumEventProcessingState() {
+        return Optional.ofNullable(this.rumEventProcessingState);
+    }
+
+    /**
      * Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `&#34;browser&#34;`.
      * 
      */
@@ -50,6 +80,8 @@ public final class RumApplicationArgs extends com.pulumi.resources.ResourceArgs 
 
     private RumApplicationArgs(RumApplicationArgs $) {
         this.name = $.name;
+        this.productAnalyticsRetentionState = $.productAnalyticsRetentionState;
+        this.rumEventProcessingState = $.rumEventProcessingState;
         this.type = $.type;
     }
 
@@ -90,6 +122,48 @@ public final class RumApplicationArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param productAnalyticsRetentionState Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder productAnalyticsRetentionState(@Nullable Output<String> productAnalyticsRetentionState) {
+            $.productAnalyticsRetentionState = productAnalyticsRetentionState;
+            return this;
+        }
+
+        /**
+         * @param productAnalyticsRetentionState Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder productAnalyticsRetentionState(String productAnalyticsRetentionState) {
+            return productAnalyticsRetentionState(Output.of(productAnalyticsRetentionState));
+        }
+
+        /**
+         * @param rumEventProcessingState Configures which RUM events are processed and stored for the application. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rumEventProcessingState(@Nullable Output<String> rumEventProcessingState) {
+            $.rumEventProcessingState = rumEventProcessingState;
+            return this;
+        }
+
+        /**
+         * @param rumEventProcessingState Configures which RUM events are processed and stored for the application. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rumEventProcessingState(String rumEventProcessingState) {
+            return rumEventProcessingState(Output.of(rumEventProcessingState));
         }
 
         /**

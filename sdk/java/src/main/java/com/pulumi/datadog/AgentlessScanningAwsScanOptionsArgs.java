@@ -16,14 +16,14 @@ public final class AgentlessScanningAwsScanOptionsArgs extends com.pulumi.resour
     public static final AgentlessScanningAwsScanOptionsArgs Empty = new AgentlessScanningAwsScanOptionsArgs();
 
     /**
-     * The AWS Account ID for which agentless scanning is configured.
+     * The AWS account ID for which agentless scanning is configured. Must be a valid AWS account ID.
      * 
      */
     @Import(name="awsAccountId", required=true)
     private Output<String> awsAccountId;
 
     /**
-     * @return The AWS Account ID for which agentless scanning is configured.
+     * @return The AWS account ID for which agentless scanning is configured. Must be a valid AWS account ID.
      * 
      */
     public Output<String> awsAccountId() {
@@ -119,7 +119,7 @@ public final class AgentlessScanningAwsScanOptionsArgs extends com.pulumi.resour
         }
 
         /**
-         * @param awsAccountId The AWS Account ID for which agentless scanning is configured.
+         * @param awsAccountId The AWS account ID for which agentless scanning is configured. Must be a valid AWS account ID.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class AgentlessScanningAwsScanOptionsArgs extends com.pulumi.resour
         }
 
         /**
-         * @param awsAccountId The AWS Account ID for which agentless scanning is configured.
+         * @param awsAccountId The AWS account ID for which agentless scanning is configured. Must be a valid AWS account ID.
          * 
          * @return builder
          * 

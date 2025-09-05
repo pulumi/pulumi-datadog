@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -48,6 +49,21 @@ public final class SensitiveDataScannerRuleTextReplacementArgs extends com.pulum
     }
 
     /**
+     * Only valid when type == `replacement_string`. When enabled, matches can be unmasked in logs by users with ‘Data Scanner Unmask’ permission. As a security best practice, avoid masking for highly-sensitive, long-lived data.
+     * 
+     */
+    @Import(name="shouldSaveMatch")
+    private @Nullable Output<Boolean> shouldSaveMatch;
+
+    /**
+     * @return Only valid when type == `replacement_string`. When enabled, matches can be unmasked in logs by users with ‘Data Scanner Unmask’ permission. As a security best practice, avoid masking for highly-sensitive, long-lived data.
+     * 
+     */
+    public Optional<Output<Boolean>> shouldSaveMatch() {
+        return Optional.ofNullable(this.shouldSaveMatch);
+    }
+
+    /**
      * Type of the replacement text. None means no replacement. hash means the data will be stubbed. replacement*string means that one can chose a text to replace the data. partial*replacement*from*beginning allows a user to partially replace the data from the beginning, and partial*replacement*from_end on the other hand, allows to replace data from the end. Valid values are `none`, `hash`, `replacement_string`, `partial_replacement_from_beginning`, `partial_replacement_from_end`.
      * 
      */
@@ -67,6 +83,7 @@ public final class SensitiveDataScannerRuleTextReplacementArgs extends com.pulum
     private SensitiveDataScannerRuleTextReplacementArgs(SensitiveDataScannerRuleTextReplacementArgs $) {
         this.numberOfChars = $.numberOfChars;
         this.replacementString = $.replacementString;
+        this.shouldSaveMatch = $.shouldSaveMatch;
         this.type = $.type;
     }
 
@@ -128,6 +145,27 @@ public final class SensitiveDataScannerRuleTextReplacementArgs extends com.pulum
          */
         public Builder replacementString(String replacementString) {
             return replacementString(Output.of(replacementString));
+        }
+
+        /**
+         * @param shouldSaveMatch Only valid when type == `replacement_string`. When enabled, matches can be unmasked in logs by users with ‘Data Scanner Unmask’ permission. As a security best practice, avoid masking for highly-sensitive, long-lived data.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder shouldSaveMatch(@Nullable Output<Boolean> shouldSaveMatch) {
+            $.shouldSaveMatch = shouldSaveMatch;
+            return this;
+        }
+
+        /**
+         * @param shouldSaveMatch Only valid when type == `replacement_string`. When enabled, matches can be unmasked in logs by users with ‘Data Scanner Unmask’ permission. As a security best practice, avoid masking for highly-sensitive, long-lived data.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder shouldSaveMatch(Boolean shouldSaveMatch) {
+            return shouldSaveMatch(Output.of(shouldSaveMatch));
         }
 
         /**

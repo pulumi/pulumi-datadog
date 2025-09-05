@@ -61,9 +61,9 @@ import javax.annotation.Nullable;
  * 
  * The `pulumi import` command can be used, for example:
  * 
- * #!/bin/bash
+ * #!/bin/sh
  * 
- * Import existing agentless scanning aws scan options by AWS Account ID
+ * Import existing agentless scanning AWS scan options by AWS account ID
  * 
  * ```sh
  * $ pulumi import datadog:index/agentlessScanningAwsScanOptions:AgentlessScanningAwsScanOptions example 123456789012
@@ -73,14 +73,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="datadog:index/agentlessScanningAwsScanOptions:AgentlessScanningAwsScanOptions")
 public class AgentlessScanningAwsScanOptions extends com.pulumi.resources.CustomResource {
     /**
-     * The AWS Account ID for which agentless scanning is configured.
+     * The AWS account ID for which agentless scanning is configured. Must be a valid AWS account ID.
      * 
      */
     @Export(name="awsAccountId", refs={String.class}, tree="[0]")
     private Output<String> awsAccountId;
 
     /**
-     * @return The AWS Account ID for which agentless scanning is configured.
+     * @return The AWS account ID for which agentless scanning is configured. Must be a valid AWS account ID.
      * 
      */
     public Output<String> awsAccountId() {

@@ -64,7 +64,7 @@ export class IntegrationAccount extends pulumi.CustomResource {
      */
     declare public readonly awsRegions: pulumi.Output<outputs.aws.IntegrationAccountAwsRegions | undefined>;
     /**
-     * Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambdaFowarder` block is required within, but may be empty to use defaults.
+     * Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambdaForwarder` block is required within, but may be empty to use defaults.
      */
     declare public readonly logsConfig: pulumi.Output<outputs.aws.IntegrationAccountLogsConfig | undefined>;
     /**
@@ -150,7 +150,7 @@ export interface IntegrationAccountState {
      */
     awsRegions?: pulumi.Input<inputs.aws.IntegrationAccountAwsRegions>;
     /**
-     * Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambdaFowarder` block is required within, but may be empty to use defaults.
+     * Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambdaForwarder` block is required within, but may be empty to use defaults.
      */
     logsConfig?: pulumi.Input<inputs.aws.IntegrationAccountLogsConfig>;
     /**
@@ -192,7 +192,7 @@ export interface IntegrationAccountArgs {
      */
     awsRegions?: pulumi.Input<inputs.aws.IntegrationAccountAwsRegions>;
     /**
-     * Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambdaFowarder` block is required within, but may be empty to use defaults.
+     * Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambdaForwarder` block is required within, but may be empty to use defaults.
      */
     logsConfig?: pulumi.Input<inputs.aws.IntegrationAccountLogsConfig>;
     /**

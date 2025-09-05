@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Aws.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Lambdas;
         /// <summary>
+        /// Configure log source collection for your Datadog Forwarder Lambda functions.
+        /// </summary>
+        public readonly Outputs.IntegrationAccountLogsConfigLambdaForwarderLogSourceConfig? LogSourceConfig;
+        /// <summary>
         /// List of service IDs set to enable automatic log collection. Use `datadog.aws.getIntegrationAvailableLogsServices` data source or [the AWS Logs Integration API](https://docs.datadoghq.com/api/latest/aws-logs-integration/?#get-list-of-aws-log-ready-services) to get allowed values. Defaults to `[]`.
         /// </summary>
         public readonly ImmutableArray<string> Sources;
@@ -26,9 +30,12 @@ namespace Pulumi.Datadog.Aws.Outputs
         private IntegrationAccountLogsConfigLambdaForwarder(
             ImmutableArray<string> lambdas,
 
+            Outputs.IntegrationAccountLogsConfigLambdaForwarderLogSourceConfig? logSourceConfig,
+
             ImmutableArray<string> sources)
         {
             Lambdas = lambdas;
+            LogSourceConfig = logSourceConfig;
             Sources = sources;
         }
     }

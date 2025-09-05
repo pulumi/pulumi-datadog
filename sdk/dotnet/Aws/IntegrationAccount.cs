@@ -52,7 +52,7 @@ namespace Pulumi.Datadog.Aws
         public Output<Outputs.IntegrationAccountAwsRegions?> AwsRegions { get; private set; } = null!;
 
         /// <summary>
-        /// Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_fowarder` block is required within, but may be empty to use defaults.
+        /// Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_forwarder` block is required within, but may be empty to use defaults.
         /// </summary>
         [Output("logsConfig")]
         public Output<Outputs.IntegrationAccountLogsConfig?> LogsConfig { get; private set; } = null!;
@@ -158,7 +158,7 @@ namespace Pulumi.Datadog.Aws
         public Input<Inputs.IntegrationAccountAwsRegionsArgs>? AwsRegions { get; set; }
 
         /// <summary>
-        /// Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_fowarder` block is required within, but may be empty to use defaults.
+        /// Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_forwarder` block is required within, but may be empty to use defaults.
         /// </summary>
         [Input("logsConfig")]
         public Input<Inputs.IntegrationAccountLogsConfigArgs>? LogsConfig { get; set; }
@@ -226,7 +226,7 @@ namespace Pulumi.Datadog.Aws
         public Input<Inputs.IntegrationAccountAwsRegionsGetArgs>? AwsRegions { get; set; }
 
         /// <summary>
-        /// Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_fowarder` block is required within, but may be empty to use defaults.
+        /// Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_forwarder` block is required within, but may be empty to use defaults.
         /// </summary>
         [Input("logsConfig")]
         public Input<Inputs.IntegrationAccountLogsConfigGetArgs>? LogsConfig { get; set; }

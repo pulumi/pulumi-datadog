@@ -4,9 +4,11 @@
 package com.pulumi.datadog.aws.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.aws.outputs.IntegrationAccountLogsConfigLambdaForwarderLogSourceConfig;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -16,6 +18,11 @@ public final class IntegrationAccountLogsConfigLambdaForwarder {
      * 
      */
     private @Nullable List<String> lambdas;
+    /**
+     * @return Configure log source collection for your Datadog Forwarder Lambda functions.
+     * 
+     */
+    private @Nullable IntegrationAccountLogsConfigLambdaForwarderLogSourceConfig logSourceConfig;
     /**
      * @return List of service IDs set to enable automatic log collection. Use `datadog.aws.getIntegrationAvailableLogsServices` data source or [the AWS Logs Integration API](https://docs.datadoghq.com/api/latest/aws-logs-integration/?#get-list-of-aws-log-ready-services) to get allowed values. Defaults to `[]`.
      * 
@@ -29,6 +36,13 @@ public final class IntegrationAccountLogsConfigLambdaForwarder {
      */
     public List<String> lambdas() {
         return this.lambdas == null ? List.of() : this.lambdas;
+    }
+    /**
+     * @return Configure log source collection for your Datadog Forwarder Lambda functions.
+     * 
+     */
+    public Optional<IntegrationAccountLogsConfigLambdaForwarderLogSourceConfig> logSourceConfig() {
+        return Optional.ofNullable(this.logSourceConfig);
     }
     /**
      * @return List of service IDs set to enable automatic log collection. Use `datadog.aws.getIntegrationAvailableLogsServices` data source or [the AWS Logs Integration API](https://docs.datadoghq.com/api/latest/aws-logs-integration/?#get-list-of-aws-log-ready-services) to get allowed values. Defaults to `[]`.
@@ -48,11 +62,13 @@ public final class IntegrationAccountLogsConfigLambdaForwarder {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> lambdas;
+        private @Nullable IntegrationAccountLogsConfigLambdaForwarderLogSourceConfig logSourceConfig;
         private @Nullable List<String> sources;
         public Builder() {}
         public Builder(IntegrationAccountLogsConfigLambdaForwarder defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.lambdas = defaults.lambdas;
+    	      this.logSourceConfig = defaults.logSourceConfig;
     	      this.sources = defaults.sources;
         }
 
@@ -66,6 +82,12 @@ public final class IntegrationAccountLogsConfigLambdaForwarder {
             return lambdas(List.of(lambdas));
         }
         @CustomType.Setter
+        public Builder logSourceConfig(@Nullable IntegrationAccountLogsConfigLambdaForwarderLogSourceConfig logSourceConfig) {
+
+            this.logSourceConfig = logSourceConfig;
+            return this;
+        }
+        @CustomType.Setter
         public Builder sources(@Nullable List<String> sources) {
 
             this.sources = sources;
@@ -77,6 +99,7 @@ public final class IntegrationAccountLogsConfigLambdaForwarder {
         public IntegrationAccountLogsConfigLambdaForwarder build() {
             final var _resultValue = new IntegrationAccountLogsConfigLambdaForwarder();
             _resultValue.lambdas = lambdas;
+            _resultValue.logSourceConfig = logSourceConfig;
             _resultValue.sources = sources;
             return _resultValue;
         }

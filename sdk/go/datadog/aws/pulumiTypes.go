@@ -775,6 +775,8 @@ func (o IntegrationAccountLogsConfigPtrOutput) LambdaForwarder() IntegrationAcco
 type IntegrationAccountLogsConfigLambdaForwarder struct {
 	// List of Datadog Lambda Log Forwarder ARNs in your AWS account. Defaults to `[]`.
 	Lambdas []string `pulumi:"lambdas"`
+	// Configure log source collection for your Datadog Forwarder Lambda functions.
+	LogSourceConfig *IntegrationAccountLogsConfigLambdaForwarderLogSourceConfig `pulumi:"logSourceConfig"`
 	// List of service IDs set to enable automatic log collection. Use `aws.getIntegrationAvailableLogsServices` data source or [the AWS Logs Integration API](https://docs.datadoghq.com/api/latest/aws-logs-integration/?#get-list-of-aws-log-ready-services) to get allowed values. Defaults to `[]`.
 	Sources []string `pulumi:"sources"`
 }
@@ -793,6 +795,8 @@ type IntegrationAccountLogsConfigLambdaForwarderInput interface {
 type IntegrationAccountLogsConfigLambdaForwarderArgs struct {
 	// List of Datadog Lambda Log Forwarder ARNs in your AWS account. Defaults to `[]`.
 	Lambdas pulumi.StringArrayInput `pulumi:"lambdas"`
+	// Configure log source collection for your Datadog Forwarder Lambda functions.
+	LogSourceConfig IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrInput `pulumi:"logSourceConfig"`
 	// List of service IDs set to enable automatic log collection. Use `aws.getIntegrationAvailableLogsServices` data source or [the AWS Logs Integration API](https://docs.datadoghq.com/api/latest/aws-logs-integration/?#get-list-of-aws-log-ready-services) to get allowed values. Defaults to `[]`.
 	Sources pulumi.StringArrayInput `pulumi:"sources"`
 }
@@ -879,6 +883,13 @@ func (o IntegrationAccountLogsConfigLambdaForwarderOutput) Lambdas() pulumi.Stri
 	return o.ApplyT(func(v IntegrationAccountLogsConfigLambdaForwarder) []string { return v.Lambdas }).(pulumi.StringArrayOutput)
 }
 
+// Configure log source collection for your Datadog Forwarder Lambda functions.
+func (o IntegrationAccountLogsConfigLambdaForwarderOutput) LogSourceConfig() IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountLogsConfigLambdaForwarder) *IntegrationAccountLogsConfigLambdaForwarderLogSourceConfig {
+		return v.LogSourceConfig
+	}).(IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrOutput)
+}
+
 // List of service IDs set to enable automatic log collection. Use `aws.getIntegrationAvailableLogsServices` data source or [the AWS Logs Integration API](https://docs.datadoghq.com/api/latest/aws-logs-integration/?#get-list-of-aws-log-ready-services) to get allowed values. Defaults to `[]`.
 func (o IntegrationAccountLogsConfigLambdaForwarderOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IntegrationAccountLogsConfigLambdaForwarder) []string { return v.Sources }).(pulumi.StringArrayOutput)
@@ -918,6 +929,16 @@ func (o IntegrationAccountLogsConfigLambdaForwarderPtrOutput) Lambdas() pulumi.S
 	}).(pulumi.StringArrayOutput)
 }
 
+// Configure log source collection for your Datadog Forwarder Lambda functions.
+func (o IntegrationAccountLogsConfigLambdaForwarderPtrOutput) LogSourceConfig() IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountLogsConfigLambdaForwarder) *IntegrationAccountLogsConfigLambdaForwarderLogSourceConfig {
+		if v == nil {
+			return nil
+		}
+		return v.LogSourceConfig
+	}).(IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrOutput)
+}
+
 // List of service IDs set to enable automatic log collection. Use `aws.getIntegrationAvailableLogsServices` data source or [the AWS Logs Integration API](https://docs.datadoghq.com/api/latest/aws-logs-integration/?#get-list-of-aws-log-ready-services) to get allowed values. Defaults to `[]`.
 func (o IntegrationAccountLogsConfigLambdaForwarderPtrOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IntegrationAccountLogsConfigLambdaForwarder) []string {
@@ -926,6 +947,251 @@ func (o IntegrationAccountLogsConfigLambdaForwarderPtrOutput) Sources() pulumi.S
 		}
 		return v.Sources
 	}).(pulumi.StringArrayOutput)
+}
+
+type IntegrationAccountLogsConfigLambdaForwarderLogSourceConfig struct {
+	// AWS Logs Collection tag filters list.
+	TagFilters []IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilter `pulumi:"tagFilters"`
+}
+
+// IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigInput is an input type that accepts IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigArgs and IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigOutput values.
+// You can construct a concrete instance of `IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigInput` via:
+//
+//	IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigArgs{...}
+type IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountLogsConfigLambdaForwarderLogSourceConfigOutput() IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigOutput
+	ToIntegrationAccountLogsConfigLambdaForwarderLogSourceConfigOutputWithContext(context.Context) IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigOutput
+}
+
+type IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigArgs struct {
+	// AWS Logs Collection tag filters list.
+	TagFilters IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArrayInput `pulumi:"tagFilters"`
+}
+
+func (IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountLogsConfigLambdaForwarderLogSourceConfig)(nil)).Elem()
+}
+
+func (i IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigArgs) ToIntegrationAccountLogsConfigLambdaForwarderLogSourceConfigOutput() IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigOutput {
+	return i.ToIntegrationAccountLogsConfigLambdaForwarderLogSourceConfigOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigArgs) ToIntegrationAccountLogsConfigLambdaForwarderLogSourceConfigOutputWithContext(ctx context.Context) IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigOutput)
+}
+
+func (i IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigArgs) ToIntegrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrOutput() IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrOutput {
+	return i.ToIntegrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigArgs) ToIntegrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrOutputWithContext(ctx context.Context) IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigOutput).ToIntegrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrOutputWithContext(ctx)
+}
+
+// IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrInput is an input type that accepts IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigArgs, IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigPtr and IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrOutput values.
+// You can construct a concrete instance of `IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrInput` via:
+//
+//	        IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrOutput() IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrOutput
+	ToIntegrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrOutputWithContext(context.Context) IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrOutput
+}
+
+type integrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrType IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigArgs
+
+func IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigPtr(v *IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigArgs) IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrInput {
+	return (*integrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrType)(v)
+}
+
+func (*integrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationAccountLogsConfigLambdaForwarderLogSourceConfig)(nil)).Elem()
+}
+
+func (i *integrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrType) ToIntegrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrOutput() IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrOutput {
+	return i.ToIntegrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrType) ToIntegrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrOutputWithContext(ctx context.Context) IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrOutput)
+}
+
+type IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountLogsConfigLambdaForwarderLogSourceConfig)(nil)).Elem()
+}
+
+func (o IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigOutput) ToIntegrationAccountLogsConfigLambdaForwarderLogSourceConfigOutput() IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigOutput {
+	return o
+}
+
+func (o IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigOutput) ToIntegrationAccountLogsConfigLambdaForwarderLogSourceConfigOutputWithContext(ctx context.Context) IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigOutput {
+	return o
+}
+
+func (o IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigOutput) ToIntegrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrOutput() IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrOutput {
+	return o.ToIntegrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigOutput) ToIntegrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrOutputWithContext(ctx context.Context) IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationAccountLogsConfigLambdaForwarderLogSourceConfig) *IntegrationAccountLogsConfigLambdaForwarderLogSourceConfig {
+		return &v
+	}).(IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrOutput)
+}
+
+// AWS Logs Collection tag filters list.
+func (o IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigOutput) TagFilters() IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArrayOutput {
+	return o.ApplyT(func(v IntegrationAccountLogsConfigLambdaForwarderLogSourceConfig) []IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilter {
+		return v.TagFilters
+	}).(IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArrayOutput)
+}
+
+type IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationAccountLogsConfigLambdaForwarderLogSourceConfig)(nil)).Elem()
+}
+
+func (o IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrOutput) ToIntegrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrOutput() IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrOutput {
+	return o
+}
+
+func (o IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrOutput) ToIntegrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrOutputWithContext(ctx context.Context) IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrOutput {
+	return o
+}
+
+func (o IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrOutput) Elem() IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigOutput {
+	return o.ApplyT(func(v *IntegrationAccountLogsConfigLambdaForwarderLogSourceConfig) IntegrationAccountLogsConfigLambdaForwarderLogSourceConfig {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationAccountLogsConfigLambdaForwarderLogSourceConfig
+		return ret
+	}).(IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigOutput)
+}
+
+// AWS Logs Collection tag filters list.
+func (o IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrOutput) TagFilters() IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArrayOutput {
+	return o.ApplyT(func(v *IntegrationAccountLogsConfigLambdaForwarderLogSourceConfig) []IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilter {
+		if v == nil {
+			return nil
+		}
+		return v.TagFilters
+	}).(IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArrayOutput)
+}
+
+type IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilter struct {
+	// The AWS service for which the tag filters defined in `tags` will be applied.
+	Source string `pulumi:"source"`
+	// The AWS resource tags to filter on for the service specified by `source`.
+	Tags []string `pulumi:"tags"`
+}
+
+// IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterInput is an input type that accepts IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArgs and IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterOutput values.
+// You can construct a concrete instance of `IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterInput` via:
+//
+//	IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArgs{...}
+type IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterOutput() IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterOutput
+	ToIntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterOutputWithContext(context.Context) IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterOutput
+}
+
+type IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArgs struct {
+	// The AWS service for which the tag filters defined in `tags` will be applied.
+	Source pulumi.StringInput `pulumi:"source"`
+	// The AWS resource tags to filter on for the service specified by `source`.
+	Tags pulumi.StringArrayInput `pulumi:"tags"`
+}
+
+func (IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilter)(nil)).Elem()
+}
+
+func (i IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArgs) ToIntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterOutput() IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterOutput {
+	return i.ToIntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArgs) ToIntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterOutputWithContext(ctx context.Context) IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterOutput)
+}
+
+// IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArrayInput is an input type that accepts IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArray and IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArrayOutput values.
+// You can construct a concrete instance of `IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArrayInput` via:
+//
+//	IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArray{ IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArgs{...} }
+type IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArrayInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArrayOutput() IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArrayOutput
+	ToIntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArrayOutputWithContext(context.Context) IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArrayOutput
+}
+
+type IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArray []IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterInput
+
+func (IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilter)(nil)).Elem()
+}
+
+func (i IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArray) ToIntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArrayOutput() IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArrayOutput {
+	return i.ToIntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArrayOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArray) ToIntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArrayOutputWithContext(ctx context.Context) IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArrayOutput)
+}
+
+type IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilter)(nil)).Elem()
+}
+
+func (o IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterOutput) ToIntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterOutput() IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterOutput {
+	return o
+}
+
+func (o IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterOutput) ToIntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterOutputWithContext(ctx context.Context) IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterOutput {
+	return o
+}
+
+// The AWS service for which the tag filters defined in `tags` will be applied.
+func (o IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterOutput) Source() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilter) string { return v.Source }).(pulumi.StringOutput)
+}
+
+// The AWS resource tags to filter on for the service specified by `source`.
+func (o IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterOutput) Tags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilter) []string { return v.Tags }).(pulumi.StringArrayOutput)
+}
+
+type IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilter)(nil)).Elem()
+}
+
+func (o IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArrayOutput) ToIntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArrayOutput() IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArrayOutput {
+	return o
+}
+
+func (o IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArrayOutput) ToIntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArrayOutputWithContext(ctx context.Context) IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArrayOutput {
+	return o
+}
+
+func (o IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArrayOutput) Index(i pulumi.IntInput) IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilter {
+		return vs[0].([]IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilter)[vs[1].(int)]
+	}).(IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterOutput)
 }
 
 type IntegrationAccountMetricsConfig struct {
@@ -1165,7 +1431,7 @@ func (o IntegrationAccountMetricsConfigPtrOutput) TagFilters() IntegrationAccoun
 }
 
 type IntegrationAccountMetricsConfigNamespaceFilters struct {
-	// Exclude only these namespaces from metrics collection. Use `aws.getIntegrationAvailableNamespaces` data source to get allowed values. Defaults to `["AWS/SQS", "AWS/ElasticMapReduce"]`. `AWS/SQS` and `AWS/ElasticMapReduce` are excluded by default to reduce your AWS CloudWatch costs from `GetMetricData` API calls.
+	// Exclude only these namespaces from metrics collection. Use `aws.getIntegrationAvailableNamespaces` data source to get allowed values. Defaults to `["AWS/SQS", "AWS/ElasticMapReduce", "AWS/Usage"]`. `AWS/SQS`, `AWS/ElasticMapReduce`, and `AWS/Usage` are excluded by default to reduce your AWS CloudWatch costs from `GetMetricData` API calls.
 	ExcludeOnlies []string `pulumi:"excludeOnlies"`
 	// Include only these namespaces for metrics collection. Use `aws.getIntegrationAvailableNamespaces` data source to get allowed values.
 	IncludeOnlies []string `pulumi:"includeOnlies"`
@@ -1183,7 +1449,7 @@ type IntegrationAccountMetricsConfigNamespaceFiltersInput interface {
 }
 
 type IntegrationAccountMetricsConfigNamespaceFiltersArgs struct {
-	// Exclude only these namespaces from metrics collection. Use `aws.getIntegrationAvailableNamespaces` data source to get allowed values. Defaults to `["AWS/SQS", "AWS/ElasticMapReduce"]`. `AWS/SQS` and `AWS/ElasticMapReduce` are excluded by default to reduce your AWS CloudWatch costs from `GetMetricData` API calls.
+	// Exclude only these namespaces from metrics collection. Use `aws.getIntegrationAvailableNamespaces` data source to get allowed values. Defaults to `["AWS/SQS", "AWS/ElasticMapReduce", "AWS/Usage"]`. `AWS/SQS`, `AWS/ElasticMapReduce`, and `AWS/Usage` are excluded by default to reduce your AWS CloudWatch costs from `GetMetricData` API calls.
 	ExcludeOnlies pulumi.StringArrayInput `pulumi:"excludeOnlies"`
 	// Include only these namespaces for metrics collection. Use `aws.getIntegrationAvailableNamespaces` data source to get allowed values.
 	IncludeOnlies pulumi.StringArrayInput `pulumi:"includeOnlies"`
@@ -1266,7 +1532,7 @@ func (o IntegrationAccountMetricsConfigNamespaceFiltersOutput) ToIntegrationAcco
 	}).(IntegrationAccountMetricsConfigNamespaceFiltersPtrOutput)
 }
 
-// Exclude only these namespaces from metrics collection. Use `aws.getIntegrationAvailableNamespaces` data source to get allowed values. Defaults to `["AWS/SQS", "AWS/ElasticMapReduce"]`. `AWS/SQS` and `AWS/ElasticMapReduce` are excluded by default to reduce your AWS CloudWatch costs from `GetMetricData` API calls.
+// Exclude only these namespaces from metrics collection. Use `aws.getIntegrationAvailableNamespaces` data source to get allowed values. Defaults to `["AWS/SQS", "AWS/ElasticMapReduce", "AWS/Usage"]`. `AWS/SQS`, `AWS/ElasticMapReduce`, and `AWS/Usage` are excluded by default to reduce your AWS CloudWatch costs from `GetMetricData` API calls.
 func (o IntegrationAccountMetricsConfigNamespaceFiltersOutput) ExcludeOnlies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IntegrationAccountMetricsConfigNamespaceFilters) []string { return v.ExcludeOnlies }).(pulumi.StringArrayOutput)
 }
@@ -1300,7 +1566,7 @@ func (o IntegrationAccountMetricsConfigNamespaceFiltersPtrOutput) Elem() Integra
 	}).(IntegrationAccountMetricsConfigNamespaceFiltersOutput)
 }
 
-// Exclude only these namespaces from metrics collection. Use `aws.getIntegrationAvailableNamespaces` data source to get allowed values. Defaults to `["AWS/SQS", "AWS/ElasticMapReduce"]`. `AWS/SQS` and `AWS/ElasticMapReduce` are excluded by default to reduce your AWS CloudWatch costs from `GetMetricData` API calls.
+// Exclude only these namespaces from metrics collection. Use `aws.getIntegrationAvailableNamespaces` data source to get allowed values. Defaults to `["AWS/SQS", "AWS/ElasticMapReduce", "AWS/Usage"]`. `AWS/SQS`, `AWS/ElasticMapReduce`, and `AWS/Usage` are excluded by default to reduce your AWS CloudWatch costs from `GetMetricData` API calls.
 func (o IntegrationAccountMetricsConfigNamespaceFiltersPtrOutput) ExcludeOnlies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IntegrationAccountMetricsConfigNamespaceFilters) []string {
 		if v == nil {
@@ -1996,6 +2262,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountLogsConfigPtrInput)(nil)).Elem(), IntegrationAccountLogsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountLogsConfigLambdaForwarderInput)(nil)).Elem(), IntegrationAccountLogsConfigLambdaForwarderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountLogsConfigLambdaForwarderPtrInput)(nil)).Elem(), IntegrationAccountLogsConfigLambdaForwarderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigInput)(nil)).Elem(), IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrInput)(nil)).Elem(), IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterInput)(nil)).Elem(), IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArrayInput)(nil)).Elem(), IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountMetricsConfigInput)(nil)).Elem(), IntegrationAccountMetricsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountMetricsConfigPtrInput)(nil)).Elem(), IntegrationAccountMetricsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountMetricsConfigNamespaceFiltersInput)(nil)).Elem(), IntegrationAccountMetricsConfigNamespaceFiltersArgs{})
@@ -2022,6 +2292,10 @@ func init() {
 	pulumi.RegisterOutputType(IntegrationAccountLogsConfigPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountLogsConfigLambdaForwarderOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountLogsConfigLambdaForwarderPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArrayOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountMetricsConfigOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountMetricsConfigPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountMetricsConfigNamespaceFiltersOutput{})

@@ -5,6 +5,7 @@ package com.pulumi.datadog.aws.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.aws.inputs.IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigArgs;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -32,6 +33,21 @@ public final class IntegrationAccountLogsConfigLambdaForwarderArgs extends com.p
     }
 
     /**
+     * Configure log source collection for your Datadog Forwarder Lambda functions.
+     * 
+     */
+    @Import(name="logSourceConfig")
+    private @Nullable Output<IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigArgs> logSourceConfig;
+
+    /**
+     * @return Configure log source collection for your Datadog Forwarder Lambda functions.
+     * 
+     */
+    public Optional<Output<IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigArgs>> logSourceConfig() {
+        return Optional.ofNullable(this.logSourceConfig);
+    }
+
+    /**
      * List of service IDs set to enable automatic log collection. Use `datadog.aws.getIntegrationAvailableLogsServices` data source or [the AWS Logs Integration API](https://docs.datadoghq.com/api/latest/aws-logs-integration/?#get-list-of-aws-log-ready-services) to get allowed values. Defaults to `[]`.
      * 
      */
@@ -50,6 +66,7 @@ public final class IntegrationAccountLogsConfigLambdaForwarderArgs extends com.p
 
     private IntegrationAccountLogsConfigLambdaForwarderArgs(IntegrationAccountLogsConfigLambdaForwarderArgs $) {
         this.lambdas = $.lambdas;
+        this.logSourceConfig = $.logSourceConfig;
         this.sources = $.sources;
     }
 
@@ -100,6 +117,27 @@ public final class IntegrationAccountLogsConfigLambdaForwarderArgs extends com.p
          */
         public Builder lambdas(String... lambdas) {
             return lambdas(List.of(lambdas));
+        }
+
+        /**
+         * @param logSourceConfig Configure log source collection for your Datadog Forwarder Lambda functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logSourceConfig(@Nullable Output<IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigArgs> logSourceConfig) {
+            $.logSourceConfig = logSourceConfig;
+            return this;
+        }
+
+        /**
+         * @param logSourceConfig Configure log source collection for your Datadog Forwarder Lambda functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logSourceConfig(IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigArgs logSourceConfig) {
+            return logSourceConfig(Output.of(logSourceConfig));
         }
 
         /**

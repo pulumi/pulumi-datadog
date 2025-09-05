@@ -104,14 +104,14 @@ public class IntegrationAccount extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.awsRegions);
     }
     /**
-     * Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_fowarder` block is required within, but may be empty to use defaults.
+     * Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_forwarder` block is required within, but may be empty to use defaults.
      * 
      */
     @Export(name="logsConfig", refs={IntegrationAccountLogsConfig.class}, tree="[0]")
     private Output</* @Nullable */ IntegrationAccountLogsConfig> logsConfig;
 
     /**
-     * @return Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_fowarder` block is required within, but may be empty to use defaults.
+     * @return Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_forwarder` block is required within, but may be empty to use defaults.
      * 
      */
     public Output<Optional<IntegrationAccountLogsConfig>> logsConfig() {

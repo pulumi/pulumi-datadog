@@ -26,7 +26,7 @@ class AgentlessScanningAwsScanOptionsArgs:
                  vuln_host_os: pulumi.Input[_builtins.bool]):
         """
         The set of arguments for constructing a AgentlessScanningAwsScanOptions resource.
-        :param pulumi.Input[_builtins.str] aws_account_id: The AWS Account ID for which agentless scanning is configured.
+        :param pulumi.Input[_builtins.str] aws_account_id: The AWS account ID for which agentless scanning is configured. Must be a valid AWS account ID.
         :param pulumi.Input[_builtins.bool] lambda_: Indicates if scanning of Lambda functions is enabled.
         :param pulumi.Input[_builtins.bool] sensitive_data: Indicates if scanning for sensitive data is enabled.
         :param pulumi.Input[_builtins.bool] vuln_containers_os: Indicates if scanning for vulnerabilities in containers is enabled.
@@ -42,7 +42,7 @@ class AgentlessScanningAwsScanOptionsArgs:
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The AWS Account ID for which agentless scanning is configured.
+        The AWS account ID for which agentless scanning is configured. Must be a valid AWS account ID.
         """
         return pulumi.get(self, "aws_account_id")
 
@@ -109,7 +109,7 @@ class _AgentlessScanningAwsScanOptionsState:
                  vuln_host_os: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering AgentlessScanningAwsScanOptions resources.
-        :param pulumi.Input[_builtins.str] aws_account_id: The AWS Account ID for which agentless scanning is configured.
+        :param pulumi.Input[_builtins.str] aws_account_id: The AWS account ID for which agentless scanning is configured. Must be a valid AWS account ID.
         :param pulumi.Input[_builtins.bool] lambda_: Indicates if scanning of Lambda functions is enabled.
         :param pulumi.Input[_builtins.bool] sensitive_data: Indicates if scanning for sensitive data is enabled.
         :param pulumi.Input[_builtins.bool] vuln_containers_os: Indicates if scanning for vulnerabilities in containers is enabled.
@@ -130,7 +130,7 @@ class _AgentlessScanningAwsScanOptionsState:
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The AWS Account ID for which agentless scanning is configured.
+        The AWS account ID for which agentless scanning is configured. Must be a valid AWS account ID.
         """
         return pulumi.get(self, "aws_account_id")
 
@@ -221,9 +221,9 @@ class AgentlessScanningAwsScanOptions(pulumi.CustomResource):
 
         The `pulumi import` command can be used, for example:
 
-        #!/bin/bash
+        #!/bin/sh
 
-        Import existing agentless scanning aws scan options by AWS Account ID
+        Import existing agentless scanning AWS scan options by AWS account ID
 
         ```sh
         $ pulumi import datadog:index/agentlessScanningAwsScanOptions:AgentlessScanningAwsScanOptions example 123456789012
@@ -231,7 +231,7 @@ class AgentlessScanningAwsScanOptions(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] aws_account_id: The AWS Account ID for which agentless scanning is configured.
+        :param pulumi.Input[_builtins.str] aws_account_id: The AWS account ID for which agentless scanning is configured. Must be a valid AWS account ID.
         :param pulumi.Input[_builtins.bool] lambda_: Indicates if scanning of Lambda functions is enabled.
         :param pulumi.Input[_builtins.bool] sensitive_data: Indicates if scanning for sensitive data is enabled.
         :param pulumi.Input[_builtins.bool] vuln_containers_os: Indicates if scanning for vulnerabilities in containers is enabled.
@@ -265,9 +265,9 @@ class AgentlessScanningAwsScanOptions(pulumi.CustomResource):
 
         The `pulumi import` command can be used, for example:
 
-        #!/bin/bash
+        #!/bin/sh
 
-        Import existing agentless scanning aws scan options by AWS Account ID
+        Import existing agentless scanning AWS scan options by AWS account ID
 
         ```sh
         $ pulumi import datadog:index/agentlessScanningAwsScanOptions:AgentlessScanningAwsScanOptions example 123456789012
@@ -339,7 +339,7 @@ class AgentlessScanningAwsScanOptions(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] aws_account_id: The AWS Account ID for which agentless scanning is configured.
+        :param pulumi.Input[_builtins.str] aws_account_id: The AWS account ID for which agentless scanning is configured. Must be a valid AWS account ID.
         :param pulumi.Input[_builtins.bool] lambda_: Indicates if scanning of Lambda functions is enabled.
         :param pulumi.Input[_builtins.bool] sensitive_data: Indicates if scanning for sensitive data is enabled.
         :param pulumi.Input[_builtins.bool] vuln_containers_os: Indicates if scanning for vulnerabilities in containers is enabled.
@@ -360,7 +360,7 @@ class AgentlessScanningAwsScanOptions(pulumi.CustomResource):
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The AWS Account ID for which agentless scanning is configured.
+        The AWS account ID for which agentless scanning is configured. Must be a valid AWS account ID.
         """
         return pulumi.get(self, "aws_account_id")
 

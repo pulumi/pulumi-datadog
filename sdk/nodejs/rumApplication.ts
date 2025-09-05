@@ -16,6 +16,8 @@ import * as utilities from "./utilities";
  * const rumApplication = new datadog.RumApplication("rum_application", {
  *     name: "my-application",
  *     type: "browser",
+ *     rumEventProcessingState: "ALL",
+ *     productAnalyticsRetentionState: "NONE",
  * });
  * ```
  *
@@ -64,6 +66,14 @@ export class RumApplication extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
+     * Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.
+     */
+    declare public readonly productAnalyticsRetentionState: pulumi.Output<string>;
+    /**
+     * Configures which RUM events are processed and stored for the application. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
+     */
+    declare public readonly rumEventProcessingState: pulumi.Output<string>;
+    /**
      * Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `"browser"`.
      */
     declare public readonly type: pulumi.Output<string>;
@@ -83,6 +93,8 @@ export class RumApplication extends pulumi.CustomResource {
             const state = argsOrState as RumApplicationState | undefined;
             resourceInputs["clientToken"] = state?.clientToken;
             resourceInputs["name"] = state?.name;
+            resourceInputs["productAnalyticsRetentionState"] = state?.productAnalyticsRetentionState;
+            resourceInputs["rumEventProcessingState"] = state?.rumEventProcessingState;
             resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as RumApplicationArgs | undefined;
@@ -90,6 +102,8 @@ export class RumApplication extends pulumi.CustomResource {
                 throw new Error("Missing required property 'name'");
             }
             resourceInputs["name"] = args?.name;
+            resourceInputs["productAnalyticsRetentionState"] = args?.productAnalyticsRetentionState;
+            resourceInputs["rumEventProcessingState"] = args?.rumEventProcessingState;
             resourceInputs["type"] = args?.type;
             resourceInputs["clientToken"] = undefined /*out*/;
         }
@@ -111,6 +125,14 @@ export interface RumApplicationState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.
+     */
+    productAnalyticsRetentionState?: pulumi.Input<string>;
+    /**
+     * Configures which RUM events are processed and stored for the application. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
+     */
+    rumEventProcessingState?: pulumi.Input<string>;
+    /**
      * Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `"browser"`.
      */
     type?: pulumi.Input<string>;
@@ -124,6 +146,14 @@ export interface RumApplicationArgs {
      * Name of the RUM application.
      */
     name: pulumi.Input<string>;
+    /**
+     * Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.
+     */
+    productAnalyticsRetentionState?: pulumi.Input<string>;
+    /**
+     * Configures which RUM events are processed and stored for the application. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
+     */
+    rumEventProcessingState?: pulumi.Input<string>;
     /**
      * Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `"browser"`.
      */

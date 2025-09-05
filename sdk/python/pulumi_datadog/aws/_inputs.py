@@ -27,6 +27,10 @@ __all__ = [
     'IntegrationAccountLogsConfigArgsDict',
     'IntegrationAccountLogsConfigLambdaForwarderArgs',
     'IntegrationAccountLogsConfigLambdaForwarderArgsDict',
+    'IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigArgs',
+    'IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigArgsDict',
+    'IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArgs',
+    'IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArgsDict',
     'IntegrationAccountMetricsConfigArgs',
     'IntegrationAccountMetricsConfigArgsDict',
     'IntegrationAccountMetricsConfigNamespaceFiltersArgs',
@@ -275,6 +279,10 @@ if not MYPY:
         """
         List of Datadog Lambda Log Forwarder ARNs in your AWS account. Defaults to `[]`.
         """
+        log_source_config: NotRequired[pulumi.Input['IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigArgsDict']]
+        """
+        Configure log source collection for your Datadog Forwarder Lambda functions.
+        """
         sources: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
         """
         List of service IDs set to enable automatic log collection. Use `aws_get_integration_available_logs_services` data source or [the AWS Logs Integration API](https://docs.datadoghq.com/api/latest/aws-logs-integration/?#get-list-of-aws-log-ready-services) to get allowed values. Defaults to `[]`.
@@ -286,13 +294,17 @@ elif False:
 class IntegrationAccountLogsConfigLambdaForwarderArgs:
     def __init__(__self__, *,
                  lambdas: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 log_source_config: Optional[pulumi.Input['IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigArgs']] = None,
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] lambdas: List of Datadog Lambda Log Forwarder ARNs in your AWS account. Defaults to `[]`.
+        :param pulumi.Input['IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigArgs'] log_source_config: Configure log source collection for your Datadog Forwarder Lambda functions.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] sources: List of service IDs set to enable automatic log collection. Use `aws_get_integration_available_logs_services` data source or [the AWS Logs Integration API](https://docs.datadoghq.com/api/latest/aws-logs-integration/?#get-list-of-aws-log-ready-services) to get allowed values. Defaults to `[]`.
         """
         if lambdas is not None:
             pulumi.set(__self__, "lambdas", lambdas)
+        if log_source_config is not None:
+            pulumi.set(__self__, "log_source_config", log_source_config)
         if sources is not None:
             pulumi.set(__self__, "sources", sources)
 
@@ -309,6 +321,18 @@ class IntegrationAccountLogsConfigLambdaForwarderArgs:
         pulumi.set(self, "lambdas", value)
 
     @_builtins.property
+    @pulumi.getter(name="logSourceConfig")
+    def log_source_config(self) -> Optional[pulumi.Input['IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigArgs']]:
+        """
+        Configure log source collection for your Datadog Forwarder Lambda functions.
+        """
+        return pulumi.get(self, "log_source_config")
+
+    @log_source_config.setter
+    def log_source_config(self, value: Optional[pulumi.Input['IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigArgs']]):
+        pulumi.set(self, "log_source_config", value)
+
+    @_builtins.property
     @pulumi.getter
     def sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
@@ -319,6 +343,88 @@ class IntegrationAccountLogsConfigLambdaForwarderArgs:
     @sources.setter
     def sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "sources", value)
+
+
+if not MYPY:
+    class IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigArgsDict(TypedDict):
+        tag_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArgsDict']]]]
+        """
+        AWS Logs Collection tag filters list.
+        """
+elif False:
+    IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigArgs:
+    def __init__(__self__, *,
+                 tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArgs']]] tag_filters: AWS Logs Collection tag filters list.
+        """
+        if tag_filters is not None:
+            pulumi.set(__self__, "tag_filters", tag_filters)
+
+    @_builtins.property
+    @pulumi.getter(name="tagFilters")
+    def tag_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArgs']]]]:
+        """
+        AWS Logs Collection tag filters list.
+        """
+        return pulumi.get(self, "tag_filters")
+
+    @tag_filters.setter
+    def tag_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArgs']]]]):
+        pulumi.set(self, "tag_filters", value)
+
+
+if not MYPY:
+    class IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArgsDict(TypedDict):
+        source: pulumi.Input[_builtins.str]
+        """
+        The AWS service for which the tag filters defined in `tags` will be applied.
+        """
+        tags: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        """
+        The AWS resource tags to filter on for the service specified by `source`.
+        """
+elif False:
+    IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArgs:
+    def __init__(__self__, *,
+                 source: pulumi.Input[_builtins.str],
+                 tags: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[_builtins.str] source: The AWS service for which the tag filters defined in `tags` will be applied.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: The AWS resource tags to filter on for the service specified by `source`.
+        """
+        pulumi.set(__self__, "source", source)
+        pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> pulumi.Input[_builtins.str]:
+        """
+        The AWS service for which the tag filters defined in `tags` will be applied.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "source", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        The AWS resource tags to filter on for the service specified by `source`.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "tags", value)
 
 
 if not MYPY:
@@ -457,7 +563,7 @@ if not MYPY:
     class IntegrationAccountMetricsConfigNamespaceFiltersArgsDict(TypedDict):
         exclude_onlies: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
         """
-        Exclude only these namespaces from metrics collection. Use `aws_get_integration_available_namespaces` data source to get allowed values. Defaults to `["AWS/SQS", "AWS/ElasticMapReduce"]`. `AWS/SQS` and `AWS/ElasticMapReduce` are excluded by default to reduce your AWS CloudWatch costs from `GetMetricData` API calls.
+        Exclude only these namespaces from metrics collection. Use `aws_get_integration_available_namespaces` data source to get allowed values. Defaults to `["AWS/SQS", "AWS/ElasticMapReduce", "AWS/Usage"]`. `AWS/SQS`, `AWS/ElasticMapReduce`, and `AWS/Usage` are excluded by default to reduce your AWS CloudWatch costs from `GetMetricData` API calls.
         """
         include_onlies: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
         """
@@ -472,7 +578,7 @@ class IntegrationAccountMetricsConfigNamespaceFiltersArgs:
                  exclude_onlies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  include_onlies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] exclude_onlies: Exclude only these namespaces from metrics collection. Use `aws_get_integration_available_namespaces` data source to get allowed values. Defaults to `["AWS/SQS", "AWS/ElasticMapReduce"]`. `AWS/SQS` and `AWS/ElasticMapReduce` are excluded by default to reduce your AWS CloudWatch costs from `GetMetricData` API calls.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] exclude_onlies: Exclude only these namespaces from metrics collection. Use `aws_get_integration_available_namespaces` data source to get allowed values. Defaults to `["AWS/SQS", "AWS/ElasticMapReduce", "AWS/Usage"]`. `AWS/SQS`, `AWS/ElasticMapReduce`, and `AWS/Usage` are excluded by default to reduce your AWS CloudWatch costs from `GetMetricData` API calls.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] include_onlies: Include only these namespaces for metrics collection. Use `aws_get_integration_available_namespaces` data source to get allowed values.
         """
         if exclude_onlies is not None:
@@ -484,7 +590,7 @@ class IntegrationAccountMetricsConfigNamespaceFiltersArgs:
     @pulumi.getter(name="excludeOnlies")
     def exclude_onlies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Exclude only these namespaces from metrics collection. Use `aws_get_integration_available_namespaces` data source to get allowed values. Defaults to `["AWS/SQS", "AWS/ElasticMapReduce"]`. `AWS/SQS` and `AWS/ElasticMapReduce` are excluded by default to reduce your AWS CloudWatch costs from `GetMetricData` API calls.
+        Exclude only these namespaces from metrics collection. Use `aws_get_integration_available_namespaces` data source to get allowed values. Defaults to `["AWS/SQS", "AWS/ElasticMapReduce", "AWS/Usage"]`. `AWS/SQS`, `AWS/ElasticMapReduce`, and `AWS/Usage` are excluded by default to reduce your AWS CloudWatch costs from `GetMetricData` API calls.
         """
         return pulumi.get(self, "exclude_onlies")
 

@@ -32,7 +32,7 @@ type IntegrationAccount struct {
 	AwsPartition pulumi.StringOutput `pulumi:"awsPartition"`
 	// AWS regions to collect data from. Defaults to `includeAll` if block is empty.
 	AwsRegions IntegrationAccountAwsRegionsPtrOutput `pulumi:"awsRegions"`
-	// Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambdaFowarder` block is required within, but may be empty to use defaults.
+	// Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambdaForwarder` block is required within, but may be empty to use defaults.
 	LogsConfig IntegrationAccountLogsConfigPtrOutput `pulumi:"logsConfig"`
 	// Configure metrics collection from AWS CloudWatch. The `namespaceFilters` block is required within, but may be empty to use defaults.
 	MetricsConfig IntegrationAccountMetricsConfigPtrOutput `pulumi:"metricsConfig"`
@@ -88,7 +88,7 @@ type integrationAccountState struct {
 	AwsPartition *string `pulumi:"awsPartition"`
 	// AWS regions to collect data from. Defaults to `includeAll` if block is empty.
 	AwsRegions *IntegrationAccountAwsRegions `pulumi:"awsRegions"`
-	// Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambdaFowarder` block is required within, but may be empty to use defaults.
+	// Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambdaForwarder` block is required within, but may be empty to use defaults.
 	LogsConfig *IntegrationAccountLogsConfig `pulumi:"logsConfig"`
 	// Configure metrics collection from AWS CloudWatch. The `namespaceFilters` block is required within, but may be empty to use defaults.
 	MetricsConfig *IntegrationAccountMetricsConfig `pulumi:"metricsConfig"`
@@ -109,7 +109,7 @@ type IntegrationAccountState struct {
 	AwsPartition pulumi.StringPtrInput
 	// AWS regions to collect data from. Defaults to `includeAll` if block is empty.
 	AwsRegions IntegrationAccountAwsRegionsPtrInput
-	// Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambdaFowarder` block is required within, but may be empty to use defaults.
+	// Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambdaForwarder` block is required within, but may be empty to use defaults.
 	LogsConfig IntegrationAccountLogsConfigPtrInput
 	// Configure metrics collection from AWS CloudWatch. The `namespaceFilters` block is required within, but may be empty to use defaults.
 	MetricsConfig IntegrationAccountMetricsConfigPtrInput
@@ -134,7 +134,7 @@ type integrationAccountArgs struct {
 	AwsPartition string `pulumi:"awsPartition"`
 	// AWS regions to collect data from. Defaults to `includeAll` if block is empty.
 	AwsRegions *IntegrationAccountAwsRegions `pulumi:"awsRegions"`
-	// Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambdaFowarder` block is required within, but may be empty to use defaults.
+	// Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambdaForwarder` block is required within, but may be empty to use defaults.
 	LogsConfig *IntegrationAccountLogsConfig `pulumi:"logsConfig"`
 	// Configure metrics collection from AWS CloudWatch. The `namespaceFilters` block is required within, but may be empty to use defaults.
 	MetricsConfig *IntegrationAccountMetricsConfig `pulumi:"metricsConfig"`
@@ -156,7 +156,7 @@ type IntegrationAccountArgs struct {
 	AwsPartition pulumi.StringInput
 	// AWS regions to collect data from. Defaults to `includeAll` if block is empty.
 	AwsRegions IntegrationAccountAwsRegionsPtrInput
-	// Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambdaFowarder` block is required within, but may be empty to use defaults.
+	// Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambdaForwarder` block is required within, but may be empty to use defaults.
 	LogsConfig IntegrationAccountLogsConfigPtrInput
 	// Configure metrics collection from AWS CloudWatch. The `namespaceFilters` block is required within, but may be empty to use defaults.
 	MetricsConfig IntegrationAccountMetricsConfigPtrInput
@@ -278,7 +278,7 @@ func (o IntegrationAccountOutput) AwsRegions() IntegrationAccountAwsRegionsPtrOu
 	return o.ApplyT(func(v *IntegrationAccount) IntegrationAccountAwsRegionsPtrOutput { return v.AwsRegions }).(IntegrationAccountAwsRegionsPtrOutput)
 }
 
-// Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambdaFowarder` block is required within, but may be empty to use defaults.
+// Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambdaForwarder` block is required within, but may be empty to use defaults.
 func (o IntegrationAccountOutput) LogsConfig() IntegrationAccountLogsConfigPtrOutput {
 	return o.ApplyT(func(v *IntegrationAccount) IntegrationAccountLogsConfigPtrOutput { return v.LogsConfig }).(IntegrationAccountLogsConfigPtrOutput)
 }

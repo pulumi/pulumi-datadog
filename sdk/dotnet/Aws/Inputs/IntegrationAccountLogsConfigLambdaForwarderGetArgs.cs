@@ -24,6 +24,12 @@ namespace Pulumi.Datadog.Aws.Inputs
             set => _lambdas = value;
         }
 
+        /// <summary>
+        /// Configure log source collection for your Datadog Forwarder Lambda functions.
+        /// </summary>
+        [Input("logSourceConfig")]
+        public Input<Inputs.IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigGetArgs>? LogSourceConfig { get; set; }
+
         [Input("sources")]
         private InputList<string>? _sources;
 
