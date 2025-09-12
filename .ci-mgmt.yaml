@@ -3,6 +3,8 @@ major-version: 4
 upstreamProviderOrg: DataDog
 lint: false
 makeTemplate: bridged
+esc:
+  enabled: true
 env:
   DATADOG_APP_KEY: ${{ secrets.DATADOG_APP_KEY }}
   DATADOG_API_KEY: ${{ secrets.DATADOG_API_KEY }}
