@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.SecurityMonitoringDefaultRuleQueryAgentRule;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -47,6 +48,11 @@ public final class SecurityMonitoringDefaultRuleQuery {
      * 
      */
     private @Nullable List<String> groupByFields;
+    /**
+     * @return When false, events without a group-by value are ignored by the rule. When true, events with missing group-by fields are processed with `N/A`, replacing the missing values.
+     * 
+     */
+    private @Nullable Boolean hasOptionalGroupByFields;
     /**
      * @return The target field to aggregate over when using the `sum`, `max`, or `geo_data` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
      * 
@@ -120,6 +126,13 @@ public final class SecurityMonitoringDefaultRuleQuery {
         return this.groupByFields == null ? List.of() : this.groupByFields;
     }
     /**
+     * @return When false, events without a group-by value are ignored by the rule. When true, events with missing group-by fields are processed with `N/A`, replacing the missing values.
+     * 
+     */
+    public Optional<Boolean> hasOptionalGroupByFields() {
+        return Optional.ofNullable(this.hasOptionalGroupByFields);
+    }
+    /**
      * @return The target field to aggregate over when using the `sum`, `max`, or `geo_data` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
      * 
      * @deprecated
@@ -167,6 +180,7 @@ public final class SecurityMonitoringDefaultRuleQuery {
         private @Nullable String dataSource;
         private @Nullable List<String> distinctFields;
         private @Nullable List<String> groupByFields;
+        private @Nullable Boolean hasOptionalGroupByFields;
         private @Nullable String metric;
         private @Nullable List<String> metrics;
         private @Nullable String name;
@@ -180,6 +194,7 @@ public final class SecurityMonitoringDefaultRuleQuery {
     	      this.dataSource = defaults.dataSource;
     	      this.distinctFields = defaults.distinctFields;
     	      this.groupByFields = defaults.groupByFields;
+    	      this.hasOptionalGroupByFields = defaults.hasOptionalGroupByFields;
     	      this.metric = defaults.metric;
     	      this.metrics = defaults.metrics;
     	      this.name = defaults.name;
@@ -232,6 +247,12 @@ public final class SecurityMonitoringDefaultRuleQuery {
             return groupByFields(List.of(groupByFields));
         }
         @CustomType.Setter
+        public Builder hasOptionalGroupByFields(@Nullable Boolean hasOptionalGroupByFields) {
+
+            this.hasOptionalGroupByFields = hasOptionalGroupByFields;
+            return this;
+        }
+        @CustomType.Setter
         public Builder metric(@Nullable String metric) {
 
             this.metric = metric;
@@ -266,6 +287,7 @@ public final class SecurityMonitoringDefaultRuleQuery {
             _resultValue.dataSource = dataSource;
             _resultValue.distinctFields = distinctFields;
             _resultValue.groupByFields = groupByFields;
+            _resultValue.hasOptionalGroupByFields = hasOptionalGroupByFields;
             _resultValue.metric = metric;
             _resultValue.metrics = metrics;
             _resultValue.name = name;

@@ -34,6 +34,14 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<string> GroupByFields;
         /// <summary>
+        /// When false, events without a group-by value are ignored by the rule. When true, events with missing group-by fields are processed with `N/A`, replacing the missing values.
+        /// </summary>
+        public readonly bool? HasOptionalGroupByFields;
+        /// <summary>
+        /// List of indexes to run the query on when the data source is `logs`. Supports only one element. Used only for scheduled rules (in other words, when `scheduling_options` is defined).
+        /// </summary>
+        public readonly ImmutableArray<string> Indexes;
+        /// <summary>
         /// The target field to aggregate over when using the `sum`, `max`, or `geo_data` aggregations.
         /// </summary>
         public readonly string? Metric;
@@ -62,6 +70,10 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<string> groupByFields,
 
+            bool? hasOptionalGroupByFields,
+
+            ImmutableArray<string> indexes,
+
             string? metric,
 
             ImmutableArray<string> metrics,
@@ -75,6 +87,8 @@ namespace Pulumi.Datadog.Outputs
             DataSource = dataSource;
             DistinctFields = distinctFields;
             GroupByFields = groupByFields;
+            HasOptionalGroupByFields = hasOptionalGroupByFields;
+            Indexes = indexes;
             Metric = metric;
             Metrics = metrics;
             Name = name;

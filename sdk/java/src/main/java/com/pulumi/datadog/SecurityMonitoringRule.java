@@ -10,11 +10,13 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.datadog.SecurityMonitoringRuleArgs;
 import com.pulumi.datadog.Utilities;
 import com.pulumi.datadog.inputs.SecurityMonitoringRuleState;
+import com.pulumi.datadog.outputs.SecurityMonitoringRuleCalculatedField;
 import com.pulumi.datadog.outputs.SecurityMonitoringRuleCase;
 import com.pulumi.datadog.outputs.SecurityMonitoringRuleFilter;
 import com.pulumi.datadog.outputs.SecurityMonitoringRuleOptions;
 import com.pulumi.datadog.outputs.SecurityMonitoringRuleQuery;
 import com.pulumi.datadog.outputs.SecurityMonitoringRuleReferenceTable;
+import com.pulumi.datadog.outputs.SecurityMonitoringRuleSchedulingOptions;
 import com.pulumi.datadog.outputs.SecurityMonitoringRuleSignalQuery;
 import com.pulumi.datadog.outputs.SecurityMonitoringRuleThirdPartyCase;
 import java.lang.Boolean;
@@ -103,6 +105,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="datadog:index/securityMonitoringRule:SecurityMonitoringRule")
 public class SecurityMonitoringRule extends com.pulumi.resources.CustomResource {
+    /**
+     * One or more calculated fields. Available only for scheduled rules (in other words, when `scheduling_options` is defined).
+     * 
+     */
+    @Export(name="calculatedFields", refs={List.class,SecurityMonitoringRuleCalculatedField.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<SecurityMonitoringRuleCalculatedField>> calculatedFields;
+
+    /**
+     * @return One or more calculated fields. Available only for scheduled rules (in other words, when `scheduling_options` is defined).
+     * 
+     */
+    public Output<Optional<List<SecurityMonitoringRuleCalculatedField>>> calculatedFields() {
+        return Codegen.optional(this.calculatedFields);
+    }
     /**
      * Cases for generating signals.
      * 
@@ -242,6 +258,20 @@ public class SecurityMonitoringRule extends com.pulumi.resources.CustomResource 
      */
     public Output<Optional<List<SecurityMonitoringRuleReferenceTable>>> referenceTables() {
         return Codegen.optional(this.referenceTables);
+    }
+    /**
+     * Options for scheduled rules. When this field is present, the rule runs based on the schedule. When absent, it runs in real time on ingested logs.
+     * 
+     */
+    @Export(name="schedulingOptions", refs={SecurityMonitoringRuleSchedulingOptions.class}, tree="[0]")
+    private Output</* @Nullable */ SecurityMonitoringRuleSchedulingOptions> schedulingOptions;
+
+    /**
+     * @return Options for scheduled rules. When this field is present, the rule runs based on the schedule. When absent, it runs in real time on ingested logs.
+     * 
+     */
+    public Output<Optional<SecurityMonitoringRuleSchedulingOptions>> schedulingOptions() {
+        return Codegen.optional(this.schedulingOptions);
     }
     /**
      * Queries for selecting logs which are part of the rule.

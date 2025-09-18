@@ -271,7 +271,7 @@ class CsmThreatsAgentRule(pulumi.CustomResource):
                  product_tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides a Datadog CSM Threats Agent Rule API resource.
+        Provides a Datadog Workload Protection (CSM Threats) Agent Rule API resource.
 
         ## Import
 
@@ -306,7 +306,7 @@ class CsmThreatsAgentRule(pulumi.CustomResource):
                  args: CsmThreatsAgentRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Datadog CSM Threats Agent Rule API resource.
+        Provides a Datadog Workload Protection (CSM Threats) Agent Rule API resource.
 
         ## Import
 

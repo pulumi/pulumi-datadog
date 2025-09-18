@@ -204,7 +204,7 @@ class CsmThreatsPolicy(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides a Datadog CSM Threats policy API resource.
+        Provides a Datadog Workload Protection (CSM Threats) policy API resource.
 
         ## Example Usage
 
@@ -253,7 +253,7 @@ class CsmThreatsPolicy(pulumi.CustomResource):
                  args: CsmThreatsPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Datadog CSM Threats policy API resource.
+        Provides a Datadog Workload Protection (CSM Threats) policy API resource.
 
         ## Example Usage
 

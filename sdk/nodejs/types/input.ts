@@ -9610,6 +9610,28 @@ export interface GetCostBudgetEntryTagFilterArgs {
     tagValue?: pulumi.Input<string>;
 }
 
+export interface GetIncidentNotificationRuleCondition {
+    /**
+     * The incident field to evaluate. Common values include: state, severity, services, teams. Custom fields are also supported.
+     */
+    field?: string;
+    /**
+     * The value(s) to compare against.
+     */
+    values?: string[];
+}
+
+export interface GetIncidentNotificationRuleConditionArgs {
+    /**
+     * The incident field to evaluate. Common values include: state, severity, services, teams. Custom fields are also supported.
+     */
+    field?: pulumi.Input<string>;
+    /**
+     * The value(s) to compare against.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
 export interface GetTeamsTeam {
     /**
      * Free-form markdown description/content for the team's homepage.
@@ -9670,6 +9692,17 @@ export interface GetTeamsTeamArgs {
      * The number of users belonging to the team.
      */
     userCount?: pulumi.Input<number>;
+}
+
+export interface IncidentNotificationRuleCondition {
+    /**
+     * The incident field to evaluate. Common values include: state, severity, services, teams. Custom fields are also supported.
+     */
+    field: pulumi.Input<string>;
+    /**
+     * The value(s) to compare against. Multiple values are ORed together.
+     */
+    values: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface IpAllowlistEntry {
@@ -26065,6 +26098,10 @@ export interface SecurityMonitoringDefaultRuleQuery {
      */
     groupByFields?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * When false, events without a group-by value are ignored by the rule. When true, events with missing group-by fields are processed with `N/A`, replacing the missing values.
+     */
+    hasOptionalGroupByFields?: pulumi.Input<boolean>;
+    /**
      * The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
      *
      * @deprecated Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
@@ -26104,6 +26141,17 @@ export interface SecurityMonitoringFilterExclusionFilter {
      * Exclusion filter query. Logs that match this query are excluded from the security filter.
      */
     query: pulumi.Input<string>;
+}
+
+export interface SecurityMonitoringRuleCalculatedField {
+    /**
+     * Expression.
+     */
+    expression: pulumi.Input<string>;
+    /**
+     * Field name.
+     */
+    name: pulumi.Input<string>;
 }
 
 export interface SecurityMonitoringRuleCase {
@@ -26273,6 +26321,14 @@ export interface SecurityMonitoringRuleQuery {
      */
     groupByFields?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * When false, events without a group-by value are ignored by the rule. When true, events with missing group-by fields are processed with `N/A`, replacing the missing values. Defaults to `false`.
+     */
+    hasOptionalGroupByFields?: pulumi.Input<boolean>;
+    /**
+     * List of indexes to run the query on when the data source is `logs`. Supports only one element. Used only for scheduled rules (in other words, when `schedulingOptions` is defined).
+     */
+    indexes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
      *
      * @deprecated Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
@@ -26324,6 +26380,21 @@ export interface SecurityMonitoringRuleReferenceTable {
      * The name of the reference table.
      */
     tableName: pulumi.Input<string>;
+}
+
+export interface SecurityMonitoringRuleSchedulingOptions {
+    /**
+     * Schedule for the rule queries, written in RRULE syntax. See [RFC](https://icalendar.org/iCalendar-RFC-5545/3-8-5-3-recurrence-rule.html) for syntax reference.
+     */
+    rrule: pulumi.Input<string>;
+    /**
+     * Start date for the schedule, in ISO 8601 format without timezone.
+     */
+    start: pulumi.Input<string>;
+    /**
+     * Time zone of the start date, in the [tz database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) format.
+     */
+    timezone: pulumi.Input<string>;
 }
 
 export interface SecurityMonitoringRuleSignalQuery {
@@ -26647,6 +26718,10 @@ export interface SyntheticsTestApiStep {
      * Generate variables using JavaScript.
      */
     extractedValuesFromScript?: pulumi.Input<string>;
+    /**
+     * ID of the step.
+     */
+    id?: pulumi.Input<string>;
     /**
      * Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allowFailure` is `true`.
      */
@@ -28215,9 +28290,19 @@ export namespace config {
 }
 
 export namespace gcp {
+    export interface IntegrationMonitoredResourceConfig {
+        filters: pulumi.Input<pulumi.Input<string>[]>;
+        type: pulumi.Input<string>;
+    }
+
     export interface IntegrationStsMetricNamespaceConfig {
         disabled: pulumi.Input<boolean>;
         id: pulumi.Input<string>;
+    }
+
+    export interface IntegrationStsMonitoredResourceConfig {
+        filters: pulumi.Input<pulumi.Input<string>[]>;
+        type: pulumi.Input<string>;
     }
 }
 

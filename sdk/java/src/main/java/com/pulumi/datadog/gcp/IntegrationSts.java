@@ -11,6 +11,7 @@ import com.pulumi.datadog.Utilities;
 import com.pulumi.datadog.gcp.IntegrationStsArgs;
 import com.pulumi.datadog.gcp.inputs.IntegrationStsState;
 import com.pulumi.datadog.gcp.outputs.IntegrationStsMetricNamespaceConfig;
+import com.pulumi.datadog.gcp.outputs.IntegrationStsMonitoredResourceConfig;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -74,18 +75,22 @@ public class IntegrationSts extends com.pulumi.resources.CustomResource {
         return this.clientEmail;
     }
     /**
-     * Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+     * List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
+     * 
+     * @deprecated
+     * **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision`
      * 
      */
+    @Deprecated /* **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision` */
     @Export(name="cloudRunRevisionFilters", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> cloudRunRevisionFilters;
+    private Output<List<String>> cloudRunRevisionFilters;
 
     /**
-     * @return Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+     * @return List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
      * 
      */
-    public Output<Optional<List<String>>> cloudRunRevisionFilters() {
-        return Codegen.optional(this.cloudRunRevisionFilters);
+    public Output<List<String>> cloudRunRevisionFilters() {
+        return this.cloudRunRevisionFilters;
     }
     /**
      * Datadog&#39;s STS Delegate Email.
@@ -102,18 +107,22 @@ public class IntegrationSts extends com.pulumi.resources.CustomResource {
         return this.delegateAccountEmail;
     }
     /**
-     * Your Host Filters.
+     * List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
+     * 
+     * @deprecated
+     * **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance`
      * 
      */
+    @Deprecated /* **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance` */
     @Export(name="hostFilters", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> hostFilters;
+    private Output<List<String>> hostFilters;
 
     /**
-     * @return Your Host Filters.
+     * @return List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
      * 
      */
-    public Output<Optional<List<String>>> hostFilters() {
-        return Codegen.optional(this.hostFilters);
+    public Output<List<String>> hostFilters() {
+        return this.hostFilters;
     }
     /**
      * Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled.
@@ -172,18 +181,32 @@ public class IntegrationSts extends com.pulumi.resources.CustomResource {
         return this.isSecurityCommandCenterEnabled;
     }
     /**
-     * Configuration for a GCP metric namespace.
+     * Configurations for GCP metric namespaces.
      * 
      */
     @Export(name="metricNamespaceConfigs", refs={List.class,IntegrationStsMetricNamespaceConfig.class}, tree="[0,1]")
     private Output</* @Nullable */ List<IntegrationStsMetricNamespaceConfig>> metricNamespaceConfigs;
 
     /**
-     * @return Configuration for a GCP metric namespace.
+     * @return Configurations for GCP metric namespaces.
      * 
      */
     public Output<Optional<List<IntegrationStsMetricNamespaceConfig>>> metricNamespaceConfigs() {
         return Codegen.optional(this.metricNamespaceConfigs);
+    }
+    /**
+     * Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
+     * 
+     */
+    @Export(name="monitoredResourceConfigs", refs={List.class,IntegrationStsMonitoredResourceConfig.class}, tree="[0,1]")
+    private Output<List<IntegrationStsMonitoredResourceConfig>> monitoredResourceConfigs;
+
+    /**
+     * @return Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
+     * 
+     */
+    public Output<List<IntegrationStsMonitoredResourceConfig>> monitoredResourceConfigs() {
+        return this.monitoredResourceConfigs;
     }
     /**
      * When enabled, Datadog scans for all resources in your GCP environment.

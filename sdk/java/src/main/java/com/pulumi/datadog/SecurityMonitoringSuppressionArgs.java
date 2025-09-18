@@ -137,6 +137,21 @@ public final class SecurityMonitoringSuppressionArgs extends com.pulumi.resource
         return Optional.ofNullable(this.suppressionQuery);
     }
 
+    /**
+     * Whether to validate the suppression rule during `pulumi preview`. When set to `true`, the rule is validated against Datadog&#39;s suppression validation endpoint. Defaults to `true`.
+     * 
+     */
+    @Import(name="validate")
+    private @Nullable Output<Boolean> validate;
+
+    /**
+     * @return Whether to validate the suppression rule during `pulumi preview`. When set to `true`, the rule is validated against Datadog&#39;s suppression validation endpoint. Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> validate() {
+        return Optional.ofNullable(this.validate);
+    }
+
     private SecurityMonitoringSuppressionArgs() {}
 
     private SecurityMonitoringSuppressionArgs(SecurityMonitoringSuppressionArgs $) {
@@ -148,6 +163,7 @@ public final class SecurityMonitoringSuppressionArgs extends com.pulumi.resource
         this.ruleQuery = $.ruleQuery;
         this.startDate = $.startDate;
         this.suppressionQuery = $.suppressionQuery;
+        this.validate = $.validate;
     }
 
     public static Builder builder() {
@@ -334,6 +350,27 @@ public final class SecurityMonitoringSuppressionArgs extends com.pulumi.resource
          */
         public Builder suppressionQuery(String suppressionQuery) {
             return suppressionQuery(Output.of(suppressionQuery));
+        }
+
+        /**
+         * @param validate Whether to validate the suppression rule during `pulumi preview`. When set to `true`, the rule is validated against Datadog&#39;s suppression validation endpoint. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder validate(@Nullable Output<Boolean> validate) {
+            $.validate = validate;
+            return this;
+        }
+
+        /**
+         * @param validate Whether to validate the suppression rule during `pulumi preview`. When set to `true`, the rule is validated against Datadog&#39;s suppression validation endpoint. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder validate(Boolean validate) {
+            return validate(Output.of(validate));
         }
 
         public SecurityMonitoringSuppressionArgs build() {

@@ -183,6 +183,20 @@ public class SecurityMonitoringSuppression extends com.pulumi.resources.CustomRe
     public Output<Optional<String>> suppressionQuery() {
         return Codegen.optional(this.suppressionQuery);
     }
+    /**
+     * Whether to validate the suppression rule during `pulumi preview`. When set to `true`, the rule is validated against Datadog&#39;s suppression validation endpoint. Defaults to `true`.
+     * 
+     */
+    @Export(name="validate", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> validate;
+
+    /**
+     * @return Whether to validate the suppression rule during `pulumi preview`. When set to `true`, the rule is validated against Datadog&#39;s suppression validation endpoint. Defaults to `true`.
+     * 
+     */
+    public Output<Boolean> validate() {
+        return this.validate;
+    }
 
     /**
      *

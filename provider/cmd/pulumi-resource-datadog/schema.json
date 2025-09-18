@@ -466,6 +466,24 @@
             },
             "type": "object"
         },
+        "datadog:gcp/IntegrationMonitoredResourceConfig:IntegrationMonitoredResourceConfig": {
+            "properties": {
+                "filters": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "filters",
+                "type"
+            ]
+        },
         "datadog:gcp/IntegrationStsMetricNamespaceConfig:IntegrationStsMetricNamespaceConfig": {
             "properties": {
                 "disabled": {
@@ -479,6 +497,24 @@
             "required": [
                 "disabled",
                 "id"
+            ]
+        },
+        "datadog:gcp/IntegrationStsMonitoredResourceConfig:IntegrationStsMonitoredResourceConfig": {
+            "properties": {
+                "filters": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "filters",
+                "type"
             ]
         },
         "datadog:index/ActionConnectionAws:ActionConnectionAws": {
@@ -12727,6 +12763,26 @@
                     ]
                 }
             }
+        },
+        "datadog:index/IncidentNotificationRuleCondition:IncidentNotificationRuleCondition": {
+            "properties": {
+                "field": {
+                    "type": "string",
+                    "description": "The incident field to evaluate. Common values include: state, severity, services, teams. Custom fields are also supported.\n"
+                },
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The value(s) to compare against. Multiple values are ORed together.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "field",
+                "values"
+            ]
         },
         "datadog:index/IpAllowlistEntry:IpAllowlistEntry": {
             "properties": {
@@ -34681,6 +34737,10 @@
                     },
                     "description": "Fields to group by.\n"
                 },
+                "hasOptionalGroupByFields": {
+                    "type": "boolean",
+                    "description": "When false, events without a group-by value are ignored by the rule. When true, events with missing group-by fields are processed with `N/A`, replacing the missing values.\n"
+                },
                 "metric": {
                     "type": "string",
                     "description": "The target field to aggregate over when using the `sum`, `max`, or `geo_data` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.\n",
@@ -34711,6 +34771,7 @@
                         "dataSource",
                         "distinctFields",
                         "groupByFields",
+                        "hasOptionalGroupByFields",
                         "metric",
                         "metrics",
                         "name",
@@ -34751,6 +34812,23 @@
             "required": [
                 "name",
                 "query"
+            ]
+        },
+        "datadog:index/SecurityMonitoringRuleCalculatedField:SecurityMonitoringRuleCalculatedField": {
+            "properties": {
+                "expression": {
+                    "type": "string",
+                    "description": "Expression.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Field name.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "expression",
+                "name"
             ]
         },
         "datadog:index/SecurityMonitoringRuleCase:SecurityMonitoringRuleCase": {
@@ -34981,6 +35059,17 @@
                     },
                     "description": "Fields to group by.\n"
                 },
+                "hasOptionalGroupByFields": {
+                    "type": "boolean",
+                    "description": "When false, events without a group-by value are ignored by the rule. When true, events with missing group-by fields are processed with `N/A`, replacing the missing values. Defaults to `false`.\n"
+                },
+                "indexes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of indexes to run the query on when the data source is `logs`. Supports only one element. Used only for scheduled rules (in other words, when `scheduling_options` is defined).\n"
+                },
                 "metric": {
                     "type": "string",
                     "description": "The target field to aggregate over when using the `sum`, `max`, or `geo_data` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.\n",
@@ -35062,6 +35151,28 @@
                 "logFieldPath",
                 "ruleQueryName",
                 "tableName"
+            ]
+        },
+        "datadog:index/SecurityMonitoringRuleSchedulingOptions:SecurityMonitoringRuleSchedulingOptions": {
+            "properties": {
+                "rrule": {
+                    "type": "string",
+                    "description": "Schedule for the rule queries, written in RRULE syntax. See [RFC](https://icalendar.org/iCalendar-RFC-5545/3-8-5-3-recurrence-rule.html) for syntax reference.\n"
+                },
+                "start": {
+                    "type": "string",
+                    "description": "Start date for the schedule, in ISO 8601 format without timezone.\n"
+                },
+                "timezone": {
+                    "type": "string",
+                    "description": "Time zone of the start date, in the [tz database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) format.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "rrule",
+                "start",
+                "timezone"
             ]
         },
         "datadog:index/SecurityMonitoringRuleSignalQuery:SecurityMonitoringRuleSignalQuery": {
@@ -35570,6 +35681,10 @@
                     "type": "string",
                     "description": "Generate variables using JavaScript.\n"
                 },
+                "id": {
+                    "type": "string",
+                    "description": "ID of the step.\n"
+                },
                 "isCritical": {
                     "type": "boolean",
                     "description": "Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.\n"
@@ -35637,7 +35752,15 @@
             "type": "object",
             "required": [
                 "name"
-            ]
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "id",
+                        "name"
+                    ]
+                }
+            }
         },
         "datadog:index/SyntheticsTestApiStepAssertion:SyntheticsTestApiStepAssertion": {
             "properties": {
@@ -37976,6 +38099,31 @@
                 }
             }
         },
+        "datadog:index/getIncidentNotificationRuleCondition:getIncidentNotificationRuleCondition": {
+            "properties": {
+                "field": {
+                    "type": "string",
+                    "description": "The incident field to evaluate. Common values include: state, severity, services, teams. Custom fields are also supported.\n"
+                },
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The value(s) to compare against.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "field",
+                "values"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "datadog:index/getLogsIndexesLogsIndex:getLogsIndexesLogsIndex": {
             "properties": {
                 "dailyLimit": {
@@ -38613,6 +38761,13 @@
         },
         "datadog:index/getSecurityMonitoringRulesRule:getSecurityMonitoringRulesRule": {
             "properties": {
+                "calculatedFields": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/getSecurityMonitoringRulesRuleCalculatedField:getSecurityMonitoringRulesRuleCalculatedField"
+                    },
+                    "description": "One or more calculated fields. Available only for scheduled rules (in other words, when `scheduling_options` is defined).\n"
+                },
                 "cases": {
                     "type": "array",
                     "items": {
@@ -38668,6 +38823,10 @@
                     },
                     "description": "Reference tables for filtering query results.\n"
                 },
+                "schedulingOptions": {
+                    "$ref": "#/types/datadog:index/getSecurityMonitoringRulesRuleSchedulingOptions:getSecurityMonitoringRulesRuleSchedulingOptions",
+                    "description": "Options for scheduled rules. When this field is present, the rule runs based on the schedule. When absent, it runs in real time on ingested logs.\n"
+                },
                 "signalQueries": {
                     "type": "array",
                     "items": {
@@ -38699,6 +38858,28 @@
                 "message",
                 "name",
                 "tags"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "datadog:index/getSecurityMonitoringRulesRuleCalculatedField:getSecurityMonitoringRulesRuleCalculatedField": {
+            "properties": {
+                "expression": {
+                    "type": "string",
+                    "description": "Expression.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Field name.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "expression",
+                "name"
             ],
             "language": {
                 "nodejs": {
@@ -38964,6 +39145,17 @@
                     },
                     "description": "Fields to group by.\n"
                 },
+                "hasOptionalGroupByFields": {
+                    "type": "boolean",
+                    "description": "When false, events without a group-by value are ignored by the rule. When true, events with missing group-by fields are processed with `N/A`, replacing the missing values.\n"
+                },
+                "indexes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of indexes to run the query on when the data source is `logs`. Supports only one element. Used only for scheduled rules (in other words, when `scheduling_options` is defined).\n"
+                },
                 "metric": {
                     "type": "string",
                     "description": "The target field to aggregate over when using the `sum`, `max`, or `geo_data` aggregations.\n",
@@ -39048,6 +39240,33 @@
                 "logFieldPath",
                 "ruleQueryName",
                 "tableName"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "datadog:index/getSecurityMonitoringRulesRuleSchedulingOptions:getSecurityMonitoringRulesRuleSchedulingOptions": {
+            "properties": {
+                "rrule": {
+                    "type": "string",
+                    "description": "Schedule for the rule queries, written in RRULE syntax. See [RFC](https://icalendar.org/iCalendar-RFC-5545/3-8-5-3-recurrence-rule.html) for syntax reference.\n"
+                },
+                "start": {
+                    "type": "string",
+                    "description": "Start date for the schedule, in ISO 8601 format without timezone.\n"
+                },
+                "timezone": {
+                    "type": "string",
+                    "description": "Time zone of the start date, in the [tz database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) format.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "rrule",
+                "start",
+                "timezone"
             ],
             "language": {
                 "nodejs": {
@@ -40762,7 +40981,8 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.\n"
+                    "description": "List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.\n",
+                    "deprecationMessage": "**Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision`"
                 },
                 "cspmResourceCollectionEnabled": {
                     "type": "boolean",
@@ -40770,7 +40990,8 @@
                 },
                 "hostFilters": {
                     "type": "string",
-                    "description": "Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. Defaults to `\"\"`.\n"
+                    "description": "List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog. Defaults to `\"\"`.\n",
+                    "deprecationMessage": "**Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance`"
                 },
                 "isResourceChangeCollectionEnabled": {
                     "type": "boolean",
@@ -40779,6 +41000,13 @@
                 "isSecurityCommandCenterEnabled": {
                     "type": "boolean",
                     "description": "When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.\n"
+                },
+                "monitoredResourceConfigs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:gcp/IntegrationMonitoredResourceConfig:IntegrationMonitoredResourceConfig"
+                    },
+                    "description": "Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.\n"
                 },
                 "privateKey": {
                     "type": "string",
@@ -40802,10 +41030,12 @@
                 "automute",
                 "clientEmail",
                 "clientId",
+                "cloudRunRevisionFilters",
                 "cspmResourceCollectionEnabled",
                 "hostFilters",
                 "isResourceChangeCollectionEnabled",
                 "isSecurityCommandCenterEnabled",
+                "monitoredResourceConfigs",
                 "privateKey",
                 "privateKeyId",
                 "projectId",
@@ -40829,7 +41059,8 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.\n"
+                    "description": "List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.\n",
+                    "deprecationMessage": "**Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision`"
                 },
                 "cspmResourceCollectionEnabled": {
                     "type": "boolean",
@@ -40837,7 +41068,8 @@
                 },
                 "hostFilters": {
                     "type": "string",
-                    "description": "Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. Defaults to `\"\"`.\n"
+                    "description": "List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog. Defaults to `\"\"`.\n",
+                    "deprecationMessage": "**Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance`"
                 },
                 "isResourceChangeCollectionEnabled": {
                     "type": "boolean",
@@ -40846,6 +41078,13 @@
                 "isSecurityCommandCenterEnabled": {
                     "type": "boolean",
                     "description": "When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.\n"
+                },
+                "monitoredResourceConfigs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:gcp/IntegrationMonitoredResourceConfig:IntegrationMonitoredResourceConfig"
+                    },
+                    "description": "Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.\n"
                 },
                 "privateKey": {
                     "type": "string",
@@ -40892,7 +41131,8 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.\n"
+                        "description": "List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.\n",
+                        "deprecationMessage": "**Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision`"
                     },
                     "cspmResourceCollectionEnabled": {
                         "type": "boolean",
@@ -40900,7 +41140,8 @@
                     },
                     "hostFilters": {
                         "type": "string",
-                        "description": "Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. Defaults to `\"\"`.\n"
+                        "description": "List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog. Defaults to `\"\"`.\n",
+                        "deprecationMessage": "**Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance`"
                     },
                     "isResourceChangeCollectionEnabled": {
                         "type": "boolean",
@@ -40909,6 +41150,13 @@
                     "isSecurityCommandCenterEnabled": {
                         "type": "boolean",
                         "description": "When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.\n"
+                    },
+                    "monitoredResourceConfigs": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/datadog:gcp/IntegrationMonitoredResourceConfig:IntegrationMonitoredResourceConfig"
+                        },
+                        "description": "Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.\n"
                     },
                     "privateKey": {
                         "type": "string",
@@ -40954,7 +41202,8 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.\n"
+                    "description": "List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.\n",
+                    "deprecationMessage": "**Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision`"
                 },
                 "delegateAccountEmail": {
                     "type": "string",
@@ -40965,7 +41214,8 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Your Host Filters.\n"
+                    "description": "List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.\n",
+                    "deprecationMessage": "**Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance`"
                 },
                 "isCspmEnabled": {
                     "type": "boolean",
@@ -40988,7 +41238,14 @@
                     "items": {
                         "$ref": "#/types/datadog:gcp/IntegrationStsMetricNamespaceConfig:IntegrationStsMetricNamespaceConfig"
                     },
-                    "description": "Configuration for a GCP metric namespace.\n"
+                    "description": "Configurations for GCP metric namespaces.\n"
+                },
+                "monitoredResourceConfigs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:gcp/IntegrationStsMonitoredResourceConfig:IntegrationStsMonitoredResourceConfig"
+                    },
+                    "description": "Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.\n"
                 },
                 "resourceCollectionEnabled": {
                     "type": "boolean",
@@ -40998,11 +41255,14 @@
             "required": [
                 "automute",
                 "clientEmail",
+                "cloudRunRevisionFilters",
                 "delegateAccountEmail",
+                "hostFilters",
                 "isCspmEnabled",
                 "isPerProjectQuotaEnabled",
                 "isResourceChangeCollectionEnabled",
                 "isSecurityCommandCenterEnabled",
+                "monitoredResourceConfigs",
                 "resourceCollectionEnabled"
             ],
             "inputProperties": {
@@ -41026,14 +41286,16 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.\n"
+                    "description": "List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.\n",
+                    "deprecationMessage": "**Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision`"
                 },
                 "hostFilters": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Your Host Filters.\n"
+                    "description": "List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.\n",
+                    "deprecationMessage": "**Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance`"
                 },
                 "isCspmEnabled": {
                     "type": "boolean",
@@ -41056,7 +41318,14 @@
                     "items": {
                         "$ref": "#/types/datadog:gcp/IntegrationStsMetricNamespaceConfig:IntegrationStsMetricNamespaceConfig"
                     },
-                    "description": "Configuration for a GCP metric namespace.\n"
+                    "description": "Configurations for GCP metric namespaces.\n"
+                },
+                "monitoredResourceConfigs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:gcp/IntegrationStsMonitoredResourceConfig:IntegrationStsMonitoredResourceConfig"
+                    },
+                    "description": "Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.\n"
                 },
                 "resourceCollectionEnabled": {
                     "type": "boolean",
@@ -41089,7 +41358,8 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.\n"
+                        "description": "List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.\n",
+                        "deprecationMessage": "**Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision`"
                     },
                     "delegateAccountEmail": {
                         "type": "string",
@@ -41100,7 +41370,8 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "Your Host Filters.\n"
+                        "description": "List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.\n",
+                        "deprecationMessage": "**Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance`"
                     },
                     "isCspmEnabled": {
                         "type": "boolean",
@@ -41123,7 +41394,14 @@
                         "items": {
                             "$ref": "#/types/datadog:gcp/IntegrationStsMetricNamespaceConfig:IntegrationStsMetricNamespaceConfig"
                         },
-                        "description": "Configuration for a GCP metric namespace.\n"
+                        "description": "Configurations for GCP metric namespaces.\n"
+                    },
+                    "monitoredResourceConfigs": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/datadog:gcp/IntegrationStsMonitoredResourceConfig:IntegrationStsMonitoredResourceConfig"
+                        },
+                        "description": "Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.\n"
                     },
                     "resourceCollectionEnabled": {
                         "type": "boolean",
@@ -42698,7 +42976,7 @@
             }
         },
         "datadog:index/csmThreatsAgentRule:CsmThreatsAgentRule": {
-            "description": "Provides a Datadog CSM Threats Agent Rule API resource.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  myAgentRule:\n    type: datadog:CsmThreatsAgentRule\n    name: my_agent_rule\n    properties:\n      actions:\n        - hash:\n            - {}\n          set:\n            - name: updated_security_actions\n              field: exec.file.path\n              append: false\n              scope: process\n      name: my_agent_rule\n      enabled: true\n      description: This is a rule\n      expression: open.file.name == \"etc/shadow/password\"\n      policyId: jm4-lwh-8cs\n      productTags:\n        - compliance_framework:PCI-DSS\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nThe `pulumi import` command can be used, for example:\n\nCSM Agent Rules can be imported using ID. For example:\n\n```sh\n$ pulumi import datadog:index/csmThreatsAgentRule:CsmThreatsAgentRule my_agent_rule m0o-hto-lkb\n```\n\n# CSM Agent Rules can also be imported using the policy ID and the rule ID. For example:\n\n```sh\n$ pulumi import datadog:index/csmThreatsAgentRule:CsmThreatsAgentRule my_agent_rule jm4-lwh-8cs:m0o-hto-lkb\n```\n\n",
+            "description": "Provides a Datadog Workload Protection (CSM Threats) Agent Rule API resource.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  myAgentRule:\n    type: datadog:CsmThreatsAgentRule\n    name: my_agent_rule\n    properties:\n      actions:\n        - hash:\n            - {}\n          set:\n            - name: updated_security_actions\n              field: exec.file.path\n              append: false\n              scope: process\n      name: my_agent_rule\n      enabled: true\n      description: This is a rule\n      expression: open.file.name == \"etc/shadow/password\"\n      policyId: jm4-lwh-8cs\n      productTags:\n        - compliance_framework:PCI-DSS\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nThe `pulumi import` command can be used, for example:\n\nCSM Agent Rules can be imported using ID. For example:\n\n```sh\n$ pulumi import datadog:index/csmThreatsAgentRule:CsmThreatsAgentRule my_agent_rule m0o-hto-lkb\n```\n\n# CSM Agent Rules can also be imported using the policy ID and the rule ID. For example:\n\n```sh\n$ pulumi import datadog:index/csmThreatsAgentRule:CsmThreatsAgentRule my_agent_rule jm4-lwh-8cs:m0o-hto-lkb\n```\n\n",
             "properties": {
                 "actions": {
                     "type": "array",
@@ -42824,7 +43102,7 @@
             }
         },
         "datadog:index/csmThreatsPolicy:CsmThreatsPolicy": {
-            "description": "Provides a Datadog CSM Threats policy API resource.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst myPolicy = new datadog.CsmThreatsPolicy(\"my_policy\", {\n    name: \"my_policy\",\n    description: \"My policy\",\n    enabled: true,\n    hostTagsLists: [\n        [\n            \"env:prod\",\n            \"team:backend\",\n        ],\n        [\n            \"env:prod\",\n            \"team:frontend\",\n        ],\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nmy_policy = datadog.CsmThreatsPolicy(\"my_policy\",\n    name=\"my_policy\",\n    description=\"My policy\",\n    enabled=True,\n    host_tags_lists=[\n        [\n            \"env:prod\",\n            \"team:backend\",\n        ],\n        [\n            \"env:prod\",\n            \"team:frontend\",\n        ],\n    ])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var myPolicy = new Datadog.CsmThreatsPolicy(\"my_policy\", new()\n    {\n        Name = \"my_policy\",\n        Description = \"My policy\",\n        Enabled = true,\n        HostTagsLists = new[]\n        {\n            new[]\n            {\n                \"env:prod\",\n                \"team:backend\",\n            },\n            new[]\n            {\n                \"env:prod\",\n                \"team:frontend\",\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewCsmThreatsPolicy(ctx, \"my_policy\", \u0026datadog.CsmThreatsPolicyArgs{\n\t\t\tName:        pulumi.String(\"my_policy\"),\n\t\t\tDescription: pulumi.String(\"My policy\"),\n\t\t\tEnabled:     pulumi.Bool(true),\n\t\t\tHostTagsLists: pulumi.StringArrayArray{\n\t\t\t\tpulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"env:prod\"),\n\t\t\t\t\tpulumi.String(\"team:backend\"),\n\t\t\t\t},\n\t\t\t\tpulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"env:prod\"),\n\t\t\t\t\tpulumi.String(\"team:frontend\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.CsmThreatsPolicy;\nimport com.pulumi.datadog.CsmThreatsPolicyArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var myPolicy = new CsmThreatsPolicy(\"myPolicy\", CsmThreatsPolicyArgs.builder()\n            .name(\"my_policy\")\n            .description(\"My policy\")\n            .enabled(true)\n            .hostTagsLists(            \n                                \n                    \"env:prod\",\n                    \"team:backend\",\n                                \n                    \"env:prod\",\n                    \"team:frontend\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  myPolicy:\n    type: datadog:CsmThreatsPolicy\n    name: my_policy\n    properties:\n      name: my_policy\n      description: My policy\n      enabled: true\n      hostTagsLists:\n        - - env:prod\n          - team:backend\n        - - env:prod\n          - team:frontend\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nThe `pulumi import` command can be used, for example:\n\n# CSM Policies can be imported using IDs. For example:\n\n```sh\n$ pulumi import datadog:index/csmThreatsPolicy:CsmThreatsPolicy my_policy jm4-lwh-8cs\n```\n\n",
+            "description": "Provides a Datadog Workload Protection (CSM Threats) policy API resource.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst myPolicy = new datadog.CsmThreatsPolicy(\"my_policy\", {\n    name: \"my_policy\",\n    description: \"My policy\",\n    enabled: true,\n    hostTagsLists: [\n        [\n            \"env:prod\",\n            \"team:backend\",\n        ],\n        [\n            \"env:prod\",\n            \"team:frontend\",\n        ],\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nmy_policy = datadog.CsmThreatsPolicy(\"my_policy\",\n    name=\"my_policy\",\n    description=\"My policy\",\n    enabled=True,\n    host_tags_lists=[\n        [\n            \"env:prod\",\n            \"team:backend\",\n        ],\n        [\n            \"env:prod\",\n            \"team:frontend\",\n        ],\n    ])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var myPolicy = new Datadog.CsmThreatsPolicy(\"my_policy\", new()\n    {\n        Name = \"my_policy\",\n        Description = \"My policy\",\n        Enabled = true,\n        HostTagsLists = new[]\n        {\n            new[]\n            {\n                \"env:prod\",\n                \"team:backend\",\n            },\n            new[]\n            {\n                \"env:prod\",\n                \"team:frontend\",\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewCsmThreatsPolicy(ctx, \"my_policy\", \u0026datadog.CsmThreatsPolicyArgs{\n\t\t\tName:        pulumi.String(\"my_policy\"),\n\t\t\tDescription: pulumi.String(\"My policy\"),\n\t\t\tEnabled:     pulumi.Bool(true),\n\t\t\tHostTagsLists: pulumi.StringArrayArray{\n\t\t\t\tpulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"env:prod\"),\n\t\t\t\t\tpulumi.String(\"team:backend\"),\n\t\t\t\t},\n\t\t\t\tpulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"env:prod\"),\n\t\t\t\t\tpulumi.String(\"team:frontend\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.CsmThreatsPolicy;\nimport com.pulumi.datadog.CsmThreatsPolicyArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var myPolicy = new CsmThreatsPolicy(\"myPolicy\", CsmThreatsPolicyArgs.builder()\n            .name(\"my_policy\")\n            .description(\"My policy\")\n            .enabled(true)\n            .hostTagsLists(            \n                                \n                    \"env:prod\",\n                    \"team:backend\",\n                                \n                    \"env:prod\",\n                    \"team:frontend\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  myPolicy:\n    type: datadog:CsmThreatsPolicy\n    name: my_policy\n    properties:\n      name: my_policy\n      description: My policy\n      enabled: true\n      hostTagsLists:\n        - - env:prod\n          - team:backend\n        - - env:prod\n          - team:frontend\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nThe `pulumi import` command can be used, for example:\n\n# CSM Policies can be imported using IDs. For example:\n\n```sh\n$ pulumi import datadog:index/csmThreatsPolicy:CsmThreatsPolicy my_policy jm4-lwh-8cs\n```\n\n",
             "properties": {
                 "description": {
                     "type": "string",
@@ -43794,6 +44072,277 @@
                     "scope": {
                         "type": "string",
                         "description": "The scope to which the downtime applies. Must follow the [common search syntax](https://docs.datadoghq.com/logs/explorer/search_syntax/).\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "datadog:index/incidentNotificationRule:IncidentNotificationRule": {
+            "description": "Provides a Datadog incident notification rule resource. This can be used to create and manage Datadog incident notification rules.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst example = new datadog.IncidentType(\"example\", {\n    name: \"My Incident Type\",\n    description: \"Incident type for critical production issues\",\n});\nconst exampleIncidentNotificationTemplate = new datadog.IncidentNotificationTemplate(\"example\", {\n    name: \"My Notification Template\",\n    subject: \"SEV-1 Incident: {{incident.title}}\",\n    content: `An incident has been declared.\n\nTitle: {{incident.title}}\nSeverity: {{incident.severity}}\nStatus: {{incident.status}}\n\nPlease join the incident channel for updates.\n`,\n    category: \"alert\",\n    incidentType: example.id,\n});\nconst exampleIncidentNotificationRule = new datadog.IncidentNotificationRule(\"example\", {\n    enabled: true,\n    trigger: \"incident_created_trigger\",\n    visibility: \"organization\",\n    handles: [\n        \"@team-email@company.com\",\n        \"@slack-channel-alerts\",\n        \"@pagerduty-service\",\n    ],\n    conditions: [\n        {\n            field: \"severity\",\n            values: [\n                \"SEV-1\",\n                \"SEV-2\",\n            ],\n        },\n        {\n            field: \"services\",\n            values: [\n                \"web-service\",\n                \"api-service\",\n                \"database-service\",\n            ],\n        },\n    ],\n    renotifyOns: [\n        \"status\",\n        \"severity\",\n    ],\n    incidentType: example.id,\n    notificationTemplate: exampleIncidentNotificationTemplate.id,\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nexample = datadog.IncidentType(\"example\",\n    name=\"My Incident Type\",\n    description=\"Incident type for critical production issues\")\nexample_incident_notification_template = datadog.IncidentNotificationTemplate(\"example\",\n    name=\"My Notification Template\",\n    subject=\"SEV-1 Incident: {{incident.title}}\",\n    content=\"\"\"An incident has been declared.\n\nTitle: {{incident.title}}\nSeverity: {{incident.severity}}\nStatus: {{incident.status}}\n\nPlease join the incident channel for updates.\n\"\"\",\n    category=\"alert\",\n    incident_type=example.id)\nexample_incident_notification_rule = datadog.IncidentNotificationRule(\"example\",\n    enabled=True,\n    trigger=\"incident_created_trigger\",\n    visibility=\"organization\",\n    handles=[\n        \"@team-email@company.com\",\n        \"@slack-channel-alerts\",\n        \"@pagerduty-service\",\n    ],\n    conditions=[\n        {\n            \"field\": \"severity\",\n            \"values\": [\n                \"SEV-1\",\n                \"SEV-2\",\n            ],\n        },\n        {\n            \"field\": \"services\",\n            \"values\": [\n                \"web-service\",\n                \"api-service\",\n                \"database-service\",\n            ],\n        },\n    ],\n    renotify_ons=[\n        \"status\",\n        \"severity\",\n    ],\n    incident_type=example.id,\n    notification_template=example_incident_notification_template.id)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Datadog.IncidentType(\"example\", new()\n    {\n        Name = \"My Incident Type\",\n        Description = \"Incident type for critical production issues\",\n    });\n\n    var exampleIncidentNotificationTemplate = new Datadog.IncidentNotificationTemplate(\"example\", new()\n    {\n        Name = \"My Notification Template\",\n        Subject = \"SEV-1 Incident: {{incident.title}}\",\n        Content = @\"An incident has been declared.\n\nTitle: {{incident.title}}\nSeverity: {{incident.severity}}\nStatus: {{incident.status}}\n\nPlease join the incident channel for updates.\n\",\n        Category = \"alert\",\n        IncidentType = example.Id,\n    });\n\n    var exampleIncidentNotificationRule = new Datadog.IncidentNotificationRule(\"example\", new()\n    {\n        Enabled = true,\n        Trigger = \"incident_created_trigger\",\n        Visibility = \"organization\",\n        Handles = new[]\n        {\n            \"@team-email@company.com\",\n            \"@slack-channel-alerts\",\n            \"@pagerduty-service\",\n        },\n        Conditions = new[]\n        {\n            new Datadog.Inputs.IncidentNotificationRuleConditionArgs\n            {\n                Field = \"severity\",\n                Values = new[]\n                {\n                    \"SEV-1\",\n                    \"SEV-2\",\n                },\n            },\n            new Datadog.Inputs.IncidentNotificationRuleConditionArgs\n            {\n                Field = \"services\",\n                Values = new[]\n                {\n                    \"web-service\",\n                    \"api-service\",\n                    \"database-service\",\n                },\n            },\n        },\n        RenotifyOns = new[]\n        {\n            \"status\",\n            \"severity\",\n        },\n        IncidentType = example.Id,\n        NotificationTemplate = exampleIncidentNotificationTemplate.Id,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := datadog.NewIncidentType(ctx, \"example\", \u0026datadog.IncidentTypeArgs{\n\t\t\tName:        pulumi.String(\"My Incident Type\"),\n\t\t\tDescription: pulumi.String(\"Incident type for critical production issues\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleIncidentNotificationTemplate, err := datadog.NewIncidentNotificationTemplate(ctx, \"example\", \u0026datadog.IncidentNotificationTemplateArgs{\n\t\t\tName:    pulumi.String(\"My Notification Template\"),\n\t\t\tSubject: pulumi.String(\"SEV-1 Incident: {{incident.title}}\"),\n\t\t\tContent: pulumi.String(`An incident has been declared.\n\nTitle: {{incident.title}}\nSeverity: {{incident.severity}}\nStatus: {{incident.status}}\n\nPlease join the incident channel for updates.\n`),\n\t\t\tCategory:     pulumi.String(\"alert\"),\n\t\t\tIncidentType: example.ID(),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = datadog.NewIncidentNotificationRule(ctx, \"example\", \u0026datadog.IncidentNotificationRuleArgs{\n\t\t\tEnabled:    pulumi.Bool(true),\n\t\t\tTrigger:    pulumi.String(\"incident_created_trigger\"),\n\t\t\tVisibility: pulumi.String(\"organization\"),\n\t\t\tHandles: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"@team-email@company.com\"),\n\t\t\t\tpulumi.String(\"@slack-channel-alerts\"),\n\t\t\t\tpulumi.String(\"@pagerduty-service\"),\n\t\t\t},\n\t\t\tConditions: datadog.IncidentNotificationRuleConditionArray{\n\t\t\t\t\u0026datadog.IncidentNotificationRuleConditionArgs{\n\t\t\t\t\tField: pulumi.String(\"severity\"),\n\t\t\t\t\tValues: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"SEV-1\"),\n\t\t\t\t\t\tpulumi.String(\"SEV-2\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026datadog.IncidentNotificationRuleConditionArgs{\n\t\t\t\t\tField: pulumi.String(\"services\"),\n\t\t\t\t\tValues: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"web-service\"),\n\t\t\t\t\t\tpulumi.String(\"api-service\"),\n\t\t\t\t\t\tpulumi.String(\"database-service\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t\tRenotifyOns: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"status\"),\n\t\t\t\tpulumi.String(\"severity\"),\n\t\t\t},\n\t\t\tIncidentType:         example.ID(),\n\t\t\tNotificationTemplate: exampleIncidentNotificationTemplate.ID(),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.IncidentType;\nimport com.pulumi.datadog.IncidentTypeArgs;\nimport com.pulumi.datadog.IncidentNotificationTemplate;\nimport com.pulumi.datadog.IncidentNotificationTemplateArgs;\nimport com.pulumi.datadog.IncidentNotificationRule;\nimport com.pulumi.datadog.IncidentNotificationRuleArgs;\nimport com.pulumi.datadog.inputs.IncidentNotificationRuleConditionArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new IncidentType(\"example\", IncidentTypeArgs.builder()\n            .name(\"My Incident Type\")\n            .description(\"Incident type for critical production issues\")\n            .build());\n\n        var exampleIncidentNotificationTemplate = new IncidentNotificationTemplate(\"exampleIncidentNotificationTemplate\", IncidentNotificationTemplateArgs.builder()\n            .name(\"My Notification Template\")\n            .subject(\"SEV-1 Incident: {{incident.title}}\")\n            .content(\"\"\"\nAn incident has been declared.\n\nTitle: {{incident.title}}\nSeverity: {{incident.severity}}\nStatus: {{incident.status}}\n\nPlease join the incident channel for updates.\n            \"\"\")\n            .category(\"alert\")\n            .incidentType(example.id())\n            .build());\n\n        var exampleIncidentNotificationRule = new IncidentNotificationRule(\"exampleIncidentNotificationRule\", IncidentNotificationRuleArgs.builder()\n            .enabled(true)\n            .trigger(\"incident_created_trigger\")\n            .visibility(\"organization\")\n            .handles(            \n                \"@team-email@company.com\",\n                \"@slack-channel-alerts\",\n                \"@pagerduty-service\")\n            .conditions(            \n                IncidentNotificationRuleConditionArgs.builder()\n                    .field(\"severity\")\n                    .values(                    \n                        \"SEV-1\",\n                        \"SEV-2\")\n                    .build(),\n                IncidentNotificationRuleConditionArgs.builder()\n                    .field(\"services\")\n                    .values(                    \n                        \"web-service\",\n                        \"api-service\",\n                        \"database-service\")\n                    .build())\n            .renotifyOns(            \n                \"status\",\n                \"severity\")\n            .incidentType(example.id())\n            .notificationTemplate(exampleIncidentNotificationTemplate.id())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: datadog:IncidentType\n    properties:\n      name: My Incident Type\n      description: Incident type for critical production issues\n  exampleIncidentNotificationTemplate:\n    type: datadog:IncidentNotificationTemplate\n    name: example\n    properties:\n      name: My Notification Template\n      subject: 'SEV-1 Incident: {{incident.title}}'\n      content: |\n        An incident has been declared.\n\n        Title: {{incident.title}}\n        Severity: {{incident.severity}}\n        Status: {{incident.status}}\n\n        Please join the incident channel for updates.\n      category: alert\n      incidentType: ${example.id}\n  exampleIncidentNotificationRule:\n    type: datadog:IncidentNotificationRule\n    name: example\n    properties:\n      enabled: true\n      trigger: incident_created_trigger\n      visibility: organization\n      handles:\n        - '@team-email@company.com'\n        - '@slack-channel-alerts'\n        - '@pagerduty-service'\n      conditions:\n        - field: severity\n          values:\n            - SEV-1\n            - SEV-2\n        - field: services\n          values:\n            - web-service\n            - api-service\n            - database-service\n      renotifyOns:\n        - status\n        - severity\n      incidentType: ${example.id}\n      notificationTemplate: ${exampleIncidentNotificationTemplate.id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nThe `pulumi import` command can be used, for example:\n\n```sh\n$ pulumi import datadog:index/incidentNotificationRule:IncidentNotificationRule example \"00000000-0000-0000-0000-000000000000\"\n```\n\n",
+            "properties": {
+                "conditions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/IncidentNotificationRuleCondition:IncidentNotificationRuleCondition"
+                    },
+                    "description": "The conditions that trigger this notification rule. At least one condition is required.\n"
+                },
+                "created": {
+                    "type": "string",
+                    "description": "Timestamp when the notification rule was created.\n"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether the notification rule is enabled. Defaults to `false`.\n"
+                },
+                "handles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The notification handles (targets) for this rule. Examples: @team-email@company.com, @slack-channel.\n"
+                },
+                "incidentType": {
+                    "type": "string",
+                    "description": "The ID of the incident type this notification rule is associated with.\n"
+                },
+                "modified": {
+                    "type": "string",
+                    "description": "Timestamp when the notification rule was last modified.\n"
+                },
+                "notificationTemplate": {
+                    "type": "string",
+                    "description": "The ID of the notification template to use for this rule.\n"
+                },
+                "renotifyOns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of incident fields that trigger re-notification when changed. Valid values are: status, severity, customer*impact, title, description, detected, root*cause, services, state.\n"
+                },
+                "trigger": {
+                    "type": "string",
+                    "description": "The trigger event for this notification rule. Valid values are: incident*created*trigger, incident*saved*trigger.\n"
+                },
+                "visibility": {
+                    "type": "string",
+                    "description": "The visibility of the notification rule. Valid values are: all, organization, private. Defaults to organization.\n"
+                }
+            },
+            "required": [
+                "created",
+                "enabled",
+                "handles",
+                "incidentType",
+                "modified",
+                "trigger",
+                "visibility"
+            ],
+            "inputProperties": {
+                "conditions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/IncidentNotificationRuleCondition:IncidentNotificationRuleCondition"
+                    },
+                    "description": "The conditions that trigger this notification rule. At least one condition is required.\n"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether the notification rule is enabled. Defaults to `false`.\n"
+                },
+                "handles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The notification handles (targets) for this rule. Examples: @team-email@company.com, @slack-channel.\n"
+                },
+                "incidentType": {
+                    "type": "string",
+                    "description": "The ID of the incident type this notification rule is associated with.\n"
+                },
+                "notificationTemplate": {
+                    "type": "string",
+                    "description": "The ID of the notification template to use for this rule.\n"
+                },
+                "renotifyOns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of incident fields that trigger re-notification when changed. Valid values are: status, severity, customer*impact, title, description, detected, root*cause, services, state.\n"
+                },
+                "trigger": {
+                    "type": "string",
+                    "description": "The trigger event for this notification rule. Valid values are: incident*created*trigger, incident*saved*trigger.\n"
+                },
+                "visibility": {
+                    "type": "string",
+                    "description": "The visibility of the notification rule. Valid values are: all, organization, private. Defaults to organization.\n"
+                }
+            },
+            "requiredInputs": [
+                "handles",
+                "incidentType",
+                "trigger"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering IncidentNotificationRule resources.\n",
+                "properties": {
+                    "conditions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/datadog:index/IncidentNotificationRuleCondition:IncidentNotificationRuleCondition"
+                        },
+                        "description": "The conditions that trigger this notification rule. At least one condition is required.\n"
+                    },
+                    "created": {
+                        "type": "string",
+                        "description": "Timestamp when the notification rule was created.\n"
+                    },
+                    "enabled": {
+                        "type": "boolean",
+                        "description": "Whether the notification rule is enabled. Defaults to `false`.\n"
+                    },
+                    "handles": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The notification handles (targets) for this rule. Examples: @team-email@company.com, @slack-channel.\n"
+                    },
+                    "incidentType": {
+                        "type": "string",
+                        "description": "The ID of the incident type this notification rule is associated with.\n"
+                    },
+                    "modified": {
+                        "type": "string",
+                        "description": "Timestamp when the notification rule was last modified.\n"
+                    },
+                    "notificationTemplate": {
+                        "type": "string",
+                        "description": "The ID of the notification template to use for this rule.\n"
+                    },
+                    "renotifyOns": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of incident fields that trigger re-notification when changed. Valid values are: status, severity, customer*impact, title, description, detected, root*cause, services, state.\n"
+                    },
+                    "trigger": {
+                        "type": "string",
+                        "description": "The trigger event for this notification rule. Valid values are: incident*created*trigger, incident*saved*trigger.\n"
+                    },
+                    "visibility": {
+                        "type": "string",
+                        "description": "The visibility of the notification rule. Valid values are: all, organization, private. Defaults to organization.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "datadog:index/incidentNotificationTemplate:IncidentNotificationTemplate": {
+            "description": "Provides a Datadog incident notification template resource. This can be used to create and manage Datadog incident notification templates.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Reference incident type\nconst security = new datadog.IncidentType(\"security\", {\n    name: \"Security Incident\",\n    description: \"Security-related incidents requiring immediate attention\",\n});\n// Create a notification template for incident alerts\nconst securityIncident = new datadog.IncidentNotificationTemplate(\"security_incident\", {\n    name: \"Security Incident Template\",\n    subject: \"SEV-1 Security Incident: {{incident.title}}\",\n    content: `🚨 SECURITY INCIDENT DECLARED 🚨\n\n**Incident Details:**\n- Title: {{incident.title}}\n- Severity: {{incident.severity}}\n- Status: {{incident.status}}\n- Declared at: {{incident.created}}\n\n**Affected Services:**\n{{#each incident.services}}\n- {{name}}\n{{/each}}\n\n**Commander:** {{incident.commander}}\n\n**Next Steps:**\n1. Join the incident Slack channel: #incident-{{incident.id}}\n2. Review the incident details in Datadog\n3. Await further instructions from the incident commander\n\nFor more information: {{incident.url}}\n`,\n    category: \"alert\",\n    incidentType: security.id,\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Reference incident type\nsecurity = datadog.IncidentType(\"security\",\n    name=\"Security Incident\",\n    description=\"Security-related incidents requiring immediate attention\")\n# Create a notification template for incident alerts\nsecurity_incident = datadog.IncidentNotificationTemplate(\"security_incident\",\n    name=\"Security Incident Template\",\n    subject=\"SEV-1 Security Incident: {{incident.title}}\",\n    content=\"\"\"🚨 SECURITY INCIDENT DECLARED 🚨\n\n**Incident Details:**\n- Title: {{incident.title}}\n- Severity: {{incident.severity}}\n- Status: {{incident.status}}\n- Declared at: {{incident.created}}\n\n**Affected Services:**\n{{#each incident.services}}\n- {{name}}\n{{/each}}\n\n**Commander:** {{incident.commander}}\n\n**Next Steps:**\n1. Join the incident Slack channel: #incident-{{incident.id}}\n2. Review the incident details in Datadog\n3. Await further instructions from the incident commander\n\nFor more information: {{incident.url}}\n\"\"\",\n    category=\"alert\",\n    incident_type=security.id)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Reference incident type\n    var security = new Datadog.IncidentType(\"security\", new()\n    {\n        Name = \"Security Incident\",\n        Description = \"Security-related incidents requiring immediate attention\",\n    });\n\n    // Create a notification template for incident alerts\n    var securityIncident = new Datadog.IncidentNotificationTemplate(\"security_incident\", new()\n    {\n        Name = \"Security Incident Template\",\n        Subject = \"SEV-1 Security Incident: {{incident.title}}\",\n        Content = @\"🚨 SECURITY INCIDENT DECLARED 🚨\n\n**Incident Details:**\n- Title: {{incident.title}}\n- Severity: {{incident.severity}}\n- Status: {{incident.status}}\n- Declared at: {{incident.created}}\n\n**Affected Services:**\n{{#each incident.services}}\n- {{name}}\n{{/each}}\n\n**Commander:** {{incident.commander}}\n\n**Next Steps:**\n1. Join the incident Slack channel: #incident-{{incident.id}}\n2. Review the incident details in Datadog\n3. Await further instructions from the incident commander\n\nFor more information: {{incident.url}}\n\",\n        Category = \"alert\",\n        IncidentType = security.Id,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t// Reference incident type\n\t\tsecurity, err := datadog.NewIncidentType(ctx, \"security\", \u0026datadog.IncidentTypeArgs{\n\t\t\tName:        pulumi.String(\"Security Incident\"),\n\t\t\tDescription: pulumi.String(\"Security-related incidents requiring immediate attention\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t// Create a notification template for incident alerts\n\t\t_, err = datadog.NewIncidentNotificationTemplate(ctx, \"security_incident\", \u0026datadog.IncidentNotificationTemplateArgs{\n\t\t\tName:    pulumi.String(\"Security Incident Template\"),\n\t\t\tSubject: pulumi.String(\"SEV-1 Security Incident: {{incident.title}}\"),\n\t\t\tContent: pulumi.String(`🚨 SECURITY INCIDENT DECLARED 🚨\n\n**Incident Details:**\n- Title: {{incident.title}}\n- Severity: {{incident.severity}}\n- Status: {{incident.status}}\n- Declared at: {{incident.created}}\n\n**Affected Services:**\n{{#each incident.services}}\n- {{name}}\n{{/each}}\n\n**Commander:** {{incident.commander}}\n\n**Next Steps:**\n1. Join the incident Slack channel: #incident-{{incident.id}}\n2. Review the incident details in Datadog\n3. Await further instructions from the incident commander\n\nFor more information: {{incident.url}}\n`),\n\t\t\tCategory:     pulumi.String(\"alert\"),\n\t\t\tIncidentType: security.ID(),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.IncidentType;\nimport com.pulumi.datadog.IncidentTypeArgs;\nimport com.pulumi.datadog.IncidentNotificationTemplate;\nimport com.pulumi.datadog.IncidentNotificationTemplateArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // Reference incident type\n        var security = new IncidentType(\"security\", IncidentTypeArgs.builder()\n            .name(\"Security Incident\")\n            .description(\"Security-related incidents requiring immediate attention\")\n            .build());\n\n        // Create a notification template for incident alerts\n        var securityIncident = new IncidentNotificationTemplate(\"securityIncident\", IncidentNotificationTemplateArgs.builder()\n            .name(\"Security Incident Template\")\n            .subject(\"SEV-1 Security Incident: {{incident.title}}\")\n            .content(\"\"\"\n🚨 SECURITY INCIDENT DECLARED 🚨\n\n**Incident Details:**\n- Title: {{incident.title}}\n- Severity: {{incident.severity}}\n- Status: {{incident.status}}\n- Declared at: {{incident.created}}\n\n**Affected Services:**\n{{#each incident.services}}\n- {{name}}\n{{/each}}\n\n**Commander:** {{incident.commander}}\n\n**Next Steps:**\n1. Join the incident Slack channel: #incident-{{incident.id}}\n2. Review the incident details in Datadog\n3. Await further instructions from the incident commander\n\nFor more information: {{incident.url}}\n            \"\"\")\n            .category(\"alert\")\n            .incidentType(security.id())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Create a notification template for incident alerts\n  securityIncident:\n    type: datadog:IncidentNotificationTemplate\n    name: security_incident\n    properties:\n      name: Security Incident Template\n      subject: 'SEV-1 Security Incident: {{incident.title}}'\n      content: \"\\U0001F6A8 SECURITY INCIDENT DECLARED \\U0001F6A8\\n\\n**Incident Details:**\\n- Title: {{incident.title}}\\n- Severity: {{incident.severity}}\\n- Status: {{incident.status}}\\n- Declared at: {{incident.created}}\\n\\n**Affected Services:**\\n{{#each incident.services}}\\n- {{name}}\\n{{/each}}\\n\\n**Commander:** {{incident.commander}}\\n\\n**Next Steps:**\\n1. Join the incident Slack channel: #incident-{{incident.id}}\\n2. Review the incident details in Datadog\\n3. Await further instructions from the incident commander\\n\\nFor more information: {{incident.url}}\\n\"\n      category: alert\n      incidentType: ${security.id}\n  # Reference incident type\n  security:\n    type: datadog:IncidentType\n    properties:\n      name: Security Incident\n      description: Security-related incidents requiring immediate attention\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nThe `pulumi import` command can be used, for example:\n\n#!/bin/bash\n\nImport an existing incident notification template\n\n```sh\n$ pulumi import datadog:index/incidentNotificationTemplate:IncidentNotificationTemplate security_incident 11111111-2222-3333-4444-555555555555\n```\n\n",
+            "properties": {
+                "category": {
+                    "type": "string",
+                    "description": "The category of the notification template. Valid values are `alert`, `incident`, `recovery`.\n"
+                },
+                "content": {
+                    "type": "string",
+                    "description": "The content body of the notification template.\n"
+                },
+                "created": {
+                    "type": "string",
+                    "description": "Timestamp when the notification template was created.\n"
+                },
+                "incidentType": {
+                    "type": "string",
+                    "description": "The ID of the incident type this notification template is associated with.\n"
+                },
+                "modified": {
+                    "type": "string",
+                    "description": "Timestamp when the notification template was last modified.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the notification template.\n"
+                },
+                "subject": {
+                    "type": "string",
+                    "description": "The subject line of the notification template.\n"
+                }
+            },
+            "required": [
+                "category",
+                "content",
+                "created",
+                "incidentType",
+                "modified",
+                "name",
+                "subject"
+            ],
+            "inputProperties": {
+                "category": {
+                    "type": "string",
+                    "description": "The category of the notification template. Valid values are `alert`, `incident`, `recovery`.\n"
+                },
+                "content": {
+                    "type": "string",
+                    "description": "The content body of the notification template.\n"
+                },
+                "incidentType": {
+                    "type": "string",
+                    "description": "The ID of the incident type this notification template is associated with.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the notification template.\n"
+                },
+                "subject": {
+                    "type": "string",
+                    "description": "The subject line of the notification template.\n"
+                }
+            },
+            "requiredInputs": [
+                "category",
+                "content",
+                "incidentType",
+                "name",
+                "subject"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering IncidentNotificationTemplate resources.\n",
+                "properties": {
+                    "category": {
+                        "type": "string",
+                        "description": "The category of the notification template. Valid values are `alert`, `incident`, `recovery`.\n"
+                    },
+                    "content": {
+                        "type": "string",
+                        "description": "The content body of the notification template.\n"
+                    },
+                    "created": {
+                        "type": "string",
+                        "description": "Timestamp when the notification template was created.\n"
+                    },
+                    "incidentType": {
+                        "type": "string",
+                        "description": "The ID of the incident type this notification template is associated with.\n"
+                    },
+                    "modified": {
+                        "type": "string",
+                        "description": "Timestamp when the notification template was last modified.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the notification template.\n"
+                    },
+                    "subject": {
+                        "type": "string",
+                        "description": "The subject line of the notification template.\n"
                     }
                 },
                 "type": "object"
@@ -46795,6 +47344,13 @@
         "datadog:index/securityMonitoringRule:SecurityMonitoringRule": {
             "description": "Provides a Datadog Security Monitoring Rule API resource. This can be used to create and manage Datadog security monitoring rules. To change settings for a default rule, use `datadog.SecurityMonitoringDefaultRule` instead.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst myrule = new datadog.SecurityMonitoringRule(\"myrule\", {\n    name: \"My rule\",\n    message: \"The rule has triggered.\",\n    enabled: true,\n    queries: [\n        {\n            name: \"errors\",\n            query: \"status:error\",\n            aggregation: \"count\",\n            dataSource: \"logs\",\n            groupByFields: [\"host\"],\n        },\n        {\n            name: \"warnings\",\n            query: \"status:warning\",\n            aggregation: \"count\",\n            dataSource: \"logs\",\n            groupByFields: [\"host\"],\n        },\n    ],\n    cases: [{\n        status: \"high\",\n        condition: \"errors \u003e 3 \u0026\u0026 warnings \u003e 10\",\n        notifications: [\"@user\"],\n    }],\n    options: {\n        evaluationWindow: 300,\n        keepAlive: 600,\n        maxSignalDuration: 900,\n    },\n    tags: [\"type:dos\"],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nmyrule = datadog.SecurityMonitoringRule(\"myrule\",\n    name=\"My rule\",\n    message=\"The rule has triggered.\",\n    enabled=True,\n    queries=[\n        {\n            \"name\": \"errors\",\n            \"query\": \"status:error\",\n            \"aggregation\": \"count\",\n            \"data_source\": \"logs\",\n            \"group_by_fields\": [\"host\"],\n        },\n        {\n            \"name\": \"warnings\",\n            \"query\": \"status:warning\",\n            \"aggregation\": \"count\",\n            \"data_source\": \"logs\",\n            \"group_by_fields\": [\"host\"],\n        },\n    ],\n    cases=[{\n        \"status\": \"high\",\n        \"condition\": \"errors \u003e 3 \u0026\u0026 warnings \u003e 10\",\n        \"notifications\": [\"@user\"],\n    }],\n    options={\n        \"evaluation_window\": 300,\n        \"keep_alive\": 600,\n        \"max_signal_duration\": 900,\n    },\n    tags=[\"type:dos\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var myrule = new Datadog.SecurityMonitoringRule(\"myrule\", new()\n    {\n        Name = \"My rule\",\n        Message = \"The rule has triggered.\",\n        Enabled = true,\n        Queries = new[]\n        {\n            new Datadog.Inputs.SecurityMonitoringRuleQueryArgs\n            {\n                Name = \"errors\",\n                Query = \"status:error\",\n                Aggregation = \"count\",\n                DataSource = \"logs\",\n                GroupByFields = new[]\n                {\n                    \"host\",\n                },\n            },\n            new Datadog.Inputs.SecurityMonitoringRuleQueryArgs\n            {\n                Name = \"warnings\",\n                Query = \"status:warning\",\n                Aggregation = \"count\",\n                DataSource = \"logs\",\n                GroupByFields = new[]\n                {\n                    \"host\",\n                },\n            },\n        },\n        Cases = new[]\n        {\n            new Datadog.Inputs.SecurityMonitoringRuleCaseArgs\n            {\n                Status = \"high\",\n                Condition = \"errors \u003e 3 \u0026\u0026 warnings \u003e 10\",\n                Notifications = new[]\n                {\n                    \"@user\",\n                },\n            },\n        },\n        Options = new Datadog.Inputs.SecurityMonitoringRuleOptionsArgs\n        {\n            EvaluationWindow = 300,\n            KeepAlive = 600,\n            MaxSignalDuration = 900,\n        },\n        Tags = new[]\n        {\n            \"type:dos\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewSecurityMonitoringRule(ctx, \"myrule\", \u0026datadog.SecurityMonitoringRuleArgs{\n\t\t\tName:    pulumi.String(\"My rule\"),\n\t\t\tMessage: pulumi.String(\"The rule has triggered.\"),\n\t\t\tEnabled: pulumi.Bool(true),\n\t\t\tQueries: datadog.SecurityMonitoringRuleQueryArray{\n\t\t\t\t\u0026datadog.SecurityMonitoringRuleQueryArgs{\n\t\t\t\t\tName:        pulumi.String(\"errors\"),\n\t\t\t\t\tQuery:       pulumi.String(\"status:error\"),\n\t\t\t\t\tAggregation: pulumi.String(\"count\"),\n\t\t\t\t\tDataSource:  pulumi.String(\"logs\"),\n\t\t\t\t\tGroupByFields: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"host\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026datadog.SecurityMonitoringRuleQueryArgs{\n\t\t\t\t\tName:        pulumi.String(\"warnings\"),\n\t\t\t\t\tQuery:       pulumi.String(\"status:warning\"),\n\t\t\t\t\tAggregation: pulumi.String(\"count\"),\n\t\t\t\t\tDataSource:  pulumi.String(\"logs\"),\n\t\t\t\t\tGroupByFields: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"host\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t\tCases: datadog.SecurityMonitoringRuleCaseArray{\n\t\t\t\t\u0026datadog.SecurityMonitoringRuleCaseArgs{\n\t\t\t\t\tStatus:    pulumi.String(\"high\"),\n\t\t\t\t\tCondition: pulumi.String(\"errors \u003e 3 \u0026\u0026 warnings \u003e 10\"),\n\t\t\t\t\tNotifications: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"@user\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t\tOptions: \u0026datadog.SecurityMonitoringRuleOptionsArgs{\n\t\t\t\tEvaluationWindow:  pulumi.Int(300),\n\t\t\t\tKeepAlive:         pulumi.Int(600),\n\t\t\t\tMaxSignalDuration: pulumi.Int(900),\n\t\t\t},\n\t\t\tTags: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"type:dos\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.SecurityMonitoringRule;\nimport com.pulumi.datadog.SecurityMonitoringRuleArgs;\nimport com.pulumi.datadog.inputs.SecurityMonitoringRuleQueryArgs;\nimport com.pulumi.datadog.inputs.SecurityMonitoringRuleCaseArgs;\nimport com.pulumi.datadog.inputs.SecurityMonitoringRuleOptionsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var myrule = new SecurityMonitoringRule(\"myrule\", SecurityMonitoringRuleArgs.builder()\n            .name(\"My rule\")\n            .message(\"The rule has triggered.\")\n            .enabled(true)\n            .queries(            \n                SecurityMonitoringRuleQueryArgs.builder()\n                    .name(\"errors\")\n                    .query(\"status:error\")\n                    .aggregation(\"count\")\n                    .dataSource(\"logs\")\n                    .groupByFields(\"host\")\n                    .build(),\n                SecurityMonitoringRuleQueryArgs.builder()\n                    .name(\"warnings\")\n                    .query(\"status:warning\")\n                    .aggregation(\"count\")\n                    .dataSource(\"logs\")\n                    .groupByFields(\"host\")\n                    .build())\n            .cases(SecurityMonitoringRuleCaseArgs.builder()\n                .status(\"high\")\n                .condition(\"errors \u003e 3 \u0026\u0026 warnings \u003e 10\")\n                .notifications(\"@user\")\n                .build())\n            .options(SecurityMonitoringRuleOptionsArgs.builder()\n                .evaluationWindow(300)\n                .keepAlive(600)\n                .maxSignalDuration(900)\n                .build())\n            .tags(\"type:dos\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  myrule:\n    type: datadog:SecurityMonitoringRule\n    properties:\n      name: My rule\n      message: The rule has triggered.\n      enabled: true\n      queries:\n        - name: errors\n          query: status:error\n          aggregation: count\n          dataSource: logs\n          groupByFields:\n            - host\n        - name: warnings\n          query: status:warning\n          aggregation: count\n          dataSource: logs\n          groupByFields:\n            - host\n      cases:\n        - status: high\n          condition: errors \u003e 3 \u0026\u0026 warnings \u003e 10\n          notifications:\n            - '@user'\n      options:\n        evaluationWindow: 300\n        keepAlive: 600\n        maxSignalDuration: 900\n      tags:\n        - type:dos\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nThe `pulumi import` command can be used, for example:\n\nSecurity monitoring rules can be imported using ID, e.g.\n\n```sh\n$ pulumi import datadog:index/securityMonitoringRule:SecurityMonitoringRule my_rule m0o-hto-lkb\n```\n\n",
             "properties": {
+                "calculatedFields": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/SecurityMonitoringRuleCalculatedField:SecurityMonitoringRuleCalculatedField"
+                    },
+                    "description": "One or more calculated fields. Available only for scheduled rules (in other words, when `scheduling_options` is defined).\n"
+                },
                 "cases": {
                     "type": "array",
                     "items": {
@@ -46849,6 +47405,10 @@
                         "$ref": "#/types/datadog:index/SecurityMonitoringRuleReferenceTable:SecurityMonitoringRuleReferenceTable"
                     },
                     "description": "Reference tables for filtering query results.\n"
+                },
+                "schedulingOptions": {
+                    "$ref": "#/types/datadog:index/SecurityMonitoringRuleSchedulingOptions:SecurityMonitoringRuleSchedulingOptions",
+                    "description": "Options for scheduled rules. When this field is present, the rule runs based on the schedule. When absent, it runs in real time on ingested logs.\n"
                 },
                 "signalQueries": {
                     "type": "array",
@@ -46886,6 +47446,13 @@
                 "tags"
             ],
             "inputProperties": {
+                "calculatedFields": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/SecurityMonitoringRuleCalculatedField:SecurityMonitoringRuleCalculatedField"
+                    },
+                    "description": "One or more calculated fields. Available only for scheduled rules (in other words, when `scheduling_options` is defined).\n"
+                },
                 "cases": {
                     "type": "array",
                     "items": {
@@ -46940,6 +47507,10 @@
                         "$ref": "#/types/datadog:index/SecurityMonitoringRuleReferenceTable:SecurityMonitoringRuleReferenceTable"
                     },
                     "description": "Reference tables for filtering query results.\n"
+                },
+                "schedulingOptions": {
+                    "$ref": "#/types/datadog:index/SecurityMonitoringRuleSchedulingOptions:SecurityMonitoringRuleSchedulingOptions",
+                    "description": "Options for scheduled rules. When this field is present, the rule runs based on the schedule. When absent, it runs in real time on ingested logs.\n"
                 },
                 "signalQueries": {
                     "type": "array",
@@ -46978,6 +47549,13 @@
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering SecurityMonitoringRule resources.\n",
                 "properties": {
+                    "calculatedFields": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/datadog:index/SecurityMonitoringRuleCalculatedField:SecurityMonitoringRuleCalculatedField"
+                        },
+                        "description": "One or more calculated fields. Available only for scheduled rules (in other words, when `scheduling_options` is defined).\n"
+                    },
                     "cases": {
                         "type": "array",
                         "items": {
@@ -47032,6 +47610,10 @@
                             "$ref": "#/types/datadog:index/SecurityMonitoringRuleReferenceTable:SecurityMonitoringRuleReferenceTable"
                         },
                         "description": "Reference tables for filtering query results.\n"
+                    },
+                    "schedulingOptions": {
+                        "$ref": "#/types/datadog:index/SecurityMonitoringRuleSchedulingOptions:SecurityMonitoringRuleSchedulingOptions",
+                        "description": "Options for scheduled rules. When this field is present, the rule runs based on the schedule. When absent, it runs in real time on ingested logs.\n"
                     },
                     "signalQueries": {
                         "type": "array",
@@ -47131,12 +47713,17 @@
                 "suppressionQuery": {
                     "type": "string",
                     "description": "The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.\n"
+                },
+                "validate": {
+                    "type": "boolean",
+                    "description": "Whether to validate the suppression rule during `pulumi preview`. When set to `true`, the rule is validated against Datadog's suppression validation endpoint. Defaults to `true`.\n"
                 }
             },
             "required": [
                 "enabled",
                 "name",
-                "ruleQuery"
+                "ruleQuery",
+                "validate"
             ],
             "inputProperties": {
                 "dataExclusionQuery": {
@@ -47170,6 +47757,10 @@
                 "suppressionQuery": {
                     "type": "string",
                     "description": "The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.\n"
+                },
+                "validate": {
+                    "type": "boolean",
+                    "description": "Whether to validate the suppression rule during `pulumi preview`. When set to `true`, the rule is validated against Datadog's suppression validation endpoint. Defaults to `true`.\n"
                 }
             },
             "requiredInputs": [
@@ -47211,6 +47802,10 @@
                     "suppressionQuery": {
                         "type": "string",
                         "description": "The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.\n"
+                    },
+                    "validate": {
+                        "type": "boolean",
+                        "description": "Whether to validate the suppression rule during `pulumi preview`. When set to `true`, the rule is validated against Datadog's suppression validation endpoint. Defaults to `true`.\n"
                     }
                 },
                 "type": "object"
@@ -50913,6 +51508,165 @@
                     "id",
                     "totalMatching",
                     "totalReturned"
+                ],
+                "type": "object"
+            }
+        },
+        "datadog:index/getIncidentNotificationRule:getIncidentNotificationRule": {
+            "description": "Use this data source to retrieve information about an existing incident notification rule.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst example = datadog.getIncidentNotificationRule({\n    id: \"00000000-0000-0000-0000-000000000000\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nexample = datadog.get_incident_notification_rule(id=\"00000000-0000-0000-0000-000000000000\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Datadog.GetIncidentNotificationRule.Invoke(new()\n    {\n        Id = \"00000000-0000-0000-0000-000000000000\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.LookupIncidentNotificationRule(ctx, \u0026datadog.LookupIncidentNotificationRuleArgs{\n\t\t\tId: \"00000000-0000-0000-0000-000000000000\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.DatadogFunctions;\nimport com.pulumi.datadog.inputs.GetIncidentNotificationRuleArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = DatadogFunctions.getIncidentNotificationRule(GetIncidentNotificationRuleArgs.builder()\n            .id(\"00000000-0000-0000-0000-000000000000\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      function: datadog:getIncidentNotificationRule\n      arguments:\n        id: 00000000-0000-0000-0000-000000000000\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getIncidentNotificationRule.\n",
+                "properties": {
+                    "conditions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/datadog:index/getIncidentNotificationRuleCondition:getIncidentNotificationRuleCondition"
+                        },
+                        "description": "The conditions that trigger this notification rule.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The ID of the incident notification rule.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getIncidentNotificationRule.\n",
+                "properties": {
+                    "conditions": {
+                        "description": "The conditions that trigger this notification rule.\n",
+                        "items": {
+                            "$ref": "#/types/datadog:index/getIncidentNotificationRuleCondition:getIncidentNotificationRuleCondition"
+                        },
+                        "type": "array"
+                    },
+                    "created": {
+                        "description": "Timestamp when the notification rule was created.\n",
+                        "type": "string"
+                    },
+                    "enabled": {
+                        "description": "Whether the notification rule is enabled.\n",
+                        "type": "boolean"
+                    },
+                    "handles": {
+                        "description": "The notification handles (targets) for this rule.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "The ID of the incident notification rule.\n",
+                        "type": "string"
+                    },
+                    "incidentType": {
+                        "description": "The ID of the incident type this notification rule is associated with.\n",
+                        "type": "string"
+                    },
+                    "modified": {
+                        "description": "Timestamp when the notification rule was last modified.\n",
+                        "type": "string"
+                    },
+                    "notificationTemplate": {
+                        "description": "The ID of the notification template used by this rule.\n",
+                        "type": "string"
+                    },
+                    "renotifyOns": {
+                        "description": "List of incident fields that trigger re-notification when changed.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "trigger": {
+                        "description": "The trigger event for this notification rule.\n",
+                        "type": "string"
+                    },
+                    "visibility": {
+                        "description": "The visibility of the notification rule. Valid values are: all, organization, private.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "created",
+                    "enabled",
+                    "handles",
+                    "id",
+                    "incidentType",
+                    "modified",
+                    "notificationTemplate",
+                    "renotifyOns",
+                    "trigger",
+                    "visibility"
+                ],
+                "type": "object"
+            }
+        },
+        "datadog:index/getIncidentNotificationTemplate:getIncidentNotificationTemplate": {
+            "description": "Use this data source to retrieve information about an existing incident notification template.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst example = datadog.getIncidentNotificationTemplate({\n    id: \"52600bb1-e83a-48a1-aa77-6889ddb269b2\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nexample = datadog.get_incident_notification_template(id=\"52600bb1-e83a-48a1-aa77-6889ddb269b2\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Datadog.GetIncidentNotificationTemplate.Invoke(new()\n    {\n        Id = \"52600bb1-e83a-48a1-aa77-6889ddb269b2\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.LookupIncidentNotificationTemplate(ctx, \u0026datadog.LookupIncidentNotificationTemplateArgs{\n\t\t\tId: pulumi.StringRef(\"52600bb1-e83a-48a1-aa77-6889ddb269b2\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.DatadogFunctions;\nimport com.pulumi.datadog.inputs.GetIncidentNotificationTemplateArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = DatadogFunctions.getIncidentNotificationTemplate(GetIncidentNotificationTemplateArgs.builder()\n            .id(\"52600bb1-e83a-48a1-aa77-6889ddb269b2\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      function: datadog:getIncidentNotificationTemplate\n      arguments:\n        id: 52600bb1-e83a-48a1-aa77-6889ddb269b2\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getIncidentNotificationTemplate.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The ID of the incident notification template.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the notification template.\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getIncidentNotificationTemplate.\n",
+                "properties": {
+                    "category": {
+                        "description": "The category of the notification template.\n",
+                        "type": "string"
+                    },
+                    "content": {
+                        "description": "The content body of the notification template.\n",
+                        "type": "string"
+                    },
+                    "created": {
+                        "description": "Timestamp when the notification template was created.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The ID of the incident notification template.\n",
+                        "type": "string"
+                    },
+                    "incidentType": {
+                        "description": "The ID of the incident type this notification template is associated with.\n",
+                        "type": "string"
+                    },
+                    "modified": {
+                        "description": "Timestamp when the notification template was last modified.\n",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "The name of the notification template.\n",
+                        "type": "string"
+                    },
+                    "subject": {
+                        "description": "The subject line of the notification template.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "category",
+                    "content",
+                    "created",
+                    "id",
+                    "incidentType",
+                    "modified",
+                    "name",
+                    "subject"
                 ],
                 "type": "object"
             }

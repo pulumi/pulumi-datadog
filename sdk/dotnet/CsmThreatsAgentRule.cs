@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog
 {
     /// <summary>
-    /// Provides a Datadog CSM Threats Agent Rule API resource.
+    /// Provides a Datadog Workload Protection (CSM Threats) Agent Rule API resource.
     /// 
     /// ## Import
     /// 

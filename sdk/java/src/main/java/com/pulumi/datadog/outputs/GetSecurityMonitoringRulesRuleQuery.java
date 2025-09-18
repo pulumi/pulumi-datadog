@@ -6,6 +6,7 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.GetSecurityMonitoringRulesRuleQueryAgentRule;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -43,6 +44,16 @@ public final class GetSecurityMonitoringRulesRuleQuery {
      * 
      */
     private @Nullable List<String> groupByFields;
+    /**
+     * @return When false, events without a group-by value are ignored by the rule. When true, events with missing group-by fields are processed with `N/A`, replacing the missing values.
+     * 
+     */
+    private @Nullable Boolean hasOptionalGroupByFields;
+    /**
+     * @return List of indexes to run the query on when the data source is `logs`. Supports only one element. Used only for scheduled rules (in other words, when `scheduling_options` is defined).
+     * 
+     */
+    private @Nullable List<String> indexes;
     /**
      * @return The target field to aggregate over when using the `sum`, `max`, or `geo_data` aggregations.
      * 
@@ -109,6 +120,20 @@ public final class GetSecurityMonitoringRulesRuleQuery {
         return this.groupByFields == null ? List.of() : this.groupByFields;
     }
     /**
+     * @return When false, events without a group-by value are ignored by the rule. When true, events with missing group-by fields are processed with `N/A`, replacing the missing values.
+     * 
+     */
+    public Optional<Boolean> hasOptionalGroupByFields() {
+        return Optional.ofNullable(this.hasOptionalGroupByFields);
+    }
+    /**
+     * @return List of indexes to run the query on when the data source is `logs`. Supports only one element. Used only for scheduled rules (in other words, when `scheduling_options` is defined).
+     * 
+     */
+    public List<String> indexes() {
+        return this.indexes == null ? List.of() : this.indexes;
+    }
+    /**
      * @return The target field to aggregate over when using the `sum`, `max`, or `geo_data` aggregations.
      * 
      * @deprecated
@@ -155,6 +180,8 @@ public final class GetSecurityMonitoringRulesRuleQuery {
         private @Nullable String dataSource;
         private @Nullable List<String> distinctFields;
         private @Nullable List<String> groupByFields;
+        private @Nullable Boolean hasOptionalGroupByFields;
+        private @Nullable List<String> indexes;
         private @Nullable String metric;
         private List<String> metrics;
         private @Nullable String name;
@@ -167,6 +194,8 @@ public final class GetSecurityMonitoringRulesRuleQuery {
     	      this.dataSource = defaults.dataSource;
     	      this.distinctFields = defaults.distinctFields;
     	      this.groupByFields = defaults.groupByFields;
+    	      this.hasOptionalGroupByFields = defaults.hasOptionalGroupByFields;
+    	      this.indexes = defaults.indexes;
     	      this.metric = defaults.metric;
     	      this.metrics = defaults.metrics;
     	      this.name = defaults.name;
@@ -213,6 +242,21 @@ public final class GetSecurityMonitoringRulesRuleQuery {
             return groupByFields(List.of(groupByFields));
         }
         @CustomType.Setter
+        public Builder hasOptionalGroupByFields(@Nullable Boolean hasOptionalGroupByFields) {
+
+            this.hasOptionalGroupByFields = hasOptionalGroupByFields;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder indexes(@Nullable List<String> indexes) {
+
+            this.indexes = indexes;
+            return this;
+        }
+        public Builder indexes(String... indexes) {
+            return indexes(List.of(indexes));
+        }
+        @CustomType.Setter
         public Builder metric(@Nullable String metric) {
 
             this.metric = metric;
@@ -250,6 +294,8 @@ public final class GetSecurityMonitoringRulesRuleQuery {
             _resultValue.dataSource = dataSource;
             _resultValue.distinctFields = distinctFields;
             _resultValue.groupByFields = groupByFields;
+            _resultValue.hasOptionalGroupByFields = hasOptionalGroupByFields;
+            _resultValue.indexes = indexes;
             _resultValue.metric = metric;
             _resultValue.metrics = metrics;
             _resultValue.name = name;

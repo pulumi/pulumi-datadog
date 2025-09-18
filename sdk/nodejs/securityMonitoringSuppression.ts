@@ -95,6 +95,10 @@ export class SecurityMonitoringSuppression extends pulumi.CustomResource {
      * The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
      */
     declare public readonly suppressionQuery: pulumi.Output<string | undefined>;
+    /**
+     * Whether to validate the suppression rule during `pulumi preview`. When set to `true`, the rule is validated against Datadog's suppression validation endpoint. Defaults to `true`.
+     */
+    declare public readonly validate: pulumi.Output<boolean>;
 
     /**
      * Create a SecurityMonitoringSuppression resource with the given unique name, arguments, and options.
@@ -117,6 +121,7 @@ export class SecurityMonitoringSuppression extends pulumi.CustomResource {
             resourceInputs["ruleQuery"] = state?.ruleQuery;
             resourceInputs["startDate"] = state?.startDate;
             resourceInputs["suppressionQuery"] = state?.suppressionQuery;
+            resourceInputs["validate"] = state?.validate;
         } else {
             const args = argsOrState as SecurityMonitoringSuppressionArgs | undefined;
             if (args?.enabled === undefined && !opts.urn) {
@@ -136,6 +141,7 @@ export class SecurityMonitoringSuppression extends pulumi.CustomResource {
             resourceInputs["ruleQuery"] = args?.ruleQuery;
             resourceInputs["startDate"] = args?.startDate;
             resourceInputs["suppressionQuery"] = args?.suppressionQuery;
+            resourceInputs["validate"] = args?.validate;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SecurityMonitoringSuppression.__pulumiType, name, resourceInputs, opts);
@@ -178,6 +184,10 @@ export interface SecurityMonitoringSuppressionState {
      * The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
      */
     suppressionQuery?: pulumi.Input<string>;
+    /**
+     * Whether to validate the suppression rule during `pulumi preview`. When set to `true`, the rule is validated against Datadog's suppression validation endpoint. Defaults to `true`.
+     */
+    validate?: pulumi.Input<boolean>;
 }
 
 /**
@@ -216,4 +226,8 @@ export interface SecurityMonitoringSuppressionArgs {
      * The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
      */
     suppressionQuery?: pulumi.Input<string>;
+    /**
+     * Whether to validate the suppression rule during `pulumi preview`. When set to `true`, the rule is validated against Datadog's suppression validation endpoint. Defaults to `true`.
+     */
+    validate?: pulumi.Input<boolean>;
 }

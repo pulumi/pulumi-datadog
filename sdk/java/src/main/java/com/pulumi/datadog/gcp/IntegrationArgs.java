@@ -5,6 +5,7 @@ package com.pulumi.datadog.gcp;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.gcp.inputs.IntegrationMonitoredResourceConfigArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
@@ -64,16 +65,24 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+     * List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
+     * 
+     * @deprecated
+     * **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision`
      * 
      */
+    @Deprecated /* **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision` */
     @Import(name="cloudRunRevisionFilters")
     private @Nullable Output<List<String>> cloudRunRevisionFilters;
 
     /**
-     * @return Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+     * @return List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
+     * 
+     * @deprecated
+     * **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision`
      * 
      */
+    @Deprecated /* **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision` */
     public Optional<Output<List<String>>> cloudRunRevisionFilters() {
         return Optional.ofNullable(this.cloudRunRevisionFilters);
     }
@@ -94,16 +103,24 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. Defaults to `&#34;&#34;`.
+     * List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog. Defaults to `&#34;&#34;`.
+     * 
+     * @deprecated
+     * **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance`
      * 
      */
+    @Deprecated /* **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance` */
     @Import(name="hostFilters")
     private @Nullable Output<String> hostFilters;
 
     /**
-     * @return Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. Defaults to `&#34;&#34;`.
+     * @return List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog. Defaults to `&#34;&#34;`.
+     * 
+     * @deprecated
+     * **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance`
      * 
      */
+    @Deprecated /* **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance` */
     public Optional<Output<String>> hostFilters() {
         return Optional.ofNullable(this.hostFilters);
     }
@@ -136,6 +153,21 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> isSecurityCommandCenterEnabled() {
         return Optional.ofNullable(this.isSecurityCommandCenterEnabled);
+    }
+
+    /**
+     * Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
+     * 
+     */
+    @Import(name="monitoredResourceConfigs")
+    private @Nullable Output<List<IntegrationMonitoredResourceConfigArgs>> monitoredResourceConfigs;
+
+    /**
+     * @return Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
+     * 
+     */
+    public Optional<Output<List<IntegrationMonitoredResourceConfigArgs>>> monitoredResourceConfigs() {
+        return Optional.ofNullable(this.monitoredResourceConfigs);
     }
 
     /**
@@ -209,6 +241,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         this.hostFilters = $.hostFilters;
         this.isResourceChangeCollectionEnabled = $.isResourceChangeCollectionEnabled;
         this.isSecurityCommandCenterEnabled = $.isSecurityCommandCenterEnabled;
+        this.monitoredResourceConfigs = $.monitoredResourceConfigs;
         this.privateKey = $.privateKey;
         this.privateKeyId = $.privateKeyId;
         this.projectId = $.projectId;
@@ -297,32 +330,44 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cloudRunRevisionFilters Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+         * @param cloudRunRevisionFilters List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
          * 
          * @return builder
          * 
+         * @deprecated
+         * **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision`
+         * 
          */
+        @Deprecated /* **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision` */
         public Builder cloudRunRevisionFilters(@Nullable Output<List<String>> cloudRunRevisionFilters) {
             $.cloudRunRevisionFilters = cloudRunRevisionFilters;
             return this;
         }
 
         /**
-         * @param cloudRunRevisionFilters Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+         * @param cloudRunRevisionFilters List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
          * 
          * @return builder
          * 
+         * @deprecated
+         * **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision`
+         * 
          */
+        @Deprecated /* **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision` */
         public Builder cloudRunRevisionFilters(List<String> cloudRunRevisionFilters) {
             return cloudRunRevisionFilters(Output.of(cloudRunRevisionFilters));
         }
 
         /**
-         * @param cloudRunRevisionFilters Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+         * @param cloudRunRevisionFilters List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
          * 
          * @return builder
          * 
+         * @deprecated
+         * **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision`
+         * 
          */
+        @Deprecated /* **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision` */
         public Builder cloudRunRevisionFilters(String... cloudRunRevisionFilters) {
             return cloudRunRevisionFilters(List.of(cloudRunRevisionFilters));
         }
@@ -349,22 +394,30 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hostFilters Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. Defaults to `&#34;&#34;`.
+         * @param hostFilters List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 
+         * @deprecated
+         * **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance`
+         * 
          */
+        @Deprecated /* **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance` */
         public Builder hostFilters(@Nullable Output<String> hostFilters) {
             $.hostFilters = hostFilters;
             return this;
         }
 
         /**
-         * @param hostFilters Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. Defaults to `&#34;&#34;`.
+         * @param hostFilters List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 
+         * @deprecated
+         * **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance`
+         * 
          */
+        @Deprecated /* **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance` */
         public Builder hostFilters(String hostFilters) {
             return hostFilters(Output.of(hostFilters));
         }
@@ -409,6 +462,37 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder isSecurityCommandCenterEnabled(Boolean isSecurityCommandCenterEnabled) {
             return isSecurityCommandCenterEnabled(Output.of(isSecurityCommandCenterEnabled));
+        }
+
+        /**
+         * @param monitoredResourceConfigs Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monitoredResourceConfigs(@Nullable Output<List<IntegrationMonitoredResourceConfigArgs>> monitoredResourceConfigs) {
+            $.monitoredResourceConfigs = monitoredResourceConfigs;
+            return this;
+        }
+
+        /**
+         * @param monitoredResourceConfigs Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monitoredResourceConfigs(List<IntegrationMonitoredResourceConfigArgs> monitoredResourceConfigs) {
+            return monitoredResourceConfigs(Output.of(monitoredResourceConfigs));
+        }
+
+        /**
+         * @param monitoredResourceConfigs Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monitoredResourceConfigs(IntegrationMonitoredResourceConfigArgs... monitoredResourceConfigs) {
+            return monitoredResourceConfigs(List.of(monitoredResourceConfigs));
         }
 
         /**

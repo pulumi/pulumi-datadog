@@ -68,6 +68,12 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
+        /// When false, events without a group-by value are ignored by the rule. When true, events with missing group-by fields are processed with `N/A`, replacing the missing values.
+        /// </summary>
+        [Input("hasOptionalGroupByFields")]
+        public Input<bool>? HasOptionalGroupByFields { get; set; }
+
+        /// <summary>
         /// The target field to aggregate over when using the `sum`, `max`, or `geo_data` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
         /// </summary>
         [Input("metric")]

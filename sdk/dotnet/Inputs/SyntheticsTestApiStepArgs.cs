@@ -55,6 +55,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? ExtractedValuesFromScript { get; set; }
 
         /// <summary>
+        /// ID of the step.
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        /// <summary>
         /// Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
         /// </summary>
         [Input("isCritical")]

@@ -62,6 +62,24 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
+        /// When false, events without a group-by value are ignored by the rule. When true, events with missing group-by fields are processed with `N/A`, replacing the missing values. Defaults to `false`.
+        /// </summary>
+        [Input("hasOptionalGroupByFields")]
+        public Input<bool>? HasOptionalGroupByFields { get; set; }
+
+        [Input("indexes")]
+        private InputList<string>? _indexes;
+
+        /// <summary>
+        /// List of indexes to run the query on when the data source is `logs`. Supports only one element. Used only for scheduled rules (in other words, when `scheduling_options` is defined).
+        /// </summary>
+        public InputList<string> Indexes
+        {
+            get => _indexes ?? (_indexes = new InputList<string>());
+            set => _indexes = value;
+        }
+
+        /// <summary>
         /// The target field to aggregate over when using the `sum`, `max`, or `geo_data` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
         /// </summary>
         [Input("metric")]

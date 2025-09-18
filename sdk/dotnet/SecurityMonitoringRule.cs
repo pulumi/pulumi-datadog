@@ -93,6 +93,12 @@ namespace Pulumi.Datadog
     public partial class SecurityMonitoringRule : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// One or more calculated fields. Available only for scheduled rules (in other words, when `scheduling_options` is defined).
+        /// </summary>
+        [Output("calculatedFields")]
+        public Output<ImmutableArray<Outputs.SecurityMonitoringRuleCalculatedField>> CalculatedFields { get; private set; } = null!;
+
+        /// <summary>
         /// Cases for generating signals.
         /// </summary>
         [Output("cases")]
@@ -151,6 +157,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Output("referenceTables")]
         public Output<ImmutableArray<Outputs.SecurityMonitoringRuleReferenceTable>> ReferenceTables { get; private set; } = null!;
+
+        /// <summary>
+        /// Options for scheduled rules. When this field is present, the rule runs based on the schedule. When absent, it runs in real time on ingested logs.
+        /// </summary>
+        [Output("schedulingOptions")]
+        public Output<Outputs.SecurityMonitoringRuleSchedulingOptions?> SchedulingOptions { get; private set; } = null!;
 
         /// <summary>
         /// Queries for selecting logs which are part of the rule.
@@ -228,6 +240,18 @@ namespace Pulumi.Datadog
 
     public sealed class SecurityMonitoringRuleArgs : global::Pulumi.ResourceArgs
     {
+        [Input("calculatedFields")]
+        private InputList<Inputs.SecurityMonitoringRuleCalculatedFieldArgs>? _calculatedFields;
+
+        /// <summary>
+        /// One or more calculated fields. Available only for scheduled rules (in other words, when `scheduling_options` is defined).
+        /// </summary>
+        public InputList<Inputs.SecurityMonitoringRuleCalculatedFieldArgs> CalculatedFields
+        {
+            get => _calculatedFields ?? (_calculatedFields = new InputList<Inputs.SecurityMonitoringRuleCalculatedFieldArgs>());
+            set => _calculatedFields = value;
+        }
+
         [Input("cases")]
         private InputList<Inputs.SecurityMonitoringRuleCaseArgs>? _cases;
 
@@ -318,6 +342,12 @@ namespace Pulumi.Datadog
             set => _referenceTables = value;
         }
 
+        /// <summary>
+        /// Options for scheduled rules. When this field is present, the rule runs based on the schedule. When absent, it runs in real time on ingested logs.
+        /// </summary>
+        [Input("schedulingOptions")]
+        public Input<Inputs.SecurityMonitoringRuleSchedulingOptionsArgs>? SchedulingOptions { get; set; }
+
         [Input("signalQueries")]
         private InputList<Inputs.SecurityMonitoringRuleSignalQueryArgs>? _signalQueries;
 
@@ -374,6 +404,18 @@ namespace Pulumi.Datadog
 
     public sealed class SecurityMonitoringRuleState : global::Pulumi.ResourceArgs
     {
+        [Input("calculatedFields")]
+        private InputList<Inputs.SecurityMonitoringRuleCalculatedFieldGetArgs>? _calculatedFields;
+
+        /// <summary>
+        /// One or more calculated fields. Available only for scheduled rules (in other words, when `scheduling_options` is defined).
+        /// </summary>
+        public InputList<Inputs.SecurityMonitoringRuleCalculatedFieldGetArgs> CalculatedFields
+        {
+            get => _calculatedFields ?? (_calculatedFields = new InputList<Inputs.SecurityMonitoringRuleCalculatedFieldGetArgs>());
+            set => _calculatedFields = value;
+        }
+
         [Input("cases")]
         private InputList<Inputs.SecurityMonitoringRuleCaseGetArgs>? _cases;
 
@@ -463,6 +505,12 @@ namespace Pulumi.Datadog
             get => _referenceTables ?? (_referenceTables = new InputList<Inputs.SecurityMonitoringRuleReferenceTableGetArgs>());
             set => _referenceTables = value;
         }
+
+        /// <summary>
+        /// Options for scheduled rules. When this field is present, the rule runs based on the schedule. When absent, it runs in real time on ingested logs.
+        /// </summary>
+        [Input("schedulingOptions")]
+        public Input<Inputs.SecurityMonitoringRuleSchedulingOptionsGetArgs>? SchedulingOptions { get; set; }
 
         [Input("signalQueries")]
         private InputList<Inputs.SecurityMonitoringRuleSignalQueryGetArgs>? _signalQueries;

@@ -12337,6 +12337,32 @@
                     }
                 }
             },
+            "datadog_incident_notification_rule": {
+                "current": "datadog:index/incidentNotificationRule:IncidentNotificationRule",
+                "majorVersion": 4,
+                "fields": {
+                    "conditions": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "values": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "handles": {
+                        "maxItemsOne": false
+                    },
+                    "renotify_on": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "datadog_incident_notification_template": {
+                "current": "datadog:index/incidentNotificationTemplate:IncidentNotificationTemplate",
+                "majorVersion": 4
+            },
             "datadog_incident_type": {
                 "current": "datadog:index/incidentType:IncidentType",
                 "majorVersion": 4
@@ -12515,6 +12541,16 @@
                 "fields": {
                     "cloud_run_revision_filters": {
                         "maxItemsOne": false
+                    },
+                    "monitored_resource_configs": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "filters": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -12533,6 +12569,16 @@
                     },
                     "metric_namespace_configs": {
                         "maxItemsOne": false
+                    },
+                    "monitored_resource_configs": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "filters": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -17374,6 +17420,9 @@
                 "current": "datadog:index/securityMonitoringRule:SecurityMonitoringRule",
                 "majorVersion": 4,
                 "fields": {
+                    "calculated_field": {
+                        "maxItemsOne": false
+                    },
                     "case": {
                         "maxItemsOne": false,
                         "elem": {
@@ -17446,6 +17495,9 @@
                                 "group_by_fields": {
                                     "maxItemsOne": false
                                 },
+                                "indexes": {
+                                    "maxItemsOne": false
+                                },
                                 "metrics": {
                                     "maxItemsOne": false
                                 }
@@ -17454,6 +17506,9 @@
                     },
                     "reference_tables": {
                         "maxItemsOne": false
+                    },
+                    "scheduling_options": {
+                        "maxItemsOne": true
                     },
                     "signal_query": {
                         "maxItemsOne": false,
@@ -18194,6 +18249,32 @@
                     }
                 }
             },
+            "datadog_incident_notification_rule": {
+                "current": "datadog:index/getIncidentNotificationRule:getIncidentNotificationRule",
+                "majorVersion": 4,
+                "fields": {
+                    "conditions": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "values": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "handles": {
+                        "maxItemsOne": false
+                    },
+                    "renotify_on": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "datadog_incident_notification_template": {
+                "current": "datadog:index/getIncidentNotificationTemplate:getIncidentNotificationTemplate",
+                "majorVersion": 4
+            },
             "datadog_incident_type": {
                 "current": "datadog:index/getIncidentType:getIncidentType",
                 "majorVersion": 4
@@ -18564,6 +18645,9 @@
                         "maxItemsOne": false,
                         "elem": {
                             "fields": {
+                                "calculated_field": {
+                                    "maxItemsOne": false
+                                },
                                 "case": {
                                     "maxItemsOne": false,
                                     "elem": {
@@ -18636,6 +18720,9 @@
                                             "group_by_fields": {
                                                 "maxItemsOne": false
                                             },
+                                            "indexes": {
+                                                "maxItemsOne": false
+                                            },
                                             "metrics": {
                                                 "maxItemsOne": false
                                             }
@@ -18644,6 +18731,9 @@
                                 },
                                 "reference_tables": {
                                     "maxItemsOne": false
+                                },
+                                "scheduling_options": {
+                                    "maxItemsOne": true
                                 },
                                 "signal_query": {
                                     "maxItemsOne": false,
@@ -18877,6 +18967,8 @@
             "datadog:index/domainAllowlist:DomainAllowlist": 1,
             "datadog:index/downtime:Downtime": 0,
             "datadog:index/downtimeSchedule:DowntimeSchedule": 1,
+            "datadog:index/incidentNotificationRule:IncidentNotificationRule": 1,
+            "datadog:index/incidentNotificationTemplate:IncidentNotificationTemplate": 1,
             "datadog:index/incidentType:IncidentType": 1,
             "datadog:index/ipAllowlist:IpAllowlist": 1,
             "datadog:index/logsArchive:LogsArchive": 0,
@@ -18961,6 +19053,8 @@
             "datadog:index/getDashboard:getDashboard": 0,
             "datadog:index/getDashboardList:getDashboardList": 1,
             "datadog:index/getHosts:getHosts": 1,
+            "datadog:index/getIncidentNotificationRule:getIncidentNotificationRule": 1,
+            "datadog:index/getIncidentNotificationTemplate:getIncidentNotificationTemplate": 1,
             "datadog:index/getIncidentType:getIncidentType": 1,
             "datadog:index/getIpRanges:getIpRanges": 1,
             "datadog:index/getLogsArchivesOrder:getLogsArchivesOrder": 0,

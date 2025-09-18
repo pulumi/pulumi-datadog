@@ -34,6 +34,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? ExtractedValuesFromScript;
         /// <summary>
+        /// ID of the step.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
         /// </summary>
         public readonly bool? IsCritical;
@@ -95,6 +99,8 @@ namespace Pulumi.Datadog.Outputs
 
             string? extractedValuesFromScript,
 
+            string? id,
+
             bool? isCritical,
 
             string name,
@@ -126,6 +132,7 @@ namespace Pulumi.Datadog.Outputs
             ExitIfSucceed = exitIfSucceed;
             ExtractedValues = extractedValues;
             ExtractedValuesFromScript = extractedValuesFromScript;
+            Id = id;
             IsCritical = isCritical;
             Name = name;
             RequestBasicauth = requestBasicauth;

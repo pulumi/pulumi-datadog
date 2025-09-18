@@ -91,6 +91,8 @@ import (
 type SecurityMonitoringRule struct {
 	pulumi.CustomResourceState
 
+	// One or more calculated fields. Available only for scheduled rules (in other words, when `schedulingOptions` is defined).
+	CalculatedFields SecurityMonitoringRuleCalculatedFieldArrayOutput `pulumi:"calculatedFields"`
 	// Cases for generating signals.
 	Cases SecurityMonitoringRuleCaseArrayOutput `pulumi:"cases"`
 	// Whether the rule is enabled. Defaults to `true`.
@@ -111,6 +113,8 @@ type SecurityMonitoringRule struct {
 	Queries SecurityMonitoringRuleQueryArrayOutput `pulumi:"queries"`
 	// Reference tables for filtering query results.
 	ReferenceTables SecurityMonitoringRuleReferenceTableArrayOutput `pulumi:"referenceTables"`
+	// Options for scheduled rules. When this field is present, the rule runs based on the schedule. When absent, it runs in real time on ingested logs.
+	SchedulingOptions SecurityMonitoringRuleSchedulingOptionsPtrOutput `pulumi:"schedulingOptions"`
 	// Queries for selecting logs which are part of the rule.
 	SignalQueries SecurityMonitoringRuleSignalQueryArrayOutput `pulumi:"signalQueries"`
 	// Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
@@ -159,6 +163,8 @@ func GetSecurityMonitoringRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SecurityMonitoringRule resources.
 type securityMonitoringRuleState struct {
+	// One or more calculated fields. Available only for scheduled rules (in other words, when `schedulingOptions` is defined).
+	CalculatedFields []SecurityMonitoringRuleCalculatedField `pulumi:"calculatedFields"`
 	// Cases for generating signals.
 	Cases []SecurityMonitoringRuleCase `pulumi:"cases"`
 	// Whether the rule is enabled. Defaults to `true`.
@@ -179,6 +185,8 @@ type securityMonitoringRuleState struct {
 	Queries []SecurityMonitoringRuleQuery `pulumi:"queries"`
 	// Reference tables for filtering query results.
 	ReferenceTables []SecurityMonitoringRuleReferenceTable `pulumi:"referenceTables"`
+	// Options for scheduled rules. When this field is present, the rule runs based on the schedule. When absent, it runs in real time on ingested logs.
+	SchedulingOptions *SecurityMonitoringRuleSchedulingOptions `pulumi:"schedulingOptions"`
 	// Queries for selecting logs which are part of the rule.
 	SignalQueries []SecurityMonitoringRuleSignalQuery `pulumi:"signalQueries"`
 	// Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
@@ -192,6 +200,8 @@ type securityMonitoringRuleState struct {
 }
 
 type SecurityMonitoringRuleState struct {
+	// One or more calculated fields. Available only for scheduled rules (in other words, when `schedulingOptions` is defined).
+	CalculatedFields SecurityMonitoringRuleCalculatedFieldArrayInput
 	// Cases for generating signals.
 	Cases SecurityMonitoringRuleCaseArrayInput
 	// Whether the rule is enabled. Defaults to `true`.
@@ -212,6 +222,8 @@ type SecurityMonitoringRuleState struct {
 	Queries SecurityMonitoringRuleQueryArrayInput
 	// Reference tables for filtering query results.
 	ReferenceTables SecurityMonitoringRuleReferenceTableArrayInput
+	// Options for scheduled rules. When this field is present, the rule runs based on the schedule. When absent, it runs in real time on ingested logs.
+	SchedulingOptions SecurityMonitoringRuleSchedulingOptionsPtrInput
 	// Queries for selecting logs which are part of the rule.
 	SignalQueries SecurityMonitoringRuleSignalQueryArrayInput
 	// Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
@@ -229,6 +241,8 @@ func (SecurityMonitoringRuleState) ElementType() reflect.Type {
 }
 
 type securityMonitoringRuleArgs struct {
+	// One or more calculated fields. Available only for scheduled rules (in other words, when `schedulingOptions` is defined).
+	CalculatedFields []SecurityMonitoringRuleCalculatedField `pulumi:"calculatedFields"`
 	// Cases for generating signals.
 	Cases []SecurityMonitoringRuleCase `pulumi:"cases"`
 	// Whether the rule is enabled. Defaults to `true`.
@@ -249,6 +263,8 @@ type securityMonitoringRuleArgs struct {
 	Queries []SecurityMonitoringRuleQuery `pulumi:"queries"`
 	// Reference tables for filtering query results.
 	ReferenceTables []SecurityMonitoringRuleReferenceTable `pulumi:"referenceTables"`
+	// Options for scheduled rules. When this field is present, the rule runs based on the schedule. When absent, it runs in real time on ingested logs.
+	SchedulingOptions *SecurityMonitoringRuleSchedulingOptions `pulumi:"schedulingOptions"`
 	// Queries for selecting logs which are part of the rule.
 	SignalQueries []SecurityMonitoringRuleSignalQuery `pulumi:"signalQueries"`
 	// Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
@@ -263,6 +279,8 @@ type securityMonitoringRuleArgs struct {
 
 // The set of arguments for constructing a SecurityMonitoringRule resource.
 type SecurityMonitoringRuleArgs struct {
+	// One or more calculated fields. Available only for scheduled rules (in other words, when `schedulingOptions` is defined).
+	CalculatedFields SecurityMonitoringRuleCalculatedFieldArrayInput
 	// Cases for generating signals.
 	Cases SecurityMonitoringRuleCaseArrayInput
 	// Whether the rule is enabled. Defaults to `true`.
@@ -283,6 +301,8 @@ type SecurityMonitoringRuleArgs struct {
 	Queries SecurityMonitoringRuleQueryArrayInput
 	// Reference tables for filtering query results.
 	ReferenceTables SecurityMonitoringRuleReferenceTableArrayInput
+	// Options for scheduled rules. When this field is present, the rule runs based on the schedule. When absent, it runs in real time on ingested logs.
+	SchedulingOptions SecurityMonitoringRuleSchedulingOptionsPtrInput
 	// Queries for selecting logs which are part of the rule.
 	SignalQueries SecurityMonitoringRuleSignalQueryArrayInput
 	// Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
@@ -382,6 +402,13 @@ func (o SecurityMonitoringRuleOutput) ToSecurityMonitoringRuleOutputWithContext(
 	return o
 }
 
+// One or more calculated fields. Available only for scheduled rules (in other words, when `schedulingOptions` is defined).
+func (o SecurityMonitoringRuleOutput) CalculatedFields() SecurityMonitoringRuleCalculatedFieldArrayOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRule) SecurityMonitoringRuleCalculatedFieldArrayOutput {
+		return v.CalculatedFields
+	}).(SecurityMonitoringRuleCalculatedFieldArrayOutput)
+}
+
 // Cases for generating signals.
 func (o SecurityMonitoringRuleOutput) Cases() SecurityMonitoringRuleCaseArrayOutput {
 	return o.ApplyT(func(v *SecurityMonitoringRule) SecurityMonitoringRuleCaseArrayOutput { return v.Cases }).(SecurityMonitoringRuleCaseArrayOutput)
@@ -432,6 +459,13 @@ func (o SecurityMonitoringRuleOutput) ReferenceTables() SecurityMonitoringRuleRe
 	return o.ApplyT(func(v *SecurityMonitoringRule) SecurityMonitoringRuleReferenceTableArrayOutput {
 		return v.ReferenceTables
 	}).(SecurityMonitoringRuleReferenceTableArrayOutput)
+}
+
+// Options for scheduled rules. When this field is present, the rule runs based on the schedule. When absent, it runs in real time on ingested logs.
+func (o SecurityMonitoringRuleOutput) SchedulingOptions() SecurityMonitoringRuleSchedulingOptionsPtrOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRule) SecurityMonitoringRuleSchedulingOptionsPtrOutput {
+		return v.SchedulingOptions
+	}).(SecurityMonitoringRuleSchedulingOptionsPtrOutput)
 }
 
 // Queries for selecting logs which are part of the rule.

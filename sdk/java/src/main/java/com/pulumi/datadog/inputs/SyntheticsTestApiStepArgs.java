@@ -104,6 +104,21 @@ public final class SyntheticsTestApiStepArgs extends com.pulumi.resources.Resour
     }
 
     /**
+     * ID of the step.
+     * 
+     */
+    @Import(name="id")
+    private @Nullable Output<String> id;
+
+    /**
+     * @return ID of the step.
+     * 
+     */
+    public Optional<Output<String>> id() {
+        return Optional.ofNullable(this.id);
+    }
+
+    /**
      * Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
      * 
      */
@@ -298,6 +313,7 @@ public final class SyntheticsTestApiStepArgs extends com.pulumi.resources.Resour
         this.exitIfSucceed = $.exitIfSucceed;
         this.extractedValues = $.extractedValues;
         this.extractedValuesFromScript = $.extractedValuesFromScript;
+        this.id = $.id;
         this.isCritical = $.isCritical;
         this.name = $.name;
         this.requestBasicauth = $.requestBasicauth;
@@ -454,6 +470,27 @@ public final class SyntheticsTestApiStepArgs extends com.pulumi.resources.Resour
          */
         public Builder extractedValuesFromScript(String extractedValuesFromScript) {
             return extractedValuesFromScript(Output.of(extractedValuesFromScript));
+        }
+
+        /**
+         * @param id ID of the step.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder id(@Nullable Output<String> id) {
+            $.id = id;
+            return this;
+        }
+
+        /**
+         * @param id ID of the step.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder id(String id) {
+            return id(Output.of(id));
         }
 
         /**

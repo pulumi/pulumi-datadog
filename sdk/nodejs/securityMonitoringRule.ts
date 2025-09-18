@@ -88,6 +88,10 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
     }
 
     /**
+     * One or more calculated fields. Available only for scheduled rules (in other words, when `schedulingOptions` is defined).
+     */
+    declare public readonly calculatedFields: pulumi.Output<outputs.SecurityMonitoringRuleCalculatedField[] | undefined>;
+    /**
      * Cases for generating signals.
      */
     declare public readonly cases: pulumi.Output<outputs.SecurityMonitoringRuleCase[] | undefined>;
@@ -128,6 +132,10 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
      */
     declare public readonly referenceTables: pulumi.Output<outputs.SecurityMonitoringRuleReferenceTable[] | undefined>;
     /**
+     * Options for scheduled rules. When this field is present, the rule runs based on the schedule. When absent, it runs in real time on ingested logs.
+     */
+    declare public readonly schedulingOptions: pulumi.Output<outputs.SecurityMonitoringRuleSchedulingOptions | undefined>;
+    /**
      * Queries for selecting logs which are part of the rule.
      */
     declare public readonly signalQueries: pulumi.Output<outputs.SecurityMonitoringRuleSignalQuery[] | undefined>;
@@ -161,6 +169,7 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecurityMonitoringRuleState | undefined;
+            resourceInputs["calculatedFields"] = state?.calculatedFields;
             resourceInputs["cases"] = state?.cases;
             resourceInputs["enabled"] = state?.enabled;
             resourceInputs["filters"] = state?.filters;
@@ -171,6 +180,7 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
             resourceInputs["options"] = state?.options;
             resourceInputs["queries"] = state?.queries;
             resourceInputs["referenceTables"] = state?.referenceTables;
+            resourceInputs["schedulingOptions"] = state?.schedulingOptions;
             resourceInputs["signalQueries"] = state?.signalQueries;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["thirdPartyCases"] = state?.thirdPartyCases;
@@ -184,6 +194,7 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
             if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
+            resourceInputs["calculatedFields"] = args?.calculatedFields;
             resourceInputs["cases"] = args?.cases;
             resourceInputs["enabled"] = args?.enabled;
             resourceInputs["filters"] = args?.filters;
@@ -194,6 +205,7 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
             resourceInputs["options"] = args?.options;
             resourceInputs["queries"] = args?.queries;
             resourceInputs["referenceTables"] = args?.referenceTables;
+            resourceInputs["schedulingOptions"] = args?.schedulingOptions;
             resourceInputs["signalQueries"] = args?.signalQueries;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["thirdPartyCases"] = args?.thirdPartyCases;
@@ -209,6 +221,10 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SecurityMonitoringRule resources.
  */
 export interface SecurityMonitoringRuleState {
+    /**
+     * One or more calculated fields. Available only for scheduled rules (in other words, when `schedulingOptions` is defined).
+     */
+    calculatedFields?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleCalculatedField>[]>;
     /**
      * Cases for generating signals.
      */
@@ -250,6 +266,10 @@ export interface SecurityMonitoringRuleState {
      */
     referenceTables?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleReferenceTable>[]>;
     /**
+     * Options for scheduled rules. When this field is present, the rule runs based on the schedule. When absent, it runs in real time on ingested logs.
+     */
+    schedulingOptions?: pulumi.Input<inputs.SecurityMonitoringRuleSchedulingOptions>;
+    /**
      * Queries for selecting logs which are part of the rule.
      */
     signalQueries?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleSignalQuery>[]>;
@@ -275,6 +295,10 @@ export interface SecurityMonitoringRuleState {
  * The set of arguments for constructing a SecurityMonitoringRule resource.
  */
 export interface SecurityMonitoringRuleArgs {
+    /**
+     * One or more calculated fields. Available only for scheduled rules (in other words, when `schedulingOptions` is defined).
+     */
+    calculatedFields?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleCalculatedField>[]>;
     /**
      * Cases for generating signals.
      */
@@ -315,6 +339,10 @@ export interface SecurityMonitoringRuleArgs {
      * Reference tables for filtering query results.
      */
     referenceTables?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleReferenceTable>[]>;
+    /**
+     * Options for scheduled rules. When this field is present, the rule runs based on the schedule. When absent, it runs in real time on ingested logs.
+     */
+    schedulingOptions?: pulumi.Input<inputs.SecurityMonitoringRuleSchedulingOptions>;
     /**
      * Queries for selecting logs which are part of the rule.
      */

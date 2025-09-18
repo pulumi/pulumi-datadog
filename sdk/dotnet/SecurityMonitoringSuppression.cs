@@ -98,6 +98,12 @@ namespace Pulumi.Datadog
         [Output("suppressionQuery")]
         public Output<string?> SuppressionQuery { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether to validate the suppression rule during `pulumi preview`. When set to `true`, the rule is validated against Datadog's suppression validation endpoint. Defaults to `true`.
+        /// </summary>
+        [Output("validate")]
+        public Output<bool> Validate { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a SecurityMonitoringSuppression resource with the given unique name, arguments, and options.
@@ -192,6 +198,12 @@ namespace Pulumi.Datadog
         [Input("suppressionQuery")]
         public Input<string>? SuppressionQuery { get; set; }
 
+        /// <summary>
+        /// Whether to validate the suppression rule during `pulumi preview`. When set to `true`, the rule is validated against Datadog's suppression validation endpoint. Defaults to `true`.
+        /// </summary>
+        [Input("validate")]
+        public Input<bool>? Validate { get; set; }
+
         public SecurityMonitoringSuppressionArgs()
         {
         }
@@ -247,6 +259,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("suppressionQuery")]
         public Input<string>? SuppressionQuery { get; set; }
+
+        /// <summary>
+        /// Whether to validate the suppression rule during `pulumi preview`. When set to `true`, the rule is validated against Datadog's suppression validation endpoint. Defaults to `true`.
+        /// </summary>
+        [Input("validate")]
+        public Input<bool>? Validate { get; set; }
 
         public SecurityMonitoringSuppressionState()
         {

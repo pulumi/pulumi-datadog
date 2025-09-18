@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.SecurityMonitoringRuleQueryAgentRuleArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -102,6 +103,36 @@ public final class SecurityMonitoringRuleQueryArgs extends com.pulumi.resources.
     }
 
     /**
+     * When false, events without a group-by value are ignored by the rule. When true, events with missing group-by fields are processed with `N/A`, replacing the missing values. Defaults to `false`.
+     * 
+     */
+    @Import(name="hasOptionalGroupByFields")
+    private @Nullable Output<Boolean> hasOptionalGroupByFields;
+
+    /**
+     * @return When false, events without a group-by value are ignored by the rule. When true, events with missing group-by fields are processed with `N/A`, replacing the missing values. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> hasOptionalGroupByFields() {
+        return Optional.ofNullable(this.hasOptionalGroupByFields);
+    }
+
+    /**
+     * List of indexes to run the query on when the data source is `logs`. Supports only one element. Used only for scheduled rules (in other words, when `scheduling_options` is defined).
+     * 
+     */
+    @Import(name="indexes")
+    private @Nullable Output<List<String>> indexes;
+
+    /**
+     * @return List of indexes to run the query on when the data source is `logs`. Supports only one element. Used only for scheduled rules (in other words, when `scheduling_options` is defined).
+     * 
+     */
+    public Optional<Output<List<String>>> indexes() {
+        return Optional.ofNullable(this.indexes);
+    }
+
+    /**
      * The target field to aggregate over when using the `sum`, `max`, or `geo_data` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
      * 
      * @deprecated
@@ -177,6 +208,8 @@ public final class SecurityMonitoringRuleQueryArgs extends com.pulumi.resources.
         this.dataSource = $.dataSource;
         this.distinctFields = $.distinctFields;
         this.groupByFields = $.groupByFields;
+        this.hasOptionalGroupByFields = $.hasOptionalGroupByFields;
+        this.indexes = $.indexes;
         this.metric = $.metric;
         this.metrics = $.metrics;
         this.name = $.name;
@@ -346,6 +379,58 @@ public final class SecurityMonitoringRuleQueryArgs extends com.pulumi.resources.
          */
         public Builder groupByFields(String... groupByFields) {
             return groupByFields(List.of(groupByFields));
+        }
+
+        /**
+         * @param hasOptionalGroupByFields When false, events without a group-by value are ignored by the rule. When true, events with missing group-by fields are processed with `N/A`, replacing the missing values. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hasOptionalGroupByFields(@Nullable Output<Boolean> hasOptionalGroupByFields) {
+            $.hasOptionalGroupByFields = hasOptionalGroupByFields;
+            return this;
+        }
+
+        /**
+         * @param hasOptionalGroupByFields When false, events without a group-by value are ignored by the rule. When true, events with missing group-by fields are processed with `N/A`, replacing the missing values. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hasOptionalGroupByFields(Boolean hasOptionalGroupByFields) {
+            return hasOptionalGroupByFields(Output.of(hasOptionalGroupByFields));
+        }
+
+        /**
+         * @param indexes List of indexes to run the query on when the data source is `logs`. Supports only one element. Used only for scheduled rules (in other words, when `scheduling_options` is defined).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder indexes(@Nullable Output<List<String>> indexes) {
+            $.indexes = indexes;
+            return this;
+        }
+
+        /**
+         * @param indexes List of indexes to run the query on when the data source is `logs`. Supports only one element. Used only for scheduled rules (in other words, when `scheduling_options` is defined).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder indexes(List<String> indexes) {
+            return indexes(Output.of(indexes));
+        }
+
+        /**
+         * @param indexes List of indexes to run the query on when the data source is `logs`. Supports only one element. Used only for scheduled rules (in other words, when `scheduling_options` is defined).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder indexes(String... indexes) {
+            return indexes(List.of(indexes));
         }
 
         /**

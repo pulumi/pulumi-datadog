@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Datadog CSM Threats policy API resource.
+// Provides a Datadog Workload Protection (CSM Threats) policy API resource.
 //
 // ## Example Usage
 //
