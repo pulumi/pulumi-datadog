@@ -5,11 +5,13 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.SecurityMonitoringRuleCalculatedFieldArgs;
 import com.pulumi.datadog.inputs.SecurityMonitoringRuleCaseArgs;
 import com.pulumi.datadog.inputs.SecurityMonitoringRuleFilterArgs;
 import com.pulumi.datadog.inputs.SecurityMonitoringRuleOptionsArgs;
 import com.pulumi.datadog.inputs.SecurityMonitoringRuleQueryArgs;
 import com.pulumi.datadog.inputs.SecurityMonitoringRuleReferenceTableArgs;
+import com.pulumi.datadog.inputs.SecurityMonitoringRuleSchedulingOptionsArgs;
 import com.pulumi.datadog.inputs.SecurityMonitoringRuleSignalQueryArgs;
 import com.pulumi.datadog.inputs.SecurityMonitoringRuleThirdPartyCaseArgs;
 import java.lang.Boolean;
@@ -23,6 +25,21 @@ import javax.annotation.Nullable;
 public final class SecurityMonitoringRuleState extends com.pulumi.resources.ResourceArgs {
 
     public static final SecurityMonitoringRuleState Empty = new SecurityMonitoringRuleState();
+
+    /**
+     * One or more calculated fields. Available only for scheduled rules (in other words, when `scheduling_options` is defined).
+     * 
+     */
+    @Import(name="calculatedFields")
+    private @Nullable Output<List<SecurityMonitoringRuleCalculatedFieldArgs>> calculatedFields;
+
+    /**
+     * @return One or more calculated fields. Available only for scheduled rules (in other words, when `scheduling_options` is defined).
+     * 
+     */
+    public Optional<Output<List<SecurityMonitoringRuleCalculatedFieldArgs>>> calculatedFields() {
+        return Optional.ofNullable(this.calculatedFields);
+    }
 
     /**
      * Cases for generating signals.
@@ -175,6 +192,21 @@ public final class SecurityMonitoringRuleState extends com.pulumi.resources.Reso
     }
 
     /**
+     * Options for scheduled rules. When this field is present, the rule runs based on the schedule. When absent, it runs in real time on ingested logs.
+     * 
+     */
+    @Import(name="schedulingOptions")
+    private @Nullable Output<SecurityMonitoringRuleSchedulingOptionsArgs> schedulingOptions;
+
+    /**
+     * @return Options for scheduled rules. When this field is present, the rule runs based on the schedule. When absent, it runs in real time on ingested logs.
+     * 
+     */
+    public Optional<Output<SecurityMonitoringRuleSchedulingOptionsArgs>> schedulingOptions() {
+        return Optional.ofNullable(this.schedulingOptions);
+    }
+
+    /**
      * Queries for selecting logs which are part of the rule.
      * 
      */
@@ -252,6 +284,7 @@ public final class SecurityMonitoringRuleState extends com.pulumi.resources.Reso
     private SecurityMonitoringRuleState() {}
 
     private SecurityMonitoringRuleState(SecurityMonitoringRuleState $) {
+        this.calculatedFields = $.calculatedFields;
         this.cases = $.cases;
         this.enabled = $.enabled;
         this.filters = $.filters;
@@ -262,6 +295,7 @@ public final class SecurityMonitoringRuleState extends com.pulumi.resources.Reso
         this.options = $.options;
         this.queries = $.queries;
         this.referenceTables = $.referenceTables;
+        this.schedulingOptions = $.schedulingOptions;
         this.signalQueries = $.signalQueries;
         this.tags = $.tags;
         this.thirdPartyCases = $.thirdPartyCases;
@@ -285,6 +319,37 @@ public final class SecurityMonitoringRuleState extends com.pulumi.resources.Reso
 
         public Builder(SecurityMonitoringRuleState defaults) {
             $ = new SecurityMonitoringRuleState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param calculatedFields One or more calculated fields. Available only for scheduled rules (in other words, when `scheduling_options` is defined).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder calculatedFields(@Nullable Output<List<SecurityMonitoringRuleCalculatedFieldArgs>> calculatedFields) {
+            $.calculatedFields = calculatedFields;
+            return this;
+        }
+
+        /**
+         * @param calculatedFields One or more calculated fields. Available only for scheduled rules (in other words, when `scheduling_options` is defined).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder calculatedFields(List<SecurityMonitoringRuleCalculatedFieldArgs> calculatedFields) {
+            return calculatedFields(Output.of(calculatedFields));
+        }
+
+        /**
+         * @param calculatedFields One or more calculated fields. Available only for scheduled rules (in other words, when `scheduling_options` is defined).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder calculatedFields(SecurityMonitoringRuleCalculatedFieldArgs... calculatedFields) {
+            return calculatedFields(List.of(calculatedFields));
         }
 
         /**
@@ -545,6 +610,27 @@ public final class SecurityMonitoringRuleState extends com.pulumi.resources.Reso
          */
         public Builder referenceTables(SecurityMonitoringRuleReferenceTableArgs... referenceTables) {
             return referenceTables(List.of(referenceTables));
+        }
+
+        /**
+         * @param schedulingOptions Options for scheduled rules. When this field is present, the rule runs based on the schedule. When absent, it runs in real time on ingested logs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder schedulingOptions(@Nullable Output<SecurityMonitoringRuleSchedulingOptionsArgs> schedulingOptions) {
+            $.schedulingOptions = schedulingOptions;
+            return this;
+        }
+
+        /**
+         * @param schedulingOptions Options for scheduled rules. When this field is present, the rule runs based on the schedule. When absent, it runs in real time on ingested logs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder schedulingOptions(SecurityMonitoringRuleSchedulingOptionsArgs schedulingOptions) {
+            return schedulingOptions(Output.of(schedulingOptions));
         }
 
         /**

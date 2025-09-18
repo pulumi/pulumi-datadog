@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Provides a Datadog CSM Threats policy API resource.
+ * Provides a Datadog Workload Protection (CSM Threats) policy API resource.
  *
  * ## Example Usage
  *

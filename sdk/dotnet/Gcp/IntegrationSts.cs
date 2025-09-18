@@ -42,7 +42,7 @@ namespace Pulumi.Datadog.Gcp
         public Output<string> ClientEmail { get; private set; } = null!;
 
         /// <summary>
-        /// Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+        /// List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
         /// </summary>
         [Output("cloudRunRevisionFilters")]
         public Output<ImmutableArray<string>> CloudRunRevisionFilters { get; private set; } = null!;
@@ -54,7 +54,7 @@ namespace Pulumi.Datadog.Gcp
         public Output<string> DelegateAccountEmail { get; private set; } = null!;
 
         /// <summary>
-        /// Your Host Filters.
+        /// List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
         /// </summary>
         [Output("hostFilters")]
         public Output<ImmutableArray<string>> HostFilters { get; private set; } = null!;
@@ -84,10 +84,16 @@ namespace Pulumi.Datadog.Gcp
         public Output<bool> IsSecurityCommandCenterEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration for a GCP metric namespace.
+        /// Configurations for GCP metric namespaces.
         /// </summary>
         [Output("metricNamespaceConfigs")]
         public Output<ImmutableArray<Outputs.IntegrationStsMetricNamespaceConfig>> MetricNamespaceConfigs { get; private set; } = null!;
+
+        /// <summary>
+        /// Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
+        /// </summary>
+        [Output("monitoredResourceConfigs")]
+        public Output<ImmutableArray<Outputs.IntegrationStsMonitoredResourceConfig>> MonitoredResourceConfigs { get; private set; } = null!;
 
         /// <summary>
         /// When enabled, Datadog scans for all resources in your GCP environment.
@@ -169,8 +175,9 @@ namespace Pulumi.Datadog.Gcp
         private InputList<string>? _cloudRunRevisionFilters;
 
         /// <summary>
-        /// Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+        /// List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
         /// </summary>
+        [Obsolete(@"**Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision`")]
         public InputList<string> CloudRunRevisionFilters
         {
             get => _cloudRunRevisionFilters ?? (_cloudRunRevisionFilters = new InputList<string>());
@@ -181,8 +188,9 @@ namespace Pulumi.Datadog.Gcp
         private InputList<string>? _hostFilters;
 
         /// <summary>
-        /// Your Host Filters.
+        /// List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
         /// </summary>
+        [Obsolete(@"**Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance`")]
         public InputList<string> HostFilters
         {
             get => _hostFilters ?? (_hostFilters = new InputList<string>());
@@ -217,12 +225,24 @@ namespace Pulumi.Datadog.Gcp
         private InputList<Inputs.IntegrationStsMetricNamespaceConfigArgs>? _metricNamespaceConfigs;
 
         /// <summary>
-        /// Configuration for a GCP metric namespace.
+        /// Configurations for GCP metric namespaces.
         /// </summary>
         public InputList<Inputs.IntegrationStsMetricNamespaceConfigArgs> MetricNamespaceConfigs
         {
             get => _metricNamespaceConfigs ?? (_metricNamespaceConfigs = new InputList<Inputs.IntegrationStsMetricNamespaceConfigArgs>());
             set => _metricNamespaceConfigs = value;
+        }
+
+        [Input("monitoredResourceConfigs")]
+        private InputList<Inputs.IntegrationStsMonitoredResourceConfigArgs>? _monitoredResourceConfigs;
+
+        /// <summary>
+        /// Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
+        /// </summary>
+        public InputList<Inputs.IntegrationStsMonitoredResourceConfigArgs> MonitoredResourceConfigs
+        {
+            get => _monitoredResourceConfigs ?? (_monitoredResourceConfigs = new InputList<Inputs.IntegrationStsMonitoredResourceConfigArgs>());
+            set => _monitoredResourceConfigs = value;
         }
 
         /// <summary>
@@ -267,8 +287,9 @@ namespace Pulumi.Datadog.Gcp
         private InputList<string>? _cloudRunRevisionFilters;
 
         /// <summary>
-        /// Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+        /// List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
         /// </summary>
+        [Obsolete(@"**Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision`")]
         public InputList<string> CloudRunRevisionFilters
         {
             get => _cloudRunRevisionFilters ?? (_cloudRunRevisionFilters = new InputList<string>());
@@ -285,8 +306,9 @@ namespace Pulumi.Datadog.Gcp
         private InputList<string>? _hostFilters;
 
         /// <summary>
-        /// Your Host Filters.
+        /// List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
         /// </summary>
+        [Obsolete(@"**Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance`")]
         public InputList<string> HostFilters
         {
             get => _hostFilters ?? (_hostFilters = new InputList<string>());
@@ -321,12 +343,24 @@ namespace Pulumi.Datadog.Gcp
         private InputList<Inputs.IntegrationStsMetricNamespaceConfigGetArgs>? _metricNamespaceConfigs;
 
         /// <summary>
-        /// Configuration for a GCP metric namespace.
+        /// Configurations for GCP metric namespaces.
         /// </summary>
         public InputList<Inputs.IntegrationStsMetricNamespaceConfigGetArgs> MetricNamespaceConfigs
         {
             get => _metricNamespaceConfigs ?? (_metricNamespaceConfigs = new InputList<Inputs.IntegrationStsMetricNamespaceConfigGetArgs>());
             set => _metricNamespaceConfigs = value;
+        }
+
+        [Input("monitoredResourceConfigs")]
+        private InputList<Inputs.IntegrationStsMonitoredResourceConfigGetArgs>? _monitoredResourceConfigs;
+
+        /// <summary>
+        /// Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
+        /// </summary>
+        public InputList<Inputs.IntegrationStsMonitoredResourceConfigGetArgs> MonitoredResourceConfigs
+        {
+            get => _monitoredResourceConfigs ?? (_monitoredResourceConfigs = new InputList<Inputs.IntegrationStsMonitoredResourceConfigGetArgs>());
+            set => _monitoredResourceConfigs = value;
         }
 
         /// <summary>

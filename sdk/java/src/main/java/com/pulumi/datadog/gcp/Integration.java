@@ -10,10 +10,10 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.datadog.Utilities;
 import com.pulumi.datadog.gcp.IntegrationArgs;
 import com.pulumi.datadog.gcp.inputs.IntegrationState;
+import com.pulumi.datadog.gcp.outputs.IntegrationMonitoredResourceConfig;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -75,18 +75,22 @@ public class Integration extends com.pulumi.resources.CustomResource {
         return this.clientId;
     }
     /**
-     * Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+     * List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
+     * 
+     * @deprecated
+     * **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision`
      * 
      */
+    @Deprecated /* **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision` */
     @Export(name="cloudRunRevisionFilters", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> cloudRunRevisionFilters;
+    private Output<List<String>> cloudRunRevisionFilters;
 
     /**
-     * @return Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+     * @return List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
      * 
      */
-    public Output<Optional<List<String>>> cloudRunRevisionFilters() {
-        return Codegen.optional(this.cloudRunRevisionFilters);
+    public Output<List<String>> cloudRunRevisionFilters() {
+        return this.cloudRunRevisionFilters;
     }
     /**
      * Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled. Defaults to `false`.
@@ -103,14 +107,18 @@ public class Integration extends com.pulumi.resources.CustomResource {
         return this.cspmResourceCollectionEnabled;
     }
     /**
-     * Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. Defaults to `&#34;&#34;`.
+     * List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog. Defaults to `&#34;&#34;`.
+     * 
+     * @deprecated
+     * **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance`
      * 
      */
+    @Deprecated /* **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance` */
     @Export(name="hostFilters", refs={String.class}, tree="[0]")
     private Output<String> hostFilters;
 
     /**
-     * @return Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. Defaults to `&#34;&#34;`.
+     * @return List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog. Defaults to `&#34;&#34;`.
      * 
      */
     public Output<String> hostFilters() {
@@ -143,6 +151,20 @@ public class Integration extends com.pulumi.resources.CustomResource {
      */
     public Output<Boolean> isSecurityCommandCenterEnabled() {
         return this.isSecurityCommandCenterEnabled;
+    }
+    /**
+     * Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
+     * 
+     */
+    @Export(name="monitoredResourceConfigs", refs={List.class,IntegrationMonitoredResourceConfig.class}, tree="[0,1]")
+    private Output<List<IntegrationMonitoredResourceConfig>> monitoredResourceConfigs;
+
+    /**
+     * @return Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
+     * 
+     */
+    public Output<List<IntegrationMonitoredResourceConfig>> monitoredResourceConfigs() {
+        return this.monitoredResourceConfigs;
     }
     /**
      * Your private key name found in your JSON service account key.

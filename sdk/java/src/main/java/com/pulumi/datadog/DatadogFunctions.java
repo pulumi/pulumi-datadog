@@ -24,6 +24,10 @@ import com.pulumi.datadog.inputs.GetDashboardListPlainArgs;
 import com.pulumi.datadog.inputs.GetDashboardPlainArgs;
 import com.pulumi.datadog.inputs.GetHostsArgs;
 import com.pulumi.datadog.inputs.GetHostsPlainArgs;
+import com.pulumi.datadog.inputs.GetIncidentNotificationRuleArgs;
+import com.pulumi.datadog.inputs.GetIncidentNotificationRulePlainArgs;
+import com.pulumi.datadog.inputs.GetIncidentNotificationTemplateArgs;
+import com.pulumi.datadog.inputs.GetIncidentNotificationTemplatePlainArgs;
 import com.pulumi.datadog.inputs.GetIncidentTypeArgs;
 import com.pulumi.datadog.inputs.GetIncidentTypePlainArgs;
 import com.pulumi.datadog.inputs.GetLogsPipelinesArgs;
@@ -92,6 +96,8 @@ import com.pulumi.datadog.outputs.GetCsmThreatsPoliciesResult;
 import com.pulumi.datadog.outputs.GetDashboardListResult;
 import com.pulumi.datadog.outputs.GetDashboardResult;
 import com.pulumi.datadog.outputs.GetHostsResult;
+import com.pulumi.datadog.outputs.GetIncidentNotificationRuleResult;
+import com.pulumi.datadog.outputs.GetIncidentNotificationTemplateResult;
 import com.pulumi.datadog.outputs.GetIncidentTypeResult;
 import com.pulumi.datadog.outputs.GetIpRangesResult;
 import com.pulumi.datadog.outputs.GetLogsArchivesOrderResult;
@@ -2511,6 +2517,486 @@ public final class DatadogFunctions {
      */
     public static CompletableFuture<GetHostsResult> getHostsPlain(GetHostsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:index/getHosts:getHosts", TypeShape.of(GetHostsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing incident notification rule.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetIncidentNotificationRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DatadogFunctions.getIncidentNotificationRule(GetIncidentNotificationRuleArgs.builder()
+     *             .id("00000000-0000-0000-0000-000000000000")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetIncidentNotificationRuleResult> getIncidentNotificationRule(GetIncidentNotificationRuleArgs args) {
+        return getIncidentNotificationRule(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing incident notification rule.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetIncidentNotificationRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DatadogFunctions.getIncidentNotificationRule(GetIncidentNotificationRuleArgs.builder()
+     *             .id("00000000-0000-0000-0000-000000000000")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetIncidentNotificationRuleResult> getIncidentNotificationRulePlain(GetIncidentNotificationRulePlainArgs args) {
+        return getIncidentNotificationRulePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing incident notification rule.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetIncidentNotificationRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DatadogFunctions.getIncidentNotificationRule(GetIncidentNotificationRuleArgs.builder()
+     *             .id("00000000-0000-0000-0000-000000000000")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetIncidentNotificationRuleResult> getIncidentNotificationRule(GetIncidentNotificationRuleArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getIncidentNotificationRule:getIncidentNotificationRule", TypeShape.of(GetIncidentNotificationRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing incident notification rule.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetIncidentNotificationRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DatadogFunctions.getIncidentNotificationRule(GetIncidentNotificationRuleArgs.builder()
+     *             .id("00000000-0000-0000-0000-000000000000")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetIncidentNotificationRuleResult> getIncidentNotificationRule(GetIncidentNotificationRuleArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getIncidentNotificationRule:getIncidentNotificationRule", TypeShape.of(GetIncidentNotificationRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing incident notification rule.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetIncidentNotificationRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DatadogFunctions.getIncidentNotificationRule(GetIncidentNotificationRuleArgs.builder()
+     *             .id("00000000-0000-0000-0000-000000000000")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetIncidentNotificationRuleResult> getIncidentNotificationRulePlain(GetIncidentNotificationRulePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getIncidentNotificationRule:getIncidentNotificationRule", TypeShape.of(GetIncidentNotificationRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing incident notification template.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetIncidentNotificationTemplateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DatadogFunctions.getIncidentNotificationTemplate(GetIncidentNotificationTemplateArgs.builder()
+     *             .id("52600bb1-e83a-48a1-aa77-6889ddb269b2")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetIncidentNotificationTemplateResult> getIncidentNotificationTemplate() {
+        return getIncidentNotificationTemplate(GetIncidentNotificationTemplateArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing incident notification template.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetIncidentNotificationTemplateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DatadogFunctions.getIncidentNotificationTemplate(GetIncidentNotificationTemplateArgs.builder()
+     *             .id("52600bb1-e83a-48a1-aa77-6889ddb269b2")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetIncidentNotificationTemplateResult> getIncidentNotificationTemplatePlain() {
+        return getIncidentNotificationTemplatePlain(GetIncidentNotificationTemplatePlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing incident notification template.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetIncidentNotificationTemplateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DatadogFunctions.getIncidentNotificationTemplate(GetIncidentNotificationTemplateArgs.builder()
+     *             .id("52600bb1-e83a-48a1-aa77-6889ddb269b2")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetIncidentNotificationTemplateResult> getIncidentNotificationTemplate(GetIncidentNotificationTemplateArgs args) {
+        return getIncidentNotificationTemplate(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing incident notification template.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetIncidentNotificationTemplateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DatadogFunctions.getIncidentNotificationTemplate(GetIncidentNotificationTemplateArgs.builder()
+     *             .id("52600bb1-e83a-48a1-aa77-6889ddb269b2")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetIncidentNotificationTemplateResult> getIncidentNotificationTemplatePlain(GetIncidentNotificationTemplatePlainArgs args) {
+        return getIncidentNotificationTemplatePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing incident notification template.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetIncidentNotificationTemplateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DatadogFunctions.getIncidentNotificationTemplate(GetIncidentNotificationTemplateArgs.builder()
+     *             .id("52600bb1-e83a-48a1-aa77-6889ddb269b2")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetIncidentNotificationTemplateResult> getIncidentNotificationTemplate(GetIncidentNotificationTemplateArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getIncidentNotificationTemplate:getIncidentNotificationTemplate", TypeShape.of(GetIncidentNotificationTemplateResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing incident notification template.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetIncidentNotificationTemplateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DatadogFunctions.getIncidentNotificationTemplate(GetIncidentNotificationTemplateArgs.builder()
+     *             .id("52600bb1-e83a-48a1-aa77-6889ddb269b2")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetIncidentNotificationTemplateResult> getIncidentNotificationTemplate(GetIncidentNotificationTemplateArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getIncidentNotificationTemplate:getIncidentNotificationTemplate", TypeShape.of(GetIncidentNotificationTemplateResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing incident notification template.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetIncidentNotificationTemplateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DatadogFunctions.getIncidentNotificationTemplate(GetIncidentNotificationTemplateArgs.builder()
+     *             .id("52600bb1-e83a-48a1-aa77-6889ddb269b2")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetIncidentNotificationTemplateResult> getIncidentNotificationTemplatePlain(GetIncidentNotificationTemplatePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getIncidentNotificationTemplate:getIncidentNotificationTemplate", TypeShape.of(GetIncidentNotificationTemplateResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve information about an existing incident type.

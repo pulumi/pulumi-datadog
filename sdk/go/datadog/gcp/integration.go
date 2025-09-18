@@ -32,16 +32,22 @@ type Integration struct {
 	ClientEmail pulumi.StringOutput `pulumi:"clientEmail"`
 	// Your ID found in your JSON service account key.
 	ClientId pulumi.StringOutput `pulumi:"clientId"`
-	// Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+	// List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
+	//
+	// Deprecated: **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=cloud_run_revision`
 	CloudRunRevisionFilters pulumi.StringArrayOutput `pulumi:"cloudRunRevisionFilters"`
 	// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled. Defaults to `false`.
 	CspmResourceCollectionEnabled pulumi.BoolOutput `pulumi:"cspmResourceCollectionEnabled"`
-	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. Defaults to `""`.
+	// List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog. Defaults to `""`.
+	//
+	// Deprecated: **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance`
 	HostFilters pulumi.StringOutput `pulumi:"hostFilters"`
 	// When enabled, Datadog scans for all resource change data in your Google Cloud environment.
 	IsResourceChangeCollectionEnabled pulumi.BoolOutput `pulumi:"isResourceChangeCollectionEnabled"`
 	// When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
 	IsSecurityCommandCenterEnabled pulumi.BoolOutput `pulumi:"isSecurityCommandCenterEnabled"`
+	// Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
+	MonitoredResourceConfigs IntegrationMonitoredResourceConfigArrayOutput `pulumi:"monitoredResourceConfigs"`
 	// Your private key name found in your JSON service account key.
 	PrivateKey pulumi.StringOutput `pulumi:"privateKey"`
 	// Your private key ID found in your JSON service account key.
@@ -110,16 +116,22 @@ type integrationState struct {
 	ClientEmail *string `pulumi:"clientEmail"`
 	// Your ID found in your JSON service account key.
 	ClientId *string `pulumi:"clientId"`
-	// Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+	// List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
+	//
+	// Deprecated: **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=cloud_run_revision`
 	CloudRunRevisionFilters []string `pulumi:"cloudRunRevisionFilters"`
 	// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled. Defaults to `false`.
 	CspmResourceCollectionEnabled *bool `pulumi:"cspmResourceCollectionEnabled"`
-	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. Defaults to `""`.
+	// List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog. Defaults to `""`.
+	//
+	// Deprecated: **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance`
 	HostFilters *string `pulumi:"hostFilters"`
 	// When enabled, Datadog scans for all resource change data in your Google Cloud environment.
 	IsResourceChangeCollectionEnabled *bool `pulumi:"isResourceChangeCollectionEnabled"`
 	// When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
 	IsSecurityCommandCenterEnabled *bool `pulumi:"isSecurityCommandCenterEnabled"`
+	// Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
+	MonitoredResourceConfigs []IntegrationMonitoredResourceConfig `pulumi:"monitoredResourceConfigs"`
 	// Your private key name found in your JSON service account key.
 	PrivateKey *string `pulumi:"privateKey"`
 	// Your private key ID found in your JSON service account key.
@@ -137,16 +149,22 @@ type IntegrationState struct {
 	ClientEmail pulumi.StringPtrInput
 	// Your ID found in your JSON service account key.
 	ClientId pulumi.StringPtrInput
-	// Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+	// List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
+	//
+	// Deprecated: **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=cloud_run_revision`
 	CloudRunRevisionFilters pulumi.StringArrayInput
 	// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled. Defaults to `false`.
 	CspmResourceCollectionEnabled pulumi.BoolPtrInput
-	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. Defaults to `""`.
+	// List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog. Defaults to `""`.
+	//
+	// Deprecated: **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance`
 	HostFilters pulumi.StringPtrInput
 	// When enabled, Datadog scans for all resource change data in your Google Cloud environment.
 	IsResourceChangeCollectionEnabled pulumi.BoolPtrInput
 	// When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
 	IsSecurityCommandCenterEnabled pulumi.BoolPtrInput
+	// Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
+	MonitoredResourceConfigs IntegrationMonitoredResourceConfigArrayInput
 	// Your private key name found in your JSON service account key.
 	PrivateKey pulumi.StringPtrInput
 	// Your private key ID found in your JSON service account key.
@@ -168,16 +186,22 @@ type integrationArgs struct {
 	ClientEmail string `pulumi:"clientEmail"`
 	// Your ID found in your JSON service account key.
 	ClientId string `pulumi:"clientId"`
-	// Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+	// List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
+	//
+	// Deprecated: **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=cloud_run_revision`
 	CloudRunRevisionFilters []string `pulumi:"cloudRunRevisionFilters"`
 	// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled. Defaults to `false`.
 	CspmResourceCollectionEnabled *bool `pulumi:"cspmResourceCollectionEnabled"`
-	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. Defaults to `""`.
+	// List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog. Defaults to `""`.
+	//
+	// Deprecated: **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance`
 	HostFilters *string `pulumi:"hostFilters"`
 	// When enabled, Datadog scans for all resource change data in your Google Cloud environment.
 	IsResourceChangeCollectionEnabled *bool `pulumi:"isResourceChangeCollectionEnabled"`
 	// When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
 	IsSecurityCommandCenterEnabled *bool `pulumi:"isSecurityCommandCenterEnabled"`
+	// Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
+	MonitoredResourceConfigs []IntegrationMonitoredResourceConfig `pulumi:"monitoredResourceConfigs"`
 	// Your private key name found in your JSON service account key.
 	PrivateKey string `pulumi:"privateKey"`
 	// Your private key ID found in your JSON service account key.
@@ -196,16 +220,22 @@ type IntegrationArgs struct {
 	ClientEmail pulumi.StringInput
 	// Your ID found in your JSON service account key.
 	ClientId pulumi.StringInput
-	// Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+	// List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
+	//
+	// Deprecated: **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=cloud_run_revision`
 	CloudRunRevisionFilters pulumi.StringArrayInput
 	// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled. Defaults to `false`.
 	CspmResourceCollectionEnabled pulumi.BoolPtrInput
-	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. Defaults to `""`.
+	// List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog. Defaults to `""`.
+	//
+	// Deprecated: **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance`
 	HostFilters pulumi.StringPtrInput
 	// When enabled, Datadog scans for all resource change data in your Google Cloud environment.
 	IsResourceChangeCollectionEnabled pulumi.BoolPtrInput
 	// When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
 	IsSecurityCommandCenterEnabled pulumi.BoolPtrInput
+	// Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
+	MonitoredResourceConfigs IntegrationMonitoredResourceConfigArrayInput
 	// Your private key name found in your JSON service account key.
 	PrivateKey pulumi.StringInput
 	// Your private key ID found in your JSON service account key.
@@ -318,7 +348,9 @@ func (o IntegrationOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+// List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
+//
+// Deprecated: **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=cloud_run_revision`
 func (o IntegrationOutput) CloudRunRevisionFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringArrayOutput { return v.CloudRunRevisionFilters }).(pulumi.StringArrayOutput)
 }
@@ -328,7 +360,9 @@ func (o IntegrationOutput) CspmResourceCollectionEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Integration) pulumi.BoolOutput { return v.CspmResourceCollectionEnabled }).(pulumi.BoolOutput)
 }
 
-// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. Defaults to `""`.
+// List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog. Defaults to `""`.
+//
+// Deprecated: **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance`
 func (o IntegrationOutput) HostFilters() pulumi.StringOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.HostFilters }).(pulumi.StringOutput)
 }
@@ -341,6 +375,11 @@ func (o IntegrationOutput) IsResourceChangeCollectionEnabled() pulumi.BoolOutput
 // When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
 func (o IntegrationOutput) IsSecurityCommandCenterEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Integration) pulumi.BoolOutput { return v.IsSecurityCommandCenterEnabled }).(pulumi.BoolOutput)
+}
+
+// Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
+func (o IntegrationOutput) MonitoredResourceConfigs() IntegrationMonitoredResourceConfigArrayOutput {
+	return o.ApplyT(func(v *Integration) IntegrationMonitoredResourceConfigArrayOutput { return v.MonitoredResourceConfigs }).(IntegrationMonitoredResourceConfigArrayOutput)
 }
 
 // Your private key name found in your JSON service account key.

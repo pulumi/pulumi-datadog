@@ -9593,6 +9593,17 @@ export interface GetHostsHostListMetrics {
     load: number;
 }
 
+export interface GetIncidentNotificationRuleCondition {
+    /**
+     * The incident field to evaluate. Common values include: state, severity, services, teams. Custom fields are also supported.
+     */
+    field: string;
+    /**
+     * The value(s) to compare against.
+     */
+    values: string[];
+}
+
 export interface GetLogsIndexesLogsIndex {
     /**
      * The number of log events you can send in this index per day before you are rate-limited.
@@ -9892,6 +9903,10 @@ export interface GetSecurityMonitoringFiltersFilterExclusionFilter {
 
 export interface GetSecurityMonitoringRulesRule {
     /**
+     * One or more calculated fields. Available only for scheduled rules (in other words, when `schedulingOptions` is defined).
+     */
+    calculatedFields?: outputs.GetSecurityMonitoringRulesRuleCalculatedField[];
+    /**
      * Cases for generating signals.
      */
     cases?: outputs.GetSecurityMonitoringRulesRuleCase[];
@@ -9932,6 +9947,10 @@ export interface GetSecurityMonitoringRulesRule {
      */
     referenceTables?: outputs.GetSecurityMonitoringRulesRuleReferenceTable[];
     /**
+     * Options for scheduled rules. When this field is present, the rule runs based on the schedule. When absent, it runs in real time on ingested logs.
+     */
+    schedulingOptions?: outputs.GetSecurityMonitoringRulesRuleSchedulingOptions;
+    /**
      * Queries for selecting logs which are part of the rule.
      */
     signalQueries?: outputs.GetSecurityMonitoringRulesRuleSignalQuery[];
@@ -9947,6 +9966,17 @@ export interface GetSecurityMonitoringRulesRule {
      * The rule type.
      */
     type?: string;
+}
+
+export interface GetSecurityMonitoringRulesRuleCalculatedField {
+    /**
+     * Expression.
+     */
+    expression: string;
+    /**
+     * Field name.
+     */
+    name: string;
 }
 
 export interface GetSecurityMonitoringRulesRuleCase {
@@ -10116,6 +10146,14 @@ export interface GetSecurityMonitoringRulesRuleQuery {
      */
     groupByFields?: string[];
     /**
+     * When false, events without a group-by value are ignored by the rule. When true, events with missing group-by fields are processed with `N/A`, replacing the missing values.
+     */
+    hasOptionalGroupByFields?: boolean;
+    /**
+     * List of indexes to run the query on when the data source is `logs`. Supports only one element. Used only for scheduled rules (in other words, when `schedulingOptions` is defined).
+     */
+    indexes?: string[];
+    /**
      * The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations.
      *
      * @deprecated Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
@@ -10167,6 +10205,21 @@ export interface GetSecurityMonitoringRulesRuleReferenceTable {
      * The name of the reference table.
      */
     tableName: string;
+}
+
+export interface GetSecurityMonitoringRulesRuleSchedulingOptions {
+    /**
+     * Schedule for the rule queries, written in RRULE syntax. See [RFC](https://icalendar.org/iCalendar-RFC-5545/3-8-5-3-recurrence-rule.html) for syntax reference.
+     */
+    rrule: string;
+    /**
+     * Start date for the schedule, in ISO 8601 format without timezone.
+     */
+    start: string;
+    /**
+     * Time zone of the start date, in the [tz database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) format.
+     */
+    timezone: string;
 }
 
 export interface GetSecurityMonitoringRulesRuleSignalQuery {
@@ -10315,6 +10368,17 @@ export interface GetUsersUser {
     status: string;
     title: string;
     verified: boolean;
+}
+
+export interface IncidentNotificationRuleCondition {
+    /**
+     * The incident field to evaluate. Common values include: state, severity, services, teams. Custom fields are also supported.
+     */
+    field: string;
+    /**
+     * The value(s) to compare against. Multiple values are ORed together.
+     */
+    values: string[];
 }
 
 export interface IpAllowlistEntry {
@@ -26703,6 +26767,10 @@ export interface SecurityMonitoringDefaultRuleQuery {
      */
     groupByFields: string[];
     /**
+     * When false, events without a group-by value are ignored by the rule. When true, events with missing group-by fields are processed with `N/A`, replacing the missing values.
+     */
+    hasOptionalGroupByFields: boolean;
+    /**
      * The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
      *
      * @deprecated Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
@@ -26742,6 +26810,17 @@ export interface SecurityMonitoringFilterExclusionFilter {
      * Exclusion filter query. Logs that match this query are excluded from the security filter.
      */
     query: string;
+}
+
+export interface SecurityMonitoringRuleCalculatedField {
+    /**
+     * Expression.
+     */
+    expression: string;
+    /**
+     * Field name.
+     */
+    name: string;
 }
 
 export interface SecurityMonitoringRuleCase {
@@ -26911,6 +26990,14 @@ export interface SecurityMonitoringRuleQuery {
      */
     groupByFields?: string[];
     /**
+     * When false, events without a group-by value are ignored by the rule. When true, events with missing group-by fields are processed with `N/A`, replacing the missing values. Defaults to `false`.
+     */
+    hasOptionalGroupByFields?: boolean;
+    /**
+     * List of indexes to run the query on when the data source is `logs`. Supports only one element. Used only for scheduled rules (in other words, when `schedulingOptions` is defined).
+     */
+    indexes?: string[];
+    /**
      * The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
      *
      * @deprecated Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
@@ -26962,6 +27049,21 @@ export interface SecurityMonitoringRuleReferenceTable {
      * The name of the reference table.
      */
     tableName: string;
+}
+
+export interface SecurityMonitoringRuleSchedulingOptions {
+    /**
+     * Schedule for the rule queries, written in RRULE syntax. See [RFC](https://icalendar.org/iCalendar-RFC-5545/3-8-5-3-recurrence-rule.html) for syntax reference.
+     */
+    rrule: string;
+    /**
+     * Start date for the schedule, in ISO 8601 format without timezone.
+     */
+    start: string;
+    /**
+     * Time zone of the start date, in the [tz database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) format.
+     */
+    timezone: string;
 }
 
 export interface SecurityMonitoringRuleSignalQuery {
@@ -27285,6 +27387,10 @@ export interface SyntheticsTestApiStep {
      * Generate variables using JavaScript.
      */
     extractedValuesFromScript?: string;
+    /**
+     * ID of the step.
+     */
+    id: string;
     /**
      * Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allowFailure` is `true`.
      */
@@ -28874,9 +28980,19 @@ export namespace config {
 }
 
 export namespace gcp {
+    export interface IntegrationMonitoredResourceConfig {
+        filters: string[];
+        type: string;
+    }
+
     export interface IntegrationStsMetricNamespaceConfig {
         disabled: boolean;
         id: string;
+    }
+
+    export interface IntegrationStsMonitoredResourceConfig {
+        filters: string[];
+        type: string;
     }
 
 }

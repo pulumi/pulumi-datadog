@@ -50,6 +50,11 @@ public final class SyntheticsTestApiStep {
      */
     private @Nullable String extractedValuesFromScript;
     /**
+     * @return ID of the step.
+     * 
+     */
+    private @Nullable String id;
+    /**
      * @return Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
      * 
      */
@@ -146,6 +151,13 @@ public final class SyntheticsTestApiStep {
      */
     public Optional<String> extractedValuesFromScript() {
         return Optional.ofNullable(this.extractedValuesFromScript);
+    }
+    /**
+     * @return ID of the step.
+     * 
+     */
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
@@ -249,6 +261,7 @@ public final class SyntheticsTestApiStep {
         private @Nullable Boolean exitIfSucceed;
         private @Nullable List<SyntheticsTestApiStepExtractedValue> extractedValues;
         private @Nullable String extractedValuesFromScript;
+        private @Nullable String id;
         private @Nullable Boolean isCritical;
         private String name;
         private @Nullable SyntheticsTestApiStepRequestBasicauth requestBasicauth;
@@ -270,6 +283,7 @@ public final class SyntheticsTestApiStep {
     	      this.exitIfSucceed = defaults.exitIfSucceed;
     	      this.extractedValues = defaults.extractedValues;
     	      this.extractedValuesFromScript = defaults.extractedValuesFromScript;
+    	      this.id = defaults.id;
     	      this.isCritical = defaults.isCritical;
     	      this.name = defaults.name;
     	      this.requestBasicauth = defaults.requestBasicauth;
@@ -319,6 +333,12 @@ public final class SyntheticsTestApiStep {
         public Builder extractedValuesFromScript(@Nullable String extractedValuesFromScript) {
 
             this.extractedValuesFromScript = extractedValuesFromScript;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder id(@Nullable String id) {
+
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -411,6 +431,7 @@ public final class SyntheticsTestApiStep {
             _resultValue.exitIfSucceed = exitIfSucceed;
             _resultValue.extractedValues = extractedValues;
             _resultValue.extractedValuesFromScript = extractedValuesFromScript;
+            _resultValue.id = id;
             _resultValue.isCritical = isCritical;
             _resultValue.name = name;
             _resultValue.requestBasicauth = requestBasicauth;

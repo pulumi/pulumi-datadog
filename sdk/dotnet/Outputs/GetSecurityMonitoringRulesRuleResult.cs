@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class GetSecurityMonitoringRulesRuleResult
     {
         /// <summary>
+        /// One or more calculated fields. Available only for scheduled rules (in other words, when `scheduling_options` is defined).
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetSecurityMonitoringRulesRuleCalculatedFieldResult> CalculatedFields;
+        /// <summary>
         /// Cases for generating signals.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetSecurityMonitoringRulesRuleCaseResult> Cases;
@@ -54,6 +58,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetSecurityMonitoringRulesRuleReferenceTableResult> ReferenceTables;
         /// <summary>
+        /// Options for scheduled rules. When this field is present, the rule runs based on the schedule. When absent, it runs in real time on ingested logs.
+        /// </summary>
+        public readonly Outputs.GetSecurityMonitoringRulesRuleSchedulingOptionsResult? SchedulingOptions;
+        /// <summary>
         /// Queries for selecting logs which are part of the rule.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetSecurityMonitoringRulesRuleSignalQueryResult> SignalQueries;
@@ -72,6 +80,8 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private GetSecurityMonitoringRulesRuleResult(
+            ImmutableArray<Outputs.GetSecurityMonitoringRulesRuleCalculatedFieldResult> calculatedFields,
+
             ImmutableArray<Outputs.GetSecurityMonitoringRulesRuleCaseResult> cases,
 
             bool? enabled,
@@ -92,6 +102,8 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.GetSecurityMonitoringRulesRuleReferenceTableResult> referenceTables,
 
+            Outputs.GetSecurityMonitoringRulesRuleSchedulingOptionsResult? schedulingOptions,
+
             ImmutableArray<Outputs.GetSecurityMonitoringRulesRuleSignalQueryResult> signalQueries,
 
             ImmutableArray<string> tags,
@@ -100,6 +112,7 @@ namespace Pulumi.Datadog.Outputs
 
             string? type)
         {
+            CalculatedFields = calculatedFields;
             Cases = cases;
             Enabled = enabled;
             Filters = filters;
@@ -110,6 +123,7 @@ namespace Pulumi.Datadog.Outputs
             Options = options;
             Queries = queries;
             ReferenceTables = referenceTables;
+            SchedulingOptions = schedulingOptions;
             SignalQueries = signalQueries;
             Tags = tags;
             ThirdPartyCases = thirdPartyCases;

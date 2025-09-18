@@ -195,6 +195,16 @@ export const getHosts: typeof import("./getHosts").getHosts = null as any;
 export const getHostsOutput: typeof import("./getHosts").getHostsOutput = null as any;
 utilities.lazyLoad(exports, ["getHosts","getHostsOutput"], () => require("./getHosts"));
 
+export { GetIncidentNotificationRuleArgs, GetIncidentNotificationRuleResult, GetIncidentNotificationRuleOutputArgs } from "./getIncidentNotificationRule";
+export const getIncidentNotificationRule: typeof import("./getIncidentNotificationRule").getIncidentNotificationRule = null as any;
+export const getIncidentNotificationRuleOutput: typeof import("./getIncidentNotificationRule").getIncidentNotificationRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getIncidentNotificationRule","getIncidentNotificationRuleOutput"], () => require("./getIncidentNotificationRule"));
+
+export { GetIncidentNotificationTemplateArgs, GetIncidentNotificationTemplateResult, GetIncidentNotificationTemplateOutputArgs } from "./getIncidentNotificationTemplate";
+export const getIncidentNotificationTemplate: typeof import("./getIncidentNotificationTemplate").getIncidentNotificationTemplate = null as any;
+export const getIncidentNotificationTemplateOutput: typeof import("./getIncidentNotificationTemplate").getIncidentNotificationTemplateOutput = null as any;
+utilities.lazyLoad(exports, ["getIncidentNotificationTemplate","getIncidentNotificationTemplateOutput"], () => require("./getIncidentNotificationTemplate"));
+
 export { GetIncidentTypeArgs, GetIncidentTypeResult, GetIncidentTypeOutputArgs } from "./getIncidentType";
 export const getIncidentType: typeof import("./getIncidentType").getIncidentType = null as any;
 export const getIncidentTypeOutput: typeof import("./getIncidentType").getIncidentTypeOutput = null as any;
@@ -384,6 +394,16 @@ export { GetWorkflowAutomationArgs, GetWorkflowAutomationResult, GetWorkflowAuto
 export const getWorkflowAutomation: typeof import("./getWorkflowAutomation").getWorkflowAutomation = null as any;
 export const getWorkflowAutomationOutput: typeof import("./getWorkflowAutomation").getWorkflowAutomationOutput = null as any;
 utilities.lazyLoad(exports, ["getWorkflowAutomation","getWorkflowAutomationOutput"], () => require("./getWorkflowAutomation"));
+
+export { IncidentNotificationRuleArgs, IncidentNotificationRuleState } from "./incidentNotificationRule";
+export type IncidentNotificationRule = import("./incidentNotificationRule").IncidentNotificationRule;
+export const IncidentNotificationRule: typeof import("./incidentNotificationRule").IncidentNotificationRule = null as any;
+utilities.lazyLoad(exports, ["IncidentNotificationRule"], () => require("./incidentNotificationRule"));
+
+export { IncidentNotificationTemplateArgs, IncidentNotificationTemplateState } from "./incidentNotificationTemplate";
+export type IncidentNotificationTemplate = import("./incidentNotificationTemplate").IncidentNotificationTemplate;
+export const IncidentNotificationTemplate: typeof import("./incidentNotificationTemplate").IncidentNotificationTemplate = null as any;
+utilities.lazyLoad(exports, ["IncidentNotificationTemplate"], () => require("./incidentNotificationTemplate"));
 
 export { IncidentTypeArgs, IncidentTypeState } from "./incidentType";
 export type IncidentType = import("./incidentType").IncidentType;
@@ -769,6 +789,10 @@ const _module = {
                 return new Downtime(name, <any>undefined, { urn })
             case "datadog:index/downtimeSchedule:DowntimeSchedule":
                 return new DowntimeSchedule(name, <any>undefined, { urn })
+            case "datadog:index/incidentNotificationRule:IncidentNotificationRule":
+                return new IncidentNotificationRule(name, <any>undefined, { urn })
+            case "datadog:index/incidentNotificationTemplate:IncidentNotificationTemplate":
+                return new IncidentNotificationTemplate(name, <any>undefined, { urn })
             case "datadog:index/incidentType:IncidentType":
                 return new IncidentType(name, <any>undefined, { urn })
             case "datadog:index/ipAllowlist:IpAllowlist":
@@ -918,6 +942,8 @@ pulumi.runtime.registerResourceModule("datadog", "index/dataset", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/domainAllowlist", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/downtime", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/downtimeSchedule", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/incidentNotificationRule", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/incidentNotificationTemplate", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/incidentType", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/ipAllowlist", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/logsArchive", _module)

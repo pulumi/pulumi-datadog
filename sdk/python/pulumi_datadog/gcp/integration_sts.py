@@ -31,19 +31,21 @@ class IntegrationStsArgs:
                  is_resource_change_collection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  is_security_command_center_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  metric_namespace_configs: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationStsMetricNamespaceConfigArgs']]]] = None,
+                 monitored_resource_configs: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationStsMonitoredResourceConfigArgs']]]] = None,
                  resource_collection_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a IntegrationSts resource.
         :param pulumi.Input[_builtins.str] client_email: Your service account email address.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] account_tags: Tags to be associated with GCP metrics and service checks from your account.
         :param pulumi.Input[_builtins.bool] automute: Silence monitors for expected GCE instance shutdowns.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cloud_run_revision_filters: Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] host_filters: Your Host Filters.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cloud_run_revision_filters: List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] host_filters: List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
         :param pulumi.Input[_builtins.bool] is_cspm_enabled: Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled.
         :param pulumi.Input[_builtins.bool] is_per_project_quota_enabled: When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
         :param pulumi.Input[_builtins.bool] is_resource_change_collection_enabled: When enabled, Datadog scans for all resource change data in your Google Cloud environment.
         :param pulumi.Input[_builtins.bool] is_security_command_center_enabled: When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input['IntegrationStsMetricNamespaceConfigArgs']]] metric_namespace_configs: Configuration for a GCP metric namespace.
+        :param pulumi.Input[Sequence[pulumi.Input['IntegrationStsMetricNamespaceConfigArgs']]] metric_namespace_configs: Configurations for GCP metric namespaces.
+        :param pulumi.Input[Sequence[pulumi.Input['IntegrationStsMonitoredResourceConfigArgs']]] monitored_resource_configs: Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
         :param pulumi.Input[_builtins.bool] resource_collection_enabled: When enabled, Datadog scans for all resources in your GCP environment.
         """
         pulumi.set(__self__, "client_email", client_email)
@@ -52,7 +54,13 @@ class IntegrationStsArgs:
         if automute is not None:
             pulumi.set(__self__, "automute", automute)
         if cloud_run_revision_filters is not None:
+            warnings.warn("""**Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision`""", DeprecationWarning)
+            pulumi.log.warn("""cloud_run_revision_filters is deprecated: **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision`""")
+        if cloud_run_revision_filters is not None:
             pulumi.set(__self__, "cloud_run_revision_filters", cloud_run_revision_filters)
+        if host_filters is not None:
+            warnings.warn("""**Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance`""", DeprecationWarning)
+            pulumi.log.warn("""host_filters is deprecated: **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance`""")
         if host_filters is not None:
             pulumi.set(__self__, "host_filters", host_filters)
         if is_cspm_enabled is not None:
@@ -65,6 +73,8 @@ class IntegrationStsArgs:
             pulumi.set(__self__, "is_security_command_center_enabled", is_security_command_center_enabled)
         if metric_namespace_configs is not None:
             pulumi.set(__self__, "metric_namespace_configs", metric_namespace_configs)
+        if monitored_resource_configs is not None:
+            pulumi.set(__self__, "monitored_resource_configs", monitored_resource_configs)
         if resource_collection_enabled is not None:
             pulumi.set(__self__, "resource_collection_enabled", resource_collection_enabled)
 
@@ -106,9 +116,10 @@ class IntegrationStsArgs:
 
     @_builtins.property
     @pulumi.getter(name="cloudRunRevisionFilters")
+    @_utilities.deprecated("""**Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision`""")
     def cloud_run_revision_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+        List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
         """
         return pulumi.get(self, "cloud_run_revision_filters")
 
@@ -118,9 +129,10 @@ class IntegrationStsArgs:
 
     @_builtins.property
     @pulumi.getter(name="hostFilters")
+    @_utilities.deprecated("""**Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance`""")
     def host_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Your Host Filters.
+        List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
         """
         return pulumi.get(self, "host_filters")
 
@@ -180,13 +192,25 @@ class IntegrationStsArgs:
     @pulumi.getter(name="metricNamespaceConfigs")
     def metric_namespace_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationStsMetricNamespaceConfigArgs']]]]:
         """
-        Configuration for a GCP metric namespace.
+        Configurations for GCP metric namespaces.
         """
         return pulumi.get(self, "metric_namespace_configs")
 
     @metric_namespace_configs.setter
     def metric_namespace_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationStsMetricNamespaceConfigArgs']]]]):
         pulumi.set(self, "metric_namespace_configs", value)
+
+    @_builtins.property
+    @pulumi.getter(name="monitoredResourceConfigs")
+    def monitored_resource_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationStsMonitoredResourceConfigArgs']]]]:
+        """
+        Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
+        """
+        return pulumi.get(self, "monitored_resource_configs")
+
+    @monitored_resource_configs.setter
+    def monitored_resource_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationStsMonitoredResourceConfigArgs']]]]):
+        pulumi.set(self, "monitored_resource_configs", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceCollectionEnabled")
@@ -215,20 +239,22 @@ class _IntegrationStsState:
                  is_resource_change_collection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  is_security_command_center_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  metric_namespace_configs: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationStsMetricNamespaceConfigArgs']]]] = None,
+                 monitored_resource_configs: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationStsMonitoredResourceConfigArgs']]]] = None,
                  resource_collection_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering IntegrationSts resources.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] account_tags: Tags to be associated with GCP metrics and service checks from your account.
         :param pulumi.Input[_builtins.bool] automute: Silence monitors for expected GCE instance shutdowns.
         :param pulumi.Input[_builtins.str] client_email: Your service account email address.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cloud_run_revision_filters: Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cloud_run_revision_filters: List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
         :param pulumi.Input[_builtins.str] delegate_account_email: Datadog's STS Delegate Email.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] host_filters: Your Host Filters.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] host_filters: List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
         :param pulumi.Input[_builtins.bool] is_cspm_enabled: Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled.
         :param pulumi.Input[_builtins.bool] is_per_project_quota_enabled: When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
         :param pulumi.Input[_builtins.bool] is_resource_change_collection_enabled: When enabled, Datadog scans for all resource change data in your Google Cloud environment.
         :param pulumi.Input[_builtins.bool] is_security_command_center_enabled: When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input['IntegrationStsMetricNamespaceConfigArgs']]] metric_namespace_configs: Configuration for a GCP metric namespace.
+        :param pulumi.Input[Sequence[pulumi.Input['IntegrationStsMetricNamespaceConfigArgs']]] metric_namespace_configs: Configurations for GCP metric namespaces.
+        :param pulumi.Input[Sequence[pulumi.Input['IntegrationStsMonitoredResourceConfigArgs']]] monitored_resource_configs: Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
         :param pulumi.Input[_builtins.bool] resource_collection_enabled: When enabled, Datadog scans for all resources in your GCP environment.
         """
         if account_tags is not None:
@@ -238,9 +264,15 @@ class _IntegrationStsState:
         if client_email is not None:
             pulumi.set(__self__, "client_email", client_email)
         if cloud_run_revision_filters is not None:
+            warnings.warn("""**Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision`""", DeprecationWarning)
+            pulumi.log.warn("""cloud_run_revision_filters is deprecated: **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision`""")
+        if cloud_run_revision_filters is not None:
             pulumi.set(__self__, "cloud_run_revision_filters", cloud_run_revision_filters)
         if delegate_account_email is not None:
             pulumi.set(__self__, "delegate_account_email", delegate_account_email)
+        if host_filters is not None:
+            warnings.warn("""**Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance`""", DeprecationWarning)
+            pulumi.log.warn("""host_filters is deprecated: **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance`""")
         if host_filters is not None:
             pulumi.set(__self__, "host_filters", host_filters)
         if is_cspm_enabled is not None:
@@ -253,6 +285,8 @@ class _IntegrationStsState:
             pulumi.set(__self__, "is_security_command_center_enabled", is_security_command_center_enabled)
         if metric_namespace_configs is not None:
             pulumi.set(__self__, "metric_namespace_configs", metric_namespace_configs)
+        if monitored_resource_configs is not None:
+            pulumi.set(__self__, "monitored_resource_configs", monitored_resource_configs)
         if resource_collection_enabled is not None:
             pulumi.set(__self__, "resource_collection_enabled", resource_collection_enabled)
 
@@ -294,9 +328,10 @@ class _IntegrationStsState:
 
     @_builtins.property
     @pulumi.getter(name="cloudRunRevisionFilters")
+    @_utilities.deprecated("""**Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision`""")
     def cloud_run_revision_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+        List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
         """
         return pulumi.get(self, "cloud_run_revision_filters")
 
@@ -318,9 +353,10 @@ class _IntegrationStsState:
 
     @_builtins.property
     @pulumi.getter(name="hostFilters")
+    @_utilities.deprecated("""**Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance`""")
     def host_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Your Host Filters.
+        List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
         """
         return pulumi.get(self, "host_filters")
 
@@ -380,13 +416,25 @@ class _IntegrationStsState:
     @pulumi.getter(name="metricNamespaceConfigs")
     def metric_namespace_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationStsMetricNamespaceConfigArgs']]]]:
         """
-        Configuration for a GCP metric namespace.
+        Configurations for GCP metric namespaces.
         """
         return pulumi.get(self, "metric_namespace_configs")
 
     @metric_namespace_configs.setter
     def metric_namespace_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationStsMetricNamespaceConfigArgs']]]]):
         pulumi.set(self, "metric_namespace_configs", value)
+
+    @_builtins.property
+    @pulumi.getter(name="monitoredResourceConfigs")
+    def monitored_resource_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationStsMonitoredResourceConfigArgs']]]]:
+        """
+        Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
+        """
+        return pulumi.get(self, "monitored_resource_configs")
+
+    @monitored_resource_configs.setter
+    def monitored_resource_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationStsMonitoredResourceConfigArgs']]]]):
+        pulumi.set(self, "monitored_resource_configs", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceCollectionEnabled")
@@ -417,6 +465,7 @@ class IntegrationSts(pulumi.CustomResource):
                  is_resource_change_collection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  is_security_command_center_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  metric_namespace_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationStsMetricNamespaceConfigArgs', 'IntegrationStsMetricNamespaceConfigArgsDict']]]]] = None,
+                 monitored_resource_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationStsMonitoredResourceConfigArgs', 'IntegrationStsMonitoredResourceConfigArgsDict']]]]] = None,
                  resource_collection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
@@ -435,13 +484,14 @@ class IntegrationSts(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] account_tags: Tags to be associated with GCP metrics and service checks from your account.
         :param pulumi.Input[_builtins.bool] automute: Silence monitors for expected GCE instance shutdowns.
         :param pulumi.Input[_builtins.str] client_email: Your service account email address.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cloud_run_revision_filters: Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] host_filters: Your Host Filters.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cloud_run_revision_filters: List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] host_filters: List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
         :param pulumi.Input[_builtins.bool] is_cspm_enabled: Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled.
         :param pulumi.Input[_builtins.bool] is_per_project_quota_enabled: When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
         :param pulumi.Input[_builtins.bool] is_resource_change_collection_enabled: When enabled, Datadog scans for all resource change data in your Google Cloud environment.
         :param pulumi.Input[_builtins.bool] is_security_command_center_enabled: When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IntegrationStsMetricNamespaceConfigArgs', 'IntegrationStsMetricNamespaceConfigArgsDict']]]] metric_namespace_configs: Configuration for a GCP metric namespace.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IntegrationStsMetricNamespaceConfigArgs', 'IntegrationStsMetricNamespaceConfigArgsDict']]]] metric_namespace_configs: Configurations for GCP metric namespaces.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IntegrationStsMonitoredResourceConfigArgs', 'IntegrationStsMonitoredResourceConfigArgsDict']]]] monitored_resource_configs: Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
         :param pulumi.Input[_builtins.bool] resource_collection_enabled: When enabled, Datadog scans for all resources in your GCP environment.
         """
         ...
@@ -486,6 +536,7 @@ class IntegrationSts(pulumi.CustomResource):
                  is_resource_change_collection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  is_security_command_center_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  metric_namespace_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationStsMetricNamespaceConfigArgs', 'IntegrationStsMetricNamespaceConfigArgsDict']]]]] = None,
+                 monitored_resource_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationStsMonitoredResourceConfigArgs', 'IntegrationStsMonitoredResourceConfigArgsDict']]]]] = None,
                  resource_collection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -508,6 +559,7 @@ class IntegrationSts(pulumi.CustomResource):
             __props__.__dict__["is_resource_change_collection_enabled"] = is_resource_change_collection_enabled
             __props__.__dict__["is_security_command_center_enabled"] = is_security_command_center_enabled
             __props__.__dict__["metric_namespace_configs"] = metric_namespace_configs
+            __props__.__dict__["monitored_resource_configs"] = monitored_resource_configs
             __props__.__dict__["resource_collection_enabled"] = resource_collection_enabled
             __props__.__dict__["delegate_account_email"] = None
         super(IntegrationSts, __self__).__init__(
@@ -531,6 +583,7 @@ class IntegrationSts(pulumi.CustomResource):
             is_resource_change_collection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             is_security_command_center_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             metric_namespace_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationStsMetricNamespaceConfigArgs', 'IntegrationStsMetricNamespaceConfigArgsDict']]]]] = None,
+            monitored_resource_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationStsMonitoredResourceConfigArgs', 'IntegrationStsMonitoredResourceConfigArgsDict']]]]] = None,
             resource_collection_enabled: Optional[pulumi.Input[_builtins.bool]] = None) -> 'IntegrationSts':
         """
         Get an existing IntegrationSts resource's state with the given name, id, and optional extra
@@ -542,14 +595,15 @@ class IntegrationSts(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] account_tags: Tags to be associated with GCP metrics and service checks from your account.
         :param pulumi.Input[_builtins.bool] automute: Silence monitors for expected GCE instance shutdowns.
         :param pulumi.Input[_builtins.str] client_email: Your service account email address.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cloud_run_revision_filters: Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cloud_run_revision_filters: List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
         :param pulumi.Input[_builtins.str] delegate_account_email: Datadog's STS Delegate Email.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] host_filters: Your Host Filters.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] host_filters: List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
         :param pulumi.Input[_builtins.bool] is_cspm_enabled: Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled.
         :param pulumi.Input[_builtins.bool] is_per_project_quota_enabled: When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
         :param pulumi.Input[_builtins.bool] is_resource_change_collection_enabled: When enabled, Datadog scans for all resource change data in your Google Cloud environment.
         :param pulumi.Input[_builtins.bool] is_security_command_center_enabled: When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IntegrationStsMetricNamespaceConfigArgs', 'IntegrationStsMetricNamespaceConfigArgsDict']]]] metric_namespace_configs: Configuration for a GCP metric namespace.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IntegrationStsMetricNamespaceConfigArgs', 'IntegrationStsMetricNamespaceConfigArgsDict']]]] metric_namespace_configs: Configurations for GCP metric namespaces.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IntegrationStsMonitoredResourceConfigArgs', 'IntegrationStsMonitoredResourceConfigArgsDict']]]] monitored_resource_configs: Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
         :param pulumi.Input[_builtins.bool] resource_collection_enabled: When enabled, Datadog scans for all resources in your GCP environment.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -567,6 +621,7 @@ class IntegrationSts(pulumi.CustomResource):
         __props__.__dict__["is_resource_change_collection_enabled"] = is_resource_change_collection_enabled
         __props__.__dict__["is_security_command_center_enabled"] = is_security_command_center_enabled
         __props__.__dict__["metric_namespace_configs"] = metric_namespace_configs
+        __props__.__dict__["monitored_resource_configs"] = monitored_resource_configs
         __props__.__dict__["resource_collection_enabled"] = resource_collection_enabled
         return IntegrationSts(resource_name, opts=opts, __props__=__props__)
 
@@ -596,9 +651,10 @@ class IntegrationSts(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="cloudRunRevisionFilters")
-    def cloud_run_revision_filters(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+    @_utilities.deprecated("""**Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision`""")
+    def cloud_run_revision_filters(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+        List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
         """
         return pulumi.get(self, "cloud_run_revision_filters")
 
@@ -612,9 +668,10 @@ class IntegrationSts(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="hostFilters")
-    def host_filters(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+    @_utilities.deprecated("""**Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance`""")
+    def host_filters(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        Your Host Filters.
+        List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
         """
         return pulumi.get(self, "host_filters")
 
@@ -654,9 +711,17 @@ class IntegrationSts(pulumi.CustomResource):
     @pulumi.getter(name="metricNamespaceConfigs")
     def metric_namespace_configs(self) -> pulumi.Output[Optional[Sequence['outputs.IntegrationStsMetricNamespaceConfig']]]:
         """
-        Configuration for a GCP metric namespace.
+        Configurations for GCP metric namespaces.
         """
         return pulumi.get(self, "metric_namespace_configs")
+
+    @_builtins.property
+    @pulumi.getter(name="monitoredResourceConfigs")
+    def monitored_resource_configs(self) -> pulumi.Output[Sequence['outputs.IntegrationStsMonitoredResourceConfig']]:
+        """
+        Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
+        """
+        return pulumi.get(self, "monitored_resource_configs")
 
     @_builtins.property
     @pulumi.getter(name="resourceCollectionEnabled")

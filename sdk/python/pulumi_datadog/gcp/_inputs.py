@@ -15,11 +15,49 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'IntegrationMonitoredResourceConfigArgs',
+    'IntegrationMonitoredResourceConfigArgsDict',
     'IntegrationStsMetricNamespaceConfigArgs',
     'IntegrationStsMetricNamespaceConfigArgsDict',
+    'IntegrationStsMonitoredResourceConfigArgs',
+    'IntegrationStsMonitoredResourceConfigArgsDict',
 ]
 
 MYPY = False
+
+if not MYPY:
+    class IntegrationMonitoredResourceConfigArgsDict(TypedDict):
+        filters: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        type: pulumi.Input[_builtins.str]
+elif False:
+    IntegrationMonitoredResourceConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IntegrationMonitoredResourceConfigArgs:
+    def __init__(__self__, *,
+                 filters: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 type: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "filters", filters)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def filters(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        return pulumi.get(self, "filters")
+
+    @filters.setter
+    def filters(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "filters", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
 
 if not MYPY:
     class IntegrationStsMetricNamespaceConfigArgsDict(TypedDict):
@@ -53,5 +91,39 @@ class IntegrationStsMetricNamespaceConfigArgs:
     @id.setter
     def id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class IntegrationStsMonitoredResourceConfigArgsDict(TypedDict):
+        filters: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        type: pulumi.Input[_builtins.str]
+elif False:
+    IntegrationStsMonitoredResourceConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IntegrationStsMonitoredResourceConfigArgs:
+    def __init__(__self__, *,
+                 filters: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 type: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "filters", filters)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def filters(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        return pulumi.get(self, "filters")
+
+    @filters.setter
+    def filters(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "filters", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
 
 

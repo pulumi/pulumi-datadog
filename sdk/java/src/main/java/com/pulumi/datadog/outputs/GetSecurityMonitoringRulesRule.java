@@ -4,11 +4,13 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.GetSecurityMonitoringRulesRuleCalculatedField;
 import com.pulumi.datadog.outputs.GetSecurityMonitoringRulesRuleCase;
 import com.pulumi.datadog.outputs.GetSecurityMonitoringRulesRuleFilter;
 import com.pulumi.datadog.outputs.GetSecurityMonitoringRulesRuleOptions;
 import com.pulumi.datadog.outputs.GetSecurityMonitoringRulesRuleQuery;
 import com.pulumi.datadog.outputs.GetSecurityMonitoringRulesRuleReferenceTable;
+import com.pulumi.datadog.outputs.GetSecurityMonitoringRulesRuleSchedulingOptions;
 import com.pulumi.datadog.outputs.GetSecurityMonitoringRulesRuleSignalQuery;
 import com.pulumi.datadog.outputs.GetSecurityMonitoringRulesRuleThirdPartyCase;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -21,6 +23,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSecurityMonitoringRulesRule {
+    /**
+     * @return One or more calculated fields. Available only for scheduled rules (in other words, when `scheduling_options` is defined).
+     * 
+     */
+    private @Nullable List<GetSecurityMonitoringRulesRuleCalculatedField> calculatedFields;
     /**
      * @return Cases for generating signals.
      * 
@@ -72,6 +79,11 @@ public final class GetSecurityMonitoringRulesRule {
      */
     private @Nullable List<GetSecurityMonitoringRulesRuleReferenceTable> referenceTables;
     /**
+     * @return Options for scheduled rules. When this field is present, the rule runs based on the schedule. When absent, it runs in real time on ingested logs.
+     * 
+     */
+    private @Nullable GetSecurityMonitoringRulesRuleSchedulingOptions schedulingOptions;
+    /**
      * @return Queries for selecting logs which are part of the rule.
      * 
      */
@@ -93,6 +105,13 @@ public final class GetSecurityMonitoringRulesRule {
     private @Nullable String type;
 
     private GetSecurityMonitoringRulesRule() {}
+    /**
+     * @return One or more calculated fields. Available only for scheduled rules (in other words, when `scheduling_options` is defined).
+     * 
+     */
+    public List<GetSecurityMonitoringRulesRuleCalculatedField> calculatedFields() {
+        return this.calculatedFields == null ? List.of() : this.calculatedFields;
+    }
     /**
      * @return Cases for generating signals.
      * 
@@ -164,6 +183,13 @@ public final class GetSecurityMonitoringRulesRule {
         return this.referenceTables == null ? List.of() : this.referenceTables;
     }
     /**
+     * @return Options for scheduled rules. When this field is present, the rule runs based on the schedule. When absent, it runs in real time on ingested logs.
+     * 
+     */
+    public Optional<GetSecurityMonitoringRulesRuleSchedulingOptions> schedulingOptions() {
+        return Optional.ofNullable(this.schedulingOptions);
+    }
+    /**
      * @return Queries for selecting logs which are part of the rule.
      * 
      */
@@ -201,6 +227,7 @@ public final class GetSecurityMonitoringRulesRule {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable List<GetSecurityMonitoringRulesRuleCalculatedField> calculatedFields;
         private @Nullable List<GetSecurityMonitoringRulesRuleCase> cases;
         private @Nullable Boolean enabled;
         private @Nullable List<GetSecurityMonitoringRulesRuleFilter> filters;
@@ -211,6 +238,7 @@ public final class GetSecurityMonitoringRulesRule {
         private @Nullable GetSecurityMonitoringRulesRuleOptions options;
         private @Nullable List<GetSecurityMonitoringRulesRuleQuery> queries;
         private @Nullable List<GetSecurityMonitoringRulesRuleReferenceTable> referenceTables;
+        private @Nullable GetSecurityMonitoringRulesRuleSchedulingOptions schedulingOptions;
         private @Nullable List<GetSecurityMonitoringRulesRuleSignalQuery> signalQueries;
         private List<String> tags;
         private @Nullable List<GetSecurityMonitoringRulesRuleThirdPartyCase> thirdPartyCases;
@@ -218,6 +246,7 @@ public final class GetSecurityMonitoringRulesRule {
         public Builder() {}
         public Builder(GetSecurityMonitoringRulesRule defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.calculatedFields = defaults.calculatedFields;
     	      this.cases = defaults.cases;
     	      this.enabled = defaults.enabled;
     	      this.filters = defaults.filters;
@@ -228,12 +257,22 @@ public final class GetSecurityMonitoringRulesRule {
     	      this.options = defaults.options;
     	      this.queries = defaults.queries;
     	      this.referenceTables = defaults.referenceTables;
+    	      this.schedulingOptions = defaults.schedulingOptions;
     	      this.signalQueries = defaults.signalQueries;
     	      this.tags = defaults.tags;
     	      this.thirdPartyCases = defaults.thirdPartyCases;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
+        public Builder calculatedFields(@Nullable List<GetSecurityMonitoringRulesRuleCalculatedField> calculatedFields) {
+
+            this.calculatedFields = calculatedFields;
+            return this;
+        }
+        public Builder calculatedFields(GetSecurityMonitoringRulesRuleCalculatedField... calculatedFields) {
+            return calculatedFields(List.of(calculatedFields));
+        }
         @CustomType.Setter
         public Builder cases(@Nullable List<GetSecurityMonitoringRulesRuleCase> cases) {
 
@@ -314,6 +353,12 @@ public final class GetSecurityMonitoringRulesRule {
             return referenceTables(List.of(referenceTables));
         }
         @CustomType.Setter
+        public Builder schedulingOptions(@Nullable GetSecurityMonitoringRulesRuleSchedulingOptions schedulingOptions) {
+
+            this.schedulingOptions = schedulingOptions;
+            return this;
+        }
+        @CustomType.Setter
         public Builder signalQueries(@Nullable List<GetSecurityMonitoringRulesRuleSignalQuery> signalQueries) {
 
             this.signalQueries = signalQueries;
@@ -350,6 +395,7 @@ public final class GetSecurityMonitoringRulesRule {
         }
         public GetSecurityMonitoringRulesRule build() {
             final var _resultValue = new GetSecurityMonitoringRulesRule();
+            _resultValue.calculatedFields = calculatedFields;
             _resultValue.cases = cases;
             _resultValue.enabled = enabled;
             _resultValue.filters = filters;
@@ -360,6 +406,7 @@ public final class GetSecurityMonitoringRulesRule {
             _resultValue.options = options;
             _resultValue.queries = queries;
             _resultValue.referenceTables = referenceTables;
+            _resultValue.schedulingOptions = schedulingOptions;
             _resultValue.signalQueries = signalQueries;
             _resultValue.tags = tags;
             _resultValue.thirdPartyCases = thirdPartyCases;

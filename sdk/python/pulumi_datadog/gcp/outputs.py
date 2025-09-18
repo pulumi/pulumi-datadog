@@ -15,8 +15,29 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'IntegrationMonitoredResourceConfig',
     'IntegrationStsMetricNamespaceConfig',
+    'IntegrationStsMonitoredResourceConfig',
 ]
+
+@pulumi.output_type
+class IntegrationMonitoredResourceConfig(dict):
+    def __init__(__self__, *,
+                 filters: Sequence[_builtins.str],
+                 type: _builtins.str):
+        pulumi.set(__self__, "filters", filters)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def filters(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "filters")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        return pulumi.get(self, "type")
+
 
 @pulumi.output_type
 class IntegrationStsMetricNamespaceConfig(dict):
@@ -35,5 +56,24 @@ class IntegrationStsMetricNamespaceConfig(dict):
     @pulumi.getter
     def id(self) -> _builtins.str:
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class IntegrationStsMonitoredResourceConfig(dict):
+    def __init__(__self__, *,
+                 filters: Sequence[_builtins.str],
+                 type: _builtins.str):
+        pulumi.set(__self__, "filters", filters)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def filters(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "filters")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        return pulumi.get(self, "type")
 
 

@@ -18,7 +18,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a Datadog CSM Threats Agent Rule API resource.
+ * Provides a Datadog Workload Protection (CSM Threats) Agent Rule API resource.
  * 
  * ## Import
  * 

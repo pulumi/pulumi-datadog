@@ -13,6 +13,106 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type IntegrationMonitoredResourceConfig struct {
+	Filters []string `pulumi:"filters"`
+	Type    string   `pulumi:"type"`
+}
+
+// IntegrationMonitoredResourceConfigInput is an input type that accepts IntegrationMonitoredResourceConfigArgs and IntegrationMonitoredResourceConfigOutput values.
+// You can construct a concrete instance of `IntegrationMonitoredResourceConfigInput` via:
+//
+//	IntegrationMonitoredResourceConfigArgs{...}
+type IntegrationMonitoredResourceConfigInput interface {
+	pulumi.Input
+
+	ToIntegrationMonitoredResourceConfigOutput() IntegrationMonitoredResourceConfigOutput
+	ToIntegrationMonitoredResourceConfigOutputWithContext(context.Context) IntegrationMonitoredResourceConfigOutput
+}
+
+type IntegrationMonitoredResourceConfigArgs struct {
+	Filters pulumi.StringArrayInput `pulumi:"filters"`
+	Type    pulumi.StringInput      `pulumi:"type"`
+}
+
+func (IntegrationMonitoredResourceConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationMonitoredResourceConfig)(nil)).Elem()
+}
+
+func (i IntegrationMonitoredResourceConfigArgs) ToIntegrationMonitoredResourceConfigOutput() IntegrationMonitoredResourceConfigOutput {
+	return i.ToIntegrationMonitoredResourceConfigOutputWithContext(context.Background())
+}
+
+func (i IntegrationMonitoredResourceConfigArgs) ToIntegrationMonitoredResourceConfigOutputWithContext(ctx context.Context) IntegrationMonitoredResourceConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationMonitoredResourceConfigOutput)
+}
+
+// IntegrationMonitoredResourceConfigArrayInput is an input type that accepts IntegrationMonitoredResourceConfigArray and IntegrationMonitoredResourceConfigArrayOutput values.
+// You can construct a concrete instance of `IntegrationMonitoredResourceConfigArrayInput` via:
+//
+//	IntegrationMonitoredResourceConfigArray{ IntegrationMonitoredResourceConfigArgs{...} }
+type IntegrationMonitoredResourceConfigArrayInput interface {
+	pulumi.Input
+
+	ToIntegrationMonitoredResourceConfigArrayOutput() IntegrationMonitoredResourceConfigArrayOutput
+	ToIntegrationMonitoredResourceConfigArrayOutputWithContext(context.Context) IntegrationMonitoredResourceConfigArrayOutput
+}
+
+type IntegrationMonitoredResourceConfigArray []IntegrationMonitoredResourceConfigInput
+
+func (IntegrationMonitoredResourceConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntegrationMonitoredResourceConfig)(nil)).Elem()
+}
+
+func (i IntegrationMonitoredResourceConfigArray) ToIntegrationMonitoredResourceConfigArrayOutput() IntegrationMonitoredResourceConfigArrayOutput {
+	return i.ToIntegrationMonitoredResourceConfigArrayOutputWithContext(context.Background())
+}
+
+func (i IntegrationMonitoredResourceConfigArray) ToIntegrationMonitoredResourceConfigArrayOutputWithContext(ctx context.Context) IntegrationMonitoredResourceConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationMonitoredResourceConfigArrayOutput)
+}
+
+type IntegrationMonitoredResourceConfigOutput struct{ *pulumi.OutputState }
+
+func (IntegrationMonitoredResourceConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationMonitoredResourceConfig)(nil)).Elem()
+}
+
+func (o IntegrationMonitoredResourceConfigOutput) ToIntegrationMonitoredResourceConfigOutput() IntegrationMonitoredResourceConfigOutput {
+	return o
+}
+
+func (o IntegrationMonitoredResourceConfigOutput) ToIntegrationMonitoredResourceConfigOutputWithContext(ctx context.Context) IntegrationMonitoredResourceConfigOutput {
+	return o
+}
+
+func (o IntegrationMonitoredResourceConfigOutput) Filters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IntegrationMonitoredResourceConfig) []string { return v.Filters }).(pulumi.StringArrayOutput)
+}
+
+func (o IntegrationMonitoredResourceConfigOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationMonitoredResourceConfig) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type IntegrationMonitoredResourceConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (IntegrationMonitoredResourceConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntegrationMonitoredResourceConfig)(nil)).Elem()
+}
+
+func (o IntegrationMonitoredResourceConfigArrayOutput) ToIntegrationMonitoredResourceConfigArrayOutput() IntegrationMonitoredResourceConfigArrayOutput {
+	return o
+}
+
+func (o IntegrationMonitoredResourceConfigArrayOutput) ToIntegrationMonitoredResourceConfigArrayOutputWithContext(ctx context.Context) IntegrationMonitoredResourceConfigArrayOutput {
+	return o
+}
+
+func (o IntegrationMonitoredResourceConfigArrayOutput) Index(i pulumi.IntInput) IntegrationMonitoredResourceConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntegrationMonitoredResourceConfig {
+		return vs[0].([]IntegrationMonitoredResourceConfig)[vs[1].(int)]
+	}).(IntegrationMonitoredResourceConfigOutput)
+}
+
 type IntegrationStsMetricNamespaceConfig struct {
 	Disabled bool   `pulumi:"disabled"`
 	Id       string `pulumi:"id"`
@@ -113,9 +213,117 @@ func (o IntegrationStsMetricNamespaceConfigArrayOutput) Index(i pulumi.IntInput)
 	}).(IntegrationStsMetricNamespaceConfigOutput)
 }
 
+type IntegrationStsMonitoredResourceConfig struct {
+	Filters []string `pulumi:"filters"`
+	Type    string   `pulumi:"type"`
+}
+
+// IntegrationStsMonitoredResourceConfigInput is an input type that accepts IntegrationStsMonitoredResourceConfigArgs and IntegrationStsMonitoredResourceConfigOutput values.
+// You can construct a concrete instance of `IntegrationStsMonitoredResourceConfigInput` via:
+//
+//	IntegrationStsMonitoredResourceConfigArgs{...}
+type IntegrationStsMonitoredResourceConfigInput interface {
+	pulumi.Input
+
+	ToIntegrationStsMonitoredResourceConfigOutput() IntegrationStsMonitoredResourceConfigOutput
+	ToIntegrationStsMonitoredResourceConfigOutputWithContext(context.Context) IntegrationStsMonitoredResourceConfigOutput
+}
+
+type IntegrationStsMonitoredResourceConfigArgs struct {
+	Filters pulumi.StringArrayInput `pulumi:"filters"`
+	Type    pulumi.StringInput      `pulumi:"type"`
+}
+
+func (IntegrationStsMonitoredResourceConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationStsMonitoredResourceConfig)(nil)).Elem()
+}
+
+func (i IntegrationStsMonitoredResourceConfigArgs) ToIntegrationStsMonitoredResourceConfigOutput() IntegrationStsMonitoredResourceConfigOutput {
+	return i.ToIntegrationStsMonitoredResourceConfigOutputWithContext(context.Background())
+}
+
+func (i IntegrationStsMonitoredResourceConfigArgs) ToIntegrationStsMonitoredResourceConfigOutputWithContext(ctx context.Context) IntegrationStsMonitoredResourceConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationStsMonitoredResourceConfigOutput)
+}
+
+// IntegrationStsMonitoredResourceConfigArrayInput is an input type that accepts IntegrationStsMonitoredResourceConfigArray and IntegrationStsMonitoredResourceConfigArrayOutput values.
+// You can construct a concrete instance of `IntegrationStsMonitoredResourceConfigArrayInput` via:
+//
+//	IntegrationStsMonitoredResourceConfigArray{ IntegrationStsMonitoredResourceConfigArgs{...} }
+type IntegrationStsMonitoredResourceConfigArrayInput interface {
+	pulumi.Input
+
+	ToIntegrationStsMonitoredResourceConfigArrayOutput() IntegrationStsMonitoredResourceConfigArrayOutput
+	ToIntegrationStsMonitoredResourceConfigArrayOutputWithContext(context.Context) IntegrationStsMonitoredResourceConfigArrayOutput
+}
+
+type IntegrationStsMonitoredResourceConfigArray []IntegrationStsMonitoredResourceConfigInput
+
+func (IntegrationStsMonitoredResourceConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntegrationStsMonitoredResourceConfig)(nil)).Elem()
+}
+
+func (i IntegrationStsMonitoredResourceConfigArray) ToIntegrationStsMonitoredResourceConfigArrayOutput() IntegrationStsMonitoredResourceConfigArrayOutput {
+	return i.ToIntegrationStsMonitoredResourceConfigArrayOutputWithContext(context.Background())
+}
+
+func (i IntegrationStsMonitoredResourceConfigArray) ToIntegrationStsMonitoredResourceConfigArrayOutputWithContext(ctx context.Context) IntegrationStsMonitoredResourceConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationStsMonitoredResourceConfigArrayOutput)
+}
+
+type IntegrationStsMonitoredResourceConfigOutput struct{ *pulumi.OutputState }
+
+func (IntegrationStsMonitoredResourceConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationStsMonitoredResourceConfig)(nil)).Elem()
+}
+
+func (o IntegrationStsMonitoredResourceConfigOutput) ToIntegrationStsMonitoredResourceConfigOutput() IntegrationStsMonitoredResourceConfigOutput {
+	return o
+}
+
+func (o IntegrationStsMonitoredResourceConfigOutput) ToIntegrationStsMonitoredResourceConfigOutputWithContext(ctx context.Context) IntegrationStsMonitoredResourceConfigOutput {
+	return o
+}
+
+func (o IntegrationStsMonitoredResourceConfigOutput) Filters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IntegrationStsMonitoredResourceConfig) []string { return v.Filters }).(pulumi.StringArrayOutput)
+}
+
+func (o IntegrationStsMonitoredResourceConfigOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationStsMonitoredResourceConfig) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type IntegrationStsMonitoredResourceConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (IntegrationStsMonitoredResourceConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntegrationStsMonitoredResourceConfig)(nil)).Elem()
+}
+
+func (o IntegrationStsMonitoredResourceConfigArrayOutput) ToIntegrationStsMonitoredResourceConfigArrayOutput() IntegrationStsMonitoredResourceConfigArrayOutput {
+	return o
+}
+
+func (o IntegrationStsMonitoredResourceConfigArrayOutput) ToIntegrationStsMonitoredResourceConfigArrayOutputWithContext(ctx context.Context) IntegrationStsMonitoredResourceConfigArrayOutput {
+	return o
+}
+
+func (o IntegrationStsMonitoredResourceConfigArrayOutput) Index(i pulumi.IntInput) IntegrationStsMonitoredResourceConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntegrationStsMonitoredResourceConfig {
+		return vs[0].([]IntegrationStsMonitoredResourceConfig)[vs[1].(int)]
+	}).(IntegrationStsMonitoredResourceConfigOutput)
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationMonitoredResourceConfigInput)(nil)).Elem(), IntegrationMonitoredResourceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationMonitoredResourceConfigArrayInput)(nil)).Elem(), IntegrationMonitoredResourceConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationStsMetricNamespaceConfigInput)(nil)).Elem(), IntegrationStsMetricNamespaceConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationStsMetricNamespaceConfigArrayInput)(nil)).Elem(), IntegrationStsMetricNamespaceConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationStsMonitoredResourceConfigInput)(nil)).Elem(), IntegrationStsMonitoredResourceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationStsMonitoredResourceConfigArrayInput)(nil)).Elem(), IntegrationStsMonitoredResourceConfigArray{})
+	pulumi.RegisterOutputType(IntegrationMonitoredResourceConfigOutput{})
+	pulumi.RegisterOutputType(IntegrationMonitoredResourceConfigArrayOutput{})
 	pulumi.RegisterOutputType(IntegrationStsMetricNamespaceConfigOutput{})
 	pulumi.RegisterOutputType(IntegrationStsMetricNamespaceConfigArrayOutput{})
+	pulumi.RegisterOutputType(IntegrationStsMonitoredResourceConfigOutput{})
+	pulumi.RegisterOutputType(IntegrationStsMonitoredResourceConfigArrayOutput{})
 }

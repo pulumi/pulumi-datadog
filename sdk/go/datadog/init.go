@@ -73,6 +73,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Downtime{}
 	case "datadog:index/downtimeSchedule:DowntimeSchedule":
 		r = &DowntimeSchedule{}
+	case "datadog:index/incidentNotificationRule:IncidentNotificationRule":
+		r = &IncidentNotificationRule{}
+	case "datadog:index/incidentNotificationTemplate:IncidentNotificationTemplate":
+		r = &IncidentNotificationTemplate{}
 	case "datadog:index/incidentType:IncidentType":
 		r = &IncidentType{}
 	case "datadog:index/ipAllowlist:IpAllowlist":
@@ -350,6 +354,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/downtimeSchedule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/incidentNotificationRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/incidentNotificationTemplate",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -44,6 +44,8 @@ from .get_csm_threats_policies import *
 from .get_dashboard import *
 from .get_dashboard_list import *
 from .get_hosts import *
+from .get_incident_notification_rule import *
+from .get_incident_notification_template import *
 from .get_incident_type import *
 from .get_ip_ranges import *
 from .get_logs_archives_order import *
@@ -82,6 +84,8 @@ from .get_teams import *
 from .get_user import *
 from .get_users import *
 from .get_workflow_automation import *
+from .incident_notification_rule import *
+from .incident_notification_template import *
 from .incident_type import *
 from .ip_allowlist import *
 from .logs_archive import *
@@ -511,6 +515,22 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/downtimeSchedule:DowntimeSchedule": "DowntimeSchedule"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/incidentNotificationRule",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/incidentNotificationRule:IncidentNotificationRule": "IncidentNotificationRule"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/incidentNotificationTemplate",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/incidentNotificationTemplate:IncidentNotificationTemplate": "IncidentNotificationTemplate"
   }
  },
  {

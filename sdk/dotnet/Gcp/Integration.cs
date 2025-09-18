@@ -44,7 +44,7 @@ namespace Pulumi.Datadog.Gcp
         public Output<string> ClientId { get; private set; } = null!;
 
         /// <summary>
-        /// Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+        /// List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
         /// </summary>
         [Output("cloudRunRevisionFilters")]
         public Output<ImmutableArray<string>> CloudRunRevisionFilters { get; private set; } = null!;
@@ -56,7 +56,7 @@ namespace Pulumi.Datadog.Gcp
         public Output<bool> CspmResourceCollectionEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. Defaults to `""`.
+        /// List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog. Defaults to `""`.
         /// </summary>
         [Output("hostFilters")]
         public Output<string> HostFilters { get; private set; } = null!;
@@ -72,6 +72,12 @@ namespace Pulumi.Datadog.Gcp
         /// </summary>
         [Output("isSecurityCommandCenterEnabled")]
         public Output<bool> IsSecurityCommandCenterEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
+        /// </summary>
+        [Output("monitoredResourceConfigs")]
+        public Output<ImmutableArray<Outputs.IntegrationMonitoredResourceConfig>> MonitoredResourceConfigs { get; private set; } = null!;
 
         /// <summary>
         /// Your private key name found in your JSON service account key.
@@ -169,8 +175,9 @@ namespace Pulumi.Datadog.Gcp
         private InputList<string>? _cloudRunRevisionFilters;
 
         /// <summary>
-        /// Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+        /// List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
         /// </summary>
+        [Obsolete(@"**Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision`")]
         public InputList<string> CloudRunRevisionFilters
         {
             get => _cloudRunRevisionFilters ?? (_cloudRunRevisionFilters = new InputList<string>());
@@ -184,7 +191,7 @@ namespace Pulumi.Datadog.Gcp
         public Input<bool>? CspmResourceCollectionEnabled { get; set; }
 
         /// <summary>
-        /// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. Defaults to `""`.
+        /// List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog. Defaults to `""`.
         /// </summary>
         [Input("hostFilters")]
         public Input<string>? HostFilters { get; set; }
@@ -200,6 +207,18 @@ namespace Pulumi.Datadog.Gcp
         /// </summary>
         [Input("isSecurityCommandCenterEnabled")]
         public Input<bool>? IsSecurityCommandCenterEnabled { get; set; }
+
+        [Input("monitoredResourceConfigs")]
+        private InputList<Inputs.IntegrationMonitoredResourceConfigArgs>? _monitoredResourceConfigs;
+
+        /// <summary>
+        /// Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
+        /// </summary>
+        public InputList<Inputs.IntegrationMonitoredResourceConfigArgs> MonitoredResourceConfigs
+        {
+            get => _monitoredResourceConfigs ?? (_monitoredResourceConfigs = new InputList<Inputs.IntegrationMonitoredResourceConfigArgs>());
+            set => _monitoredResourceConfigs = value;
+        }
 
         [Input("privateKey", required: true)]
         private Input<string>? _privateKey;
@@ -265,8 +284,9 @@ namespace Pulumi.Datadog.Gcp
         private InputList<string>? _cloudRunRevisionFilters;
 
         /// <summary>
-        /// Tags to filter which Cloud Run revisions are imported into Datadog. Only revisions that meet specified criteria are monitored.
+        /// List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
         /// </summary>
+        [Obsolete(@"**Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision`")]
         public InputList<string> CloudRunRevisionFilters
         {
             get => _cloudRunRevisionFilters ?? (_cloudRunRevisionFilters = new InputList<string>());
@@ -280,7 +300,7 @@ namespace Pulumi.Datadog.Gcp
         public Input<bool>? CspmResourceCollectionEnabled { get; set; }
 
         /// <summary>
-        /// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. Defaults to `""`.
+        /// List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog. Defaults to `""`.
         /// </summary>
         [Input("hostFilters")]
         public Input<string>? HostFilters { get; set; }
@@ -296,6 +316,18 @@ namespace Pulumi.Datadog.Gcp
         /// </summary>
         [Input("isSecurityCommandCenterEnabled")]
         public Input<bool>? IsSecurityCommandCenterEnabled { get; set; }
+
+        [Input("monitoredResourceConfigs")]
+        private InputList<Inputs.IntegrationMonitoredResourceConfigGetArgs>? _monitoredResourceConfigs;
+
+        /// <summary>
+        /// Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
+        /// </summary>
+        public InputList<Inputs.IntegrationMonitoredResourceConfigGetArgs> MonitoredResourceConfigs
+        {
+            get => _monitoredResourceConfigs ?? (_monitoredResourceConfigs = new InputList<Inputs.IntegrationMonitoredResourceConfigGetArgs>());
+            set => _monitoredResourceConfigs = value;
+        }
 
         [Input("privateKey")]
         private Input<string>? _privateKey;

@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.SecurityMonitoringDefaultRuleQueryAgentRuleArgs;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -116,6 +117,21 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
     }
 
     /**
+     * When false, events without a group-by value are ignored by the rule. When true, events with missing group-by fields are processed with `N/A`, replacing the missing values.
+     * 
+     */
+    @Import(name="hasOptionalGroupByFields")
+    private @Nullable Output<Boolean> hasOptionalGroupByFields;
+
+    /**
+     * @return When false, events without a group-by value are ignored by the rule. When true, events with missing group-by fields are processed with `N/A`, replacing the missing values.
+     * 
+     */
+    public Optional<Output<Boolean>> hasOptionalGroupByFields() {
+        return Optional.ofNullable(this.hasOptionalGroupByFields);
+    }
+
+    /**
      * The target field to aggregate over when using the `sum`, `max`, or `geo_data` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
      * 
      * @deprecated
@@ -192,6 +208,7 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
         this.dataSource = $.dataSource;
         this.distinctFields = $.distinctFields;
         this.groupByFields = $.groupByFields;
+        this.hasOptionalGroupByFields = $.hasOptionalGroupByFields;
         this.metric = $.metric;
         this.metrics = $.metrics;
         this.name = $.name;
@@ -382,6 +399,27 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
          */
         public Builder groupByFields(String... groupByFields) {
             return groupByFields(List.of(groupByFields));
+        }
+
+        /**
+         * @param hasOptionalGroupByFields When false, events without a group-by value are ignored by the rule. When true, events with missing group-by fields are processed with `N/A`, replacing the missing values.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hasOptionalGroupByFields(@Nullable Output<Boolean> hasOptionalGroupByFields) {
+            $.hasOptionalGroupByFields = hasOptionalGroupByFields;
+            return this;
+        }
+
+        /**
+         * @param hasOptionalGroupByFields When false, events without a group-by value are ignored by the rule. When true, events with missing group-by fields are processed with `N/A`, replacing the missing values.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hasOptionalGroupByFields(Boolean hasOptionalGroupByFields) {
+            return hasOptionalGroupByFields(Output.of(hasOptionalGroupByFields));
         }
 
         /**
