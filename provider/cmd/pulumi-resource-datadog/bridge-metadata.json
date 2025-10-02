@@ -117,6 +117,22 @@
                 "current": "datadog:index/authnMapping:AuthnMapping",
                 "majorVersion": 4
             },
+            "datadog_aws_cur_config": {
+                "current": "datadog:index/awsCurConfig:AwsCurConfig",
+                "majorVersion": 4,
+                "fields": {
+                    "account_filters": {
+                        "fields": {
+                            "excluded_accounts": {
+                                "maxItemsOne": false
+                            },
+                            "included_accounts": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    }
+                }
+            },
             "datadog_child_organization": {
                 "current": "datadog:index/childOrganization:ChildOrganization",
                 "majorVersion": 4,
@@ -13371,6 +13387,16 @@
                                             }
                                         }
                                     },
+                                    "google_pubsub": {
+                                        "maxItemsOne": false,
+                                        "elem": {
+                                            "fields": {
+                                                "inputs": {
+                                                    "maxItemsOne": false
+                                                }
+                                            }
+                                        }
+                                    },
                                     "microsoft_sentinel": {
                                         "maxItemsOne": false,
                                         "elem": {
@@ -13897,6 +13923,15 @@
             "datadog_openapi_api": {
                 "current": "datadog:index/openapiApi:OpenapiApi",
                 "majorVersion": 4
+            },
+            "datadog_org_connection": {
+                "current": "datadog:index/orgConnection:OrgConnection",
+                "majorVersion": 4,
+                "fields": {
+                    "connection_types": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "datadog_organization_settings": {
                 "current": "datadog:index/organizationSettings:OrganizationSettings",
@@ -18142,6 +18177,25 @@
                 "current": "datadog:index/getApplicationKey:getApplicationKey",
                 "majorVersion": 4
             },
+            "datadog_aws_cur_config": {
+                "current": "datadog:index/getAwsCurConfig:getAwsCurConfig",
+                "majorVersion": 4,
+                "fields": {
+                    "account_filters": {
+                        "fields": {
+                            "excluded_accounts": {
+                                "maxItemsOne": false
+                            },
+                            "included_accounts": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "error_messages": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "datadog_cloud_workload_security_agent_rules": {
                 "current": "datadog:index/getCloudWorkloadSecurityAgentRules:getCloudWorkloadSecurityAgentRules",
                 "majorVersion": 4,
@@ -18296,6 +18350,10 @@
                         "maxItemsOne": false
                     }
                 }
+            },
+            "datadog_integration_aws_external_id": {
+                "current": "datadog:aws/getIntegrationExternalId:getIntegrationExternalId",
+                "majorVersion": 4
             },
             "datadog_integration_aws_iam_permissions": {
                 "current": "datadog:aws/getIntegrationIamPermissions:getIntegrationIamPermissions",
@@ -18952,6 +19010,7 @@
             "datadog:index/appsecWafCustomRule:AppsecWafCustomRule": 1,
             "datadog:index/appsecWafExclusionFilter:AppsecWafExclusionFilter": 1,
             "datadog:index/authnMapping:AuthnMapping": 0,
+            "datadog:index/awsCurConfig:AwsCurConfig": 1,
             "datadog:index/childOrganization:ChildOrganization": 0,
             "datadog:index/cloudConfigurationRule:CloudConfigurationRule": 0,
             "datadog:index/cloudWorkloadSecurityAgentRule:CloudWorkloadSecurityAgentRule": 0,
@@ -18991,6 +19050,7 @@
             "datadog:index/onCallSchedule:OnCallSchedule": 1,
             "datadog:index/onCallTeamRoutingRules:OnCallTeamRoutingRules": 1,
             "datadog:index/openapiApi:OpenapiApi": 1,
+            "datadog:index/orgConnection:OrgConnection": 1,
             "datadog:index/organizationSettings:OrganizationSettings": 0,
             "datadog:index/powerpack:Powerpack": 0,
             "datadog:index/restrictionPolicy:RestrictionPolicy": 1,
@@ -19038,6 +19098,7 @@
         "functions": {
             "datadog:aws/getIntegrationAvailableLogsServices:getIntegrationAvailableLogsServices": 1,
             "datadog:aws/getIntegrationAvailableNamespaces:getIntegrationAvailableNamespaces": 1,
+            "datadog:aws/getIntegrationExternalId:getIntegrationExternalId": 1,
             "datadog:aws/getIntegrationIamPermissions:getIntegrationIamPermissions": 1,
             "datadog:aws/getIntegrationLogsServices:getIntegrationLogsServices": 0,
             "datadog:aws/getIntegrationNamespaceRules:getIntegrationNamespaceRules": 1,
@@ -19046,6 +19107,7 @@
             "datadog:index/getApmRetentionFiltersOrder:getApmRetentionFiltersOrder": 1,
             "datadog:index/getAppBuilderApp:getAppBuilderApp": 1,
             "datadog:index/getApplicationKey:getApplicationKey": 1,
+            "datadog:index/getAwsCurConfig:getAwsCurConfig": 1,
             "datadog:index/getCloudWorkloadSecurityAgentRules:getCloudWorkloadSecurityAgentRules": 0,
             "datadog:index/getCostBudget:getCostBudget": 1,
             "datadog:index/getCsmThreatsAgentRules:getCsmThreatsAgentRules": 1,
