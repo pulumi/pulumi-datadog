@@ -26,7 +26,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Direction;
         /// <summary>
-        /// Element to use for the step, JSON encoded string.
+        /// Element to use for the step
         /// </summary>
         public readonly Outputs.SyntheticsTestMobileStepParamsElement? Element;
         public readonly bool? Enable;

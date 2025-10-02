@@ -49,7 +49,7 @@ class GetSyntheticsGlobalVariableResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The synthetics global variable name to search for. Must only match one global variable.
+        The synthetics global variable name to search for. Must only match one global variable. Must be all uppercase with underscores.
         """
         return pulumi.get(self, "name")
 
@@ -79,7 +79,7 @@ def get_synthetics_global_variable(name: Optional[_builtins.str] = None,
     Use this data source to retrieve a Datadog Synthetics global variable (to be used in Synthetics tests).
 
 
-    :param _builtins.str name: The synthetics global variable name to search for. Must only match one global variable.
+    :param _builtins.str name: The synthetics global variable name to search for. Must only match one global variable. Must be all uppercase with underscores.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -96,7 +96,7 @@ def get_synthetics_global_variable_output(name: Optional[pulumi.Input[_builtins.
     Use this data source to retrieve a Datadog Synthetics global variable (to be used in Synthetics tests).
 
 
-    :param _builtins.str name: The synthetics global variable name to search for. Must only match one global variable.
+    :param _builtins.str name: The synthetics global variable name to search for. Must only match one global variable. Must be all uppercase with underscores.
     """
     __args__ = dict()
     __args__['name'] = name

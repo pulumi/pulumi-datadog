@@ -17,6 +17,7 @@ from .application_key import *
 from .appsec_waf_custom_rule import *
 from .appsec_waf_exclusion_filter import *
 from .authn_mapping import *
+from .aws_cur_config import *
 from .child_organization import *
 from .cloud_configuration_rule import *
 from .cloud_workload_security_agent_rule import *
@@ -37,6 +38,7 @@ from .get_api_key import *
 from .get_apm_retention_filters_order import *
 from .get_app_builder_app import *
 from .get_application_key import *
+from .get_aws_cur_config import *
 from .get_cloud_workload_security_agent_rules import *
 from .get_cost_budget import *
 from .get_csm_threats_agent_rules import *
@@ -108,6 +110,7 @@ from .on_call_escalation_policy import *
 from .on_call_schedule import *
 from .on_call_team_routing_rules import *
 from .openapi_api import *
+from .org_connection import *
 from .organization_settings import *
 from .powerpack import *
 from .provider import *
@@ -395,6 +398,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/authnMapping:AuthnMapping": "AuthnMapping"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/awsCurConfig",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/awsCurConfig:AwsCurConfig": "AwsCurConfig"
   }
  },
  {
@@ -707,6 +718,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/openapiApi:OpenapiApi": "OpenapiApi"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/orgConnection",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/orgConnection:OrgConnection": "OrgConnection"
   }
  },
  {

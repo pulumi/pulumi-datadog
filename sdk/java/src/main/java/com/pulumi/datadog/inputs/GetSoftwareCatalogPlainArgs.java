@@ -105,14 +105,14 @@ public final class GetSoftwareCatalogPlainArgs extends com.pulumi.resources.Invo
     }
 
     /**
-     * Filter entities by relation type.
+     * Filter entities by relation type. Valid values are `RelationTypeOwns`, `RelationTypeOwnedBy`, `RelationTypeDependsOn`, `RelationTypeDependencyOf`, `RelationTypePartsOf`, `RelationTypeHasPart`, `RelationTypeOtherOwns`, `RelationTypeOtherOwnedBy`, `RelationTypeImplementedBy`, `RelationTypeImplements`.
      * 
      */
     @Import(name="filterRelationType")
     private @Nullable String filterRelationType;
 
     /**
-     * @return Filter entities by relation type.
+     * @return Filter entities by relation type. Valid values are `RelationTypeOwns`, `RelationTypeOwnedBy`, `RelationTypeDependsOn`, `RelationTypeDependencyOf`, `RelationTypePartsOf`, `RelationTypeHasPart`, `RelationTypeOtherOwns`, `RelationTypeOtherOwnedBy`, `RelationTypeImplementedBy`, `RelationTypeImplements`.
      * 
      */
     public Optional<String> filterRelationType() {
@@ -216,7 +216,7 @@ public final class GetSoftwareCatalogPlainArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param filterRelationType Filter entities by relation type.
+         * @param filterRelationType Filter entities by relation type. Valid values are `RelationTypeOwns`, `RelationTypeOwnedBy`, `RelationTypeDependsOn`, `RelationTypeDependencyOf`, `RelationTypePartsOf`, `RelationTypeHasPart`, `RelationTypeOtherOwns`, `RelationTypeOtherOwnedBy`, `RelationTypeImplementedBy`, `RelationTypeImplements`.
          * 
          * @return builder
          * 

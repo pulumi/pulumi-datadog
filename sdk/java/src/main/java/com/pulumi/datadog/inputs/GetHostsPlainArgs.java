@@ -62,14 +62,14 @@ public final class GetHostsPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Direction of sort.
+     * Direction of sort. Valid values are `asc`, `desc`.
      * 
      */
     @Import(name="sortDir")
     private @Nullable String sortDir;
 
     /**
-     * @return Direction of sort.
+     * @return Direction of sort. Valid values are `asc`, `desc`.
      * 
      */
     public Optional<String> sortDir() {
@@ -153,7 +153,7 @@ public final class GetHostsPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param sortDir Direction of sort.
+         * @param sortDir Direction of sort. Valid values are `asc`, `desc`.
          * 
          * @return builder
          * 

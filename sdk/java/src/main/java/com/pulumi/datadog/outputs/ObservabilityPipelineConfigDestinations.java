@@ -13,6 +13,7 @@ import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationsDatadog
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationsElasticsearch;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationsGoogleChronicle;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationsGoogleCloudStorage;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationsGooglePubsub;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationsMicrosoftSentinel;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationsNewRelic;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationsOpensearch;
@@ -73,6 +74,11 @@ public final class ObservabilityPipelineConfigDestinations {
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigDestinationsGoogleCloudStorage> googleCloudStorages;
+    /**
+     * @return The `google_pubsub` destination publishes logs to a Google Cloud Pub/Sub topic.
+     * 
+     */
+    private @Nullable List<ObservabilityPipelineConfigDestinationsGooglePubsub> googlePubsubs;
     /**
      * @return The `microsoft_sentinel` destination forwards logs to Microsoft Sentinel.
      * 
@@ -184,6 +190,13 @@ public final class ObservabilityPipelineConfigDestinations {
         return this.googleCloudStorages == null ? List.of() : this.googleCloudStorages;
     }
     /**
+     * @return The `google_pubsub` destination publishes logs to a Google Cloud Pub/Sub topic.
+     * 
+     */
+    public List<ObservabilityPipelineConfigDestinationsGooglePubsub> googlePubsubs() {
+        return this.googlePubsubs == null ? List.of() : this.googlePubsubs;
+    }
+    /**
      * @return The `microsoft_sentinel` destination forwards logs to Microsoft Sentinel.
      * 
      */
@@ -265,6 +278,7 @@ public final class ObservabilityPipelineConfigDestinations {
         private @Nullable List<ObservabilityPipelineConfigDestinationsElasticsearch> elasticsearches;
         private @Nullable List<ObservabilityPipelineConfigDestinationsGoogleChronicle> googleChronicles;
         private @Nullable List<ObservabilityPipelineConfigDestinationsGoogleCloudStorage> googleCloudStorages;
+        private @Nullable List<ObservabilityPipelineConfigDestinationsGooglePubsub> googlePubsubs;
         private @Nullable List<ObservabilityPipelineConfigDestinationsMicrosoftSentinel> microsoftSentinels;
         private @Nullable List<ObservabilityPipelineConfigDestinationsNewRelic> newRelics;
         private @Nullable List<ObservabilityPipelineConfigDestinationsOpensearch> opensearches;
@@ -286,6 +300,7 @@ public final class ObservabilityPipelineConfigDestinations {
     	      this.elasticsearches = defaults.elasticsearches;
     	      this.googleChronicles = defaults.googleChronicles;
     	      this.googleCloudStorages = defaults.googleCloudStorages;
+    	      this.googlePubsubs = defaults.googlePubsubs;
     	      this.microsoftSentinels = defaults.microsoftSentinels;
     	      this.newRelics = defaults.newRelics;
     	      this.opensearches = defaults.opensearches;
@@ -379,6 +394,15 @@ public final class ObservabilityPipelineConfigDestinations {
             return googleCloudStorages(List.of(googleCloudStorages));
         }
         @CustomType.Setter
+        public Builder googlePubsubs(@Nullable List<ObservabilityPipelineConfigDestinationsGooglePubsub> googlePubsubs) {
+
+            this.googlePubsubs = googlePubsubs;
+            return this;
+        }
+        public Builder googlePubsubs(ObservabilityPipelineConfigDestinationsGooglePubsub... googlePubsubs) {
+            return googlePubsubs(List.of(googlePubsubs));
+        }
+        @CustomType.Setter
         public Builder microsoftSentinels(@Nullable List<ObservabilityPipelineConfigDestinationsMicrosoftSentinel> microsoftSentinels) {
 
             this.microsoftSentinels = microsoftSentinels;
@@ -470,6 +494,7 @@ public final class ObservabilityPipelineConfigDestinations {
             _resultValue.elasticsearches = elasticsearches;
             _resultValue.googleChronicles = googleChronicles;
             _resultValue.googleCloudStorages = googleCloudStorages;
+            _resultValue.googlePubsubs = googlePubsubs;
             _resultValue.microsoftSentinels = microsoftSentinels;
             _resultValue.newRelics = newRelics;
             _resultValue.opensearches = opensearches;

@@ -14,14 +14,14 @@ public final class GetDashboardListPlainArgs extends com.pulumi.resources.Invoke
     public static final GetDashboardListPlainArgs Empty = new GetDashboardListPlainArgs();
 
     /**
-     * A dashboard list name to limit the search.
+     * A dashboard list name to limit the search. String length must be at least 1.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return A dashboard list name to limit the search.
+     * @return A dashboard list name to limit the search. String length must be at least 1.
      * 
      */
     public String name() {
@@ -53,7 +53,7 @@ public final class GetDashboardListPlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param name A dashboard list name to limit the search.
+         * @param name A dashboard list name to limit the search. String length must be at least 1.
          * 
          * @return builder
          * 

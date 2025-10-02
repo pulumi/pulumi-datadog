@@ -17,7 +17,7 @@ public final class GetSyntheticsGlobalVariableResult {
      */
     private String id;
     /**
-     * @return The synthetics global variable name to search for. Must only match one global variable.
+     * @return The synthetics global variable name to search for. Must only match one global variable. Must be all uppercase with underscores.
      * 
      */
     private String name;
@@ -36,7 +36,7 @@ public final class GetSyntheticsGlobalVariableResult {
         return this.id;
     }
     /**
-     * @return The synthetics global variable name to search for. Must only match one global variable.
+     * @return The synthetics global variable name to search for. Must only match one global variable. Must be all uppercase with underscores.
      * 
      */
     public String name() {

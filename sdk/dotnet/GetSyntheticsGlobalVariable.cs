@@ -34,7 +34,7 @@ namespace Pulumi.Datadog
     public sealed class GetSyntheticsGlobalVariableArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The synthetics global variable name to search for. Must only match one global variable.
+        /// The synthetics global variable name to search for. Must only match one global variable. Must be all uppercase with underscores.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -48,7 +48,7 @@ namespace Pulumi.Datadog
     public sealed class GetSyntheticsGlobalVariableInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The synthetics global variable name to search for. Must only match one global variable.
+        /// The synthetics global variable name to search for. Must only match one global variable. Must be all uppercase with underscores.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.Datadog
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The synthetics global variable name to search for. Must only match one global variable.
+        /// The synthetics global variable name to search for. Must only match one global variable. Must be all uppercase with underscores.
         /// </summary>
         public readonly string Name;
         /// <summary>

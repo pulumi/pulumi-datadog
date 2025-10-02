@@ -90,6 +90,7 @@ class RumApplicationArgs:
 @pulumi.input_type
 class _RumApplicationState:
     def __init__(__self__, *,
+                 api_key_id: Optional[pulumi.Input[_builtins.int]] = None,
                  client_token: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  product_analytics_retention_state: Optional[pulumi.Input[_builtins.str]] = None,
@@ -97,12 +98,15 @@ class _RumApplicationState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RumApplication resources.
+        :param pulumi.Input[_builtins.int] api_key_id: ID of the API key associated with the application.
         :param pulumi.Input[_builtins.str] client_token: The client token.
         :param pulumi.Input[_builtins.str] name: Name of the RUM application.
         :param pulumi.Input[_builtins.str] product_analytics_retention_state: Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.
         :param pulumi.Input[_builtins.str] rum_event_processing_state: Configures which RUM events are processed and stored for the application. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
         :param pulumi.Input[_builtins.str] type: Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `"browser"`.
         """
+        if api_key_id is not None:
+            pulumi.set(__self__, "api_key_id", api_key_id)
         if client_token is not None:
             pulumi.set(__self__, "client_token", client_token)
         if name is not None:
@@ -113,6 +117,18 @@ class _RumApplicationState:
             pulumi.set(__self__, "rum_event_processing_state", rum_event_processing_state)
         if type is not None:
             pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeyId")
+    def api_key_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        ID of the API key associated with the application.
+        """
+        return pulumi.get(self, "api_key_id")
+
+    @api_key_id.setter
+    def api_key_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "api_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="clientToken")
@@ -281,6 +297,7 @@ class RumApplication(pulumi.CustomResource):
             __props__.__dict__["product_analytics_retention_state"] = product_analytics_retention_state
             __props__.__dict__["rum_event_processing_state"] = rum_event_processing_state
             __props__.__dict__["type"] = type
+            __props__.__dict__["api_key_id"] = None
             __props__.__dict__["client_token"] = None
         super(RumApplication, __self__).__init__(
             'datadog:index/rumApplication:RumApplication',
@@ -292,6 +309,7 @@ class RumApplication(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            api_key_id: Optional[pulumi.Input[_builtins.int]] = None,
             client_token: Optional[pulumi.Input[_builtins.str]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
             product_analytics_retention_state: Optional[pulumi.Input[_builtins.str]] = None,
@@ -304,6 +322,7 @@ class RumApplication(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.int] api_key_id: ID of the API key associated with the application.
         :param pulumi.Input[_builtins.str] client_token: The client token.
         :param pulumi.Input[_builtins.str] name: Name of the RUM application.
         :param pulumi.Input[_builtins.str] product_analytics_retention_state: Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.
@@ -314,12 +333,21 @@ class RumApplication(pulumi.CustomResource):
 
         __props__ = _RumApplicationState.__new__(_RumApplicationState)
 
+        __props__.__dict__["api_key_id"] = api_key_id
         __props__.__dict__["client_token"] = client_token
         __props__.__dict__["name"] = name
         __props__.__dict__["product_analytics_retention_state"] = product_analytics_retention_state
         __props__.__dict__["rum_event_processing_state"] = rum_event_processing_state
         __props__.__dict__["type"] = type
         return RumApplication(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeyId")
+    def api_key_id(self) -> pulumi.Output[_builtins.int]:
+        """
+        ID of the API key associated with the application.
+        """
+        return pulumi.get(self, "api_key_id")
 
     @_builtins.property
     @pulumi.getter(name="clientToken")

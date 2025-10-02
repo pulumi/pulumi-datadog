@@ -166,7 +166,7 @@ namespace Pulumi.Datadog
     public sealed class GetDashboardListArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// A dashboard list name to limit the search.
+        /// A dashboard list name to limit the search. String length must be at least 1.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -180,7 +180,7 @@ namespace Pulumi.Datadog
     public sealed class GetDashboardListInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// A dashboard list name to limit the search.
+        /// A dashboard list name to limit the search. String length must be at least 1.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -200,7 +200,7 @@ namespace Pulumi.Datadog
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A dashboard list name to limit the search.
+        /// A dashboard list name to limit the search. String length must be at least 1.
         /// </summary>
         public readonly string Name;
 

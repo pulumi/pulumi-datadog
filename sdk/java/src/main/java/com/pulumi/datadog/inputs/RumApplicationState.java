@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -14,6 +15,21 @@ import javax.annotation.Nullable;
 public final class RumApplicationState extends com.pulumi.resources.ResourceArgs {
 
     public static final RumApplicationState Empty = new RumApplicationState();
+
+    /**
+     * ID of the API key associated with the application.
+     * 
+     */
+    @Import(name="apiKeyId")
+    private @Nullable Output<Integer> apiKeyId;
+
+    /**
+     * @return ID of the API key associated with the application.
+     * 
+     */
+    public Optional<Output<Integer>> apiKeyId() {
+        return Optional.ofNullable(this.apiKeyId);
+    }
 
     /**
      * The client token.
@@ -93,6 +109,7 @@ public final class RumApplicationState extends com.pulumi.resources.ResourceArgs
     private RumApplicationState() {}
 
     private RumApplicationState(RumApplicationState $) {
+        this.apiKeyId = $.apiKeyId;
         this.clientToken = $.clientToken;
         this.name = $.name;
         this.productAnalyticsRetentionState = $.productAnalyticsRetentionState;
@@ -116,6 +133,27 @@ public final class RumApplicationState extends com.pulumi.resources.ResourceArgs
 
         public Builder(RumApplicationState defaults) {
             $ = new RumApplicationState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param apiKeyId ID of the API key associated with the application.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiKeyId(@Nullable Output<Integer> apiKeyId) {
+            $.apiKeyId = apiKeyId;
+            return this;
+        }
+
+        /**
+         * @param apiKeyId ID of the API key associated with the application.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiKeyId(Integer apiKeyId) {
+            return apiKeyId(Output.of(apiKeyId));
         }
 
         /**

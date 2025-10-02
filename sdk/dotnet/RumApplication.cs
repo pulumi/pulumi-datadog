@@ -45,6 +45,12 @@ namespace Pulumi.Datadog
     public partial class RumApplication : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// ID of the API key associated with the application.
+        /// </summary>
+        [Output("apiKeyId")]
+        public Output<int> ApiKeyId { get; private set; } = null!;
+
+        /// <summary>
         /// The client token.
         /// </summary>
         [Output("clientToken")]
@@ -152,6 +158,12 @@ namespace Pulumi.Datadog
 
     public sealed class RumApplicationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ID of the API key associated with the application.
+        /// </summary>
+        [Input("apiKeyId")]
+        public Input<int>? ApiKeyId { get; set; }
+
         /// <summary>
         /// The client token.
         /// </summary>

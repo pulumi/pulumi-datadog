@@ -106,14 +106,14 @@ public final class GetSoftwareCatalogArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * Filter entities by relation type.
+     * Filter entities by relation type. Valid values are `RelationTypeOwns`, `RelationTypeOwnedBy`, `RelationTypeDependsOn`, `RelationTypeDependencyOf`, `RelationTypePartsOf`, `RelationTypeHasPart`, `RelationTypeOtherOwns`, `RelationTypeOtherOwnedBy`, `RelationTypeImplementedBy`, `RelationTypeImplements`.
      * 
      */
     @Import(name="filterRelationType")
     private @Nullable Output<String> filterRelationType;
 
     /**
-     * @return Filter entities by relation type.
+     * @return Filter entities by relation type. Valid values are `RelationTypeOwns`, `RelationTypeOwnedBy`, `RelationTypeDependsOn`, `RelationTypeDependencyOf`, `RelationTypePartsOf`, `RelationTypeHasPart`, `RelationTypeOtherOwns`, `RelationTypeOtherOwnedBy`, `RelationTypeImplementedBy`, `RelationTypeImplements`.
      * 
      */
     public Optional<Output<String>> filterRelationType() {
@@ -277,7 +277,7 @@ public final class GetSoftwareCatalogArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param filterRelationType Filter entities by relation type.
+         * @param filterRelationType Filter entities by relation type. Valid values are `RelationTypeOwns`, `RelationTypeOwnedBy`, `RelationTypeDependsOn`, `RelationTypeDependencyOf`, `RelationTypePartsOf`, `RelationTypeHasPart`, `RelationTypeOtherOwns`, `RelationTypeOtherOwnedBy`, `RelationTypeImplementedBy`, `RelationTypeImplements`.
          * 
          * @return builder
          * 
@@ -288,7 +288,7 @@ public final class GetSoftwareCatalogArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param filterRelationType Filter entities by relation type.
+         * @param filterRelationType Filter entities by relation type. Valid values are `RelationTypeOwns`, `RelationTypeOwnedBy`, `RelationTypeDependsOn`, `RelationTypeDependencyOf`, `RelationTypePartsOf`, `RelationTypeHasPart`, `RelationTypeOtherOwns`, `RelationTypeOtherOwnedBy`, `RelationTypeImplementedBy`, `RelationTypeImplements`.
          * 
          * @return builder
          * 

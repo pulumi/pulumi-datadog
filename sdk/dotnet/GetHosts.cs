@@ -52,7 +52,7 @@ namespace Pulumi.Datadog
         public bool? IncludeMutedHostsData { get; set; }
 
         /// <summary>
-        /// Direction of sort.
+        /// Direction of sort. Valid values are `asc`, `desc`.
         /// </summary>
         [Input("sortDir")]
         public string? SortDir { get; set; }
@@ -90,7 +90,7 @@ namespace Pulumi.Datadog
         public Input<bool>? IncludeMutedHostsData { get; set; }
 
         /// <summary>
-        /// Direction of sort.
+        /// Direction of sort. Valid values are `asc`, `desc`.
         /// </summary>
         [Input("sortDir")]
         public Input<string>? SortDir { get; set; }
@@ -132,7 +132,7 @@ namespace Pulumi.Datadog
         /// </summary>
         public readonly bool? IncludeMutedHostsData;
         /// <summary>
-        /// Direction of sort.
+        /// Direction of sort. Valid values are `asc`, `desc`.
         /// </summary>
         public readonly string? SortDir;
         /// <summary>

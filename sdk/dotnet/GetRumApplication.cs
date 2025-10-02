@@ -88,6 +88,10 @@ namespace Pulumi.Datadog
     public sealed class GetRumApplicationResult
     {
         /// <summary>
+        /// ID of the API key associated with the application.
+        /// </summary>
+        public readonly int ApiKeyId;
+        /// <summary>
         /// The client token.
         /// </summary>
         public readonly string ClientToken;
@@ -114,6 +118,8 @@ namespace Pulumi.Datadog
 
         [OutputConstructor]
         private GetRumApplicationResult(
+            int apiKeyId,
+
             string clientToken,
 
             string id,
@@ -126,6 +132,7 @@ namespace Pulumi.Datadog
 
             string? typeFilter)
         {
+            ApiKeyId = apiKeyId;
             ClientToken = clientToken;
             Id = id;
             Name = name;

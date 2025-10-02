@@ -31,7 +31,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Direction { get; set; }
 
         /// <summary>
-        /// Element to use for the step, JSON encoded string.
+        /// Element to use for the step
         /// </summary>
         [Input("element")]
         public Input<Inputs.SyntheticsTestMobileStepParamsElementArgs>? Element { get; set; }

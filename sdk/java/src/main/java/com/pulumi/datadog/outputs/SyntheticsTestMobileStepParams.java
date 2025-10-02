@@ -34,7 +34,7 @@ public final class SyntheticsTestMobileStepParams {
      */
     private @Nullable String direction;
     /**
-     * @return Element to use for the step, JSON encoded string.
+     * @return Element to use for the step
      * 
      */
     private @Nullable SyntheticsTestMobileStepParamsElement element;
@@ -91,7 +91,7 @@ public final class SyntheticsTestMobileStepParams {
         return Optional.ofNullable(this.direction);
     }
     /**
-     * @return Element to use for the step, JSON encoded string.
+     * @return Element to use for the step
      * 
      */
     public Optional<SyntheticsTestMobileStepParamsElement> element() {

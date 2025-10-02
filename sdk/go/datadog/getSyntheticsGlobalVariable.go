@@ -24,7 +24,7 @@ func LookupSyntheticsGlobalVariable(ctx *pulumi.Context, args *LookupSyntheticsG
 
 // A collection of arguments for invoking getSyntheticsGlobalVariable.
 type LookupSyntheticsGlobalVariableArgs struct {
-	// The synthetics global variable name to search for. Must only match one global variable.
+	// The synthetics global variable name to search for. Must only match one global variable. Must be all uppercase with underscores.
 	Name string `pulumi:"name"`
 }
 
@@ -32,7 +32,7 @@ type LookupSyntheticsGlobalVariableArgs struct {
 type LookupSyntheticsGlobalVariableResult struct {
 	// The ID of this resource.
 	Id string `pulumi:"id"`
-	// The synthetics global variable name to search for. Must only match one global variable.
+	// The synthetics global variable name to search for. Must only match one global variable. Must be all uppercase with underscores.
 	Name string `pulumi:"name"`
 	// A list of tags assigned to the Synthetics global variable.
 	Tags []string `pulumi:"tags"`
@@ -49,7 +49,7 @@ func LookupSyntheticsGlobalVariableOutput(ctx *pulumi.Context, args LookupSynthe
 
 // A collection of arguments for invoking getSyntheticsGlobalVariable.
 type LookupSyntheticsGlobalVariableOutputArgs struct {
-	// The synthetics global variable name to search for. Must only match one global variable.
+	// The synthetics global variable name to search for. Must only match one global variable. Must be all uppercase with underscores.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -77,7 +77,7 @@ func (o LookupSyntheticsGlobalVariableResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSyntheticsGlobalVariableResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The synthetics global variable name to search for. Must only match one global variable.
+// The synthetics global variable name to search for. Must only match one global variable. Must be all uppercase with underscores.
 func (o LookupSyntheticsGlobalVariableResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSyntheticsGlobalVariableResult) string { return v.Name }).(pulumi.StringOutput)
 }

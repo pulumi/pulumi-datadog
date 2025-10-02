@@ -15,14 +15,14 @@ public final class GetSyntheticsGlobalVariableArgs extends com.pulumi.resources.
     public static final GetSyntheticsGlobalVariableArgs Empty = new GetSyntheticsGlobalVariableArgs();
 
     /**
-     * The synthetics global variable name to search for. Must only match one global variable.
+     * The synthetics global variable name to search for. Must only match one global variable. Must be all uppercase with underscores.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The synthetics global variable name to search for. Must only match one global variable.
+     * @return The synthetics global variable name to search for. Must only match one global variable. Must be all uppercase with underscores.
      * 
      */
     public Output<String> name() {
@@ -54,7 +54,7 @@ public final class GetSyntheticsGlobalVariableArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param name The synthetics global variable name to search for. Must only match one global variable.
+         * @param name The synthetics global variable name to search for. Must only match one global variable. Must be all uppercase with underscores.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class GetSyntheticsGlobalVariableArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param name The synthetics global variable name to search for. Must only match one global variable.
+         * @param name The synthetics global variable name to search for. Must only match one global variable. Must be all uppercase with underscores.
          * 
          * @return builder
          * 

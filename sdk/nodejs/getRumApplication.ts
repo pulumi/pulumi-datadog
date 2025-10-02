@@ -40,6 +40,10 @@ export interface GetRumApplicationArgs {
  */
 export interface GetRumApplicationResult {
     /**
+     * ID of the API key associated with the application.
+     */
+    readonly apiKeyId: number;
+    /**
      * The client token.
      */
     readonly clientToken: string;

@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -12,6 +13,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRumApplicationResult {
+    /**
+     * @return ID of the API key associated with the application.
+     * 
+     */
+    private Integer apiKeyId;
     /**
      * @return The client token.
      * 
@@ -44,6 +50,13 @@ public final class GetRumApplicationResult {
     private @Nullable String typeFilter;
 
     private GetRumApplicationResult() {}
+    /**
+     * @return ID of the API key associated with the application.
+     * 
+     */
+    public Integer apiKeyId() {
+        return this.apiKeyId;
+    }
     /**
      * @return The client token.
      * 
@@ -96,6 +109,7 @@ public final class GetRumApplicationResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private Integer apiKeyId;
         private String clientToken;
         private String id;
         private String name;
@@ -105,6 +119,7 @@ public final class GetRumApplicationResult {
         public Builder() {}
         public Builder(GetRumApplicationResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.apiKeyId = defaults.apiKeyId;
     	      this.clientToken = defaults.clientToken;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
@@ -113,6 +128,14 @@ public final class GetRumApplicationResult {
     	      this.typeFilter = defaults.typeFilter;
         }
 
+        @CustomType.Setter
+        public Builder apiKeyId(Integer apiKeyId) {
+            if (apiKeyId == null) {
+              throw new MissingRequiredPropertyException("GetRumApplicationResult", "apiKeyId");
+            }
+            this.apiKeyId = apiKeyId;
+            return this;
+        }
         @CustomType.Setter
         public Builder clientToken(String clientToken) {
             if (clientToken == null) {
@@ -159,6 +182,7 @@ public final class GetRumApplicationResult {
         }
         public GetRumApplicationResult build() {
             final var _resultValue = new GetRumApplicationResult();
+            _resultValue.apiKeyId = apiKeyId;
             _resultValue.clientToken = clientToken;
             _resultValue.id = id;
             _resultValue.name = name;

@@ -53,6 +53,8 @@ import (
 type RumApplication struct {
 	pulumi.CustomResourceState
 
+	// ID of the API key associated with the application.
+	ApiKeyId pulumi.IntOutput `pulumi:"apiKeyId"`
 	// The client token.
 	ClientToken pulumi.StringOutput `pulumi:"clientToken"`
 	// Name of the RUM application.
@@ -98,6 +100,8 @@ func GetRumApplication(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RumApplication resources.
 type rumApplicationState struct {
+	// ID of the API key associated with the application.
+	ApiKeyId *int `pulumi:"apiKeyId"`
 	// The client token.
 	ClientToken *string `pulumi:"clientToken"`
 	// Name of the RUM application.
@@ -111,6 +115,8 @@ type rumApplicationState struct {
 }
 
 type RumApplicationState struct {
+	// ID of the API key associated with the application.
+	ApiKeyId pulumi.IntPtrInput
 	// The client token.
 	ClientToken pulumi.StringPtrInput
 	// Name of the RUM application.
@@ -235,6 +241,11 @@ func (o RumApplicationOutput) ToRumApplicationOutput() RumApplicationOutput {
 
 func (o RumApplicationOutput) ToRumApplicationOutputWithContext(ctx context.Context) RumApplicationOutput {
 	return o
+}
+
+// ID of the API key associated with the application.
+func (o RumApplicationOutput) ApiKeyId() pulumi.IntOutput {
+	return o.ApplyT(func(v *RumApplication) pulumi.IntOutput { return v.ApiKeyId }).(pulumi.IntOutput)
 }
 
 // The client token.
