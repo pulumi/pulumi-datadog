@@ -120,6 +120,18 @@ namespace Pulumi.Datadog.Inputs
             set => _googleCloudStorages = value;
         }
 
+        [Input("googlePubsubs")]
+        private InputList<Inputs.ObservabilityPipelineConfigDestinationsGooglePubsubGetArgs>? _googlePubsubs;
+
+        /// <summary>
+        /// The `google_pubsub` destination publishes logs to a Google Cloud Pub/Sub topic.
+        /// </summary>
+        public InputList<Inputs.ObservabilityPipelineConfigDestinationsGooglePubsubGetArgs> GooglePubsubs
+        {
+            get => _googlePubsubs ?? (_googlePubsubs = new InputList<Inputs.ObservabilityPipelineConfigDestinationsGooglePubsubGetArgs>());
+            set => _googlePubsubs = value;
+        }
+
         [Input("microsoftSentinels")]
         private InputList<Inputs.ObservabilityPipelineConfigDestinationsMicrosoftSentinelGetArgs>? _microsoftSentinels;
 

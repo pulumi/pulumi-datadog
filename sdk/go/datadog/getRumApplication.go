@@ -34,6 +34,8 @@ type LookupRumApplicationArgs struct {
 
 // A collection of values returned by getRumApplication.
 type LookupRumApplicationResult struct {
+	// ID of the API key associated with the application.
+	ApiKeyId int `pulumi:"apiKeyId"`
 	// The client token.
 	ClientToken string `pulumi:"clientToken"`
 	// ID of the RUM application. Cannot be used with name and type filters.
@@ -84,6 +86,11 @@ func (o LookupRumApplicationResultOutput) ToLookupRumApplicationResultOutput() L
 
 func (o LookupRumApplicationResultOutput) ToLookupRumApplicationResultOutputWithContext(ctx context.Context) LookupRumApplicationResultOutput {
 	return o
+}
+
+// ID of the API key associated with the application.
+func (o LookupRumApplicationResultOutput) ApiKeyId() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupRumApplicationResult) int { return v.ApiKeyId }).(pulumi.IntOutput)
 }
 
 // The client token.

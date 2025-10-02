@@ -38,7 +38,7 @@ export interface GetHostsArgs {
      */
     includeMutedHostsData?: boolean;
     /**
-     * Direction of sort.
+     * Direction of sort. Valid values are `asc`, `desc`.
      */
     sortDir?: string;
     /**
@@ -72,7 +72,7 @@ export interface GetHostsResult {
      */
     readonly includeMutedHostsData?: boolean;
     /**
-     * Direction of sort.
+     * Direction of sort. Valid values are `asc`, `desc`.
      */
     readonly sortDir?: string;
     /**
@@ -120,7 +120,7 @@ export interface GetHostsOutputArgs {
      */
     includeMutedHostsData?: pulumi.Input<boolean>;
     /**
-     * Direction of sort.
+     * Direction of sort. Valid values are `asc`, `desc`.
      */
     sortDir?: pulumi.Input<string>;
     /**

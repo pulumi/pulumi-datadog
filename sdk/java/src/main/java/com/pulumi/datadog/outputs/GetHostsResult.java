@@ -42,7 +42,7 @@ public final class GetHostsResult {
      */
     private @Nullable Boolean includeMutedHostsData;
     /**
-     * @return Direction of sort.
+     * @return Direction of sort. Valid values are `asc`, `desc`.
      * 
      */
     private @Nullable String sortDir;
@@ -99,7 +99,7 @@ public final class GetHostsResult {
         return Optional.ofNullable(this.includeMutedHostsData);
     }
     /**
-     * @return Direction of sort.
+     * @return Direction of sort. Valid values are `asc`, `desc`.
      * 
      */
     public Optional<String> sortDir() {

@@ -30,7 +30,7 @@ type GetHostsArgs struct {
 	From *int `pulumi:"from"`
 	// Include information on the muted status of hosts and when the mute expires.
 	IncludeMutedHostsData *bool `pulumi:"includeMutedHostsData"`
-	// Direction of sort.
+	// Direction of sort. Valid values are `asc`, `desc`.
 	SortDir *string `pulumi:"sortDir"`
 	// Sort hosts by this field.
 	SortField *string `pulumi:"sortField"`
@@ -48,7 +48,7 @@ type GetHostsResult struct {
 	Id string `pulumi:"id"`
 	// Include information on the muted status of hosts and when the mute expires.
 	IncludeMutedHostsData *bool `pulumi:"includeMutedHostsData"`
-	// Direction of sort.
+	// Direction of sort. Valid values are `asc`, `desc`.
 	SortDir *string `pulumi:"sortDir"`
 	// Sort hosts by this field.
 	SortField *string `pulumi:"sortField"`
@@ -75,7 +75,7 @@ type GetHostsOutputArgs struct {
 	From pulumi.IntPtrInput `pulumi:"from"`
 	// Include information on the muted status of hosts and when the mute expires.
 	IncludeMutedHostsData pulumi.BoolPtrInput `pulumi:"includeMutedHostsData"`
-	// Direction of sort.
+	// Direction of sort. Valid values are `asc`, `desc`.
 	SortDir pulumi.StringPtrInput `pulumi:"sortDir"`
 	// Sort hosts by this field.
 	SortField pulumi.StringPtrInput `pulumi:"sortField"`
@@ -125,7 +125,7 @@ func (o GetHostsResultOutput) IncludeMutedHostsData() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetHostsResult) *bool { return v.IncludeMutedHostsData }).(pulumi.BoolPtrOutput)
 }
 
-// Direction of sort.
+// Direction of sort. Valid values are `asc`, `desc`.
 func (o GetHostsResultOutput) SortDir() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetHostsResult) *string { return v.SortDir }).(pulumi.StringPtrOutput)
 }

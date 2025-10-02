@@ -821,6 +821,29 @@
             },
             "type": "object"
         },
+        "datadog:index/AwsCurConfigAccountFilters:AwsCurConfigAccountFilters": {
+            "properties": {
+                "excludedAccounts": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of AWS account IDs to exclude from cost analysis. Only used when `include_new_accounts` is `true`. Cannot be used together with `included_accounts`.\n"
+                },
+                "includeNewAccounts": {
+                    "type": "boolean",
+                    "description": "Whether to automatically include new member accounts in your cost analysis. When `true`, use `excluded_accounts` to specify accounts to exclude. When `false`, use `included_accounts` to specify only the accounts to include.\n"
+                },
+                "includedAccounts": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of AWS account IDs to include in cost analysis. Only used when `include_new_accounts` is `false`. Cannot be used together with `excluded_accounts`.\n"
+                }
+            },
+            "type": "object"
+        },
         "datadog:index/ChildOrganizationApiKey:ChildOrganizationApiKey": {
             "properties": {
                 "key": {
@@ -2141,7 +2164,7 @@
                 },
                 "dataSource": {
                     "type": "string",
-                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.\n"
+                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`.\n"
                 },
                 "groupBies": {
                     "type": "array",
@@ -3214,7 +3237,7 @@
                 },
                 "dataSource": {
                     "type": "string",
-                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.\n"
+                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`.\n"
                 },
                 "groupBies": {
                     "type": "array",
@@ -4225,7 +4248,7 @@
                 },
                 "dataSource": {
                     "type": "string",
-                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.\n"
+                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`.\n"
                 },
                 "groupBies": {
                     "type": "array",
@@ -5964,7 +5987,7 @@
                 },
                 "dataSource": {
                     "type": "string",
-                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.\n"
+                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`.\n"
                 },
                 "groupBies": {
                     "type": "array",
@@ -6964,7 +6987,7 @@
                 },
                 "dataSource": {
                     "type": "string",
-                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.\n"
+                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`.\n"
                 },
                 "groupBies": {
                     "type": "array",
@@ -7756,7 +7779,7 @@
                 },
                 "dataSource": {
                     "type": "string",
-                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.\n"
+                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`.\n"
                 },
                 "groupBies": {
                     "type": "array",
@@ -9419,7 +9442,7 @@
                 },
                 "dataSource": {
                     "type": "string",
-                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.\n"
+                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`.\n"
                 },
                 "groupBies": {
                     "type": "array",
@@ -10501,7 +10524,7 @@
                 },
                 "dataSource": {
                     "type": "string",
-                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.\n"
+                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`.\n"
                 },
                 "groupBies": {
                     "type": "array",
@@ -11477,7 +11500,7 @@
                 },
                 "dataSource": {
                     "type": "string",
-                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.\n"
+                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`.\n"
                 },
                 "groupBies": {
                     "type": "array",
@@ -12358,7 +12381,7 @@
                 },
                 "dataSource": {
                     "type": "string",
-                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.\n"
+                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`.\n"
                 },
                 "groupBies": {
                     "type": "array",
@@ -15085,6 +15108,13 @@
                     },
                     "description": "The `google_cloud_storage` destination stores logs in a Google Cloud Storage (GCS) bucket.\n"
                 },
+                "googlePubsubs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/ObservabilityPipelineConfigDestinationsGooglePubsub:ObservabilityPipelineConfigDestinationsGooglePubsub"
+                    },
+                    "description": "The `google_pubsub` destination publishes logs to a Google Cloud Pub/Sub topic.\n"
+                },
                 "microsoftSentinels": {
                     "type": "array",
                     "items": {
@@ -15607,6 +15637,74 @@
                 "name",
                 "value"
             ]
+        },
+        "datadog:index/ObservabilityPipelineConfigDestinationsGooglePubsub:ObservabilityPipelineConfigDestinationsGooglePubsub": {
+            "properties": {
+                "auth": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigDestinationsGooglePubsubAuth:ObservabilityPipelineConfigDestinationsGooglePubsubAuth",
+                    "description": "GCP credentials used to authenticate with Google Cloud Pub/Sub.\n"
+                },
+                "encoding": {
+                    "type": "string",
+                    "description": "Encoding format for log events. Valid values: `json`, `raw_message`.\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for this component.\n"
+                },
+                "inputs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of component IDs whose output is used as the `input` for this component.\n"
+                },
+                "project": {
+                    "type": "string",
+                    "description": "The GCP project ID that owns the Pub/Sub topic.\n"
+                },
+                "tls": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigDestinationsGooglePubsubTls:ObservabilityPipelineConfigDestinationsGooglePubsubTls",
+                    "description": "Configuration for enabling TLS encryption between the pipeline component and external services.\n"
+                },
+                "topic": {
+                    "type": "string",
+                    "description": "The Pub/Sub topic name to publish logs to.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "inputs",
+                "project",
+                "topic"
+            ]
+        },
+        "datadog:index/ObservabilityPipelineConfigDestinationsGooglePubsubAuth:ObservabilityPipelineConfigDestinationsGooglePubsubAuth": {
+            "properties": {
+                "credentialsFile": {
+                    "type": "string",
+                    "description": "Path to the GCP service account key file.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/ObservabilityPipelineConfigDestinationsGooglePubsubTls:ObservabilityPipelineConfigDestinationsGooglePubsubTls": {
+            "properties": {
+                "caFile": {
+                    "type": "string",
+                    "description": "Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.\n"
+                },
+                "crtFile": {
+                    "type": "string",
+                    "description": "Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.\n"
+                },
+                "keyFile": {
+                    "type": "string",
+                    "description": "Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.\n"
+                }
+            },
+            "type": "object"
         },
         "datadog:index/ObservabilityPipelineConfigDestinationsMicrosoftSentinel:ObservabilityPipelineConfigDestinationsMicrosoftSentinel": {
             "properties": {
@@ -19511,7 +19609,7 @@
                 },
                 "dataSource": {
                     "type": "string",
-                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.\n"
+                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`.\n"
                 },
                 "groupBies": {
                     "type": "array",
@@ -21368,7 +21466,7 @@
                 },
                 "dataSource": {
                     "type": "string",
-                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.\n"
+                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`.\n"
                 },
                 "groupBies": {
                     "type": "array",
@@ -22501,7 +22599,7 @@
                 },
                 "dataSource": {
                     "type": "string",
-                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.\n"
+                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`.\n"
                 },
                 "groupBies": {
                     "type": "array",
@@ -25373,7 +25471,7 @@
                 },
                 "dataSource": {
                     "type": "string",
-                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.\n"
+                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`.\n"
                 },
                 "groupBies": {
                     "type": "array",
@@ -26821,7 +26919,7 @@
                 },
                 "dataSource": {
                     "type": "string",
-                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.\n"
+                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`.\n"
                 },
                 "groupBies": {
                     "type": "array",
@@ -27725,7 +27823,7 @@
                 },
                 "dataSource": {
                     "type": "string",
-                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.\n"
+                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`.\n"
                 },
                 "groupBies": {
                     "type": "array",
@@ -30216,7 +30314,7 @@
                 },
                 "dataSource": {
                     "type": "string",
-                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.\n"
+                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`.\n"
                 },
                 "groupBies": {
                     "type": "array",
@@ -31746,7 +31844,7 @@
                 },
                 "dataSource": {
                     "type": "string",
-                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.\n"
+                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`.\n"
                 },
                 "groupBies": {
                     "type": "array",
@@ -33170,7 +33268,7 @@
                 },
                 "dataSource": {
                     "type": "string",
-                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.\n"
+                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`.\n"
                 },
                 "groupBies": {
                     "type": "array",
@@ -34275,7 +34373,7 @@
                 },
                 "dataSource": {
                     "type": "string",
-                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.\n"
+                    "description": "The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`.\n"
                 },
                 "groupBies": {
                     "type": "array",
@@ -34915,7 +35013,7 @@
                 },
                 "detectionMethod": {
                     "type": "string",
-                    "description": "The detection method. Valid values are `threshold`, `new_value`, `anomaly_detection`, `impossible_travel`, `hardcoded`, `third_party`, `anomaly_threshold`. Defaults to `\"threshold\"`.\n"
+                    "description": "The detection method. Valid values are `threshold`, `new_value`, `anomaly_detection`, `impossible_travel`, `hardcoded`, `third_party`, `anomaly_threshold`, `sequence_detection`. Defaults to `\"threshold\"`.\n"
                 },
                 "evaluationWindow": {
                     "type": "integer",
@@ -36894,7 +36992,7 @@
                 },
                 "element": {
                     "$ref": "#/types/datadog:index/SyntheticsTestMobileStepParamsElement:SyntheticsTestMobileStepParamsElement",
-                    "description": "Element to use for the step, JSON encoded string.\n"
+                    "description": "Element to use for the step\n"
                 },
                 "enable": {
                     "type": "boolean"
@@ -37700,6 +37798,39 @@
             "required": [
                 "name",
                 "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "datadog:index/getAwsCurConfigAccountFilters:getAwsCurConfigAccountFilters": {
+            "properties": {
+                "excludedAccounts": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of AWS account IDs excluded from cost analysis.\n"
+                },
+                "includeNewAccounts": {
+                    "type": "boolean",
+                    "description": "Whether new member accounts are automatically included in cost analysis.\n"
+                },
+                "includedAccounts": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of AWS account IDs included in cost analysis.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "excludedAccounts",
+                "includeNewAccounts",
+                "includedAccounts"
             ],
             "language": {
                 "nodejs": {
@@ -42311,6 +42442,100 @@
                 "type": "object"
             }
         },
+        "datadog:index/awsCurConfig:AwsCurConfig": {
+            "description": "Provides a Datadog AWS CUR (Cost and Usage Report) configuration resource. This enables Datadog Cloud Cost Management to access your AWS billing data by configuring the connection to your AWS Cost and Usage Report. **Prerequisites**: An active Datadog AWS integration, existing AWS Cost and Usage Report, and proper S3 bucket permissions.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  # Create new aws_cur_config resource\n  foo:\n    type: datadog:AwsCurConfig\n    properties:\n      accountId: '123456789123'\n      bucketName: dd-cost-bucket\n      bucketRegion: us-east-1\n      reportName: dd-report-name\n      reportPrefix: dd-report-prefix\n      accountFilters:\n        - includeNewAccounts: true\n          excludedAccounts:\n            - '123456789123'\n            - '123456789143'\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nThe `pulumi import` command can be used, for example:\n\n```sh\n$ pulumi import datadog:index/awsCurConfig:AwsCurConfig aws_cur_report \u003ccloud_account_id\u003e\n```\n\n",
+            "properties": {
+                "accountFilters": {
+                    "$ref": "#/types/datadog:index/AwsCurConfigAccountFilters:AwsCurConfigAccountFilters"
+                },
+                "accountId": {
+                    "type": "string",
+                    "description": "The AWS account ID of your billing/payer account. For AWS Organizations, this is typically the management account ID.\n"
+                },
+                "bucketName": {
+                    "type": "string",
+                    "description": "The S3 bucket name where your AWS Cost and Usage Report files are stored. This bucket must have appropriate IAM permissions for Datadog access and should be in the same AWS account as the CUR report.\n"
+                },
+                "bucketRegion": {
+                    "type": "string",
+                    "description": "The AWS region where the S3 bucket containing your Cost and Usage Report is located (e.g., us-east-1, eu-west-1).\n"
+                },
+                "reportName": {
+                    "type": "string",
+                    "description": "The exact name of your AWS Cost and Usage Report as configured in AWS Billing preferences. This must match the report name exactly as it appears in your AWS billing settings.\n"
+                },
+                "reportPrefix": {
+                    "type": "string",
+                    "description": "The S3 key prefix where your Cost and Usage Report files are stored within the bucket (e.g., 'cur-reports/', 'billing/cur/').\n"
+                }
+            },
+            "required": [
+                "accountId",
+                "bucketName",
+                "reportName",
+                "reportPrefix"
+            ],
+            "inputProperties": {
+                "accountFilters": {
+                    "$ref": "#/types/datadog:index/AwsCurConfigAccountFilters:AwsCurConfigAccountFilters"
+                },
+                "accountId": {
+                    "type": "string",
+                    "description": "The AWS account ID of your billing/payer account. For AWS Organizations, this is typically the management account ID.\n"
+                },
+                "bucketName": {
+                    "type": "string",
+                    "description": "The S3 bucket name where your AWS Cost and Usage Report files are stored. This bucket must have appropriate IAM permissions for Datadog access and should be in the same AWS account as the CUR report.\n"
+                },
+                "bucketRegion": {
+                    "type": "string",
+                    "description": "The AWS region where the S3 bucket containing your Cost and Usage Report is located (e.g., us-east-1, eu-west-1).\n"
+                },
+                "reportName": {
+                    "type": "string",
+                    "description": "The exact name of your AWS Cost and Usage Report as configured in AWS Billing preferences. This must match the report name exactly as it appears in your AWS billing settings.\n"
+                },
+                "reportPrefix": {
+                    "type": "string",
+                    "description": "The S3 key prefix where your Cost and Usage Report files are stored within the bucket (e.g., 'cur-reports/', 'billing/cur/').\n"
+                }
+            },
+            "requiredInputs": [
+                "accountId",
+                "bucketName",
+                "reportName",
+                "reportPrefix"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering AwsCurConfig resources.\n",
+                "properties": {
+                    "accountFilters": {
+                        "$ref": "#/types/datadog:index/AwsCurConfigAccountFilters:AwsCurConfigAccountFilters"
+                    },
+                    "accountId": {
+                        "type": "string",
+                        "description": "The AWS account ID of your billing/payer account. For AWS Organizations, this is typically the management account ID.\n"
+                    },
+                    "bucketName": {
+                        "type": "string",
+                        "description": "The S3 bucket name where your AWS Cost and Usage Report files are stored. This bucket must have appropriate IAM permissions for Datadog access and should be in the same AWS account as the CUR report.\n"
+                    },
+                    "bucketRegion": {
+                        "type": "string",
+                        "description": "The AWS region where the S3 bucket containing your Cost and Usage Report is located (e.g., us-east-1, eu-west-1).\n"
+                    },
+                    "reportName": {
+                        "type": "string",
+                        "description": "The exact name of your AWS Cost and Usage Report as configured in AWS Billing preferences. This must match the report name exactly as it appears in your AWS billing settings.\n"
+                    },
+                    "reportPrefix": {
+                        "type": "string",
+                        "description": "The S3 key prefix where your Cost and Usage Report files are stored within the bucket (e.g., 'cur-reports/', 'billing/cur/').\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "datadog:index/childOrganization:ChildOrganization": {
             "description": "Provides a Datadog Child Organization resource. This can be used to create Datadog Child Organizations. To manage created organization use `datadog.OrganizationSettings`.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Create a new Datadog Child Organization\nconst organization = new datadog.ChildOrganization(\"organization\", {name: \"foo-organization\"});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Create a new Datadog Child Organization\norganization = datadog.ChildOrganization(\"organization\", name=\"foo-organization\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Create a new Datadog Child Organization\n    var organization = new Datadog.ChildOrganization(\"organization\", new()\n    {\n        Name = \"foo-organization\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t// Create a new Datadog Child Organization\n\t\t_, err := datadog.NewChildOrganization(ctx, \"organization\", \u0026datadog.ChildOrganizationArgs{\n\t\t\tName: pulumi.String(\"foo-organization\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.ChildOrganization;\nimport com.pulumi.datadog.ChildOrganizationArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // Create a new Datadog Child Organization\n        var organization = new ChildOrganization(\"organization\", ChildOrganizationArgs.builder()\n            .name(\"foo-organization\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Create a new Datadog Child Organization\n  organization:\n    type: datadog:ChildOrganization\n    properties:\n      name: foo-organization\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "properties": {
@@ -46411,6 +46636,105 @@
                 "type": "object"
             }
         },
+        "datadog:index/orgConnection:OrgConnection": {
+            "description": "Provides a Datadog Org Connection resource. Org Connections make data from a source org available in the destination org for selected connection data types (for example, logs or metrics). Org Connections can only be created from a source org to a specified destination org\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Create new org connection resource\nconst foo = new datadog.OrgConnection(\"foo\", {\n    connectionTypes: [\n        \"metrics\",\n        \"logs\",\n    ],\n    sinkOrgId: \"00000000-0000-0000-0000-000000000000\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Create new org connection resource\nfoo = datadog.OrgConnection(\"foo\",\n    connection_types=[\n        \"metrics\",\n        \"logs\",\n    ],\n    sink_org_id=\"00000000-0000-0000-0000-000000000000\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Create new org connection resource\n    var foo = new Datadog.OrgConnection(\"foo\", new()\n    {\n        ConnectionTypes = new[]\n        {\n            \"metrics\",\n            \"logs\",\n        },\n        SinkOrgId = \"00000000-0000-0000-0000-000000000000\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t// Create new org connection resource\n\t\t_, err := datadog.NewOrgConnection(ctx, \"foo\", \u0026datadog.OrgConnectionArgs{\n\t\t\tConnectionTypes: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"metrics\"),\n\t\t\t\tpulumi.String(\"logs\"),\n\t\t\t},\n\t\t\tSinkOrgId: pulumi.String(\"00000000-0000-0000-0000-000000000000\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.OrgConnection;\nimport com.pulumi.datadog.OrgConnectionArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // Create new org connection resource\n        var foo = new OrgConnection(\"foo\", OrgConnectionArgs.builder()\n            .connectionTypes(            \n                \"metrics\",\n                \"logs\")\n            .sinkOrgId(\"00000000-0000-0000-0000-000000000000\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Create new org connection resource\n  foo:\n    type: datadog:OrgConnection\n    properties:\n      connectionTypes:\n        - metrics\n        - logs\n      sinkOrgId: 00000000-0000-0000-0000-000000000000\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nThe `pulumi import` command can be used, for example:\n\n```sh\n$ pulumi import datadog:index/orgConnection:OrgConnection foo \"\u003corg_connection_id\u003e\"\n```\n\n",
+            "properties": {
+                "connectionTypes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Set of connection types to enable for this connection (., metrics, logs).\n"
+                },
+                "createdAt": {
+                    "type": "string",
+                    "description": "Timestamp when the connection was created (RFC 3339).\n"
+                },
+                "createdBy": {
+                    "type": "string",
+                    "description": "Creator user ID (UUID).\n"
+                },
+                "sinkOrgId": {
+                    "type": "string",
+                    "description": "UUID of the sink (destination) organization. Must be a valid UUID.\n"
+                },
+                "sinkOrgName": {
+                    "type": "string",
+                    "description": "Name of the sink (destination) organization.\n"
+                },
+                "sourceOrgId": {
+                    "type": "string",
+                    "description": "UUID of the source (current) organization.\n"
+                },
+                "sourceOrgName": {
+                    "type": "string",
+                    "description": "Name of the source organization.\n"
+                }
+            },
+            "required": [
+                "connectionTypes",
+                "createdAt",
+                "createdBy",
+                "sinkOrgId",
+                "sinkOrgName",
+                "sourceOrgId",
+                "sourceOrgName"
+            ],
+            "inputProperties": {
+                "connectionTypes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Set of connection types to enable for this connection (., metrics, logs).\n"
+                },
+                "sinkOrgId": {
+                    "type": "string",
+                    "description": "UUID of the sink (destination) organization. Must be a valid UUID.\n"
+                }
+            },
+            "requiredInputs": [
+                "connectionTypes",
+                "sinkOrgId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering OrgConnection resources.\n",
+                "properties": {
+                    "connectionTypes": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Set of connection types to enable for this connection (., metrics, logs).\n"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "description": "Timestamp when the connection was created (RFC 3339).\n"
+                    },
+                    "createdBy": {
+                        "type": "string",
+                        "description": "Creator user ID (UUID).\n"
+                    },
+                    "sinkOrgId": {
+                        "type": "string",
+                        "description": "UUID of the sink (destination) organization. Must be a valid UUID.\n"
+                    },
+                    "sinkOrgName": {
+                        "type": "string",
+                        "description": "Name of the sink (destination) organization.\n"
+                    },
+                    "sourceOrgId": {
+                        "type": "string",
+                        "description": "UUID of the source (current) organization.\n"
+                    },
+                    "sourceOrgName": {
+                        "type": "string",
+                        "description": "Name of the source organization.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "datadog:index/organizationSettings:OrganizationSettings": {
             "description": "Provides a Datadog Organization resource. This can be used to manage your Datadog organization's settings.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Manage Datadog Organization\nconst organization = new datadog.OrganizationSettings(\"organization\", {name: \"foo-organization\"});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Manage Datadog Organization\norganization = datadog.OrganizationSettings(\"organization\", name=\"foo-organization\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Manage Datadog Organization\n    var organization = new Datadog.OrganizationSettings(\"organization\", new()\n    {\n        Name = \"foo-organization\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t// Manage Datadog Organization\n\t\t_, err := datadog.NewOrganizationSettings(ctx, \"organization\", \u0026datadog.OrganizationSettingsArgs{\n\t\t\tName: pulumi.String(\"foo-organization\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.OrganizationSettings;\nimport com.pulumi.datadog.OrganizationSettingsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // Manage Datadog Organization\n        var organization = new OrganizationSettings(\"organization\", OrganizationSettingsArgs.builder()\n            .name(\"foo-organization\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Manage Datadog Organization\n  organization:\n    type: datadog:OrganizationSettings\n    properties:\n      name: foo-organization\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nThe `pulumi import` command can be used, for example:\n\n```sh\n$ pulumi import datadog:index/organizationSettings:OrganizationSettings organization 11111111-2222-3333-4444-555555555555\n```\n\n",
             "properties": {
@@ -46764,6 +47088,10 @@
         "datadog:index/rumApplication:RumApplication": {
             "description": "Provides a Datadog RUM application resource. This can be used to create and manage Datadog RUM applications.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst rumApplication = new datadog.RumApplication(\"rum_application\", {\n    name: \"my-application\",\n    type: \"browser\",\n    rumEventProcessingState: \"ALL\",\n    productAnalyticsRetentionState: \"NONE\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nrum_application = datadog.RumApplication(\"rum_application\",\n    name=\"my-application\",\n    type=\"browser\",\n    rum_event_processing_state=\"ALL\",\n    product_analytics_retention_state=\"NONE\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var rumApplication = new Datadog.RumApplication(\"rum_application\", new()\n    {\n        Name = \"my-application\",\n        Type = \"browser\",\n        RumEventProcessingState = \"ALL\",\n        ProductAnalyticsRetentionState = \"NONE\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewRumApplication(ctx, \"rum_application\", \u0026datadog.RumApplicationArgs{\n\t\t\tName:                           pulumi.String(\"my-application\"),\n\t\t\tType:                           pulumi.String(\"browser\"),\n\t\t\tRumEventProcessingState:        pulumi.String(\"ALL\"),\n\t\t\tProductAnalyticsRetentionState: pulumi.String(\"NONE\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.RumApplication;\nimport com.pulumi.datadog.RumApplicationArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var rumApplication = new RumApplication(\"rumApplication\", RumApplicationArgs.builder()\n            .name(\"my-application\")\n            .type(\"browser\")\n            .rumEventProcessingState(\"ALL\")\n            .productAnalyticsRetentionState(\"NONE\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  rumApplication:\n    type: datadog:RumApplication\n    name: rum_application\n    properties:\n      name: my-application\n      type: browser\n      rumEventProcessingState: ALL\n      productAnalyticsRetentionState: NONE\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nThe `pulumi import` command can be used, for example:\n\n```sh\n$ pulumi import datadog:index/rumApplication:RumApplication rum_application a1b2c3d4-a1b2-a1b2-a1b2-a1b2c3d4e5f6\n```\n\n",
             "properties": {
+                "apiKeyId": {
+                    "type": "integer",
+                    "description": "ID of the API key associated with the application.\n"
+                },
                 "clientToken": {
                     "type": "string",
                     "description": "The client token.\n"
@@ -46786,6 +47114,7 @@
                 }
             },
             "required": [
+                "apiKeyId",
                 "clientToken",
                 "name",
                 "productAnalyticsRetentionState",
@@ -46816,6 +47145,10 @@
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering RumApplication resources.\n",
                 "properties": {
+                    "apiKeyId": {
+                        "type": "integer",
+                        "description": "ID of the API key associated with the application.\n"
+                    },
                     "clientToken": {
                         "type": "string",
                         "description": "The client token.\n"
@@ -50877,6 +51210,45 @@
                 "type": "object"
             }
         },
+        "datadog:aws/getIntegrationExternalId:getIntegrationExternalId": {
+            "description": "Use this data source to retrieve the external ID from an existing AWS integration. This can be used to reference the external ID value from an existing AWS account integration.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Get the external ID for the AWS account \"123456789012\"\nconst example = datadog.aws.getIntegrationExternalId({\n    awsAccountId: \"123456789012\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Get the external ID for the AWS account \"123456789012\"\nexample = datadog.aws.get_integration_external_id(aws_account_id=\"123456789012\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Get the external ID for the AWS account \"123456789012\"\n    var example = Datadog.Aws.GetIntegrationExternalId.Invoke(new()\n    {\n        AwsAccountId = \"123456789012\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/aws\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t// Get the external ID for the AWS account \"123456789012\"\n\t\t_, err := aws.LookupIntegrationExternalId(ctx, \u0026aws.LookupIntegrationExternalIdArgs{\n\t\t\tAwsAccountId: \"123456789012\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.aws.AwsFunctions;\nimport com.pulumi.datadog.aws.inputs.GetIntegrationExternalIdArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // Get the external ID for the AWS account \"123456789012\"\n        final var example = AwsFunctions.getIntegrationExternalId(GetIntegrationExternalIdArgs.builder()\n            .awsAccountId(\"123456789012\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  # Get the external ID for the AWS account \"123456789012\"\n  example:\n    fn::invoke:\n      function: datadog:aws:getIntegrationExternalId\n      arguments:\n        awsAccountId: '123456789012'\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getIntegrationExternalId.\n",
+                "properties": {
+                    "awsAccountId": {
+                        "type": "string",
+                        "description": "The AWS account ID of the integration to retrieve the external ID from. Must be a valid 12 digits AWS account ID.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "awsAccountId"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getIntegrationExternalId.\n",
+                "properties": {
+                    "awsAccountId": {
+                        "description": "The AWS account ID of the integration to retrieve the external ID from. Must be a valid 12 digits AWS account ID.\n",
+                        "type": "string"
+                    },
+                    "externalId": {
+                        "description": "The external ID associated with the AWS integration.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The ID of this resource.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "awsAccountId",
+                    "externalId",
+                    "id"
+                ],
+                "type": "object"
+            }
+        },
         "datadog:aws/getIntegrationIamPermissions:getIntegrationIamPermissions": {
             "description": "Use this data source to retrieve the IAM permissions required for AWS integration. This provides the list of IAM actions that should be included in the AWS role policy for Datadog integration.\n",
             "outputs": {
@@ -51184,6 +51556,99 @@
                 "type": "object"
             }
         },
+        "datadog:index/getAwsCurConfig:getAwsCurConfig": {
+            "description": "Use this data source to retrieve information about a specific Datadog AWS CUR (Cost and Usage Report) configuration. This allows you to fetch details about an existing Cloud Cost Management configuration for AWS billing data access.\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getAwsCurConfig.\n",
+                "properties": {
+                    "accountFilters": {
+                        "$ref": "#/types/datadog:index/getAwsCurConfigAccountFilters:getAwsCurConfigAccountFilters"
+                    },
+                    "cloudAccountId": {
+                        "type": "integer",
+                        "description": "The Datadog cloud account ID for the AWS CUR configuration you want to retrieve information about.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "cloudAccountId"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getAwsCurConfig.\n",
+                "properties": {
+                    "accountFilters": {
+                        "$ref": "#/types/datadog:index/getAwsCurConfigAccountFilters:getAwsCurConfigAccountFilters"
+                    },
+                    "accountId": {
+                        "description": "The AWS account ID associated with this CUR configuration.\n",
+                        "type": "string"
+                    },
+                    "bucketName": {
+                        "description": "The S3 bucket name where Cost and Usage Report files are stored.\n",
+                        "type": "string"
+                    },
+                    "bucketRegion": {
+                        "description": "The AWS region where the S3 bucket is located.\n",
+                        "type": "string"
+                    },
+                    "cloudAccountId": {
+                        "description": "The Datadog cloud account ID for the AWS CUR configuration you want to retrieve information about.\n",
+                        "type": "integer"
+                    },
+                    "createdAt": {
+                        "description": "The timestamp when the CUR configuration was created.\n",
+                        "type": "string"
+                    },
+                    "errorMessages": {
+                        "description": "List of error messages if the CUR configuration encountered any issues.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "The ID of this resource.\n",
+                        "type": "string"
+                    },
+                    "reportName": {
+                        "description": "The name of the AWS Cost and Usage Report.\n",
+                        "type": "string"
+                    },
+                    "reportPrefix": {
+                        "description": "The S3 key prefix where CUR files are stored within the bucket.\n",
+                        "type": "string"
+                    },
+                    "status": {
+                        "description": "The current status of the CUR configuration (e.g., active, archived).\n",
+                        "type": "string"
+                    },
+                    "statusUpdatedAt": {
+                        "description": "The timestamp when the CUR configuration status was last updated.\n",
+                        "type": "string"
+                    },
+                    "updatedAt": {
+                        "description": "The timestamp when the CUR configuration was last updated.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "accountId",
+                    "bucketName",
+                    "bucketRegion",
+                    "cloudAccountId",
+                    "createdAt",
+                    "errorMessages",
+                    "id",
+                    "reportName",
+                    "reportPrefix",
+                    "status",
+                    "statusUpdatedAt",
+                    "updatedAt"
+                ],
+                "type": "object"
+            }
+        },
         "datadog:index/getCloudWorkloadSecurityAgentRules:getCloudWorkloadSecurityAgentRules": {
             "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst test = datadog.getCloudWorkloadSecurityAgentRules({});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\ntest = datadog.get_cloud_workload_security_agent_rules()\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test = Datadog.GetCloudWorkloadSecurityAgentRules.Invoke();\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.GetCloudWorkloadSecurityAgentRules(ctx, map[string]interface{}{}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.DatadogFunctions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var test = DatadogFunctions.getCloudWorkloadSecurityAgentRules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);\n\n    }\n}\n```\n```yaml\nvariables:\n  test:\n    fn::invoke:\n      function: datadog:getCloudWorkloadSecurityAgentRules\n      arguments: {}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "outputs": {
@@ -51405,7 +51870,7 @@
                 "properties": {
                     "name": {
                         "type": "string",
-                        "description": "A dashboard list name to limit the search.\n"
+                        "description": "A dashboard list name to limit the search. String length must be at least 1.\n"
                     }
                 },
                 "type": "object",
@@ -51421,7 +51886,7 @@
                         "type": "string"
                     },
                     "name": {
-                        "description": "A dashboard list name to limit the search.\n",
+                        "description": "A dashboard list name to limit the search. String length must be at least 1.\n",
                         "type": "string"
                     }
                 },
@@ -51451,7 +51916,7 @@
                     },
                     "sortDir": {
                         "type": "string",
-                        "description": "Direction of sort.\n"
+                        "description": "Direction of sort. Valid values are `asc`, `desc`.\n"
                     },
                     "sortField": {
                         "type": "string",
@@ -51487,7 +51952,7 @@
                         "type": "boolean"
                     },
                     "sortDir": {
-                        "description": "Direction of sort.\n",
+                        "description": "Direction of sort. Valid values are `asc`, `desc`.\n",
                         "type": "string"
                     },
                     "sortField": {
@@ -52747,6 +53212,10 @@
             "outputs": {
                 "description": "A collection of values returned by getRumApplication.\n",
                 "properties": {
+                    "apiKeyId": {
+                        "description": "ID of the API key associated with the application.\n",
+                        "type": "integer"
+                    },
                     "clientToken": {
                         "description": "The client token.\n",
                         "type": "string"
@@ -52773,6 +53242,7 @@
                     }
                 },
                 "required": [
+                    "apiKeyId",
                     "clientToken",
                     "id",
                     "name",
@@ -53353,7 +53823,7 @@
                     },
                     "filterRelationType": {
                         "type": "string",
-                        "description": "Filter entities by relation type.\n"
+                        "description": "Filter entities by relation type. Valid values are `RelationTypeOwns`, `RelationTypeOwnedBy`, `RelationTypeDependsOn`, `RelationTypeDependencyOf`, `RelationTypePartsOf`, `RelationTypeHasPart`, `RelationTypeOtherOwns`, `RelationTypeOtherOwnedBy`, `RelationTypeImplementedBy`, `RelationTypeImplements`.\n"
                     }
                 },
                 "type": "object"
@@ -53393,7 +53863,7 @@
                         "type": "string"
                     },
                     "filterRelationType": {
-                        "description": "Filter entities by relation type.\n",
+                        "description": "Filter entities by relation type. Valid values are `RelationTypeOwns`, `RelationTypeOwnedBy`, `RelationTypeDependsOn`, `RelationTypeDependencyOf`, `RelationTypePartsOf`, `RelationTypeHasPart`, `RelationTypeOtherOwns`, `RelationTypeOtherOwnedBy`, `RelationTypeImplementedBy`, `RelationTypeImplements`.\n",
                         "type": "string"
                     },
                     "id": {
@@ -53415,7 +53885,7 @@
                 "properties": {
                     "name": {
                         "type": "string",
-                        "description": "The synthetics global variable name to search for. Must only match one global variable.\n"
+                        "description": "The synthetics global variable name to search for. Must only match one global variable. Must be all uppercase with underscores.\n"
                     }
                 },
                 "type": "object",
@@ -53431,7 +53901,7 @@
                         "type": "string"
                     },
                     "name": {
-                        "description": "The synthetics global variable name to search for. Must only match one global variable.\n",
+                        "description": "The synthetics global variable name to search for. Must only match one global variable. Must be all uppercase with underscores.\n",
                         "type": "string"
                     },
                     "tags": {

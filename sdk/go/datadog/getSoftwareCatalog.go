@@ -60,7 +60,7 @@ type LookupSoftwareCatalogArgs struct {
 	FilterOwner *string `pulumi:"filterOwner"`
 	// Filter entities by reference.
 	FilterRef *string `pulumi:"filterRef"`
-	// Filter entities by relation type.
+	// Filter entities by relation type. Valid values are `RelationTypeOwns`, `RelationTypeOwnedBy`, `RelationTypeDependsOn`, `RelationTypeDependencyOf`, `RelationTypePartsOf`, `RelationTypeHasPart`, `RelationTypeOtherOwns`, `RelationTypeOtherOwnedBy`, `RelationTypeImplementedBy`, `RelationTypeImplements`.
 	FilterRelationType *string `pulumi:"filterRelationType"`
 }
 
@@ -80,7 +80,7 @@ type LookupSoftwareCatalogResult struct {
 	FilterOwner *string `pulumi:"filterOwner"`
 	// Filter entities by reference.
 	FilterRef *string `pulumi:"filterRef"`
-	// Filter entities by relation type.
+	// Filter entities by relation type. Valid values are `RelationTypeOwns`, `RelationTypeOwnedBy`, `RelationTypeDependsOn`, `RelationTypeDependencyOf`, `RelationTypePartsOf`, `RelationTypeHasPart`, `RelationTypeOtherOwns`, `RelationTypeOtherOwnedBy`, `RelationTypeImplementedBy`, `RelationTypeImplements`.
 	FilterRelationType *string `pulumi:"filterRelationType"`
 	// The ID of this resource.
 	Id string `pulumi:"id"`
@@ -109,7 +109,7 @@ type LookupSoftwareCatalogOutputArgs struct {
 	FilterOwner pulumi.StringPtrInput `pulumi:"filterOwner"`
 	// Filter entities by reference.
 	FilterRef pulumi.StringPtrInput `pulumi:"filterRef"`
-	// Filter entities by relation type.
+	// Filter entities by relation type. Valid values are `RelationTypeOwns`, `RelationTypeOwnedBy`, `RelationTypeDependsOn`, `RelationTypeDependencyOf`, `RelationTypePartsOf`, `RelationTypeHasPart`, `RelationTypeOtherOwns`, `RelationTypeOtherOwnedBy`, `RelationTypeImplementedBy`, `RelationTypeImplements`.
 	FilterRelationType pulumi.StringPtrInput `pulumi:"filterRelationType"`
 }
 
@@ -167,7 +167,7 @@ func (o LookupSoftwareCatalogResultOutput) FilterRef() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSoftwareCatalogResult) *string { return v.FilterRef }).(pulumi.StringPtrOutput)
 }
 
-// Filter entities by relation type.
+// Filter entities by relation type. Valid values are `RelationTypeOwns`, `RelationTypeOwnedBy`, `RelationTypeDependsOn`, `RelationTypeDependencyOf`, `RelationTypePartsOf`, `RelationTypeHasPart`, `RelationTypeOtherOwns`, `RelationTypeOtherOwnedBy`, `RelationTypeImplementedBy`, `RelationTypeImplements`.
 func (o LookupSoftwareCatalogResultOutput) FilterRelationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSoftwareCatalogResult) *string { return v.FilterRelationType }).(pulumi.StringPtrOutput)
 }

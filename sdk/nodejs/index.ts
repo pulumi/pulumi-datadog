@@ -60,6 +60,11 @@ export type AuthnMapping = import("./authnMapping").AuthnMapping;
 export const AuthnMapping: typeof import("./authnMapping").AuthnMapping = null as any;
 utilities.lazyLoad(exports, ["AuthnMapping"], () => require("./authnMapping"));
 
+export { AwsCurConfigArgs, AwsCurConfigState } from "./awsCurConfig";
+export type AwsCurConfig = import("./awsCurConfig").AwsCurConfig;
+export const AwsCurConfig: typeof import("./awsCurConfig").AwsCurConfig = null as any;
+utilities.lazyLoad(exports, ["AwsCurConfig"], () => require("./awsCurConfig"));
+
 export { ChildOrganizationArgs, ChildOrganizationState } from "./childOrganization";
 export type ChildOrganization = import("./childOrganization").ChildOrganization;
 export const ChildOrganization: typeof import("./childOrganization").ChildOrganization = null as any;
@@ -159,6 +164,11 @@ export { GetApplicationKeyArgs, GetApplicationKeyResult, GetApplicationKeyOutput
 export const getApplicationKey: typeof import("./getApplicationKey").getApplicationKey = null as any;
 export const getApplicationKeyOutput: typeof import("./getApplicationKey").getApplicationKeyOutput = null as any;
 utilities.lazyLoad(exports, ["getApplicationKey","getApplicationKeyOutput"], () => require("./getApplicationKey"));
+
+export { GetAwsCurConfigArgs, GetAwsCurConfigResult, GetAwsCurConfigOutputArgs } from "./getAwsCurConfig";
+export const getAwsCurConfig: typeof import("./getAwsCurConfig").getAwsCurConfig = null as any;
+export const getAwsCurConfigOutput: typeof import("./getAwsCurConfig").getAwsCurConfigOutput = null as any;
+utilities.lazyLoad(exports, ["getAwsCurConfig","getAwsCurConfigOutput"], () => require("./getAwsCurConfig"));
 
 export { GetCloudWorkloadSecurityAgentRulesResult } from "./getCloudWorkloadSecurityAgentRules";
 export const getCloudWorkloadSecurityAgentRules: typeof import("./getCloudWorkloadSecurityAgentRules").getCloudWorkloadSecurityAgentRules = null as any;
@@ -515,6 +525,11 @@ export type OpenapiApi = import("./openapiApi").OpenapiApi;
 export const OpenapiApi: typeof import("./openapiApi").OpenapiApi = null as any;
 utilities.lazyLoad(exports, ["OpenapiApi"], () => require("./openapiApi"));
 
+export { OrgConnectionArgs, OrgConnectionState } from "./orgConnection";
+export type OrgConnection = import("./orgConnection").OrgConnection;
+export const OrgConnection: typeof import("./orgConnection").OrgConnection = null as any;
+utilities.lazyLoad(exports, ["OrgConnection"], () => require("./orgConnection"));
+
 export { OrganizationSettingsArgs, OrganizationSettingsState } from "./organizationSettings";
 export type OrganizationSettings = import("./organizationSettings").OrganizationSettings;
 export const OrganizationSettings: typeof import("./organizationSettings").OrganizationSettings = null as any;
@@ -759,6 +774,8 @@ const _module = {
                 return new AppsecWafExclusionFilter(name, <any>undefined, { urn })
             case "datadog:index/authnMapping:AuthnMapping":
                 return new AuthnMapping(name, <any>undefined, { urn })
+            case "datadog:index/awsCurConfig:AwsCurConfig":
+                return new AwsCurConfig(name, <any>undefined, { urn })
             case "datadog:index/childOrganization:ChildOrganization":
                 return new ChildOrganization(name, <any>undefined, { urn })
             case "datadog:index/cloudConfigurationRule:CloudConfigurationRule":
@@ -837,6 +854,8 @@ const _module = {
                 return new OnCallTeamRoutingRules(name, <any>undefined, { urn })
             case "datadog:index/openapiApi:OpenapiApi":
                 return new OpenapiApi(name, <any>undefined, { urn })
+            case "datadog:index/orgConnection:OrgConnection":
+                return new OrgConnection(name, <any>undefined, { urn })
             case "datadog:index/organizationSettings:OrganizationSettings":
                 return new OrganizationSettings(name, <any>undefined, { urn })
             case "datadog:index/powerpack:Powerpack":
@@ -927,6 +946,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/applicationKey", _module
 pulumi.runtime.registerResourceModule("datadog", "index/appsecWafCustomRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/appsecWafExclusionFilter", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/authnMapping", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/awsCurConfig", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/childOrganization", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/cloudConfigurationRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/cloudWorkloadSecurityAgentRule", _module)
@@ -966,6 +986,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/onCallEscalationPolicy",
 pulumi.runtime.registerResourceModule("datadog", "index/onCallSchedule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/onCallTeamRoutingRules", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/openapiApi", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/orgConnection", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/organizationSettings", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/powerpack", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/restrictionPolicy", _module)

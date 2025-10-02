@@ -19,7 +19,7 @@ export function getSyntheticsGlobalVariable(args: GetSyntheticsGlobalVariableArg
  */
 export interface GetSyntheticsGlobalVariableArgs {
     /**
-     * The synthetics global variable name to search for. Must only match one global variable.
+     * The synthetics global variable name to search for. Must only match one global variable. Must be all uppercase with underscores.
      */
     name: string;
 }
@@ -33,7 +33,7 @@ export interface GetSyntheticsGlobalVariableResult {
      */
     readonly id: string;
     /**
-     * The synthetics global variable name to search for. Must only match one global variable.
+     * The synthetics global variable name to search for. Must only match one global variable. Must be all uppercase with underscores.
      */
     readonly name: string;
     /**
@@ -56,7 +56,7 @@ export function getSyntheticsGlobalVariableOutput(args: GetSyntheticsGlobalVaria
  */
 export interface GetSyntheticsGlobalVariableOutputArgs {
     /**
-     * The synthetics global variable name to search for. Must only match one global variable.
+     * The synthetics global variable name to search for. Must only match one global variable. Must be all uppercase with underscores.
      */
     name: pulumi.Input<string>;
 }

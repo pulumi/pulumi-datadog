@@ -68,14 +68,14 @@ public final class SyntheticsTestMobileStepParamsArgs extends com.pulumi.resourc
     }
 
     /**
-     * Element to use for the step, JSON encoded string.
+     * Element to use for the step
      * 
      */
     @Import(name="element")
     private @Nullable Output<SyntheticsTestMobileStepParamsElementArgs> element;
 
     /**
-     * @return Element to use for the step, JSON encoded string.
+     * @return Element to use for the step
      * 
      */
     public Optional<Output<SyntheticsTestMobileStepParamsElementArgs>> element() {
@@ -285,7 +285,7 @@ public final class SyntheticsTestMobileStepParamsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param element Element to use for the step, JSON encoded string.
+         * @param element Element to use for the step
          * 
          * @return builder
          * 
@@ -296,7 +296,7 @@ public final class SyntheticsTestMobileStepParamsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param element Element to use for the step, JSON encoded string.
+         * @param element Element to use for the step
          * 
          * @return builder
          * 

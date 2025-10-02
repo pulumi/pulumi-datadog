@@ -16,7 +16,7 @@ public final class GetDashboardListResult {
      */
     private String id;
     /**
-     * @return A dashboard list name to limit the search.
+     * @return A dashboard list name to limit the search. String length must be at least 1.
      * 
      */
     private String name;
@@ -30,7 +30,7 @@ public final class GetDashboardListResult {
         return this.id;
     }
     /**
-     * @return A dashboard list name to limit the search.
+     * @return A dashboard list name to limit the search. String length must be at least 1.
      * 
      */
     public String name() {

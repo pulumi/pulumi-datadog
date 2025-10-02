@@ -61,7 +61,7 @@ export interface GetSoftwareCatalogArgs {
      */
     filterRef?: string;
     /**
-     * Filter entities by relation type.
+     * Filter entities by relation type. Valid values are `RelationTypeOwns`, `RelationTypeOwnedBy`, `RelationTypeDependsOn`, `RelationTypeDependencyOf`, `RelationTypePartsOf`, `RelationTypeHasPart`, `RelationTypeOtherOwns`, `RelationTypeOtherOwnedBy`, `RelationTypeImplementedBy`, `RelationTypeImplements`.
      */
     filterRelationType?: string;
 }
@@ -99,7 +99,7 @@ export interface GetSoftwareCatalogResult {
      */
     readonly filterRef?: string;
     /**
-     * Filter entities by relation type.
+     * Filter entities by relation type. Valid values are `RelationTypeOwns`, `RelationTypeOwnedBy`, `RelationTypeDependsOn`, `RelationTypeDependencyOf`, `RelationTypePartsOf`, `RelationTypeHasPart`, `RelationTypeOtherOwns`, `RelationTypeOtherOwnedBy`, `RelationTypeImplementedBy`, `RelationTypeImplements`.
      */
     readonly filterRelationType?: string;
     /**
@@ -162,7 +162,7 @@ export interface GetSoftwareCatalogOutputArgs {
      */
     filterRef?: pulumi.Input<string>;
     /**
-     * Filter entities by relation type.
+     * Filter entities by relation type. Valid values are `RelationTypeOwns`, `RelationTypeOwnedBy`, `RelationTypeDependsOn`, `RelationTypeDependencyOf`, `RelationTypePartsOf`, `RelationTypeHasPart`, `RelationTypeOtherOwns`, `RelationTypeOtherOwnedBy`, `RelationTypeImplementedBy`, `RelationTypeImplements`.
      */
     filterRelationType?: pulumi.Input<string>;
 }

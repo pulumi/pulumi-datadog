@@ -100,7 +100,7 @@ class GetHostsResult:
     @pulumi.getter(name="sortDir")
     def sort_dir(self) -> Optional[_builtins.str]:
         """
-        Direction of sort.
+        Direction of sort. Valid values are `asc`, `desc`.
         """
         return pulumi.get(self, "sort_dir")
 
@@ -159,7 +159,7 @@ def get_hosts(filter: Optional[_builtins.str] = None,
     :param _builtins.str filter: String to filter search results.
     :param _builtins.int from_: Number of seconds since UNIX epoch from which you want to search your hosts.
     :param _builtins.bool include_muted_hosts_data: Include information on the muted status of hosts and when the mute expires.
-    :param _builtins.str sort_dir: Direction of sort.
+    :param _builtins.str sort_dir: Direction of sort. Valid values are `asc`, `desc`.
     :param _builtins.str sort_field: Sort hosts by this field.
     """
     __args__ = dict()
@@ -194,7 +194,7 @@ def get_hosts_output(filter: Optional[pulumi.Input[Optional[_builtins.str]]] = N
     :param _builtins.str filter: String to filter search results.
     :param _builtins.int from_: Number of seconds since UNIX epoch from which you want to search your hosts.
     :param _builtins.bool include_muted_hosts_data: Include information on the muted status of hosts and when the mute expires.
-    :param _builtins.str sort_dir: Direction of sort.
+    :param _builtins.str sort_dir: Direction of sort. Valid values are `asc`, `desc`.
     :param _builtins.str sort_field: Sort hosts by this field.
     """
     __args__ = dict()

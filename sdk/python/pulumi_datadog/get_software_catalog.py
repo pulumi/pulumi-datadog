@@ -116,7 +116,7 @@ class GetSoftwareCatalogResult:
     @pulumi.getter(name="filterRelationType")
     def filter_relation_type(self) -> Optional[_builtins.str]:
         """
-        Filter entities by relation type.
+        Filter entities by relation type. Valid values are `RelationTypeOwns`, `RelationTypeOwnedBy`, `RelationTypeDependsOn`, `RelationTypeDependencyOf`, `RelationTypePartsOf`, `RelationTypeHasPart`, `RelationTypeOtherOwns`, `RelationTypeOtherOwnedBy`, `RelationTypeImplementedBy`, `RelationTypeImplements`.
         """
         return pulumi.get(self, "filter_relation_type")
 
@@ -173,7 +173,7 @@ def get_software_catalog(filter_exclude_snapshot: Optional[_builtins.str] = None
     :param _builtins.str filter_name: Filter entities by name.
     :param _builtins.str filter_owner: Filter entities by owner.
     :param _builtins.str filter_ref: Filter entities by reference.
-    :param _builtins.str filter_relation_type: Filter entities by relation type.
+    :param _builtins.str filter_relation_type: Filter entities by relation type. Valid values are `RelationTypeOwns`, `RelationTypeOwnedBy`, `RelationTypeDependsOn`, `RelationTypeDependencyOf`, `RelationTypePartsOf`, `RelationTypeHasPart`, `RelationTypeOtherOwns`, `RelationTypeOtherOwnedBy`, `RelationTypeImplementedBy`, `RelationTypeImplements`.
     """
     __args__ = dict()
     __args__['filterExcludeSnapshot'] = filter_exclude_snapshot
@@ -223,7 +223,7 @@ def get_software_catalog_output(filter_exclude_snapshot: Optional[pulumi.Input[O
     :param _builtins.str filter_name: Filter entities by name.
     :param _builtins.str filter_owner: Filter entities by owner.
     :param _builtins.str filter_ref: Filter entities by reference.
-    :param _builtins.str filter_relation_type: Filter entities by relation type.
+    :param _builtins.str filter_relation_type: Filter entities by relation type. Valid values are `RelationTypeOwns`, `RelationTypeOwnedBy`, `RelationTypeDependsOn`, `RelationTypeDependencyOf`, `RelationTypePartsOf`, `RelationTypeHasPart`, `RelationTypeOtherOwns`, `RelationTypeOtherOwnedBy`, `RelationTypeImplementedBy`, `RelationTypeImplements`.
     """
     __args__ = dict()
     __args__['filterExcludeSnapshot'] = filter_exclude_snapshot

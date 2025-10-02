@@ -14,6 +14,7 @@ import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationsDatadogL
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationsElasticsearchArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationsGoogleChronicleArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationsGoogleCloudStorageArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationsGooglePubsubArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationsMicrosoftSentinelArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationsNewRelicArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationsOpensearchArgs;
@@ -169,6 +170,21 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
     }
 
     /**
+     * The `google_pubsub` destination publishes logs to a Google Cloud Pub/Sub topic.
+     * 
+     */
+    @Import(name="googlePubsubs")
+    private @Nullable Output<List<ObservabilityPipelineConfigDestinationsGooglePubsubArgs>> googlePubsubs;
+
+    /**
+     * @return The `google_pubsub` destination publishes logs to a Google Cloud Pub/Sub topic.
+     * 
+     */
+    public Optional<Output<List<ObservabilityPipelineConfigDestinationsGooglePubsubArgs>>> googlePubsubs() {
+        return Optional.ofNullable(this.googlePubsubs);
+    }
+
+    /**
      * The `microsoft_sentinel` destination forwards logs to Microsoft Sentinel.
      * 
      */
@@ -315,6 +331,7 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
         this.elasticsearches = $.elasticsearches;
         this.googleChronicles = $.googleChronicles;
         this.googleCloudStorages = $.googleCloudStorages;
+        this.googlePubsubs = $.googlePubsubs;
         this.microsoftSentinels = $.microsoftSentinels;
         this.newRelics = $.newRelics;
         this.opensearches = $.opensearches;
@@ -621,6 +638,37 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
          */
         public Builder googleCloudStorages(ObservabilityPipelineConfigDestinationsGoogleCloudStorageArgs... googleCloudStorages) {
             return googleCloudStorages(List.of(googleCloudStorages));
+        }
+
+        /**
+         * @param googlePubsubs The `google_pubsub` destination publishes logs to a Google Cloud Pub/Sub topic.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder googlePubsubs(@Nullable Output<List<ObservabilityPipelineConfigDestinationsGooglePubsubArgs>> googlePubsubs) {
+            $.googlePubsubs = googlePubsubs;
+            return this;
+        }
+
+        /**
+         * @param googlePubsubs The `google_pubsub` destination publishes logs to a Google Cloud Pub/Sub topic.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder googlePubsubs(List<ObservabilityPipelineConfigDestinationsGooglePubsubArgs> googlePubsubs) {
+            return googlePubsubs(Output.of(googlePubsubs));
+        }
+
+        /**
+         * @param googlePubsubs The `google_pubsub` destination publishes logs to a Google Cloud Pub/Sub topic.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder googlePubsubs(ObservabilityPipelineConfigDestinationsGooglePubsubArgs... googlePubsubs) {
+            return googlePubsubs(List.of(googlePubsubs));
         }
 
         /**

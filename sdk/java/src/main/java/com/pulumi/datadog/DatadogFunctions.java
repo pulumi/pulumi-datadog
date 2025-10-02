@@ -14,6 +14,8 @@ import com.pulumi.datadog.inputs.GetAppBuilderAppArgs;
 import com.pulumi.datadog.inputs.GetAppBuilderAppPlainArgs;
 import com.pulumi.datadog.inputs.GetApplicationKeyArgs;
 import com.pulumi.datadog.inputs.GetApplicationKeyPlainArgs;
+import com.pulumi.datadog.inputs.GetAwsCurConfigArgs;
+import com.pulumi.datadog.inputs.GetAwsCurConfigPlainArgs;
 import com.pulumi.datadog.inputs.GetCostBudgetArgs;
 import com.pulumi.datadog.inputs.GetCostBudgetPlainArgs;
 import com.pulumi.datadog.inputs.GetCsmThreatsAgentRulesArgs;
@@ -89,6 +91,7 @@ import com.pulumi.datadog.outputs.GetApiKeyResult;
 import com.pulumi.datadog.outputs.GetApmRetentionFiltersOrderResult;
 import com.pulumi.datadog.outputs.GetAppBuilderAppResult;
 import com.pulumi.datadog.outputs.GetApplicationKeyResult;
+import com.pulumi.datadog.outputs.GetAwsCurConfigResult;
 import com.pulumi.datadog.outputs.GetCloudWorkloadSecurityAgentRulesResult;
 import com.pulumi.datadog.outputs.GetCostBudgetResult;
 import com.pulumi.datadog.outputs.GetCsmThreatsAgentRulesResult;
@@ -1361,6 +1364,41 @@ public final class DatadogFunctions {
      */
     public static CompletableFuture<GetApplicationKeyResult> getApplicationKeyPlain(GetApplicationKeyPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:index/getApplicationKey:getApplicationKey", TypeShape.of(GetApplicationKeyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a specific Datadog AWS CUR (Cost and Usage Report) configuration. This allows you to fetch details about an existing Cloud Cost Management configuration for AWS billing data access.
+     * 
+     */
+    public static Output<GetAwsCurConfigResult> getAwsCurConfig(GetAwsCurConfigArgs args) {
+        return getAwsCurConfig(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about a specific Datadog AWS CUR (Cost and Usage Report) configuration. This allows you to fetch details about an existing Cloud Cost Management configuration for AWS billing data access.
+     * 
+     */
+    public static CompletableFuture<GetAwsCurConfigResult> getAwsCurConfigPlain(GetAwsCurConfigPlainArgs args) {
+        return getAwsCurConfigPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about a specific Datadog AWS CUR (Cost and Usage Report) configuration. This allows you to fetch details about an existing Cloud Cost Management configuration for AWS billing data access.
+     * 
+     */
+    public static Output<GetAwsCurConfigResult> getAwsCurConfig(GetAwsCurConfigArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getAwsCurConfig:getAwsCurConfig", TypeShape.of(GetAwsCurConfigResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a specific Datadog AWS CUR (Cost and Usage Report) configuration. This allows you to fetch details about an existing Cloud Cost Management configuration for AWS billing data access.
+     * 
+     */
+    public static Output<GetAwsCurConfigResult> getAwsCurConfig(GetAwsCurConfigArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getAwsCurConfig:getAwsCurConfig", TypeShape.of(GetAwsCurConfigResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a specific Datadog AWS CUR (Cost and Usage Report) configuration. This allows you to fetch details about an existing Cloud Cost Management configuration for AWS billing data access.
+     * 
+     */
+    public static CompletableFuture<GetAwsCurConfigResult> getAwsCurConfigPlain(GetAwsCurConfigPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getAwsCurConfig:getAwsCurConfig", TypeShape.of(GetAwsCurConfigResult.class), args, Utilities.withVersion(options));
     }
     /**
      * ## Example Usage

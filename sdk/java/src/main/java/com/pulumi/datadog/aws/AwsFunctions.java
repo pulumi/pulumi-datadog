@@ -6,8 +6,11 @@ package com.pulumi.datadog.aws;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.datadog.Utilities;
+import com.pulumi.datadog.aws.inputs.GetIntegrationExternalIdArgs;
+import com.pulumi.datadog.aws.inputs.GetIntegrationExternalIdPlainArgs;
 import com.pulumi.datadog.aws.outputs.GetIntegrationAvailableLogsServicesResult;
 import com.pulumi.datadog.aws.outputs.GetIntegrationAvailableNamespacesResult;
+import com.pulumi.datadog.aws.outputs.GetIntegrationExternalIdResult;
 import com.pulumi.datadog.aws.outputs.GetIntegrationIamPermissionsResult;
 import com.pulumi.datadog.aws.outputs.GetIntegrationLogsServicesResult;
 import com.pulumi.datadog.aws.outputs.GetIntegrationNamespaceRulesResult;
@@ -115,6 +118,211 @@ public final class AwsFunctions {
      */
     public static CompletableFuture<GetIntegrationAvailableNamespacesResult> getIntegrationAvailableNamespacesPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:aws/getIntegrationAvailableNamespaces:getIntegrationAvailableNamespaces", TypeShape.of(GetIntegrationAvailableNamespacesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the external ID from an existing AWS integration. This can be used to reference the external ID value from an existing AWS account integration.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.aws.AwsFunctions;
+     * import com.pulumi.datadog.aws.inputs.GetIntegrationExternalIdArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get the external ID for the AWS account "123456789012"
+     *         final var example = AwsFunctions.getIntegrationExternalId(GetIntegrationExternalIdArgs.builder()
+     *             .awsAccountId("123456789012")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetIntegrationExternalIdResult> getIntegrationExternalId(GetIntegrationExternalIdArgs args) {
+        return getIntegrationExternalId(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the external ID from an existing AWS integration. This can be used to reference the external ID value from an existing AWS account integration.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.aws.AwsFunctions;
+     * import com.pulumi.datadog.aws.inputs.GetIntegrationExternalIdArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get the external ID for the AWS account "123456789012"
+     *         final var example = AwsFunctions.getIntegrationExternalId(GetIntegrationExternalIdArgs.builder()
+     *             .awsAccountId("123456789012")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetIntegrationExternalIdResult> getIntegrationExternalIdPlain(GetIntegrationExternalIdPlainArgs args) {
+        return getIntegrationExternalIdPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the external ID from an existing AWS integration. This can be used to reference the external ID value from an existing AWS account integration.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.aws.AwsFunctions;
+     * import com.pulumi.datadog.aws.inputs.GetIntegrationExternalIdArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get the external ID for the AWS account "123456789012"
+     *         final var example = AwsFunctions.getIntegrationExternalId(GetIntegrationExternalIdArgs.builder()
+     *             .awsAccountId("123456789012")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetIntegrationExternalIdResult> getIntegrationExternalId(GetIntegrationExternalIdArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:aws/getIntegrationExternalId:getIntegrationExternalId", TypeShape.of(GetIntegrationExternalIdResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the external ID from an existing AWS integration. This can be used to reference the external ID value from an existing AWS account integration.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.aws.AwsFunctions;
+     * import com.pulumi.datadog.aws.inputs.GetIntegrationExternalIdArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get the external ID for the AWS account "123456789012"
+     *         final var example = AwsFunctions.getIntegrationExternalId(GetIntegrationExternalIdArgs.builder()
+     *             .awsAccountId("123456789012")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetIntegrationExternalIdResult> getIntegrationExternalId(GetIntegrationExternalIdArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:aws/getIntegrationExternalId:getIntegrationExternalId", TypeShape.of(GetIntegrationExternalIdResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the external ID from an existing AWS integration. This can be used to reference the external ID value from an existing AWS account integration.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.aws.AwsFunctions;
+     * import com.pulumi.datadog.aws.inputs.GetIntegrationExternalIdArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get the external ID for the AWS account "123456789012"
+     *         final var example = AwsFunctions.getIntegrationExternalId(GetIntegrationExternalIdArgs.builder()
+     *             .awsAccountId("123456789012")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetIntegrationExternalIdResult> getIntegrationExternalIdPlain(GetIntegrationExternalIdPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:aws/getIntegrationExternalId:getIntegrationExternalId", TypeShape.of(GetIntegrationExternalIdResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve the IAM permissions required for AWS integration. This provides the list of IAM actions that should be included in the AWS role policy for Datadog integration.

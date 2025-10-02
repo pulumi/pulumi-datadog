@@ -26,7 +26,10 @@ class GetRumApplicationResult:
     """
     A collection of values returned by getRumApplication.
     """
-    def __init__(__self__, client_token=None, id=None, name=None, name_filter=None, type=None, type_filter=None):
+    def __init__(__self__, api_key_id=None, client_token=None, id=None, name=None, name_filter=None, type=None, type_filter=None):
+        if api_key_id and not isinstance(api_key_id, int):
+            raise TypeError("Expected argument 'api_key_id' to be a int")
+        pulumi.set(__self__, "api_key_id", api_key_id)
         if client_token and not isinstance(client_token, str):
             raise TypeError("Expected argument 'client_token' to be a str")
         pulumi.set(__self__, "client_token", client_token)
@@ -45,6 +48,14 @@ class GetRumApplicationResult:
         if type_filter and not isinstance(type_filter, str):
             raise TypeError("Expected argument 'type_filter' to be a str")
         pulumi.set(__self__, "type_filter", type_filter)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeyId")
+    def api_key_id(self) -> _builtins.int:
+        """
+        ID of the API key associated with the application.
+        """
+        return pulumi.get(self, "api_key_id")
 
     @_builtins.property
     @pulumi.getter(name="clientToken")
@@ -101,6 +112,7 @@ class AwaitableGetRumApplicationResult(GetRumApplicationResult):
         if False:
             yield self
         return GetRumApplicationResult(
+            api_key_id=self.api_key_id,
             client_token=self.client_token,
             id=self.id,
             name=self.name,
@@ -129,6 +141,7 @@ def get_rum_application(id: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('datadog:index/getRumApplication:getRumApplication', __args__, opts=opts, typ=GetRumApplicationResult).value
 
     return AwaitableGetRumApplicationResult(
+        api_key_id=pulumi.get(__ret__, 'api_key_id'),
         client_token=pulumi.get(__ret__, 'client_token'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -154,6 +167,7 @@ def get_rum_application_output(id: Optional[pulumi.Input[Optional[_builtins.str]
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('datadog:index/getRumApplication:getRumApplication', __args__, opts=opts, typ=GetRumApplicationResult)
     return __ret__.apply(lambda __response__: GetRumApplicationResult(
+        api_key_id=pulumi.get(__response__, 'api_key_id'),
         client_token=pulumi.get(__response__, 'client_token'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

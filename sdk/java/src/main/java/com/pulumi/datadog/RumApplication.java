@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.datadog.RumApplicationArgs;
 import com.pulumi.datadog.Utilities;
 import com.pulumi.datadog.inputs.RumApplicationState;
+import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -63,6 +64,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="datadog:index/rumApplication:RumApplication")
 public class RumApplication extends com.pulumi.resources.CustomResource {
+    /**
+     * ID of the API key associated with the application.
+     * 
+     */
+    @Export(name="apiKeyId", refs={Integer.class}, tree="[0]")
+    private Output<Integer> apiKeyId;
+
+    /**
+     * @return ID of the API key associated with the application.
+     * 
+     */
+    public Output<Integer> apiKeyId() {
+        return this.apiKeyId;
+    }
     /**
      * The client token.
      * 

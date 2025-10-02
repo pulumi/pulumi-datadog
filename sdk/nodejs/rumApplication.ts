@@ -58,6 +58,10 @@ export class RumApplication extends pulumi.CustomResource {
     }
 
     /**
+     * ID of the API key associated with the application.
+     */
+    declare public /*out*/ readonly apiKeyId: pulumi.Output<number>;
+    /**
      * The client token.
      */
     declare public /*out*/ readonly clientToken: pulumi.Output<string>;
@@ -91,6 +95,7 @@ export class RumApplication extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RumApplicationState | undefined;
+            resourceInputs["apiKeyId"] = state?.apiKeyId;
             resourceInputs["clientToken"] = state?.clientToken;
             resourceInputs["name"] = state?.name;
             resourceInputs["productAnalyticsRetentionState"] = state?.productAnalyticsRetentionState;
@@ -105,6 +110,7 @@ export class RumApplication extends pulumi.CustomResource {
             resourceInputs["productAnalyticsRetentionState"] = args?.productAnalyticsRetentionState;
             resourceInputs["rumEventProcessingState"] = args?.rumEventProcessingState;
             resourceInputs["type"] = args?.type;
+            resourceInputs["apiKeyId"] = undefined /*out*/;
             resourceInputs["clientToken"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -116,6 +122,10 @@ export class RumApplication extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RumApplication resources.
  */
 export interface RumApplicationState {
+    /**
+     * ID of the API key associated with the application.
+     */
+    apiKeyId?: pulumi.Input<number>;
     /**
      * The client token.
      */

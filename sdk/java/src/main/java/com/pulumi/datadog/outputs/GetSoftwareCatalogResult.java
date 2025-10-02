@@ -50,7 +50,7 @@ public final class GetSoftwareCatalogResult {
      */
     private @Nullable String filterRef;
     /**
-     * @return Filter entities by relation type.
+     * @return Filter entities by relation type. Valid values are `RelationTypeOwns`, `RelationTypeOwnedBy`, `RelationTypeDependsOn`, `RelationTypeDependencyOf`, `RelationTypePartsOf`, `RelationTypeHasPart`, `RelationTypeOtherOwns`, `RelationTypeOtherOwnedBy`, `RelationTypeImplementedBy`, `RelationTypeImplements`.
      * 
      */
     private @Nullable String filterRelationType;
@@ -111,7 +111,7 @@ public final class GetSoftwareCatalogResult {
         return Optional.ofNullable(this.filterRef);
     }
     /**
-     * @return Filter entities by relation type.
+     * @return Filter entities by relation type. Valid values are `RelationTypeOwns`, `RelationTypeOwnedBy`, `RelationTypeDependsOn`, `RelationTypeDependencyOf`, `RelationTypePartsOf`, `RelationTypeHasPart`, `RelationTypeOtherOwns`, `RelationTypeOtherOwnedBy`, `RelationTypeImplementedBy`, `RelationTypeImplements`.
      * 
      */
     public Optional<String> filterRelationType() {

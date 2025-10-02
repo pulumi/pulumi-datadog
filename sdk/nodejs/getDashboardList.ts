@@ -46,7 +46,7 @@ export function getDashboardList(args: GetDashboardListArgs, opts?: pulumi.Invok
  */
 export interface GetDashboardListArgs {
     /**
-     * A dashboard list name to limit the search.
+     * A dashboard list name to limit the search. String length must be at least 1.
      */
     name: string;
 }
@@ -60,7 +60,7 @@ export interface GetDashboardListResult {
      */
     readonly id: string;
     /**
-     * A dashboard list name to limit the search.
+     * A dashboard list name to limit the search. String length must be at least 1.
      */
     readonly name: string;
 }
@@ -106,7 +106,7 @@ export function getDashboardListOutput(args: GetDashboardListOutputArgs, opts?: 
  */
 export interface GetDashboardListOutputArgs {
     /**
-     * A dashboard list name to limit the search.
+     * A dashboard list name to limit the search. String length must be at least 1.
      */
     name: pulumi.Input<string>;
 }

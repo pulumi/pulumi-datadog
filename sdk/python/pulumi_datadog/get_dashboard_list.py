@@ -46,7 +46,7 @@ class GetDashboardListResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        A dashboard list name to limit the search.
+        A dashboard list name to limit the search. String length must be at least 1.
         """
         return pulumi.get(self, "name")
 
@@ -91,7 +91,7 @@ def get_dashboard_list(name: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str name: A dashboard list name to limit the search.
+    :param _builtins.str name: A dashboard list name to limit the search. String length must be at least 1.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -131,7 +131,7 @@ def get_dashboard_list_output(name: Optional[pulumi.Input[_builtins.str]] = None
     ```
 
 
-    :param _builtins.str name: A dashboard list name to limit the search.
+    :param _builtins.str name: A dashboard list name to limit the search. String length must be at least 1.
     """
     __args__ = dict()
     __args__['name'] = name

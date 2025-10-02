@@ -50,6 +50,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsGoogleCloudStorage> GoogleCloudStorages;
         /// <summary>
+        /// The `google_pubsub` destination publishes logs to a Google Cloud Pub/Sub topic.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsGooglePubsub> GooglePubsubs;
+        /// <summary>
         /// The `microsoft_sentinel` destination forwards logs to Microsoft Sentinel.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsMicrosoftSentinel> MicrosoftSentinels;
@@ -106,6 +110,8 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsGoogleCloudStorage> googleCloudStorages,
 
+            ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsGooglePubsub> googlePubsubs,
+
             ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsMicrosoftSentinel> microsoftSentinels,
 
             ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsNewRelic> newRelics,
@@ -133,6 +139,7 @@ namespace Pulumi.Datadog.Outputs
             Elasticsearches = elasticsearches;
             GoogleChronicles = googleChronicles;
             GoogleCloudStorages = googleCloudStorages;
+            GooglePubsubs = googlePubsubs;
             MicrosoftSentinels = microsoftSentinels;
             NewRelics = newRelics;
             Opensearches = opensearches;

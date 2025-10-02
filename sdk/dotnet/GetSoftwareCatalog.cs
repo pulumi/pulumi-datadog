@@ -115,7 +115,7 @@ namespace Pulumi.Datadog
         public string? FilterRef { get; set; }
 
         /// <summary>
-        /// Filter entities by relation type.
+        /// Filter entities by relation type. Valid values are `RelationTypeOwns`, `RelationTypeOwnedBy`, `RelationTypeDependsOn`, `RelationTypeDependencyOf`, `RelationTypePartsOf`, `RelationTypeHasPart`, `RelationTypeOtherOwns`, `RelationTypeOtherOwnedBy`, `RelationTypeImplementedBy`, `RelationTypeImplements`.
         /// </summary>
         [Input("filterRelationType")]
         public string? FilterRelationType { get; set; }
@@ -165,7 +165,7 @@ namespace Pulumi.Datadog
         public Input<string>? FilterRef { get; set; }
 
         /// <summary>
-        /// Filter entities by relation type.
+        /// Filter entities by relation type. Valid values are `RelationTypeOwns`, `RelationTypeOwnedBy`, `RelationTypeDependsOn`, `RelationTypeDependencyOf`, `RelationTypePartsOf`, `RelationTypeHasPart`, `RelationTypeOtherOwns`, `RelationTypeOtherOwnedBy`, `RelationTypeImplementedBy`, `RelationTypeImplements`.
         /// </summary>
         [Input("filterRelationType")]
         public Input<string>? FilterRelationType { get; set; }
@@ -209,7 +209,7 @@ namespace Pulumi.Datadog
         /// </summary>
         public readonly string? FilterRef;
         /// <summary>
-        /// Filter entities by relation type.
+        /// Filter entities by relation type. Valid values are `RelationTypeOwns`, `RelationTypeOwnedBy`, `RelationTypeDependsOn`, `RelationTypeDependencyOf`, `RelationTypePartsOf`, `RelationTypeHasPart`, `RelationTypeOtherOwns`, `RelationTypeOtherOwnedBy`, `RelationTypeImplementedBy`, `RelationTypeImplements`.
         /// </summary>
         public readonly string? FilterRelationType;
         /// <summary>

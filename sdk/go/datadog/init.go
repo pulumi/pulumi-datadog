@@ -43,6 +43,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AppsecWafExclusionFilter{}
 	case "datadog:index/authnMapping:AuthnMapping":
 		r = &AuthnMapping{}
+	case "datadog:index/awsCurConfig:AwsCurConfig":
+		r = &AwsCurConfig{}
 	case "datadog:index/childOrganization:ChildOrganization":
 		r = &ChildOrganization{}
 	case "datadog:index/cloudConfigurationRule:CloudConfigurationRule":
@@ -121,6 +123,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &OnCallTeamRoutingRules{}
 	case "datadog:index/openapiApi:OpenapiApi":
 		r = &OpenapiApi{}
+	case "datadog:index/orgConnection:OrgConnection":
+		r = &OrgConnection{}
 	case "datadog:index/organizationSettings:OrganizationSettings":
 		r = &OrganizationSettings{}
 	case "datadog:index/powerpack:Powerpack":
@@ -279,6 +283,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/authnMapping",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/awsCurConfig",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -474,6 +483,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/openapiApi",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/orgConnection",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

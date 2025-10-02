@@ -73,7 +73,7 @@ func LookupDashboardList(ctx *pulumi.Context, args *LookupDashboardListArgs, opt
 
 // A collection of arguments for invoking getDashboardList.
 type LookupDashboardListArgs struct {
-	// A dashboard list name to limit the search.
+	// A dashboard list name to limit the search. String length must be at least 1.
 	Name string `pulumi:"name"`
 }
 
@@ -81,7 +81,7 @@ type LookupDashboardListArgs struct {
 type LookupDashboardListResult struct {
 	// The ID of this resource.
 	Id string `pulumi:"id"`
-	// A dashboard list name to limit the search.
+	// A dashboard list name to limit the search. String length must be at least 1.
 	Name string `pulumi:"name"`
 }
 
@@ -96,7 +96,7 @@ func LookupDashboardListOutput(ctx *pulumi.Context, args LookupDashboardListOutp
 
 // A collection of arguments for invoking getDashboardList.
 type LookupDashboardListOutputArgs struct {
-	// A dashboard list name to limit the search.
+	// A dashboard list name to limit the search. String length must be at least 1.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -124,7 +124,7 @@ func (o LookupDashboardListResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDashboardListResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// A dashboard list name to limit the search.
+// A dashboard list name to limit the search. String length must be at least 1.
 func (o LookupDashboardListResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDashboardListResult) string { return v.Name }).(pulumi.StringOutput)
 }
