@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigProcessorsAddEnvVarArgs>? _addEnvVars;
 
         /// <summary>
-        /// The `add_env_vars` processor adds environment variable values to log events.
+        /// The `AddEnvVars` processor adds environment variable values to log events.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigProcessorsAddEnvVarArgs> AddEnvVars
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigProcessorsAddFieldArgs>? _addFields;
 
         /// <summary>
-        /// The `add_fields` processor adds static key-value fields to logs.
+        /// The `AddFields` processor adds static key-value fields to logs.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigProcessorsAddFieldArgs> AddFields
         {
@@ -40,7 +40,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigProcessorsCustomProcessorArgs>? _customProcessors;
 
         /// <summary>
-        /// The `custom_processor` processor transforms events using Vector Remap Language (VRL) scripts with advanced filtering capabilities.
+        /// The `CustomProcessor` processor transforms events using Vector Remap Language (VRL) scripts with advanced filtering capabilities.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigProcessorsCustomProcessorArgs> CustomProcessors
         {
@@ -60,7 +60,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigProcessorsDedupeArgs>? _dedupes;
 
         /// <summary>
-        /// The `dedupe` processor removes duplicate fields in log events.
+        /// The `Dedupe` processor removes duplicate fields in log events.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigProcessorsDedupeArgs> Dedupes
         {
@@ -72,7 +72,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigProcessorsEnrichmentTableArgs>? _enrichmentTables;
 
         /// <summary>
-        /// The `enrichment_table` processor enriches logs using a static CSV file or GeoIP database.
+        /// The `EnrichmentTable` processor enriches logs using a static CSV file or GeoIP database.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigProcessorsEnrichmentTableArgs> EnrichmentTables
         {
@@ -84,7 +84,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigProcessorsFilterArgs>? _filters;
 
         /// <summary>
-        /// The `filter` processor allows conditional processing of logs based on a Datadog search query. Logs that match the `include` query are passed through; others are discarded.
+        /// The `Filter` processor allows conditional processing of logs based on a Datadog search query. Logs that match the `Include` query are passed through; others are discarded.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigProcessorsFilterArgs> Filters
         {
@@ -96,7 +96,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigProcessorsGenerateDatadogMetricArgs>? _generateDatadogMetrics;
 
         /// <summary>
-        /// The `generate_datadog_metrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields.
+        /// The `GenerateDatadogMetrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigProcessorsGenerateDatadogMetricArgs> GenerateDatadogMetrics
         {
@@ -108,7 +108,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigProcessorsOcsfMapperArgs>? _ocsfMappers;
 
         /// <summary>
-        /// The `ocsf_mapper` processor transforms logs into the OCSF schema using predefined library mappings.
+        /// The `OcsfMapper` processor transforms logs into the OCSF schema using predefined library mappings.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigProcessorsOcsfMapperArgs> OcsfMappers
         {
@@ -120,7 +120,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigProcessorsParseGrokArgs>? _parseGroks;
 
         /// <summary>
-        /// The `parse_grok` processor extracts structured fields from unstructured log messages using Grok patterns.
+        /// The `ParseGrok` processor extracts structured fields from unstructured log messages using Grok patterns.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigProcessorsParseGrokArgs> ParseGroks
         {
@@ -132,7 +132,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigProcessorsParseJsonArgs>? _parseJsons;
 
         /// <summary>
-        /// The `parse_json` processor extracts JSON from a specified field and flattens it into the event. This is useful when logs contain embedded JSON as a string.
+        /// The `ParseJson` processor extracts JSON from a specified field and flattens it into the event. This is useful when logs contain embedded JSON as a string.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigProcessorsParseJsonArgs> ParseJsons
         {
@@ -144,7 +144,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigProcessorsQuotaArgs>? _quotas;
 
         /// <summary>
-        /// The `quota` measures logging traffic for logs that match a specified filter. When the configured daily quota is met, the processor can drop or alert.
+        /// The `Quota` measures logging traffic for logs that match a specified filter. When the configured daily quota is met, the processor can drop or alert.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigProcessorsQuotaArgs> Quotas
         {
@@ -156,7 +156,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigProcessorsReduceArgs>? _reduces;
 
         /// <summary>
-        /// The `reduce` processor aggregates and merges logs based on matching keys and merge strategies.
+        /// The `Reduce` processor aggregates and merges logs based on matching keys and merge strategies.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigProcessorsReduceArgs> Reduces
         {
@@ -168,7 +168,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigProcessorsRemoveFieldArgs>? _removeFields;
 
         /// <summary>
-        /// The `remove_fields` processor deletes specified fields from logs.
+        /// The `RemoveFields` processor deletes specified fields from logs.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigProcessorsRemoveFieldArgs> RemoveFields
         {
@@ -180,7 +180,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigProcessorsRenameFieldArgs>? _renameFields;
 
         /// <summary>
-        /// The `rename_fields` processor changes field names.
+        /// The `RenameFields` processor changes field names.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigProcessorsRenameFieldArgs> RenameFields
         {
@@ -192,7 +192,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigProcessorsSampleArgs>? _samples;
 
         /// <summary>
-        /// The `sample` processor allows probabilistic sampling of logs at a fixed rate.
+        /// The `Sample` processor allows probabilistic sampling of logs at a fixed rate.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigProcessorsSampleArgs> Samples
         {
@@ -204,7 +204,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigProcessorsSensitiveDataScannerArgs>? _sensitiveDataScanners;
 
         /// <summary>
-        /// The `sensitive_data_scanner` processor detects and optionally redacts sensitive data in log events.
+        /// The `SensitiveDataScanner` processor detects and optionally redacts sensitive data in log events.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigProcessorsSensitiveDataScannerArgs> SensitiveDataScanners
         {
@@ -216,7 +216,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigProcessorsThrottleArgs>? _throttles;
 
         /// <summary>
-        /// The `throttle` processor limits the number of events that pass through over a given time window.
+        /// The `Throttle` processor limits the number of events that pass through over a given time window.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigProcessorsThrottleArgs> Throttles
         {

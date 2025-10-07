@@ -75,7 +75,7 @@ namespace Pulumi.Datadog
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// If true, pages will be automatically resolved if unacknowledged after the final step. Defaults to `false`.
+        /// If true, pages will be automatically resolved if unacknowledged after the final step. Defaults to `False`.
         /// </summary>
         [Output("resolvePageOnPolicyEnd")]
         public Output<bool> ResolvePageOnPolicyEnd { get; private set; } = null!;
@@ -151,7 +151,7 @@ namespace Pulumi.Datadog
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// If true, pages will be automatically resolved if unacknowledged after the final step. Defaults to `false`.
+        /// If true, pages will be automatically resolved if unacknowledged after the final step. Defaults to `False`.
         /// </summary>
         [Input("resolvePageOnPolicyEnd")]
         public Input<bool>? ResolvePageOnPolicyEnd { get; set; }
@@ -201,7 +201,7 @@ namespace Pulumi.Datadog
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// If true, pages will be automatically resolved if unacknowledged after the final step. Defaults to `false`.
+        /// If true, pages will be automatically resolved if unacknowledged after the final step. Defaults to `False`.
         /// </summary>
         [Input("resolvePageOnPolicyEnd")]
         public Input<bool>? ResolvePageOnPolicyEnd { get; set; }

@@ -16,7 +16,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Resource for interacting with the slo_correction API.
+ * Resource for interacting with the sloCorrection API.
  * 
  * ## Example Usage
  * 

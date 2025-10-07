@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ObservabilityPipelineConfigSourcesFluentBitGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `input` to downstream components).
+        /// The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `Input` to downstream components).
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;

@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The protocol used to receive logs. Valid values are `tcp`, `udp`.
+        /// The protocol used to receive logs. Valid values are `Tcp`, `Udp`.
         /// </summary>
         public readonly string Mode;
         /// <summary>

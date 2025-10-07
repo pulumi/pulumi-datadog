@@ -15,14 +15,14 @@ public final class DashboardWidgetQueryTableDefinitionRequestTextFormatTextForma
     public static final DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatMatchArgs Empty = new DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatMatchArgs();
 
     /**
-     * Match or compare option. Valid values are `is`, `is_not`, `contains`, `does_not_contain`, `starts_with`, `ends_with`.
+     * Match or compare option. Valid values are `is`, `isNot`, `contains`, `doesNotContain`, `startsWith`, `endsWith`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Match or compare option. Valid values are `is`, `is_not`, `contains`, `does_not_contain`, `starts_with`, `ends_with`.
+     * @return Match or compare option. Valid values are `is`, `isNot`, `contains`, `doesNotContain`, `startsWith`, `endsWith`.
      * 
      */
     public Output<String> type() {
@@ -70,7 +70,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestTextFormatTextForma
         }
 
         /**
-         * @param type Match or compare option. Valid values are `is`, `is_not`, `contains`, `does_not_contain`, `starts_with`, `ends_with`.
+         * @param type Match or compare option. Valid values are `is`, `isNot`, `contains`, `doesNotContain`, `startsWith`, `endsWith`.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestTextFormatTextForma
         }
 
         /**
-         * @param type Match or compare option. Valid values are `is`, `is_not`, `contains`, `does_not_contain`, `starts_with`, `ends_with`.
+         * @param type Match or compare option. Valid values are `is`, `isNot`, `contains`, `doesNotContain`, `startsWith`, `endsWith`.
          * 
          * @return builder
          * 

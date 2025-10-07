@@ -75,7 +75,7 @@ namespace Pulumi.Datadog
         public Output<string> RumEventProcessingState { get; private set; } = null!;
 
         /// <summary>
-        /// Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `"browser"`.
+        /// Type of the RUM application. Supported values are `Browser`, `Ios`, `Android`, `react-native`, `Flutter`. Defaults to `"browser"`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -145,7 +145,7 @@ namespace Pulumi.Datadog
         public Input<string>? RumEventProcessingState { get; set; }
 
         /// <summary>
-        /// Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `"browser"`.
+        /// Type of the RUM application. Supported values are `Browser`, `Ios`, `Android`, `react-native`, `Flutter`. Defaults to `"browser"`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -189,7 +189,7 @@ namespace Pulumi.Datadog
         public Input<string>? RumEventProcessingState { get; set; }
 
         /// <summary>
-        /// Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `"browser"`.
+        /// Type of the RUM application. Supported values are `Browser`, `Ios`, `Android`, `react-native`, `Flutter`. Defaults to `"browser"`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

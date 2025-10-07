@@ -7,6 +7,53 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog Security Monitoring Rule JSON resource. This can be used to create and manage Datadog security monitoring rules using raw JSON.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * // Example Security Monitoring Rule JSON
+ * const securityRuleJson = new datadog.SecurityMonitoringRuleJson("security_rule_json", {rule: `{
+ *   "name": "High error rate security monitoring",
+ *   "isEnabled": true,
+ *   "type": "log_detection",
+ *   "message": "High error rate detected in logs",
+ *   "tags": ["env:prod", "security"],
+ *   "cases": [
+ *     {
+ *       "name": "high case",
+ *       "status": "high",
+ *       "condition": "errors > 100 && warnings > 1000",
+ *       "notifications": ["@security-team"]
+ *     }
+ *   ],
+ *   "queries": [
+ *     {
+ *       "name": "errors",
+ *       "query": "status:error",
+ *       "aggregation": "count",
+ *       "dataSource": "logs",
+ *       "groupByFields": ["service", "env"]
+ *     },
+ *     {
+ *       "name": "warnings",
+ *       "query": "status:warning",
+ *       "aggregation": "count",
+ *       "dataSource": "logs",
+ *       "groupByFields": ["service", "env"]
+ *     }
+ *   ],
+ *   "options": {
+ *     "evaluationWindow": 300,
+ *     "keepAlive": 600,
+ *     "maxSignalDuration": 900,
+ *     "detectionMethod": "threshold"
+ *   }
+ * }
+ * `});
+ * ```
+ *
  * ## Import
  *
  * The `pulumi import` command can be used, for example:

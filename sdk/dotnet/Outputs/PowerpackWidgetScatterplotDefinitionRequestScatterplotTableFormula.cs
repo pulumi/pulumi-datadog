@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Alias;
         /// <summary>
-        /// Dimension of the Scatterplot. Valid values are `x`, `y`, `radius`, `color`.
+        /// Dimension of the Scatterplot. Valid values are `X`, `Y`, `Radius`, `Color`.
         /// </summary>
         public readonly string Dimension;
         /// <summary>

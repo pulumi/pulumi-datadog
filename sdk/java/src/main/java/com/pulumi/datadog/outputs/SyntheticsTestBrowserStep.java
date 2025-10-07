@@ -36,7 +36,7 @@ public final class SyntheticsTestBrowserStep {
      */
     private @Nullable Boolean forceElementUpdate;
     /**
-     * @return Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
+     * @return Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allowFailure` is `true`.
      * 
      */
     private @Nullable Boolean isCritical;
@@ -106,7 +106,7 @@ public final class SyntheticsTestBrowserStep {
         return Optional.ofNullable(this.forceElementUpdate);
     }
     /**
-     * @return Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
+     * @return Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allowFailure` is `true`.
      * 
      */
     public Optional<Boolean> isCritical() {

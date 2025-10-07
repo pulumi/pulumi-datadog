@@ -13,13 +13,13 @@ namespace Pulumi.Datadog.Inputs
     public sealed class SyntheticsGlobalVariableParseTestOptionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Required when type = `http_header`. Defines the header to use to extract the value
+        /// Required when type = `HttpHeader`. Defines the header to use to extract the value
         /// </summary>
         [Input("field")]
         public Input<string>? Field { get; set; }
 
         /// <summary>
-        /// When type is `local_variable`, name of the local variable to use to extract the value.
+        /// When type is `LocalVariable`, name of the local variable to use to extract the value.
         /// </summary>
         [Input("localVariableName")]
         public Input<string>? LocalVariableName { get; set; }
@@ -28,7 +28,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.SyntheticsGlobalVariableParseTestOptionsParserGetArgs>? Parser { get; set; }
 
         /// <summary>
-        /// Defines the source to use to extract the value. Valid values are `http_body`, `http_header`, `http_status_code`, `local_variable`.
+        /// Defines the source to use to extract the value. Valid values are `HttpBody`, `HttpHeader`, `HttpStatusCode`, `LocalVariable`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

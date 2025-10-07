@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class PowerpackWidgetScatterplotDefinitionRequestX
     {
         /// <summary>
-        /// Aggregator used for the request. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+        /// Aggregator used for the request. Valid values are `Avg`, `Last`, `Max`, `Min`, `Sum`, `Percentile`.
         /// </summary>
         public readonly string? Aggregator;
         /// <summary>

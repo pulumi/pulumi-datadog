@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetTimeseriesDefinition {
     /**
-     * @return A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+     * @return A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
      * 
      */
     private @Nullable List<DashboardWidgetTimeseriesDefinitionCustomLink> customLinks;
@@ -45,22 +45,22 @@ public final class DashboardWidgetTimeseriesDefinition {
      */
     private @Nullable String legendSize;
     /**
-     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      * 
      */
     private @Nullable String liveSpan;
     /**
-     * @return A nested block describing the marker to use when displaying the widget. The structure of this block is described below. Multiple `marker` blocks are allowed within a given `tile_def` block.
+     * @return A nested block describing the marker to use when displaying the widget. The structure of this block is described below. Multiple `marker` blocks are allowed within a given `tileDef` block.
      * 
      */
     private @Nullable List<DashboardWidgetTimeseriesDefinitionMarker> markers;
     /**
-     * @return A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `network_query`, `security_query` or `process_query` is required within the `request` block).
+     * @return A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `networkQuery`, `securityQuery` or `processQuery` is required within the `request` block).
      * 
      */
     private @Nullable List<DashboardWidgetTimeseriesDefinitionRequest> requests;
     /**
-     * @return A nested block describing the right Y-Axis Controls. See the `on_right_yaxis` property for which request will use this axis. The structure of this block is described below.
+     * @return A nested block describing the right Y-Axis Controls. See the `onRightYaxis` property for which request will use this axis. The structure of this block is described below.
      * 
      */
     private @Nullable DashboardWidgetTimeseriesDefinitionRightYaxis rightYaxis;
@@ -92,7 +92,7 @@ public final class DashboardWidgetTimeseriesDefinition {
 
     private DashboardWidgetTimeseriesDefinition() {}
     /**
-     * @return A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+     * @return A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
      * 
      */
     public List<DashboardWidgetTimeseriesDefinitionCustomLink> customLinks() {
@@ -127,28 +127,28 @@ public final class DashboardWidgetTimeseriesDefinition {
         return Optional.ofNullable(this.legendSize);
     }
     /**
-     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      * 
      */
     public Optional<String> liveSpan() {
         return Optional.ofNullable(this.liveSpan);
     }
     /**
-     * @return A nested block describing the marker to use when displaying the widget. The structure of this block is described below. Multiple `marker` blocks are allowed within a given `tile_def` block.
+     * @return A nested block describing the marker to use when displaying the widget. The structure of this block is described below. Multiple `marker` blocks are allowed within a given `tileDef` block.
      * 
      */
     public List<DashboardWidgetTimeseriesDefinitionMarker> markers() {
         return this.markers == null ? List.of() : this.markers;
     }
     /**
-     * @return A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `network_query`, `security_query` or `process_query` is required within the `request` block).
+     * @return A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `networkQuery`, `securityQuery` or `processQuery` is required within the `request` block).
      * 
      */
     public List<DashboardWidgetTimeseriesDefinitionRequest> requests() {
         return this.requests == null ? List.of() : this.requests;
     }
     /**
-     * @return A nested block describing the right Y-Axis Controls. See the `on_right_yaxis` property for which request will use this axis. The structure of this block is described below.
+     * @return A nested block describing the right Y-Axis Controls. See the `onRightYaxis` property for which request will use this axis. The structure of this block is described below.
      * 
      */
     public Optional<DashboardWidgetTimeseriesDefinitionRightYaxis> rightYaxis() {

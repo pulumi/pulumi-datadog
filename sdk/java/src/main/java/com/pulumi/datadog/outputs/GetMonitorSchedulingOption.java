@@ -18,7 +18,7 @@ public final class GetMonitorSchedulingOption {
      */
     private List<GetMonitorSchedulingOptionCustomSchedule> customSchedules;
     /**
-     * @return Configuration options for the evaluation window. If `hour_starts` is set, no other fields may be set. Otherwise, `day_starts` and `month_starts` must be set together.
+     * @return Configuration options for the evaluation window. If `hourStarts` is set, no other fields may be set. Otherwise, `dayStarts` and `monthStarts` must be set together.
      * 
      */
     private List<GetMonitorSchedulingOptionEvaluationWindow> evaluationWindows;
@@ -32,7 +32,7 @@ public final class GetMonitorSchedulingOption {
         return this.customSchedules;
     }
     /**
-     * @return Configuration options for the evaluation window. If `hour_starts` is set, no other fields may be set. Otherwise, `day_starts` and `month_starts` must be set together.
+     * @return Configuration options for the evaluation window. If `hourStarts` is set, no other fields may be set. Otherwise, `dayStarts` and `monthStarts` must be set together.
      * 
      */
     public List<GetMonitorSchedulingOptionEvaluationWindow> evaluationWindows() {

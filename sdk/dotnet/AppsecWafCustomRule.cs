@@ -12,6 +12,116 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog AppsecWafCustomRule resource. This can be used to create and manage Datadog appsec_waf_custom_rule.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Create a new WAF custom rule to block a custom IoC
+    ///     var ioc000 = new Datadog.AppsecWafCustomRule("ioc000", new()
+    ///     {
+    ///         Name = "Block requests from a bad actor",
+    ///         Blocking = true,
+    ///         Enabled = true,
+    ///         Tags = 
+    ///         {
+    ///             { "category", "attack_attempt" },
+    ///             { "type", "custom_ioc" },
+    ///         },
+    ///         PathGlob = "/db/*",
+    ///         Conditions = new[]
+    ///         {
+    ///             new Datadog.Inputs.AppsecWafCustomRuleConditionArgs
+    ///             {
+    ///                 Operator = "match_regex",
+    ///                 Parameters = new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "inputs", new[]
+    ///                         {
+    ///                             
+    ///                             {
+    ///                                 { "address", "server.db.statement" },
+    ///                             },
+    ///                         } },
+    ///                         { "regex", "stmt.*" },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Action = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "action", "redirect_request" },
+    ///                 { "parameters", new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "statusCode", 302 },
+    ///                         { "location", "/blocking" },
+    ///                     },
+    ///                 } },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     // Create a WAF custom rule to track business logic events
+    ///     var biz000 = new Datadog.AppsecWafCustomRule("biz000", new()
+    ///     {
+    ///         Name = "Track payments",
+    ///         Blocking = false,
+    ///         Enabled = true,
+    ///         Tags = 
+    ///         {
+    ///             { "category", "business_logic" },
+    ///             { "type", "payment.checkout" },
+    ///         },
+    ///         PathGlob = "/cart/*",
+    ///         Conditions = new[]
+    ///         {
+    ///             new Datadog.Inputs.AppsecWafCustomRuleConditionArgs
+    ///             {
+    ///                 Operator = "capture_data",
+    ///                 Parameters = new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "inputs", new[]
+    ///                         {
+    ///                             
+    ///                             {
+    ///                                 { "address", "server.request.query" },
+    ///                                 { "keyPaths", new[]
+    ///                                 {
+    ///                                     "payment_id",
+    ///                                 } },
+    ///                             },
+    ///                         } },
+    ///                         { "value", "payment" },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Scopes = new[]
+    ///         {
+    ///             new Datadog.Inputs.AppsecWafCustomRuleScopeArgs
+    ///             {
+    ///                 Env = "prod",
+    ///                 Service = "paymentsvc",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// The `pulumi import` command can be used, for example:
@@ -57,7 +167,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<Outputs.AppsecWafCustomRuleScope>> Scopes { get; private set; } = null!;
 
         /// <summary>
-        /// Tags associated with the WAF custom rule. `category` and `type` tags are required. Supported categories include `business_logic`, `attack_attempt` and `security_response`.
+        /// Tags associated with the WAF custom rule. `Category` and `Type` tags are required. Supported categories include `BusinessLogic`, `AttackAttempt` and `SecurityResponse`.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
@@ -155,7 +265,7 @@ namespace Pulumi.Datadog
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Tags associated with the WAF custom rule. `category` and `type` tags are required. Supported categories include `business_logic`, `attack_attempt` and `security_response`.
+        /// Tags associated with the WAF custom rule. `Category` and `Type` tags are required. Supported categories include `BusinessLogic`, `AttackAttempt` and `SecurityResponse`.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -218,7 +328,7 @@ namespace Pulumi.Datadog
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Tags associated with the WAF custom rule. `category` and `type` tags are required. Supported categories include `business_logic`, `attack_attempt` and `security_response`.
+        /// Tags associated with the WAF custom rule. `Category` and `Type` tags are required. Supported categories include `BusinessLogic`, `AttackAttempt` and `SecurityResponse`.
         /// </summary>
         public InputMap<string> Tags
         {

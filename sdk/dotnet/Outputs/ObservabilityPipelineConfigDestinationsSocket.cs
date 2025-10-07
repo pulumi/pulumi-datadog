@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigDestinationsSocket
     {
         /// <summary>
-        /// Encoding format for log events. Valid values are `json`, `raw_message`.
+        /// Encoding format for log events. Valid values are `Json`, `RawMessage`.
         /// </summary>
         public readonly string Encoding;
         /// <summary>
@@ -26,11 +26,11 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A list of component IDs whose output is used as the `input` for this destination.
+        /// A list of component IDs whose output is used as the `Input` for this destination.
         /// </summary>
         public readonly ImmutableArray<string> Inputs;
         /// <summary>
-        /// The protocol used to send logs. Valid values are `tcp`, `udp`.
+        /// The protocol used to send logs. Valid values are `Tcp`, `Udp`.
         /// </summary>
         public readonly string Mode;
         /// <summary>

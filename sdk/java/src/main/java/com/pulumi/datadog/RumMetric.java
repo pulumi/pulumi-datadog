@@ -22,6 +22,57 @@ import javax.annotation.Nullable;
 /**
  * Provides a Datadog RumMetric resource. This can be used to create and manage Datadog rum_metric.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.RumMetric;
+ * import com.pulumi.datadog.RumMetricArgs;
+ * import com.pulumi.datadog.inputs.RumMetricGroupByArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
+ *         Pulumi.run(App::stack);
+ *     }}{@code
+ * 
+ *     public static void stack(Context ctx) }{{@code
+ *         // Create new rum_metric resource
+ *         var testingRumMetric = new RumMetric("testingRumMetric", RumMetricArgs.builder()
+ *             .name("testing.rum.metric")
+ *             .compute(RumMetricComputeArgs.builder()
+ *                 .aggregationType("distribution")
+ *                 .includePercentiles(true)
+ *                 .path("}{@literal @}{@code duration")
+ *                 .build())
+ *             .eventType("session")
+ *             .filter(RumMetricFilterArgs.builder()
+ *                 .query("}{@literal @}{@code service:web-ui")
+ *                 .build())
+ *             .groupBies(RumMetricGroupByArgs.builder()
+ *                 .path("}{@literal @}{@code browser.name")
+ *                 .tagName("browser_name")
+ *                 .build())
+ *             .uniqueness(RumMetricUniquenessArgs.builder()
+ *                 .when("match")
+ *                 .build())
+ *             .build());
+ * 
+ *     }}{@code
+ * }}{@code
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * The `pulumi import` command can be used, for example:

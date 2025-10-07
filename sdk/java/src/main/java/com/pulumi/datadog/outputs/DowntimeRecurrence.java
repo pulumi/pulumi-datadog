@@ -30,12 +30,12 @@ public final class DowntimeRecurrence {
      */
     private String type;
     /**
-     * @return The date at which the recurrence should end as a POSIX timestamp. `until_occurrences` and `until_date` are mutually exclusive.
+     * @return The date at which the recurrence should end as a POSIX timestamp. `untilOccurrences` and `untilDate` are mutually exclusive.
      * 
      */
     private @Nullable Integer untilDate;
     /**
-     * @return How many times the downtime will be rescheduled. `until_occurrences` and `until_date` are mutually exclusive.
+     * @return How many times the downtime will be rescheduled. `untilOccurrences` and `untilDate` are mutually exclusive.
      * 
      */
     private @Nullable Integer untilOccurrences;
@@ -68,14 +68,14 @@ public final class DowntimeRecurrence {
         return this.type;
     }
     /**
-     * @return The date at which the recurrence should end as a POSIX timestamp. `until_occurrences` and `until_date` are mutually exclusive.
+     * @return The date at which the recurrence should end as a POSIX timestamp. `untilOccurrences` and `untilDate` are mutually exclusive.
      * 
      */
     public Optional<Integer> untilDate() {
         return Optional.ofNullable(this.untilDate);
     }
     /**
-     * @return How many times the downtime will be rescheduled. `until_occurrences` and `until_date` are mutually exclusive.
+     * @return How many times the downtime will be rescheduled. `untilOccurrences` and `untilDate` are mutually exclusive.
      * 
      */
     public Optional<Integer> untilOccurrences() {

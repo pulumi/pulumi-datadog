@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetHostmapDefinition {
     /**
-     * @return A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+     * @return A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
      * 
      */
     private @Nullable List<DashboardWidgetHostmapDefinitionCustomLink> customLinks;
@@ -74,7 +74,7 @@ public final class DashboardWidgetHostmapDefinition {
 
     private DashboardWidgetHostmapDefinition() {}
     /**
-     * @return A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+     * @return A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
      * 
      */
     public List<DashboardWidgetHostmapDefinitionCustomLink> customLinks() {

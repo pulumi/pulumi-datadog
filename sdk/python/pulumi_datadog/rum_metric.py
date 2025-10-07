@@ -208,6 +208,33 @@ class RumMetric(pulumi.CustomResource):
         """
         Provides a Datadog RumMetric resource. This can be used to create and manage Datadog rum_metric.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create new rum_metric resource
+        testing_rum_metric = datadog.RumMetric("testing_rum_metric",
+            name="testing.rum.metric",
+            compute=[{
+                "aggregationType": "distribution",
+                "includePercentiles": True,
+                "path": "@duration",
+            }],
+            event_type="session",
+            filter=[{
+                "query": "@service:web-ui",
+            }],
+            group_bies=[{
+                "path": "@browser.name",
+                "tag_name": "browser_name",
+            }],
+            uniqueness=[{
+                "when": "match",
+            }])
+        ```
+
         ## Import
 
         The `pulumi import` command can be used, for example:
@@ -229,6 +256,33 @@ class RumMetric(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog RumMetric resource. This can be used to create and manage Datadog rum_metric.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create new rum_metric resource
+        testing_rum_metric = datadog.RumMetric("testing_rum_metric",
+            name="testing.rum.metric",
+            compute=[{
+                "aggregationType": "distribution",
+                "includePercentiles": True,
+                "path": "@duration",
+            }],
+            event_type="session",
+            filter=[{
+                "query": "@service:web-ui",
+            }],
+            group_bies=[{
+                "path": "@browser.name",
+                "tag_name": "browser_name",
+            }],
+            uniqueness=[{
+                "when": "match",
+            }])
+        ```
 
         ## Import
 

@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.DashboardWidgetTreemapDefinitionCustomLinkGetArgs>? _customLinks;
 
         /// <summary>
-        /// A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+        /// A nested block describing a custom link. Multiple `CustomLink` blocks are allowed using the structure below.
         /// </summary>
         public InputList<Inputs.DashboardWidgetTreemapDefinitionCustomLinkGetArgs> CustomLinks
         {

@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class SyntheticsTestBrowserStepParamsPatternArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Type of pattern to use for the step. Valid values are `regex`, `x_path`.
+        /// Type of pattern to use for the step. Valid values are `Regex`, `XPath`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

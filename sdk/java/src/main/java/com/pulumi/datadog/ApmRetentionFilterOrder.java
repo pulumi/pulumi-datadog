@@ -17,6 +17,53 @@ import javax.annotation.Nullable;
 /**
  * Provides a Datadog [APM Retention Filters API](https://docs.datadoghq.com/api/v2/apm-retention-filters/) resource, which is used to manage Datadog APM retention filters order.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.ApmRetentionFilter;
+ * import com.pulumi.datadog.ApmRetentionFilterArgs;
+ * import com.pulumi.datadog.ApmRetentionFilterOrder;
+ * import com.pulumi.datadog.ApmRetentionFilterOrderArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         // Create APM retention filter
+ *         var foo = new ApmRetentionFilter("foo", ApmRetentionFilterArgs.builder()
+ *             .name("Sample order")
+ *             .rate("1.0")
+ *             .filter(ApmRetentionFilterFilterArgs.builder()
+ *                 .query("*")
+ *                 .build())
+ *             .filterType("spans-sampling-processor")
+ *             .enabled(false)
+ *             .build());
+ * 
+ *         // Create APM retention filter order
+ *         var bar = new ApmRetentionFilterOrder("bar", ApmRetentionFilterOrderArgs.builder()
+ *             .filterIds(foo.id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * The `pulumi import` command can be used, for example:

@@ -12,6 +12,52 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog Workload Protection (CSM Threats) Agent Rule API resource.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var myAgentRule = new Datadog.CsmThreatsAgentRule("my_agent_rule", new()
+    ///     {
+    ///         Actions = new[]
+    ///         {
+    ///             new Datadog.Inputs.CsmThreatsAgentRuleActionArgs
+    ///             {
+    ///                 Hash = new[]
+    ///                 {
+    ///                     null,
+    ///                 },
+    ///                 Set = new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "name", "updated_security_actions" },
+    ///                         { "field", "exec.file.path" },
+    ///                         { "append", false },
+    ///                         { "scope", "process" },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Name = "my_agent_rule",
+    ///         Enabled = true,
+    ///         Description = "This is a rule",
+    ///         Expression = "open.file.name == \"etc/shadow/password\"",
+    ///         PolicyId = "jm4-lwh-8cs",
+    ///         ProductTags = new[]
+    ///         {
+    ///             "compliance_framework:PCI-DSS",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// The `pulumi import` command can be used, for example:

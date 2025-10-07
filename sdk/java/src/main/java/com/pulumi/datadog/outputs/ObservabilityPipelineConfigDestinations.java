@@ -30,32 +30,32 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ObservabilityPipelineConfigDestinations {
     /**
-     * @return The `amazon_opensearch` destination writes logs to Amazon OpenSearch.
+     * @return The `amazonOpensearch` destination writes logs to Amazon OpenSearch.
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigDestinationsAmazonOpensearch> amazonOpensearches;
     /**
-     * @return The `amazon_s3` destination sends your logs in Datadog-rehydratable format to an Amazon S3 bucket for archiving.
+     * @return The `amazonS3` destination sends your logs in Datadog-rehydratable format to an Amazon S3 bucket for archiving.
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigDestinationsAmazonS3> amazonS3s;
     /**
-     * @return The `amazon_security_lake` destination sends your logs to Amazon Security Lake.
+     * @return The `amazonSecurityLake` destination sends your logs to Amazon Security Lake.
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigDestinationsAmazonSecurityLake> amazonSecurityLakes;
     /**
-     * @return The `azure_storage` destination forwards logs to an Azure Blob Storage container.
+     * @return The `azureStorage` destination forwards logs to an Azure Blob Storage container.
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigDestinationsAzureStorage> azureStorages;
     /**
-     * @return The `crowdstrike_next_gen_siem` destination forwards logs to CrowdStrike Next Gen SIEM.
+     * @return The `crowdstrikeNextGenSiem` destination forwards logs to CrowdStrike Next Gen SIEM.
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigDestinationsCrowdstrikeNextGenSiem> crowdstrikeNextGenSiems;
     /**
-     * @return The `datadog_logs` destination forwards logs to Datadog Log Management.
+     * @return The `datadogLogs` destination forwards logs to Datadog Log Management.
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigDestinationsDatadogLog> datadogLogs;
@@ -65,27 +65,27 @@ public final class ObservabilityPipelineConfigDestinations {
      */
     private @Nullable List<ObservabilityPipelineConfigDestinationsElasticsearch> elasticsearches;
     /**
-     * @return The `google_chronicle` destination sends logs to Google Chronicle.
+     * @return The `googleChronicle` destination sends logs to Google Chronicle.
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigDestinationsGoogleChronicle> googleChronicles;
     /**
-     * @return The `google_cloud_storage` destination stores logs in a Google Cloud Storage (GCS) bucket.
+     * @return The `googleCloudStorage` destination stores logs in a Google Cloud Storage (GCS) bucket.
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigDestinationsGoogleCloudStorage> googleCloudStorages;
     /**
-     * @return The `google_pubsub` destination publishes logs to a Google Cloud Pub/Sub topic.
+     * @return The `googlePubsub` destination publishes logs to a Google Cloud Pub/Sub topic.
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigDestinationsGooglePubsub> googlePubsubs;
     /**
-     * @return The `microsoft_sentinel` destination forwards logs to Microsoft Sentinel.
+     * @return The `microsoftSentinel` destination forwards logs to Microsoft Sentinel.
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigDestinationsMicrosoftSentinel> microsoftSentinels;
     /**
-     * @return The `new_relic` destination sends logs to the New Relic platform.
+     * @return The `newRelic` destination sends logs to the New Relic platform.
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigDestinationsNewRelic> newRelics;
@@ -100,7 +100,7 @@ public final class ObservabilityPipelineConfigDestinations {
      */
     private @Nullable List<ObservabilityPipelineConfigDestinationsRsyslog> rsyslogs;
     /**
-     * @return The `sentinel_one` destination sends logs to SentinelOne.
+     * @return The `sentinelOne` destination sends logs to SentinelOne.
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigDestinationsSentinelOne> sentinelOnes;
@@ -110,59 +110,59 @@ public final class ObservabilityPipelineConfigDestinations {
      */
     private @Nullable List<ObservabilityPipelineConfigDestinationsSocket> sockets;
     /**
-     * @return The `splunk_hec` destination forwards logs to Splunk using the HTTP Event Collector (HEC).
+     * @return The `splunkHec` destination forwards logs to Splunk using the HTTP Event Collector (HEC).
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigDestinationsSplunkHec> splunkHecs;
     /**
-     * @return The `sumo_logic` destination forwards logs to Sumo Logic.
+     * @return The `sumoLogic` destination forwards logs to Sumo Logic.
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigDestinationsSumoLogic> sumoLogics;
     /**
-     * @return The `syslog_ng` destination forwards logs to an external `syslog-ng` server over TCP or UDP using the syslog protocol.
+     * @return The `syslogNg` destination forwards logs to an external `syslog-ng` server over TCP or UDP using the syslog protocol.
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigDestinationsSyslogNg> syslogNgs;
 
     private ObservabilityPipelineConfigDestinations() {}
     /**
-     * @return The `amazon_opensearch` destination writes logs to Amazon OpenSearch.
+     * @return The `amazonOpensearch` destination writes logs to Amazon OpenSearch.
      * 
      */
     public List<ObservabilityPipelineConfigDestinationsAmazonOpensearch> amazonOpensearches() {
         return this.amazonOpensearches == null ? List.of() : this.amazonOpensearches;
     }
     /**
-     * @return The `amazon_s3` destination sends your logs in Datadog-rehydratable format to an Amazon S3 bucket for archiving.
+     * @return The `amazonS3` destination sends your logs in Datadog-rehydratable format to an Amazon S3 bucket for archiving.
      * 
      */
     public List<ObservabilityPipelineConfigDestinationsAmazonS3> amazonS3s() {
         return this.amazonS3s == null ? List.of() : this.amazonS3s;
     }
     /**
-     * @return The `amazon_security_lake` destination sends your logs to Amazon Security Lake.
+     * @return The `amazonSecurityLake` destination sends your logs to Amazon Security Lake.
      * 
      */
     public List<ObservabilityPipelineConfigDestinationsAmazonSecurityLake> amazonSecurityLakes() {
         return this.amazonSecurityLakes == null ? List.of() : this.amazonSecurityLakes;
     }
     /**
-     * @return The `azure_storage` destination forwards logs to an Azure Blob Storage container.
+     * @return The `azureStorage` destination forwards logs to an Azure Blob Storage container.
      * 
      */
     public List<ObservabilityPipelineConfigDestinationsAzureStorage> azureStorages() {
         return this.azureStorages == null ? List.of() : this.azureStorages;
     }
     /**
-     * @return The `crowdstrike_next_gen_siem` destination forwards logs to CrowdStrike Next Gen SIEM.
+     * @return The `crowdstrikeNextGenSiem` destination forwards logs to CrowdStrike Next Gen SIEM.
      * 
      */
     public List<ObservabilityPipelineConfigDestinationsCrowdstrikeNextGenSiem> crowdstrikeNextGenSiems() {
         return this.crowdstrikeNextGenSiems == null ? List.of() : this.crowdstrikeNextGenSiems;
     }
     /**
-     * @return The `datadog_logs` destination forwards logs to Datadog Log Management.
+     * @return The `datadogLogs` destination forwards logs to Datadog Log Management.
      * 
      */
     public List<ObservabilityPipelineConfigDestinationsDatadogLog> datadogLogs() {
@@ -176,35 +176,35 @@ public final class ObservabilityPipelineConfigDestinations {
         return this.elasticsearches == null ? List.of() : this.elasticsearches;
     }
     /**
-     * @return The `google_chronicle` destination sends logs to Google Chronicle.
+     * @return The `googleChronicle` destination sends logs to Google Chronicle.
      * 
      */
     public List<ObservabilityPipelineConfigDestinationsGoogleChronicle> googleChronicles() {
         return this.googleChronicles == null ? List.of() : this.googleChronicles;
     }
     /**
-     * @return The `google_cloud_storage` destination stores logs in a Google Cloud Storage (GCS) bucket.
+     * @return The `googleCloudStorage` destination stores logs in a Google Cloud Storage (GCS) bucket.
      * 
      */
     public List<ObservabilityPipelineConfigDestinationsGoogleCloudStorage> googleCloudStorages() {
         return this.googleCloudStorages == null ? List.of() : this.googleCloudStorages;
     }
     /**
-     * @return The `google_pubsub` destination publishes logs to a Google Cloud Pub/Sub topic.
+     * @return The `googlePubsub` destination publishes logs to a Google Cloud Pub/Sub topic.
      * 
      */
     public List<ObservabilityPipelineConfigDestinationsGooglePubsub> googlePubsubs() {
         return this.googlePubsubs == null ? List.of() : this.googlePubsubs;
     }
     /**
-     * @return The `microsoft_sentinel` destination forwards logs to Microsoft Sentinel.
+     * @return The `microsoftSentinel` destination forwards logs to Microsoft Sentinel.
      * 
      */
     public List<ObservabilityPipelineConfigDestinationsMicrosoftSentinel> microsoftSentinels() {
         return this.microsoftSentinels == null ? List.of() : this.microsoftSentinels;
     }
     /**
-     * @return The `new_relic` destination sends logs to the New Relic platform.
+     * @return The `newRelic` destination sends logs to the New Relic platform.
      * 
      */
     public List<ObservabilityPipelineConfigDestinationsNewRelic> newRelics() {
@@ -225,7 +225,7 @@ public final class ObservabilityPipelineConfigDestinations {
         return this.rsyslogs == null ? List.of() : this.rsyslogs;
     }
     /**
-     * @return The `sentinel_one` destination sends logs to SentinelOne.
+     * @return The `sentinelOne` destination sends logs to SentinelOne.
      * 
      */
     public List<ObservabilityPipelineConfigDestinationsSentinelOne> sentinelOnes() {
@@ -239,21 +239,21 @@ public final class ObservabilityPipelineConfigDestinations {
         return this.sockets == null ? List.of() : this.sockets;
     }
     /**
-     * @return The `splunk_hec` destination forwards logs to Splunk using the HTTP Event Collector (HEC).
+     * @return The `splunkHec` destination forwards logs to Splunk using the HTTP Event Collector (HEC).
      * 
      */
     public List<ObservabilityPipelineConfigDestinationsSplunkHec> splunkHecs() {
         return this.splunkHecs == null ? List.of() : this.splunkHecs;
     }
     /**
-     * @return The `sumo_logic` destination forwards logs to Sumo Logic.
+     * @return The `sumoLogic` destination forwards logs to Sumo Logic.
      * 
      */
     public List<ObservabilityPipelineConfigDestinationsSumoLogic> sumoLogics() {
         return this.sumoLogics == null ? List.of() : this.sumoLogics;
     }
     /**
-     * @return The `syslog_ng` destination forwards logs to an external `syslog-ng` server over TCP or UDP using the syslog protocol.
+     * @return The `syslogNg` destination forwards logs to an external `syslog-ng` server over TCP or UDP using the syslog protocol.
      * 
      */
     public List<ObservabilityPipelineConfigDestinationsSyslogNg> syslogNgs() {

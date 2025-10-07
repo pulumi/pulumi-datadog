@@ -19,7 +19,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Alias { get; set; }
 
         /// <summary>
-        /// A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
+        /// A list of display modes for each table cell. Valid values are `Number`, `Bar`, `Trend`.
         /// </summary>
         [Input("cellDisplayMode")]
         public Input<string>? CellDisplayMode { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Widget sorting methods. Valid values are `asc`, `desc`.
+        /// Widget sorting methods. Valid values are `Asc`, `Desc`.
         /// </summary>
         [Input("order")]
         public Input<string>? Order { get; set; }

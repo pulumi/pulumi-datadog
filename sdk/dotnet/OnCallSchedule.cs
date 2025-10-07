@@ -12,6 +12,61 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog On-Call schedule resource. This can be used to create and manage Datadog On-Call schedules.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Datadog.OnCallSchedule("test", new()
+    ///     {
+    ///         Name = "Team A On-Call",
+    ///         TimeZone = "America/New_York",
+    ///         Teams = new[]
+    ///         {
+    ///             "00000000-aba2-0000-0000-000000000000",
+    ///         },
+    ///         Layers = new[]
+    ///         {
+    ///             new Datadog.Inputs.OnCallScheduleLayerArgs
+    ///             {
+    ///                 Name = "Primary On-Call Layer",
+    ///                 EffectiveDate = "2025-01-01T00:00:00Z",
+    ///                 EndDate = "2026-01-01T00:00:00Z",
+    ///                 RotationStart = "2025-01-01T00:00:00Z",
+    ///                 Interval = new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "days", 1 },
+    ///                         { "seconds", 300 },
+    ///                     },
+    ///                 },
+    ///                 Users = new[]
+    ///                 {
+    ///                     "00000000-aba1-0000-0000-000000000000",
+    ///                 },
+    ///                 Restrictions = new[]
+    ///                 {
+    ///                     new Datadog.Inputs.OnCallScheduleLayerRestrictionArgs
+    ///                     {
+    ///                         EndDay = "monday",
+    ///                         EndTime = "17:00:00",
+    ///                         StartDay = "monday",
+    ///                         StartTime = "09:00:00",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// The `pulumi import` command can be used, for example:

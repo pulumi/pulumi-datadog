@@ -48,7 +48,7 @@ namespace Pulumi.Datadog
     public partial class LogsArchiveOrder : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If `archive_ids` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it will try to update the order.
+        /// The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If `ArchiveIds` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it will try to update the order.
         /// </summary>
         [Output("archiveIds")]
         public Output<ImmutableArray<string>> ArchiveIds { get; private set; } = null!;
@@ -103,7 +103,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _archiveIds;
 
         /// <summary>
-        /// The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If `archive_ids` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it will try to update the order.
+        /// The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If `ArchiveIds` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it will try to update the order.
         /// </summary>
         public InputList<string> ArchiveIds
         {
@@ -123,7 +123,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _archiveIds;
 
         /// <summary>
-        /// The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If `archive_ids` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it will try to update the order.
+        /// The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If `ArchiveIds` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it will try to update the order.
         /// </summary>
         public InputList<string> ArchiveIds
         {

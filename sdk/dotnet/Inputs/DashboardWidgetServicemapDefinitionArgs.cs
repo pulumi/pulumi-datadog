@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.DashboardWidgetServicemapDefinitionCustomLinkArgs>? _customLinks;
 
         /// <summary>
-        /// A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+        /// A nested block describing a custom link. Multiple `CustomLink` blocks are allowed using the structure below.
         /// </summary>
         public InputList<Inputs.DashboardWidgetServicemapDefinitionCustomLinkArgs> CustomLinks
         {
@@ -49,7 +49,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Title { get; set; }
 
         /// <summary>
-        /// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+        /// The alignment of the widget's title. Valid values are `Center`, `Left`, `Right`.
         /// </summary>
         [Input("titleAlign")]
         public Input<string>? TitleAlign { get; set; }

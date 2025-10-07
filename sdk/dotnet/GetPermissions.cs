@@ -79,7 +79,7 @@ namespace Pulumi.Datadog
     public sealed class GetPermissionsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked. Defaults to `false`.
+        /// Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked. Defaults to `False`.
         /// </summary>
         [Input("includeRestricted")]
         public bool? IncludeRestricted { get; set; }
@@ -93,7 +93,7 @@ namespace Pulumi.Datadog
     public sealed class GetPermissionsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked. Defaults to `false`.
+        /// Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked. Defaults to `False`.
         /// </summary>
         [Input("includeRestricted")]
         public Input<bool>? IncludeRestricted { get; set; }
@@ -113,7 +113,7 @@ namespace Pulumi.Datadog
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked. Defaults to `false`.
+        /// Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked. Defaults to `False`.
         /// </summary>
         public readonly bool? IncludeRestricted;
         /// <summary>

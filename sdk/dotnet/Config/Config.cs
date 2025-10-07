@@ -64,7 +64,7 @@ namespace Pulumi.Datadog
 
         private static readonly __Value<string?> _awsAccessKeyId = new __Value<string?>(() => __config.Get("awsAccessKeyId"));
         /// <summary>
-        /// The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloud_provider_type` set to `aws`.
+        /// The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `CloudProviderType` set to `Aws`.
         /// </summary>
         public static string? AwsAccessKeyId
         {
@@ -74,7 +74,7 @@ namespace Pulumi.Datadog
 
         private static readonly __Value<string?> _awsSecretAccessKey = new __Value<string?>(() => __config.Get("awsSecretAccessKey"));
         /// <summary>
-        /// The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
+        /// The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `CloudProviderType` set to `Aws`.
         /// </summary>
         public static string? AwsSecretAccessKey
         {
@@ -84,7 +84,7 @@ namespace Pulumi.Datadog
 
         private static readonly __Value<string?> _awsSessionToken = new __Value<string?>(() => __config.Get("awsSessionToken"));
         /// <summary>
-        /// The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
+        /// The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `CloudProviderType` set to `Aws` and using temporary credentials.
         /// </summary>
         public static string? AwsSessionToken
         {
@@ -104,7 +104,7 @@ namespace Pulumi.Datadog
 
         private static readonly __Value<string?> _cloudProviderType = new __Value<string?>(() => __config.Get("cloudProviderType"));
         /// <summary>
-        /// Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
+        /// Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`Aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
         /// </summary>
         public static string? CloudProviderType
         {
@@ -144,7 +144,7 @@ namespace Pulumi.Datadog
 
         private static readonly __Value<string?> _httpClientRetryEnabled = new __Value<string?>(() => __config.Get("httpClientRetryEnabled"));
         /// <summary>
-        /// Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
+        /// Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`True`, `False`]. Defaults to `True`.
         /// </summary>
         public static string? HttpClientRetryEnabled
         {
@@ -184,7 +184,7 @@ namespace Pulumi.Datadog
 
         private static readonly __Value<string?> _validate = new __Value<string?>(() => __config.Get("validate"));
         /// <summary>
-        /// Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, api_key won't be checked.
+        /// Enables validation of the provided API key during provider initialization. Valid values are [`True`, `False`]. Default is true. When false, ApiKey won't be checked.
         /// </summary>
         public static string? Validate
         {

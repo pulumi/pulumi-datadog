@@ -43,7 +43,7 @@ namespace Pulumi.Datadog
     public partial class TeamPermissionSetting : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The identifier for the action. Valid values are `manage_membership`, `edit`.
+        /// The identifier for the action. Valid values are `ManageMembership`, `Edit`.
         /// </summary>
         [Output("action")]
         public Output<string> Action { get; private set; } = null!;
@@ -55,7 +55,7 @@ namespace Pulumi.Datadog
         public Output<string> TeamId { get; private set; } = null!;
 
         /// <summary>
-        /// The action value. Valid values are dependent on the action. `manage_membership` action allows `admins`, `members`, `organization`, `user_access_manage` values. `edit` action allows `admins`, `members`, `teams_manage` values.
+        /// The action value. Valid values are dependent on the action. `ManageMembership` action allows `Admins`, `Members`, `Organization`, `UserAccessManage` values. `Edit` action allows `Admins`, `Members`, `TeamsManage` values.
         /// </summary>
         [Output("value")]
         public Output<string> Value { get; private set; } = null!;
@@ -107,7 +107,7 @@ namespace Pulumi.Datadog
     public sealed class TeamPermissionSettingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The identifier for the action. Valid values are `manage_membership`, `edit`.
+        /// The identifier for the action. Valid values are `ManageMembership`, `Edit`.
         /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
@@ -119,7 +119,7 @@ namespace Pulumi.Datadog
         public Input<string> TeamId { get; set; } = null!;
 
         /// <summary>
-        /// The action value. Valid values are dependent on the action. `manage_membership` action allows `admins`, `members`, `organization`, `user_access_manage` values. `edit` action allows `admins`, `members`, `teams_manage` values.
+        /// The action value. Valid values are dependent on the action. `ManageMembership` action allows `Admins`, `Members`, `Organization`, `UserAccessManage` values. `Edit` action allows `Admins`, `Members`, `TeamsManage` values.
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
@@ -133,7 +133,7 @@ namespace Pulumi.Datadog
     public sealed class TeamPermissionSettingState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The identifier for the action. Valid values are `manage_membership`, `edit`.
+        /// The identifier for the action. Valid values are `ManageMembership`, `Edit`.
         /// </summary>
         [Input("action")]
         public Input<string>? Action { get; set; }
@@ -145,7 +145,7 @@ namespace Pulumi.Datadog
         public Input<string>? TeamId { get; set; }
 
         /// <summary>
-        /// The action value. Valid values are dependent on the action. `manage_membership` action allows `admins`, `members`, `organization`, `user_access_manage` values. `edit` action allows `admins`, `members`, `teams_manage` values.
+        /// The action value. Valid values are dependent on the action. `ManageMembership` action allows `Admins`, `Members`, `Organization`, `UserAccessManage` values. `Edit` action allows `Admins`, `Members`, `TeamsManage` values.
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }

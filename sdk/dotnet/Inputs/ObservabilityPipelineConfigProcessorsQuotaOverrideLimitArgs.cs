@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ObservabilityPipelineConfigProcessorsQuotaOverrideLimitArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to enforce by 'bytes' or 'events'. Valid values are `bytes`, `events`.
+        /// Whether to enforce by 'bytes' or 'events'. Valid values are `Bytes`, `Events`.
         /// </summary>
         [Input("enforce", required: true)]
         public Input<string> Enforce { get; set; } = null!;

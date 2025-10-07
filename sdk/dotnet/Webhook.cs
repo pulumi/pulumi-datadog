@@ -60,7 +60,7 @@ namespace Pulumi.Datadog
         public Output<string?> CustomHeaders { get; private set; } = null!;
 
         /// <summary>
-        /// Encoding type. Valid values are `json`, `form`.
+        /// Encoding type. Valid values are `Json`, `Form`.
         /// </summary>
         [Output("encodeAs")]
         public Output<string> EncodeAs { get; private set; } = null!;
@@ -136,7 +136,7 @@ namespace Pulumi.Datadog
         public Input<string>? CustomHeaders { get; set; }
 
         /// <summary>
-        /// Encoding type. Valid values are `json`, `form`.
+        /// Encoding type. Valid values are `Json`, `Form`.
         /// </summary>
         [Input("encodeAs")]
         public Input<string>? EncodeAs { get; set; }
@@ -174,7 +174,7 @@ namespace Pulumi.Datadog
         public Input<string>? CustomHeaders { get; set; }
 
         /// <summary>
-        /// Encoding type. Valid values are `json`, `form`.
+        /// Encoding type. Valid values are `Json`, `Form`.
         /// </summary>
         [Input("encodeAs")]
         public Input<string>? EncodeAs { get; set; }

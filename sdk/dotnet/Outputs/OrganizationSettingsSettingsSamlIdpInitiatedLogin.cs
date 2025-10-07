@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class OrganizationSettingsSettingsSamlIdpInitiatedLogin
     {
         /// <summary>
-        /// Whether or not a SAML identity provider metadata file was provided to the Datadog organization. Defaults to `false`.
+        /// Whether or not a SAML identity provider metadata file was provided to the Datadog organization. Defaults to `False`.
         /// </summary>
         public readonly bool? Enabled;
 

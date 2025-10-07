@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.DashboardWidgetTimeseriesDefinitionRequestAuditQuery? AuditQuery;
         /// <summary>
-        /// How to display the marker lines. Valid values are `area`, `bars`, `line`, `overlay`.
+        /// How to display the marker lines. Valid values are `Area`, `Bars`, `Line`, `Overlay`.
         /// </summary>
         public readonly string? DisplayType;
         public readonly ImmutableArray<Outputs.DashboardWidgetTimeseriesDefinitionRequestFormula> Formulas;
@@ -31,7 +31,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.DashboardWidgetLogQuery? LogQuery;
         /// <summary>
-        /// Used to define expression aliases. Multiple `metadata` blocks are allowed using the structure below.
+        /// Used to define expression aliases. Multiple `Metadata` blocks are allowed using the structure below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetTimeseriesDefinitionRequestMetadata> Metadatas;
         /// <summary>
@@ -60,7 +60,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.DashboardWidgetSecurityQuery? SecurityQuery;
         /// <summary>
-        /// The style of the widget graph. Exactly one `style` block is allowed using the structure below.
+        /// The style of the widget graph. Exactly one `Style` block is allowed using the structure below.
         /// </summary>
         public readonly Outputs.DashboardWidgetTimeseriesDefinitionRequestStyle? Style;
 

@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class MonitorSchedulingOptionCustomScheduleRecurrenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Must be a valid `rrule`. See API docs for supported fields
+        /// Must be a valid `Rrule`. See API docs for supported fields
         /// </summary>
         [Input("rrule", required: true)]
         public Input<string> Rrule { get; set; } = null!;

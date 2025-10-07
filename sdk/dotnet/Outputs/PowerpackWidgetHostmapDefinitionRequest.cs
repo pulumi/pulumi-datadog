@@ -14,11 +14,11 @@ namespace Pulumi.Datadog.Outputs
     public sealed class PowerpackWidgetHostmapDefinitionRequest
     {
         /// <summary>
-        /// The query used to fill the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+        /// The query used to fill the map. Exactly one nested block is allowed using the structure below (exactly one of `Q`, `ApmQuery`, `LogQuery`, `RumQuery`, `SecurityQuery` or `ProcessQuery` is required within the request block).
         /// </summary>
         public readonly ImmutableArray<Outputs.PowerpackWidgetHostmapDefinitionRequestFill> Fills;
         /// <summary>
-        /// The query used to size the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+        /// The query used to size the map. Exactly one nested block is allowed using the structure below (exactly one of `Q`, `ApmQuery`, `LogQuery`, `RumQuery`, `SecurityQuery` or `ProcessQuery` is required within the request block).
         /// </summary>
         public readonly ImmutableArray<Outputs.PowerpackWidgetHostmapDefinitionRequestSize> Sizes;
 

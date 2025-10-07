@@ -9,6 +9,41 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog On-Call team routing rules resource.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const teamRulesTest = new datadog.OnCallTeamRoutingRules("team_rules_test", {
+ *     teamId: "00000000-aba2-0000-0000-000000000000",
+ *     rules: [
+ *         {
+ *             query: "tags.service:test",
+ *             actions: [{
+ *                 sendSlackMessage: [{
+ *                     workspace: "workspace",
+ *                     channel: "channel",
+ *                 }],
+ *             }],
+ *             timeRestrictions: [{
+ *                 timeZone: "America/New_York",
+ *                 restrictions: [{
+ *                     endDay: "monday",
+ *                     endTime: "17:00:00",
+ *                     startDay: "monday",
+ *                     startTime: "09:00:00",
+ *                 }],
+ *             }],
+ *         },
+ *         {
+ *             escalationPolicy: "00000000-aba2-0000-0000-000000000000",
+ *             urgency: "dynamic",
+ *         },
+ *     ],
+ * });
+ * ```
+ *
  * ## Import
  *
  * The `pulumi import` command can be used, for example:

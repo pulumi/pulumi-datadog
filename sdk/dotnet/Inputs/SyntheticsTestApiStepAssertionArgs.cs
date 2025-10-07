@@ -13,19 +13,19 @@ namespace Pulumi.Datadog.Inputs
     public sealed class SyntheticsTestApiStepAssertionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If assertion type is `javascript`, this is the JavaScript code that performs the assertions.
+        /// If assertion type is `Javascript`, this is the JavaScript code that performs the assertions.
         /// </summary>
         [Input("code")]
         public Input<string>? Code { get; set; }
 
         /// <summary>
-        /// Assertion operator. **Note:** Only some combinations of `type` and `operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test).
+        /// Assertion operator. **Note:** Only some combinations of `Type` and `Operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test).
         /// </summary>
         [Input("operator")]
         public Input<string>? Operator { get; set; }
 
         /// <summary>
-        /// If assertion type is `header`, this is the header name.
+        /// If assertion type is `Header`, this is the header name.
         /// </summary>
         [Input("property")]
         public Input<string>? Property { get; set; }
@@ -37,31 +37,31 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Target { get; set; }
 
         /// <summary>
-        /// Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
+        /// Expected structure if `Operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
         /// </summary>
         [Input("targetjsonpath")]
         public Input<Inputs.SyntheticsTestApiStepAssertionTargetjsonpathArgs>? Targetjsonpath { get; set; }
 
         /// <summary>
-        /// Expected structure if `operator` is `validatesJSONSchema`. Exactly one nested block is allowed with the structure below.
+        /// Expected structure if `Operator` is `validatesJSONSchema`. Exactly one nested block is allowed with the structure below.
         /// </summary>
         [Input("targetjsonschema")]
         public Input<Inputs.SyntheticsTestApiStepAssertionTargetjsonschemaArgs>? Targetjsonschema { get; set; }
 
         /// <summary>
-        /// Expected structure if `operator` is `validatesXPath`. Exactly one nested block is allowed with the structure below.
+        /// Expected structure if `Operator` is `validatesXPath`. Exactly one nested block is allowed with the structure below.
         /// </summary>
         [Input("targetxpath")]
         public Input<Inputs.SyntheticsTestApiStepAssertionTargetxpathArgs>? Targetxpath { get; set; }
 
         /// <summary>
-        /// Timings scope for response time assertions. Valid values are `all`, `withoutDNS`.
+        /// Timings scope for response time assertions. Valid values are `All`, `withoutDNS`.
         /// </summary>
         [Input("timingsScope")]
         public Input<string>? TimingsScope { get; set; }
 
         /// <summary>
-        /// Type of assertion. **Note:** Only some combinations of `type` and `operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
+        /// Type of assertion. **Note:** Only some combinations of `Type` and `Operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). Valid values are `Body`, `Header`, `statusCode`, `Certificate`, `responseTime`, `Property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `Latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `Connection`, `bodyHash`, `Javascript`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

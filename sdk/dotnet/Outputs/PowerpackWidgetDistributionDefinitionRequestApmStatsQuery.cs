@@ -34,7 +34,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Resource;
         /// <summary>
-        /// The level of detail for the request. Valid values are `service`, `resource`, `span`.
+        /// The level of detail for the request. Valid values are `Service`, `Resource`, `Span`.
         /// </summary>
         public readonly string RowType;
         /// <summary>

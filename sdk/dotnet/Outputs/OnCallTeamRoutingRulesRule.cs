@@ -34,7 +34,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.OnCallTeamRoutingRulesRuleTimeRestrictions? TimeRestrictions;
         /// <summary>
-        /// Defines the urgency for pages created via this rule. Only valid if `escalation_policy` is set. Valid values are `high`, `low`, `dynamic`.
+        /// Defines the urgency for pages created via this rule. Only valid if `EscalationPolicy` is set. Valid values are `High`, `Low`, `Dynamic`.
         /// </summary>
         public readonly string? Urgency;
 

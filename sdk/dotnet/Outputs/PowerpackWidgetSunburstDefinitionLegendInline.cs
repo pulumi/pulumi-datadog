@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? HideValue;
         /// <summary>
-        /// The type of legend (inline or automatic). Valid values are `inline`, `automatic`.
+        /// The type of legend (inline or automatic). Valid values are `Inline`, `Automatic`.
         /// </summary>
         public readonly string Type;
 

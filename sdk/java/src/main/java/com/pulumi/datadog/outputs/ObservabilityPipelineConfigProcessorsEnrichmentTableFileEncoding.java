@@ -18,7 +18,7 @@ public final class ObservabilityPipelineConfigProcessorsEnrichmentTableFileEncod
      */
     private @Nullable String delimiter;
     /**
-     * @return The `encoding` `includes_headers`.
+     * @return The `encoding` `includesHeaders`.
      * 
      */
     private @Nullable Boolean includesHeaders;
@@ -37,7 +37,7 @@ public final class ObservabilityPipelineConfigProcessorsEnrichmentTableFileEncod
         return Optional.ofNullable(this.delimiter);
     }
     /**
-     * @return The `encoding` `includes_headers`.
+     * @return The `encoding` `includesHeaders`.
      * 
      */
     public Optional<Boolean> includesHeaders() {

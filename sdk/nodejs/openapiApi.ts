@@ -7,6 +7,19 @@ import * as utilities from "./utilities";
 /**
  * Deprecated: use the `datadog.SoftwareCatalog` resource instead. Provides a Datadog OpenAPI resource. This can be used to synchronize Datadog's [API catalog](https://docs.datadoghq.com/api_catalog/) with an [OpenAPI](https://www.openapis.org/) specifications file.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ * import * as std from "@pulumi/std";
+ *
+ * // Uploads an OpenAPI file from the given local path to Datadog's API catalog
+ * const my_api = new datadog.OpenapiApi("my-api", {spec: std.index.file({
+ *     input: "./path/my-api.yaml",
+ * }).result});
+ * ```
+ *
  * ## Import
  *
  * The `pulumi import` command can be used, for example:

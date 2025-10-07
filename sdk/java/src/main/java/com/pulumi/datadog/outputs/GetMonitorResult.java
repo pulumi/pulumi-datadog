@@ -74,7 +74,7 @@ public final class GetMonitorResult {
      */
     private @Nullable List<String> monitorTagsFilters;
     /**
-     * @return Mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. This is only used by anomaly monitors.
+     * @return Mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m`. This is only used by anomaly monitors.
      * 
      */
     private List<GetMonitorMonitorThresholdWindow> monitorThresholdWindows;
@@ -109,7 +109,7 @@ public final class GetMonitorResult {
      */
     private Integer noDataTimeframe;
     /**
-     * @return Toggles the display of additional content sent in the monitor notification. Valid values are: `show_all`, `hide_query`, `hide_handles`, and `hide_all`.
+     * @return Toggles the display of additional content sent in the monitor notification. Valid values are: `showAll`, `hideQuery`, `hideHandles`, and `hideAll`.
      * 
      */
     private String notificationPresetName;
@@ -119,7 +119,7 @@ public final class GetMonitorResult {
      */
     private Boolean notifyAudit;
     /**
-     * @return Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notify_by` to `[&#39;cluster&#39;]`. Tags mentioned in `notify_by` must be a subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by` to `[*]` configures the monitor to notify as a simple-alert.
+     * @return Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notifyBy` to `[&#39;cluster&#39;]`. Tags mentioned in `notifyBy` must be a subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notifyBy` to `[*]` configures the monitor to notify as a simple-alert.
      * 
      */
     private List<String> notifyBies;
@@ -129,7 +129,7 @@ public final class GetMonitorResult {
      */
     private Boolean notifyNoData;
     /**
-     * @return Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
+     * @return Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are: `showNoData`, `showAndNotifyNoData`, `resolve`, and `default`.
      * 
      */
     private String onMissingData;
@@ -264,7 +264,7 @@ public final class GetMonitorResult {
         return this.monitorTagsFilters == null ? List.of() : this.monitorTagsFilters;
     }
     /**
-     * @return Mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. This is only used by anomaly monitors.
+     * @return Mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m`. This is only used by anomaly monitors.
      * 
      */
     public List<GetMonitorMonitorThresholdWindow> monitorThresholdWindows() {
@@ -313,7 +313,7 @@ public final class GetMonitorResult {
         return this.noDataTimeframe;
     }
     /**
-     * @return Toggles the display of additional content sent in the monitor notification. Valid values are: `show_all`, `hide_query`, `hide_handles`, and `hide_all`.
+     * @return Toggles the display of additional content sent in the monitor notification. Valid values are: `showAll`, `hideQuery`, `hideHandles`, and `hideAll`.
      * 
      */
     public String notificationPresetName() {
@@ -327,7 +327,7 @@ public final class GetMonitorResult {
         return this.notifyAudit;
     }
     /**
-     * @return Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notify_by` to `[&#39;cluster&#39;]`. Tags mentioned in `notify_by` must be a subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by` to `[*]` configures the monitor to notify as a simple-alert.
+     * @return Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notifyBy` to `[&#39;cluster&#39;]`. Tags mentioned in `notifyBy` must be a subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notifyBy` to `[*]` configures the monitor to notify as a simple-alert.
      * 
      */
     public List<String> notifyBies() {
@@ -341,7 +341,7 @@ public final class GetMonitorResult {
         return this.notifyNoData;
     }
     /**
-     * @return Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
+     * @return Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are: `showNoData`, `showAndNotifyNoData`, `resolve`, and `default`.
      * 
      */
     public String onMissingData() {

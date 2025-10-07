@@ -14,38 +14,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AwsCurConfigAccountFilters {
     /**
-     * @return List of AWS account IDs to exclude from cost analysis. Only used when `include_new_accounts` is `true`. Cannot be used together with `included_accounts`.
+     * @return List of AWS account IDs to exclude from cost analysis. Only used when `includeNewAccounts` is `true`. Cannot be used together with `includedAccounts`.
      * 
      */
     private @Nullable List<String> excludedAccounts;
     /**
-     * @return Whether to automatically include new member accounts in your cost analysis. When `true`, use `excluded_accounts` to specify accounts to exclude. When `false`, use `included_accounts` to specify only the accounts to include.
+     * @return Whether to automatically include new member accounts in your cost analysis. When `true`, use `excludedAccounts` to specify accounts to exclude. When `false`, use `includedAccounts` to specify only the accounts to include.
      * 
      */
     private @Nullable Boolean includeNewAccounts;
     /**
-     * @return List of AWS account IDs to include in cost analysis. Only used when `include_new_accounts` is `false`. Cannot be used together with `excluded_accounts`.
+     * @return List of AWS account IDs to include in cost analysis. Only used when `includeNewAccounts` is `false`. Cannot be used together with `excludedAccounts`.
      * 
      */
     private @Nullable List<String> includedAccounts;
 
     private AwsCurConfigAccountFilters() {}
     /**
-     * @return List of AWS account IDs to exclude from cost analysis. Only used when `include_new_accounts` is `true`. Cannot be used together with `included_accounts`.
+     * @return List of AWS account IDs to exclude from cost analysis. Only used when `includeNewAccounts` is `true`. Cannot be used together with `includedAccounts`.
      * 
      */
     public List<String> excludedAccounts() {
         return this.excludedAccounts == null ? List.of() : this.excludedAccounts;
     }
     /**
-     * @return Whether to automatically include new member accounts in your cost analysis. When `true`, use `excluded_accounts` to specify accounts to exclude. When `false`, use `included_accounts` to specify only the accounts to include.
+     * @return Whether to automatically include new member accounts in your cost analysis. When `true`, use `excludedAccounts` to specify accounts to exclude. When `false`, use `includedAccounts` to specify only the accounts to include.
      * 
      */
     public Optional<Boolean> includeNewAccounts() {
         return Optional.ofNullable(this.includeNewAccounts);
     }
     /**
-     * @return List of AWS account IDs to include in cost analysis. Only used when `include_new_accounts` is `false`. Cannot be used together with `excluded_accounts`.
+     * @return List of AWS account IDs to include in cost analysis. Only used when `includeNewAccounts` is `false`. Cannot be used together with `excludedAccounts`.
      * 
      */
     public List<String> includedAccounts() {

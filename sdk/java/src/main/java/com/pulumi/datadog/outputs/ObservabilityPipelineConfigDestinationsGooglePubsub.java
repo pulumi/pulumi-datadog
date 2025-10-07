@@ -21,7 +21,7 @@ public final class ObservabilityPipelineConfigDestinationsGooglePubsub {
      */
     private @Nullable ObservabilityPipelineConfigDestinationsGooglePubsubAuth auth;
     /**
-     * @return Encoding format for log events. Valid values: `json`, `raw_message`.
+     * @return Encoding format for log events. Valid values: `json`, `rawMessage`.
      * 
      */
     private @Nullable String encoding;
@@ -60,7 +60,7 @@ public final class ObservabilityPipelineConfigDestinationsGooglePubsub {
         return Optional.ofNullable(this.auth);
     }
     /**
-     * @return Encoding format for log events. Valid values: `json`, `raw_message`.
+     * @return Encoding format for log events. Valid values: `json`, `rawMessage`.
      * 
      */
     public Optional<String> encoding() {

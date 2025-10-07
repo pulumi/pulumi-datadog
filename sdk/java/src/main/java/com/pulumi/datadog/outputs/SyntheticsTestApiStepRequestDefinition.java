@@ -41,7 +41,7 @@ public final class SyntheticsTestApiStepRequestDefinition {
      */
     private @Nullable String callType;
     /**
-     * @return By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `certificate_domains`.
+     * @return By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `certificateDomains`.
      * 
      */
     private @Nullable List<String> certificateDomains;
@@ -71,7 +71,7 @@ public final class SyntheticsTestApiStepRequestDefinition {
      */
     private @Nullable Boolean followRedirects;
     /**
-     * @return Form data to be sent when `body_type` is `multipart/form-data`.
+     * @return Form data to be sent when `bodyType` is `multipart/form-data`.
      * 
      */
     private @Nullable Map<String,String> form;
@@ -126,13 +126,13 @@ public final class SyntheticsTestApiStepRequestDefinition {
      */
     private @Nullable String port;
     /**
-     * @return A protobuf JSON descriptor. **Deprecated.** Use `plain_proto_file` instead.
+     * @return A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
      * 
      * @deprecated
-     * Use `plain_proto_file` instead.
+     * Use `plainProtoFile` instead.
      * 
      */
-    @Deprecated /* Use `plain_proto_file` instead. */
+    @Deprecated /* Use `plainProtoFile` instead. */
     private @Nullable String protoJsonDescriptor;
     /**
      * @return For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
@@ -197,7 +197,7 @@ public final class SyntheticsTestApiStepRequestDefinition {
         return Optional.ofNullable(this.callType);
     }
     /**
-     * @return By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `certificate_domains`.
+     * @return By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `certificateDomains`.
      * 
      */
     public List<String> certificateDomains() {
@@ -239,7 +239,7 @@ public final class SyntheticsTestApiStepRequestDefinition {
         return Optional.ofNullable(this.followRedirects);
     }
     /**
-     * @return Form data to be sent when `body_type` is `multipart/form-data`.
+     * @return Form data to be sent when `bodyType` is `multipart/form-data`.
      * 
      */
     public Map<String,String> form() {
@@ -316,13 +316,13 @@ public final class SyntheticsTestApiStepRequestDefinition {
         return Optional.ofNullable(this.port);
     }
     /**
-     * @return A protobuf JSON descriptor. **Deprecated.** Use `plain_proto_file` instead.
+     * @return A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
      * 
      * @deprecated
-     * Use `plain_proto_file` instead.
+     * Use `plainProtoFile` instead.
      * 
      */
-    @Deprecated /* Use `plain_proto_file` instead. */
+    @Deprecated /* Use `plainProtoFile` instead. */
     public Optional<String> protoJsonDescriptor() {
         return Optional.ofNullable(this.protoJsonDescriptor);
     }

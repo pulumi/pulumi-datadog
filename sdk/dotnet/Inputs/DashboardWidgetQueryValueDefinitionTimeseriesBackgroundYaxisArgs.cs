@@ -37,7 +37,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Min { get; set; }
 
         /// <summary>
-        /// Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+        /// Specify the scale type, options: `Linear`, `Log`, `Pow`, `Sqrt`.
         /// </summary>
         [Input("scale")]
         public Input<string>? Scale { get; set; }

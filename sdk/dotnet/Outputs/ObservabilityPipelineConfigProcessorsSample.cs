@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigProcessorsSample
     {
         /// <summary>
-        /// The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `input` to downstream components).
+        /// The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `Input` to downstream components).
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Include;
         /// <summary>
-        /// A list of component IDs whose output is used as the `input` for this component.
+        /// A list of component IDs whose output is used as the `Input` for this component.
         /// </summary>
         public readonly ImmutableArray<string> Inputs;
         /// <summary>

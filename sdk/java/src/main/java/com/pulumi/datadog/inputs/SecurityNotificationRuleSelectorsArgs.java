@@ -63,14 +63,14 @@ public final class SecurityNotificationRuleSelectorsArgs extends com.pulumi.reso
     }
 
     /**
-     * The type of security issues the rule applies to. Use `security_signals` for rules based on security signals and `security_findings` for those based on vulnerabilities.
+     * The type of security issues the rule applies to. Use `securitySignals` for rules based on security signals and `securityFindings` for those based on vulnerabilities.
      * 
      */
     @Import(name="triggerSource", required=true)
     private Output<String> triggerSource;
 
     /**
-     * @return The type of security issues the rule applies to. Use `security_signals` for rules based on security signals and `security_findings` for those based on vulnerabilities.
+     * @return The type of security issues the rule applies to. Use `securitySignals` for rules based on security signals and `securityFindings` for those based on vulnerabilities.
      * 
      */
     public Output<String> triggerSource() {
@@ -188,7 +188,7 @@ public final class SecurityNotificationRuleSelectorsArgs extends com.pulumi.reso
         }
 
         /**
-         * @param triggerSource The type of security issues the rule applies to. Use `security_signals` for rules based on security signals and `security_findings` for those based on vulnerabilities.
+         * @param triggerSource The type of security issues the rule applies to. Use `securitySignals` for rules based on security signals and `securityFindings` for those based on vulnerabilities.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class SecurityNotificationRuleSelectorsArgs extends com.pulumi.reso
         }
 
         /**
-         * @param triggerSource The type of security issues the rule applies to. Use `security_signals` for rules based on security signals and `security_findings` for those based on vulnerabilities.
+         * @param triggerSource The type of security issues the rule applies to. Use `securitySignals` for rules based on security signals and `securityFindings` for those based on vulnerabilities.
          * 
          * @return builder
          * 

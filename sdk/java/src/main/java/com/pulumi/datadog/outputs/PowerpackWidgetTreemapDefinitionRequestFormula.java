@@ -28,7 +28,7 @@ public final class PowerpackWidgetTreemapDefinitionRequestFormula {
      */
     private @Nullable String cellDisplayMode;
     /**
-     * @return Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+     * @return Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
      * 
      */
     private @Nullable List<PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormat> conditionalFormats;
@@ -69,7 +69,7 @@ public final class PowerpackWidgetTreemapDefinitionRequestFormula {
         return Optional.ofNullable(this.cellDisplayMode);
     }
     /**
-     * @return Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+     * @return Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
      * 
      */
     public List<PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormat> conditionalFormats() {

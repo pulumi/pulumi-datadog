@@ -122,14 +122,14 @@ public class IntegrationResource extends com.pulumi.resources.CustomResource {
         return this.resourceId;
     }
     /**
-     * The resource type of the Resource. Can be `kafka`, `connector`, `ksql`, or `schema_registry`.
+     * The resource type of the Resource. Can be `kafka`, `connector`, `ksql`, or `schemaRegistry`.
      * 
      */
     @Export(name="resourceType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> resourceType;
 
     /**
-     * @return The resource type of the Resource. Can be `kafka`, `connector`, `ksql`, or `schema_registry`.
+     * @return The resource type of the Resource. Can be `kafka`, `connector`, `ksql`, or `schemaRegistry`.
      * 
      */
     public Output<Optional<String>> resourceType() {

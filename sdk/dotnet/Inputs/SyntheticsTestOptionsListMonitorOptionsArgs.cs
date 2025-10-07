@@ -19,7 +19,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? EscalationMessage { get; set; }
 
         /// <summary>
-        /// The name of the preset for the notification for the monitor. Valid values are `show_all`, `hide_all`, `hide_query`, `hide_handles`.
+        /// The name of the preset for the notification for the monitor. Valid values are `ShowAll`, `HideAll`, `HideQuery`, `HideHandles`.
         /// </summary>
         [Input("notificationPresetName")]
         public Input<string>? NotificationPresetName { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<int>? RenotifyInterval { get; set; }
 
         /// <summary>
-        /// The number of times a monitor renotifies. It can only be set if `renotify_interval` is set.
+        /// The number of times a monitor renotifies. It can only be set if `RenotifyInterval` is set.
         /// </summary>
         [Input("renotifyOccurrences")]
         public Input<int>? RenotifyOccurrences { get; set; }

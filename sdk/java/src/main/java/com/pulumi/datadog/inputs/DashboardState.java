@@ -59,24 +59,24 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether this dashboard is read-only. **Deprecated.** This field is deprecated and non-functional. Use `restricted_roles` instead to define which roles are required to edit the dashboard. Defaults to `false`.
+     * Whether this dashboard is read-only. **Deprecated.** This field is deprecated and non-functional. Use `restrictedRoles` instead to define which roles are required to edit the dashboard. Defaults to `false`.
      * 
      * @deprecated
-     * This field is deprecated and non-functional. Use `restricted_roles` instead to define which roles are required to edit the dashboard.
+     * This field is deprecated and non-functional. Use `restrictedRoles` instead to define which roles are required to edit the dashboard.
      * 
      */
-    @Deprecated /* This field is deprecated and non-functional. Use `restricted_roles` instead to define which roles are required to edit the dashboard. */
+    @Deprecated /* This field is deprecated and non-functional. Use `restrictedRoles` instead to define which roles are required to edit the dashboard. */
     @Import(name="isReadOnly")
     private @Nullable Output<Boolean> isReadOnly;
 
     /**
-     * @return Whether this dashboard is read-only. **Deprecated.** This field is deprecated and non-functional. Use `restricted_roles` instead to define which roles are required to edit the dashboard. Defaults to `false`.
+     * @return Whether this dashboard is read-only. **Deprecated.** This field is deprecated and non-functional. Use `restrictedRoles` instead to define which roles are required to edit the dashboard. Defaults to `false`.
      * 
      * @deprecated
-     * This field is deprecated and non-functional. Use `restricted_roles` instead to define which roles are required to edit the dashboard.
+     * This field is deprecated and non-functional. Use `restrictedRoles` instead to define which roles are required to edit the dashboard.
      * 
      */
-    @Deprecated /* This field is deprecated and non-functional. Use `restricted_roles` instead to define which roles are required to edit the dashboard. */
+    @Deprecated /* This field is deprecated and non-functional. Use `restrictedRoles` instead to define which roles are required to edit the dashboard. */
     public Optional<Output<Boolean>> isReadOnly() {
         return Optional.ofNullable(this.isReadOnly);
     }
@@ -334,30 +334,30 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param isReadOnly Whether this dashboard is read-only. **Deprecated.** This field is deprecated and non-functional. Use `restricted_roles` instead to define which roles are required to edit the dashboard. Defaults to `false`.
+         * @param isReadOnly Whether this dashboard is read-only. **Deprecated.** This field is deprecated and non-functional. Use `restrictedRoles` instead to define which roles are required to edit the dashboard. Defaults to `false`.
          * 
          * @return builder
          * 
          * @deprecated
-         * This field is deprecated and non-functional. Use `restricted_roles` instead to define which roles are required to edit the dashboard.
+         * This field is deprecated and non-functional. Use `restrictedRoles` instead to define which roles are required to edit the dashboard.
          * 
          */
-        @Deprecated /* This field is deprecated and non-functional. Use `restricted_roles` instead to define which roles are required to edit the dashboard. */
+        @Deprecated /* This field is deprecated and non-functional. Use `restrictedRoles` instead to define which roles are required to edit the dashboard. */
         public Builder isReadOnly(@Nullable Output<Boolean> isReadOnly) {
             $.isReadOnly = isReadOnly;
             return this;
         }
 
         /**
-         * @param isReadOnly Whether this dashboard is read-only. **Deprecated.** This field is deprecated and non-functional. Use `restricted_roles` instead to define which roles are required to edit the dashboard. Defaults to `false`.
+         * @param isReadOnly Whether this dashboard is read-only. **Deprecated.** This field is deprecated and non-functional. Use `restrictedRoles` instead to define which roles are required to edit the dashboard. Defaults to `false`.
          * 
          * @return builder
          * 
          * @deprecated
-         * This field is deprecated and non-functional. Use `restricted_roles` instead to define which roles are required to edit the dashboard.
+         * This field is deprecated and non-functional. Use `restrictedRoles` instead to define which roles are required to edit the dashboard.
          * 
          */
-        @Deprecated /* This field is deprecated and non-functional. Use `restricted_roles` instead to define which roles are required to edit the dashboard. */
+        @Deprecated /* This field is deprecated and non-functional. Use `restrictedRoles` instead to define which roles are required to edit the dashboard. */
         public Builder isReadOnly(Boolean isReadOnly) {
             return isReadOnly(Output.of(isReadOnly));
         }

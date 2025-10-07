@@ -14,6 +14,44 @@ import (
 
 // Provides a Datadog MonitorNotificationRule resource.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create new monitor_notification_rule resource
+//			_, err := datadog.NewMonitorNotificationRule(ctx, "foo", &datadog.MonitorNotificationRuleArgs{
+//				Name: pulumi.String("A notification rule name"),
+//				Recipients: pulumi.StringArray{
+//					pulumi.String("slack-test-channel"),
+//					pulumi.String("jira-test"),
+//				},
+//				Filter: datadog.MonitorNotificationRuleFilterArgs{
+//					map[string]interface{}{
+//						"tags": []string{
+//							"env:foo",
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // The `pulumi import` command can be used, for example:

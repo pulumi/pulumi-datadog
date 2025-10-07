@@ -33,14 +33,14 @@ public final class PowerpackWidgetQueryTableDefinitionRequestQueryApmDependencyS
     }
 
     /**
-     * The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
      * 
      */
     @Import(name="dataSource", required=true)
     private Output<String> dataSource;
 
     /**
-     * @return The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * @return The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
      * 
      */
     public Output<String> dataSource() {
@@ -108,14 +108,14 @@ public final class PowerpackWidgetQueryTableDefinitionRequestQueryApmDependencyS
     }
 
     /**
-     * The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
      * 
      */
     @Import(name="primaryTagName")
     private @Nullable Output<String> primaryTagName;
 
     /**
-     * @return The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * @return The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
      * 
      */
     public Optional<Output<String>> primaryTagName() {
@@ -123,14 +123,14 @@ public final class PowerpackWidgetQueryTableDefinitionRequestQueryApmDependencyS
     }
 
     /**
-     * Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
      * 
      */
     @Import(name="primaryTagValue")
     private @Nullable Output<String> primaryTagValue;
 
     /**
-     * @return Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
+     * @return Filter APM data by the second primary tag. `primaryTagName` must also be specified.
      * 
      */
     public Optional<Output<String>> primaryTagValue() {
@@ -168,14 +168,14 @@ public final class PowerpackWidgetQueryTableDefinitionRequestQueryApmDependencyS
     }
 
     /**
-     * APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
      * 
      */
     @Import(name="stat", required=true)
     private Output<String> stat;
 
     /**
-     * @return APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
+     * @return APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
      * 
      */
     public Output<String> stat() {
@@ -238,7 +238,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequestQueryApmDependencyS
         }
 
         /**
-         * @param dataSource The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+         * @param dataSource The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequestQueryApmDependencyS
         }
 
         /**
-         * @param dataSource The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+         * @param dataSource The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
          * 
          * @return builder
          * 
@@ -343,7 +343,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequestQueryApmDependencyS
         }
 
         /**
-         * @param primaryTagName The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+         * @param primaryTagName The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
          * 
          * @return builder
          * 
@@ -354,7 +354,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequestQueryApmDependencyS
         }
 
         /**
-         * @param primaryTagName The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+         * @param primaryTagName The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
          * 
          * @return builder
          * 
@@ -364,7 +364,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequestQueryApmDependencyS
         }
 
         /**
-         * @param primaryTagValue Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
+         * @param primaryTagValue Filter APM data by the second primary tag. `primaryTagName` must also be specified.
          * 
          * @return builder
          * 
@@ -375,7 +375,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequestQueryApmDependencyS
         }
 
         /**
-         * @param primaryTagValue Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
+         * @param primaryTagValue Filter APM data by the second primary tag. `primaryTagName` must also be specified.
          * 
          * @return builder
          * 
@@ -427,7 +427,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequestQueryApmDependencyS
         }
 
         /**
-         * @param stat APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
+         * @param stat APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
          * 
          * @return builder
          * 
@@ -438,7 +438,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequestQueryApmDependencyS
         }
 
         /**
-         * @param stat APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
+         * @param stat APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
          * 
          * @return builder
          * 

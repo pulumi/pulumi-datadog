@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigProcessorsEnrichmentTableFileSchema
     {
         /// <summary>
-        /// The `items` `column`.
+        /// The `Items` `Column`.
         /// </summary>
         public readonly string? Column;
         /// <summary>

@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetScatterplotDefinitionRequestYArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Aggregator used for the request. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+        /// Aggregator used for the request. Valid values are `Avg`, `Last`, `Max`, `Min`, `Sum`, `Percentile`.
         /// </summary>
         [Input("aggregator")]
         public Input<string>? Aggregator { get; set; }

@@ -109,6 +109,40 @@ class OnCallTeamRoutingRules(pulumi.CustomResource):
         """
         Provides a Datadog On-Call team routing rules resource.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        team_rules_test = datadog.OnCallTeamRoutingRules("team_rules_test",
+            team_id="00000000-aba2-0000-0000-000000000000",
+            rules=[
+                {
+                    "query": "tags.service:test",
+                    "actions": [{
+                        "send_slack_message": [{
+                            "workspace": "workspace",
+                            "channel": "channel",
+                        }],
+                    }],
+                    "time_restrictions": [{
+                        "timeZone": "America/New_York",
+                        "restrictions": [{
+                            "endDay": "monday",
+                            "endTime": "17:00:00",
+                            "startDay": "monday",
+                            "startTime": "09:00:00",
+                        }],
+                    }],
+                },
+                {
+                    "escalation_policy": "00000000-aba2-0000-0000-000000000000",
+                    "urgency": "dynamic",
+                },
+            ])
+        ```
+
         ## Import
 
         The `pulumi import` command can be used, for example:
@@ -132,6 +166,40 @@ class OnCallTeamRoutingRules(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog On-Call team routing rules resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        team_rules_test = datadog.OnCallTeamRoutingRules("team_rules_test",
+            team_id="00000000-aba2-0000-0000-000000000000",
+            rules=[
+                {
+                    "query": "tags.service:test",
+                    "actions": [{
+                        "send_slack_message": [{
+                            "workspace": "workspace",
+                            "channel": "channel",
+                        }],
+                    }],
+                    "time_restrictions": [{
+                        "timeZone": "America/New_York",
+                        "restrictions": [{
+                            "endDay": "monday",
+                            "endTime": "17:00:00",
+                            "startDay": "monday",
+                            "startTime": "09:00:00",
+                        }],
+                    }],
+                },
+                {
+                    "escalation_policy": "00000000-aba2-0000-0000-000000000000",
+                    "urgency": "dynamic",
+                },
+            ])
+        ```
 
         ## Import
 

@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class PowerpackWidgetTimeseriesDefinitionMarker
     {
         /// <summary>
-        /// How the marker lines are displayed, options are one of {`error`, `warning`, `info`, `ok`} combined with one of {`dashed`, `solid`, `bold`}. Example: `error dashed`.
+        /// How the marker lines are displayed, options are one of {`Error`, `Warning`, `Info`, `Ok`} combined with one of {`Dashed`, `Solid`, `Bold`}. Example: `error dashed`.
         /// </summary>
         public readonly string? DisplayType;
         /// <summary>

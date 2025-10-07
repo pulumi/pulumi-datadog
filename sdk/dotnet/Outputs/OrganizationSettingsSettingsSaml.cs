@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class OrganizationSettingsSettingsSaml
     {
         /// <summary>
-        /// Whether or not SAML is enabled for this organization. Defaults to `false`.
+        /// Whether or not SAML is enabled for this organization. Defaults to `False`.
         /// </summary>
         public readonly bool? Enabled;
 

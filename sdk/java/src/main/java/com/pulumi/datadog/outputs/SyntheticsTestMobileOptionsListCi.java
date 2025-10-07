@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class SyntheticsTestMobileOptionsListCi {
     /**
-     * @return Execution rule for a Synthetics test. Valid values are `blocking`, `non_blocking`, `skipped`.
+     * @return Execution rule for a Synthetics test. Valid values are `blocking`, `nonBlocking`, `skipped`.
      * 
      */
     private String executionRule;
 
     private SyntheticsTestMobileOptionsListCi() {}
     /**
-     * @return Execution rule for a Synthetics test. Valid values are `blocking`, `non_blocking`, `skipped`.
+     * @return Execution rule for a Synthetics test. Valid values are `blocking`, `nonBlocking`, `skipped`.
      * 
      */
     public String executionRule() {

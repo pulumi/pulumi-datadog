@@ -33,7 +33,7 @@ public final class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQu
      */
     private @Nullable String groupMode;
     /**
-     * @return SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+     * @return SLO measures queries. Valid values are `goodEvents`, `badEvents`, `goodMinutes`, `badMinutes`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
      * 
      */
     private String measure;
@@ -48,7 +48,7 @@ public final class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQu
      */
     private String sloId;
     /**
-     * @return type of the SLO to query. Valid values are `metric`, `monitor`, `time_slice`. Defaults to `&#34;metric&#34;`.
+     * @return type of the SLO to query. Valid values are `metric`, `monitor`, `timeSlice`. Defaults to `&#34;metric&#34;`.
      * 
      */
     private @Nullable String sloQueryType;
@@ -83,7 +83,7 @@ public final class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQu
         return Optional.ofNullable(this.groupMode);
     }
     /**
-     * @return SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+     * @return SLO measures queries. Valid values are `goodEvents`, `badEvents`, `goodMinutes`, `badMinutes`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
      * 
      */
     public String measure() {
@@ -104,7 +104,7 @@ public final class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQu
         return this.sloId;
     }
     /**
-     * @return type of the SLO to query. Valid values are `metric`, `monitor`, `time_slice`. Defaults to `&#34;metric&#34;`.
+     * @return type of the SLO to query. Valid values are `metric`, `monitor`, `timeSlice`. Defaults to `&#34;metric&#34;`.
      * 
      */
     public Optional<String> sloQueryType() {

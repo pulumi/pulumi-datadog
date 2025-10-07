@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetGeomapDefinitionRequestQueryProcessQueryGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        /// The aggregation methods available for metrics queries. Valid values are `Avg`, `Min`, `Max`, `Sum`, `Last`, `Area`, `L2norm`, `Percentile`.
         /// </summary>
         [Input("aggregator")]
         public Input<string>? Aggregator { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? CrossOrgUuids { get; set; }
 
         /// <summary>
-        /// The data source for process queries. Valid values are `process`, `container`.
+        /// The data source for process queries. Valid values are `Process`, `Container`.
         /// </summary>
         [Input("dataSource", required: true)]
         public Input<string> DataSource { get; set; } = null!;
@@ -55,7 +55,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
+        /// The direction of the sort. Valid values are `Asc`, `Desc`. Defaults to `"desc"`.
         /// </summary>
         [Input("sort")]
         public Input<string>? Sort { get; set; }

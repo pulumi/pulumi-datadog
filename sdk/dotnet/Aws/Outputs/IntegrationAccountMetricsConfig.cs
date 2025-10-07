@@ -14,23 +14,23 @@ namespace Pulumi.Datadog.Aws.Outputs
     public sealed class IntegrationAccountMetricsConfig
     {
         /// <summary>
-        /// Enable EC2 automute for AWS metrics Defaults to `true`.
+        /// Enable EC2 automute for AWS metrics Defaults to `True`.
         /// </summary>
         public readonly bool? AutomuteEnabled;
         /// <summary>
-        /// Enable CloudWatch alarms collection Defaults to `false`.
+        /// Enable CloudWatch alarms collection Defaults to `False`.
         /// </summary>
         public readonly bool? CollectCloudwatchAlarms;
         /// <summary>
-        /// Enable custom metrics collection Defaults to `false`.
+        /// Enable custom metrics collection Defaults to `False`.
         /// </summary>
         public readonly bool? CollectCustomMetrics;
         /// <summary>
-        /// Enable AWS metrics collection Defaults to `true`.
+        /// Enable AWS metrics collection Defaults to `True`.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// AWS metrics namespace filters. Defaults to a pre-set `exclude_only` list if block is empty.
+        /// AWS metrics namespace filters. Defaults to a pre-set `ExcludeOnly` list if block is empty.
         /// </summary>
         public readonly Outputs.IntegrationAccountMetricsConfigNamespaceFilters? NamespaceFilters;
         /// <summary>

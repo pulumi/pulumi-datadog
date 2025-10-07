@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// Severity of the default rule case, when none of the third-party cases match. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+        /// Severity of the default rule case, when none of the third-party cases match. Valid values are `Info`, `Low`, `Medium`, `High`, `Critical`.
         /// </summary>
         [Input("defaultStatus", required: true)]
         public Input<string> DefaultStatus { get; set; } = null!;

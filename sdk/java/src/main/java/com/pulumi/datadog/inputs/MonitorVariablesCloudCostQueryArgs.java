@@ -32,14 +32,14 @@ public final class MonitorVariablesCloudCostQueryArgs extends com.pulumi.resourc
     }
 
     /**
-     * The data source for cloud cost queries. Valid values are `metrics`, `cloud_cost`, `datadog_usage`.
+     * The data source for cloud cost queries. Valid values are `metrics`, `cloudCost`, `datadogUsage`.
      * 
      */
     @Import(name="dataSource", required=true)
     private Output<String> dataSource;
 
     /**
-     * @return The data source for cloud cost queries. Valid values are `metrics`, `cloud_cost`, `datadog_usage`.
+     * @return The data source for cloud cost queries. Valid values are `metrics`, `cloudCost`, `datadogUsage`.
      * 
      */
     public Output<String> dataSource() {
@@ -125,7 +125,7 @@ public final class MonitorVariablesCloudCostQueryArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param dataSource The data source for cloud cost queries. Valid values are `metrics`, `cloud_cost`, `datadog_usage`.
+         * @param dataSource The data source for cloud cost queries. Valid values are `metrics`, `cloudCost`, `datadogUsage`.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class MonitorVariablesCloudCostQueryArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param dataSource The data source for cloud cost queries. Valid values are `metrics`, `cloud_cost`, `datadog_usage`.
+         * @param dataSource The data source for cloud cost queries. Valid values are `metrics`, `cloudCost`, `datadogUsage`.
          * 
          * @return builder
          * 

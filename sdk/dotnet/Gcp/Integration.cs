@@ -26,7 +26,7 @@ namespace Pulumi.Datadog.Gcp
     public partial class Integration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Silence monitors for expected GCE instance shutdowns. Defaults to `false`.
+        /// Silence monitors for expected GCE instance shutdowns. Defaults to `False`.
         /// </summary>
         [Output("automute")]
         public Output<bool> Automute { get; private set; } = null!;
@@ -50,7 +50,7 @@ namespace Pulumi.Datadog.Gcp
         public Output<ImmutableArray<string>> CloudRunRevisionFilters { get; private set; } = null!;
 
         /// <summary>
-        /// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled. Defaults to `false`.
+        /// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `ResourceCollectionEnabled` to also be enabled. Defaults to `False`.
         /// </summary>
         [Output("cspmResourceCollectionEnabled")]
         public Output<bool> CspmResourceCollectionEnabled { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.Datadog.Gcp
         public Output<bool> IsResourceChangeCollectionEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+        /// When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `False`.
         /// </summary>
         [Output("isSecurityCommandCenterEnabled")]
         public Output<bool> IsSecurityCommandCenterEnabled { get; private set; } = null!;
@@ -154,7 +154,7 @@ namespace Pulumi.Datadog.Gcp
     public sealed class IntegrationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Silence monitors for expected GCE instance shutdowns. Defaults to `false`.
+        /// Silence monitors for expected GCE instance shutdowns. Defaults to `False`.
         /// </summary>
         [Input("automute")]
         public Input<bool>? Automute { get; set; }
@@ -177,7 +177,7 @@ namespace Pulumi.Datadog.Gcp
         /// <summary>
         /// List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
         /// </summary>
-        [Obsolete(@"**Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision`")]
+        [Obsolete(@"**Note:** This field is deprecated. Instead, use `MonitoredResourceConfigs` with `type=cloud_run_revision`")]
         public InputList<string> CloudRunRevisionFilters
         {
             get => _cloudRunRevisionFilters ?? (_cloudRunRevisionFilters = new InputList<string>());
@@ -185,7 +185,7 @@ namespace Pulumi.Datadog.Gcp
         }
 
         /// <summary>
-        /// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled. Defaults to `false`.
+        /// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `ResourceCollectionEnabled` to also be enabled. Defaults to `False`.
         /// </summary>
         [Input("cspmResourceCollectionEnabled")]
         public Input<bool>? CspmResourceCollectionEnabled { get; set; }
@@ -203,7 +203,7 @@ namespace Pulumi.Datadog.Gcp
         public Input<bool>? IsResourceChangeCollectionEnabled { get; set; }
 
         /// <summary>
-        /// When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+        /// When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `False`.
         /// </summary>
         [Input("isSecurityCommandCenterEnabled")]
         public Input<bool>? IsSecurityCommandCenterEnabled { get; set; }
@@ -263,7 +263,7 @@ namespace Pulumi.Datadog.Gcp
     public sealed class IntegrationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Silence monitors for expected GCE instance shutdowns. Defaults to `false`.
+        /// Silence monitors for expected GCE instance shutdowns. Defaults to `False`.
         /// </summary>
         [Input("automute")]
         public Input<bool>? Automute { get; set; }
@@ -286,7 +286,7 @@ namespace Pulumi.Datadog.Gcp
         /// <summary>
         /// List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
         /// </summary>
-        [Obsolete(@"**Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision`")]
+        [Obsolete(@"**Note:** This field is deprecated. Instead, use `MonitoredResourceConfigs` with `type=cloud_run_revision`")]
         public InputList<string> CloudRunRevisionFilters
         {
             get => _cloudRunRevisionFilters ?? (_cloudRunRevisionFilters = new InputList<string>());
@@ -294,7 +294,7 @@ namespace Pulumi.Datadog.Gcp
         }
 
         /// <summary>
-        /// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled. Defaults to `false`.
+        /// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `ResourceCollectionEnabled` to also be enabled. Defaults to `False`.
         /// </summary>
         [Input("cspmResourceCollectionEnabled")]
         public Input<bool>? CspmResourceCollectionEnabled { get; set; }
@@ -312,7 +312,7 @@ namespace Pulumi.Datadog.Gcp
         public Input<bool>? IsResourceChangeCollectionEnabled { get; set; }
 
         /// <summary>
-        /// When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+        /// When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `False`.
         /// </summary>
         [Input("isSecurityCommandCenterEnabled")]
         public Input<bool>? IsSecurityCommandCenterEnabled { get; set; }

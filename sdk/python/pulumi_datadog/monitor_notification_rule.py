@@ -133,6 +133,24 @@ class MonitorNotificationRule(pulumi.CustomResource):
         """
         Provides a Datadog MonitorNotificationRule resource.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create new monitor_notification_rule resource
+        foo = datadog.MonitorNotificationRule("foo",
+            name="A notification rule name",
+            recipients=[
+                "slack-test-channel",
+                "jira-test",
+            ],
+            filter=[{
+                "tags": ["env:foo"],
+            }])
+        ```
+
         ## Import
 
         The `pulumi import` command can be used, for example:
@@ -154,6 +172,24 @@ class MonitorNotificationRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog MonitorNotificationRule resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create new monitor_notification_rule resource
+        foo = datadog.MonitorNotificationRule("foo",
+            name="A notification rule name",
+            recipients=[
+                "slack-test-channel",
+                "jira-test",
+            ],
+            filter=[{
+                "tags": ["env:foo"],
+            }])
+        ```
 
         ## Import
 

@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ObservabilityPipelineConfigProcessorsSampleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `input` to downstream components).
+        /// The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `Input` to downstream components).
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -28,7 +28,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<string>? _inputs;
 
         /// <summary>
-        /// A list of component IDs whose output is used as the `input` for this component.
+        /// A list of component IDs whose output is used as the `Input` for this component.
         /// </summary>
         public InputList<string> Inputs
         {

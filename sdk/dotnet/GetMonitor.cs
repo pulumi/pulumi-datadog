@@ -222,7 +222,7 @@ namespace Pulumi.Datadog
         /// </summary>
         public readonly ImmutableArray<string> MonitorTagsFilters;
         /// <summary>
-        /// Mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. This is only used by anomaly monitors.
+        /// Mapping containing `RecoveryWindow` and `TriggerWindow` values, e.g. `Last15m`. This is only used by anomaly monitors.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetMonitorMonitorThresholdWindowResult> MonitorThresholdWindows;
         /// <summary>
@@ -250,7 +250,7 @@ namespace Pulumi.Datadog
         /// </summary>
         public readonly int NoDataTimeframe;
         /// <summary>
-        /// Toggles the display of additional content sent in the monitor notification. Valid values are: `show_all`, `hide_query`, `hide_handles`, and `hide_all`.
+        /// Toggles the display of additional content sent in the monitor notification. Valid values are: `ShowAll`, `HideQuery`, `HideHandles`, and `HideAll`.
         /// </summary>
         public readonly string NotificationPresetName;
         /// <summary>
@@ -258,7 +258,7 @@ namespace Pulumi.Datadog
         /// </summary>
         public readonly bool NotifyAudit;
         /// <summary>
-        /// Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by` to `[*]` configures the monitor to notify as a simple-alert.
+        /// Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `Cluster`, `Namespace`, and `Pod` can be configured to only notify on each new `Cluster` violating the alert conditions by setting `NotifyBy` to `['cluster']`. Tags mentioned in `NotifyBy` must be a subset of the grouping tags in the query. For example, a query grouped by `Cluster` and `Namespace` cannot notify on `Region`. Setting `NotifyBy` to `[*]` configures the monitor to notify as a simple-alert.
         /// </summary>
         public readonly ImmutableArray<string> NotifyBies;
         /// <summary>
@@ -266,7 +266,7 @@ namespace Pulumi.Datadog
         /// </summary>
         public readonly bool NotifyNoData;
         /// <summary>
-        /// Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
+        /// Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are: `ShowNoData`, `ShowAndNotifyNoData`, `Resolve`, and `Default`.
         /// </summary>
         public readonly string OnMissingData;
         /// <summary>
@@ -282,7 +282,7 @@ namespace Pulumi.Datadog
         /// </summary>
         public readonly int RenotifyOccurrences;
         /// <summary>
-        /// The types of statuses for which re-notification messages should be sent. Valid values are `alert`, `warn`, `no data`.
+        /// The types of statuses for which re-notification messages should be sent. Valid values are `Alert`, `Warn`, `no data`.
         /// </summary>
         public readonly ImmutableArray<string> RenotifyStatuses;
         /// <summary>

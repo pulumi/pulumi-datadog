@@ -14,6 +14,136 @@ namespace Pulumi.Datadog
     /// 
     /// Datadog recommends using the `-parallelism=1` option to apply this resource.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Datadog.ObservabilityPipeline("test", new()
+    ///     {
+    ///         Name = "test pipeline",
+    ///         Config = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "sources", new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "kafkas", new[]
+    ///                         {
+    ///                             
+    ///                             {
+    ///                                 { "id", "source-1" },
+    ///                                 { "groupId", "my-consumer-group" },
+    ///                                 { "topics", new[]
+    ///                                 {
+    ///                                     "my-topic-1",
+    ///                                     "my-topic-2",
+    ///                                 } },
+    ///                                 { "tls", new[]
+    ///                                 {
+    ///                                     
+    ///                                     {
+    ///                                         { "crtFile", "/etc/certs/client.crt" },
+    ///                                         { "keyFile", "/etc/certs/client.key" },
+    ///                                         { "caFile", "/etc/certs/ca.crt" },
+    ///                                     },
+    ///                                 } },
+    ///                                 { "sasl", new[]
+    ///                                 {
+    ///                                     
+    ///                                     {
+    ///                                         { "mechanism", "SCRAM-SHA-512" },
+    ///                                     },
+    ///                                 } },
+    ///                                 { "librdkafkaOptions", new[]
+    ///                                 {
+    ///                                     
+    ///                                     {
+    ///                                         { "name", "fetch.message.max.bytes" },
+    ///                                         { "value", "1048576" },
+    ///                                     },
+    ///                                     
+    ///                                     {
+    ///                                         { "name", "socket.timeout.ms" },
+    ///                                         { "value", "500" },
+    ///                                     },
+    ///                                 } },
+    ///                             },
+    ///                         } },
+    ///                     },
+    ///                 } },
+    ///                 { "processors", new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "parseJsons", new[]
+    ///                         {
+    ///                             
+    ///                             {
+    ///                                 { "id", "filter-1" },
+    ///                                 { "include", "service:nginx" },
+    ///                                 { "field", "message2" },
+    ///                                 { "inputs", new[]
+    ///                                 {
+    ///                                     "source-1",
+    ///                                 } },
+    ///                             },
+    ///                             
+    ///                             {
+    ///                                 { "id", "filter-3" },
+    ///                                 { "include", "service:nginx" },
+    ///                                 { "field", "message" },
+    ///                                 { "inputs", new[]
+    ///                                 {
+    ///                                     "filter-2",
+    ///                                 } },
+    ///                             },
+    ///                         } },
+    ///                         { "filters", new[]
+    ///                         {
+    ///                             
+    ///                             {
+    ///                                 { "id", "filter-2" },
+    ///                                 { "include", "service:nginx" },
+    ///                                 { "inputs", new[]
+    ///                                 {
+    ///                                     "filter-1",
+    ///                                 } },
+    ///                             },
+    ///                         } },
+    ///                     },
+    ///                 } },
+    ///                 { "destinations", new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "datadogLogs", new[]
+    ///                         {
+    ///                             
+    ///                             {
+    ///                                 { "id", "sink-1" },
+    ///                                 { "inputs", new[]
+    ///                                 {
+    ///                                     "filter-3",
+    ///                                 } },
+    ///                             },
+    ///                         } },
+    ///                     },
+    ///                 } },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// The `pulumi import` command can be used, for example:

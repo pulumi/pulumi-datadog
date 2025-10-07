@@ -9,6 +9,34 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog RumMetric resource. This can be used to create and manage Datadog rum_metric.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * // Create new rum_metric resource
+ * const testingRumMetric = new datadog.RumMetric("testing_rum_metric", {
+ *     name: "testing.rum.metric",
+ *     compute: [{
+ *         aggregationType: "distribution",
+ *         includePercentiles: true,
+ *         path: "@duration",
+ *     }],
+ *     eventType: "session",
+ *     filter: [{
+ *         query: "@service:web-ui",
+ *     }],
+ *     groupBies: [{
+ *         path: "@browser.name",
+ *         tagName: "browser_name",
+ *     }],
+ *     uniqueness: [{
+ *         when: "match",
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * The `pulumi import` command can be used, for example:

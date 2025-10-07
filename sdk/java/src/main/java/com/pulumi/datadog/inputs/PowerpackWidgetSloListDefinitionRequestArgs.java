@@ -31,14 +31,14 @@ public final class PowerpackWidgetSloListDefinitionRequestArgs extends com.pulum
     }
 
     /**
-     * The request type for the SLO List request. Valid values are `slo_list`.
+     * The request type for the SLO List request. Valid values are `sloList`.
      * 
      */
     @Import(name="requestType", required=true)
     private Output<String> requestType;
 
     /**
-     * @return The request type for the SLO List request. Valid values are `slo_list`.
+     * @return The request type for the SLO List request. Valid values are `sloList`.
      * 
      */
     public Output<String> requestType() {
@@ -92,7 +92,7 @@ public final class PowerpackWidgetSloListDefinitionRequestArgs extends com.pulum
         }
 
         /**
-         * @param requestType The request type for the SLO List request. Valid values are `slo_list`.
+         * @param requestType The request type for the SLO List request. Valid values are `sloList`.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class PowerpackWidgetSloListDefinitionRequestArgs extends com.pulum
         }
 
         /**
-         * @param requestType The request type for the SLO List request. Valid values are `slo_list`.
+         * @param requestType The request type for the SLO List request. Valid values are `sloList`.
          * 
          * @return builder
          * 

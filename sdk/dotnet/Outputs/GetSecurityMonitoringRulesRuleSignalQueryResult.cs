@@ -30,7 +30,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? DefaultRuleId;
         /// <summary>
-        /// Name of the query. Not compatible with `new_value` aggregations.
+        /// Name of the query. Not compatible with `NewValue` aggregations.
         /// </summary>
         public readonly string? Name;
         /// <summary>

@@ -11,6 +11,74 @@ import * as utilities from "./utilities";
  *
  * Datadog recommends using the `-parallelism=1` option to apply this resource.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const test = new datadog.ObservabilityPipeline("test", {
+ *     name: "test pipeline",
+ *     config: [{
+ *         sources: [{
+ *             kafkas: [{
+ *                 id: "source-1",
+ *                 groupId: "my-consumer-group",
+ *                 topics: [
+ *                     "my-topic-1",
+ *                     "my-topic-2",
+ *                 ],
+ *                 tls: [{
+ *                     crtFile: "/etc/certs/client.crt",
+ *                     keyFile: "/etc/certs/client.key",
+ *                     caFile: "/etc/certs/ca.crt",
+ *                 }],
+ *                 sasl: [{
+ *                     mechanism: "SCRAM-SHA-512",
+ *                 }],
+ *                 librdkafkaOptions: [
+ *                     {
+ *                         name: "fetch.message.max.bytes",
+ *                         value: "1048576",
+ *                     },
+ *                     {
+ *                         name: "socket.timeout.ms",
+ *                         value: "500",
+ *                     },
+ *                 ],
+ *             }],
+ *         }],
+ *         processors: [{
+ *             parseJsons: [
+ *                 {
+ *                     id: "filter-1",
+ *                     include: "service:nginx",
+ *                     field: "message2",
+ *                     inputs: ["source-1"],
+ *                 },
+ *                 {
+ *                     id: "filter-3",
+ *                     include: "service:nginx",
+ *                     field: "message",
+ *                     inputs: ["filter-2"],
+ *                 },
+ *             ],
+ *             filters: [{
+ *                 id: "filter-2",
+ *                 include: "service:nginx",
+ *                 inputs: ["filter-1"],
+ *             }],
+ *         }],
+ *         destinations: [{
+ *             datadogLogs: [{
+ *                 id: "sink-1",
+ *                 inputs: ["filter-3"],
+ *             }],
+ *         }],
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * The `pulumi import` command can be used, for example:

@@ -12,6 +12,40 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog MonitorNotificationRule resource.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Create new monitor_notification_rule resource
+    ///     var foo = new Datadog.MonitorNotificationRule("foo", new()
+    ///     {
+    ///         Name = "A notification rule name",
+    ///         Recipients = new[]
+    ///         {
+    ///             "slack-test-channel",
+    ///             "jira-test",
+    ///         },
+    ///         Filter = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "tags", new[]
+    ///                 {
+    ///                     "env:foo",
+    ///                 } },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// The `pulumi import` command can be used, for example:

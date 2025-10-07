@@ -26,11 +26,11 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<string> GroupBies;
         /// <summary>
-        /// The kind of grouping to use. Valid values are `check`, `cluster`.
+        /// The kind of grouping to use. Valid values are `Check`, `Cluster`.
         /// </summary>
         public readonly string Grouping;
         /// <summary>
-        /// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
+        /// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `WeekToDate`, `MonthToDate`, `1y`, `Alert`.
         /// </summary>
         public readonly string? LiveSpan;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Title;
         /// <summary>
-        /// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+        /// The alignment of the widget's title. Valid values are `Center`, `Left`, `Right`.
         /// </summary>
         public readonly string? TitleAlign;
         /// <summary>

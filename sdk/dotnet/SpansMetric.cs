@@ -12,6 +12,49 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog SpansMetric resource. This can be used to create and manage Datadog spans_metric.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Create new spans_metric resource
+    ///     var testingSpansMetric = new Datadog.SpansMetric("testing_spans_metric", new()
+    ///     {
+    ///         Name = "testing.span.metric",
+    ///         Compute = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "aggregationType", "distribution" },
+    ///                 { "includePercentiles", false },
+    ///                 { "path", "@duration" },
+    ///             },
+    ///         },
+    ///         Filter = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "query", "@http.status_code:200 service:my-service" },
+    ///             },
+    ///         },
+    ///         GroupBies = new[]
+    ///         {
+    ///             new Datadog.Inputs.SpansMetricGroupByArgs
+    ///             {
+    ///                 Path = "resource_name",
+    ///                 TagName = "resource_name",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// The `pulumi import` command can be used, for example:

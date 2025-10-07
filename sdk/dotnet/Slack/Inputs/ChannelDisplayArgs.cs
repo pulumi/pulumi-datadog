@@ -13,31 +13,31 @@ namespace Pulumi.Datadog.Slack.Inputs
     public sealed class ChannelDisplayArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Show the main body of the alert event. Defaults to `true`.
+        /// Show the main body of the alert event. Defaults to `True`.
         /// </summary>
         [Input("message")]
         public Input<bool>? Message { get; set; }
 
         /// <summary>
-        /// Show interactive buttons to mute the alerting monitor. Defaults to `true`.
+        /// Show interactive buttons to mute the alerting monitor. Defaults to `True`.
         /// </summary>
         [Input("muteButtons")]
         public Input<bool>? MuteButtons { get; set; }
 
         /// <summary>
-        /// Show the list of @-handles in the alert event. Defaults to `true`.
+        /// Show the list of @-handles in the alert event. Defaults to `True`.
         /// </summary>
         [Input("notified")]
         public Input<bool>? Notified { get; set; }
 
         /// <summary>
-        /// Show the alert event's snapshot image. Defaults to `true`.
+        /// Show the alert event's snapshot image. Defaults to `True`.
         /// </summary>
         [Input("snapshot")]
         public Input<bool>? Snapshot { get; set; }
 
         /// <summary>
-        /// Show the scopes on which the monitor alerted. Defaults to `true`.
+        /// Show the scopes on which the monitor alerted. Defaults to `True`.
         /// </summary>
         [Input("tags")]
         public Input<bool>? Tags { get; set; }

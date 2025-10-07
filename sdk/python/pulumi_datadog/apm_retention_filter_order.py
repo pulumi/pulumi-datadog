@@ -74,6 +74,25 @@ class ApmRetentionFilterOrder(pulumi.CustomResource):
         """
         Provides a Datadog [APM Retention Filters API](https://docs.datadoghq.com/api/v2/apm-retention-filters/) resource, which is used to manage Datadog APM retention filters order.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create APM retention filter
+        foo = datadog.ApmRetentionFilter("foo",
+            name="Sample order",
+            rate="1.0",
+            filter=[{
+                "query": "*",
+            }],
+            filter_type="spans-sampling-processor",
+            enabled=False)
+        # Create APM retention filter order
+        bar = datadog.ApmRetentionFilterOrder("bar", filter_ids=[foo.id])
+        ```
+
         ## Import
 
         The `pulumi import` command can be used, for example:
@@ -98,6 +117,25 @@ class ApmRetentionFilterOrder(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog [APM Retention Filters API](https://docs.datadoghq.com/api/v2/apm-retention-filters/) resource, which is used to manage Datadog APM retention filters order.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create APM retention filter
+        foo = datadog.ApmRetentionFilter("foo",
+            name="Sample order",
+            rate="1.0",
+            filter=[{
+                "query": "*",
+            }],
+            filter_type="spans-sampling-processor",
+            enabled=False)
+        # Create APM retention filter order
+        bar = datadog.ApmRetentionFilterOrder("bar", filter_ids=[foo.id])
+        ```
 
         ## Import
 

@@ -9,6 +9,43 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog Security Monitoring Notification Rule API resource for creating and managing Datadog security notification rules.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const signalRule = new datadog.SecurityNotificationRule("signal_rule", {
+ *     name: "My signal notification rule",
+ *     selectors: [{
+ *         triggerSource: "security_signals",
+ *         ruleTypes: ["workload_security"],
+ *         query: "env:prod",
+ *     }],
+ *     enabled: false,
+ *     targets: [
+ *         "@bob@email.com",
+ *         "@alice@email.com",
+ *     ],
+ * });
+ * const vulnerabilityRule = new datadog.SecurityNotificationRule("vulnerability_rule", {
+ *     name: "My vulnerability notification rule",
+ *     selectors: [{
+ *         triggerSource: "security_findings",
+ *         ruleTypes: [
+ *             "application_library_vulnerability",
+ *             "identity_risk",
+ *         ],
+ *         severities: [
+ *             "critical",
+ *             "high",
+ *         ],
+ *     }],
+ *     timeAggregation: 36000,
+ *     targets: ["@john@email.com"],
+ * });
+ * ```
+ *
  * ## Import
  *
  * The `pulumi import` command can be used, for example:

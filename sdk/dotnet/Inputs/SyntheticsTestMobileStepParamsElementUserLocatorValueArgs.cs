@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class SyntheticsTestMobileStepParamsElementUserLocatorValueArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Valid values are `accessibility-id`, `id`, `ios-predicate-string`, `ios-class-chain`, `xpath`.
+        /// Valid values are `accessibility-id`, `Id`, `ios-predicate-string`, `ios-class-chain`, `Xpath`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

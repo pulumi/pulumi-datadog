@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Path;
         /// <summary>
-        /// Name of the tag that gets created. By default, `path` is used as the tag name.
+        /// Name of the tag that gets created. By default, `Path` is used as the tag name.
         /// </summary>
         public readonly string? TagName;
 

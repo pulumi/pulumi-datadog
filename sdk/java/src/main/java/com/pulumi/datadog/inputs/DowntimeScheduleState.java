@@ -73,14 +73,14 @@ public final class DowntimeScheduleState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * States that will trigger a monitor notification when the `notify_end_types` action occurs.
+     * States that will trigger a monitor notification when the `notifyEndTypes` action occurs.
      * 
      */
     @Import(name="notifyEndStates")
     private @Nullable Output<List<String>> notifyEndStates;
 
     /**
-     * @return States that will trigger a monitor notification when the `notify_end_types` action occurs.
+     * @return States that will trigger a monitor notification when the `notifyEndTypes` action occurs.
      * 
      */
     public Optional<Output<List<String>>> notifyEndStates() {
@@ -88,14 +88,14 @@ public final class DowntimeScheduleState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Actions that will trigger a monitor notification if the downtime is in the `notify_end_types` state.
+     * Actions that will trigger a monitor notification if the downtime is in the `notifyEndTypes` state.
      * 
      */
     @Import(name="notifyEndTypes")
     private @Nullable Output<List<String>> notifyEndTypes;
 
     /**
-     * @return Actions that will trigger a monitor notification if the downtime is in the `notify_end_types` state.
+     * @return Actions that will trigger a monitor notification if the downtime is in the `notifyEndTypes` state.
      * 
      */
     public Optional<Output<List<String>>> notifyEndTypes() {
@@ -236,7 +236,7 @@ public final class DowntimeScheduleState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param notifyEndStates States that will trigger a monitor notification when the `notify_end_types` action occurs.
+         * @param notifyEndStates States that will trigger a monitor notification when the `notifyEndTypes` action occurs.
          * 
          * @return builder
          * 
@@ -247,7 +247,7 @@ public final class DowntimeScheduleState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param notifyEndStates States that will trigger a monitor notification when the `notify_end_types` action occurs.
+         * @param notifyEndStates States that will trigger a monitor notification when the `notifyEndTypes` action occurs.
          * 
          * @return builder
          * 
@@ -257,7 +257,7 @@ public final class DowntimeScheduleState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param notifyEndStates States that will trigger a monitor notification when the `notify_end_types` action occurs.
+         * @param notifyEndStates States that will trigger a monitor notification when the `notifyEndTypes` action occurs.
          * 
          * @return builder
          * 
@@ -267,7 +267,7 @@ public final class DowntimeScheduleState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param notifyEndTypes Actions that will trigger a monitor notification if the downtime is in the `notify_end_types` state.
+         * @param notifyEndTypes Actions that will trigger a monitor notification if the downtime is in the `notifyEndTypes` state.
          * 
          * @return builder
          * 
@@ -278,7 +278,7 @@ public final class DowntimeScheduleState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param notifyEndTypes Actions that will trigger a monitor notification if the downtime is in the `notify_end_types` state.
+         * @param notifyEndTypes Actions that will trigger a monitor notification if the downtime is in the `notifyEndTypes` state.
          * 
          * @return builder
          * 
@@ -288,7 +288,7 @@ public final class DowntimeScheduleState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param notifyEndTypes Actions that will trigger a monitor notification if the downtime is in the `notify_end_types` state.
+         * @param notifyEndTypes Actions that will trigger a monitor notification if the downtime is in the `notifyEndTypes` state.
          * 
          * @return builder
          * 

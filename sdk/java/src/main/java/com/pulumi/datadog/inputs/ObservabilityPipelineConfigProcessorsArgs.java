@@ -34,14 +34,14 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
     public static final ObservabilityPipelineConfigProcessorsArgs Empty = new ObservabilityPipelineConfigProcessorsArgs();
 
     /**
-     * The `add_env_vars` processor adds environment variable values to log events.
+     * The `addEnvVars` processor adds environment variable values to log events.
      * 
      */
     @Import(name="addEnvVars")
     private @Nullable Output<List<ObservabilityPipelineConfigProcessorsAddEnvVarArgs>> addEnvVars;
 
     /**
-     * @return The `add_env_vars` processor adds environment variable values to log events.
+     * @return The `addEnvVars` processor adds environment variable values to log events.
      * 
      */
     public Optional<Output<List<ObservabilityPipelineConfigProcessorsAddEnvVarArgs>>> addEnvVars() {
@@ -49,14 +49,14 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
     }
 
     /**
-     * The `add_fields` processor adds static key-value fields to logs.
+     * The `addFields` processor adds static key-value fields to logs.
      * 
      */
     @Import(name="addFields")
     private @Nullable Output<List<ObservabilityPipelineConfigProcessorsAddFieldArgs>> addFields;
 
     /**
-     * @return The `add_fields` processor adds static key-value fields to logs.
+     * @return The `addFields` processor adds static key-value fields to logs.
      * 
      */
     public Optional<Output<List<ObservabilityPipelineConfigProcessorsAddFieldArgs>>> addFields() {
@@ -64,14 +64,14 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
     }
 
     /**
-     * The `custom_processor` processor transforms events using Vector Remap Language (VRL) scripts with advanced filtering capabilities.
+     * The `customProcessor` processor transforms events using Vector Remap Language (VRL) scripts with advanced filtering capabilities.
      * 
      */
     @Import(name="customProcessors")
     private @Nullable Output<List<ObservabilityPipelineConfigProcessorsCustomProcessorArgs>> customProcessors;
 
     /**
-     * @return The `custom_processor` processor transforms events using Vector Remap Language (VRL) scripts with advanced filtering capabilities.
+     * @return The `customProcessor` processor transforms events using Vector Remap Language (VRL) scripts with advanced filtering capabilities.
      * 
      */
     public Optional<Output<List<ObservabilityPipelineConfigProcessorsCustomProcessorArgs>>> customProcessors() {
@@ -101,14 +101,14 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
     }
 
     /**
-     * The `enrichment_table` processor enriches logs using a static CSV file or GeoIP database.
+     * The `enrichmentTable` processor enriches logs using a static CSV file or GeoIP database.
      * 
      */
     @Import(name="enrichmentTables")
     private @Nullable Output<List<ObservabilityPipelineConfigProcessorsEnrichmentTableArgs>> enrichmentTables;
 
     /**
-     * @return The `enrichment_table` processor enriches logs using a static CSV file or GeoIP database.
+     * @return The `enrichmentTable` processor enriches logs using a static CSV file or GeoIP database.
      * 
      */
     public Optional<Output<List<ObservabilityPipelineConfigProcessorsEnrichmentTableArgs>>> enrichmentTables() {
@@ -131,14 +131,14 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
     }
 
     /**
-     * The `generate_datadog_metrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields.
+     * The `generateDatadogMetrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields.
      * 
      */
     @Import(name="generateDatadogMetrics")
     private @Nullable Output<List<ObservabilityPipelineConfigProcessorsGenerateDatadogMetricArgs>> generateDatadogMetrics;
 
     /**
-     * @return The `generate_datadog_metrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields.
+     * @return The `generateDatadogMetrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields.
      * 
      */
     public Optional<Output<List<ObservabilityPipelineConfigProcessorsGenerateDatadogMetricArgs>>> generateDatadogMetrics() {
@@ -146,14 +146,14 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
     }
 
     /**
-     * The `ocsf_mapper` processor transforms logs into the OCSF schema using predefined library mappings.
+     * The `ocsfMapper` processor transforms logs into the OCSF schema using predefined library mappings.
      * 
      */
     @Import(name="ocsfMappers")
     private @Nullable Output<List<ObservabilityPipelineConfigProcessorsOcsfMapperArgs>> ocsfMappers;
 
     /**
-     * @return The `ocsf_mapper` processor transforms logs into the OCSF schema using predefined library mappings.
+     * @return The `ocsfMapper` processor transforms logs into the OCSF schema using predefined library mappings.
      * 
      */
     public Optional<Output<List<ObservabilityPipelineConfigProcessorsOcsfMapperArgs>>> ocsfMappers() {
@@ -161,14 +161,14 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
     }
 
     /**
-     * The `parse_grok` processor extracts structured fields from unstructured log messages using Grok patterns.
+     * The `parseGrok` processor extracts structured fields from unstructured log messages using Grok patterns.
      * 
      */
     @Import(name="parseGroks")
     private @Nullable Output<List<ObservabilityPipelineConfigProcessorsParseGrokArgs>> parseGroks;
 
     /**
-     * @return The `parse_grok` processor extracts structured fields from unstructured log messages using Grok patterns.
+     * @return The `parseGrok` processor extracts structured fields from unstructured log messages using Grok patterns.
      * 
      */
     public Optional<Output<List<ObservabilityPipelineConfigProcessorsParseGrokArgs>>> parseGroks() {
@@ -176,14 +176,14 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
     }
 
     /**
-     * The `parse_json` processor extracts JSON from a specified field and flattens it into the event. This is useful when logs contain embedded JSON as a string.
+     * The `parseJson` processor extracts JSON from a specified field and flattens it into the event. This is useful when logs contain embedded JSON as a string.
      * 
      */
     @Import(name="parseJsons")
     private @Nullable Output<List<ObservabilityPipelineConfigProcessorsParseJsonArgs>> parseJsons;
 
     /**
-     * @return The `parse_json` processor extracts JSON from a specified field and flattens it into the event. This is useful when logs contain embedded JSON as a string.
+     * @return The `parseJson` processor extracts JSON from a specified field and flattens it into the event. This is useful when logs contain embedded JSON as a string.
      * 
      */
     public Optional<Output<List<ObservabilityPipelineConfigProcessorsParseJsonArgs>>> parseJsons() {
@@ -221,14 +221,14 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
     }
 
     /**
-     * The `remove_fields` processor deletes specified fields from logs.
+     * The `removeFields` processor deletes specified fields from logs.
      * 
      */
     @Import(name="removeFields")
     private @Nullable Output<List<ObservabilityPipelineConfigProcessorsRemoveFieldArgs>> removeFields;
 
     /**
-     * @return The `remove_fields` processor deletes specified fields from logs.
+     * @return The `removeFields` processor deletes specified fields from logs.
      * 
      */
     public Optional<Output<List<ObservabilityPipelineConfigProcessorsRemoveFieldArgs>>> removeFields() {
@@ -236,14 +236,14 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
     }
 
     /**
-     * The `rename_fields` processor changes field names.
+     * The `renameFields` processor changes field names.
      * 
      */
     @Import(name="renameFields")
     private @Nullable Output<List<ObservabilityPipelineConfigProcessorsRenameFieldArgs>> renameFields;
 
     /**
-     * @return The `rename_fields` processor changes field names.
+     * @return The `renameFields` processor changes field names.
      * 
      */
     public Optional<Output<List<ObservabilityPipelineConfigProcessorsRenameFieldArgs>>> renameFields() {
@@ -266,14 +266,14 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
     }
 
     /**
-     * The `sensitive_data_scanner` processor detects and optionally redacts sensitive data in log events.
+     * The `sensitiveDataScanner` processor detects and optionally redacts sensitive data in log events.
      * 
      */
     @Import(name="sensitiveDataScanners")
     private @Nullable Output<List<ObservabilityPipelineConfigProcessorsSensitiveDataScannerArgs>> sensitiveDataScanners;
 
     /**
-     * @return The `sensitive_data_scanner` processor detects and optionally redacts sensitive data in log events.
+     * @return The `sensitiveDataScanner` processor detects and optionally redacts sensitive data in log events.
      * 
      */
     public Optional<Output<List<ObservabilityPipelineConfigProcessorsSensitiveDataScannerArgs>>> sensitiveDataScanners() {
@@ -337,7 +337,7 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
         }
 
         /**
-         * @param addEnvVars The `add_env_vars` processor adds environment variable values to log events.
+         * @param addEnvVars The `addEnvVars` processor adds environment variable values to log events.
          * 
          * @return builder
          * 
@@ -348,7 +348,7 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
         }
 
         /**
-         * @param addEnvVars The `add_env_vars` processor adds environment variable values to log events.
+         * @param addEnvVars The `addEnvVars` processor adds environment variable values to log events.
          * 
          * @return builder
          * 
@@ -358,7 +358,7 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
         }
 
         /**
-         * @param addEnvVars The `add_env_vars` processor adds environment variable values to log events.
+         * @param addEnvVars The `addEnvVars` processor adds environment variable values to log events.
          * 
          * @return builder
          * 
@@ -368,7 +368,7 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
         }
 
         /**
-         * @param addFields The `add_fields` processor adds static key-value fields to logs.
+         * @param addFields The `addFields` processor adds static key-value fields to logs.
          * 
          * @return builder
          * 
@@ -379,7 +379,7 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
         }
 
         /**
-         * @param addFields The `add_fields` processor adds static key-value fields to logs.
+         * @param addFields The `addFields` processor adds static key-value fields to logs.
          * 
          * @return builder
          * 
@@ -389,7 +389,7 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
         }
 
         /**
-         * @param addFields The `add_fields` processor adds static key-value fields to logs.
+         * @param addFields The `addFields` processor adds static key-value fields to logs.
          * 
          * @return builder
          * 
@@ -399,7 +399,7 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
         }
 
         /**
-         * @param customProcessors The `custom_processor` processor transforms events using Vector Remap Language (VRL) scripts with advanced filtering capabilities.
+         * @param customProcessors The `customProcessor` processor transforms events using Vector Remap Language (VRL) scripts with advanced filtering capabilities.
          * 
          * @return builder
          * 
@@ -410,7 +410,7 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
         }
 
         /**
-         * @param customProcessors The `custom_processor` processor transforms events using Vector Remap Language (VRL) scripts with advanced filtering capabilities.
+         * @param customProcessors The `customProcessor` processor transforms events using Vector Remap Language (VRL) scripts with advanced filtering capabilities.
          * 
          * @return builder
          * 
@@ -420,7 +420,7 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
         }
 
         /**
-         * @param customProcessors The `custom_processor` processor transforms events using Vector Remap Language (VRL) scripts with advanced filtering capabilities.
+         * @param customProcessors The `customProcessor` processor transforms events using Vector Remap Language (VRL) scripts with advanced filtering capabilities.
          * 
          * @return builder
          * 
@@ -474,7 +474,7 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
         }
 
         /**
-         * @param enrichmentTables The `enrichment_table` processor enriches logs using a static CSV file or GeoIP database.
+         * @param enrichmentTables The `enrichmentTable` processor enriches logs using a static CSV file or GeoIP database.
          * 
          * @return builder
          * 
@@ -485,7 +485,7 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
         }
 
         /**
-         * @param enrichmentTables The `enrichment_table` processor enriches logs using a static CSV file or GeoIP database.
+         * @param enrichmentTables The `enrichmentTable` processor enriches logs using a static CSV file or GeoIP database.
          * 
          * @return builder
          * 
@@ -495,7 +495,7 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
         }
 
         /**
-         * @param enrichmentTables The `enrichment_table` processor enriches logs using a static CSV file or GeoIP database.
+         * @param enrichmentTables The `enrichmentTable` processor enriches logs using a static CSV file or GeoIP database.
          * 
          * @return builder
          * 
@@ -536,7 +536,7 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
         }
 
         /**
-         * @param generateDatadogMetrics The `generate_datadog_metrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields.
+         * @param generateDatadogMetrics The `generateDatadogMetrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields.
          * 
          * @return builder
          * 
@@ -547,7 +547,7 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
         }
 
         /**
-         * @param generateDatadogMetrics The `generate_datadog_metrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields.
+         * @param generateDatadogMetrics The `generateDatadogMetrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields.
          * 
          * @return builder
          * 
@@ -557,7 +557,7 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
         }
 
         /**
-         * @param generateDatadogMetrics The `generate_datadog_metrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields.
+         * @param generateDatadogMetrics The `generateDatadogMetrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields.
          * 
          * @return builder
          * 
@@ -567,7 +567,7 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
         }
 
         /**
-         * @param ocsfMappers The `ocsf_mapper` processor transforms logs into the OCSF schema using predefined library mappings.
+         * @param ocsfMappers The `ocsfMapper` processor transforms logs into the OCSF schema using predefined library mappings.
          * 
          * @return builder
          * 
@@ -578,7 +578,7 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
         }
 
         /**
-         * @param ocsfMappers The `ocsf_mapper` processor transforms logs into the OCSF schema using predefined library mappings.
+         * @param ocsfMappers The `ocsfMapper` processor transforms logs into the OCSF schema using predefined library mappings.
          * 
          * @return builder
          * 
@@ -588,7 +588,7 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
         }
 
         /**
-         * @param ocsfMappers The `ocsf_mapper` processor transforms logs into the OCSF schema using predefined library mappings.
+         * @param ocsfMappers The `ocsfMapper` processor transforms logs into the OCSF schema using predefined library mappings.
          * 
          * @return builder
          * 
@@ -598,7 +598,7 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
         }
 
         /**
-         * @param parseGroks The `parse_grok` processor extracts structured fields from unstructured log messages using Grok patterns.
+         * @param parseGroks The `parseGrok` processor extracts structured fields from unstructured log messages using Grok patterns.
          * 
          * @return builder
          * 
@@ -609,7 +609,7 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
         }
 
         /**
-         * @param parseGroks The `parse_grok` processor extracts structured fields from unstructured log messages using Grok patterns.
+         * @param parseGroks The `parseGrok` processor extracts structured fields from unstructured log messages using Grok patterns.
          * 
          * @return builder
          * 
@@ -619,7 +619,7 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
         }
 
         /**
-         * @param parseGroks The `parse_grok` processor extracts structured fields from unstructured log messages using Grok patterns.
+         * @param parseGroks The `parseGrok` processor extracts structured fields from unstructured log messages using Grok patterns.
          * 
          * @return builder
          * 
@@ -629,7 +629,7 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
         }
 
         /**
-         * @param parseJsons The `parse_json` processor extracts JSON from a specified field and flattens it into the event. This is useful when logs contain embedded JSON as a string.
+         * @param parseJsons The `parseJson` processor extracts JSON from a specified field and flattens it into the event. This is useful when logs contain embedded JSON as a string.
          * 
          * @return builder
          * 
@@ -640,7 +640,7 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
         }
 
         /**
-         * @param parseJsons The `parse_json` processor extracts JSON from a specified field and flattens it into the event. This is useful when logs contain embedded JSON as a string.
+         * @param parseJsons The `parseJson` processor extracts JSON from a specified field and flattens it into the event. This is useful when logs contain embedded JSON as a string.
          * 
          * @return builder
          * 
@@ -650,7 +650,7 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
         }
 
         /**
-         * @param parseJsons The `parse_json` processor extracts JSON from a specified field and flattens it into the event. This is useful when logs contain embedded JSON as a string.
+         * @param parseJsons The `parseJson` processor extracts JSON from a specified field and flattens it into the event. This is useful when logs contain embedded JSON as a string.
          * 
          * @return builder
          * 
@@ -722,7 +722,7 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
         }
 
         /**
-         * @param removeFields The `remove_fields` processor deletes specified fields from logs.
+         * @param removeFields The `removeFields` processor deletes specified fields from logs.
          * 
          * @return builder
          * 
@@ -733,7 +733,7 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
         }
 
         /**
-         * @param removeFields The `remove_fields` processor deletes specified fields from logs.
+         * @param removeFields The `removeFields` processor deletes specified fields from logs.
          * 
          * @return builder
          * 
@@ -743,7 +743,7 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
         }
 
         /**
-         * @param removeFields The `remove_fields` processor deletes specified fields from logs.
+         * @param removeFields The `removeFields` processor deletes specified fields from logs.
          * 
          * @return builder
          * 
@@ -753,7 +753,7 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
         }
 
         /**
-         * @param renameFields The `rename_fields` processor changes field names.
+         * @param renameFields The `renameFields` processor changes field names.
          * 
          * @return builder
          * 
@@ -764,7 +764,7 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
         }
 
         /**
-         * @param renameFields The `rename_fields` processor changes field names.
+         * @param renameFields The `renameFields` processor changes field names.
          * 
          * @return builder
          * 
@@ -774,7 +774,7 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
         }
 
         /**
-         * @param renameFields The `rename_fields` processor changes field names.
+         * @param renameFields The `renameFields` processor changes field names.
          * 
          * @return builder
          * 
@@ -815,7 +815,7 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
         }
 
         /**
-         * @param sensitiveDataScanners The `sensitive_data_scanner` processor detects and optionally redacts sensitive data in log events.
+         * @param sensitiveDataScanners The `sensitiveDataScanner` processor detects and optionally redacts sensitive data in log events.
          * 
          * @return builder
          * 
@@ -826,7 +826,7 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
         }
 
         /**
-         * @param sensitiveDataScanners The `sensitive_data_scanner` processor detects and optionally redacts sensitive data in log events.
+         * @param sensitiveDataScanners The `sensitiveDataScanner` processor detects and optionally redacts sensitive data in log events.
          * 
          * @return builder
          * 
@@ -836,7 +836,7 @@ public final class ObservabilityPipelineConfigProcessorsArgs extends com.pulumi.
         }
 
         /**
-         * @param sensitiveDataScanners The `sensitive_data_scanner` processor detects and optionally redacts sensitive data in log events.
+         * @param sensitiveDataScanners The `sensitiveDataScanner` processor detects and optionally redacts sensitive data in log events.
          * 
          * @return builder
          * 

@@ -140,7 +140,7 @@ namespace Pulumi.Datadog
         public Output<string> ResourceType { get; private set; } = null!;
 
         /// <summary>
-        /// Severity of the rule and associated signals. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+        /// Severity of the rule and associated signals. Valid values are `Info`, `Low`, `Medium`, `High`, `Critical`.
         /// </summary>
         [Output("severity")]
         public Output<string> Severity { get; private set; } = null!;
@@ -276,7 +276,7 @@ namespace Pulumi.Datadog
         public Input<string> ResourceType { get; set; } = null!;
 
         /// <summary>
-        /// Severity of the rule and associated signals. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+        /// Severity of the rule and associated signals. Valid values are `Info`, `Low`, `Medium`, `High`, `Critical`.
         /// </summary>
         [Input("severity", required: true)]
         public Input<string> Severity { get; set; } = null!;
@@ -380,7 +380,7 @@ namespace Pulumi.Datadog
         public Input<string>? ResourceType { get; set; }
 
         /// <summary>
-        /// Severity of the rule and associated signals. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+        /// Severity of the rule and associated signals. Valid values are `Info`, `Low`, `Medium`, `High`, `Critical`.
         /// </summary>
         [Input("severity")]
         public Input<string>? Severity { get; set; }

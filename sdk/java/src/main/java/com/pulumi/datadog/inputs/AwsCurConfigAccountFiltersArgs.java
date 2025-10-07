@@ -18,14 +18,14 @@ public final class AwsCurConfigAccountFiltersArgs extends com.pulumi.resources.R
     public static final AwsCurConfigAccountFiltersArgs Empty = new AwsCurConfigAccountFiltersArgs();
 
     /**
-     * List of AWS account IDs to exclude from cost analysis. Only used when `include_new_accounts` is `true`. Cannot be used together with `included_accounts`.
+     * List of AWS account IDs to exclude from cost analysis. Only used when `includeNewAccounts` is `true`. Cannot be used together with `includedAccounts`.
      * 
      */
     @Import(name="excludedAccounts")
     private @Nullable Output<List<String>> excludedAccounts;
 
     /**
-     * @return List of AWS account IDs to exclude from cost analysis. Only used when `include_new_accounts` is `true`. Cannot be used together with `included_accounts`.
+     * @return List of AWS account IDs to exclude from cost analysis. Only used when `includeNewAccounts` is `true`. Cannot be used together with `includedAccounts`.
      * 
      */
     public Optional<Output<List<String>>> excludedAccounts() {
@@ -33,14 +33,14 @@ public final class AwsCurConfigAccountFiltersArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Whether to automatically include new member accounts in your cost analysis. When `true`, use `excluded_accounts` to specify accounts to exclude. When `false`, use `included_accounts` to specify only the accounts to include.
+     * Whether to automatically include new member accounts in your cost analysis. When `true`, use `excludedAccounts` to specify accounts to exclude. When `false`, use `includedAccounts` to specify only the accounts to include.
      * 
      */
     @Import(name="includeNewAccounts")
     private @Nullable Output<Boolean> includeNewAccounts;
 
     /**
-     * @return Whether to automatically include new member accounts in your cost analysis. When `true`, use `excluded_accounts` to specify accounts to exclude. When `false`, use `included_accounts` to specify only the accounts to include.
+     * @return Whether to automatically include new member accounts in your cost analysis. When `true`, use `excludedAccounts` to specify accounts to exclude. When `false`, use `includedAccounts` to specify only the accounts to include.
      * 
      */
     public Optional<Output<Boolean>> includeNewAccounts() {
@@ -48,14 +48,14 @@ public final class AwsCurConfigAccountFiltersArgs extends com.pulumi.resources.R
     }
 
     /**
-     * List of AWS account IDs to include in cost analysis. Only used when `include_new_accounts` is `false`. Cannot be used together with `excluded_accounts`.
+     * List of AWS account IDs to include in cost analysis. Only used when `includeNewAccounts` is `false`. Cannot be used together with `excludedAccounts`.
      * 
      */
     @Import(name="includedAccounts")
     private @Nullable Output<List<String>> includedAccounts;
 
     /**
-     * @return List of AWS account IDs to include in cost analysis. Only used when `include_new_accounts` is `false`. Cannot be used together with `excluded_accounts`.
+     * @return List of AWS account IDs to include in cost analysis. Only used when `includeNewAccounts` is `false`. Cannot be used together with `excludedAccounts`.
      * 
      */
     public Optional<Output<List<String>>> includedAccounts() {
@@ -89,7 +89,7 @@ public final class AwsCurConfigAccountFiltersArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param excludedAccounts List of AWS account IDs to exclude from cost analysis. Only used when `include_new_accounts` is `true`. Cannot be used together with `included_accounts`.
+         * @param excludedAccounts List of AWS account IDs to exclude from cost analysis. Only used when `includeNewAccounts` is `true`. Cannot be used together with `includedAccounts`.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class AwsCurConfigAccountFiltersArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param excludedAccounts List of AWS account IDs to exclude from cost analysis. Only used when `include_new_accounts` is `true`. Cannot be used together with `included_accounts`.
+         * @param excludedAccounts List of AWS account IDs to exclude from cost analysis. Only used when `includeNewAccounts` is `true`. Cannot be used together with `includedAccounts`.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class AwsCurConfigAccountFiltersArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param excludedAccounts List of AWS account IDs to exclude from cost analysis. Only used when `include_new_accounts` is `true`. Cannot be used together with `included_accounts`.
+         * @param excludedAccounts List of AWS account IDs to exclude from cost analysis. Only used when `includeNewAccounts` is `true`. Cannot be used together with `includedAccounts`.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class AwsCurConfigAccountFiltersArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param includeNewAccounts Whether to automatically include new member accounts in your cost analysis. When `true`, use `excluded_accounts` to specify accounts to exclude. When `false`, use `included_accounts` to specify only the accounts to include.
+         * @param includeNewAccounts Whether to automatically include new member accounts in your cost analysis. When `true`, use `excludedAccounts` to specify accounts to exclude. When `false`, use `includedAccounts` to specify only the accounts to include.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class AwsCurConfigAccountFiltersArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param includeNewAccounts Whether to automatically include new member accounts in your cost analysis. When `true`, use `excluded_accounts` to specify accounts to exclude. When `false`, use `included_accounts` to specify only the accounts to include.
+         * @param includeNewAccounts Whether to automatically include new member accounts in your cost analysis. When `true`, use `excludedAccounts` to specify accounts to exclude. When `false`, use `includedAccounts` to specify only the accounts to include.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class AwsCurConfigAccountFiltersArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param includedAccounts List of AWS account IDs to include in cost analysis. Only used when `include_new_accounts` is `false`. Cannot be used together with `excluded_accounts`.
+         * @param includedAccounts List of AWS account IDs to include in cost analysis. Only used when `includeNewAccounts` is `false`. Cannot be used together with `excludedAccounts`.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class AwsCurConfigAccountFiltersArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param includedAccounts List of AWS account IDs to include in cost analysis. Only used when `include_new_accounts` is `false`. Cannot be used together with `excluded_accounts`.
+         * @param includedAccounts List of AWS account IDs to include in cost analysis. Only used when `includeNewAccounts` is `false`. Cannot be used together with `excludedAccounts`.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class AwsCurConfigAccountFiltersArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param includedAccounts List of AWS account IDs to include in cost analysis. Only used when `include_new_accounts` is `false`. Cannot be used together with `excluded_accounts`.
+         * @param includedAccounts List of AWS account IDs to include in cost analysis. Only used when `includeNewAccounts` is `false`. Cannot be used together with `excludedAccounts`.
          * 
          * @return builder
          * 

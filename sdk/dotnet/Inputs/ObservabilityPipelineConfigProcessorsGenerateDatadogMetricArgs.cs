@@ -28,7 +28,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<string>? _inputs;
 
         /// <summary>
-        /// A list of component IDs whose output is used as the `input` for this processor.
+        /// A list of component IDs whose output is used as the `Input` for this processor.
         /// </summary>
         public InputList<string> Inputs
         {

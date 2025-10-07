@@ -19,7 +19,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> ReferenceId { get; set; } = null!;
 
         /// <summary>
-        /// Valid values are `latest`, `version`.
+        /// Valid values are `Latest`, `Version`.
         /// </summary>
         [Input("referenceType", required: true)]
         public Input<string> ReferenceType { get; set; } = null!;

@@ -19,14 +19,14 @@ public final class DashboardWidgetTopologyMapDefinitionArgs extends com.pulumi.r
     public static final DashboardWidgetTopologyMapDefinitionArgs Empty = new DashboardWidgetTopologyMapDefinitionArgs();
 
     /**
-     * A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
      * 
      */
     @Import(name="customLinks")
     private @Nullable Output<List<DashboardWidgetTopologyMapDefinitionCustomLinkArgs>> customLinks;
 
     /**
-     * @return A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+     * @return A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
      * 
      */
     public Optional<Output<List<DashboardWidgetTopologyMapDefinitionCustomLinkArgs>>> customLinks() {
@@ -34,14 +34,14 @@ public final class DashboardWidgetTopologyMapDefinitionArgs extends com.pulumi.r
     }
 
     /**
-     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (`query` and `request_type` are required within the request).
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (`query` and `requestType` are required within the request).
      * 
      */
     @Import(name="requests")
     private @Nullable Output<List<DashboardWidgetTopologyMapDefinitionRequestArgs>> requests;
 
     /**
-     * @return A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (`query` and `request_type` are required within the request).
+     * @return A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (`query` and `requestType` are required within the request).
      * 
      */
     public Optional<Output<List<DashboardWidgetTopologyMapDefinitionRequestArgs>>> requests() {
@@ -122,7 +122,7 @@ public final class DashboardWidgetTopologyMapDefinitionArgs extends com.pulumi.r
         }
 
         /**
-         * @param customLinks A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+         * @param customLinks A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class DashboardWidgetTopologyMapDefinitionArgs extends com.pulumi.r
         }
 
         /**
-         * @param customLinks A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+         * @param customLinks A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class DashboardWidgetTopologyMapDefinitionArgs extends com.pulumi.r
         }
 
         /**
-         * @param customLinks A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+         * @param customLinks A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class DashboardWidgetTopologyMapDefinitionArgs extends com.pulumi.r
         }
 
         /**
-         * @param requests A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (`query` and `request_type` are required within the request).
+         * @param requests A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (`query` and `requestType` are required within the request).
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class DashboardWidgetTopologyMapDefinitionArgs extends com.pulumi.r
         }
 
         /**
-         * @param requests A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (`query` and `request_type` are required within the request).
+         * @param requests A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (`query` and `requestType` are required within the request).
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class DashboardWidgetTopologyMapDefinitionArgs extends com.pulumi.r
         }
 
         /**
-         * @param requests A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (`query` and `request_type` are required within the request).
+         * @param requests A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (`query` and `requestType` are required within the request).
          * 
          * @return builder
          * 

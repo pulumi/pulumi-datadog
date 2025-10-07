@@ -13,13 +13,13 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ObservabilityPipelineConfigProcessorsGenerateDatadogMetricMetricValueGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the log field containing the numeric value to increment the metric by (used only for `increment_by_field`).
+        /// Name of the log field containing the numeric value to increment the metric by (used only for `IncrementByField`).
         /// </summary>
         [Input("field")]
         public Input<string>? Field { get; set; }
 
         /// <summary>
-        /// Metric value strategy: `increment_by_one` or `increment_by_field`.
+        /// Metric value strategy: `IncrementByOne` or `IncrementByField`.
         /// </summary>
         [Input("strategy", required: true)]
         public Input<string> Strategy { get; set; } = null!;

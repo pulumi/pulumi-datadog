@@ -14,19 +14,19 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetListStreamDefinitionRequestQuery
     {
         /// <summary>
-        /// Specifies the field for logs pattern clustering. Can only be used with `logs_pattern_stream`.
+        /// Specifies the field for logs pattern clustering. Can only be used with `LogsPatternStream`.
         /// </summary>
         public readonly string? ClusteringPatternFieldPath;
         /// <summary>
-        /// Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`, `llm_observability_stream`.
+        /// Source from which to query items to display in the stream. Valid values are `LogsStream`, `AuditStream`, `CiPipelineStream`, `CiTestStream`, `RumIssueStream`, `ApmIssueStream`, `TraceStream`, `LogsIssueStream`, `LogsPatternStream`, `LogsTransactionStream`, `EventStream`, `RumStream`, `LlmObservabilityStream`.
         /// </summary>
         public readonly string DataSource;
         /// <summary>
-        /// Size of events displayed in widget. Required if `data_source` is `event_stream`. Valid values are `s`, `l`.
+        /// Size of events displayed in widget. Required if `DataSource` is `EventStream`. Valid values are `S`, `L`.
         /// </summary>
         public readonly string? EventSize;
         /// <summary>
-        /// Group by configuration for the List Stream widget. Group by can only be used with `logs_pattern_stream` (up to 4 items) or `logs_transaction_stream` (one group by item is required) list stream source.
+        /// Group by configuration for the List Stream widget. Group by can only be used with `LogsPatternStream` (up to 4 items) or `LogsTransactionStream` (one group by item is required) list stream source.
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetListStreamDefinitionRequestQueryGroupBy> GroupBies;
         /// <summary>

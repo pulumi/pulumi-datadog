@@ -18,14 +18,14 @@ public final class PowerpackWidgetHostmapDefinitionRequestArgs extends com.pulum
     public static final PowerpackWidgetHostmapDefinitionRequestArgs Empty = new PowerpackWidgetHostmapDefinitionRequestArgs();
 
     /**
-     * The query used to fill the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * The query used to fill the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
      * 
      */
     @Import(name="fills")
     private @Nullable Output<List<PowerpackWidgetHostmapDefinitionRequestFillArgs>> fills;
 
     /**
-     * @return The query used to fill the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * @return The query used to fill the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
      * 
      */
     public Optional<Output<List<PowerpackWidgetHostmapDefinitionRequestFillArgs>>> fills() {
@@ -33,14 +33,14 @@ public final class PowerpackWidgetHostmapDefinitionRequestArgs extends com.pulum
     }
 
     /**
-     * The query used to size the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * The query used to size the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
      * 
      */
     @Import(name="sizes")
     private @Nullable Output<List<PowerpackWidgetHostmapDefinitionRequestSizeArgs>> sizes;
 
     /**
-     * @return The query used to size the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * @return The query used to size the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
      * 
      */
     public Optional<Output<List<PowerpackWidgetHostmapDefinitionRequestSizeArgs>>> sizes() {
@@ -73,7 +73,7 @@ public final class PowerpackWidgetHostmapDefinitionRequestArgs extends com.pulum
         }
 
         /**
-         * @param fills The query used to fill the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+         * @param fills The query used to fill the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class PowerpackWidgetHostmapDefinitionRequestArgs extends com.pulum
         }
 
         /**
-         * @param fills The query used to fill the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+         * @param fills The query used to fill the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class PowerpackWidgetHostmapDefinitionRequestArgs extends com.pulum
         }
 
         /**
-         * @param fills The query used to fill the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+         * @param fills The query used to fill the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class PowerpackWidgetHostmapDefinitionRequestArgs extends com.pulum
         }
 
         /**
-         * @param sizes The query used to size the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+         * @param sizes The query used to size the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class PowerpackWidgetHostmapDefinitionRequestArgs extends com.pulum
         }
 
         /**
-         * @param sizes The query used to size the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+         * @param sizes The query used to size the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class PowerpackWidgetHostmapDefinitionRequestArgs extends com.pulum
         }
 
         /**
-         * @param sizes The query used to size the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+         * @param sizes The query used to size the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
          * 
          * @return builder
          * 

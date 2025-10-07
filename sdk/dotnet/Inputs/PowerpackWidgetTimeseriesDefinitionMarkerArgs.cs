@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class PowerpackWidgetTimeseriesDefinitionMarkerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// How the marker lines are displayed, options are one of {`error`, `warning`, `info`, `ok`} combined with one of {`dashed`, `solid`, `bold`}. Example: `error dashed`.
+        /// How the marker lines are displayed, options are one of {`Error`, `Warning`, `Info`, `Ok`} combined with one of {`Dashed`, `Solid`, `Bold`}. Example: `error dashed`.
         /// </summary>
         [Input("displayType")]
         public Input<string>? DisplayType { get; set; }

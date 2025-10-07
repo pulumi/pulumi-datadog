@@ -31,7 +31,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatMatchGetArgs> Match { get; set; } = null!;
 
         /// <summary>
-        /// The color palette to apply. Valid values are `white_on_red`, `white_on_yellow`, `white_on_green`, `black_on_light_red`, `black_on_light_yellow`, `black_on_light_green`, `red_on_white`, `yellow_on_white`, `green_on_white`, `custom_bg`, `custom_text`.
+        /// The color palette to apply. Valid values are `WhiteOnRed`, `WhiteOnYellow`, `WhiteOnGreen`, `BlackOnLightRed`, `BlackOnLightYellow`, `BlackOnLightGreen`, `RedOnWhite`, `YellowOnWhite`, `GreenOnWhite`, `CustomBg`, `CustomText`.
         /// </summary>
         [Input("palette")]
         public Input<string>? Palette { get; set; }

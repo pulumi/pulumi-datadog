@@ -63,14 +63,14 @@ public final class IntegrationResourceState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The resource type of the Resource. Can be `kafka`, `connector`, `ksql`, or `schema_registry`.
+     * The resource type of the Resource. Can be `kafka`, `connector`, `ksql`, or `schemaRegistry`.
      * 
      */
     @Import(name="resourceType")
     private @Nullable Output<String> resourceType;
 
     /**
-     * @return The resource type of the Resource. Can be `kafka`, `connector`, `ksql`, or `schema_registry`.
+     * @return The resource type of the Resource. Can be `kafka`, `connector`, `ksql`, or `schemaRegistry`.
      * 
      */
     public Optional<Output<String>> resourceType() {
@@ -184,7 +184,7 @@ public final class IntegrationResourceState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param resourceType The resource type of the Resource. Can be `kafka`, `connector`, `ksql`, or `schema_registry`.
+         * @param resourceType The resource type of the Resource. Can be `kafka`, `connector`, `ksql`, or `schemaRegistry`.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class IntegrationResourceState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param resourceType The resource type of the Resource. Can be `kafka`, `connector`, `ksql`, or `schema_registry`.
+         * @param resourceType The resource type of the Resource. Can be `kafka`, `connector`, `ksql`, or `schemaRegistry`.
          * 
          * @return builder
          * 

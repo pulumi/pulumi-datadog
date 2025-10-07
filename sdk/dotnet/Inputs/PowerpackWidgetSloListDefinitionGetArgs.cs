@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class PowerpackWidgetSloListDefinitionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A nested block describing the request to use when displaying the widget. Exactly one `request` block is allowed.
+        /// A nested block describing the request to use when displaying the widget. Exactly one `Request` block is allowed.
         /// </summary>
         [Input("request", required: true)]
         public Input<Inputs.PowerpackWidgetSloListDefinitionRequestGetArgs> Request { get; set; } = null!;
@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Title { get; set; }
 
         /// <summary>
-        /// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+        /// The alignment of the widget's title. Valid values are `Center`, `Left`, `Right`.
         /// </summary>
         [Input("titleAlign")]
         public Input<string>? TitleAlign { get; set; }

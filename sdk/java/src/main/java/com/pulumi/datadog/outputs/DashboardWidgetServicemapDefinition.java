@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetServicemapDefinition {
     /**
-     * @return A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+     * @return A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
      * 
      */
     private @Nullable List<DashboardWidgetServicemapDefinitionCustomLink> customLinks;
@@ -47,7 +47,7 @@ public final class DashboardWidgetServicemapDefinition {
 
     private DashboardWidgetServicemapDefinition() {}
     /**
-     * @return A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+     * @return A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
      * 
      */
     public List<DashboardWidgetServicemapDefinitionCustomLink> customLinks() {

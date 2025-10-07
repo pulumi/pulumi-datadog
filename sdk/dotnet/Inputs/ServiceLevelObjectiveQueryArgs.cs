@@ -13,13 +13,13 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ServiceLevelObjectiveQueryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The sum of the `total` events.
+        /// The sum of the `Total` events.
         /// </summary>
         [Input("denominator", required: true)]
         public Input<string> Denominator { get; set; } = null!;
 
         /// <summary>
-        /// The sum of all the `good` events.
+        /// The sum of all the `Good` events.
         /// </summary>
         [Input("numerator", required: true)]
         public Input<string> Numerator { get; set; } = null!;

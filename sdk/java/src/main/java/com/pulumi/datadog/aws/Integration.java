@@ -151,14 +151,14 @@ public class Integration extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.excludedRegions);
     }
     /**
-     * Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cspm_resource_collection_enabled`.
+     * Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cspmResourceCollectionEnabled`.
      * 
      */
     @Export(name="extendedResourceCollectionEnabled", refs={String.class}, tree="[0]")
     private Output<String> extendedResourceCollectionEnabled;
 
     /**
-     * @return Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cspm_resource_collection_enabled`.
+     * @return Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cspmResourceCollectionEnabled`.
      * 
      */
     public Output<String> extendedResourceCollectionEnabled() {
@@ -213,18 +213,18 @@ public class Integration extends com.pulumi.resources.CustomResource {
         return this.metricsCollectionEnabled;
     }
     /**
-     * Whether Datadog collects a standard set of resources from your AWS account. **Deprecated.** Deprecated in favor of `extended_resource_collection_enabled`.
+     * Whether Datadog collects a standard set of resources from your AWS account. **Deprecated.** Deprecated in favor of `extendedResourceCollectionEnabled`.
      * 
      * @deprecated
-     * Deprecated in favor of `extended_resource_collection_enabled`.
+     * Deprecated in favor of `extendedResourceCollectionEnabled`.
      * 
      */
-    @Deprecated /* Deprecated in favor of `extended_resource_collection_enabled`. */
+    @Deprecated /* Deprecated in favor of `extendedResourceCollectionEnabled`. */
     @Export(name="resourceCollectionEnabled", refs={String.class}, tree="[0]")
     private Output<String> resourceCollectionEnabled;
 
     /**
-     * @return Whether Datadog collects a standard set of resources from your AWS account. **Deprecated.** Deprecated in favor of `extended_resource_collection_enabled`.
+     * @return Whether Datadog collects a standard set of resources from your AWS account. **Deprecated.** Deprecated in favor of `extendedResourceCollectionEnabled`.
      * 
      */
     public Output<String> resourceCollectionEnabled() {

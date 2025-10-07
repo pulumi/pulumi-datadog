@@ -78,14 +78,14 @@ public final class ServiceLevelObjectiveThresholdArgs extends com.pulumi.resourc
     }
 
     /**
-     * A string representation of the warning target (see the description of the target_display field for details).
+     * A string representation of the warning target (see the description of the targetDisplay field for details).
      * 
      */
     @Import(name="warningDisplay")
     private @Nullable Output<String> warningDisplay;
 
     /**
-     * @return A string representation of the warning target (see the description of the target_display field for details).
+     * @return A string representation of the warning target (see the description of the targetDisplay field for details).
      * 
      */
     public Optional<Output<String>> warningDisplay() {
@@ -205,7 +205,7 @@ public final class ServiceLevelObjectiveThresholdArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param warningDisplay A string representation of the warning target (see the description of the target_display field for details).
+         * @param warningDisplay A string representation of the warning target (see the description of the targetDisplay field for details).
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class ServiceLevelObjectiveThresholdArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param warningDisplay A string representation of the warning target (see the description of the target_display field for details).
+         * @param warningDisplay A string representation of the warning target (see the description of the targetDisplay field for details).
          * 
          * @return builder
          * 

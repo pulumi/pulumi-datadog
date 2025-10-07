@@ -31,13 +31,13 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Body { get; set; }
 
         /// <summary>
-        /// Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`, `application/octet-stream`, `multipart/form-data`.
+        /// Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `Graphql`, `application/octet-stream`, `multipart/form-data`.
         /// </summary>
         [Input("bodyType")]
         public Input<string>? BodyType { get; set; }
 
         /// <summary>
-        /// The type of gRPC call to perform. Valid values are `healthcheck`, `unary`.
+        /// The type of gRPC call to perform. Valid values are `Healthcheck`, `Unary`.
         /// </summary>
         [Input("callType")]
         public Input<string>? CallType { get; set; }
@@ -46,7 +46,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<string>? _certificateDomains;
 
         /// <summary>
-        /// By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `certificate_domains`.
+        /// By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `CertificateDomains`.
         /// </summary>
         public InputList<string> CertificateDomains
         {
@@ -88,7 +88,7 @@ namespace Pulumi.Datadog.Inputs
         private InputMap<string>? _form;
 
         /// <summary>
-        /// Form data to be sent when `body_type` is `multipart/form-data`.
+        /// Form data to be sent when `BodyType` is `multipart/form-data`.
         /// </summary>
         public InputMap<string> Form
         {
@@ -103,7 +103,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Host { get; set; }
 
         /// <summary>
-        /// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `"any"`.
+        /// HTTP version to use for an HTTP request in an API test or step. Valid values are `Http1`, `Http2`, `Any`. Defaults to `"any"`.
         /// </summary>
         [Input("httpVersion")]
         public Input<string>? HttpVersion { get; set; }
@@ -121,7 +121,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Message { get; set; }
 
         /// <summary>
-        /// Either the HTTP method/verb to use or a gRPC method available on the service set in the `service` field. Required if `subtype` is `HTTP` or if `subtype` is `grpc` and `callType` is `unary`.
+        /// Either the HTTP method/verb to use or a gRPC method available on the service set in the `Service` field. Required if `Subtype` is `HTTP` or if `Subtype` is `Grpc` and `callType` is `Unary`.
         /// </summary>
         [Input("method")]
         public Input<string>? Method { get; set; }
@@ -157,7 +157,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Port { get; set; }
 
         /// <summary>
-        /// A protobuf JSON descriptor. **Deprecated.** Use `plain_proto_file` instead.
+        /// A protobuf JSON descriptor. **Deprecated.** Use `PlainProtoFile` instead.
         /// </summary>
         [Input("protoJsonDescriptor")]
         public Input<string>? ProtoJsonDescriptor { get; set; }

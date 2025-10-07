@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class SyntheticsTestOptionsListCi
     {
         /// <summary>
-        /// Execution rule for a Synthetics test. Valid values are `blocking`, `non_blocking`, `skipped`.
+        /// Execution rule for a Synthetics test. Valid values are `Blocking`, `NonBlocking`, `Skipped`.
         /// </summary>
         public readonly string? ExecutionRule;
 

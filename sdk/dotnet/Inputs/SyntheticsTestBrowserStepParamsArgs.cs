@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class SyntheticsTestBrowserStepParamsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to append the `value` to existing text input content for a "typeText" step. By default, content is cleared before text input.
+        /// Whether to append the `Value` to existing text input content for a "typeText" step. By default, content is cleared before text input.
         /// </summary>
         [Input("appendToContent")]
         public Input<bool>? AppendToContent { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Attribute { get; set; }
 
         /// <summary>
-        /// Check type to use for an assertion step. Valid values are `equals`, `notEquals`, `contains`, `notContains`, `startsWith`, `notStartsWith`, `greater`, `lower`, `greaterEquals`, `lowerEquals`, `matchRegex`, `between`, `isEmpty`, `notIsEmpty`.
+        /// Check type to use for an assertion step. Valid values are `Equals`, `notEquals`, `Contains`, `notContains`, `startsWith`, `notStartsWith`, `Greater`, `Lower`, `greaterEquals`, `lowerEquals`, `matchRegex`, `Between`, `isEmpty`, `notIsEmpty`.
         /// </summary>
         [Input("check")]
         public Input<string>? Check { get; set; }

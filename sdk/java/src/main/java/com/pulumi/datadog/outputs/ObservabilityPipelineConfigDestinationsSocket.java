@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ObservabilityPipelineConfigDestinationsSocket {
     /**
-     * @return Encoding format for log events. Valid values are `json`, `raw_message`.
+     * @return Encoding format for log events. Valid values are `json`, `rawMessage`.
      * 
      */
     private String encoding;
@@ -48,7 +48,7 @@ public final class ObservabilityPipelineConfigDestinationsSocket {
 
     private ObservabilityPipelineConfigDestinationsSocket() {}
     /**
-     * @return Encoding format for log events. Valid values are `json`, `raw_message`.
+     * @return Encoding format for log events. Valid values are `json`, `rawMessage`.
      * 
      */
     public String encoding() {

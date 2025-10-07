@@ -103,7 +103,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<string>> IpLists { get; private set; } = null!;
 
         /// <summary>
-        /// The action taken when the exclusion filter matches. When set to `monitor`, security traces are emitted but the requests are not blocked. By default, security traces are not emitted and the requests are not blocked.
+        /// The action taken when the exclusion filter matches. When set to `Monitor`, security traces are emitted but the requests are not blocked. By default, security traces are not emitted and the requests are not blocked.
         /// </summary>
         [Output("onMatch")]
         public Output<string?> OnMatch { get; private set; } = null!;
@@ -203,7 +203,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The action taken when the exclusion filter matches. When set to `monitor`, security traces are emitted but the requests are not blocked. By default, security traces are not emitted and the requests are not blocked.
+        /// The action taken when the exclusion filter matches. When set to `Monitor`, security traces are emitted but the requests are not blocked. By default, security traces are not emitted and the requests are not blocked.
         /// </summary>
         [Input("onMatch")]
         public Input<string>? OnMatch { get; set; }
@@ -281,7 +281,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The action taken when the exclusion filter matches. When set to `monitor`, security traces are emitted but the requests are not blocked. By default, security traces are not emitted and the requests are not blocked.
+        /// The action taken when the exclusion filter matches. When set to `Monitor`, security traces are emitted but the requests are not blocked. By default, security traces are not emitted and the requests are not blocked.
         /// </summary>
         [Input("onMatch")]
         public Input<string>? OnMatch { get; set; }

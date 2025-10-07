@@ -316,6 +316,42 @@ class DowntimeSchedule(pulumi.CustomResource):
         """
         Provides a Datadog DowntimeSchedule resource. This can be used to create and manage Datadog downtimes.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create new downtime_schedule resource
+        downtime_schedule_example = datadog.DowntimeSchedule("downtime_schedule_example",
+            scope="env:us9-prod7 AND team:test123",
+            monitor_identifier=[{
+                "monitorTags": [
+                    "test:123",
+                    "data:test",
+                ],
+            }],
+            recurring_schedule=[{
+                "recurrences": [{
+                    "duration": "1h",
+                    "rrule": "FREQ=DAILY;INTERVAL=1",
+                    "start": "2050-01-02T03:04:05",
+                }],
+                "timezone": "America/New_York",
+            }],
+            display_timezone="America/New_York",
+            message="Message about the downtime",
+            mute_first_recovery_notification=True,
+            notify_end_states=[
+                "alert",
+                "warn",
+            ],
+            notify_end_types=[
+                "canceled",
+                "expired",
+            ])
+        ```
+
         ## Import
 
         The `pulumi import` command can be used, for example:
@@ -341,6 +377,42 @@ class DowntimeSchedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog DowntimeSchedule resource. This can be used to create and manage Datadog downtimes.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create new downtime_schedule resource
+        downtime_schedule_example = datadog.DowntimeSchedule("downtime_schedule_example",
+            scope="env:us9-prod7 AND team:test123",
+            monitor_identifier=[{
+                "monitorTags": [
+                    "test:123",
+                    "data:test",
+                ],
+            }],
+            recurring_schedule=[{
+                "recurrences": [{
+                    "duration": "1h",
+                    "rrule": "FREQ=DAILY;INTERVAL=1",
+                    "start": "2050-01-02T03:04:05",
+                }],
+                "timezone": "America/New_York",
+            }],
+            display_timezone="America/New_York",
+            message="Message about the downtime",
+            mute_first_recovery_notification=True,
+            notify_end_states=[
+                "alert",
+                "warn",
+            ],
+            notify_end_types=[
+                "canceled",
+                "expired",
+            ])
+        ```
 
         ## Import
 
