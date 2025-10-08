@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetGroupDefinitionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The background color of the group title, options: `vivid_blue`, `vivid_purple`, `vivid_pink`, `vivid_orange`, `vivid_yellow`, `vivid_green`, `blue`, `purple`, `pink`, `orange`, `yellow`, `green`, `gray` or `white`
+        /// The background color of the group title, options: `VividBlue`, `VividPurple`, `VividPink`, `VividOrange`, `VividYellow`, `VividGreen`, `Blue`, `Purple`, `Pink`, `Orange`, `Yellow`, `Green`, `Gray` or `White`
         /// </summary>
         [Input("backgroundColor")]
         public Input<string>? BackgroundColor { get; set; }
@@ -25,13 +25,13 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? BannerImg { get; set; }
 
         /// <summary>
-        /// The layout type of the group. Valid values are `ordered`.
+        /// The layout type of the group. Valid values are `Ordered`.
         /// </summary>
         [Input("layoutType", required: true)]
         public Input<string> LayoutType { get; set; } = null!;
 
         /// <summary>
-        /// Whether to show the title or not. Defaults to `true`.
+        /// Whether to show the title or not. Defaults to `True`.
         /// </summary>
         [Input("showTitle")]
         public Input<bool>? ShowTitle { get; set; }

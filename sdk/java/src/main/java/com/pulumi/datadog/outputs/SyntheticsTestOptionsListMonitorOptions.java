@@ -18,7 +18,7 @@ public final class SyntheticsTestOptionsListMonitorOptions {
      */
     private @Nullable String escalationMessage;
     /**
-     * @return The name of the preset for the notification for the monitor. Valid values are `show_all`, `hide_all`, `hide_query`, `hide_handles`.
+     * @return The name of the preset for the notification for the monitor. Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`.
      * 
      */
     private @Nullable String notificationPresetName;
@@ -28,7 +28,7 @@ public final class SyntheticsTestOptionsListMonitorOptions {
      */
     private @Nullable Integer renotifyInterval;
     /**
-     * @return The number of times a monitor renotifies. It can only be set if `renotify_interval` is set.
+     * @return The number of times a monitor renotifies. It can only be set if `renotifyInterval` is set.
      * 
      */
     private @Nullable Integer renotifyOccurrences;
@@ -42,7 +42,7 @@ public final class SyntheticsTestOptionsListMonitorOptions {
         return Optional.ofNullable(this.escalationMessage);
     }
     /**
-     * @return The name of the preset for the notification for the monitor. Valid values are `show_all`, `hide_all`, `hide_query`, `hide_handles`.
+     * @return The name of the preset for the notification for the monitor. Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`.
      * 
      */
     public Optional<String> notificationPresetName() {
@@ -56,7 +56,7 @@ public final class SyntheticsTestOptionsListMonitorOptions {
         return Optional.ofNullable(this.renotifyInterval);
     }
     /**
-     * @return The number of times a monitor renotifies. It can only be set if `renotify_interval` is set.
+     * @return The number of times a monitor renotifies. It can only be set if `renotifyInterval` is set.
      * 
      */
     public Optional<Integer> renotifyOccurrences() {

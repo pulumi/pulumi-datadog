@@ -14,6 +14,64 @@ import (
 
 // Provides a Datadog On-Call team routing rules resource.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.NewOnCallTeamRoutingRules(ctx, "team_rules_test", &datadog.OnCallTeamRoutingRulesArgs{
+//				TeamId: pulumi.String("00000000-aba2-0000-0000-000000000000"),
+//				Rules: datadog.OnCallTeamRoutingRulesRuleArray{
+//					&datadog.OnCallTeamRoutingRulesRuleArgs{
+//						Query: pulumi.String("tags.service:test"),
+//						Actions: datadog.OnCallTeamRoutingRulesRuleActionArray{
+//							&datadog.OnCallTeamRoutingRulesRuleActionArgs{
+//								SendSlackMessage: datadog.OnCallTeamRoutingRulesRuleActionSendSlackMessageArgs{
+//									map[string]interface{}{
+//										"workspace": "workspace",
+//										"channel":   "channel",
+//									},
+//								},
+//							},
+//						},
+//						TimeRestrictions: datadog.OnCallTeamRoutingRulesRuleTimeRestrictionsArgs{
+//							map[string]interface{}{
+//								"timeZone": "America/New_York",
+//								"restrictions": []map[string]interface{}{
+//									map[string]interface{}{
+//										"endDay":    "monday",
+//										"endTime":   "17:00:00",
+//										"startDay":  "monday",
+//										"startTime": "09:00:00",
+//									},
+//								},
+//							},
+//						},
+//					},
+//					&datadog.OnCallTeamRoutingRulesRuleArgs{
+//						EscalationPolicy: pulumi.String("00000000-aba2-0000-0000-000000000000"),
+//						Urgency:          pulumi.String("dynamic"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // The `pulumi import` command can be used, for example:

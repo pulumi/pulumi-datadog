@@ -28,7 +28,7 @@ namespace Pulumi.Datadog.Aws
         public Output<ImmutableArray<string>> AccountTags { get; private set; } = null!;
 
         /// <summary>
-        /// Configure how Datadog authenticates to your AWS account. Either `aws_auth_config_keys` or `aws_auth_config_role` block is required within.
+        /// Configure how Datadog authenticates to your AWS account. Either `AwsAuthConfigKeys` or `AwsAuthConfigRole` block is required within.
         /// </summary>
         [Output("authConfig")]
         public Output<Outputs.IntegrationAccountAuthConfig?> AuthConfig { get; private set; } = null!;
@@ -46,19 +46,19 @@ namespace Pulumi.Datadog.Aws
         public Output<string> AwsPartition { get; private set; } = null!;
 
         /// <summary>
-        /// AWS regions to collect data from. Defaults to `include_all` if block is empty.
+        /// AWS regions to collect data from. Defaults to `IncludeAll` if block is empty.
         /// </summary>
         [Output("awsRegions")]
         public Output<Outputs.IntegrationAccountAwsRegions?> AwsRegions { get; private set; } = null!;
 
         /// <summary>
-        /// Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_forwarder` block is required within, but may be empty to use defaults.
+        /// Configure log autosubscription for your Datadog Forwarder Lambda functions. The `LambdaForwarder` block is required within, but may be empty to use defaults.
         /// </summary>
         [Output("logsConfig")]
         public Output<Outputs.IntegrationAccountLogsConfig?> LogsConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Configure metrics collection from AWS CloudWatch. The `namespace_filters` block is required within, but may be empty to use defaults.
+        /// Configure metrics collection from AWS CloudWatch. The `NamespaceFilters` block is required within, but may be empty to use defaults.
         /// </summary>
         [Output("metricsConfig")]
         public Output<Outputs.IntegrationAccountMetricsConfig?> MetricsConfig { get; private set; } = null!;
@@ -70,7 +70,7 @@ namespace Pulumi.Datadog.Aws
         public Output<Outputs.IntegrationAccountResourcesConfig?> ResourcesConfig { get; private set; } = null!;
 
         /// <summary>
-        /// AWS traces collection config. The `xray_services` block is required within, but may be empty to use defaults.
+        /// AWS traces collection config. The `XrayServices` block is required within, but may be empty to use defaults.
         /// </summary>
         [Output("tracesConfig")]
         public Output<Outputs.IntegrationAccountTracesConfig?> TracesConfig { get; private set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.Datadog.Aws
         }
 
         /// <summary>
-        /// Configure how Datadog authenticates to your AWS account. Either `aws_auth_config_keys` or `aws_auth_config_role` block is required within.
+        /// Configure how Datadog authenticates to your AWS account. Either `AwsAuthConfigKeys` or `AwsAuthConfigRole` block is required within.
         /// </summary>
         [Input("authConfig")]
         public Input<Inputs.IntegrationAccountAuthConfigArgs>? AuthConfig { get; set; }
@@ -152,19 +152,19 @@ namespace Pulumi.Datadog.Aws
         public Input<string> AwsPartition { get; set; } = null!;
 
         /// <summary>
-        /// AWS regions to collect data from. Defaults to `include_all` if block is empty.
+        /// AWS regions to collect data from. Defaults to `IncludeAll` if block is empty.
         /// </summary>
         [Input("awsRegions")]
         public Input<Inputs.IntegrationAccountAwsRegionsArgs>? AwsRegions { get; set; }
 
         /// <summary>
-        /// Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_forwarder` block is required within, but may be empty to use defaults.
+        /// Configure log autosubscription for your Datadog Forwarder Lambda functions. The `LambdaForwarder` block is required within, but may be empty to use defaults.
         /// </summary>
         [Input("logsConfig")]
         public Input<Inputs.IntegrationAccountLogsConfigArgs>? LogsConfig { get; set; }
 
         /// <summary>
-        /// Configure metrics collection from AWS CloudWatch. The `namespace_filters` block is required within, but may be empty to use defaults.
+        /// Configure metrics collection from AWS CloudWatch. The `NamespaceFilters` block is required within, but may be empty to use defaults.
         /// </summary>
         [Input("metricsConfig")]
         public Input<Inputs.IntegrationAccountMetricsConfigArgs>? MetricsConfig { get; set; }
@@ -176,7 +176,7 @@ namespace Pulumi.Datadog.Aws
         public Input<Inputs.IntegrationAccountResourcesConfigArgs>? ResourcesConfig { get; set; }
 
         /// <summary>
-        /// AWS traces collection config. The `xray_services` block is required within, but may be empty to use defaults.
+        /// AWS traces collection config. The `XrayServices` block is required within, but may be empty to use defaults.
         /// </summary>
         [Input("tracesConfig")]
         public Input<Inputs.IntegrationAccountTracesConfigArgs>? TracesConfig { get; set; }
@@ -202,7 +202,7 @@ namespace Pulumi.Datadog.Aws
         }
 
         /// <summary>
-        /// Configure how Datadog authenticates to your AWS account. Either `aws_auth_config_keys` or `aws_auth_config_role` block is required within.
+        /// Configure how Datadog authenticates to your AWS account. Either `AwsAuthConfigKeys` or `AwsAuthConfigRole` block is required within.
         /// </summary>
         [Input("authConfig")]
         public Input<Inputs.IntegrationAccountAuthConfigGetArgs>? AuthConfig { get; set; }
@@ -220,19 +220,19 @@ namespace Pulumi.Datadog.Aws
         public Input<string>? AwsPartition { get; set; }
 
         /// <summary>
-        /// AWS regions to collect data from. Defaults to `include_all` if block is empty.
+        /// AWS regions to collect data from. Defaults to `IncludeAll` if block is empty.
         /// </summary>
         [Input("awsRegions")]
         public Input<Inputs.IntegrationAccountAwsRegionsGetArgs>? AwsRegions { get; set; }
 
         /// <summary>
-        /// Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_forwarder` block is required within, but may be empty to use defaults.
+        /// Configure log autosubscription for your Datadog Forwarder Lambda functions. The `LambdaForwarder` block is required within, but may be empty to use defaults.
         /// </summary>
         [Input("logsConfig")]
         public Input<Inputs.IntegrationAccountLogsConfigGetArgs>? LogsConfig { get; set; }
 
         /// <summary>
-        /// Configure metrics collection from AWS CloudWatch. The `namespace_filters` block is required within, but may be empty to use defaults.
+        /// Configure metrics collection from AWS CloudWatch. The `NamespaceFilters` block is required within, but may be empty to use defaults.
         /// </summary>
         [Input("metricsConfig")]
         public Input<Inputs.IntegrationAccountMetricsConfigGetArgs>? MetricsConfig { get; set; }
@@ -244,7 +244,7 @@ namespace Pulumi.Datadog.Aws
         public Input<Inputs.IntegrationAccountResourcesConfigGetArgs>? ResourcesConfig { get; set; }
 
         /// <summary>
-        /// AWS traces collection config. The `xray_services` block is required within, but may be empty to use defaults.
+        /// AWS traces collection config. The `XrayServices` block is required within, but may be empty to use defaults.
         /// </summary>
         [Input("tracesConfig")]
         public Input<Inputs.IntegrationAccountTracesConfigGetArgs>? TracesConfig { get; set; }

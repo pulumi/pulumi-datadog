@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigDestinationsGooglePubsubAuth? Auth;
         /// <summary>
-        /// Encoding format for log events. Valid values: `json`, `raw_message`.
+        /// Encoding format for log events. Valid values: `Json`, `RawMessage`.
         /// </summary>
         public readonly string? Encoding;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A list of component IDs whose output is used as the `input` for this component.
+        /// A list of component IDs whose output is used as the `Input` for this component.
         /// </summary>
         public readonly ImmutableArray<string> Inputs;
         /// <summary>

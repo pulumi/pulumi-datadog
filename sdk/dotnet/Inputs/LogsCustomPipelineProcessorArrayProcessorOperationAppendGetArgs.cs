@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class LogsCustomPipelineProcessorArrayProcessorOperationAppendGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Remove or preserve the remapped source element. Defaults to `true`.
+        /// Remove or preserve the remapped source element. Defaults to `True`.
         /// </summary>
         [Input("preserveSource")]
         public Input<bool>? PreserveSource { get; set; }

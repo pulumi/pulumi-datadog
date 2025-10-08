@@ -19,13 +19,13 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.PowerpackWidgetChangeDefinitionRequestApmQueryArgs>? ApmQuery { get; set; }
 
         /// <summary>
-        /// Whether to show absolute or relative change. Valid values are `absolute`, `relative`.
+        /// Whether to show absolute or relative change. Valid values are `Absolute`, `Relative`.
         /// </summary>
         [Input("changeType")]
         public Input<string>? ChangeType { get; set; }
 
         /// <summary>
-        /// Choose from when to compare current data to. Valid values are `hour_before`, `day_before`, `week_before`, `month_before`.
+        /// Choose from when to compare current data to. Valid values are `HourBefore`, `DayBefore`, `WeekBefore`, `MonthBefore`.
         /// </summary>
         [Input("compareTo")]
         public Input<string>? CompareTo { get; set; }
@@ -51,13 +51,13 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.PowerpackWidgetChangeDefinitionRequestLogQueryArgs>? LogQuery { get; set; }
 
         /// <summary>
-        /// What to order by. Valid values are `change`, `name`, `present`, `past`.
+        /// What to order by. Valid values are `Change`, `Name`, `Present`, `Past`.
         /// </summary>
         [Input("orderBy")]
         public Input<string>? OrderBy { get; set; }
 
         /// <summary>
-        /// Widget sorting method. Valid values are `asc`, `desc`.
+        /// Widget sorting method. Valid values are `Asc`, `Desc`.
         /// </summary>
         [Input("orderDir")]
         public Input<string>? OrderDir { get; set; }
@@ -95,7 +95,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.PowerpackWidgetChangeDefinitionRequestSecurityQueryArgs>? SecurityQuery { get; set; }
 
         /// <summary>
-        /// If set to `true`, displays the current value.
+        /// If set to `True`, displays the current value.
         /// </summary>
         [Input("showPresent")]
         public Input<bool>? ShowPresent { get; set; }

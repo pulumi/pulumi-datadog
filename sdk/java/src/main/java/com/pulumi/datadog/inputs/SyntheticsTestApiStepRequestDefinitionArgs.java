@@ -95,14 +95,14 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
     }
 
     /**
-     * By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `certificate_domains`.
+     * By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `certificateDomains`.
      * 
      */
     @Import(name="certificateDomains")
     private @Nullable Output<List<String>> certificateDomains;
 
     /**
-     * @return By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `certificate_domains`.
+     * @return By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `certificateDomains`.
      * 
      */
     public Optional<Output<List<String>>> certificateDomains() {
@@ -185,14 +185,14 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
     }
 
     /**
-     * Form data to be sent when `body_type` is `multipart/form-data`.
+     * Form data to be sent when `bodyType` is `multipart/form-data`.
      * 
      */
     @Import(name="form")
     private @Nullable Output<Map<String,String>> form;
 
     /**
-     * @return Form data to be sent when `body_type` is `multipart/form-data`.
+     * @return Form data to be sent when `bodyType` is `multipart/form-data`.
      * 
      */
     public Optional<Output<Map<String,String>>> form() {
@@ -350,24 +350,24 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
     }
 
     /**
-     * A protobuf JSON descriptor. **Deprecated.** Use `plain_proto_file` instead.
+     * A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
      * 
      * @deprecated
-     * Use `plain_proto_file` instead.
+     * Use `plainProtoFile` instead.
      * 
      */
-    @Deprecated /* Use `plain_proto_file` instead. */
+    @Deprecated /* Use `plainProtoFile` instead. */
     @Import(name="protoJsonDescriptor")
     private @Nullable Output<String> protoJsonDescriptor;
 
     /**
-     * @return A protobuf JSON descriptor. **Deprecated.** Use `plain_proto_file` instead.
+     * @return A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
      * 
      * @deprecated
-     * Use `plain_proto_file` instead.
+     * Use `plainProtoFile` instead.
      * 
      */
-    @Deprecated /* Use `plain_proto_file` instead. */
+    @Deprecated /* Use `plainProtoFile` instead. */
     public Optional<Output<String>> protoJsonDescriptor() {
         return Optional.ofNullable(this.protoJsonDescriptor);
     }
@@ -604,7 +604,7 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
         }
 
         /**
-         * @param certificateDomains By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `certificate_domains`.
+         * @param certificateDomains By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `certificateDomains`.
          * 
          * @return builder
          * 
@@ -615,7 +615,7 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
         }
 
         /**
-         * @param certificateDomains By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `certificate_domains`.
+         * @param certificateDomains By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `certificateDomains`.
          * 
          * @return builder
          * 
@@ -625,7 +625,7 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
         }
 
         /**
-         * @param certificateDomains By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `certificate_domains`.
+         * @param certificateDomains By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `certificateDomains`.
          * 
          * @return builder
          * 
@@ -740,7 +740,7 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
         }
 
         /**
-         * @param form Form data to be sent when `body_type` is `multipart/form-data`.
+         * @param form Form data to be sent when `bodyType` is `multipart/form-data`.
          * 
          * @return builder
          * 
@@ -751,7 +751,7 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
         }
 
         /**
-         * @param form Form data to be sent when `body_type` is `multipart/form-data`.
+         * @param form Form data to be sent when `bodyType` is `multipart/form-data`.
          * 
          * @return builder
          * 
@@ -971,30 +971,30 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
         }
 
         /**
-         * @param protoJsonDescriptor A protobuf JSON descriptor. **Deprecated.** Use `plain_proto_file` instead.
+         * @param protoJsonDescriptor A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
          * 
          * @return builder
          * 
          * @deprecated
-         * Use `plain_proto_file` instead.
+         * Use `plainProtoFile` instead.
          * 
          */
-        @Deprecated /* Use `plain_proto_file` instead. */
+        @Deprecated /* Use `plainProtoFile` instead. */
         public Builder protoJsonDescriptor(@Nullable Output<String> protoJsonDescriptor) {
             $.protoJsonDescriptor = protoJsonDescriptor;
             return this;
         }
 
         /**
-         * @param protoJsonDescriptor A protobuf JSON descriptor. **Deprecated.** Use `plain_proto_file` instead.
+         * @param protoJsonDescriptor A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
          * 
          * @return builder
          * 
          * @deprecated
-         * Use `plain_proto_file` instead.
+         * Use `plainProtoFile` instead.
          * 
          */
-        @Deprecated /* Use `plain_proto_file` instead. */
+        @Deprecated /* Use `plainProtoFile` instead. */
         public Builder protoJsonDescriptor(String protoJsonDescriptor) {
             return protoJsonDescriptor(Output.of(protoJsonDescriptor));
         }

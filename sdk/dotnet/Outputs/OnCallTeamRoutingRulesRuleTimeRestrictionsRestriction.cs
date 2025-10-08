@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class OnCallTeamRoutingRulesRuleTimeRestrictionsRestriction
     {
         /// <summary>
-        /// The weekday when the restriction period ends. Valid values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
+        /// The weekday when the restriction period ends. Valid values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
         /// </summary>
         public readonly string? EndDay;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? EndTime;
         /// <summary>
-        /// The weekday when the restriction period starts. Valid values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
+        /// The weekday when the restriction period starts. Valid values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
         /// </summary>
         public readonly string? StartDay;
         /// <summary>

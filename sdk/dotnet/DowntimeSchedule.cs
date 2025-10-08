@@ -12,6 +12,65 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog DowntimeSchedule resource. This can be used to create and manage Datadog downtimes.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Create new downtime_schedule resource
+    ///     var downtimeScheduleExample = new Datadog.DowntimeSchedule("downtime_schedule_example", new()
+    ///     {
+    ///         Scope = "env:us9-prod7 AND team:test123",
+    ///         MonitorIdentifier = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "monitorTags", new[]
+    ///                 {
+    ///                     "test:123",
+    ///                     "data:test",
+    ///                 } },
+    ///             },
+    ///         },
+    ///         RecurringSchedule = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "recurrences", new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "duration", "1h" },
+    ///                         { "rrule", "FREQ=DAILY;INTERVAL=1" },
+    ///                         { "start", "2050-01-02T03:04:05" },
+    ///                     },
+    ///                 } },
+    ///                 { "timezone", "America/New_York" },
+    ///             },
+    ///         },
+    ///         DisplayTimezone = "America/New_York",
+    ///         Message = "Message about the downtime",
+    ///         MuteFirstRecoveryNotification = true,
+    ///         NotifyEndStates = new[]
+    ///         {
+    ///             "alert",
+    ///             "warn",
+    ///         },
+    ///         NotifyEndTypes = new[]
+    ///         {
+    ///             "canceled",
+    ///             "expired",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// The `pulumi import` command can be used, for example:
@@ -45,13 +104,13 @@ namespace Pulumi.Datadog
         public Output<bool> MuteFirstRecoveryNotification { get; private set; } = null!;
 
         /// <summary>
-        /// States that will trigger a monitor notification when the `notify_end_types` action occurs.
+        /// States that will trigger a monitor notification when the `NotifyEndTypes` action occurs.
         /// </summary>
         [Output("notifyEndStates")]
         public Output<ImmutableArray<string>> NotifyEndStates { get; private set; } = null!;
 
         /// <summary>
-        /// Actions that will trigger a monitor notification if the downtime is in the `notify_end_types` state.
+        /// Actions that will trigger a monitor notification if the downtime is in the `NotifyEndTypes` state.
         /// </summary>
         [Output("notifyEndTypes")]
         public Output<ImmutableArray<string>> NotifyEndTypes { get; private set; } = null!;
@@ -139,7 +198,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _notifyEndStates;
 
         /// <summary>
-        /// States that will trigger a monitor notification when the `notify_end_types` action occurs.
+        /// States that will trigger a monitor notification when the `NotifyEndTypes` action occurs.
         /// </summary>
         public InputList<string> NotifyEndStates
         {
@@ -151,7 +210,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _notifyEndTypes;
 
         /// <summary>
-        /// Actions that will trigger a monitor notification if the downtime is in the `notify_end_types` state.
+        /// Actions that will trigger a monitor notification if the downtime is in the `NotifyEndTypes` state.
         /// </summary>
         public InputList<string> NotifyEndTypes
         {
@@ -204,7 +263,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _notifyEndStates;
 
         /// <summary>
-        /// States that will trigger a monitor notification when the `notify_end_types` action occurs.
+        /// States that will trigger a monitor notification when the `NotifyEndTypes` action occurs.
         /// </summary>
         public InputList<string> NotifyEndStates
         {
@@ -216,7 +275,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _notifyEndTypes;
 
         /// <summary>
-        /// Actions that will trigger a monitor notification if the downtime is in the `notify_end_types` state.
+        /// Actions that will trigger a monitor notification if the downtime is in the `NotifyEndTypes` state.
         /// </summary>
         public InputList<string> NotifyEndTypes
         {

@@ -58,7 +58,7 @@ namespace Pulumi.Datadog.OpsGenie
         public Output<string> OpsgenieApiKey { get; private set; } = null!;
 
         /// <summary>
-        /// The region for the Opsgenie service. Valid values are `us`, `eu`, `custom`.
+        /// The region for the Opsgenie service. Valid values are `Us`, `Eu`, `Custom`.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -138,7 +138,7 @@ namespace Pulumi.Datadog.OpsGenie
         }
 
         /// <summary>
-        /// The region for the Opsgenie service. Valid values are `us`, `eu`, `custom`.
+        /// The region for the Opsgenie service. Valid values are `Us`, `Eu`, `Custom`.
         /// </summary>
         [Input("region", required: true)]
         public Input<string> Region { get; set; } = null!;
@@ -176,7 +176,7 @@ namespace Pulumi.Datadog.OpsGenie
         }
 
         /// <summary>
-        /// The region for the Opsgenie service. Valid values are `us`, `eu`, `custom`.
+        /// The region for the Opsgenie service. Valid values are `Us`, `Eu`, `Custom`.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

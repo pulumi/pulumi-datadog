@@ -9,6 +9,43 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog DowntimeSchedule resource. This can be used to create and manage Datadog downtimes.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * // Create new downtime_schedule resource
+ * const downtimeScheduleExample = new datadog.DowntimeSchedule("downtime_schedule_example", {
+ *     scope: "env:us9-prod7 AND team:test123",
+ *     monitorIdentifier: [{
+ *         monitorTags: [
+ *             "test:123",
+ *             "data:test",
+ *         ],
+ *     }],
+ *     recurringSchedule: [{
+ *         recurrences: [{
+ *             duration: "1h",
+ *             rrule: "FREQ=DAILY;INTERVAL=1",
+ *             start: "2050-01-02T03:04:05",
+ *         }],
+ *         timezone: "America/New_York",
+ *     }],
+ *     displayTimezone: "America/New_York",
+ *     message: "Message about the downtime",
+ *     muteFirstRecoveryNotification: true,
+ *     notifyEndStates: [
+ *         "alert",
+ *         "warn",
+ *     ],
+ *     notifyEndTypes: [
+ *         "canceled",
+ *         "expired",
+ *     ],
+ * });
+ * ```
+ *
  * ## Import
  *
  * The `pulumi import` command can be used, for example:

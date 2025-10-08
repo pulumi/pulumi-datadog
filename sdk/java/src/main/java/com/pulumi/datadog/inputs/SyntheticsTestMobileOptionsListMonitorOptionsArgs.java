@@ -32,14 +32,14 @@ public final class SyntheticsTestMobileOptionsListMonitorOptionsArgs extends com
     }
 
     /**
-     * The name of the preset for the notification for the monitor. Valid values are `show_all`, `hide_all`, `hide_query`, `hide_handles`.
+     * The name of the preset for the notification for the monitor. Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`.
      * 
      */
     @Import(name="notificationPresetName")
     private @Nullable Output<String> notificationPresetName;
 
     /**
-     * @return The name of the preset for the notification for the monitor. Valid values are `show_all`, `hide_all`, `hide_query`, `hide_handles`.
+     * @return The name of the preset for the notification for the monitor. Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`.
      * 
      */
     public Optional<Output<String>> notificationPresetName() {
@@ -62,14 +62,14 @@ public final class SyntheticsTestMobileOptionsListMonitorOptionsArgs extends com
     }
 
     /**
-     * The number of times a monitor renotifies. It can only be set if `renotify_interval` is set.
+     * The number of times a monitor renotifies. It can only be set if `renotifyInterval` is set.
      * 
      */
     @Import(name="renotifyOccurrences")
     private @Nullable Output<Integer> renotifyOccurrences;
 
     /**
-     * @return The number of times a monitor renotifies. It can only be set if `renotify_interval` is set.
+     * @return The number of times a monitor renotifies. It can only be set if `renotifyInterval` is set.
      * 
      */
     public Optional<Output<Integer>> renotifyOccurrences() {
@@ -125,7 +125,7 @@ public final class SyntheticsTestMobileOptionsListMonitorOptionsArgs extends com
         }
 
         /**
-         * @param notificationPresetName The name of the preset for the notification for the monitor. Valid values are `show_all`, `hide_all`, `hide_query`, `hide_handles`.
+         * @param notificationPresetName The name of the preset for the notification for the monitor. Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class SyntheticsTestMobileOptionsListMonitorOptionsArgs extends com
         }
 
         /**
-         * @param notificationPresetName The name of the preset for the notification for the monitor. Valid values are `show_all`, `hide_all`, `hide_query`, `hide_handles`.
+         * @param notificationPresetName The name of the preset for the notification for the monitor. Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class SyntheticsTestMobileOptionsListMonitorOptionsArgs extends com
         }
 
         /**
-         * @param renotifyOccurrences The number of times a monitor renotifies. It can only be set if `renotify_interval` is set.
+         * @param renotifyOccurrences The number of times a monitor renotifies. It can only be set if `renotifyInterval` is set.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class SyntheticsTestMobileOptionsListMonitorOptionsArgs extends com
         }
 
         /**
-         * @param renotifyOccurrences The number of times a monitor renotifies. It can only be set if `renotify_interval` is set.
+         * @param renotifyOccurrences The number of times a monitor renotifies. It can only be set if `renotifyInterval` is set.
          * 
          * @return builder
          * 

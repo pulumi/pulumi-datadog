@@ -22,6 +22,62 @@ import javax.annotation.Nullable;
 /**
  * Provides a Datadog DowntimeSchedule resource. This can be used to create and manage Datadog downtimes.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.DowntimeSchedule;
+ * import com.pulumi.datadog.DowntimeScheduleArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         // Create new downtime_schedule resource
+ *         var downtimeScheduleExample = new DowntimeSchedule("downtimeScheduleExample", DowntimeScheduleArgs.builder()
+ *             .scope("env:us9-prod7 AND team:test123")
+ *             .monitorIdentifier(DowntimeScheduleMonitorIdentifierArgs.builder()
+ *                 .monitorTags(                
+ *                     "test:123",
+ *                     "data:test")
+ *                 .build())
+ *             .recurringSchedule(DowntimeScheduleRecurringScheduleArgs.builder()
+ *                 .recurrences(DowntimeScheduleRecurringScheduleRecurrenceArgs.builder()
+ *                     .duration("1h")
+ *                     .rrule("FREQ=DAILY;INTERVAL=1")
+ *                     .start("2050-01-02T03:04:05")
+ *                     .build())
+ *                 .timezone("America/New_York")
+ *                 .build())
+ *             .displayTimezone("America/New_York")
+ *             .message("Message about the downtime")
+ *             .muteFirstRecoveryNotification(true)
+ *             .notifyEndStates(            
+ *                 "alert",
+ *                 "warn")
+ *             .notifyEndTypes(            
+ *                 "canceled",
+ *                 "expired")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * The `pulumi import` command can be used, for example:
@@ -82,28 +138,28 @@ public class DowntimeSchedule extends com.pulumi.resources.CustomResource {
         return this.muteFirstRecoveryNotification;
     }
     /**
-     * States that will trigger a monitor notification when the `notify_end_types` action occurs.
+     * States that will trigger a monitor notification when the `notifyEndTypes` action occurs.
      * 
      */
     @Export(name="notifyEndStates", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> notifyEndStates;
 
     /**
-     * @return States that will trigger a monitor notification when the `notify_end_types` action occurs.
+     * @return States that will trigger a monitor notification when the `notifyEndTypes` action occurs.
      * 
      */
     public Output<List<String>> notifyEndStates() {
         return this.notifyEndStates;
     }
     /**
-     * Actions that will trigger a monitor notification if the downtime is in the `notify_end_types` state.
+     * Actions that will trigger a monitor notification if the downtime is in the `notifyEndTypes` state.
      * 
      */
     @Export(name="notifyEndTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> notifyEndTypes;
 
     /**
-     * @return Actions that will trigger a monitor notification if the downtime is in the `notify_end_types` state.
+     * @return Actions that will trigger a monitor notification if the downtime is in the `notifyEndTypes` state.
      * 
      */
     public Output<List<String>> notifyEndTypes() {

@@ -16,22 +16,22 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PowerpackWidgetListStreamDefinitionRequestQuery {
     /**
-     * @return Specifies the field for logs pattern clustering. Can only be used with `logs_pattern_stream`.
+     * @return Specifies the field for logs pattern clustering. Can only be used with `logsPatternStream`.
      * 
      */
     private @Nullable String clusteringPatternFieldPath;
     /**
-     * @return Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`, `llm_observability_stream`.
+     * @return Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`.
      * 
      */
     private String dataSource;
     /**
-     * @return Size of events displayed in widget. Required if `data_source` is `event_stream`. Valid values are `s`, `l`.
+     * @return Size of events displayed in widget. Required if `dataSource` is `eventStream`. Valid values are `s`, `l`.
      * 
      */
     private @Nullable String eventSize;
     /**
-     * @return Group by configuration for the List Stream widget. Group by can only be used with `logs_pattern_stream` (up to 4 items) or `logs_transaction_stream` (one group by item is required) list stream source.
+     * @return Group by configuration for the List Stream widget. Group by can only be used with `logsPatternStream` (up to 4 items) or `logsTransactionStream` (one group by item is required) list stream source.
      * 
      */
     private @Nullable List<PowerpackWidgetListStreamDefinitionRequestQueryGroupBy> groupBies;
@@ -58,28 +58,28 @@ public final class PowerpackWidgetListStreamDefinitionRequestQuery {
 
     private PowerpackWidgetListStreamDefinitionRequestQuery() {}
     /**
-     * @return Specifies the field for logs pattern clustering. Can only be used with `logs_pattern_stream`.
+     * @return Specifies the field for logs pattern clustering. Can only be used with `logsPatternStream`.
      * 
      */
     public Optional<String> clusteringPatternFieldPath() {
         return Optional.ofNullable(this.clusteringPatternFieldPath);
     }
     /**
-     * @return Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`, `llm_observability_stream`.
+     * @return Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`.
      * 
      */
     public String dataSource() {
         return this.dataSource;
     }
     /**
-     * @return Size of events displayed in widget. Required if `data_source` is `event_stream`. Valid values are `s`, `l`.
+     * @return Size of events displayed in widget. Required if `dataSource` is `eventStream`. Valid values are `s`, `l`.
      * 
      */
     public Optional<String> eventSize() {
         return Optional.ofNullable(this.eventSize);
     }
     /**
-     * @return Group by configuration for the List Stream widget. Group by can only be used with `logs_pattern_stream` (up to 4 items) or `logs_transaction_stream` (one group by item is required) list stream source.
+     * @return Group by configuration for the List Stream widget. Group by can only be used with `logsPatternStream` (up to 4 items) or `logsTransactionStream` (one group by item is required) list stream source.
      * 
      */
     public List<PowerpackWidgetListStreamDefinitionRequestQueryGroupBy> groupBies() {

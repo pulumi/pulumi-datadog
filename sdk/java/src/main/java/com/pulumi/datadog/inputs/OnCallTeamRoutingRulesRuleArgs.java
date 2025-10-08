@@ -94,14 +94,14 @@ public final class OnCallTeamRoutingRulesRuleArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Defines the urgency for pages created via this rule. Only valid if `escalation_policy` is set. Valid values are `high`, `low`, `dynamic`.
+     * Defines the urgency for pages created via this rule. Only valid if `escalationPolicy` is set. Valid values are `high`, `low`, `dynamic`.
      * 
      */
     @Import(name="urgency")
     private @Nullable Output<String> urgency;
 
     /**
-     * @return Defines the urgency for pages created via this rule. Only valid if `escalation_policy` is set. Valid values are `high`, `low`, `dynamic`.
+     * @return Defines the urgency for pages created via this rule. Only valid if `escalationPolicy` is set. Valid values are `high`, `low`, `dynamic`.
      * 
      */
     public Optional<Output<String>> urgency() {
@@ -253,7 +253,7 @@ public final class OnCallTeamRoutingRulesRuleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param urgency Defines the urgency for pages created via this rule. Only valid if `escalation_policy` is set. Valid values are `high`, `low`, `dynamic`.
+         * @param urgency Defines the urgency for pages created via this rule. Only valid if `escalationPolicy` is set. Valid values are `high`, `low`, `dynamic`.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class OnCallTeamRoutingRulesRuleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param urgency Defines the urgency for pages created via this rule. Only valid if `escalation_policy` is set. Valid values are `high`, `low`, `dynamic`.
+         * @param urgency Defines the urgency for pages created via this rule. Only valid if `escalationPolicy` is set. Valid values are `high`, `low`, `dynamic`.
          * 
          * @return builder
          * 

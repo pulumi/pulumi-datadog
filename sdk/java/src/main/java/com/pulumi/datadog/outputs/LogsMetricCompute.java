@@ -19,7 +19,7 @@ public final class LogsMetricCompute {
      */
     private String aggregationType;
     /**
-     * @return Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have an `aggregation_type` of distribution.
+     * @return Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have an `aggregationType` of distribution.
      * 
      */
     private @Nullable Boolean includePercentiles;
@@ -38,7 +38,7 @@ public final class LogsMetricCompute {
         return this.aggregationType;
     }
     /**
-     * @return Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have an `aggregation_type` of distribution.
+     * @return Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have an `aggregationType` of distribution.
      * 
      */
     public Optional<Boolean> includePercentiles() {

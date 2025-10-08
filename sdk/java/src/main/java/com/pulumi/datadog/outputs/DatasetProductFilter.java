@@ -17,7 +17,7 @@ public final class DatasetProductFilter {
      */
     private List<String> filters;
     /**
-     * @return The product type of the dataset. Supported types: `apm`, `rum`, `synthetics`, `metrics`, `logs`, `sd_repoinfo`, `error_tracking`, `cloud_cost`, and `ml_obs`.
+     * @return The product type of the dataset. Supported types: `apm`, `rum`, `synthetics`, `metrics`, `logs`, `sdRepoinfo`, `errorTracking`, `cloudCost`, and `mlObs`.
      * 
      */
     private String product;
@@ -31,7 +31,7 @@ public final class DatasetProductFilter {
         return this.filters;
     }
     /**
-     * @return The product type of the dataset. Supported types: `apm`, `rum`, `synthetics`, `metrics`, `logs`, `sd_repoinfo`, `error_tracking`, `cloud_cost`, and `ml_obs`.
+     * @return The product type of the dataset. Supported types: `apm`, `rum`, `synthetics`, `metrics`, `logs`, `sdRepoinfo`, `errorTracking`, `cloudCost`, and `mlObs`.
      * 
      */
     public String product() {

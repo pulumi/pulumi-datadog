@@ -18,14 +18,14 @@ public final class SecurityMonitoringRuleSignalQueryArgs extends com.pulumi.reso
     public static final SecurityMonitoringRuleSignalQueryArgs Empty = new SecurityMonitoringRuleSignalQueryArgs();
 
     /**
-     * The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`. Defaults to `&#34;event_count&#34;`.
+     * The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`. Defaults to `&#34;eventCount&#34;`.
      * 
      */
     @Import(name="aggregation")
     private @Nullable Output<String> aggregation;
 
     /**
-     * @return The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`. Defaults to `&#34;event_count&#34;`.
+     * @return The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`. Defaults to `&#34;eventCount&#34;`.
      * 
      */
     public Optional<Output<String>> aggregation() {
@@ -78,14 +78,14 @@ public final class SecurityMonitoringRuleSignalQueryArgs extends com.pulumi.reso
     }
 
     /**
-     * Name of the query. Not compatible with `new_value` aggregations.
+     * Name of the query. Not compatible with `newValue` aggregations.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the query. Not compatible with `new_value` aggregations.
+     * @return Name of the query. Not compatible with `newValue` aggregations.
      * 
      */
     public Optional<Output<String>> name() {
@@ -137,7 +137,7 @@ public final class SecurityMonitoringRuleSignalQueryArgs extends com.pulumi.reso
         }
 
         /**
-         * @param aggregation The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`. Defaults to `&#34;event_count&#34;`.
+         * @param aggregation The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`. Defaults to `&#34;eventCount&#34;`.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class SecurityMonitoringRuleSignalQueryArgs extends com.pulumi.reso
         }
 
         /**
-         * @param aggregation The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`. Defaults to `&#34;event_count&#34;`.
+         * @param aggregation The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`. Defaults to `&#34;eventCount&#34;`.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class SecurityMonitoringRuleSignalQueryArgs extends com.pulumi.reso
         }
 
         /**
-         * @param name Name of the query. Not compatible with `new_value` aggregations.
+         * @param name Name of the query. Not compatible with `newValue` aggregations.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class SecurityMonitoringRuleSignalQueryArgs extends com.pulumi.reso
         }
 
         /**
-         * @param name Name of the query. Not compatible with `new_value` aggregations.
+         * @param name Name of the query. Not compatible with `newValue` aggregations.
          * 
          * @return builder
          * 

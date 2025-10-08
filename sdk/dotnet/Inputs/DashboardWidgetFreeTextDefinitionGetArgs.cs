@@ -31,7 +31,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> Text { get; set; } = null!;
 
         /// <summary>
-        /// The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+        /// The alignment of the text in the widget. Valid values are `Center`, `Left`, `Right`.
         /// </summary>
         [Input("textAlign")]
         public Input<string>? TextAlign { get; set; }

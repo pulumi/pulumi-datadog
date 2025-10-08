@@ -19,6 +19,46 @@ import javax.annotation.Nullable;
 /**
  * Provides a Datadog MonitorNotificationRule resource.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.MonitorNotificationRule;
+ * import com.pulumi.datadog.MonitorNotificationRuleArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         // Create new monitor_notification_rule resource
+ *         var foo = new MonitorNotificationRule("foo", MonitorNotificationRuleArgs.builder()
+ *             .name("A notification rule name")
+ *             .recipients(            
+ *                 "slack-test-channel",
+ *                 "jira-test")
+ *             .filter(MonitorNotificationRuleFilterArgs.builder()
+ *                 .tags("env:foo")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * The `pulumi import` command can be used, for example:

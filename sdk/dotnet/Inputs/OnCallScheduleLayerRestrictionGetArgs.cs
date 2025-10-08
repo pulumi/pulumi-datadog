@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class OnCallScheduleLayerRestrictionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The weekday when the restriction period ends. Valid values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
+        /// The weekday when the restriction period ends. Valid values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
         /// </summary>
         [Input("endDay", required: true)]
         public Input<string> EndDay { get; set; } = null!;
@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> EndTime { get; set; } = null!;
 
         /// <summary>
-        /// The weekday when the restriction period starts. Valid values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
+        /// The weekday when the restriction period starts. Valid values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
         /// </summary>
         [Input("startDay", required: true)]
         public Input<string> StartDay { get; set; } = null!;

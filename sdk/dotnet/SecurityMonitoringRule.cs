@@ -93,7 +93,7 @@ namespace Pulumi.Datadog
     public partial class SecurityMonitoringRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// One or more calculated fields. Available only for scheduled rules (in other words, when `scheduling_options` is defined).
+        /// One or more calculated fields. Available only for scheduled rules (in other words, when `SchedulingOptions` is defined).
         /// </summary>
         [Output("calculatedFields")]
         public Output<ImmutableArray<Outputs.SecurityMonitoringRuleCalculatedField>> CalculatedFields { get; private set; } = null!;
@@ -105,7 +105,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<Outputs.SecurityMonitoringRuleCase>> Cases { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the rule is enabled. Defaults to `true`.
+        /// Whether the rule is enabled. Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -123,7 +123,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<string>> GroupSignalsBies { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
+        /// Whether the notifications include the triggering group-by values in their title. Defaults to `False`.
         /// </summary>
         [Output("hasExtendedTitle")]
         public Output<bool?> HasExtendedTitle { get; private set; } = null!;
@@ -183,7 +183,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<Outputs.SecurityMonitoringRuleThirdPartyCase>> ThirdPartyCases { get; private set; } = null!;
 
         /// <summary>
-        /// The rule type. Valid values are `application_security`, `log_detection`, `workload_security`, `signal_correlation`. Defaults to `"log_detection"`.
+        /// The rule type. Valid values are `ApplicationSecurity`, `LogDetection`, `WorkloadSecurity`, `SignalCorrelation`. Defaults to `"LogDetection"`.
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
@@ -244,7 +244,7 @@ namespace Pulumi.Datadog
         private InputList<Inputs.SecurityMonitoringRuleCalculatedFieldArgs>? _calculatedFields;
 
         /// <summary>
-        /// One or more calculated fields. Available only for scheduled rules (in other words, when `scheduling_options` is defined).
+        /// One or more calculated fields. Available only for scheduled rules (in other words, when `SchedulingOptions` is defined).
         /// </summary>
         public InputList<Inputs.SecurityMonitoringRuleCalculatedFieldArgs> CalculatedFields
         {
@@ -265,7 +265,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// Whether the rule is enabled. Defaults to `true`.
+        /// Whether the rule is enabled. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -295,7 +295,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
+        /// Whether the notifications include the triggering group-by values in their title. Defaults to `False`.
         /// </summary>
         [Input("hasExtendedTitle")]
         public Input<bool>? HasExtendedTitle { get; set; }
@@ -385,7 +385,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The rule type. Valid values are `application_security`, `log_detection`, `workload_security`, `signal_correlation`. Defaults to `"log_detection"`.
+        /// The rule type. Valid values are `ApplicationSecurity`, `LogDetection`, `WorkloadSecurity`, `SignalCorrelation`. Defaults to `"LogDetection"`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -408,7 +408,7 @@ namespace Pulumi.Datadog
         private InputList<Inputs.SecurityMonitoringRuleCalculatedFieldGetArgs>? _calculatedFields;
 
         /// <summary>
-        /// One or more calculated fields. Available only for scheduled rules (in other words, when `scheduling_options` is defined).
+        /// One or more calculated fields. Available only for scheduled rules (in other words, when `SchedulingOptions` is defined).
         /// </summary>
         public InputList<Inputs.SecurityMonitoringRuleCalculatedFieldGetArgs> CalculatedFields
         {
@@ -429,7 +429,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// Whether the rule is enabled. Defaults to `true`.
+        /// Whether the rule is enabled. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -459,7 +459,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
+        /// Whether the notifications include the triggering group-by values in their title. Defaults to `False`.
         /// </summary>
         [Input("hasExtendedTitle")]
         public Input<bool>? HasExtendedTitle { get; set; }
@@ -549,7 +549,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The rule type. Valid values are `application_security`, `log_detection`, `workload_security`, `signal_correlation`. Defaults to `"log_detection"`.
+        /// The rule type. Valid values are `ApplicationSecurity`, `LogDetection`, `WorkloadSecurity`, `SignalCorrelation`. Defaults to `"LogDetection"`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

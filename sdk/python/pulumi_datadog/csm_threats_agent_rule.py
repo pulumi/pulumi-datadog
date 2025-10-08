@@ -273,6 +273,30 @@ class CsmThreatsAgentRule(pulumi.CustomResource):
         """
         Provides a Datadog Workload Protection (CSM Threats) Agent Rule API resource.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        my_agent_rule = datadog.CsmThreatsAgentRule("my_agent_rule",
+            actions=[{
+                "hash": [{}],
+                "set": [{
+                    "name": "updated_security_actions",
+                    "field": "exec.file.path",
+                    "append": False,
+                    "scope": "process",
+                }],
+            }],
+            name="my_agent_rule",
+            enabled=True,
+            description="This is a rule",
+            expression="open.file.name == \\"etc/shadow/password\\"",
+            policy_id="jm4-lwh-8cs",
+            product_tags=["compliance_framework:PCI-DSS"])
+        ```
+
         ## Import
 
         The `pulumi import` command can be used, for example:
@@ -307,6 +331,30 @@ class CsmThreatsAgentRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog Workload Protection (CSM Threats) Agent Rule API resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        my_agent_rule = datadog.CsmThreatsAgentRule("my_agent_rule",
+            actions=[{
+                "hash": [{}],
+                "set": [{
+                    "name": "updated_security_actions",
+                    "field": "exec.file.path",
+                    "append": False,
+                    "scope": "process",
+                }],
+            }],
+            name="my_agent_rule",
+            enabled=True,
+            description="This is a rule",
+            expression="open.file.name == \\"etc/shadow/password\\"",
+            policy_id="jm4-lwh-8cs",
+            product_tags=["compliance_framework:PCI-DSS"])
+        ```
 
         ## Import
 

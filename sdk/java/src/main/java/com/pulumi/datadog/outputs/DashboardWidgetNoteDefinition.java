@@ -49,7 +49,7 @@ public final class DashboardWidgetNoteDefinition {
      */
     private @Nullable String tickEdge;
     /**
-     * @return When `tick = true`, a string with a percent sign indicating the position of the tick, for example: `tick_pos = &#34;50%&#34;` is centered alignment.
+     * @return When `tick = true`, a string with a percent sign indicating the position of the tick, for example: `tickPos = &#34;50%&#34;` is centered alignment.
      * 
      */
     private @Nullable String tickPos;
@@ -110,7 +110,7 @@ public final class DashboardWidgetNoteDefinition {
         return Optional.ofNullable(this.tickEdge);
     }
     /**
-     * @return When `tick = true`, a string with a percent sign indicating the position of the tick, for example: `tick_pos = &#34;50%&#34;` is centered alignment.
+     * @return When `tick = true`, a string with a percent sign indicating the position of the tick, for example: `tickPos = &#34;50%&#34;` is centered alignment.
      * 
      */
     public Optional<String> tickPos() {

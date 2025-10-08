@@ -15,7 +15,7 @@ namespace Pulumi.Datadog.Outputs
     {
         public readonly string? Context;
         /// <summary>
-        /// Valid values are `native`, `web`.
+        /// Valid values are `Native`, `Web`.
         /// </summary>
         public readonly string? ContextType;
         public readonly string? ElementDescription;

@@ -18,6 +18,50 @@ import javax.annotation.Nullable;
 /**
  * Provides a Datadog AWS CUR (Cost and Usage Report) configuration resource. This enables Datadog Cloud Cost Management to access your AWS billing data by configuring the connection to your AWS Cost and Usage Report. **Prerequisites**: An active Datadog AWS integration, existing AWS Cost and Usage Report, and proper S3 bucket permissions.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.AwsCurConfig;
+ * import com.pulumi.datadog.AwsCurConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         // Create new aws_cur_config resource
+ *         var foo = new AwsCurConfig("foo", AwsCurConfigArgs.builder()
+ *             .accountId("123456789123")
+ *             .bucketName("dd-cost-bucket")
+ *             .bucketRegion("us-east-1")
+ *             .reportName("dd-report-name")
+ *             .reportPrefix("dd-report-prefix")
+ *             .accountFilters(AwsCurConfigAccountFiltersArgs.builder()
+ *                 .includeNewAccounts(true)
+ *                 .excludedAccounts(                
+ *                     "123456789123",
+ *                     "123456789143")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * The `pulumi import` command can be used, for example:

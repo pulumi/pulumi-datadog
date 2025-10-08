@@ -23,7 +23,7 @@ public final class PowerpackWidgetGeomapDefinitionRequestQueryCloudCostQuery {
      */
     private @Nullable String crossOrgUuids;
     /**
-     * @return The data source for cloud cost queries. Valid values are `cloud_cost`.
+     * @return The data source for cloud cost queries. Valid values are `cloudCost`.
      * 
      */
     private String dataSource;
@@ -54,7 +54,7 @@ public final class PowerpackWidgetGeomapDefinitionRequestQueryCloudCostQuery {
         return Optional.ofNullable(this.crossOrgUuids);
     }
     /**
-     * @return The data source for cloud cost queries. Valid values are `cloud_cost`.
+     * @return The data source for cloud cost queries. Valid values are `cloudCost`.
      * 
      */
     public String dataSource() {

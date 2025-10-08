@@ -9,6 +9,73 @@ import * as utilities from "./utilities";
 /**
  * A connection that can be used in Actions, including in the Workflow Automation and App Builder products. This resource requires a registered application key.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const awsConnection = new datadog.ActionConnection("aws_connection", {
+ *     name: "My AWS Connection",
+ *     aws: [{
+ *         assumeRole: [{
+ *             accountId: "123456789012",
+ *             role: "role2",
+ *         }],
+ *     }],
+ * });
+ * const config = new pulumi.Config();
+ * const token1 = config.require("token1");
+ * const token2 = config.require("token2");
+ * const httpConnection = new datadog.ActionConnection("http_connection", {
+ *     name: "My HTTP connection with token auth",
+ *     http: [{
+ *         baseUrl: "https://catfact.ninja",
+ *         tokenAuth: [{
+ *             tokens: [
+ *                 {
+ *                     type: "SECRET",
+ *                     name: "token1",
+ *                     value: token1,
+ *                 },
+ *                 {
+ *                     type: "SECRET",
+ *                     name: "token2",
+ *                     value: token2,
+ *                 },
+ *             ],
+ *             headers: [
+ *                 {
+ *                     name: "header-one",
+ *                     value: "headerval",
+ *                 },
+ *                 {
+ *                     name: "h2",
+ *                     value: "{{ token1 }} test",
+ *                 },
+ *             ],
+ *             urlParameters: [
+ *                 {
+ *                     name: "param1",
+ *                     value: "{{ token1 }}",
+ *                 },
+ *                 {
+ *                     name: "param2",
+ *                     value: "paramVal2",
+ *                 },
+ *             ],
+ *             body: [{
+ *                 contentType: "application/json",
+ *                 content: JSON.stringify({
+ *                     key: "mykey",
+ *                     value: "maybe with a secret: {{ token2 }}",
+ *                 }),
+ *             }],
+ *         }],
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * The `pulumi import` command can be used, for example:

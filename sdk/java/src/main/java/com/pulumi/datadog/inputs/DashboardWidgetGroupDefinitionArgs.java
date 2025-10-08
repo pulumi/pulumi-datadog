@@ -20,14 +20,14 @@ public final class DashboardWidgetGroupDefinitionArgs extends com.pulumi.resourc
     public static final DashboardWidgetGroupDefinitionArgs Empty = new DashboardWidgetGroupDefinitionArgs();
 
     /**
-     * The background color of the group title, options: `vivid_blue`, `vivid_purple`, `vivid_pink`, `vivid_orange`, `vivid_yellow`, `vivid_green`, `blue`, `purple`, `pink`, `orange`, `yellow`, `green`, `gray` or `white`
+     * The background color of the group title, options: `vividBlue`, `vividPurple`, `vividPink`, `vividOrange`, `vividYellow`, `vividGreen`, `blue`, `purple`, `pink`, `orange`, `yellow`, `green`, `gray` or `white`
      * 
      */
     @Import(name="backgroundColor")
     private @Nullable Output<String> backgroundColor;
 
     /**
-     * @return The background color of the group title, options: `vivid_blue`, `vivid_purple`, `vivid_pink`, `vivid_orange`, `vivid_yellow`, `vivid_green`, `blue`, `purple`, `pink`, `orange`, `yellow`, `green`, `gray` or `white`
+     * @return The background color of the group title, options: `vividBlue`, `vividPurple`, `vividPink`, `vividOrange`, `vividYellow`, `vividGreen`, `blue`, `purple`, `pink`, `orange`, `yellow`, `green`, `gray` or `white`
      * 
      */
     public Optional<Output<String>> backgroundColor() {
@@ -139,7 +139,7 @@ public final class DashboardWidgetGroupDefinitionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param backgroundColor The background color of the group title, options: `vivid_blue`, `vivid_purple`, `vivid_pink`, `vivid_orange`, `vivid_yellow`, `vivid_green`, `blue`, `purple`, `pink`, `orange`, `yellow`, `green`, `gray` or `white`
+         * @param backgroundColor The background color of the group title, options: `vividBlue`, `vividPurple`, `vividPink`, `vividOrange`, `vividYellow`, `vividGreen`, `blue`, `purple`, `pink`, `orange`, `yellow`, `green`, `gray` or `white`
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class DashboardWidgetGroupDefinitionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param backgroundColor The background color of the group title, options: `vivid_blue`, `vivid_purple`, `vivid_pink`, `vivid_orange`, `vivid_yellow`, `vivid_green`, `blue`, `purple`, `pink`, `orange`, `yellow`, `green`, `gray` or `white`
+         * @param backgroundColor The background color of the group title, options: `vividBlue`, `vividPurple`, `vividPink`, `vividOrange`, `vividYellow`, `vividGreen`, `blue`, `purple`, `pink`, `orange`, `yellow`, `green`, `gray` or `white`
          * 
          * @return builder
          * 

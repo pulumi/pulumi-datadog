@@ -14,11 +14,11 @@ namespace Pulumi.Datadog.Outputs
     public sealed class GetServiceLevelObjectiveQueryResult
     {
         /// <summary>
-        /// The sum of the `total` events.
+        /// The sum of the `Total` events.
         /// </summary>
         public readonly string Denominator;
         /// <summary>
-        /// The sum of all the `good` events.
+        /// The sum of all the `Good` events.
         /// </summary>
         public readonly string Numerator;
 

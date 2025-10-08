@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class SensitiveDataScannerGroupSamplingGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Product that the sampling rate applies to. Valid values are `logs`, `rum`, `events`, `apm`.
+        /// Product that the sampling rate applies to. Valid values are `Logs`, `Rum`, `Events`, `Apm`.
         /// </summary>
         [Input("product", required: true)]
         public Input<string> Product { get; set; } = null!;

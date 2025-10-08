@@ -35,14 +35,14 @@ public final class ObservabilityPipelineConfigDestinationsCrowdstrikeNextGenSiem
     }
 
     /**
-     * Encoding format for log events. Valid values are `json`, `raw_message`.
+     * Encoding format for log events. Valid values are `json`, `rawMessage`.
      * 
      */
     @Import(name="encoding", required=true)
     private Output<String> encoding;
 
     /**
-     * @return Encoding format for log events. Valid values are `json`, `raw_message`.
+     * @return Encoding format for log events. Valid values are `json`, `rawMessage`.
      * 
      */
     public Output<String> encoding() {
@@ -144,7 +144,7 @@ public final class ObservabilityPipelineConfigDestinationsCrowdstrikeNextGenSiem
         }
 
         /**
-         * @param encoding Encoding format for log events. Valid values are `json`, `raw_message`.
+         * @param encoding Encoding format for log events. Valid values are `json`, `rawMessage`.
          * 
          * @return builder
          * 
@@ -155,7 +155,7 @@ public final class ObservabilityPipelineConfigDestinationsCrowdstrikeNextGenSiem
         }
 
         /**
-         * @param encoding Encoding format for log events. Valid values are `json`, `raw_message`.
+         * @param encoding Encoding format for log events. Valid values are `json`, `rawMessage`.
          * 
          * @return builder
          * 

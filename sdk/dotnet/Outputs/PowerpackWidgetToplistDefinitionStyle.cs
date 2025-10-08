@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Palette;
         /// <summary>
-        /// The scaling mode for the widget. Valid values are `absolute`, `relative`.
+        /// The scaling mode for the widget. Valid values are `Absolute`, `Relative`.
         /// </summary>
         public readonly string? Scaling;
 

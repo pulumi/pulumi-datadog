@@ -14,6 +14,109 @@ import (
 
 // A connection that can be used in Actions, including in the Workflow Automation and App Builder products. This resource requires a registered application key.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.NewActionConnection(ctx, "aws_connection", &datadog.ActionConnectionArgs{
+//				Name: pulumi.String("My AWS Connection"),
+//				Aws: datadog.ActionConnectionAwsArgs{
+//					map[string]interface{}{
+//						"assumeRole": []map[string]interface{}{
+//							map[string]interface{}{
+//								"accountId": "123456789012",
+//								"role":      "role2",
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			cfg := config.New(ctx, "")
+//			token1 := cfg.Require("token1")
+//			token2 := cfg.Require("token2")
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"key":   "mykey",
+//				"value": "maybe with a secret: {{ token2 }}",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = datadog.NewActionConnection(ctx, "http_connection", &datadog.ActionConnectionArgs{
+//				Name: pulumi.String("My HTTP connection with token auth"),
+//				Http: datadog.ActionConnectionHttpArgs{
+//					map[string]interface{}{
+//						"baseUrl": "https://catfact.ninja",
+//						"tokenAuth": []map[string]interface{}{
+//							map[string]interface{}{
+//								"tokens": []map[string]interface{}{
+//									map[string]interface{}{
+//										"type":  "SECRET",
+//										"name":  "token1",
+//										"value": token1,
+//									},
+//									map[string]interface{}{
+//										"type":  "SECRET",
+//										"name":  "token2",
+//										"value": token2,
+//									},
+//								},
+//								"headers": []map[string]interface{}{
+//									map[string]interface{}{
+//										"name":  "header-one",
+//										"value": "headerval",
+//									},
+//									map[string]interface{}{
+//										"name":  "h2",
+//										"value": "{{ token1 }} test",
+//									},
+//								},
+//								"urlParameters": []map[string]interface{}{
+//									map[string]interface{}{
+//										"name":  "param1",
+//										"value": "{{ token1 }}",
+//									},
+//									map[string]interface{}{
+//										"name":  "param2",
+//										"value": "paramVal2",
+//									},
+//								},
+//								"body": []map[string]interface{}{
+//									map[string]interface{}{
+//										"contentType": "application/json",
+//										"content":     json0,
+//									},
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // The `pulumi import` command can be used, for example:

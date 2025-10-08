@@ -14,11 +14,11 @@ namespace Pulumi.Datadog.Outputs
     public sealed class LogsMetricCompute
     {
         /// <summary>
-        /// The type of aggregation to use. This field can't be updated after creation. Valid values are `count`, `distribution`.
+        /// The type of aggregation to use. This field can't be updated after creation. Valid values are `Count`, `Distribution`.
         /// </summary>
         public readonly string AggregationType;
         /// <summary>
-        /// Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have an `aggregation_type` of distribution.
+        /// Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have an `AggregationType` of distribution.
         /// </summary>
         public readonly bool? IncludePercentiles;
         /// <summary>

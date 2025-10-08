@@ -15,7 +15,7 @@ namespace Pulumi.Datadog.Outputs
     {
         public readonly string? Example;
         /// <summary>
-        /// When type = `global`, ID of the global variable to use.
+        /// When type = `Global`, ID of the global variable to use.
         /// </summary>
         public readonly string? Id;
         /// <summary>
@@ -24,11 +24,11 @@ namespace Pulumi.Datadog.Outputs
         public readonly string Name;
         public readonly string? Pattern;
         /// <summary>
-        /// Whether the value of this variable will be obfuscated in test results. Defaults to `false`.
+        /// Whether the value of this variable will be obfuscated in test results. Defaults to `False`.
         /// </summary>
         public readonly bool? Secure;
         /// <summary>
-        /// Type of test configuration variable. Valid values are `global`, `text`, `email`.
+        /// Type of test configuration variable. Valid values are `Global`, `Text`, `Email`.
         /// </summary>
         public readonly string Type;
 

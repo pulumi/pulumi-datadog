@@ -9,6 +9,66 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog AppsecWafCustomRule resource. This can be used to create and manage Datadog appsec_waf_custom_rule.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * // Create a new WAF custom rule to block a custom IoC
+ * const ioc000 = new datadog.AppsecWafCustomRule("ioc000", {
+ *     name: "Block requests from a bad actor",
+ *     blocking: true,
+ *     enabled: true,
+ *     tags: {
+ *         category: "attack_attempt",
+ *         type: "custom_ioc",
+ *     },
+ *     pathGlob: "/db/*",
+ *     conditions: [{
+ *         operator: "match_regex",
+ *         parameters: [{
+ *             inputs: [{
+ *                 address: "server.db.statement",
+ *             }],
+ *             regex: "stmt.*",
+ *         }],
+ *     }],
+ *     action: [{
+ *         action: "redirect_request",
+ *         parameters: [{
+ *             statusCode: 302,
+ *             location: "/blocking",
+ *         }],
+ *     }],
+ * });
+ * // Create a WAF custom rule to track business logic events
+ * const biz000 = new datadog.AppsecWafCustomRule("biz000", {
+ *     name: "Track payments",
+ *     blocking: false,
+ *     enabled: true,
+ *     tags: {
+ *         category: "business_logic",
+ *         type: "payment.checkout",
+ *     },
+ *     pathGlob: "/cart/*",
+ *     conditions: [{
+ *         operator: "capture_data",
+ *         parameters: [{
+ *             inputs: [{
+ *                 address: "server.request.query",
+ *                 keyPaths: ["payment_id"],
+ *             }],
+ *             value: "payment",
+ *         }],
+ *     }],
+ *     scopes: [{
+ *         env: "prod",
+ *         service: "paymentsvc",
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * The `pulumi import` command can be used, for example:

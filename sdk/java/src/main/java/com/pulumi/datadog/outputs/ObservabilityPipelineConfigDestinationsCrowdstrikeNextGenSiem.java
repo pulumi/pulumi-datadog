@@ -21,7 +21,7 @@ public final class ObservabilityPipelineConfigDestinationsCrowdstrikeNextGenSiem
      */
     private @Nullable ObservabilityPipelineConfigDestinationsCrowdstrikeNextGenSiemCompression compression;
     /**
-     * @return Encoding format for log events. Valid values are `json`, `raw_message`.
+     * @return Encoding format for log events. Valid values are `json`, `rawMessage`.
      * 
      */
     private String encoding;
@@ -50,7 +50,7 @@ public final class ObservabilityPipelineConfigDestinationsCrowdstrikeNextGenSiem
         return Optional.ofNullable(this.compression);
     }
     /**
-     * @return Encoding format for log events. Valid values are `json`, `raw_message`.
+     * @return Encoding format for log events. Valid values are `json`, `rawMessage`.
      * 
      */
     public String encoding() {

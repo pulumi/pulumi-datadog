@@ -55,14 +55,14 @@ public final class DashboardWidgetChangeDefinitionRequestArgs extends com.pulumi
     }
 
     /**
-     * Choose from when to compare current data to. Valid values are `hour_before`, `day_before`, `week_before`, `month_before`.
+     * Choose from when to compare current data to. Valid values are `hourBefore`, `dayBefore`, `weekBefore`, `monthBefore`.
      * 
      */
     @Import(name="compareTo")
     private @Nullable Output<String> compareTo;
 
     /**
-     * @return Choose from when to compare current data to. Valid values are `hour_before`, `day_before`, `week_before`, `month_before`.
+     * @return Choose from when to compare current data to. Valid values are `hourBefore`, `dayBefore`, `weekBefore`, `monthBefore`.
      * 
      */
     public Optional<Output<String>> compareTo() {
@@ -298,7 +298,7 @@ public final class DashboardWidgetChangeDefinitionRequestArgs extends com.pulumi
         }
 
         /**
-         * @param compareTo Choose from when to compare current data to. Valid values are `hour_before`, `day_before`, `week_before`, `month_before`.
+         * @param compareTo Choose from when to compare current data to. Valid values are `hourBefore`, `dayBefore`, `weekBefore`, `monthBefore`.
          * 
          * @return builder
          * 
@@ -309,7 +309,7 @@ public final class DashboardWidgetChangeDefinitionRequestArgs extends com.pulumi
         }
 
         /**
-         * @param compareTo Choose from when to compare current data to. Valid values are `hour_before`, `day_before`, `week_before`, `month_before`.
+         * @param compareTo Choose from when to compare current data to. Valid values are `hourBefore`, `dayBefore`, `weekBefore`, `monthBefore`.
          * 
          * @return builder
          * 

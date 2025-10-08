@@ -118,14 +118,14 @@ public final class ObservabilityPipelineConfigProcessorsQuotaArgs extends com.pu
     }
 
     /**
-     * The action to take when the quota is exceeded: `drop`, `no_action`, or `overflow_routing`.
+     * The action to take when the quota is exceeded: `drop`, `noAction`, or `overflowRouting`.
      * 
      */
     @Import(name="overflowAction")
     private @Nullable Output<String> overflowAction;
 
     /**
-     * @return The action to take when the quota is exceeded: `drop`, `no_action`, or `overflow_routing`.
+     * @return The action to take when the quota is exceeded: `drop`, `noAction`, or `overflowRouting`.
      * 
      */
     public Optional<Output<String>> overflowAction() {
@@ -341,7 +341,7 @@ public final class ObservabilityPipelineConfigProcessorsQuotaArgs extends com.pu
         }
 
         /**
-         * @param overflowAction The action to take when the quota is exceeded: `drop`, `no_action`, or `overflow_routing`.
+         * @param overflowAction The action to take when the quota is exceeded: `drop`, `noAction`, or `overflowRouting`.
          * 
          * @return builder
          * 
@@ -352,7 +352,7 @@ public final class ObservabilityPipelineConfigProcessorsQuotaArgs extends com.pu
         }
 
         /**
-         * @param overflowAction The action to take when the quota is exceeded: `drop`, `no_action`, or `overflow_routing`.
+         * @param overflowAction The action to take when the quota is exceeded: `drop`, `noAction`, or `overflowRouting`.
          * 
          * @return builder
          * 

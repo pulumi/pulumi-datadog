@@ -19,6 +19,59 @@ import javax.annotation.Nullable;
 /**
  * Provides a Datadog On-Call schedule resource. This can be used to create and manage Datadog On-Call schedules.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.OnCallSchedule;
+ * import com.pulumi.datadog.OnCallScheduleArgs;
+ * import com.pulumi.datadog.inputs.OnCallScheduleLayerArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new OnCallSchedule("test", OnCallScheduleArgs.builder()
+ *             .name("Team A On-Call")
+ *             .timeZone("America/New_York")
+ *             .teams("00000000-aba2-0000-0000-000000000000")
+ *             .layers(OnCallScheduleLayerArgs.builder()
+ *                 .name("Primary On-Call Layer")
+ *                 .effectiveDate("2025-01-01T00:00:00Z")
+ *                 .endDate("2026-01-01T00:00:00Z")
+ *                 .rotationStart("2025-01-01T00:00:00Z")
+ *                 .interval(OnCallScheduleLayerIntervalArgs.builder()
+ *                     .days(1)
+ *                     .seconds(300)
+ *                     .build())
+ *                 .users("00000000-aba1-0000-0000-000000000000")
+ *                 .restrictions(OnCallScheduleLayerRestrictionArgs.builder()
+ *                     .endDay("monday")
+ *                     .endTime("17:00:00")
+ *                     .startDay("monday")
+ *                     .startTime("09:00:00")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * The `pulumi import` command can be used, for example:

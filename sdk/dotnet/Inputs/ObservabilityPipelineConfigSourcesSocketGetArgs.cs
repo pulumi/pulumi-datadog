@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> Id { get; set; } = null!;
 
         /// <summary>
-        /// The protocol used to receive logs. Valid values are `tcp`, `udp`.
+        /// The protocol used to receive logs. Valid values are `Tcp`, `Udp`.
         /// </summary>
         [Input("mode", required: true)]
         public Input<string> Mode { get; set; } = null!;

@@ -17,14 +17,14 @@ public final class SyntheticsGlobalVariableParseTestOptionsParserArgs extends co
     public static final SyntheticsGlobalVariableParseTestOptionsParserArgs Empty = new SyntheticsGlobalVariableParseTestOptionsParserArgs();
 
     /**
-     * Type of parser to extract the value. Valid values are `raw`, `json_path`, `regex`, `x_path`.
+     * Type of parser to extract the value. Valid values are `raw`, `jsonPath`, `regex`, `xPath`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Type of parser to extract the value. Valid values are `raw`, `json_path`, `regex`, `x_path`.
+     * @return Type of parser to extract the value. Valid values are `raw`, `jsonPath`, `regex`, `xPath`.
      * 
      */
     public Output<String> type() {
@@ -32,14 +32,14 @@ public final class SyntheticsGlobalVariableParseTestOptionsParserArgs extends co
     }
 
     /**
-     * Value for the parser to use, required for type `json_path` or `regex`.
+     * Value for the parser to use, required for type `jsonPath` or `regex`.
      * 
      */
     @Import(name="value")
     private @Nullable Output<String> value;
 
     /**
-     * @return Value for the parser to use, required for type `json_path` or `regex`.
+     * @return Value for the parser to use, required for type `jsonPath` or `regex`.
      * 
      */
     public Optional<Output<String>> value() {
@@ -72,7 +72,7 @@ public final class SyntheticsGlobalVariableParseTestOptionsParserArgs extends co
         }
 
         /**
-         * @param type Type of parser to extract the value. Valid values are `raw`, `json_path`, `regex`, `x_path`.
+         * @param type Type of parser to extract the value. Valid values are `raw`, `jsonPath`, `regex`, `xPath`.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class SyntheticsGlobalVariableParseTestOptionsParserArgs extends co
         }
 
         /**
-         * @param type Type of parser to extract the value. Valid values are `raw`, `json_path`, `regex`, `x_path`.
+         * @param type Type of parser to extract the value. Valid values are `raw`, `jsonPath`, `regex`, `xPath`.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class SyntheticsGlobalVariableParseTestOptionsParserArgs extends co
         }
 
         /**
-         * @param value Value for the parser to use, required for type `json_path` or `regex`.
+         * @param value Value for the parser to use, required for type `jsonPath` or `regex`.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class SyntheticsGlobalVariableParseTestOptionsParserArgs extends co
         }
 
         /**
-         * @param value Value for the parser to use, required for type `json_path` or `regex`.
+         * @param value Value for the parser to use, required for type `jsonPath` or `regex`.
          * 
          * @return builder
          * 

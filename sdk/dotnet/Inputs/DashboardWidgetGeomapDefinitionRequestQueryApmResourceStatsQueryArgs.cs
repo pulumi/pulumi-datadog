@@ -19,7 +19,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? CrossOrgUuids { get; set; }
 
         /// <summary>
-        /// The data source for APM Resource Stats queries. Valid values are `apm_resource_stats`.
+        /// The data source for APM Resource Stats queries. Valid values are `ApmResourceStats`.
         /// </summary>
         [Input("dataSource", required: true)]
         public Input<string> DataSource { get; set; } = null!;
@@ -55,13 +55,13 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? OperationName { get; set; }
 
         /// <summary>
-        /// The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        /// The name of the second primary tag used within APM; required when `PrimaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
         /// </summary>
         [Input("primaryTagName")]
         public Input<string>? PrimaryTagName { get; set; }
 
         /// <summary>
-        /// Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
+        /// Filter APM data by the second primary tag. `PrimaryTagName` must also be specified.
         /// </summary>
         [Input("primaryTagValue")]
         public Input<string>? PrimaryTagValue { get; set; }
@@ -79,7 +79,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> Service { get; set; } = null!;
 
         /// <summary>
-        /// APM statistic. Valid values are `errors`, `error_rate`, `hits`, `latency_avg`, `latency_distribution`, `latency_max`, `latency_p50`, `latency_p75`, `latency_p90`, `latency_p95`, `latency_p99`.
+        /// APM statistic. Valid values are `Errors`, `ErrorRate`, `Hits`, `LatencyAvg`, `LatencyDistribution`, `LatencyMax`, `LatencyP50`, `LatencyP75`, `LatencyP90`, `LatencyP95`, `LatencyP99`.
         /// </summary>
         [Input("stat", required: true)]
         public Input<string> Stat { get; set; } = null!;

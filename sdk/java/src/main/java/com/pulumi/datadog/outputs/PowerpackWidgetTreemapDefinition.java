@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PowerpackWidgetTreemapDefinition {
     /**
-     * @return A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+     * @return A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
      * 
      */
     private @Nullable List<PowerpackWidgetTreemapDefinitionCustomLink> customLinks;
@@ -32,7 +32,7 @@ public final class PowerpackWidgetTreemapDefinition {
 
     private PowerpackWidgetTreemapDefinition() {}
     /**
-     * @return A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+     * @return A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
      * 
      */
     public List<PowerpackWidgetTreemapDefinitionCustomLink> customLinks() {

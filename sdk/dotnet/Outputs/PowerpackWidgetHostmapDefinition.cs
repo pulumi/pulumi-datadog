@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class PowerpackWidgetHostmapDefinition
     {
         /// <summary>
-        /// A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+        /// A nested block describing a custom link. Multiple `CustomLink` blocks are allowed using the structure below.
         /// </summary>
         public readonly ImmutableArray<Outputs.PowerpackWidgetHostmapDefinitionCustomLink> CustomLinks;
         /// <summary>
@@ -30,11 +30,11 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? NoMetricHosts;
         /// <summary>
-        /// The type of node used. Valid values are `host`, `container`.
+        /// The type of node used. Valid values are `Host`, `Container`.
         /// </summary>
         public readonly string? NodeType;
         /// <summary>
-        /// A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below.
+        /// A nested block describing the request to use when displaying the widget. Multiple `Request` blocks are allowed using the structure below.
         /// </summary>
         public readonly Outputs.PowerpackWidgetHostmapDefinitionRequest? Request;
         /// <summary>
@@ -50,7 +50,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Title;
         /// <summary>
-        /// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+        /// The alignment of the widget's title. Valid values are `Center`, `Left`, `Right`.
         /// </summary>
         public readonly string? TitleAlign;
         /// <summary>

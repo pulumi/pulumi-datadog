@@ -126,7 +126,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
     /**
      * (Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.
      * 
-     * For example, if the value is set to `300` (5min), the `timeframe` is set to `last_5m` and the time is 7:00, the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have data during evaluation.
+     * For example, if the value is set to `300` (5min), the `timeframe` is set to `last5m` and the time is 7:00, the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have data during evaluation.
      * 
      */
     @Export(name="evaluationDelay", refs={Integer.class}, tree="[0]")
@@ -135,7 +135,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
     /**
      * @return (Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.
      * 
-     * For example, if the value is set to `300` (5min), the `timeframe` is set to `last_5m` and the time is 7:00, the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have data during evaluation.
+     * For example, if the value is set to `300` (5min), the `timeframe` is set to `last5m` and the time is 7:00, the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have data during evaluation.
      * 
      */
     public Output<Integer> evaluationDelay() {
@@ -201,10 +201,10 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
      * 
      * @deprecated
-     * Use `restricted_roles`.
+     * Use `restrictedRoles`.
      * 
      */
-    @Deprecated /* Use `restricted_roles`. */
+    @Deprecated /* Use `restrictedRoles`. */
     @Export(name="locked", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> locked;
 
@@ -230,14 +230,14 @@ public class Monitor extends com.pulumi.resources.CustomResource {
         return this.message;
     }
     /**
-     * A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are required for, anomaly monitors.
+     * A mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m` . Can only be used for, and are required for, anomaly monitors.
      * 
      */
     @Export(name="monitorThresholdWindows", refs={MonitorMonitorThresholdWindows.class}, tree="[0]")
     private Output</* @Nullable */ MonitorMonitorThresholdWindows> monitorThresholdWindows;
 
     /**
-     * @return A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are required for, anomaly monitors.
+     * @return A mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m` . Can only be used for, and are required for, anomaly monitors.
      * 
      */
     public Output<Optional<MonitorMonitorThresholdWindows>> monitorThresholdWindows() {
@@ -274,7 +274,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
     /**
      * The time (in seconds) to skip evaluations for new groups.
      * 
-     * `new_group_delay` overrides `new_host_delay` if it is set to a nonzero value.
+     * `newGroupDelay` overrides `newHostDelay` if it is set to a nonzero value.
      * 
      */
     @Export(name="newGroupDelay", refs={Integer.class}, tree="[0]")
@@ -283,25 +283,25 @@ public class Monitor extends com.pulumi.resources.CustomResource {
     /**
      * @return The time (in seconds) to skip evaluations for new groups.
      * 
-     * `new_group_delay` overrides `new_host_delay` if it is set to a nonzero value.
+     * `newGroupDelay` overrides `newHostDelay` if it is set to a nonzero value.
      * 
      */
     public Output<Optional<Integer>> newGroupDelay() {
         return Codegen.optional(this.newGroupDelay);
     }
     /**
-     * **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors and monitors not grouped by host. The only case when this should be used is to override the default and set `new_host_delay` to zero for monitors grouped by host.
+     * **Deprecated**. See `newGroupDelay`. Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors and monitors not grouped by host. The only case when this should be used is to override the default and set `newHostDelay` to zero for monitors grouped by host.
      * 
      * @deprecated
-     * Use `new_group_delay` except when setting `new_host_delay` to zero.
+     * Use `newGroupDelay` except when setting `newHostDelay` to zero.
      * 
      */
-    @Deprecated /* Use `new_group_delay` except when setting `new_host_delay` to zero. */
+    @Deprecated /* Use `newGroupDelay` except when setting `newHostDelay` to zero. */
     @Export(name="newHostDelay", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> newHostDelay;
 
     /**
-     * @return **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors and monitors not grouped by host. The only case when this should be used is to override the default and set `new_host_delay` to zero for monitors grouped by host.
+     * @return **Deprecated**. See `newGroupDelay`. Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors and monitors not grouped by host. The only case when this should be used is to override the default and set `newHostDelay` to zero for monitors grouped by host.
      * 
      */
     public Output<Optional<Integer>> newHostDelay() {
@@ -354,14 +354,14 @@ public class Monitor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.notifyAudit);
     }
     /**
-     * Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notify_by` to `[&#39;cluster&#39;]`. Tags mentioned in `notify_by` must be a subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by` to `[*]` configures the monitor to notify as a simple-alert.
+     * Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notifyBy` to `[&#39;cluster&#39;]`. Tags mentioned in `notifyBy` must be a subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notifyBy` to `[*]` configures the monitor to notify as a simple-alert.
      * 
      */
     @Export(name="notifyBies", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> notifyBies;
 
     /**
-     * @return Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notify_by` to `[&#39;cluster&#39;]`. Tags mentioned in `notify_by` must be a subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by` to `[*]` configures the monitor to notify as a simple-alert.
+     * @return Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notifyBy` to `[&#39;cluster&#39;]`. Tags mentioned in `notifyBy` must be a subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notifyBy` to `[*]` configures the monitor to notify as a simple-alert.
      * 
      */
     public Output<Optional<List<String>>> notifyBies() {
@@ -382,14 +382,14 @@ public class Monitor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.notifyNoData);
     }
     /**
-     * Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not available for Service Check, Composite, or SLO monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
+     * Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not available for Service Check, Composite, or SLO monitors. Valid values are: `showNoData`, `showAndNotifyNoData`, `resolve`, and `default`.
      * 
      */
     @Export(name="onMissingData", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> onMissingData;
 
     /**
-     * @return Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not available for Service Check, Composite, or SLO monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
+     * @return Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not available for Service Check, Composite, or SLO monitors. Valid values are: `showNoData`, `showAndNotifyNoData`, `resolve`, and `default`.
      * 
      */
     public Output<Optional<String>> onMissingData() {
@@ -458,14 +458,14 @@ public class Monitor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.renotifyStatuses);
     }
     /**
-     * A boolean indicating whether this monitor needs a full window of data before it&#39;s evaluated. Datadog strongly recommends you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there&#39;s a custom_schedule set, `require_full_window` must be false and will be ignored.
+     * A boolean indicating whether this monitor needs a full window of data before it&#39;s evaluated. Datadog strongly recommends you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there&#39;s a customSchedule set, `requireFullWindow` must be false and will be ignored.
      * 
      */
     @Export(name="requireFullWindow", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> requireFullWindow;
 
     /**
-     * @return A boolean indicating whether this monitor needs a full window of data before it&#39;s evaluated. Datadog strongly recommends you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there&#39;s a custom_schedule set, `require_full_window` must be false and will be ignored.
+     * @return A boolean indicating whether this monitor needs a full window of data before it&#39;s evaluated. Datadog strongly recommends you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there&#39;s a customSchedule set, `requireFullWindow` must be false and will be ignored.
      * 
      */
     public Output<Optional<Boolean>> requireFullWindow() {

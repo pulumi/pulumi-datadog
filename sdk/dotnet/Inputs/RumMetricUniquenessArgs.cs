@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class RumMetricUniquenessArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// When to count updatable events. `match` when the event is first seen, or `end` when the event is complete.
+        /// When to count updatable events. `Match` when the event is first seen, or `End` when the event is complete.
         /// </summary>
         [Input("when")]
         public Input<string>? When { get; set; }

@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// The request type for the Topology request ('topology'). Valid values are `topology`.
+        /// The request type for the Topology request ('topology'). Valid values are `Topology`.
         /// </summary>
         [Input("requestType", required: true)]
         public Input<string> RequestType { get; set; } = null!;

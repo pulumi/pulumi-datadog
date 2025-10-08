@@ -14,11 +14,11 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetManageStatusDefinition
     {
         /// <summary>
-        /// Whether to colorize text or background. Valid values are `background`, `text`.
+        /// Whether to colorize text or background. Valid values are `Background`, `Text`.
         /// </summary>
         public readonly string? ColorPreference;
         /// <summary>
-        /// The display setting to use. Valid values are `counts`, `countsAndList`, `list`.
+        /// The display setting to use. Valid values are `Counts`, `countsAndList`, `List`.
         /// </summary>
         public readonly string? DisplayFormat;
         /// <summary>
@@ -38,11 +38,11 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? ShowPriority;
         /// <summary>
-        /// The method to sort the monitors. Valid values are `name`, `group`, `status`, `tags`, `triggered`, `group,asc`, `group,desc`, `name,asc`, `name,desc`, `status,asc`, `status,desc`, `tags,asc`, `tags,desc`, `triggered,asc`, `triggered,desc`, `priority,asc`, `priority,desc`.
+        /// The method to sort the monitors. Valid values are `Name`, `Group`, `Status`, `Tags`, `Triggered`, `group,asc`, `group,desc`, `name,asc`, `name,desc`, `status,asc`, `status,desc`, `tags,asc`, `tags,desc`, `triggered,asc`, `triggered,desc`, `priority,asc`, `priority,desc`.
         /// </summary>
         public readonly string? Sort;
         /// <summary>
-        /// The summary type to use. Valid values are `monitors`, `groups`, `combined`.
+        /// The summary type to use. Valid values are `Monitors`, `Groups`, `Combined`.
         /// </summary>
         public readonly string? SummaryType;
         /// <summary>
@@ -50,7 +50,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Title;
         /// <summary>
-        /// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+        /// The alignment of the widget's title. Valid values are `Center`, `Left`, `Right`.
         /// </summary>
         public readonly string? TitleAlign;
         /// <summary>

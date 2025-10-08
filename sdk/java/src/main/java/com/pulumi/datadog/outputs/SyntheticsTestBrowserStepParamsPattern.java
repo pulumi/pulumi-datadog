@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SyntheticsTestBrowserStepParamsPattern {
     /**
-     * @return Type of pattern to use for the step. Valid values are `regex`, `x_path`.
+     * @return Type of pattern to use for the step. Valid values are `regex`, `xPath`.
      * 
      */
     private @Nullable String type;
@@ -24,7 +24,7 @@ public final class SyntheticsTestBrowserStepParamsPattern {
 
     private SyntheticsTestBrowserStepParamsPattern() {}
     /**
-     * @return Type of pattern to use for the step. Valid values are `regex`, `x_path`.
+     * @return Type of pattern to use for the step. Valid values are `regex`, `xPath`.
      * 
      */
     public Optional<String> type() {

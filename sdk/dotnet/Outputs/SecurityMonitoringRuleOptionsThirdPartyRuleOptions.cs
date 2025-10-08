@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<string> DefaultNotifications;
         /// <summary>
-        /// Severity of the default rule case, when none of the third-party cases match. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+        /// Severity of the default rule case, when none of the third-party cases match. Valid values are `Info`, `Low`, `Medium`, `High`, `Critical`.
         /// </summary>
         public readonly string DefaultStatus;
         /// <summary>

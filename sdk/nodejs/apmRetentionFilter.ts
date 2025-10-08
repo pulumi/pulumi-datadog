@@ -9,6 +9,24 @@ import * as utilities from "./utilities";
 /**
  * The object describing the configuration of the retention filter to create/update.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * // Create APM retention filter
+ * const foo = new datadog.ApmRetentionFilter("foo", {
+ *     name: "Sample order",
+ *     rate: "1.0",
+ *     filter: [{
+ *         query: "service:sample AND env:production AND @http.method:GET AND app:sampleapp AND @http.status_code:200 AND @duration:>600000000",
+ *     }],
+ *     filterType: "spans-sampling-processor",
+ *     enabled: false,
+ * });
+ * ```
+ *
  * ## Import
  *
  * The `pulumi import` command can be used, for example:

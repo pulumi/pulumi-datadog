@@ -57,7 +57,7 @@ namespace Pulumi.Datadog
     public partial class Monitor : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log monitors. Defaults to `false`.
+        /// A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log monitors. Defaults to `False`.
         /// </summary>
         [Output("enableLogsSample")]
         public Output<bool?> EnableLogsSample { get; private set; } = null!;
@@ -77,7 +77,7 @@ namespace Pulumi.Datadog
         /// <summary>
         /// (Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.
         /// 
-        /// For example, if the value is set to `300` (5min), the `timeframe` is set to `last_5m` and the time is 7:00, the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have data during evaluation.
+        /// For example, if the value is set to `300` (5min), the `Timeframe` is set to `Last5m` and the time is 7:00, the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have data during evaluation.
         /// </summary>
         [Output("evaluationDelay")]
         public Output<int> EvaluationDelay { get; private set; } = null!;
@@ -95,7 +95,7 @@ namespace Pulumi.Datadog
         public Output<string?> GroupRetentionDuration { get; private set; } = null!;
 
         /// <summary>
-        /// Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to `false`.
+        /// Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to `False`.
         /// </summary>
         [Output("groupbySimpleMonitor")]
         public Output<bool?> GroupbySimpleMonitor { get; private set; } = null!;
@@ -107,7 +107,7 @@ namespace Pulumi.Datadog
         public Output<bool?> IncludeTags { get; private set; } = null!;
 
         /// <summary>
-        /// A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
+        /// A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `False`.
         /// </summary>
         [Output("locked")]
         public Output<bool?> Locked { get; private set; } = null!;
@@ -119,7 +119,7 @@ namespace Pulumi.Datadog
         public Output<string> Message { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are required for, anomaly monitors.
+        /// A mapping containing `RecoveryWindow` and `TriggerWindow` values, e.g. `Last15m` . Can only be used for, and are required for, anomaly monitors.
         /// </summary>
         [Output("monitorThresholdWindows")]
         public Output<Outputs.MonitorMonitorThresholdWindows?> MonitorThresholdWindows { get; private set; } = null!;
@@ -139,13 +139,13 @@ namespace Pulumi.Datadog
         /// <summary>
         /// The time (in seconds) to skip evaluations for new groups.
         /// 
-        /// `new_group_delay` overrides `new_host_delay` if it is set to a nonzero value.
+        /// `NewGroupDelay` overrides `NewHostDelay` if it is set to a nonzero value.
         /// </summary>
         [Output("newGroupDelay")]
         public Output<int?> NewGroupDelay { get; private set; } = null!;
 
         /// <summary>
-        /// **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors and monitors not grouped by host. The only case when this should be used is to override the default and set `new_host_delay` to zero for monitors grouped by host.
+        /// **Deprecated**. See `NewGroupDelay`. Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors and monitors not grouped by host. The only case when this should be used is to override the default and set `NewHostDelay` to zero for monitors grouped by host.
         /// </summary>
         [Output("newHostDelay")]
         public Output<int?> NewHostDelay { get; private set; } = null!;
@@ -165,13 +165,13 @@ namespace Pulumi.Datadog
         public Output<string?> NotificationPresetName { get; private set; } = null!;
 
         /// <summary>
-        /// A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
+        /// A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `False`.
         /// </summary>
         [Output("notifyAudit")]
         public Output<bool?> NotifyAudit { get; private set; } = null!;
 
         /// <summary>
-        /// Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by` to `[*]` configures the monitor to notify as a simple-alert.
+        /// Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `Cluster`, `Namespace`, and `Pod` can be configured to only notify on each new `Cluster` violating the alert conditions by setting `NotifyBy` to `['cluster']`. Tags mentioned in `NotifyBy` must be a subset of the grouping tags in the query. For example, a query grouped by `Cluster` and `Namespace` cannot notify on `Region`. Setting `NotifyBy` to `[*]` configures the monitor to notify as a simple-alert.
         /// </summary>
         [Output("notifyBies")]
         public Output<ImmutableArray<string>> NotifyBies { get; private set; } = null!;
@@ -183,7 +183,7 @@ namespace Pulumi.Datadog
         public Output<bool?> NotifyNoData { get; private set; } = null!;
 
         /// <summary>
-        /// Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not available for Service Check, Composite, or SLO monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
+        /// Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not available for Service Check, Composite, or SLO monitors. Valid values are: `ShowNoData`, `ShowAndNotifyNoData`, `Resolve`, and `Default`.
         /// </summary>
         [Output("onMissingData")]
         public Output<string?> OnMissingData { get; private set; } = null!;
@@ -216,7 +216,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<string>> RenotifyStatuses { get; private set; } = null!;
 
         /// <summary>
-        /// A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set, `require_full_window` must be false and will be ignored.
+        /// A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends you set this to `False` for sparse metrics, otherwise some evaluations may be skipped. If there's a CustomSchedule set, `RequireFullWindow` must be false and will be ignored.
         /// </summary>
         [Output("requireFullWindow")]
         public Output<bool?> RequireFullWindow { get; private set; } = null!;
@@ -249,7 +249,7 @@ namespace Pulumi.Datadog
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// If set to `false`, skip the validation call done during plan.
+        /// If set to `False`, skip the validation call done during plan.
         /// </summary>
         [Output("validate")]
         public Output<bool?> Validate { get; private set; } = null!;
@@ -304,7 +304,7 @@ namespace Pulumi.Datadog
     public sealed class MonitorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log monitors. Defaults to `false`.
+        /// A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log monitors. Defaults to `False`.
         /// </summary>
         [Input("enableLogsSample")]
         public Input<bool>? EnableLogsSample { get; set; }
@@ -324,7 +324,7 @@ namespace Pulumi.Datadog
         /// <summary>
         /// (Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.
         /// 
-        /// For example, if the value is set to `300` (5min), the `timeframe` is set to `last_5m` and the time is 7:00, the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have data during evaluation.
+        /// For example, if the value is set to `300` (5min), the `Timeframe` is set to `Last5m` and the time is 7:00, the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have data during evaluation.
         /// </summary>
         [Input("evaluationDelay")]
         public Input<int>? EvaluationDelay { get; set; }
@@ -342,7 +342,7 @@ namespace Pulumi.Datadog
         public Input<string>? GroupRetentionDuration { get; set; }
 
         /// <summary>
-        /// Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to `false`.
+        /// Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to `False`.
         /// </summary>
         [Input("groupbySimpleMonitor")]
         public Input<bool>? GroupbySimpleMonitor { get; set; }
@@ -354,7 +354,7 @@ namespace Pulumi.Datadog
         public Input<bool>? IncludeTags { get; set; }
 
         /// <summary>
-        /// A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
+        /// A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `False`.
         /// </summary>
         [Input("locked")]
         public Input<bool>? Locked { get; set; }
@@ -366,7 +366,7 @@ namespace Pulumi.Datadog
         public Input<string> Message { get; set; } = null!;
 
         /// <summary>
-        /// A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are required for, anomaly monitors.
+        /// A mapping containing `RecoveryWindow` and `TriggerWindow` values, e.g. `Last15m` . Can only be used for, and are required for, anomaly monitors.
         /// </summary>
         [Input("monitorThresholdWindows")]
         public Input<Inputs.MonitorMonitorThresholdWindowsArgs>? MonitorThresholdWindows { get; set; }
@@ -386,13 +386,13 @@ namespace Pulumi.Datadog
         /// <summary>
         /// The time (in seconds) to skip evaluations for new groups.
         /// 
-        /// `new_group_delay` overrides `new_host_delay` if it is set to a nonzero value.
+        /// `NewGroupDelay` overrides `NewHostDelay` if it is set to a nonzero value.
         /// </summary>
         [Input("newGroupDelay")]
         public Input<int>? NewGroupDelay { get; set; }
 
         /// <summary>
-        /// **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors and monitors not grouped by host. The only case when this should be used is to override the default and set `new_host_delay` to zero for monitors grouped by host.
+        /// **Deprecated**. See `NewGroupDelay`. Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors and monitors not grouped by host. The only case when this should be used is to override the default and set `NewHostDelay` to zero for monitors grouped by host.
         /// </summary>
         [Input("newHostDelay")]
         public Input<int>? NewHostDelay { get; set; }
@@ -412,7 +412,7 @@ namespace Pulumi.Datadog
         public Input<string>? NotificationPresetName { get; set; }
 
         /// <summary>
-        /// A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
+        /// A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `False`.
         /// </summary>
         [Input("notifyAudit")]
         public Input<bool>? NotifyAudit { get; set; }
@@ -421,7 +421,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _notifyBies;
 
         /// <summary>
-        /// Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by` to `[*]` configures the monitor to notify as a simple-alert.
+        /// Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `Cluster`, `Namespace`, and `Pod` can be configured to only notify on each new `Cluster` violating the alert conditions by setting `NotifyBy` to `['cluster']`. Tags mentioned in `NotifyBy` must be a subset of the grouping tags in the query. For example, a query grouped by `Cluster` and `Namespace` cannot notify on `Region`. Setting `NotifyBy` to `[*]` configures the monitor to notify as a simple-alert.
         /// </summary>
         public InputList<string> NotifyBies
         {
@@ -436,7 +436,7 @@ namespace Pulumi.Datadog
         public Input<bool>? NotifyNoData { get; set; }
 
         /// <summary>
-        /// Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not available for Service Check, Composite, or SLO monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
+        /// Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not available for Service Check, Composite, or SLO monitors. Valid values are: `ShowNoData`, `ShowAndNotifyNoData`, `Resolve`, and `Default`.
         /// </summary>
         [Input("onMissingData")]
         public Input<string>? OnMissingData { get; set; }
@@ -475,7 +475,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set, `require_full_window` must be false and will be ignored.
+        /// A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends you set this to `False` for sparse metrics, otherwise some evaluations may be skipped. If there's a CustomSchedule set, `RequireFullWindow` must be false and will be ignored.
         /// </summary>
         [Input("requireFullWindow")]
         public Input<bool>? RequireFullWindow { get; set; }
@@ -525,7 +525,7 @@ namespace Pulumi.Datadog
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// If set to `false`, skip the validation call done during plan.
+        /// If set to `False`, skip the validation call done during plan.
         /// </summary>
         [Input("validate")]
         public Input<bool>? Validate { get; set; }
@@ -542,7 +542,7 @@ namespace Pulumi.Datadog
     public sealed class MonitorState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log monitors. Defaults to `false`.
+        /// A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log monitors. Defaults to `False`.
         /// </summary>
         [Input("enableLogsSample")]
         public Input<bool>? EnableLogsSample { get; set; }
@@ -562,7 +562,7 @@ namespace Pulumi.Datadog
         /// <summary>
         /// (Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.
         /// 
-        /// For example, if the value is set to `300` (5min), the `timeframe` is set to `last_5m` and the time is 7:00, the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have data during evaluation.
+        /// For example, if the value is set to `300` (5min), the `Timeframe` is set to `Last5m` and the time is 7:00, the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have data during evaluation.
         /// </summary>
         [Input("evaluationDelay")]
         public Input<int>? EvaluationDelay { get; set; }
@@ -580,7 +580,7 @@ namespace Pulumi.Datadog
         public Input<string>? GroupRetentionDuration { get; set; }
 
         /// <summary>
-        /// Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to `false`.
+        /// Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to `False`.
         /// </summary>
         [Input("groupbySimpleMonitor")]
         public Input<bool>? GroupbySimpleMonitor { get; set; }
@@ -592,7 +592,7 @@ namespace Pulumi.Datadog
         public Input<bool>? IncludeTags { get; set; }
 
         /// <summary>
-        /// A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
+        /// A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `False`.
         /// </summary>
         [Input("locked")]
         public Input<bool>? Locked { get; set; }
@@ -604,7 +604,7 @@ namespace Pulumi.Datadog
         public Input<string>? Message { get; set; }
 
         /// <summary>
-        /// A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are required for, anomaly monitors.
+        /// A mapping containing `RecoveryWindow` and `TriggerWindow` values, e.g. `Last15m` . Can only be used for, and are required for, anomaly monitors.
         /// </summary>
         [Input("monitorThresholdWindows")]
         public Input<Inputs.MonitorMonitorThresholdWindowsGetArgs>? MonitorThresholdWindows { get; set; }
@@ -624,13 +624,13 @@ namespace Pulumi.Datadog
         /// <summary>
         /// The time (in seconds) to skip evaluations for new groups.
         /// 
-        /// `new_group_delay` overrides `new_host_delay` if it is set to a nonzero value.
+        /// `NewGroupDelay` overrides `NewHostDelay` if it is set to a nonzero value.
         /// </summary>
         [Input("newGroupDelay")]
         public Input<int>? NewGroupDelay { get; set; }
 
         /// <summary>
-        /// **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors and monitors not grouped by host. The only case when this should be used is to override the default and set `new_host_delay` to zero for monitors grouped by host.
+        /// **Deprecated**. See `NewGroupDelay`. Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors and monitors not grouped by host. The only case when this should be used is to override the default and set `NewHostDelay` to zero for monitors grouped by host.
         /// </summary>
         [Input("newHostDelay")]
         public Input<int>? NewHostDelay { get; set; }
@@ -650,7 +650,7 @@ namespace Pulumi.Datadog
         public Input<string>? NotificationPresetName { get; set; }
 
         /// <summary>
-        /// A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
+        /// A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `False`.
         /// </summary>
         [Input("notifyAudit")]
         public Input<bool>? NotifyAudit { get; set; }
@@ -659,7 +659,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _notifyBies;
 
         /// <summary>
-        /// Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by` to `[*]` configures the monitor to notify as a simple-alert.
+        /// Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `Cluster`, `Namespace`, and `Pod` can be configured to only notify on each new `Cluster` violating the alert conditions by setting `NotifyBy` to `['cluster']`. Tags mentioned in `NotifyBy` must be a subset of the grouping tags in the query. For example, a query grouped by `Cluster` and `Namespace` cannot notify on `Region`. Setting `NotifyBy` to `[*]` configures the monitor to notify as a simple-alert.
         /// </summary>
         public InputList<string> NotifyBies
         {
@@ -674,7 +674,7 @@ namespace Pulumi.Datadog
         public Input<bool>? NotifyNoData { get; set; }
 
         /// <summary>
-        /// Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not available for Service Check, Composite, or SLO monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
+        /// Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not available for Service Check, Composite, or SLO monitors. Valid values are: `ShowNoData`, `ShowAndNotifyNoData`, `Resolve`, and `Default`.
         /// </summary>
         [Input("onMissingData")]
         public Input<string>? OnMissingData { get; set; }
@@ -713,7 +713,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set, `require_full_window` must be false and will be ignored.
+        /// A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends you set this to `False` for sparse metrics, otherwise some evaluations may be skipped. If there's a CustomSchedule set, `RequireFullWindow` must be false and will be ignored.
         /// </summary>
         [Input("requireFullWindow")]
         public Input<bool>? RequireFullWindow { get; set; }
@@ -763,7 +763,7 @@ namespace Pulumi.Datadog
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// If set to `false`, skip the validation call done during plan.
+        /// If set to `False`, skip the validation call done during plan.
         /// </summary>
         [Input("validate")]
         public Input<bool>? Validate { get; set; }

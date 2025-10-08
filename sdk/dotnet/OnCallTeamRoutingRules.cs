@@ -12,6 +12,67 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog On-Call team routing rules resource.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var teamRulesTest = new Datadog.OnCallTeamRoutingRules("team_rules_test", new()
+    ///     {
+    ///         TeamId = "00000000-aba2-0000-0000-000000000000",
+    ///         Rules = new[]
+    ///         {
+    ///             new Datadog.Inputs.OnCallTeamRoutingRulesRuleArgs
+    ///             {
+    ///                 Query = "tags.service:test",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     new Datadog.Inputs.OnCallTeamRoutingRulesRuleActionArgs
+    ///                     {
+    ///                         SendSlackMessage = new[]
+    ///                         {
+    ///                             
+    ///                             {
+    ///                                 { "workspace", "workspace" },
+    ///                                 { "channel", "channel" },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 TimeRestrictions = new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "timeZone", "America/New_York" },
+    ///                         { "restrictions", new[]
+    ///                         {
+    ///                             
+    ///                             {
+    ///                                 { "endDay", "monday" },
+    ///                                 { "endTime", "17:00:00" },
+    ///                                 { "startDay", "monday" },
+    ///                                 { "startTime", "09:00:00" },
+    ///                             },
+    ///                         } },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Datadog.Inputs.OnCallTeamRoutingRulesRuleArgs
+    ///             {
+    ///                 EscalationPolicy = "00000000-aba2-0000-0000-000000000000",
+    ///                 Urgency = "dynamic",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// The `pulumi import` command can be used, for example:

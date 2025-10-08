@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigProcessorsQuotaOverrideLimit
     {
         /// <summary>
-        /// Whether to enforce by 'bytes' or 'events'. Valid values are `bytes`, `events`.
+        /// Whether to enforce by 'bytes' or 'events'. Valid values are `Bytes`, `Events`.
         /// </summary>
         public readonly string Enforce;
         /// <summary>

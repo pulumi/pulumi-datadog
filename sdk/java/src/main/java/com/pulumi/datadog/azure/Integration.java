@@ -148,7 +148,7 @@ public class Integration extends com.pulumi.resources.CustomResource {
     }
     /**
      * When enabled, Datadog’s Cloud Security Management product scans resource configurations monitored by this app registration.
-     * Note: This requires `resource_collection_enabled` to be set to true. Defaults to `false`.
+     * Note: This requires `resourceCollectionEnabled` to be set to true. Defaults to `false`.
      * 
      */
     @Export(name="cspmEnabled", refs={Boolean.class}, tree="[0]")
@@ -156,7 +156,7 @@ public class Integration extends com.pulumi.resources.CustomResource {
 
     /**
      * @return When enabled, Datadog’s Cloud Security Management product scans resource configurations monitored by this app registration.
-     * Note: This requires `resource_collection_enabled` to be set to true. Defaults to `false`.
+     * Note: This requires `resourceCollectionEnabled` to be set to true. Defaults to `false`.
      * 
      */
     public Output<Boolean> cspmEnabled() {

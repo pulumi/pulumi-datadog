@@ -14,11 +14,11 @@ namespace Pulumi.Datadog.Outputs
     public sealed class SecurityMonitoringRuleOptions
     {
         /// <summary>
-        /// If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `log_detection`. Defaults to `false`.
+        /// If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `Staging`, `Test`, or `Dev`. Only available when the rule type is `LogDetection`. Defaults to `False`.
         /// </summary>
         public readonly bool? DecreaseCriticalityBasedOnEnv;
         /// <summary>
-        /// The detection method. Valid values are `threshold`, `new_value`, `anomaly_detection`, `impossible_travel`, `hardcoded`, `third_party`, `anomaly_threshold`, `sequence_detection`. Defaults to `"threshold"`.
+        /// The detection method. Valid values are `Threshold`, `NewValue`, `AnomalyDetection`, `ImpossibleTravel`, `Hardcoded`, `ThirdParty`, `AnomalyThreshold`, `SequenceDetection`. Defaults to `"threshold"`.
         /// </summary>
         public readonly string? DetectionMethod;
         /// <summary>

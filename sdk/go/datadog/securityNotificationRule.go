@@ -14,6 +14,69 @@ import (
 
 // Provides a Datadog Security Monitoring Notification Rule API resource for creating and managing Datadog security notification rules.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.NewSecurityNotificationRule(ctx, "signal_rule", &datadog.SecurityNotificationRuleArgs{
+//				Name: pulumi.String("My signal notification rule"),
+//				Selectors: datadog.SecurityNotificationRuleSelectorsArgs{
+//					map[string]interface{}{
+//						"triggerSource": "security_signals",
+//						"ruleTypes": []string{
+//							"workload_security",
+//						},
+//						"query": "env:prod",
+//					},
+//				},
+//				Enabled: pulumi.Bool(false),
+//				Targets: pulumi.StringArray{
+//					pulumi.String("@bob@email.com"),
+//					pulumi.String("@alice@email.com"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datadog.NewSecurityNotificationRule(ctx, "vulnerability_rule", &datadog.SecurityNotificationRuleArgs{
+//				Name: pulumi.String("My vulnerability notification rule"),
+//				Selectors: datadog.SecurityNotificationRuleSelectorsArgs{
+//					map[string]interface{}{
+//						"triggerSource": "security_findings",
+//						"ruleTypes": []string{
+//							"application_library_vulnerability",
+//							"identity_risk",
+//						},
+//						"severities": []string{
+//							"critical",
+//							"high",
+//						},
+//					},
+//				},
+//				TimeAggregation: pulumi.Int(36000),
+//				Targets: pulumi.StringArray{
+//					pulumi.String("@john@email.com"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // The `pulumi import` command can be used, for example:

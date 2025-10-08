@@ -77,14 +77,14 @@ public class MonitorConfigPolicy extends com.pulumi.resources.CustomResource {
         return this.policyType;
     }
     /**
-     * Config for a tag policy. Only set if `policy_type` is `tag`.
+     * Config for a tag policy. Only set if `policyType` is `tag`.
      * 
      */
     @Export(name="tagPolicy", refs={MonitorConfigPolicyTagPolicy.class}, tree="[0]")
     private Output</* @Nullable */ MonitorConfigPolicyTagPolicy> tagPolicy;
 
     /**
-     * @return Config for a tag policy. Only set if `policy_type` is `tag`.
+     * @return Config for a tag policy. Only set if `policyType` is `tag`.
      * 
      */
     public Output<Optional<MonitorConfigPolicyTagPolicy>> tagPolicy() {

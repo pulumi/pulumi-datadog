@@ -13,13 +13,13 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The type of trend line to display. Valid values are `area`, `line`, `bars`.
+        /// The type of trend line to display. Valid values are `Area`, `Line`, `Bars`.
         /// </summary>
         [Input("trendType")]
         public Input<string>? TrendType { get; set; }
 
         /// <summary>
-        /// The scale of the y-axis. Valid values are `shared`, `independent`.
+        /// The scale of the y-axis. Valid values are `Shared`, `Independent`.
         /// </summary>
         [Input("yScale")]
         public Input<string>? YScale { get; set; }

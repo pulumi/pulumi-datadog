@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetSunburstDefinition
     {
         /// <summary>
-        /// Nested block describing a custom link. Multiple `custom_link` blocks are allowed with the structure below.
+        /// Nested block describing a custom link. Multiple `CustomLink` blocks are allowed with the structure below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetSunburstDefinitionCustomLink> CustomLinks;
         /// <summary>
@@ -30,11 +30,11 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.DashboardWidgetSunburstDefinitionLegendTable? LegendTable;
         /// <summary>
-        /// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
+        /// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `WeekToDate`, `MonthToDate`, `1y`, `Alert`.
         /// </summary>
         public readonly string? LiveSpan;
         /// <summary>
-        /// Nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed with the structure below (exactly one of `q`, `log_query` or `rum_query` is required within the `request` block).
+        /// Nested block describing the request to use when displaying the widget. Multiple `Request` blocks are allowed with the structure below (exactly one of `Q`, `LogQuery` or `RumQuery` is required within the `Request` block).
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetSunburstDefinitionRequest> Requests;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Title;
         /// <summary>
-        /// The alignment of the widget's title. One of `left`, `center`, or `right`. Valid values are `center`, `left`, `right`.
+        /// The alignment of the widget's title. One of `Left`, `Center`, or `Right`. Valid values are `Center`, `Left`, `Right`.
         /// </summary>
         public readonly string? TitleAlign;
         /// <summary>

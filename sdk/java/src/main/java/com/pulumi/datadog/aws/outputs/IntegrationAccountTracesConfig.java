@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class IntegrationAccountTracesConfig {
     /**
-     * @return AWS X-Ray services to collect traces from. Defaults to `include_only`.
+     * @return AWS X-Ray services to collect traces from. Defaults to `includeOnly`.
      * 
      */
     private @Nullable IntegrationAccountTracesConfigXrayServices xrayServices;
 
     private IntegrationAccountTracesConfig() {}
     /**
-     * @return AWS X-Ray services to collect traces from. Defaults to `include_only`.
+     * @return AWS X-Ray services to collect traces from. Defaults to `includeOnly`.
      * 
      */
     public Optional<IntegrationAccountTracesConfigXrayServices> xrayServices() {

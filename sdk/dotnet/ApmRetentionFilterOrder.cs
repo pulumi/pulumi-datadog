@@ -12,6 +12,44 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog [APM Retention Filters API](https://docs.datadoghq.com/api/v2/apm-retention-filters/) resource, which is used to manage Datadog APM retention filters order.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Create APM retention filter
+    ///     var foo = new Datadog.ApmRetentionFilter("foo", new()
+    ///     {
+    ///         Name = "Sample order",
+    ///         Rate = "1.0",
+    ///         Filter = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "query", "*" },
+    ///             },
+    ///         },
+    ///         FilterType = "spans-sampling-processor",
+    ///         Enabled = false,
+    ///     });
+    /// 
+    ///     // Create APM retention filter order
+    ///     var bar = new Datadog.ApmRetentionFilterOrder("bar", new()
+    ///     {
+    ///         FilterIds = new[]
+    ///         {
+    ///             foo.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// The `pulumi import` command can be used, for example:

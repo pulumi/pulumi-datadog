@@ -14,26 +14,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ObservabilityPipelineConfigDestinationsSocketFraming {
     /**
-     * @return Used when `method` is `character_delimited`. Specifies the delimiter character.
+     * @return Used when `method` is `characterDelimited`. Specifies the delimiter character.
      * 
      */
     private @Nullable ObservabilityPipelineConfigDestinationsSocketFramingCharacterDelimited characterDelimited;
     /**
-     * @return The framing method. Valid values are `newline_delimited`, `bytes`, `character_delimited`.
+     * @return The framing method. Valid values are `newlineDelimited`, `bytes`, `characterDelimited`.
      * 
      */
     private String method;
 
     private ObservabilityPipelineConfigDestinationsSocketFraming() {}
     /**
-     * @return Used when `method` is `character_delimited`. Specifies the delimiter character.
+     * @return Used when `method` is `characterDelimited`. Specifies the delimiter character.
      * 
      */
     public Optional<ObservabilityPipelineConfigDestinationsSocketFramingCharacterDelimited> characterDelimited() {
         return Optional.ofNullable(this.characterDelimited);
     }
     /**
-     * @return The framing method. Valid values are `newline_delimited`, `bytes`, `character_delimited`.
+     * @return The framing method. Valid values are `newlineDelimited`, `bytes`, `characterDelimited`.
      * 
      */
     public String method() {

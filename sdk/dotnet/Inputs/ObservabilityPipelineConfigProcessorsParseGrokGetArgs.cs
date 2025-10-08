@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ObservabilityPipelineConfigProcessorsParseGrokGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If set to `true`, disables the default Grok rules provided by Datadog.
+        /// If set to `True`, disables the default Grok rules provided by Datadog.
         /// </summary>
         [Input("disableLibraryRules")]
         public Input<bool>? DisableLibraryRules { get; set; }
@@ -34,7 +34,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<string>? _inputs;
 
         /// <summary>
-        /// A list of component IDs whose output is used as the `input` for this component.
+        /// A list of component IDs whose output is used as the `Input` for this component.
         /// </summary>
         public InputList<string> Inputs
         {

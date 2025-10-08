@@ -14,6 +14,64 @@ import (
 
 // Provides a Datadog DowntimeSchedule resource. This can be used to create and manage Datadog downtimes.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create new downtime_schedule resource
+//			_, err := datadog.NewDowntimeSchedule(ctx, "downtime_schedule_example", &datadog.DowntimeScheduleArgs{
+//				Scope: pulumi.String("env:us9-prod7 AND team:test123"),
+//				MonitorIdentifier: datadog.DowntimeScheduleMonitorIdentifierArgs{
+//					map[string]interface{}{
+//						"monitorTags": []string{
+//							"test:123",
+//							"data:test",
+//						},
+//					},
+//				},
+//				RecurringSchedule: datadog.DowntimeScheduleRecurringScheduleArgs{
+//					map[string]interface{}{
+//						"recurrences": []map[string]interface{}{
+//							map[string]interface{}{
+//								"duration": "1h",
+//								"rrule":    "FREQ=DAILY;INTERVAL=1",
+//								"start":    "2050-01-02T03:04:05",
+//							},
+//						},
+//						"timezone": "America/New_York",
+//					},
+//				},
+//				DisplayTimezone:               pulumi.String("America/New_York"),
+//				Message:                       pulumi.String("Message about the downtime"),
+//				MuteFirstRecoveryNotification: pulumi.Bool(true),
+//				NotifyEndStates: pulumi.StringArray{
+//					pulumi.String("alert"),
+//					pulumi.String("warn"),
+//				},
+//				NotifyEndTypes: pulumi.StringArray{
+//					pulumi.String("canceled"),
+//					pulumi.String("expired"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // The `pulumi import` command can be used, for example:

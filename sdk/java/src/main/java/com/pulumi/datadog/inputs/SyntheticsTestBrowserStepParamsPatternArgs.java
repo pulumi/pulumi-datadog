@@ -16,14 +16,14 @@ public final class SyntheticsTestBrowserStepParamsPatternArgs extends com.pulumi
     public static final SyntheticsTestBrowserStepParamsPatternArgs Empty = new SyntheticsTestBrowserStepParamsPatternArgs();
 
     /**
-     * Type of pattern to use for the step. Valid values are `regex`, `x_path`.
+     * Type of pattern to use for the step. Valid values are `regex`, `xPath`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Type of pattern to use for the step. Valid values are `regex`, `x_path`.
+     * @return Type of pattern to use for the step. Valid values are `regex`, `xPath`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -71,7 +71,7 @@ public final class SyntheticsTestBrowserStepParamsPatternArgs extends com.pulumi
         }
 
         /**
-         * @param type Type of pattern to use for the step. Valid values are `regex`, `x_path`.
+         * @param type Type of pattern to use for the step. Valid values are `regex`, `xPath`.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class SyntheticsTestBrowserStepParamsPatternArgs extends com.pulumi
         }
 
         /**
-         * @param type Type of pattern to use for the step. Valid values are `regex`, `x_path`.
+         * @param type Type of pattern to use for the step. Valid values are `regex`, `xPath`.
          * 
          * @return builder
          * 

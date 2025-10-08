@@ -19,13 +19,13 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> AggregationType { get; set; } = null!;
 
         /// <summary>
-        /// Toggle to include or exclude percentile aggregations for distribution metrics. Only present when `aggregation_type` is `distribution`.
+        /// Toggle to include or exclude percentile aggregations for distribution metrics. Only present when `AggregationType` is `Distribution`.
         /// </summary>
         [Input("includePercentiles")]
         public Input<bool>? IncludePercentiles { get; set; }
 
         /// <summary>
-        /// The path to the value the RUM-based metric will aggregate on. Only present when `aggregation_type` is `distribution`.
+        /// The path to the value the RUM-based metric will aggregate on. Only present when `AggregationType` is `Distribution`.
         /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }

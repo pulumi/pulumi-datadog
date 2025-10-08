@@ -14,11 +14,11 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigProcessorsEnrichmentTableFileEncoding
     {
         /// <summary>
-        /// The `encoding` `delimiter`.
+        /// The `Encoding` `Delimiter`.
         /// </summary>
         public readonly string? Delimiter;
         /// <summary>
-        /// The `encoding` `includes_headers`.
+        /// The `Encoding` `IncludesHeaders`.
         /// </summary>
         public readonly bool? IncludesHeaders;
         /// <summary>

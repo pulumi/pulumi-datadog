@@ -13,13 +13,13 @@ namespace Pulumi.Datadog.Inputs
     public sealed class PowerpackWidgetManageStatusDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to colorize text or background. Valid values are `background`, `text`.
+        /// Whether to colorize text or background. Valid values are `Background`, `Text`.
         /// </summary>
         [Input("colorPreference")]
         public Input<string>? ColorPreference { get; set; }
 
         /// <summary>
-        /// The display setting to use. Valid values are `counts`, `countsAndList`, `list`.
+        /// The display setting to use. Valid values are `Counts`, `countsAndList`, `List`.
         /// </summary>
         [Input("displayFormat")]
         public Input<string>? DisplayFormat { get; set; }
@@ -49,13 +49,13 @@ namespace Pulumi.Datadog.Inputs
         public Input<bool>? ShowPriority { get; set; }
 
         /// <summary>
-        /// The method to sort the monitors. Valid values are `name`, `group`, `status`, `tags`, `triggered`, `group,asc`, `group,desc`, `name,asc`, `name,desc`, `status,asc`, `status,desc`, `tags,asc`, `tags,desc`, `triggered,asc`, `triggered,desc`, `priority,asc`, `priority,desc`.
+        /// The method to sort the monitors. Valid values are `Name`, `Group`, `Status`, `Tags`, `Triggered`, `group,asc`, `group,desc`, `name,asc`, `name,desc`, `status,asc`, `status,desc`, `tags,asc`, `tags,desc`, `triggered,asc`, `triggered,desc`, `priority,asc`, `priority,desc`.
         /// </summary>
         [Input("sort")]
         public Input<string>? Sort { get; set; }
 
         /// <summary>
-        /// The summary type to use. Valid values are `monitors`, `groups`, `combined`.
+        /// The summary type to use. Valid values are `Monitors`, `Groups`, `Combined`.
         /// </summary>
         [Input("summaryType")]
         public Input<string>? SummaryType { get; set; }
@@ -67,7 +67,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Title { get; set; }
 
         /// <summary>
-        /// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+        /// The alignment of the widget's title. Valid values are `Center`, `Left`, `Right`.
         /// </summary>
         [Input("titleAlign")]
         public Input<string>? TitleAlign { get; set; }

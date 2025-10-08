@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatReplace
     {
         /// <summary>
-        /// Text that will be replaced. Must be used with type `substring`.
+        /// Text that will be replaced. Must be used with type `Substring`.
         /// </summary>
         public readonly string? Substring;
         /// <summary>

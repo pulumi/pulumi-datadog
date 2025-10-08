@@ -30,14 +30,14 @@ public final class DashboardListDashItemArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The type of this dashboard. Valid values are `custom_timeboard`, `custom_screenboard`, `integration_screenboard`, `integration_timeboard`, `host_timeboard`.
+     * The type of this dashboard. Valid values are `customTimeboard`, `customScreenboard`, `integrationScreenboard`, `integrationTimeboard`, `hostTimeboard`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of this dashboard. Valid values are `custom_timeboard`, `custom_screenboard`, `integration_screenboard`, `integration_timeboard`, `host_timeboard`.
+     * @return The type of this dashboard. Valid values are `customTimeboard`, `customScreenboard`, `integrationScreenboard`, `integrationTimeboard`, `hostTimeboard`.
      * 
      */
     public Output<String> type() {
@@ -91,7 +91,7 @@ public final class DashboardListDashItemArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param type The type of this dashboard. Valid values are `custom_timeboard`, `custom_screenboard`, `integration_screenboard`, `integration_timeboard`, `host_timeboard`.
+         * @param type The type of this dashboard. Valid values are `customTimeboard`, `customScreenboard`, `integrationScreenboard`, `integrationTimeboard`, `hostTimeboard`.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class DashboardListDashItemArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param type The type of this dashboard. Valid values are `custom_timeboard`, `custom_screenboard`, `integration_screenboard`, `integration_timeboard`, `host_timeboard`.
+         * @param type The type of this dashboard. Valid values are `customTimeboard`, `customScreenboard`, `integrationScreenboard`, `integrationTimeboard`, `hostTimeboard`.
          * 
          * @return builder
          * 

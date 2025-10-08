@@ -33,14 +33,14 @@ public final class MonitorSchedulingOptionArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Configuration options for the evaluation window. If `hour_starts` is set, no other fields may be set. Otherwise, `day_starts` and `month_starts` must be set together.
+     * Configuration options for the evaluation window. If `hourStarts` is set, no other fields may be set. Otherwise, `dayStarts` and `monthStarts` must be set together.
      * 
      */
     @Import(name="evaluationWindows")
     private @Nullable Output<List<MonitorSchedulingOptionEvaluationWindowArgs>> evaluationWindows;
 
     /**
-     * @return Configuration options for the evaluation window. If `hour_starts` is set, no other fields may be set. Otherwise, `day_starts` and `month_starts` must be set together.
+     * @return Configuration options for the evaluation window. If `hourStarts` is set, no other fields may be set. Otherwise, `dayStarts` and `monthStarts` must be set together.
      * 
      */
     public Optional<Output<List<MonitorSchedulingOptionEvaluationWindowArgs>>> evaluationWindows() {
@@ -104,7 +104,7 @@ public final class MonitorSchedulingOptionArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param evaluationWindows Configuration options for the evaluation window. If `hour_starts` is set, no other fields may be set. Otherwise, `day_starts` and `month_starts` must be set together.
+         * @param evaluationWindows Configuration options for the evaluation window. If `hourStarts` is set, no other fields may be set. Otherwise, `dayStarts` and `monthStarts` must be set together.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class MonitorSchedulingOptionArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param evaluationWindows Configuration options for the evaluation window. If `hour_starts` is set, no other fields may be set. Otherwise, `day_starts` and `month_starts` must be set together.
+         * @param evaluationWindows Configuration options for the evaluation window. If `hourStarts` is set, no other fields may be set. Otherwise, `dayStarts` and `monthStarts` must be set together.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class MonitorSchedulingOptionArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param evaluationWindows Configuration options for the evaluation window. If `hour_starts` is set, no other fields may be set. Otherwise, `day_starts` and `month_starts` must be set together.
+         * @param evaluationWindows Configuration options for the evaluation window. If `hourStarts` is set, no other fields may be set. Otherwise, `dayStarts` and `monthStarts` must be set together.
          * 
          * @return builder
          * 

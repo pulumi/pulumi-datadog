@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetTeamMembershipsResult {
     /**
-     * @return When true, `filter_keyword` string is exact matched against the user&#39;s `email`, followed by `name`.
+     * @return When true, `filterKeyword` string is exact matched against the user&#39;s `email`, followed by `name`.
      * 
      */
     private @Nullable Boolean exactMatch;
@@ -43,7 +43,7 @@ public final class GetTeamMembershipsResult {
 
     private GetTeamMembershipsResult() {}
     /**
-     * @return When true, `filter_keyword` string is exact matched against the user&#39;s `email`, followed by `name`.
+     * @return When true, `filterKeyword` string is exact matched against the user&#39;s `email`, followed by `name`.
      * 
      */
     public Optional<Boolean> exactMatch() {

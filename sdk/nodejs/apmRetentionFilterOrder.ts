@@ -7,6 +7,26 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog [APM Retention Filters API](https://docs.datadoghq.com/api/v2/apm-retention-filters/) resource, which is used to manage Datadog APM retention filters order.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * // Create APM retention filter
+ * const foo = new datadog.ApmRetentionFilter("foo", {
+ *     name: "Sample order",
+ *     rate: "1.0",
+ *     filter: [{
+ *         query: "*",
+ *     }],
+ *     filterType: "spans-sampling-processor",
+ *     enabled: false,
+ * });
+ * // Create APM retention filter order
+ * const bar = new datadog.ApmRetentionFilterOrder("bar", {filterIds: [foo.id]});
+ * ```
+ *
  * ## Import
  *
  * The `pulumi import` command can be used, for example:

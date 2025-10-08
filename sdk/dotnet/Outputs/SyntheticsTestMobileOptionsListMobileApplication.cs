@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly string ApplicationId;
         public readonly string ReferenceId;
         /// <summary>
-        /// Valid values are `latest`, `version`.
+        /// Valid values are `Latest`, `Version`.
         /// </summary>
         public readonly string ReferenceType;
 

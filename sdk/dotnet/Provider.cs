@@ -37,19 +37,19 @@ namespace Pulumi.Datadog
         public Output<string?> AppKey { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloud_provider_type` set to `aws`.
+        /// The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `CloudProviderType` set to `Aws`.
         /// </summary>
         [Output("awsAccessKeyId")]
         public Output<string?> AwsAccessKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
+        /// The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `CloudProviderType` set to `Aws`.
         /// </summary>
         [Output("awsSecretAccessKey")]
         public Output<string?> AwsSecretAccessKey { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
+        /// The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `CloudProviderType` set to `Aws` and using temporary credentials.
         /// </summary>
         [Output("awsSessionToken")]
         public Output<string?> AwsSessionToken { get; private set; } = null!;
@@ -61,13 +61,13 @@ namespace Pulumi.Datadog
         public Output<string?> CloudProviderRegion { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
+        /// Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`Aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
         /// </summary>
         [Output("cloudProviderType")]
         public Output<string?> CloudProviderType { get; private set; } = null!;
 
         /// <summary>
-        /// Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
+        /// Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`True`, `False`]. Defaults to `True`.
         /// </summary>
         [Output("httpClientRetryEnabled")]
         public Output<string?> HttpClientRetryEnabled { get; private set; } = null!;
@@ -79,7 +79,7 @@ namespace Pulumi.Datadog
         public Output<string?> OrgUuid { get; private set; } = null!;
 
         /// <summary>
-        /// Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, api_key won't be checked.
+        /// Enables validation of the provided API key during provider initialization. Valid values are [`True`, `False`]. Default is true. When false, ApiKey won't be checked.
         /// </summary>
         [Output("validate")]
         public Output<string?> Validate { get; private set; } = null!;
@@ -168,7 +168,7 @@ namespace Pulumi.Datadog
         private Input<string>? _awsAccessKeyId;
 
         /// <summary>
-        /// The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloud_provider_type` set to `aws`.
+        /// The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `CloudProviderType` set to `Aws`.
         /// </summary>
         public Input<string>? AwsAccessKeyId
         {
@@ -184,7 +184,7 @@ namespace Pulumi.Datadog
         private Input<string>? _awsSecretAccessKey;
 
         /// <summary>
-        /// The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
+        /// The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `CloudProviderType` set to `Aws`.
         /// </summary>
         public Input<string>? AwsSecretAccessKey
         {
@@ -200,7 +200,7 @@ namespace Pulumi.Datadog
         private Input<string>? _awsSessionToken;
 
         /// <summary>
-        /// The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
+        /// The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `CloudProviderType` set to `Aws` and using temporary credentials.
         /// </summary>
         public Input<string>? AwsSessionToken
         {
@@ -219,7 +219,7 @@ namespace Pulumi.Datadog
         public Input<string>? CloudProviderRegion { get; set; }
 
         /// <summary>
-        /// Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
+        /// Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`Aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
         /// </summary>
         [Input("cloudProviderType")]
         public Input<string>? CloudProviderType { get; set; }
@@ -243,7 +243,7 @@ namespace Pulumi.Datadog
         public Input<int>? HttpClientRetryBackoffMultiplier { get; set; }
 
         /// <summary>
-        /// Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
+        /// Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`True`, `False`]. Defaults to `True`.
         /// </summary>
         [Input("httpClientRetryEnabled")]
         public Input<string>? HttpClientRetryEnabled { get; set; }
@@ -267,7 +267,7 @@ namespace Pulumi.Datadog
         public Input<string>? OrgUuid { get; set; }
 
         /// <summary>
-        /// Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, api_key won't be checked.
+        /// Enables validation of the provided API key during provider initialization. Valid values are [`True`, `False`]. Default is true. When false, ApiKey won't be checked.
         /// </summary>
         [Input("validate")]
         public Input<string>? Validate { get; set; }

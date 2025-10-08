@@ -31,7 +31,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Palette { get; set; }
 
         /// <summary>
-        /// The scaling mode for the widget. Valid values are `absolute`, `relative`.
+        /// The scaling mode for the widget. Valid values are `Absolute`, `Relative`.
         /// </summary>
         [Input("scaling")]
         public Input<string>? Scaling { get; set; }

@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class RumMetricUniqueness
     {
         /// <summary>
-        /// When to count updatable events. `match` when the event is first seen, or `end` when the event is complete.
+        /// When to count updatable events. `Match` when the event is first seen, or `End` when the event is complete.
         /// </summary>
         public readonly string? When;
 

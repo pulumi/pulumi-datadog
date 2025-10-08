@@ -37,7 +37,7 @@ import javax.annotation.Nullable;
  * #### *Warning*
  * Starting from version 3.1.0+, the direct usage of global variables in the configuration is deprecated, in favor of
  * local variables of type `global`. As an example, if you were previously using `{{ GLOBAL_VAR }}` directly in your
- * configuration, add a `config_variable` of type `global` with the `id` matching the `id` of the global variable `GLOBAL_VAR`, which can be found in the Synthetics UI or from the output of the `datadog.SyntheticsGlobalVariable` resource. The name can be chosen freely.
+ * configuration, add a `configVariable` of type `global` with the `id` matching the `id` of the global variable `GLOBAL_VAR`, which can be found in the Synthetics UI or from the output of the `datadog.SyntheticsGlobalVariable` resource. The name can be chosen freely.
  * 
  * In practice, it means going from (simplified configuration):
  * 
@@ -860,14 +860,14 @@ public class SyntheticsTest extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.configInitialApplicationArguments);
     }
     /**
-     * Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
+     * Variables used for the test configuration. Multiple `configVariable` blocks are allowed with the structure below.
      * 
      */
     @Export(name="configVariables", refs={List.class,SyntheticsTestConfigVariable.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SyntheticsTestConfigVariable>> configVariables;
 
     /**
-     * @return Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
+     * @return Variables used for the test configuration. Multiple `configVariable` blocks are allowed with the structure below.
      * 
      */
     public Output<Optional<List<SyntheticsTestConfigVariable>>> configVariables() {

@@ -16,7 +16,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a Datadog metric_metadata resource. This can be used to manage a metric&#39;s metadata.
+ * Provides a Datadog metricMetadata resource. This can be used to manage a metric&#39;s metadata.
  * 
  * ## Example Usage
  * 

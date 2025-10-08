@@ -14,6 +14,61 @@ import (
 
 // Provides a Datadog On-Call schedule resource. This can be used to create and manage Datadog On-Call schedules.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.NewOnCallSchedule(ctx, "test", &datadog.OnCallScheduleArgs{
+//				Name:     pulumi.String("Team A On-Call"),
+//				TimeZone: pulumi.String("America/New_York"),
+//				Teams: pulumi.StringArray{
+//					pulumi.String("00000000-aba2-0000-0000-000000000000"),
+//				},
+//				Layers: datadog.OnCallScheduleLayerArray{
+//					&datadog.OnCallScheduleLayerArgs{
+//						Name:          pulumi.String("Primary On-Call Layer"),
+//						EffectiveDate: pulumi.String("2025-01-01T00:00:00Z"),
+//						EndDate:       pulumi.String("2026-01-01T00:00:00Z"),
+//						RotationStart: pulumi.String("2025-01-01T00:00:00Z"),
+//						Interval: datadog.OnCallScheduleLayerIntervalArgs{
+//							map[string]interface{}{
+//								"days":    1,
+//								"seconds": 300,
+//							},
+//						},
+//						Users: pulumi.StringArray{
+//							pulumi.String("00000000-aba1-0000-0000-000000000000"),
+//						},
+//						Restrictions: datadog.OnCallScheduleLayerRestrictionArray{
+//							&datadog.OnCallScheduleLayerRestrictionArgs{
+//								EndDay:    pulumi.String("monday"),
+//								EndTime:   pulumi.String("17:00:00"),
+//								StartDay:  pulumi.String("monday"),
+//								StartTime: pulumi.String("09:00:00"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // The `pulumi import` command can be used, for example:

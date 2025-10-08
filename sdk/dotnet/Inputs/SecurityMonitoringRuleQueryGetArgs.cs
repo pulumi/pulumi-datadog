@@ -16,9 +16,9 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.SecurityMonitoringRuleQueryAgentRuleGetArgs>? _agentRules;
 
         /// <summary>
-        /// **Deprecated**. It won't be applied anymore. **Deprecated.** `agent_rule` has been deprecated in favor of new Agent Rule resource.
+        /// **Deprecated**. It won't be applied anymore. **Deprecated.** `AgentRule` has been deprecated in favor of new Agent Rule resource.
         /// </summary>
-        [Obsolete(@"`agent_rule` has been deprecated in favor of new Agent Rule resource.")]
+        [Obsolete(@"`AgentRule` has been deprecated in favor of new Agent Rule resource.")]
         public InputList<Inputs.SecurityMonitoringRuleQueryAgentRuleGetArgs> AgentRules
         {
             get => _agentRules ?? (_agentRules = new InputList<Inputs.SecurityMonitoringRuleQueryAgentRuleGetArgs>());
@@ -26,13 +26,13 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`. Defaults to `"count"`.
+        /// The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `Count`, `Cardinality`, `Sum`, `Max`, `NewValue`, `GeoData`, `EventCount`, `None`. Defaults to `"count"`.
         /// </summary>
         [Input("aggregation")]
         public Input<string>? Aggregation { get; set; }
 
         /// <summary>
-        /// Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`, `events`. Defaults to `"logs"`.
+        /// Source of events. Valid values are `Logs`, `Audit`, `AppSecSpans`, `Spans`, `SecurityRuntime`, `Network`, `Events`. Defaults to `"logs"`.
         /// </summary>
         [Input("dataSource")]
         public Input<string>? DataSource { get; set; }
@@ -62,7 +62,7 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// When false, events without a group-by value are ignored by the rule. When true, events with missing group-by fields are processed with `N/A`, replacing the missing values. Defaults to `false`.
+        /// When false, events without a group-by value are ignored by the rule. When true, events with missing group-by fields are processed with `N/A`, replacing the missing values. Defaults to `False`.
         /// </summary>
         [Input("hasOptionalGroupByFields")]
         public Input<bool>? HasOptionalGroupByFields { get; set; }
@@ -71,7 +71,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<string>? _indexes;
 
         /// <summary>
-        /// List of indexes to run the query on when the data source is `logs`. Supports only one element. Used only for scheduled rules (in other words, when `scheduling_options` is defined).
+        /// List of indexes to run the query on when the data source is `Logs`. Supports only one element. Used only for scheduled rules (in other words, when `SchedulingOptions` is defined).
         /// </summary>
         public InputList<string> Indexes
         {
@@ -80,7 +80,7 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// The target field to aggregate over when using the `sum`, `max`, or `geo_data` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+        /// The target field to aggregate over when using the `Sum`, `Max`, or `GeoData` aggregations. **Deprecated.** Configure `Metrics` instead. This attribute will be removed in the next major version of the provider.
         /// </summary>
         [Input("metric")]
         public Input<string>? Metric { get; set; }
@@ -89,7 +89,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<string>? _metrics;
 
         /// <summary>
-        /// Group of target fields to aggregate over when using the `sum`, `max`, `geo_data`, or `new_value` aggregations. The `sum`, `max`, and `geo_data` aggregations only accept one value in this list, whereas the `new_value` aggregation accepts up to five values.
+        /// Group of target fields to aggregate over when using the `Sum`, `Max`, `GeoData`, or `NewValue` aggregations. The `Sum`, `Max`, and `GeoData` aggregations only accept one value in this list, whereas the `NewValue` aggregation accepts up to five values.
         /// </summary>
         public InputList<string> Metrics
         {
@@ -98,7 +98,7 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// Name of the query. Not compatible with `new_value` aggregations.
+        /// Name of the query. Not compatible with `NewValue` aggregations.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -79,14 +79,14 @@ public final class PowerpackWidgetServiceLevelObjectiveDefinitionArgs extends co
     }
 
     /**
-     * A list of time windows to display in the widget. Valid values are `7d`, `30d`, `90d`, `week_to_date`, `previous_week`, `month_to_date`, `previous_month`, `global_time`.
+     * A list of time windows to display in the widget. Valid values are `7d`, `30d`, `90d`, `weekToDate`, `previousWeek`, `monthToDate`, `previousMonth`, `globalTime`.
      * 
      */
     @Import(name="timeWindows", required=true)
     private Output<List<String>> timeWindows;
 
     /**
-     * @return A list of time windows to display in the widget. Valid values are `7d`, `30d`, `90d`, `week_to_date`, `previous_week`, `month_to_date`, `previous_month`, `global_time`.
+     * @return A list of time windows to display in the widget. Valid values are `7d`, `30d`, `90d`, `weekToDate`, `previousWeek`, `monthToDate`, `previousMonth`, `globalTime`.
      * 
      */
     public Output<List<String>> timeWindows() {
@@ -286,7 +286,7 @@ public final class PowerpackWidgetServiceLevelObjectiveDefinitionArgs extends co
         }
 
         /**
-         * @param timeWindows A list of time windows to display in the widget. Valid values are `7d`, `30d`, `90d`, `week_to_date`, `previous_week`, `month_to_date`, `previous_month`, `global_time`.
+         * @param timeWindows A list of time windows to display in the widget. Valid values are `7d`, `30d`, `90d`, `weekToDate`, `previousWeek`, `monthToDate`, `previousMonth`, `globalTime`.
          * 
          * @return builder
          * 
@@ -297,7 +297,7 @@ public final class PowerpackWidgetServiceLevelObjectiveDefinitionArgs extends co
         }
 
         /**
-         * @param timeWindows A list of time windows to display in the widget. Valid values are `7d`, `30d`, `90d`, `week_to_date`, `previous_week`, `month_to_date`, `previous_month`, `global_time`.
+         * @param timeWindows A list of time windows to display in the widget. Valid values are `7d`, `30d`, `90d`, `weekToDate`, `previousWeek`, `monthToDate`, `previousMonth`, `globalTime`.
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class PowerpackWidgetServiceLevelObjectiveDefinitionArgs extends co
         }
 
         /**
-         * @param timeWindows A list of time windows to display in the widget. Valid values are `7d`, `30d`, `90d`, `week_to_date`, `previous_week`, `month_to_date`, `previous_month`, `global_time`.
+         * @param timeWindows A list of time windows to display in the widget. Valid values are `7d`, `30d`, `90d`, `weekToDate`, `previousWeek`, `monthToDate`, `previousMonth`, `globalTime`.
          * 
          * @return builder
          * 

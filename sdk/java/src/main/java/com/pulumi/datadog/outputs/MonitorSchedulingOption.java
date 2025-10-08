@@ -18,7 +18,7 @@ public final class MonitorSchedulingOption {
      */
     private @Nullable List<MonitorSchedulingOptionCustomSchedule> customSchedules;
     /**
-     * @return Configuration options for the evaluation window. If `hour_starts` is set, no other fields may be set. Otherwise, `day_starts` and `month_starts` must be set together.
+     * @return Configuration options for the evaluation window. If `hourStarts` is set, no other fields may be set. Otherwise, `dayStarts` and `monthStarts` must be set together.
      * 
      */
     private @Nullable List<MonitorSchedulingOptionEvaluationWindow> evaluationWindows;
@@ -32,7 +32,7 @@ public final class MonitorSchedulingOption {
         return this.customSchedules == null ? List.of() : this.customSchedules;
     }
     /**
-     * @return Configuration options for the evaluation window. If `hour_starts` is set, no other fields may be set. Otherwise, `day_starts` and `month_starts` must be set together.
+     * @return Configuration options for the evaluation window. If `hourStarts` is set, no other fields may be set. Otherwise, `dayStarts` and `monthStarts` must be set together.
      * 
      */
     public List<MonitorSchedulingOptionEvaluationWindow> evaluationWindows() {

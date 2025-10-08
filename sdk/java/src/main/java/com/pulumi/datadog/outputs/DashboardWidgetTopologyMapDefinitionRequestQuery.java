@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class DashboardWidgetTopologyMapDefinitionRequestQuery {
     /**
-     * @return The data source for the Topology request (&#39;service*map&#39; or &#39;data*streams&#39;). Valid values are `data_streams`, `service_map`.
+     * @return The data source for the Topology request (&#39;service*map&#39; or &#39;data*streams&#39;). Valid values are `dataStreams`, `serviceMap`.
      * 
      */
     private String dataSource;
@@ -29,7 +29,7 @@ public final class DashboardWidgetTopologyMapDefinitionRequestQuery {
 
     private DashboardWidgetTopologyMapDefinitionRequestQuery() {}
     /**
-     * @return The data source for the Topology request (&#39;service*map&#39; or &#39;data*streams&#39;). Valid values are `data_streams`, `service_map`.
+     * @return The data source for the Topology request (&#39;service*map&#39; or &#39;data*streams&#39;). Valid values are `dataStreams`, `serviceMap`.
      * 
      */
     public String dataSource() {

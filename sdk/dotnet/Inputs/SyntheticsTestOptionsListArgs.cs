@@ -61,7 +61,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<bool>? FollowRedirects { get; set; }
 
         /// <summary>
-        /// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `"any"`.
+        /// HTTP version to use for an HTTP request in an API test or step. Valid values are `Http1`, `Http2`, `Any`. Defaults to `"any"`.
         /// </summary>
         [Input("httpVersion")]
         public Input<string>? HttpVersion { get; set; }

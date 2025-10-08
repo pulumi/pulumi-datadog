@@ -16,14 +16,14 @@ public final class SecurityMonitoringDefaultRuleOptionsArgs extends com.pulumi.r
     public static final SecurityMonitoringDefaultRuleOptionsArgs Empty = new SecurityMonitoringDefaultRuleOptionsArgs();
 
     /**
-     * If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `log_detection`.
+     * If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `logDetection`.
      * 
      */
     @Import(name="decreaseCriticalityBasedOnEnv")
     private @Nullable Output<Boolean> decreaseCriticalityBasedOnEnv;
 
     /**
-     * @return If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `log_detection`.
+     * @return If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `logDetection`.
      * 
      */
     public Optional<Output<Boolean>> decreaseCriticalityBasedOnEnv() {
@@ -55,7 +55,7 @@ public final class SecurityMonitoringDefaultRuleOptionsArgs extends com.pulumi.r
         }
 
         /**
-         * @param decreaseCriticalityBasedOnEnv If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `log_detection`.
+         * @param decreaseCriticalityBasedOnEnv If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `logDetection`.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class SecurityMonitoringDefaultRuleOptionsArgs extends com.pulumi.r
         }
 
         /**
-         * @param decreaseCriticalityBasedOnEnv If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `log_detection`.
+         * @param decreaseCriticalityBasedOnEnv If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `logDetection`.
          * 
          * @return builder
          * 

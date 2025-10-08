@@ -12,7 +12,7 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog dashboard resource. This can be used to create and manage Datadog dashboards.
     /// 
-    /// !&gt; The `is_read_only` field is deprecated and non-functional. Use `restricted_roles` instead to define which roles are required to edit the dashboard.
+    /// !&gt; The `IsReadOnly` field is deprecated and non-functional. Use `RestrictedRoles` instead to define which roles are required to edit the dashboard.
     /// 
     /// ## Example Usage
     /// 
@@ -1075,13 +1075,13 @@ namespace Pulumi.Datadog
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Whether this dashboard is read-only. **Deprecated.** This field is deprecated and non-functional. Use `restricted_roles` instead to define which roles are required to edit the dashboard. Defaults to `false`.
+        /// Whether this dashboard is read-only. **Deprecated.** This field is deprecated and non-functional. Use `RestrictedRoles` instead to define which roles are required to edit the dashboard. Defaults to `False`.
         /// </summary>
         [Output("isReadOnly")]
         public Output<bool?> IsReadOnly { get; private set; } = null!;
 
         /// <summary>
-        /// The layout type of the dashboard. Valid values are `ordered`, `free`.
+        /// The layout type of the dashboard. Valid values are `Ordered`, `Free`.
         /// </summary>
         [Output("layoutType")]
         public Output<string> LayoutType { get; private set; } = null!;
@@ -1093,7 +1093,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<string>> NotifyLists { get; private set; } = null!;
 
         /// <summary>
-        /// The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
+        /// The reflow type of a new dashboard layout. Set this only when layout type is `Ordered`. If set to `Fixed`, the dashboard expects all widgets to have a layout, and if it's set to `Auto`, widgets should not have layouts. Valid values are `Auto`, `Fixed`.
         /// </summary>
         [Output("reflowType")]
         public Output<string?> ReflowType { get; private set; } = null!;
@@ -1201,13 +1201,13 @@ namespace Pulumi.Datadog
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Whether this dashboard is read-only. **Deprecated.** This field is deprecated and non-functional. Use `restricted_roles` instead to define which roles are required to edit the dashboard. Defaults to `false`.
+        /// Whether this dashboard is read-only. **Deprecated.** This field is deprecated and non-functional. Use `RestrictedRoles` instead to define which roles are required to edit the dashboard. Defaults to `False`.
         /// </summary>
         [Input("isReadOnly")]
         public Input<bool>? IsReadOnly { get; set; }
 
         /// <summary>
-        /// The layout type of the dashboard. Valid values are `ordered`, `free`.
+        /// The layout type of the dashboard. Valid values are `Ordered`, `Free`.
         /// </summary>
         [Input("layoutType", required: true)]
         public Input<string> LayoutType { get; set; } = null!;
@@ -1225,7 +1225,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
+        /// The reflow type of a new dashboard layout. Set this only when layout type is `Ordered`. If set to `Fixed`, the dashboard expects all widgets to have a layout, and if it's set to `Auto`, widgets should not have layouts. Valid values are `Auto`, `Fixed`.
         /// </summary>
         [Input("reflowType")]
         public Input<string>? ReflowType { get; set; }
@@ -1337,13 +1337,13 @@ namespace Pulumi.Datadog
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Whether this dashboard is read-only. **Deprecated.** This field is deprecated and non-functional. Use `restricted_roles` instead to define which roles are required to edit the dashboard. Defaults to `false`.
+        /// Whether this dashboard is read-only. **Deprecated.** This field is deprecated and non-functional. Use `RestrictedRoles` instead to define which roles are required to edit the dashboard. Defaults to `False`.
         /// </summary>
         [Input("isReadOnly")]
         public Input<bool>? IsReadOnly { get; set; }
 
         /// <summary>
-        /// The layout type of the dashboard. Valid values are `ordered`, `free`.
+        /// The layout type of the dashboard. Valid values are `Ordered`, `Free`.
         /// </summary>
         [Input("layoutType")]
         public Input<string>? LayoutType { get; set; }
@@ -1361,7 +1361,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
+        /// The reflow type of a new dashboard layout. Set this only when layout type is `Ordered`. If set to `Fixed`, the dashboard expects all widgets to have a layout, and if it's set to `Auto`, widgets should not have layouts. Valid values are `Auto`, `Fixed`.
         /// </summary>
         [Input("reflowType")]
         public Input<string>? ReflowType { get; set; }

@@ -12,6 +12,69 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog Security Monitoring Notification Rule API resource for creating and managing Datadog security notification rules.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var signalRule = new Datadog.SecurityNotificationRule("signal_rule", new()
+    ///     {
+    ///         Name = "My signal notification rule",
+    ///         Selectors = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "triggerSource", "security_signals" },
+    ///                 { "ruleTypes", new[]
+    ///                 {
+    ///                     "workload_security",
+    ///                 } },
+    ///                 { "query", "env:prod" },
+    ///             },
+    ///         },
+    ///         Enabled = false,
+    ///         Targets = new[]
+    ///         {
+    ///             "@bob@email.com",
+    ///             "@alice@email.com",
+    ///         },
+    ///     });
+    /// 
+    ///     var vulnerabilityRule = new Datadog.SecurityNotificationRule("vulnerability_rule", new()
+    ///     {
+    ///         Name = "My vulnerability notification rule",
+    ///         Selectors = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "triggerSource", "security_findings" },
+    ///                 { "ruleTypes", new[]
+    ///                 {
+    ///                     "application_library_vulnerability",
+    ///                     "identity_risk",
+    ///                 } },
+    ///                 { "severities", new[]
+    ///                 {
+    ///                     "critical",
+    ///                     "high",
+    ///                 } },
+    ///             },
+    ///         },
+    ///         TimeAggregation = 36000,
+    ///         Targets = new[]
+    ///         {
+    ///             "@john@email.com",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// The `pulumi import` command can be used, for example:
@@ -42,7 +105,7 @@ namespace Pulumi.Datadog
         public Output<string> CreatedByName { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether the rule is enabled. Defaults to `true`.
+        /// Indicates whether the rule is enabled. Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
@@ -142,7 +205,7 @@ namespace Pulumi.Datadog
     public sealed class SecurityNotificationRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether the rule is enabled. Defaults to `true`.
+        /// Indicates whether the rule is enabled. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -204,7 +267,7 @@ namespace Pulumi.Datadog
         public Input<string>? CreatedByName { get; set; }
 
         /// <summary>
-        /// Indicates whether the rule is enabled. Defaults to `true`.
+        /// Indicates whether the rule is enabled. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

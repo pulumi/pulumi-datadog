@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigSourcesAmazonDataFirehoseArgs>? _amazonDataFirehoses;
 
         /// <summary>
-        /// The `amazon_data_firehose` source ingests logs from AWS Data Firehose.
+        /// The `AmazonDataFirehose` source ingests logs from AWS Data Firehose.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigSourcesAmazonDataFirehoseArgs> AmazonDataFirehoses
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigSourcesAmazonS3Args>? _amazonS3s;
 
         /// <summary>
-        /// The `amazon_s3` source ingests logs from an Amazon S3 bucket. It supports AWS authentication and TLS encryption.
+        /// The `AmazonS3` source ingests logs from an Amazon S3 bucket. It supports AWS authentication and TLS encryption.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigSourcesAmazonS3Args> AmazonS3s
         {
@@ -40,7 +40,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigSourcesDatadogAgentArgs>? _datadogAgents;
 
         /// <summary>
-        /// The `datadog_agent` source collects logs from the Datadog Agent.
+        /// The `DatadogAgent` source collects logs from the Datadog Agent.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigSourcesDatadogAgentArgs> DatadogAgents
         {
@@ -52,7 +52,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigSourcesFluentBitArgs>? _fluentBits;
 
         /// <summary>
-        /// The `fluent` source ingests logs from Fluent Bit.
+        /// The `Fluent` source ingests logs from Fluent Bit.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigSourcesFluentBitArgs> FluentBits
         {
@@ -64,7 +64,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigSourcesFluentdArgs>? _fluentds;
 
         /// <summary>
-        /// The `fluent` source ingests logs from a Fluentd-compatible service.
+        /// The `Fluent` source ingests logs from a Fluentd-compatible service.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigSourcesFluentdArgs> Fluentds
         {
@@ -76,7 +76,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigSourcesGooglePubsubArgs>? _googlePubsubs;
 
         /// <summary>
-        /// The `google_pubsub` source ingests logs from a Google Cloud Pub/Sub subscription.
+        /// The `GooglePubsub` source ingests logs from a Google Cloud Pub/Sub subscription.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigSourcesGooglePubsubArgs> GooglePubsubs
         {
@@ -88,7 +88,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigSourcesHttpClientArgs>? _httpClients;
 
         /// <summary>
-        /// The `http_client` source scrapes logs from HTTP endpoints at regular intervals.
+        /// The `HttpClient` source scrapes logs from HTTP endpoints at regular intervals.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigSourcesHttpClientArgs> HttpClients
         {
@@ -100,7 +100,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigSourcesHttpServerArgs>? _httpServers;
 
         /// <summary>
-        /// The `http_server` source collects logs over HTTP POST from external services.
+        /// The `HttpServer` source collects logs over HTTP POST from external services.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigSourcesHttpServerArgs> HttpServers
         {
@@ -112,7 +112,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigSourcesKafkaArgs>? _kafkas;
 
         /// <summary>
-        /// The `kafka` source ingests data from Apache Kafka topics.
+        /// The `Kafka` source ingests data from Apache Kafka topics.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigSourcesKafkaArgs> Kafkas
         {
@@ -124,7 +124,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigSourcesLogstashArgs>? _logstashes;
 
         /// <summary>
-        /// The `logstash` source ingests logs from a Logstash forwarder.
+        /// The `Logstash` source ingests logs from a Logstash forwarder.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigSourcesLogstashArgs> Logstashes
         {
@@ -136,7 +136,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigSourcesRsyslogArgs>? _rsyslogs;
 
         /// <summary>
-        /// The `rsyslog` source listens for logs over TCP or UDP from an `rsyslog` server using the syslog protocol.
+        /// The `Rsyslog` source listens for logs over TCP or UDP from an `Rsyslog` server using the syslog protocol.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigSourcesRsyslogArgs> Rsyslogs
         {
@@ -148,7 +148,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigSourcesSocketArgs>? _sockets;
 
         /// <summary>
-        /// The `socket` source ingests logs over TCP or UDP.
+        /// The `Socket` source ingests logs over TCP or UDP.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigSourcesSocketArgs> Sockets
         {
@@ -160,7 +160,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigSourcesSplunkHecArgs>? _splunkHecs;
 
         /// <summary>
-        /// The `splunk_hec` source implements the Splunk HTTP Event Collector (HEC) API.
+        /// The `SplunkHec` source implements the Splunk HTTP Event Collector (HEC) API.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigSourcesSplunkHecArgs> SplunkHecs
         {
@@ -172,7 +172,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigSourcesSplunkTcpArgs>? _splunkTcps;
 
         /// <summary>
-        /// The `splunk_tcp` source receives logs from a Splunk Universal Forwarder over TCP. TLS is supported for secure transmission.
+        /// The `SplunkTcp` source receives logs from a Splunk Universal Forwarder over TCP. TLS is supported for secure transmission.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigSourcesSplunkTcpArgs> SplunkTcps
         {
@@ -184,7 +184,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigSourcesSumoLogicArgs>? _sumoLogics;
 
         /// <summary>
-        /// The `sumo_logic` source receives logs from Sumo Logic collectors.
+        /// The `SumoLogic` source receives logs from Sumo Logic collectors.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigSourcesSumoLogicArgs> SumoLogics
         {
@@ -196,7 +196,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigSourcesSyslogNgArgs>? _syslogNgs;
 
         /// <summary>
-        /// The `syslog_ng` source listens for logs over TCP or UDP from a `syslog-ng` server using the syslog protocol.
+        /// The `SyslogNg` source listens for logs over TCP or UDP from a `syslog-ng` server using the syslog protocol.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigSourcesSyslogNgArgs> SyslogNgs
         {

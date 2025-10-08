@@ -34,7 +34,7 @@ public final class GetSecurityMonitoringRulesRuleSignalQuery {
      */
     private @Nullable String defaultRuleId;
     /**
-     * @return Name of the query. Not compatible with `new_value` aggregations.
+     * @return Name of the query. Not compatible with `newValue` aggregations.
      * 
      */
     private @Nullable String name;
@@ -74,7 +74,7 @@ public final class GetSecurityMonitoringRulesRuleSignalQuery {
         return Optional.ofNullable(this.defaultRuleId);
     }
     /**
-     * @return Name of the query. Not compatible with `new_value` aggregations.
+     * @return Name of the query. Not compatible with `newValue` aggregations.
      * 
      */
     public Optional<String> name() {

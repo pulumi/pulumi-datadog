@@ -72,7 +72,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<string>> MonitorTags { get; private set; } = null!;
 
         /// <summary>
-        /// When true the first recovery notification during the downtime will be muted Defaults to `false`.
+        /// When true the first recovery notification during the downtime will be muted Defaults to `False`.
         /// </summary>
         [Output("muteFirstRecoveryNotification")]
         public Output<bool?> MuteFirstRecoveryNotification { get; private set; } = null!;
@@ -190,7 +190,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// When true the first recovery notification during the downtime will be muted Defaults to `false`.
+        /// When true the first recovery notification during the downtime will be muted Defaults to `False`.
         /// </summary>
         [Input("muteFirstRecoveryNotification")]
         public Input<bool>? MuteFirstRecoveryNotification { get; set; }
@@ -294,7 +294,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// When true the first recovery notification during the downtime will be muted Defaults to `false`.
+        /// When true the first recovery notification during the downtime will be muted Defaults to `False`.
         /// </summary>
         [Input("muteFirstRecoveryNotification")]
         public Input<bool>? MuteFirstRecoveryNotification { get; set; }

@@ -54,7 +54,7 @@ namespace Pulumi.Datadog
     public partial class ServiceAccount : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Whether the service account is disabled. Defaults to `false`.
+        /// Whether the service account is disabled. Defaults to `False`.
         /// </summary>
         [Output("disabled")]
         public Output<bool> Disabled { get; private set; } = null!;
@@ -124,7 +124,7 @@ namespace Pulumi.Datadog
     public sealed class ServiceAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether the service account is disabled. Defaults to `false`.
+        /// Whether the service account is disabled. Defaults to `False`.
         /// </summary>
         [Input("disabled")]
         public Input<bool>? Disabled { get; set; }
@@ -162,7 +162,7 @@ namespace Pulumi.Datadog
     public sealed class ServiceAccountState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether the service account is disabled. Defaults to `false`.
+        /// Whether the service account is disabled. Defaults to `False`.
         /// </summary>
         [Input("disabled")]
         public Input<bool>? Disabled { get; set; }

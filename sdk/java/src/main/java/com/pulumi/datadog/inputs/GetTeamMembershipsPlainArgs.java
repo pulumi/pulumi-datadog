@@ -17,14 +17,14 @@ public final class GetTeamMembershipsPlainArgs extends com.pulumi.resources.Invo
     public static final GetTeamMembershipsPlainArgs Empty = new GetTeamMembershipsPlainArgs();
 
     /**
-     * When true, `filter_keyword` string is exact matched against the user&#39;s `email`, followed by `name`.
+     * When true, `filterKeyword` string is exact matched against the user&#39;s `email`, followed by `name`.
      * 
      */
     @Import(name="exactMatch")
     private @Nullable Boolean exactMatch;
 
     /**
-     * @return When true, `filter_keyword` string is exact matched against the user&#39;s `email`, followed by `name`.
+     * @return When true, `filterKeyword` string is exact matched against the user&#39;s `email`, followed by `name`.
      * 
      */
     public Optional<Boolean> exactMatch() {
@@ -88,7 +88,7 @@ public final class GetTeamMembershipsPlainArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param exactMatch When true, `filter_keyword` string is exact matched against the user&#39;s `email`, followed by `name`.
+         * @param exactMatch When true, `filterKeyword` string is exact matched against the user&#39;s `email`, followed by `name`.
          * 
          * @return builder
          * 

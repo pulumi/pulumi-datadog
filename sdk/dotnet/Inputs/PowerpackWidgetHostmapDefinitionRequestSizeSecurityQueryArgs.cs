@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class PowerpackWidgetHostmapDefinitionRequestSizeSecurityQueryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// `compute_query` or `multi_compute` is required. The map keys are listed below.
+        /// `ComputeQuery` or `MultiCompute` is required. The map keys are listed below.
         /// </summary>
         [Input("computeQuery")]
         public Input<Inputs.PowerpackWidgetHostmapDefinitionRequestSizeSecurityQueryComputeQueryArgs>? ComputeQuery { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.PowerpackWidgetHostmapDefinitionRequestSizeSecurityQueryGroupByArgs>? _groupBies;
 
         /// <summary>
-        /// Multiple `group_by` blocks are allowed using the structure below.
+        /// Multiple `GroupBy` blocks are allowed using the structure below.
         /// </summary>
         public InputList<Inputs.PowerpackWidgetHostmapDefinitionRequestSizeSecurityQueryGroupByArgs> GroupBies
         {
@@ -40,7 +40,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.PowerpackWidgetHostmapDefinitionRequestSizeSecurityQueryMultiComputeArgs>? _multiComputes;
 
         /// <summary>
-        /// `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
+        /// `ComputeQuery` or `MultiCompute` is required. Multiple `MultiCompute` blocks are allowed using the structure below.
         /// </summary>
         public InputList<Inputs.PowerpackWidgetHostmapDefinitionRequestSizeSecurityQueryMultiComputeArgs> MultiComputes
         {

@@ -21,6 +21,63 @@ import javax.annotation.Nullable;
 /**
  * Provides a Datadog Security Monitoring Notification Rule API resource for creating and managing Datadog security notification rules.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.SecurityNotificationRule;
+ * import com.pulumi.datadog.SecurityNotificationRuleArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
+ *         Pulumi.run(App::stack);
+ *     }}{@code
+ * 
+ *     public static void stack(Context ctx) }{{@code
+ *         var signalRule = new SecurityNotificationRule("signalRule", SecurityNotificationRuleArgs.builder()
+ *             .name("My signal notification rule")
+ *             .selectors(SecurityNotificationRuleSelectorsArgs.builder()
+ *                 .triggerSource("security_signals")
+ *                 .ruleTypes("workload_security")
+ *                 .query("env:prod")
+ *                 .build())
+ *             .enabled(false)
+ *             .targets(            
+ *                 "}{@literal @}{@code bob}{@literal @}{@code email.com",
+ *                 "}{@literal @}{@code alice}{@literal @}{@code email.com")
+ *             .build());
+ * 
+ *         var vulnerabilityRule = new SecurityNotificationRule("vulnerabilityRule", SecurityNotificationRuleArgs.builder()
+ *             .name("My vulnerability notification rule")
+ *             .selectors(SecurityNotificationRuleSelectorsArgs.builder()
+ *                 .triggerSource("security_findings")
+ *                 .ruleTypes(                
+ *                     "application_library_vulnerability",
+ *                     "identity_risk")
+ *                 .severities(                
+ *                     "critical",
+ *                     "high")
+ *                 .build())
+ *             .timeAggregation(36000)
+ *             .targets("}{@literal @}{@code john}{@literal @}{@code email.com")
+ *             .build());
+ * 
+ *     }}{@code
+ * }}{@code
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * The `pulumi import` command can be used, for example:

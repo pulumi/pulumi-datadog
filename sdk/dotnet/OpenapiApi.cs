@@ -12,6 +12,29 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Deprecated: use the `datadog.SoftwareCatalog` resource instead. Provides a Datadog OpenAPI resource. This can be used to synchronize Datadog's [API catalog](https://docs.datadoghq.com/api_catalog/) with an [OpenAPI](https://www.openapis.org/) specifications file.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Uploads an OpenAPI file from the given local path to Datadog's API catalog
+    ///     var my_api = new Datadog.OpenapiApi("my-api", new()
+    ///     {
+    ///         Spec = Std.Index.File.Invoke(new()
+    ///         {
+    ///             Input = "./path/my-api.yaml",
+    ///         }).Result,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// The `pulumi import` command can be used, for example:

@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Column;
         /// <summary>
-        /// Widget sorting methods. Valid values are `asc`, `desc`.
+        /// Widget sorting methods. Valid values are `Asc`, `Desc`.
         /// </summary>
         public readonly string Order;
 

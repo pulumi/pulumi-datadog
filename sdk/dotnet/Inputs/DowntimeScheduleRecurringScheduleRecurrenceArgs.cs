@@ -19,7 +19,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> Duration { get; set; } = null!;
 
         /// <summary>
-        /// The `RRULE` standard for defining recurring events. For example, to have a recurring event on the first day of each month, set the type to `rrule` and set the `FREQ` to `MONTHLY` and `BYMONTHDAY` to `1`. Most common `rrule` options from the [iCalendar Spec](https://tools.ietf.org/html/rfc5545) are supported.  **Note**: Attributes specifying the duration in `RRULE` are not supported (for example, `DTSTART`, `DTEND`, `DURATION`). More examples available in this [downtime guide](https://docs.datadoghq.com/monitors/guide/suppress-alert-with-downtimes/?tab=api).
+        /// The `RRULE` standard for defining recurring events. For example, to have a recurring event on the first day of each month, set the type to `Rrule` and set the `FREQ` to `MONTHLY` and `BYMONTHDAY` to `1`. Most common `Rrule` options from the [iCalendar Spec](https://tools.ietf.org/html/rfc5545) are supported.  **Note**: Attributes specifying the duration in `RRULE` are not supported (for example, `DTSTART`, `DTEND`, `DURATION`). More examples available in this [downtime guide](https://docs.datadoghq.com/monitors/guide/suppress-alert-with-downtimes/?tab=api).
         /// </summary>
         [Input("rrule", required: true)]
         public Input<string> Rrule { get; set; } = null!;

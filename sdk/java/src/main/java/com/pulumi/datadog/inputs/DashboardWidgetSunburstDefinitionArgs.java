@@ -22,14 +22,14 @@ public final class DashboardWidgetSunburstDefinitionArgs extends com.pulumi.reso
     public static final DashboardWidgetSunburstDefinitionArgs Empty = new DashboardWidgetSunburstDefinitionArgs();
 
     /**
-     * Nested block describing a custom link. Multiple `custom_link` blocks are allowed with the structure below.
+     * Nested block describing a custom link. Multiple `customLink` blocks are allowed with the structure below.
      * 
      */
     @Import(name="customLinks")
     private @Nullable Output<List<DashboardWidgetSunburstDefinitionCustomLinkArgs>> customLinks;
 
     /**
-     * @return Nested block describing a custom link. Multiple `custom_link` blocks are allowed with the structure below.
+     * @return Nested block describing a custom link. Multiple `customLink` blocks are allowed with the structure below.
      * 
      */
     public Optional<Output<List<DashboardWidgetSunburstDefinitionCustomLinkArgs>>> customLinks() {
@@ -82,14 +82,14 @@ public final class DashboardWidgetSunburstDefinitionArgs extends com.pulumi.reso
     }
 
     /**
-     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      * 
      */
     @Import(name="liveSpan")
     private @Nullable Output<String> liveSpan;
 
     /**
-     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      * 
      */
     public Optional<Output<String>> liveSpan() {
@@ -97,14 +97,14 @@ public final class DashboardWidgetSunburstDefinitionArgs extends com.pulumi.reso
     }
 
     /**
-     * Nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed with the structure below (exactly one of `q`, `log_query` or `rum_query` is required within the `request` block).
+     * Nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed with the structure below (exactly one of `q`, `logQuery` or `rumQuery` is required within the `request` block).
      * 
      */
     @Import(name="requests")
     private @Nullable Output<List<DashboardWidgetSunburstDefinitionRequestArgs>> requests;
 
     /**
-     * @return Nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed with the structure below (exactly one of `q`, `log_query` or `rum_query` is required within the `request` block).
+     * @return Nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed with the structure below (exactly one of `q`, `logQuery` or `rumQuery` is required within the `request` block).
      * 
      */
     public Optional<Output<List<DashboardWidgetSunburstDefinitionRequestArgs>>> requests() {
@@ -189,7 +189,7 @@ public final class DashboardWidgetSunburstDefinitionArgs extends com.pulumi.reso
         }
 
         /**
-         * @param customLinks Nested block describing a custom link. Multiple `custom_link` blocks are allowed with the structure below.
+         * @param customLinks Nested block describing a custom link. Multiple `customLink` blocks are allowed with the structure below.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class DashboardWidgetSunburstDefinitionArgs extends com.pulumi.reso
         }
 
         /**
-         * @param customLinks Nested block describing a custom link. Multiple `custom_link` blocks are allowed with the structure below.
+         * @param customLinks Nested block describing a custom link. Multiple `customLink` blocks are allowed with the structure below.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class DashboardWidgetSunburstDefinitionArgs extends com.pulumi.reso
         }
 
         /**
-         * @param customLinks Nested block describing a custom link. Multiple `custom_link` blocks are allowed with the structure below.
+         * @param customLinks Nested block describing a custom link. Multiple `customLink` blocks are allowed with the structure below.
          * 
          * @return builder
          * 
@@ -283,7 +283,7 @@ public final class DashboardWidgetSunburstDefinitionArgs extends com.pulumi.reso
         }
 
         /**
-         * @param liveSpan The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
+         * @param liveSpan The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
          * 
          * @return builder
          * 
@@ -294,7 +294,7 @@ public final class DashboardWidgetSunburstDefinitionArgs extends com.pulumi.reso
         }
 
         /**
-         * @param liveSpan The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
+         * @param liveSpan The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
          * 
          * @return builder
          * 
@@ -304,7 +304,7 @@ public final class DashboardWidgetSunburstDefinitionArgs extends com.pulumi.reso
         }
 
         /**
-         * @param requests Nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed with the structure below (exactly one of `q`, `log_query` or `rum_query` is required within the `request` block).
+         * @param requests Nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed with the structure below (exactly one of `q`, `logQuery` or `rumQuery` is required within the `request` block).
          * 
          * @return builder
          * 
@@ -315,7 +315,7 @@ public final class DashboardWidgetSunburstDefinitionArgs extends com.pulumi.reso
         }
 
         /**
-         * @param requests Nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed with the structure below (exactly one of `q`, `log_query` or `rum_query` is required within the `request` block).
+         * @param requests Nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed with the structure below (exactly one of `q`, `logQuery` or `rumQuery` is required within the `request` block).
          * 
          * @return builder
          * 
@@ -325,7 +325,7 @@ public final class DashboardWidgetSunburstDefinitionArgs extends com.pulumi.reso
         }
 
         /**
-         * @param requests Nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed with the structure below (exactly one of `q`, `log_query` or `rum_query` is required within the `request` block).
+         * @param requests Nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed with the structure below (exactly one of `q`, `logQuery` or `rumQuery` is required within the `request` block).
          * 
          * @return builder
          * 

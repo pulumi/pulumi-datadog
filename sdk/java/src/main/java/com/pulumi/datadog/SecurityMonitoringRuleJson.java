@@ -16,6 +16,78 @@ import javax.annotation.Nullable;
 /**
  * Provides a Datadog Security Monitoring Rule JSON resource. This can be used to create and manage Datadog security monitoring rules using raw JSON.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.SecurityMonitoringRuleJson;
+ * import com.pulumi.datadog.SecurityMonitoringRuleJsonArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
+ *         Pulumi.run(App::stack);
+ *     }}{@code
+ * 
+ *     public static void stack(Context ctx) }{{@code
+ *         // Example Security Monitoring Rule JSON
+ *         var securityRuleJson = new SecurityMonitoringRuleJson("securityRuleJson", SecurityMonitoringRuleJsonArgs.builder()
+ *             .rule("""
+ * }{{@code
+ *   "name": "High error rate security monitoring",
+ *   "isEnabled": true,
+ *   "type": "log_detection",
+ *   "message": "High error rate detected in logs",
+ *   "tags": ["env:prod", "security"],
+ *   "cases": [
+ *     }{{@code
+ *       "name": "high case",
+ *       "status": "high",
+ *       "condition": "errors > 100 && warnings > 1000",
+ *       "notifications": ["}{@literal @}{@code security-team"]
+ *     }}{@code
+ *   ],
+ *   "queries": [
+ *     }{{@code
+ *       "name": "errors",
+ *       "query": "status:error",
+ *       "aggregation": "count",
+ *       "dataSource": "logs",
+ *       "groupByFields": ["service", "env"]
+ *     }}{@code ,
+ *     }{{@code
+ *       "name": "warnings",
+ *       "query": "status:warning",
+ *       "aggregation": "count",
+ *       "dataSource": "logs",
+ *       "groupByFields": ["service", "env"]
+ *     }}{@code
+ *   ],
+ *   "options": }{{@code
+ *     "evaluationWindow": 300,
+ *     "keepAlive": 600,
+ *     "maxSignalDuration": 900,
+ *     "detectionMethod": "threshold"
+ *   }}{@code
+ * }}{@code
+ *             """)
+ *             .build());
+ * 
+ *     }}{@code
+ * }}{@code
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * The `pulumi import` command can be used, for example:

@@ -28,14 +28,14 @@ public final class SecurityMonitoringRuleArgs extends com.pulumi.resources.Resou
     public static final SecurityMonitoringRuleArgs Empty = new SecurityMonitoringRuleArgs();
 
     /**
-     * One or more calculated fields. Available only for scheduled rules (in other words, when `scheduling_options` is defined).
+     * One or more calculated fields. Available only for scheduled rules (in other words, when `schedulingOptions` is defined).
      * 
      */
     @Import(name="calculatedFields")
     private @Nullable Output<List<SecurityMonitoringRuleCalculatedFieldArgs>> calculatedFields;
 
     /**
-     * @return One or more calculated fields. Available only for scheduled rules (in other words, when `scheduling_options` is defined).
+     * @return One or more calculated fields. Available only for scheduled rules (in other words, when `schedulingOptions` is defined).
      * 
      */
     public Optional<Output<List<SecurityMonitoringRuleCalculatedFieldArgs>>> calculatedFields() {
@@ -253,14 +253,14 @@ public final class SecurityMonitoringRuleArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The rule type. Valid values are `application_security`, `log_detection`, `workload_security`, `signal_correlation`. Defaults to `&#34;log_detection&#34;`.
+     * The rule type. Valid values are `applicationSecurity`, `logDetection`, `workloadSecurity`, `signalCorrelation`. Defaults to `&#34;logDetection&#34;`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The rule type. Valid values are `application_security`, `log_detection`, `workload_security`, `signal_correlation`. Defaults to `&#34;log_detection&#34;`.
+     * @return The rule type. Valid values are `applicationSecurity`, `logDetection`, `workloadSecurity`, `signalCorrelation`. Defaults to `&#34;logDetection&#34;`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -323,7 +323,7 @@ public final class SecurityMonitoringRuleArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param calculatedFields One or more calculated fields. Available only for scheduled rules (in other words, when `scheduling_options` is defined).
+         * @param calculatedFields One or more calculated fields. Available only for scheduled rules (in other words, when `schedulingOptions` is defined).
          * 
          * @return builder
          * 
@@ -334,7 +334,7 @@ public final class SecurityMonitoringRuleArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param calculatedFields One or more calculated fields. Available only for scheduled rules (in other words, when `scheduling_options` is defined).
+         * @param calculatedFields One or more calculated fields. Available only for scheduled rules (in other words, when `schedulingOptions` is defined).
          * 
          * @return builder
          * 
@@ -344,7 +344,7 @@ public final class SecurityMonitoringRuleArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param calculatedFields One or more calculated fields. Available only for scheduled rules (in other words, when `scheduling_options` is defined).
+         * @param calculatedFields One or more calculated fields. Available only for scheduled rules (in other words, when `schedulingOptions` is defined).
          * 
          * @return builder
          * 
@@ -728,7 +728,7 @@ public final class SecurityMonitoringRuleArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param type The rule type. Valid values are `application_security`, `log_detection`, `workload_security`, `signal_correlation`. Defaults to `&#34;log_detection&#34;`.
+         * @param type The rule type. Valid values are `applicationSecurity`, `logDetection`, `workloadSecurity`, `signalCorrelation`. Defaults to `&#34;logDetection&#34;`.
          * 
          * @return builder
          * 
@@ -739,7 +739,7 @@ public final class SecurityMonitoringRuleArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param type The rule type. Valid values are `application_security`, `log_detection`, `workload_security`, `signal_correlation`. Defaults to `&#34;log_detection&#34;`.
+         * @param type The rule type. Valid values are `applicationSecurity`, `logDetection`, `workloadSecurity`, `signalCorrelation`. Defaults to `&#34;logDetection&#34;`.
          * 
          * @return builder
          * 
