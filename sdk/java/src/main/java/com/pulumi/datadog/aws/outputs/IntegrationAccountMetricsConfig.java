@@ -35,7 +35,7 @@ public final class IntegrationAccountMetricsConfig {
      */
     private @Nullable Boolean enabled;
     /**
-     * @return AWS metrics namespace filters. Defaults to a pre-set `exclude_only` list if block is empty.
+     * @return AWS metrics namespace filters. Defaults to a pre-set `excludeOnly` list if block is empty.
      * 
      */
     private @Nullable IntegrationAccountMetricsConfigNamespaceFilters namespaceFilters;
@@ -75,7 +75,7 @@ public final class IntegrationAccountMetricsConfig {
         return Optional.ofNullable(this.enabled);
     }
     /**
-     * @return AWS metrics namespace filters. Defaults to a pre-set `exclude_only` list if block is empty.
+     * @return AWS metrics namespace filters. Defaults to a pre-set `excludeOnly` list if block is empty.
      * 
      */
     public Optional<IntegrationAccountMetricsConfigNamespaceFilters> namespaceFilters() {

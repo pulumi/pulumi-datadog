@@ -20,7 +20,7 @@ public final class ObservabilityPipelineConfigDestinationsSplunkHec {
      */
     private @Nullable Boolean autoExtractTimestamp;
     /**
-     * @return Encoding format for log events. Valid values: `json`, `raw_message`.
+     * @return Encoding format for log events. Valid values: `json`, `rawMessage`.
      * 
      */
     private @Nullable String encoding;
@@ -54,7 +54,7 @@ public final class ObservabilityPipelineConfigDestinationsSplunkHec {
         return Optional.ofNullable(this.autoExtractTimestamp);
     }
     /**
-     * @return Encoding format for log events. Valid values: `json`, `raw_message`.
+     * @return Encoding format for log events. Valid values: `json`, `rawMessage`.
      * 
      */
     public Optional<String> encoding() {

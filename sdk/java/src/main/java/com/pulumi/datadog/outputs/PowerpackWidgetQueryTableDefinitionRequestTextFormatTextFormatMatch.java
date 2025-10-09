@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatMatch {
     /**
-     * @return Match or compare option. Valid values are `is`, `is_not`, `contains`, `does_not_contain`, `starts_with`, `ends_with`.
+     * @return Match or compare option. Valid values are `is`, `isNot`, `contains`, `doesNotContain`, `startsWith`, `endsWith`.
      * 
      */
     private String type;
@@ -23,7 +23,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequestTextFormatTextForma
 
     private PowerpackWidgetQueryTableDefinitionRequestTextFormatTextFormatMatch() {}
     /**
-     * @return Match or compare option. Valid values are `is`, `is_not`, `contains`, `does_not_contain`, `starts_with`, `ends_with`.
+     * @return Match or compare option. Valid values are `is`, `isNot`, `contains`, `doesNotContain`, `startsWith`, `endsWith`.
      * 
      */
     public String type() {

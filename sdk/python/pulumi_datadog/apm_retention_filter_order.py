@@ -74,6 +74,8 @@ class ApmRetentionFilterOrder(pulumi.CustomResource):
         """
         Provides a Datadog [APM Retention Filters API](https://docs.datadoghq.com/api/v2/apm-retention-filters/) resource, which is used to manage Datadog APM retention filters order.
 
+        ## Example Usage
+
         ## Import
 
         The `pulumi import` command can be used, for example:
@@ -98,6 +100,8 @@ class ApmRetentionFilterOrder(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog [APM Retention Filters API](https://docs.datadoghq.com/api/v2/apm-retention-filters/) resource, which is used to manage Datadog APM retention filters order.
+
+        ## Example Usage
 
         ## Import
 

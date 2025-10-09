@@ -14,79 +14,79 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigDestinations
     {
         /// <summary>
-        /// The `amazon_opensearch` destination writes logs to Amazon OpenSearch.
+        /// The `AmazonOpensearch` destination writes logs to Amazon OpenSearch.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsAmazonOpensearch> AmazonOpensearches;
         /// <summary>
-        /// The `amazon_s3` destination sends your logs in Datadog-rehydratable format to an Amazon S3 bucket for archiving.
+        /// The `AmazonS3` destination sends your logs in Datadog-rehydratable format to an Amazon S3 bucket for archiving.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsAmazonS3> AmazonS3s;
         /// <summary>
-        /// The `amazon_security_lake` destination sends your logs to Amazon Security Lake.
+        /// The `AmazonSecurityLake` destination sends your logs to Amazon Security Lake.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsAmazonSecurityLake> AmazonSecurityLakes;
         /// <summary>
-        /// The `azure_storage` destination forwards logs to an Azure Blob Storage container.
+        /// The `AzureStorage` destination forwards logs to an Azure Blob Storage container.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsAzureStorage> AzureStorages;
         /// <summary>
-        /// The `crowdstrike_next_gen_siem` destination forwards logs to CrowdStrike Next Gen SIEM.
+        /// The `CrowdstrikeNextGenSiem` destination forwards logs to CrowdStrike Next Gen SIEM.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsCrowdstrikeNextGenSiem> CrowdstrikeNextGenSiems;
         /// <summary>
-        /// The `datadog_logs` destination forwards logs to Datadog Log Management.
+        /// The `DatadogLogs` destination forwards logs to Datadog Log Management.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsDatadogLog> DatadogLogs;
         /// <summary>
-        /// The `elasticsearch` destination writes logs to an Elasticsearch cluster.
+        /// The `Elasticsearch` destination writes logs to an Elasticsearch cluster.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsElasticsearch> Elasticsearches;
         /// <summary>
-        /// The `google_chronicle` destination sends logs to Google Chronicle.
+        /// The `GoogleChronicle` destination sends logs to Google Chronicle.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsGoogleChronicle> GoogleChronicles;
         /// <summary>
-        /// The `google_cloud_storage` destination stores logs in a Google Cloud Storage (GCS) bucket.
+        /// The `GoogleCloudStorage` destination stores logs in a Google Cloud Storage (GCS) bucket.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsGoogleCloudStorage> GoogleCloudStorages;
         /// <summary>
-        /// The `google_pubsub` destination publishes logs to a Google Cloud Pub/Sub topic.
+        /// The `GooglePubsub` destination publishes logs to a Google Cloud Pub/Sub topic.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsGooglePubsub> GooglePubsubs;
         /// <summary>
-        /// The `microsoft_sentinel` destination forwards logs to Microsoft Sentinel.
+        /// The `MicrosoftSentinel` destination forwards logs to Microsoft Sentinel.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsMicrosoftSentinel> MicrosoftSentinels;
         /// <summary>
-        /// The `new_relic` destination sends logs to the New Relic platform.
+        /// The `NewRelic` destination sends logs to the New Relic platform.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsNewRelic> NewRelics;
         /// <summary>
-        /// The `opensearch` destination writes logs to an OpenSearch cluster.
+        /// The `Opensearch` destination writes logs to an OpenSearch cluster.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsOpensearch> Opensearches;
         /// <summary>
-        /// The `rsyslog` destination forwards logs to an external `rsyslog` server over TCP or UDP using the syslog protocol.
+        /// The `Rsyslog` destination forwards logs to an external `Rsyslog` server over TCP or UDP using the syslog protocol.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsRsyslog> Rsyslogs;
         /// <summary>
-        /// The `sentinel_one` destination sends logs to SentinelOne.
+        /// The `SentinelOne` destination sends logs to SentinelOne.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsSentinelOne> SentinelOnes;
         /// <summary>
-        /// The `socket` destination sends logs over TCP or UDP to a remote server.
+        /// The `Socket` destination sends logs over TCP or UDP to a remote server.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsSocket> Sockets;
         /// <summary>
-        /// The `splunk_hec` destination forwards logs to Splunk using the HTTP Event Collector (HEC).
+        /// The `SplunkHec` destination forwards logs to Splunk using the HTTP Event Collector (HEC).
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsSplunkHec> SplunkHecs;
         /// <summary>
-        /// The `sumo_logic` destination forwards logs to Sumo Logic.
+        /// The `SumoLogic` destination forwards logs to Sumo Logic.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsSumoLogic> SumoLogics;
         /// <summary>
-        /// The `syslog_ng` destination forwards logs to an external `syslog-ng` server over TCP or UDP using the syslog protocol.
+        /// The `SyslogNg` destination forwards logs to an external `syslog-ng` server over TCP or UDP using the syslog protocol.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationsSyslogNg> SyslogNgs;
 

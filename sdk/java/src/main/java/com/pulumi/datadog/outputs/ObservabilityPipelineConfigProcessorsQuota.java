@@ -48,7 +48,7 @@ public final class ObservabilityPipelineConfigProcessorsQuota {
      */
     private String name;
     /**
-     * @return The action to take when the quota is exceeded: `drop`, `no_action`, or `overflow_routing`.
+     * @return The action to take when the quota is exceeded: `drop`, `noAction`, or `overflowRouting`.
      * 
      */
     private @Nullable String overflowAction;
@@ -110,7 +110,7 @@ public final class ObservabilityPipelineConfigProcessorsQuota {
         return this.name;
     }
     /**
-     * @return The action to take when the quota is exceeded: `drop`, `no_action`, or `overflow_routing`.
+     * @return The action to take when the quota is exceeded: `drop`, `noAction`, or `overflowRouting`.
      * 
      */
     public Optional<String> overflowAction() {

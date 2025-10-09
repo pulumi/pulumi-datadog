@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Aws.Inputs
     public sealed class IntegrationAccountMetricsConfigTagFilterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AWS service for which the tag filters defined in `tags` will be applied.
+        /// The AWS service for which the tag filters defined in `Tags` will be applied.
         /// </summary>
         [Input("namespace", required: true)]
         public Input<string> Namespace { get; set; } = null!;
@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Aws.Inputs
         private InputList<string>? _tags;
 
         /// <summary>
-        /// The AWS resource tags to filter on for the service specified by `namespace`. Defaults to `[]`.
+        /// The AWS resource tags to filter on for the service specified by `Namespace`. Defaults to `[]`.
         /// </summary>
         public InputList<string> Tags
         {

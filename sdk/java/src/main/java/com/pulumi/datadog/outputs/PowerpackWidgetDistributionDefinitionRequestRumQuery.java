@@ -17,12 +17,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PowerpackWidgetDistributionDefinitionRequestRumQuery {
     /**
-     * @return `compute_query` or `multi_compute` is required. The map keys are listed below.
+     * @return `computeQuery` or `multiCompute` is required. The map keys are listed below.
      * 
      */
     private @Nullable PowerpackWidgetDistributionDefinitionRequestRumQueryComputeQuery computeQuery;
     /**
-     * @return Multiple `group_by` blocks are allowed using the structure below.
+     * @return Multiple `groupBy` blocks are allowed using the structure below.
      * 
      */
     private @Nullable List<PowerpackWidgetDistributionDefinitionRequestRumQueryGroupBy> groupBies;
@@ -32,7 +32,7 @@ public final class PowerpackWidgetDistributionDefinitionRequestRumQuery {
      */
     private String index;
     /**
-     * @return `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
+     * @return `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
      * 
      */
     private @Nullable List<PowerpackWidgetDistributionDefinitionRequestRumQueryMultiCompute> multiComputes;
@@ -44,14 +44,14 @@ public final class PowerpackWidgetDistributionDefinitionRequestRumQuery {
 
     private PowerpackWidgetDistributionDefinitionRequestRumQuery() {}
     /**
-     * @return `compute_query` or `multi_compute` is required. The map keys are listed below.
+     * @return `computeQuery` or `multiCompute` is required. The map keys are listed below.
      * 
      */
     public Optional<PowerpackWidgetDistributionDefinitionRequestRumQueryComputeQuery> computeQuery() {
         return Optional.ofNullable(this.computeQuery);
     }
     /**
-     * @return Multiple `group_by` blocks are allowed using the structure below.
+     * @return Multiple `groupBy` blocks are allowed using the structure below.
      * 
      */
     public List<PowerpackWidgetDistributionDefinitionRequestRumQueryGroupBy> groupBies() {
@@ -65,7 +65,7 @@ public final class PowerpackWidgetDistributionDefinitionRequestRumQuery {
         return this.index;
     }
     /**
-     * @return `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
+     * @return `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
      * 
      */
     public List<PowerpackWidgetDistributionDefinitionRequestRumQueryMultiCompute> multiComputes() {

@@ -37,7 +37,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<bool>? PreserveSource { get; set; }
 
         /// <summary>
-        /// Defines where the sources are from (log `attribute` or `tag`).
+        /// Defines where the sources are from (log `Attribute` or `Tag`).
         /// </summary>
         [Input("sourceType", required: true)]
         public Input<string> SourceType { get; set; } = null!;
@@ -61,13 +61,13 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> Target { get; set; } = null!;
 
         /// <summary>
-        /// If the `target_type` of the remapper is `attribute`, try to cast the value to a new specific type. If the cast is not possible, the original type is kept. `string`, `integer`, or `double` are the possible types. If the `target_type` is `tag`, this parameter may not be specified.
+        /// If the `TargetType` of the remapper is `Attribute`, try to cast the value to a new specific type. If the cast is not possible, the original type is kept. `String`, `Integer`, or `Double` are the possible types. If the `TargetType` is `Tag`, this parameter may not be specified.
         /// </summary>
         [Input("targetFormat")]
         public Input<string>? TargetFormat { get; set; }
 
         /// <summary>
-        /// Defines if the target is a log `attribute` or `tag`.
+        /// Defines if the target is a log `Attribute` or `Tag`.
         /// </summary>
         [Input("targetType", required: true)]
         public Input<string> TargetType { get; set; } = null!;

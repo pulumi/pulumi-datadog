@@ -14,11 +14,11 @@ namespace Pulumi.Datadog.Outputs
     public sealed class SyntheticsTestApiStepExtractedValueParser
     {
         /// <summary>
-        /// Type of parser for a Synthetics global variable from a synthetics test. Valid values are `raw`, `json_path`, `regex`, `x_path`.
+        /// Type of parser for a Synthetics global variable from a synthetics test. Valid values are `Raw`, `JsonPath`, `Regex`, `XPath`.
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Regex or JSON path used for the parser. Not used with type `raw`.
+        /// Regex or JSON path used for the parser. Not used with type `Raw`.
         /// </summary>
         public readonly string? Value;
 

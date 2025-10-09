@@ -83,7 +83,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<string>> CustomTags { get; private set; } = null!;
 
         /// <summary>
-        /// Enable the rule. Defaults to `true`.
+        /// Enable the rule. Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -195,7 +195,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// Enable the rule. Defaults to `true`.
+        /// Enable the rule. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -275,7 +275,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// Enable the rule. Defaults to `true`.
+        /// Enable the rule. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

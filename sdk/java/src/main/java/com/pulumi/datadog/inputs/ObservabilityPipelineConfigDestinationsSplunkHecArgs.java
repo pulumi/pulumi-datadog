@@ -34,14 +34,14 @@ public final class ObservabilityPipelineConfigDestinationsSplunkHecArgs extends 
     }
 
     /**
-     * Encoding format for log events. Valid values: `json`, `raw_message`.
+     * Encoding format for log events. Valid values: `json`, `rawMessage`.
      * 
      */
     @Import(name="encoding")
     private @Nullable Output<String> encoding;
 
     /**
-     * @return Encoding format for log events. Valid values: `json`, `raw_message`.
+     * @return Encoding format for log events. Valid values: `json`, `rawMessage`.
      * 
      */
     public Optional<Output<String>> encoding() {
@@ -159,7 +159,7 @@ public final class ObservabilityPipelineConfigDestinationsSplunkHecArgs extends 
         }
 
         /**
-         * @param encoding Encoding format for log events. Valid values: `json`, `raw_message`.
+         * @param encoding Encoding format for log events. Valid values: `json`, `rawMessage`.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class ObservabilityPipelineConfigDestinationsSplunkHecArgs extends 
         }
 
         /**
-         * @param encoding Encoding format for log events. Valid values: `json`, `raw_message`.
+         * @param encoding Encoding format for log events. Valid values: `json`, `rawMessage`.
          * 
          * @return builder
          * 

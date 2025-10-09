@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Example;
         /// <summary>
-        /// ID of the global variable to use. This is actually only used (and required) in the case of using a variable of type `global`.
+        /// ID of the global variable to use. This is actually only used (and required) in the case of using a variable of type `Global`.
         /// </summary>
         public readonly string? Id;
         /// <summary>
@@ -30,11 +30,11 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Pattern;
         /// <summary>
-        /// Determines whether or not the browser test variable is obfuscated. Can only be used with a browser variable of type `text`
+        /// Determines whether or not the browser test variable is obfuscated. Can only be used with a browser variable of type `Text`
         /// </summary>
         public readonly bool? Secure;
         /// <summary>
-        /// Type of browser test variable. Valid values are `element`, `email`, `global`, `text`.
+        /// Type of browser test variable. Valid values are `Element`, `Email`, `Global`, `Text`.
         /// </summary>
         public readonly string Type;
 

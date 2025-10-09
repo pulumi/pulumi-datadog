@@ -96,7 +96,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * When enabled, Datadog’s Cloud Security Management product scans resource configurations monitored by this app registration.
-     * Note: This requires `resource_collection_enabled` to be set to true. Defaults to `false`.
+     * Note: This requires `resourceCollectionEnabled` to be set to true. Defaults to `false`.
      * 
      */
     @Import(name="cspmEnabled")
@@ -104,7 +104,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return When enabled, Datadog’s Cloud Security Management product scans resource configurations monitored by this app registration.
-     * Note: This requires `resource_collection_enabled` to be set to true. Defaults to `false`.
+     * Note: This requires `resourceCollectionEnabled` to be set to true. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> cspmEnabled() {
@@ -375,7 +375,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param cspmEnabled When enabled, Datadog’s Cloud Security Management product scans resource configurations monitored by this app registration.
-         * Note: This requires `resource_collection_enabled` to be set to true. Defaults to `false`.
+         * Note: This requires `resourceCollectionEnabled` to be set to true. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -387,7 +387,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param cspmEnabled When enabled, Datadog’s Cloud Security Management product scans resource configurations monitored by this app registration.
-         * Note: This requires `resource_collection_enabled` to be set to true. Defaults to `false`.
+         * Note: This requires `resourceCollectionEnabled` to be set to true. Defaults to `false`.
          * 
          * @return builder
          * 

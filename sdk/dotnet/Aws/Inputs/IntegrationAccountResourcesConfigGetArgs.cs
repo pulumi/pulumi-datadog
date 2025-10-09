@@ -13,13 +13,13 @@ namespace Pulumi.Datadog.Aws.Inputs
     public sealed class IntegrationAccountResourcesConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enable Cloud Security Management to scan AWS resources for vulnerabilities, misconfigurations, identity risks, and compliance violations. Requires `extended_collection` to be set to `true`. Defaults to `false`.
+        /// Enable Cloud Security Management to scan AWS resources for vulnerabilities, misconfigurations, identity risks, and compliance violations. Requires `ExtendedCollection` to be set to `True`. Defaults to `False`.
         /// </summary>
         [Input("cloudSecurityPostureManagementCollection")]
         public Input<bool>? CloudSecurityPostureManagementCollection { get; set; }
 
         /// <summary>
-        /// Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cloud_security_posture_management_collection`. Defaults to `true`.
+        /// Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `CloudSecurityPostureManagementCollection`. Defaults to `True`.
         /// </summary>
         [Input("extendedCollection")]
         public Input<bool>? ExtendedCollection { get; set; }

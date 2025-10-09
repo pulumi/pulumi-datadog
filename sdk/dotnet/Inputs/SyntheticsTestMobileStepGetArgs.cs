@@ -61,7 +61,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<int>? Timeout { get; set; }
 
         /// <summary>
-        /// The type of the step. Valid values are `assertElementContent`, `assertScreenContains`, `assertScreenLacks`, `doubleTap`, `extractVariable`, `flick`, `openDeeplink`, `playSubTest`, `pressBack`, `restartApplication`, `rotate`, `scroll`, `scrollToElement`, `tap`, `toggleWiFi`, `typeText`, `wait`.
+        /// The type of the step. Valid values are `assertElementContent`, `assertScreenContains`, `assertScreenLacks`, `doubleTap`, `extractVariable`, `Flick`, `openDeeplink`, `playSubTest`, `pressBack`, `restartApplication`, `Rotate`, `Scroll`, `scrollToElement`, `Tap`, `toggleWiFi`, `typeText`, `Wait`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

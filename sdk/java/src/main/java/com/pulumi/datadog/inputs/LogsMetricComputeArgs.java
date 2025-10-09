@@ -33,14 +33,14 @@ public final class LogsMetricComputeArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have an `aggregation_type` of distribution.
+     * Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have an `aggregationType` of distribution.
      * 
      */
     @Import(name="includePercentiles")
     private @Nullable Output<Boolean> includePercentiles;
 
     /**
-     * @return Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have an `aggregation_type` of distribution.
+     * @return Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have an `aggregationType` of distribution.
      * 
      */
     public Optional<Output<Boolean>> includePercentiles() {
@@ -110,7 +110,7 @@ public final class LogsMetricComputeArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param includePercentiles Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have an `aggregation_type` of distribution.
+         * @param includePercentiles Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have an `aggregationType` of distribution.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class LogsMetricComputeArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param includePercentiles Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have an `aggregation_type` of distribution.
+         * @param includePercentiles Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have an `aggregationType` of distribution.
          * 
          * @return builder
          * 

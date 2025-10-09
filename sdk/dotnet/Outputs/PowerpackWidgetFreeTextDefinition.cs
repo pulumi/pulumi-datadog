@@ -26,7 +26,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Text;
         /// <summary>
-        /// The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+        /// The alignment of the text in the widget. Valid values are `Center`, `Left`, `Right`.
         /// </summary>
         public readonly string? TextAlign;
 

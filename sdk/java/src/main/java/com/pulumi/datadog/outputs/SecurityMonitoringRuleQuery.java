@@ -16,21 +16,21 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SecurityMonitoringRuleQuery {
     /**
-     * @return **Deprecated**. It won&#39;t be applied anymore. **Deprecated.** `agent_rule` has been deprecated in favor of new Agent Rule resource.
+     * @return **Deprecated**. It won&#39;t be applied anymore. **Deprecated.** `agentRule` has been deprecated in favor of new Agent Rule resource.
      * 
      * @deprecated
-     * `agent_rule` has been deprecated in favor of new Agent Rule resource.
+     * `agentRule` has been deprecated in favor of new Agent Rule resource.
      * 
      */
-    @Deprecated /* `agent_rule` has been deprecated in favor of new Agent Rule resource. */
+    @Deprecated /* `agentRule` has been deprecated in favor of new Agent Rule resource. */
     private @Nullable List<SecurityMonitoringRuleQueryAgentRule> agentRules;
     /**
-     * @return The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`. Defaults to `&#34;count&#34;`.
+     * @return The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`. Defaults to `&#34;count&#34;`.
      * 
      */
     private @Nullable String aggregation;
     /**
-     * @return Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`, `events`. Defaults to `&#34;logs&#34;`.
+     * @return Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`. Defaults to `&#34;logs&#34;`.
      * 
      */
     private @Nullable String dataSource;
@@ -50,12 +50,12 @@ public final class SecurityMonitoringRuleQuery {
      */
     private @Nullable Boolean hasOptionalGroupByFields;
     /**
-     * @return List of indexes to run the query on when the data source is `logs`. Supports only one element. Used only for scheduled rules (in other words, when `scheduling_options` is defined).
+     * @return List of indexes to run the query on when the data source is `logs`. Supports only one element. Used only for scheduled rules (in other words, when `schedulingOptions` is defined).
      * 
      */
     private @Nullable List<String> indexes;
     /**
-     * @return The target field to aggregate over when using the `sum`, `max`, or `geo_data` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+     * @return The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
      * 
      * @deprecated
      * Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
@@ -64,12 +64,12 @@ public final class SecurityMonitoringRuleQuery {
     @Deprecated /* Configure `metrics` instead. This attribute will be removed in the next major version of the provider. */
     private @Nullable String metric;
     /**
-     * @return Group of target fields to aggregate over when using the `sum`, `max`, `geo_data`, or `new_value` aggregations. The `sum`, `max`, and `geo_data` aggregations only accept one value in this list, whereas the `new_value` aggregation accepts up to five values.
+     * @return Group of target fields to aggregate over when using the `sum`, `max`, `geoData`, or `newValue` aggregations. The `sum`, `max`, and `geoData` aggregations only accept one value in this list, whereas the `newValue` aggregation accepts up to five values.
      * 
      */
     private @Nullable List<String> metrics;
     /**
-     * @return Name of the query. Not compatible with `new_value` aggregations.
+     * @return Name of the query. Not compatible with `newValue` aggregations.
      * 
      */
     private @Nullable String name;
@@ -81,25 +81,25 @@ public final class SecurityMonitoringRuleQuery {
 
     private SecurityMonitoringRuleQuery() {}
     /**
-     * @return **Deprecated**. It won&#39;t be applied anymore. **Deprecated.** `agent_rule` has been deprecated in favor of new Agent Rule resource.
+     * @return **Deprecated**. It won&#39;t be applied anymore. **Deprecated.** `agentRule` has been deprecated in favor of new Agent Rule resource.
      * 
      * @deprecated
-     * `agent_rule` has been deprecated in favor of new Agent Rule resource.
+     * `agentRule` has been deprecated in favor of new Agent Rule resource.
      * 
      */
-    @Deprecated /* `agent_rule` has been deprecated in favor of new Agent Rule resource. */
+    @Deprecated /* `agentRule` has been deprecated in favor of new Agent Rule resource. */
     public List<SecurityMonitoringRuleQueryAgentRule> agentRules() {
         return this.agentRules == null ? List.of() : this.agentRules;
     }
     /**
-     * @return The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`. Defaults to `&#34;count&#34;`.
+     * @return The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`. Defaults to `&#34;count&#34;`.
      * 
      */
     public Optional<String> aggregation() {
         return Optional.ofNullable(this.aggregation);
     }
     /**
-     * @return Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`, `events`. Defaults to `&#34;logs&#34;`.
+     * @return Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`. Defaults to `&#34;logs&#34;`.
      * 
      */
     public Optional<String> dataSource() {
@@ -127,14 +127,14 @@ public final class SecurityMonitoringRuleQuery {
         return Optional.ofNullable(this.hasOptionalGroupByFields);
     }
     /**
-     * @return List of indexes to run the query on when the data source is `logs`. Supports only one element. Used only for scheduled rules (in other words, when `scheduling_options` is defined).
+     * @return List of indexes to run the query on when the data source is `logs`. Supports only one element. Used only for scheduled rules (in other words, when `schedulingOptions` is defined).
      * 
      */
     public List<String> indexes() {
         return this.indexes == null ? List.of() : this.indexes;
     }
     /**
-     * @return The target field to aggregate over when using the `sum`, `max`, or `geo_data` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+     * @return The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
      * 
      * @deprecated
      * Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
@@ -145,14 +145,14 @@ public final class SecurityMonitoringRuleQuery {
         return Optional.ofNullable(this.metric);
     }
     /**
-     * @return Group of target fields to aggregate over when using the `sum`, `max`, `geo_data`, or `new_value` aggregations. The `sum`, `max`, and `geo_data` aggregations only accept one value in this list, whereas the `new_value` aggregation accepts up to five values.
+     * @return Group of target fields to aggregate over when using the `sum`, `max`, `geoData`, or `newValue` aggregations. The `sum`, `max`, and `geoData` aggregations only accept one value in this list, whereas the `newValue` aggregation accepts up to five values.
      * 
      */
     public List<String> metrics() {
         return this.metrics == null ? List.of() : this.metrics;
     }
     /**
-     * @return Name of the query. Not compatible with `new_value` aggregations.
+     * @return Name of the query. Not compatible with `newValue` aggregations.
      * 
      */
     public Optional<String> name() {

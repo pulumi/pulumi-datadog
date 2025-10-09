@@ -238,6 +238,8 @@ class ApmRetentionFilter(pulumi.CustomResource):
         """
         The object describing the configuration of the retention filter to create/update.
 
+        ## Example Usage
+
         ## Import
 
         The `pulumi import` command can be used, for example:
@@ -265,6 +267,8 @@ class ApmRetentionFilter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The object describing the configuration of the retention filter to create/update.
+
+        ## Example Usage
 
         ## Import
 

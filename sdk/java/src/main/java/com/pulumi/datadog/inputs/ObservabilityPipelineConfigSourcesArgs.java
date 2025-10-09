@@ -32,14 +32,14 @@ public final class ObservabilityPipelineConfigSourcesArgs extends com.pulumi.res
     public static final ObservabilityPipelineConfigSourcesArgs Empty = new ObservabilityPipelineConfigSourcesArgs();
 
     /**
-     * The `amazon_data_firehose` source ingests logs from AWS Data Firehose.
+     * The `amazonDataFirehose` source ingests logs from AWS Data Firehose.
      * 
      */
     @Import(name="amazonDataFirehoses")
     private @Nullable Output<List<ObservabilityPipelineConfigSourcesAmazonDataFirehoseArgs>> amazonDataFirehoses;
 
     /**
-     * @return The `amazon_data_firehose` source ingests logs from AWS Data Firehose.
+     * @return The `amazonDataFirehose` source ingests logs from AWS Data Firehose.
      * 
      */
     public Optional<Output<List<ObservabilityPipelineConfigSourcesAmazonDataFirehoseArgs>>> amazonDataFirehoses() {
@@ -47,14 +47,14 @@ public final class ObservabilityPipelineConfigSourcesArgs extends com.pulumi.res
     }
 
     /**
-     * The `amazon_s3` source ingests logs from an Amazon S3 bucket. It supports AWS authentication and TLS encryption.
+     * The `amazonS3` source ingests logs from an Amazon S3 bucket. It supports AWS authentication and TLS encryption.
      * 
      */
     @Import(name="amazonS3s")
     private @Nullable Output<List<ObservabilityPipelineConfigSourcesAmazonS3Args>> amazonS3s;
 
     /**
-     * @return The `amazon_s3` source ingests logs from an Amazon S3 bucket. It supports AWS authentication and TLS encryption.
+     * @return The `amazonS3` source ingests logs from an Amazon S3 bucket. It supports AWS authentication and TLS encryption.
      * 
      */
     public Optional<Output<List<ObservabilityPipelineConfigSourcesAmazonS3Args>>> amazonS3s() {
@@ -62,14 +62,14 @@ public final class ObservabilityPipelineConfigSourcesArgs extends com.pulumi.res
     }
 
     /**
-     * The `datadog_agent` source collects logs from the Datadog Agent.
+     * The `datadogAgent` source collects logs from the Datadog Agent.
      * 
      */
     @Import(name="datadogAgents")
     private @Nullable Output<List<ObservabilityPipelineConfigSourcesDatadogAgentArgs>> datadogAgents;
 
     /**
-     * @return The `datadog_agent` source collects logs from the Datadog Agent.
+     * @return The `datadogAgent` source collects logs from the Datadog Agent.
      * 
      */
     public Optional<Output<List<ObservabilityPipelineConfigSourcesDatadogAgentArgs>>> datadogAgents() {
@@ -107,14 +107,14 @@ public final class ObservabilityPipelineConfigSourcesArgs extends com.pulumi.res
     }
 
     /**
-     * The `google_pubsub` source ingests logs from a Google Cloud Pub/Sub subscription.
+     * The `googlePubsub` source ingests logs from a Google Cloud Pub/Sub subscription.
      * 
      */
     @Import(name="googlePubsubs")
     private @Nullable Output<List<ObservabilityPipelineConfigSourcesGooglePubsubArgs>> googlePubsubs;
 
     /**
-     * @return The `google_pubsub` source ingests logs from a Google Cloud Pub/Sub subscription.
+     * @return The `googlePubsub` source ingests logs from a Google Cloud Pub/Sub subscription.
      * 
      */
     public Optional<Output<List<ObservabilityPipelineConfigSourcesGooglePubsubArgs>>> googlePubsubs() {
@@ -122,14 +122,14 @@ public final class ObservabilityPipelineConfigSourcesArgs extends com.pulumi.res
     }
 
     /**
-     * The `http_client` source scrapes logs from HTTP endpoints at regular intervals.
+     * The `httpClient` source scrapes logs from HTTP endpoints at regular intervals.
      * 
      */
     @Import(name="httpClients")
     private @Nullable Output<List<ObservabilityPipelineConfigSourcesHttpClientArgs>> httpClients;
 
     /**
-     * @return The `http_client` source scrapes logs from HTTP endpoints at regular intervals.
+     * @return The `httpClient` source scrapes logs from HTTP endpoints at regular intervals.
      * 
      */
     public Optional<Output<List<ObservabilityPipelineConfigSourcesHttpClientArgs>>> httpClients() {
@@ -137,14 +137,14 @@ public final class ObservabilityPipelineConfigSourcesArgs extends com.pulumi.res
     }
 
     /**
-     * The `http_server` source collects logs over HTTP POST from external services.
+     * The `httpServer` source collects logs over HTTP POST from external services.
      * 
      */
     @Import(name="httpServers")
     private @Nullable Output<List<ObservabilityPipelineConfigSourcesHttpServerArgs>> httpServers;
 
     /**
-     * @return The `http_server` source collects logs over HTTP POST from external services.
+     * @return The `httpServer` source collects logs over HTTP POST from external services.
      * 
      */
     public Optional<Output<List<ObservabilityPipelineConfigSourcesHttpServerArgs>>> httpServers() {
@@ -212,14 +212,14 @@ public final class ObservabilityPipelineConfigSourcesArgs extends com.pulumi.res
     }
 
     /**
-     * The `splunk_hec` source implements the Splunk HTTP Event Collector (HEC) API.
+     * The `splunkHec` source implements the Splunk HTTP Event Collector (HEC) API.
      * 
      */
     @Import(name="splunkHecs")
     private @Nullable Output<List<ObservabilityPipelineConfigSourcesSplunkHecArgs>> splunkHecs;
 
     /**
-     * @return The `splunk_hec` source implements the Splunk HTTP Event Collector (HEC) API.
+     * @return The `splunkHec` source implements the Splunk HTTP Event Collector (HEC) API.
      * 
      */
     public Optional<Output<List<ObservabilityPipelineConfigSourcesSplunkHecArgs>>> splunkHecs() {
@@ -227,14 +227,14 @@ public final class ObservabilityPipelineConfigSourcesArgs extends com.pulumi.res
     }
 
     /**
-     * The `splunk_tcp` source receives logs from a Splunk Universal Forwarder over TCP. TLS is supported for secure transmission.
+     * The `splunkTcp` source receives logs from a Splunk Universal Forwarder over TCP. TLS is supported for secure transmission.
      * 
      */
     @Import(name="splunkTcps")
     private @Nullable Output<List<ObservabilityPipelineConfigSourcesSplunkTcpArgs>> splunkTcps;
 
     /**
-     * @return The `splunk_tcp` source receives logs from a Splunk Universal Forwarder over TCP. TLS is supported for secure transmission.
+     * @return The `splunkTcp` source receives logs from a Splunk Universal Forwarder over TCP. TLS is supported for secure transmission.
      * 
      */
     public Optional<Output<List<ObservabilityPipelineConfigSourcesSplunkTcpArgs>>> splunkTcps() {
@@ -242,14 +242,14 @@ public final class ObservabilityPipelineConfigSourcesArgs extends com.pulumi.res
     }
 
     /**
-     * The `sumo_logic` source receives logs from Sumo Logic collectors.
+     * The `sumoLogic` source receives logs from Sumo Logic collectors.
      * 
      */
     @Import(name="sumoLogics")
     private @Nullable Output<List<ObservabilityPipelineConfigSourcesSumoLogicArgs>> sumoLogics;
 
     /**
-     * @return The `sumo_logic` source receives logs from Sumo Logic collectors.
+     * @return The `sumoLogic` source receives logs from Sumo Logic collectors.
      * 
      */
     public Optional<Output<List<ObservabilityPipelineConfigSourcesSumoLogicArgs>>> sumoLogics() {
@@ -257,14 +257,14 @@ public final class ObservabilityPipelineConfigSourcesArgs extends com.pulumi.res
     }
 
     /**
-     * The `syslog_ng` source listens for logs over TCP or UDP from a `syslog-ng` server using the syslog protocol.
+     * The `syslogNg` source listens for logs over TCP or UDP from a `syslog-ng` server using the syslog protocol.
      * 
      */
     @Import(name="syslogNgs")
     private @Nullable Output<List<ObservabilityPipelineConfigSourcesSyslogNgArgs>> syslogNgs;
 
     /**
-     * @return The `syslog_ng` source listens for logs over TCP or UDP from a `syslog-ng` server using the syslog protocol.
+     * @return The `syslogNg` source listens for logs over TCP or UDP from a `syslog-ng` server using the syslog protocol.
      * 
      */
     public Optional<Output<List<ObservabilityPipelineConfigSourcesSyslogNgArgs>>> syslogNgs() {
@@ -311,7 +311,7 @@ public final class ObservabilityPipelineConfigSourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param amazonDataFirehoses The `amazon_data_firehose` source ingests logs from AWS Data Firehose.
+         * @param amazonDataFirehoses The `amazonDataFirehose` source ingests logs from AWS Data Firehose.
          * 
          * @return builder
          * 
@@ -322,7 +322,7 @@ public final class ObservabilityPipelineConfigSourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param amazonDataFirehoses The `amazon_data_firehose` source ingests logs from AWS Data Firehose.
+         * @param amazonDataFirehoses The `amazonDataFirehose` source ingests logs from AWS Data Firehose.
          * 
          * @return builder
          * 
@@ -332,7 +332,7 @@ public final class ObservabilityPipelineConfigSourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param amazonDataFirehoses The `amazon_data_firehose` source ingests logs from AWS Data Firehose.
+         * @param amazonDataFirehoses The `amazonDataFirehose` source ingests logs from AWS Data Firehose.
          * 
          * @return builder
          * 
@@ -342,7 +342,7 @@ public final class ObservabilityPipelineConfigSourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param amazonS3s The `amazon_s3` source ingests logs from an Amazon S3 bucket. It supports AWS authentication and TLS encryption.
+         * @param amazonS3s The `amazonS3` source ingests logs from an Amazon S3 bucket. It supports AWS authentication and TLS encryption.
          * 
          * @return builder
          * 
@@ -353,7 +353,7 @@ public final class ObservabilityPipelineConfigSourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param amazonS3s The `amazon_s3` source ingests logs from an Amazon S3 bucket. It supports AWS authentication and TLS encryption.
+         * @param amazonS3s The `amazonS3` source ingests logs from an Amazon S3 bucket. It supports AWS authentication and TLS encryption.
          * 
          * @return builder
          * 
@@ -363,7 +363,7 @@ public final class ObservabilityPipelineConfigSourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param amazonS3s The `amazon_s3` source ingests logs from an Amazon S3 bucket. It supports AWS authentication and TLS encryption.
+         * @param amazonS3s The `amazonS3` source ingests logs from an Amazon S3 bucket. It supports AWS authentication and TLS encryption.
          * 
          * @return builder
          * 
@@ -373,7 +373,7 @@ public final class ObservabilityPipelineConfigSourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param datadogAgents The `datadog_agent` source collects logs from the Datadog Agent.
+         * @param datadogAgents The `datadogAgent` source collects logs from the Datadog Agent.
          * 
          * @return builder
          * 
@@ -384,7 +384,7 @@ public final class ObservabilityPipelineConfigSourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param datadogAgents The `datadog_agent` source collects logs from the Datadog Agent.
+         * @param datadogAgents The `datadogAgent` source collects logs from the Datadog Agent.
          * 
          * @return builder
          * 
@@ -394,7 +394,7 @@ public final class ObservabilityPipelineConfigSourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param datadogAgents The `datadog_agent` source collects logs from the Datadog Agent.
+         * @param datadogAgents The `datadogAgent` source collects logs from the Datadog Agent.
          * 
          * @return builder
          * 
@@ -466,7 +466,7 @@ public final class ObservabilityPipelineConfigSourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param googlePubsubs The `google_pubsub` source ingests logs from a Google Cloud Pub/Sub subscription.
+         * @param googlePubsubs The `googlePubsub` source ingests logs from a Google Cloud Pub/Sub subscription.
          * 
          * @return builder
          * 
@@ -477,7 +477,7 @@ public final class ObservabilityPipelineConfigSourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param googlePubsubs The `google_pubsub` source ingests logs from a Google Cloud Pub/Sub subscription.
+         * @param googlePubsubs The `googlePubsub` source ingests logs from a Google Cloud Pub/Sub subscription.
          * 
          * @return builder
          * 
@@ -487,7 +487,7 @@ public final class ObservabilityPipelineConfigSourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param googlePubsubs The `google_pubsub` source ingests logs from a Google Cloud Pub/Sub subscription.
+         * @param googlePubsubs The `googlePubsub` source ingests logs from a Google Cloud Pub/Sub subscription.
          * 
          * @return builder
          * 
@@ -497,7 +497,7 @@ public final class ObservabilityPipelineConfigSourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param httpClients The `http_client` source scrapes logs from HTTP endpoints at regular intervals.
+         * @param httpClients The `httpClient` source scrapes logs from HTTP endpoints at regular intervals.
          * 
          * @return builder
          * 
@@ -508,7 +508,7 @@ public final class ObservabilityPipelineConfigSourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param httpClients The `http_client` source scrapes logs from HTTP endpoints at regular intervals.
+         * @param httpClients The `httpClient` source scrapes logs from HTTP endpoints at regular intervals.
          * 
          * @return builder
          * 
@@ -518,7 +518,7 @@ public final class ObservabilityPipelineConfigSourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param httpClients The `http_client` source scrapes logs from HTTP endpoints at regular intervals.
+         * @param httpClients The `httpClient` source scrapes logs from HTTP endpoints at regular intervals.
          * 
          * @return builder
          * 
@@ -528,7 +528,7 @@ public final class ObservabilityPipelineConfigSourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param httpServers The `http_server` source collects logs over HTTP POST from external services.
+         * @param httpServers The `httpServer` source collects logs over HTTP POST from external services.
          * 
          * @return builder
          * 
@@ -539,7 +539,7 @@ public final class ObservabilityPipelineConfigSourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param httpServers The `http_server` source collects logs over HTTP POST from external services.
+         * @param httpServers The `httpServer` source collects logs over HTTP POST from external services.
          * 
          * @return builder
          * 
@@ -549,7 +549,7 @@ public final class ObservabilityPipelineConfigSourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param httpServers The `http_server` source collects logs over HTTP POST from external services.
+         * @param httpServers The `httpServer` source collects logs over HTTP POST from external services.
          * 
          * @return builder
          * 
@@ -683,7 +683,7 @@ public final class ObservabilityPipelineConfigSourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param splunkHecs The `splunk_hec` source implements the Splunk HTTP Event Collector (HEC) API.
+         * @param splunkHecs The `splunkHec` source implements the Splunk HTTP Event Collector (HEC) API.
          * 
          * @return builder
          * 
@@ -694,7 +694,7 @@ public final class ObservabilityPipelineConfigSourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param splunkHecs The `splunk_hec` source implements the Splunk HTTP Event Collector (HEC) API.
+         * @param splunkHecs The `splunkHec` source implements the Splunk HTTP Event Collector (HEC) API.
          * 
          * @return builder
          * 
@@ -704,7 +704,7 @@ public final class ObservabilityPipelineConfigSourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param splunkHecs The `splunk_hec` source implements the Splunk HTTP Event Collector (HEC) API.
+         * @param splunkHecs The `splunkHec` source implements the Splunk HTTP Event Collector (HEC) API.
          * 
          * @return builder
          * 
@@ -714,7 +714,7 @@ public final class ObservabilityPipelineConfigSourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param splunkTcps The `splunk_tcp` source receives logs from a Splunk Universal Forwarder over TCP. TLS is supported for secure transmission.
+         * @param splunkTcps The `splunkTcp` source receives logs from a Splunk Universal Forwarder over TCP. TLS is supported for secure transmission.
          * 
          * @return builder
          * 
@@ -725,7 +725,7 @@ public final class ObservabilityPipelineConfigSourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param splunkTcps The `splunk_tcp` source receives logs from a Splunk Universal Forwarder over TCP. TLS is supported for secure transmission.
+         * @param splunkTcps The `splunkTcp` source receives logs from a Splunk Universal Forwarder over TCP. TLS is supported for secure transmission.
          * 
          * @return builder
          * 
@@ -735,7 +735,7 @@ public final class ObservabilityPipelineConfigSourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param splunkTcps The `splunk_tcp` source receives logs from a Splunk Universal Forwarder over TCP. TLS is supported for secure transmission.
+         * @param splunkTcps The `splunkTcp` source receives logs from a Splunk Universal Forwarder over TCP. TLS is supported for secure transmission.
          * 
          * @return builder
          * 
@@ -745,7 +745,7 @@ public final class ObservabilityPipelineConfigSourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param sumoLogics The `sumo_logic` source receives logs from Sumo Logic collectors.
+         * @param sumoLogics The `sumoLogic` source receives logs from Sumo Logic collectors.
          * 
          * @return builder
          * 
@@ -756,7 +756,7 @@ public final class ObservabilityPipelineConfigSourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param sumoLogics The `sumo_logic` source receives logs from Sumo Logic collectors.
+         * @param sumoLogics The `sumoLogic` source receives logs from Sumo Logic collectors.
          * 
          * @return builder
          * 
@@ -766,7 +766,7 @@ public final class ObservabilityPipelineConfigSourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param sumoLogics The `sumo_logic` source receives logs from Sumo Logic collectors.
+         * @param sumoLogics The `sumoLogic` source receives logs from Sumo Logic collectors.
          * 
          * @return builder
          * 
@@ -776,7 +776,7 @@ public final class ObservabilityPipelineConfigSourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param syslogNgs The `syslog_ng` source listens for logs over TCP or UDP from a `syslog-ng` server using the syslog protocol.
+         * @param syslogNgs The `syslogNg` source listens for logs over TCP or UDP from a `syslog-ng` server using the syslog protocol.
          * 
          * @return builder
          * 
@@ -787,7 +787,7 @@ public final class ObservabilityPipelineConfigSourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param syslogNgs The `syslog_ng` source listens for logs over TCP or UDP from a `syslog-ng` server using the syslog protocol.
+         * @param syslogNgs The `syslogNg` source listens for logs over TCP or UDP from a `syslog-ng` server using the syslog protocol.
          * 
          * @return builder
          * 
@@ -797,7 +797,7 @@ public final class ObservabilityPipelineConfigSourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param syslogNgs The `syslog_ng` source listens for logs over TCP or UDP from a `syslog-ng` server using the syslog protocol.
+         * @param syslogNgs The `syslogNg` source listens for logs over TCP or UDP from a `syslog-ng` server using the syslog protocol.
          * 
          * @return builder
          * 

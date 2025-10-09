@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.MonitorSchedulingOptionCustomScheduleGetArgs>? _customSchedules;
 
         /// <summary>
-        /// Configuration options for the custom schedules. If `start` is omitted, the monitor creation time will be used.
+        /// Configuration options for the custom schedules. If `Start` is omitted, the monitor creation time will be used.
         /// </summary>
         public InputList<Inputs.MonitorSchedulingOptionCustomScheduleGetArgs> CustomSchedules
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.MonitorSchedulingOptionEvaluationWindowGetArgs>? _evaluationWindows;
 
         /// <summary>
-        /// Configuration options for the evaluation window. If `hour_starts` is set, no other fields may be set. Otherwise, `day_starts` and `month_starts` must be set together.
+        /// Configuration options for the evaluation window. If `HourStarts` is set, no other fields may be set. Otherwise, `DayStarts` and `MonthStarts` must be set together.
         /// </summary>
         public InputList<Inputs.MonitorSchedulingOptionEvaluationWindowGetArgs> EvaluationWindows
         {

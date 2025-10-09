@@ -18,11 +18,11 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Alias;
         /// <summary>
-        /// A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
+        /// A list of display modes for each table cell. Valid values are `Number`, `Bar`, `Trend`.
         /// </summary>
         public readonly string? CellDisplayMode;
         /// <summary>
-        /// Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+        /// Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `ConditionalFormats` blocks are allowed using the structure below.
         /// </summary>
         public readonly ImmutableArray<Outputs.PowerpackWidgetHeatmapDefinitionRequestFormulaConditionalFormat> ConditionalFormats;
         /// <summary>

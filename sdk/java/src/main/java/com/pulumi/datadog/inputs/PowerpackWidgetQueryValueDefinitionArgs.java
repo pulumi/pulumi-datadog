@@ -37,14 +37,14 @@ public final class PowerpackWidgetQueryValueDefinitionArgs extends com.pulumi.re
     }
 
     /**
-     * A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
      * 
      */
     @Import(name="customLinks")
     private @Nullable Output<List<PowerpackWidgetQueryValueDefinitionCustomLinkArgs>> customLinks;
 
     /**
-     * @return A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+     * @return A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
      * 
      */
     public Optional<Output<List<PowerpackWidgetQueryValueDefinitionCustomLinkArgs>>> customLinks() {
@@ -67,14 +67,14 @@ public final class PowerpackWidgetQueryValueDefinitionArgs extends com.pulumi.re
     }
 
     /**
-     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      * 
      */
     @Import(name="liveSpan")
     private @Nullable Output<String> liveSpan;
 
     /**
-     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      * 
      */
     public Optional<Output<String>> liveSpan() {
@@ -97,14 +97,14 @@ public final class PowerpackWidgetQueryValueDefinitionArgs extends com.pulumi.re
     }
 
     /**
-     * A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the `request` block).
+     * A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the `request` block).
      * 
      */
     @Import(name="requests")
     private @Nullable Output<List<PowerpackWidgetQueryValueDefinitionRequestArgs>> requests;
 
     /**
-     * @return A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the `request` block).
+     * @return A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the `request` block).
      * 
      */
     public Optional<Output<List<PowerpackWidgetQueryValueDefinitionRequestArgs>>> requests() {
@@ -242,7 +242,7 @@ public final class PowerpackWidgetQueryValueDefinitionArgs extends com.pulumi.re
         }
 
         /**
-         * @param customLinks A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+         * @param customLinks A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class PowerpackWidgetQueryValueDefinitionArgs extends com.pulumi.re
         }
 
         /**
-         * @param customLinks A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+         * @param customLinks A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class PowerpackWidgetQueryValueDefinitionArgs extends com.pulumi.re
         }
 
         /**
-         * @param customLinks A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+         * @param customLinks A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
          * 
          * @return builder
          * 
@@ -294,7 +294,7 @@ public final class PowerpackWidgetQueryValueDefinitionArgs extends com.pulumi.re
         }
 
         /**
-         * @param liveSpan The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
+         * @param liveSpan The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
          * 
          * @return builder
          * 
@@ -305,7 +305,7 @@ public final class PowerpackWidgetQueryValueDefinitionArgs extends com.pulumi.re
         }
 
         /**
-         * @param liveSpan The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
+         * @param liveSpan The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
          * 
          * @return builder
          * 
@@ -336,7 +336,7 @@ public final class PowerpackWidgetQueryValueDefinitionArgs extends com.pulumi.re
         }
 
         /**
-         * @param requests A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the `request` block).
+         * @param requests A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the `request` block).
          * 
          * @return builder
          * 
@@ -347,7 +347,7 @@ public final class PowerpackWidgetQueryValueDefinitionArgs extends com.pulumi.re
         }
 
         /**
-         * @param requests A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the `request` block).
+         * @param requests A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the `request` block).
          * 
          * @return builder
          * 
@@ -357,7 +357,7 @@ public final class PowerpackWidgetQueryValueDefinitionArgs extends com.pulumi.re
         }
 
         /**
-         * @param requests A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the `request` block).
+         * @param requests A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the `request` block).
          * 
          * @return builder
          * 

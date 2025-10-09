@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Aws.Inputs
     public sealed class IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AWS service for which the tag filters defined in `tags` will be applied.
+        /// The AWS service for which the tag filters defined in `Tags` will be applied.
         /// </summary>
         [Input("source", required: true)]
         public Input<string> Source { get; set; } = null!;
@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Aws.Inputs
         private InputList<string>? _tags;
 
         /// <summary>
-        /// The AWS resource tags to filter on for the service specified by `source`.
+        /// The AWS resource tags to filter on for the service specified by `Source`.
         /// </summary>
         public InputList<string> Tags
         {

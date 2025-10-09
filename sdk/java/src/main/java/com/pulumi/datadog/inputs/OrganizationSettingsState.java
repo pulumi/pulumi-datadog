@@ -48,14 +48,14 @@ public final class OrganizationSettingsState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The `public_id` of the organization you are operating within.
+     * The `publicId` of the organization you are operating within.
      * 
      */
     @Import(name="publicId")
     private @Nullable Output<String> publicId;
 
     /**
-     * @return The `public_id` of the organization you are operating within.
+     * @return The `publicId` of the organization you are operating within.
      * 
      */
     public Optional<Output<String>> publicId() {
@@ -163,7 +163,7 @@ public final class OrganizationSettingsState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param publicId The `public_id` of the organization you are operating within.
+         * @param publicId The `publicId` of the organization you are operating within.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class OrganizationSettingsState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param publicId The `public_id` of the organization you are operating within.
+         * @param publicId The `publicId` of the organization you are operating within.
          * 
          * @return builder
          * 

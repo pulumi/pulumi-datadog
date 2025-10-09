@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetGroupDefinition {
     /**
-     * @return The background color of the group title, options: `vivid_blue`, `vivid_purple`, `vivid_pink`, `vivid_orange`, `vivid_yellow`, `vivid_green`, `blue`, `purple`, `pink`, `orange`, `yellow`, `green`, `gray` or `white`
+     * @return The background color of the group title, options: `vividBlue`, `vividPurple`, `vividPink`, `vividOrange`, `vividYellow`, `vividGreen`, `blue`, `purple`, `pink`, `orange`, `yellow`, `green`, `gray` or `white`
      * 
      */
     private @Nullable String backgroundColor;
@@ -48,7 +48,7 @@ public final class DashboardWidgetGroupDefinition {
 
     private DashboardWidgetGroupDefinition() {}
     /**
-     * @return The background color of the group title, options: `vivid_blue`, `vivid_purple`, `vivid_pink`, `vivid_orange`, `vivid_yellow`, `vivid_green`, `blue`, `purple`, `pink`, `orange`, `yellow`, `green`, `gray` or `white`
+     * @return The background color of the group title, options: `vividBlue`, `vividPurple`, `vividPink`, `vividOrange`, `vividYellow`, `vividGreen`, `blue`, `purple`, `pink`, `orange`, `yellow`, `green`, `gray` or `white`
      * 
      */
     public Optional<String> backgroundColor() {

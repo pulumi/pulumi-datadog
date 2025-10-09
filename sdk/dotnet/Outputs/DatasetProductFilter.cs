@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Filters;
         /// <summary>
-        /// The product type of the dataset. Supported types: `apm`, `rum`, `synthetics`, `metrics`, `logs`, `sd_repoinfo`, `error_tracking`, `cloud_cost`, and `ml_obs`.
+        /// The product type of the dataset. Supported types: `Apm`, `Rum`, `Synthetics`, `Metrics`, `Logs`, `SdRepoinfo`, `ErrorTracking`, `CloudCost`, and `MlObs`.
         /// </summary>
         public readonly string Product;
 

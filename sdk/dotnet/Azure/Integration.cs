@@ -61,7 +61,7 @@ namespace Pulumi.Datadog.Azure
         public Output<string> AppServicePlanFilters { get; private set; } = null!;
 
         /// <summary>
-        /// Silence monitors for expected Azure VM shutdowns. Defaults to `false`.
+        /// Silence monitors for expected Azure VM shutdowns. Defaults to `False`.
         /// </summary>
         [Output("automute")]
         public Output<bool> Automute { get; private set; } = null!;
@@ -86,13 +86,13 @@ namespace Pulumi.Datadog.Azure
 
         /// <summary>
         /// When enabled, Datadog’s Cloud Security Management product scans resource configurations monitored by this app registration.
-        /// Note: This requires `resource_collection_enabled` to be set to true. Defaults to `false`.
+        /// Note: This requires `ResourceCollectionEnabled` to be set to true. Defaults to `False`.
         /// </summary>
         [Output("cspmEnabled")]
         public Output<bool> CspmEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Enable custom metrics for your organization. Defaults to `false`.
+        /// Enable custom metrics for your organization. Defaults to `False`.
         /// </summary>
         [Output("customMetricsEnabled")]
         public Output<bool> CustomMetricsEnabled { get; private set; } = null!;
@@ -104,13 +104,13 @@ namespace Pulumi.Datadog.Azure
         public Output<string> HostFilters { get; private set; } = null!;
 
         /// <summary>
-        /// Enable Azure metrics for your organization. Defaults to `true`.
+        /// Enable Azure metrics for your organization. Defaults to `True`.
         /// </summary>
         [Output("metricsEnabled")]
         public Output<bool> MetricsEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Enable Azure metrics for your organization for resource providers where no resource provider config is specified. Defaults to `true`.
+        /// Enable Azure metrics for your organization for resource providers where no resource provider config is specified. Defaults to `True`.
         /// </summary>
         [Output("metricsEnabledDefault")]
         public Output<bool> MetricsEnabledDefault { get; private set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.Datadog.Azure
         public Output<string> TenantName { get; private set; } = null!;
 
         /// <summary>
-        /// Enable azure.usage metrics for your organization. Defaults to `true`.
+        /// Enable azure.usage metrics for your organization. Defaults to `True`.
         /// </summary>
         [Output("usageMetricsEnabled")]
         public Output<bool> UsageMetricsEnabled { get; private set; } = null!;
@@ -196,7 +196,7 @@ namespace Pulumi.Datadog.Azure
         public Input<string>? AppServicePlanFilters { get; set; }
 
         /// <summary>
-        /// Silence monitors for expected Azure VM shutdowns. Defaults to `false`.
+        /// Silence monitors for expected Azure VM shutdowns. Defaults to `False`.
         /// </summary>
         [Input("automute")]
         public Input<bool>? Automute { get; set; }
@@ -231,13 +231,13 @@ namespace Pulumi.Datadog.Azure
 
         /// <summary>
         /// When enabled, Datadog’s Cloud Security Management product scans resource configurations monitored by this app registration.
-        /// Note: This requires `resource_collection_enabled` to be set to true. Defaults to `false`.
+        /// Note: This requires `ResourceCollectionEnabled` to be set to true. Defaults to `False`.
         /// </summary>
         [Input("cspmEnabled")]
         public Input<bool>? CspmEnabled { get; set; }
 
         /// <summary>
-        /// Enable custom metrics for your organization. Defaults to `false`.
+        /// Enable custom metrics for your organization. Defaults to `False`.
         /// </summary>
         [Input("customMetricsEnabled")]
         public Input<bool>? CustomMetricsEnabled { get; set; }
@@ -249,13 +249,13 @@ namespace Pulumi.Datadog.Azure
         public Input<string>? HostFilters { get; set; }
 
         /// <summary>
-        /// Enable Azure metrics for your organization. Defaults to `true`.
+        /// Enable Azure metrics for your organization. Defaults to `True`.
         /// </summary>
         [Input("metricsEnabled")]
         public Input<bool>? MetricsEnabled { get; set; }
 
         /// <summary>
-        /// Enable Azure metrics for your organization for resource providers where no resource provider config is specified. Defaults to `true`.
+        /// Enable Azure metrics for your organization for resource providers where no resource provider config is specified. Defaults to `True`.
         /// </summary>
         [Input("metricsEnabledDefault")]
         public Input<bool>? MetricsEnabledDefault { get; set; }
@@ -285,7 +285,7 @@ namespace Pulumi.Datadog.Azure
         public Input<string> TenantName { get; set; } = null!;
 
         /// <summary>
-        /// Enable azure.usage metrics for your organization. Defaults to `true`.
+        /// Enable azure.usage metrics for your organization. Defaults to `True`.
         /// </summary>
         [Input("usageMetricsEnabled")]
         public Input<bool>? UsageMetricsEnabled { get; set; }
@@ -305,7 +305,7 @@ namespace Pulumi.Datadog.Azure
         public Input<string>? AppServicePlanFilters { get; set; }
 
         /// <summary>
-        /// Silence monitors for expected Azure VM shutdowns. Defaults to `false`.
+        /// Silence monitors for expected Azure VM shutdowns. Defaults to `False`.
         /// </summary>
         [Input("automute")]
         public Input<bool>? Automute { get; set; }
@@ -340,13 +340,13 @@ namespace Pulumi.Datadog.Azure
 
         /// <summary>
         /// When enabled, Datadog’s Cloud Security Management product scans resource configurations monitored by this app registration.
-        /// Note: This requires `resource_collection_enabled` to be set to true. Defaults to `false`.
+        /// Note: This requires `ResourceCollectionEnabled` to be set to true. Defaults to `False`.
         /// </summary>
         [Input("cspmEnabled")]
         public Input<bool>? CspmEnabled { get; set; }
 
         /// <summary>
-        /// Enable custom metrics for your organization. Defaults to `false`.
+        /// Enable custom metrics for your organization. Defaults to `False`.
         /// </summary>
         [Input("customMetricsEnabled")]
         public Input<bool>? CustomMetricsEnabled { get; set; }
@@ -358,13 +358,13 @@ namespace Pulumi.Datadog.Azure
         public Input<string>? HostFilters { get; set; }
 
         /// <summary>
-        /// Enable Azure metrics for your organization. Defaults to `true`.
+        /// Enable Azure metrics for your organization. Defaults to `True`.
         /// </summary>
         [Input("metricsEnabled")]
         public Input<bool>? MetricsEnabled { get; set; }
 
         /// <summary>
-        /// Enable Azure metrics for your organization for resource providers where no resource provider config is specified. Defaults to `true`.
+        /// Enable Azure metrics for your organization for resource providers where no resource provider config is specified. Defaults to `True`.
         /// </summary>
         [Input("metricsEnabledDefault")]
         public Input<bool>? MetricsEnabledDefault { get; set; }
@@ -394,7 +394,7 @@ namespace Pulumi.Datadog.Azure
         public Input<string>? TenantName { get; set; }
 
         /// <summary>
-        /// Enable azure.usage metrics for your organization. Defaults to `true`.
+        /// Enable azure.usage metrics for your organization. Defaults to `True`.
         /// </summary>
         [Input("usageMetricsEnabled")]
         public Input<bool>? UsageMetricsEnabled { get; set; }

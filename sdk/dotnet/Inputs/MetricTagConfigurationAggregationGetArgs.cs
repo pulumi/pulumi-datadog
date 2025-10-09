@@ -13,13 +13,13 @@ namespace Pulumi.Datadog.Inputs
     public sealed class MetricTagConfigurationAggregationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A space aggregation for use in query. Valid values are `avg`, `max`, `min`, `sum`.
+        /// A space aggregation for use in query. Valid values are `Avg`, `Max`, `Min`, `Sum`.
         /// </summary>
         [Input("space", required: true)]
         public Input<string> Space { get; set; } = null!;
 
         /// <summary>
-        /// A time aggregation for use in query. Valid values are `avg`, `count`, `max`, `min`, `sum`.
+        /// A time aggregation for use in query. Valid values are `Avg`, `Count`, `Max`, `Min`, `Sum`.
         /// </summary>
         [Input("time", required: true)]
         public Input<string> Time { get; set; } = null!;

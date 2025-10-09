@@ -28,7 +28,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Regex;
         /// <summary>
-        /// Store the captured value in the specified tag name. Only used with the capture_data operator.
+        /// Store the captured value in the specified tag name. Only used with the CaptureData operator.
         /// </summary>
         public readonly string? Value;
 

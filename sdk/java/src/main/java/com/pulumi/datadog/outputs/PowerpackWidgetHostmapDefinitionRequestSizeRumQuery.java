@@ -17,12 +17,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PowerpackWidgetHostmapDefinitionRequestSizeRumQuery {
     /**
-     * @return `compute_query` or `multi_compute` is required. The map keys are listed below.
+     * @return `computeQuery` or `multiCompute` is required. The map keys are listed below.
      * 
      */
     private @Nullable PowerpackWidgetHostmapDefinitionRequestSizeRumQueryComputeQuery computeQuery;
     /**
-     * @return Multiple `group_by` blocks are allowed using the structure below.
+     * @return Multiple `groupBy` blocks are allowed using the structure below.
      * 
      */
     private @Nullable List<PowerpackWidgetHostmapDefinitionRequestSizeRumQueryGroupBy> groupBies;
@@ -32,7 +32,7 @@ public final class PowerpackWidgetHostmapDefinitionRequestSizeRumQuery {
      */
     private String index;
     /**
-     * @return `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
+     * @return `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
      * 
      */
     private @Nullable List<PowerpackWidgetHostmapDefinitionRequestSizeRumQueryMultiCompute> multiComputes;
@@ -44,14 +44,14 @@ public final class PowerpackWidgetHostmapDefinitionRequestSizeRumQuery {
 
     private PowerpackWidgetHostmapDefinitionRequestSizeRumQuery() {}
     /**
-     * @return `compute_query` or `multi_compute` is required. The map keys are listed below.
+     * @return `computeQuery` or `multiCompute` is required. The map keys are listed below.
      * 
      */
     public Optional<PowerpackWidgetHostmapDefinitionRequestSizeRumQueryComputeQuery> computeQuery() {
         return Optional.ofNullable(this.computeQuery);
     }
     /**
-     * @return Multiple `group_by` blocks are allowed using the structure below.
+     * @return Multiple `groupBy` blocks are allowed using the structure below.
      * 
      */
     public List<PowerpackWidgetHostmapDefinitionRequestSizeRumQueryGroupBy> groupBies() {
@@ -65,7 +65,7 @@ public final class PowerpackWidgetHostmapDefinitionRequestSizeRumQuery {
         return this.index;
     }
     /**
-     * @return `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
+     * @return `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
      * 
      */
     public List<PowerpackWidgetHostmapDefinitionRequestSizeRumQueryMultiCompute> multiComputes() {

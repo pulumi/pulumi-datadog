@@ -19,7 +19,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Resource for interacting with the logs_metric API
+ * Resource for interacting with the logsMetric API
  * 
  * ## Example Usage
  * 

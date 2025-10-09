@@ -30,7 +30,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Min;
         /// <summary>
-        /// Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+        /// Specify the scale type, options: `Linear`, `Log`, `Pow`, `Sqrt`.
         /// </summary>
         public readonly string? Scale;
 

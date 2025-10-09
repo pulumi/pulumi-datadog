@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class PowerpackWidgetToplistDefinitionRequestQueryProcessQuery
     {
         /// <summary>
-        /// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        /// The aggregation methods available for metrics queries. Valid values are `Avg`, `Min`, `Max`, `Sum`, `Last`, `Area`, `L2norm`, `Percentile`.
         /// </summary>
         public readonly string? Aggregator;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? CrossOrgUuids;
         /// <summary>
-        /// The data source for process queries. Valid values are `process`, `container`.
+        /// The data source for process queries. Valid values are `Process`, `Container`.
         /// </summary>
         public readonly string DataSource;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
+        /// The direction of the sort. Valid values are `Asc`, `Desc`. Defaults to `"desc"`.
         /// </summary>
         public readonly string? Sort;
         /// <summary>

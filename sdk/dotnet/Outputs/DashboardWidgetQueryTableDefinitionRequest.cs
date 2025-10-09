@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetQueryTableDefinitionRequest
     {
         /// <summary>
-        /// The aggregator to use for time aggregation. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+        /// The aggregator to use for time aggregation. Valid values are `Avg`, `Last`, `Max`, `Min`, `Sum`, `Percentile`.
         /// </summary>
         public readonly string? Aggregator;
         /// <summary>
@@ -27,11 +27,11 @@ namespace Pulumi.Datadog.Outputs
         public readonly Outputs.DashboardWidgetApmQuery? ApmQuery;
         public readonly Outputs.DashboardWidgetQueryTableDefinitionRequestApmStatsQuery? ApmStatsQuery;
         /// <summary>
-        /// A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
+        /// A list of display modes for each table cell. Valid values are `Number`, `Bar`, `Trend`.
         /// </summary>
         public readonly ImmutableArray<string> CellDisplayModes;
         /// <summary>
-        /// Conditional formats allow you to set the color of your widget content or background, depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+        /// Conditional formats allow you to set the color of your widget content or background, depending on the rule applied to your data. Multiple `ConditionalFormats` blocks are allowed using the structure below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetQueryTableDefinitionRequestConditionalFormat> ConditionalFormats;
         public readonly ImmutableArray<Outputs.DashboardWidgetQueryTableDefinitionRequestFormula> Formulas;
@@ -44,7 +44,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.DashboardWidgetLogQuery? LogQuery;
         /// <summary>
-        /// The sort order for the rows. Valid values are `asc`, `desc`.
+        /// The sort order for the rows. Valid values are `Asc`, `Desc`.
         /// </summary>
         public readonly string? Order;
         /// <summary>
@@ -65,7 +65,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.DashboardWidgetSecurityQuery? SecurityQuery;
         /// <summary>
-        /// Text formats define how to format text in table widget content. Multiple `text_formats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
+        /// Text formats define how to format text in table widget content. Multiple `TextFormats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetQueryTableDefinitionRequestTextFormat> TextFormats;
 

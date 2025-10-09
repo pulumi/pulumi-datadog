@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.PowerpackWidgetListStreamDefinitionRequestQuery Query;
         /// <summary>
-        /// Widget response format. Valid values are `event_list`.
+        /// Widget response format. Valid values are `EventList`.
         /// </summary>
         public readonly string ResponseFormat;
 

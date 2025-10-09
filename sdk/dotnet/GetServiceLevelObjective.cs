@@ -208,7 +208,7 @@ namespace Pulumi.Datadog
         /// </summary>
         public readonly string Timeframe;
         /// <summary>
-        /// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available values are: `metric` and `monitor`.
+        /// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available values are: `Metric` and `Monitor`.
         /// </summary>
         public readonly string Type;
         /// <summary>

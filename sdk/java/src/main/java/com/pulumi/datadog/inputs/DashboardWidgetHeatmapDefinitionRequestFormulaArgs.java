@@ -52,14 +52,14 @@ public final class DashboardWidgetHeatmapDefinitionRequestFormulaArgs extends co
     }
 
     /**
-     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
      * 
      */
     @Import(name="conditionalFormats")
     private @Nullable Output<List<DashboardWidgetHeatmapDefinitionRequestFormulaConditionalFormatArgs>> conditionalFormats;
 
     /**
-     * @return Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+     * @return Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
      * 
      */
     public Optional<Output<List<DashboardWidgetHeatmapDefinitionRequestFormulaConditionalFormatArgs>>> conditionalFormats() {
@@ -199,7 +199,7 @@ public final class DashboardWidgetHeatmapDefinitionRequestFormulaArgs extends co
         }
 
         /**
-         * @param conditionalFormats Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+         * @param conditionalFormats Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class DashboardWidgetHeatmapDefinitionRequestFormulaArgs extends co
         }
 
         /**
-         * @param conditionalFormats Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+         * @param conditionalFormats Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
          * 
          * @return builder
          * 
@@ -220,7 +220,7 @@ public final class DashboardWidgetHeatmapDefinitionRequestFormulaArgs extends co
         }
 
         /**
-         * @param conditionalFormats Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+         * @param conditionalFormats Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
          * 
          * @return builder
          * 

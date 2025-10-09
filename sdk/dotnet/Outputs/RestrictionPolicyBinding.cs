@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class RestrictionPolicyBinding
     {
         /// <summary>
-        /// An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role`, `team`, `user`, and `org`. Org ID can be obtained using a `GET /api/v2/current_user` API request. Find it in the `data.relationships.org.data.id` field.
+        /// An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `Role`, `Team`, `User`, and `Org`. Org ID can be obtained using a `GET /api/v2/current_user` API request. Find it in the `data.relationships.org.data.id` field.
         /// </summary>
         public readonly ImmutableArray<string> Principals;
         /// <summary>

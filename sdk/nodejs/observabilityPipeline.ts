@@ -11,6 +11,8 @@ import * as utilities from "./utilities";
  *
  * Datadog recommends using the `-parallelism=1` option to apply this resource.
  *
+ * ## Example Usage
+ *
  * ## Import
  *
  * The `pulumi import` command can be used, for example:

@@ -106,14 +106,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="datadog:index/securityMonitoringRule:SecurityMonitoringRule")
 public class SecurityMonitoringRule extends com.pulumi.resources.CustomResource {
     /**
-     * One or more calculated fields. Available only for scheduled rules (in other words, when `scheduling_options` is defined).
+     * One or more calculated fields. Available only for scheduled rules (in other words, when `schedulingOptions` is defined).
      * 
      */
     @Export(name="calculatedFields", refs={List.class,SecurityMonitoringRuleCalculatedField.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SecurityMonitoringRuleCalculatedField>> calculatedFields;
 
     /**
-     * @return One or more calculated fields. Available only for scheduled rules (in other words, when `scheduling_options` is defined).
+     * @return One or more calculated fields. Available only for scheduled rules (in other words, when `schedulingOptions` is defined).
      * 
      */
     public Output<Optional<List<SecurityMonitoringRuleCalculatedField>>> calculatedFields() {
@@ -316,14 +316,14 @@ public class SecurityMonitoringRule extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.thirdPartyCases);
     }
     /**
-     * The rule type. Valid values are `application_security`, `log_detection`, `workload_security`, `signal_correlation`. Defaults to `&#34;log_detection&#34;`.
+     * The rule type. Valid values are `applicationSecurity`, `logDetection`, `workloadSecurity`, `signalCorrelation`. Defaults to `&#34;logDetection&#34;`.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
     /**
-     * @return The rule type. Valid values are `application_security`, `log_detection`, `workload_security`, `signal_correlation`. Defaults to `&#34;log_detection&#34;`.
+     * @return The rule type. Valid values are `applicationSecurity`, `logDetection`, `workloadSecurity`, `signalCorrelation`. Defaults to `&#34;logDetection&#34;`.
      * 
      */
     public Output<Optional<String>> type() {

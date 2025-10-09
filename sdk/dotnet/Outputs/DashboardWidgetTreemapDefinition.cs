@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetTreemapDefinition
     {
         /// <summary>
-        /// A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+        /// A nested block describing a custom link. Multiple `CustomLink` blocks are allowed using the structure below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetTreemapDefinitionCustomLink> CustomLinks;
         /// <summary>

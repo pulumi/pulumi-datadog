@@ -59,7 +59,7 @@ namespace Pulumi.Datadog
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The `public_id` of the organization you are operating within.
+        /// The `PublicId` of the organization you are operating within.
         /// </summary>
         [Output("publicId")]
         public Output<string> PublicId { get; private set; } = null!;
@@ -173,7 +173,7 @@ namespace Pulumi.Datadog
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The `public_id` of the organization you are operating within.
+        /// The `PublicId` of the organization you are operating within.
         /// </summary>
         [Input("publicId")]
         public Input<string>? PublicId { get; set; }

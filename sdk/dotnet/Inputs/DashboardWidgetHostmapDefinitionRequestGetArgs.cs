@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.DashboardWidgetHostmapDefinitionRequestFillGetArgs>? _fills;
 
         /// <summary>
-        /// The query used to fill the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+        /// The query used to fill the map. Exactly one nested block is allowed using the structure below (exactly one of `Q`, `ApmQuery`, `LogQuery`, `RumQuery`, `SecurityQuery` or `ProcessQuery` is required within the request block).
         /// </summary>
         public InputList<Inputs.DashboardWidgetHostmapDefinitionRequestFillGetArgs> Fills
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.DashboardWidgetHostmapDefinitionRequestSizeGetArgs>? _sizes;
 
         /// <summary>
-        /// The query used to size the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+        /// The query used to size the map. Exactly one nested block is allowed using the structure below (exactly one of `Q`, `ApmQuery`, `LogQuery`, `RumQuery`, `SecurityQuery` or `ProcessQuery` is required within the request block).
         /// </summary>
         public InputList<Inputs.DashboardWidgetHostmapDefinitionRequestSizeGetArgs> Sizes
         {

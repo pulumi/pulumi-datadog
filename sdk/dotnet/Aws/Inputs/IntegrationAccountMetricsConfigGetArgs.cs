@@ -13,31 +13,31 @@ namespace Pulumi.Datadog.Aws.Inputs
     public sealed class IntegrationAccountMetricsConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enable EC2 automute for AWS metrics Defaults to `true`.
+        /// Enable EC2 automute for AWS metrics Defaults to `True`.
         /// </summary>
         [Input("automuteEnabled")]
         public Input<bool>? AutomuteEnabled { get; set; }
 
         /// <summary>
-        /// Enable CloudWatch alarms collection Defaults to `false`.
+        /// Enable CloudWatch alarms collection Defaults to `False`.
         /// </summary>
         [Input("collectCloudwatchAlarms")]
         public Input<bool>? CollectCloudwatchAlarms { get; set; }
 
         /// <summary>
-        /// Enable custom metrics collection Defaults to `false`.
+        /// Enable custom metrics collection Defaults to `False`.
         /// </summary>
         [Input("collectCustomMetrics")]
         public Input<bool>? CollectCustomMetrics { get; set; }
 
         /// <summary>
-        /// Enable AWS metrics collection Defaults to `true`.
+        /// Enable AWS metrics collection Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// AWS metrics namespace filters. Defaults to a pre-set `exclude_only` list if block is empty.
+        /// AWS metrics namespace filters. Defaults to a pre-set `ExcludeOnly` list if block is empty.
         /// </summary>
         [Input("namespaceFilters")]
         public Input<Inputs.IntegrationAccountMetricsConfigNamespaceFiltersGetArgs>? NamespaceFilters { get; set; }

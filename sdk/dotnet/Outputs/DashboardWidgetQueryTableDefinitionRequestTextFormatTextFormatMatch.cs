@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatMatch
     {
         /// <summary>
-        /// Match or compare option. Valid values are `is`, `is_not`, `contains`, `does_not_contain`, `starts_with`, `ends_with`.
+        /// Match or compare option. Valid values are `Is`, `IsNot`, `Contains`, `DoesNotContain`, `StartsWith`, `EndsWith`.
         /// </summary>
         public readonly string Type;
         /// <summary>

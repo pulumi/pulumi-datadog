@@ -68,10 +68,10 @@ public final class IntegrationStsState extends com.pulumi.resources.ResourceArgs
      * List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
      * 
      * @deprecated
-     * **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision`
+     * **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=cloud_run_revision`
      * 
      */
-    @Deprecated /* **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision` */
+    @Deprecated /* **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=cloud_run_revision` */
     @Import(name="cloudRunRevisionFilters")
     private @Nullable Output<List<String>> cloudRunRevisionFilters;
 
@@ -79,10 +79,10 @@ public final class IntegrationStsState extends com.pulumi.resources.ResourceArgs
      * @return List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
      * 
      * @deprecated
-     * **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision`
+     * **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=cloud_run_revision`
      * 
      */
-    @Deprecated /* **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision` */
+    @Deprecated /* **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=cloud_run_revision` */
     public Optional<Output<List<String>>> cloudRunRevisionFilters() {
         return Optional.ofNullable(this.cloudRunRevisionFilters);
     }
@@ -106,10 +106,10 @@ public final class IntegrationStsState extends com.pulumi.resources.ResourceArgs
      * List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
      * 
      * @deprecated
-     * **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance`
+     * **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance`
      * 
      */
-    @Deprecated /* **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance` */
+    @Deprecated /* **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance` */
     @Import(name="hostFilters")
     private @Nullable Output<List<String>> hostFilters;
 
@@ -117,23 +117,23 @@ public final class IntegrationStsState extends com.pulumi.resources.ResourceArgs
      * @return List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
      * 
      * @deprecated
-     * **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance`
+     * **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance`
      * 
      */
-    @Deprecated /* **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance` */
+    @Deprecated /* **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance` */
     public Optional<Output<List<String>>> hostFilters() {
         return Optional.ofNullable(this.hostFilters);
     }
 
     /**
-     * Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled.
+     * Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled.
      * 
      */
     @Import(name="isCspmEnabled")
     private @Nullable Output<Boolean> isCspmEnabled;
 
     /**
-     * @return Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled.
+     * @return Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled.
      * 
      */
     public Optional<Output<Boolean>> isCspmEnabled() {
@@ -345,10 +345,10 @@ public final class IntegrationStsState extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          * @deprecated
-         * **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision`
+         * **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=cloud_run_revision`
          * 
          */
-        @Deprecated /* **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision` */
+        @Deprecated /* **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=cloud_run_revision` */
         public Builder cloudRunRevisionFilters(@Nullable Output<List<String>> cloudRunRevisionFilters) {
             $.cloudRunRevisionFilters = cloudRunRevisionFilters;
             return this;
@@ -360,10 +360,10 @@ public final class IntegrationStsState extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          * @deprecated
-         * **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision`
+         * **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=cloud_run_revision`
          * 
          */
-        @Deprecated /* **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision` */
+        @Deprecated /* **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=cloud_run_revision` */
         public Builder cloudRunRevisionFilters(List<String> cloudRunRevisionFilters) {
             return cloudRunRevisionFilters(Output.of(cloudRunRevisionFilters));
         }
@@ -374,10 +374,10 @@ public final class IntegrationStsState extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          * @deprecated
-         * **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision`
+         * **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=cloud_run_revision`
          * 
          */
-        @Deprecated /* **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision` */
+        @Deprecated /* **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=cloud_run_revision` */
         public Builder cloudRunRevisionFilters(String... cloudRunRevisionFilters) {
             return cloudRunRevisionFilters(List.of(cloudRunRevisionFilters));
         }
@@ -409,10 +409,10 @@ public final class IntegrationStsState extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          * @deprecated
-         * **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance`
+         * **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance`
          * 
          */
-        @Deprecated /* **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance` */
+        @Deprecated /* **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance` */
         public Builder hostFilters(@Nullable Output<List<String>> hostFilters) {
             $.hostFilters = hostFilters;
             return this;
@@ -424,10 +424,10 @@ public final class IntegrationStsState extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          * @deprecated
-         * **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance`
+         * **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance`
          * 
          */
-        @Deprecated /* **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance` */
+        @Deprecated /* **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance` */
         public Builder hostFilters(List<String> hostFilters) {
             return hostFilters(Output.of(hostFilters));
         }
@@ -438,16 +438,16 @@ public final class IntegrationStsState extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          * @deprecated
-         * **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance`
+         * **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance`
          * 
          */
-        @Deprecated /* **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance` */
+        @Deprecated /* **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance` */
         public Builder hostFilters(String... hostFilters) {
             return hostFilters(List.of(hostFilters));
         }
 
         /**
-         * @param isCspmEnabled Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled.
+         * @param isCspmEnabled Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled.
          * 
          * @return builder
          * 
@@ -458,7 +458,7 @@ public final class IntegrationStsState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param isCspmEnabled Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled.
+         * @param isCspmEnabled Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled.
          * 
          * @return builder
          * 

@@ -124,14 +124,14 @@ public final class LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper
     }
 
     /**
-     * If the `target_type` of the remapper is `attribute`, try to cast the value to a new specific type. If the cast is not possible, the original type is kept. `string`, `integer`, or `double` are the possible types. If the `target_type` is `tag`, this parameter may not be specified.
+     * If the `targetType` of the remapper is `attribute`, try to cast the value to a new specific type. If the cast is not possible, the original type is kept. `string`, `integer`, or `double` are the possible types. If the `targetType` is `tag`, this parameter may not be specified.
      * 
      */
     @Import(name="targetFormat")
     private @Nullable Output<String> targetFormat;
 
     /**
-     * @return If the `target_type` of the remapper is `attribute`, try to cast the value to a new specific type. If the cast is not possible, the original type is kept. `string`, `integer`, or `double` are the possible types. If the `target_type` is `tag`, this parameter may not be specified.
+     * @return If the `targetType` of the remapper is `attribute`, try to cast the value to a new specific type. If the cast is not possible, the original type is kept. `string`, `integer`, or `double` are the possible types. If the `targetType` is `tag`, this parameter may not be specified.
      * 
      */
     public Optional<Output<String>> targetFormat() {
@@ -343,7 +343,7 @@ public final class LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper
         }
 
         /**
-         * @param targetFormat If the `target_type` of the remapper is `attribute`, try to cast the value to a new specific type. If the cast is not possible, the original type is kept. `string`, `integer`, or `double` are the possible types. If the `target_type` is `tag`, this parameter may not be specified.
+         * @param targetFormat If the `targetType` of the remapper is `attribute`, try to cast the value to a new specific type. If the cast is not possible, the original type is kept. `string`, `integer`, or `double` are the possible types. If the `targetType` is `tag`, this parameter may not be specified.
          * 
          * @return builder
          * 
@@ -354,7 +354,7 @@ public final class LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper
         }
 
         /**
-         * @param targetFormat If the `target_type` of the remapper is `attribute`, try to cast the value to a new specific type. If the cast is not possible, the original type is kept. `string`, `integer`, or `double` are the possible types. If the `target_type` is `tag`, this parameter may not be specified.
+         * @param targetFormat If the `targetType` of the remapper is `attribute`, try to cast the value to a new specific type. If the cast is not possible, the original type is kept. `string`, `integer`, or `double` are the possible types. If the `targetType` is `tag`, this parameter may not be specified.
          * 
          * @return builder
          * 

@@ -26,7 +26,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Query;
         /// <summary>
-        /// Severity of the Security Signal. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+        /// Severity of the Security Signal. Valid values are `Info`, `Low`, `Medium`, `High`, `Critical`.
         /// </summary>
         public readonly string Status;
 

@@ -14,11 +14,11 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigProcessorsGenerateDatadogMetricMetricValue
     {
         /// <summary>
-        /// Name of the log field containing the numeric value to increment the metric by (used only for `increment_by_field`).
+        /// Name of the log field containing the numeric value to increment the metric by (used only for `IncrementByField`).
         /// </summary>
         public readonly string? Field;
         /// <summary>
-        /// Metric value strategy: `increment_by_one` or `increment_by_field`.
+        /// Metric value strategy: `IncrementByOne` or `IncrementByField`.
         /// </summary>
         public readonly string Strategy;
 

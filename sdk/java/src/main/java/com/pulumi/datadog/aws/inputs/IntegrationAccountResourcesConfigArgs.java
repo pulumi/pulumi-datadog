@@ -16,14 +16,14 @@ public final class IntegrationAccountResourcesConfigArgs extends com.pulumi.reso
     public static final IntegrationAccountResourcesConfigArgs Empty = new IntegrationAccountResourcesConfigArgs();
 
     /**
-     * Enable Cloud Security Management to scan AWS resources for vulnerabilities, misconfigurations, identity risks, and compliance violations. Requires `extended_collection` to be set to `true`. Defaults to `false`.
+     * Enable Cloud Security Management to scan AWS resources for vulnerabilities, misconfigurations, identity risks, and compliance violations. Requires `extendedCollection` to be set to `true`. Defaults to `false`.
      * 
      */
     @Import(name="cloudSecurityPostureManagementCollection")
     private @Nullable Output<Boolean> cloudSecurityPostureManagementCollection;
 
     /**
-     * @return Enable Cloud Security Management to scan AWS resources for vulnerabilities, misconfigurations, identity risks, and compliance violations. Requires `extended_collection` to be set to `true`. Defaults to `false`.
+     * @return Enable Cloud Security Management to scan AWS resources for vulnerabilities, misconfigurations, identity risks, and compliance violations. Requires `extendedCollection` to be set to `true`. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> cloudSecurityPostureManagementCollection() {
@@ -31,14 +31,14 @@ public final class IntegrationAccountResourcesConfigArgs extends com.pulumi.reso
     }
 
     /**
-     * Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cloud_security_posture_management_collection`. Defaults to `true`.
+     * Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cloudSecurityPostureManagementCollection`. Defaults to `true`.
      * 
      */
     @Import(name="extendedCollection")
     private @Nullable Output<Boolean> extendedCollection;
 
     /**
-     * @return Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cloud_security_posture_management_collection`. Defaults to `true`.
+     * @return Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cloudSecurityPostureManagementCollection`. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> extendedCollection() {
@@ -71,7 +71,7 @@ public final class IntegrationAccountResourcesConfigArgs extends com.pulumi.reso
         }
 
         /**
-         * @param cloudSecurityPostureManagementCollection Enable Cloud Security Management to scan AWS resources for vulnerabilities, misconfigurations, identity risks, and compliance violations. Requires `extended_collection` to be set to `true`. Defaults to `false`.
+         * @param cloudSecurityPostureManagementCollection Enable Cloud Security Management to scan AWS resources for vulnerabilities, misconfigurations, identity risks, and compliance violations. Requires `extendedCollection` to be set to `true`. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class IntegrationAccountResourcesConfigArgs extends com.pulumi.reso
         }
 
         /**
-         * @param cloudSecurityPostureManagementCollection Enable Cloud Security Management to scan AWS resources for vulnerabilities, misconfigurations, identity risks, and compliance violations. Requires `extended_collection` to be set to `true`. Defaults to `false`.
+         * @param cloudSecurityPostureManagementCollection Enable Cloud Security Management to scan AWS resources for vulnerabilities, misconfigurations, identity risks, and compliance violations. Requires `extendedCollection` to be set to `true`. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class IntegrationAccountResourcesConfigArgs extends com.pulumi.reso
         }
 
         /**
-         * @param extendedCollection Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cloud_security_posture_management_collection`. Defaults to `true`.
+         * @param extendedCollection Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cloudSecurityPostureManagementCollection`. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class IntegrationAccountResourcesConfigArgs extends com.pulumi.reso
         }
 
         /**
-         * @param extendedCollection Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cloud_security_posture_management_collection`. Defaults to `true`.
+         * @param extendedCollection Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cloudSecurityPostureManagementCollection`. Defaults to `true`.
          * 
          * @return builder
          * 

@@ -119,14 +119,14 @@ public final class SyntheticsTestApiStepArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
+     * Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allowFailure` is `true`.
      * 
      */
     @Import(name="isCritical")
     private @Nullable Output<Boolean> isCritical;
 
     /**
-     * @return Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
+     * @return Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allowFailure` is `true`.
      * 
      */
     public Optional<Output<Boolean>> isCritical() {
@@ -494,7 +494,7 @@ public final class SyntheticsTestApiStepArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param isCritical Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
+         * @param isCritical Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allowFailure` is `true`.
          * 
          * @return builder
          * 
@@ -505,7 +505,7 @@ public final class SyntheticsTestApiStepArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param isCritical Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
+         * @param isCritical Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allowFailure` is `true`.
          * 
          * @return builder
          * 

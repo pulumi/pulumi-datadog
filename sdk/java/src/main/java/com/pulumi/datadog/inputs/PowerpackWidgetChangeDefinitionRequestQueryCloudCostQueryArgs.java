@@ -47,14 +47,14 @@ public final class PowerpackWidgetChangeDefinitionRequestQueryCloudCostQueryArgs
     }
 
     /**
-     * The data source for cloud cost queries. Valid values are `cloud_cost`.
+     * The data source for cloud cost queries. Valid values are `cloudCost`.
      * 
      */
     @Import(name="dataSource", required=true)
     private Output<String> dataSource;
 
     /**
-     * @return The data source for cloud cost queries. Valid values are `cloud_cost`.
+     * @return The data source for cloud cost queries. Valid values are `cloudCost`.
      * 
      */
     public Output<String> dataSource() {
@@ -162,7 +162,7 @@ public final class PowerpackWidgetChangeDefinitionRequestQueryCloudCostQueryArgs
         }
 
         /**
-         * @param dataSource The data source for cloud cost queries. Valid values are `cloud_cost`.
+         * @param dataSource The data source for cloud cost queries. Valid values are `cloudCost`.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class PowerpackWidgetChangeDefinitionRequestQueryCloudCostQueryArgs
         }
 
         /**
-         * @param dataSource The data source for cloud cost queries. Valid values are `cloud_cost`.
+         * @param dataSource The data source for cloud cost queries. Valid values are `cloudCost`.
          * 
          * @return builder
          * 

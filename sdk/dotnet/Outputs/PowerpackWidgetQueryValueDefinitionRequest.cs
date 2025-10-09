@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class PowerpackWidgetQueryValueDefinitionRequest
     {
         /// <summary>
-        /// The aggregator to use for time aggregation. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+        /// The aggregator to use for time aggregation. Valid values are `Avg`, `Last`, `Max`, `Min`, `Sum`, `Percentile`.
         /// </summary>
         public readonly string? Aggregator;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.PowerpackWidgetQueryValueDefinitionRequestAuditQuery? AuditQuery;
         /// <summary>
-        /// Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+        /// Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `ConditionalFormats` blocks are allowed using the structure below.
         /// </summary>
         public readonly ImmutableArray<Outputs.PowerpackWidgetQueryValueDefinitionRequestConditionalFormat> ConditionalFormats;
         public readonly ImmutableArray<Outputs.PowerpackWidgetQueryValueDefinitionRequestFormula> Formulas;

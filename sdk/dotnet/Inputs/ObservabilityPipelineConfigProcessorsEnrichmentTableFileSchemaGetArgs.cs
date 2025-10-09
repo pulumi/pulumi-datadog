@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ObservabilityPipelineConfigProcessorsEnrichmentTableFileSchemaGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The `items` `column`.
+        /// The `Items` `Column`.
         /// </summary>
         [Input("column")]
         public Input<string>? Column { get; set; }

@@ -113,7 +113,7 @@ namespace Pulumi.Datadog
         public Output<string> Created { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the notification rule is enabled. Defaults to `false`.
+        /// Whether the notification rule is enabled. Defaults to `False`.
         /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
@@ -219,7 +219,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// Whether the notification rule is enabled. Defaults to `false`.
+        /// Whether the notification rule is enabled. Defaults to `False`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -299,7 +299,7 @@ namespace Pulumi.Datadog
         public Input<string>? Created { get; set; }
 
         /// <summary>
-        /// Whether the notification rule is enabled. Defaults to `false`.
+        /// Whether the notification rule is enabled. Defaults to `False`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

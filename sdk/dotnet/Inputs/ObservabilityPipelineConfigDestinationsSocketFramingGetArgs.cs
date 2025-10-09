@@ -13,13 +13,13 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ObservabilityPipelineConfigDestinationsSocketFramingGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Used when `method` is `character_delimited`. Specifies the delimiter character.
+        /// Used when `Method` is `CharacterDelimited`. Specifies the delimiter character.
         /// </summary>
         [Input("characterDelimited")]
         public Input<Inputs.ObservabilityPipelineConfigDestinationsSocketFramingCharacterDelimitedGetArgs>? CharacterDelimited { get; set; }
 
         /// <summary>
-        /// The framing method. Valid values are `newline_delimited`, `bytes`, `character_delimited`.
+        /// The framing method. Valid values are `NewlineDelimited`, `Bytes`, `CharacterDelimited`.
         /// </summary>
         [Input("method", required: true)]
         public Input<string> Method { get; set; } = null!;

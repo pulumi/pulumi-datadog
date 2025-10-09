@@ -19,7 +19,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<int>? Characters { get; set; }
 
         /// <summary>
-        /// Direction from which to keep characters: `first` or `last`.
+        /// Direction from which to keep characters: `First` or `Last`.
         /// </summary>
         [Input("direction")]
         public Input<string>? Direction { get; set; }

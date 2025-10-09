@@ -17,12 +17,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetSecurityQuery {
     /**
-     * @return `compute_query` or `multi_compute` is required. The map keys are listed below.
+     * @return `computeQuery` or `multiCompute` is required. The map keys are listed below.
      * 
      */
     private @Nullable DashboardWidgetSecurityQueryComputeQuery computeQuery;
     /**
-     * @return Multiple `group_by` blocks are allowed using the structure below.
+     * @return Multiple `groupBy` blocks are allowed using the structure below.
      * 
      */
     private @Nullable List<DashboardWidgetSecurityQueryGroupBy> groupBies;
@@ -32,7 +32,7 @@ public final class DashboardWidgetSecurityQuery {
      */
     private String index;
     /**
-     * @return `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
+     * @return `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
      * 
      */
     private @Nullable List<DashboardWidgetSecurityQueryMultiCompute> multiComputes;
@@ -44,14 +44,14 @@ public final class DashboardWidgetSecurityQuery {
 
     private DashboardWidgetSecurityQuery() {}
     /**
-     * @return `compute_query` or `multi_compute` is required. The map keys are listed below.
+     * @return `computeQuery` or `multiCompute` is required. The map keys are listed below.
      * 
      */
     public Optional<DashboardWidgetSecurityQueryComputeQuery> computeQuery() {
         return Optional.ofNullable(this.computeQuery);
     }
     /**
-     * @return Multiple `group_by` blocks are allowed using the structure below.
+     * @return Multiple `groupBy` blocks are allowed using the structure below.
      * 
      */
     public List<DashboardWidgetSecurityQueryGroupBy> groupBies() {
@@ -65,7 +65,7 @@ public final class DashboardWidgetSecurityQuery {
         return this.index;
     }
     /**
-     * @return `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
+     * @return `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
      * 
      */
     public List<DashboardWidgetSecurityQueryMultiCompute> multiComputes() {

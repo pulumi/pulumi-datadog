@@ -21,14 +21,14 @@ public final class PowerpackWidgetHostmapDefinitionRequestSizeRumQueryArgs exten
     public static final PowerpackWidgetHostmapDefinitionRequestSizeRumQueryArgs Empty = new PowerpackWidgetHostmapDefinitionRequestSizeRumQueryArgs();
 
     /**
-     * `compute_query` or `multi_compute` is required. The map keys are listed below.
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
      * 
      */
     @Import(name="computeQuery")
     private @Nullable Output<PowerpackWidgetHostmapDefinitionRequestSizeRumQueryComputeQueryArgs> computeQuery;
 
     /**
-     * @return `compute_query` or `multi_compute` is required. The map keys are listed below.
+     * @return `computeQuery` or `multiCompute` is required. The map keys are listed below.
      * 
      */
     public Optional<Output<PowerpackWidgetHostmapDefinitionRequestSizeRumQueryComputeQueryArgs>> computeQuery() {
@@ -36,14 +36,14 @@ public final class PowerpackWidgetHostmapDefinitionRequestSizeRumQueryArgs exten
     }
 
     /**
-     * Multiple `group_by` blocks are allowed using the structure below.
+     * Multiple `groupBy` blocks are allowed using the structure below.
      * 
      */
     @Import(name="groupBies")
     private @Nullable Output<List<PowerpackWidgetHostmapDefinitionRequestSizeRumQueryGroupByArgs>> groupBies;
 
     /**
-     * @return Multiple `group_by` blocks are allowed using the structure below.
+     * @return Multiple `groupBy` blocks are allowed using the structure below.
      * 
      */
     public Optional<Output<List<PowerpackWidgetHostmapDefinitionRequestSizeRumQueryGroupByArgs>>> groupBies() {
@@ -66,14 +66,14 @@ public final class PowerpackWidgetHostmapDefinitionRequestSizeRumQueryArgs exten
     }
 
     /**
-     * `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
      * 
      */
     @Import(name="multiComputes")
     private @Nullable Output<List<PowerpackWidgetHostmapDefinitionRequestSizeRumQueryMultiComputeArgs>> multiComputes;
 
     /**
-     * @return `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
+     * @return `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
      * 
      */
     public Optional<Output<List<PowerpackWidgetHostmapDefinitionRequestSizeRumQueryMultiComputeArgs>>> multiComputes() {
@@ -124,7 +124,7 @@ public final class PowerpackWidgetHostmapDefinitionRequestSizeRumQueryArgs exten
         }
 
         /**
-         * @param computeQuery `compute_query` or `multi_compute` is required. The map keys are listed below.
+         * @param computeQuery `computeQuery` or `multiCompute` is required. The map keys are listed below.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class PowerpackWidgetHostmapDefinitionRequestSizeRumQueryArgs exten
         }
 
         /**
-         * @param computeQuery `compute_query` or `multi_compute` is required. The map keys are listed below.
+         * @param computeQuery `computeQuery` or `multiCompute` is required. The map keys are listed below.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class PowerpackWidgetHostmapDefinitionRequestSizeRumQueryArgs exten
         }
 
         /**
-         * @param groupBies Multiple `group_by` blocks are allowed using the structure below.
+         * @param groupBies Multiple `groupBy` blocks are allowed using the structure below.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class PowerpackWidgetHostmapDefinitionRequestSizeRumQueryArgs exten
         }
 
         /**
-         * @param groupBies Multiple `group_by` blocks are allowed using the structure below.
+         * @param groupBies Multiple `groupBy` blocks are allowed using the structure below.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class PowerpackWidgetHostmapDefinitionRequestSizeRumQueryArgs exten
         }
 
         /**
-         * @param groupBies Multiple `group_by` blocks are allowed using the structure below.
+         * @param groupBies Multiple `groupBy` blocks are allowed using the structure below.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class PowerpackWidgetHostmapDefinitionRequestSizeRumQueryArgs exten
         }
 
         /**
-         * @param multiComputes `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
+         * @param multiComputes `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class PowerpackWidgetHostmapDefinitionRequestSizeRumQueryArgs exten
         }
 
         /**
-         * @param multiComputes `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
+         * @param multiComputes `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class PowerpackWidgetHostmapDefinitionRequestSizeRumQueryArgs exten
         }
 
         /**
-         * @param multiComputes `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
+         * @param multiComputes `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
          * 
          * @return builder
          * 

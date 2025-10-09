@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly int? Characters;
         /// <summary>
-        /// Direction from which to keep characters: `first` or `last`.
+        /// Direction from which to keep characters: `First` or `Last`.
         /// </summary>
         public readonly string? Direction;
 

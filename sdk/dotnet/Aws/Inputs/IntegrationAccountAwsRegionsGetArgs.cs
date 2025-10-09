@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Aws.Inputs
     public sealed class IntegrationAccountAwsRegionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Include all regions. Defaults to `true`.
+        /// Include all regions. Defaults to `True`.
         /// </summary>
         [Input("includeAll")]
         public Input<bool>? IncludeAll { get; set; }

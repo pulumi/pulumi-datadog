@@ -14,11 +14,11 @@ namespace Pulumi.Datadog.Outputs
     public sealed class MonitorVariablesCloudCostQuery
     {
         /// <summary>
-        /// The aggregation methods available for cloud cost queries. Valid values are `avg`, `sum`, `max`, `min`, `last`, `area`, `l2norm`, `percentile`, `stddev`.
+        /// The aggregation methods available for cloud cost queries. Valid values are `Avg`, `Sum`, `Max`, `Min`, `Last`, `Area`, `L2norm`, `Percentile`, `Stddev`.
         /// </summary>
         public readonly string? Aggregator;
         /// <summary>
-        /// The data source for cloud cost queries. Valid values are `metrics`, `cloud_cost`, `datadog_usage`.
+        /// The data source for cloud cost queries. Valid values are `Metrics`, `CloudCost`, `DatadogUsage`.
         /// </summary>
         public readonly string DataSource;
         /// <summary>

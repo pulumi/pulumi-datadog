@@ -13,13 +13,13 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ObservabilityPipelineConfigDestinationsSplunkHecGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If `true`, Splunk tries to extract timestamps from incoming log events.
+        /// If `True`, Splunk tries to extract timestamps from incoming log events.
         /// </summary>
         [Input("autoExtractTimestamp")]
         public Input<bool>? AutoExtractTimestamp { get; set; }
 
         /// <summary>
-        /// Encoding format for log events. Valid values: `json`, `raw_message`.
+        /// Encoding format for log events. Valid values: `Json`, `RawMessage`.
         /// </summary>
         [Input("encoding")]
         public Input<string>? Encoding { get; set; }
@@ -40,7 +40,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<string>? _inputs;
 
         /// <summary>
-        /// A list of component IDs whose output is used as the `input` for this component.
+        /// A list of component IDs whose output is used as the `Input` for this component.
         /// </summary>
         public InputList<string> Inputs
         {

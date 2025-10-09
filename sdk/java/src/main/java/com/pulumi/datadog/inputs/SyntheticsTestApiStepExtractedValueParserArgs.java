@@ -17,14 +17,14 @@ public final class SyntheticsTestApiStepExtractedValueParserArgs extends com.pul
     public static final SyntheticsTestApiStepExtractedValueParserArgs Empty = new SyntheticsTestApiStepExtractedValueParserArgs();
 
     /**
-     * Type of parser for a Synthetics global variable from a synthetics test. Valid values are `raw`, `json_path`, `regex`, `x_path`.
+     * Type of parser for a Synthetics global variable from a synthetics test. Valid values are `raw`, `jsonPath`, `regex`, `xPath`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Type of parser for a Synthetics global variable from a synthetics test. Valid values are `raw`, `json_path`, `regex`, `x_path`.
+     * @return Type of parser for a Synthetics global variable from a synthetics test. Valid values are `raw`, `jsonPath`, `regex`, `xPath`.
      * 
      */
     public Output<String> type() {
@@ -72,7 +72,7 @@ public final class SyntheticsTestApiStepExtractedValueParserArgs extends com.pul
         }
 
         /**
-         * @param type Type of parser for a Synthetics global variable from a synthetics test. Valid values are `raw`, `json_path`, `regex`, `x_path`.
+         * @param type Type of parser for a Synthetics global variable from a synthetics test. Valid values are `raw`, `jsonPath`, `regex`, `xPath`.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class SyntheticsTestApiStepExtractedValueParserArgs extends com.pul
         }
 
         /**
-         * @param type Type of parser for a Synthetics global variable from a synthetics test. Valid values are `raw`, `json_path`, `regex`, `x_path`.
+         * @param type Type of parser for a Synthetics global variable from a synthetics test. Valid values are `raw`, `jsonPath`, `regex`, `xPath`.
          * 
          * @return builder
          * 

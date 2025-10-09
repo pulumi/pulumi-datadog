@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PowerpackWidgetSunburstDefinition {
     /**
-     * @return Nested block describing a custom link. Multiple `custom_link` blocks are allowed with the structure below.
+     * @return Nested block describing a custom link. Multiple `customLink` blocks are allowed with the structure below.
      * 
      */
     private @Nullable List<PowerpackWidgetSunburstDefinitionCustomLink> customLinks;
@@ -38,12 +38,12 @@ public final class PowerpackWidgetSunburstDefinition {
      */
     private @Nullable PowerpackWidgetSunburstDefinitionLegendTable legendTable;
     /**
-     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      * 
      */
     private @Nullable String liveSpan;
     /**
-     * @return Nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed with the structure below (exactly one of `q`, `log_query` or `rum_query` is required within the `request` block).
+     * @return Nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed with the structure below (exactly one of `q`, `logQuery` or `rumQuery` is required within the `request` block).
      * 
      */
     private @Nullable List<PowerpackWidgetSunburstDefinitionRequest> requests;
@@ -65,7 +65,7 @@ public final class PowerpackWidgetSunburstDefinition {
 
     private PowerpackWidgetSunburstDefinition() {}
     /**
-     * @return Nested block describing a custom link. Multiple `custom_link` blocks are allowed with the structure below.
+     * @return Nested block describing a custom link. Multiple `customLink` blocks are allowed with the structure below.
      * 
      */
     public List<PowerpackWidgetSunburstDefinitionCustomLink> customLinks() {
@@ -93,14 +93,14 @@ public final class PowerpackWidgetSunburstDefinition {
         return Optional.ofNullable(this.legendTable);
     }
     /**
-     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      * 
      */
     public Optional<String> liveSpan() {
         return Optional.ofNullable(this.liveSpan);
     }
     /**
-     * @return Nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed with the structure below (exactly one of `q`, `log_query` or `rum_query` is required within the `request` block).
+     * @return Nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed with the structure below (exactly one of `q`, `logQuery` or `rumQuery` is required within the `request` block).
      * 
      */
     public List<PowerpackWidgetSunburstDefinitionRequest> requests() {

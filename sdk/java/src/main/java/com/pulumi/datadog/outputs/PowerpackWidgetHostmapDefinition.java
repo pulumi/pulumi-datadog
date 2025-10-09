@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PowerpackWidgetHostmapDefinition {
     /**
-     * @return A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+     * @return A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
      * 
      */
     private @Nullable List<PowerpackWidgetHostmapDefinitionCustomLink> customLinks;
@@ -74,7 +74,7 @@ public final class PowerpackWidgetHostmapDefinition {
 
     private PowerpackWidgetHostmapDefinition() {}
     /**
-     * @return A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+     * @return A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
      * 
      */
     public List<PowerpackWidgetHostmapDefinitionCustomLink> customLinks() {

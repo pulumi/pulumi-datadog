@@ -73,7 +73,7 @@ namespace Pulumi.Datadog
         public Output<bool> ForwardTags { get; private set; } = null!;
 
         /// <summary>
-        /// How the `forward_tags_restriction_list` parameter should be interpreted.
+        /// How the `ForwardTagsRestrictionList` parameter should be interpreted.
         /// 			If `ALLOW_LIST`, then only tags whose keys on the forwarded logs match the ones on the restriction list
         /// 			are forwarded.
         /// 			`BLOCK_LIST` works the opposite way. It does not forward the tags matching the ones on the list. Valid values are `ALLOW_LIST`, `BLOCK_LIST`.
@@ -84,7 +84,7 @@ namespace Pulumi.Datadog
         /// <summary>
         /// List of [tag keys](https://docs.datadoghq.com/getting_started/tagging/#define-tags) to be filtered.
         /// 			An empty list represents no restriction is in place and either all or no tags will be
-        /// 			forwarded depending on `forward_tags_restriction_list_type` parameter.
+        /// 			forwarded depending on `ForwardTagsRestrictionListType` parameter.
         /// </summary>
         [Output("forwardTagsRestrictionLists")]
         public Output<ImmutableArray<string>> ForwardTagsRestrictionLists { get; private set; } = null!;
@@ -184,7 +184,7 @@ namespace Pulumi.Datadog
         public Input<bool>? ForwardTags { get; set; }
 
         /// <summary>
-        /// How the `forward_tags_restriction_list` parameter should be interpreted.
+        /// How the `ForwardTagsRestrictionList` parameter should be interpreted.
         /// 			If `ALLOW_LIST`, then only tags whose keys on the forwarded logs match the ones on the restriction list
         /// 			are forwarded.
         /// 			`BLOCK_LIST` works the opposite way. It does not forward the tags matching the ones on the list. Valid values are `ALLOW_LIST`, `BLOCK_LIST`.
@@ -198,7 +198,7 @@ namespace Pulumi.Datadog
         /// <summary>
         /// List of [tag keys](https://docs.datadoghq.com/getting_started/tagging/#define-tags) to be filtered.
         /// 			An empty list represents no restriction is in place and either all or no tags will be
-        /// 			forwarded depending on `forward_tags_restriction_list_type` parameter.
+        /// 			forwarded depending on `ForwardTagsRestrictionListType` parameter.
         /// </summary>
         public InputList<string> ForwardTagsRestrictionLists
         {
@@ -263,7 +263,7 @@ namespace Pulumi.Datadog
         public Input<bool>? ForwardTags { get; set; }
 
         /// <summary>
-        /// How the `forward_tags_restriction_list` parameter should be interpreted.
+        /// How the `ForwardTagsRestrictionList` parameter should be interpreted.
         /// 			If `ALLOW_LIST`, then only tags whose keys on the forwarded logs match the ones on the restriction list
         /// 			are forwarded.
         /// 			`BLOCK_LIST` works the opposite way. It does not forward the tags matching the ones on the list. Valid values are `ALLOW_LIST`, `BLOCK_LIST`.
@@ -277,7 +277,7 @@ namespace Pulumi.Datadog
         /// <summary>
         /// List of [tag keys](https://docs.datadoghq.com/getting_started/tagging/#define-tags) to be filtered.
         /// 			An empty list represents no restriction is in place and either all or no tags will be
-        /// 			forwarded depending on `forward_tags_restriction_list_type` parameter.
+        /// 			forwarded depending on `ForwardTagsRestrictionListType` parameter.
         /// </summary>
         public InputList<string> ForwardTagsRestrictionLists
         {

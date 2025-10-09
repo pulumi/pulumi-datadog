@@ -19,7 +19,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<int>? Days { get; set; }
 
         /// <summary>
-        /// For intervals that are not expressible in whole days, this will be added to `days`. Defaults to `0`.
+        /// For intervals that are not expressible in whole days, this will be added to `Days`. Defaults to `0`.
         /// </summary>
         [Input("seconds")]
         public Input<int>? Seconds { get; set; }

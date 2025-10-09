@@ -31,7 +31,7 @@ public final class DashboardWidgetChangeDefinitionRequest {
      */
     private @Nullable String changeType;
     /**
-     * @return Choose from when to compare current data to. Valid values are `hour_before`, `day_before`, `week_before`, `month_before`.
+     * @return Choose from when to compare current data to. Valid values are `hourBefore`, `dayBefore`, `weekBefore`, `monthBefore`.
      * 
      */
     private @Nullable String compareTo;
@@ -99,7 +99,7 @@ public final class DashboardWidgetChangeDefinitionRequest {
         return Optional.ofNullable(this.changeType);
     }
     /**
-     * @return Choose from when to compare current data to. Valid values are `hour_before`, `day_before`, `week_before`, `month_before`.
+     * @return Choose from when to compare current data to. Valid values are `hourBefore`, `dayBefore`, `weekBefore`, `monthBefore`.
      * 
      */
     public Optional<String> compareTo() {

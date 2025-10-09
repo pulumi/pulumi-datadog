@@ -17,14 +17,14 @@ public final class GetRoleUsersPlainArgs extends com.pulumi.resources.InvokeArgs
     public static final GetRoleUsersPlainArgs Empty = new GetRoleUsersPlainArgs();
 
     /**
-     * When true, `filter_keyword` string is exact matched against the user&#39;s `name`.
+     * When true, `filterKeyword` string is exact matched against the user&#39;s `name`.
      * 
      */
     @Import(name="exactMatch")
     private @Nullable Boolean exactMatch;
 
     /**
-     * @return When true, `filter_keyword` string is exact matched against the user&#39;s `name`.
+     * @return When true, `filterKeyword` string is exact matched against the user&#39;s `name`.
      * 
      */
     public Optional<Boolean> exactMatch() {
@@ -88,7 +88,7 @@ public final class GetRoleUsersPlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param exactMatch When true, `filter_keyword` string is exact matched against the user&#39;s `name`.
+         * @param exactMatch When true, `filterKeyword` string is exact matched against the user&#39;s `name`.
          * 
          * @return builder
          * 

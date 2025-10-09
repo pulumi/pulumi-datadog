@@ -14,11 +14,11 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigSourcesHttpServer
     {
         /// <summary>
-        /// HTTP authentication method. Valid values are `none`, `plain`.
+        /// HTTP authentication method. Valid values are `None`, `Plain`.
         /// </summary>
         public readonly string AuthStrategy;
         /// <summary>
-        /// The decoding format used to interpret incoming logs. Valid values are `json`, `gelf`, `syslog`, `bytes`.
+        /// The decoding format used to interpret incoming logs. Valid values are `Json`, `Gelf`, `Syslog`, `Bytes`.
         /// </summary>
         public readonly string Decoding;
         /// <summary>

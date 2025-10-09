@@ -16,14 +16,14 @@ public final class DashboardWidgetTopologyMapDefinitionRequestQueryArgs extends 
     public static final DashboardWidgetTopologyMapDefinitionRequestQueryArgs Empty = new DashboardWidgetTopologyMapDefinitionRequestQueryArgs();
 
     /**
-     * The data source for the Topology request (&#39;service*map&#39; or &#39;data*streams&#39;). Valid values are `data_streams`, `service_map`.
+     * The data source for the Topology request (&#39;service*map&#39; or &#39;data*streams&#39;). Valid values are `dataStreams`, `serviceMap`.
      * 
      */
     @Import(name="dataSource", required=true)
     private Output<String> dataSource;
 
     /**
-     * @return The data source for the Topology request (&#39;service*map&#39; or &#39;data*streams&#39;). Valid values are `data_streams`, `service_map`.
+     * @return The data source for the Topology request (&#39;service*map&#39; or &#39;data*streams&#39;). Valid values are `dataStreams`, `serviceMap`.
      * 
      */
     public Output<String> dataSource() {
@@ -87,7 +87,7 @@ public final class DashboardWidgetTopologyMapDefinitionRequestQueryArgs extends 
         }
 
         /**
-         * @param dataSource The data source for the Topology request (&#39;service*map&#39; or &#39;data*streams&#39;). Valid values are `data_streams`, `service_map`.
+         * @param dataSource The data source for the Topology request (&#39;service*map&#39; or &#39;data*streams&#39;). Valid values are `dataStreams`, `serviceMap`.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class DashboardWidgetTopologyMapDefinitionRequestQueryArgs extends 
         }
 
         /**
-         * @param dataSource The data source for the Topology request (&#39;service*map&#39; or &#39;data*streams&#39;). Valid values are `data_streams`, `service_map`.
+         * @param dataSource The data source for the Topology request (&#39;service*map&#39; or &#39;data*streams&#39;). Valid values are `dataStreams`, `serviceMap`.
          * 
          * @return builder
          * 
