@@ -19,7 +19,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Example { get; set; }
 
         /// <summary>
-        /// ID of the global variable to use. This is actually only used (and required) in the case of using a variable of type `global`.
+        /// ID of the global variable to use. This is actually only used (and required) in the case of using a variable of type `Global`.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -37,13 +37,13 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Pattern { get; set; }
 
         /// <summary>
-        /// Determines whether or not the browser test variable is obfuscated. Can only be used with a browser variable of type `text`
+        /// Determines whether or not the browser test variable is obfuscated. Can only be used with a browser variable of type `Text`
         /// </summary>
         [Input("secure")]
         public Input<bool>? Secure { get; set; }
 
         /// <summary>
-        /// Type of browser test variable. Valid values are `element`, `email`, `global`, `text`.
+        /// Type of browser test variable. Valid values are `Element`, `Email`, `Global`, `Text`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string DashId;
         /// <summary>
-        /// The type of this dashboard. Valid values are `custom_timeboard`, `custom_screenboard`, `integration_screenboard`, `integration_timeboard`, `host_timeboard`.
+        /// The type of this dashboard. Valid values are `CustomTimeboard`, `CustomScreenboard`, `IntegrationScreenboard`, `IntegrationTimeboard`, `HostTimeboard`.
         /// </summary>
         public readonly string Type;
 

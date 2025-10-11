@@ -28,7 +28,7 @@ public final class PowerpackWidgetHostmapDefinitionCustomLink {
      */
     private @Nullable String link;
     /**
-     * @return The label ID that refers to a context menu link item. When `override_label` is provided, the client request omits the label field.
+     * @return The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
      * 
      */
     private @Nullable String overrideLabel;
@@ -56,7 +56,7 @@ public final class PowerpackWidgetHostmapDefinitionCustomLink {
         return Optional.ofNullable(this.link);
     }
     /**
-     * @return The label ID that refers to a context menu link item. When `override_label` is provided, the client request omits the label field.
+     * @return The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
      * 
      */
     public Optional<String> overrideLabel() {

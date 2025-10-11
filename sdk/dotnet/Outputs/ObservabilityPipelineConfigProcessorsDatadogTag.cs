@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigProcessorsDatadogTag
     {
         /// <summary>
-        /// Valid values are `include`, `exclude`.
+        /// Valid values are `Include`, `Exclude`.
         /// </summary>
         public readonly string Action;
         public readonly string Id;
@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly ImmutableArray<string> Inputs;
         public readonly ImmutableArray<string> Keys;
         /// <summary>
-        /// Valid values are `filter`.
+        /// Valid values are `Filter`.
         /// </summary>
         public readonly string Mode;
 

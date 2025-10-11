@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string PolicyType;
         /// <summary>
-        /// Config for a tag policy. Only set if `policy_type` is `tag`.
+        /// Config for a tag policy. Only set if `PolicyType` is `Tag`.
         /// </summary>
         public readonly Outputs.GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyResult TagPolicy;
 

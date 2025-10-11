@@ -34,7 +34,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequestFormula {
      */
     private @Nullable PowerpackWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions cellDisplayModeOptions;
     /**
-     * @return Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+     * @return Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
      * 
      */
     private @Nullable List<PowerpackWidgetQueryTableDefinitionRequestFormulaConditionalFormat> conditionalFormats;
@@ -82,7 +82,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequestFormula {
         return Optional.ofNullable(this.cellDisplayModeOptions);
     }
     /**
-     * @return Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+     * @return Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
      * 
      */
     public List<PowerpackWidgetQueryTableDefinitionRequestFormulaConditionalFormat> conditionalFormats() {

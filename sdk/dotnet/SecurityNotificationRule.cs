@@ -12,6 +12,8 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog Security Monitoring Notification Rule API resource for creating and managing Datadog security notification rules.
     /// 
+    /// ## Example Usage
+    /// 
     /// ## Import
     /// 
     /// The `pulumi import` command can be used, for example:
@@ -42,7 +44,7 @@ namespace Pulumi.Datadog
         public Output<string> CreatedByName { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether the rule is enabled. Defaults to `true`.
+        /// Indicates whether the rule is enabled. Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
@@ -142,7 +144,7 @@ namespace Pulumi.Datadog
     public sealed class SecurityNotificationRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether the rule is enabled. Defaults to `true`.
+        /// Indicates whether the rule is enabled. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -204,7 +206,7 @@ namespace Pulumi.Datadog
         public Input<string>? CreatedByName { get; set; }
 
         /// <summary>
-        /// Indicates whether the rule is enabled. Defaults to `true`.
+        /// Indicates whether the rule is enabled. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

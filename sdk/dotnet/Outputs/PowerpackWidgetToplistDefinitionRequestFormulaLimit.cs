@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly int? Count;
         /// <summary>
-        /// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
+        /// The direction of the sort. Valid values are `Asc`, `Desc`. Defaults to `"desc"`.
         /// </summary>
         public readonly string? Order;
 

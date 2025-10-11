@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class SyntheticsTestMobileStepParamsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Check type to use for an assertion step. Valid values are `equals`, `notEquals`, `contains`, `notContains`, `startsWith`, `notStartsWith`, `greater`, `lower`, `greaterEquals`, `lowerEquals`, `matchRegex`, `between`, `isEmpty`, `notIsEmpty`.
+        /// Check type to use for an assertion step. Valid values are `Equals`, `notEquals`, `Contains`, `notContains`, `startsWith`, `notStartsWith`, `Greater`, `Lower`, `greaterEquals`, `lowerEquals`, `matchRegex`, `Between`, `isEmpty`, `notIsEmpty`.
         /// </summary>
         [Input("check")]
         public Input<string>? Check { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<int>? Delay { get; set; }
 
         /// <summary>
-        /// Valid values are `up`, `down`, `left`, `right`.
+        /// Valid values are `Up`, `Down`, `Left`, `Right`.
         /// </summary>
         [Input("direction")]
         public Input<string>? Direction { get; set; }

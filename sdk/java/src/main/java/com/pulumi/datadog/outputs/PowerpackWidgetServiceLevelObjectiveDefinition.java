@@ -35,7 +35,7 @@ public final class PowerpackWidgetServiceLevelObjectiveDefinition {
      */
     private String sloId;
     /**
-     * @return A list of time windows to display in the widget. Valid values are `7d`, `30d`, `90d`, `week_to_date`, `previous_week`, `month_to_date`, `previous_month`, `global_time`.
+     * @return A list of time windows to display in the widget. Valid values are `7d`, `30d`, `90d`, `weekToDate`, `previousWeek`, `monthToDate`, `previousMonth`, `globalTime`.
      * 
      */
     private List<String> timeWindows;
@@ -95,7 +95,7 @@ public final class PowerpackWidgetServiceLevelObjectiveDefinition {
         return this.sloId;
     }
     /**
-     * @return A list of time windows to display in the widget. Valid values are `7d`, `30d`, `90d`, `week_to_date`, `previous_week`, `month_to_date`, `previous_month`, `global_time`.
+     * @return A list of time windows to display in the widget. Valid values are `7d`, `30d`, `90d`, `weekToDate`, `previousWeek`, `monthToDate`, `previousMonth`, `globalTime`.
      * 
      */
     public List<String> timeWindows() {

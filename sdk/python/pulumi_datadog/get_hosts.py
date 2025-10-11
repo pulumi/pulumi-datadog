@@ -155,6 +155,8 @@ def get_hosts(filter: Optional[_builtins.str] = None,
     """
     Use this data source to retrieve information about your live hosts in Datadog.
 
+    ## Example Usage
+
 
     :param _builtins.str filter: String to filter search results.
     :param _builtins.int from_: Number of seconds since UNIX epoch from which you want to search your hosts.
@@ -189,6 +191,8 @@ def get_hosts_output(filter: Optional[pulumi.Input[Optional[_builtins.str]]] = N
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHostsResult]:
     """
     Use this data source to retrieve information about your live hosts in Datadog.
+
+    ## Example Usage
 
 
     :param _builtins.str filter: String to filter search results.

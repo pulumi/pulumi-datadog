@@ -12,6 +12,8 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog AppsecWafCustomRule resource. This can be used to create and manage Datadog appsec_waf_custom_rule.
     /// 
+    /// ## Example Usage
+    /// 
     /// ## Import
     /// 
     /// The `pulumi import` command can be used, for example:
@@ -57,7 +59,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<Outputs.AppsecWafCustomRuleScope>> Scopes { get; private set; } = null!;
 
         /// <summary>
-        /// Tags associated with the WAF custom rule. `category` and `type` tags are required. Supported categories include `business_logic`, `attack_attempt` and `security_response`.
+        /// Tags associated with the WAF custom rule. `Category` and `Type` tags are required. Supported categories include `BusinessLogic`, `AttackAttempt` and `SecurityResponse`.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
@@ -155,7 +157,7 @@ namespace Pulumi.Datadog
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Tags associated with the WAF custom rule. `category` and `type` tags are required. Supported categories include `business_logic`, `attack_attempt` and `security_response`.
+        /// Tags associated with the WAF custom rule. `Category` and `Type` tags are required. Supported categories include `BusinessLogic`, `AttackAttempt` and `SecurityResponse`.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -218,7 +220,7 @@ namespace Pulumi.Datadog
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Tags associated with the WAF custom rule. `category` and `type` tags are required. Supported categories include `business_logic`, `attack_attempt` and `security_response`.
+        /// Tags associated with the WAF custom rule. `Category` and `Type` tags are required. Supported categories include `BusinessLogic`, `AttackAttempt` and `SecurityResponse`.
         /// </summary>
         public InputMap<string> Tags
         {

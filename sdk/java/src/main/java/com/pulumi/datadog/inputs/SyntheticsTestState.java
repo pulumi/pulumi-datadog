@@ -108,14 +108,14 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
+     * Variables used for the test configuration. Multiple `configVariable` blocks are allowed with the structure below.
      * 
      */
     @Import(name="configVariables")
     private @Nullable Output<List<SyntheticsTestConfigVariableArgs>> configVariables;
 
     /**
-     * @return Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
+     * @return Variables used for the test configuration. Multiple `configVariable` blocks are allowed with the structure below.
      * 
      */
     public Optional<Output<List<SyntheticsTestConfigVariableArgs>>> configVariables() {
@@ -649,7 +649,7 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param configVariables Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
+         * @param configVariables Variables used for the test configuration. Multiple `configVariable` blocks are allowed with the structure below.
          * 
          * @return builder
          * 
@@ -660,7 +660,7 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param configVariables Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
+         * @param configVariables Variables used for the test configuration. Multiple `configVariable` blocks are allowed with the structure below.
          * 
          * @return builder
          * 
@@ -670,7 +670,7 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param configVariables Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
+         * @param configVariables Variables used for the test configuration. Multiple `configVariable` blocks are allowed with the structure below.
          * 
          * @return builder
          * 

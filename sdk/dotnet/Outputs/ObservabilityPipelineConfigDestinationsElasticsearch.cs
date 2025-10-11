@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigDestinationsElasticsearch
     {
         /// <summary>
-        /// The Elasticsearch API version to use. Set to `auto` to auto-detect.
+        /// The Elasticsearch API version to use. Set to `Auto` to auto-detect.
         /// </summary>
         public readonly string? ApiVersion;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A list of component IDs whose output is used as the `input` for this component.
+        /// A list of component IDs whose output is used as the `Input` for this component.
         /// </summary>
         public readonly ImmutableArray<string> Inputs;
 

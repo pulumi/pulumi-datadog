@@ -16,7 +16,7 @@ public final class DashboardListDashItem {
      */
     private String dashId;
     /**
-     * @return The type of this dashboard. Valid values are `custom_timeboard`, `custom_screenboard`, `integration_screenboard`, `integration_timeboard`, `host_timeboard`.
+     * @return The type of this dashboard. Valid values are `customTimeboard`, `customScreenboard`, `integrationScreenboard`, `integrationTimeboard`, `hostTimeboard`.
      * 
      */
     private String type;
@@ -30,7 +30,7 @@ public final class DashboardListDashItem {
         return this.dashId;
     }
     /**
-     * @return The type of this dashboard. Valid values are `custom_timeboard`, `custom_screenboard`, `integration_screenboard`, `integration_timeboard`, `host_timeboard`.
+     * @return The type of this dashboard. Valid values are `customTimeboard`, `customScreenboard`, `integrationScreenboard`, `integrationTimeboard`, `hostTimeboard`.
      * 
      */
     public String type() {

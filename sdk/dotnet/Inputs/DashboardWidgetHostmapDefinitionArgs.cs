@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.DashboardWidgetHostmapDefinitionCustomLinkArgs>? _customLinks;
 
         /// <summary>
-        /// A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+        /// A nested block describing a custom link. Multiple `CustomLink` blocks are allowed using the structure below.
         /// </summary>
         public InputList<Inputs.DashboardWidgetHostmapDefinitionCustomLinkArgs> CustomLinks
         {
@@ -49,13 +49,13 @@ namespace Pulumi.Datadog.Inputs
         public Input<bool>? NoMetricHosts { get; set; }
 
         /// <summary>
-        /// The type of node used. Valid values are `host`, `container`.
+        /// The type of node used. Valid values are `Host`, `Container`.
         /// </summary>
         [Input("nodeType")]
         public Input<string>? NodeType { get; set; }
 
         /// <summary>
-        /// A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below.
+        /// A nested block describing the request to use when displaying the widget. Multiple `Request` blocks are allowed using the structure below.
         /// </summary>
         [Input("request")]
         public Input<Inputs.DashboardWidgetHostmapDefinitionRequestArgs>? Request { get; set; }
@@ -85,7 +85,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Title { get; set; }
 
         /// <summary>
-        /// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+        /// The alignment of the widget's title. Valid values are `Center`, `Left`, `Right`.
         /// </summary>
         [Input("titleAlign")]
         public Input<string>? TitleAlign { get; set; }

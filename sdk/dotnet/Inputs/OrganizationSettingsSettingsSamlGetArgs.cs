@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class OrganizationSettingsSettingsSamlGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether or not SAML is enabled for this organization. Defaults to `false`.
+        /// Whether or not SAML is enabled for this organization. Defaults to `False`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

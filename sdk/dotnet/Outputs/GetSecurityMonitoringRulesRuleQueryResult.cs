@@ -38,19 +38,19 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? HasOptionalGroupByFields;
         /// <summary>
-        /// List of indexes to run the query on when the data source is `logs`. Supports only one element. Used only for scheduled rules (in other words, when `scheduling_options` is defined).
+        /// List of indexes to run the query on when the data source is `Logs`. Supports only one element. Used only for scheduled rules (in other words, when `SchedulingOptions` is defined).
         /// </summary>
         public readonly ImmutableArray<string> Indexes;
         /// <summary>
-        /// The target field to aggregate over when using the `sum`, `max`, or `geo_data` aggregations.
+        /// The target field to aggregate over when using the `Sum`, `Max`, or `GeoData` aggregations.
         /// </summary>
         public readonly string? Metric;
         /// <summary>
-        /// Group of target fields to aggregate over when using the `sum`, `max`, `geo_data`, or `new_value` aggregations. The `sum`, `max`, and `geo_data` aggregations only accept one value in this list, whereas the `new_value` aggregation accepts up to five values.
+        /// Group of target fields to aggregate over when using the `Sum`, `Max`, `GeoData`, or `NewValue` aggregations. The `Sum`, `Max`, and `GeoData` aggregations only accept one value in this list, whereas the `NewValue` aggregation accepts up to five values.
         /// </summary>
         public readonly ImmutableArray<string> Metrics;
         /// <summary>
-        /// Name of the query. Not compatible with `new_value` aggregations.
+        /// Name of the query. Not compatible with `NewValue` aggregations.
         /// </summary>
         public readonly string? Name;
         /// <summary>

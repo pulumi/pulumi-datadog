@@ -19,7 +19,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? CrossOrgUuids { get; set; }
 
         /// <summary>
-        /// The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+        /// The data source for APM Dependency Stats queries. Valid values are `ApmDependencyStats`.
         /// </summary>
         [Input("dataSource", required: true)]
         public Input<string> DataSource { get; set; } = null!;
@@ -49,13 +49,13 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> OperationName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        /// The name of the second primary tag used within APM; required when `PrimaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
         /// </summary>
         [Input("primaryTagName")]
         public Input<string>? PrimaryTagName { get; set; }
 
         /// <summary>
-        /// Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
+        /// Filter APM data by the second primary tag. `PrimaryTagName` must also be specified.
         /// </summary>
         [Input("primaryTagValue")]
         public Input<string>? PrimaryTagValue { get; set; }
@@ -73,7 +73,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> Service { get; set; } = null!;
 
         /// <summary>
-        /// APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
+        /// APM statistic. Valid values are `AvgDuration`, `AvgRootDuration`, `AvgSpansPerTrace`, `ErrorRate`, `PctExecTime`, `PctOfTraces`, `TotalTracesCount`.
         /// </summary>
         [Input("stat", required: true)]
         public Input<string> Stat { get; set; } = null!;

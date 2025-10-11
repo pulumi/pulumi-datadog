@@ -26,7 +26,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Link;
         /// <summary>
-        /// The label ID that refers to a context menu link item. When `override_label` is provided, the client request omits the label field.
+        /// The label ID that refers to a context menu link item. When `OverrideLabel` is provided, the client request omits the label field.
         /// </summary>
         public readonly string? OverrideLabel;
 

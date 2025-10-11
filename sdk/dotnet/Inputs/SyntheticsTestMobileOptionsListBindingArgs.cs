@@ -21,7 +21,7 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// Valid values are `editor`, `viewer`.
+        /// Valid values are `Editor`, `Viewer`.
         /// </summary>
         [Input("relation")]
         public Input<string>? Relation { get; set; }

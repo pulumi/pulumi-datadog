@@ -49,7 +49,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.OnCallTeamRoutingRulesRuleTimeRestrictionsArgs>? TimeRestrictions { get; set; }
 
         /// <summary>
-        /// Defines the urgency for pages created via this rule. Only valid if `escalation_policy` is set. Valid values are `high`, `low`, `dynamic`.
+        /// Defines the urgency for pages created via this rule. Only valid if `EscalationPolicy` is set. Valid values are `High`, `Low`, `Dynamic`.
         /// </summary>
         [Input("urgency")]
         public Input<string>? Urgency { get; set; }

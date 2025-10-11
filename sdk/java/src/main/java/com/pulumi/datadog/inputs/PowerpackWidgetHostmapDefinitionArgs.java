@@ -21,14 +21,14 @@ public final class PowerpackWidgetHostmapDefinitionArgs extends com.pulumi.resou
     public static final PowerpackWidgetHostmapDefinitionArgs Empty = new PowerpackWidgetHostmapDefinitionArgs();
 
     /**
-     * A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
      * 
      */
     @Import(name="customLinks")
     private @Nullable Output<List<PowerpackWidgetHostmapDefinitionCustomLinkArgs>> customLinks;
 
     /**
-     * @return A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+     * @return A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
      * 
      */
     public Optional<Output<List<PowerpackWidgetHostmapDefinitionCustomLinkArgs>>> customLinks() {
@@ -220,7 +220,7 @@ public final class PowerpackWidgetHostmapDefinitionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param customLinks A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+         * @param customLinks A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class PowerpackWidgetHostmapDefinitionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param customLinks A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+         * @param customLinks A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class PowerpackWidgetHostmapDefinitionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param customLinks A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+         * @param customLinks A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
          * 
          * @return builder
          * 

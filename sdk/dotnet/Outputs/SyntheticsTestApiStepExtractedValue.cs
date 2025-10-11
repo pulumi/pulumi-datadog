@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class SyntheticsTestApiStepExtractedValue
     {
         /// <summary>
-        /// When type is `http_header` or `grpc_metadata`, name of the header or metadatum to extract.
+        /// When type is `HttpHeader` or `GrpcMetadata`, name of the header or metadatum to extract.
         /// </summary>
         public readonly string? Field;
         public readonly string Name;
@@ -24,7 +24,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? Secure;
         /// <summary>
-        /// Property of the Synthetics Test Response to use for the variable. Valid values are `grpc_message`, `grpc_metadata`, `http_body`, `http_header`, `http_status_code`.
+        /// Property of the Synthetics Test Response to use for the variable. Valid values are `GrpcMessage`, `GrpcMetadata`, `HttpBody`, `HttpHeader`, `HttpStatusCode`.
         /// </summary>
         public readonly string Type;
 

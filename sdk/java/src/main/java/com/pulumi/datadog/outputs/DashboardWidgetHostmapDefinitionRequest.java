@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetHostmapDefinitionRequest {
     /**
-     * @return The query used to fill the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * @return The query used to fill the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
      * 
      */
     private @Nullable List<DashboardWidgetHostmapDefinitionRequestFill> fills;
     /**
-     * @return The query used to size the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * @return The query used to size the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
      * 
      */
     private @Nullable List<DashboardWidgetHostmapDefinitionRequestSize> sizes;
 
     private DashboardWidgetHostmapDefinitionRequest() {}
     /**
-     * @return The query used to fill the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * @return The query used to fill the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
      * 
      */
     public List<DashboardWidgetHostmapDefinitionRequestFill> fills() {
         return this.fills == null ? List.of() : this.fills;
     }
     /**
-     * @return The query used to size the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * @return The query used to size the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
      * 
      */
     public List<DashboardWidgetHostmapDefinitionRequestSize> sizes() {

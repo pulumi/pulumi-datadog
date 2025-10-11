@@ -48,7 +48,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Regex { get; set; }
 
         /// <summary>
-        /// Store the captured value in the specified tag name. Only used with the capture_data operator.
+        /// Store the captured value in the specified tag name. Only used with the CaptureData operator.
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }

@@ -15,16 +15,16 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SecurityMonitoringDefaultRuleQuery {
     /**
-     * @return **Deprecated**. It won&#39;t be applied anymore. **Deprecated.** `agent_rule` has been deprecated in favor of new Agent Rule resource.
+     * @return **Deprecated**. It won&#39;t be applied anymore. **Deprecated.** `agentRule` has been deprecated in favor of new Agent Rule resource.
      * 
      * @deprecated
-     * `agent_rule` has been deprecated in favor of new Agent Rule resource.
+     * `agentRule` has been deprecated in favor of new Agent Rule resource.
      * 
      */
-    @Deprecated /* `agent_rule` has been deprecated in favor of new Agent Rule resource. */
+    @Deprecated /* `agentRule` has been deprecated in favor of new Agent Rule resource. */
     private @Nullable List<SecurityMonitoringDefaultRuleQueryAgentRule> agentRules;
     /**
-     * @return The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`.
+     * @return The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`.
      * 
      */
     private @Nullable String aggregation;
@@ -34,7 +34,7 @@ public final class SecurityMonitoringDefaultRuleQuery {
      */
     private @Nullable String customQueryExtension;
     /**
-     * @return Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`, `events`.
+     * @return Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`.
      * 
      */
     private @Nullable String dataSource;
@@ -54,7 +54,7 @@ public final class SecurityMonitoringDefaultRuleQuery {
      */
     private @Nullable Boolean hasOptionalGroupByFields;
     /**
-     * @return The target field to aggregate over when using the `sum`, `max`, or `geo_data` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+     * @return The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
      * 
      * @deprecated
      * Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
@@ -63,12 +63,12 @@ public final class SecurityMonitoringDefaultRuleQuery {
     @Deprecated /* Configure `metrics` instead. This attribute will be removed in the next major version of the provider. */
     private @Nullable String metric;
     /**
-     * @return Group of target fields to aggregate over when using the `sum`, `max`, `geo_data`, or `new_value` aggregations. The `sum`, `max`, and `geo_data` aggregations only accept one value in this list, whereas the `new_value` aggregation accepts up to five values.
+     * @return Group of target fields to aggregate over when using the `sum`, `max`, `geoData`, or `newValue` aggregations. The `sum`, `max`, and `geoData` aggregations only accept one value in this list, whereas the `newValue` aggregation accepts up to five values.
      * 
      */
     private @Nullable List<String> metrics;
     /**
-     * @return Name of the query. Not compatible with `new_value` aggregations.
+     * @return Name of the query. Not compatible with `newValue` aggregations.
      * 
      */
     private @Nullable String name;
@@ -80,18 +80,18 @@ public final class SecurityMonitoringDefaultRuleQuery {
 
     private SecurityMonitoringDefaultRuleQuery() {}
     /**
-     * @return **Deprecated**. It won&#39;t be applied anymore. **Deprecated.** `agent_rule` has been deprecated in favor of new Agent Rule resource.
+     * @return **Deprecated**. It won&#39;t be applied anymore. **Deprecated.** `agentRule` has been deprecated in favor of new Agent Rule resource.
      * 
      * @deprecated
-     * `agent_rule` has been deprecated in favor of new Agent Rule resource.
+     * `agentRule` has been deprecated in favor of new Agent Rule resource.
      * 
      */
-    @Deprecated /* `agent_rule` has been deprecated in favor of new Agent Rule resource. */
+    @Deprecated /* `agentRule` has been deprecated in favor of new Agent Rule resource. */
     public List<SecurityMonitoringDefaultRuleQueryAgentRule> agentRules() {
         return this.agentRules == null ? List.of() : this.agentRules;
     }
     /**
-     * @return The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`.
+     * @return The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`.
      * 
      */
     public Optional<String> aggregation() {
@@ -105,7 +105,7 @@ public final class SecurityMonitoringDefaultRuleQuery {
         return Optional.ofNullable(this.customQueryExtension);
     }
     /**
-     * @return Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`, `events`.
+     * @return Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`.
      * 
      */
     public Optional<String> dataSource() {
@@ -133,7 +133,7 @@ public final class SecurityMonitoringDefaultRuleQuery {
         return Optional.ofNullable(this.hasOptionalGroupByFields);
     }
     /**
-     * @return The target field to aggregate over when using the `sum`, `max`, or `geo_data` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+     * @return The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
      * 
      * @deprecated
      * Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
@@ -144,14 +144,14 @@ public final class SecurityMonitoringDefaultRuleQuery {
         return Optional.ofNullable(this.metric);
     }
     /**
-     * @return Group of target fields to aggregate over when using the `sum`, `max`, `geo_data`, or `new_value` aggregations. The `sum`, `max`, and `geo_data` aggregations only accept one value in this list, whereas the `new_value` aggregation accepts up to five values.
+     * @return Group of target fields to aggregate over when using the `sum`, `max`, `geoData`, or `newValue` aggregations. The `sum`, `max`, and `geoData` aggregations only accept one value in this list, whereas the `newValue` aggregation accepts up to five values.
      * 
      */
     public List<String> metrics() {
         return this.metrics == null ? List.of() : this.metrics;
     }
     /**
-     * @return Name of the query. Not compatible with `new_value` aggregations.
+     * @return Name of the query. Not compatible with `newValue` aggregations.
      * 
      */
     public Optional<String> name() {

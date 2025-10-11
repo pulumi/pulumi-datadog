@@ -22,15 +22,15 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? CrossOrgUuids;
         /// <summary>
-        /// The data source for SLO queries. Valid values are `slo`.
+        /// The data source for SLO queries. Valid values are `Slo`.
         /// </summary>
         public readonly string DataSource;
         /// <summary>
-        /// Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
+        /// Group mode to query measures. Valid values are `Overall`, `Components`. Defaults to `"overall"`.
         /// </summary>
         public readonly string? GroupMode;
         /// <summary>
-        /// SLO measures queries. Valid values are `good_events`, `bad_events`, `good_minutes`, `bad_minutes`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+        /// SLO measures queries. Valid values are `GoodEvents`, `BadEvents`, `GoodMinutes`, `BadMinutes`, `SloStatus`, `ErrorBudgetRemaining`, `BurnRate`, `ErrorBudgetBurndown`.
         /// </summary>
         public readonly string Measure;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string SloId;
         /// <summary>
-        /// type of the SLO to query. Valid values are `metric`, `monitor`, `time_slice`. Defaults to `"metric"`.
+        /// type of the SLO to query. Valid values are `Metric`, `Monitor`, `TimeSlice`. Defaults to `"metric"`.
         /// </summary>
         public readonly string? SloQueryType;
 

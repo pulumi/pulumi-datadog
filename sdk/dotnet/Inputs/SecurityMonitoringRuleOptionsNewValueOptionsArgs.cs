@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<int>? LearningDuration { get; set; }
 
         /// <summary>
-        /// The learning method used to determine when signals should be generated for values that weren't learned. Valid values are `duration`, `threshold`. Defaults to `"duration"`.
+        /// The learning method used to determine when signals should be generated for values that weren't learned. Valid values are `Duration`, `Threshold`. Defaults to `"duration"`.
         /// </summary>
         [Input("learningMethod")]
         public Input<string>? LearningMethod { get; set; }

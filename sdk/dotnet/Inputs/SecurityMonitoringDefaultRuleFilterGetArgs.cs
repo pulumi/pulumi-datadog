@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class SecurityMonitoringDefaultRuleFilterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The type of filtering action. Allowed enum values: require, suppress Valid values are `require`, `suppress`.
+        /// The type of filtering action. Allowed enum values: require, suppress Valid values are `Require`, `Suppress`.
         /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;

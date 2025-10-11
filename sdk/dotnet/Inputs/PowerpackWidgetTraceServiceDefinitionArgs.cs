@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class PowerpackWidgetTraceServiceDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The number of columns to display. Valid values are `one_column`, `two_column`, `three_column`.
+        /// The number of columns to display. Valid values are `OneColumn`, `TwoColumn`, `ThreeColumn`.
         /// </summary>
         [Input("displayFormat")]
         public Input<string>? DisplayFormat { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> Env { get; set; } = null!;
 
         /// <summary>
-        /// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
+        /// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `WeekToDate`, `MonthToDate`, `1y`, `Alert`.
         /// </summary>
         [Input("liveSpan")]
         public Input<string>? LiveSpan { get; set; }
@@ -73,7 +73,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<bool>? ShowResourceList { get; set; }
 
         /// <summary>
-        /// The size of the widget. Valid values are `small`, `medium`, `large`.
+        /// The size of the widget. Valid values are `Small`, `Medium`, `Large`.
         /// </summary>
         [Input("sizeFormat")]
         public Input<string>? SizeFormat { get; set; }
@@ -91,7 +91,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Title { get; set; }
 
         /// <summary>
-        /// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+        /// The alignment of the widget's title. Valid values are `Center`, `Left`, `Right`.
         /// </summary>
         [Input("titleAlign")]
         public Input<string>? TitleAlign { get; set; }

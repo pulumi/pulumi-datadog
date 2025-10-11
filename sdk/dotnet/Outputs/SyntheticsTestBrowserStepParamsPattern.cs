@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class SyntheticsTestBrowserStepParamsPattern
     {
         /// <summary>
-        /// Type of pattern to use for the step. Valid values are `regex`, `x_path`.
+        /// Type of pattern to use for the step. Valid values are `Regex`, `XPath`.
         /// </summary>
         public readonly string? Type;
         /// <summary>

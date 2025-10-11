@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class SecurityMonitoringDefaultRuleFilter
     {
         /// <summary>
-        /// The type of filtering action. Allowed enum values: require, suppress Valid values are `require`, `suppress`.
+        /// The type of filtering action. Allowed enum values: require, suppress Valid values are `Require`, `Suppress`.
         /// </summary>
         public readonly string Action;
         /// <summary>

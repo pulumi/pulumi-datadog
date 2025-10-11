@@ -64,14 +64,14 @@ public final class DowntimeRecurrenceArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The date at which the recurrence should end as a POSIX timestamp. `until_occurrences` and `until_date` are mutually exclusive.
+     * The date at which the recurrence should end as a POSIX timestamp. `untilOccurrences` and `untilDate` are mutually exclusive.
      * 
      */
     @Import(name="untilDate")
     private @Nullable Output<Integer> untilDate;
 
     /**
-     * @return The date at which the recurrence should end as a POSIX timestamp. `until_occurrences` and `until_date` are mutually exclusive.
+     * @return The date at which the recurrence should end as a POSIX timestamp. `untilOccurrences` and `untilDate` are mutually exclusive.
      * 
      */
     public Optional<Output<Integer>> untilDate() {
@@ -79,14 +79,14 @@ public final class DowntimeRecurrenceArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * How many times the downtime will be rescheduled. `until_occurrences` and `until_date` are mutually exclusive.
+     * How many times the downtime will be rescheduled. `untilOccurrences` and `untilDate` are mutually exclusive.
      * 
      */
     @Import(name="untilOccurrences")
     private @Nullable Output<Integer> untilOccurrences;
 
     /**
-     * @return How many times the downtime will be rescheduled. `until_occurrences` and `until_date` are mutually exclusive.
+     * @return How many times the downtime will be rescheduled. `untilOccurrences` and `untilDate` are mutually exclusive.
      * 
      */
     public Optional<Output<Integer>> untilOccurrences() {
@@ -201,7 +201,7 @@ public final class DowntimeRecurrenceArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param untilDate The date at which the recurrence should end as a POSIX timestamp. `until_occurrences` and `until_date` are mutually exclusive.
+         * @param untilDate The date at which the recurrence should end as a POSIX timestamp. `untilOccurrences` and `untilDate` are mutually exclusive.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class DowntimeRecurrenceArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param untilDate The date at which the recurrence should end as a POSIX timestamp. `until_occurrences` and `until_date` are mutually exclusive.
+         * @param untilDate The date at which the recurrence should end as a POSIX timestamp. `untilOccurrences` and `untilDate` are mutually exclusive.
          * 
          * @return builder
          * 
@@ -222,7 +222,7 @@ public final class DowntimeRecurrenceArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param untilOccurrences How many times the downtime will be rescheduled. `until_occurrences` and `until_date` are mutually exclusive.
+         * @param untilOccurrences How many times the downtime will be rescheduled. `untilOccurrences` and `untilDate` are mutually exclusive.
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class DowntimeRecurrenceArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param untilOccurrences How many times the downtime will be rescheduled. `until_occurrences` and `until_date` are mutually exclusive.
+         * @param untilOccurrences How many times the downtime will be rescheduled. `untilOccurrences` and `untilDate` are mutually exclusive.
          * 
          * @return builder
          * 

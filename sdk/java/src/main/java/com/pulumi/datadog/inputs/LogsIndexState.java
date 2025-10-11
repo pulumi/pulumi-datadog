@@ -68,14 +68,14 @@ public final class LogsIndexState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index&#39;s current daily_limit is maintained.
+     * If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index&#39;s current dailyLimit is maintained.
      * 
      */
     @Import(name="disableDailyLimit")
     private @Nullable Output<Boolean> disableDailyLimit;
 
     /**
-     * @return If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index&#39;s current daily_limit is maintained.
+     * @return If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index&#39;s current dailyLimit is maintained.
      * 
      */
     public Optional<Output<Boolean>> disableDailyLimit() {
@@ -253,7 +253,7 @@ public final class LogsIndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param disableDailyLimit If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index&#39;s current daily_limit is maintained.
+         * @param disableDailyLimit If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index&#39;s current dailyLimit is maintained.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class LogsIndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param disableDailyLimit If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index&#39;s current daily_limit is maintained.
+         * @param disableDailyLimit If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index&#39;s current dailyLimit is maintained.
          * 
          * @return builder
          * 

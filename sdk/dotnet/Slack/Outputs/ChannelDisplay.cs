@@ -14,23 +14,23 @@ namespace Pulumi.Datadog.Slack.Outputs
     public sealed class ChannelDisplay
     {
         /// <summary>
-        /// Show the main body of the alert event. Defaults to `true`.
+        /// Show the main body of the alert event. Defaults to `True`.
         /// </summary>
         public readonly bool? Message;
         /// <summary>
-        /// Show interactive buttons to mute the alerting monitor. Defaults to `true`.
+        /// Show interactive buttons to mute the alerting monitor. Defaults to `True`.
         /// </summary>
         public readonly bool? MuteButtons;
         /// <summary>
-        /// Show the list of @-handles in the alert event. Defaults to `true`.
+        /// Show the list of @-handles in the alert event. Defaults to `True`.
         /// </summary>
         public readonly bool? Notified;
         /// <summary>
-        /// Show the alert event's snapshot image. Defaults to `true`.
+        /// Show the alert event's snapshot image. Defaults to `True`.
         /// </summary>
         public readonly bool? Snapshot;
         /// <summary>
-        /// Show the scopes on which the monitor alerted. Defaults to `true`.
+        /// Show the scopes on which the monitor alerted. Defaults to `True`.
         /// </summary>
         public readonly bool? Tags;
 

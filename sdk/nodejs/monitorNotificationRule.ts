@@ -9,6 +9,8 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog MonitorNotificationRule resource.
  *
+ * ## Example Usage
+ *
  * ## Import
  *
  * The `pulumi import` command can be used, for example:

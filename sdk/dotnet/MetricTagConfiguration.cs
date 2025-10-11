@@ -76,19 +76,19 @@ namespace Pulumi.Datadog
     public partial class MetricTagConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge.
+        /// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `MetricType` of count, rate, or gauge.
         /// </summary>
         [Output("aggregations")]
         public Output<ImmutableArray<Outputs.MetricTagConfigurationAggregation>> Aggregations { get; private set; } = null!;
 
         /// <summary>
-        /// Toggle to include/exclude tags as queryable for your metric. Can only be applied to metrics that have one or more tags configured. Defaults to `false`.
+        /// Toggle to include/exclude tags as queryable for your metric. Can only be applied to metrics that have one or more tags configured. Defaults to `False`.
         /// </summary>
         [Output("excludeTagsMode")]
         public Output<bool?> ExcludeTagsMode { get; private set; } = null!;
 
         /// <summary>
-        /// Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metric_type` of distribution.
+        /// Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `MetricType` of distribution.
         /// </summary>
         [Output("includePercentiles")]
         public Output<bool?> IncludePercentiles { get; private set; } = null!;
@@ -100,7 +100,7 @@ namespace Pulumi.Datadog
         public Output<string> MetricName { get; private set; } = null!;
 
         /// <summary>
-        /// The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
+        /// The metric's type. This field can't be updated after creation. Valid values are `Gauge`, `Count`, `Rate`, `Distribution`.
         /// </summary>
         [Output("metricType")]
         public Output<string> MetricType { get; private set; } = null!;
@@ -161,7 +161,7 @@ namespace Pulumi.Datadog
         private InputList<Inputs.MetricTagConfigurationAggregationArgs>? _aggregations;
 
         /// <summary>
-        /// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge.
+        /// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `MetricType` of count, rate, or gauge.
         /// </summary>
         public InputList<Inputs.MetricTagConfigurationAggregationArgs> Aggregations
         {
@@ -170,13 +170,13 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// Toggle to include/exclude tags as queryable for your metric. Can only be applied to metrics that have one or more tags configured. Defaults to `false`.
+        /// Toggle to include/exclude tags as queryable for your metric. Can only be applied to metrics that have one or more tags configured. Defaults to `False`.
         /// </summary>
         [Input("excludeTagsMode")]
         public Input<bool>? ExcludeTagsMode { get; set; }
 
         /// <summary>
-        /// Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metric_type` of distribution.
+        /// Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `MetricType` of distribution.
         /// </summary>
         [Input("includePercentiles")]
         public Input<bool>? IncludePercentiles { get; set; }
@@ -188,7 +188,7 @@ namespace Pulumi.Datadog
         public Input<string> MetricName { get; set; } = null!;
 
         /// <summary>
-        /// The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
+        /// The metric's type. This field can't be updated after creation. Valid values are `Gauge`, `Count`, `Rate`, `Distribution`.
         /// </summary>
         [Input("metricType", required: true)]
         public Input<string> MetricType { get; set; } = null!;
@@ -217,7 +217,7 @@ namespace Pulumi.Datadog
         private InputList<Inputs.MetricTagConfigurationAggregationGetArgs>? _aggregations;
 
         /// <summary>
-        /// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge.
+        /// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `MetricType` of count, rate, or gauge.
         /// </summary>
         public InputList<Inputs.MetricTagConfigurationAggregationGetArgs> Aggregations
         {
@@ -226,13 +226,13 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// Toggle to include/exclude tags as queryable for your metric. Can only be applied to metrics that have one or more tags configured. Defaults to `false`.
+        /// Toggle to include/exclude tags as queryable for your metric. Can only be applied to metrics that have one or more tags configured. Defaults to `False`.
         /// </summary>
         [Input("excludeTagsMode")]
         public Input<bool>? ExcludeTagsMode { get; set; }
 
         /// <summary>
-        /// Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metric_type` of distribution.
+        /// Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `MetricType` of distribution.
         /// </summary>
         [Input("includePercentiles")]
         public Input<bool>? IncludePercentiles { get; set; }
@@ -244,7 +244,7 @@ namespace Pulumi.Datadog
         public Input<string>? MetricName { get; set; }
 
         /// <summary>
-        /// The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
+        /// The metric's type. This field can't be updated after creation. Valid values are `Gauge`, `Count`, `Rate`, `Distribution`.
         /// </summary>
         [Input("metricType")]
         public Input<string>? MetricType { get; set; }

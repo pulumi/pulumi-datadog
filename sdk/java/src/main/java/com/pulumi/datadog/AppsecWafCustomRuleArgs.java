@@ -104,14 +104,14 @@ public final class AppsecWafCustomRuleArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Tags associated with the WAF custom rule. `category` and `type` tags are required. Supported categories include `business_logic`, `attack_attempt` and `security_response`.
+     * Tags associated with the WAF custom rule. `category` and `type` tags are required. Supported categories include `businessLogic`, `attackAttempt` and `securityResponse`.
      * 
      */
     @Import(name="tags", required=true)
     private Output<Map<String,String>> tags;
 
     /**
-     * @return Tags associated with the WAF custom rule. `category` and `type` tags are required. Supported categories include `business_logic`, `attack_attempt` and `security_response`.
+     * @return Tags associated with the WAF custom rule. `category` and `type` tags are required. Supported categories include `businessLogic`, `attackAttempt` and `securityResponse`.
      * 
      */
     public Output<Map<String,String>> tags() {
@@ -269,7 +269,7 @@ public final class AppsecWafCustomRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param tags Tags associated with the WAF custom rule. `category` and `type` tags are required. Supported categories include `business_logic`, `attack_attempt` and `security_response`.
+         * @param tags Tags associated with the WAF custom rule. `category` and `type` tags are required. Supported categories include `businessLogic`, `attackAttempt` and `securityResponse`.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class AppsecWafCustomRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param tags Tags associated with the WAF custom rule. `category` and `type` tags are required. Supported categories include `business_logic`, `attack_attempt` and `security_response`.
+         * @param tags Tags associated with the WAF custom rule. `category` and `type` tags are required. Supported categories include `businessLogic`, `attackAttempt` and `securityResponse`.
          * 
          * @return builder
          * 

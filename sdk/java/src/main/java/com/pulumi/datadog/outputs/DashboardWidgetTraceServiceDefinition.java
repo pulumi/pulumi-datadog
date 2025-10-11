@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetTraceServiceDefinition {
     /**
-     * @return The number of columns to display. Valid values are `one_column`, `two_column`, `three_column`.
+     * @return The number of columns to display. Valid values are `oneColumn`, `twoColumn`, `threeColumn`.
      * 
      */
     private @Nullable String displayFormat;
@@ -24,7 +24,7 @@ public final class DashboardWidgetTraceServiceDefinition {
      */
     private String env;
     /**
-     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      * 
      */
     private @Nullable String liveSpan;
@@ -91,7 +91,7 @@ public final class DashboardWidgetTraceServiceDefinition {
 
     private DashboardWidgetTraceServiceDefinition() {}
     /**
-     * @return The number of columns to display. Valid values are `one_column`, `two_column`, `three_column`.
+     * @return The number of columns to display. Valid values are `oneColumn`, `twoColumn`, `threeColumn`.
      * 
      */
     public Optional<String> displayFormat() {
@@ -105,7 +105,7 @@ public final class DashboardWidgetTraceServiceDefinition {
         return this.env;
     }
     /**
-     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      * 
      */
     public Optional<String> liveSpan() {

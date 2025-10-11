@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.DashboardWidgetGeomapDefinitionCustomLinkGetArgs>? _customLinks;
 
         /// <summary>
-        /// A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+        /// A nested block describing a custom link. Multiple `CustomLink` blocks are allowed using the structure below.
         /// </summary>
         public InputList<Inputs.DashboardWidgetGeomapDefinitionCustomLinkGetArgs> CustomLinks
         {
@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
+        /// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `WeekToDate`, `MonthToDate`, `1y`, `Alert`.
         /// </summary>
         [Input("liveSpan")]
         public Input<string>? LiveSpan { get; set; }
@@ -34,7 +34,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.DashboardWidgetGeomapDefinitionRequestGetArgs>? _requests;
 
         /// <summary>
-        /// A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `log_query` or `rum_query` is required within the `request` block).
+        /// A nested block describing the request to use when displaying the widget. Multiple `Request` blocks are allowed using the structure below (exactly one of `Q`, `LogQuery` or `RumQuery` is required within the `Request` block).
         /// </summary>
         public InputList<Inputs.DashboardWidgetGeomapDefinitionRequestGetArgs> Requests
         {
@@ -55,7 +55,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Title { get; set; }
 
         /// <summary>
-        /// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+        /// The alignment of the widget's title. Valid values are `Center`, `Left`, `Right`.
         /// </summary>
         [Input("titleAlign")]
         public Input<string>? TitleAlign { get; set; }

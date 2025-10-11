@@ -13,13 +13,13 @@ namespace Pulumi.Datadog.Inputs
     public sealed class SyntheticsTestApiStepExtractedValueParserGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Type of parser for a Synthetics global variable from a synthetics test. Valid values are `raw`, `json_path`, `regex`, `x_path`.
+        /// Type of parser for a Synthetics global variable from a synthetics test. Valid values are `Raw`, `JsonPath`, `Regex`, `XPath`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Regex or JSON path used for the parser. Not used with type `raw`.
+        /// Regex or JSON path used for the parser. Not used with type `Raw`.
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }

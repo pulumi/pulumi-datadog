@@ -19,37 +19,37 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
     public static final SecurityMonitoringDefaultRuleQueryArgs Empty = new SecurityMonitoringDefaultRuleQueryArgs();
 
     /**
-     * **Deprecated**. It won&#39;t be applied anymore. **Deprecated.** `agent_rule` has been deprecated in favor of new Agent Rule resource.
+     * **Deprecated**. It won&#39;t be applied anymore. **Deprecated.** `agentRule` has been deprecated in favor of new Agent Rule resource.
      * 
      * @deprecated
-     * `agent_rule` has been deprecated in favor of new Agent Rule resource.
+     * `agentRule` has been deprecated in favor of new Agent Rule resource.
      * 
      */
-    @Deprecated /* `agent_rule` has been deprecated in favor of new Agent Rule resource. */
+    @Deprecated /* `agentRule` has been deprecated in favor of new Agent Rule resource. */
     @Import(name="agentRules")
     private @Nullable Output<List<SecurityMonitoringDefaultRuleQueryAgentRuleArgs>> agentRules;
 
     /**
-     * @return **Deprecated**. It won&#39;t be applied anymore. **Deprecated.** `agent_rule` has been deprecated in favor of new Agent Rule resource.
+     * @return **Deprecated**. It won&#39;t be applied anymore. **Deprecated.** `agentRule` has been deprecated in favor of new Agent Rule resource.
      * 
      * @deprecated
-     * `agent_rule` has been deprecated in favor of new Agent Rule resource.
+     * `agentRule` has been deprecated in favor of new Agent Rule resource.
      * 
      */
-    @Deprecated /* `agent_rule` has been deprecated in favor of new Agent Rule resource. */
+    @Deprecated /* `agentRule` has been deprecated in favor of new Agent Rule resource. */
     public Optional<Output<List<SecurityMonitoringDefaultRuleQueryAgentRuleArgs>>> agentRules() {
         return Optional.ofNullable(this.agentRules);
     }
 
     /**
-     * The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`.
+     * The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`.
      * 
      */
     @Import(name="aggregation")
     private @Nullable Output<String> aggregation;
 
     /**
-     * @return The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`.
+     * @return The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`.
      * 
      */
     public Optional<Output<String>> aggregation() {
@@ -72,14 +72,14 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
     }
 
     /**
-     * Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`, `events`.
+     * Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`.
      * 
      */
     @Import(name="dataSource")
     private @Nullable Output<String> dataSource;
 
     /**
-     * @return Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`, `events`.
+     * @return Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`.
      * 
      */
     public Optional<Output<String>> dataSource() {
@@ -132,7 +132,7 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
     }
 
     /**
-     * The target field to aggregate over when using the `sum`, `max`, or `geo_data` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+     * The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
      * 
      * @deprecated
      * Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
@@ -143,7 +143,7 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
     private @Nullable Output<String> metric;
 
     /**
-     * @return The target field to aggregate over when using the `sum`, `max`, or `geo_data` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+     * @return The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
      * 
      * @deprecated
      * Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
@@ -155,14 +155,14 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
     }
 
     /**
-     * Group of target fields to aggregate over when using the `sum`, `max`, `geo_data`, or `new_value` aggregations. The `sum`, `max`, and `geo_data` aggregations only accept one value in this list, whereas the `new_value` aggregation accepts up to five values.
+     * Group of target fields to aggregate over when using the `sum`, `max`, `geoData`, or `newValue` aggregations. The `sum`, `max`, and `geoData` aggregations only accept one value in this list, whereas the `newValue` aggregation accepts up to five values.
      * 
      */
     @Import(name="metrics")
     private @Nullable Output<List<String>> metrics;
 
     /**
-     * @return Group of target fields to aggregate over when using the `sum`, `max`, `geo_data`, or `new_value` aggregations. The `sum`, `max`, and `geo_data` aggregations only accept one value in this list, whereas the `new_value` aggregation accepts up to five values.
+     * @return Group of target fields to aggregate over when using the `sum`, `max`, `geoData`, or `newValue` aggregations. The `sum`, `max`, and `geoData` aggregations only accept one value in this list, whereas the `newValue` aggregation accepts up to five values.
      * 
      */
     public Optional<Output<List<String>>> metrics() {
@@ -170,14 +170,14 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
     }
 
     /**
-     * Name of the query. Not compatible with `new_value` aggregations.
+     * Name of the query. Not compatible with `newValue` aggregations.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the query. Not compatible with `new_value` aggregations.
+     * @return Name of the query. Not compatible with `newValue` aggregations.
      * 
      */
     public Optional<Output<String>> name() {
@@ -234,50 +234,50 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
         }
 
         /**
-         * @param agentRules **Deprecated**. It won&#39;t be applied anymore. **Deprecated.** `agent_rule` has been deprecated in favor of new Agent Rule resource.
+         * @param agentRules **Deprecated**. It won&#39;t be applied anymore. **Deprecated.** `agentRule` has been deprecated in favor of new Agent Rule resource.
          * 
          * @return builder
          * 
          * @deprecated
-         * `agent_rule` has been deprecated in favor of new Agent Rule resource.
+         * `agentRule` has been deprecated in favor of new Agent Rule resource.
          * 
          */
-        @Deprecated /* `agent_rule` has been deprecated in favor of new Agent Rule resource. */
+        @Deprecated /* `agentRule` has been deprecated in favor of new Agent Rule resource. */
         public Builder agentRules(@Nullable Output<List<SecurityMonitoringDefaultRuleQueryAgentRuleArgs>> agentRules) {
             $.agentRules = agentRules;
             return this;
         }
 
         /**
-         * @param agentRules **Deprecated**. It won&#39;t be applied anymore. **Deprecated.** `agent_rule` has been deprecated in favor of new Agent Rule resource.
+         * @param agentRules **Deprecated**. It won&#39;t be applied anymore. **Deprecated.** `agentRule` has been deprecated in favor of new Agent Rule resource.
          * 
          * @return builder
          * 
          * @deprecated
-         * `agent_rule` has been deprecated in favor of new Agent Rule resource.
+         * `agentRule` has been deprecated in favor of new Agent Rule resource.
          * 
          */
-        @Deprecated /* `agent_rule` has been deprecated in favor of new Agent Rule resource. */
+        @Deprecated /* `agentRule` has been deprecated in favor of new Agent Rule resource. */
         public Builder agentRules(List<SecurityMonitoringDefaultRuleQueryAgentRuleArgs> agentRules) {
             return agentRules(Output.of(agentRules));
         }
 
         /**
-         * @param agentRules **Deprecated**. It won&#39;t be applied anymore. **Deprecated.** `agent_rule` has been deprecated in favor of new Agent Rule resource.
+         * @param agentRules **Deprecated**. It won&#39;t be applied anymore. **Deprecated.** `agentRule` has been deprecated in favor of new Agent Rule resource.
          * 
          * @return builder
          * 
          * @deprecated
-         * `agent_rule` has been deprecated in favor of new Agent Rule resource.
+         * `agentRule` has been deprecated in favor of new Agent Rule resource.
          * 
          */
-        @Deprecated /* `agent_rule` has been deprecated in favor of new Agent Rule resource. */
+        @Deprecated /* `agentRule` has been deprecated in favor of new Agent Rule resource. */
         public Builder agentRules(SecurityMonitoringDefaultRuleQueryAgentRuleArgs... agentRules) {
             return agentRules(List.of(agentRules));
         }
 
         /**
-         * @param aggregation The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`.
+         * @param aggregation The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`.
          * 
          * @return builder
          * 
@@ -288,7 +288,7 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
         }
 
         /**
-         * @param aggregation The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`.
+         * @param aggregation The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`.
          * 
          * @return builder
          * 
@@ -319,7 +319,7 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
         }
 
         /**
-         * @param dataSource Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`, `events`.
+         * @param dataSource Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`.
          * 
          * @return builder
          * 
@@ -330,7 +330,7 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
         }
 
         /**
-         * @param dataSource Source of events. Valid values are `logs`, `audit`, `app_sec_spans`, `spans`, `security_runtime`, `network`, `events`.
+         * @param dataSource Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`.
          * 
          * @return builder
          * 
@@ -423,7 +423,7 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
         }
 
         /**
-         * @param metric The target field to aggregate over when using the `sum`, `max`, or `geo_data` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+         * @param metric The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
          * 
          * @return builder
          * 
@@ -438,7 +438,7 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
         }
 
         /**
-         * @param metric The target field to aggregate over when using the `sum`, `max`, or `geo_data` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+         * @param metric The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
          * 
          * @return builder
          * 
@@ -452,7 +452,7 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
         }
 
         /**
-         * @param metrics Group of target fields to aggregate over when using the `sum`, `max`, `geo_data`, or `new_value` aggregations. The `sum`, `max`, and `geo_data` aggregations only accept one value in this list, whereas the `new_value` aggregation accepts up to five values.
+         * @param metrics Group of target fields to aggregate over when using the `sum`, `max`, `geoData`, or `newValue` aggregations. The `sum`, `max`, and `geoData` aggregations only accept one value in this list, whereas the `newValue` aggregation accepts up to five values.
          * 
          * @return builder
          * 
@@ -463,7 +463,7 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
         }
 
         /**
-         * @param metrics Group of target fields to aggregate over when using the `sum`, `max`, `geo_data`, or `new_value` aggregations. The `sum`, `max`, and `geo_data` aggregations only accept one value in this list, whereas the `new_value` aggregation accepts up to five values.
+         * @param metrics Group of target fields to aggregate over when using the `sum`, `max`, `geoData`, or `newValue` aggregations. The `sum`, `max`, and `geoData` aggregations only accept one value in this list, whereas the `newValue` aggregation accepts up to five values.
          * 
          * @return builder
          * 
@@ -473,7 +473,7 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
         }
 
         /**
-         * @param metrics Group of target fields to aggregate over when using the `sum`, `max`, `geo_data`, or `new_value` aggregations. The `sum`, `max`, and `geo_data` aggregations only accept one value in this list, whereas the `new_value` aggregation accepts up to five values.
+         * @param metrics Group of target fields to aggregate over when using the `sum`, `max`, `geoData`, or `newValue` aggregations. The `sum`, `max`, and `geoData` aggregations only accept one value in this list, whereas the `newValue` aggregation accepts up to five values.
          * 
          * @return builder
          * 
@@ -483,7 +483,7 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
         }
 
         /**
-         * @param name Name of the query. Not compatible with `new_value` aggregations.
+         * @param name Name of the query. Not compatible with `newValue` aggregations.
          * 
          * @return builder
          * 
@@ -494,7 +494,7 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
         }
 
         /**
-         * @param name Name of the query. Not compatible with `new_value` aggregations.
+         * @param name Name of the query. Not compatible with `newValue` aggregations.
          * 
          * @return builder
          * 

@@ -14,11 +14,11 @@ namespace Pulumi.Datadog.Outputs
     public sealed class PowerpackWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions
     {
         /// <summary>
-        /// The type of trend line to display. Valid values are `area`, `line`, `bars`.
+        /// The type of trend line to display. Valid values are `Area`, `Line`, `Bars`.
         /// </summary>
         public readonly string? TrendType;
         /// <summary>
-        /// The scale of the y-axis. Valid values are `shared`, `independent`.
+        /// The scale of the y-axis. Valid values are `Shared`, `Independent`.
         /// </summary>
         public readonly string? YScale;
 

@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string AggregationType;
         /// <summary>
-        /// Toggle to include or exclude percentile aggregations for distribution metrics. Only present when the `aggregation_type` is `distribution`.
+        /// Toggle to include or exclude percentile aggregations for distribution metrics. Only present when the `AggregationType` is `Distribution`.
         /// </summary>
         public readonly bool? IncludePercentiles;
         /// <summary>

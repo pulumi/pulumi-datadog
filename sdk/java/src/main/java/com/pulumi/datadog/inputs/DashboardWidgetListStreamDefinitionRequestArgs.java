@@ -48,14 +48,14 @@ public final class DashboardWidgetListStreamDefinitionRequestArgs extends com.pu
     }
 
     /**
-     * Widget response format. Valid values are `event_list`.
+     * Widget response format. Valid values are `eventList`.
      * 
      */
     @Import(name="responseFormat", required=true)
     private Output<String> responseFormat;
 
     /**
-     * @return Widget response format. Valid values are `event_list`.
+     * @return Widget response format. Valid values are `eventList`.
      * 
      */
     public Output<String> responseFormat() {
@@ -141,7 +141,7 @@ public final class DashboardWidgetListStreamDefinitionRequestArgs extends com.pu
         }
 
         /**
-         * @param responseFormat Widget response format. Valid values are `event_list`.
+         * @param responseFormat Widget response format. Valid values are `eventList`.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class DashboardWidgetListStreamDefinitionRequestArgs extends com.pu
         }
 
         /**
-         * @param responseFormat Widget response format. Valid values are `event_list`.
+         * @param responseFormat Widget response format. Valid values are `eventList`.
          * 
          * @return builder
          * 

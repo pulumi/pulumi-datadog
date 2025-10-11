@@ -13,13 +13,13 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetTimeseriesDefinitionRequestStyleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The type of lines displayed. Valid values are `dashed`, `dotted`, `solid`.
+        /// The type of lines displayed. Valid values are `Dashed`, `Dotted`, `Solid`.
         /// </summary>
         [Input("lineType")]
         public Input<string>? LineType { get; set; }
 
         /// <summary>
-        /// The width of line displayed. Valid values are `normal`, `thick`, `thin`.
+        /// The width of line displayed. Valid values are `Normal`, `Thick`, `Thin`.
         /// </summary>
         [Input("lineWidth")]
         public Input<string>? LineWidth { get; set; }

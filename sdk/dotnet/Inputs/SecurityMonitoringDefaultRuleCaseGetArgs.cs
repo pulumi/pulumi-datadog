@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class SecurityMonitoringDefaultRuleCaseGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Status of the rule case to override. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+        /// Status of the rule case to override. Valid values are `Info`, `Low`, `Medium`, `High`, `Critical`.
         /// </summary>
         [Input("customStatus")]
         public Input<string>? CustomStatus { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// Status of the rule case to match. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+        /// Status of the rule case to match. Valid values are `Info`, `Low`, `Medium`, `High`, `Critical`.
         /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;

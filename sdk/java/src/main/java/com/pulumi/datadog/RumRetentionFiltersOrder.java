@@ -15,7 +15,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
- * Provides a Datadog RumRetentionFiltersOrder resource. This is used to manage the order of Datadog RUM retention filters. Please note that retention_filter_ids should contain all IDs of retention filters, including the default ones created internally for a given RUM application.
+ * Provides a Datadog RumRetentionFiltersOrder resource. This is used to manage the order of Datadog RUM retention filters. Please note that retentionFilterIds should contain all IDs of retention filters, including the default ones created internally for a given RUM application.
  * 
  * ## Import
  * 

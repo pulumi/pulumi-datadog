@@ -14,16 +14,16 @@ namespace Pulumi.Datadog.Outputs
     public sealed class SyntheticsGlobalVariableParseTestOptions
     {
         /// <summary>
-        /// Required when type = `http_header`. Defines the header to use to extract the value
+        /// Required when type = `HttpHeader`. Defines the header to use to extract the value
         /// </summary>
         public readonly string? Field;
         /// <summary>
-        /// When type is `local_variable`, name of the local variable to use to extract the value.
+        /// When type is `LocalVariable`, name of the local variable to use to extract the value.
         /// </summary>
         public readonly string? LocalVariableName;
         public readonly Outputs.SyntheticsGlobalVariableParseTestOptionsParser? Parser;
         /// <summary>
-        /// Defines the source to use to extract the value. Valid values are `http_body`, `http_header`, `http_status_code`, `local_variable`.
+        /// Defines the source to use to extract the value. Valid values are `HttpBody`, `HttpHeader`, `HttpStatusCode`, `LocalVariable`.
         /// </summary>
         public readonly string Type;
 

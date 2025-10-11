@@ -154,7 +154,7 @@ namespace Pulumi.Datadog
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// A brief summary of the team, derived from the `description`.
+        /// A brief summary of the team, derived from the `Description`.
         /// </summary>
         public readonly string Summary;
         /// <summary>

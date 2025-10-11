@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog
 {
     /// <summary>
-    /// Resource for interacting with the logs_metric API
+    /// Resource for interacting with the LogsMetric API
     /// 
     /// ## Example Usage
     /// 

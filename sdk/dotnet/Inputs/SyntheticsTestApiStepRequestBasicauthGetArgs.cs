@@ -63,7 +63,7 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// Domain for `ntlm` authentication.
+        /// Domain for `Ntlm` authentication.
         /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }
@@ -131,7 +131,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? SessionToken { get; set; }
 
         /// <summary>
-        /// Token API Authentication for `oauth-client` or `oauth-rop` authentication. Valid values are `header`, `body`.
+        /// Token API Authentication for `oauth-client` or `oauth-rop` authentication. Valid values are `Header`, `Body`.
         /// </summary>
         [Input("tokenApiAuthentication")]
         public Input<string>? TokenApiAuthentication { get; set; }
@@ -149,7 +149,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Username { get; set; }
 
         /// <summary>
-        /// Workstation for `ntlm` authentication.
+        /// Workstation for `Ntlm` authentication.
         /// </summary>
         [Input("workstation")]
         public Input<string>? Workstation { get; set; }

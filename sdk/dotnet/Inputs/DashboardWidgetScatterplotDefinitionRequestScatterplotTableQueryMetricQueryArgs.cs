@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQueryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        /// The aggregation methods available for metrics queries. Valid values are `Avg`, `Min`, `Max`, `Sum`, `Last`, `Area`, `L2norm`, `Percentile`.
         /// </summary>
         [Input("aggregator")]
         public Input<string>? Aggregator { get; set; }

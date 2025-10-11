@@ -32,14 +32,14 @@ public final class ObservabilityPipelineConfigProcessorsEnrichmentTableFileEncod
     }
 
     /**
-     * The `encoding` `includes_headers`.
+     * The `encoding` `includesHeaders`.
      * 
      */
     @Import(name="includesHeaders")
     private @Nullable Output<Boolean> includesHeaders;
 
     /**
-     * @return The `encoding` `includes_headers`.
+     * @return The `encoding` `includesHeaders`.
      * 
      */
     public Optional<Output<Boolean>> includesHeaders() {
@@ -109,7 +109,7 @@ public final class ObservabilityPipelineConfigProcessorsEnrichmentTableFileEncod
         }
 
         /**
-         * @param includesHeaders The `encoding` `includes_headers`.
+         * @param includesHeaders The `encoding` `includesHeaders`.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class ObservabilityPipelineConfigProcessorsEnrichmentTableFileEncod
         }
 
         /**
-         * @param includesHeaders The `encoding` `includes_headers`.
+         * @param includesHeaders The `encoding` `includesHeaders`.
          * 
          * @return builder
          * 

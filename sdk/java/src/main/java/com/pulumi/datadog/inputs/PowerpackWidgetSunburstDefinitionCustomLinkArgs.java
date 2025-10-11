@@ -62,14 +62,14 @@ public final class PowerpackWidgetSunburstDefinitionCustomLinkArgs extends com.p
     }
 
     /**
-     * The label ID that refers to a context menu link item. When `override_label` is provided, the client request omits the label field.
+     * The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
      * 
      */
     @Import(name="overrideLabel")
     private @Nullable Output<String> overrideLabel;
 
     /**
-     * @return The label ID that refers to a context menu link item. When `override_label` is provided, the client request omits the label field.
+     * @return The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
      * 
      */
     public Optional<Output<String>> overrideLabel() {
@@ -167,7 +167,7 @@ public final class PowerpackWidgetSunburstDefinitionCustomLinkArgs extends com.p
         }
 
         /**
-         * @param overrideLabel The label ID that refers to a context menu link item. When `override_label` is provided, the client request omits the label field.
+         * @param overrideLabel The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class PowerpackWidgetSunburstDefinitionCustomLinkArgs extends com.p
         }
 
         /**
-         * @param overrideLabel The label ID that refers to a context menu link item. When `override_label` is provided, the client request omits the label field.
+         * @param overrideLabel The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
          * 
          * @return builder
          * 

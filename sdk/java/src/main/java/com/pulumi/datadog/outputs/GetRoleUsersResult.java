@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetRoleUsersResult {
     /**
-     * @return When true, `filter_keyword` string is exact matched against the user&#39;s `name`.
+     * @return When true, `filterKeyword` string is exact matched against the user&#39;s `name`.
      * 
      */
     private @Nullable Boolean exactMatch;
@@ -43,7 +43,7 @@ public final class GetRoleUsersResult {
 
     private GetRoleUsersResult() {}
     /**
-     * @return When true, `filter_keyword` string is exact matched against the user&#39;s `name`.
+     * @return When true, `filterKeyword` string is exact matched against the user&#39;s `name`.
      * 
      */
     public Optional<Boolean> exactMatch() {

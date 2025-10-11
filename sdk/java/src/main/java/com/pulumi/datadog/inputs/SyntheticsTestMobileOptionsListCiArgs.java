@@ -15,14 +15,14 @@ public final class SyntheticsTestMobileOptionsListCiArgs extends com.pulumi.reso
     public static final SyntheticsTestMobileOptionsListCiArgs Empty = new SyntheticsTestMobileOptionsListCiArgs();
 
     /**
-     * Execution rule for a Synthetics test. Valid values are `blocking`, `non_blocking`, `skipped`.
+     * Execution rule for a Synthetics test. Valid values are `blocking`, `nonBlocking`, `skipped`.
      * 
      */
     @Import(name="executionRule", required=true)
     private Output<String> executionRule;
 
     /**
-     * @return Execution rule for a Synthetics test. Valid values are `blocking`, `non_blocking`, `skipped`.
+     * @return Execution rule for a Synthetics test. Valid values are `blocking`, `nonBlocking`, `skipped`.
      * 
      */
     public Output<String> executionRule() {
@@ -54,7 +54,7 @@ public final class SyntheticsTestMobileOptionsListCiArgs extends com.pulumi.reso
         }
 
         /**
-         * @param executionRule Execution rule for a Synthetics test. Valid values are `blocking`, `non_blocking`, `skipped`.
+         * @param executionRule Execution rule for a Synthetics test. Valid values are `blocking`, `nonBlocking`, `skipped`.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class SyntheticsTestMobileOptionsListCiArgs extends com.pulumi.reso
         }
 
         /**
-         * @param executionRule Execution rule for a Synthetics test. Valid values are `blocking`, `non_blocking`, `skipped`.
+         * @param executionRule Execution rule for a Synthetics test. Valid values are `blocking`, `nonBlocking`, `skipped`.
          * 
          * @return builder
          * 

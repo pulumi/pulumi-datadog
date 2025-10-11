@@ -55,7 +55,7 @@ public final class SyntheticsTestApiStep {
      */
     private @Nullable String id;
     /**
-     * @return Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
+     * @return Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allowFailure` is `true`.
      * 
      */
     private @Nullable Boolean isCritical;
@@ -160,7 +160,7 @@ public final class SyntheticsTestApiStep {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
+     * @return Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allowFailure` is `true`.
      * 
      */
     public Optional<Boolean> isCritical() {

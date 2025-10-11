@@ -63,14 +63,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="datadog:index/teamPermissionSetting:TeamPermissionSetting")
 public class TeamPermissionSetting extends com.pulumi.resources.CustomResource {
     /**
-     * The identifier for the action. Valid values are `manage_membership`, `edit`.
+     * The identifier for the action. Valid values are `manageMembership`, `edit`.
      * 
      */
     @Export(name="action", refs={String.class}, tree="[0]")
     private Output<String> action;
 
     /**
-     * @return The identifier for the action. Valid values are `manage_membership`, `edit`.
+     * @return The identifier for the action. Valid values are `manageMembership`, `edit`.
      * 
      */
     public Output<String> action() {
@@ -91,14 +91,14 @@ public class TeamPermissionSetting extends com.pulumi.resources.CustomResource {
         return this.teamId;
     }
     /**
-     * The action value. Valid values are dependent on the action. `manage_membership` action allows `admins`, `members`, `organization`, `user_access_manage` values. `edit` action allows `admins`, `members`, `teams_manage` values.
+     * The action value. Valid values are dependent on the action. `manageMembership` action allows `admins`, `members`, `organization`, `userAccessManage` values. `edit` action allows `admins`, `members`, `teamsManage` values.
      * 
      */
     @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
     /**
-     * @return The action value. Valid values are dependent on the action. `manage_membership` action allows `admins`, `members`, `organization`, `user_access_manage` values. `edit` action allows `admins`, `members`, `teams_manage` values.
+     * @return The action value. Valid values are dependent on the action. `manageMembership` action allows `admins`, `members`, `organization`, `userAccessManage` values. `edit` action allows `admins`, `members`, `teamsManage` values.
      * 
      */
     public Output<String> value() {

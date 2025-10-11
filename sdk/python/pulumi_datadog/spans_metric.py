@@ -151,6 +151,8 @@ class SpansMetric(pulumi.CustomResource):
         """
         Provides a Datadog SpansMetric resource. This can be used to create and manage Datadog spans_metric.
 
+        ## Example Usage
+
         ## Import
 
         The `pulumi import` command can be used, for example:
@@ -171,6 +173,8 @@ class SpansMetric(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog SpansMetric resource. This can be used to create and manage Datadog spans_metric.
+
+        ## Example Usage
 
         ## Import
 

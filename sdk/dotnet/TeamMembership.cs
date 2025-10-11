@@ -59,7 +59,7 @@ namespace Pulumi.Datadog
     public partial class TeamMembership : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The user's role within the team. Valid values are `admin`.
+        /// The user's role within the team. Valid values are `Admin`.
         /// </summary>
         [Output("role")]
         public Output<string?> Role { get; private set; } = null!;
@@ -123,7 +123,7 @@ namespace Pulumi.Datadog
     public sealed class TeamMembershipArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The user's role within the team. Valid values are `admin`.
+        /// The user's role within the team. Valid values are `Admin`.
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }
@@ -149,7 +149,7 @@ namespace Pulumi.Datadog
     public sealed class TeamMembershipState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The user's role within the team. Valid values are `admin`.
+        /// The user's role within the team. Valid values are `Admin`.
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }

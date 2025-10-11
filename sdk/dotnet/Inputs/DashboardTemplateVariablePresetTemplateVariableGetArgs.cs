@@ -19,7 +19,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+        /// The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `Values`. **Deprecated.** Use `Values` instead.
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
@@ -28,7 +28,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<string>? _values;
 
         /// <summary>
-        /// One or many template variable values within the saved view, which will be unioned together using `OR` if more than one is specified. Cannot be used in conjunction with `value`.
+        /// One or many template variable values within the saved view, which will be unioned together using `OR` if more than one is specified. Cannot be used in conjunction with `Value`.
         /// </summary>
         public InputList<string> Values
         {

@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Example { get; set; }
 
         /// <summary>
-        /// When type = `global`, ID of the global variable to use.
+        /// When type = `Global`, ID of the global variable to use.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -31,13 +31,13 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Pattern { get; set; }
 
         /// <summary>
-        /// Whether the value of this variable will be obfuscated in test results. Defaults to `false`.
+        /// Whether the value of this variable will be obfuscated in test results. Defaults to `False`.
         /// </summary>
         [Input("secure")]
         public Input<bool>? Secure { get; set; }
 
         /// <summary>
-        /// Type of test configuration variable. Valid values are `global`, `text`, `email`.
+        /// Type of test configuration variable. Valid values are `Global`, `Text`, `Email`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

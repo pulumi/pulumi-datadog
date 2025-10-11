@@ -78,14 +78,14 @@ public final class AppsecWafCustomRuleConditionParametersArgs extends com.pulumi
     }
 
     /**
-     * Store the captured value in the specified tag name. Only used with the capture_data operator.
+     * Store the captured value in the specified tag name. Only used with the captureData operator.
      * 
      */
     @Import(name="value")
     private @Nullable Output<String> value;
 
     /**
-     * @return Store the captured value in the specified tag name. Only used with the capture_data operator.
+     * @return Store the captured value in the specified tag name. Only used with the captureData operator.
      * 
      */
     public Optional<Output<String>> value() {
@@ -217,7 +217,7 @@ public final class AppsecWafCustomRuleConditionParametersArgs extends com.pulumi
         }
 
         /**
-         * @param value Store the captured value in the specified tag name. Only used with the capture_data operator.
+         * @param value Store the captured value in the specified tag name. Only used with the captureData operator.
          * 
          * @return builder
          * 
@@ -228,7 +228,7 @@ public final class AppsecWafCustomRuleConditionParametersArgs extends com.pulumi
         }
 
         /**
-         * @param value Store the captured value in the specified tag name. Only used with the capture_data operator.
+         * @param value Store the captured value in the specified tag name. Only used with the captureData operator.
          * 
          * @return builder
          * 

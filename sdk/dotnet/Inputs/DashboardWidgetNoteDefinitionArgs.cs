@@ -31,7 +31,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? FontSize { get; set; }
 
         /// <summary>
-        /// Whether to add padding or not. Defaults to `true`.
+        /// Whether to add padding or not. Defaults to `True`.
         /// </summary>
         [Input("hasPadding")]
         public Input<bool>? HasPadding { get; set; }
@@ -43,25 +43,25 @@ namespace Pulumi.Datadog.Inputs
         public Input<bool>? ShowTick { get; set; }
 
         /// <summary>
-        /// The alignment of the widget's text. Valid values are `center`, `left`, `right`.
+        /// The alignment of the widget's text. Valid values are `Center`, `Left`, `Right`.
         /// </summary>
         [Input("textAlign")]
         public Input<string>? TextAlign { get; set; }
 
         /// <summary>
-        /// When `tick = true`, a string indicating on which side of the widget the tick should be displayed. Valid values are `bottom`, `left`, `right`, `top`.
+        /// When `tick = true`, a string indicating on which side of the widget the tick should be displayed. Valid values are `Bottom`, `Left`, `Right`, `Top`.
         /// </summary>
         [Input("tickEdge")]
         public Input<string>? TickEdge { get; set; }
 
         /// <summary>
-        /// When `tick = true`, a string with a percent sign indicating the position of the tick, for example: `tick_pos = "50%"` is centered alignment.
+        /// When `tick = true`, a string with a percent sign indicating the position of the tick, for example: `TickPos = "50%"` is centered alignment.
         /// </summary>
         [Input("tickPos")]
         public Input<string>? TickPos { get; set; }
 
         /// <summary>
-        /// The vertical alignment for the widget. Valid values are `center`, `top`, `bottom`.
+        /// The vertical alignment for the widget. Valid values are `Center`, `Top`, `Bottom`.
         /// </summary>
         [Input("verticalAlign")]
         public Input<string>? VerticalAlign { get; set; }

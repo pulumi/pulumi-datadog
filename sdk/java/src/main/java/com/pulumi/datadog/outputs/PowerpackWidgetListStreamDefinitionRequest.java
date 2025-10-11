@@ -24,7 +24,7 @@ public final class PowerpackWidgetListStreamDefinitionRequest {
      */
     private PowerpackWidgetListStreamDefinitionRequestQuery query;
     /**
-     * @return Widget response format. Valid values are `event_list`.
+     * @return Widget response format. Valid values are `eventList`.
      * 
      */
     private String responseFormat;
@@ -45,7 +45,7 @@ public final class PowerpackWidgetListStreamDefinitionRequest {
         return this.query;
     }
     /**
-     * @return Widget response format. Valid values are `event_list`.
+     * @return Widget response format. Valid values are `eventList`.
      * 
      */
     public String responseFormat() {

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog
 {
     /// <summary>
-    /// Provides a Datadog metric_metadata resource. This can be used to manage a metric's metadata.
+    /// Provides a Datadog MetricMetadata resource. This can be used to manage a metric's metadata.
     /// 
     /// ## Example Usage
     /// 
@@ -59,7 +59,7 @@ namespace Pulumi.Datadog
         public Output<string> Metric { get; private set; } = null!;
 
         /// <summary>
-        /// Per unit of the metric such as `second` in `bytes per second`.
+        /// Per unit of the metric such as `Second` in `bytes per second`.
         /// </summary>
         [Output("perUnit")]
         public Output<string?> PerUnit { get; private set; } = null!;
@@ -77,13 +77,13 @@ namespace Pulumi.Datadog
         public Output<int?> StatsdInterval { get; private set; } = null!;
 
         /// <summary>
-        /// Metric type such as `count`, `gauge`, or `rate`. Updating a metric of type `distribution` is not supported. If you would like to see the `distribution` type returned, contact [Datadog support](https://docs.datadoghq.com/help/).
+        /// Metric type such as `Count`, `Gauge`, or `Rate`. Updating a metric of type `Distribution` is not supported. If you would like to see the `Distribution` type returned, contact [Datadog support](https://docs.datadoghq.com/help/).
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
 
         /// <summary>
-        /// Primary unit of the metric such as `byte` or `operation`.
+        /// Primary unit of the metric such as `Byte` or `Operation`.
         /// </summary>
         [Output("unit")]
         public Output<string?> Unit { get; private set; } = null!;
@@ -147,7 +147,7 @@ namespace Pulumi.Datadog
         public Input<string> Metric { get; set; } = null!;
 
         /// <summary>
-        /// Per unit of the metric such as `second` in `bytes per second`.
+        /// Per unit of the metric such as `Second` in `bytes per second`.
         /// </summary>
         [Input("perUnit")]
         public Input<string>? PerUnit { get; set; }
@@ -165,13 +165,13 @@ namespace Pulumi.Datadog
         public Input<int>? StatsdInterval { get; set; }
 
         /// <summary>
-        /// Metric type such as `count`, `gauge`, or `rate`. Updating a metric of type `distribution` is not supported. If you would like to see the `distribution` type returned, contact [Datadog support](https://docs.datadoghq.com/help/).
+        /// Metric type such as `Count`, `Gauge`, or `Rate`. Updating a metric of type `Distribution` is not supported. If you would like to see the `Distribution` type returned, contact [Datadog support](https://docs.datadoghq.com/help/).
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// Primary unit of the metric such as `byte` or `operation`.
+        /// Primary unit of the metric such as `Byte` or `Operation`.
         /// </summary>
         [Input("unit")]
         public Input<string>? Unit { get; set; }
@@ -197,7 +197,7 @@ namespace Pulumi.Datadog
         public Input<string>? Metric { get; set; }
 
         /// <summary>
-        /// Per unit of the metric such as `second` in `bytes per second`.
+        /// Per unit of the metric such as `Second` in `bytes per second`.
         /// </summary>
         [Input("perUnit")]
         public Input<string>? PerUnit { get; set; }
@@ -215,13 +215,13 @@ namespace Pulumi.Datadog
         public Input<int>? StatsdInterval { get; set; }
 
         /// <summary>
-        /// Metric type such as `count`, `gauge`, or `rate`. Updating a metric of type `distribution` is not supported. If you would like to see the `distribution` type returned, contact [Datadog support](https://docs.datadoghq.com/help/).
+        /// Metric type such as `Count`, `Gauge`, or `Rate`. Updating a metric of type `Distribution` is not supported. If you would like to see the `Distribution` type returned, contact [Datadog support](https://docs.datadoghq.com/help/).
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// Primary unit of the metric such as `byte` or `operation`.
+        /// Primary unit of the metric such as `Byte` or `Operation`.
         /// </summary>
         [Input("unit")]
         public Input<string>? Unit { get; set; }

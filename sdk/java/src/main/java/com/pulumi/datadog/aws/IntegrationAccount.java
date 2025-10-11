@@ -48,14 +48,14 @@ public class IntegrationAccount extends com.pulumi.resources.CustomResource {
         return this.accountTags;
     }
     /**
-     * Configure how Datadog authenticates to your AWS account. Either `aws_auth_config_keys` or `aws_auth_config_role` block is required within.
+     * Configure how Datadog authenticates to your AWS account. Either `awsAuthConfigKeys` or `awsAuthConfigRole` block is required within.
      * 
      */
     @Export(name="authConfig", refs={IntegrationAccountAuthConfig.class}, tree="[0]")
     private Output</* @Nullable */ IntegrationAccountAuthConfig> authConfig;
 
     /**
-     * @return Configure how Datadog authenticates to your AWS account. Either `aws_auth_config_keys` or `aws_auth_config_role` block is required within.
+     * @return Configure how Datadog authenticates to your AWS account. Either `awsAuthConfigKeys` or `awsAuthConfigRole` block is required within.
      * 
      */
     public Output<Optional<IntegrationAccountAuthConfig>> authConfig() {
@@ -90,42 +90,42 @@ public class IntegrationAccount extends com.pulumi.resources.CustomResource {
         return this.awsPartition;
     }
     /**
-     * AWS regions to collect data from. Defaults to `include_all` if block is empty.
+     * AWS regions to collect data from. Defaults to `includeAll` if block is empty.
      * 
      */
     @Export(name="awsRegions", refs={IntegrationAccountAwsRegions.class}, tree="[0]")
     private Output</* @Nullable */ IntegrationAccountAwsRegions> awsRegions;
 
     /**
-     * @return AWS regions to collect data from. Defaults to `include_all` if block is empty.
+     * @return AWS regions to collect data from. Defaults to `includeAll` if block is empty.
      * 
      */
     public Output<Optional<IntegrationAccountAwsRegions>> awsRegions() {
         return Codegen.optional(this.awsRegions);
     }
     /**
-     * Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_forwarder` block is required within, but may be empty to use defaults.
+     * Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambdaForwarder` block is required within, but may be empty to use defaults.
      * 
      */
     @Export(name="logsConfig", refs={IntegrationAccountLogsConfig.class}, tree="[0]")
     private Output</* @Nullable */ IntegrationAccountLogsConfig> logsConfig;
 
     /**
-     * @return Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_forwarder` block is required within, but may be empty to use defaults.
+     * @return Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambdaForwarder` block is required within, but may be empty to use defaults.
      * 
      */
     public Output<Optional<IntegrationAccountLogsConfig>> logsConfig() {
         return Codegen.optional(this.logsConfig);
     }
     /**
-     * Configure metrics collection from AWS CloudWatch. The `namespace_filters` block is required within, but may be empty to use defaults.
+     * Configure metrics collection from AWS CloudWatch. The `namespaceFilters` block is required within, but may be empty to use defaults.
      * 
      */
     @Export(name="metricsConfig", refs={IntegrationAccountMetricsConfig.class}, tree="[0]")
     private Output</* @Nullable */ IntegrationAccountMetricsConfig> metricsConfig;
 
     /**
-     * @return Configure metrics collection from AWS CloudWatch. The `namespace_filters` block is required within, but may be empty to use defaults.
+     * @return Configure metrics collection from AWS CloudWatch. The `namespaceFilters` block is required within, but may be empty to use defaults.
      * 
      */
     public Output<Optional<IntegrationAccountMetricsConfig>> metricsConfig() {
@@ -146,14 +146,14 @@ public class IntegrationAccount extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.resourcesConfig);
     }
     /**
-     * AWS traces collection config. The `xray_services` block is required within, but may be empty to use defaults.
+     * AWS traces collection config. The `xrayServices` block is required within, but may be empty to use defaults.
      * 
      */
     @Export(name="tracesConfig", refs={IntegrationAccountTracesConfig.class}, tree="[0]")
     private Output</* @Nullable */ IntegrationAccountTracesConfig> tracesConfig;
 
     /**
-     * @return AWS traces collection config. The `xray_services` block is required within, but may be empty to use defaults.
+     * @return AWS traces collection config. The `xrayServices` block is required within, but may be empty to use defaults.
      * 
      */
     public Output<Optional<IntegrationAccountTracesConfig>> tracesConfig() {

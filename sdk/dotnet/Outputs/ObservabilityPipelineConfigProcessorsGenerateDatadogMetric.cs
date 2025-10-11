@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Include;
         /// <summary>
-        /// A list of component IDs whose output is used as the `input` for this processor.
+        /// A list of component IDs whose output is used as the `Input` for this processor.
         /// </summary>
         public readonly ImmutableArray<string> Inputs;
         /// <summary>

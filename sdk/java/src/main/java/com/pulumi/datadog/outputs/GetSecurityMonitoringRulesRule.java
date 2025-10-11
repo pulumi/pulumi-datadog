@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetSecurityMonitoringRulesRule {
     /**
-     * @return One or more calculated fields. Available only for scheduled rules (in other words, when `scheduling_options` is defined).
+     * @return One or more calculated fields. Available only for scheduled rules (in other words, when `schedulingOptions` is defined).
      * 
      */
     private @Nullable List<GetSecurityMonitoringRulesRuleCalculatedField> calculatedFields;
@@ -106,7 +106,7 @@ public final class GetSecurityMonitoringRulesRule {
 
     private GetSecurityMonitoringRulesRule() {}
     /**
-     * @return One or more calculated fields. Available only for scheduled rules (in other words, when `scheduling_options` is defined).
+     * @return One or more calculated fields. Available only for scheduled rules (in other words, when `schedulingOptions` is defined).
      * 
      */
     public List<GetSecurityMonitoringRulesRuleCalculatedField> calculatedFields() {

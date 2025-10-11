@@ -14,15 +14,15 @@ namespace Pulumi.Datadog.Outputs
     public sealed class AwsCurConfigAccountFilters
     {
         /// <summary>
-        /// List of AWS account IDs to exclude from cost analysis. Only used when `include_new_accounts` is `true`. Cannot be used together with `included_accounts`.
+        /// List of AWS account IDs to exclude from cost analysis. Only used when `IncludeNewAccounts` is `True`. Cannot be used together with `IncludedAccounts`.
         /// </summary>
         public readonly ImmutableArray<string> ExcludedAccounts;
         /// <summary>
-        /// Whether to automatically include new member accounts in your cost analysis. When `true`, use `excluded_accounts` to specify accounts to exclude. When `false`, use `included_accounts` to specify only the accounts to include.
+        /// Whether to automatically include new member accounts in your cost analysis. When `True`, use `ExcludedAccounts` to specify accounts to exclude. When `False`, use `IncludedAccounts` to specify only the accounts to include.
         /// </summary>
         public readonly bool? IncludeNewAccounts;
         /// <summary>
-        /// List of AWS account IDs to include in cost analysis. Only used when `include_new_accounts` is `false`. Cannot be used together with `excluded_accounts`.
+        /// List of AWS account IDs to include in cost analysis. Only used when `IncludeNewAccounts` is `False`. Cannot be used together with `ExcludedAccounts`.
         /// </summary>
         public readonly ImmutableArray<string> IncludedAccounts;
 

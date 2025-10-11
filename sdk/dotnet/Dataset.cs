@@ -76,7 +76,7 @@ namespace Pulumi.Datadog
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `team`.
+        /// An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `Role` and `Team`.
         /// </summary>
         [Output("principals")]
         public Output<ImmutableArray<string>> Principals { get; private set; } = null!;
@@ -140,7 +140,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _principals;
 
         /// <summary>
-        /// An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `team`.
+        /// An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `Role` and `Team`.
         /// </summary>
         public InputList<string> Principals
         {
@@ -186,7 +186,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _principals;
 
         /// <summary>
-        /// An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `team`.
+        /// An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `Role` and `Team`.
         /// </summary>
         public InputList<string> Principals
         {

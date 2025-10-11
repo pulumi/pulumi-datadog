@@ -64,14 +64,14 @@ public final class DashboardWidgetQueryTableDefinitionRequestTextFormatTextForma
     }
 
     /**
-     * The color palette to apply. Valid values are `white_on_red`, `white_on_yellow`, `white_on_green`, `black_on_light_red`, `black_on_light_yellow`, `black_on_light_green`, `red_on_white`, `yellow_on_white`, `green_on_white`, `custom_bg`, `custom_text`.
+     * The color palette to apply. Valid values are `whiteOnRed`, `whiteOnYellow`, `whiteOnGreen`, `blackOnLightRed`, `blackOnLightYellow`, `blackOnLightGreen`, `redOnWhite`, `yellowOnWhite`, `greenOnWhite`, `customBg`, `customText`.
      * 
      */
     @Import(name="palette")
     private @Nullable Output<String> palette;
 
     /**
-     * @return The color palette to apply. Valid values are `white_on_red`, `white_on_yellow`, `white_on_green`, `black_on_light_red`, `black_on_light_yellow`, `black_on_light_green`, `red_on_white`, `yellow_on_white`, `green_on_white`, `custom_bg`, `custom_text`.
+     * @return The color palette to apply. Valid values are `whiteOnRed`, `whiteOnYellow`, `whiteOnGreen`, `blackOnLightRed`, `blackOnLightYellow`, `blackOnLightGreen`, `redOnWhite`, `yellowOnWhite`, `greenOnWhite`, `customBg`, `customText`.
      * 
      */
     public Optional<Output<String>> palette() {
@@ -185,7 +185,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestTextFormatTextForma
         }
 
         /**
-         * @param palette The color palette to apply. Valid values are `white_on_red`, `white_on_yellow`, `white_on_green`, `black_on_light_red`, `black_on_light_yellow`, `black_on_light_green`, `red_on_white`, `yellow_on_white`, `green_on_white`, `custom_bg`, `custom_text`.
+         * @param palette The color palette to apply. Valid values are `whiteOnRed`, `whiteOnYellow`, `whiteOnGreen`, `blackOnLightRed`, `blackOnLightYellow`, `blackOnLightGreen`, `redOnWhite`, `yellowOnWhite`, `greenOnWhite`, `customBg`, `customText`.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestTextFormatTextForma
         }
 
         /**
-         * @param palette The color palette to apply. Valid values are `white_on_red`, `white_on_yellow`, `white_on_green`, `black_on_light_red`, `black_on_light_yellow`, `black_on_light_green`, `red_on_white`, `yellow_on_white`, `green_on_white`, `custom_bg`, `custom_text`.
+         * @param palette The color palette to apply. Valid values are `whiteOnRed`, `whiteOnYellow`, `whiteOnGreen`, `blackOnLightRed`, `blackOnLightYellow`, `blackOnLightGreen`, `redOnWhite`, `yellowOnWhite`, `greenOnWhite`, `customBg`, `customText`.
          * 
          * @return builder
          * 

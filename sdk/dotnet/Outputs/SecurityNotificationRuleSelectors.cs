@@ -26,7 +26,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Severities;
         /// <summary>
-        /// The type of security issues the rule applies to. Use `security_signals` for rules based on security signals and `security_findings` for those based on vulnerabilities.
+        /// The type of security issues the rule applies to. Use `SecuritySignals` for rules based on security signals and `SecurityFindings` for those based on vulnerabilities.
         /// </summary>
         public readonly string TriggerSource;
 

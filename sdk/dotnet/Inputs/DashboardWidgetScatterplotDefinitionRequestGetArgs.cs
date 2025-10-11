@@ -28,7 +28,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.DashboardWidgetScatterplotDefinitionRequestXGetArgs>? _xes;
 
         /// <summary>
-        /// The query used for the X-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
+        /// The query used for the X-Axis. Exactly one nested block is allowed using the structure below (exactly one of `Q`, `ApmQuery`, `LogQuery`, `RumQuery`, `SecurityQuery`, `ApmStatsQuery` or `ProcessQuery` is required within the block).
         /// </summary>
         public InputList<Inputs.DashboardWidgetScatterplotDefinitionRequestXGetArgs> Xes
         {
@@ -40,7 +40,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.DashboardWidgetScatterplotDefinitionRequestYGetArgs>? _ys;
 
         /// <summary>
-        /// The query used for the Y-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
+        /// The query used for the Y-Axis. Exactly one nested block is allowed using the structure below (exactly one of `Q`, `ApmQuery`, `LogQuery`, `RumQuery`, `SecurityQuery`, `ApmStatsQuery` or `ProcessQuery` is required within the block).
         /// </summary>
         public InputList<Inputs.DashboardWidgetScatterplotDefinitionRequestYGetArgs> Ys
         {

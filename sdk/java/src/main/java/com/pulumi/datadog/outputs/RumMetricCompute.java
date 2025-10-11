@@ -19,12 +19,12 @@ public final class RumMetricCompute {
      */
     private String aggregationType;
     /**
-     * @return Toggle to include or exclude percentile aggregations for distribution metrics. Only present when `aggregation_type` is `distribution`.
+     * @return Toggle to include or exclude percentile aggregations for distribution metrics. Only present when `aggregationType` is `distribution`.
      * 
      */
     private @Nullable Boolean includePercentiles;
     /**
-     * @return The path to the value the RUM-based metric will aggregate on. Only present when `aggregation_type` is `distribution`.
+     * @return The path to the value the RUM-based metric will aggregate on. Only present when `aggregationType` is `distribution`.
      * 
      */
     private @Nullable String path;
@@ -38,14 +38,14 @@ public final class RumMetricCompute {
         return this.aggregationType;
     }
     /**
-     * @return Toggle to include or exclude percentile aggregations for distribution metrics. Only present when `aggregation_type` is `distribution`.
+     * @return Toggle to include or exclude percentile aggregations for distribution metrics. Only present when `aggregationType` is `distribution`.
      * 
      */
     public Optional<Boolean> includePercentiles() {
         return Optional.ofNullable(this.includePercentiles);
     }
     /**
-     * @return The path to the value the RUM-based metric will aggregate on. Only present when `aggregation_type` is `distribution`.
+     * @return The path to the value the RUM-based metric will aggregate on. Only present when `aggregationType` is `distribution`.
      * 
      */
     public Optional<String> path() {

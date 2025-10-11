@@ -19,7 +19,7 @@ public final class PowerpackWidgetSunburstDefinitionRequestQueryApmResourceStats
      */
     private @Nullable String crossOrgUuids;
     /**
-     * @return The data source for APM Resource Stats queries. Valid values are `apm_resource_stats`.
+     * @return The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
      * 
      */
     private String dataSource;
@@ -44,12 +44,12 @@ public final class PowerpackWidgetSunburstDefinitionRequestQueryApmResourceStats
      */
     private @Nullable String operationName;
     /**
-     * @return The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * @return The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
      * 
      */
     private @Nullable String primaryTagName;
     /**
-     * @return Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
+     * @return Filter APM data by the second primary tag. `primaryTagName` must also be specified.
      * 
      */
     private @Nullable String primaryTagValue;
@@ -64,7 +64,7 @@ public final class PowerpackWidgetSunburstDefinitionRequestQueryApmResourceStats
      */
     private String service;
     /**
-     * @return APM statistic. Valid values are `errors`, `error_rate`, `hits`, `latency_avg`, `latency_distribution`, `latency_max`, `latency_p50`, `latency_p75`, `latency_p90`, `latency_p95`, `latency_p99`.
+     * @return APM statistic. Valid values are `errors`, `errorRate`, `hits`, `latencyAvg`, `latencyDistribution`, `latencyMax`, `latencyP50`, `latencyP75`, `latencyP90`, `latencyP95`, `latencyP99`.
      * 
      */
     private String stat;
@@ -78,7 +78,7 @@ public final class PowerpackWidgetSunburstDefinitionRequestQueryApmResourceStats
         return Optional.ofNullable(this.crossOrgUuids);
     }
     /**
-     * @return The data source for APM Resource Stats queries. Valid values are `apm_resource_stats`.
+     * @return The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
      * 
      */
     public String dataSource() {
@@ -113,14 +113,14 @@ public final class PowerpackWidgetSunburstDefinitionRequestQueryApmResourceStats
         return Optional.ofNullable(this.operationName);
     }
     /**
-     * @return The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * @return The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
      * 
      */
     public Optional<String> primaryTagName() {
         return Optional.ofNullable(this.primaryTagName);
     }
     /**
-     * @return Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
+     * @return Filter APM data by the second primary tag. `primaryTagName` must also be specified.
      * 
      */
     public Optional<String> primaryTagValue() {
@@ -141,7 +141,7 @@ public final class PowerpackWidgetSunburstDefinitionRequestQueryApmResourceStats
         return this.service;
     }
     /**
-     * @return APM statistic. Valid values are `errors`, `error_rate`, `hits`, `latency_avg`, `latency_distribution`, `latency_max`, `latency_p50`, `latency_p75`, `latency_p90`, `latency_p95`, `latency_p99`.
+     * @return APM statistic. Valid values are `errors`, `errorRate`, `hits`, `latencyAvg`, `latencyDistribution`, `latencyMax`, `latencyP50`, `latencyP75`, `latencyP90`, `latencyP95`, `latencyP99`.
      * 
      */
     public String stat() {

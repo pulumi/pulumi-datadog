@@ -15,7 +15,7 @@ namespace Pulumi.Datadog.Outputs
     {
         public readonly ImmutableArray<string> Principals;
         /// <summary>
-        /// Valid values are `editor`, `viewer`.
+        /// Valid values are `Editor`, `Viewer`.
         /// </summary>
         public readonly string? Relation;
 

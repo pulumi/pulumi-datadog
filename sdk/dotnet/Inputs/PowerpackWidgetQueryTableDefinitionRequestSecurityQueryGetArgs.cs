@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class PowerpackWidgetQueryTableDefinitionRequestSecurityQueryGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// `compute_query` or `multi_compute` is required. The map keys are listed below.
+        /// `ComputeQuery` or `MultiCompute` is required. The map keys are listed below.
         /// </summary>
         [Input("computeQuery")]
         public Input<Inputs.PowerpackWidgetQueryTableDefinitionRequestSecurityQueryComputeQueryGetArgs>? ComputeQuery { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.PowerpackWidgetQueryTableDefinitionRequestSecurityQueryGroupByGetArgs>? _groupBies;
 
         /// <summary>
-        /// Multiple `group_by` blocks are allowed using the structure below.
+        /// Multiple `GroupBy` blocks are allowed using the structure below.
         /// </summary>
         public InputList<Inputs.PowerpackWidgetQueryTableDefinitionRequestSecurityQueryGroupByGetArgs> GroupBies
         {
@@ -40,7 +40,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.PowerpackWidgetQueryTableDefinitionRequestSecurityQueryMultiComputeGetArgs>? _multiComputes;
 
         /// <summary>
-        /// `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
+        /// `ComputeQuery` or `MultiCompute` is required. Multiple `MultiCompute` blocks are allowed using the structure below.
         /// </summary>
         public InputList<Inputs.PowerpackWidgetQueryTableDefinitionRequestSecurityQueryMultiComputeGetArgs> MultiComputes
         {

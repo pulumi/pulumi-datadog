@@ -18,14 +18,14 @@ public final class ObservabilityPipelineConfigDestinationsSocketFramingArgs exte
     public static final ObservabilityPipelineConfigDestinationsSocketFramingArgs Empty = new ObservabilityPipelineConfigDestinationsSocketFramingArgs();
 
     /**
-     * Used when `method` is `character_delimited`. Specifies the delimiter character.
+     * Used when `method` is `characterDelimited`. Specifies the delimiter character.
      * 
      */
     @Import(name="characterDelimited")
     private @Nullable Output<ObservabilityPipelineConfigDestinationsSocketFramingCharacterDelimitedArgs> characterDelimited;
 
     /**
-     * @return Used when `method` is `character_delimited`. Specifies the delimiter character.
+     * @return Used when `method` is `characterDelimited`. Specifies the delimiter character.
      * 
      */
     public Optional<Output<ObservabilityPipelineConfigDestinationsSocketFramingCharacterDelimitedArgs>> characterDelimited() {
@@ -33,14 +33,14 @@ public final class ObservabilityPipelineConfigDestinationsSocketFramingArgs exte
     }
 
     /**
-     * The framing method. Valid values are `newline_delimited`, `bytes`, `character_delimited`.
+     * The framing method. Valid values are `newlineDelimited`, `bytes`, `characterDelimited`.
      * 
      */
     @Import(name="method", required=true)
     private Output<String> method;
 
     /**
-     * @return The framing method. Valid values are `newline_delimited`, `bytes`, `character_delimited`.
+     * @return The framing method. Valid values are `newlineDelimited`, `bytes`, `characterDelimited`.
      * 
      */
     public Output<String> method() {
@@ -73,7 +73,7 @@ public final class ObservabilityPipelineConfigDestinationsSocketFramingArgs exte
         }
 
         /**
-         * @param characterDelimited Used when `method` is `character_delimited`. Specifies the delimiter character.
+         * @param characterDelimited Used when `method` is `characterDelimited`. Specifies the delimiter character.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class ObservabilityPipelineConfigDestinationsSocketFramingArgs exte
         }
 
         /**
-         * @param characterDelimited Used when `method` is `character_delimited`. Specifies the delimiter character.
+         * @param characterDelimited Used when `method` is `characterDelimited`. Specifies the delimiter character.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class ObservabilityPipelineConfigDestinationsSocketFramingArgs exte
         }
 
         /**
-         * @param method The framing method. Valid values are `newline_delimited`, `bytes`, `character_delimited`.
+         * @param method The framing method. Valid values are `newlineDelimited`, `bytes`, `characterDelimited`.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class ObservabilityPipelineConfigDestinationsSocketFramingArgs exte
         }
 
         /**
-         * @param method The framing method. Valid values are `newline_delimited`, `bytes`, `character_delimited`.
+         * @param method The framing method. Valid values are `newlineDelimited`, `bytes`, `characterDelimited`.
          * 
          * @return builder
          * 

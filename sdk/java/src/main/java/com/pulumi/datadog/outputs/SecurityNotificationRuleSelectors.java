@@ -29,7 +29,7 @@ public final class SecurityNotificationRuleSelectors {
      */
     private @Nullable List<String> severities;
     /**
-     * @return The type of security issues the rule applies to. Use `security_signals` for rules based on security signals and `security_findings` for those based on vulnerabilities.
+     * @return The type of security issues the rule applies to. Use `securitySignals` for rules based on security signals and `securityFindings` for those based on vulnerabilities.
      * 
      */
     private String triggerSource;
@@ -57,7 +57,7 @@ public final class SecurityNotificationRuleSelectors {
         return this.severities == null ? List.of() : this.severities;
     }
     /**
-     * @return The type of security issues the rule applies to. Use `security_signals` for rules based on security signals and `security_findings` for those based on vulnerabilities.
+     * @return The type of security issues the rule applies to. Use `securitySignals` for rules based on security signals and `securityFindings` for those based on vulnerabilities.
      * 
      */
     public String triggerSource() {

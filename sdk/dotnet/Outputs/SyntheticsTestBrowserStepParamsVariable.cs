@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Whether the value of this variable will be obfuscated in test results. Defaults to `false`.
+        /// Whether the value of this variable will be obfuscated in test results. Defaults to `False`.
         /// </summary>
         public readonly bool? Secure;
 

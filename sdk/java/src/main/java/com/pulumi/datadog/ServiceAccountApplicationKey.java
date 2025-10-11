@@ -16,7 +16,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a Datadog `service_account_application_key` resource. This can be used to create and manage Datadog service account application keys.
+ * Provides a Datadog `serviceAccountApplicationKey` resource. This can be used to create and manage Datadog service account application keys.
  * 
  * ## Example Usage
  * 

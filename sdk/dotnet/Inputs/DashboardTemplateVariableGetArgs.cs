@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// The default value for the template variable on dashboard load. Cannot be used in conjunction with `defaults`. **Deprecated.** Use `defaults` instead.
+        /// The default value for the template variable on dashboard load. Cannot be used in conjunction with `Defaults`. **Deprecated.** Use `Defaults` instead.
         /// </summary>
         [Input("default")]
         public Input<string>? Default { get; set; }
@@ -34,7 +34,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<string>? _defaults;
 
         /// <summary>
-        /// One or many default values for template variables on load. If more than one default is specified, they will be unioned together with `OR`. Cannot be used in conjunction with `default`.
+        /// One or many default values for template variables on load. If more than one default is specified, they will be unioned together with `OR`. Cannot be used in conjunction with `Default`.
         /// </summary>
         public InputList<string> Defaults
         {
