@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog
 {
     /// <summary>
-    /// Provides a Datadog `service_account_application_key` resource. This can be used to create and manage Datadog service account application keys.
+    /// Provides a Datadog `ServiceAccountApplicationKey` resource. This can be used to create and manage Datadog service account application keys.
     /// 
     /// ## Example Usage
     /// 

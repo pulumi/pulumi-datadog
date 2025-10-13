@@ -58,7 +58,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The action to take when the quota is exceeded: `drop`, `no_action`, or `overflow_routing`.
+        /// The action to take when the quota is exceeded: `Drop`, `NoAction`, or `OverflowRouting`.
         /// </summary>
         [Input("overflowAction")]
         public Input<string>? OverflowAction { get; set; }

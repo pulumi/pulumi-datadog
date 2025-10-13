@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly int? Days;
         /// <summary>
-        /// For intervals that are not expressible in whole days, this will be added to `days`. Defaults to `0`.
+        /// For intervals that are not expressible in whole days, this will be added to `Days`. Defaults to `0`.
         /// </summary>
         public readonly int? Seconds;
 

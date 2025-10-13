@@ -91,14 +91,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="datadog:index/metricTagConfiguration:MetricTagConfiguration")
 public class MetricTagConfiguration extends com.pulumi.resources.CustomResource {
     /**
-     * A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge.
+     * A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metricType` of count, rate, or gauge.
      * 
      */
     @Export(name="aggregations", refs={List.class,MetricTagConfigurationAggregation.class}, tree="[0,1]")
     private Output<List<MetricTagConfigurationAggregation>> aggregations;
 
     /**
-     * @return A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge.
+     * @return A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metricType` of count, rate, or gauge.
      * 
      */
     public Output<List<MetricTagConfigurationAggregation>> aggregations() {
@@ -119,14 +119,14 @@ public class MetricTagConfiguration extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.excludeTagsMode);
     }
     /**
-     * Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metric_type` of distribution.
+     * Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metricType` of distribution.
      * 
      */
     @Export(name="includePercentiles", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> includePercentiles;
 
     /**
-     * @return Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metric_type` of distribution.
+     * @return Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metricType` of distribution.
      * 
      */
     public Output<Optional<Boolean>> includePercentiles() {

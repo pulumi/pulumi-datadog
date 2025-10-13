@@ -19,7 +19,7 @@ public final class PowerpackWidgetSunburstDefinitionRequestQueryApmDependencySta
      */
     private @Nullable String crossOrgUuids;
     /**
-     * @return The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * @return The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
      * 
      */
     private String dataSource;
@@ -44,12 +44,12 @@ public final class PowerpackWidgetSunburstDefinitionRequestQueryApmDependencySta
      */
     private String operationName;
     /**
-     * @return The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * @return The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
      * 
      */
     private @Nullable String primaryTagName;
     /**
-     * @return Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
+     * @return Filter APM data by the second primary tag. `primaryTagName` must also be specified.
      * 
      */
     private @Nullable String primaryTagValue;
@@ -64,7 +64,7 @@ public final class PowerpackWidgetSunburstDefinitionRequestQueryApmDependencySta
      */
     private String service;
     /**
-     * @return APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
+     * @return APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
      * 
      */
     private String stat;
@@ -78,7 +78,7 @@ public final class PowerpackWidgetSunburstDefinitionRequestQueryApmDependencySta
         return Optional.ofNullable(this.crossOrgUuids);
     }
     /**
-     * @return The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * @return The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
      * 
      */
     public String dataSource() {
@@ -113,14 +113,14 @@ public final class PowerpackWidgetSunburstDefinitionRequestQueryApmDependencySta
         return this.operationName;
     }
     /**
-     * @return The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * @return The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
      * 
      */
     public Optional<String> primaryTagName() {
         return Optional.ofNullable(this.primaryTagName);
     }
     /**
-     * @return Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
+     * @return Filter APM data by the second primary tag. `primaryTagName` must also be specified.
      * 
      */
     public Optional<String> primaryTagValue() {
@@ -141,7 +141,7 @@ public final class PowerpackWidgetSunburstDefinitionRequestQueryApmDependencySta
         return this.service;
     }
     /**
-     * @return APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
+     * @return APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
      * 
      */
     public String stat() {

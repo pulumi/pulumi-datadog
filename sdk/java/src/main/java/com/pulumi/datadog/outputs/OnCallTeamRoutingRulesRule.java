@@ -40,7 +40,7 @@ public final class OnCallTeamRoutingRulesRule {
      */
     private @Nullable OnCallTeamRoutingRulesRuleTimeRestrictions timeRestrictions;
     /**
-     * @return Defines the urgency for pages created via this rule. Only valid if `escalation_policy` is set. Valid values are `high`, `low`, `dynamic`.
+     * @return Defines the urgency for pages created via this rule. Only valid if `escalationPolicy` is set. Valid values are `high`, `low`, `dynamic`.
      * 
      */
     private @Nullable String urgency;
@@ -82,7 +82,7 @@ public final class OnCallTeamRoutingRulesRule {
         return Optional.ofNullable(this.timeRestrictions);
     }
     /**
-     * @return Defines the urgency for pages created via this rule. Only valid if `escalation_policy` is set. Valid values are `high`, `low`, `dynamic`.
+     * @return Defines the urgency for pages created via this rule. Only valid if `escalationPolicy` is set. Valid values are `high`, `low`, `dynamic`.
      * 
      */
     public Optional<String> urgency() {

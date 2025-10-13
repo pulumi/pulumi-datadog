@@ -34,21 +34,21 @@ public final class Config {
         return Codegen.stringProp("appKey").config(config).get();
     }
 /**
- * The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloud_provider_type` set to `aws`.
+ * The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloudProviderType` set to `aws`.
  * 
  */
     public Optional<String> awsAccessKeyId() {
         return Codegen.stringProp("awsAccessKeyId").config(config).get();
     }
 /**
- * The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
+ * The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloudProviderType` set to `aws`.
  * 
  */
     public Optional<String> awsSecretAccessKey() {
         return Codegen.stringProp("awsSecretAccessKey").config(config).get();
     }
 /**
- * The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
+ * The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloudProviderType` set to `aws` and using temporary credentials.
  * 
  */
     public Optional<String> awsSessionToken() {
@@ -118,7 +118,7 @@ public final class Config {
         return Codegen.stringProp("orgUuid").config(config).get();
     }
 /**
- * Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, api_key won&#39;t be checked.
+ * Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, apiKey won&#39;t be checked.
  * 
  */
     public Optional<String> validate() {

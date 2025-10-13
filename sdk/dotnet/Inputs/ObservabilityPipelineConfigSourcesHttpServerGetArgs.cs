@@ -13,13 +13,13 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ObservabilityPipelineConfigSourcesHttpServerGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// HTTP authentication method. Valid values are `none`, `plain`.
+        /// HTTP authentication method. Valid values are `None`, `Plain`.
         /// </summary>
         [Input("authStrategy", required: true)]
         public Input<string> AuthStrategy { get; set; } = null!;
 
         /// <summary>
-        /// The decoding format used to interpret incoming logs. Valid values are `json`, `gelf`, `syslog`, `bytes`.
+        /// The decoding format used to interpret incoming logs. Valid values are `Json`, `Gelf`, `Syslog`, `Bytes`.
         /// </summary>
         [Input("decoding", required: true)]
         public Input<string> Decoding { get; set; } = null!;

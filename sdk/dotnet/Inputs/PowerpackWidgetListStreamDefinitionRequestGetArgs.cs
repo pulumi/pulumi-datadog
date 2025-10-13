@@ -31,7 +31,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.PowerpackWidgetListStreamDefinitionRequestQueryGetArgs> Query { get; set; } = null!;
 
         /// <summary>
-        /// Widget response format. Valid values are `event_list`.
+        /// Widget response format. Valid values are `EventList`.
         /// </summary>
         [Input("responseFormat", required: true)]
         public Input<string> ResponseFormat { get; set; } = null!;

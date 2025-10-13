@@ -30,7 +30,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string SloId;
         /// <summary>
-        /// A list of time windows to display in the widget. Valid values are `7d`, `30d`, `90d`, `week_to_date`, `previous_week`, `month_to_date`, `previous_month`, `global_time`.
+        /// A list of time windows to display in the widget. Valid values are `7d`, `30d`, `90d`, `WeekToDate`, `PreviousWeek`, `MonthToDate`, `PreviousMonth`, `GlobalTime`.
         /// </summary>
         public readonly ImmutableArray<string> TimeWindows;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Title;
         /// <summary>
-        /// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+        /// The alignment of the widget's title. Valid values are `Center`, `Left`, `Right`.
         /// </summary>
         public readonly string? TitleAlign;
         /// <summary>
@@ -46,11 +46,11 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? TitleSize;
         /// <summary>
-        /// The view mode for the widget. Valid values are `overall`, `component`, `both`.
+        /// The view mode for the widget. Valid values are `Overall`, `Component`, `Both`.
         /// </summary>
         public readonly string ViewMode;
         /// <summary>
-        /// The type of view to use when displaying the widget. Only `detail` is supported.
+        /// The type of view to use when displaying the widget. Only `Detail` is supported.
         /// </summary>
         public readonly string ViewType;
 

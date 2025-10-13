@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetSunburstDefinitionLegendTable
     {
         /// <summary>
-        /// The type of legend (table or none). Valid values are `table`, `none`.
+        /// The type of legend (table or none). Valid values are `Table`, `None`.
         /// </summary>
         public readonly string Type;
 

@@ -14,23 +14,23 @@ namespace Pulumi.Datadog.Outputs
     public sealed class PowerpackWidgetImageDefinition
     {
         /// <summary>
-        /// Whether to display a background or not. Defaults to `true`.
+        /// Whether to display a background or not. Defaults to `True`.
         /// </summary>
         public readonly bool? HasBackground;
         /// <summary>
-        /// Whether to display a border or not. Defaults to `true`.
+        /// Whether to display a border or not. Defaults to `True`.
         /// </summary>
         public readonly bool? HasBorder;
         /// <summary>
-        /// The horizontal alignment for the widget. Valid values are `center`, `left`, `right`.
+        /// The horizontal alignment for the widget. Valid values are `Center`, `Left`, `Right`.
         /// </summary>
         public readonly string? HorizontalAlign;
         /// <summary>
-        /// The margins to use around the image. Note: `small` and `large` values are deprecated. Valid values are `sm`, `md`, `lg`, `small`, `large`.
+        /// The margins to use around the image. Note: `Small` and `Large` values are deprecated. Valid values are `Sm`, `Md`, `Lg`, `Small`, `Large`.
         /// </summary>
         public readonly string? Margin;
         /// <summary>
-        /// The preferred method to adapt the dimensions of the image. The values are based on the image `object-fit` CSS properties. Note: `zoom`, `fit` and `center` values are deprecated. Valid values are `fill`, `contain`, `cover`, `none`, `scale-down`, `zoom`, `fit`, `center`.
+        /// The preferred method to adapt the dimensions of the image. The values are based on the image `object-fit` CSS properties. Note: `Zoom`, `Fit` and `Center` values are deprecated. Valid values are `Fill`, `Contain`, `Cover`, `None`, `scale-down`, `Zoom`, `Fit`, `Center`.
         /// </summary>
         public readonly string? Sizing;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? UrlDarkTheme;
         /// <summary>
-        /// The vertical alignment for the widget. Valid values are `center`, `top`, `bottom`.
+        /// The vertical alignment for the widget. Valid values are `Center`, `Top`, `Bottom`.
         /// </summary>
         public readonly string? VerticalAlign;
 

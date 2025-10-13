@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.DashboardWidgetListStreamDefinitionRequestGetArgs>? _requests;
 
         /// <summary>
-        /// Nested block describing the requests to use when displaying the widget. Multiple `request` blocks are allowed with the structure below.
+        /// Nested block describing the requests to use when displaying the widget. Multiple `Request` blocks are allowed with the structure below.
         /// </summary>
         public InputList<Inputs.DashboardWidgetListStreamDefinitionRequestGetArgs> Requests
         {
@@ -31,7 +31,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Title { get; set; }
 
         /// <summary>
-        /// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+        /// The alignment of the widget's title. Valid values are `Center`, `Left`, `Right`.
         /// </summary>
         [Input("titleAlign")]
         public Input<string>? TitleAlign { get; set; }

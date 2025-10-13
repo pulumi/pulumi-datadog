@@ -40,7 +40,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<string>? _timeWindows;
 
         /// <summary>
-        /// A list of time windows to display in the widget. Valid values are `7d`, `30d`, `90d`, `week_to_date`, `previous_week`, `month_to_date`, `previous_month`, `global_time`.
+        /// A list of time windows to display in the widget. Valid values are `7d`, `30d`, `90d`, `WeekToDate`, `PreviousWeek`, `MonthToDate`, `PreviousMonth`, `GlobalTime`.
         /// </summary>
         public InputList<string> TimeWindows
         {
@@ -55,7 +55,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Title { get; set; }
 
         /// <summary>
-        /// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+        /// The alignment of the widget's title. Valid values are `Center`, `Left`, `Right`.
         /// </summary>
         [Input("titleAlign")]
         public Input<string>? TitleAlign { get; set; }
@@ -67,13 +67,13 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? TitleSize { get; set; }
 
         /// <summary>
-        /// The view mode for the widget. Valid values are `overall`, `component`, `both`.
+        /// The view mode for the widget. Valid values are `Overall`, `Component`, `Both`.
         /// </summary>
         [Input("viewMode", required: true)]
         public Input<string> ViewMode { get; set; } = null!;
 
         /// <summary>
-        /// The type of view to use when displaying the widget. Only `detail` is supported.
+        /// The type of view to use when displaying the widget. Only `Detail` is supported.
         /// </summary>
         [Input("viewType", required: true)]
         public Input<string> ViewType { get; set; } = null!;

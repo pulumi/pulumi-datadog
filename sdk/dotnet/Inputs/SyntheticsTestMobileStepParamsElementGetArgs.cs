@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Context { get; set; }
 
         /// <summary>
-        /// Valid values are `native`, `web`.
+        /// Valid values are `Native`, `Web`.
         /// </summary>
         [Input("contextType")]
         public Input<string>? ContextType { get; set; }

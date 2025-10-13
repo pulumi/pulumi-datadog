@@ -33,14 +33,14 @@ public final class SpansMetricComputeArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Toggle to include or exclude percentile aggregations for distribution metrics. Only present when the `aggregation_type` is `distribution`.
+     * Toggle to include or exclude percentile aggregations for distribution metrics. Only present when the `aggregationType` is `distribution`.
      * 
      */
     @Import(name="includePercentiles")
     private @Nullable Output<Boolean> includePercentiles;
 
     /**
-     * @return Toggle to include or exclude percentile aggregations for distribution metrics. Only present when the `aggregation_type` is `distribution`.
+     * @return Toggle to include or exclude percentile aggregations for distribution metrics. Only present when the `aggregationType` is `distribution`.
      * 
      */
     public Optional<Output<Boolean>> includePercentiles() {
@@ -110,7 +110,7 @@ public final class SpansMetricComputeArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param includePercentiles Toggle to include or exclude percentile aggregations for distribution metrics. Only present when the `aggregation_type` is `distribution`.
+         * @param includePercentiles Toggle to include or exclude percentile aggregations for distribution metrics. Only present when the `aggregationType` is `distribution`.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class SpansMetricComputeArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param includePercentiles Toggle to include or exclude percentile aggregations for distribution metrics. Only present when the `aggregation_type` is `distribution`.
+         * @param includePercentiles Toggle to include or exclude percentile aggregations for distribution metrics. Only present when the `aggregationType` is `distribution`.
          * 
          * @return builder
          * 

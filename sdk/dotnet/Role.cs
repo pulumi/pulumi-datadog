@@ -80,7 +80,7 @@ namespace Pulumi.Datadog
         public Output<int> UserCount { get; private set; } = null!;
 
         /// <summary>
-        /// If set to `false`, skip the validation call done during plan.
+        /// If set to `False`, skip the validation call done during plan.
         /// </summary>
         [Output("validate")]
         public Output<bool?> Validate { get; private set; } = null!;
@@ -153,7 +153,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// If set to `false`, skip the validation call done during plan.
+        /// If set to `False`, skip the validation call done during plan.
         /// </summary>
         [Input("validate")]
         public Input<bool>? Validate { get; set; }
@@ -194,7 +194,7 @@ namespace Pulumi.Datadog
         public Input<int>? UserCount { get; set; }
 
         /// <summary>
-        /// If set to `false`, skip the validation call done during plan.
+        /// If set to `False`, skip the validation call done during plan.
         /// </summary>
         [Input("validate")]
         public Input<bool>? Validate { get; set; }

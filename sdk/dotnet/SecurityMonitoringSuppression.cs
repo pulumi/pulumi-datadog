@@ -99,7 +99,7 @@ namespace Pulumi.Datadog
         public Output<string?> SuppressionQuery { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to validate the suppression rule during `pulumi preview`. When set to `true`, the rule is validated against Datadog's suppression validation endpoint. Defaults to `true`.
+        /// Whether to validate the suppression rule during `pulumi preview`. When set to `True`, the rule is validated against Datadog's suppression validation endpoint. Defaults to `True`.
         /// </summary>
         [Output("validate")]
         public Output<bool> Validate { get; private set; } = null!;
@@ -199,7 +199,7 @@ namespace Pulumi.Datadog
         public Input<string>? SuppressionQuery { get; set; }
 
         /// <summary>
-        /// Whether to validate the suppression rule during `pulumi preview`. When set to `true`, the rule is validated against Datadog's suppression validation endpoint. Defaults to `true`.
+        /// Whether to validate the suppression rule during `pulumi preview`. When set to `True`, the rule is validated against Datadog's suppression validation endpoint. Defaults to `True`.
         /// </summary>
         [Input("validate")]
         public Input<bool>? Validate { get; set; }
@@ -261,7 +261,7 @@ namespace Pulumi.Datadog
         public Input<string>? SuppressionQuery { get; set; }
 
         /// <summary>
-        /// Whether to validate the suppression rule during `pulumi preview`. When set to `true`, the rule is validated against Datadog's suppression validation endpoint. Defaults to `true`.
+        /// Whether to validate the suppression rule during `pulumi preview`. When set to `True`, the rule is validated against Datadog's suppression validation endpoint. Defaults to `True`.
         /// </summary>
         [Input("validate")]
         public Input<bool>? Validate { get; set; }

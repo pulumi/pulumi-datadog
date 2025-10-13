@@ -29,17 +29,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ObservabilityPipelineConfigProcessors {
     /**
-     * @return The `add_env_vars` processor adds environment variable values to log events.
+     * @return The `addEnvVars` processor adds environment variable values to log events.
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigProcessorsAddEnvVar> addEnvVars;
     /**
-     * @return The `add_fields` processor adds static key-value fields to logs.
+     * @return The `addFields` processor adds static key-value fields to logs.
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigProcessorsAddField> addFields;
     /**
-     * @return The `custom_processor` processor transforms events using Vector Remap Language (VRL) scripts with advanced filtering capabilities.
+     * @return The `customProcessor` processor transforms events using Vector Remap Language (VRL) scripts with advanced filtering capabilities.
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigProcessorsCustomProcessor> customProcessors;
@@ -50,7 +50,7 @@ public final class ObservabilityPipelineConfigProcessors {
      */
     private @Nullable List<ObservabilityPipelineConfigProcessorsDedupe> dedupes;
     /**
-     * @return The `enrichment_table` processor enriches logs using a static CSV file or GeoIP database.
+     * @return The `enrichmentTable` processor enriches logs using a static CSV file or GeoIP database.
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigProcessorsEnrichmentTable> enrichmentTables;
@@ -60,22 +60,22 @@ public final class ObservabilityPipelineConfigProcessors {
      */
     private @Nullable List<ObservabilityPipelineConfigProcessorsFilter> filters;
     /**
-     * @return The `generate_datadog_metrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields.
+     * @return The `generateDatadogMetrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields.
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigProcessorsGenerateDatadogMetric> generateDatadogMetrics;
     /**
-     * @return The `ocsf_mapper` processor transforms logs into the OCSF schema using predefined library mappings.
+     * @return The `ocsfMapper` processor transforms logs into the OCSF schema using predefined library mappings.
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigProcessorsOcsfMapper> ocsfMappers;
     /**
-     * @return The `parse_grok` processor extracts structured fields from unstructured log messages using Grok patterns.
+     * @return The `parseGrok` processor extracts structured fields from unstructured log messages using Grok patterns.
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigProcessorsParseGrok> parseGroks;
     /**
-     * @return The `parse_json` processor extracts JSON from a specified field and flattens it into the event. This is useful when logs contain embedded JSON as a string.
+     * @return The `parseJson` processor extracts JSON from a specified field and flattens it into the event. This is useful when logs contain embedded JSON as a string.
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigProcessorsParseJson> parseJsons;
@@ -90,12 +90,12 @@ public final class ObservabilityPipelineConfigProcessors {
      */
     private @Nullable List<ObservabilityPipelineConfigProcessorsReduce> reduces;
     /**
-     * @return The `remove_fields` processor deletes specified fields from logs.
+     * @return The `removeFields` processor deletes specified fields from logs.
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigProcessorsRemoveField> removeFields;
     /**
-     * @return The `rename_fields` processor changes field names.
+     * @return The `renameFields` processor changes field names.
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigProcessorsRenameField> renameFields;
@@ -105,7 +105,7 @@ public final class ObservabilityPipelineConfigProcessors {
      */
     private @Nullable List<ObservabilityPipelineConfigProcessorsSample> samples;
     /**
-     * @return The `sensitive_data_scanner` processor detects and optionally redacts sensitive data in log events.
+     * @return The `sensitiveDataScanner` processor detects and optionally redacts sensitive data in log events.
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigProcessorsSensitiveDataScanner> sensitiveDataScanners;
@@ -117,21 +117,21 @@ public final class ObservabilityPipelineConfigProcessors {
 
     private ObservabilityPipelineConfigProcessors() {}
     /**
-     * @return The `add_env_vars` processor adds environment variable values to log events.
+     * @return The `addEnvVars` processor adds environment variable values to log events.
      * 
      */
     public List<ObservabilityPipelineConfigProcessorsAddEnvVar> addEnvVars() {
         return this.addEnvVars == null ? List.of() : this.addEnvVars;
     }
     /**
-     * @return The `add_fields` processor adds static key-value fields to logs.
+     * @return The `addFields` processor adds static key-value fields to logs.
      * 
      */
     public List<ObservabilityPipelineConfigProcessorsAddField> addFields() {
         return this.addFields == null ? List.of() : this.addFields;
     }
     /**
-     * @return The `custom_processor` processor transforms events using Vector Remap Language (VRL) scripts with advanced filtering capabilities.
+     * @return The `customProcessor` processor transforms events using Vector Remap Language (VRL) scripts with advanced filtering capabilities.
      * 
      */
     public List<ObservabilityPipelineConfigProcessorsCustomProcessor> customProcessors() {
@@ -148,7 +148,7 @@ public final class ObservabilityPipelineConfigProcessors {
         return this.dedupes == null ? List.of() : this.dedupes;
     }
     /**
-     * @return The `enrichment_table` processor enriches logs using a static CSV file or GeoIP database.
+     * @return The `enrichmentTable` processor enriches logs using a static CSV file or GeoIP database.
      * 
      */
     public List<ObservabilityPipelineConfigProcessorsEnrichmentTable> enrichmentTables() {
@@ -162,28 +162,28 @@ public final class ObservabilityPipelineConfigProcessors {
         return this.filters == null ? List.of() : this.filters;
     }
     /**
-     * @return The `generate_datadog_metrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields.
+     * @return The `generateDatadogMetrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields.
      * 
      */
     public List<ObservabilityPipelineConfigProcessorsGenerateDatadogMetric> generateDatadogMetrics() {
         return this.generateDatadogMetrics == null ? List.of() : this.generateDatadogMetrics;
     }
     /**
-     * @return The `ocsf_mapper` processor transforms logs into the OCSF schema using predefined library mappings.
+     * @return The `ocsfMapper` processor transforms logs into the OCSF schema using predefined library mappings.
      * 
      */
     public List<ObservabilityPipelineConfigProcessorsOcsfMapper> ocsfMappers() {
         return this.ocsfMappers == null ? List.of() : this.ocsfMappers;
     }
     /**
-     * @return The `parse_grok` processor extracts structured fields from unstructured log messages using Grok patterns.
+     * @return The `parseGrok` processor extracts structured fields from unstructured log messages using Grok patterns.
      * 
      */
     public List<ObservabilityPipelineConfigProcessorsParseGrok> parseGroks() {
         return this.parseGroks == null ? List.of() : this.parseGroks;
     }
     /**
-     * @return The `parse_json` processor extracts JSON from a specified field and flattens it into the event. This is useful when logs contain embedded JSON as a string.
+     * @return The `parseJson` processor extracts JSON from a specified field and flattens it into the event. This is useful when logs contain embedded JSON as a string.
      * 
      */
     public List<ObservabilityPipelineConfigProcessorsParseJson> parseJsons() {
@@ -204,14 +204,14 @@ public final class ObservabilityPipelineConfigProcessors {
         return this.reduces == null ? List.of() : this.reduces;
     }
     /**
-     * @return The `remove_fields` processor deletes specified fields from logs.
+     * @return The `removeFields` processor deletes specified fields from logs.
      * 
      */
     public List<ObservabilityPipelineConfigProcessorsRemoveField> removeFields() {
         return this.removeFields == null ? List.of() : this.removeFields;
     }
     /**
-     * @return The `rename_fields` processor changes field names.
+     * @return The `renameFields` processor changes field names.
      * 
      */
     public List<ObservabilityPipelineConfigProcessorsRenameField> renameFields() {
@@ -225,7 +225,7 @@ public final class ObservabilityPipelineConfigProcessors {
         return this.samples == null ? List.of() : this.samples;
     }
     /**
-     * @return The `sensitive_data_scanner` processor detects and optionally redacts sensitive data in log events.
+     * @return The `sensitiveDataScanner` processor detects and optionally redacts sensitive data in log events.
      * 
      */
     public List<ObservabilityPipelineConfigProcessorsSensitiveDataScanner> sensitiveDataScanners() {

@@ -17,7 +17,7 @@ public final class PowerpackWidgetSloListDefinitionRequest {
      */
     private PowerpackWidgetSloListDefinitionRequestQuery query;
     /**
-     * @return The request type for the SLO List request. Valid values are `slo_list`.
+     * @return The request type for the SLO List request. Valid values are `sloList`.
      * 
      */
     private String requestType;
@@ -31,7 +31,7 @@ public final class PowerpackWidgetSloListDefinitionRequest {
         return this.query;
     }
     /**
-     * @return The request type for the SLO List request. Valid values are `slo_list`.
+     * @return The request type for the SLO List request. Valid values are `sloList`.
      * 
      */
     public String requestType() {

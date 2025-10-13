@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.MonitorVariablesEventQueryCompute> Computes;
         /// <summary>
-        /// The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`, `database_queries`, `network`.
+        /// The data source for event platform-based queries. Valid values are `Rum`, `CiPipelines`, `CiTests`, `Audit`, `Events`, `Logs`, `Spans`, `DatabaseQueries`, `Network`.
         /// </summary>
         public readonly string DataSource;
         /// <summary>

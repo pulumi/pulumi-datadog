@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetQueryValueDefinitionRequestArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The aggregator to use for time aggregation. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+        /// The aggregator to use for time aggregation. Valid values are `Avg`, `Last`, `Max`, `Min`, `Sum`, `Percentile`.
         /// </summary>
         [Input("aggregator")]
         public Input<string>? Aggregator { get; set; }
@@ -34,7 +34,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.DashboardWidgetQueryValueDefinitionRequestConditionalFormatArgs>? _conditionalFormats;
 
         /// <summary>
-        /// Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+        /// Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `ConditionalFormats` blocks are allowed using the structure below.
         /// </summary>
         public InputList<Inputs.DashboardWidgetQueryValueDefinitionRequestConditionalFormatArgs> ConditionalFormats
         {

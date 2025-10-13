@@ -15,12 +15,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetTopologyMapDefinition {
     /**
-     * @return A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+     * @return A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
      * 
      */
     private @Nullable List<DashboardWidgetTopologyMapDefinitionCustomLink> customLinks;
     /**
-     * @return A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (`query` and `request_type` are required within the request).
+     * @return A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (`query` and `requestType` are required within the request).
      * 
      */
     private @Nullable List<DashboardWidgetTopologyMapDefinitionRequest> requests;
@@ -42,14 +42,14 @@ public final class DashboardWidgetTopologyMapDefinition {
 
     private DashboardWidgetTopologyMapDefinition() {}
     /**
-     * @return A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+     * @return A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
      * 
      */
     public List<DashboardWidgetTopologyMapDefinitionCustomLink> customLinks() {
         return this.customLinks == null ? List.of() : this.customLinks;
     }
     /**
-     * @return A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (`query` and `request_type` are required within the request).
+     * @return A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (`query` and `requestType` are required within the request).
      * 
      */
     public List<DashboardWidgetTopologyMapDefinitionRequest> requests() {

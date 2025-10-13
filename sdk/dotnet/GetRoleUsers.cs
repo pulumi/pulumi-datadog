@@ -34,7 +34,7 @@ namespace Pulumi.Datadog
     public sealed class GetRoleUsersArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// When true, `filter_keyword` string is exact matched against the user's `name`.
+        /// When true, `FilterKeyword` string is exact matched against the user's `Name`.
         /// </summary>
         [Input("exactMatch")]
         public bool? ExactMatch { get; set; }
@@ -60,7 +60,7 @@ namespace Pulumi.Datadog
     public sealed class GetRoleUsersInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// When true, `filter_keyword` string is exact matched against the user's `name`.
+        /// When true, `FilterKeyword` string is exact matched against the user's `Name`.
         /// </summary>
         [Input("exactMatch")]
         public Input<bool>? ExactMatch { get; set; }
@@ -88,7 +88,7 @@ namespace Pulumi.Datadog
     public sealed class GetRoleUsersResult
     {
         /// <summary>
-        /// When true, `filter_keyword` string is exact matched against the user's `name`.
+        /// When true, `FilterKeyword` string is exact matched against the user's `Name`.
         /// </summary>
         public readonly bool? ExactMatch;
         /// <summary>

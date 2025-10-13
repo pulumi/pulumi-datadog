@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigSourcesFluentBit
     {
         /// <summary>
-        /// The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `input` to downstream components).
+        /// The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `Input` to downstream components).
         /// </summary>
         public readonly string Id;
         /// <summary>

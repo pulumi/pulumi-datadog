@@ -17,14 +17,14 @@ public final class LogsArchiveOrderState extends com.pulumi.resources.ResourceAr
     public static final LogsArchiveOrderState Empty = new LogsArchiveOrderState();
 
     /**
-     * The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If `archive_ids` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it will try to update the order.
+     * The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If `archiveIds` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it will try to update the order.
      * 
      */
     @Import(name="archiveIds")
     private @Nullable Output<List<String>> archiveIds;
 
     /**
-     * @return The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If `archive_ids` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it will try to update the order.
+     * @return The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If `archiveIds` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it will try to update the order.
      * 
      */
     public Optional<Output<List<String>>> archiveIds() {
@@ -56,7 +56,7 @@ public final class LogsArchiveOrderState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param archiveIds The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If `archive_ids` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it will try to update the order.
+         * @param archiveIds The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If `archiveIds` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it will try to update the order.
          * 
          * @return builder
          * 
@@ -67,7 +67,7 @@ public final class LogsArchiveOrderState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param archiveIds The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If `archive_ids` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it will try to update the order.
+         * @param archiveIds The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If `archiveIds` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it will try to update the order.
          * 
          * @return builder
          * 
@@ -77,7 +77,7 @@ public final class LogsArchiveOrderState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param archiveIds The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If `archive_ids` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it will try to update the order.
+         * @param archiveIds The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If `archiveIds` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it will try to update the order.
          * 
          * @return builder
          * 

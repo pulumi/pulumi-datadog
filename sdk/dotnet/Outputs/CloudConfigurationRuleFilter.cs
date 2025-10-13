@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class CloudConfigurationRuleFilter
     {
         /// <summary>
-        /// The type of filtering action. Valid values are `require`, `suppress`.
+        /// The type of filtering action. Valid values are `Require`, `Suppress`.
         /// </summary>
         public readonly string Action;
         /// <summary>

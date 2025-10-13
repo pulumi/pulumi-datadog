@@ -37,7 +37,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Query { get; set; }
 
         /// <summary>
-        /// Severity of the Security Signal. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+        /// Severity of the Security Signal. Valid values are `Info`, `Low`, `Medium`, `High`, `Critical`.
         /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;

@@ -14,8 +14,8 @@ namespace Pulumi.Datadog
     /// 
     /// #### *Warning*
     /// Starting from version 3.1.0+, the direct usage of global variables in the configuration is deprecated, in favor of
-    /// local variables of type `global`. As an example, if you were previously using `{{ GLOBAL_VAR }}` directly in your
-    /// configuration, add a `config_variable` of type `global` with the `id` matching the `id` of the global variable `GLOBAL_VAR`, which can be found in the Synthetics UI or from the output of the `datadog.SyntheticsGlobalVariable` resource. The name can be chosen freely.
+    /// local variables of type `Global`. As an example, if you were previously using `{{ GLOBAL_VAR }}` directly in your
+    /// configuration, add a `ConfigVariable` of type `Global` with the `Id` matching the `Id` of the global variable `GLOBAL_VAR`, which can be found in the Synthetics UI or from the output of the `datadog.SyntheticsGlobalVariable` resource. The name can be chosen freely.
     /// 
     /// In practice, it means going from (simplified configuration):
     /// 
@@ -974,7 +974,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<Outputs.SyntheticsTestApiStep>> ApiSteps { get; private set; } = null!;
 
         /// <summary>
-        /// Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
+        /// Assertions used for the test. Multiple `Assertion` blocks are allowed with the structure below.
         /// </summary>
         [Output("assertions")]
         public Output<ImmutableArray<Outputs.SyntheticsTestAssertion>> Assertions { get; private set; } = null!;
@@ -986,7 +986,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<Outputs.SyntheticsTestBrowserStep>> BrowserSteps { get; private set; } = null!;
 
         /// <summary>
-        /// Variables used for a browser test steps. Multiple `variable` blocks are allowed with the structure below.
+        /// Variables used for a browser test steps. Multiple `Variable` blocks are allowed with the structure below.
         /// </summary>
         [Output("browserVariables")]
         public Output<ImmutableArray<Outputs.SyntheticsTestBrowserVariable>> BrowserVariables { get; private set; } = null!;
@@ -998,7 +998,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableDictionary<string, string>?> ConfigInitialApplicationArguments { get; private set; } = null!;
 
         /// <summary>
-        /// Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
+        /// Variables used for the test configuration. Multiple `ConfigVariable` blocks are allowed with the structure below.
         /// </summary>
         [Output("configVariables")]
         public Output<ImmutableArray<Outputs.SyntheticsTestConfigVariable>> ConfigVariables { get; private set; } = null!;
@@ -1106,13 +1106,13 @@ namespace Pulumi.Datadog
         public Output<string?> SetCookie { get; private set; } = null!;
 
         /// <summary>
-        /// Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
+        /// Define whether you want to start (`Live`) or pause (`Paused`) a Synthetic test. Valid values are `Live`, `Paused`.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
+        /// The subtype of the Synthetic API test. Defaults to `Http`. Valid values are `Http`, `Ssl`, `Tcp`, `Dns`, `Multi`, `Icmp`, `Udp`, `Websocket`, `Grpc`.
         /// </summary>
         [Output("subtype")]
         public Output<string?> Subtype { get; private set; } = null!;
@@ -1124,7 +1124,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Synthetics test type. Valid values are `api`, `browser`, `mobile`.
+        /// Synthetics test type. Valid values are `Api`, `Browser`, `Mobile`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -1197,7 +1197,7 @@ namespace Pulumi.Datadog
         private InputList<Inputs.SyntheticsTestAssertionArgs>? _assertions;
 
         /// <summary>
-        /// Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
+        /// Assertions used for the test. Multiple `Assertion` blocks are allowed with the structure below.
         /// </summary>
         public InputList<Inputs.SyntheticsTestAssertionArgs> Assertions
         {
@@ -1221,7 +1221,7 @@ namespace Pulumi.Datadog
         private InputList<Inputs.SyntheticsTestBrowserVariableArgs>? _browserVariables;
 
         /// <summary>
-        /// Variables used for a browser test steps. Multiple `variable` blocks are allowed with the structure below.
+        /// Variables used for a browser test steps. Multiple `Variable` blocks are allowed with the structure below.
         /// </summary>
         public InputList<Inputs.SyntheticsTestBrowserVariableArgs> BrowserVariables
         {
@@ -1245,7 +1245,7 @@ namespace Pulumi.Datadog
         private InputList<Inputs.SyntheticsTestConfigVariableArgs>? _configVariables;
 
         /// <summary>
-        /// Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
+        /// Variables used for the test configuration. Multiple `ConfigVariable` blocks are allowed with the structure below.
         /// </summary>
         public InputList<Inputs.SyntheticsTestConfigVariableArgs> ConfigVariables
         {
@@ -1392,13 +1392,13 @@ namespace Pulumi.Datadog
         public Input<string>? SetCookie { get; set; }
 
         /// <summary>
-        /// Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
+        /// Define whether you want to start (`Live`) or pause (`Paused`) a Synthetic test. Valid values are `Live`, `Paused`.
         /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;
 
         /// <summary>
-        /// The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
+        /// The subtype of the Synthetic API test. Defaults to `Http`. Valid values are `Http`, `Ssl`, `Tcp`, `Dns`, `Multi`, `Icmp`, `Udp`, `Websocket`, `Grpc`.
         /// </summary>
         [Input("subtype")]
         public Input<string>? Subtype { get; set; }
@@ -1416,7 +1416,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// Synthetics test type. Valid values are `api`, `browser`, `mobile`.
+        /// Synthetics test type. Valid values are `Api`, `Browser`, `Mobile`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -1451,7 +1451,7 @@ namespace Pulumi.Datadog
         private InputList<Inputs.SyntheticsTestAssertionGetArgs>? _assertions;
 
         /// <summary>
-        /// Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
+        /// Assertions used for the test. Multiple `Assertion` blocks are allowed with the structure below.
         /// </summary>
         public InputList<Inputs.SyntheticsTestAssertionGetArgs> Assertions
         {
@@ -1475,7 +1475,7 @@ namespace Pulumi.Datadog
         private InputList<Inputs.SyntheticsTestBrowserVariableGetArgs>? _browserVariables;
 
         /// <summary>
-        /// Variables used for a browser test steps. Multiple `variable` blocks are allowed with the structure below.
+        /// Variables used for a browser test steps. Multiple `Variable` blocks are allowed with the structure below.
         /// </summary>
         public InputList<Inputs.SyntheticsTestBrowserVariableGetArgs> BrowserVariables
         {
@@ -1499,7 +1499,7 @@ namespace Pulumi.Datadog
         private InputList<Inputs.SyntheticsTestConfigVariableGetArgs>? _configVariables;
 
         /// <summary>
-        /// Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
+        /// Variables used for the test configuration. Multiple `ConfigVariable` blocks are allowed with the structure below.
         /// </summary>
         public InputList<Inputs.SyntheticsTestConfigVariableGetArgs> ConfigVariables
         {
@@ -1652,13 +1652,13 @@ namespace Pulumi.Datadog
         public Input<string>? SetCookie { get; set; }
 
         /// <summary>
-        /// Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
+        /// Define whether you want to start (`Live`) or pause (`Paused`) a Synthetic test. Valid values are `Live`, `Paused`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
+        /// The subtype of the Synthetic API test. Defaults to `Http`. Valid values are `Http`, `Ssl`, `Tcp`, `Dns`, `Multi`, `Icmp`, `Udp`, `Websocket`, `Grpc`.
         /// </summary>
         [Input("subtype")]
         public Input<string>? Subtype { get; set; }
@@ -1676,7 +1676,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// Synthetics test type. Valid values are `api`, `browser`, `mobile`.
+        /// Synthetics test type. Valid values are `Api`, `Browser`, `Mobile`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

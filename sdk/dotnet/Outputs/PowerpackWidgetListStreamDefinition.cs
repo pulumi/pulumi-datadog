@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class PowerpackWidgetListStreamDefinition
     {
         /// <summary>
-        /// Nested block describing the requests to use when displaying the widget. Multiple `request` blocks are allowed with the structure below.
+        /// Nested block describing the requests to use when displaying the widget. Multiple `Request` blocks are allowed with the structure below.
         /// </summary>
         public readonly ImmutableArray<Outputs.PowerpackWidgetListStreamDefinitionRequest> Requests;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Title;
         /// <summary>
-        /// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+        /// The alignment of the widget's title. Valid values are `Center`, `Left`, `Right`.
         /// </summary>
         public readonly string? TitleAlign;
         /// <summary>

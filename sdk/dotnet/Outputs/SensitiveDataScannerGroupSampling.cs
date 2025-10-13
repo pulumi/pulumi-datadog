@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class SensitiveDataScannerGroupSampling
     {
         /// <summary>
-        /// Product that the sampling rate applies to. Valid values are `logs`, `rum`, `events`, `apm`.
+        /// Product that the sampling rate applies to. Valid values are `Logs`, `Rum`, `Events`, `Apm`.
         /// </summary>
         public readonly string Product;
         /// <summary>

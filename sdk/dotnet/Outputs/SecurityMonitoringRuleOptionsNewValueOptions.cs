@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly int? LearningDuration;
         /// <summary>
-        /// The learning method used to determine when signals should be generated for values that weren't learned. Valid values are `duration`, `threshold`. Defaults to `"duration"`.
+        /// The learning method used to determine when signals should be generated for values that weren't learned. Valid values are `Duration`, `Threshold`. Defaults to `"duration"`.
         /// </summary>
         public readonly string? LearningMethod;
         /// <summary>

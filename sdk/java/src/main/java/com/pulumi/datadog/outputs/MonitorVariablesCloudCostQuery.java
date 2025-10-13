@@ -18,7 +18,7 @@ public final class MonitorVariablesCloudCostQuery {
      */
     private @Nullable String aggregator;
     /**
-     * @return The data source for cloud cost queries. Valid values are `metrics`, `cloud_cost`, `datadog_usage`.
+     * @return The data source for cloud cost queries. Valid values are `metrics`, `cloudCost`, `datadogUsage`.
      * 
      */
     private String dataSource;
@@ -42,7 +42,7 @@ public final class MonitorVariablesCloudCostQuery {
         return Optional.ofNullable(this.aggregator);
     }
     /**
-     * @return The data source for cloud cost queries. Valid values are `metrics`, `cloud_cost`, `datadog_usage`.
+     * @return The data source for cloud cost queries. Valid values are `metrics`, `cloudCost`, `datadogUsage`.
      * 
      */
     public String dataSource() {

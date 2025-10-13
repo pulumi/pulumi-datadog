@@ -34,7 +34,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? ClientSecret;
         /// <summary>
-        /// Domain for `ntlm` authentication.
+        /// Domain for `Ntlm` authentication.
         /// </summary>
         public readonly string? Domain;
         /// <summary>
@@ -66,7 +66,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? SessionToken;
         /// <summary>
-        /// Token API Authentication for `oauth-client` or `oauth-rop` authentication. Valid values are `header`, `body`.
+        /// Token API Authentication for `oauth-client` or `oauth-rop` authentication. Valid values are `Header`, `Body`.
         /// </summary>
         public readonly string? TokenApiAuthentication;
         /// <summary>
@@ -78,7 +78,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Username;
         /// <summary>
-        /// Workstation for `ntlm` authentication.
+        /// Workstation for `Ntlm` authentication.
         /// </summary>
         public readonly string? Workstation;
 

@@ -79,7 +79,7 @@ namespace Pulumi.Datadog
     public partial class IncidentNotificationTemplate : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The category of the notification template. Valid values are `alert`, `incident`, `recovery`.
+        /// The category of the notification template. Valid values are `Alert`, `Incident`, `Recovery`.
         /// </summary>
         [Output("category")]
         public Output<string> Category { get; private set; } = null!;
@@ -167,7 +167,7 @@ namespace Pulumi.Datadog
     public sealed class IncidentNotificationTemplateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The category of the notification template. Valid values are `alert`, `incident`, `recovery`.
+        /// The category of the notification template. Valid values are `Alert`, `Incident`, `Recovery`.
         /// </summary>
         [Input("category", required: true)]
         public Input<string> Category { get; set; } = null!;
@@ -205,7 +205,7 @@ namespace Pulumi.Datadog
     public sealed class IncidentNotificationTemplateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The category of the notification template. Valid values are `alert`, `incident`, `recovery`.
+        /// The category of the notification template. Valid values are `Alert`, `Incident`, `Recovery`.
         /// </summary>
         [Input("category")]
         public Input<string>? Category { get; set; }

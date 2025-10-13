@@ -71,49 +71,49 @@ public final class AwsFunctions {
         return Deployment.getInstance().invokeAsync("datadog:aws/getIntegrationAvailableLogsServices:getIntegrationAvailableLogsServices", TypeShape.of(GetIntegrationAvailableLogsServicesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve all available AWS namespaces. This is the list of allowed values for `metrics_config.namespace_filters` `include_only` or `exclude_only` in `datadog.aws.IntegrationAccount` resource.
+     * Use this data source to retrieve all available AWS namespaces. This is the list of allowed values for `metrics_config.namespace_filters` `includeOnly` or `excludeOnly` in `datadog.aws.IntegrationAccount` resource.
      * 
      */
     public static Output<GetIntegrationAvailableNamespacesResult> getIntegrationAvailableNamespaces() {
         return getIntegrationAvailableNamespaces(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve all available AWS namespaces. This is the list of allowed values for `metrics_config.namespace_filters` `include_only` or `exclude_only` in `datadog.aws.IntegrationAccount` resource.
+     * Use this data source to retrieve all available AWS namespaces. This is the list of allowed values for `metrics_config.namespace_filters` `includeOnly` or `excludeOnly` in `datadog.aws.IntegrationAccount` resource.
      * 
      */
     public static CompletableFuture<GetIntegrationAvailableNamespacesResult> getIntegrationAvailableNamespacesPlain() {
         return getIntegrationAvailableNamespacesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve all available AWS namespaces. This is the list of allowed values for `metrics_config.namespace_filters` `include_only` or `exclude_only` in `datadog.aws.IntegrationAccount` resource.
+     * Use this data source to retrieve all available AWS namespaces. This is the list of allowed values for `metrics_config.namespace_filters` `includeOnly` or `excludeOnly` in `datadog.aws.IntegrationAccount` resource.
      * 
      */
     public static Output<GetIntegrationAvailableNamespacesResult> getIntegrationAvailableNamespaces(InvokeArgs args) {
         return getIntegrationAvailableNamespaces(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve all available AWS namespaces. This is the list of allowed values for `metrics_config.namespace_filters` `include_only` or `exclude_only` in `datadog.aws.IntegrationAccount` resource.
+     * Use this data source to retrieve all available AWS namespaces. This is the list of allowed values for `metrics_config.namespace_filters` `includeOnly` or `excludeOnly` in `datadog.aws.IntegrationAccount` resource.
      * 
      */
     public static CompletableFuture<GetIntegrationAvailableNamespacesResult> getIntegrationAvailableNamespacesPlain(InvokeArgs args) {
         return getIntegrationAvailableNamespacesPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve all available AWS namespaces. This is the list of allowed values for `metrics_config.namespace_filters` `include_only` or `exclude_only` in `datadog.aws.IntegrationAccount` resource.
+     * Use this data source to retrieve all available AWS namespaces. This is the list of allowed values for `metrics_config.namespace_filters` `includeOnly` or `excludeOnly` in `datadog.aws.IntegrationAccount` resource.
      * 
      */
     public static Output<GetIntegrationAvailableNamespacesResult> getIntegrationAvailableNamespaces(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("datadog:aws/getIntegrationAvailableNamespaces:getIntegrationAvailableNamespaces", TypeShape.of(GetIntegrationAvailableNamespacesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve all available AWS namespaces. This is the list of allowed values for `metrics_config.namespace_filters` `include_only` or `exclude_only` in `datadog.aws.IntegrationAccount` resource.
+     * Use this data source to retrieve all available AWS namespaces. This is the list of allowed values for `metrics_config.namespace_filters` `includeOnly` or `excludeOnly` in `datadog.aws.IntegrationAccount` resource.
      * 
      */
     public static Output<GetIntegrationAvailableNamespacesResult> getIntegrationAvailableNamespaces(InvokeArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("datadog:aws/getIntegrationAvailableNamespaces:getIntegrationAvailableNamespaces", TypeShape.of(GetIntegrationAvailableNamespacesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve all available AWS namespaces. This is the list of allowed values for `metrics_config.namespace_filters` `include_only` or `exclude_only` in `datadog.aws.IntegrationAccount` resource.
+     * Use this data source to retrieve all available AWS namespaces. This is the list of allowed values for `metrics_config.namespace_filters` `includeOnly` or `excludeOnly` in `datadog.aws.IntegrationAccount` resource.
      * 
      */
     public static CompletableFuture<GetIntegrationAvailableNamespacesResult> getIntegrationAvailableNamespacesPlain(InvokeArgs args, InvokeOptions options) {

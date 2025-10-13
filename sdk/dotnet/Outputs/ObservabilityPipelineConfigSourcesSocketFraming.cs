@@ -14,11 +14,11 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigSourcesSocketFraming
     {
         /// <summary>
-        /// Used when `method` is `character_delimited`. Specifies the delimiter character.
+        /// Used when `Method` is `CharacterDelimited`. Specifies the delimiter character.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigSourcesSocketFramingCharacterDelimited? CharacterDelimited;
         /// <summary>
-        /// The framing method. Valid values are `newline_delimited`, `bytes`, `character_delimited`, `octet_counting`, `chunked_gelf`.
+        /// The framing method. Valid values are `NewlineDelimited`, `Bytes`, `CharacterDelimited`, `OctetCounting`, `ChunkedGelf`.
         /// </summary>
         public readonly string? Method;
 

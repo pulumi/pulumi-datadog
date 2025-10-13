@@ -141,14 +141,14 @@ public class LogsIndex extends com.pulumi.resources.CustomResource {
         return this.dailyLimitWarningThresholdPercentage;
     }
     /**
-     * If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index&#39;s current daily_limit is maintained.
+     * If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index&#39;s current dailyLimit is maintained.
      * 
      */
     @Export(name="disableDailyLimit", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> disableDailyLimit;
 
     /**
-     * @return If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index&#39;s current daily_limit is maintained.
+     * @return If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index&#39;s current dailyLimit is maintained.
      * 
      */
     public Output<Boolean> disableDailyLimit() {

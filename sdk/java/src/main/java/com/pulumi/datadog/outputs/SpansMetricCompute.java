@@ -19,7 +19,7 @@ public final class SpansMetricCompute {
      */
     private String aggregationType;
     /**
-     * @return Toggle to include or exclude percentile aggregations for distribution metrics. Only present when the `aggregation_type` is `distribution`.
+     * @return Toggle to include or exclude percentile aggregations for distribution metrics. Only present when the `aggregationType` is `distribution`.
      * 
      */
     private @Nullable Boolean includePercentiles;
@@ -38,7 +38,7 @@ public final class SpansMetricCompute {
         return this.aggregationType;
     }
     /**
-     * @return Toggle to include or exclude percentile aggregations for distribution metrics. Only present when the `aggregation_type` is `distribution`.
+     * @return Toggle to include or exclude percentile aggregations for distribution metrics. Only present when the `aggregationType` is `distribution`.
      * 
      */
     public Optional<Boolean> includePercentiles() {

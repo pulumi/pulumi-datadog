@@ -18,11 +18,11 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.PowerpackWidgetChangeDefinitionRequestApmQuery? ApmQuery;
         /// <summary>
-        /// Whether to show absolute or relative change. Valid values are `absolute`, `relative`.
+        /// Whether to show absolute or relative change. Valid values are `Absolute`, `Relative`.
         /// </summary>
         public readonly string? ChangeType;
         /// <summary>
-        /// Choose from when to compare current data to. Valid values are `hour_before`, `day_before`, `week_before`, `month_before`.
+        /// Choose from when to compare current data to. Valid values are `HourBefore`, `DayBefore`, `WeekBefore`, `MonthBefore`.
         /// </summary>
         public readonly string? CompareTo;
         public readonly ImmutableArray<Outputs.PowerpackWidgetChangeDefinitionRequestFormula> Formulas;
@@ -35,11 +35,11 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.PowerpackWidgetChangeDefinitionRequestLogQuery? LogQuery;
         /// <summary>
-        /// What to order by. Valid values are `change`, `name`, `present`, `past`.
+        /// What to order by. Valid values are `Change`, `Name`, `Present`, `Past`.
         /// </summary>
         public readonly string? OrderBy;
         /// <summary>
-        /// Widget sorting method. Valid values are `asc`, `desc`.
+        /// Widget sorting method. Valid values are `Asc`, `Desc`.
         /// </summary>
         public readonly string? OrderDir;
         /// <summary>
@@ -60,7 +60,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.PowerpackWidgetChangeDefinitionRequestSecurityQuery? SecurityQuery;
         /// <summary>
-        /// If set to `true`, displays the current value.
+        /// If set to `True`, displays the current value.
         /// </summary>
         public readonly bool? ShowPresent;
 

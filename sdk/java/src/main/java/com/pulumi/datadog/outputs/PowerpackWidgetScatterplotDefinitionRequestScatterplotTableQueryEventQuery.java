@@ -27,7 +27,7 @@ public final class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQu
      */
     private @Nullable String crossOrgUuids;
     /**
-     * @return The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`.
+     * @return The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`.
      * 
      */
     private String dataSource;
@@ -73,7 +73,7 @@ public final class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQu
         return Optional.ofNullable(this.crossOrgUuids);
     }
     /**
-     * @return The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`.
+     * @return The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`.
      * 
      */
     public String dataSource() {

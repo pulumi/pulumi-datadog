@@ -14,11 +14,11 @@ namespace Pulumi.Datadog.Aws.Outputs
     public sealed class IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilter
     {
         /// <summary>
-        /// The AWS service for which the tag filters defined in `tags` will be applied.
+        /// The AWS service for which the tag filters defined in `Tags` will be applied.
         /// </summary>
         public readonly string Source;
         /// <summary>
-        /// The AWS resource tags to filter on for the service specified by `source`.
+        /// The AWS resource tags to filter on for the service specified by `Source`.
         /// </summary>
         public readonly ImmutableArray<string> Tags;
 

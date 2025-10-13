@@ -32,7 +32,7 @@ public final class AppsecWafCustomRuleConditionParameters {
      */
     private @Nullable String regex;
     /**
-     * @return Store the captured value in the specified tag name. Only used with the capture_data operator.
+     * @return Store the captured value in the specified tag name. Only used with the captureData operator.
      * 
      */
     private @Nullable String value;
@@ -66,7 +66,7 @@ public final class AppsecWafCustomRuleConditionParameters {
         return Optional.ofNullable(this.regex);
     }
     /**
-     * @return Store the captured value in the specified tag name. Only used with the capture_data operator.
+     * @return Store the captured value in the specified tag name. Only used with the captureData operator.
      * 
      */
     public Optional<String> value() {

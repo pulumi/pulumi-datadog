@@ -93,14 +93,14 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cspm_resource_collection_enabled`.
+     * Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cspmResourceCollectionEnabled`.
      * 
      */
     @Import(name="extendedResourceCollectionEnabled")
     private @Nullable Output<String> extendedResourceCollectionEnabled;
 
     /**
-     * @return Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cspm_resource_collection_enabled`.
+     * @return Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cspmResourceCollectionEnabled`.
      * 
      */
     public Optional<Output<String>> extendedResourceCollectionEnabled() {
@@ -160,24 +160,24 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether Datadog collects a standard set of resources from your AWS account. **Deprecated.** Deprecated in favor of `extended_resource_collection_enabled`.
+     * Whether Datadog collects a standard set of resources from your AWS account. **Deprecated.** Deprecated in favor of `extendedResourceCollectionEnabled`.
      * 
      * @deprecated
-     * Deprecated in favor of `extended_resource_collection_enabled`.
+     * Deprecated in favor of `extendedResourceCollectionEnabled`.
      * 
      */
-    @Deprecated /* Deprecated in favor of `extended_resource_collection_enabled`. */
+    @Deprecated /* Deprecated in favor of `extendedResourceCollectionEnabled`. */
     @Import(name="resourceCollectionEnabled")
     private @Nullable Output<String> resourceCollectionEnabled;
 
     /**
-     * @return Whether Datadog collects a standard set of resources from your AWS account. **Deprecated.** Deprecated in favor of `extended_resource_collection_enabled`.
+     * @return Whether Datadog collects a standard set of resources from your AWS account. **Deprecated.** Deprecated in favor of `extendedResourceCollectionEnabled`.
      * 
      * @deprecated
-     * Deprecated in favor of `extended_resource_collection_enabled`.
+     * Deprecated in favor of `extendedResourceCollectionEnabled`.
      * 
      */
-    @Deprecated /* Deprecated in favor of `extended_resource_collection_enabled`. */
+    @Deprecated /* Deprecated in favor of `extendedResourceCollectionEnabled`. */
     public Optional<Output<String>> resourceCollectionEnabled() {
         return Optional.ofNullable(this.resourceCollectionEnabled);
     }
@@ -364,7 +364,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param extendedResourceCollectionEnabled Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cspm_resource_collection_enabled`.
+         * @param extendedResourceCollectionEnabled Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cspmResourceCollectionEnabled`.
          * 
          * @return builder
          * 
@@ -375,7 +375,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param extendedResourceCollectionEnabled Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cspm_resource_collection_enabled`.
+         * @param extendedResourceCollectionEnabled Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cspmResourceCollectionEnabled`.
          * 
          * @return builder
          * 
@@ -477,30 +477,30 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceCollectionEnabled Whether Datadog collects a standard set of resources from your AWS account. **Deprecated.** Deprecated in favor of `extended_resource_collection_enabled`.
+         * @param resourceCollectionEnabled Whether Datadog collects a standard set of resources from your AWS account. **Deprecated.** Deprecated in favor of `extendedResourceCollectionEnabled`.
          * 
          * @return builder
          * 
          * @deprecated
-         * Deprecated in favor of `extended_resource_collection_enabled`.
+         * Deprecated in favor of `extendedResourceCollectionEnabled`.
          * 
          */
-        @Deprecated /* Deprecated in favor of `extended_resource_collection_enabled`. */
+        @Deprecated /* Deprecated in favor of `extendedResourceCollectionEnabled`. */
         public Builder resourceCollectionEnabled(@Nullable Output<String> resourceCollectionEnabled) {
             $.resourceCollectionEnabled = resourceCollectionEnabled;
             return this;
         }
 
         /**
-         * @param resourceCollectionEnabled Whether Datadog collects a standard set of resources from your AWS account. **Deprecated.** Deprecated in favor of `extended_resource_collection_enabled`.
+         * @param resourceCollectionEnabled Whether Datadog collects a standard set of resources from your AWS account. **Deprecated.** Deprecated in favor of `extendedResourceCollectionEnabled`.
          * 
          * @return builder
          * 
          * @deprecated
-         * Deprecated in favor of `extended_resource_collection_enabled`.
+         * Deprecated in favor of `extendedResourceCollectionEnabled`.
          * 
          */
-        @Deprecated /* Deprecated in favor of `extended_resource_collection_enabled`. */
+        @Deprecated /* Deprecated in favor of `extendedResourceCollectionEnabled`. */
         public Builder resourceCollectionEnabled(String resourceCollectionEnabled) {
             return resourceCollectionEnabled(Output.of(resourceCollectionEnabled));
         }

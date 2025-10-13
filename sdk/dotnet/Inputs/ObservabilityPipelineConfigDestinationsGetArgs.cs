@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigDestinationsAmazonOpensearchGetArgs>? _amazonOpensearches;
 
         /// <summary>
-        /// The `amazon_opensearch` destination writes logs to Amazon OpenSearch.
+        /// The `AmazonOpensearch` destination writes logs to Amazon OpenSearch.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigDestinationsAmazonOpensearchGetArgs> AmazonOpensearches
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigDestinationsAmazonS3GetArgs>? _amazonS3s;
 
         /// <summary>
-        /// The `amazon_s3` destination sends your logs in Datadog-rehydratable format to an Amazon S3 bucket for archiving.
+        /// The `AmazonS3` destination sends your logs in Datadog-rehydratable format to an Amazon S3 bucket for archiving.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigDestinationsAmazonS3GetArgs> AmazonS3s
         {
@@ -40,7 +40,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigDestinationsAmazonSecurityLakeGetArgs>? _amazonSecurityLakes;
 
         /// <summary>
-        /// The `amazon_security_lake` destination sends your logs to Amazon Security Lake.
+        /// The `AmazonSecurityLake` destination sends your logs to Amazon Security Lake.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigDestinationsAmazonSecurityLakeGetArgs> AmazonSecurityLakes
         {
@@ -52,7 +52,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigDestinationsAzureStorageGetArgs>? _azureStorages;
 
         /// <summary>
-        /// The `azure_storage` destination forwards logs to an Azure Blob Storage container.
+        /// The `AzureStorage` destination forwards logs to an Azure Blob Storage container.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigDestinationsAzureStorageGetArgs> AzureStorages
         {
@@ -64,7 +64,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigDestinationsCrowdstrikeNextGenSiemGetArgs>? _crowdstrikeNextGenSiems;
 
         /// <summary>
-        /// The `crowdstrike_next_gen_siem` destination forwards logs to CrowdStrike Next Gen SIEM.
+        /// The `CrowdstrikeNextGenSiem` destination forwards logs to CrowdStrike Next Gen SIEM.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigDestinationsCrowdstrikeNextGenSiemGetArgs> CrowdstrikeNextGenSiems
         {
@@ -76,7 +76,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigDestinationsDatadogLogGetArgs>? _datadogLogs;
 
         /// <summary>
-        /// The `datadog_logs` destination forwards logs to Datadog Log Management.
+        /// The `DatadogLogs` destination forwards logs to Datadog Log Management.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigDestinationsDatadogLogGetArgs> DatadogLogs
         {
@@ -88,7 +88,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigDestinationsElasticsearchGetArgs>? _elasticsearches;
 
         /// <summary>
-        /// The `elasticsearch` destination writes logs to an Elasticsearch cluster.
+        /// The `Elasticsearch` destination writes logs to an Elasticsearch cluster.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigDestinationsElasticsearchGetArgs> Elasticsearches
         {
@@ -100,7 +100,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigDestinationsGoogleChronicleGetArgs>? _googleChronicles;
 
         /// <summary>
-        /// The `google_chronicle` destination sends logs to Google Chronicle.
+        /// The `GoogleChronicle` destination sends logs to Google Chronicle.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigDestinationsGoogleChronicleGetArgs> GoogleChronicles
         {
@@ -112,7 +112,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigDestinationsGoogleCloudStorageGetArgs>? _googleCloudStorages;
 
         /// <summary>
-        /// The `google_cloud_storage` destination stores logs in a Google Cloud Storage (GCS) bucket.
+        /// The `GoogleCloudStorage` destination stores logs in a Google Cloud Storage (GCS) bucket.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigDestinationsGoogleCloudStorageGetArgs> GoogleCloudStorages
         {
@@ -124,7 +124,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigDestinationsGooglePubsubGetArgs>? _googlePubsubs;
 
         /// <summary>
-        /// The `google_pubsub` destination publishes logs to a Google Cloud Pub/Sub topic.
+        /// The `GooglePubsub` destination publishes logs to a Google Cloud Pub/Sub topic.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigDestinationsGooglePubsubGetArgs> GooglePubsubs
         {
@@ -136,7 +136,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigDestinationsMicrosoftSentinelGetArgs>? _microsoftSentinels;
 
         /// <summary>
-        /// The `microsoft_sentinel` destination forwards logs to Microsoft Sentinel.
+        /// The `MicrosoftSentinel` destination forwards logs to Microsoft Sentinel.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigDestinationsMicrosoftSentinelGetArgs> MicrosoftSentinels
         {
@@ -148,7 +148,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigDestinationsNewRelicGetArgs>? _newRelics;
 
         /// <summary>
-        /// The `new_relic` destination sends logs to the New Relic platform.
+        /// The `NewRelic` destination sends logs to the New Relic platform.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigDestinationsNewRelicGetArgs> NewRelics
         {
@@ -160,7 +160,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigDestinationsOpensearchGetArgs>? _opensearches;
 
         /// <summary>
-        /// The `opensearch` destination writes logs to an OpenSearch cluster.
+        /// The `Opensearch` destination writes logs to an OpenSearch cluster.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigDestinationsOpensearchGetArgs> Opensearches
         {
@@ -172,7 +172,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigDestinationsRsyslogGetArgs>? _rsyslogs;
 
         /// <summary>
-        /// The `rsyslog` destination forwards logs to an external `rsyslog` server over TCP or UDP using the syslog protocol.
+        /// The `Rsyslog` destination forwards logs to an external `Rsyslog` server over TCP or UDP using the syslog protocol.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigDestinationsRsyslogGetArgs> Rsyslogs
         {
@@ -184,7 +184,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigDestinationsSentinelOneGetArgs>? _sentinelOnes;
 
         /// <summary>
-        /// The `sentinel_one` destination sends logs to SentinelOne.
+        /// The `SentinelOne` destination sends logs to SentinelOne.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigDestinationsSentinelOneGetArgs> SentinelOnes
         {
@@ -196,7 +196,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigDestinationsSocketGetArgs>? _sockets;
 
         /// <summary>
-        /// The `socket` destination sends logs over TCP or UDP to a remote server.
+        /// The `Socket` destination sends logs over TCP or UDP to a remote server.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigDestinationsSocketGetArgs> Sockets
         {
@@ -208,7 +208,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigDestinationsSplunkHecGetArgs>? _splunkHecs;
 
         /// <summary>
-        /// The `splunk_hec` destination forwards logs to Splunk using the HTTP Event Collector (HEC).
+        /// The `SplunkHec` destination forwards logs to Splunk using the HTTP Event Collector (HEC).
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigDestinationsSplunkHecGetArgs> SplunkHecs
         {
@@ -220,7 +220,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigDestinationsSumoLogicGetArgs>? _sumoLogics;
 
         /// <summary>
-        /// The `sumo_logic` destination forwards logs to Sumo Logic.
+        /// The `SumoLogic` destination forwards logs to Sumo Logic.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigDestinationsSumoLogicGetArgs> SumoLogics
         {
@@ -232,7 +232,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigDestinationsSyslogNgGetArgs>? _syslogNgs;
 
         /// <summary>
-        /// The `syslog_ng` destination forwards logs to an external `syslog-ng` server over TCP or UDP using the syslog protocol.
+        /// The `SyslogNg` destination forwards logs to an external `syslog-ng` server over TCP or UDP using the syslog protocol.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigDestinationsSyslogNgGetArgs> SyslogNgs
         {

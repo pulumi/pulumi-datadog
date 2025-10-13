@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class MonitorSchedulingOptionCustomScheduleRecurrence
     {
         /// <summary>
-        /// Must be a valid `rrule`. See API docs for supported fields
+        /// Must be a valid `Rrule`. See API docs for supported fields
         /// </summary>
         public readonly string Rrule;
         /// <summary>

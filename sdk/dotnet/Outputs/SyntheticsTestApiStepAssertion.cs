@@ -14,15 +14,15 @@ namespace Pulumi.Datadog.Outputs
     public sealed class SyntheticsTestApiStepAssertion
     {
         /// <summary>
-        /// If assertion type is `javascript`, this is the JavaScript code that performs the assertions.
+        /// If assertion type is `Javascript`, this is the JavaScript code that performs the assertions.
         /// </summary>
         public readonly string? Code;
         /// <summary>
-        /// Assertion operator. **Note:** Only some combinations of `type` and `operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test).
+        /// Assertion operator. **Note:** Only some combinations of `Type` and `Operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test).
         /// </summary>
         public readonly string? Operator;
         /// <summary>
-        /// If assertion type is `header`, this is the header name.
+        /// If assertion type is `Header`, this is the header name.
         /// </summary>
         public readonly string? Property;
         /// <summary>
@@ -30,23 +30,23 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Target;
         /// <summary>
-        /// Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
+        /// Expected structure if `Operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
         /// </summary>
         public readonly Outputs.SyntheticsTestApiStepAssertionTargetjsonpath? Targetjsonpath;
         /// <summary>
-        /// Expected structure if `operator` is `validatesJSONSchema`. Exactly one nested block is allowed with the structure below.
+        /// Expected structure if `Operator` is `validatesJSONSchema`. Exactly one nested block is allowed with the structure below.
         /// </summary>
         public readonly Outputs.SyntheticsTestApiStepAssertionTargetjsonschema? Targetjsonschema;
         /// <summary>
-        /// Expected structure if `operator` is `validatesXPath`. Exactly one nested block is allowed with the structure below.
+        /// Expected structure if `Operator` is `validatesXPath`. Exactly one nested block is allowed with the structure below.
         /// </summary>
         public readonly Outputs.SyntheticsTestApiStepAssertionTargetxpath? Targetxpath;
         /// <summary>
-        /// Timings scope for response time assertions. Valid values are `all`, `withoutDNS`.
+        /// Timings scope for response time assertions. Valid values are `All`, `withoutDNS`.
         /// </summary>
         public readonly string? TimingsScope;
         /// <summary>
-        /// Type of assertion. **Note:** Only some combinations of `type` and `operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
+        /// Type of assertion. **Note:** Only some combinations of `Type` and `Operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). Valid values are `Body`, `Header`, `statusCode`, `Certificate`, `responseTime`, `Property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `Latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `Connection`, `bodyHash`, `Javascript`.
         /// </summary>
         public readonly string Type;
 

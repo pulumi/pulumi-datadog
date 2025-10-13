@@ -33,14 +33,14 @@ public final class PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQ
     }
 
     /**
-     * The data source for APM Resource Stats queries. Valid values are `apm_resource_stats`.
+     * The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
      * 
      */
     @Import(name="dataSource", required=true)
     private Output<String> dataSource;
 
     /**
-     * @return The data source for APM Resource Stats queries. Valid values are `apm_resource_stats`.
+     * @return The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
      * 
      */
     public Output<String> dataSource() {
@@ -108,14 +108,14 @@ public final class PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQ
     }
 
     /**
-     * The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
      * 
      */
     @Import(name="primaryTagName")
     private @Nullable Output<String> primaryTagName;
 
     /**
-     * @return The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * @return The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
      * 
      */
     public Optional<Output<String>> primaryTagName() {
@@ -123,14 +123,14 @@ public final class PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQ
     }
 
     /**
-     * Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
      * 
      */
     @Import(name="primaryTagValue")
     private @Nullable Output<String> primaryTagValue;
 
     /**
-     * @return Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
+     * @return Filter APM data by the second primary tag. `primaryTagName` must also be specified.
      * 
      */
     public Optional<Output<String>> primaryTagValue() {
@@ -168,14 +168,14 @@ public final class PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQ
     }
 
     /**
-     * APM statistic. Valid values are `errors`, `error_rate`, `hits`, `latency_avg`, `latency_distribution`, `latency_max`, `latency_p50`, `latency_p75`, `latency_p90`, `latency_p95`, `latency_p99`.
+     * APM statistic. Valid values are `errors`, `errorRate`, `hits`, `latencyAvg`, `latencyDistribution`, `latencyMax`, `latencyP50`, `latencyP75`, `latencyP90`, `latencyP95`, `latencyP99`.
      * 
      */
     @Import(name="stat", required=true)
     private Output<String> stat;
 
     /**
-     * @return APM statistic. Valid values are `errors`, `error_rate`, `hits`, `latency_avg`, `latency_distribution`, `latency_max`, `latency_p50`, `latency_p75`, `latency_p90`, `latency_p95`, `latency_p99`.
+     * @return APM statistic. Valid values are `errors`, `errorRate`, `hits`, `latencyAvg`, `latencyDistribution`, `latencyMax`, `latencyP50`, `latencyP75`, `latencyP90`, `latencyP95`, `latencyP99`.
      * 
      */
     public Output<String> stat() {
@@ -238,7 +238,7 @@ public final class PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQ
         }
 
         /**
-         * @param dataSource The data source for APM Resource Stats queries. Valid values are `apm_resource_stats`.
+         * @param dataSource The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQ
         }
 
         /**
-         * @param dataSource The data source for APM Resource Stats queries. Valid values are `apm_resource_stats`.
+         * @param dataSource The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
          * 
          * @return builder
          * 
@@ -353,7 +353,7 @@ public final class PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQ
         }
 
         /**
-         * @param primaryTagName The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+         * @param primaryTagName The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
          * 
          * @return builder
          * 
@@ -364,7 +364,7 @@ public final class PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQ
         }
 
         /**
-         * @param primaryTagName The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+         * @param primaryTagName The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
          * 
          * @return builder
          * 
@@ -374,7 +374,7 @@ public final class PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQ
         }
 
         /**
-         * @param primaryTagValue Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
+         * @param primaryTagValue Filter APM data by the second primary tag. `primaryTagName` must also be specified.
          * 
          * @return builder
          * 
@@ -385,7 +385,7 @@ public final class PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQ
         }
 
         /**
-         * @param primaryTagValue Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
+         * @param primaryTagValue Filter APM data by the second primary tag. `primaryTagName` must also be specified.
          * 
          * @return builder
          * 
@@ -437,7 +437,7 @@ public final class PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQ
         }
 
         /**
-         * @param stat APM statistic. Valid values are `errors`, `error_rate`, `hits`, `latency_avg`, `latency_distribution`, `latency_max`, `latency_p50`, `latency_p75`, `latency_p90`, `latency_p95`, `latency_p99`.
+         * @param stat APM statistic. Valid values are `errors`, `errorRate`, `hits`, `latencyAvg`, `latencyDistribution`, `latencyMax`, `latencyP50`, `latencyP75`, `latencyP90`, `latencyP95`, `latencyP99`.
          * 
          * @return builder
          * 
@@ -448,7 +448,7 @@ public final class PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQ
         }
 
         /**
-         * @param stat APM statistic. Valid values are `errors`, `error_rate`, `hits`, `latency_avg`, `latency_distribution`, `latency_max`, `latency_p50`, `latency_p75`, `latency_p90`, `latency_p95`, `latency_p99`.
+         * @param stat APM statistic. Valid values are `errors`, `errorRate`, `hits`, `latencyAvg`, `latencyDistribution`, `latencyMax`, `latencyP50`, `latencyP75`, `latencyP90`, `latencyP95`, `latencyP99`.
          * 
          * @return builder
          * 

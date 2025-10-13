@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class SecurityMonitoringRuleSignalQueryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`. Defaults to `"event_count"`.
+        /// The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `Count`, `Cardinality`, `Sum`, `Max`, `NewValue`, `GeoData`, `EventCount`, `None`. Defaults to `"EventCount"`.
         /// </summary>
         [Input("aggregation")]
         public Input<string>? Aggregation { get; set; }
@@ -43,7 +43,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? DefaultRuleId { get; set; }
 
         /// <summary>
-        /// Name of the query. Not compatible with `new_value` aggregations.
+        /// Name of the query. Not compatible with `NewValue` aggregations.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

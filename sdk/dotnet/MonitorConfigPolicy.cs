@@ -44,13 +44,13 @@ namespace Pulumi.Datadog
     public partial class MonitorConfigPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The monitor config policy type Valid values are `tag`.
+        /// The monitor config policy type Valid values are `Tag`.
         /// </summary>
         [Output("policyType")]
         public Output<string> PolicyType { get; private set; } = null!;
 
         /// <summary>
-        /// Config for a tag policy. Only set if `policy_type` is `tag`.
+        /// Config for a tag policy. Only set if `PolicyType` is `Tag`.
         /// </summary>
         [Output("tagPolicy")]
         public Output<Outputs.MonitorConfigPolicyTagPolicy?> TagPolicy { get; private set; } = null!;
@@ -102,13 +102,13 @@ namespace Pulumi.Datadog
     public sealed class MonitorConfigPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The monitor config policy type Valid values are `tag`.
+        /// The monitor config policy type Valid values are `Tag`.
         /// </summary>
         [Input("policyType", required: true)]
         public Input<string> PolicyType { get; set; } = null!;
 
         /// <summary>
-        /// Config for a tag policy. Only set if `policy_type` is `tag`.
+        /// Config for a tag policy. Only set if `PolicyType` is `Tag`.
         /// </summary>
         [Input("tagPolicy")]
         public Input<Inputs.MonitorConfigPolicyTagPolicyArgs>? TagPolicy { get; set; }
@@ -122,13 +122,13 @@ namespace Pulumi.Datadog
     public sealed class MonitorConfigPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The monitor config policy type Valid values are `tag`.
+        /// The monitor config policy type Valid values are `Tag`.
         /// </summary>
         [Input("policyType")]
         public Input<string>? PolicyType { get; set; }
 
         /// <summary>
-        /// Config for a tag policy. Only set if `policy_type` is `tag`.
+        /// Config for a tag policy. Only set if `PolicyType` is `Tag`.
         /// </summary>
         [Input("tagPolicy")]
         public Input<Inputs.MonitorConfigPolicyTagPolicyGetArgs>? TagPolicy { get; set; }

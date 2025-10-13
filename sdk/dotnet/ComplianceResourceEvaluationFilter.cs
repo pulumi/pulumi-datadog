@@ -48,16 +48,16 @@ namespace Pulumi.Datadog
     public partial class ComplianceResourceEvaluationFilter : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The cloud provider of the filter's targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud providers.
+        /// The cloud provider of the filter's targeted resource. Only `Aws`, `Gcp`, or `Azure` are considered valid cloud providers.
         /// </summary>
         [Output("cloudProvider")]
         public Output<string> CloudProvider { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the of the filter's targeted resource. Different cloud providers target different resource IDs:
-        ///   - `aws`: account ID
-        ///   - `gcp`: project ID
-        ///   - `azure`: subscription ID
+        ///   - `Aws`: account ID
+        ///   - `Gcp`: project ID
+        ///   - `Azure`: subscription ID
         /// </summary>
         [Output("resourceId")]
         public Output<string> ResourceId { get; private set; } = null!;
@@ -115,16 +115,16 @@ namespace Pulumi.Datadog
     public sealed class ComplianceResourceEvaluationFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The cloud provider of the filter's targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud providers.
+        /// The cloud provider of the filter's targeted resource. Only `Aws`, `Gcp`, or `Azure` are considered valid cloud providers.
         /// </summary>
         [Input("cloudProvider", required: true)]
         public Input<string> CloudProvider { get; set; } = null!;
 
         /// <summary>
         /// The ID of the of the filter's targeted resource. Different cloud providers target different resource IDs:
-        ///   - `aws`: account ID
-        ///   - `gcp`: project ID
-        ///   - `azure`: subscription ID
+        ///   - `Aws`: account ID
+        ///   - `Gcp`: project ID
+        ///   - `Azure`: subscription ID
         /// </summary>
         [Input("resourceId", required: true)]
         public Input<string> ResourceId { get; set; } = null!;
@@ -150,16 +150,16 @@ namespace Pulumi.Datadog
     public sealed class ComplianceResourceEvaluationFilterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The cloud provider of the filter's targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud providers.
+        /// The cloud provider of the filter's targeted resource. Only `Aws`, `Gcp`, or `Azure` are considered valid cloud providers.
         /// </summary>
         [Input("cloudProvider")]
         public Input<string>? CloudProvider { get; set; }
 
         /// <summary>
         /// The ID of the of the filter's targeted resource. Different cloud providers target different resource IDs:
-        ///   - `aws`: account ID
-        ///   - `gcp`: project ID
-        ///   - `azure`: subscription ID
+        ///   - `Aws`: account ID
+        ///   - `Gcp`: project ID
+        ///   - `Azure`: subscription ID
         /// </summary>
         [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }

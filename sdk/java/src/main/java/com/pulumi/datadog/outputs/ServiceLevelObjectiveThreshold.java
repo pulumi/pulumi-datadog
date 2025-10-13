@@ -34,7 +34,7 @@ public final class ServiceLevelObjectiveThreshold {
      */
     private @Nullable Double warning;
     /**
-     * @return A string representation of the warning target (see the description of the target_display field for details).
+     * @return A string representation of the warning target (see the description of the targetDisplay field for details).
      * 
      */
     private @Nullable String warningDisplay;
@@ -69,7 +69,7 @@ public final class ServiceLevelObjectiveThreshold {
         return Optional.ofNullable(this.warning);
     }
     /**
-     * @return A string representation of the warning target (see the description of the target_display field for details).
+     * @return A string representation of the warning target (see the description of the targetDisplay field for details).
      * 
      */
     public Optional<String> warningDisplay() {

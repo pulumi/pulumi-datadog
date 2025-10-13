@@ -69,7 +69,7 @@ namespace Pulumi.Datadog
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A brief summary of the team, derived from the `description`.
+        /// A brief summary of the team, derived from the `Description`.
         /// </summary>
         [Output("summary")]
         public Output<string> Summary { get; private set; } = null!;
@@ -177,7 +177,7 @@ namespace Pulumi.Datadog
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A brief summary of the team, derived from the `description`.
+        /// A brief summary of the team, derived from the `Description`.
         /// </summary>
         [Input("summary")]
         public Input<string>? Summary { get; set; }

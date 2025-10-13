@@ -43,7 +43,7 @@ namespace Pulumi.Datadog.Inputs
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// A brief summary of the team, derived from the `description`.
+        /// A brief summary of the team, derived from the `Description`.
         /// </summary>
         [Input("summary", required: true)]
         public string Summary { get; set; } = null!;

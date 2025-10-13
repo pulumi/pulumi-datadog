@@ -43,7 +43,7 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// The type of security issues the rule applies to. Use `security_signals` for rules based on security signals and `security_findings` for those based on vulnerabilities.
+        /// The type of security issues the rule applies to. Use `SecuritySignals` for rules based on security signals and `SecurityFindings` for those based on vulnerabilities.
         /// </summary>
         [Input("triggerSource", required: true)]
         public Input<string> TriggerSource { get; set; } = null!;

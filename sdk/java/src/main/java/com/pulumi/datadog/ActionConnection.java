@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
 /**
  * A connection that can be used in Actions, including in the Workflow Automation and App Builder products. This resource requires a registered application key.
  * 
+ * ## Example Usage
+ * 
  * ## Import
  * 
  * The `pulumi import` command can be used, for example:

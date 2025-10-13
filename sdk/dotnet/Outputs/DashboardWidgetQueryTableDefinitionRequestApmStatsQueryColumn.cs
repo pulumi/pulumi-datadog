@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Alias;
         /// <summary>
-        /// A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
+        /// A list of display modes for each table cell. Valid values are `Number`, `Bar`, `Trend`.
         /// </summary>
         public readonly string? CellDisplayMode;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Widget sorting methods. Valid values are `asc`, `desc`.
+        /// Widget sorting methods. Valid values are `Asc`, `Desc`.
         /// </summary>
         public readonly string? Order;
 

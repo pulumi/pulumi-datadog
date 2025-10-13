@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? PrivateWidgetShare;
         /// <summary>
-        /// The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm` , `ro`, `ERROR`
+        /// The access role of the user. Options are `St` (standard user), `Adm` (admin user), or `Ro` (read-only user). Allowed enum values: `St`, `Adm` , `Ro`, `ERROR`
         /// </summary>
         public readonly string? SamlAutocreateAccessRole;
         /// <summary>

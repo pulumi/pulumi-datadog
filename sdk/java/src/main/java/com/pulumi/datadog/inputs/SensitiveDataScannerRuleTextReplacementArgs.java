@@ -49,14 +49,14 @@ public final class SensitiveDataScannerRuleTextReplacementArgs extends com.pulum
     }
 
     /**
-     * Only valid when type == `replacement_string`. When enabled, matches can be unmasked in logs by users with ‘Data Scanner Unmask’ permission. As a security best practice, avoid masking for highly-sensitive, long-lived data.
+     * Only valid when type == `replacementString`. When enabled, matches can be unmasked in logs by users with ‘Data Scanner Unmask’ permission. As a security best practice, avoid masking for highly-sensitive, long-lived data.
      * 
      */
     @Import(name="shouldSaveMatch")
     private @Nullable Output<Boolean> shouldSaveMatch;
 
     /**
-     * @return Only valid when type == `replacement_string`. When enabled, matches can be unmasked in logs by users with ‘Data Scanner Unmask’ permission. As a security best practice, avoid masking for highly-sensitive, long-lived data.
+     * @return Only valid when type == `replacementString`. When enabled, matches can be unmasked in logs by users with ‘Data Scanner Unmask’ permission. As a security best practice, avoid masking for highly-sensitive, long-lived data.
      * 
      */
     public Optional<Output<Boolean>> shouldSaveMatch() {
@@ -64,14 +64,14 @@ public final class SensitiveDataScannerRuleTextReplacementArgs extends com.pulum
     }
 
     /**
-     * Type of the replacement text. None means no replacement. hash means the data will be stubbed. replacement*string means that one can chose a text to replace the data. partial*replacement*from*beginning allows a user to partially replace the data from the beginning, and partial*replacement*from_end on the other hand, allows to replace data from the end. Valid values are `none`, `hash`, `replacement_string`, `partial_replacement_from_beginning`, `partial_replacement_from_end`.
+     * Type of the replacement text. None means no replacement. hash means the data will be stubbed. replacement*string means that one can chose a text to replace the data. partial*replacement*from*beginning allows a user to partially replace the data from the beginning, and partial*replacement*from_end on the other hand, allows to replace data from the end. Valid values are `none`, `hash`, `replacementString`, `partialReplacementFromBeginning`, `partialReplacementFromEnd`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Type of the replacement text. None means no replacement. hash means the data will be stubbed. replacement*string means that one can chose a text to replace the data. partial*replacement*from*beginning allows a user to partially replace the data from the beginning, and partial*replacement*from_end on the other hand, allows to replace data from the end. Valid values are `none`, `hash`, `replacement_string`, `partial_replacement_from_beginning`, `partial_replacement_from_end`.
+     * @return Type of the replacement text. None means no replacement. hash means the data will be stubbed. replacement*string means that one can chose a text to replace the data. partial*replacement*from*beginning allows a user to partially replace the data from the beginning, and partial*replacement*from_end on the other hand, allows to replace data from the end. Valid values are `none`, `hash`, `replacementString`, `partialReplacementFromBeginning`, `partialReplacementFromEnd`.
      * 
      */
     public Output<String> type() {
@@ -148,7 +148,7 @@ public final class SensitiveDataScannerRuleTextReplacementArgs extends com.pulum
         }
 
         /**
-         * @param shouldSaveMatch Only valid when type == `replacement_string`. When enabled, matches can be unmasked in logs by users with ‘Data Scanner Unmask’ permission. As a security best practice, avoid masking for highly-sensitive, long-lived data.
+         * @param shouldSaveMatch Only valid when type == `replacementString`. When enabled, matches can be unmasked in logs by users with ‘Data Scanner Unmask’ permission. As a security best practice, avoid masking for highly-sensitive, long-lived data.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class SensitiveDataScannerRuleTextReplacementArgs extends com.pulum
         }
 
         /**
-         * @param shouldSaveMatch Only valid when type == `replacement_string`. When enabled, matches can be unmasked in logs by users with ‘Data Scanner Unmask’ permission. As a security best practice, avoid masking for highly-sensitive, long-lived data.
+         * @param shouldSaveMatch Only valid when type == `replacementString`. When enabled, matches can be unmasked in logs by users with ‘Data Scanner Unmask’ permission. As a security best practice, avoid masking for highly-sensitive, long-lived data.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class SensitiveDataScannerRuleTextReplacementArgs extends com.pulum
         }
 
         /**
-         * @param type Type of the replacement text. None means no replacement. hash means the data will be stubbed. replacement*string means that one can chose a text to replace the data. partial*replacement*from*beginning allows a user to partially replace the data from the beginning, and partial*replacement*from_end on the other hand, allows to replace data from the end. Valid values are `none`, `hash`, `replacement_string`, `partial_replacement_from_beginning`, `partial_replacement_from_end`.
+         * @param type Type of the replacement text. None means no replacement. hash means the data will be stubbed. replacement*string means that one can chose a text to replace the data. partial*replacement*from*beginning allows a user to partially replace the data from the beginning, and partial*replacement*from_end on the other hand, allows to replace data from the end. Valid values are `none`, `hash`, `replacementString`, `partialReplacementFromBeginning`, `partialReplacementFromEnd`.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class SensitiveDataScannerRuleTextReplacementArgs extends com.pulum
         }
 
         /**
-         * @param type Type of the replacement text. None means no replacement. hash means the data will be stubbed. replacement*string means that one can chose a text to replace the data. partial*replacement*from*beginning allows a user to partially replace the data from the beginning, and partial*replacement*from_end on the other hand, allows to replace data from the end. Valid values are `none`, `hash`, `replacement_string`, `partial_replacement_from_beginning`, `partial_replacement_from_end`.
+         * @param type Type of the replacement text. None means no replacement. hash means the data will be stubbed. replacement*string means that one can chose a text to replace the data. partial*replacement*from*beginning allows a user to partially replace the data from the beginning, and partial*replacement*from_end on the other hand, allows to replace data from the end. Valid values are `none`, `hash`, `replacementString`, `partialReplacementFromBeginning`, `partialReplacementFromEnd`.
          * 
          * @return builder
          * 

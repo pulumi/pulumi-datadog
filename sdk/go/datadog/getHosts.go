@@ -12,6 +12,8 @@ import (
 )
 
 // Use this data source to retrieve information about your live hosts in Datadog.
+//
+// ## Example Usage
 func GetHosts(ctx *pulumi.Context, args *GetHostsArgs, opts ...pulumi.InvokeOption) (*GetHostsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetHostsResult

@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatMatchArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Match or compare option. Valid values are `is`, `is_not`, `contains`, `does_not_contain`, `starts_with`, `ends_with`.
+        /// Match or compare option. Valid values are `Is`, `IsNot`, `Contains`, `DoesNotContain`, `StartsWith`, `EndsWith`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

@@ -27,17 +27,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ObservabilityPipelineConfigSources {
     /**
-     * @return The `amazon_data_firehose` source ingests logs from AWS Data Firehose.
+     * @return The `amazonDataFirehose` source ingests logs from AWS Data Firehose.
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigSourcesAmazonDataFirehose> amazonDataFirehoses;
     /**
-     * @return The `amazon_s3` source ingests logs from an Amazon S3 bucket. It supports AWS authentication and TLS encryption.
+     * @return The `amazonS3` source ingests logs from an Amazon S3 bucket. It supports AWS authentication and TLS encryption.
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigSourcesAmazonS3> amazonS3s;
     /**
-     * @return The `datadog_agent` source collects logs from the Datadog Agent.
+     * @return The `datadogAgent` source collects logs from the Datadog Agent.
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigSourcesDatadogAgent> datadogAgents;
@@ -52,17 +52,17 @@ public final class ObservabilityPipelineConfigSources {
      */
     private @Nullable List<ObservabilityPipelineConfigSourcesFluentd> fluentds;
     /**
-     * @return The `google_pubsub` source ingests logs from a Google Cloud Pub/Sub subscription.
+     * @return The `googlePubsub` source ingests logs from a Google Cloud Pub/Sub subscription.
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigSourcesGooglePubsub> googlePubsubs;
     /**
-     * @return The `http_client` source scrapes logs from HTTP endpoints at regular intervals.
+     * @return The `httpClient` source scrapes logs from HTTP endpoints at regular intervals.
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigSourcesHttpClient> httpClients;
     /**
-     * @return The `http_server` source collects logs over HTTP POST from external services.
+     * @return The `httpServer` source collects logs over HTTP POST from external services.
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigSourcesHttpServer> httpServers;
@@ -87,43 +87,43 @@ public final class ObservabilityPipelineConfigSources {
      */
     private @Nullable List<ObservabilityPipelineConfigSourcesSocket> sockets;
     /**
-     * @return The `splunk_hec` source implements the Splunk HTTP Event Collector (HEC) API.
+     * @return The `splunkHec` source implements the Splunk HTTP Event Collector (HEC) API.
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigSourcesSplunkHec> splunkHecs;
     /**
-     * @return The `splunk_tcp` source receives logs from a Splunk Universal Forwarder over TCP. TLS is supported for secure transmission.
+     * @return The `splunkTcp` source receives logs from a Splunk Universal Forwarder over TCP. TLS is supported for secure transmission.
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigSourcesSplunkTcp> splunkTcps;
     /**
-     * @return The `sumo_logic` source receives logs from Sumo Logic collectors.
+     * @return The `sumoLogic` source receives logs from Sumo Logic collectors.
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigSourcesSumoLogic> sumoLogics;
     /**
-     * @return The `syslog_ng` source listens for logs over TCP or UDP from a `syslog-ng` server using the syslog protocol.
+     * @return The `syslogNg` source listens for logs over TCP or UDP from a `syslog-ng` server using the syslog protocol.
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigSourcesSyslogNg> syslogNgs;
 
     private ObservabilityPipelineConfigSources() {}
     /**
-     * @return The `amazon_data_firehose` source ingests logs from AWS Data Firehose.
+     * @return The `amazonDataFirehose` source ingests logs from AWS Data Firehose.
      * 
      */
     public List<ObservabilityPipelineConfigSourcesAmazonDataFirehose> amazonDataFirehoses() {
         return this.amazonDataFirehoses == null ? List.of() : this.amazonDataFirehoses;
     }
     /**
-     * @return The `amazon_s3` source ingests logs from an Amazon S3 bucket. It supports AWS authentication and TLS encryption.
+     * @return The `amazonS3` source ingests logs from an Amazon S3 bucket. It supports AWS authentication and TLS encryption.
      * 
      */
     public List<ObservabilityPipelineConfigSourcesAmazonS3> amazonS3s() {
         return this.amazonS3s == null ? List.of() : this.amazonS3s;
     }
     /**
-     * @return The `datadog_agent` source collects logs from the Datadog Agent.
+     * @return The `datadogAgent` source collects logs from the Datadog Agent.
      * 
      */
     public List<ObservabilityPipelineConfigSourcesDatadogAgent> datadogAgents() {
@@ -144,21 +144,21 @@ public final class ObservabilityPipelineConfigSources {
         return this.fluentds == null ? List.of() : this.fluentds;
     }
     /**
-     * @return The `google_pubsub` source ingests logs from a Google Cloud Pub/Sub subscription.
+     * @return The `googlePubsub` source ingests logs from a Google Cloud Pub/Sub subscription.
      * 
      */
     public List<ObservabilityPipelineConfigSourcesGooglePubsub> googlePubsubs() {
         return this.googlePubsubs == null ? List.of() : this.googlePubsubs;
     }
     /**
-     * @return The `http_client` source scrapes logs from HTTP endpoints at regular intervals.
+     * @return The `httpClient` source scrapes logs from HTTP endpoints at regular intervals.
      * 
      */
     public List<ObservabilityPipelineConfigSourcesHttpClient> httpClients() {
         return this.httpClients == null ? List.of() : this.httpClients;
     }
     /**
-     * @return The `http_server` source collects logs over HTTP POST from external services.
+     * @return The `httpServer` source collects logs over HTTP POST from external services.
      * 
      */
     public List<ObservabilityPipelineConfigSourcesHttpServer> httpServers() {
@@ -193,28 +193,28 @@ public final class ObservabilityPipelineConfigSources {
         return this.sockets == null ? List.of() : this.sockets;
     }
     /**
-     * @return The `splunk_hec` source implements the Splunk HTTP Event Collector (HEC) API.
+     * @return The `splunkHec` source implements the Splunk HTTP Event Collector (HEC) API.
      * 
      */
     public List<ObservabilityPipelineConfigSourcesSplunkHec> splunkHecs() {
         return this.splunkHecs == null ? List.of() : this.splunkHecs;
     }
     /**
-     * @return The `splunk_tcp` source receives logs from a Splunk Universal Forwarder over TCP. TLS is supported for secure transmission.
+     * @return The `splunkTcp` source receives logs from a Splunk Universal Forwarder over TCP. TLS is supported for secure transmission.
      * 
      */
     public List<ObservabilityPipelineConfigSourcesSplunkTcp> splunkTcps() {
         return this.splunkTcps == null ? List.of() : this.splunkTcps;
     }
     /**
-     * @return The `sumo_logic` source receives logs from Sumo Logic collectors.
+     * @return The `sumoLogic` source receives logs from Sumo Logic collectors.
      * 
      */
     public List<ObservabilityPipelineConfigSourcesSumoLogic> sumoLogics() {
         return this.sumoLogics == null ? List.of() : this.sumoLogics;
     }
     /**
-     * @return The `syslog_ng` source listens for logs over TCP or UDP from a `syslog-ng` server using the syslog protocol.
+     * @return The `syslogNg` source listens for logs over TCP or UDP from a `syslog-ng` server using the syslog protocol.
      * 
      */
     public List<ObservabilityPipelineConfigSourcesSyslogNg> syslogNgs() {

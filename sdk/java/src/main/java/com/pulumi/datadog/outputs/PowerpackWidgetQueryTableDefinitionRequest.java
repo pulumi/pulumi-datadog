@@ -45,7 +45,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequest {
      */
     private @Nullable List<String> cellDisplayModes;
     /**
-     * @return Conditional formats allow you to set the color of your widget content or background, depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+     * @return Conditional formats allow you to set the color of your widget content or background, depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
      * 
      */
     private @Nullable List<PowerpackWidgetQueryTableDefinitionRequestConditionalFormat> conditionalFormats;
@@ -87,7 +87,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequest {
      */
     private @Nullable PowerpackWidgetQueryTableDefinitionRequestSecurityQuery securityQuery;
     /**
-     * @return Text formats define how to format text in table widget content. Multiple `text_formats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
+     * @return Text formats define how to format text in table widget content. Multiple `textFormats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
      * 
      */
     private @Nullable List<PowerpackWidgetQueryTableDefinitionRequestTextFormat> textFormats;
@@ -125,7 +125,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequest {
         return this.cellDisplayModes == null ? List.of() : this.cellDisplayModes;
     }
     /**
-     * @return Conditional formats allow you to set the color of your widget content or background, depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+     * @return Conditional formats allow you to set the color of your widget content or background, depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
      * 
      */
     public List<PowerpackWidgetQueryTableDefinitionRequestConditionalFormat> conditionalFormats() {
@@ -187,7 +187,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequest {
         return Optional.ofNullable(this.securityQuery);
     }
     /**
-     * @return Text formats define how to format text in table widget content. Multiple `text_formats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
+     * @return Text formats define how to format text in table widget content. Multiple `textFormats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
      * 
      */
     public List<PowerpackWidgetQueryTableDefinitionRequestTextFormat> textFormats() {

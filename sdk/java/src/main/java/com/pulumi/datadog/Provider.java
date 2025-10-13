@@ -66,42 +66,42 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.appKey);
     }
     /**
-     * The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloud_provider_type` set to `aws`.
+     * The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloudProviderType` set to `aws`.
      * 
      */
     @Export(name="awsAccessKeyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> awsAccessKeyId;
 
     /**
-     * @return The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloud_provider_type` set to `aws`.
+     * @return The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloudProviderType` set to `aws`.
      * 
      */
     public Output<Optional<String>> awsAccessKeyId() {
         return Codegen.optional(this.awsAccessKeyId);
     }
     /**
-     * The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
+     * The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloudProviderType` set to `aws`.
      * 
      */
     @Export(name="awsSecretAccessKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> awsSecretAccessKey;
 
     /**
-     * @return The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
+     * @return The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloudProviderType` set to `aws`.
      * 
      */
     public Output<Optional<String>> awsSecretAccessKey() {
         return Codegen.optional(this.awsSecretAccessKey);
     }
     /**
-     * The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
+     * The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloudProviderType` set to `aws` and using temporary credentials.
      * 
      */
     @Export(name="awsSessionToken", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> awsSessionToken;
 
     /**
-     * @return The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
+     * @return The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloudProviderType` set to `aws` and using temporary credentials.
      * 
      */
     public Output<Optional<String>> awsSessionToken() {
@@ -164,14 +164,14 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.orgUuid);
     }
     /**
-     * Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, api_key won&#39;t be checked.
+     * Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, apiKey won&#39;t be checked.
      * 
      */
     @Export(name="validate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> validate;
 
     /**
-     * @return Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, api_key won&#39;t be checked.
+     * @return Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, apiKey won&#39;t be checked.
      * 
      */
     public Output<Optional<String>> validate() {

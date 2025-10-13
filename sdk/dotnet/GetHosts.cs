@@ -13,18 +13,24 @@ namespace Pulumi.Datadog
     {
         /// <summary>
         /// Use this data source to retrieve information about your live hosts in Datadog.
+        /// 
+        /// ## Example Usage
         /// </summary>
         public static Task<GetHostsResult> InvokeAsync(GetHostsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHostsResult>("datadog:index/getHosts:getHosts", args ?? new GetHostsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve information about your live hosts in Datadog.
+        /// 
+        /// ## Example Usage
         /// </summary>
         public static Output<GetHostsResult> Invoke(GetHostsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHostsResult>("datadog:index/getHosts:getHosts", args ?? new GetHostsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve information about your live hosts in Datadog.
+        /// 
+        /// ## Example Usage
         /// </summary>
         public static Output<GetHostsResult> Invoke(GetHostsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetHostsResult>("datadog:index/getHosts:getHosts", args ?? new GetHostsInvokeArgs(), options.WithDefaults());
@@ -52,7 +58,7 @@ namespace Pulumi.Datadog
         public bool? IncludeMutedHostsData { get; set; }
 
         /// <summary>
-        /// Direction of sort. Valid values are `asc`, `desc`.
+        /// Direction of sort. Valid values are `Asc`, `Desc`.
         /// </summary>
         [Input("sortDir")]
         public string? SortDir { get; set; }
@@ -90,7 +96,7 @@ namespace Pulumi.Datadog
         public Input<bool>? IncludeMutedHostsData { get; set; }
 
         /// <summary>
-        /// Direction of sort. Valid values are `asc`, `desc`.
+        /// Direction of sort. Valid values are `Asc`, `Desc`.
         /// </summary>
         [Input("sortDir")]
         public Input<string>? SortDir { get; set; }
@@ -132,7 +138,7 @@ namespace Pulumi.Datadog
         /// </summary>
         public readonly bool? IncludeMutedHostsData;
         /// <summary>
-        /// Direction of sort. Valid values are `asc`, `desc`.
+        /// Direction of sort. Valid values are `Asc`, `Desc`.
         /// </summary>
         public readonly string? SortDir;
         /// <summary>

@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ObservabilityPipelineConfigDestinationsElasticsearchGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Elasticsearch API version to use. Set to `auto` to auto-detect.
+        /// The Elasticsearch API version to use. Set to `Auto` to auto-detect.
         /// </summary>
         [Input("apiVersion")]
         public Input<string>? ApiVersion { get; set; }
@@ -34,7 +34,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<string>? _inputs;
 
         /// <summary>
-        /// A list of component IDs whose output is used as the `input` for this component.
+        /// A list of component IDs whose output is used as the `Input` for this component.
         /// </summary>
         public InputList<string> Inputs
         {

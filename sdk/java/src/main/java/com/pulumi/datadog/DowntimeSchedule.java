@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
 /**
  * Provides a Datadog DowntimeSchedule resource. This can be used to create and manage Datadog downtimes.
  * 
+ * ## Example Usage
+ * 
  * ## Import
  * 
  * The `pulumi import` command can be used, for example:
@@ -82,28 +84,28 @@ public class DowntimeSchedule extends com.pulumi.resources.CustomResource {
         return this.muteFirstRecoveryNotification;
     }
     /**
-     * States that will trigger a monitor notification when the `notify_end_types` action occurs.
+     * States that will trigger a monitor notification when the `notifyEndTypes` action occurs.
      * 
      */
     @Export(name="notifyEndStates", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> notifyEndStates;
 
     /**
-     * @return States that will trigger a monitor notification when the `notify_end_types` action occurs.
+     * @return States that will trigger a monitor notification when the `notifyEndTypes` action occurs.
      * 
      */
     public Output<List<String>> notifyEndStates() {
         return this.notifyEndStates;
     }
     /**
-     * Actions that will trigger a monitor notification if the downtime is in the `notify_end_types` state.
+     * Actions that will trigger a monitor notification if the downtime is in the `notifyEndTypes` state.
      * 
      */
     @Export(name="notifyEndTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> notifyEndTypes;
 
     /**
-     * @return Actions that will trigger a monitor notification if the downtime is in the `notify_end_types` state.
+     * @return Actions that will trigger a monitor notification if the downtime is in the `notifyEndTypes` state.
      * 
      */
     public Output<List<String>> notifyEndTypes() {

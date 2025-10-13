@@ -37,13 +37,13 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// The kind of grouping to use. Valid values are `check`, `cluster`.
+        /// The kind of grouping to use. Valid values are `Check`, `Cluster`.
         /// </summary>
         [Input("grouping", required: true)]
         public Input<string> Grouping { get; set; } = null!;
 
         /// <summary>
-        /// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
+        /// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `WeekToDate`, `MonthToDate`, `1y`, `Alert`.
         /// </summary>
         [Input("liveSpan")]
         public Input<string>? LiveSpan { get; set; }
@@ -67,7 +67,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Title { get; set; }
 
         /// <summary>
-        /// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+        /// The alignment of the widget's title. Valid values are `Center`, `Left`, `Right`.
         /// </summary>
         [Input("titleAlign")]
         public Input<string>? TitleAlign { get; set; }

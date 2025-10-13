@@ -32,14 +32,14 @@ public final class MonitorConfigPolicyState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Config for a tag policy. Only set if `policy_type` is `tag`.
+     * Config for a tag policy. Only set if `policyType` is `tag`.
      * 
      */
     @Import(name="tagPolicy")
     private @Nullable Output<MonitorConfigPolicyTagPolicyArgs> tagPolicy;
 
     /**
-     * @return Config for a tag policy. Only set if `policy_type` is `tag`.
+     * @return Config for a tag policy. Only set if `policyType` is `tag`.
      * 
      */
     public Optional<Output<MonitorConfigPolicyTagPolicyArgs>> tagPolicy() {
@@ -93,7 +93,7 @@ public final class MonitorConfigPolicyState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param tagPolicy Config for a tag policy. Only set if `policy_type` is `tag`.
+         * @param tagPolicy Config for a tag policy. Only set if `policyType` is `tag`.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class MonitorConfigPolicyState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param tagPolicy Config for a tag policy. Only set if `policy_type` is `tag`.
+         * @param tagPolicy Config for a tag policy. Only set if `policyType` is `tag`.
          * 
          * @return builder
          * 

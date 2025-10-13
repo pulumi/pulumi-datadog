@@ -19,7 +19,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Alias { get; set; }
 
         /// <summary>
-        /// Dimension of the Scatterplot. Valid values are `x`, `y`, `radius`, `color`.
+        /// Dimension of the Scatterplot. Valid values are `X`, `Y`, `Radius`, `Color`.
         /// </summary>
         [Input("dimension", required: true)]
         public Input<string> Dimension { get; set; } = null!;

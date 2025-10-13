@@ -13,13 +13,13 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ObservabilityPipelineConfigProcessorsEnrichmentTableFileEncodingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The `encoding` `delimiter`.
+        /// The `Encoding` `Delimiter`.
         /// </summary>
         [Input("delimiter")]
         public Input<string>? Delimiter { get; set; }
 
         /// <summary>
-        /// The `encoding` `includes_headers`.
+        /// The `Encoding` `IncludesHeaders`.
         /// </summary>
         [Input("includesHeaders")]
         public Input<bool>? IncludesHeaders { get; set; }

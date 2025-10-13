@@ -78,10 +78,10 @@ public class Integration extends com.pulumi.resources.CustomResource {
      * List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
      * 
      * @deprecated
-     * **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision`
+     * **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=cloud_run_revision`
      * 
      */
-    @Deprecated /* **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision` */
+    @Deprecated /* **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=cloud_run_revision` */
     @Export(name="cloudRunRevisionFilters", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> cloudRunRevisionFilters;
 
@@ -93,14 +93,14 @@ public class Integration extends com.pulumi.resources.CustomResource {
         return this.cloudRunRevisionFilters;
     }
     /**
-     * Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled. Defaults to `false`.
+     * Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled. Defaults to `false`.
      * 
      */
     @Export(name="cspmResourceCollectionEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> cspmResourceCollectionEnabled;
 
     /**
-     * @return Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled. Defaults to `false`.
+     * @return Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled. Defaults to `false`.
      * 
      */
     public Output<Boolean> cspmResourceCollectionEnabled() {
@@ -110,10 +110,10 @@ public class Integration extends com.pulumi.resources.CustomResource {
      * List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog. Defaults to `&#34;&#34;`.
      * 
      * @deprecated
-     * **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance`
+     * **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance`
      * 
      */
-    @Deprecated /* **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance` */
+    @Deprecated /* **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance` */
     @Export(name="hostFilters", refs={String.class}, tree="[0]")
     private Output<String> hostFilters;
 

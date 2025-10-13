@@ -23,7 +23,7 @@ public final class DashboardWidgetQueryValueDefinition {
      */
     private @Nullable Boolean autoscale;
     /**
-     * @return A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+     * @return A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
      * 
      */
     private @Nullable List<DashboardWidgetQueryValueDefinitionCustomLink> customLinks;
@@ -33,7 +33,7 @@ public final class DashboardWidgetQueryValueDefinition {
      */
     private @Nullable String customUnit;
     /**
-     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      * 
      */
     private @Nullable String liveSpan;
@@ -43,7 +43,7 @@ public final class DashboardWidgetQueryValueDefinition {
      */
     private @Nullable Integer precision;
     /**
-     * @return A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the `request` block).
+     * @return A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the `request` block).
      * 
      */
     private @Nullable List<DashboardWidgetQueryValueDefinitionRequest> requests;
@@ -82,7 +82,7 @@ public final class DashboardWidgetQueryValueDefinition {
         return Optional.ofNullable(this.autoscale);
     }
     /**
-     * @return A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+     * @return A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
      * 
      */
     public List<DashboardWidgetQueryValueDefinitionCustomLink> customLinks() {
@@ -96,7 +96,7 @@ public final class DashboardWidgetQueryValueDefinition {
         return Optional.ofNullable(this.customUnit);
     }
     /**
-     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      * 
      */
     public Optional<String> liveSpan() {
@@ -110,7 +110,7 @@ public final class DashboardWidgetQueryValueDefinition {
         return Optional.ofNullable(this.precision);
     }
     /**
-     * @return A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the `request` block).
+     * @return A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the `request` block).
      * 
      */
     public List<DashboardWidgetQueryValueDefinitionRequest> requests() {

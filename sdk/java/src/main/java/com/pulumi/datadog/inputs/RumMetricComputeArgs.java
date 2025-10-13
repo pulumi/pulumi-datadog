@@ -33,14 +33,14 @@ public final class RumMetricComputeArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Toggle to include or exclude percentile aggregations for distribution metrics. Only present when `aggregation_type` is `distribution`.
+     * Toggle to include or exclude percentile aggregations for distribution metrics. Only present when `aggregationType` is `distribution`.
      * 
      */
     @Import(name="includePercentiles")
     private @Nullable Output<Boolean> includePercentiles;
 
     /**
-     * @return Toggle to include or exclude percentile aggregations for distribution metrics. Only present when `aggregation_type` is `distribution`.
+     * @return Toggle to include or exclude percentile aggregations for distribution metrics. Only present when `aggregationType` is `distribution`.
      * 
      */
     public Optional<Output<Boolean>> includePercentiles() {
@@ -48,14 +48,14 @@ public final class RumMetricComputeArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The path to the value the RUM-based metric will aggregate on. Only present when `aggregation_type` is `distribution`.
+     * The path to the value the RUM-based metric will aggregate on. Only present when `aggregationType` is `distribution`.
      * 
      */
     @Import(name="path")
     private @Nullable Output<String> path;
 
     /**
-     * @return The path to the value the RUM-based metric will aggregate on. Only present when `aggregation_type` is `distribution`.
+     * @return The path to the value the RUM-based metric will aggregate on. Only present when `aggregationType` is `distribution`.
      * 
      */
     public Optional<Output<String>> path() {
@@ -110,7 +110,7 @@ public final class RumMetricComputeArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param includePercentiles Toggle to include or exclude percentile aggregations for distribution metrics. Only present when `aggregation_type` is `distribution`.
+         * @param includePercentiles Toggle to include or exclude percentile aggregations for distribution metrics. Only present when `aggregationType` is `distribution`.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class RumMetricComputeArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param includePercentiles Toggle to include or exclude percentile aggregations for distribution metrics. Only present when `aggregation_type` is `distribution`.
+         * @param includePercentiles Toggle to include or exclude percentile aggregations for distribution metrics. Only present when `aggregationType` is `distribution`.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class RumMetricComputeArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param path The path to the value the RUM-based metric will aggregate on. Only present when `aggregation_type` is `distribution`.
+         * @param path The path to the value the RUM-based metric will aggregate on. Only present when `aggregationType` is `distribution`.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class RumMetricComputeArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param path The path to the value the RUM-based metric will aggregate on. Only present when `aggregation_type` is `distribution`.
+         * @param path The path to the value the RUM-based metric will aggregate on. Only present when `aggregationType` is `distribution`.
          * 
          * @return builder
          * 

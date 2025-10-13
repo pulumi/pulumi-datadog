@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<int>? Precision { get; set; }
 
         /// <summary>
-        /// The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+        /// The alignment of the text in the widget. Valid values are `Center`, `Left`, `Right`.
         /// </summary>
         [Input("textAlign")]
         public Input<string>? TextAlign { get; set; }
@@ -37,7 +37,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Title { get; set; }
 
         /// <summary>
-        /// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+        /// The alignment of the widget's title. Valid values are `Center`, `Left`, `Right`.
         /// </summary>
         [Input("titleAlign")]
         public Input<string>? TitleAlign { get; set; }

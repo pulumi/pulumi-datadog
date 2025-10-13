@@ -31,14 +31,14 @@ public final class DatasetProductFilterArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The product type of the dataset. Supported types: `apm`, `rum`, `synthetics`, `metrics`, `logs`, `sd_repoinfo`, `error_tracking`, `cloud_cost`, and `ml_obs`.
+     * The product type of the dataset. Supported types: `apm`, `rum`, `synthetics`, `metrics`, `logs`, `sdRepoinfo`, `errorTracking`, `cloudCost`, and `mlObs`.
      * 
      */
     @Import(name="product", required=true)
     private Output<String> product;
 
     /**
-     * @return The product type of the dataset. Supported types: `apm`, `rum`, `synthetics`, `metrics`, `logs`, `sd_repoinfo`, `error_tracking`, `cloud_cost`, and `ml_obs`.
+     * @return The product type of the dataset. Supported types: `apm`, `rum`, `synthetics`, `metrics`, `logs`, `sdRepoinfo`, `errorTracking`, `cloudCost`, and `mlObs`.
      * 
      */
     public Output<String> product() {
@@ -102,7 +102,7 @@ public final class DatasetProductFilterArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param product The product type of the dataset. Supported types: `apm`, `rum`, `synthetics`, `metrics`, `logs`, `sd_repoinfo`, `error_tracking`, `cloud_cost`, and `ml_obs`.
+         * @param product The product type of the dataset. Supported types: `apm`, `rum`, `synthetics`, `metrics`, `logs`, `sdRepoinfo`, `errorTracking`, `cloudCost`, and `mlObs`.
          * 
          * @return builder
          * 
@@ -113,7 +113,7 @@ public final class DatasetProductFilterArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param product The product type of the dataset. Supported types: `apm`, `rum`, `synthetics`, `metrics`, `logs`, `sd_repoinfo`, `error_tracking`, `cloud_cost`, and `ml_obs`.
+         * @param product The product type of the dataset. Supported types: `apm`, `rum`, `synthetics`, `metrics`, `logs`, `sdRepoinfo`, `errorTracking`, `cloudCost`, and `mlObs`.
          * 
          * @return builder
          * 

@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
 /**
  * Provides a Datadog SpansMetric resource. This can be used to create and manage Datadog spans_metric.
  * 
+ * ## Example Usage
+ * 
  * ## Import
  * 
  * The `pulumi import` command can be used, for example:

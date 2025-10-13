@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Aws.Inputs
     public sealed class IntegrationAccountTracesConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// AWS X-Ray services to collect traces from. Defaults to `include_only`.
+        /// AWS X-Ray services to collect traces from. Defaults to `IncludeOnly`.
         /// </summary>
         [Input("xrayServices")]
         public Input<Inputs.IntegrationAccountTracesConfigXrayServicesArgs>? XrayServices { get; set; }

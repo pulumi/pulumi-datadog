@@ -17,12 +17,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PowerpackWidgetScatterplotDefinitionRequestYApmQuery {
     /**
-     * @return `compute_query` or `multi_compute` is required. The map keys are listed below.
+     * @return `computeQuery` or `multiCompute` is required. The map keys are listed below.
      * 
      */
     private @Nullable PowerpackWidgetScatterplotDefinitionRequestYApmQueryComputeQuery computeQuery;
     /**
-     * @return Multiple `group_by` blocks are allowed using the structure below.
+     * @return Multiple `groupBy` blocks are allowed using the structure below.
      * 
      */
     private @Nullable List<PowerpackWidgetScatterplotDefinitionRequestYApmQueryGroupBy> groupBies;
@@ -32,7 +32,7 @@ public final class PowerpackWidgetScatterplotDefinitionRequestYApmQuery {
      */
     private String index;
     /**
-     * @return `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
+     * @return `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
      * 
      */
     private @Nullable List<PowerpackWidgetScatterplotDefinitionRequestYApmQueryMultiCompute> multiComputes;
@@ -44,14 +44,14 @@ public final class PowerpackWidgetScatterplotDefinitionRequestYApmQuery {
 
     private PowerpackWidgetScatterplotDefinitionRequestYApmQuery() {}
     /**
-     * @return `compute_query` or `multi_compute` is required. The map keys are listed below.
+     * @return `computeQuery` or `multiCompute` is required. The map keys are listed below.
      * 
      */
     public Optional<PowerpackWidgetScatterplotDefinitionRequestYApmQueryComputeQuery> computeQuery() {
         return Optional.ofNullable(this.computeQuery);
     }
     /**
-     * @return Multiple `group_by` blocks are allowed using the structure below.
+     * @return Multiple `groupBy` blocks are allowed using the structure below.
      * 
      */
     public List<PowerpackWidgetScatterplotDefinitionRequestYApmQueryGroupBy> groupBies() {
@@ -65,7 +65,7 @@ public final class PowerpackWidgetScatterplotDefinitionRequestYApmQuery {
         return this.index;
     }
     /**
-     * @return `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
+     * @return `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
      * 
      */
     public List<PowerpackWidgetScatterplotDefinitionRequestYApmQueryMultiCompute> multiComputes() {

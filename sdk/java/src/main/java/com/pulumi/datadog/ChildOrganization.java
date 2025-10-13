@@ -115,14 +115,14 @@ public class ChildOrganization extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The `public_id` of the organization you are operating within.
+     * The `publicId` of the organization you are operating within.
      * 
      */
     @Export(name="publicId", refs={String.class}, tree="[0]")
     private Output<String> publicId;
 
     /**
-     * @return The `public_id` of the organization you are operating within.
+     * @return The `publicId` of the organization you are operating within.
      * 
      */
     public Output<String> publicId() {
