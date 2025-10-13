@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.DashboardWidgetSloListDefinitionRequestQuery Query;
         /// <summary>
-        /// The request type for the SLO List request. Valid values are `slo_list`.
+        /// The request type for the SLO List request. Valid values are `SloList`.
         /// </summary>
         public readonly string RequestType;
 

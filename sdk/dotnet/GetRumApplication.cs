@@ -108,7 +108,7 @@ namespace Pulumi.Datadog
         /// </summary>
         public readonly string? NameFilter;
         /// <summary>
-        /// Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`.
+        /// Type of the RUM application. Supported values are `Browser`, `Ios`, `Android`, `react-native`, `Flutter`.
         /// </summary>
         public readonly string Type;
         /// <summary>

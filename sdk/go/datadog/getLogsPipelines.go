@@ -12,6 +12,8 @@ import (
 )
 
 // Use this data source to list all existing logs pipelines for use in other resources.
+//
+// ## Example Usage
 func GetLogsPipelines(ctx *pulumi.Context, args *GetLogsPipelinesArgs, opts ...pulumi.InvokeOption) (*GetLogsPipelinesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLogsPipelinesResult

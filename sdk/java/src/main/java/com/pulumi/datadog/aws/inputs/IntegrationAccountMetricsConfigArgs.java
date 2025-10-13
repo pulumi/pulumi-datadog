@@ -79,14 +79,14 @@ public final class IntegrationAccountMetricsConfigArgs extends com.pulumi.resour
     }
 
     /**
-     * AWS metrics namespace filters. Defaults to a pre-set `exclude_only` list if block is empty.
+     * AWS metrics namespace filters. Defaults to a pre-set `excludeOnly` list if block is empty.
      * 
      */
     @Import(name="namespaceFilters")
     private @Nullable Output<IntegrationAccountMetricsConfigNamespaceFiltersArgs> namespaceFilters;
 
     /**
-     * @return AWS metrics namespace filters. Defaults to a pre-set `exclude_only` list if block is empty.
+     * @return AWS metrics namespace filters. Defaults to a pre-set `excludeOnly` list if block is empty.
      * 
      */
     public Optional<Output<IntegrationAccountMetricsConfigNamespaceFiltersArgs>> namespaceFilters() {
@@ -222,7 +222,7 @@ public final class IntegrationAccountMetricsConfigArgs extends com.pulumi.resour
         }
 
         /**
-         * @param namespaceFilters AWS metrics namespace filters. Defaults to a pre-set `exclude_only` list if block is empty.
+         * @param namespaceFilters AWS metrics namespace filters. Defaults to a pre-set `excludeOnly` list if block is empty.
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class IntegrationAccountMetricsConfigArgs extends com.pulumi.resour
         }
 
         /**
-         * @param namespaceFilters AWS metrics namespace filters. Defaults to a pre-set `exclude_only` list if block is empty.
+         * @param namespaceFilters AWS metrics namespace filters. Defaults to a pre-set `excludeOnly` list if block is empty.
          * 
          * @return builder
          * 

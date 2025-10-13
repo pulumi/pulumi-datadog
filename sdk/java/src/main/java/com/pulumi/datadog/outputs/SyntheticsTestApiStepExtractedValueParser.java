@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SyntheticsTestApiStepExtractedValueParser {
     /**
-     * @return Type of parser for a Synthetics global variable from a synthetics test. Valid values are `raw`, `json_path`, `regex`, `x_path`.
+     * @return Type of parser for a Synthetics global variable from a synthetics test. Valid values are `raw`, `jsonPath`, `regex`, `xPath`.
      * 
      */
     private String type;
@@ -25,7 +25,7 @@ public final class SyntheticsTestApiStepExtractedValueParser {
 
     private SyntheticsTestApiStepExtractedValueParser() {}
     /**
-     * @return Type of parser for a Synthetics global variable from a synthetics test. Valid values are `raw`, `json_path`, `regex`, `x_path`.
+     * @return Type of parser for a Synthetics global variable from a synthetics test. Valid values are `raw`, `jsonPath`, `regex`, `xPath`.
      * 
      */
     public String type() {

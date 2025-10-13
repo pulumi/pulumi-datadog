@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.DashboardWidgetTopologyMapDefinitionCustomLinkArgs>? _customLinks;
 
         /// <summary>
-        /// A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+        /// A nested block describing a custom link. Multiple `CustomLink` blocks are allowed using the structure below.
         /// </summary>
         public InputList<Inputs.DashboardWidgetTopologyMapDefinitionCustomLinkArgs> CustomLinks
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.DashboardWidgetTopologyMapDefinitionRequestArgs>? _requests;
 
         /// <summary>
-        /// A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (`query` and `request_type` are required within the request).
+        /// A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (`Query` and `RequestType` are required within the request).
         /// </summary>
         public InputList<Inputs.DashboardWidgetTopologyMapDefinitionRequestArgs> Requests
         {
@@ -43,7 +43,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Title { get; set; }
 
         /// <summary>
-        /// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+        /// The alignment of the widget's title. Valid values are `Center`, `Left`, `Right`.
         /// </summary>
         [Input("titleAlign")]
         public Input<string>? TitleAlign { get; set; }

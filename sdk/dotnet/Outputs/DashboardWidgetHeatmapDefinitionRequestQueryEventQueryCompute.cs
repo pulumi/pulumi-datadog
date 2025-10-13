@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetHeatmapDefinitionRequestQueryEventQueryCompute
     {
         /// <summary>
-        /// The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+        /// The aggregation methods for event platform queries. Valid values are `Count`, `Cardinality`, `Median`, `Pc75`, `Pc90`, `Pc95`, `Pc98`, `Pc99`, `Sum`, `Min`, `Max`, `Avg`.
         /// </summary>
         public readonly string Aggregation;
         /// <summary>

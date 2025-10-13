@@ -71,7 +71,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * (Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.
      * 
-     * For example, if the value is set to `300` (5min), the `timeframe` is set to `last_5m` and the time is 7:00, the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have data during evaluation.
+     * For example, if the value is set to `300` (5min), the `timeframe` is set to `last5m` and the time is 7:00, the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have data during evaluation.
      * 
      */
     @Import(name="evaluationDelay")
@@ -80,7 +80,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return (Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.
      * 
-     * For example, if the value is set to `300` (5min), the `timeframe` is set to `last_5m` and the time is 7:00, the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have data during evaluation.
+     * For example, if the value is set to `300` (5min), the `timeframe` is set to `last5m` and the time is 7:00, the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have data during evaluation.
      * 
      */
     public Optional<Output<Integer>> evaluationDelay() {
@@ -151,10 +151,10 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
      * A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
      * 
      * @deprecated
-     * Use `restricted_roles`.
+     * Use `restrictedRoles`.
      * 
      */
-    @Deprecated /* Use `restricted_roles`. */
+    @Deprecated /* Use `restrictedRoles`. */
     @Import(name="locked")
     private @Nullable Output<Boolean> locked;
 
@@ -162,10 +162,10 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
      * @return A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
      * 
      * @deprecated
-     * Use `restricted_roles`.
+     * Use `restrictedRoles`.
      * 
      */
-    @Deprecated /* Use `restricted_roles`. */
+    @Deprecated /* Use `restrictedRoles`. */
     public Optional<Output<Boolean>> locked() {
         return Optional.ofNullable(this.locked);
     }
@@ -186,14 +186,14 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are required for, anomaly monitors.
+     * A mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m` . Can only be used for, and are required for, anomaly monitors.
      * 
      */
     @Import(name="monitorThresholdWindows")
     private @Nullable Output<MonitorMonitorThresholdWindowsArgs> monitorThresholdWindows;
 
     /**
-     * @return A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are required for, anomaly monitors.
+     * @return A mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m` . Can only be used for, and are required for, anomaly monitors.
      * 
      */
     public Optional<Output<MonitorMonitorThresholdWindowsArgs>> monitorThresholdWindows() {
@@ -233,7 +233,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The time (in seconds) to skip evaluations for new groups.
      * 
-     * `new_group_delay` overrides `new_host_delay` if it is set to a nonzero value.
+     * `newGroupDelay` overrides `newHostDelay` if it is set to a nonzero value.
      * 
      */
     @Import(name="newGroupDelay")
@@ -242,7 +242,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The time (in seconds) to skip evaluations for new groups.
      * 
-     * `new_group_delay` overrides `new_host_delay` if it is set to a nonzero value.
+     * `newGroupDelay` overrides `newHostDelay` if it is set to a nonzero value.
      * 
      */
     public Optional<Output<Integer>> newGroupDelay() {
@@ -250,24 +250,24 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors and monitors not grouped by host. The only case when this should be used is to override the default and set `new_host_delay` to zero for monitors grouped by host.
+     * **Deprecated**. See `newGroupDelay`. Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors and monitors not grouped by host. The only case when this should be used is to override the default and set `newHostDelay` to zero for monitors grouped by host.
      * 
      * @deprecated
-     * Use `new_group_delay` except when setting `new_host_delay` to zero.
+     * Use `newGroupDelay` except when setting `newHostDelay` to zero.
      * 
      */
-    @Deprecated /* Use `new_group_delay` except when setting `new_host_delay` to zero. */
+    @Deprecated /* Use `newGroupDelay` except when setting `newHostDelay` to zero. */
     @Import(name="newHostDelay")
     private @Nullable Output<Integer> newHostDelay;
 
     /**
-     * @return **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors and monitors not grouped by host. The only case when this should be used is to override the default and set `new_host_delay` to zero for monitors grouped by host.
+     * @return **Deprecated**. See `newGroupDelay`. Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors and monitors not grouped by host. The only case when this should be used is to override the default and set `newHostDelay` to zero for monitors grouped by host.
      * 
      * @deprecated
-     * Use `new_group_delay` except when setting `new_host_delay` to zero.
+     * Use `newGroupDelay` except when setting `newHostDelay` to zero.
      * 
      */
-    @Deprecated /* Use `new_group_delay` except when setting `new_host_delay` to zero. */
+    @Deprecated /* Use `newGroupDelay` except when setting `newHostDelay` to zero. */
     public Optional<Output<Integer>> newHostDelay() {
         return Optional.ofNullable(this.newHostDelay);
     }
@@ -322,14 +322,14 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notify_by` to `[&#39;cluster&#39;]`. Tags mentioned in `notify_by` must be a subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by` to `[*]` configures the monitor to notify as a simple-alert.
+     * Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notifyBy` to `[&#39;cluster&#39;]`. Tags mentioned in `notifyBy` must be a subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notifyBy` to `[*]` configures the monitor to notify as a simple-alert.
      * 
      */
     @Import(name="notifyBies")
     private @Nullable Output<List<String>> notifyBies;
 
     /**
-     * @return Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notify_by` to `[&#39;cluster&#39;]`. Tags mentioned in `notify_by` must be a subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by` to `[*]` configures the monitor to notify as a simple-alert.
+     * @return Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notifyBy` to `[&#39;cluster&#39;]`. Tags mentioned in `notifyBy` must be a subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notifyBy` to `[*]` configures the monitor to notify as a simple-alert.
      * 
      */
     public Optional<Output<List<String>>> notifyBies() {
@@ -352,14 +352,14 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not available for Service Check, Composite, or SLO monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
+     * Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not available for Service Check, Composite, or SLO monitors. Valid values are: `showNoData`, `showAndNotifyNoData`, `resolve`, and `default`.
      * 
      */
     @Import(name="onMissingData")
     private @Nullable Output<String> onMissingData;
 
     /**
-     * @return Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not available for Service Check, Composite, or SLO monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
+     * @return Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not available for Service Check, Composite, or SLO monitors. Valid values are: `showNoData`, `showAndNotifyNoData`, `resolve`, and `default`.
      * 
      */
     public Optional<Output<String>> onMissingData() {
@@ -434,14 +434,14 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A boolean indicating whether this monitor needs a full window of data before it&#39;s evaluated. Datadog strongly recommends you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there&#39;s a custom_schedule set, `require_full_window` must be false and will be ignored.
+     * A boolean indicating whether this monitor needs a full window of data before it&#39;s evaluated. Datadog strongly recommends you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there&#39;s a customSchedule set, `requireFullWindow` must be false and will be ignored.
      * 
      */
     @Import(name="requireFullWindow")
     private @Nullable Output<Boolean> requireFullWindow;
 
     /**
-     * @return A boolean indicating whether this monitor needs a full window of data before it&#39;s evaluated. Datadog strongly recommends you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there&#39;s a custom_schedule set, `require_full_window` must be false and will be ignored.
+     * @return A boolean indicating whether this monitor needs a full window of data before it&#39;s evaluated. Datadog strongly recommends you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there&#39;s a customSchedule set, `requireFullWindow` must be false and will be ignored.
      * 
      */
     public Optional<Output<Boolean>> requireFullWindow() {
@@ -660,7 +660,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param evaluationDelay (Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.
          * 
-         * For example, if the value is set to `300` (5min), the `timeframe` is set to `last_5m` and the time is 7:00, the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have data during evaluation.
+         * For example, if the value is set to `300` (5min), the `timeframe` is set to `last5m` and the time is 7:00, the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have data during evaluation.
          * 
          * @return builder
          * 
@@ -673,7 +673,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param evaluationDelay (Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.
          * 
-         * For example, if the value is set to `300` (5min), the `timeframe` is set to `last_5m` and the time is 7:00, the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have data during evaluation.
+         * For example, if the value is set to `300` (5min), the `timeframe` is set to `last5m` and the time is 7:00, the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have data during evaluation.
          * 
          * @return builder
          * 
@@ -772,10 +772,10 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use `restricted_roles`.
+         * Use `restrictedRoles`.
          * 
          */
-        @Deprecated /* Use `restricted_roles`. */
+        @Deprecated /* Use `restrictedRoles`. */
         public Builder locked(@Nullable Output<Boolean> locked) {
             $.locked = locked;
             return this;
@@ -787,10 +787,10 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use `restricted_roles`.
+         * Use `restrictedRoles`.
          * 
          */
-        @Deprecated /* Use `restricted_roles`. */
+        @Deprecated /* Use `restrictedRoles`. */
         public Builder locked(Boolean locked) {
             return locked(Output.of(locked));
         }
@@ -817,7 +817,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param monitorThresholdWindows A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are required for, anomaly monitors.
+         * @param monitorThresholdWindows A mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m` . Can only be used for, and are required for, anomaly monitors.
          * 
          * @return builder
          * 
@@ -828,7 +828,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param monitorThresholdWindows A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are required for, anomaly monitors.
+         * @param monitorThresholdWindows A mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m` . Can only be used for, and are required for, anomaly monitors.
          * 
          * @return builder
          * 
@@ -882,7 +882,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param newGroupDelay The time (in seconds) to skip evaluations for new groups.
          * 
-         * `new_group_delay` overrides `new_host_delay` if it is set to a nonzero value.
+         * `newGroupDelay` overrides `newHostDelay` if it is set to a nonzero value.
          * 
          * @return builder
          * 
@@ -895,7 +895,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param newGroupDelay The time (in seconds) to skip evaluations for new groups.
          * 
-         * `new_group_delay` overrides `new_host_delay` if it is set to a nonzero value.
+         * `newGroupDelay` overrides `newHostDelay` if it is set to a nonzero value.
          * 
          * @return builder
          * 
@@ -905,30 +905,30 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param newHostDelay **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors and monitors not grouped by host. The only case when this should be used is to override the default and set `new_host_delay` to zero for monitors grouped by host.
+         * @param newHostDelay **Deprecated**. See `newGroupDelay`. Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors and monitors not grouped by host. The only case when this should be used is to override the default and set `newHostDelay` to zero for monitors grouped by host.
          * 
          * @return builder
          * 
          * @deprecated
-         * Use `new_group_delay` except when setting `new_host_delay` to zero.
+         * Use `newGroupDelay` except when setting `newHostDelay` to zero.
          * 
          */
-        @Deprecated /* Use `new_group_delay` except when setting `new_host_delay` to zero. */
+        @Deprecated /* Use `newGroupDelay` except when setting `newHostDelay` to zero. */
         public Builder newHostDelay(@Nullable Output<Integer> newHostDelay) {
             $.newHostDelay = newHostDelay;
             return this;
         }
 
         /**
-         * @param newHostDelay **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors and monitors not grouped by host. The only case when this should be used is to override the default and set `new_host_delay` to zero for monitors grouped by host.
+         * @param newHostDelay **Deprecated**. See `newGroupDelay`. Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors and monitors not grouped by host. The only case when this should be used is to override the default and set `newHostDelay` to zero for monitors grouped by host.
          * 
          * @return builder
          * 
          * @deprecated
-         * Use `new_group_delay` except when setting `new_host_delay` to zero.
+         * Use `newGroupDelay` except when setting `newHostDelay` to zero.
          * 
          */
-        @Deprecated /* Use `new_group_delay` except when setting `new_host_delay` to zero. */
+        @Deprecated /* Use `newGroupDelay` except when setting `newHostDelay` to zero. */
         public Builder newHostDelay(Integer newHostDelay) {
             return newHostDelay(Output.of(newHostDelay));
         }
@@ -1001,7 +1001,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param notifyBies Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notify_by` to `[&#39;cluster&#39;]`. Tags mentioned in `notify_by` must be a subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by` to `[*]` configures the monitor to notify as a simple-alert.
+         * @param notifyBies Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notifyBy` to `[&#39;cluster&#39;]`. Tags mentioned in `notifyBy` must be a subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notifyBy` to `[*]` configures the monitor to notify as a simple-alert.
          * 
          * @return builder
          * 
@@ -1012,7 +1012,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param notifyBies Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notify_by` to `[&#39;cluster&#39;]`. Tags mentioned in `notify_by` must be a subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by` to `[*]` configures the monitor to notify as a simple-alert.
+         * @param notifyBies Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notifyBy` to `[&#39;cluster&#39;]`. Tags mentioned in `notifyBy` must be a subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notifyBy` to `[*]` configures the monitor to notify as a simple-alert.
          * 
          * @return builder
          * 
@@ -1022,7 +1022,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param notifyBies Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notify_by` to `[&#39;cluster&#39;]`. Tags mentioned in `notify_by` must be a subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by` to `[*]` configures the monitor to notify as a simple-alert.
+         * @param notifyBies Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notifyBy` to `[&#39;cluster&#39;]`. Tags mentioned in `notifyBy` must be a subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notifyBy` to `[*]` configures the monitor to notify as a simple-alert.
          * 
          * @return builder
          * 
@@ -1053,7 +1053,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param onMissingData Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not available for Service Check, Composite, or SLO monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
+         * @param onMissingData Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not available for Service Check, Composite, or SLO monitors. Valid values are: `showNoData`, `showAndNotifyNoData`, `resolve`, and `default`.
          * 
          * @return builder
          * 
@@ -1064,7 +1064,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param onMissingData Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not available for Service Check, Composite, or SLO monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
+         * @param onMissingData Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not available for Service Check, Composite, or SLO monitors. Valid values are: `showNoData`, `showAndNotifyNoData`, `resolve`, and `default`.
          * 
          * @return builder
          * 
@@ -1177,7 +1177,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requireFullWindow A boolean indicating whether this monitor needs a full window of data before it&#39;s evaluated. Datadog strongly recommends you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there&#39;s a custom_schedule set, `require_full_window` must be false and will be ignored.
+         * @param requireFullWindow A boolean indicating whether this monitor needs a full window of data before it&#39;s evaluated. Datadog strongly recommends you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there&#39;s a customSchedule set, `requireFullWindow` must be false and will be ignored.
          * 
          * @return builder
          * 
@@ -1188,7 +1188,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requireFullWindow A boolean indicating whether this monitor needs a full window of data before it&#39;s evaluated. Datadog strongly recommends you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there&#39;s a custom_schedule set, `require_full_window` must be false and will be ignored.
+         * @param requireFullWindow A boolean indicating whether this monitor needs a full window of data before it&#39;s evaluated. Datadog strongly recommends you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there&#39;s a customSchedule set, `requireFullWindow` must be false and will be ignored.
          * 
          * @return builder
          * 

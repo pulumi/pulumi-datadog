@@ -14,11 +14,11 @@ namespace Pulumi.Datadog.Outputs
     public sealed class PowerpackWidgetTopologyMapDefinition
     {
         /// <summary>
-        /// A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+        /// A nested block describing a custom link. Multiple `CustomLink` blocks are allowed using the structure below.
         /// </summary>
         public readonly ImmutableArray<Outputs.PowerpackWidgetTopologyMapDefinitionCustomLink> CustomLinks;
         /// <summary>
-        /// A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (`query` and `request_type` are required within the request).
+        /// A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (`Query` and `RequestType` are required within the request).
         /// </summary>
         public readonly ImmutableArray<Outputs.PowerpackWidgetTopologyMapDefinitionRequest> Requests;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Title;
         /// <summary>
-        /// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+        /// The alignment of the widget's title. Valid values are `Center`, `Left`, `Right`.
         /// </summary>
         public readonly string? TitleAlign;
         /// <summary>

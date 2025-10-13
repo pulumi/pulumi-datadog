@@ -2510,12 +2510,16 @@ public final class DatadogFunctions {
     /**
      * Use this data source to retrieve information about your live hosts in Datadog.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetHostsResult> getHosts() {
         return getHosts(GetHostsArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Use this data source to retrieve information about your live hosts in Datadog.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetHostsResult> getHostsPlain() {
@@ -2524,12 +2528,16 @@ public final class DatadogFunctions {
     /**
      * Use this data source to retrieve information about your live hosts in Datadog.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetHostsResult> getHosts(GetHostsArgs args) {
         return getHosts(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to retrieve information about your live hosts in Datadog.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetHostsResult> getHostsPlain(GetHostsPlainArgs args) {
@@ -2538,6 +2546,8 @@ public final class DatadogFunctions {
     /**
      * Use this data source to retrieve information about your live hosts in Datadog.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetHostsResult> getHosts(GetHostsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("datadog:index/getHosts:getHosts", TypeShape.of(GetHostsResult.class), args, Utilities.withVersion(options));
@@ -2545,12 +2555,16 @@ public final class DatadogFunctions {
     /**
      * Use this data source to retrieve information about your live hosts in Datadog.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetHostsResult> getHosts(GetHostsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("datadog:index/getHosts:getHosts", TypeShape.of(GetHostsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve information about your live hosts in Datadog.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetHostsResult> getHostsPlain(GetHostsPlainArgs args, InvokeOptions options) {
@@ -4065,12 +4079,16 @@ public final class DatadogFunctions {
     /**
      * Use this data source to list all existing logs pipelines for use in other resources.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetLogsPipelinesResult> getLogsPipelines() {
         return getLogsPipelines(GetLogsPipelinesArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Use this data source to list all existing logs pipelines for use in other resources.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetLogsPipelinesResult> getLogsPipelinesPlain() {
@@ -4079,12 +4097,16 @@ public final class DatadogFunctions {
     /**
      * Use this data source to list all existing logs pipelines for use in other resources.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetLogsPipelinesResult> getLogsPipelines(GetLogsPipelinesArgs args) {
         return getLogsPipelines(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to list all existing logs pipelines for use in other resources.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetLogsPipelinesResult> getLogsPipelinesPlain(GetLogsPipelinesPlainArgs args) {
@@ -4093,6 +4115,8 @@ public final class DatadogFunctions {
     /**
      * Use this data source to list all existing logs pipelines for use in other resources.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetLogsPipelinesResult> getLogsPipelines(GetLogsPipelinesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("datadog:index/getLogsPipelines:getLogsPipelines", TypeShape.of(GetLogsPipelinesResult.class), args, Utilities.withVersion(options));
@@ -4100,12 +4124,16 @@ public final class DatadogFunctions {
     /**
      * Use this data source to list all existing logs pipelines for use in other resources.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetLogsPipelinesResult> getLogsPipelines(GetLogsPipelinesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("datadog:index/getLogsPipelines:getLogsPipelines", TypeShape.of(GetLogsPipelinesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to list all existing logs pipelines for use in other resources.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetLogsPipelinesResult> getLogsPipelinesPlain(GetLogsPipelinesPlainArgs args, InvokeOptions options) {

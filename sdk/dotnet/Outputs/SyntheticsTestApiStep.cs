@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? AllowFailure;
         /// <summary>
-        /// Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
+        /// Assertions used for the test. Multiple `Assertion` blocks are allowed with the structure below.
         /// </summary>
         public readonly ImmutableArray<Outputs.SyntheticsTestApiStepAssertion> Assertions;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
+        /// Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `AllowFailure` is `True`.
         /// </summary>
         public readonly bool? IsCritical;
         /// <summary>
@@ -79,7 +79,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly ImmutableDictionary<string, string>? RequestQuery;
         public readonly Outputs.SyntheticsTestApiStepRetry? Retry;
         /// <summary>
-        /// The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`, `ssl`, `dns`, `tcp`, `udp`, `icmp`, `websocket`, `wait`. Defaults to `"http"`.
+        /// The subtype of the Synthetic multistep API test step. Valid values are `Http`, `Grpc`, `Ssl`, `Dns`, `Tcp`, `Udp`, `Icmp`, `Websocket`, `Wait`. Defaults to `"http"`.
         /// </summary>
         public readonly string? Subtype;
         /// <summary>

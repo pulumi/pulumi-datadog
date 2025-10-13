@@ -26,15 +26,15 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Body;
         /// <summary>
-        /// Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`, `application/octet-stream`, `multipart/form-data`.
+        /// Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `Graphql`, `application/octet-stream`, `multipart/form-data`.
         /// </summary>
         public readonly string? BodyType;
         /// <summary>
-        /// The type of gRPC call to perform. Valid values are `healthcheck`, `unary`.
+        /// The type of gRPC call to perform. Valid values are `Healthcheck`, `Unary`.
         /// </summary>
         public readonly string? CallType;
         /// <summary>
-        /// By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `certificate_domains`.
+        /// By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `CertificateDomains`.
         /// </summary>
         public readonly ImmutableArray<string> CertificateDomains;
         /// <summary>
@@ -58,7 +58,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? FollowRedirects;
         /// <summary>
-        /// Form data to be sent when `body_type` is `multipart/form-data`.
+        /// Form data to be sent when `BodyType` is `multipart/form-data`.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Form;
         /// <summary>
@@ -66,7 +66,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Host;
         /// <summary>
-        /// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `"any"`.
+        /// HTTP version to use for an HTTP request in an API test or step. Valid values are `Http1`, `Http2`, `Any`. Defaults to `"any"`.
         /// </summary>
         public readonly string? HttpVersion;
         /// <summary>
@@ -78,7 +78,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Message;
         /// <summary>
-        /// Either the HTTP method/verb to use or a gRPC method available on the service set in the `service` field. Required if `subtype` is `HTTP` or if `subtype` is `grpc` and `callType` is `unary`.
+        /// Either the HTTP method/verb to use or a gRPC method available on the service set in the `Service` field. Required if `Subtype` is `HTTP` or if `Subtype` is `Grpc` and `callType` is `Unary`.
         /// </summary>
         public readonly string? Method;
         /// <summary>
@@ -102,7 +102,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Port;
         /// <summary>
-        /// A protobuf JSON descriptor. **Deprecated.** Use `plain_proto_file` instead.
+        /// A protobuf JSON descriptor. **Deprecated.** Use `PlainProtoFile` instead.
         /// </summary>
         public readonly string? ProtoJsonDescriptor;
         /// <summary>

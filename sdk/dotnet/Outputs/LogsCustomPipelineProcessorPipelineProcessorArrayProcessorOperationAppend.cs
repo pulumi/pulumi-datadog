@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationAppend
     {
         /// <summary>
-        /// Remove or preserve the remapped source element. Defaults to `true`.
+        /// Remove or preserve the remapped source element. Defaults to `True`.
         /// </summary>
         public readonly bool? PreserveSource;
         /// <summary>

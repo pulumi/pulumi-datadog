@@ -14,32 +14,32 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SyntheticsGlobalVariableParseTestOptions {
     /**
-     * @return Required when type = `http_header`. Defines the header to use to extract the value
+     * @return Required when type = `httpHeader`. Defines the header to use to extract the value
      * 
      */
     private @Nullable String field;
     /**
-     * @return When type is `local_variable`, name of the local variable to use to extract the value.
+     * @return When type is `localVariable`, name of the local variable to use to extract the value.
      * 
      */
     private @Nullable String localVariableName;
     private @Nullable SyntheticsGlobalVariableParseTestOptionsParser parser;
     /**
-     * @return Defines the source to use to extract the value. Valid values are `http_body`, `http_header`, `http_status_code`, `local_variable`.
+     * @return Defines the source to use to extract the value. Valid values are `httpBody`, `httpHeader`, `httpStatusCode`, `localVariable`.
      * 
      */
     private String type;
 
     private SyntheticsGlobalVariableParseTestOptions() {}
     /**
-     * @return Required when type = `http_header`. Defines the header to use to extract the value
+     * @return Required when type = `httpHeader`. Defines the header to use to extract the value
      * 
      */
     public Optional<String> field() {
         return Optional.ofNullable(this.field);
     }
     /**
-     * @return When type is `local_variable`, name of the local variable to use to extract the value.
+     * @return When type is `localVariable`, name of the local variable to use to extract the value.
      * 
      */
     public Optional<String> localVariableName() {
@@ -49,7 +49,7 @@ public final class SyntheticsGlobalVariableParseTestOptions {
         return Optional.ofNullable(this.parser);
     }
     /**
-     * @return Defines the source to use to extract the value. Valid values are `http_body`, `http_header`, `http_status_code`, `local_variable`.
+     * @return Defines the source to use to extract the value. Valid values are `httpBody`, `httpHeader`, `httpStatusCode`, `localVariable`.
      * 
      */
     public String type() {

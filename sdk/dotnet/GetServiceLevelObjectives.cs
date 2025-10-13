@@ -88,7 +88,7 @@ namespace Pulumi.Datadog
     public sealed class GetServiceLevelObjectivesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Throw an error if no results are found. Defaults to `true`.
+        /// Throw an error if no results are found. Defaults to `True`.
         /// </summary>
         [Input("errorOnEmptyResult")]
         public bool? ErrorOnEmptyResult { get; set; }
@@ -138,7 +138,7 @@ namespace Pulumi.Datadog
     public sealed class GetServiceLevelObjectivesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Throw an error if no results are found. Defaults to `true`.
+        /// Throw an error if no results are found. Defaults to `True`.
         /// </summary>
         [Input("errorOnEmptyResult")]
         public Input<bool>? ErrorOnEmptyResult { get; set; }
@@ -190,7 +190,7 @@ namespace Pulumi.Datadog
     public sealed class GetServiceLevelObjectivesResult
     {
         /// <summary>
-        /// Throw an error if no results are found. Defaults to `true`.
+        /// Throw an error if no results are found. Defaults to `True`.
         /// </summary>
         public readonly bool? ErrorOnEmptyResult;
         /// <summary>

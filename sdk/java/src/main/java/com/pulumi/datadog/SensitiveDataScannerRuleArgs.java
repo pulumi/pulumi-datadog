@@ -67,14 +67,14 @@ public final class SensitiveDataScannerRuleArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. If the rule has the `standard_pattern_id` field, then discarding this field will apply the recommended keywords. Setting the `create_before_destroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
+     * Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. If the rule has the `standardPatternId` field, then discarding this field will apply the recommended keywords. Setting the `createBeforeDestroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
      * 
      */
     @Import(name="includedKeywordConfiguration")
     private @Nullable Output<SensitiveDataScannerRuleIncludedKeywordConfigurationArgs> includedKeywordConfiguration;
 
     /**
-     * @return Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. If the rule has the `standard_pattern_id` field, then discarding this field will apply the recommended keywords. Setting the `create_before_destroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
+     * @return Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. If the rule has the `standardPatternId` field, then discarding this field will apply the recommended keywords. Setting the `createBeforeDestroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
      * 
      */
     public Optional<Output<SensitiveDataScannerRuleIncludedKeywordConfigurationArgs>> includedKeywordConfiguration() {
@@ -112,14 +112,14 @@ public final class SensitiveDataScannerRuleArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Attributes included in the scan. If namespaces is empty or missing, all attributes except excluded_namespaces are scanned. If both are missing the whole event is scanned.
+     * Attributes included in the scan. If namespaces is empty or missing, all attributes except excludedNamespaces are scanned. If both are missing the whole event is scanned.
      * 
      */
     @Import(name="namespaces")
     private @Nullable Output<List<String>> namespaces;
 
     /**
-     * @return Attributes included in the scan. If namespaces is empty or missing, all attributes except excluded_namespaces are scanned. If both are missing the whole event is scanned.
+     * @return Attributes included in the scan. If namespaces is empty or missing, all attributes except excludedNamespaces are scanned. If both are missing the whole event is scanned.
      * 
      */
     public Optional<Output<List<String>>> namespaces() {
@@ -310,7 +310,7 @@ public final class SensitiveDataScannerRuleArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param includedKeywordConfiguration Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. If the rule has the `standard_pattern_id` field, then discarding this field will apply the recommended keywords. Setting the `create_before_destroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
+         * @param includedKeywordConfiguration Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. If the rule has the `standardPatternId` field, then discarding this field will apply the recommended keywords. Setting the `createBeforeDestroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
          * 
          * @return builder
          * 
@@ -321,7 +321,7 @@ public final class SensitiveDataScannerRuleArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param includedKeywordConfiguration Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. If the rule has the `standard_pattern_id` field, then discarding this field will apply the recommended keywords. Setting the `create_before_destroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
+         * @param includedKeywordConfiguration Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. If the rule has the `standardPatternId` field, then discarding this field will apply the recommended keywords. Setting the `createBeforeDestroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
          * 
          * @return builder
          * 
@@ -373,7 +373,7 @@ public final class SensitiveDataScannerRuleArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param namespaces Attributes included in the scan. If namespaces is empty or missing, all attributes except excluded_namespaces are scanned. If both are missing the whole event is scanned.
+         * @param namespaces Attributes included in the scan. If namespaces is empty or missing, all attributes except excludedNamespaces are scanned. If both are missing the whole event is scanned.
          * 
          * @return builder
          * 
@@ -384,7 +384,7 @@ public final class SensitiveDataScannerRuleArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param namespaces Attributes included in the scan. If namespaces is empty or missing, all attributes except excluded_namespaces are scanned. If both are missing the whole event is scanned.
+         * @param namespaces Attributes included in the scan. If namespaces is empty or missing, all attributes except excludedNamespaces are scanned. If both are missing the whole event is scanned.
          * 
          * @return builder
          * 
@@ -394,7 +394,7 @@ public final class SensitiveDataScannerRuleArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param namespaces Attributes included in the scan. If namespaces is empty or missing, all attributes except excluded_namespaces are scanned. If both are missing the whole event is scanned.
+         * @param namespaces Attributes included in the scan. If namespaces is empty or missing, all attributes except excludedNamespaces are scanned. If both are missing the whole event is scanned.
          * 
          * @return builder
          * 

@@ -65,7 +65,7 @@ namespace Pulumi.Datadog
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether the policy is enabled. Defaults to `false`.
+        /// Indicates whether the policy is enabled. Defaults to `False`.
         /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
@@ -141,7 +141,7 @@ namespace Pulumi.Datadog
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Indicates whether the policy is enabled. Defaults to `false`.
+        /// Indicates whether the policy is enabled. Defaults to `False`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -191,7 +191,7 @@ namespace Pulumi.Datadog
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Indicates whether the policy is enabled. Defaults to `false`.
+        /// Indicates whether the policy is enabled. Defaults to `False`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

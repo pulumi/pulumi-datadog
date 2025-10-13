@@ -49,7 +49,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Resource { get; set; }
 
         /// <summary>
-        /// The level of detail for the request. Valid values are `service`, `resource`, `span`.
+        /// The level of detail for the request. Valid values are `Service`, `Resource`, `Span`.
         /// </summary>
         [Input("rowType", required: true)]
         public Input<string> RowType { get; set; } = null!;

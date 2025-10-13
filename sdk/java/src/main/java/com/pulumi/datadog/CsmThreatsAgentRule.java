@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
 /**
  * Provides a Datadog Workload Protection (CSM Threats) Agent Rule API resource.
  * 
+ * ## Example Usage
+ * 
  * ## Import
  * 
  * The `pulumi import` command can be used, for example:

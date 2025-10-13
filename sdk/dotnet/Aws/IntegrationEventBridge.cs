@@ -54,7 +54,7 @@ namespace Pulumi.Datadog.Aws
         public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// True if Datadog should create the event bus in addition to the event source. Requires the `events:CreateEventBus` permission. Defaults to `true`.
+        /// True if Datadog should create the event bus in addition to the event source. Requires the `events:CreateEventBus` permission. Defaults to `True`.
         /// </summary>
         [Output("createEventBus")]
         public Output<bool> CreateEventBus { get; private set; } = null!;
@@ -124,7 +124,7 @@ namespace Pulumi.Datadog.Aws
         public Input<string> AccountId { get; set; } = null!;
 
         /// <summary>
-        /// True if Datadog should create the event bus in addition to the event source. Requires the `events:CreateEventBus` permission. Defaults to `true`.
+        /// True if Datadog should create the event bus in addition to the event source. Requires the `events:CreateEventBus` permission. Defaults to `True`.
         /// </summary>
         [Input("createEventBus")]
         public Input<bool>? CreateEventBus { get; set; }
@@ -156,7 +156,7 @@ namespace Pulumi.Datadog.Aws
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// True if Datadog should create the event bus in addition to the event source. Requires the `events:CreateEventBus` permission. Defaults to `true`.
+        /// True if Datadog should create the event bus in addition to the event source. Requires the `events:CreateEventBus` permission. Defaults to `True`.
         /// </summary>
         [Input("createEventBus")]
         public Input<bool>? CreateEventBus { get; set; }

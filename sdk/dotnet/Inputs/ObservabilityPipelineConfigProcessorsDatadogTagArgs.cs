@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ObservabilityPipelineConfigProcessorsDatadogTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Valid values are `include`, `exclude`.
+        /// Valid values are `Include`, `Exclude`.
         /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
@@ -41,7 +41,7 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// Valid values are `filter`.
+        /// Valid values are `Filter`.
         /// </summary>
         [Input("mode", required: true)]
         public Input<string> Mode { get; set; } = null!;

@@ -123,7 +123,7 @@ public class LogsCustomDestination extends com.pulumi.resources.CustomResource {
         return this.forwardTags;
     }
     /**
-     * How the `forward_tags_restriction_list` parameter should be interpreted.
+     * How the `forwardTagsRestrictionList` parameter should be interpreted.
      * 			If `ALLOW_LIST`, then only tags whose keys on the forwarded logs match the ones on the restriction list
      * 			are forwarded.
      * 			`BLOCK_LIST` works the opposite way. It does not forward the tags matching the ones on the list. Valid values are `ALLOW_LIST`, `BLOCK_LIST`.
@@ -133,7 +133,7 @@ public class LogsCustomDestination extends com.pulumi.resources.CustomResource {
     private Output<String> forwardTagsRestrictionListType;
 
     /**
-     * @return How the `forward_tags_restriction_list` parameter should be interpreted.
+     * @return How the `forwardTagsRestrictionList` parameter should be interpreted.
      * 			If `ALLOW_LIST`, then only tags whose keys on the forwarded logs match the ones on the restriction list
      * 			are forwarded.
      * 			`BLOCK_LIST` works the opposite way. It does not forward the tags matching the ones on the list. Valid values are `ALLOW_LIST`, `BLOCK_LIST`.
@@ -145,7 +145,7 @@ public class LogsCustomDestination extends com.pulumi.resources.CustomResource {
     /**
      * List of [tag keys](https://docs.datadoghq.com/getting_started/tagging/#define-tags) to be filtered.
      * 			An empty list represents no restriction is in place and either all or no tags will be
-     * 			forwarded depending on `forward_tags_restriction_list_type` parameter.
+     * 			forwarded depending on `forwardTagsRestrictionListType` parameter.
      * 
      */
     @Export(name="forwardTagsRestrictionLists", refs={List.class,String.class}, tree="[0,1]")
@@ -154,7 +154,7 @@ public class LogsCustomDestination extends com.pulumi.resources.CustomResource {
     /**
      * @return List of [tag keys](https://docs.datadoghq.com/getting_started/tagging/#define-tags) to be filtered.
      * 			An empty list represents no restriction is in place and either all or no tags will be
-     * 			forwarded depending on `forward_tags_restriction_list_type` parameter.
+     * 			forwarded depending on `forwardTagsRestrictionListType` parameter.
      * 
      */
     public Output<List<String>> forwardTagsRestrictionLists() {

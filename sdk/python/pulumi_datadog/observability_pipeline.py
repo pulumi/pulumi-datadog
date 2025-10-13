@@ -111,6 +111,8 @@ class ObservabilityPipeline(pulumi.CustomResource):
 
         Datadog recommends using the `-parallelism=1` option to apply this resource.
 
+        ## Example Usage
+
         ## Import
 
         The `pulumi import` command can be used, for example:
@@ -134,6 +136,8 @@ class ObservabilityPipeline(pulumi.CustomResource):
         Provides a Datadog Observability Pipeline resource. Observability Pipelines allows you to collect and process logs within your own infrastructure, and then route them to downstream integrations. This resource is in **Preview**. Reach out to Datadog support to enable it for your account.
 
         Datadog recommends using the `-parallelism=1` option to apply this resource.
+
+        ## Example Usage
 
         ## Import
 

@@ -33,7 +33,7 @@ public final class DashboardWidgetToplistDefinitionRequest {
      */
     private @Nullable DashboardWidgetToplistDefinitionRequestAuditQuery auditQuery;
     /**
-     * @return Conditional formats allow you to set the color of your widget content or background, depending on a rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+     * @return Conditional formats allow you to set the color of your widget content or background, depending on a rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
      * 
      */
     private @Nullable List<DashboardWidgetToplistDefinitionRequestConditionalFormat> conditionalFormats;
@@ -86,7 +86,7 @@ public final class DashboardWidgetToplistDefinitionRequest {
         return Optional.ofNullable(this.auditQuery);
     }
     /**
-     * @return Conditional formats allow you to set the color of your widget content or background, depending on a rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+     * @return Conditional formats allow you to set the color of your widget content or background, depending on a rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
      * 
      */
     public List<DashboardWidgetToplistDefinitionRequestConditionalFormat> conditionalFormats() {

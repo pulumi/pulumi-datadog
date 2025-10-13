@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class PowerpackWidgetSloListDefinition
     {
         /// <summary>
-        /// A nested block describing the request to use when displaying the widget. Exactly one `request` block is allowed.
+        /// A nested block describing the request to use when displaying the widget. Exactly one `Request` block is allowed.
         /// </summary>
         public readonly Outputs.PowerpackWidgetSloListDefinitionRequest Request;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Title;
         /// <summary>
-        /// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+        /// The alignment of the widget's title. Valid values are `Center`, `Left`, `Right`.
         /// </summary>
         public readonly string? TitleAlign;
         /// <summary>

@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class OnCallEscalationPolicyStepArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies how this escalation step will assign targets. Can be `default` (page all targets at once) or `round-robin`. Valid values are `default`, `round-robin`. Defaults to `"default"`.
+        /// Specifies how this escalation step will assign targets. Can be `Default` (page all targets at once) or `round-robin`. Valid values are `Default`, `round-robin`. Defaults to `"default"`.
         /// </summary>
         [Input("assignment")]
         public Input<string>? Assignment { get; set; }

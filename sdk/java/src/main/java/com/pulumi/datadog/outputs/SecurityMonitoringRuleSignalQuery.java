@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SecurityMonitoringRuleSignalQuery {
     /**
-     * @return The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`. Defaults to `&#34;event_count&#34;`.
+     * @return The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`. Defaults to `&#34;eventCount&#34;`.
      * 
      */
     private @Nullable String aggregation;
@@ -34,7 +34,7 @@ public final class SecurityMonitoringRuleSignalQuery {
      */
     private @Nullable String defaultRuleId;
     /**
-     * @return Name of the query. Not compatible with `new_value` aggregations.
+     * @return Name of the query. Not compatible with `newValue` aggregations.
      * 
      */
     private @Nullable String name;
@@ -46,7 +46,7 @@ public final class SecurityMonitoringRuleSignalQuery {
 
     private SecurityMonitoringRuleSignalQuery() {}
     /**
-     * @return The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`. Defaults to `&#34;event_count&#34;`.
+     * @return The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`. Defaults to `&#34;eventCount&#34;`.
      * 
      */
     public Optional<String> aggregation() {
@@ -74,7 +74,7 @@ public final class SecurityMonitoringRuleSignalQuery {
         return Optional.ofNullable(this.defaultRuleId);
     }
     /**
-     * @return Name of the query. Not compatible with `new_value` aggregations.
+     * @return Name of the query. Not compatible with `newValue` aggregations.
      * 
      */
     public Optional<String> name() {

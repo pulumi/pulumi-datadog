@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? CrossOrgUuids;
         /// <summary>
-        /// The data source for APM Resource Stats queries. Valid values are `apm_resource_stats`.
+        /// The data source for APM Resource Stats queries. Valid values are `ApmResourceStats`.
         /// </summary>
         public readonly string DataSource;
         /// <summary>
@@ -38,11 +38,11 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? OperationName;
         /// <summary>
-        /// The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        /// The name of the second primary tag used within APM; required when `PrimaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
         /// </summary>
         public readonly string? PrimaryTagName;
         /// <summary>
-        /// Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
+        /// Filter APM data by the second primary tag. `PrimaryTagName` must also be specified.
         /// </summary>
         public readonly string? PrimaryTagValue;
         /// <summary>
@@ -54,7 +54,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Service;
         /// <summary>
-        /// APM statistic. Valid values are `errors`, `error_rate`, `hits`, `latency_avg`, `latency_distribution`, `latency_max`, `latency_p50`, `latency_p75`, `latency_p90`, `latency_p95`, `latency_p99`.
+        /// APM statistic. Valid values are `Errors`, `ErrorRate`, `Hits`, `LatencyAvg`, `LatencyDistribution`, `LatencyMax`, `LatencyP50`, `LatencyP75`, `LatencyP90`, `LatencyP95`, `LatencyP99`.
         /// </summary>
         public readonly string Stat;
 

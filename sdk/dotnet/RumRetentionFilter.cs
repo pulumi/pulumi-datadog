@@ -54,7 +54,7 @@ namespace Pulumi.Datadog
         public Output<string> ApplicationId { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the retention filter is to be enabled. Defaults to `true`.
+        /// Whether the retention filter is to be enabled. Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
@@ -136,7 +136,7 @@ namespace Pulumi.Datadog
         public Input<string> ApplicationId { get; set; } = null!;
 
         /// <summary>
-        /// Whether the retention filter is to be enabled. Defaults to `true`.
+        /// Whether the retention filter is to be enabled. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -180,7 +180,7 @@ namespace Pulumi.Datadog
         public Input<string>? ApplicationId { get; set; }
 
         /// <summary>
-        /// Whether the retention filter is to be enabled. Defaults to `true`.
+        /// Whether the retention filter is to be enabled. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

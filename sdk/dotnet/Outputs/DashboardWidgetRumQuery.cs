@@ -14,11 +14,11 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetRumQuery
     {
         /// <summary>
-        /// `compute_query` or `multi_compute` is required. The map keys are listed below.
+        /// `ComputeQuery` or `MultiCompute` is required. The map keys are listed below.
         /// </summary>
         public readonly Outputs.DashboardWidgetRumQueryComputeQuery? ComputeQuery;
         /// <summary>
-        /// Multiple `group_by` blocks are allowed using the structure below.
+        /// Multiple `GroupBy` blocks are allowed using the structure below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetRumQueryGroupBy> GroupBies;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Index;
         /// <summary>
-        /// `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
+        /// `ComputeQuery` or `MultiCompute` is required. Multiple `MultiCompute` blocks are allowed using the structure below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetRumQueryMultiCompute> MultiComputes;
         /// <summary>

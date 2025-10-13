@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.DashboardWidgetTimeseriesDefinitionRequestAuditQueryArgs>? AuditQuery { get; set; }
 
         /// <summary>
-        /// How to display the marker lines. Valid values are `area`, `bars`, `line`, `overlay`.
+        /// How to display the marker lines. Valid values are `Area`, `Bars`, `Line`, `Overlay`.
         /// </summary>
         [Input("displayType")]
         public Input<string>? DisplayType { get; set; }
@@ -48,7 +48,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.DashboardWidgetTimeseriesDefinitionRequestMetadataArgs>? _metadatas;
 
         /// <summary>
-        /// Used to define expression aliases. Multiple `metadata` blocks are allowed using the structure below.
+        /// Used to define expression aliases. Multiple `Metadata` blocks are allowed using the structure below.
         /// </summary>
         public InputList<Inputs.DashboardWidgetTimeseriesDefinitionRequestMetadataArgs> Metadatas
         {
@@ -101,7 +101,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.DashboardWidgetSecurityQueryArgs>? SecurityQuery { get; set; }
 
         /// <summary>
-        /// The style of the widget graph. Exactly one `style` block is allowed using the structure below.
+        /// The style of the widget graph. Exactly one `Style` block is allowed using the structure below.
         /// </summary>
         [Input("style")]
         public Input<Inputs.DashboardWidgetTimeseriesDefinitionRequestStyleArgs>? Style { get; set; }

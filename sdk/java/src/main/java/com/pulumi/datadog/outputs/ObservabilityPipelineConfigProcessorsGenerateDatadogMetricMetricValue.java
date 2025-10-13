@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ObservabilityPipelineConfigProcessorsGenerateDatadogMetricMetricValue {
     /**
-     * @return Name of the log field containing the numeric value to increment the metric by (used only for `increment_by_field`).
+     * @return Name of the log field containing the numeric value to increment the metric by (used only for `incrementByField`).
      * 
      */
     private @Nullable String field;
     /**
-     * @return Metric value strategy: `increment_by_one` or `increment_by_field`.
+     * @return Metric value strategy: `incrementByOne` or `incrementByField`.
      * 
      */
     private String strategy;
 
     private ObservabilityPipelineConfigProcessorsGenerateDatadogMetricMetricValue() {}
     /**
-     * @return Name of the log field containing the numeric value to increment the metric by (used only for `increment_by_field`).
+     * @return Name of the log field containing the numeric value to increment the metric by (used only for `incrementByField`).
      * 
      */
     public Optional<String> field() {
         return Optional.ofNullable(this.field);
     }
     /**
-     * @return Metric value strategy: `increment_by_one` or `increment_by_field`.
+     * @return Metric value strategy: `incrementByOne` or `incrementByField`.
      * 
      */
     public String strategy() {

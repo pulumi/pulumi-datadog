@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class PowerpackWidgetSunburstDefinitionRequestQueryEventQueryGroupBySort
     {
         /// <summary>
-        /// The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+        /// The aggregation methods for the event platform queries. Valid values are `Count`, `Cardinality`, `Median`, `Pc75`, `Pc90`, `Pc95`, `Pc98`, `Pc99`, `Sum`, `Min`, `Max`, `Avg`.
         /// </summary>
         public readonly string Aggregation;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Metric;
         /// <summary>
-        /// Direction of sort. Valid values are `asc`, `desc`.
+        /// Direction of sort. Valid values are `Asc`, `Desc`.
         /// </summary>
         public readonly string? Order;
 

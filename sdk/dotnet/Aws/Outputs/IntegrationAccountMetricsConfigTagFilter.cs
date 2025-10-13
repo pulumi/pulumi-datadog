@@ -14,11 +14,11 @@ namespace Pulumi.Datadog.Aws.Outputs
     public sealed class IntegrationAccountMetricsConfigTagFilter
     {
         /// <summary>
-        /// The AWS service for which the tag filters defined in `tags` will be applied.
+        /// The AWS service for which the tag filters defined in `Tags` will be applied.
         /// </summary>
         public readonly string Namespace;
         /// <summary>
-        /// The AWS resource tags to filter on for the service specified by `namespace`. Defaults to `[]`.
+        /// The AWS resource tags to filter on for the service specified by `Namespace`. Defaults to `[]`.
         /// </summary>
         public readonly ImmutableArray<string> Tags;
 

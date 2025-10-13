@@ -14,11 +14,11 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetTimeseriesDefinitionRequestStyle
     {
         /// <summary>
-        /// The type of lines displayed. Valid values are `dashed`, `dotted`, `solid`.
+        /// The type of lines displayed. Valid values are `Dashed`, `Dotted`, `Solid`.
         /// </summary>
         public readonly string? LineType;
         /// <summary>
-        /// The width of line displayed. Valid values are `normal`, `thick`, `thin`.
+        /// The width of line displayed. Valid values are `Normal`, `Thick`, `Thin`.
         /// </summary>
         public readonly string? LineWidth;
         /// <summary>

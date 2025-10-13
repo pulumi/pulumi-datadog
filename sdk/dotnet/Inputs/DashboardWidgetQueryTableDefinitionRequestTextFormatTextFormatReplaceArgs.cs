@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetQueryTableDefinitionRequestTextFormatTextFormatReplaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Text that will be replaced. Must be used with type `substring`.
+        /// Text that will be replaced. Must be used with type `Substring`.
         /// </summary>
         [Input("substring")]
         public Input<string>? Substring { get; set; }

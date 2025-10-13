@@ -17,14 +17,14 @@ public final class ObservabilityPipelineConfigSourcesSocketFramingArgs extends c
     public static final ObservabilityPipelineConfigSourcesSocketFramingArgs Empty = new ObservabilityPipelineConfigSourcesSocketFramingArgs();
 
     /**
-     * Used when `method` is `character_delimited`. Specifies the delimiter character.
+     * Used when `method` is `characterDelimited`. Specifies the delimiter character.
      * 
      */
     @Import(name="characterDelimited")
     private @Nullable Output<ObservabilityPipelineConfigSourcesSocketFramingCharacterDelimitedArgs> characterDelimited;
 
     /**
-     * @return Used when `method` is `character_delimited`. Specifies the delimiter character.
+     * @return Used when `method` is `characterDelimited`. Specifies the delimiter character.
      * 
      */
     public Optional<Output<ObservabilityPipelineConfigSourcesSocketFramingCharacterDelimitedArgs>> characterDelimited() {
@@ -32,14 +32,14 @@ public final class ObservabilityPipelineConfigSourcesSocketFramingArgs extends c
     }
 
     /**
-     * The framing method. Valid values are `newline_delimited`, `bytes`, `character_delimited`, `octet_counting`, `chunked_gelf`.
+     * The framing method. Valid values are `newlineDelimited`, `bytes`, `characterDelimited`, `octetCounting`, `chunkedGelf`.
      * 
      */
     @Import(name="method")
     private @Nullable Output<String> method;
 
     /**
-     * @return The framing method. Valid values are `newline_delimited`, `bytes`, `character_delimited`, `octet_counting`, `chunked_gelf`.
+     * @return The framing method. Valid values are `newlineDelimited`, `bytes`, `characterDelimited`, `octetCounting`, `chunkedGelf`.
      * 
      */
     public Optional<Output<String>> method() {
@@ -72,7 +72,7 @@ public final class ObservabilityPipelineConfigSourcesSocketFramingArgs extends c
         }
 
         /**
-         * @param characterDelimited Used when `method` is `character_delimited`. Specifies the delimiter character.
+         * @param characterDelimited Used when `method` is `characterDelimited`. Specifies the delimiter character.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ObservabilityPipelineConfigSourcesSocketFramingArgs extends c
         }
 
         /**
-         * @param characterDelimited Used when `method` is `character_delimited`. Specifies the delimiter character.
+         * @param characterDelimited Used when `method` is `characterDelimited`. Specifies the delimiter character.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class ObservabilityPipelineConfigSourcesSocketFramingArgs extends c
         }
 
         /**
-         * @param method The framing method. Valid values are `newline_delimited`, `bytes`, `character_delimited`, `octet_counting`, `chunked_gelf`.
+         * @param method The framing method. Valid values are `newlineDelimited`, `bytes`, `characterDelimited`, `octetCounting`, `chunkedGelf`.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ObservabilityPipelineConfigSourcesSocketFramingArgs extends c
         }
 
         /**
-         * @param method The framing method. Valid values are `newline_delimited`, `bytes`, `character_delimited`, `octet_counting`, `chunked_gelf`.
+         * @param method The framing method. Valid values are `newlineDelimited`, `bytes`, `characterDelimited`, `octetCounting`, `chunkedGelf`.
          * 
          * @return builder
          * 

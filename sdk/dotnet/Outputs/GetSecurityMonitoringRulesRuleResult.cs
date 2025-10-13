@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class GetSecurityMonitoringRulesRuleResult
     {
         /// <summary>
-        /// One or more calculated fields. Available only for scheduled rules (in other words, when `scheduling_options` is defined).
+        /// One or more calculated fields. Available only for scheduled rules (in other words, when `SchedulingOptions` is defined).
         /// </summary>
         public readonly ImmutableArray<Outputs.GetSecurityMonitoringRulesRuleCalculatedFieldResult> CalculatedFields;
         /// <summary>

@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetTopologyMapDefinitionRequestQuery
     {
         /// <summary>
-        /// The data source for the Topology request ('service*map' or 'data*streams'). Valid values are `data_streams`, `service_map`.
+        /// The data source for the Topology request ('service*map' or 'data*streams'). Valid values are `DataStreams`, `ServiceMap`.
         /// </summary>
         public readonly string DataSource;
         /// <summary>

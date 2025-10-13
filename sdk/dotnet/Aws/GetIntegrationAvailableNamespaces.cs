@@ -12,19 +12,19 @@ namespace Pulumi.Datadog.Aws
     public static class GetIntegrationAvailableNamespaces
     {
         /// <summary>
-        /// Use this data source to retrieve all available AWS namespaces. This is the list of allowed values for `metrics_config.namespace_filters` `include_only` or `exclude_only` in `datadog.aws.IntegrationAccount` resource.
+        /// Use this data source to retrieve all available AWS namespaces. This is the list of allowed values for `metrics_config.namespace_filters` `IncludeOnly` or `ExcludeOnly` in `datadog.aws.IntegrationAccount` resource.
         /// </summary>
         public static Task<GetIntegrationAvailableNamespacesResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAvailableNamespacesResult>("datadog:aws/getIntegrationAvailableNamespaces:getIntegrationAvailableNamespaces", InvokeArgs.Empty, options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to retrieve all available AWS namespaces. This is the list of allowed values for `metrics_config.namespace_filters` `include_only` or `exclude_only` in `datadog.aws.IntegrationAccount` resource.
+        /// Use this data source to retrieve all available AWS namespaces. This is the list of allowed values for `metrics_config.namespace_filters` `IncludeOnly` or `ExcludeOnly` in `datadog.aws.IntegrationAccount` resource.
         /// </summary>
         public static Output<GetIntegrationAvailableNamespacesResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationAvailableNamespacesResult>("datadog:aws/getIntegrationAvailableNamespaces:getIntegrationAvailableNamespaces", InvokeArgs.Empty, options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to retrieve all available AWS namespaces. This is the list of allowed values for `metrics_config.namespace_filters` `include_only` or `exclude_only` in `datadog.aws.IntegrationAccount` resource.
+        /// Use this data source to retrieve all available AWS namespaces. This is the list of allowed values for `metrics_config.namespace_filters` `IncludeOnly` or `ExcludeOnly` in `datadog.aws.IntegrationAccount` resource.
         /// </summary>
         public static Output<GetIntegrationAvailableNamespacesResult> Invoke(InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationAvailableNamespacesResult>("datadog:aws/getIntegrationAvailableNamespaces:getIntegrationAvailableNamespaces", InvokeArgs.Empty, options.WithDefaults());

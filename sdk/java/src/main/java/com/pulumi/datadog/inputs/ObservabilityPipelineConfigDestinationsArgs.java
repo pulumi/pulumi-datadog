@@ -35,14 +35,14 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
     public static final ObservabilityPipelineConfigDestinationsArgs Empty = new ObservabilityPipelineConfigDestinationsArgs();
 
     /**
-     * The `amazon_opensearch` destination writes logs to Amazon OpenSearch.
+     * The `amazonOpensearch` destination writes logs to Amazon OpenSearch.
      * 
      */
     @Import(name="amazonOpensearches")
     private @Nullable Output<List<ObservabilityPipelineConfigDestinationsAmazonOpensearchArgs>> amazonOpensearches;
 
     /**
-     * @return The `amazon_opensearch` destination writes logs to Amazon OpenSearch.
+     * @return The `amazonOpensearch` destination writes logs to Amazon OpenSearch.
      * 
      */
     public Optional<Output<List<ObservabilityPipelineConfigDestinationsAmazonOpensearchArgs>>> amazonOpensearches() {
@@ -50,14 +50,14 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
     }
 
     /**
-     * The `amazon_s3` destination sends your logs in Datadog-rehydratable format to an Amazon S3 bucket for archiving.
+     * The `amazonS3` destination sends your logs in Datadog-rehydratable format to an Amazon S3 bucket for archiving.
      * 
      */
     @Import(name="amazonS3s")
     private @Nullable Output<List<ObservabilityPipelineConfigDestinationsAmazonS3Args>> amazonS3s;
 
     /**
-     * @return The `amazon_s3` destination sends your logs in Datadog-rehydratable format to an Amazon S3 bucket for archiving.
+     * @return The `amazonS3` destination sends your logs in Datadog-rehydratable format to an Amazon S3 bucket for archiving.
      * 
      */
     public Optional<Output<List<ObservabilityPipelineConfigDestinationsAmazonS3Args>>> amazonS3s() {
@@ -65,14 +65,14 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
     }
 
     /**
-     * The `amazon_security_lake` destination sends your logs to Amazon Security Lake.
+     * The `amazonSecurityLake` destination sends your logs to Amazon Security Lake.
      * 
      */
     @Import(name="amazonSecurityLakes")
     private @Nullable Output<List<ObservabilityPipelineConfigDestinationsAmazonSecurityLakeArgs>> amazonSecurityLakes;
 
     /**
-     * @return The `amazon_security_lake` destination sends your logs to Amazon Security Lake.
+     * @return The `amazonSecurityLake` destination sends your logs to Amazon Security Lake.
      * 
      */
     public Optional<Output<List<ObservabilityPipelineConfigDestinationsAmazonSecurityLakeArgs>>> amazonSecurityLakes() {
@@ -80,14 +80,14 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
     }
 
     /**
-     * The `azure_storage` destination forwards logs to an Azure Blob Storage container.
+     * The `azureStorage` destination forwards logs to an Azure Blob Storage container.
      * 
      */
     @Import(name="azureStorages")
     private @Nullable Output<List<ObservabilityPipelineConfigDestinationsAzureStorageArgs>> azureStorages;
 
     /**
-     * @return The `azure_storage` destination forwards logs to an Azure Blob Storage container.
+     * @return The `azureStorage` destination forwards logs to an Azure Blob Storage container.
      * 
      */
     public Optional<Output<List<ObservabilityPipelineConfigDestinationsAzureStorageArgs>>> azureStorages() {
@@ -95,14 +95,14 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
     }
 
     /**
-     * The `crowdstrike_next_gen_siem` destination forwards logs to CrowdStrike Next Gen SIEM.
+     * The `crowdstrikeNextGenSiem` destination forwards logs to CrowdStrike Next Gen SIEM.
      * 
      */
     @Import(name="crowdstrikeNextGenSiems")
     private @Nullable Output<List<ObservabilityPipelineConfigDestinationsCrowdstrikeNextGenSiemArgs>> crowdstrikeNextGenSiems;
 
     /**
-     * @return The `crowdstrike_next_gen_siem` destination forwards logs to CrowdStrike Next Gen SIEM.
+     * @return The `crowdstrikeNextGenSiem` destination forwards logs to CrowdStrike Next Gen SIEM.
      * 
      */
     public Optional<Output<List<ObservabilityPipelineConfigDestinationsCrowdstrikeNextGenSiemArgs>>> crowdstrikeNextGenSiems() {
@@ -110,14 +110,14 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
     }
 
     /**
-     * The `datadog_logs` destination forwards logs to Datadog Log Management.
+     * The `datadogLogs` destination forwards logs to Datadog Log Management.
      * 
      */
     @Import(name="datadogLogs")
     private @Nullable Output<List<ObservabilityPipelineConfigDestinationsDatadogLogArgs>> datadogLogs;
 
     /**
-     * @return The `datadog_logs` destination forwards logs to Datadog Log Management.
+     * @return The `datadogLogs` destination forwards logs to Datadog Log Management.
      * 
      */
     public Optional<Output<List<ObservabilityPipelineConfigDestinationsDatadogLogArgs>>> datadogLogs() {
@@ -140,14 +140,14 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
     }
 
     /**
-     * The `google_chronicle` destination sends logs to Google Chronicle.
+     * The `googleChronicle` destination sends logs to Google Chronicle.
      * 
      */
     @Import(name="googleChronicles")
     private @Nullable Output<List<ObservabilityPipelineConfigDestinationsGoogleChronicleArgs>> googleChronicles;
 
     /**
-     * @return The `google_chronicle` destination sends logs to Google Chronicle.
+     * @return The `googleChronicle` destination sends logs to Google Chronicle.
      * 
      */
     public Optional<Output<List<ObservabilityPipelineConfigDestinationsGoogleChronicleArgs>>> googleChronicles() {
@@ -155,14 +155,14 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
     }
 
     /**
-     * The `google_cloud_storage` destination stores logs in a Google Cloud Storage (GCS) bucket.
+     * The `googleCloudStorage` destination stores logs in a Google Cloud Storage (GCS) bucket.
      * 
      */
     @Import(name="googleCloudStorages")
     private @Nullable Output<List<ObservabilityPipelineConfigDestinationsGoogleCloudStorageArgs>> googleCloudStorages;
 
     /**
-     * @return The `google_cloud_storage` destination stores logs in a Google Cloud Storage (GCS) bucket.
+     * @return The `googleCloudStorage` destination stores logs in a Google Cloud Storage (GCS) bucket.
      * 
      */
     public Optional<Output<List<ObservabilityPipelineConfigDestinationsGoogleCloudStorageArgs>>> googleCloudStorages() {
@@ -170,14 +170,14 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
     }
 
     /**
-     * The `google_pubsub` destination publishes logs to a Google Cloud Pub/Sub topic.
+     * The `googlePubsub` destination publishes logs to a Google Cloud Pub/Sub topic.
      * 
      */
     @Import(name="googlePubsubs")
     private @Nullable Output<List<ObservabilityPipelineConfigDestinationsGooglePubsubArgs>> googlePubsubs;
 
     /**
-     * @return The `google_pubsub` destination publishes logs to a Google Cloud Pub/Sub topic.
+     * @return The `googlePubsub` destination publishes logs to a Google Cloud Pub/Sub topic.
      * 
      */
     public Optional<Output<List<ObservabilityPipelineConfigDestinationsGooglePubsubArgs>>> googlePubsubs() {
@@ -185,14 +185,14 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
     }
 
     /**
-     * The `microsoft_sentinel` destination forwards logs to Microsoft Sentinel.
+     * The `microsoftSentinel` destination forwards logs to Microsoft Sentinel.
      * 
      */
     @Import(name="microsoftSentinels")
     private @Nullable Output<List<ObservabilityPipelineConfigDestinationsMicrosoftSentinelArgs>> microsoftSentinels;
 
     /**
-     * @return The `microsoft_sentinel` destination forwards logs to Microsoft Sentinel.
+     * @return The `microsoftSentinel` destination forwards logs to Microsoft Sentinel.
      * 
      */
     public Optional<Output<List<ObservabilityPipelineConfigDestinationsMicrosoftSentinelArgs>>> microsoftSentinels() {
@@ -200,14 +200,14 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
     }
 
     /**
-     * The `new_relic` destination sends logs to the New Relic platform.
+     * The `newRelic` destination sends logs to the New Relic platform.
      * 
      */
     @Import(name="newRelics")
     private @Nullable Output<List<ObservabilityPipelineConfigDestinationsNewRelicArgs>> newRelics;
 
     /**
-     * @return The `new_relic` destination sends logs to the New Relic platform.
+     * @return The `newRelic` destination sends logs to the New Relic platform.
      * 
      */
     public Optional<Output<List<ObservabilityPipelineConfigDestinationsNewRelicArgs>>> newRelics() {
@@ -245,14 +245,14 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
     }
 
     /**
-     * The `sentinel_one` destination sends logs to SentinelOne.
+     * The `sentinelOne` destination sends logs to SentinelOne.
      * 
      */
     @Import(name="sentinelOnes")
     private @Nullable Output<List<ObservabilityPipelineConfigDestinationsSentinelOneArgs>> sentinelOnes;
 
     /**
-     * @return The `sentinel_one` destination sends logs to SentinelOne.
+     * @return The `sentinelOne` destination sends logs to SentinelOne.
      * 
      */
     public Optional<Output<List<ObservabilityPipelineConfigDestinationsSentinelOneArgs>>> sentinelOnes() {
@@ -275,14 +275,14 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
     }
 
     /**
-     * The `splunk_hec` destination forwards logs to Splunk using the HTTP Event Collector (HEC).
+     * The `splunkHec` destination forwards logs to Splunk using the HTTP Event Collector (HEC).
      * 
      */
     @Import(name="splunkHecs")
     private @Nullable Output<List<ObservabilityPipelineConfigDestinationsSplunkHecArgs>> splunkHecs;
 
     /**
-     * @return The `splunk_hec` destination forwards logs to Splunk using the HTTP Event Collector (HEC).
+     * @return The `splunkHec` destination forwards logs to Splunk using the HTTP Event Collector (HEC).
      * 
      */
     public Optional<Output<List<ObservabilityPipelineConfigDestinationsSplunkHecArgs>>> splunkHecs() {
@@ -290,14 +290,14 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
     }
 
     /**
-     * The `sumo_logic` destination forwards logs to Sumo Logic.
+     * The `sumoLogic` destination forwards logs to Sumo Logic.
      * 
      */
     @Import(name="sumoLogics")
     private @Nullable Output<List<ObservabilityPipelineConfigDestinationsSumoLogicArgs>> sumoLogics;
 
     /**
-     * @return The `sumo_logic` destination forwards logs to Sumo Logic.
+     * @return The `sumoLogic` destination forwards logs to Sumo Logic.
      * 
      */
     public Optional<Output<List<ObservabilityPipelineConfigDestinationsSumoLogicArgs>>> sumoLogics() {
@@ -305,14 +305,14 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
     }
 
     /**
-     * The `syslog_ng` destination forwards logs to an external `syslog-ng` server over TCP or UDP using the syslog protocol.
+     * The `syslogNg` destination forwards logs to an external `syslog-ng` server over TCP or UDP using the syslog protocol.
      * 
      */
     @Import(name="syslogNgs")
     private @Nullable Output<List<ObservabilityPipelineConfigDestinationsSyslogNgArgs>> syslogNgs;
 
     /**
-     * @return The `syslog_ng` destination forwards logs to an external `syslog-ng` server over TCP or UDP using the syslog protocol.
+     * @return The `syslogNg` destination forwards logs to an external `syslog-ng` server over TCP or UDP using the syslog protocol.
      * 
      */
     public Optional<Output<List<ObservabilityPipelineConfigDestinationsSyslogNgArgs>>> syslogNgs() {
@@ -362,7 +362,7 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
         }
 
         /**
-         * @param amazonOpensearches The `amazon_opensearch` destination writes logs to Amazon OpenSearch.
+         * @param amazonOpensearches The `amazonOpensearch` destination writes logs to Amazon OpenSearch.
          * 
          * @return builder
          * 
@@ -373,7 +373,7 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
         }
 
         /**
-         * @param amazonOpensearches The `amazon_opensearch` destination writes logs to Amazon OpenSearch.
+         * @param amazonOpensearches The `amazonOpensearch` destination writes logs to Amazon OpenSearch.
          * 
          * @return builder
          * 
@@ -383,7 +383,7 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
         }
 
         /**
-         * @param amazonOpensearches The `amazon_opensearch` destination writes logs to Amazon OpenSearch.
+         * @param amazonOpensearches The `amazonOpensearch` destination writes logs to Amazon OpenSearch.
          * 
          * @return builder
          * 
@@ -393,7 +393,7 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
         }
 
         /**
-         * @param amazonS3s The `amazon_s3` destination sends your logs in Datadog-rehydratable format to an Amazon S3 bucket for archiving.
+         * @param amazonS3s The `amazonS3` destination sends your logs in Datadog-rehydratable format to an Amazon S3 bucket for archiving.
          * 
          * @return builder
          * 
@@ -404,7 +404,7 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
         }
 
         /**
-         * @param amazonS3s The `amazon_s3` destination sends your logs in Datadog-rehydratable format to an Amazon S3 bucket for archiving.
+         * @param amazonS3s The `amazonS3` destination sends your logs in Datadog-rehydratable format to an Amazon S3 bucket for archiving.
          * 
          * @return builder
          * 
@@ -414,7 +414,7 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
         }
 
         /**
-         * @param amazonS3s The `amazon_s3` destination sends your logs in Datadog-rehydratable format to an Amazon S3 bucket for archiving.
+         * @param amazonS3s The `amazonS3` destination sends your logs in Datadog-rehydratable format to an Amazon S3 bucket for archiving.
          * 
          * @return builder
          * 
@@ -424,7 +424,7 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
         }
 
         /**
-         * @param amazonSecurityLakes The `amazon_security_lake` destination sends your logs to Amazon Security Lake.
+         * @param amazonSecurityLakes The `amazonSecurityLake` destination sends your logs to Amazon Security Lake.
          * 
          * @return builder
          * 
@@ -435,7 +435,7 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
         }
 
         /**
-         * @param amazonSecurityLakes The `amazon_security_lake` destination sends your logs to Amazon Security Lake.
+         * @param amazonSecurityLakes The `amazonSecurityLake` destination sends your logs to Amazon Security Lake.
          * 
          * @return builder
          * 
@@ -445,7 +445,7 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
         }
 
         /**
-         * @param amazonSecurityLakes The `amazon_security_lake` destination sends your logs to Amazon Security Lake.
+         * @param amazonSecurityLakes The `amazonSecurityLake` destination sends your logs to Amazon Security Lake.
          * 
          * @return builder
          * 
@@ -455,7 +455,7 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
         }
 
         /**
-         * @param azureStorages The `azure_storage` destination forwards logs to an Azure Blob Storage container.
+         * @param azureStorages The `azureStorage` destination forwards logs to an Azure Blob Storage container.
          * 
          * @return builder
          * 
@@ -466,7 +466,7 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
         }
 
         /**
-         * @param azureStorages The `azure_storage` destination forwards logs to an Azure Blob Storage container.
+         * @param azureStorages The `azureStorage` destination forwards logs to an Azure Blob Storage container.
          * 
          * @return builder
          * 
@@ -476,7 +476,7 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
         }
 
         /**
-         * @param azureStorages The `azure_storage` destination forwards logs to an Azure Blob Storage container.
+         * @param azureStorages The `azureStorage` destination forwards logs to an Azure Blob Storage container.
          * 
          * @return builder
          * 
@@ -486,7 +486,7 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
         }
 
         /**
-         * @param crowdstrikeNextGenSiems The `crowdstrike_next_gen_siem` destination forwards logs to CrowdStrike Next Gen SIEM.
+         * @param crowdstrikeNextGenSiems The `crowdstrikeNextGenSiem` destination forwards logs to CrowdStrike Next Gen SIEM.
          * 
          * @return builder
          * 
@@ -497,7 +497,7 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
         }
 
         /**
-         * @param crowdstrikeNextGenSiems The `crowdstrike_next_gen_siem` destination forwards logs to CrowdStrike Next Gen SIEM.
+         * @param crowdstrikeNextGenSiems The `crowdstrikeNextGenSiem` destination forwards logs to CrowdStrike Next Gen SIEM.
          * 
          * @return builder
          * 
@@ -507,7 +507,7 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
         }
 
         /**
-         * @param crowdstrikeNextGenSiems The `crowdstrike_next_gen_siem` destination forwards logs to CrowdStrike Next Gen SIEM.
+         * @param crowdstrikeNextGenSiems The `crowdstrikeNextGenSiem` destination forwards logs to CrowdStrike Next Gen SIEM.
          * 
          * @return builder
          * 
@@ -517,7 +517,7 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
         }
 
         /**
-         * @param datadogLogs The `datadog_logs` destination forwards logs to Datadog Log Management.
+         * @param datadogLogs The `datadogLogs` destination forwards logs to Datadog Log Management.
          * 
          * @return builder
          * 
@@ -528,7 +528,7 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
         }
 
         /**
-         * @param datadogLogs The `datadog_logs` destination forwards logs to Datadog Log Management.
+         * @param datadogLogs The `datadogLogs` destination forwards logs to Datadog Log Management.
          * 
          * @return builder
          * 
@@ -538,7 +538,7 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
         }
 
         /**
-         * @param datadogLogs The `datadog_logs` destination forwards logs to Datadog Log Management.
+         * @param datadogLogs The `datadogLogs` destination forwards logs to Datadog Log Management.
          * 
          * @return builder
          * 
@@ -579,7 +579,7 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
         }
 
         /**
-         * @param googleChronicles The `google_chronicle` destination sends logs to Google Chronicle.
+         * @param googleChronicles The `googleChronicle` destination sends logs to Google Chronicle.
          * 
          * @return builder
          * 
@@ -590,7 +590,7 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
         }
 
         /**
-         * @param googleChronicles The `google_chronicle` destination sends logs to Google Chronicle.
+         * @param googleChronicles The `googleChronicle` destination sends logs to Google Chronicle.
          * 
          * @return builder
          * 
@@ -600,7 +600,7 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
         }
 
         /**
-         * @param googleChronicles The `google_chronicle` destination sends logs to Google Chronicle.
+         * @param googleChronicles The `googleChronicle` destination sends logs to Google Chronicle.
          * 
          * @return builder
          * 
@@ -610,7 +610,7 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
         }
 
         /**
-         * @param googleCloudStorages The `google_cloud_storage` destination stores logs in a Google Cloud Storage (GCS) bucket.
+         * @param googleCloudStorages The `googleCloudStorage` destination stores logs in a Google Cloud Storage (GCS) bucket.
          * 
          * @return builder
          * 
@@ -621,7 +621,7 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
         }
 
         /**
-         * @param googleCloudStorages The `google_cloud_storage` destination stores logs in a Google Cloud Storage (GCS) bucket.
+         * @param googleCloudStorages The `googleCloudStorage` destination stores logs in a Google Cloud Storage (GCS) bucket.
          * 
          * @return builder
          * 
@@ -631,7 +631,7 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
         }
 
         /**
-         * @param googleCloudStorages The `google_cloud_storage` destination stores logs in a Google Cloud Storage (GCS) bucket.
+         * @param googleCloudStorages The `googleCloudStorage` destination stores logs in a Google Cloud Storage (GCS) bucket.
          * 
          * @return builder
          * 
@@ -641,7 +641,7 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
         }
 
         /**
-         * @param googlePubsubs The `google_pubsub` destination publishes logs to a Google Cloud Pub/Sub topic.
+         * @param googlePubsubs The `googlePubsub` destination publishes logs to a Google Cloud Pub/Sub topic.
          * 
          * @return builder
          * 
@@ -652,7 +652,7 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
         }
 
         /**
-         * @param googlePubsubs The `google_pubsub` destination publishes logs to a Google Cloud Pub/Sub topic.
+         * @param googlePubsubs The `googlePubsub` destination publishes logs to a Google Cloud Pub/Sub topic.
          * 
          * @return builder
          * 
@@ -662,7 +662,7 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
         }
 
         /**
-         * @param googlePubsubs The `google_pubsub` destination publishes logs to a Google Cloud Pub/Sub topic.
+         * @param googlePubsubs The `googlePubsub` destination publishes logs to a Google Cloud Pub/Sub topic.
          * 
          * @return builder
          * 
@@ -672,7 +672,7 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
         }
 
         /**
-         * @param microsoftSentinels The `microsoft_sentinel` destination forwards logs to Microsoft Sentinel.
+         * @param microsoftSentinels The `microsoftSentinel` destination forwards logs to Microsoft Sentinel.
          * 
          * @return builder
          * 
@@ -683,7 +683,7 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
         }
 
         /**
-         * @param microsoftSentinels The `microsoft_sentinel` destination forwards logs to Microsoft Sentinel.
+         * @param microsoftSentinels The `microsoftSentinel` destination forwards logs to Microsoft Sentinel.
          * 
          * @return builder
          * 
@@ -693,7 +693,7 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
         }
 
         /**
-         * @param microsoftSentinels The `microsoft_sentinel` destination forwards logs to Microsoft Sentinel.
+         * @param microsoftSentinels The `microsoftSentinel` destination forwards logs to Microsoft Sentinel.
          * 
          * @return builder
          * 
@@ -703,7 +703,7 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
         }
 
         /**
-         * @param newRelics The `new_relic` destination sends logs to the New Relic platform.
+         * @param newRelics The `newRelic` destination sends logs to the New Relic platform.
          * 
          * @return builder
          * 
@@ -714,7 +714,7 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
         }
 
         /**
-         * @param newRelics The `new_relic` destination sends logs to the New Relic platform.
+         * @param newRelics The `newRelic` destination sends logs to the New Relic platform.
          * 
          * @return builder
          * 
@@ -724,7 +724,7 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
         }
 
         /**
-         * @param newRelics The `new_relic` destination sends logs to the New Relic platform.
+         * @param newRelics The `newRelic` destination sends logs to the New Relic platform.
          * 
          * @return builder
          * 
@@ -796,7 +796,7 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
         }
 
         /**
-         * @param sentinelOnes The `sentinel_one` destination sends logs to SentinelOne.
+         * @param sentinelOnes The `sentinelOne` destination sends logs to SentinelOne.
          * 
          * @return builder
          * 
@@ -807,7 +807,7 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
         }
 
         /**
-         * @param sentinelOnes The `sentinel_one` destination sends logs to SentinelOne.
+         * @param sentinelOnes The `sentinelOne` destination sends logs to SentinelOne.
          * 
          * @return builder
          * 
@@ -817,7 +817,7 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
         }
 
         /**
-         * @param sentinelOnes The `sentinel_one` destination sends logs to SentinelOne.
+         * @param sentinelOnes The `sentinelOne` destination sends logs to SentinelOne.
          * 
          * @return builder
          * 
@@ -858,7 +858,7 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
         }
 
         /**
-         * @param splunkHecs The `splunk_hec` destination forwards logs to Splunk using the HTTP Event Collector (HEC).
+         * @param splunkHecs The `splunkHec` destination forwards logs to Splunk using the HTTP Event Collector (HEC).
          * 
          * @return builder
          * 
@@ -869,7 +869,7 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
         }
 
         /**
-         * @param splunkHecs The `splunk_hec` destination forwards logs to Splunk using the HTTP Event Collector (HEC).
+         * @param splunkHecs The `splunkHec` destination forwards logs to Splunk using the HTTP Event Collector (HEC).
          * 
          * @return builder
          * 
@@ -879,7 +879,7 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
         }
 
         /**
-         * @param splunkHecs The `splunk_hec` destination forwards logs to Splunk using the HTTP Event Collector (HEC).
+         * @param splunkHecs The `splunkHec` destination forwards logs to Splunk using the HTTP Event Collector (HEC).
          * 
          * @return builder
          * 
@@ -889,7 +889,7 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
         }
 
         /**
-         * @param sumoLogics The `sumo_logic` destination forwards logs to Sumo Logic.
+         * @param sumoLogics The `sumoLogic` destination forwards logs to Sumo Logic.
          * 
          * @return builder
          * 
@@ -900,7 +900,7 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
         }
 
         /**
-         * @param sumoLogics The `sumo_logic` destination forwards logs to Sumo Logic.
+         * @param sumoLogics The `sumoLogic` destination forwards logs to Sumo Logic.
          * 
          * @return builder
          * 
@@ -910,7 +910,7 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
         }
 
         /**
-         * @param sumoLogics The `sumo_logic` destination forwards logs to Sumo Logic.
+         * @param sumoLogics The `sumoLogic` destination forwards logs to Sumo Logic.
          * 
          * @return builder
          * 
@@ -920,7 +920,7 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
         }
 
         /**
-         * @param syslogNgs The `syslog_ng` destination forwards logs to an external `syslog-ng` server over TCP or UDP using the syslog protocol.
+         * @param syslogNgs The `syslogNg` destination forwards logs to an external `syslog-ng` server over TCP or UDP using the syslog protocol.
          * 
          * @return builder
          * 
@@ -931,7 +931,7 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
         }
 
         /**
-         * @param syslogNgs The `syslog_ng` destination forwards logs to an external `syslog-ng` server over TCP or UDP using the syslog protocol.
+         * @param syslogNgs The `syslogNg` destination forwards logs to an external `syslog-ng` server over TCP or UDP using the syslog protocol.
          * 
          * @return builder
          * 
@@ -941,7 +941,7 @@ public final class ObservabilityPipelineConfigDestinationsArgs extends com.pulum
         }
 
         /**
-         * @param syslogNgs The `syslog_ng` destination forwards logs to an external `syslog-ng` server over TCP or UDP using the syslog protocol.
+         * @param syslogNgs The `syslogNg` destination forwards logs to an external `syslog-ng` server over TCP or UDP using the syslog protocol.
          * 
          * @return builder
          * 

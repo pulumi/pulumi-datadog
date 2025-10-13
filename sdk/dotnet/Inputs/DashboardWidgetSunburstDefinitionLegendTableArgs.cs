@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetSunburstDefinitionLegendTableArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The type of legend (table or none). Valid values are `table`, `none`.
+        /// The type of legend (table or none). Valid values are `Table`, `None`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

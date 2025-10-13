@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Aws.Outputs
     public sealed class IntegrationAccountAwsRegions
     {
         /// <summary>
-        /// Include all regions. Defaults to `true`.
+        /// Include all regions. Defaults to `True`.
         /// </summary>
         public readonly bool? IncludeAll;
         /// <summary>

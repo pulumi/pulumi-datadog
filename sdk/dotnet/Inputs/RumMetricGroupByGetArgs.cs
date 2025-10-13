@@ -19,7 +19,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Path { get; set; }
 
         /// <summary>
-        /// Name of the tag that gets created. By default, `path` is used as the tag name.
+        /// Name of the tag that gets created. By default, `Path` is used as the tag name.
         /// </summary>
         [Input("tagName")]
         public Input<string>? TagName { get; set; }

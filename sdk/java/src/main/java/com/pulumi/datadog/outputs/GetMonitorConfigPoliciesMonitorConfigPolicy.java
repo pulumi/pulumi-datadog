@@ -22,7 +22,7 @@ public final class GetMonitorConfigPoliciesMonitorConfigPolicy {
      */
     private String policyType;
     /**
-     * @return Config for a tag policy. Only set if `policy_type` is `tag`.
+     * @return Config for a tag policy. Only set if `policyType` is `tag`.
      * 
      */
     private GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicy tagPolicy;
@@ -43,7 +43,7 @@ public final class GetMonitorConfigPoliciesMonitorConfigPolicy {
         return this.policyType;
     }
     /**
-     * @return Config for a tag policy. Only set if `policy_type` is `tag`.
+     * @return Config for a tag policy. Only set if `policyType` is `tag`.
      * 
      */
     public GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicy tagPolicy() {

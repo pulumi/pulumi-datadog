@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Domains;
         /// <summary>
-        /// Whether or not the automated user creation based on SAML domain is enabled. Defaults to `false`.
+        /// Whether or not the automated user creation based on SAML domain is enabled. Defaults to `False`.
         /// </summary>
         public readonly bool? Enabled;
 

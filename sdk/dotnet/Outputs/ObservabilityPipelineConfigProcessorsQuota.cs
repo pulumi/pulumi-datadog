@@ -39,7 +39,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The action to take when the quota is exceeded: `drop`, `no_action`, or `overflow_routing`.
+        /// The action to take when the quota is exceeded: `Drop`, `NoAction`, or `OverflowRouting`.
         /// </summary>
         public readonly string? OverflowAction;
         /// <summary>

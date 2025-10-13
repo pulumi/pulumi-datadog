@@ -37,7 +37,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<bool>? ForceElementUpdate { get; set; }
 
         /// <summary>
-        /// Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
+        /// Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `AllowFailure` is `True`.
         /// </summary>
         [Input("isCritical")]
         public Input<bool>? IsCritical { get; set; }
@@ -79,7 +79,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<int>? Timeout { get; set; }
 
         /// <summary>
-        /// Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `assertRequests`, `click`, `extractFromJavascript`, `extractFromEmailBody`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `hover`, `playSubTest`, `pressKey`, `refresh`, `runApiTest`, `scroll`, `selectOption`, `typeText`, `uploadFiles`, `wait`.
+        /// Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `assertRequests`, `Click`, `extractFromJavascript`, `extractFromEmailBody`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `Hover`, `playSubTest`, `pressKey`, `Refresh`, `runApiTest`, `Scroll`, `selectOption`, `typeText`, `uploadFiles`, `Wait`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

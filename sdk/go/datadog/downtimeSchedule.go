@@ -14,6 +14,8 @@ import (
 
 // Provides a Datadog DowntimeSchedule resource. This can be used to create and manage Datadog downtimes.
 //
+// ## Example Usage
+//
 // ## Import
 //
 // The `pulumi import` command can be used, for example:

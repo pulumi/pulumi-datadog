@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog
 {
     /// <summary>
-    /// Resource for interacting with the slo_correction API.
+    /// Resource for interacting with the SloCorrection API.
     /// 
     /// ## Example Usage
     /// 
@@ -96,13 +96,13 @@ namespace Pulumi.Datadog
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Length of time in seconds for a specified `rrule` recurring SLO correction (required if specifying `rrule`)
+        /// Length of time in seconds for a specified `Rrule` recurring SLO correction (required if specifying `Rrule`)
         /// </summary>
         [Output("duration")]
         public Output<int?> Duration { get; private set; } = null!;
 
         /// <summary>
-        /// Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified
+        /// Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `Rrule` is specified
         /// </summary>
         [Output("end")]
         public Output<int?> End { get; private set; } = null!;
@@ -190,13 +190,13 @@ namespace Pulumi.Datadog
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Length of time in seconds for a specified `rrule` recurring SLO correction (required if specifying `rrule`)
+        /// Length of time in seconds for a specified `Rrule` recurring SLO correction (required if specifying `Rrule`)
         /// </summary>
         [Input("duration")]
         public Input<int>? Duration { get; set; }
 
         /// <summary>
-        /// Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified
+        /// Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `Rrule` is specified
         /// </summary>
         [Input("end")]
         public Input<int>? End { get; set; }
@@ -246,13 +246,13 @@ namespace Pulumi.Datadog
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Length of time in seconds for a specified `rrule` recurring SLO correction (required if specifying `rrule`)
+        /// Length of time in seconds for a specified `Rrule` recurring SLO correction (required if specifying `Rrule`)
         /// </summary>
         [Input("duration")]
         public Input<int>? Duration { get; set; }
 
         /// <summary>
-        /// Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified
+        /// Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `Rrule` is specified
         /// </summary>
         [Input("end")]
         public Input<int>? End { get; set; }

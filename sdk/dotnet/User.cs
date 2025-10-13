@@ -53,7 +53,7 @@ namespace Pulumi.Datadog
     public partial class User : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Whether the user is disabled. Defaults to `false`.
+        /// Whether the user is disabled. Defaults to `False`.
         /// </summary>
         [Output("disabled")]
         public Output<bool?> Disabled { get; private set; } = null!;
@@ -77,7 +77,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<string>> Roles { get; private set; } = null!;
 
         /// <summary>
-        /// Whether an invitation email should be sent when the user is created. Defaults to `true`.
+        /// Whether an invitation email should be sent when the user is created. Defaults to `True`.
         /// </summary>
         [Output("sendUserInvitation")]
         public Output<bool?> SendUserInvitation { get; private set; } = null!;
@@ -89,7 +89,7 @@ namespace Pulumi.Datadog
         public Output<string> UserInvitationId { get; private set; } = null!;
 
         /// <summary>
-        /// Returns `true` if the user is verified.
+        /// Returns `True` if the user is verified.
         /// </summary>
         [Output("verified")]
         public Output<bool> Verified { get; private set; } = null!;
@@ -141,7 +141,7 @@ namespace Pulumi.Datadog
     public sealed class UserArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether the user is disabled. Defaults to `false`.
+        /// Whether the user is disabled. Defaults to `False`.
         /// </summary>
         [Input("disabled")]
         public Input<bool>? Disabled { get; set; }
@@ -171,7 +171,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// Whether an invitation email should be sent when the user is created. Defaults to `true`.
+        /// Whether an invitation email should be sent when the user is created. Defaults to `True`.
         /// </summary>
         [Input("sendUserInvitation")]
         public Input<bool>? SendUserInvitation { get; set; }
@@ -185,7 +185,7 @@ namespace Pulumi.Datadog
     public sealed class UserState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether the user is disabled. Defaults to `false`.
+        /// Whether the user is disabled. Defaults to `False`.
         /// </summary>
         [Input("disabled")]
         public Input<bool>? Disabled { get; set; }
@@ -215,7 +215,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// Whether an invitation email should be sent when the user is created. Defaults to `true`.
+        /// Whether an invitation email should be sent when the user is created. Defaults to `True`.
         /// </summary>
         [Input("sendUserInvitation")]
         public Input<bool>? SendUserInvitation { get; set; }
@@ -227,7 +227,7 @@ namespace Pulumi.Datadog
         public Input<string>? UserInvitationId { get; set; }
 
         /// <summary>
-        /// Returns `true` if the user is verified.
+        /// Returns `True` if the user is verified.
         /// </summary>
         [Input("verified")]
         public Input<bool>? Verified { get; set; }

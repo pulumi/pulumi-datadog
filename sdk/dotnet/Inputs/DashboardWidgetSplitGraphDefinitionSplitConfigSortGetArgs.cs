@@ -19,7 +19,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.DashboardWidgetSplitGraphDefinitionSplitConfigSortComputeGetArgs>? Compute { get; set; }
 
         /// <summary>
-        /// Widget sorting methods. Valid values are `asc`, `desc`.
+        /// Widget sorting methods. Valid values are `Asc`, `Desc`.
         /// </summary>
         [Input("order", required: true)]
         public Input<string> Order { get; set; } = null!;

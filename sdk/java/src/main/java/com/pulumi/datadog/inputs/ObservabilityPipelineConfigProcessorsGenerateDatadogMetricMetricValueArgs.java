@@ -17,14 +17,14 @@ public final class ObservabilityPipelineConfigProcessorsGenerateDatadogMetricMet
     public static final ObservabilityPipelineConfigProcessorsGenerateDatadogMetricMetricValueArgs Empty = new ObservabilityPipelineConfigProcessorsGenerateDatadogMetricMetricValueArgs();
 
     /**
-     * Name of the log field containing the numeric value to increment the metric by (used only for `increment_by_field`).
+     * Name of the log field containing the numeric value to increment the metric by (used only for `incrementByField`).
      * 
      */
     @Import(name="field")
     private @Nullable Output<String> field;
 
     /**
-     * @return Name of the log field containing the numeric value to increment the metric by (used only for `increment_by_field`).
+     * @return Name of the log field containing the numeric value to increment the metric by (used only for `incrementByField`).
      * 
      */
     public Optional<Output<String>> field() {
@@ -32,14 +32,14 @@ public final class ObservabilityPipelineConfigProcessorsGenerateDatadogMetricMet
     }
 
     /**
-     * Metric value strategy: `increment_by_one` or `increment_by_field`.
+     * Metric value strategy: `incrementByOne` or `incrementByField`.
      * 
      */
     @Import(name="strategy", required=true)
     private Output<String> strategy;
 
     /**
-     * @return Metric value strategy: `increment_by_one` or `increment_by_field`.
+     * @return Metric value strategy: `incrementByOne` or `incrementByField`.
      * 
      */
     public Output<String> strategy() {
@@ -72,7 +72,7 @@ public final class ObservabilityPipelineConfigProcessorsGenerateDatadogMetricMet
         }
 
         /**
-         * @param field Name of the log field containing the numeric value to increment the metric by (used only for `increment_by_field`).
+         * @param field Name of the log field containing the numeric value to increment the metric by (used only for `incrementByField`).
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ObservabilityPipelineConfigProcessorsGenerateDatadogMetricMet
         }
 
         /**
-         * @param field Name of the log field containing the numeric value to increment the metric by (used only for `increment_by_field`).
+         * @param field Name of the log field containing the numeric value to increment the metric by (used only for `incrementByField`).
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class ObservabilityPipelineConfigProcessorsGenerateDatadogMetricMet
         }
 
         /**
-         * @param strategy Metric value strategy: `increment_by_one` or `increment_by_field`.
+         * @param strategy Metric value strategy: `incrementByOne` or `incrementByField`.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ObservabilityPipelineConfigProcessorsGenerateDatadogMetricMet
         }
 
         /**
-         * @param strategy Metric value strategy: `increment_by_one` or `increment_by_field`.
+         * @param strategy Metric value strategy: `incrementByOne` or `incrementByField`.
          * 
          * @return builder
          * 

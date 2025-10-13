@@ -8,6 +8,8 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve information about your live hosts in Datadog.
+ *
+ * ## Example Usage
  */
 export function getHosts(args?: GetHostsArgs, opts?: pulumi.InvokeOptions): Promise<GetHostsResult> {
     args = args || {};
@@ -90,6 +92,8 @@ export interface GetHostsResult {
 }
 /**
  * Use this data source to retrieve information about your live hosts in Datadog.
+ *
+ * ## Example Usage
  */
 export function getHostsOutput(args?: GetHostsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHostsResult> {
     args = args || {};

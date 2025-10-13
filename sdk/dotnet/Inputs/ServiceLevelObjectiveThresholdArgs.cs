@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? TargetDisplay { get; set; }
 
         /// <summary>
-        /// The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+        /// The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `Custom`.
         /// </summary>
         [Input("timeframe", required: true)]
         public Input<string> Timeframe { get; set; } = null!;
@@ -37,7 +37,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<double>? Warning { get; set; }
 
         /// <summary>
-        /// A string representation of the warning target (see the description of the target_display field for details).
+        /// A string representation of the warning target (see the description of the TargetDisplay field for details).
         /// </summary>
         [Input("warningDisplay")]
         public Input<string>? WarningDisplay { get; set; }

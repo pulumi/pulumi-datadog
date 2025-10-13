@@ -91,7 +91,7 @@ namespace Pulumi.Datadog
     public sealed class GetTeamMembershipsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// When true, `filter_keyword` string is exact matched against the user's `email`, followed by `name`.
+        /// When true, `FilterKeyword` string is exact matched against the user's `Email`, followed by `Name`.
         /// </summary>
         [Input("exactMatch")]
         public bool? ExactMatch { get; set; }
@@ -117,7 +117,7 @@ namespace Pulumi.Datadog
     public sealed class GetTeamMembershipsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// When true, `filter_keyword` string is exact matched against the user's `email`, followed by `name`.
+        /// When true, `FilterKeyword` string is exact matched against the user's `Email`, followed by `Name`.
         /// </summary>
         [Input("exactMatch")]
         public Input<bool>? ExactMatch { get; set; }
@@ -145,7 +145,7 @@ namespace Pulumi.Datadog
     public sealed class GetTeamMembershipsResult
     {
         /// <summary>
-        /// When true, `filter_keyword` string is exact matched against the user's `email`, followed by `name`.
+        /// When true, `FilterKeyword` string is exact matched against the user's `Email`, followed by `Name`.
         /// </summary>
         public readonly bool? ExactMatch;
         /// <summary>

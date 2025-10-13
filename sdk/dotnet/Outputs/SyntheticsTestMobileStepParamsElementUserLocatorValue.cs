@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class SyntheticsTestMobileStepParamsElementUserLocatorValue
     {
         /// <summary>
-        /// Valid values are `accessibility-id`, `id`, `ios-predicate-string`, `ios-class-chain`, `xpath`.
+        /// Valid values are `accessibility-id`, `Id`, `ios-predicate-string`, `ios-class-chain`, `Xpath`.
         /// </summary>
         public readonly string? Type;
         public readonly string? Value;

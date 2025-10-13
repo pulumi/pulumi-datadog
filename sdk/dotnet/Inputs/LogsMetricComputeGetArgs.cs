@@ -13,13 +13,13 @@ namespace Pulumi.Datadog.Inputs
     public sealed class LogsMetricComputeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The type of aggregation to use. This field can't be updated after creation. Valid values are `count`, `distribution`.
+        /// The type of aggregation to use. This field can't be updated after creation. Valid values are `Count`, `Distribution`.
         /// </summary>
         [Input("aggregationType", required: true)]
         public Input<string> AggregationType { get; set; } = null!;
 
         /// <summary>
-        /// Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have an `aggregation_type` of distribution.
+        /// Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have an `AggregationType` of distribution.
         /// </summary>
         [Input("includePercentiles")]
         public Input<bool>? IncludePercentiles { get; set; }

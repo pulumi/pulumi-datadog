@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class IntegrationAccountResourcesConfig {
     /**
-     * @return Enable Cloud Security Management to scan AWS resources for vulnerabilities, misconfigurations, identity risks, and compliance violations. Requires `extended_collection` to be set to `true`. Defaults to `false`.
+     * @return Enable Cloud Security Management to scan AWS resources for vulnerabilities, misconfigurations, identity risks, and compliance violations. Requires `extendedCollection` to be set to `true`. Defaults to `false`.
      * 
      */
     private @Nullable Boolean cloudSecurityPostureManagementCollection;
     /**
-     * @return Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cloud_security_posture_management_collection`. Defaults to `true`.
+     * @return Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cloudSecurityPostureManagementCollection`. Defaults to `true`.
      * 
      */
     private @Nullable Boolean extendedCollection;
 
     private IntegrationAccountResourcesConfig() {}
     /**
-     * @return Enable Cloud Security Management to scan AWS resources for vulnerabilities, misconfigurations, identity risks, and compliance violations. Requires `extended_collection` to be set to `true`. Defaults to `false`.
+     * @return Enable Cloud Security Management to scan AWS resources for vulnerabilities, misconfigurations, identity risks, and compliance violations. Requires `extendedCollection` to be set to `true`. Defaults to `false`.
      * 
      */
     public Optional<Boolean> cloudSecurityPostureManagementCollection() {
         return Optional.ofNullable(this.cloudSecurityPostureManagementCollection);
     }
     /**
-     * @return Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cloud_security_posture_management_collection`. Defaults to `true`.
+     * @return Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cloudSecurityPostureManagementCollection`. Defaults to `true`.
      * 
      */
     public Optional<Boolean> extendedCollection() {

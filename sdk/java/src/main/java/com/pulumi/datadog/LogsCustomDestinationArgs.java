@@ -68,7 +68,7 @@ public final class LogsCustomDestinationArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * How the `forward_tags_restriction_list` parameter should be interpreted.
+     * How the `forwardTagsRestrictionList` parameter should be interpreted.
      * 			If `ALLOW_LIST`, then only tags whose keys on the forwarded logs match the ones on the restriction list
      * 			are forwarded.
      * 			`BLOCK_LIST` works the opposite way. It does not forward the tags matching the ones on the list. Valid values are `ALLOW_LIST`, `BLOCK_LIST`.
@@ -78,7 +78,7 @@ public final class LogsCustomDestinationArgs extends com.pulumi.resources.Resour
     private @Nullable Output<String> forwardTagsRestrictionListType;
 
     /**
-     * @return How the `forward_tags_restriction_list` parameter should be interpreted.
+     * @return How the `forwardTagsRestrictionList` parameter should be interpreted.
      * 			If `ALLOW_LIST`, then only tags whose keys on the forwarded logs match the ones on the restriction list
      * 			are forwarded.
      * 			`BLOCK_LIST` works the opposite way. It does not forward the tags matching the ones on the list. Valid values are `ALLOW_LIST`, `BLOCK_LIST`.
@@ -91,7 +91,7 @@ public final class LogsCustomDestinationArgs extends com.pulumi.resources.Resour
     /**
      * List of [tag keys](https://docs.datadoghq.com/getting_started/tagging/#define-tags) to be filtered.
      * 			An empty list represents no restriction is in place and either all or no tags will be
-     * 			forwarded depending on `forward_tags_restriction_list_type` parameter.
+     * 			forwarded depending on `forwardTagsRestrictionListType` parameter.
      * 
      */
     @Import(name="forwardTagsRestrictionLists")
@@ -100,7 +100,7 @@ public final class LogsCustomDestinationArgs extends com.pulumi.resources.Resour
     /**
      * @return List of [tag keys](https://docs.datadoghq.com/getting_started/tagging/#define-tags) to be filtered.
      * 			An empty list represents no restriction is in place and either all or no tags will be
-     * 			forwarded depending on `forward_tags_restriction_list_type` parameter.
+     * 			forwarded depending on `forwardTagsRestrictionListType` parameter.
      * 
      */
     public Optional<Output<List<String>>> forwardTagsRestrictionLists() {
@@ -279,7 +279,7 @@ public final class LogsCustomDestinationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param forwardTagsRestrictionListType How the `forward_tags_restriction_list` parameter should be interpreted.
+         * @param forwardTagsRestrictionListType How the `forwardTagsRestrictionList` parameter should be interpreted.
          * 			If `ALLOW_LIST`, then only tags whose keys on the forwarded logs match the ones on the restriction list
          * 			are forwarded.
          * 			`BLOCK_LIST` works the opposite way. It does not forward the tags matching the ones on the list. Valid values are `ALLOW_LIST`, `BLOCK_LIST`.
@@ -293,7 +293,7 @@ public final class LogsCustomDestinationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param forwardTagsRestrictionListType How the `forward_tags_restriction_list` parameter should be interpreted.
+         * @param forwardTagsRestrictionListType How the `forwardTagsRestrictionList` parameter should be interpreted.
          * 			If `ALLOW_LIST`, then only tags whose keys on the forwarded logs match the ones on the restriction list
          * 			are forwarded.
          * 			`BLOCK_LIST` works the opposite way. It does not forward the tags matching the ones on the list. Valid values are `ALLOW_LIST`, `BLOCK_LIST`.
@@ -308,7 +308,7 @@ public final class LogsCustomDestinationArgs extends com.pulumi.resources.Resour
         /**
          * @param forwardTagsRestrictionLists List of [tag keys](https://docs.datadoghq.com/getting_started/tagging/#define-tags) to be filtered.
          * 			An empty list represents no restriction is in place and either all or no tags will be
-         * 			forwarded depending on `forward_tags_restriction_list_type` parameter.
+         * 			forwarded depending on `forwardTagsRestrictionListType` parameter.
          * 
          * @return builder
          * 
@@ -321,7 +321,7 @@ public final class LogsCustomDestinationArgs extends com.pulumi.resources.Resour
         /**
          * @param forwardTagsRestrictionLists List of [tag keys](https://docs.datadoghq.com/getting_started/tagging/#define-tags) to be filtered.
          * 			An empty list represents no restriction is in place and either all or no tags will be
-         * 			forwarded depending on `forward_tags_restriction_list_type` parameter.
+         * 			forwarded depending on `forwardTagsRestrictionListType` parameter.
          * 
          * @return builder
          * 
@@ -333,7 +333,7 @@ public final class LogsCustomDestinationArgs extends com.pulumi.resources.Resour
         /**
          * @param forwardTagsRestrictionLists List of [tag keys](https://docs.datadoghq.com/getting_started/tagging/#define-tags) to be filtered.
          * 			An empty list represents no restriction is in place and either all or no tags will be
-         * 			forwarded depending on `forward_tags_restriction_list_type` parameter.
+         * 			forwarded depending on `forwardTagsRestrictionListType` parameter.
          * 
          * @return builder
          * 

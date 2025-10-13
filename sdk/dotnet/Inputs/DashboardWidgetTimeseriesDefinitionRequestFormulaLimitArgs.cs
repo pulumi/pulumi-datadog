@@ -19,7 +19,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<int>? Count { get; set; }
 
         /// <summary>
-        /// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
+        /// The direction of the sort. Valid values are `Asc`, `Desc`. Defaults to `"desc"`.
         /// </summary>
         [Input("order")]
         public Input<string>? Order { get; set; }

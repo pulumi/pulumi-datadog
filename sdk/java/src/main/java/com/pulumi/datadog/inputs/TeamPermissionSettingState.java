@@ -16,14 +16,14 @@ public final class TeamPermissionSettingState extends com.pulumi.resources.Resou
     public static final TeamPermissionSettingState Empty = new TeamPermissionSettingState();
 
     /**
-     * The identifier for the action. Valid values are `manage_membership`, `edit`.
+     * The identifier for the action. Valid values are `manageMembership`, `edit`.
      * 
      */
     @Import(name="action")
     private @Nullable Output<String> action;
 
     /**
-     * @return The identifier for the action. Valid values are `manage_membership`, `edit`.
+     * @return The identifier for the action. Valid values are `manageMembership`, `edit`.
      * 
      */
     public Optional<Output<String>> action() {
@@ -46,14 +46,14 @@ public final class TeamPermissionSettingState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The action value. Valid values are dependent on the action. `manage_membership` action allows `admins`, `members`, `organization`, `user_access_manage` values. `edit` action allows `admins`, `members`, `teams_manage` values.
+     * The action value. Valid values are dependent on the action. `manageMembership` action allows `admins`, `members`, `organization`, `userAccessManage` values. `edit` action allows `admins`, `members`, `teamsManage` values.
      * 
      */
     @Import(name="value")
     private @Nullable Output<String> value;
 
     /**
-     * @return The action value. Valid values are dependent on the action. `manage_membership` action allows `admins`, `members`, `organization`, `user_access_manage` values. `edit` action allows `admins`, `members`, `teams_manage` values.
+     * @return The action value. Valid values are dependent on the action. `manageMembership` action allows `admins`, `members`, `organization`, `userAccessManage` values. `edit` action allows `admins`, `members`, `teamsManage` values.
      * 
      */
     public Optional<Output<String>> value() {
@@ -87,7 +87,7 @@ public final class TeamPermissionSettingState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param action The identifier for the action. Valid values are `manage_membership`, `edit`.
+         * @param action The identifier for the action. Valid values are `manageMembership`, `edit`.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class TeamPermissionSettingState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param action The identifier for the action. Valid values are `manage_membership`, `edit`.
+         * @param action The identifier for the action. Valid values are `manageMembership`, `edit`.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class TeamPermissionSettingState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param value The action value. Valid values are dependent on the action. `manage_membership` action allows `admins`, `members`, `organization`, `user_access_manage` values. `edit` action allows `admins`, `members`, `teams_manage` values.
+         * @param value The action value. Valid values are dependent on the action. `manageMembership` action allows `admins`, `members`, `organization`, `userAccessManage` values. `edit` action allows `admins`, `members`, `teamsManage` values.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class TeamPermissionSettingState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param value The action value. Valid values are dependent on the action. `manage_membership` action allows `admins`, `members`, `organization`, `user_access_manage` values. `edit` action allows `admins`, `members`, `teams_manage` values.
+         * @param value The action value. Valid values are dependent on the action. `manageMembership` action allows `admins`, `members`, `organization`, `userAccessManage` values. `edit` action allows `admins`, `members`, `teamsManage` values.
          * 
          * @return builder
          * 

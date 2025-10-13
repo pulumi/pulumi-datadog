@@ -109,6 +109,8 @@ class OnCallTeamRoutingRules(pulumi.CustomResource):
         """
         Provides a Datadog On-Call team routing rules resource.
 
+        ## Example Usage
+
         ## Import
 
         The `pulumi import` command can be used, for example:
@@ -132,6 +134,8 @@ class OnCallTeamRoutingRules(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog On-Call team routing rules resource.
+
+        ## Example Usage
 
         ## Import
 
