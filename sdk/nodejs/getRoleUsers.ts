@@ -8,6 +8,22 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve information about existing Datadog role users assignments. This data source is in beta and is subject to change.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * // Get the API Key Manager role
+ * const apiKeyManager = datadog.getRole({
+ *     filter: "API Key Manager",
+ * });
+ * // List users assigned to the API Key Manager role
+ * const apiKeyManagers = apiKeyManager.then(apiKeyManager => datadog.getRoleUsers({
+ *     roleId: apiKeyManager.id,
+ * }));
+ * ```
  */
 export function getRoleUsers(args: GetRoleUsersArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleUsersResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -63,6 +79,22 @@ export interface GetRoleUsersResult {
 }
 /**
  * Use this data source to retrieve information about existing Datadog role users assignments. This data source is in beta and is subject to change.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * // Get the API Key Manager role
+ * const apiKeyManager = datadog.getRole({
+ *     filter: "API Key Manager",
+ * });
+ * // List users assigned to the API Key Manager role
+ * const apiKeyManagers = apiKeyManager.then(apiKeyManager => datadog.getRoleUsers({
+ *     roleId: apiKeyManager.id,
+ * }));
+ * ```
  */
 export function getRoleUsersOutput(args: GetRoleUsersOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRoleUsersResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

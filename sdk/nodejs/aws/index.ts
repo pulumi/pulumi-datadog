@@ -25,6 +25,11 @@ export const getIntegrationIamPermissions: typeof import("./getIntegrationIamPer
 export const getIntegrationIamPermissionsOutput: typeof import("./getIntegrationIamPermissions").getIntegrationIamPermissionsOutput = null as any;
 utilities.lazyLoad(exports, ["getIntegrationIamPermissions","getIntegrationIamPermissionsOutput"], () => require("./getIntegrationIamPermissions"));
 
+export { GetIntegrationIamPermissionsStandardResult } from "./getIntegrationIamPermissionsStandard";
+export const getIntegrationIamPermissionsStandard: typeof import("./getIntegrationIamPermissionsStandard").getIntegrationIamPermissionsStandard = null as any;
+export const getIntegrationIamPermissionsStandardOutput: typeof import("./getIntegrationIamPermissionsStandard").getIntegrationIamPermissionsStandardOutput = null as any;
+utilities.lazyLoad(exports, ["getIntegrationIamPermissionsStandard","getIntegrationIamPermissionsStandardOutput"], () => require("./getIntegrationIamPermissionsStandard"));
+
 export { GetIntegrationLogsServicesResult } from "./getIntegrationLogsServices";
 export const getIntegrationLogsServices: typeof import("./getIntegrationLogsServices").getIntegrationLogsServices = null as any;
 export const getIntegrationLogsServicesOutput: typeof import("./getIntegrationLogsServices").getIntegrationLogsServicesOutput = null as any;

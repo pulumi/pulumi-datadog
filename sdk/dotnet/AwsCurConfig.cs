@@ -47,6 +47,18 @@ namespace Pulumi.Datadog
         public Output<string?> BucketRegion { get; private set; } = null!;
 
         /// <summary>
+        /// The timestamp when the AWS CUR configuration was created.
+        /// </summary>
+        [Output("createdAt")]
+        public Output<string> CreatedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// List of error messages if the AWS CUR configuration encountered any issues during setup or data processing.
+        /// </summary>
+        [Output("errorMessages")]
+        public Output<ImmutableArray<string>> ErrorMessages { get; private set; } = null!;
+
+        /// <summary>
         /// The exact name of your AWS Cost and Usage Report as configured in AWS Billing preferences. This must match the report name exactly as it appears in your AWS billing settings.
         /// </summary>
         [Output("reportName")]
@@ -57,6 +69,24 @@ namespace Pulumi.Datadog
         /// </summary>
         [Output("reportPrefix")]
         public Output<string> ReportPrefix { get; private set; } = null!;
+
+        /// <summary>
+        /// The current status of the AWS CUR configuration.
+        /// </summary>
+        [Output("status")]
+        public Output<string> Status { get; private set; } = null!;
+
+        /// <summary>
+        /// The timestamp when the configuration status was last updated.
+        /// </summary>
+        [Output("statusUpdatedAt")]
+        public Output<string> StatusUpdatedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// The timestamp when the AWS CUR configuration was last modified.
+        /// </summary>
+        [Output("updatedAt")]
+        public Output<string> UpdatedAt { get; private set; } = null!;
 
 
         /// <summary>
@@ -167,6 +197,24 @@ namespace Pulumi.Datadog
         public Input<string>? BucketRegion { get; set; }
 
         /// <summary>
+        /// The timestamp when the AWS CUR configuration was created.
+        /// </summary>
+        [Input("createdAt")]
+        public Input<string>? CreatedAt { get; set; }
+
+        [Input("errorMessages")]
+        private InputList<string>? _errorMessages;
+
+        /// <summary>
+        /// List of error messages if the AWS CUR configuration encountered any issues during setup or data processing.
+        /// </summary>
+        public InputList<string> ErrorMessages
+        {
+            get => _errorMessages ?? (_errorMessages = new InputList<string>());
+            set => _errorMessages = value;
+        }
+
+        /// <summary>
         /// The exact name of your AWS Cost and Usage Report as configured in AWS Billing preferences. This must match the report name exactly as it appears in your AWS billing settings.
         /// </summary>
         [Input("reportName")]
@@ -177,6 +225,24 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("reportPrefix")]
         public Input<string>? ReportPrefix { get; set; }
+
+        /// <summary>
+        /// The current status of the AWS CUR configuration.
+        /// </summary>
+        [Input("status")]
+        public Input<string>? Status { get; set; }
+
+        /// <summary>
+        /// The timestamp when the configuration status was last updated.
+        /// </summary>
+        [Input("statusUpdatedAt")]
+        public Input<string>? StatusUpdatedAt { get; set; }
+
+        /// <summary>
+        /// The timestamp when the AWS CUR configuration was last modified.
+        /// </summary>
+        [Input("updatedAt")]
+        public Input<string>? UpdatedAt { get; set; }
 
         public AwsCurConfigState()
         {

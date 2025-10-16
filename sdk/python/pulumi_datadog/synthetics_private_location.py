@@ -113,6 +113,7 @@ class _SyntheticsPrivateLocationState:
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  metadata: Optional[pulumi.Input['SyntheticsPrivateLocationMetadataArgs']] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 restriction_policy_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering SyntheticsPrivateLocation resources.
@@ -121,6 +122,7 @@ class _SyntheticsPrivateLocationState:
         :param pulumi.Input[_builtins.str] description: Description of the private location. Defaults to `""`.
         :param pulumi.Input['SyntheticsPrivateLocationMetadataArgs'] metadata: The private location metadata
         :param pulumi.Input[_builtins.str] name: Synthetics private location name.
+        :param pulumi.Input[_builtins.str] restriction_policy_resource_id: Resource ID to use when setting restrictions with a `RestrictionPolicy` resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags to associate with your synthetics private location.
         """
         if api_key is not None:
@@ -133,6 +135,8 @@ class _SyntheticsPrivateLocationState:
             pulumi.set(__self__, "metadata", metadata)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if restriction_policy_resource_id is not None:
+            pulumi.set(__self__, "restriction_policy_resource_id", restriction_policy_resource_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -195,6 +199,18 @@ class _SyntheticsPrivateLocationState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="restrictionPolicyResourceId")
+    def restriction_policy_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Resource ID to use when setting restrictions with a `RestrictionPolicy` resource.
+        """
+        return pulumi.get(self, "restriction_policy_resource_id")
+
+    @restriction_policy_resource_id.setter
+    def restriction_policy_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "restriction_policy_resource_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -328,6 +344,7 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["config"] = None
+            __props__.__dict__["restriction_policy_resource_id"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["apiKey", "config"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(SyntheticsPrivateLocation, __self__).__init__(
@@ -345,6 +362,7 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
             description: Optional[pulumi.Input[_builtins.str]] = None,
             metadata: Optional[pulumi.Input[Union['SyntheticsPrivateLocationMetadataArgs', 'SyntheticsPrivateLocationMetadataArgsDict']]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
+            restriction_policy_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
             tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'SyntheticsPrivateLocation':
         """
         Get an existing SyntheticsPrivateLocation resource's state with the given name, id, and optional extra
@@ -358,6 +376,7 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Description of the private location. Defaults to `""`.
         :param pulumi.Input[Union['SyntheticsPrivateLocationMetadataArgs', 'SyntheticsPrivateLocationMetadataArgsDict']] metadata: The private location metadata
         :param pulumi.Input[_builtins.str] name: Synthetics private location name.
+        :param pulumi.Input[_builtins.str] restriction_policy_resource_id: Resource ID to use when setting restrictions with a `RestrictionPolicy` resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags to associate with your synthetics private location.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -369,6 +388,7 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["metadata"] = metadata
         __props__.__dict__["name"] = name
+        __props__.__dict__["restriction_policy_resource_id"] = restriction_policy_resource_id
         __props__.__dict__["tags"] = tags
         return SyntheticsPrivateLocation(resource_name, opts=opts, __props__=__props__)
 
@@ -411,6 +431,14 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
         Synthetics private location name.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="restrictionPolicyResourceId")
+    def restriction_policy_resource_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        Resource ID to use when setting restrictions with a `RestrictionPolicy` resource.
+        """
+        return pulumi.get(self, "restriction_policy_resource_id")
 
     @_builtins.property
     @pulumi.getter

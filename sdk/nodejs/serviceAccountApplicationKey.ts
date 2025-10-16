@@ -13,10 +13,22 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * // Create new service_account_application_key resource
- * const foo = new datadog.ServiceAccountApplicationKey("foo", {
+ * // Source the permissions for scoped keys
+ * const ddPerms = datadog.getPermissions({});
+ * // Create an unrestricted Service Account Application Key
+ * // This key inherits all permissions of the service account that owns the key
+ * const unrestrictedKey = new datadog.ServiceAccountApplicationKey("unrestricted_key", {
  *     serviceAccountId: "00000000-0000-1234-0000-000000000000",
- *     name: "Application key for managing dashboards",
+ *     name: "Unrestricted Service Account Key",
+ * });
+ * // Create a scoped Service Account Application Key for monitor management
+ * const monitorManagementKey = new datadog.ServiceAccountApplicationKey("monitor_management_key", {
+ *     serviceAccountId: "00000000-0000-1234-0000-000000000000",
+ *     name: "Monitor Management Service Account Key",
+ *     scopes: [
+ *         ddPerms.then(ddPerms => ddPerms.permissions?.monitorsRead),
+ *         ddPerms.then(ddPerms => ddPerms.permissions?.monitorsWrite),
+ *     ],
  * });
  * ```
  *

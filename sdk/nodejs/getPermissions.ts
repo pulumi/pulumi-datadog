@@ -13,7 +13,19 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const permissions = datadog.getPermissions({});
+ * const ddPerms = datadog.getPermissions({});
+ * // Example of using specific permissions to create an API Key Manager role
+ * const apiKeyManager = new datadog.Role("api_key_manager", {
+ *     name: "API Key Manager",
+ *     permissions: [
+ *         {
+ *             id: ddPerms.then(ddPerms => ddPerms.permissions?.apiKeysRead),
+ *         },
+ *         {
+ *             id: ddPerms.then(ddPerms => ddPerms.permissions?.apiKeysWrite),
+ *         },
+ *     ],
+ * });
  * ```
  */
 export function getPermissions(args?: GetPermissionsArgs, opts?: pulumi.InvokeOptions): Promise<GetPermissionsResult> {
@@ -60,7 +72,19 @@ export interface GetPermissionsResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const permissions = datadog.getPermissions({});
+ * const ddPerms = datadog.getPermissions({});
+ * // Example of using specific permissions to create an API Key Manager role
+ * const apiKeyManager = new datadog.Role("api_key_manager", {
+ *     name: "API Key Manager",
+ *     permissions: [
+ *         {
+ *             id: ddPerms.then(ddPerms => ddPerms.permissions?.apiKeysRead),
+ *         },
+ *         {
+ *             id: ddPerms.then(ddPerms => ddPerms.permissions?.apiKeysWrite),
+ *         },
+ *     ],
+ * });
  * ```
  */
 export function getPermissionsOutput(args?: GetPermissionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPermissionsResult> {

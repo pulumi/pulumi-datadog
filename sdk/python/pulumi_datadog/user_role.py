@@ -112,15 +112,23 @@ class UserRole(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        monitor_writer_role = datadog.Role("monitor_writer_role",
-            name="Monitor Writer Role",
-            permissions=[{
-                "id": bar["permissions"]["monitorsWrite"],
-            }])
+        # Source the permissions
+        dd_perms = datadog.get_permissions()
+        # Create an API Key Manager role
+        api_key_manager = datadog.Role("api_key_manager",
+            name="API Key Manager",
+            permissions=[
+                {
+                    "id": dd_perms.permissions["apiKeysRead"],
+                },
+                {
+                    "id": dd_perms.permissions["apiKeysWrite"],
+                },
+            ])
         new_user = datadog.User("new_user", email="new@example.com")
-        # Create new user_role resource
-        new_user_with_monitor_writer_role = datadog.UserRole("new_user_with_monitor_writer_role",
-            role_id=monitor_writer_role.id,
+        # Assign the API Key Manager role to the user
+        new_user_with_api_key_manager_role = datadog.UserRole("new_user_with_api_key_manager_role",
+            role_id=api_key_manager.id,
             user_id=new_user.id)
         ```
 
@@ -154,15 +162,23 @@ class UserRole(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        monitor_writer_role = datadog.Role("monitor_writer_role",
-            name="Monitor Writer Role",
-            permissions=[{
-                "id": bar["permissions"]["monitorsWrite"],
-            }])
+        # Source the permissions
+        dd_perms = datadog.get_permissions()
+        # Create an API Key Manager role
+        api_key_manager = datadog.Role("api_key_manager",
+            name="API Key Manager",
+            permissions=[
+                {
+                    "id": dd_perms.permissions["apiKeysRead"],
+                },
+                {
+                    "id": dd_perms.permissions["apiKeysWrite"],
+                },
+            ])
         new_user = datadog.User("new_user", email="new@example.com")
-        # Create new user_role resource
-        new_user_with_monitor_writer_role = datadog.UserRole("new_user_with_monitor_writer_role",
-            role_id=monitor_writer_role.id,
+        # Assign the API Key Manager role to the user
+        new_user_with_api_key_manager_role = datadog.UserRole("new_user_with_api_key_manager_role",
+            role_id=api_key_manager.id,
             user_id=new_user.id)
         ```
 

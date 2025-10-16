@@ -121,15 +121,25 @@ class _AwsCurConfigState:
                  account_id: Optional[pulumi.Input[_builtins.str]] = None,
                  bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
                  bucket_region: Optional[pulumi.Input[_builtins.str]] = None,
+                 created_at: Optional[pulumi.Input[_builtins.str]] = None,
+                 error_messages: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  report_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 report_prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 report_prefix: Optional[pulumi.Input[_builtins.str]] = None,
+                 status: Optional[pulumi.Input[_builtins.str]] = None,
+                 status_updated_at: Optional[pulumi.Input[_builtins.str]] = None,
+                 updated_at: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AwsCurConfig resources.
         :param pulumi.Input[_builtins.str] account_id: The AWS account ID of your billing/payer account. For AWS Organizations, this is typically the management account ID.
         :param pulumi.Input[_builtins.str] bucket_name: The S3 bucket name where your AWS Cost and Usage Report files are stored. This bucket must have appropriate IAM permissions for Datadog access and should be in the same AWS account as the CUR report.
         :param pulumi.Input[_builtins.str] bucket_region: The AWS region where the S3 bucket containing your Cost and Usage Report is located (e.g., us-east-1, eu-west-1).
+        :param pulumi.Input[_builtins.str] created_at: The timestamp when the AWS CUR configuration was created.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] error_messages: List of error messages if the AWS CUR configuration encountered any issues during setup or data processing.
         :param pulumi.Input[_builtins.str] report_name: The exact name of your AWS Cost and Usage Report as configured in AWS Billing preferences. This must match the report name exactly as it appears in your AWS billing settings.
         :param pulumi.Input[_builtins.str] report_prefix: The S3 key prefix where your Cost and Usage Report files are stored within the bucket (e.g., 'cur-reports/', 'billing/cur/').
+        :param pulumi.Input[_builtins.str] status: The current status of the AWS CUR configuration.
+        :param pulumi.Input[_builtins.str] status_updated_at: The timestamp when the configuration status was last updated.
+        :param pulumi.Input[_builtins.str] updated_at: The timestamp when the AWS CUR configuration was last modified.
         """
         if account_filters is not None:
             pulumi.set(__self__, "account_filters", account_filters)
@@ -139,10 +149,20 @@ class _AwsCurConfigState:
             pulumi.set(__self__, "bucket_name", bucket_name)
         if bucket_region is not None:
             pulumi.set(__self__, "bucket_region", bucket_region)
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if error_messages is not None:
+            pulumi.set(__self__, "error_messages", error_messages)
         if report_name is not None:
             pulumi.set(__self__, "report_name", report_name)
         if report_prefix is not None:
             pulumi.set(__self__, "report_prefix", report_prefix)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if status_updated_at is not None:
+            pulumi.set(__self__, "status_updated_at", status_updated_at)
+        if updated_at is not None:
+            pulumi.set(__self__, "updated_at", updated_at)
 
     @_builtins.property
     @pulumi.getter(name="accountFilters")
@@ -190,6 +210,30 @@ class _AwsCurConfigState:
         pulumi.set(self, "bucket_region", value)
 
     @_builtins.property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The timestamp when the AWS CUR configuration was created.
+        """
+        return pulumi.get(self, "created_at")
+
+    @created_at.setter
+    def created_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "created_at", value)
+
+    @_builtins.property
+    @pulumi.getter(name="errorMessages")
+    def error_messages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of error messages if the AWS CUR configuration encountered any issues during setup or data processing.
+        """
+        return pulumi.get(self, "error_messages")
+
+    @error_messages.setter
+    def error_messages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "error_messages", value)
+
+    @_builtins.property
     @pulumi.getter(name="reportName")
     def report_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -212,6 +256,42 @@ class _AwsCurConfigState:
     @report_prefix.setter
     def report_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "report_prefix", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The current status of the AWS CUR configuration.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "status", value)
+
+    @_builtins.property
+    @pulumi.getter(name="statusUpdatedAt")
+    def status_updated_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The timestamp when the configuration status was last updated.
+        """
+        return pulumi.get(self, "status_updated_at")
+
+    @status_updated_at.setter
+    def status_updated_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "status_updated_at", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The timestamp when the AWS CUR configuration was last modified.
+        """
+        return pulumi.get(self, "updated_at")
+
+    @updated_at.setter
+    def updated_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "updated_at", value)
 
 
 @pulumi.type_token("datadog:index/awsCurConfig:AwsCurConfig")
@@ -311,6 +391,11 @@ class AwsCurConfig(pulumi.CustomResource):
             if report_prefix is None and not opts.urn:
                 raise TypeError("Missing required property 'report_prefix'")
             __props__.__dict__["report_prefix"] = report_prefix
+            __props__.__dict__["created_at"] = None
+            __props__.__dict__["error_messages"] = None
+            __props__.__dict__["status"] = None
+            __props__.__dict__["status_updated_at"] = None
+            __props__.__dict__["updated_at"] = None
         super(AwsCurConfig, __self__).__init__(
             'datadog:index/awsCurConfig:AwsCurConfig',
             resource_name,
@@ -325,8 +410,13 @@ class AwsCurConfig(pulumi.CustomResource):
             account_id: Optional[pulumi.Input[_builtins.str]] = None,
             bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
             bucket_region: Optional[pulumi.Input[_builtins.str]] = None,
+            created_at: Optional[pulumi.Input[_builtins.str]] = None,
+            error_messages: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             report_name: Optional[pulumi.Input[_builtins.str]] = None,
-            report_prefix: Optional[pulumi.Input[_builtins.str]] = None) -> 'AwsCurConfig':
+            report_prefix: Optional[pulumi.Input[_builtins.str]] = None,
+            status: Optional[pulumi.Input[_builtins.str]] = None,
+            status_updated_at: Optional[pulumi.Input[_builtins.str]] = None,
+            updated_at: Optional[pulumi.Input[_builtins.str]] = None) -> 'AwsCurConfig':
         """
         Get an existing AwsCurConfig resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -337,8 +427,13 @@ class AwsCurConfig(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] account_id: The AWS account ID of your billing/payer account. For AWS Organizations, this is typically the management account ID.
         :param pulumi.Input[_builtins.str] bucket_name: The S3 bucket name where your AWS Cost and Usage Report files are stored. This bucket must have appropriate IAM permissions for Datadog access and should be in the same AWS account as the CUR report.
         :param pulumi.Input[_builtins.str] bucket_region: The AWS region where the S3 bucket containing your Cost and Usage Report is located (e.g., us-east-1, eu-west-1).
+        :param pulumi.Input[_builtins.str] created_at: The timestamp when the AWS CUR configuration was created.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] error_messages: List of error messages if the AWS CUR configuration encountered any issues during setup or data processing.
         :param pulumi.Input[_builtins.str] report_name: The exact name of your AWS Cost and Usage Report as configured in AWS Billing preferences. This must match the report name exactly as it appears in your AWS billing settings.
         :param pulumi.Input[_builtins.str] report_prefix: The S3 key prefix where your Cost and Usage Report files are stored within the bucket (e.g., 'cur-reports/', 'billing/cur/').
+        :param pulumi.Input[_builtins.str] status: The current status of the AWS CUR configuration.
+        :param pulumi.Input[_builtins.str] status_updated_at: The timestamp when the configuration status was last updated.
+        :param pulumi.Input[_builtins.str] updated_at: The timestamp when the AWS CUR configuration was last modified.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -348,8 +443,13 @@ class AwsCurConfig(pulumi.CustomResource):
         __props__.__dict__["account_id"] = account_id
         __props__.__dict__["bucket_name"] = bucket_name
         __props__.__dict__["bucket_region"] = bucket_region
+        __props__.__dict__["created_at"] = created_at
+        __props__.__dict__["error_messages"] = error_messages
         __props__.__dict__["report_name"] = report_name
         __props__.__dict__["report_prefix"] = report_prefix
+        __props__.__dict__["status"] = status
+        __props__.__dict__["status_updated_at"] = status_updated_at
+        __props__.__dict__["updated_at"] = updated_at
         return AwsCurConfig(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -382,6 +482,22 @@ class AwsCurConfig(pulumi.CustomResource):
         return pulumi.get(self, "bucket_region")
 
     @_builtins.property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> pulumi.Output[_builtins.str]:
+        """
+        The timestamp when the AWS CUR configuration was created.
+        """
+        return pulumi.get(self, "created_at")
+
+    @_builtins.property
+    @pulumi.getter(name="errorMessages")
+    def error_messages(self) -> pulumi.Output[Sequence[_builtins.str]]:
+        """
+        List of error messages if the AWS CUR configuration encountered any issues during setup or data processing.
+        """
+        return pulumi.get(self, "error_messages")
+
+    @_builtins.property
     @pulumi.getter(name="reportName")
     def report_name(self) -> pulumi.Output[_builtins.str]:
         """
@@ -396,4 +512,28 @@ class AwsCurConfig(pulumi.CustomResource):
         The S3 key prefix where your Cost and Usage Report files are stored within the bucket (e.g., 'cur-reports/', 'billing/cur/').
         """
         return pulumi.get(self, "report_prefix")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Output[_builtins.str]:
+        """
+        The current status of the AWS CUR configuration.
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="statusUpdatedAt")
+    def status_updated_at(self) -> pulumi.Output[_builtins.str]:
+        """
+        The timestamp when the configuration status was last updated.
+        """
+        return pulumi.get(self, "status_updated_at")
+
+    @_builtins.property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> pulumi.Output[_builtins.str]:
+        """
+        The timestamp when the AWS CUR configuration was last modified.
+        """
+        return pulumi.get(self, "updated_at")
 

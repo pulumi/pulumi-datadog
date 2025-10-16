@@ -242,6 +242,44 @@ export interface AwsCurConfigAccountFilters {
     includedAccounts?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
+export interface AzureUcConfigActualBillConfig {
+    /**
+     * The name of the configured Azure Export.
+     */
+    exportName: pulumi.Input<string>;
+    /**
+     * The path where the Azure Export is saved.
+     */
+    exportPath: pulumi.Input<string>;
+    /**
+     * The name of the storage account where the Azure Export is saved.
+     */
+    storageAccount: pulumi.Input<string>;
+    /**
+     * The name of the storage container where the Azure Export is saved.
+     */
+    storageContainer: pulumi.Input<string>;
+}
+
+export interface AzureUcConfigAmortizedBillConfig {
+    /**
+     * The name of the configured Azure Export.
+     */
+    exportName: pulumi.Input<string>;
+    /**
+     * The path where the Azure Export is saved.
+     */
+    exportPath: pulumi.Input<string>;
+    /**
+     * The name of the storage account where the Azure Export is saved.
+     */
+    storageAccount: pulumi.Input<string>;
+    /**
+     * The name of the storage container where the Azure Export is saved.
+     */
+    storageContainer: pulumi.Input<string>;
+}
+
 export interface ChildOrganizationApiKey {
     /**
      * API key.
@@ -445,6 +483,128 @@ export interface CsmThreatsAgentRuleActionSet {
      * The value to set
      */
     value?: pulumi.Input<string>;
+}
+
+export interface CustomAllocationRuleCostsToAllocate {
+    /**
+     * The condition to match. Valid values are `=`, `!=`, `is`, `is not`, `like`, `in`, `not in`.
+     */
+    condition?: pulumi.Input<string>;
+    /**
+     * The tag key to filter on (e.g., `awsProduct`, `team`, `environment`).
+     */
+    tag?: pulumi.Input<string>;
+    /**
+     * The single tag value to match. Use this field for conditions like `=`, `!=`, `is`, `is not`, `like`. Do not use with `in` or `not in` conditions.
+     */
+    value?: pulumi.Input<string>;
+    /**
+     * A list of tag values to match. Use this field for `in` or `not in` conditions only. Do not use with single-value conditions.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface CustomAllocationRuleStrategy {
+    allocatedBies?: pulumi.Input<pulumi.Input<inputs.CustomAllocationRuleStrategyAllocatedBy>[]>;
+    allocatedByFilters?: pulumi.Input<pulumi.Input<inputs.CustomAllocationRuleStrategyAllocatedByFilter>[]>;
+    /**
+     * List of tag keys used to allocate costs (e.g., `["team", "project"]`). Costs will be distributed across unique values of these tags.
+     */
+    allocatedByTagKeys?: pulumi.Input<pulumi.Input<string>[]>;
+    basedOnCosts?: pulumi.Input<pulumi.Input<inputs.CustomAllocationRuleStrategyBasedOnCost>[]>;
+    basedOnTimeseries?: pulumi.Input<inputs.CustomAllocationRuleStrategyBasedOnTimeseries>;
+    evaluateGroupedByFilters?: pulumi.Input<pulumi.Input<inputs.CustomAllocationRuleStrategyEvaluateGroupedByFilter>[]>;
+    /**
+     * List of tag keys used to group costs before allocation. Costs are grouped by these tag values before applying the allocation strategy.
+     */
+    evaluateGroupedByTagKeys?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The granularity level for cost allocation. Valid values are `daily` or `monthly`.
+     */
+    granularity?: pulumi.Input<string>;
+    /**
+     * The allocation method. Valid values are `even`, `proportional`, `proportionalTimeseries`, or `percent`.
+     */
+    method?: pulumi.Input<string>;
+}
+
+export interface CustomAllocationRuleStrategyAllocatedBy {
+    allocatedTags?: pulumi.Input<pulumi.Input<inputs.CustomAllocationRuleStrategyAllocatedByAllocatedTag>[]>;
+    /**
+     * The percentage of costs to allocate to this target as a decimal (e.g., 0.33 for 33%). Used when `method` is `percent`.
+     */
+    percentage?: pulumi.Input<number>;
+}
+
+export interface CustomAllocationRuleStrategyAllocatedByAllocatedTag {
+    /**
+     * The tag key to allocate costs to (e.g., `team`, `environment`).
+     */
+    key?: pulumi.Input<string>;
+    /**
+     * The tag value to allocate costs to (e.g., `backend`, `production`).
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface CustomAllocationRuleStrategyAllocatedByFilter {
+    /**
+     * The condition to match. Valid values are `=`, `!=`, `is`, `is not`, `like`, `in`, `not in`.
+     */
+    condition?: pulumi.Input<string>;
+    /**
+     * The tag key to filter on for allocation targets.
+     */
+    tag?: pulumi.Input<string>;
+    /**
+     * The single tag value to match for allocation. Use with conditions like `=`, `!=`, `is`, `is not`, `like`.
+     */
+    value?: pulumi.Input<string>;
+    /**
+     * A list of tag values to match for allocation. Use with `in` or `not in` conditions.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface CustomAllocationRuleStrategyBasedOnCost {
+    /**
+     * The condition to match. Valid values are `=`, `!=`, `is`, `is not`, `like`, `in`, `not in`.
+     */
+    condition?: pulumi.Input<string>;
+    /**
+     * The tag key to use as the basis for cost allocation calculations.
+     */
+    tag?: pulumi.Input<string>;
+    /**
+     * The single tag value to use for cost calculations. Use with conditions like `=`, `!=`, `is`, `is not`, `like`.
+     */
+    value?: pulumi.Input<string>;
+    /**
+     * A list of tag values to use for cost calculations. Use with `in` or `not in` conditions.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface CustomAllocationRuleStrategyBasedOnTimeseries {
+}
+
+export interface CustomAllocationRuleStrategyEvaluateGroupedByFilter {
+    /**
+     * The condition to match. Valid values are `=`, `!=`, `is`, `is not`, `like`, `in`, `not in`.
+     */
+    condition?: pulumi.Input<string>;
+    /**
+     * The tag key to filter on when grouping costs for evaluation.
+     */
+    tag?: pulumi.Input<string>;
+    /**
+     * The single tag value to match when grouping. Use with conditions like `=`, `!=`, `is`, `is not`, `like`.
+     */
+    value?: pulumi.Input<string>;
+    /**
+     * A list of tag values to match when grouping. Use with `in` or `not in` conditions.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface DashboardListDashItem {
@@ -9633,6 +9793,82 @@ export interface GetAwsCurConfigAccountFiltersArgs {
     includedAccounts?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
+export interface GetAzureUcConfigActualBillConfig {
+    /**
+     * The name of the configured Azure Export.
+     */
+    exportName?: string;
+    /**
+     * The path where the Azure Export is saved.
+     */
+    exportPath?: string;
+    /**
+     * The name of the storage account where the Azure Export is saved.
+     */
+    storageAccount?: string;
+    /**
+     * The name of the storage container where the Azure Export is saved.
+     */
+    storageContainer?: string;
+}
+
+export interface GetAzureUcConfigActualBillConfigArgs {
+    /**
+     * The name of the configured Azure Export.
+     */
+    exportName?: pulumi.Input<string>;
+    /**
+     * The path where the Azure Export is saved.
+     */
+    exportPath?: pulumi.Input<string>;
+    /**
+     * The name of the storage account where the Azure Export is saved.
+     */
+    storageAccount?: pulumi.Input<string>;
+    /**
+     * The name of the storage container where the Azure Export is saved.
+     */
+    storageContainer?: pulumi.Input<string>;
+}
+
+export interface GetAzureUcConfigAmortizedBillConfig {
+    /**
+     * The name of the configured Azure Export.
+     */
+    exportName?: string;
+    /**
+     * The path where the Azure Export is saved.
+     */
+    exportPath?: string;
+    /**
+     * The name of the storage account where the Azure Export is saved.
+     */
+    storageAccount?: string;
+    /**
+     * The name of the storage container where the Azure Export is saved.
+     */
+    storageContainer?: string;
+}
+
+export interface GetAzureUcConfigAmortizedBillConfigArgs {
+    /**
+     * The name of the configured Azure Export.
+     */
+    exportName?: pulumi.Input<string>;
+    /**
+     * The path where the Azure Export is saved.
+     */
+    exportPath?: pulumi.Input<string>;
+    /**
+     * The name of the storage account where the Azure Export is saved.
+     */
+    storageAccount?: pulumi.Input<string>;
+    /**
+     * The name of the storage container where the Azure Export is saved.
+     */
+    storageContainer?: pulumi.Input<string>;
+}
+
 export interface GetCostBudgetEntry {
     amount?: number;
     month?: number;
@@ -9655,6 +9891,250 @@ export interface GetCostBudgetEntryTagFilterArgs {
     tagValue?: pulumi.Input<string>;
 }
 
+export interface GetCustomAllocationRuleCostsToAllocate {
+    /**
+     * The condition used to match tags. Valid values are `=`, `!=`, `is`, `is not`, `like`, `in`, `not in`.
+     */
+    condition?: string;
+    /**
+     * The tag key used in the filter.
+     */
+    tag?: string;
+    /**
+     * The tag value used in the filter (for single-value conditions).
+     */
+    value?: string;
+    /**
+     * The list of tag values used in the filter (for multi-value conditions like `in` or `notIn`).
+     */
+    values?: string[];
+}
+
+export interface GetCustomAllocationRuleCostsToAllocateArgs {
+    /**
+     * The condition used to match tags. Valid values are `=`, `!=`, `is`, `is not`, `like`, `in`, `not in`.
+     */
+    condition?: pulumi.Input<string>;
+    /**
+     * The tag key used in the filter.
+     */
+    tag?: pulumi.Input<string>;
+    /**
+     * The tag value used in the filter (for single-value conditions).
+     */
+    value?: pulumi.Input<string>;
+    /**
+     * The list of tag values used in the filter (for multi-value conditions like `in` or `notIn`).
+     */
+    values?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface GetCustomAllocationRuleStrategy {
+    allocatedBies?: inputs.GetCustomAllocationRuleStrategyAllocatedBy[];
+    allocatedByFilters?: inputs.GetCustomAllocationRuleStrategyAllocatedByFilter[];
+    /**
+     * List of tag keys used to allocate costs.
+     */
+    allocatedByTagKeys?: string[];
+    basedOnCosts?: inputs.GetCustomAllocationRuleStrategyBasedOnCost[];
+    basedOnTimeseries?: inputs.GetCustomAllocationRuleStrategyBasedOnTimeseries;
+    evaluateGroupedByFilters?: inputs.GetCustomAllocationRuleStrategyEvaluateGroupedByFilter[];
+    /**
+     * List of tag keys used to group costs before allocation.
+     */
+    evaluateGroupedByTagKeys?: string[];
+    /**
+     * The granularity level for cost allocation (`daily` or `monthly`).
+     */
+    granularity?: string;
+    /**
+     * The allocation method. Valid values are `even`, `proportional`, `proportionalTimeseries`, or `percent`.
+     */
+    method?: string;
+}
+
+export interface GetCustomAllocationRuleStrategyArgs {
+    allocatedBies?: pulumi.Input<pulumi.Input<inputs.GetCustomAllocationRuleStrategyAllocatedByArgs>[]>;
+    allocatedByFilters?: pulumi.Input<pulumi.Input<inputs.GetCustomAllocationRuleStrategyAllocatedByFilterArgs>[]>;
+    /**
+     * List of tag keys used to allocate costs.
+     */
+    allocatedByTagKeys?: pulumi.Input<pulumi.Input<string>[]>;
+    basedOnCosts?: pulumi.Input<pulumi.Input<inputs.GetCustomAllocationRuleStrategyBasedOnCostArgs>[]>;
+    basedOnTimeseries?: pulumi.Input<inputs.GetCustomAllocationRuleStrategyBasedOnTimeseriesArgs>;
+    evaluateGroupedByFilters?: pulumi.Input<pulumi.Input<inputs.GetCustomAllocationRuleStrategyEvaluateGroupedByFilterArgs>[]>;
+    /**
+     * List of tag keys used to group costs before allocation.
+     */
+    evaluateGroupedByTagKeys?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The granularity level for cost allocation (`daily` or `monthly`).
+     */
+    granularity?: pulumi.Input<string>;
+    /**
+     * The allocation method. Valid values are `even`, `proportional`, `proportionalTimeseries`, or `percent`.
+     */
+    method?: pulumi.Input<string>;
+}
+
+export interface GetCustomAllocationRuleStrategyAllocatedBy {
+    allocatedTags?: inputs.GetCustomAllocationRuleStrategyAllocatedByAllocatedTag[];
+    /**
+     * The percentage of costs allocated to this target as a decimal (e.g., 0.33 for 33%).
+     */
+    percentage?: number;
+}
+
+export interface GetCustomAllocationRuleStrategyAllocatedByArgs {
+    allocatedTags?: pulumi.Input<pulumi.Input<inputs.GetCustomAllocationRuleStrategyAllocatedByAllocatedTagArgs>[]>;
+    /**
+     * The percentage of costs allocated to this target as a decimal (e.g., 0.33 for 33%).
+     */
+    percentage?: pulumi.Input<number>;
+}
+
+export interface GetCustomAllocationRuleStrategyAllocatedByAllocatedTag {
+    /**
+     * The tag key for cost allocation.
+     */
+    key?: string;
+    /**
+     * The tag value used in the filter (for single-value conditions).
+     */
+    value?: string;
+}
+
+export interface GetCustomAllocationRuleStrategyAllocatedByAllocatedTagArgs {
+    /**
+     * The tag key for cost allocation.
+     */
+    key?: pulumi.Input<string>;
+    /**
+     * The tag value used in the filter (for single-value conditions).
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface GetCustomAllocationRuleStrategyAllocatedByFilter {
+    /**
+     * The condition used to match tags. Valid values are `=`, `!=`, `is`, `is not`, `like`, `in`, `not in`.
+     */
+    condition?: string;
+    /**
+     * The tag key used in the filter.
+     */
+    tag?: string;
+    /**
+     * The tag value used in the filter (for single-value conditions).
+     */
+    value?: string;
+    /**
+     * The list of tag values used in the filter (for multi-value conditions like `in` or `notIn`).
+     */
+    values?: string[];
+}
+
+export interface GetCustomAllocationRuleStrategyAllocatedByFilterArgs {
+    /**
+     * The condition used to match tags. Valid values are `=`, `!=`, `is`, `is not`, `like`, `in`, `not in`.
+     */
+    condition?: pulumi.Input<string>;
+    /**
+     * The tag key used in the filter.
+     */
+    tag?: pulumi.Input<string>;
+    /**
+     * The tag value used in the filter (for single-value conditions).
+     */
+    value?: pulumi.Input<string>;
+    /**
+     * The list of tag values used in the filter (for multi-value conditions like `in` or `notIn`).
+     */
+    values?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface GetCustomAllocationRuleStrategyBasedOnCost {
+    /**
+     * The condition used to match tags. Valid values are `=`, `!=`, `is`, `is not`, `like`, `in`, `not in`.
+     */
+    condition?: string;
+    /**
+     * The tag key used in the filter.
+     */
+    tag?: string;
+    /**
+     * The tag value used in the filter (for single-value conditions).
+     */
+    value?: string;
+    /**
+     * The list of tag values used in the filter (for multi-value conditions like `in` or `notIn`).
+     */
+    values?: string[];
+}
+
+export interface GetCustomAllocationRuleStrategyBasedOnCostArgs {
+    /**
+     * The condition used to match tags. Valid values are `=`, `!=`, `is`, `is not`, `like`, `in`, `not in`.
+     */
+    condition?: pulumi.Input<string>;
+    /**
+     * The tag key used in the filter.
+     */
+    tag?: pulumi.Input<string>;
+    /**
+     * The tag value used in the filter (for single-value conditions).
+     */
+    value?: pulumi.Input<string>;
+    /**
+     * The list of tag values used in the filter (for multi-value conditions like `in` or `notIn`).
+     */
+    values?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface GetCustomAllocationRuleStrategyBasedOnTimeseries {
+}
+
+export interface GetCustomAllocationRuleStrategyBasedOnTimeseriesArgs {
+}
+
+export interface GetCustomAllocationRuleStrategyEvaluateGroupedByFilter {
+    /**
+     * The condition used to match tags. Valid values are `=`, `!=`, `is`, `is not`, `like`, `in`, `not in`.
+     */
+    condition?: string;
+    /**
+     * The tag key used in the filter.
+     */
+    tag?: string;
+    /**
+     * The tag value used in the filter (for single-value conditions).
+     */
+    value?: string;
+    /**
+     * The list of tag values used in the filter (for multi-value conditions like `in` or `notIn`).
+     */
+    values?: string[];
+}
+
+export interface GetCustomAllocationRuleStrategyEvaluateGroupedByFilterArgs {
+    /**
+     * The condition used to match tags. Valid values are `=`, `!=`, `is`, `is not`, `like`, `in`, `not in`.
+     */
+    condition?: pulumi.Input<string>;
+    /**
+     * The tag key used in the filter.
+     */
+    tag?: pulumi.Input<string>;
+    /**
+     * The tag value used in the filter (for single-value conditions).
+     */
+    value?: pulumi.Input<string>;
+    /**
+     * The list of tag values used in the filter (for multi-value conditions like `in` or `notIn`).
+     */
+    values?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
 export interface GetIncidentNotificationRuleCondition {
     /**
      * The incident field to evaluate. Common values include: state, severity, services, teams. Custom fields are also supported.
@@ -9675,6 +10155,218 @@ export interface GetIncidentNotificationRuleConditionArgs {
      * The value(s) to compare against.
      */
     values?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface GetTagPipelineRulesetRule {
+    /**
+     * Whether the rule is enabled.
+     */
+    enabled?: boolean;
+    /**
+     * The mapping configuration for the rule.
+     */
+    mapping?: inputs.GetTagPipelineRulesetRuleMapping;
+    /**
+     * Rule metadata key-value pairs.
+     */
+    metadata?: {[key: string]: string};
+    /**
+     * The name of the rule.
+     */
+    name?: string;
+    /**
+     * The query configuration for the rule.
+     */
+    query?: inputs.GetTagPipelineRulesetRuleQuery;
+    /**
+     * The reference table configuration for the rule.
+     */
+    referenceTable?: inputs.GetTagPipelineRulesetRuleReferenceTable;
+}
+
+export interface GetTagPipelineRulesetRuleArgs {
+    /**
+     * Whether the rule is enabled.
+     */
+    enabled?: pulumi.Input<boolean>;
+    /**
+     * The mapping configuration for the rule.
+     */
+    mapping?: pulumi.Input<inputs.GetTagPipelineRulesetRuleMappingArgs>;
+    /**
+     * Rule metadata key-value pairs.
+     */
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The name of the rule.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * The query configuration for the rule.
+     */
+    query?: pulumi.Input<inputs.GetTagPipelineRulesetRuleQueryArgs>;
+    /**
+     * The reference table configuration for the rule.
+     */
+    referenceTable?: pulumi.Input<inputs.GetTagPipelineRulesetRuleReferenceTableArgs>;
+}
+
+export interface GetTagPipelineRulesetRuleMapping {
+    /**
+     * The destination key for the mapping.
+     */
+    destinationKey?: string;
+    /**
+     * Whether to apply the mapping only if the destination key doesn't exist.
+     */
+    ifNotExists?: boolean;
+    /**
+     * The source keys for the mapping.
+     */
+    sourceKeys?: string[];
+}
+
+export interface GetTagPipelineRulesetRuleMappingArgs {
+    /**
+     * The destination key for the mapping.
+     */
+    destinationKey?: pulumi.Input<string>;
+    /**
+     * Whether to apply the mapping only if the destination key doesn't exist.
+     */
+    ifNotExists?: pulumi.Input<boolean>;
+    /**
+     * The source keys for the mapping.
+     */
+    sourceKeys?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface GetTagPipelineRulesetRuleQuery {
+    /**
+     * The addition configuration for the query.
+     */
+    addition?: inputs.GetTagPipelineRulesetRuleQueryAddition;
+    /**
+     * Whether the query matching is case insensitive.
+     */
+    caseInsensitivity?: boolean;
+    /**
+     * Whether to apply the query only if the key doesn't exist.
+     */
+    ifNotExists?: boolean;
+    /**
+     * The query string.
+     */
+    query?: string;
+}
+
+export interface GetTagPipelineRulesetRuleQueryArgs {
+    /**
+     * The addition configuration for the query.
+     */
+    addition?: pulumi.Input<inputs.GetTagPipelineRulesetRuleQueryAdditionArgs>;
+    /**
+     * Whether the query matching is case insensitive.
+     */
+    caseInsensitivity?: pulumi.Input<boolean>;
+    /**
+     * Whether to apply the query only if the key doesn't exist.
+     */
+    ifNotExists?: pulumi.Input<boolean>;
+    /**
+     * The query string.
+     */
+    query?: pulumi.Input<string>;
+}
+
+export interface GetTagPipelineRulesetRuleQueryAddition {
+    /**
+     * The key to add.
+     */
+    key?: string;
+    /**
+     * The value to add.
+     */
+    value?: string;
+}
+
+export interface GetTagPipelineRulesetRuleQueryAdditionArgs {
+    /**
+     * The key to add.
+     */
+    key?: pulumi.Input<string>;
+    /**
+     * The value to add.
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface GetTagPipelineRulesetRuleReferenceTable {
+    /**
+     * Whether the reference table lookup is case insensitive.
+     */
+    caseInsensitivity?: boolean;
+    /**
+     * The field pairs for the reference table.
+     */
+    fieldPairs?: inputs.GetTagPipelineRulesetRuleReferenceTableFieldPair[];
+    /**
+     * Whether to apply the reference table only if the key doesn't exist.
+     */
+    ifNotExists?: boolean;
+    /**
+     * The source keys for the reference table lookup.
+     */
+    sourceKeys?: string[];
+    /**
+     * The name of the reference table.
+     */
+    tableName?: string;
+}
+
+export interface GetTagPipelineRulesetRuleReferenceTableArgs {
+    /**
+     * Whether the reference table lookup is case insensitive.
+     */
+    caseInsensitivity?: pulumi.Input<boolean>;
+    /**
+     * The field pairs for the reference table.
+     */
+    fieldPairs?: pulumi.Input<pulumi.Input<inputs.GetTagPipelineRulesetRuleReferenceTableFieldPairArgs>[]>;
+    /**
+     * Whether to apply the reference table only if the key doesn't exist.
+     */
+    ifNotExists?: pulumi.Input<boolean>;
+    /**
+     * The source keys for the reference table lookup.
+     */
+    sourceKeys?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the reference table.
+     */
+    tableName?: pulumi.Input<string>;
+}
+
+export interface GetTagPipelineRulesetRuleReferenceTableFieldPair {
+    /**
+     * The input column name.
+     */
+    inputColumn?: string;
+    /**
+     * The output key name.
+     */
+    outputKey?: string;
+}
+
+export interface GetTagPipelineRulesetRuleReferenceTableFieldPairArgs {
+    /**
+     * The input column name.
+     */
+    inputColumn?: pulumi.Input<string>;
+    /**
+     * The output key name.
+     */
+    outputKey?: pulumi.Input<string>;
 }
 
 export interface GetTeamsTeam {
@@ -26338,6 +27030,10 @@ export interface SecurityMonitoringRuleOptions {
      */
     newValueOptions?: pulumi.Input<inputs.SecurityMonitoringRuleOptionsNewValueOptions>;
     /**
+     * Options for rules using the sequence detection method.
+     */
+    sequenceDetectionOptions?: pulumi.Input<inputs.SecurityMonitoringRuleOptionsSequenceDetectionOptions>;
+    /**
      * Options for rules using the third-party detection method.
      */
     thirdPartyRuleOptions?: pulumi.Input<inputs.SecurityMonitoringRuleOptionsThirdPartyRuleOptions>;
@@ -26367,6 +27063,47 @@ export interface SecurityMonitoringRuleOptionsNewValueOptions {
      * A number of occurrences after which signals are generated for values that weren't learned. Valid values are `0`, `1`. Defaults to `0`.
      */
     learningThreshold?: pulumi.Input<number>;
+}
+
+export interface SecurityMonitoringRuleOptionsSequenceDetectionOptions {
+    /**
+     * Edges of the step graph.
+     */
+    stepTransitions?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleOptionsSequenceDetectionOptionsStepTransition>[]>;
+    /**
+     * Sequence steps.
+     */
+    steps?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleOptionsSequenceDetectionOptionsStep>[]>;
+}
+
+export interface SecurityMonitoringRuleOptionsSequenceDetectionOptionsStep {
+    /**
+     * Condition for the step to match.
+     */
+    condition: pulumi.Input<string>;
+    /**
+     * Evaluation window for the step. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
+     */
+    evaluationWindow?: pulumi.Input<number>;
+    /**
+     * Unique name of the step.
+     */
+    name: pulumi.Input<string>;
+}
+
+export interface SecurityMonitoringRuleOptionsSequenceDetectionOptionsStepTransition {
+    /**
+     * Child step name.
+     */
+    child: pulumi.Input<string>;
+    /**
+     * Maximum time allowed to transition from parent to child. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
+     */
+    evaluationWindow?: pulumi.Input<number>;
+    /**
+     * Parent step name.
+     */
+    parent: pulumi.Input<string>;
 }
 
 export interface SecurityMonitoringRuleOptionsThirdPartyRuleOptions {
@@ -28222,6 +28959,112 @@ export interface SyntheticsTestRequestProxy {
      * URL of the proxy to perform the test.
      */
     url: pulumi.Input<string>;
+}
+
+export interface TagPipelineRulesetRule {
+    /**
+     * Whether the rule is enabled.
+     */
+    enabled: pulumi.Input<boolean>;
+    /**
+     * The mapping configuration for the rule.
+     */
+    mapping?: pulumi.Input<inputs.TagPipelineRulesetRuleMapping>;
+    /**
+     * Rule metadata key-value pairs.
+     */
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The name of the rule.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The query configuration for the rule.
+     */
+    query?: pulumi.Input<inputs.TagPipelineRulesetRuleQuery>;
+    /**
+     * The reference table configuration for the rule.
+     */
+    referenceTable?: pulumi.Input<inputs.TagPipelineRulesetRuleReferenceTable>;
+}
+
+export interface TagPipelineRulesetRuleMapping {
+    /**
+     * The destination key for the mapping.
+     */
+    destinationKey?: pulumi.Input<string>;
+    /**
+     * Whether to apply the mapping only if the destination key doesn't exist.
+     */
+    ifNotExists?: pulumi.Input<boolean>;
+    /**
+     * The source keys for the mapping.
+     */
+    sourceKeys?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface TagPipelineRulesetRuleQuery {
+    /**
+     * The addition configuration for the query.
+     */
+    addition?: pulumi.Input<inputs.TagPipelineRulesetRuleQueryAddition>;
+    /**
+     * Whether the query matching is case insensitive.
+     */
+    caseInsensitivity?: pulumi.Input<boolean>;
+    /**
+     * Whether to apply the query only if the key doesn't exist.
+     */
+    ifNotExists?: pulumi.Input<boolean>;
+    /**
+     * The query string.
+     */
+    query?: pulumi.Input<string>;
+}
+
+export interface TagPipelineRulesetRuleQueryAddition {
+    /**
+     * The key to add.
+     */
+    key?: pulumi.Input<string>;
+    /**
+     * The value to add.
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface TagPipelineRulesetRuleReferenceTable {
+    /**
+     * Whether the reference table lookup is case insensitive.
+     */
+    caseInsensitivity?: pulumi.Input<boolean>;
+    /**
+     * The field pairs for the reference table.
+     */
+    fieldPairs?: pulumi.Input<pulumi.Input<inputs.TagPipelineRulesetRuleReferenceTableFieldPair>[]>;
+    /**
+     * Whether to apply the reference table only if the key doesn't exist.
+     */
+    ifNotExists?: pulumi.Input<boolean>;
+    /**
+     * The source keys for the reference table lookup.
+     */
+    sourceKeys?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the reference table.
+     */
+    tableName?: pulumi.Input<string>;
+}
+
+export interface TagPipelineRulesetRuleReferenceTableFieldPair {
+    /**
+     * The input column name.
+     */
+    inputColumn?: pulumi.Input<string>;
+    /**
+     * The output key name.
+     */
+    outputKey?: pulumi.Input<string>;
 }
 export namespace aws {
     export interface IntegrationAccountAuthConfig {

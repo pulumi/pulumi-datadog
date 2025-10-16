@@ -130,6 +130,18 @@
                                 "maxItemsOne": false
                             }
                         }
+                    },
+                    "error_messages": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "datadog_azure_uc_config": {
+                "current": "datadog:index/azureUcConfig:AzureUcConfig",
+                "majorVersion": 4,
+                "fields": {
+                    "error_messages": {
+                        "maxItemsOne": false
                     }
                 }
             },
@@ -270,6 +282,84 @@
                         }
                     },
                     "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "datadog_custom_allocation_rule": {
+                "current": "datadog:index/customAllocationRule:CustomAllocationRule",
+                "majorVersion": 4,
+                "fields": {
+                    "costs_to_allocate": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "values": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "providernames": {
+                        "maxItemsOne": false
+                    },
+                    "strategy": {
+                        "fields": {
+                            "allocated_by": {
+                                "maxItemsOne": false,
+                                "elem": {
+                                    "fields": {
+                                        "allocated_tags": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            },
+                            "allocated_by_filters": {
+                                "maxItemsOne": false,
+                                "elem": {
+                                    "fields": {
+                                        "values": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            },
+                            "allocated_by_tag_keys": {
+                                "maxItemsOne": false
+                            },
+                            "based_on_costs": {
+                                "maxItemsOne": false,
+                                "elem": {
+                                    "fields": {
+                                        "values": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            },
+                            "evaluate_grouped_by_filters": {
+                                "maxItemsOne": false,
+                                "elem": {
+                                    "fields": {
+                                        "values": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            },
+                            "evaluate_grouped_by_tag_keys": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    }
+                }
+            },
+            "datadog_custom_allocation_rules": {
+                "current": "datadog:index/customAllocationRules:CustomAllocationRules",
+                "majorVersion": 4,
+                "fields": {
+                    "rule_ids": {
                         "maxItemsOne": false
                     }
                 }
@@ -12353,6 +12443,15 @@
                     }
                 }
             },
+            "datadog_gcp_uc_config": {
+                "current": "datadog:index/gcpUcConfig:GcpUcConfig",
+                "majorVersion": 4,
+                "fields": {
+                    "error_messages": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "datadog_incident_notification_rule": {
                 "current": "datadog:index/incidentNotificationRule:IncidentNotificationRule",
                 "majorVersion": 4,
@@ -17494,6 +17593,19 @@
                                 "new_value_options": {
                                     "maxItemsOne": true
                                 },
+                                "sequence_detection_options": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "step_transitions": {
+                                                "maxItemsOne": false
+                                            },
+                                            "steps": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
                                 "third_party_rule_options": {
                                     "maxItemsOne": true,
                                     "elem": {
@@ -18085,6 +18197,45 @@
                     }
                 }
             },
+            "datadog_tag_pipeline_ruleset": {
+                "current": "datadog:index/tagPipelineRuleset:TagPipelineRuleset",
+                "majorVersion": 4,
+                "fields": {
+                    "rules": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "mapping": {
+                                    "fields": {
+                                        "source_keys": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                },
+                                "reference_table": {
+                                    "fields": {
+                                        "field_pairs": {
+                                            "maxItemsOne": false
+                                        },
+                                        "source_keys": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "datadog_tag_pipeline_rulesets": {
+                "current": "datadog:index/tagPipelineRulesets:TagPipelineRulesets",
+                "majorVersion": 4,
+                "fields": {
+                    "ruleset_ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "datadog_team": {
                 "current": "datadog:index/team:Team",
                 "majorVersion": 4
@@ -18196,6 +18347,15 @@
                     }
                 }
             },
+            "datadog_azure_uc_config": {
+                "current": "datadog:index/getAzureUcConfig:getAzureUcConfig",
+                "majorVersion": 4,
+                "fields": {
+                    "error_messages": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "datadog_cloud_workload_security_agent_rules": {
                 "current": "datadog:index/getCloudWorkloadSecurityAgentRules:getCloudWorkloadSecurityAgentRules",
                 "majorVersion": 4,
@@ -18268,6 +18428,75 @@
                     }
                 }
             },
+            "datadog_custom_allocation_rule": {
+                "current": "datadog:index/getCustomAllocationRule:getCustomAllocationRule",
+                "majorVersion": 4,
+                "fields": {
+                    "costs_to_allocate": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "values": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "providernames": {
+                        "maxItemsOne": false
+                    },
+                    "strategy": {
+                        "fields": {
+                            "allocated_by": {
+                                "maxItemsOne": false,
+                                "elem": {
+                                    "fields": {
+                                        "allocated_tags": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            },
+                            "allocated_by_filters": {
+                                "maxItemsOne": false,
+                                "elem": {
+                                    "fields": {
+                                        "values": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            },
+                            "allocated_by_tag_keys": {
+                                "maxItemsOne": false
+                            },
+                            "based_on_costs": {
+                                "maxItemsOne": false,
+                                "elem": {
+                                    "fields": {
+                                        "values": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            },
+                            "evaluate_grouped_by_filters": {
+                                "maxItemsOne": false,
+                                "elem": {
+                                    "fields": {
+                                        "values": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            },
+                            "evaluate_grouped_by_tag_keys": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    }
+                }
+            },
             "datadog_dashboard": {
                 "current": "datadog:index/getDashboard:getDashboard",
                 "majorVersion": 4
@@ -18275,6 +18504,15 @@
             "datadog_dashboard_list": {
                 "current": "datadog:index/getDashboardList:getDashboardList",
                 "majorVersion": 4
+            },
+            "datadog_gcp_uc_config": {
+                "current": "datadog:index/getGcpUcConfig:getGcpUcConfig",
+                "majorVersion": 4,
+                "fields": {
+                    "error_messages": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "datadog_hosts": {
                 "current": "datadog:index/getHosts:getHosts",
@@ -18357,6 +18595,15 @@
             },
             "datadog_integration_aws_iam_permissions": {
                 "current": "datadog:aws/getIntegrationIamPermissions:getIntegrationIamPermissions",
+                "majorVersion": 4,
+                "fields": {
+                    "iam_permissions": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "datadog_integration_aws_iam_permissions_standard": {
+                "current": "datadog:aws/getIntegrationIamPermissionsStandard:getIntegrationIamPermissionsStandard",
                 "majorVersion": 4,
                 "fields": {
                     "iam_permissions": {
@@ -18742,6 +18989,19 @@
                                             "new_value_options": {
                                                 "maxItemsOne": true
                                             },
+                                            "sequence_detection_options": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "step_transitions": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "steps": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
                                             "third_party_rule_options": {
                                                 "maxItemsOne": true,
                                                 "elem": {
@@ -18925,6 +19185,36 @@
                     }
                 }
             },
+            "datadog_tag_pipeline_ruleset": {
+                "current": "datadog:index/getTagPipelineRuleset:getTagPipelineRuleset",
+                "majorVersion": 4,
+                "fields": {
+                    "rules": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "mapping": {
+                                    "fields": {
+                                        "source_keys": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                },
+                                "reference_table": {
+                                    "fields": {
+                                        "field_pairs": {
+                                            "maxItemsOne": false
+                                        },
+                                        "source_keys": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "datadog_team": {
                 "current": "datadog:index/getTeam:getTeam",
                 "majorVersion": 4
@@ -19011,6 +19301,7 @@
             "datadog:index/appsecWafExclusionFilter:AppsecWafExclusionFilter": 1,
             "datadog:index/authnMapping:AuthnMapping": 0,
             "datadog:index/awsCurConfig:AwsCurConfig": 1,
+            "datadog:index/azureUcConfig:AzureUcConfig": 1,
             "datadog:index/childOrganization:ChildOrganization": 0,
             "datadog:index/cloudConfigurationRule:CloudConfigurationRule": 0,
             "datadog:index/cloudWorkloadSecurityAgentRule:CloudWorkloadSecurityAgentRule": 0,
@@ -19019,6 +19310,8 @@
             "datadog:index/costBudget:CostBudget": 1,
             "datadog:index/csmThreatsAgentRule:CsmThreatsAgentRule": 1,
             "datadog:index/csmThreatsPolicy:CsmThreatsPolicy": 1,
+            "datadog:index/customAllocationRule:CustomAllocationRule": 1,
+            "datadog:index/customAllocationRules:CustomAllocationRules": 1,
             "datadog:index/dashboard:Dashboard": 0,
             "datadog:index/dashboardJson:DashboardJson": 0,
             "datadog:index/dashboardList:DashboardList": 1,
@@ -19026,6 +19319,7 @@
             "datadog:index/domainAllowlist:DomainAllowlist": 1,
             "datadog:index/downtime:Downtime": 0,
             "datadog:index/downtimeSchedule:DowntimeSchedule": 1,
+            "datadog:index/gcpUcConfig:GcpUcConfig": 1,
             "datadog:index/incidentNotificationRule:IncidentNotificationRule": 1,
             "datadog:index/incidentNotificationTemplate:IncidentNotificationTemplate": 1,
             "datadog:index/incidentType:IncidentType": 1,
@@ -19079,6 +19373,8 @@
             "datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable": 1,
             "datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation": 1,
             "datadog:index/syntheticsTest:SyntheticsTest": 0,
+            "datadog:index/tagPipelineRuleset:TagPipelineRuleset": 1,
+            "datadog:index/tagPipelineRulesets:TagPipelineRulesets": 1,
             "datadog:index/team:Team": 1,
             "datadog:index/teamLink:TeamLink": 1,
             "datadog:index/teamMembership:TeamMembership": 1,
@@ -19100,6 +19396,7 @@
             "datadog:aws/getIntegrationAvailableNamespaces:getIntegrationAvailableNamespaces": 1,
             "datadog:aws/getIntegrationExternalId:getIntegrationExternalId": 1,
             "datadog:aws/getIntegrationIamPermissions:getIntegrationIamPermissions": 1,
+            "datadog:aws/getIntegrationIamPermissionsStandard:getIntegrationIamPermissionsStandard": 1,
             "datadog:aws/getIntegrationLogsServices:getIntegrationLogsServices": 0,
             "datadog:aws/getIntegrationNamespaceRules:getIntegrationNamespaceRules": 1,
             "datadog:index/getActionConnection:getActionConnection": 1,
@@ -19108,12 +19405,15 @@
             "datadog:index/getAppBuilderApp:getAppBuilderApp": 1,
             "datadog:index/getApplicationKey:getApplicationKey": 1,
             "datadog:index/getAwsCurConfig:getAwsCurConfig": 1,
+            "datadog:index/getAzureUcConfig:getAzureUcConfig": 1,
             "datadog:index/getCloudWorkloadSecurityAgentRules:getCloudWorkloadSecurityAgentRules": 0,
             "datadog:index/getCostBudget:getCostBudget": 1,
             "datadog:index/getCsmThreatsAgentRules:getCsmThreatsAgentRules": 1,
             "datadog:index/getCsmThreatsPolicies:getCsmThreatsPolicies": 1,
+            "datadog:index/getCustomAllocationRule:getCustomAllocationRule": 1,
             "datadog:index/getDashboard:getDashboard": 0,
             "datadog:index/getDashboardList:getDashboardList": 1,
+            "datadog:index/getGcpUcConfig:getGcpUcConfig": 1,
             "datadog:index/getHosts:getHosts": 1,
             "datadog:index/getIncidentNotificationRule:getIncidentNotificationRule": 1,
             "datadog:index/getIncidentNotificationTemplate:getIncidentNotificationTemplate": 1,
@@ -19149,6 +19449,7 @@
             "datadog:index/getSyntheticsGlobalVariable:getSyntheticsGlobalVariable": 1,
             "datadog:index/getSyntheticsLocations:getSyntheticsLocations": 1,
             "datadog:index/getSyntheticsTest:getSyntheticsTest": 0,
+            "datadog:index/getTagPipelineRuleset:getTagPipelineRuleset": 1,
             "datadog:index/getTeam:getTeam": 1,
             "datadog:index/getTeamMemberships:getTeamMemberships": 1,
             "datadog:index/getTeams:getTeams": 1,

@@ -27,7 +27,22 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datadog.GetPermissions(ctx, &datadog.GetPermissionsArgs{}, nil)
+//			ddPerms, err := datadog.GetPermissions(ctx, &datadog.GetPermissionsArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// Example of using specific permissions to create an API Key Manager role
+//			_, err = datadog.NewRole(ctx, "api_key_manager", &datadog.RoleArgs{
+//				Name: pulumi.String("API Key Manager"),
+//				Permissions: datadog.RolePermissionArray{
+//					&datadog.RolePermissionArgs{
+//						Id: pulumi.String(ddPerms.Permissions.ApiKeysRead),
+//					},
+//					&datadog.RolePermissionArgs{
+//						Id: pulumi.String(ddPerms.Permissions.ApiKeysWrite),
+//					},
+//				},
+//			})
 //			if err != nil {
 //				return err
 //			}

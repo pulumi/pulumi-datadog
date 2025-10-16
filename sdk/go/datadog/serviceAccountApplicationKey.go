@@ -28,10 +28,28 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// Create new service_account_application_key resource
-//			_, err := datadog.NewServiceAccountApplicationKey(ctx, "foo", &datadog.ServiceAccountApplicationKeyArgs{
+//			// Source the permissions for scoped keys
+//			ddPerms, err := datadog.GetPermissions(ctx, &datadog.GetPermissionsArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// Create an unrestricted Service Account Application Key
+//			// This key inherits all permissions of the service account that owns the key
+//			_, err = datadog.NewServiceAccountApplicationKey(ctx, "unrestricted_key", &datadog.ServiceAccountApplicationKeyArgs{
 //				ServiceAccountId: pulumi.String("00000000-0000-1234-0000-000000000000"),
-//				Name:             pulumi.String("Application key for managing dashboards"),
+//				Name:             pulumi.String("Unrestricted Service Account Key"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Create a scoped Service Account Application Key for monitor management
+//			_, err = datadog.NewServiceAccountApplicationKey(ctx, "monitor_management_key", &datadog.ServiceAccountApplicationKeyArgs{
+//				ServiceAccountId: pulumi.String("00000000-0000-1234-0000-000000000000"),
+//				Name:             pulumi.String("Monitor Management Service Account Key"),
+//				Scopes: pulumi.StringArray{
+//					pulumi.String(ddPerms.Permissions.MonitorsRead),
+//					pulumi.String(ddPerms.Permissions.MonitorsWrite),
+//				},
 //			})
 //			if err != nil {
 //				return err

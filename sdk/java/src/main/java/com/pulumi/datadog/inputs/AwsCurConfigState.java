@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.AwsCurConfigAccountFiltersArgs;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -69,6 +70,36 @@ public final class AwsCurConfigState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The timestamp when the AWS CUR configuration was created.
+     * 
+     */
+    @Import(name="createdAt")
+    private @Nullable Output<String> createdAt;
+
+    /**
+     * @return The timestamp when the AWS CUR configuration was created.
+     * 
+     */
+    public Optional<Output<String>> createdAt() {
+        return Optional.ofNullable(this.createdAt);
+    }
+
+    /**
+     * List of error messages if the AWS CUR configuration encountered any issues during setup or data processing.
+     * 
+     */
+    @Import(name="errorMessages")
+    private @Nullable Output<List<String>> errorMessages;
+
+    /**
+     * @return List of error messages if the AWS CUR configuration encountered any issues during setup or data processing.
+     * 
+     */
+    public Optional<Output<List<String>>> errorMessages() {
+        return Optional.ofNullable(this.errorMessages);
+    }
+
+    /**
      * The exact name of your AWS Cost and Usage Report as configured in AWS Billing preferences. This must match the report name exactly as it appears in your AWS billing settings.
      * 
      */
@@ -98,6 +129,51 @@ public final class AwsCurConfigState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.reportPrefix);
     }
 
+    /**
+     * The current status of the AWS CUR configuration.
+     * 
+     */
+    @Import(name="status")
+    private @Nullable Output<String> status;
+
+    /**
+     * @return The current status of the AWS CUR configuration.
+     * 
+     */
+    public Optional<Output<String>> status() {
+        return Optional.ofNullable(this.status);
+    }
+
+    /**
+     * The timestamp when the configuration status was last updated.
+     * 
+     */
+    @Import(name="statusUpdatedAt")
+    private @Nullable Output<String> statusUpdatedAt;
+
+    /**
+     * @return The timestamp when the configuration status was last updated.
+     * 
+     */
+    public Optional<Output<String>> statusUpdatedAt() {
+        return Optional.ofNullable(this.statusUpdatedAt);
+    }
+
+    /**
+     * The timestamp when the AWS CUR configuration was last modified.
+     * 
+     */
+    @Import(name="updatedAt")
+    private @Nullable Output<String> updatedAt;
+
+    /**
+     * @return The timestamp when the AWS CUR configuration was last modified.
+     * 
+     */
+    public Optional<Output<String>> updatedAt() {
+        return Optional.ofNullable(this.updatedAt);
+    }
+
     private AwsCurConfigState() {}
 
     private AwsCurConfigState(AwsCurConfigState $) {
@@ -105,8 +181,13 @@ public final class AwsCurConfigState extends com.pulumi.resources.ResourceArgs {
         this.accountId = $.accountId;
         this.bucketName = $.bucketName;
         this.bucketRegion = $.bucketRegion;
+        this.createdAt = $.createdAt;
+        this.errorMessages = $.errorMessages;
         this.reportName = $.reportName;
         this.reportPrefix = $.reportPrefix;
+        this.status = $.status;
+        this.statusUpdatedAt = $.statusUpdatedAt;
+        this.updatedAt = $.updatedAt;
     }
 
     public static Builder builder() {
@@ -200,6 +281,58 @@ public final class AwsCurConfigState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param createdAt The timestamp when the AWS CUR configuration was created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder createdAt(@Nullable Output<String> createdAt) {
+            $.createdAt = createdAt;
+            return this;
+        }
+
+        /**
+         * @param createdAt The timestamp when the AWS CUR configuration was created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder createdAt(String createdAt) {
+            return createdAt(Output.of(createdAt));
+        }
+
+        /**
+         * @param errorMessages List of error messages if the AWS CUR configuration encountered any issues during setup or data processing.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder errorMessages(@Nullable Output<List<String>> errorMessages) {
+            $.errorMessages = errorMessages;
+            return this;
+        }
+
+        /**
+         * @param errorMessages List of error messages if the AWS CUR configuration encountered any issues during setup or data processing.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder errorMessages(List<String> errorMessages) {
+            return errorMessages(Output.of(errorMessages));
+        }
+
+        /**
+         * @param errorMessages List of error messages if the AWS CUR configuration encountered any issues during setup or data processing.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder errorMessages(String... errorMessages) {
+            return errorMessages(List.of(errorMessages));
+        }
+
+        /**
          * @param reportName The exact name of your AWS Cost and Usage Report as configured in AWS Billing preferences. This must match the report name exactly as it appears in your AWS billing settings.
          * 
          * @return builder
@@ -239,6 +372,69 @@ public final class AwsCurConfigState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder reportPrefix(String reportPrefix) {
             return reportPrefix(Output.of(reportPrefix));
+        }
+
+        /**
+         * @param status The current status of the AWS CUR configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder status(@Nullable Output<String> status) {
+            $.status = status;
+            return this;
+        }
+
+        /**
+         * @param status The current status of the AWS CUR configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder status(String status) {
+            return status(Output.of(status));
+        }
+
+        /**
+         * @param statusUpdatedAt The timestamp when the configuration status was last updated.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder statusUpdatedAt(@Nullable Output<String> statusUpdatedAt) {
+            $.statusUpdatedAt = statusUpdatedAt;
+            return this;
+        }
+
+        /**
+         * @param statusUpdatedAt The timestamp when the configuration status was last updated.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder statusUpdatedAt(String statusUpdatedAt) {
+            return statusUpdatedAt(Output.of(statusUpdatedAt));
+        }
+
+        /**
+         * @param updatedAt The timestamp when the AWS CUR configuration was last modified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder updatedAt(@Nullable Output<String> updatedAt) {
+            $.updatedAt = updatedAt;
+            return this;
+        }
+
+        /**
+         * @param updatedAt The timestamp when the AWS CUR configuration was last modified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder updatedAt(String updatedAt) {
+            return updatedAt(Output.of(updatedAt));
         }
 
         public AwsCurConfigState build() {

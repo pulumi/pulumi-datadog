@@ -193,10 +193,21 @@ class ServiceAccountApplicationKey(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        # Create new service_account_application_key resource
-        foo = datadog.ServiceAccountApplicationKey("foo",
+        # Source the permissions for scoped keys
+        dd_perms = datadog.get_permissions()
+        # Create an unrestricted Service Account Application Key
+        # This key inherits all permissions of the service account that owns the key
+        unrestricted_key = datadog.ServiceAccountApplicationKey("unrestricted_key",
             service_account_id="00000000-0000-1234-0000-000000000000",
-            name="Application key for managing dashboards")
+            name="Unrestricted Service Account Key")
+        # Create a scoped Service Account Application Key for monitor management
+        monitor_management_key = datadog.ServiceAccountApplicationKey("monitor_management_key",
+            service_account_id="00000000-0000-1234-0000-000000000000",
+            name="Monitor Management Service Account Key",
+            scopes=[
+                dd_perms.permissions["monitorsRead"],
+                dd_perms.permissions["monitorsWrite"],
+            ])
         ```
 
         ## Import
@@ -230,10 +241,21 @@ class ServiceAccountApplicationKey(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        # Create new service_account_application_key resource
-        foo = datadog.ServiceAccountApplicationKey("foo",
+        # Source the permissions for scoped keys
+        dd_perms = datadog.get_permissions()
+        # Create an unrestricted Service Account Application Key
+        # This key inherits all permissions of the service account that owns the key
+        unrestricted_key = datadog.ServiceAccountApplicationKey("unrestricted_key",
             service_account_id="00000000-0000-1234-0000-000000000000",
-            name="Application key for managing dashboards")
+            name="Unrestricted Service Account Key")
+        # Create a scoped Service Account Application Key for monitor management
+        monitor_management_key = datadog.ServiceAccountApplicationKey("monitor_management_key",
+            service_account_id="00000000-0000-1234-0000-000000000000",
+            name="Monitor Management Service Account Key",
+            scopes=[
+                dd_perms.permissions["monitorsRead"],
+                dd_perms.permissions["monitorsWrite"],
+            ])
         ```
 
         ## Import

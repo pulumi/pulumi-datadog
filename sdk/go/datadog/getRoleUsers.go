@@ -12,6 +12,40 @@ import (
 )
 
 // Use this data source to retrieve information about existing Datadog role users assignments. This data source is in beta and is subject to change.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Get the API Key Manager role
+//			apiKeyManager, err := datadog.LookupRole(ctx, &datadog.LookupRoleArgs{
+//				Filter: "API Key Manager",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// List users assigned to the API Key Manager role
+//			_, err = datadog.GetRoleUsers(ctx, &datadog.GetRoleUsersArgs{
+//				RoleId: apiKeyManager.Id,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetRoleUsers(ctx *pulumi.Context, args *GetRoleUsersArgs, opts ...pulumi.InvokeOption) (*GetRoleUsersResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRoleUsersResult

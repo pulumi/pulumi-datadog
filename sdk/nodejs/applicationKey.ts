@@ -13,8 +13,19 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * // Create a new Datadog Application Key
- * const foo = new datadog.ApplicationKey("foo", {name: "foo-application"});
+ * // Source the permissions for scoped keys
+ * const ddPerms = datadog.getPermissions({});
+ * // Create an unrestricted Application Key
+ * // This key inherits all permissions of the user that owns the key
+ * const unrestrictedKey = new datadog.ApplicationKey("unrestricted_key", {name: "Unrestricted Application Key"});
+ * // Create a scoped Application Key for monitor management
+ * const monitorManagementKey = new datadog.ApplicationKey("monitor_management_key", {
+ *     name: "Monitor Management Key",
+ *     scopes: [
+ *         ddPerms.then(ddPerms => ddPerms.permissions?.monitorsRead),
+ *         ddPerms.then(ddPerms => ddPerms.permissions?.monitorsWrite),
+ *     ],
+ * });
  * ```
  *
  * ## Import

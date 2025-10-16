@@ -18,6 +18,7 @@ from .appsec_waf_custom_rule import *
 from .appsec_waf_exclusion_filter import *
 from .authn_mapping import *
 from .aws_cur_config import *
+from .azure_uc_config import *
 from .child_organization import *
 from .cloud_configuration_rule import *
 from .cloud_workload_security_agent_rule import *
@@ -26,6 +27,8 @@ from .compliance_resource_evaluation_filter import *
 from .cost_budget import *
 from .csm_threats_agent_rule import *
 from .csm_threats_policy import *
+from .custom_allocation_rule import *
+from .custom_allocation_rules import *
 from .dashboard import *
 from .dashboard_json import *
 from .dashboard_list import *
@@ -33,18 +36,22 @@ from .dataset import *
 from .domain_allowlist import *
 from .downtime import *
 from .downtime_schedule import *
+from .gcp_uc_config import *
 from .get_action_connection import *
 from .get_api_key import *
 from .get_apm_retention_filters_order import *
 from .get_app_builder_app import *
 from .get_application_key import *
 from .get_aws_cur_config import *
+from .get_azure_uc_config import *
 from .get_cloud_workload_security_agent_rules import *
 from .get_cost_budget import *
 from .get_csm_threats_agent_rules import *
 from .get_csm_threats_policies import *
+from .get_custom_allocation_rule import *
 from .get_dashboard import *
 from .get_dashboard_list import *
+from .get_gcp_uc_config import *
 from .get_hosts import *
 from .get_incident_notification_rule import *
 from .get_incident_notification_template import *
@@ -80,6 +87,7 @@ from .get_software_catalog import *
 from .get_synthetics_global_variable import *
 from .get_synthetics_locations import *
 from .get_synthetics_test import *
+from .get_tag_pipeline_ruleset import *
 from .get_team import *
 from .get_team_memberships import *
 from .get_teams import *
@@ -140,6 +148,8 @@ from .synthetics_concurrency_cap import *
 from .synthetics_global_variable import *
 from .synthetics_private_location import *
 from .synthetics_test import *
+from .tag_pipeline_ruleset import *
+from .tag_pipeline_rulesets import *
 from .team import *
 from .team_link import *
 from .team_membership import *
@@ -410,6 +420,14 @@ _utilities.register(
  },
  {
   "pkg": "datadog",
+  "mod": "index/azureUcConfig",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/azureUcConfig:AzureUcConfig": "AzureUcConfig"
+  }
+ },
+ {
+  "pkg": "datadog",
   "mod": "index/childOrganization",
   "fqn": "pulumi_datadog",
   "classes": {
@@ -474,6 +492,22 @@ _utilities.register(
  },
  {
   "pkg": "datadog",
+  "mod": "index/customAllocationRule",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/customAllocationRule:CustomAllocationRule": "CustomAllocationRule"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/customAllocationRules",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/customAllocationRules:CustomAllocationRules": "CustomAllocationRules"
+  }
+ },
+ {
+  "pkg": "datadog",
   "mod": "index/dashboard",
   "fqn": "pulumi_datadog",
   "classes": {
@@ -526,6 +560,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/downtimeSchedule:DowntimeSchedule": "DowntimeSchedule"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/gcpUcConfig",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/gcpUcConfig:GcpUcConfig": "GcpUcConfig"
   }
  },
  {
@@ -950,6 +992,22 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/syntheticsTest:SyntheticsTest": "SyntheticsTest"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/tagPipelineRuleset",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/tagPipelineRuleset:TagPipelineRuleset": "TagPipelineRuleset"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/tagPipelineRulesets",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/tagPipelineRulesets:TagPipelineRulesets": "TagPipelineRulesets"
   }
  },
  {

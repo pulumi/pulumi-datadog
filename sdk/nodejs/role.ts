@@ -16,16 +16,16 @@ import * as utilities from "./utilities";
  * import * as datadog from "@pulumi/datadog";
  *
  * // Source the permissions
- * const bar = datadog.getPermissions({});
- * // Create a new Datadog role
- * const foo = new datadog.Role("foo", {
- *     name: "foo",
+ * const ddPerms = datadog.getPermissions({});
+ * // Create an API Key Manager role
+ * const apiKeyManager = new datadog.Role("api_key_manager", {
+ *     name: "API Key Manager",
  *     permissions: [
  *         {
- *             id: bar.then(bar => bar.permissions?.monitorsDowntime),
+ *             id: ddPerms.then(ddPerms => ddPerms.permissions?.apiKeysRead),
  *         },
  *         {
- *             id: bar.then(bar => bar.permissions?.monitorsWrite),
+ *             id: ddPerms.then(ddPerms => ddPerms.permissions?.apiKeysWrite),
  *         },
  *     ],
  * });

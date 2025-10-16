@@ -45,6 +45,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AuthnMapping{}
 	case "datadog:index/awsCurConfig:AwsCurConfig":
 		r = &AwsCurConfig{}
+	case "datadog:index/azureUcConfig:AzureUcConfig":
+		r = &AzureUcConfig{}
 	case "datadog:index/childOrganization:ChildOrganization":
 		r = &ChildOrganization{}
 	case "datadog:index/cloudConfigurationRule:CloudConfigurationRule":
@@ -61,6 +63,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CsmThreatsAgentRule{}
 	case "datadog:index/csmThreatsPolicy:CsmThreatsPolicy":
 		r = &CsmThreatsPolicy{}
+	case "datadog:index/customAllocationRule:CustomAllocationRule":
+		r = &CustomAllocationRule{}
+	case "datadog:index/customAllocationRules:CustomAllocationRules":
+		r = &CustomAllocationRules{}
 	case "datadog:index/dashboard:Dashboard":
 		r = &Dashboard{}
 	case "datadog:index/dashboardJson:DashboardJson":
@@ -75,6 +81,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Downtime{}
 	case "datadog:index/downtimeSchedule:DowntimeSchedule":
 		r = &DowntimeSchedule{}
+	case "datadog:index/gcpUcConfig:GcpUcConfig":
+		r = &GcpUcConfig{}
 	case "datadog:index/incidentNotificationRule:IncidentNotificationRule":
 		r = &IncidentNotificationRule{}
 	case "datadog:index/incidentNotificationTemplate:IncidentNotificationTemplate":
@@ -181,6 +189,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SyntheticsPrivateLocation{}
 	case "datadog:index/syntheticsTest:SyntheticsTest":
 		r = &SyntheticsTest{}
+	case "datadog:index/tagPipelineRuleset:TagPipelineRuleset":
+		r = &TagPipelineRuleset{}
+	case "datadog:index/tagPipelineRulesets:TagPipelineRulesets":
+		r = &TagPipelineRulesets{}
 	case "datadog:index/team:Team":
 		r = &Team{}
 	case "datadog:index/teamLink:TeamLink":
@@ -292,6 +304,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"datadog",
+		"index/azureUcConfig",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
 		"index/childOrganization",
 		&module{version},
 	)
@@ -332,6 +349,16 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"datadog",
+		"index/customAllocationRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/customAllocationRules",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
 		"index/dashboard",
 		&module{version},
 	)
@@ -363,6 +390,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/downtimeSchedule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/gcpUcConfig",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -628,6 +660,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/syntheticsTest",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/tagPipelineRuleset",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/tagPipelineRulesets",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

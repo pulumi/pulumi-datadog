@@ -85,7 +85,7 @@ def get_roles(filter: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_datadog as datadog
 
-    foo = datadog.get_roles(filter="Datadog")
+    key_management_roles = datadog.get_roles(filter="API Key Manager")
     ```
 
 
@@ -111,7 +111,7 @@ def get_roles_output(filter: Optional[pulumi.Input[Optional[_builtins.str]]] = N
     import pulumi
     import pulumi_datadog as datadog
 
-    foo = datadog.get_roles(filter="Datadog")
+    key_management_roles = datadog.get_roles(filter="API Key Manager")
     ```
 
 

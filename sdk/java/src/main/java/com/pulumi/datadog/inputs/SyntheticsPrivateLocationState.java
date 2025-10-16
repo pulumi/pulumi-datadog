@@ -93,6 +93,21 @@ public final class SyntheticsPrivateLocationState extends com.pulumi.resources.R
     }
 
     /**
+     * Resource ID to use when setting restrictions with a `datadog.RestrictionPolicy` resource.
+     * 
+     */
+    @Import(name="restrictionPolicyResourceId")
+    private @Nullable Output<String> restrictionPolicyResourceId;
+
+    /**
+     * @return Resource ID to use when setting restrictions with a `datadog.RestrictionPolicy` resource.
+     * 
+     */
+    public Optional<Output<String>> restrictionPolicyResourceId() {
+        return Optional.ofNullable(this.restrictionPolicyResourceId);
+    }
+
+    /**
      * A list of tags to associate with your synthetics private location.
      * 
      */
@@ -115,6 +130,7 @@ public final class SyntheticsPrivateLocationState extends com.pulumi.resources.R
         this.description = $.description;
         this.metadata = $.metadata;
         this.name = $.name;
+        this.restrictionPolicyResourceId = $.restrictionPolicyResourceId;
         this.tags = $.tags;
     }
 
@@ -239,6 +255,27 @@ public final class SyntheticsPrivateLocationState extends com.pulumi.resources.R
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param restrictionPolicyResourceId Resource ID to use when setting restrictions with a `datadog.RestrictionPolicy` resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder restrictionPolicyResourceId(@Nullable Output<String> restrictionPolicyResourceId) {
+            $.restrictionPolicyResourceId = restrictionPolicyResourceId;
+            return this;
+        }
+
+        /**
+         * @param restrictionPolicyResourceId Resource ID to use when setting restrictions with a `datadog.RestrictionPolicy` resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder restrictionPolicyResourceId(String restrictionPolicyResourceId) {
+            return restrictionPolicyResourceId(Output.of(restrictionPolicyResourceId));
         }
 
         /**

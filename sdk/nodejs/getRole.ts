@@ -13,8 +13,8 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const test = datadog.getRole({
- *     filter: "Datadog Standard Role",
+ * const apiKeyManager = datadog.getRole({
+ *     filter: "API Key Manager",
  * });
  * ```
  */
@@ -65,8 +65,8 @@ export interface GetRoleResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const test = datadog.getRole({
- *     filter: "Datadog Standard Role",
+ * const apiKeyManager = datadog.getRole({
+ *     filter: "API Key Manager",
  * });
  * ```
  */

@@ -10,6 +10,7 @@ from .get_integration_available_logs_services import *
 from .get_integration_available_namespaces import *
 from .get_integration_external_id import *
 from .get_integration_iam_permissions import *
+from .get_integration_iam_permissions_standard import *
 from .get_integration_logs_services import *
 from .get_integration_namespace_rules import *
 from .integration import *

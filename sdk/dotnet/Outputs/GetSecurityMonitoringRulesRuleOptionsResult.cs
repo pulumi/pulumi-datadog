@@ -42,6 +42,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.GetSecurityMonitoringRulesRuleOptionsNewValueOptionsResult? NewValueOptions;
         /// <summary>
+        /// Options for rules using the sequence detection method.
+        /// </summary>
+        public readonly Outputs.GetSecurityMonitoringRulesRuleOptionsSequenceDetectionOptionsResult? SequenceDetectionOptions;
+        /// <summary>
         /// Options for rules using the third-party detection method.
         /// </summary>
         public readonly Outputs.GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsResult? ThirdPartyRuleOptions;
@@ -62,6 +66,8 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.GetSecurityMonitoringRulesRuleOptionsNewValueOptionsResult? newValueOptions,
 
+            Outputs.GetSecurityMonitoringRulesRuleOptionsSequenceDetectionOptionsResult? sequenceDetectionOptions,
+
             Outputs.GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsResult? thirdPartyRuleOptions)
         {
             DecreaseCriticalityBasedOnEnv = decreaseCriticalityBasedOnEnv;
@@ -71,6 +77,7 @@ namespace Pulumi.Datadog.Outputs
             KeepAlive = keepAlive;
             MaxSignalDuration = maxSignalDuration;
             NewValueOptions = newValueOptions;
+            SequenceDetectionOptions = sequenceDetectionOptions;
             ThirdPartyRuleOptions = thirdPartyRuleOptions;
         }
     }
