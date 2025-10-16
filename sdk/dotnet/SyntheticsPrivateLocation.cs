@@ -80,6 +80,12 @@ namespace Pulumi.Datadog
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Resource ID to use when setting restrictions with a `datadog.RestrictionPolicy` resource.
+        /// </summary>
+        [Output("restrictionPolicyResourceId")]
+        public Output<string> RestrictionPolicyResourceId { get; private set; } = null!;
+
+        /// <summary>
         /// A list of tags to associate with your synthetics private location.
         /// </summary>
         [Output("tags")]
@@ -239,6 +245,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Resource ID to use when setting restrictions with a `datadog.RestrictionPolicy` resource.
+        /// </summary>
+        [Input("restrictionPolicyResourceId")]
+        public Input<string>? RestrictionPolicyResourceId { get; set; }
 
         [Input("tags")]
         private InputList<string>? _tags;

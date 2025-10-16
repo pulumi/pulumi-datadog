@@ -29,19 +29,19 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Source the permissions
-//			bar, err := datadog.GetPermissions(ctx, &datadog.GetPermissionsArgs{}, nil)
+//			ddPerms, err := datadog.GetPermissions(ctx, &datadog.GetPermissionsArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			// Create a new Datadog role
-//			_, err = datadog.NewRole(ctx, "foo", &datadog.RoleArgs{
-//				Name: pulumi.String("foo"),
+//			// Create an API Key Manager role
+//			_, err = datadog.NewRole(ctx, "api_key_manager", &datadog.RoleArgs{
+//				Name: pulumi.String("API Key Manager"),
 //				Permissions: datadog.RolePermissionArray{
 //					&datadog.RolePermissionArgs{
-//						Id: pulumi.String(bar.Permissions.MonitorsDowntime),
+//						Id: pulumi.String(ddPerms.Permissions.ApiKeysRead),
 //					},
 //					&datadog.RolePermissionArgs{
-//						Id: pulumi.String(bar.Permissions.MonitorsWrite),
+//						Id: pulumi.String(ddPerms.Permissions.ApiKeysWrite),
 //					},
 //				},
 //			})

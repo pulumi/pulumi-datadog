@@ -65,6 +65,11 @@ export type AwsCurConfig = import("./awsCurConfig").AwsCurConfig;
 export const AwsCurConfig: typeof import("./awsCurConfig").AwsCurConfig = null as any;
 utilities.lazyLoad(exports, ["AwsCurConfig"], () => require("./awsCurConfig"));
 
+export { AzureUcConfigArgs, AzureUcConfigState } from "./azureUcConfig";
+export type AzureUcConfig = import("./azureUcConfig").AzureUcConfig;
+export const AzureUcConfig: typeof import("./azureUcConfig").AzureUcConfig = null as any;
+utilities.lazyLoad(exports, ["AzureUcConfig"], () => require("./azureUcConfig"));
+
 export { ChildOrganizationArgs, ChildOrganizationState } from "./childOrganization";
 export type ChildOrganization = import("./childOrganization").ChildOrganization;
 export const ChildOrganization: typeof import("./childOrganization").ChildOrganization = null as any;
@@ -105,6 +110,16 @@ export type CsmThreatsPolicy = import("./csmThreatsPolicy").CsmThreatsPolicy;
 export const CsmThreatsPolicy: typeof import("./csmThreatsPolicy").CsmThreatsPolicy = null as any;
 utilities.lazyLoad(exports, ["CsmThreatsPolicy"], () => require("./csmThreatsPolicy"));
 
+export { CustomAllocationRuleArgs, CustomAllocationRuleState } from "./customAllocationRule";
+export type CustomAllocationRule = import("./customAllocationRule").CustomAllocationRule;
+export const CustomAllocationRule: typeof import("./customAllocationRule").CustomAllocationRule = null as any;
+utilities.lazyLoad(exports, ["CustomAllocationRule"], () => require("./customAllocationRule"));
+
+export { CustomAllocationRulesArgs, CustomAllocationRulesState } from "./customAllocationRules";
+export type CustomAllocationRules = import("./customAllocationRules").CustomAllocationRules;
+export const CustomAllocationRules: typeof import("./customAllocationRules").CustomAllocationRules = null as any;
+utilities.lazyLoad(exports, ["CustomAllocationRules"], () => require("./customAllocationRules"));
+
 export { DashboardArgs, DashboardState } from "./dashboard";
 export type Dashboard = import("./dashboard").Dashboard;
 export const Dashboard: typeof import("./dashboard").Dashboard = null as any;
@@ -140,6 +155,11 @@ export type DowntimeSchedule = import("./downtimeSchedule").DowntimeSchedule;
 export const DowntimeSchedule: typeof import("./downtimeSchedule").DowntimeSchedule = null as any;
 utilities.lazyLoad(exports, ["DowntimeSchedule"], () => require("./downtimeSchedule"));
 
+export { GcpUcConfigArgs, GcpUcConfigState } from "./gcpUcConfig";
+export type GcpUcConfig = import("./gcpUcConfig").GcpUcConfig;
+export const GcpUcConfig: typeof import("./gcpUcConfig").GcpUcConfig = null as any;
+utilities.lazyLoad(exports, ["GcpUcConfig"], () => require("./gcpUcConfig"));
+
 export { GetActionConnectionArgs, GetActionConnectionResult, GetActionConnectionOutputArgs } from "./getActionConnection";
 export const getActionConnection: typeof import("./getActionConnection").getActionConnection = null as any;
 export const getActionConnectionOutput: typeof import("./getActionConnection").getActionConnectionOutput = null as any;
@@ -170,6 +190,11 @@ export const getAwsCurConfig: typeof import("./getAwsCurConfig").getAwsCurConfig
 export const getAwsCurConfigOutput: typeof import("./getAwsCurConfig").getAwsCurConfigOutput = null as any;
 utilities.lazyLoad(exports, ["getAwsCurConfig","getAwsCurConfigOutput"], () => require("./getAwsCurConfig"));
 
+export { GetAzureUcConfigArgs, GetAzureUcConfigResult, GetAzureUcConfigOutputArgs } from "./getAzureUcConfig";
+export const getAzureUcConfig: typeof import("./getAzureUcConfig").getAzureUcConfig = null as any;
+export const getAzureUcConfigOutput: typeof import("./getAzureUcConfig").getAzureUcConfigOutput = null as any;
+utilities.lazyLoad(exports, ["getAzureUcConfig","getAzureUcConfigOutput"], () => require("./getAzureUcConfig"));
+
 export { GetCloudWorkloadSecurityAgentRulesResult } from "./getCloudWorkloadSecurityAgentRules";
 export const getCloudWorkloadSecurityAgentRules: typeof import("./getCloudWorkloadSecurityAgentRules").getCloudWorkloadSecurityAgentRules = null as any;
 export const getCloudWorkloadSecurityAgentRulesOutput: typeof import("./getCloudWorkloadSecurityAgentRules").getCloudWorkloadSecurityAgentRulesOutput = null as any;
@@ -190,6 +215,11 @@ export const getCsmThreatsPolicies: typeof import("./getCsmThreatsPolicies").get
 export const getCsmThreatsPoliciesOutput: typeof import("./getCsmThreatsPolicies").getCsmThreatsPoliciesOutput = null as any;
 utilities.lazyLoad(exports, ["getCsmThreatsPolicies","getCsmThreatsPoliciesOutput"], () => require("./getCsmThreatsPolicies"));
 
+export { GetCustomAllocationRuleArgs, GetCustomAllocationRuleResult, GetCustomAllocationRuleOutputArgs } from "./getCustomAllocationRule";
+export const getCustomAllocationRule: typeof import("./getCustomAllocationRule").getCustomAllocationRule = null as any;
+export const getCustomAllocationRuleOutput: typeof import("./getCustomAllocationRule").getCustomAllocationRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getCustomAllocationRule","getCustomAllocationRuleOutput"], () => require("./getCustomAllocationRule"));
+
 export { GetDashboardArgs, GetDashboardResult, GetDashboardOutputArgs } from "./getDashboard";
 export const getDashboard: typeof import("./getDashboard").getDashboard = null as any;
 export const getDashboardOutput: typeof import("./getDashboard").getDashboardOutput = null as any;
@@ -199,6 +229,11 @@ export { GetDashboardListArgs, GetDashboardListResult, GetDashboardListOutputArg
 export const getDashboardList: typeof import("./getDashboardList").getDashboardList = null as any;
 export const getDashboardListOutput: typeof import("./getDashboardList").getDashboardListOutput = null as any;
 utilities.lazyLoad(exports, ["getDashboardList","getDashboardListOutput"], () => require("./getDashboardList"));
+
+export { GetGcpUcConfigArgs, GetGcpUcConfigResult, GetGcpUcConfigOutputArgs } from "./getGcpUcConfig";
+export const getGcpUcConfig: typeof import("./getGcpUcConfig").getGcpUcConfig = null as any;
+export const getGcpUcConfigOutput: typeof import("./getGcpUcConfig").getGcpUcConfigOutput = null as any;
+utilities.lazyLoad(exports, ["getGcpUcConfig","getGcpUcConfigOutput"], () => require("./getGcpUcConfig"));
 
 export { GetHostsArgs, GetHostsResult, GetHostsOutputArgs } from "./getHosts";
 export const getHosts: typeof import("./getHosts").getHosts = null as any;
@@ -374,6 +409,11 @@ export { GetSyntheticsTestArgs, GetSyntheticsTestResult, GetSyntheticsTestOutput
 export const getSyntheticsTest: typeof import("./getSyntheticsTest").getSyntheticsTest = null as any;
 export const getSyntheticsTestOutput: typeof import("./getSyntheticsTest").getSyntheticsTestOutput = null as any;
 utilities.lazyLoad(exports, ["getSyntheticsTest","getSyntheticsTestOutput"], () => require("./getSyntheticsTest"));
+
+export { GetTagPipelineRulesetArgs, GetTagPipelineRulesetResult, GetTagPipelineRulesetOutputArgs } from "./getTagPipelineRuleset";
+export const getTagPipelineRuleset: typeof import("./getTagPipelineRuleset").getTagPipelineRuleset = null as any;
+export const getTagPipelineRulesetOutput: typeof import("./getTagPipelineRuleset").getTagPipelineRulesetOutput = null as any;
+utilities.lazyLoad(exports, ["getTagPipelineRuleset","getTagPipelineRulesetOutput"], () => require("./getTagPipelineRuleset"));
 
 export { GetTeamArgs, GetTeamResult, GetTeamOutputArgs } from "./getTeam";
 export const getTeam: typeof import("./getTeam").getTeam = null as any;
@@ -673,6 +713,16 @@ export type SyntheticsTest = import("./syntheticsTest").SyntheticsTest;
 export const SyntheticsTest: typeof import("./syntheticsTest").SyntheticsTest = null as any;
 utilities.lazyLoad(exports, ["SyntheticsTest"], () => require("./syntheticsTest"));
 
+export { TagPipelineRulesetArgs, TagPipelineRulesetState } from "./tagPipelineRuleset";
+export type TagPipelineRuleset = import("./tagPipelineRuleset").TagPipelineRuleset;
+export const TagPipelineRuleset: typeof import("./tagPipelineRuleset").TagPipelineRuleset = null as any;
+utilities.lazyLoad(exports, ["TagPipelineRuleset"], () => require("./tagPipelineRuleset"));
+
+export { TagPipelineRulesetsArgs, TagPipelineRulesetsState } from "./tagPipelineRulesets";
+export type TagPipelineRulesets = import("./tagPipelineRulesets").TagPipelineRulesets;
+export const TagPipelineRulesets: typeof import("./tagPipelineRulesets").TagPipelineRulesets = null as any;
+utilities.lazyLoad(exports, ["TagPipelineRulesets"], () => require("./tagPipelineRulesets"));
+
 export { TeamArgs, TeamState } from "./team";
 export type Team = import("./team").Team;
 export const Team: typeof import("./team").Team = null as any;
@@ -776,6 +826,8 @@ const _module = {
                 return new AuthnMapping(name, <any>undefined, { urn })
             case "datadog:index/awsCurConfig:AwsCurConfig":
                 return new AwsCurConfig(name, <any>undefined, { urn })
+            case "datadog:index/azureUcConfig:AzureUcConfig":
+                return new AzureUcConfig(name, <any>undefined, { urn })
             case "datadog:index/childOrganization:ChildOrganization":
                 return new ChildOrganization(name, <any>undefined, { urn })
             case "datadog:index/cloudConfigurationRule:CloudConfigurationRule":
@@ -792,6 +844,10 @@ const _module = {
                 return new CsmThreatsAgentRule(name, <any>undefined, { urn })
             case "datadog:index/csmThreatsPolicy:CsmThreatsPolicy":
                 return new CsmThreatsPolicy(name, <any>undefined, { urn })
+            case "datadog:index/customAllocationRule:CustomAllocationRule":
+                return new CustomAllocationRule(name, <any>undefined, { urn })
+            case "datadog:index/customAllocationRules:CustomAllocationRules":
+                return new CustomAllocationRules(name, <any>undefined, { urn })
             case "datadog:index/dashboard:Dashboard":
                 return new Dashboard(name, <any>undefined, { urn })
             case "datadog:index/dashboardJson:DashboardJson":
@@ -806,6 +862,8 @@ const _module = {
                 return new Downtime(name, <any>undefined, { urn })
             case "datadog:index/downtimeSchedule:DowntimeSchedule":
                 return new DowntimeSchedule(name, <any>undefined, { urn })
+            case "datadog:index/gcpUcConfig:GcpUcConfig":
+                return new GcpUcConfig(name, <any>undefined, { urn })
             case "datadog:index/incidentNotificationRule:IncidentNotificationRule":
                 return new IncidentNotificationRule(name, <any>undefined, { urn })
             case "datadog:index/incidentNotificationTemplate:IncidentNotificationTemplate":
@@ -912,6 +970,10 @@ const _module = {
                 return new SyntheticsPrivateLocation(name, <any>undefined, { urn })
             case "datadog:index/syntheticsTest:SyntheticsTest":
                 return new SyntheticsTest(name, <any>undefined, { urn })
+            case "datadog:index/tagPipelineRuleset:TagPipelineRuleset":
+                return new TagPipelineRuleset(name, <any>undefined, { urn })
+            case "datadog:index/tagPipelineRulesets:TagPipelineRulesets":
+                return new TagPipelineRulesets(name, <any>undefined, { urn })
             case "datadog:index/team:Team":
                 return new Team(name, <any>undefined, { urn })
             case "datadog:index/teamLink:TeamLink":
@@ -947,6 +1009,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/appsecWafCustomRule", _m
 pulumi.runtime.registerResourceModule("datadog", "index/appsecWafExclusionFilter", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/authnMapping", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/awsCurConfig", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/azureUcConfig", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/childOrganization", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/cloudConfigurationRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/cloudWorkloadSecurityAgentRule", _module)
@@ -955,6 +1018,8 @@ pulumi.runtime.registerResourceModule("datadog", "index/complianceResourceEvalua
 pulumi.runtime.registerResourceModule("datadog", "index/costBudget", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/csmThreatsAgentRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/csmThreatsPolicy", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/customAllocationRule", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/customAllocationRules", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/dashboard", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/dashboardJson", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/dashboardList", _module)
@@ -962,6 +1027,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/dataset", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/domainAllowlist", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/downtime", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/downtimeSchedule", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/gcpUcConfig", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/incidentNotificationRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/incidentNotificationTemplate", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/incidentType", _module)
@@ -1015,6 +1081,8 @@ pulumi.runtime.registerResourceModule("datadog", "index/syntheticsConcurrencyCap
 pulumi.runtime.registerResourceModule("datadog", "index/syntheticsGlobalVariable", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/syntheticsPrivateLocation", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/syntheticsTest", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/tagPipelineRuleset", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/tagPipelineRulesets", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/team", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/teamLink", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/teamMembership", _module)

@@ -84,7 +84,18 @@ def get_permissions(include_restricted: Optional[_builtins.bool] = None,
     import pulumi
     import pulumi_datadog as datadog
 
-    permissions = datadog.get_permissions()
+    dd_perms = datadog.get_permissions()
+    # Example of using specific permissions to create an API Key Manager role
+    api_key_manager = datadog.Role("api_key_manager",
+        name="API Key Manager",
+        permissions=[
+            {
+                "id": dd_perms.permissions["apiKeysRead"],
+            },
+            {
+                "id": dd_perms.permissions["apiKeysWrite"],
+            },
+        ])
     ```
 
 
@@ -110,7 +121,18 @@ def get_permissions_output(include_restricted: Optional[pulumi.Input[Optional[_b
     import pulumi
     import pulumi_datadog as datadog
 
-    permissions = datadog.get_permissions()
+    dd_perms = datadog.get_permissions()
+    # Example of using specific permissions to create an API Key Manager role
+    api_key_manager = datadog.Role("api_key_manager",
+        name="API Key Manager",
+        permissions=[
+            {
+                "id": dd_perms.permissions["apiKeysRead"],
+            },
+            {
+                "id": dd_perms.permissions["apiKeysWrite"],
+            },
+        ])
     ```
 
 

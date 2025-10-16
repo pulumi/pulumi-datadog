@@ -33,10 +33,20 @@ type AwsCurConfig struct {
 	BucketName pulumi.StringOutput `pulumi:"bucketName"`
 	// The AWS region where the S3 bucket containing your Cost and Usage Report is located (e.g., us-east-1, eu-west-1).
 	BucketRegion pulumi.StringPtrOutput `pulumi:"bucketRegion"`
+	// The timestamp when the AWS CUR configuration was created.
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// List of error messages if the AWS CUR configuration encountered any issues during setup or data processing.
+	ErrorMessages pulumi.StringArrayOutput `pulumi:"errorMessages"`
 	// The exact name of your AWS Cost and Usage Report as configured in AWS Billing preferences. This must match the report name exactly as it appears in your AWS billing settings.
 	ReportName pulumi.StringOutput `pulumi:"reportName"`
 	// The S3 key prefix where your Cost and Usage Report files are stored within the bucket (e.g., 'cur-reports/', 'billing/cur/').
 	ReportPrefix pulumi.StringOutput `pulumi:"reportPrefix"`
+	// The current status of the AWS CUR configuration.
+	Status pulumi.StringOutput `pulumi:"status"`
+	// The timestamp when the configuration status was last updated.
+	StatusUpdatedAt pulumi.StringOutput `pulumi:"statusUpdatedAt"`
+	// The timestamp when the AWS CUR configuration was last modified.
+	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
 }
 
 // NewAwsCurConfig registers a new resource with the given unique name, arguments, and options.
@@ -88,10 +98,20 @@ type awsCurConfigState struct {
 	BucketName *string `pulumi:"bucketName"`
 	// The AWS region where the S3 bucket containing your Cost and Usage Report is located (e.g., us-east-1, eu-west-1).
 	BucketRegion *string `pulumi:"bucketRegion"`
+	// The timestamp when the AWS CUR configuration was created.
+	CreatedAt *string `pulumi:"createdAt"`
+	// List of error messages if the AWS CUR configuration encountered any issues during setup or data processing.
+	ErrorMessages []string `pulumi:"errorMessages"`
 	// The exact name of your AWS Cost and Usage Report as configured in AWS Billing preferences. This must match the report name exactly as it appears in your AWS billing settings.
 	ReportName *string `pulumi:"reportName"`
 	// The S3 key prefix where your Cost and Usage Report files are stored within the bucket (e.g., 'cur-reports/', 'billing/cur/').
 	ReportPrefix *string `pulumi:"reportPrefix"`
+	// The current status of the AWS CUR configuration.
+	Status *string `pulumi:"status"`
+	// The timestamp when the configuration status was last updated.
+	StatusUpdatedAt *string `pulumi:"statusUpdatedAt"`
+	// The timestamp when the AWS CUR configuration was last modified.
+	UpdatedAt *string `pulumi:"updatedAt"`
 }
 
 type AwsCurConfigState struct {
@@ -102,10 +122,20 @@ type AwsCurConfigState struct {
 	BucketName pulumi.StringPtrInput
 	// The AWS region where the S3 bucket containing your Cost and Usage Report is located (e.g., us-east-1, eu-west-1).
 	BucketRegion pulumi.StringPtrInput
+	// The timestamp when the AWS CUR configuration was created.
+	CreatedAt pulumi.StringPtrInput
+	// List of error messages if the AWS CUR configuration encountered any issues during setup or data processing.
+	ErrorMessages pulumi.StringArrayInput
 	// The exact name of your AWS Cost and Usage Report as configured in AWS Billing preferences. This must match the report name exactly as it appears in your AWS billing settings.
 	ReportName pulumi.StringPtrInput
 	// The S3 key prefix where your Cost and Usage Report files are stored within the bucket (e.g., 'cur-reports/', 'billing/cur/').
 	ReportPrefix pulumi.StringPtrInput
+	// The current status of the AWS CUR configuration.
+	Status pulumi.StringPtrInput
+	// The timestamp when the configuration status was last updated.
+	StatusUpdatedAt pulumi.StringPtrInput
+	// The timestamp when the AWS CUR configuration was last modified.
+	UpdatedAt pulumi.StringPtrInput
 }
 
 func (AwsCurConfigState) ElementType() reflect.Type {
@@ -247,6 +277,16 @@ func (o AwsCurConfigOutput) BucketRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsCurConfig) pulumi.StringPtrOutput { return v.BucketRegion }).(pulumi.StringPtrOutput)
 }
 
+// The timestamp when the AWS CUR configuration was created.
+func (o AwsCurConfigOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *AwsCurConfig) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// List of error messages if the AWS CUR configuration encountered any issues during setup or data processing.
+func (o AwsCurConfigOutput) ErrorMessages() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AwsCurConfig) pulumi.StringArrayOutput { return v.ErrorMessages }).(pulumi.StringArrayOutput)
+}
+
 // The exact name of your AWS Cost and Usage Report as configured in AWS Billing preferences. This must match the report name exactly as it appears in your AWS billing settings.
 func (o AwsCurConfigOutput) ReportName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AwsCurConfig) pulumi.StringOutput { return v.ReportName }).(pulumi.StringOutput)
@@ -255,6 +295,21 @@ func (o AwsCurConfigOutput) ReportName() pulumi.StringOutput {
 // The S3 key prefix where your Cost and Usage Report files are stored within the bucket (e.g., 'cur-reports/', 'billing/cur/').
 func (o AwsCurConfigOutput) ReportPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *AwsCurConfig) pulumi.StringOutput { return v.ReportPrefix }).(pulumi.StringOutput)
+}
+
+// The current status of the AWS CUR configuration.
+func (o AwsCurConfigOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *AwsCurConfig) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// The timestamp when the configuration status was last updated.
+func (o AwsCurConfigOutput) StatusUpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *AwsCurConfig) pulumi.StringOutput { return v.StatusUpdatedAt }).(pulumi.StringOutput)
+}
+
+// The timestamp when the AWS CUR configuration was last modified.
+func (o AwsCurConfigOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *AwsCurConfig) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
 }
 
 type AwsCurConfigArrayOutput struct{ *pulumi.OutputState }

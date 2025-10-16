@@ -12,6 +12,7 @@ import com.pulumi.datadog.Utilities;
 import com.pulumi.datadog.inputs.AwsCurConfigState;
 import com.pulumi.datadog.outputs.AwsCurConfigAccountFilters;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -80,6 +81,34 @@ public class AwsCurConfig extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.bucketRegion);
     }
     /**
+     * The timestamp when the AWS CUR configuration was created.
+     * 
+     */
+    @Export(name="createdAt", refs={String.class}, tree="[0]")
+    private Output<String> createdAt;
+
+    /**
+     * @return The timestamp when the AWS CUR configuration was created.
+     * 
+     */
+    public Output<String> createdAt() {
+        return this.createdAt;
+    }
+    /**
+     * List of error messages if the AWS CUR configuration encountered any issues during setup or data processing.
+     * 
+     */
+    @Export(name="errorMessages", refs={List.class,String.class}, tree="[0,1]")
+    private Output<List<String>> errorMessages;
+
+    /**
+     * @return List of error messages if the AWS CUR configuration encountered any issues during setup or data processing.
+     * 
+     */
+    public Output<List<String>> errorMessages() {
+        return this.errorMessages;
+    }
+    /**
      * The exact name of your AWS Cost and Usage Report as configured in AWS Billing preferences. This must match the report name exactly as it appears in your AWS billing settings.
      * 
      */
@@ -106,6 +135,48 @@ public class AwsCurConfig extends com.pulumi.resources.CustomResource {
      */
     public Output<String> reportPrefix() {
         return this.reportPrefix;
+    }
+    /**
+     * The current status of the AWS CUR configuration.
+     * 
+     */
+    @Export(name="status", refs={String.class}, tree="[0]")
+    private Output<String> status;
+
+    /**
+     * @return The current status of the AWS CUR configuration.
+     * 
+     */
+    public Output<String> status() {
+        return this.status;
+    }
+    /**
+     * The timestamp when the configuration status was last updated.
+     * 
+     */
+    @Export(name="statusUpdatedAt", refs={String.class}, tree="[0]")
+    private Output<String> statusUpdatedAt;
+
+    /**
+     * @return The timestamp when the configuration status was last updated.
+     * 
+     */
+    public Output<String> statusUpdatedAt() {
+        return this.statusUpdatedAt;
+    }
+    /**
+     * The timestamp when the AWS CUR configuration was last modified.
+     * 
+     */
+    @Export(name="updatedAt", refs={String.class}, tree="[0]")
+    private Output<String> updatedAt;
+
+    /**
+     * @return The timestamp when the AWS CUR configuration was last modified.
+     * 
+     */
+    public Output<String> updatedAt() {
+        return this.updatedAt;
     }
 
     /**

@@ -28,7 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datadog.LookupRole(ctx, &datadog.LookupRoleArgs{
-//				Filter: "Datadog Standard Role",
+//				Filter: "API Key Manager",
 //			}, nil)
 //			if err != nil {
 //				return err

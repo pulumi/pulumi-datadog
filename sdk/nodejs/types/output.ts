@@ -242,6 +242,44 @@ export interface AwsCurConfigAccountFilters {
     includedAccounts?: string[];
 }
 
+export interface AzureUcConfigActualBillConfig {
+    /**
+     * The name of the configured Azure Export.
+     */
+    exportName: string;
+    /**
+     * The path where the Azure Export is saved.
+     */
+    exportPath: string;
+    /**
+     * The name of the storage account where the Azure Export is saved.
+     */
+    storageAccount: string;
+    /**
+     * The name of the storage container where the Azure Export is saved.
+     */
+    storageContainer: string;
+}
+
+export interface AzureUcConfigAmortizedBillConfig {
+    /**
+     * The name of the configured Azure Export.
+     */
+    exportName: string;
+    /**
+     * The path where the Azure Export is saved.
+     */
+    exportPath: string;
+    /**
+     * The name of the storage account where the Azure Export is saved.
+     */
+    storageAccount: string;
+    /**
+     * The name of the storage container where the Azure Export is saved.
+     */
+    storageContainer: string;
+}
+
 export interface ChildOrganizationApiKey {
     /**
      * API key.
@@ -445,6 +483,128 @@ export interface CsmThreatsAgentRuleActionSet {
      * The value to set
      */
     value: string;
+}
+
+export interface CustomAllocationRuleCostsToAllocate {
+    /**
+     * The condition to match. Valid values are `=`, `!=`, `is`, `is not`, `like`, `in`, `not in`.
+     */
+    condition?: string;
+    /**
+     * The tag key to filter on (e.g., `awsProduct`, `team`, `environment`).
+     */
+    tag?: string;
+    /**
+     * The single tag value to match. Use this field for conditions like `=`, `!=`, `is`, `is not`, `like`. Do not use with `in` or `not in` conditions.
+     */
+    value?: string;
+    /**
+     * A list of tag values to match. Use this field for `in` or `not in` conditions only. Do not use with single-value conditions.
+     */
+    values?: string[];
+}
+
+export interface CustomAllocationRuleStrategy {
+    allocatedBies?: outputs.CustomAllocationRuleStrategyAllocatedBy[];
+    allocatedByFilters?: outputs.CustomAllocationRuleStrategyAllocatedByFilter[];
+    /**
+     * List of tag keys used to allocate costs (e.g., `["team", "project"]`). Costs will be distributed across unique values of these tags.
+     */
+    allocatedByTagKeys?: string[];
+    basedOnCosts?: outputs.CustomAllocationRuleStrategyBasedOnCost[];
+    basedOnTimeseries?: outputs.CustomAllocationRuleStrategyBasedOnTimeseries;
+    evaluateGroupedByFilters?: outputs.CustomAllocationRuleStrategyEvaluateGroupedByFilter[];
+    /**
+     * List of tag keys used to group costs before allocation. Costs are grouped by these tag values before applying the allocation strategy.
+     */
+    evaluateGroupedByTagKeys?: string[];
+    /**
+     * The granularity level for cost allocation. Valid values are `daily` or `monthly`.
+     */
+    granularity?: string;
+    /**
+     * The allocation method. Valid values are `even`, `proportional`, `proportionalTimeseries`, or `percent`.
+     */
+    method?: string;
+}
+
+export interface CustomAllocationRuleStrategyAllocatedBy {
+    allocatedTags?: outputs.CustomAllocationRuleStrategyAllocatedByAllocatedTag[];
+    /**
+     * The percentage of costs to allocate to this target as a decimal (e.g., 0.33 for 33%). Used when `method` is `percent`.
+     */
+    percentage?: number;
+}
+
+export interface CustomAllocationRuleStrategyAllocatedByAllocatedTag {
+    /**
+     * The tag key to allocate costs to (e.g., `team`, `environment`).
+     */
+    key?: string;
+    /**
+     * The tag value to allocate costs to (e.g., `backend`, `production`).
+     */
+    value?: string;
+}
+
+export interface CustomAllocationRuleStrategyAllocatedByFilter {
+    /**
+     * The condition to match. Valid values are `=`, `!=`, `is`, `is not`, `like`, `in`, `not in`.
+     */
+    condition?: string;
+    /**
+     * The tag key to filter on for allocation targets.
+     */
+    tag?: string;
+    /**
+     * The single tag value to match for allocation. Use with conditions like `=`, `!=`, `is`, `is not`, `like`.
+     */
+    value?: string;
+    /**
+     * A list of tag values to match for allocation. Use with `in` or `not in` conditions.
+     */
+    values?: string[];
+}
+
+export interface CustomAllocationRuleStrategyBasedOnCost {
+    /**
+     * The condition to match. Valid values are `=`, `!=`, `is`, `is not`, `like`, `in`, `not in`.
+     */
+    condition?: string;
+    /**
+     * The tag key to use as the basis for cost allocation calculations.
+     */
+    tag?: string;
+    /**
+     * The single tag value to use for cost calculations. Use with conditions like `=`, `!=`, `is`, `is not`, `like`.
+     */
+    value?: string;
+    /**
+     * A list of tag values to use for cost calculations. Use with `in` or `not in` conditions.
+     */
+    values?: string[];
+}
+
+export interface CustomAllocationRuleStrategyBasedOnTimeseries {
+}
+
+export interface CustomAllocationRuleStrategyEvaluateGroupedByFilter {
+    /**
+     * The condition to match. Valid values are `=`, `!=`, `is`, `is not`, `like`, `in`, `not in`.
+     */
+    condition?: string;
+    /**
+     * The tag key to filter on when grouping costs for evaluation.
+     */
+    tag?: string;
+    /**
+     * The single tag value to match when grouping. Use with conditions like `=`, `!=`, `is`, `is not`, `like`.
+     */
+    value?: string;
+    /**
+     * A list of tag values to match when grouping. Use with `in` or `not in` conditions.
+     */
+    values?: string[];
 }
 
 export interface DashboardListDashItem {
@@ -9517,6 +9677,44 @@ export interface GetAwsCurConfigAccountFilters {
     includedAccounts: string[];
 }
 
+export interface GetAzureUcConfigActualBillConfig {
+    /**
+     * The name of the configured Azure Export.
+     */
+    exportName: string;
+    /**
+     * The path where the Azure Export is saved.
+     */
+    exportPath: string;
+    /**
+     * The name of the storage account where the Azure Export is saved.
+     */
+    storageAccount: string;
+    /**
+     * The name of the storage container where the Azure Export is saved.
+     */
+    storageContainer: string;
+}
+
+export interface GetAzureUcConfigAmortizedBillConfig {
+    /**
+     * The name of the configured Azure Export.
+     */
+    exportName: string;
+    /**
+     * The path where the Azure Export is saved.
+     */
+    exportPath: string;
+    /**
+     * The name of the storage account where the Azure Export is saved.
+     */
+    storageAccount: string;
+    /**
+     * The name of the storage container where the Azure Export is saved.
+     */
+    storageContainer: string;
+}
+
 export interface GetCloudWorkloadSecurityAgentRulesAgentRule {
     /**
      * The description of the Agent rule.
@@ -9586,6 +9784,128 @@ export interface GetCsmThreatsPoliciesPolicy {
     id: string;
     name: string;
     tags: string[];
+}
+
+export interface GetCustomAllocationRuleCostsToAllocate {
+    /**
+     * The condition used to match tags. Valid values are `=`, `!=`, `is`, `is not`, `like`, `in`, `not in`.
+     */
+    condition: string;
+    /**
+     * The tag key used in the filter.
+     */
+    tag: string;
+    /**
+     * The tag value used in the filter (for single-value conditions).
+     */
+    value: string;
+    /**
+     * The list of tag values used in the filter (for multi-value conditions like `in` or `notIn`).
+     */
+    values: string[];
+}
+
+export interface GetCustomAllocationRuleStrategy {
+    allocatedBies?: outputs.GetCustomAllocationRuleStrategyAllocatedBy[];
+    allocatedByFilters?: outputs.GetCustomAllocationRuleStrategyAllocatedByFilter[];
+    /**
+     * List of tag keys used to allocate costs.
+     */
+    allocatedByTagKeys: string[];
+    basedOnCosts?: outputs.GetCustomAllocationRuleStrategyBasedOnCost[];
+    basedOnTimeseries?: outputs.GetCustomAllocationRuleStrategyBasedOnTimeseries;
+    evaluateGroupedByFilters?: outputs.GetCustomAllocationRuleStrategyEvaluateGroupedByFilter[];
+    /**
+     * List of tag keys used to group costs before allocation.
+     */
+    evaluateGroupedByTagKeys: string[];
+    /**
+     * The granularity level for cost allocation (`daily` or `monthly`).
+     */
+    granularity: string;
+    /**
+     * The allocation method. Valid values are `even`, `proportional`, `proportionalTimeseries`, or `percent`.
+     */
+    method: string;
+}
+
+export interface GetCustomAllocationRuleStrategyAllocatedBy {
+    allocatedTags?: outputs.GetCustomAllocationRuleStrategyAllocatedByAllocatedTag[];
+    /**
+     * The percentage of costs allocated to this target as a decimal (e.g., 0.33 for 33%).
+     */
+    percentage: number;
+}
+
+export interface GetCustomAllocationRuleStrategyAllocatedByAllocatedTag {
+    /**
+     * The tag key for cost allocation.
+     */
+    key: string;
+    /**
+     * The tag value used in the filter (for single-value conditions).
+     */
+    value: string;
+}
+
+export interface GetCustomAllocationRuleStrategyAllocatedByFilter {
+    /**
+     * The condition used to match tags. Valid values are `=`, `!=`, `is`, `is not`, `like`, `in`, `not in`.
+     */
+    condition: string;
+    /**
+     * The tag key used in the filter.
+     */
+    tag: string;
+    /**
+     * The tag value used in the filter (for single-value conditions).
+     */
+    value: string;
+    /**
+     * The list of tag values used in the filter (for multi-value conditions like `in` or `notIn`).
+     */
+    values: string[];
+}
+
+export interface GetCustomAllocationRuleStrategyBasedOnCost {
+    /**
+     * The condition used to match tags. Valid values are `=`, `!=`, `is`, `is not`, `like`, `in`, `not in`.
+     */
+    condition: string;
+    /**
+     * The tag key used in the filter.
+     */
+    tag: string;
+    /**
+     * The tag value used in the filter (for single-value conditions).
+     */
+    value: string;
+    /**
+     * The list of tag values used in the filter (for multi-value conditions like `in` or `notIn`).
+     */
+    values: string[];
+}
+
+export interface GetCustomAllocationRuleStrategyBasedOnTimeseries {
+}
+
+export interface GetCustomAllocationRuleStrategyEvaluateGroupedByFilter {
+    /**
+     * The condition used to match tags. Valid values are `=`, `!=`, `is`, `is not`, `like`, `in`, `not in`.
+     */
+    condition: string;
+    /**
+     * The tag key used in the filter.
+     */
+    tag: string;
+    /**
+     * The tag value used in the filter (for single-value conditions).
+     */
+    value: string;
+    /**
+     * The list of tag values used in the filter (for multi-value conditions like `in` or `notIn`).
+     */
+    values: string[];
 }
 
 export interface GetHostsHostList {
@@ -10091,6 +10411,10 @@ export interface GetSecurityMonitoringRulesRuleOptions {
      */
     newValueOptions?: outputs.GetSecurityMonitoringRulesRuleOptionsNewValueOptions;
     /**
+     * Options for rules using the sequence detection method.
+     */
+    sequenceDetectionOptions?: outputs.GetSecurityMonitoringRulesRuleOptionsSequenceDetectionOptions;
+    /**
      * Options for rules using the third-party detection method.
      */
     thirdPartyRuleOptions?: outputs.GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptions;
@@ -10120,6 +10444,47 @@ export interface GetSecurityMonitoringRulesRuleOptionsNewValueOptions {
      * A number of occurrences after which signals are generated for values that weren't learned.
      */
     learningThreshold?: number;
+}
+
+export interface GetSecurityMonitoringRulesRuleOptionsSequenceDetectionOptions {
+    /**
+     * Edges of the step graph.
+     */
+    stepTransitions?: outputs.GetSecurityMonitoringRulesRuleOptionsSequenceDetectionOptionsStepTransition[];
+    /**
+     * Sequence steps.
+     */
+    steps?: outputs.GetSecurityMonitoringRulesRuleOptionsSequenceDetectionOptionsStep[];
+}
+
+export interface GetSecurityMonitoringRulesRuleOptionsSequenceDetectionOptionsStep {
+    /**
+     * Condition for the step to match.
+     */
+    condition: string;
+    /**
+     * Evaluation window for the step.
+     */
+    evaluationWindow?: number;
+    /**
+     * Unique name of the step.
+     */
+    name: string;
+}
+
+export interface GetSecurityMonitoringRulesRuleOptionsSequenceDetectionOptionsStepTransition {
+    /**
+     * Child step name.
+     */
+    child: string;
+    /**
+     * Maximum time allowed to transition from parent to child.
+     */
+    evaluationWindow?: number;
+    /**
+     * Parent step name.
+     */
+    parent: string;
 }
 
 export interface GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptions {
@@ -10344,6 +10709,112 @@ export interface GetSoftwareCatalogEntity {
     namespace: string;
     owner: string;
     tags: string[];
+}
+
+export interface GetTagPipelineRulesetRule {
+    /**
+     * Whether the rule is enabled.
+     */
+    enabled: boolean;
+    /**
+     * The mapping configuration for the rule.
+     */
+    mapping?: outputs.GetTagPipelineRulesetRuleMapping;
+    /**
+     * Rule metadata key-value pairs.
+     */
+    metadata: {[key: string]: string};
+    /**
+     * The name of the rule.
+     */
+    name: string;
+    /**
+     * The query configuration for the rule.
+     */
+    query?: outputs.GetTagPipelineRulesetRuleQuery;
+    /**
+     * The reference table configuration for the rule.
+     */
+    referenceTable?: outputs.GetTagPipelineRulesetRuleReferenceTable;
+}
+
+export interface GetTagPipelineRulesetRuleMapping {
+    /**
+     * The destination key for the mapping.
+     */
+    destinationKey: string;
+    /**
+     * Whether to apply the mapping only if the destination key doesn't exist.
+     */
+    ifNotExists: boolean;
+    /**
+     * The source keys for the mapping.
+     */
+    sourceKeys: string[];
+}
+
+export interface GetTagPipelineRulesetRuleQuery {
+    /**
+     * The addition configuration for the query.
+     */
+    addition?: outputs.GetTagPipelineRulesetRuleQueryAddition;
+    /**
+     * Whether the query matching is case insensitive.
+     */
+    caseInsensitivity: boolean;
+    /**
+     * Whether to apply the query only if the key doesn't exist.
+     */
+    ifNotExists: boolean;
+    /**
+     * The query string.
+     */
+    query: string;
+}
+
+export interface GetTagPipelineRulesetRuleQueryAddition {
+    /**
+     * The key to add.
+     */
+    key: string;
+    /**
+     * The value to add.
+     */
+    value: string;
+}
+
+export interface GetTagPipelineRulesetRuleReferenceTable {
+    /**
+     * Whether the reference table lookup is case insensitive.
+     */
+    caseInsensitivity: boolean;
+    /**
+     * The field pairs for the reference table.
+     */
+    fieldPairs?: outputs.GetTagPipelineRulesetRuleReferenceTableFieldPair[];
+    /**
+     * Whether to apply the reference table only if the key doesn't exist.
+     */
+    ifNotExists: boolean;
+    /**
+     * The source keys for the reference table lookup.
+     */
+    sourceKeys: string[];
+    /**
+     * The name of the reference table.
+     */
+    tableName: string;
+}
+
+export interface GetTagPipelineRulesetRuleReferenceTableFieldPair {
+    /**
+     * The input column name.
+     */
+    inputColumn: string;
+    /**
+     * The output key name.
+     */
+    outputKey: string;
 }
 
 export interface GetTeamMembershipsTeamMembership {
@@ -26992,6 +27463,10 @@ export interface SecurityMonitoringRuleOptions {
      */
     newValueOptions?: outputs.SecurityMonitoringRuleOptionsNewValueOptions;
     /**
+     * Options for rules using the sequence detection method.
+     */
+    sequenceDetectionOptions?: outputs.SecurityMonitoringRuleOptionsSequenceDetectionOptions;
+    /**
      * Options for rules using the third-party detection method.
      */
     thirdPartyRuleOptions?: outputs.SecurityMonitoringRuleOptionsThirdPartyRuleOptions;
@@ -27021,6 +27496,47 @@ export interface SecurityMonitoringRuleOptionsNewValueOptions {
      * A number of occurrences after which signals are generated for values that weren't learned. Valid values are `0`, `1`. Defaults to `0`.
      */
     learningThreshold?: number;
+}
+
+export interface SecurityMonitoringRuleOptionsSequenceDetectionOptions {
+    /**
+     * Edges of the step graph.
+     */
+    stepTransitions?: outputs.SecurityMonitoringRuleOptionsSequenceDetectionOptionsStepTransition[];
+    /**
+     * Sequence steps.
+     */
+    steps?: outputs.SecurityMonitoringRuleOptionsSequenceDetectionOptionsStep[];
+}
+
+export interface SecurityMonitoringRuleOptionsSequenceDetectionOptionsStep {
+    /**
+     * Condition for the step to match.
+     */
+    condition: string;
+    /**
+     * Evaluation window for the step. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
+     */
+    evaluationWindow?: number;
+    /**
+     * Unique name of the step.
+     */
+    name: string;
+}
+
+export interface SecurityMonitoringRuleOptionsSequenceDetectionOptionsStepTransition {
+    /**
+     * Child step name.
+     */
+    child: string;
+    /**
+     * Maximum time allowed to transition from parent to child. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
+     */
+    evaluationWindow?: number;
+    /**
+     * Parent step name.
+     */
+    parent: string;
 }
 
 export interface SecurityMonitoringRuleOptionsThirdPartyRuleOptions {
@@ -28876,6 +29392,112 @@ export interface SyntheticsTestRequestProxy {
      * URL of the proxy to perform the test.
      */
     url: string;
+}
+
+export interface TagPipelineRulesetRule {
+    /**
+     * Whether the rule is enabled.
+     */
+    enabled: boolean;
+    /**
+     * The mapping configuration for the rule.
+     */
+    mapping?: outputs.TagPipelineRulesetRuleMapping;
+    /**
+     * Rule metadata key-value pairs.
+     */
+    metadata: {[key: string]: string};
+    /**
+     * The name of the rule.
+     */
+    name: string;
+    /**
+     * The query configuration for the rule.
+     */
+    query?: outputs.TagPipelineRulesetRuleQuery;
+    /**
+     * The reference table configuration for the rule.
+     */
+    referenceTable?: outputs.TagPipelineRulesetRuleReferenceTable;
+}
+
+export interface TagPipelineRulesetRuleMapping {
+    /**
+     * The destination key for the mapping.
+     */
+    destinationKey?: string;
+    /**
+     * Whether to apply the mapping only if the destination key doesn't exist.
+     */
+    ifNotExists: boolean;
+    /**
+     * The source keys for the mapping.
+     */
+    sourceKeys?: string[];
+}
+
+export interface TagPipelineRulesetRuleQuery {
+    /**
+     * The addition configuration for the query.
+     */
+    addition?: outputs.TagPipelineRulesetRuleQueryAddition;
+    /**
+     * Whether the query matching is case insensitive.
+     */
+    caseInsensitivity: boolean;
+    /**
+     * Whether to apply the query only if the key doesn't exist.
+     */
+    ifNotExists: boolean;
+    /**
+     * The query string.
+     */
+    query?: string;
+}
+
+export interface TagPipelineRulesetRuleQueryAddition {
+    /**
+     * The key to add.
+     */
+    key?: string;
+    /**
+     * The value to add.
+     */
+    value?: string;
+}
+
+export interface TagPipelineRulesetRuleReferenceTable {
+    /**
+     * Whether the reference table lookup is case insensitive.
+     */
+    caseInsensitivity: boolean;
+    /**
+     * The field pairs for the reference table.
+     */
+    fieldPairs?: outputs.TagPipelineRulesetRuleReferenceTableFieldPair[];
+    /**
+     * Whether to apply the reference table only if the key doesn't exist.
+     */
+    ifNotExists: boolean;
+    /**
+     * The source keys for the reference table lookup.
+     */
+    sourceKeys?: string[];
+    /**
+     * The name of the reference table.
+     */
+    tableName?: string;
+}
+
+export interface TagPipelineRulesetRuleReferenceTableFieldPair {
+    /**
+     * The input column name.
+     */
+    inputColumn?: string;
+    /**
+     * The output key name.
+     */
+    outputKey?: string;
 }
 
 export namespace aws {

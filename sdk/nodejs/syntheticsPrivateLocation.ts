@@ -84,6 +84,10 @@ export class SyntheticsPrivateLocation extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
+     * Resource ID to use when setting restrictions with a `datadog.RestrictionPolicy` resource.
+     */
+    declare public /*out*/ readonly restrictionPolicyResourceId: pulumi.Output<string>;
+    /**
      * A list of tags to associate with your synthetics private location.
      */
     declare public readonly tags: pulumi.Output<string[]>;
@@ -106,6 +110,7 @@ export class SyntheticsPrivateLocation extends pulumi.CustomResource {
             resourceInputs["description"] = state?.description;
             resourceInputs["metadata"] = state?.metadata;
             resourceInputs["name"] = state?.name;
+            resourceInputs["restrictionPolicyResourceId"] = state?.restrictionPolicyResourceId;
             resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as SyntheticsPrivateLocationArgs | undefined;
@@ -118,6 +123,7 @@ export class SyntheticsPrivateLocation extends pulumi.CustomResource {
             resourceInputs["name"] = args?.name;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["config"] = undefined /*out*/;
+            resourceInputs["restrictionPolicyResourceId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["apiKey", "config"] };
@@ -150,6 +156,10 @@ export interface SyntheticsPrivateLocationState {
      * Synthetics private location name.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Resource ID to use when setting restrictions with a `datadog.RestrictionPolicy` resource.
+     */
+    restrictionPolicyResourceId?: pulumi.Input<string>;
     /**
      * A list of tags to associate with your synthetics private location.
      */

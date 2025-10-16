@@ -13,18 +13,93 @@ namespace Pulumi.Datadog
     {
         /// <summary>
         /// Use this data source to retrieve information about existing Datadog role users assignments. This data source is in beta and is subject to change.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Datadog = Pulumi.Datadog;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Get the API Key Manager role
+        ///     var apiKeyManager = Datadog.GetRole.Invoke(new()
+        ///     {
+        ///         Filter = "API Key Manager",
+        ///     });
+        /// 
+        ///     // List users assigned to the API Key Manager role
+        ///     var apiKeyManagers = Datadog.GetRoleUsers.Invoke(new()
+        ///     {
+        ///         RoleId = apiKeyManager.Apply(getRoleResult =&gt; getRoleResult.Id),
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetRoleUsersResult> InvokeAsync(GetRoleUsersArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRoleUsersResult>("datadog:index/getRoleUsers:getRoleUsers", args ?? new GetRoleUsersArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve information about existing Datadog role users assignments. This data source is in beta and is subject to change.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Datadog = Pulumi.Datadog;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Get the API Key Manager role
+        ///     var apiKeyManager = Datadog.GetRole.Invoke(new()
+        ///     {
+        ///         Filter = "API Key Manager",
+        ///     });
+        /// 
+        ///     // List users assigned to the API Key Manager role
+        ///     var apiKeyManagers = Datadog.GetRoleUsers.Invoke(new()
+        ///     {
+        ///         RoleId = apiKeyManager.Apply(getRoleResult =&gt; getRoleResult.Id),
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetRoleUsersResult> Invoke(GetRoleUsersInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoleUsersResult>("datadog:index/getRoleUsers:getRoleUsers", args ?? new GetRoleUsersInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve information about existing Datadog role users assignments. This data source is in beta and is subject to change.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Datadog = Pulumi.Datadog;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Get the API Key Manager role
+        ///     var apiKeyManager = Datadog.GetRole.Invoke(new()
+        ///     {
+        ///         Filter = "API Key Manager",
+        ///     });
+        /// 
+        ///     // List users assigned to the API Key Manager role
+        ///     var apiKeyManagers = Datadog.GetRoleUsers.Invoke(new()
+        ///     {
+        ///         RoleId = apiKeyManager.Apply(getRoleResult =&gt; getRoleResult.Id),
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetRoleUsersResult> Invoke(GetRoleUsersInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoleUsersResult>("datadog:index/getRoleUsers:getRoleUsers", args ?? new GetRoleUsersInvokeArgs(), options.WithDefaults());

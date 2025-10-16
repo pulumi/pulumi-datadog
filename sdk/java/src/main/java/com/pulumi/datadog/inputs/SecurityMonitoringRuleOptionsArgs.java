@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs;
 import com.pulumi.datadog.inputs.SecurityMonitoringRuleOptionsNewValueOptionsArgs;
+import com.pulumi.datadog.inputs.SecurityMonitoringRuleOptionsSequenceDetectionOptionsArgs;
 import com.pulumi.datadog.inputs.SecurityMonitoringRuleOptionsThirdPartyRuleOptionsArgs;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -126,6 +127,21 @@ public final class SecurityMonitoringRuleOptionsArgs extends com.pulumi.resource
     }
 
     /**
+     * Options for rules using the sequence detection method.
+     * 
+     */
+    @Import(name="sequenceDetectionOptions")
+    private @Nullable Output<SecurityMonitoringRuleOptionsSequenceDetectionOptionsArgs> sequenceDetectionOptions;
+
+    /**
+     * @return Options for rules using the sequence detection method.
+     * 
+     */
+    public Optional<Output<SecurityMonitoringRuleOptionsSequenceDetectionOptionsArgs>> sequenceDetectionOptions() {
+        return Optional.ofNullable(this.sequenceDetectionOptions);
+    }
+
+    /**
      * Options for rules using the third-party detection method.
      * 
      */
@@ -150,6 +166,7 @@ public final class SecurityMonitoringRuleOptionsArgs extends com.pulumi.resource
         this.keepAlive = $.keepAlive;
         this.maxSignalDuration = $.maxSignalDuration;
         this.newValueOptions = $.newValueOptions;
+        this.sequenceDetectionOptions = $.sequenceDetectionOptions;
         this.thirdPartyRuleOptions = $.thirdPartyRuleOptions;
     }
 
@@ -316,6 +333,27 @@ public final class SecurityMonitoringRuleOptionsArgs extends com.pulumi.resource
          */
         public Builder newValueOptions(SecurityMonitoringRuleOptionsNewValueOptionsArgs newValueOptions) {
             return newValueOptions(Output.of(newValueOptions));
+        }
+
+        /**
+         * @param sequenceDetectionOptions Options for rules using the sequence detection method.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sequenceDetectionOptions(@Nullable Output<SecurityMonitoringRuleOptionsSequenceDetectionOptionsArgs> sequenceDetectionOptions) {
+            $.sequenceDetectionOptions = sequenceDetectionOptions;
+            return this;
+        }
+
+        /**
+         * @param sequenceDetectionOptions Options for rules using the sequence detection method.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sequenceDetectionOptions(SecurityMonitoringRuleOptionsSequenceDetectionOptionsArgs sequenceDetectionOptions) {
+            return sequenceDetectionOptions(Output.of(sequenceDetectionOptions));
         }
 
         /**

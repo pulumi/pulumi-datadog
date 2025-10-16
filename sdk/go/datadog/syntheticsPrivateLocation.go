@@ -67,6 +67,8 @@ type SyntheticsPrivateLocation struct {
 	Metadata SyntheticsPrivateLocationMetadataPtrOutput `pulumi:"metadata"`
 	// Synthetics private location name.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Resource ID to use when setting restrictions with a `RestrictionPolicy` resource.
+	RestrictionPolicyResourceId pulumi.StringOutput `pulumi:"restrictionPolicyResourceId"`
 	// A list of tags to associate with your synthetics private location.
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
 }
@@ -122,6 +124,8 @@ type syntheticsPrivateLocationState struct {
 	Metadata *SyntheticsPrivateLocationMetadata `pulumi:"metadata"`
 	// Synthetics private location name.
 	Name *string `pulumi:"name"`
+	// Resource ID to use when setting restrictions with a `RestrictionPolicy` resource.
+	RestrictionPolicyResourceId *string `pulumi:"restrictionPolicyResourceId"`
 	// A list of tags to associate with your synthetics private location.
 	Tags []string `pulumi:"tags"`
 }
@@ -137,6 +141,8 @@ type SyntheticsPrivateLocationState struct {
 	Metadata SyntheticsPrivateLocationMetadataPtrInput
 	// Synthetics private location name.
 	Name pulumi.StringPtrInput
+	// Resource ID to use when setting restrictions with a `RestrictionPolicy` resource.
+	RestrictionPolicyResourceId pulumi.StringPtrInput
 	// A list of tags to associate with your synthetics private location.
 	Tags pulumi.StringArrayInput
 }
@@ -282,6 +288,11 @@ func (o SyntheticsPrivateLocationOutput) Metadata() SyntheticsPrivateLocationMet
 // Synthetics private location name.
 func (o SyntheticsPrivateLocationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SyntheticsPrivateLocation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource ID to use when setting restrictions with a `RestrictionPolicy` resource.
+func (o SyntheticsPrivateLocationOutput) RestrictionPolicyResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SyntheticsPrivateLocation) pulumi.StringOutput { return v.RestrictionPolicyResourceId }).(pulumi.StringOutput)
 }
 
 // A list of tags to associate with your synthetics private location.

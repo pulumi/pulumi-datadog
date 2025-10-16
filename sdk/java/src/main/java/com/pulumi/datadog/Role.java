@@ -49,18 +49,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Source the permissions
- *         final var bar = DatadogFunctions.getPermissions(GetPermissionsArgs.builder()
+ *         final var ddPerms = DatadogFunctions.getPermissions(GetPermissionsArgs.builder()
  *             .build());
  * 
- *         // Create a new Datadog role
- *         var foo = new Role("foo", RoleArgs.builder()
- *             .name("foo")
+ *         // Create an API Key Manager role
+ *         var apiKeyManager = new Role("apiKeyManager", RoleArgs.builder()
+ *             .name("API Key Manager")
  *             .permissions(            
  *                 RolePermissionArgs.builder()
- *                     .id(bar.permissions().monitorsDowntime())
+ *                     .id(ddPerms.permissions().apiKeysRead())
  *                     .build(),
  *                 RolePermissionArgs.builder()
- *                     .id(bar.permissions().monitorsWrite())
+ *                     .id(ddPerms.permissions().apiKeysWrite())
  *                     .build())
  *             .build());
  * 

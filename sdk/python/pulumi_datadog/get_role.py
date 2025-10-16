@@ -96,7 +96,7 @@ def get_role(filter: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_datadog as datadog
 
-    test = datadog.get_role(filter="Datadog Standard Role")
+    api_key_manager = datadog.get_role(filter="API Key Manager")
     ```
 
 
@@ -123,7 +123,7 @@ def get_role_output(filter: Optional[pulumi.Input[_builtins.str]] = None,
     import pulumi
     import pulumi_datadog as datadog
 
-    test = datadog.get_role(filter="Datadog Standard Role")
+    api_key_manager = datadog.get_role(filter="API Key Manager")
     ```
 
 

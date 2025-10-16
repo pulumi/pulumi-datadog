@@ -22,14 +22,22 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var monitorWriterRole = new Datadog.Role("monitor_writer_role", new()
+    ///     // Source the permissions
+    ///     var ddPerms = Datadog.GetPermissions.Invoke();
+    /// 
+    ///     // Create an API Key Manager role
+    ///     var apiKeyManager = new Datadog.Role("api_key_manager", new()
     ///     {
-    ///         Name = "Monitor Writer Role",
+    ///         Name = "API Key Manager",
     ///         Permissions = new[]
     ///         {
     ///             new Datadog.Inputs.RolePermissionArgs
     ///             {
-    ///                 Id = bar.Permissions.MonitorsWrite,
+    ///                 Id = ddPerms.Apply(getPermissionsResult =&gt; getPermissionsResult.Permissions?.ApiKeysRead),
+    ///             },
+    ///             new Datadog.Inputs.RolePermissionArgs
+    ///             {
+    ///                 Id = ddPerms.Apply(getPermissionsResult =&gt; getPermissionsResult.Permissions?.ApiKeysWrite),
     ///             },
     ///         },
     ///     });
@@ -39,10 +47,10 @@ namespace Pulumi.Datadog
     ///         Email = "new@example.com",
     ///     });
     /// 
-    ///     // Create new user_role resource
-    ///     var newUserWithMonitorWriterRole = new Datadog.UserRole("new_user_with_monitor_writer_role", new()
+    ///     // Assign the API Key Manager role to the user
+    ///     var newUserWithApiKeyManagerRole = new Datadog.UserRole("new_user_with_api_key_manager_role", new()
     ///     {
-    ///         RoleId = monitorWriterRole.Id,
+    ///         RoleId = apiKeyManager.Id,
     ///         UserId = newUser.Id,
     ///     });
     /// 

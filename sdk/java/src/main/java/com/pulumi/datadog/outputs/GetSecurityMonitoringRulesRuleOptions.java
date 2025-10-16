@@ -6,6 +6,7 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptions;
 import com.pulumi.datadog.outputs.GetSecurityMonitoringRulesRuleOptionsNewValueOptions;
+import com.pulumi.datadog.outputs.GetSecurityMonitoringRulesRuleOptionsSequenceDetectionOptions;
 import com.pulumi.datadog.outputs.GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptions;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -51,6 +52,11 @@ public final class GetSecurityMonitoringRulesRuleOptions {
      * 
      */
     private @Nullable GetSecurityMonitoringRulesRuleOptionsNewValueOptions newValueOptions;
+    /**
+     * @return Options for rules using the sequence detection method.
+     * 
+     */
+    private @Nullable GetSecurityMonitoringRulesRuleOptionsSequenceDetectionOptions sequenceDetectionOptions;
     /**
      * @return Options for rules using the third-party detection method.
      * 
@@ -108,6 +114,13 @@ public final class GetSecurityMonitoringRulesRuleOptions {
         return Optional.ofNullable(this.newValueOptions);
     }
     /**
+     * @return Options for rules using the sequence detection method.
+     * 
+     */
+    public Optional<GetSecurityMonitoringRulesRuleOptionsSequenceDetectionOptions> sequenceDetectionOptions() {
+        return Optional.ofNullable(this.sequenceDetectionOptions);
+    }
+    /**
      * @return Options for rules using the third-party detection method.
      * 
      */
@@ -131,6 +144,7 @@ public final class GetSecurityMonitoringRulesRuleOptions {
         private @Nullable Integer keepAlive;
         private @Nullable Integer maxSignalDuration;
         private @Nullable GetSecurityMonitoringRulesRuleOptionsNewValueOptions newValueOptions;
+        private @Nullable GetSecurityMonitoringRulesRuleOptionsSequenceDetectionOptions sequenceDetectionOptions;
         private @Nullable GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptions thirdPartyRuleOptions;
         public Builder() {}
         public Builder(GetSecurityMonitoringRulesRuleOptions defaults) {
@@ -142,6 +156,7 @@ public final class GetSecurityMonitoringRulesRuleOptions {
     	      this.keepAlive = defaults.keepAlive;
     	      this.maxSignalDuration = defaults.maxSignalDuration;
     	      this.newValueOptions = defaults.newValueOptions;
+    	      this.sequenceDetectionOptions = defaults.sequenceDetectionOptions;
     	      this.thirdPartyRuleOptions = defaults.thirdPartyRuleOptions;
         }
 
@@ -188,6 +203,12 @@ public final class GetSecurityMonitoringRulesRuleOptions {
             return this;
         }
         @CustomType.Setter
+        public Builder sequenceDetectionOptions(@Nullable GetSecurityMonitoringRulesRuleOptionsSequenceDetectionOptions sequenceDetectionOptions) {
+
+            this.sequenceDetectionOptions = sequenceDetectionOptions;
+            return this;
+        }
+        @CustomType.Setter
         public Builder thirdPartyRuleOptions(@Nullable GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptions thirdPartyRuleOptions) {
 
             this.thirdPartyRuleOptions = thirdPartyRuleOptions;
@@ -202,6 +223,7 @@ public final class GetSecurityMonitoringRulesRuleOptions {
             _resultValue.keepAlive = keepAlive;
             _resultValue.maxSignalDuration = maxSignalDuration;
             _resultValue.newValueOptions = newValueOptions;
+            _resultValue.sequenceDetectionOptions = sequenceDetectionOptions;
             _resultValue.thirdPartyRuleOptions = thirdPartyRuleOptions;
             return _resultValue;
         }

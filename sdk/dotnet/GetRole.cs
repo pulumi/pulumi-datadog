@@ -24,9 +24,9 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Datadog.GetRole.Invoke(new()
+        ///     var apiKeyManager = Datadog.GetRole.Invoke(new()
         ///     {
-        ///         Filter = "Datadog Standard Role",
+        ///         Filter = "API Key Manager",
         ///     });
         /// 
         /// });
@@ -48,9 +48,9 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Datadog.GetRole.Invoke(new()
+        ///     var apiKeyManager = Datadog.GetRole.Invoke(new()
         ///     {
-        ///         Filter = "Datadog Standard Role",
+        ///         Filter = "API Key Manager",
         ///     });
         /// 
         /// });
@@ -72,9 +72,9 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Datadog.GetRole.Invoke(new()
+        ///     var apiKeyManager = Datadog.GetRole.Invoke(new()
         ///     {
-        ///         Filter = "Datadog Standard Role",
+        ///         Filter = "API Key Manager",
         ///     });
         /// 
         /// });

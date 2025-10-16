@@ -55,6 +55,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.SecurityMonitoringRuleOptionsNewValueOptionsGetArgs>? NewValueOptions { get; set; }
 
         /// <summary>
+        /// Options for rules using the sequence detection method.
+        /// </summary>
+        [Input("sequenceDetectionOptions")]
+        public Input<Inputs.SecurityMonitoringRuleOptionsSequenceDetectionOptionsGetArgs>? SequenceDetectionOptions { get; set; }
+
+        /// <summary>
         /// Options for rules using the third-party detection method.
         /// </summary>
         [Input("thirdPartyRuleOptions")]

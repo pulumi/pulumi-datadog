@@ -23,21 +23,21 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Source the permissions
-    ///     var bar = Datadog.GetPermissions.Invoke();
+    ///     var ddPerms = Datadog.GetPermissions.Invoke();
     /// 
-    ///     // Create a new Datadog role
-    ///     var foo = new Datadog.Role("foo", new()
+    ///     // Create an API Key Manager role
+    ///     var apiKeyManager = new Datadog.Role("api_key_manager", new()
     ///     {
-    ///         Name = "foo",
+    ///         Name = "API Key Manager",
     ///         Permissions = new[]
     ///         {
     ///             new Datadog.Inputs.RolePermissionArgs
     ///             {
-    ///                 Id = bar.Apply(getPermissionsResult =&gt; getPermissionsResult.Permissions?.MonitorsDowntime),
+    ///                 Id = ddPerms.Apply(getPermissionsResult =&gt; getPermissionsResult.Permissions?.ApiKeysRead),
     ///             },
     ///             new Datadog.Inputs.RolePermissionArgs
     ///             {
-    ///                 Id = bar.Apply(getPermissionsResult =&gt; getPermissionsResult.Permissions?.MonitorsWrite),
+    ///                 Id = ddPerms.Apply(getPermissionsResult =&gt; getPermissionsResult.Permissions?.ApiKeysWrite),
     ///             },
     ///         },
     ///     });

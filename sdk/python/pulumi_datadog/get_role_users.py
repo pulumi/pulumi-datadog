@@ -105,6 +105,18 @@ def get_role_users(exact_match: Optional[_builtins.bool] = None,
     """
     Use this data source to retrieve information about existing Datadog role users assignments. This data source is in beta and is subject to change.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_datadog as datadog
+
+    # Get the API Key Manager role
+    api_key_manager = datadog.get_role(filter="API Key Manager")
+    # List users assigned to the API Key Manager role
+    api_key_managers = datadog.get_role_users(role_id=api_key_manager.id)
+    ```
+
 
     :param _builtins.bool exact_match: When true, `filter_keyword` string is exact matched against the user's `name`.
     :param _builtins.str filter: Search query, can be user name.
@@ -129,6 +141,18 @@ def get_role_users_output(exact_match: Optional[pulumi.Input[Optional[_builtins.
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoleUsersResult]:
     """
     Use this data source to retrieve information about existing Datadog role users assignments. This data source is in beta and is subject to change.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_datadog as datadog
+
+    # Get the API Key Manager role
+    api_key_manager = datadog.get_role(filter="API Key Manager")
+    # List users assigned to the API Key Manager role
+    api_key_managers = datadog.get_role_users(role_id=api_key_manager.id)
+    ```
 
 
     :param _builtins.bool exact_match: When true, `filter_keyword` string is exact matched against the user's `name`.

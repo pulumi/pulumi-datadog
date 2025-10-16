@@ -27,6 +27,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.DatadogFunctions;
+ * import com.pulumi.datadog.inputs.GetPermissionsArgs;
  * import com.pulumi.datadog.ServiceAccountApplicationKey;
  * import com.pulumi.datadog.ServiceAccountApplicationKeyArgs;
  * import java.util.List;
@@ -42,10 +44,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         // Create new service_account_application_key resource
- *         var foo = new ServiceAccountApplicationKey("foo", ServiceAccountApplicationKeyArgs.builder()
+ *         // Source the permissions for scoped keys
+ *         final var ddPerms = DatadogFunctions.getPermissions(GetPermissionsArgs.builder()
+ *             .build());
+ * 
+ *         // Create an unrestricted Service Account Application Key
+ *         // This key inherits all permissions of the service account that owns the key
+ *         var unrestrictedKey = new ServiceAccountApplicationKey("unrestrictedKey", ServiceAccountApplicationKeyArgs.builder()
  *             .serviceAccountId("00000000-0000-1234-0000-000000000000")
- *             .name("Application key for managing dashboards")
+ *             .name("Unrestricted Service Account Key")
+ *             .build());
+ * 
+ *         // Create a scoped Service Account Application Key for monitor management
+ *         var monitorManagementKey = new ServiceAccountApplicationKey("monitorManagementKey", ServiceAccountApplicationKeyArgs.builder()
+ *             .serviceAccountId("00000000-0000-1234-0000-000000000000")
+ *             .name("Monitor Management Service Account Key")
+ *             .scopes(            
+ *                 ddPerms.permissions().monitorsRead(),
+ *                 ddPerms.permissions().monitorsWrite())
  *             .build());
  * 
  *     }

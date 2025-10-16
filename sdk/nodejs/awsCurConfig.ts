@@ -61,6 +61,14 @@ export class AwsCurConfig extends pulumi.CustomResource {
      */
     declare public readonly bucketRegion: pulumi.Output<string | undefined>;
     /**
+     * The timestamp when the AWS CUR configuration was created.
+     */
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
+    /**
+     * List of error messages if the AWS CUR configuration encountered any issues during setup or data processing.
+     */
+    declare public /*out*/ readonly errorMessages: pulumi.Output<string[]>;
+    /**
      * The exact name of your AWS Cost and Usage Report as configured in AWS Billing preferences. This must match the report name exactly as it appears in your AWS billing settings.
      */
     declare public readonly reportName: pulumi.Output<string>;
@@ -68,6 +76,18 @@ export class AwsCurConfig extends pulumi.CustomResource {
      * The S3 key prefix where your Cost and Usage Report files are stored within the bucket (e.g., 'cur-reports/', 'billing/cur/').
      */
     declare public readonly reportPrefix: pulumi.Output<string>;
+    /**
+     * The current status of the AWS CUR configuration.
+     */
+    declare public /*out*/ readonly status: pulumi.Output<string>;
+    /**
+     * The timestamp when the configuration status was last updated.
+     */
+    declare public /*out*/ readonly statusUpdatedAt: pulumi.Output<string>;
+    /**
+     * The timestamp when the AWS CUR configuration was last modified.
+     */
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
 
     /**
      * Create a AwsCurConfig resource with the given unique name, arguments, and options.
@@ -86,8 +106,13 @@ export class AwsCurConfig extends pulumi.CustomResource {
             resourceInputs["accountId"] = state?.accountId;
             resourceInputs["bucketName"] = state?.bucketName;
             resourceInputs["bucketRegion"] = state?.bucketRegion;
+            resourceInputs["createdAt"] = state?.createdAt;
+            resourceInputs["errorMessages"] = state?.errorMessages;
             resourceInputs["reportName"] = state?.reportName;
             resourceInputs["reportPrefix"] = state?.reportPrefix;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["statusUpdatedAt"] = state?.statusUpdatedAt;
+            resourceInputs["updatedAt"] = state?.updatedAt;
         } else {
             const args = argsOrState as AwsCurConfigArgs | undefined;
             if (args?.accountId === undefined && !opts.urn) {
@@ -108,6 +133,11 @@ export class AwsCurConfig extends pulumi.CustomResource {
             resourceInputs["bucketRegion"] = args?.bucketRegion;
             resourceInputs["reportName"] = args?.reportName;
             resourceInputs["reportPrefix"] = args?.reportPrefix;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["errorMessages"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["statusUpdatedAt"] = undefined /*out*/;
+            resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AwsCurConfig.__pulumiType, name, resourceInputs, opts);
@@ -132,6 +162,14 @@ export interface AwsCurConfigState {
      */
     bucketRegion?: pulumi.Input<string>;
     /**
+     * The timestamp when the AWS CUR configuration was created.
+     */
+    createdAt?: pulumi.Input<string>;
+    /**
+     * List of error messages if the AWS CUR configuration encountered any issues during setup or data processing.
+     */
+    errorMessages?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * The exact name of your AWS Cost and Usage Report as configured in AWS Billing preferences. This must match the report name exactly as it appears in your AWS billing settings.
      */
     reportName?: pulumi.Input<string>;
@@ -139,6 +177,18 @@ export interface AwsCurConfigState {
      * The S3 key prefix where your Cost and Usage Report files are stored within the bucket (e.g., 'cur-reports/', 'billing/cur/').
      */
     reportPrefix?: pulumi.Input<string>;
+    /**
+     * The current status of the AWS CUR configuration.
+     */
+    status?: pulumi.Input<string>;
+    /**
+     * The timestamp when the configuration status was last updated.
+     */
+    statusUpdatedAt?: pulumi.Input<string>;
+    /**
+     * The timestamp when the AWS CUR configuration was last modified.
+     */
+    updatedAt?: pulumi.Input<string>;
 }
 
 /**

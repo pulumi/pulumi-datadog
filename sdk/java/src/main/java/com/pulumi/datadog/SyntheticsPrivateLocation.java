@@ -140,6 +140,20 @@ public class SyntheticsPrivateLocation extends com.pulumi.resources.CustomResour
         return this.name;
     }
     /**
+     * Resource ID to use when setting restrictions with a `datadog.RestrictionPolicy` resource.
+     * 
+     */
+    @Export(name="restrictionPolicyResourceId", refs={String.class}, tree="[0]")
+    private Output<String> restrictionPolicyResourceId;
+
+    /**
+     * @return Resource ID to use when setting restrictions with a `datadog.RestrictionPolicy` resource.
+     * 
+     */
+    public Output<String> restrictionPolicyResourceId() {
+        return this.restrictionPolicyResourceId;
+    }
+    /**
      * A list of tags to associate with your synthetics private location.
      * 
      */

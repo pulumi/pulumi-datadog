@@ -25,6 +25,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.DatadogFunctions;
+ * import com.pulumi.datadog.inputs.GetPermissionsArgs;
  * import com.pulumi.datadog.Role;
  * import com.pulumi.datadog.RoleArgs;
  * import com.pulumi.datadog.inputs.RolePermissionArgs;
@@ -45,20 +47,29 @@ import javax.annotation.Nullable;
  *     }}{@code
  * 
  *     public static void stack(Context ctx) }{{@code
- *         var monitorWriterRole = new Role("monitorWriterRole", RoleArgs.builder()
- *             .name("Monitor Writer Role")
- *             .permissions(RolePermissionArgs.builder()
- *                 .id(bar.permissions().monitorsWrite())
- *                 .build())
+ *         // Source the permissions
+ *         final var ddPerms = DatadogFunctions.getPermissions(GetPermissionsArgs.builder()
+ *             .build());
+ * 
+ *         // Create an API Key Manager role
+ *         var apiKeyManager = new Role("apiKeyManager", RoleArgs.builder()
+ *             .name("API Key Manager")
+ *             .permissions(            
+ *                 RolePermissionArgs.builder()
+ *                     .id(ddPerms.permissions().apiKeysRead())
+ *                     .build(),
+ *                 RolePermissionArgs.builder()
+ *                     .id(ddPerms.permissions().apiKeysWrite())
+ *                     .build())
  *             .build());
  * 
  *         var newUser = new User("newUser", UserArgs.builder()
  *             .email("new}{@literal @}{@code example.com")
  *             .build());
  * 
- *         // Create new user_role resource
- *         var newUserWithMonitorWriterRole = new UserRole("newUserWithMonitorWriterRole", UserRoleArgs.builder()
- *             .roleId(monitorWriterRole.id())
+ *         // Assign the API Key Manager role to the user
+ *         var newUserWithApiKeyManagerRole = new UserRole("newUserWithApiKeyManagerRole", UserRoleArgs.builder()
+ *             .roleId(apiKeyManager.id())
  *             .userId(newUser.id())
  *             .build());
  * 

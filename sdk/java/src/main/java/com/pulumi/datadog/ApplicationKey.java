@@ -27,6 +27,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.DatadogFunctions;
+ * import com.pulumi.datadog.inputs.GetPermissionsArgs;
  * import com.pulumi.datadog.ApplicationKey;
  * import com.pulumi.datadog.ApplicationKeyArgs;
  * import java.util.List;
@@ -42,9 +44,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         // Create a new Datadog Application Key
- *         var foo = new ApplicationKey("foo", ApplicationKeyArgs.builder()
- *             .name("foo-application")
+ *         // Source the permissions for scoped keys
+ *         final var ddPerms = DatadogFunctions.getPermissions(GetPermissionsArgs.builder()
+ *             .build());
+ * 
+ *         // Create an unrestricted Application Key
+ *         // This key inherits all permissions of the user that owns the key
+ *         var unrestrictedKey = new ApplicationKey("unrestrictedKey", ApplicationKeyArgs.builder()
+ *             .name("Unrestricted Application Key")
+ *             .build());
+ * 
+ *         // Create a scoped Application Key for monitor management
+ *         var monitorManagementKey = new ApplicationKey("monitorManagementKey", ApplicationKeyArgs.builder()
+ *             .name("Monitor Management Key")
+ *             .scopes(            
+ *                 ddPerms.permissions().monitorsRead(),
+ *                 ddPerms.permissions().monitorsWrite())
  *             .build());
  * 
  *     }

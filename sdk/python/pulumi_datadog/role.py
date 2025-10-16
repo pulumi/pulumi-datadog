@@ -190,16 +190,16 @@ class Role(pulumi.CustomResource):
         import pulumi_datadog as datadog
 
         # Source the permissions
-        bar = datadog.get_permissions()
-        # Create a new Datadog role
-        foo = datadog.Role("foo",
-            name="foo",
+        dd_perms = datadog.get_permissions()
+        # Create an API Key Manager role
+        api_key_manager = datadog.Role("api_key_manager",
+            name="API Key Manager",
             permissions=[
                 {
-                    "id": bar.permissions["monitorsDowntime"],
+                    "id": dd_perms.permissions["apiKeysRead"],
                 },
                 {
-                    "id": bar.permissions["monitorsWrite"],
+                    "id": dd_perms.permissions["apiKeysWrite"],
                 },
             ])
         ```
@@ -236,16 +236,16 @@ class Role(pulumi.CustomResource):
         import pulumi_datadog as datadog
 
         # Source the permissions
-        bar = datadog.get_permissions()
-        # Create a new Datadog role
-        foo = datadog.Role("foo",
-            name="foo",
+        dd_perms = datadog.get_permissions()
+        # Create an API Key Manager role
+        api_key_manager = datadog.Role("api_key_manager",
+            name="API Key Manager",
             permissions=[
                 {
-                    "id": bar.permissions["monitorsDowntime"],
+                    "id": dd_perms.permissions["apiKeysRead"],
                 },
                 {
-                    "id": bar.permissions["monitorsWrite"],
+                    "id": dd_perms.permissions["apiKeysWrite"],
                 },
             ])
         ```

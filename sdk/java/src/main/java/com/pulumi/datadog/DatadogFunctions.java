@@ -16,14 +16,20 @@ import com.pulumi.datadog.inputs.GetApplicationKeyArgs;
 import com.pulumi.datadog.inputs.GetApplicationKeyPlainArgs;
 import com.pulumi.datadog.inputs.GetAwsCurConfigArgs;
 import com.pulumi.datadog.inputs.GetAwsCurConfigPlainArgs;
+import com.pulumi.datadog.inputs.GetAzureUcConfigArgs;
+import com.pulumi.datadog.inputs.GetAzureUcConfigPlainArgs;
 import com.pulumi.datadog.inputs.GetCostBudgetArgs;
 import com.pulumi.datadog.inputs.GetCostBudgetPlainArgs;
 import com.pulumi.datadog.inputs.GetCsmThreatsAgentRulesArgs;
 import com.pulumi.datadog.inputs.GetCsmThreatsAgentRulesPlainArgs;
+import com.pulumi.datadog.inputs.GetCustomAllocationRuleArgs;
+import com.pulumi.datadog.inputs.GetCustomAllocationRulePlainArgs;
 import com.pulumi.datadog.inputs.GetDashboardArgs;
 import com.pulumi.datadog.inputs.GetDashboardListArgs;
 import com.pulumi.datadog.inputs.GetDashboardListPlainArgs;
 import com.pulumi.datadog.inputs.GetDashboardPlainArgs;
+import com.pulumi.datadog.inputs.GetGcpUcConfigArgs;
+import com.pulumi.datadog.inputs.GetGcpUcConfigPlainArgs;
 import com.pulumi.datadog.inputs.GetHostsArgs;
 import com.pulumi.datadog.inputs.GetHostsPlainArgs;
 import com.pulumi.datadog.inputs.GetIncidentNotificationRuleArgs;
@@ -74,6 +80,8 @@ import com.pulumi.datadog.inputs.GetSyntheticsGlobalVariableArgs;
 import com.pulumi.datadog.inputs.GetSyntheticsGlobalVariablePlainArgs;
 import com.pulumi.datadog.inputs.GetSyntheticsTestArgs;
 import com.pulumi.datadog.inputs.GetSyntheticsTestPlainArgs;
+import com.pulumi.datadog.inputs.GetTagPipelineRulesetArgs;
+import com.pulumi.datadog.inputs.GetTagPipelineRulesetPlainArgs;
 import com.pulumi.datadog.inputs.GetTeamArgs;
 import com.pulumi.datadog.inputs.GetTeamMembershipsArgs;
 import com.pulumi.datadog.inputs.GetTeamMembershipsPlainArgs;
@@ -92,12 +100,15 @@ import com.pulumi.datadog.outputs.GetApmRetentionFiltersOrderResult;
 import com.pulumi.datadog.outputs.GetAppBuilderAppResult;
 import com.pulumi.datadog.outputs.GetApplicationKeyResult;
 import com.pulumi.datadog.outputs.GetAwsCurConfigResult;
+import com.pulumi.datadog.outputs.GetAzureUcConfigResult;
 import com.pulumi.datadog.outputs.GetCloudWorkloadSecurityAgentRulesResult;
 import com.pulumi.datadog.outputs.GetCostBudgetResult;
 import com.pulumi.datadog.outputs.GetCsmThreatsAgentRulesResult;
 import com.pulumi.datadog.outputs.GetCsmThreatsPoliciesResult;
+import com.pulumi.datadog.outputs.GetCustomAllocationRuleResult;
 import com.pulumi.datadog.outputs.GetDashboardListResult;
 import com.pulumi.datadog.outputs.GetDashboardResult;
+import com.pulumi.datadog.outputs.GetGcpUcConfigResult;
 import com.pulumi.datadog.outputs.GetHostsResult;
 import com.pulumi.datadog.outputs.GetIncidentNotificationRuleResult;
 import com.pulumi.datadog.outputs.GetIncidentNotificationTemplateResult;
@@ -133,6 +144,7 @@ import com.pulumi.datadog.outputs.GetSoftwareCatalogResult;
 import com.pulumi.datadog.outputs.GetSyntheticsGlobalVariableResult;
 import com.pulumi.datadog.outputs.GetSyntheticsLocationsResult;
 import com.pulumi.datadog.outputs.GetSyntheticsTestResult;
+import com.pulumi.datadog.outputs.GetTagPipelineRulesetResult;
 import com.pulumi.datadog.outputs.GetTeamMembershipsResult;
 import com.pulumi.datadog.outputs.GetTeamResult;
 import com.pulumi.datadog.outputs.GetTeamsResult;
@@ -1401,6 +1413,41 @@ public final class DatadogFunctions {
         return Deployment.getInstance().invokeAsync("datadog:index/getAwsCurConfig:getAwsCurConfig", TypeShape.of(GetAwsCurConfigResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to retrieve information about a specific Datadog Azure Usage Cost configuration. This allows you to fetch details about an existing Cloud Cost Management configuration for Azure billing data access.
+     * 
+     */
+    public static Output<GetAzureUcConfigResult> getAzureUcConfig(GetAzureUcConfigArgs args) {
+        return getAzureUcConfig(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about a specific Datadog Azure Usage Cost configuration. This allows you to fetch details about an existing Cloud Cost Management configuration for Azure billing data access.
+     * 
+     */
+    public static CompletableFuture<GetAzureUcConfigResult> getAzureUcConfigPlain(GetAzureUcConfigPlainArgs args) {
+        return getAzureUcConfigPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about a specific Datadog Azure Usage Cost configuration. This allows you to fetch details about an existing Cloud Cost Management configuration for Azure billing data access.
+     * 
+     */
+    public static Output<GetAzureUcConfigResult> getAzureUcConfig(GetAzureUcConfigArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getAzureUcConfig:getAzureUcConfig", TypeShape.of(GetAzureUcConfigResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a specific Datadog Azure Usage Cost configuration. This allows you to fetch details about an existing Cloud Cost Management configuration for Azure billing data access.
+     * 
+     */
+    public static Output<GetAzureUcConfigResult> getAzureUcConfig(GetAzureUcConfigArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getAzureUcConfig:getAzureUcConfig", TypeShape.of(GetAzureUcConfigResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a specific Datadog Azure Usage Cost configuration. This allows you to fetch details about an existing Cloud Cost Management configuration for Azure billing data access.
+     * 
+     */
+    public static CompletableFuture<GetAzureUcConfigResult> getAzureUcConfigPlain(GetAzureUcConfigPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getAzureUcConfig:getAzureUcConfig", TypeShape.of(GetAzureUcConfigResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * ## Example Usage
      * 
      * <pre>
@@ -2003,6 +2050,55 @@ public final class DatadogFunctions {
         return Deployment.getInstance().invokeAsync("datadog:index/getCsmThreatsPolicies:getCsmThreatsPolicies", TypeShape.of(GetCsmThreatsPoliciesResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to retrieve information about an existing custom allocation rule.
+     * 
+     */
+    public static Output<GetCustomAllocationRuleResult> getCustomAllocationRule() {
+        return getCustomAllocationRule(GetCustomAllocationRuleArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing custom allocation rule.
+     * 
+     */
+    public static CompletableFuture<GetCustomAllocationRuleResult> getCustomAllocationRulePlain() {
+        return getCustomAllocationRulePlain(GetCustomAllocationRulePlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing custom allocation rule.
+     * 
+     */
+    public static Output<GetCustomAllocationRuleResult> getCustomAllocationRule(GetCustomAllocationRuleArgs args) {
+        return getCustomAllocationRule(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing custom allocation rule.
+     * 
+     */
+    public static CompletableFuture<GetCustomAllocationRuleResult> getCustomAllocationRulePlain(GetCustomAllocationRulePlainArgs args) {
+        return getCustomAllocationRulePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing custom allocation rule.
+     * 
+     */
+    public static Output<GetCustomAllocationRuleResult> getCustomAllocationRule(GetCustomAllocationRuleArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getCustomAllocationRule:getCustomAllocationRule", TypeShape.of(GetCustomAllocationRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing custom allocation rule.
+     * 
+     */
+    public static Output<GetCustomAllocationRuleResult> getCustomAllocationRule(GetCustomAllocationRuleArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getCustomAllocationRule:getCustomAllocationRule", TypeShape.of(GetCustomAllocationRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing custom allocation rule.
+     * 
+     */
+    public static CompletableFuture<GetCustomAllocationRuleResult> getCustomAllocationRulePlain(GetCustomAllocationRulePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getCustomAllocationRule:getCustomAllocationRule", TypeShape.of(GetCustomAllocationRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Use this data source to retrieve information about an existing dashboard, for use in other resources. In particular, it can be used in a monitor message to link to a specific dashboard.
      * 
      * ## Example Usage
@@ -2506,6 +2602,41 @@ public final class DatadogFunctions {
      */
     public static CompletableFuture<GetDashboardListResult> getDashboardListPlain(GetDashboardListPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:index/getDashboardList:getDashboardList", TypeShape.of(GetDashboardListResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a specific Datadog GCP Usage Cost configuration. This allows you to fetch details about an existing Cloud Cost Management configuration for GCP billing data access.
+     * 
+     */
+    public static Output<GetGcpUcConfigResult> getGcpUcConfig(GetGcpUcConfigArgs args) {
+        return getGcpUcConfig(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about a specific Datadog GCP Usage Cost configuration. This allows you to fetch details about an existing Cloud Cost Management configuration for GCP billing data access.
+     * 
+     */
+    public static CompletableFuture<GetGcpUcConfigResult> getGcpUcConfigPlain(GetGcpUcConfigPlainArgs args) {
+        return getGcpUcConfigPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about a specific Datadog GCP Usage Cost configuration. This allows you to fetch details about an existing Cloud Cost Management configuration for GCP billing data access.
+     * 
+     */
+    public static Output<GetGcpUcConfigResult> getGcpUcConfig(GetGcpUcConfigArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getGcpUcConfig:getGcpUcConfig", TypeShape.of(GetGcpUcConfigResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a specific Datadog GCP Usage Cost configuration. This allows you to fetch details about an existing Cloud Cost Management configuration for GCP billing data access.
+     * 
+     */
+    public static Output<GetGcpUcConfigResult> getGcpUcConfig(GetGcpUcConfigArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getGcpUcConfig:getGcpUcConfig", TypeShape.of(GetGcpUcConfigResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a specific Datadog GCP Usage Cost configuration. This allows you to fetch details about an existing Cloud Cost Management configuration for GCP billing data access.
+     * 
+     */
+    public static CompletableFuture<GetGcpUcConfigResult> getGcpUcConfigPlain(GetGcpUcConfigPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getGcpUcConfig:getGcpUcConfig", TypeShape.of(GetGcpUcConfigResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve information about your live hosts in Datadog.
@@ -5112,6 +5243,9 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetPermissionsArgs;
+     * import com.pulumi.datadog.Role;
+     * import com.pulumi.datadog.RoleArgs;
+     * import com.pulumi.datadog.inputs.RolePermissionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -5125,7 +5259,19 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var permissions = DatadogFunctions.getPermissions(GetPermissionsArgs.builder()
+     *         final var ddPerms = DatadogFunctions.getPermissions(GetPermissionsArgs.builder()
+     *             .build());
+     * 
+     *         // Example of using specific permissions to create an API Key Manager role
+     *         var apiKeyManager = new Role("apiKeyManager", RoleArgs.builder()
+     *             .name("API Key Manager")
+     *             .permissions(            
+     *                 RolePermissionArgs.builder()
+     *                     .id(ddPerms.permissions().apiKeysRead())
+     *                     .build(),
+     *                 RolePermissionArgs.builder()
+     *                     .id(ddPerms.permissions().apiKeysWrite())
+     *                     .build())
      *             .build());
      * 
      *     }
@@ -5151,6 +5297,9 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetPermissionsArgs;
+     * import com.pulumi.datadog.Role;
+     * import com.pulumi.datadog.RoleArgs;
+     * import com.pulumi.datadog.inputs.RolePermissionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -5164,7 +5313,19 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var permissions = DatadogFunctions.getPermissions(GetPermissionsArgs.builder()
+     *         final var ddPerms = DatadogFunctions.getPermissions(GetPermissionsArgs.builder()
+     *             .build());
+     * 
+     *         // Example of using specific permissions to create an API Key Manager role
+     *         var apiKeyManager = new Role("apiKeyManager", RoleArgs.builder()
+     *             .name("API Key Manager")
+     *             .permissions(            
+     *                 RolePermissionArgs.builder()
+     *                     .id(ddPerms.permissions().apiKeysRead())
+     *                     .build(),
+     *                 RolePermissionArgs.builder()
+     *                     .id(ddPerms.permissions().apiKeysWrite())
+     *                     .build())
      *             .build());
      * 
      *     }
@@ -5190,6 +5351,9 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetPermissionsArgs;
+     * import com.pulumi.datadog.Role;
+     * import com.pulumi.datadog.RoleArgs;
+     * import com.pulumi.datadog.inputs.RolePermissionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -5203,7 +5367,19 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var permissions = DatadogFunctions.getPermissions(GetPermissionsArgs.builder()
+     *         final var ddPerms = DatadogFunctions.getPermissions(GetPermissionsArgs.builder()
+     *             .build());
+     * 
+     *         // Example of using specific permissions to create an API Key Manager role
+     *         var apiKeyManager = new Role("apiKeyManager", RoleArgs.builder()
+     *             .name("API Key Manager")
+     *             .permissions(            
+     *                 RolePermissionArgs.builder()
+     *                     .id(ddPerms.permissions().apiKeysRead())
+     *                     .build(),
+     *                 RolePermissionArgs.builder()
+     *                     .id(ddPerms.permissions().apiKeysWrite())
+     *                     .build())
      *             .build());
      * 
      *     }
@@ -5229,6 +5405,9 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetPermissionsArgs;
+     * import com.pulumi.datadog.Role;
+     * import com.pulumi.datadog.RoleArgs;
+     * import com.pulumi.datadog.inputs.RolePermissionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -5242,7 +5421,19 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var permissions = DatadogFunctions.getPermissions(GetPermissionsArgs.builder()
+     *         final var ddPerms = DatadogFunctions.getPermissions(GetPermissionsArgs.builder()
+     *             .build());
+     * 
+     *         // Example of using specific permissions to create an API Key Manager role
+     *         var apiKeyManager = new Role("apiKeyManager", RoleArgs.builder()
+     *             .name("API Key Manager")
+     *             .permissions(            
+     *                 RolePermissionArgs.builder()
+     *                     .id(ddPerms.permissions().apiKeysRead())
+     *                     .build(),
+     *                 RolePermissionArgs.builder()
+     *                     .id(ddPerms.permissions().apiKeysWrite())
+     *                     .build())
      *             .build());
      * 
      *     }
@@ -5268,6 +5459,9 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetPermissionsArgs;
+     * import com.pulumi.datadog.Role;
+     * import com.pulumi.datadog.RoleArgs;
+     * import com.pulumi.datadog.inputs.RolePermissionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -5281,7 +5475,19 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var permissions = DatadogFunctions.getPermissions(GetPermissionsArgs.builder()
+     *         final var ddPerms = DatadogFunctions.getPermissions(GetPermissionsArgs.builder()
+     *             .build());
+     * 
+     *         // Example of using specific permissions to create an API Key Manager role
+     *         var apiKeyManager = new Role("apiKeyManager", RoleArgs.builder()
+     *             .name("API Key Manager")
+     *             .permissions(            
+     *                 RolePermissionArgs.builder()
+     *                     .id(ddPerms.permissions().apiKeysRead())
+     *                     .build(),
+     *                 RolePermissionArgs.builder()
+     *                     .id(ddPerms.permissions().apiKeysWrite())
+     *                     .build())
      *             .build());
      * 
      *     }
@@ -5307,6 +5513,9 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetPermissionsArgs;
+     * import com.pulumi.datadog.Role;
+     * import com.pulumi.datadog.RoleArgs;
+     * import com.pulumi.datadog.inputs.RolePermissionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -5320,7 +5529,19 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var permissions = DatadogFunctions.getPermissions(GetPermissionsArgs.builder()
+     *         final var ddPerms = DatadogFunctions.getPermissions(GetPermissionsArgs.builder()
+     *             .build());
+     * 
+     *         // Example of using specific permissions to create an API Key Manager role
+     *         var apiKeyManager = new Role("apiKeyManager", RoleArgs.builder()
+     *             .name("API Key Manager")
+     *             .permissions(            
+     *                 RolePermissionArgs.builder()
+     *                     .id(ddPerms.permissions().apiKeysRead())
+     *                     .build(),
+     *                 RolePermissionArgs.builder()
+     *                     .id(ddPerms.permissions().apiKeysWrite())
+     *                     .build())
      *             .build());
      * 
      *     }
@@ -5346,6 +5567,9 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetPermissionsArgs;
+     * import com.pulumi.datadog.Role;
+     * import com.pulumi.datadog.RoleArgs;
+     * import com.pulumi.datadog.inputs.RolePermissionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -5359,7 +5583,19 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var permissions = DatadogFunctions.getPermissions(GetPermissionsArgs.builder()
+     *         final var ddPerms = DatadogFunctions.getPermissions(GetPermissionsArgs.builder()
+     *             .build());
+     * 
+     *         // Example of using specific permissions to create an API Key Manager role
+     *         var apiKeyManager = new Role("apiKeyManager", RoleArgs.builder()
+     *             .name("API Key Manager")
+     *             .permissions(            
+     *                 RolePermissionArgs.builder()
+     *                     .id(ddPerms.permissions().apiKeysRead())
+     *                     .build(),
+     *                 RolePermissionArgs.builder()
+     *                     .id(ddPerms.permissions().apiKeysWrite())
+     *                     .build())
      *             .build());
      * 
      *     }
@@ -5433,8 +5669,8 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getRole(GetRoleArgs.builder()
-     *             .filter("Datadog Standard Role")
+     *         final var apiKeyManager = DatadogFunctions.getRole(GetRoleArgs.builder()
+     *             .filter("API Key Manager")
      *             .build());
      * 
      *     }
@@ -5473,8 +5709,8 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getRole(GetRoleArgs.builder()
-     *             .filter("Datadog Standard Role")
+     *         final var apiKeyManager = DatadogFunctions.getRole(GetRoleArgs.builder()
+     *             .filter("API Key Manager")
      *             .build());
      * 
      *     }
@@ -5513,8 +5749,8 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getRole(GetRoleArgs.builder()
-     *             .filter("Datadog Standard Role")
+     *         final var apiKeyManager = DatadogFunctions.getRole(GetRoleArgs.builder()
+     *             .filter("API Key Manager")
      *             .build());
      * 
      *     }
@@ -5553,8 +5789,8 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getRole(GetRoleArgs.builder()
-     *             .filter("Datadog Standard Role")
+     *         final var apiKeyManager = DatadogFunctions.getRole(GetRoleArgs.builder()
+     *             .filter("API Key Manager")
      *             .build());
      * 
      *     }
@@ -5593,8 +5829,8 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = DatadogFunctions.getRole(GetRoleArgs.builder()
-     *             .filter("Datadog Standard Role")
+     *         final var apiKeyManager = DatadogFunctions.getRole(GetRoleArgs.builder()
+     *             .filter("API Key Manager")
      *             .build());
      * 
      *     }
@@ -5609,12 +5845,92 @@ public final class DatadogFunctions {
     /**
      * Use this data source to retrieve information about existing Datadog role users assignments. This data source is in beta and is subject to change.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetRoleArgs;
+     * import com.pulumi.datadog.inputs.GetRoleUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get the API Key Manager role
+     *         final var apiKeyManager = DatadogFunctions.getRole(GetRoleArgs.builder()
+     *             .filter("API Key Manager")
+     *             .build());
+     * 
+     *         // List users assigned to the API Key Manager role
+     *         final var apiKeyManagers = DatadogFunctions.getRoleUsers(GetRoleUsersArgs.builder()
+     *             .roleId(apiKeyManager.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetRoleUsersResult> getRoleUsers(GetRoleUsersArgs args) {
         return getRoleUsers(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to retrieve information about existing Datadog role users assignments. This data source is in beta and is subject to change.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetRoleArgs;
+     * import com.pulumi.datadog.inputs.GetRoleUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get the API Key Manager role
+     *         final var apiKeyManager = DatadogFunctions.getRole(GetRoleArgs.builder()
+     *             .filter("API Key Manager")
+     *             .build());
+     * 
+     *         // List users assigned to the API Key Manager role
+     *         final var apiKeyManagers = DatadogFunctions.getRoleUsers(GetRoleUsersArgs.builder()
+     *             .roleId(apiKeyManager.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetRoleUsersResult> getRoleUsersPlain(GetRoleUsersPlainArgs args) {
@@ -5623,6 +5939,46 @@ public final class DatadogFunctions {
     /**
      * Use this data source to retrieve information about existing Datadog role users assignments. This data source is in beta and is subject to change.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetRoleArgs;
+     * import com.pulumi.datadog.inputs.GetRoleUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get the API Key Manager role
+     *         final var apiKeyManager = DatadogFunctions.getRole(GetRoleArgs.builder()
+     *             .filter("API Key Manager")
+     *             .build());
+     * 
+     *         // List users assigned to the API Key Manager role
+     *         final var apiKeyManagers = DatadogFunctions.getRoleUsers(GetRoleUsersArgs.builder()
+     *             .roleId(apiKeyManager.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetRoleUsersResult> getRoleUsers(GetRoleUsersArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("datadog:index/getRoleUsers:getRoleUsers", TypeShape.of(GetRoleUsersResult.class), args, Utilities.withVersion(options));
@@ -5630,12 +5986,92 @@ public final class DatadogFunctions {
     /**
      * Use this data source to retrieve information about existing Datadog role users assignments. This data source is in beta and is subject to change.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetRoleArgs;
+     * import com.pulumi.datadog.inputs.GetRoleUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get the API Key Manager role
+     *         final var apiKeyManager = DatadogFunctions.getRole(GetRoleArgs.builder()
+     *             .filter("API Key Manager")
+     *             .build());
+     * 
+     *         // List users assigned to the API Key Manager role
+     *         final var apiKeyManagers = DatadogFunctions.getRoleUsers(GetRoleUsersArgs.builder()
+     *             .roleId(apiKeyManager.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetRoleUsersResult> getRoleUsers(GetRoleUsersArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("datadog:index/getRoleUsers:getRoleUsers", TypeShape.of(GetRoleUsersResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve information about existing Datadog role users assignments. This data source is in beta and is subject to change.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetRoleArgs;
+     * import com.pulumi.datadog.inputs.GetRoleUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get the API Key Manager role
+     *         final var apiKeyManager = DatadogFunctions.getRole(GetRoleArgs.builder()
+     *             .filter("API Key Manager")
+     *             .build());
+     * 
+     *         // List users assigned to the API Key Manager role
+     *         final var apiKeyManagers = DatadogFunctions.getRoleUsers(GetRoleUsersArgs.builder()
+     *             .roleId(apiKeyManager.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetRoleUsersResult> getRoleUsersPlain(GetRoleUsersPlainArgs args, InvokeOptions options) {
@@ -5668,8 +6104,8 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = DatadogFunctions.getRoles(GetRolesArgs.builder()
-     *             .filter("Datadog")
+     *         final var keyManagementRoles = DatadogFunctions.getRoles(GetRolesArgs.builder()
+     *             .filter("API Key Manager")
      *             .build());
      * 
      *     }
@@ -5708,8 +6144,8 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = DatadogFunctions.getRoles(GetRolesArgs.builder()
-     *             .filter("Datadog")
+     *         final var keyManagementRoles = DatadogFunctions.getRoles(GetRolesArgs.builder()
+     *             .filter("API Key Manager")
      *             .build());
      * 
      *     }
@@ -5748,8 +6184,8 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = DatadogFunctions.getRoles(GetRolesArgs.builder()
-     *             .filter("Datadog")
+     *         final var keyManagementRoles = DatadogFunctions.getRoles(GetRolesArgs.builder()
+     *             .filter("API Key Manager")
      *             .build());
      * 
      *     }
@@ -5788,8 +6224,8 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = DatadogFunctions.getRoles(GetRolesArgs.builder()
-     *             .filter("Datadog")
+     *         final var keyManagementRoles = DatadogFunctions.getRoles(GetRolesArgs.builder()
+     *             .filter("API Key Manager")
      *             .build());
      * 
      *     }
@@ -5828,8 +6264,8 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = DatadogFunctions.getRoles(GetRolesArgs.builder()
-     *             .filter("Datadog")
+     *         final var keyManagementRoles = DatadogFunctions.getRoles(GetRolesArgs.builder()
+     *             .filter("API Key Manager")
      *             .build());
      * 
      *     }
@@ -5868,8 +6304,8 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = DatadogFunctions.getRoles(GetRolesArgs.builder()
-     *             .filter("Datadog")
+     *         final var keyManagementRoles = DatadogFunctions.getRoles(GetRolesArgs.builder()
+     *             .filter("API Key Manager")
      *             .build());
      * 
      *     }
@@ -5908,8 +6344,8 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = DatadogFunctions.getRoles(GetRolesArgs.builder()
-     *             .filter("Datadog")
+     *         final var keyManagementRoles = DatadogFunctions.getRoles(GetRolesArgs.builder()
+     *             .filter("API Key Manager")
      *             .build());
      * 
      *     }
@@ -8143,6 +8579,41 @@ public final class DatadogFunctions {
      */
     public static CompletableFuture<GetSyntheticsTestResult> getSyntheticsTestPlain(GetSyntheticsTestPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:index/getSyntheticsTest:getSyntheticsTest", TypeShape.of(GetSyntheticsTestResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog tag pipeline ruleset.
+     * 
+     */
+    public static Output<GetTagPipelineRulesetResult> getTagPipelineRuleset(GetTagPipelineRulesetArgs args) {
+        return getTagPipelineRuleset(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog tag pipeline ruleset.
+     * 
+     */
+    public static CompletableFuture<GetTagPipelineRulesetResult> getTagPipelineRulesetPlain(GetTagPipelineRulesetPlainArgs args) {
+        return getTagPipelineRulesetPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog tag pipeline ruleset.
+     * 
+     */
+    public static Output<GetTagPipelineRulesetResult> getTagPipelineRuleset(GetTagPipelineRulesetArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getTagPipelineRuleset:getTagPipelineRuleset", TypeShape.of(GetTagPipelineRulesetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog tag pipeline ruleset.
+     * 
+     */
+    public static Output<GetTagPipelineRulesetResult> getTagPipelineRuleset(GetTagPipelineRulesetArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getTagPipelineRuleset:getTagPipelineRuleset", TypeShape.of(GetTagPipelineRulesetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog tag pipeline ruleset.
+     * 
+     */
+    public static CompletableFuture<GetTagPipelineRulesetResult> getTagPipelineRulesetPlain(GetTagPipelineRulesetPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getTagPipelineRuleset:getTagPipelineRuleset", TypeShape.of(GetTagPipelineRulesetResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve information about an existing Datadog team.

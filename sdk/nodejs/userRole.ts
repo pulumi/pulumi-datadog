@@ -13,16 +13,24 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const monitorWriterRole = new datadog.Role("monitor_writer_role", {
- *     name: "Monitor Writer Role",
- *     permissions: [{
- *         id: bar.permissions.monitorsWrite,
- *     }],
+ * // Source the permissions
+ * const ddPerms = datadog.getPermissions({});
+ * // Create an API Key Manager role
+ * const apiKeyManager = new datadog.Role("api_key_manager", {
+ *     name: "API Key Manager",
+ *     permissions: [
+ *         {
+ *             id: ddPerms.then(ddPerms => ddPerms.permissions?.apiKeysRead),
+ *         },
+ *         {
+ *             id: ddPerms.then(ddPerms => ddPerms.permissions?.apiKeysWrite),
+ *         },
+ *     ],
  * });
  * const newUser = new datadog.User("new_user", {email: "new@example.com"});
- * // Create new user_role resource
- * const newUserWithMonitorWriterRole = new datadog.UserRole("new_user_with_monitor_writer_role", {
- *     roleId: monitorWriterRole.id,
+ * // Assign the API Key Manager role to the user
+ * const newUserWithApiKeyManagerRole = new datadog.UserRole("new_user_with_api_key_manager_role", {
+ *     roleId: apiKeyManager.id,
  *     userId: newUser.id,
  * });
  * ```

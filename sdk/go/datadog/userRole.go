@@ -28,11 +28,20 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			monitorWriterRole, err := datadog.NewRole(ctx, "monitor_writer_role", &datadog.RoleArgs{
-//				Name: pulumi.String("Monitor Writer Role"),
+//			// Source the permissions
+//			ddPerms, err := datadog.GetPermissions(ctx, &datadog.GetPermissionsArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// Create an API Key Manager role
+//			apiKeyManager, err := datadog.NewRole(ctx, "api_key_manager", &datadog.RoleArgs{
+//				Name: pulumi.String("API Key Manager"),
 //				Permissions: datadog.RolePermissionArray{
 //					&datadog.RolePermissionArgs{
-//						Id: pulumi.Any(bar.Permissions.MonitorsWrite),
+//						Id: pulumi.String(ddPerms.Permissions.ApiKeysRead),
+//					},
+//					&datadog.RolePermissionArgs{
+//						Id: pulumi.String(ddPerms.Permissions.ApiKeysWrite),
 //					},
 //				},
 //			})
@@ -45,9 +54,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			// Create new user_role resource
-//			_, err = datadog.NewUserRole(ctx, "new_user_with_monitor_writer_role", &datadog.UserRoleArgs{
-//				RoleId: monitorWriterRole.ID(),
+//			// Assign the API Key Manager role to the user
+//			_, err = datadog.NewUserRole(ctx, "new_user_with_api_key_manager_role", &datadog.UserRoleArgs{
+//				RoleId: apiKeyManager.ID(),
 //				UserId: newUser.ID(),
 //			})
 //			if err != nil {
