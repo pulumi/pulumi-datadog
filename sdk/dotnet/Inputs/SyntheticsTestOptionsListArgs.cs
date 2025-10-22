@@ -24,6 +24,18 @@ namespace Pulumi.Datadog.Inputs
         [Input("allowInsecure")]
         public Input<bool>? AllowInsecure { get; set; }
 
+        [Input("blockedRequestPatterns")]
+        private InputList<string>? _blockedRequestPatterns;
+
+        /// <summary>
+        /// Blocked URL patterns. Requests made to URLs matching any of the patterns listed here will be blocked.
+        /// </summary>
+        public InputList<string> BlockedRequestPatterns
+        {
+            get => _blockedRequestPatterns ?? (_blockedRequestPatterns = new InputList<string>());
+            set => _blockedRequestPatterns = value;
+        }
+
         /// <summary>
         /// For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
         /// </summary>

@@ -57,6 +57,12 @@ namespace Pulumi.Datadog
     public partial class Monitor : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Indicates whether the monitor is in a draft or published state. When set to `Draft`, the monitor appears as Draft and does not send notifications. When set to `Published`, the monitor is active, and it evaluates conditions and sends notifications as configured.
+        /// </summary>
+        [Output("draftStatus")]
+        public Output<string?> DraftStatus { get; private set; } = null!;
+
+        /// <summary>
         /// A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log monitors. Defaults to `False`.
         /// </summary>
         [Output("enableLogsSample")]
@@ -304,6 +310,12 @@ namespace Pulumi.Datadog
     public sealed class MonitorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Indicates whether the monitor is in a draft or published state. When set to `Draft`, the monitor appears as Draft and does not send notifications. When set to `Published`, the monitor is active, and it evaluates conditions and sends notifications as configured.
+        /// </summary>
+        [Input("draftStatus")]
+        public Input<string>? DraftStatus { get; set; }
+
+        /// <summary>
         /// A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log monitors. Defaults to `False`.
         /// </summary>
         [Input("enableLogsSample")]
@@ -541,6 +553,12 @@ namespace Pulumi.Datadog
 
     public sealed class MonitorState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates whether the monitor is in a draft or published state. When set to `Draft`, the monitor appears as Draft and does not send notifications. When set to `Published`, the monitor is active, and it evaluates conditions and sends notifications as configured.
+        /// </summary>
+        [Input("draftStatus")]
+        public Input<string>? DraftStatus { get; set; }
+
         /// <summary>
         /// A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log monitors. Defaults to `False`.
         /// </summary>

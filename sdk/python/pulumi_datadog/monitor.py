@@ -25,6 +25,7 @@ class MonitorArgs:
                  name: pulumi.Input[_builtins.str],
                  query: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
+                 draft_status: Optional[pulumi.Input[_builtins.str]] = None,
                  enable_logs_sample: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_samples: Optional[pulumi.Input[_builtins.bool]] = None,
                  escalation_message: Optional[pulumi.Input[_builtins.str]] = None,
@@ -60,6 +61,7 @@ class MonitorArgs:
         :param pulumi.Input[_builtins.str] message: A message to include with notifications for this monitor.
         :param pulumi.Input[_builtins.str] name: Name of Datadog monitor.
         :param pulumi.Input[_builtins.str] type: The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type cannot be changed after a monitor is created.
+        :param pulumi.Input[_builtins.str] draft_status: Indicates whether the monitor is in a draft or published state. When set to `draft`, the monitor appears as Draft and does not send notifications. When set to `published`, the monitor is active, and it evaluates conditions and sends notifications as configured.
         :param pulumi.Input[_builtins.bool] enable_logs_sample: A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log monitors. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] enable_samples: Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline monitors.
         :param pulumi.Input[_builtins.str] escalation_message: A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
@@ -99,6 +101,8 @@ class MonitorArgs:
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "query", query)
         pulumi.set(__self__, "type", type)
+        if draft_status is not None:
+            pulumi.set(__self__, "draft_status", draft_status)
         if enable_logs_sample is not None:
             pulumi.set(__self__, "enable_logs_sample", enable_logs_sample)
         if enable_samples is not None:
@@ -210,6 +214,18 @@ class MonitorArgs:
     @type.setter
     def type(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="draftStatus")
+    def draft_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Indicates whether the monitor is in a draft or published state. When set to `draft`, the monitor appears as Draft and does not send notifications. When set to `published`, the monitor is active, and it evaluates conditions and sends notifications as configured.
+        """
+        return pulumi.get(self, "draft_status")
+
+    @draft_status.setter
+    def draft_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "draft_status", value)
 
     @_builtins.property
     @pulumi.getter(name="enableLogsSample")
@@ -577,6 +593,7 @@ class MonitorArgs:
 @pulumi.input_type
 class _MonitorState:
     def __init__(__self__, *,
+                 draft_status: Optional[pulumi.Input[_builtins.str]] = None,
                  enable_logs_sample: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_samples: Optional[pulumi.Input[_builtins.bool]] = None,
                  escalation_message: Optional[pulumi.Input[_builtins.str]] = None,
@@ -613,6 +630,7 @@ class _MonitorState:
                  variables: Optional[pulumi.Input['MonitorVariablesArgs']] = None):
         """
         Input properties used for looking up and filtering Monitor resources.
+        :param pulumi.Input[_builtins.str] draft_status: Indicates whether the monitor is in a draft or published state. When set to `draft`, the monitor appears as Draft and does not send notifications. When set to `published`, the monitor is active, and it evaluates conditions and sends notifications as configured.
         :param pulumi.Input[_builtins.bool] enable_logs_sample: A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log monitors. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] enable_samples: Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline monitors.
         :param pulumi.Input[_builtins.str] escalation_message: A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
@@ -651,6 +669,8 @@ class _MonitorState:
         :param pulumi.Input[_builtins.str] type: The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type cannot be changed after a monitor is created.
         :param pulumi.Input[_builtins.bool] validate: If set to `false`, skip the validation call done during plan.
         """
+        if draft_status is not None:
+            pulumi.set(__self__, "draft_status", draft_status)
         if enable_logs_sample is not None:
             pulumi.set(__self__, "enable_logs_sample", enable_logs_sample)
         if enable_samples is not None:
@@ -725,6 +745,18 @@ class _MonitorState:
             pulumi.set(__self__, "validate", validate)
         if variables is not None:
             pulumi.set(__self__, "variables", variables)
+
+    @_builtins.property
+    @pulumi.getter(name="draftStatus")
+    def draft_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Indicates whether the monitor is in a draft or published state. When set to `draft`, the monitor appears as Draft and does not send notifications. When set to `published`, the monitor is active, and it evaluates conditions and sends notifications as configured.
+        """
+        return pulumi.get(self, "draft_status")
+
+    @draft_status.setter
+    def draft_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "draft_status", value)
 
     @_builtins.property
     @pulumi.getter(name="enableLogsSample")
@@ -1140,6 +1172,7 @@ class Monitor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 draft_status: Optional[pulumi.Input[_builtins.str]] = None,
                  enable_logs_sample: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_samples: Optional[pulumi.Input[_builtins.bool]] = None,
                  escalation_message: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1211,6 +1244,7 @@ class Monitor(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] draft_status: Indicates whether the monitor is in a draft or published state. When set to `draft`, the monitor appears as Draft and does not send notifications. When set to `published`, the monitor is active, and it evaluates conditions and sends notifications as configured.
         :param pulumi.Input[_builtins.bool] enable_logs_sample: A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log monitors. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] enable_samples: Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline monitors.
         :param pulumi.Input[_builtins.str] escalation_message: A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
@@ -1304,6 +1338,7 @@ class Monitor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 draft_status: Optional[pulumi.Input[_builtins.str]] = None,
                  enable_logs_sample: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_samples: Optional[pulumi.Input[_builtins.bool]] = None,
                  escalation_message: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1347,6 +1382,7 @@ class Monitor(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = MonitorArgs.__new__(MonitorArgs)
 
+            __props__.__dict__["draft_status"] = draft_status
             __props__.__dict__["enable_logs_sample"] = enable_logs_sample
             __props__.__dict__["enable_samples"] = enable_samples
             __props__.__dict__["escalation_message"] = escalation_message
@@ -1399,6 +1435,7 @@ class Monitor(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            draft_status: Optional[pulumi.Input[_builtins.str]] = None,
             enable_logs_sample: Optional[pulumi.Input[_builtins.bool]] = None,
             enable_samples: Optional[pulumi.Input[_builtins.bool]] = None,
             escalation_message: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1440,6 +1477,7 @@ class Monitor(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] draft_status: Indicates whether the monitor is in a draft or published state. When set to `draft`, the monitor appears as Draft and does not send notifications. When set to `published`, the monitor is active, and it evaluates conditions and sends notifications as configured.
         :param pulumi.Input[_builtins.bool] enable_logs_sample: A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log monitors. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] enable_samples: Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline monitors.
         :param pulumi.Input[_builtins.str] escalation_message: A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
@@ -1482,6 +1520,7 @@ class Monitor(pulumi.CustomResource):
 
         __props__ = _MonitorState.__new__(_MonitorState)
 
+        __props__.__dict__["draft_status"] = draft_status
         __props__.__dict__["enable_logs_sample"] = enable_logs_sample
         __props__.__dict__["enable_samples"] = enable_samples
         __props__.__dict__["escalation_message"] = escalation_message
@@ -1517,6 +1556,14 @@ class Monitor(pulumi.CustomResource):
         __props__.__dict__["validate"] = validate
         __props__.__dict__["variables"] = variables
         return Monitor(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="draftStatus")
+    def draft_status(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Indicates whether the monitor is in a draft or published state. When set to `draft`, the monitor appears as Draft and does not send notifications. When set to `published`, the monitor is active, and it evaluates conditions and sends notifications as configured.
+        """
+        return pulumi.get(self, "draft_status")
 
     @_builtins.property
     @pulumi.getter(name="enableLogsSample")

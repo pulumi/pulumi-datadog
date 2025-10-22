@@ -29007,6 +29007,10 @@ export interface SyntheticsTestOptionsList {
      */
     allowInsecure?: boolean;
     /**
+     * Blocked URL patterns. Requests made to URLs matching any of the patterns listed here will be blocked.
+     */
+    blockedRequestPatterns?: string[];
+    /**
      * For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
      */
     checkCertificateRevocation?: boolean;
@@ -29122,11 +29126,11 @@ export interface SyntheticsTestOptionsListRumSettings {
     /**
      * RUM application ID used to collect RUM data for the browser test.
      */
-    applicationId?: string;
+    applicationId: string;
     /**
      * RUM application API key ID used to collect RUM data for the browser test.
      */
-    clientTokenId?: number;
+    clientTokenId: number;
     /**
      * Determines whether RUM data is collected during test runs.
      */

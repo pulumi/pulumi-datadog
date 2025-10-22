@@ -18132,6 +18132,9 @@
                         "maxItemsOne": true,
                         "elem": {
                             "fields": {
+                                "blocked_request_patterns": {
+                                    "maxItemsOne": false
+                                },
                                 "ci": {
                                     "maxItemsOne": true
                                 },

@@ -55,6 +55,21 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
     }
 
     /**
+     * Blocked URL patterns. Requests made to URLs matching any of the patterns listed here will be blocked.
+     * 
+     */
+    @Import(name="blockedRequestPatterns")
+    private @Nullable Output<List<String>> blockedRequestPatterns;
+
+    /**
+     * @return Blocked URL patterns. Requests made to URLs matching any of the patterns listed here will be blocked.
+     * 
+     */
+    public Optional<Output<List<String>>> blockedRequestPatterns() {
+        return Optional.ofNullable(this.blockedRequestPatterns);
+    }
+
+    /**
      * For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
      * 
      */
@@ -343,6 +358,7 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
     private SyntheticsTestOptionsListArgs(SyntheticsTestOptionsListArgs $) {
         this.acceptSelfSigned = $.acceptSelfSigned;
         this.allowInsecure = $.allowInsecure;
+        this.blockedRequestPatterns = $.blockedRequestPatterns;
         this.checkCertificateRevocation = $.checkCertificateRevocation;
         this.ci = $.ci;
         this.disableAiaIntermediateFetching = $.disableAiaIntermediateFetching;
@@ -423,6 +439,37 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
          */
         public Builder allowInsecure(Boolean allowInsecure) {
             return allowInsecure(Output.of(allowInsecure));
+        }
+
+        /**
+         * @param blockedRequestPatterns Blocked URL patterns. Requests made to URLs matching any of the patterns listed here will be blocked.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder blockedRequestPatterns(@Nullable Output<List<String>> blockedRequestPatterns) {
+            $.blockedRequestPatterns = blockedRequestPatterns;
+            return this;
+        }
+
+        /**
+         * @param blockedRequestPatterns Blocked URL patterns. Requests made to URLs matching any of the patterns listed here will be blocked.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder blockedRequestPatterns(List<String> blockedRequestPatterns) {
+            return blockedRequestPatterns(Output.of(blockedRequestPatterns));
+        }
+
+        /**
+         * @param blockedRequestPatterns Blocked URL patterns. Requests made to URLs matching any of the patterns listed here will be blocked.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder blockedRequestPatterns(String... blockedRequestPatterns) {
+            return blockedRequestPatterns(List.of(blockedRequestPatterns));
         }
 
         /**

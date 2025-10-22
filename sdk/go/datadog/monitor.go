@@ -63,6 +63,8 @@ import (
 type Monitor struct {
 	pulumi.CustomResourceState
 
+	// Indicates whether the monitor is in a draft or published state. When set to `draft`, the monitor appears as Draft and does not send notifications. When set to `published`, the monitor is active, and it evaluates conditions and sends notifications as configured.
+	DraftStatus pulumi.StringPtrOutput `pulumi:"draftStatus"`
 	// A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log monitors. Defaults to `false`.
 	EnableLogsSample pulumi.BoolPtrOutput `pulumi:"enableLogsSample"`
 	// Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline monitors.
@@ -182,6 +184,8 @@ func GetMonitor(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Monitor resources.
 type monitorState struct {
+	// Indicates whether the monitor is in a draft or published state. When set to `draft`, the monitor appears as Draft and does not send notifications. When set to `published`, the monitor is active, and it evaluates conditions and sends notifications as configured.
+	DraftStatus *string `pulumi:"draftStatus"`
 	// A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log monitors. Defaults to `false`.
 	EnableLogsSample *bool `pulumi:"enableLogsSample"`
 	// Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline monitors.
@@ -260,6 +264,8 @@ type monitorState struct {
 }
 
 type MonitorState struct {
+	// Indicates whether the monitor is in a draft or published state. When set to `draft`, the monitor appears as Draft and does not send notifications. When set to `published`, the monitor is active, and it evaluates conditions and sends notifications as configured.
+	DraftStatus pulumi.StringPtrInput
 	// A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log monitors. Defaults to `false`.
 	EnableLogsSample pulumi.BoolPtrInput
 	// Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline monitors.
@@ -342,6 +348,8 @@ func (MonitorState) ElementType() reflect.Type {
 }
 
 type monitorArgs struct {
+	// Indicates whether the monitor is in a draft or published state. When set to `draft`, the monitor appears as Draft and does not send notifications. When set to `published`, the monitor is active, and it evaluates conditions and sends notifications as configured.
+	DraftStatus *string `pulumi:"draftStatus"`
 	// A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log monitors. Defaults to `false`.
 	EnableLogsSample *bool `pulumi:"enableLogsSample"`
 	// Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline monitors.
@@ -421,6 +429,8 @@ type monitorArgs struct {
 
 // The set of arguments for constructing a Monitor resource.
 type MonitorArgs struct {
+	// Indicates whether the monitor is in a draft or published state. When set to `draft`, the monitor appears as Draft and does not send notifications. When set to `published`, the monitor is active, and it evaluates conditions and sends notifications as configured.
+	DraftStatus pulumi.StringPtrInput
 	// A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log monitors. Defaults to `false`.
 	EnableLogsSample pulumi.BoolPtrInput
 	// Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline monitors.
@@ -583,6 +593,11 @@ func (o MonitorOutput) ToMonitorOutput() MonitorOutput {
 
 func (o MonitorOutput) ToMonitorOutputWithContext(ctx context.Context) MonitorOutput {
 	return o
+}
+
+// Indicates whether the monitor is in a draft or published state. When set to `draft`, the monitor appears as Draft and does not send notifications. When set to `published`, the monitor is active, and it evaluates conditions and sends notifications as configured.
+func (o MonitorOutput) DraftStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.DraftStatus }).(pulumi.StringPtrOutput)
 }
 
 // A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log monitors. Defaults to `false`.

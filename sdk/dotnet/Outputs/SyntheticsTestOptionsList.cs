@@ -22,6 +22,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? AllowInsecure;
         /// <summary>
+        /// Blocked URL patterns. Requests made to URLs matching any of the patterns listed here will be blocked.
+        /// </summary>
+        public readonly ImmutableArray<string> BlockedRequestPatterns;
+        /// <summary>
         /// For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
         /// </summary>
         public readonly bool? CheckCertificateRevocation;
@@ -99,6 +103,8 @@ namespace Pulumi.Datadog.Outputs
 
             bool? allowInsecure,
 
+            ImmutableArray<string> blockedRequestPatterns,
+
             bool? checkCertificateRevocation,
 
             Outputs.SyntheticsTestOptionsListCi? ci,
@@ -141,6 +147,7 @@ namespace Pulumi.Datadog.Outputs
         {
             AcceptSelfSigned = acceptSelfSigned;
             AllowInsecure = allowInsecure;
+            BlockedRequestPatterns = blockedRequestPatterns;
             CheckCertificateRevocation = checkCertificateRevocation;
             Ci = ci;
             DisableAiaIntermediateFetching = disableAiaIntermediateFetching;

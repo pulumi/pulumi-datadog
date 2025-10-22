@@ -82,6 +82,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="datadog:index/monitor:Monitor")
 public class Monitor extends com.pulumi.resources.CustomResource {
     /**
+     * Indicates whether the monitor is in a draft or published state. When set to `draft`, the monitor appears as Draft and does not send notifications. When set to `published`, the monitor is active, and it evaluates conditions and sends notifications as configured.
+     * 
+     */
+    @Export(name="draftStatus", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> draftStatus;
+
+    /**
+     * @return Indicates whether the monitor is in a draft or published state. When set to `draft`, the monitor appears as Draft and does not send notifications. When set to `published`, the monitor is active, and it evaluates conditions and sends notifications as configured.
+     * 
+     */
+    public Output<Optional<String>> draftStatus() {
+        return Codegen.optional(this.draftStatus);
+    }
+    /**
      * A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log monitors. Defaults to `false`.
      * 
      */

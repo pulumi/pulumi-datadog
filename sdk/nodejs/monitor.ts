@@ -70,6 +70,10 @@ export class Monitor extends pulumi.CustomResource {
     }
 
     /**
+     * Indicates whether the monitor is in a draft or published state. When set to `draft`, the monitor appears as Draft and does not send notifications. When set to `published`, the monitor is active, and it evaluates conditions and sends notifications as configured.
+     */
+    declare public readonly draftStatus: pulumi.Output<string | undefined>;
+    /**
      * A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log monitors. Defaults to `false`.
      */
     declare public readonly enableLogsSample: pulumi.Output<boolean | undefined>;
@@ -220,6 +224,7 @@ export class Monitor extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MonitorState | undefined;
+            resourceInputs["draftStatus"] = state?.draftStatus;
             resourceInputs["enableLogsSample"] = state?.enableLogsSample;
             resourceInputs["enableSamples"] = state?.enableSamples;
             resourceInputs["escalationMessage"] = state?.escalationMessage;
@@ -268,6 +273,7 @@ export class Monitor extends pulumi.CustomResource {
             if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
+            resourceInputs["draftStatus"] = args?.draftStatus;
             resourceInputs["enableLogsSample"] = args?.enableLogsSample;
             resourceInputs["enableSamples"] = args?.enableSamples;
             resourceInputs["escalationMessage"] = args?.escalationMessage;
@@ -312,6 +318,10 @@ export class Monitor extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Monitor resources.
  */
 export interface MonitorState {
+    /**
+     * Indicates whether the monitor is in a draft or published state. When set to `draft`, the monitor appears as Draft and does not send notifications. When set to `published`, the monitor is active, and it evaluates conditions and sends notifications as configured.
+     */
+    draftStatus?: pulumi.Input<string>;
     /**
      * A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log monitors. Defaults to `false`.
      */
@@ -455,6 +465,10 @@ export interface MonitorState {
  * The set of arguments for constructing a Monitor resource.
  */
 export interface MonitorArgs {
+    /**
+     * Indicates whether the monitor is in a draft or published state. When set to `draft`, the monitor appears as Draft and does not send notifications. When set to `published`, the monitor is active, and it evaluates conditions and sends notifications as configured.
+     */
+    draftStatus?: pulumi.Input<string>;
     /**
      * A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log monitors. Defaults to `false`.
      */
