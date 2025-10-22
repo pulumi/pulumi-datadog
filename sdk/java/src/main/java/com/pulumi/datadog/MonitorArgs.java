@@ -24,6 +24,21 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
     public static final MonitorArgs Empty = new MonitorArgs();
 
     /**
+     * Indicates whether the monitor is in a draft or published state. When set to `draft`, the monitor appears as Draft and does not send notifications. When set to `published`, the monitor is active, and it evaluates conditions and sends notifications as configured.
+     * 
+     */
+    @Import(name="draftStatus")
+    private @Nullable Output<String> draftStatus;
+
+    /**
+     * @return Indicates whether the monitor is in a draft or published state. When set to `draft`, the monitor appears as Draft and does not send notifications. When set to `published`, the monitor is active, and it evaluates conditions and sends notifications as configured.
+     * 
+     */
+    public Optional<Output<String>> draftStatus() {
+        return Optional.ofNullable(this.draftStatus);
+    }
+
+    /**
      * A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log monitors. Defaults to `false`.
      * 
      */
@@ -540,6 +555,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
     private MonitorArgs() {}
 
     private MonitorArgs(MonitorArgs $) {
+        this.draftStatus = $.draftStatus;
         this.enableLogsSample = $.enableLogsSample;
         this.enableSamples = $.enableSamples;
         this.escalationMessage = $.escalationMessage;
@@ -592,6 +608,27 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(MonitorArgs defaults) {
             $ = new MonitorArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param draftStatus Indicates whether the monitor is in a draft or published state. When set to `draft`, the monitor appears as Draft and does not send notifications. When set to `published`, the monitor is active, and it evaluates conditions and sends notifications as configured.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder draftStatus(@Nullable Output<String> draftStatus) {
+            $.draftStatus = draftStatus;
+            return this;
+        }
+
+        /**
+         * @param draftStatus Indicates whether the monitor is in a draft or published state. When set to `draft`, the monitor appears as Draft and does not send notifications. When set to `published`, the monitor is active, and it evaluates conditions and sends notifications as configured.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder draftStatus(String draftStatus) {
+            return draftStatus(Output.of(draftStatus));
         }
 
         /**

@@ -31,6 +31,11 @@ public final class SyntheticsTestOptionsList {
      */
     private @Nullable Boolean allowInsecure;
     /**
+     * @return Blocked URL patterns. Requests made to URLs matching any of the patterns listed here will be blocked.
+     * 
+     */
+    private @Nullable List<String> blockedRequestPatterns;
+    /**
      * @return For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
      * 
      */
@@ -137,6 +142,13 @@ public final class SyntheticsTestOptionsList {
      */
     public Optional<Boolean> allowInsecure() {
         return Optional.ofNullable(this.allowInsecure);
+    }
+    /**
+     * @return Blocked URL patterns. Requests made to URLs matching any of the patterns listed here will be blocked.
+     * 
+     */
+    public List<String> blockedRequestPatterns() {
+        return this.blockedRequestPatterns == null ? List.of() : this.blockedRequestPatterns;
     }
     /**
      * @return For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
@@ -282,6 +294,7 @@ public final class SyntheticsTestOptionsList {
     public static final class Builder {
         private @Nullable Boolean acceptSelfSigned;
         private @Nullable Boolean allowInsecure;
+        private @Nullable List<String> blockedRequestPatterns;
         private @Nullable Boolean checkCertificateRevocation;
         private @Nullable SyntheticsTestOptionsListCi ci;
         private @Nullable Boolean disableAiaIntermediateFetching;
@@ -307,6 +320,7 @@ public final class SyntheticsTestOptionsList {
     	      Objects.requireNonNull(defaults);
     	      this.acceptSelfSigned = defaults.acceptSelfSigned;
     	      this.allowInsecure = defaults.allowInsecure;
+    	      this.blockedRequestPatterns = defaults.blockedRequestPatterns;
     	      this.checkCertificateRevocation = defaults.checkCertificateRevocation;
     	      this.ci = defaults.ci;
     	      this.disableAiaIntermediateFetching = defaults.disableAiaIntermediateFetching;
@@ -340,6 +354,15 @@ public final class SyntheticsTestOptionsList {
 
             this.allowInsecure = allowInsecure;
             return this;
+        }
+        @CustomType.Setter
+        public Builder blockedRequestPatterns(@Nullable List<String> blockedRequestPatterns) {
+
+            this.blockedRequestPatterns = blockedRequestPatterns;
+            return this;
+        }
+        public Builder blockedRequestPatterns(String... blockedRequestPatterns) {
+            return blockedRequestPatterns(List.of(blockedRequestPatterns));
         }
         @CustomType.Setter
         public Builder checkCertificateRevocation(@Nullable Boolean checkCertificateRevocation) {
@@ -470,6 +493,7 @@ public final class SyntheticsTestOptionsList {
             final var _resultValue = new SyntheticsTestOptionsList();
             _resultValue.acceptSelfSigned = acceptSelfSigned;
             _resultValue.allowInsecure = allowInsecure;
+            _resultValue.blockedRequestPatterns = blockedRequestPatterns;
             _resultValue.checkCertificateRevocation = checkCertificateRevocation;
             _resultValue.ci = ci;
             _resultValue.disableAiaIntermediateFetching = disableAiaIntermediateFetching;

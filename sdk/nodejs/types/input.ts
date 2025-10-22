@@ -28574,6 +28574,10 @@ export interface SyntheticsTestOptionsList {
      */
     allowInsecure?: pulumi.Input<boolean>;
     /**
+     * Blocked URL patterns. Requests made to URLs matching any of the patterns listed here will be blocked.
+     */
+    blockedRequestPatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
      */
     checkCertificateRevocation?: pulumi.Input<boolean>;
