@@ -22,9 +22,7 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     // Source the permissions for scoped keys
-    ///     var ddPerms = Datadog.GetPermissions.Invoke();
-    /// 
+    ///     // See the permissions available for scoped keys at https://docs.datadoghq.com/account_management/rbac/permissions/#permissions-list
     ///     // Create an unrestricted Application Key
     ///     // This key inherits all permissions of the user that owns the key
     ///     var unrestrictedKey = new Datadog.ApplicationKey("unrestricted_key", new()
@@ -38,8 +36,8 @@ namespace Pulumi.Datadog
     ///         Name = "Monitor Management Key",
     ///         Scopes = new[]
     ///         {
-    ///             ddPerms.Apply(getPermissionsResult =&gt; getPermissionsResult.Permissions?.MonitorsRead),
-    ///             ddPerms.Apply(getPermissionsResult =&gt; getPermissionsResult.Permissions?.MonitorsWrite),
+    ///             "monitors_read",
+    ///             "monitors_write",
     ///         },
     ///     });
     /// 
