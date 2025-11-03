@@ -14,7 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class GetCsmThreatsAgentRulesAgentRuleActionSetResult
     {
         public readonly bool Append;
+        public readonly string DefaultValue;
+        public readonly string Expression;
         public readonly string Field;
+        public readonly bool Inherited;
         public readonly string Name;
         public readonly string Scope;
         public readonly int Size;
@@ -25,7 +28,13 @@ namespace Pulumi.Datadog.Outputs
         private GetCsmThreatsAgentRulesAgentRuleActionSetResult(
             bool append,
 
+            string defaultValue,
+
+            string expression,
+
             string field,
+
+            bool inherited,
 
             string name,
 
@@ -38,7 +47,10 @@ namespace Pulumi.Datadog.Outputs
             string value)
         {
             Append = append;
+            DefaultValue = defaultValue;
+            Expression = expression;
             Field = field;
+            Inherited = inherited;
             Name = name;
             Scope = scope;
             Size = size;
