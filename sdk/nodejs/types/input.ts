@@ -460,9 +460,21 @@ export interface CsmThreatsAgentRuleActionSet {
      */
     append?: pulumi.Input<boolean>;
     /**
+     * The default value to set
+     */
+    defaultValue?: pulumi.Input<string>;
+    /**
+     * The expression to use for the set action
+     */
+    expression?: pulumi.Input<string>;
+    /**
      * The field to get the value from
      */
     field?: pulumi.Input<string>;
+    /**
+     * Whether the set action is inherited
+     */
+    inherited?: pulumi.Input<boolean>;
     /**
      * The name of the set action
      */

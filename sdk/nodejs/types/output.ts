@@ -460,9 +460,21 @@ export interface CsmThreatsAgentRuleActionSet {
      */
     append: boolean;
     /**
+     * The default value to set
+     */
+    defaultValue: string;
+    /**
+     * The expression to use for the set action
+     */
+    expression: string;
+    /**
      * The field to get the value from
      */
     field: string;
+    /**
+     * Whether the set action is inherited
+     */
+    inherited: boolean;
     /**
      * The name of the set action
      */
@@ -9769,7 +9781,10 @@ export interface GetCsmThreatsAgentRulesAgentRuleActionHash {
 
 export interface GetCsmThreatsAgentRulesAgentRuleActionSet {
     append: boolean;
+    defaultValue: string;
+    expression: string;
     field: string;
+    inherited: boolean;
     name: string;
     scope: string;
     size: number;

@@ -129,8 +129,7 @@ class ApplicationKey(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        # Source the permissions for scoped keys
-        dd_perms = datadog.get_permissions()
+        # See the permissions available for scoped keys at https://docs.datadoghq.com/account_management/rbac/permissions/#permissions-list
         # Create an unrestricted Application Key
         # This key inherits all permissions of the user that owns the key
         unrestricted_key = datadog.ApplicationKey("unrestricted_key", name="Unrestricted Application Key")
@@ -138,8 +137,8 @@ class ApplicationKey(pulumi.CustomResource):
         monitor_management_key = datadog.ApplicationKey("monitor_management_key",
             name="Monitor Management Key",
             scopes=[
-                dd_perms.permissions["monitorsRead"],
-                dd_perms.permissions["monitorsWrite"],
+                "monitors_read",
+                "monitors_write",
             ])
         ```
 
@@ -171,8 +170,7 @@ class ApplicationKey(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        # Source the permissions for scoped keys
-        dd_perms = datadog.get_permissions()
+        # See the permissions available for scoped keys at https://docs.datadoghq.com/account_management/rbac/permissions/#permissions-list
         # Create an unrestricted Application Key
         # This key inherits all permissions of the user that owns the key
         unrestricted_key = datadog.ApplicationKey("unrestricted_key", name="Unrestricted Application Key")
@@ -180,8 +178,8 @@ class ApplicationKey(pulumi.CustomResource):
         monitor_management_key = datadog.ApplicationKey("monitor_management_key",
             name="Monitor Management Key",
             scopes=[
-                dd_perms.permissions["monitorsRead"],
-                dd_perms.permissions["monitorsWrite"],
+                "monitors_read",
+                "monitors_write",
             ])
         ```
 

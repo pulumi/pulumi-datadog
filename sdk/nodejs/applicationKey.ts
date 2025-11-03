@@ -13,8 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * // Source the permissions for scoped keys
- * const ddPerms = datadog.getPermissions({});
+ * // See the permissions available for scoped keys at https://docs.datadoghq.com/account_management/rbac/permissions/#permissions-list
  * // Create an unrestricted Application Key
  * // This key inherits all permissions of the user that owns the key
  * const unrestrictedKey = new datadog.ApplicationKey("unrestricted_key", {name: "Unrestricted Application Key"});
@@ -22,8 +21,8 @@ import * as utilities from "./utilities";
  * const monitorManagementKey = new datadog.ApplicationKey("monitor_management_key", {
  *     name: "Monitor Management Key",
  *     scopes: [
- *         ddPerms.then(ddPerms => ddPerms.permissions?.monitorsRead),
- *         ddPerms.then(ddPerms => ddPerms.permissions?.monitorsWrite),
+ *         "monitors_read",
+ *         "monitors_write",
  *     ],
  * });
  * ```
