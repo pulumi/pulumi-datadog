@@ -74,6 +74,17 @@ class OpenapiApi(pulumi.CustomResource):
         """
         Deprecated: use the `SoftwareCatalog` resource instead. Provides a Datadog OpenAPI resource. This can be used to synchronize Datadog's [API catalog](https://docs.datadoghq.com/api_catalog/) with an [OpenAPI](https://www.openapis.org/) specifications file.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+        import pulumi_std as std
+
+        # Uploads an OpenAPI file from the given local path to Datadog's API catalog
+        my_api = datadog.OpenapiApi("my-api", spec=std.index.file(input="./path/my-api.yaml")["result"])
+        ```
+
         ## Import
 
         The `pulumi import` command can be used, for example:
@@ -94,6 +105,17 @@ class OpenapiApi(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Deprecated: use the `SoftwareCatalog` resource instead. Provides a Datadog OpenAPI resource. This can be used to synchronize Datadog's [API catalog](https://docs.datadoghq.com/api_catalog/) with an [OpenAPI](https://www.openapis.org/) specifications file.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+        import pulumi_std as std
+
+        # Uploads an OpenAPI file from the given local path to Datadog's API catalog
+        my_api = datadog.OpenapiApi("my-api", spec=std.index.file(input="./path/my-api.yaml")["result"])
+        ```
 
         ## Import
 

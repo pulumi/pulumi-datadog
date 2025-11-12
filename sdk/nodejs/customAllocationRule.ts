@@ -11,6 +11,33 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * // Create new datadog_custom_allocation_rule resource
+ * const myAllocationRule = new datadog.CustomAllocationRule("my_allocation_rule", {
+ *     costsToAllocates: [{
+ *         condition: "is",
+ *         tag: "aws_product",
+ *         value: "ec2",
+ *     }],
+ *     enabled: true,
+ *     providernames: ["aws"],
+ *     ruleName: "my-allocation-rule",
+ *     strategy: [{
+ *         allocatedByTagKeys: ["team"],
+ *         basedOnCosts: [{
+ *             condition: "is",
+ *             tag: "env",
+ *             value: "prod",
+ *         }],
+ *         granularity: "daily",
+ *         method: "even",
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * The `pulumi import` command can be used, for example:

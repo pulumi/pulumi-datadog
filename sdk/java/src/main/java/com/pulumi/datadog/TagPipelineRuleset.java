@@ -23,6 +23,84 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.TagPipelineRuleset;
+ * import com.pulumi.datadog.TagPipelineRulesetArgs;
+ * import com.pulumi.datadog.inputs.TagPipelineRulesetRuleArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new TagPipelineRuleset("example", TagPipelineRulesetArgs.builder()
+ *             .name("Complete Tag Pipeline Example")
+ *             .enabled(true)
+ *             .rules(            
+ *                 TagPipelineRulesetRuleArgs.builder()
+ *                     .name("standardize-environment")
+ *                     .enabled(true)
+ *                     .mapping(TagPipelineRulesetRuleMappingArgs.builder()
+ *                         .destinationKey("env")
+ *                         .ifNotExists(true)
+ *                         .sourceKeys(                        
+ *                             "environment",
+ *                             "stage",
+ *                             "tier")
+ *                         .build())
+ *                     .build(),
+ *                 TagPipelineRulesetRuleArgs.builder()
+ *                     .name("assign-team-tags")
+ *                     .enabled(true)
+ *                     .query(TagPipelineRulesetRuleQueryArgs.builder()
+ *                         .query("service:web* OR service:frontend*")
+ *                         .caseInsensitivity(true)
+ *                         .ifNotExists(true)
+ *                         .addition(TagPipelineRulesetRuleQueryAdditionArgs.builder()
+ *                             .key("team")
+ *                             .value("frontend")
+ *                             .build())
+ *                         .build())
+ *                     .build(),
+ *                 TagPipelineRulesetRuleArgs.builder()
+ *                     .name("enrich-service-metadata")
+ *                     .enabled(true)
+ *                     .referenceTable(TagPipelineRulesetRuleReferenceTableArgs.builder()
+ *                         .tableName("service_catalog")
+ *                         .caseInsensitivity(true)
+ *                         .ifNotExists(true)
+ *                         .sourceKeys("service")
+ *                         .fieldPairs(                        
+ *                             TagPipelineRulesetRuleReferenceTableFieldPairArgs.builder()
+ *                                 .inputColumn("owner_team")
+ *                                 .outputKey("owner")
+ *                                 .build(),
+ *                             TagPipelineRulesetRuleReferenceTableFieldPairArgs.builder()
+ *                                 .inputColumn("business_unit")
+ *                                 .outputKey("business_unit")
+ *                                 .build())
+ *                         .build())
+ *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * The `pulumi import` command can be used, for example:

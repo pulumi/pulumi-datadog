@@ -14,6 +14,45 @@ namespace Pulumi.Datadog
     /// 
     /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Create new Azure Usage Cost configuration resource
+    ///     var example = new Datadog.AzureUcConfig("example", new()
+    ///     {
+    ///         AccountId = "12345678-1234-abcd-1234-123456789012",
+    ///         ClientId = "87654321-4321-dcba-4321-210987654321",
+    ///         Scope = "/subscriptions/12345678-1234-abcd-1234-123456789012",
+    ///         ActualBillConfig = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "exportName", "my-actual-export" },
+    ///                 { "exportPath", "exports/actual" },
+    ///                 { "storageAccount", "mystorageaccount" },
+    ///                 { "storageContainer", "cost-exports" },
+    ///             },
+    ///         },
+    ///         AmortizedBillConfig = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "exportName", "my-amortized-export" },
+    ///                 { "exportPath", "exports/amortized" },
+    ///                 { "storageAccount", "mystorageaccount" },
+    ///                 { "storageContainer", "cost-exports" },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// The `pulumi import` command can be used, for example:

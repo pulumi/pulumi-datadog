@@ -176,6 +176,63 @@ class TagPipelineRuleset(pulumi.CustomResource):
 
         ## Example Usage
 
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        example = datadog.TagPipelineRuleset("example",
+            name="Complete Tag Pipeline Example",
+            enabled=True,
+            rules=[
+                {
+                    "name": "standardize-environment",
+                    "enabled": True,
+                    "mapping": [{
+                        "destinationKey": "env",
+                        "ifNotExists": True,
+                        "sourceKeys": [
+                            "environment",
+                            "stage",
+                            "tier",
+                        ],
+                    }],
+                },
+                {
+                    "name": "assign-team-tags",
+                    "enabled": True,
+                    "query": [{
+                        "query": "service:web* OR service:frontend*",
+                        "caseInsensitivity": True,
+                        "ifNotExists": True,
+                        "addition": [{
+                            "key": "team",
+                            "value": "frontend",
+                        }],
+                    }],
+                },
+                {
+                    "name": "enrich-service-metadata",
+                    "enabled": True,
+                    "reference_table": [{
+                        "tableName": "service_catalog",
+                        "caseInsensitivity": True,
+                        "ifNotExists": True,
+                        "sourceKeys": ["service"],
+                        "fieldPairs": [
+                            {
+                                "inputColumn": "owner_team",
+                                "outputKey": "owner",
+                            },
+                            {
+                                "inputColumn": "business_unit",
+                                "outputKey": "business_unit",
+                            },
+                        ],
+                    }],
+                },
+            ])
+        ```
+
         ## Import
 
         The `pulumi import` command can be used, for example:
@@ -200,6 +257,63 @@ class TagPipelineRuleset(pulumi.CustomResource):
         Provides a Datadog Tag Pipeline Ruleset resource.
 
         ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        example = datadog.TagPipelineRuleset("example",
+            name="Complete Tag Pipeline Example",
+            enabled=True,
+            rules=[
+                {
+                    "name": "standardize-environment",
+                    "enabled": True,
+                    "mapping": [{
+                        "destinationKey": "env",
+                        "ifNotExists": True,
+                        "sourceKeys": [
+                            "environment",
+                            "stage",
+                            "tier",
+                        ],
+                    }],
+                },
+                {
+                    "name": "assign-team-tags",
+                    "enabled": True,
+                    "query": [{
+                        "query": "service:web* OR service:frontend*",
+                        "caseInsensitivity": True,
+                        "ifNotExists": True,
+                        "addition": [{
+                            "key": "team",
+                            "value": "frontend",
+                        }],
+                    }],
+                },
+                {
+                    "name": "enrich-service-metadata",
+                    "enabled": True,
+                    "reference_table": [{
+                        "tableName": "service_catalog",
+                        "caseInsensitivity": True,
+                        "ifNotExists": True,
+                        "sourceKeys": ["service"],
+                        "fieldPairs": [
+                            {
+                                "inputColumn": "owner_team",
+                                "outputKey": "owner",
+                            },
+                            {
+                                "inputColumn": "business_unit",
+                                "outputKey": "business_unit",
+                            },
+                        ],
+                    }],
+                },
+            ])
+        ```
 
         ## Import
 

@@ -22,6 +22,91 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.ObservabilityPipeline;
+ * import com.pulumi.datadog.ObservabilityPipelineArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new ObservabilityPipeline("test", ObservabilityPipelineArgs.builder()
+ *             .name("test pipeline")
+ *             .config(ObservabilityPipelineConfigArgs.builder()
+ *                 .sources(ObservabilityPipelineConfigSourcesArgs.builder()
+ *                     .kafkas(ObservabilityPipelineConfigSourcesKafkaArgs.builder()
+ *                         .id("source-1")
+ *                         .groupId("my-consumer-group")
+ *                         .topics(                        
+ *                             "my-topic-1",
+ *                             "my-topic-2")
+ *                         .tls(ObservabilityPipelineConfigSourcesKafkaTlsArgs.builder()
+ *                             .crtFile("/etc/certs/client.crt")
+ *                             .keyFile("/etc/certs/client.key")
+ *                             .caFile("/etc/certs/ca.crt")
+ *                             .build())
+ *                         .sasl(ObservabilityPipelineConfigSourcesKafkaSaslArgs.builder()
+ *                             .mechanism("SCRAM-SHA-512")
+ *                             .build())
+ *                         .librdkafkaOptions(                        
+ *                             ObservabilityPipelineConfigSourcesKafkaLibrdkafkaOptionArgs.builder()
+ *                                 .name("fetch.message.max.bytes")
+ *                                 .value("1048576")
+ *                                 .build(),
+ *                             ObservabilityPipelineConfigSourcesKafkaLibrdkafkaOptionArgs.builder()
+ *                                 .name("socket.timeout.ms")
+ *                                 .value("500")
+ *                                 .build())
+ *                         .build())
+ *                     .build())
+ *                 .processors(ObservabilityPipelineConfigProcessorsArgs.builder()
+ *                     .parseJsons(                    
+ *                         ObservabilityPipelineConfigProcessorsParseJsonArgs.builder()
+ *                             .id("filter-1")
+ *                             .include("service:nginx")
+ *                             .field("message2")
+ *                             .inputs("source-1")
+ *                             .build(),
+ *                         ObservabilityPipelineConfigProcessorsParseJsonArgs.builder()
+ *                             .id("filter-3")
+ *                             .include("service:nginx")
+ *                             .field("message")
+ *                             .inputs("filter-2")
+ *                             .build())
+ *                     .filters(ObservabilityPipelineConfigProcessorsFilterArgs.builder()
+ *                         .id("filter-2")
+ *                         .include("service:nginx")
+ *                         .inputs("filter-1")
+ *                         .build())
+ *                     .build())
+ *                 .destinations(ObservabilityPipelineConfigDestinationsArgs.builder()
+ *                     .datadogLogs(ObservabilityPipelineConfigDestinationsDatadogLogArgs.builder()
+ *                         .id("sink-1")
+ *                         .inputs("filter-3")
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * The `pulumi import` command can be used, for example:
