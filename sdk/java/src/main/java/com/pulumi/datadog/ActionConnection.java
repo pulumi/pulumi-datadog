@@ -21,6 +21,93 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.ActionConnection;
+ * import com.pulumi.datadog.ActionConnectionArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var config = ctx.config();
+ *         var awsConnection = new ActionConnection("awsConnection", ActionConnectionArgs.builder()
+ *             .name("My AWS Connection")
+ *             .aws(ActionConnectionAwsArgs.builder()
+ *                 .assumeRole(ActionConnectionAwsAssumeRoleArgs.builder()
+ *                     .accountId("123456789012")
+ *                     .role("role2")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         final var token1 = config.get("token1");
+ *         final var token2 = config.get("token2");
+ *         var httpConnection = new ActionConnection("httpConnection", ActionConnectionArgs.builder()
+ *             .name("My HTTP connection with token auth")
+ *             .http(ActionConnectionHttpArgs.builder()
+ *                 .baseUrl("https://catfact.ninja")
+ *                 .tokenAuth(ActionConnectionHttpTokenAuthArgs.builder()
+ *                     .tokens(                    
+ *                         ActionConnectionHttpTokenAuthTokenArgs.builder()
+ *                             .type("SECRET")
+ *                             .name("token1")
+ *                             .value(token1)
+ *                             .build(),
+ *                         ActionConnectionHttpTokenAuthTokenArgs.builder()
+ *                             .type("SECRET")
+ *                             .name("token2")
+ *                             .value(token2)
+ *                             .build())
+ *                     .headers(                    
+ *                         ActionConnectionHttpTokenAuthHeaderArgs.builder()
+ *                             .name("header-one")
+ *                             .value("headerval")
+ *                             .build(),
+ *                         ActionConnectionHttpTokenAuthHeaderArgs.builder()
+ *                             .name("h2")
+ *                             .value("{{ token1 }} test")
+ *                             .build())
+ *                     .urlParameters(                    
+ *                         ActionConnectionHttpTokenAuthUrlParameterArgs.builder()
+ *                             .name("param1")
+ *                             .value("{{ token1 }}")
+ *                             .build(),
+ *                         ActionConnectionHttpTokenAuthUrlParameterArgs.builder()
+ *                             .name("param2")
+ *                             .value("paramVal2")
+ *                             .build())
+ *                     .body(ActionConnectionHttpTokenAuthBodyArgs.builder()
+ *                         .contentType("application/json")
+ *                         .content(serializeJson(
+ *                             jsonObject(
+ *                                 jsonProperty("key", "mykey"),
+ *                                 jsonProperty("value", "maybe with a secret: {{ token2 }}")
+ *                             )))
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * The `pulumi import` command can be used, for example:

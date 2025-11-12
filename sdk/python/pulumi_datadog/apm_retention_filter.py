@@ -240,6 +240,21 @@ class ApmRetentionFilter(pulumi.CustomResource):
 
         ## Example Usage
 
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create APM retention filter
+        foo = datadog.ApmRetentionFilter("foo",
+            name="Sample order",
+            rate="1.0",
+            filter=[{
+                "query": "service:sample AND env:production AND @http.method:GET AND app:sampleapp AND @http.status_code:200 AND @duration:>600000000",
+            }],
+            filter_type="spans-sampling-processor",
+            enabled=False)
+        ```
+
         ## Import
 
         The `pulumi import` command can be used, for example:
@@ -269,6 +284,21 @@ class ApmRetentionFilter(pulumi.CustomResource):
         The object describing the configuration of the retention filter to create/update.
 
         ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create APM retention filter
+        foo = datadog.ApmRetentionFilter("foo",
+            name="Sample order",
+            rate="1.0",
+            filter=[{
+                "query": "service:sample AND env:production AND @http.method:GET AND app:sampleapp AND @http.status_code:200 AND @duration:>600000000",
+            }],
+            filter_type="spans-sampling-processor",
+            enabled=False)
+        ```
 
         ## Import
 

@@ -14,6 +14,58 @@ namespace Pulumi.Datadog
     /// 
     /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Create new datadog_custom_allocation_rule resource
+    ///     var myAllocationRule = new Datadog.CustomAllocationRule("my_allocation_rule", new()
+    ///     {
+    ///         CostsToAllocates = new[]
+    ///         {
+    ///             new Datadog.Inputs.CustomAllocationRuleCostsToAllocateArgs
+    ///             {
+    ///                 Condition = "is",
+    ///                 Tag = "aws_product",
+    ///                 Value = "ec2",
+    ///             },
+    ///         },
+    ///         Enabled = true,
+    ///         Providernames = new[]
+    ///         {
+    ///             "aws",
+    ///         },
+    ///         RuleName = "my-allocation-rule",
+    ///         Strategy = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "allocatedByTagKeys", new[]
+    ///                 {
+    ///                     "team",
+    ///                 } },
+    ///                 { "basedOnCosts", new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "condition", "is" },
+    ///                         { "tag", "env" },
+    ///                         { "value", "prod" },
+    ///                     },
+    ///                 } },
+    ///                 { "granularity", "daily" },
+    ///                 { "method", "even" },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// The `pulumi import` command can be used, for example:

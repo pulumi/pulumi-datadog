@@ -16,6 +16,102 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create a new WAF custom rule to block a custom IoC
+//			_, err := datadog.NewAppsecWafCustomRule(ctx, "ioc000", &datadog.AppsecWafCustomRuleArgs{
+//				Name:     pulumi.String("Block requests from a bad actor"),
+//				Blocking: pulumi.Bool(true),
+//				Enabled:  pulumi.Bool(true),
+//				Tags: pulumi.StringMap{
+//					"category": pulumi.String("attack_attempt"),
+//					"type":     pulumi.String("custom_ioc"),
+//				},
+//				PathGlob: pulumi.String("/db/*"),
+//				Conditions: datadog.AppsecWafCustomRuleConditionArray{
+//					&datadog.AppsecWafCustomRuleConditionArgs{
+//						Operator: pulumi.String("match_regex"),
+//						Parameters: datadog.AppsecWafCustomRuleConditionParametersArgs{
+//							map[string]interface{}{
+//								"inputs": []map[string]interface{}{
+//									map[string]interface{}{
+//										"address": "server.db.statement",
+//									},
+//								},
+//								"regex": "stmt.*",
+//							},
+//						},
+//					},
+//				},
+//				Action: datadog.AppsecWafCustomRuleActionArgs{
+//					map[string]interface{}{
+//						"action": "redirect_request",
+//						"parameters": []map[string]interface{}{
+//							map[string]interface{}{
+//								"statusCode": 302,
+//								"location":   "/blocking",
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Create a WAF custom rule to track business logic events
+//			_, err = datadog.NewAppsecWafCustomRule(ctx, "biz000", &datadog.AppsecWafCustomRuleArgs{
+//				Name:     pulumi.String("Track payments"),
+//				Blocking: pulumi.Bool(false),
+//				Enabled:  pulumi.Bool(true),
+//				Tags: pulumi.StringMap{
+//					"category": pulumi.String("business_logic"),
+//					"type":     pulumi.String("payment.checkout"),
+//				},
+//				PathGlob: pulumi.String("/cart/*"),
+//				Conditions: datadog.AppsecWafCustomRuleConditionArray{
+//					&datadog.AppsecWafCustomRuleConditionArgs{
+//						Operator: pulumi.String("capture_data"),
+//						Parameters: datadog.AppsecWafCustomRuleConditionParametersArgs{
+//							map[string]interface{}{
+//								"inputs": []map[string]interface{}{
+//									map[string]interface{}{
+//										"address": "server.request.query",
+//										"keyPaths": []string{
+//											"payment_id",
+//										},
+//									},
+//								},
+//								"value": "payment",
+//							},
+//						},
+//					},
+//				},
+//				Scopes: datadog.AppsecWafCustomRuleScopeArray{
+//					&datadog.AppsecWafCustomRuleScopeArgs{
+//						Env:     pulumi.String("prod"),
+//						Service: pulumi.String("paymentsvc"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // The `pulumi import` command can be used, for example:

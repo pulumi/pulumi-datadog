@@ -16,6 +16,55 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create new rum_metric resource
+//			_, err := datadog.NewRumMetric(ctx, "testing_rum_metric", &datadog.RumMetricArgs{
+//				Name: pulumi.String("testing.rum.metric"),
+//				Compute: datadog.RumMetricComputeArgs{
+//					map[string]interface{}{
+//						"aggregationType":    "distribution",
+//						"includePercentiles": true,
+//						"path":               "@duration",
+//					},
+//				},
+//				EventType: pulumi.String("session"),
+//				Filter: datadog.RumMetricFilterArgs{
+//					map[string]interface{}{
+//						"query": "@service:web-ui",
+//					},
+//				},
+//				GroupBies: datadog.RumMetricGroupByArray{
+//					&datadog.RumMetricGroupByArgs{
+//						Path:    pulumi.String("@browser.name"),
+//						TagName: pulumi.String("browser_name"),
+//					},
+//				},
+//				Uniqueness: datadog.RumMetricUniquenessArgs{
+//					map[string]interface{}{
+//						"when": "match",
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // The `pulumi import` command can be used, for example:

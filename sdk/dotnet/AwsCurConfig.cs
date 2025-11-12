@@ -14,6 +14,39 @@ namespace Pulumi.Datadog
     /// 
     /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Create new aws_cur_config resource
+    ///     var foo = new Datadog.AwsCurConfig("foo", new()
+    ///     {
+    ///         AccountId = "123456789123",
+    ///         BucketName = "dd-cost-bucket",
+    ///         BucketRegion = "us-east-1",
+    ///         ReportName = "dd-report-name",
+    ///         ReportPrefix = "dd-report-prefix",
+    ///         AccountFilters = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "includeNewAccounts", true },
+    ///                 { "excludedAccounts", new[]
+    ///                 {
+    ///                     "123456789123",
+    ///                     "123456789143",
+    ///                 } },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// The `pulumi import` command can be used, for example:

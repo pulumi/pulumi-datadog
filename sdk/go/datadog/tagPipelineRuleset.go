@@ -16,6 +16,89 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.NewTagPipelineRuleset(ctx, "example", &datadog.TagPipelineRulesetArgs{
+//				Name:    pulumi.String("Complete Tag Pipeline Example"),
+//				Enabled: pulumi.Bool(true),
+//				Rules: datadog.TagPipelineRulesetRuleArray{
+//					&datadog.TagPipelineRulesetRuleArgs{
+//						Name:    pulumi.String("standardize-environment"),
+//						Enabled: pulumi.Bool(true),
+//						Mapping: datadog.TagPipelineRulesetRuleMappingArgs{
+//							map[string]interface{}{
+//								"destinationKey": "env",
+//								"ifNotExists":    true,
+//								"sourceKeys": []string{
+//									"environment",
+//									"stage",
+//									"tier",
+//								},
+//							},
+//						},
+//					},
+//					&datadog.TagPipelineRulesetRuleArgs{
+//						Name:    pulumi.String("assign-team-tags"),
+//						Enabled: pulumi.Bool(true),
+//						Query: datadog.TagPipelineRulesetRuleQueryArgs{
+//							map[string]interface{}{
+//								"query":             "service:web* OR service:frontend*",
+//								"caseInsensitivity": true,
+//								"ifNotExists":       true,
+//								"addition": []map[string]interface{}{
+//									map[string]interface{}{
+//										"key":   "team",
+//										"value": "frontend",
+//									},
+//								},
+//							},
+//						},
+//					},
+//					&datadog.TagPipelineRulesetRuleArgs{
+//						Name:    pulumi.String("enrich-service-metadata"),
+//						Enabled: pulumi.Bool(true),
+//						ReferenceTable: datadog.TagPipelineRulesetRuleReferenceTableArgs{
+//							map[string]interface{}{
+//								"tableName":         "service_catalog",
+//								"caseInsensitivity": true,
+//								"ifNotExists":       true,
+//								"sourceKeys": []string{
+//									"service",
+//								},
+//								"fieldPairs": []map[string]interface{}{
+//									map[string]interface{}{
+//										"inputColumn": "owner_team",
+//										"outputKey":   "owner",
+//									},
+//									map[string]interface{}{
+//										"inputColumn": "business_unit",
+//										"outputKey":   "business_unit",
+//									},
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // The `pulumi import` command can be used, for example:

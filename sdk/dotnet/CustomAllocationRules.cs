@@ -14,6 +14,145 @@ namespace Pulumi.Datadog
     /// 
     /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var rule1 = new Datadog.CustomAllocationRule("rule_1", new()
+    ///     {
+    ///         CostsToAllocates = new[]
+    ///         {
+    ///             new Datadog.Inputs.CustomAllocationRuleCostsToAllocateArgs
+    ///             {
+    ///                 Condition = "is",
+    ///                 Tag = "aws_product",
+    ///                 Value = "AmazonEC2",
+    ///             },
+    ///         },
+    ///         Enabled = true,
+    ///         Providernames = new[]
+    ///         {
+    ///             "aws",
+    ///         },
+    ///         RuleName = "my-custom-rule-1",
+    ///         Strategy = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "allocatedByTagKeys", new[]
+    ///                 {
+    ///                     "team",
+    ///                 } },
+    ///                 { "basedOnCosts", new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "condition", "is" },
+    ///                         { "tag", "aws_product" },
+    ///                         { "value", "AmazonEC2" },
+    ///                     },
+    ///                 } },
+    ///                 { "method", "even" },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var rule2 = new Datadog.CustomAllocationRule("rule_2", new()
+    ///     {
+    ///         CostsToAllocates = new[]
+    ///         {
+    ///             new Datadog.Inputs.CustomAllocationRuleCostsToAllocateArgs
+    ///             {
+    ///                 Condition = "is",
+    ///                 Tag = "aws_product",
+    ///                 Value = "AmazonS3",
+    ///             },
+    ///         },
+    ///         Enabled = true,
+    ///         Providernames = new[]
+    ///         {
+    ///             "aws",
+    ///         },
+    ///         RuleName = "my-custom-rule-2",
+    ///         Strategy = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "allocatedByTagKeys", new[]
+    ///                 {
+    ///                     "team",
+    ///                 } },
+    ///                 { "basedOnCosts", new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "condition", "is" },
+    ///                         { "tag", "aws_product" },
+    ///                         { "value", "AmazonS3" },
+    ///                     },
+    ///                 } },
+    ///                 { "method", "even" },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var rule3 = new Datadog.CustomAllocationRule("rule_3", new()
+    ///     {
+    ///         CostsToAllocates = new[]
+    ///         {
+    ///             new Datadog.Inputs.CustomAllocationRuleCostsToAllocateArgs
+    ///             {
+    ///                 Condition = "is",
+    ///                 Tag = "aws_product",
+    ///                 Value = "AmazonRDS",
+    ///             },
+    ///         },
+    ///         Enabled = true,
+    ///         Providernames = new[]
+    ///         {
+    ///             "aws",
+    ///         },
+    ///         RuleName = "my-custom-rule-3",
+    ///         Strategy = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "allocatedByTagKeys", new[]
+    ///                 {
+    ///                     "team",
+    ///                 } },
+    ///                 { "basedOnCosts", new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "condition", "is" },
+    ///                         { "tag", "aws_product" },
+    ///                         { "value", "AmazonRDS" },
+    ///                     },
+    ///                 } },
+    ///                 { "method", "even" },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     // Manage the order of custom allocation rules
+    ///     var order = new Datadog.CustomAllocationRules("order", new()
+    ///     {
+    ///         RuleIds = new[]
+    ///         {
+    ///             rule1.Id,
+    ///             rule2.Id,
+    ///             rule3.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// The `pulumi import` command can be used, for example:

@@ -9,6 +9,75 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const rule1 = new datadog.CustomAllocationRule("rule_1", {
+ *     costsToAllocates: [{
+ *         condition: "is",
+ *         tag: "aws_product",
+ *         value: "AmazonEC2",
+ *     }],
+ *     enabled: true,
+ *     providernames: ["aws"],
+ *     ruleName: "my-custom-rule-1",
+ *     strategy: [{
+ *         allocatedByTagKeys: ["team"],
+ *         basedOnCosts: [{
+ *             condition: "is",
+ *             tag: "aws_product",
+ *             value: "AmazonEC2",
+ *         }],
+ *         method: "even",
+ *     }],
+ * });
+ * const rule2 = new datadog.CustomAllocationRule("rule_2", {
+ *     costsToAllocates: [{
+ *         condition: "is",
+ *         tag: "aws_product",
+ *         value: "AmazonS3",
+ *     }],
+ *     enabled: true,
+ *     providernames: ["aws"],
+ *     ruleName: "my-custom-rule-2",
+ *     strategy: [{
+ *         allocatedByTagKeys: ["team"],
+ *         basedOnCosts: [{
+ *             condition: "is",
+ *             tag: "aws_product",
+ *             value: "AmazonS3",
+ *         }],
+ *         method: "even",
+ *     }],
+ * });
+ * const rule3 = new datadog.CustomAllocationRule("rule_3", {
+ *     costsToAllocates: [{
+ *         condition: "is",
+ *         tag: "aws_product",
+ *         value: "AmazonRDS",
+ *     }],
+ *     enabled: true,
+ *     providernames: ["aws"],
+ *     ruleName: "my-custom-rule-3",
+ *     strategy: [{
+ *         allocatedByTagKeys: ["team"],
+ *         basedOnCosts: [{
+ *             condition: "is",
+ *             tag: "aws_product",
+ *             value: "AmazonRDS",
+ *         }],
+ *         method: "even",
+ *     }],
+ * });
+ * // Manage the order of custom allocation rules
+ * const order = new datadog.CustomAllocationRules("order", {ruleIds: [
+ *     rule1.id,
+ *     rule2.id,
+ *     rule3.id,
+ * ]});
+ * ```
+ *
  * ## Import
  *
  * The `pulumi import` command can be used, for example:

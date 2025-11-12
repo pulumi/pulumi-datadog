@@ -11,6 +11,29 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const myAgentRule = new datadog.CsmThreatsAgentRule("my_agent_rule", {
+ *     actions: [{
+ *         hash: [{}],
+ *         set: [{
+ *             name: "updated_security_actions",
+ *             field: "exec.file.path",
+ *             append: false,
+ *             scope: "process",
+ *         }],
+ *     }],
+ *     name: "my_agent_rule",
+ *     enabled: true,
+ *     description: "This is a rule",
+ *     expression: "open.file.name == \"etc/shadow/password\"",
+ *     policyId: "jm4-lwh-8cs",
+ *     productTags: ["compliance_framework:PCI-DSS"],
+ * });
+ * ```
+ *
  * ## Import
  *
  * The `pulumi import` command can be used, for example:

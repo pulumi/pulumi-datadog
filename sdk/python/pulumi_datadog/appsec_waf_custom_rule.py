@@ -282,6 +282,62 @@ class AppsecWafCustomRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create a new WAF custom rule to block a custom IoC
+        ioc000 = datadog.AppsecWafCustomRule("ioc000",
+            name="Block requests from a bad actor",
+            blocking=True,
+            enabled=True,
+            tags={
+                "category": "attack_attempt",
+                "type": "custom_ioc",
+            },
+            path_glob="/db/*",
+            conditions=[{
+                "operator": "match_regex",
+                "parameters": [{
+                    "inputs": [{
+                        "address": "server.db.statement",
+                    }],
+                    "regex": "stmt.*",
+                }],
+            }],
+            action=[{
+                "action": "redirect_request",
+                "parameters": [{
+                    "statusCode": 302,
+                    "location": "/blocking",
+                }],
+            }])
+        # Create a WAF custom rule to track business logic events
+        biz000 = datadog.AppsecWafCustomRule("biz000",
+            name="Track payments",
+            blocking=False,
+            enabled=True,
+            tags={
+                "category": "business_logic",
+                "type": "payment.checkout",
+            },
+            path_glob="/cart/*",
+            conditions=[{
+                "operator": "capture_data",
+                "parameters": [{
+                    "inputs": [{
+                        "address": "server.request.query",
+                        "keyPaths": ["payment_id"],
+                    }],
+                    "value": "payment",
+                }],
+            }],
+            scopes=[{
+                "env": "prod",
+                "service": "paymentsvc",
+            }])
+        ```
+
         ## Import
 
         The `pulumi import` command can be used, for example:
@@ -308,6 +364,62 @@ class AppsecWafCustomRule(pulumi.CustomResource):
         Provides a Datadog AppsecWafCustomRule resource. This can be used to create and manage Datadog appsec_waf_custom_rule.
 
         ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create a new WAF custom rule to block a custom IoC
+        ioc000 = datadog.AppsecWafCustomRule("ioc000",
+            name="Block requests from a bad actor",
+            blocking=True,
+            enabled=True,
+            tags={
+                "category": "attack_attempt",
+                "type": "custom_ioc",
+            },
+            path_glob="/db/*",
+            conditions=[{
+                "operator": "match_regex",
+                "parameters": [{
+                    "inputs": [{
+                        "address": "server.db.statement",
+                    }],
+                    "regex": "stmt.*",
+                }],
+            }],
+            action=[{
+                "action": "redirect_request",
+                "parameters": [{
+                    "statusCode": 302,
+                    "location": "/blocking",
+                }],
+            }])
+        # Create a WAF custom rule to track business logic events
+        biz000 = datadog.AppsecWafCustomRule("biz000",
+            name="Track payments",
+            blocking=False,
+            enabled=True,
+            tags={
+                "category": "business_logic",
+                "type": "payment.checkout",
+            },
+            path_glob="/cart/*",
+            conditions=[{
+                "operator": "capture_data",
+                "parameters": [{
+                    "inputs": [{
+                        "address": "server.request.query",
+                        "keyPaths": ["payment_id"],
+                    }],
+                    "value": "payment",
+                }],
+            }],
+            scopes=[{
+                "env": "prod",
+                "service": "paymentsvc",
+            }])
+        ```
 
         ## Import
 

@@ -14,6 +14,63 @@ namespace Pulumi.Datadog
     /// 
     /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Create new downtime_schedule resource
+    ///     var downtimeScheduleExample = new Datadog.DowntimeSchedule("downtime_schedule_example", new()
+    ///     {
+    ///         Scope = "env:us9-prod7 AND team:test123",
+    ///         MonitorIdentifier = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "monitorTags", new[]
+    ///                 {
+    ///                     "test:123",
+    ///                     "data:test",
+    ///                 } },
+    ///             },
+    ///         },
+    ///         RecurringSchedule = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "recurrences", new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "duration", "1h" },
+    ///                         { "rrule", "FREQ=DAILY;INTERVAL=1" },
+    ///                         { "start", "2050-01-02T03:04:05" },
+    ///                     },
+    ///                 } },
+    ///                 { "timezone", "America/New_York" },
+    ///             },
+    ///         },
+    ///         DisplayTimezone = "America/New_York",
+    ///         Message = "Message about the downtime",
+    ///         MuteFirstRecoveryNotification = true,
+    ///         NotifyEndStates = new[]
+    ///         {
+    ///             "alert",
+    ///             "warn",
+    ///         },
+    ///         NotifyEndTypes = new[]
+    ///         {
+    ///             "canceled",
+    ///             "expired",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// The `pulumi import` command can be used, for example:

@@ -22,6 +22,53 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.CsmThreatsAgentRule;
+ * import com.pulumi.datadog.CsmThreatsAgentRuleArgs;
+ * import com.pulumi.datadog.inputs.CsmThreatsAgentRuleActionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var myAgentRule = new CsmThreatsAgentRule("myAgentRule", CsmThreatsAgentRuleArgs.builder()
+ *             .actions(CsmThreatsAgentRuleActionArgs.builder()
+ *                 .hash(CsmThreatsAgentRuleActionHashArgs.builder()
+ *                     .build())
+ *                 .set(CsmThreatsAgentRuleActionSetArgs.builder()
+ *                     .name("updated_security_actions")
+ *                     .field("exec.file.path")
+ *                     .append(false)
+ *                     .scope("process")
+ *                     .build())
+ *                 .build())
+ *             .name("my_agent_rule")
+ *             .enabled(true)
+ *             .description("This is a rule")
+ *             .expression("open.file.name == \"etc/shadow/password\"")
+ *             .policyId("jm4-lwh-8cs")
+ *             .productTags("compliance_framework:PCI-DSS")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * The `pulumi import` command can be used, for example:

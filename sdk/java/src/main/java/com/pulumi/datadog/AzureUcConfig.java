@@ -22,6 +22,52 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.AzureUcConfig;
+ * import com.pulumi.datadog.AzureUcConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         // Create new Azure Usage Cost configuration resource
+ *         var example = new AzureUcConfig("example", AzureUcConfigArgs.builder()
+ *             .accountId("12345678-1234-abcd-1234-123456789012")
+ *             .clientId("87654321-4321-dcba-4321-210987654321")
+ *             .scope("/subscriptions/12345678-1234-abcd-1234-123456789012")
+ *             .actualBillConfig(AzureUcConfigActualBillConfigArgs.builder()
+ *                 .exportName("my-actual-export")
+ *                 .exportPath("exports/actual")
+ *                 .storageAccount("mystorageaccount")
+ *                 .storageContainer("cost-exports")
+ *                 .build())
+ *             .amortizedBillConfig(AzureUcConfigAmortizedBillConfigArgs.builder()
+ *                 .exportName("my-amortized-export")
+ *                 .exportPath("exports/amortized")
+ *                 .storageAccount("mystorageaccount")
+ *                 .storageContainer("cost-exports")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * The `pulumi import` command can be used, for example:

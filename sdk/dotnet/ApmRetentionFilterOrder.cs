@@ -14,6 +14,42 @@ namespace Pulumi.Datadog
     /// 
     /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Create APM retention filter
+    ///     var foo = new Datadog.ApmRetentionFilter("foo", new()
+    ///     {
+    ///         Name = "Sample order",
+    ///         Rate = "1.0",
+    ///         Filter = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "query", "*" },
+    ///             },
+    ///         },
+    ///         FilterType = "spans-sampling-processor",
+    ///         Enabled = false,
+    ///     });
+    /// 
+    ///     // Create APM retention filter order
+    ///     var bar = new Datadog.ApmRetentionFilterOrder("bar", new()
+    ///     {
+    ///         FilterIds = new[]
+    ///         {
+    ///             foo.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// The `pulumi import` command can be used, for example:
