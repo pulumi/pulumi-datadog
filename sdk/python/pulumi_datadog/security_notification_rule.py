@@ -321,6 +321,39 @@ class SecurityNotificationRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        signal_rule = datadog.SecurityNotificationRule("signal_rule",
+            name="My signal notification rule",
+            selectors=[{
+                "triggerSource": "security_signals",
+                "ruleTypes": ["workload_security"],
+                "query": "env:prod",
+            }],
+            enabled=False,
+            targets=[
+                "@bob@email.com",
+                "@alice@email.com",
+            ])
+        vulnerability_rule = datadog.SecurityNotificationRule("vulnerability_rule",
+            name="My vulnerability notification rule",
+            selectors=[{
+                "triggerSource": "security_findings",
+                "ruleTypes": [
+                    "application_library_vulnerability",
+                    "identity_risk",
+                ],
+                "severities": [
+                    "critical",
+                    "high",
+                ],
+            }],
+            time_aggregation=36000,
+            targets=["@john@email.com"])
+        ```
+
         ## Import
 
         The `pulumi import` command can be used, for example:
@@ -347,6 +380,39 @@ class SecurityNotificationRule(pulumi.CustomResource):
         Provides a Datadog Security Monitoring Notification Rule API resource for creating and managing Datadog security notification rules.
 
         ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        signal_rule = datadog.SecurityNotificationRule("signal_rule",
+            name="My signal notification rule",
+            selectors=[{
+                "triggerSource": "security_signals",
+                "ruleTypes": ["workload_security"],
+                "query": "env:prod",
+            }],
+            enabled=False,
+            targets=[
+                "@bob@email.com",
+                "@alice@email.com",
+            ])
+        vulnerability_rule = datadog.SecurityNotificationRule("vulnerability_rule",
+            name="My vulnerability notification rule",
+            selectors=[{
+                "triggerSource": "security_findings",
+                "ruleTypes": [
+                    "application_library_vulnerability",
+                    "identity_risk",
+                ],
+                "severities": [
+                    "critical",
+                    "high",
+                ],
+            }],
+            time_aggregation=36000,
+            targets=["@john@email.com"])
+        ```
 
         ## Import
 

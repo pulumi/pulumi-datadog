@@ -16,6 +16,131 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			rule1, err := datadog.NewCustomAllocationRule(ctx, "rule_1", &datadog.CustomAllocationRuleArgs{
+//				CostsToAllocates: datadog.CustomAllocationRuleCostsToAllocateArray{
+//					&datadog.CustomAllocationRuleCostsToAllocateArgs{
+//						Condition: pulumi.String("is"),
+//						Tag:       pulumi.String("aws_product"),
+//						Value:     pulumi.String("AmazonEC2"),
+//					},
+//				},
+//				Enabled: pulumi.Bool(true),
+//				Providernames: pulumi.StringArray{
+//					pulumi.String("aws"),
+//				},
+//				RuleName: pulumi.String("my-custom-rule-1"),
+//				Strategy: datadog.CustomAllocationRuleStrategyArgs{
+//					map[string]interface{}{
+//						"allocatedByTagKeys": []string{
+//							"team",
+//						},
+//						"basedOnCosts": []map[string]interface{}{
+//							map[string]interface{}{
+//								"condition": "is",
+//								"tag":       "aws_product",
+//								"value":     "AmazonEC2",
+//							},
+//						},
+//						"method": "even",
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			rule2, err := datadog.NewCustomAllocationRule(ctx, "rule_2", &datadog.CustomAllocationRuleArgs{
+//				CostsToAllocates: datadog.CustomAllocationRuleCostsToAllocateArray{
+//					&datadog.CustomAllocationRuleCostsToAllocateArgs{
+//						Condition: pulumi.String("is"),
+//						Tag:       pulumi.String("aws_product"),
+//						Value:     pulumi.String("AmazonS3"),
+//					},
+//				},
+//				Enabled: pulumi.Bool(true),
+//				Providernames: pulumi.StringArray{
+//					pulumi.String("aws"),
+//				},
+//				RuleName: pulumi.String("my-custom-rule-2"),
+//				Strategy: datadog.CustomAllocationRuleStrategyArgs{
+//					map[string]interface{}{
+//						"allocatedByTagKeys": []string{
+//							"team",
+//						},
+//						"basedOnCosts": []map[string]interface{}{
+//							map[string]interface{}{
+//								"condition": "is",
+//								"tag":       "aws_product",
+//								"value":     "AmazonS3",
+//							},
+//						},
+//						"method": "even",
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			rule3, err := datadog.NewCustomAllocationRule(ctx, "rule_3", &datadog.CustomAllocationRuleArgs{
+//				CostsToAllocates: datadog.CustomAllocationRuleCostsToAllocateArray{
+//					&datadog.CustomAllocationRuleCostsToAllocateArgs{
+//						Condition: pulumi.String("is"),
+//						Tag:       pulumi.String("aws_product"),
+//						Value:     pulumi.String("AmazonRDS"),
+//					},
+//				},
+//				Enabled: pulumi.Bool(true),
+//				Providernames: pulumi.StringArray{
+//					pulumi.String("aws"),
+//				},
+//				RuleName: pulumi.String("my-custom-rule-3"),
+//				Strategy: datadog.CustomAllocationRuleStrategyArgs{
+//					map[string]interface{}{
+//						"allocatedByTagKeys": []string{
+//							"team",
+//						},
+//						"basedOnCosts": []map[string]interface{}{
+//							map[string]interface{}{
+//								"condition": "is",
+//								"tag":       "aws_product",
+//								"value":     "AmazonRDS",
+//							},
+//						},
+//						"method": "even",
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Manage the order of custom allocation rules
+//			_, err = datadog.NewCustomAllocationRules(ctx, "order", &datadog.CustomAllocationRulesArgs{
+//				RuleIds: pulumi.StringArray{
+//					rule1.ID(),
+//					rule2.ID(),
+//					rule3.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // The `pulumi import` command can be used, for example:

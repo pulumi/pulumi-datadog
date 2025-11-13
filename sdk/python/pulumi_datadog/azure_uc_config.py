@@ -288,6 +288,29 @@ class AzureUcConfig(pulumi.CustomResource):
 
         ## Example Usage
 
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create new Azure Usage Cost configuration resource
+        example = datadog.AzureUcConfig("example",
+            account_id="12345678-1234-abcd-1234-123456789012",
+            client_id="87654321-4321-dcba-4321-210987654321",
+            scope="/subscriptions/12345678-1234-abcd-1234-123456789012",
+            actual_bill_config=[{
+                "exportName": "my-actual-export",
+                "exportPath": "exports/actual",
+                "storageAccount": "mystorageaccount",
+                "storageContainer": "cost-exports",
+            }],
+            amortized_bill_config=[{
+                "exportName": "my-amortized-export",
+                "exportPath": "exports/amortized",
+                "storageAccount": "mystorageaccount",
+                "storageContainer": "cost-exports",
+            }])
+        ```
+
         ## Import
 
         The `pulumi import` command can be used, for example:
@@ -314,6 +337,29 @@ class AzureUcConfig(pulumi.CustomResource):
         Provides a Datadog Azure Usage Cost configuration resource. This can be used to create and manage Azure Cost Export configurations for Cloud Cost Management. Azure configurations require both actual and amortized cost export settings.
 
         ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create new Azure Usage Cost configuration resource
+        example = datadog.AzureUcConfig("example",
+            account_id="12345678-1234-abcd-1234-123456789012",
+            client_id="87654321-4321-dcba-4321-210987654321",
+            scope="/subscriptions/12345678-1234-abcd-1234-123456789012",
+            actual_bill_config=[{
+                "exportName": "my-actual-export",
+                "exportPath": "exports/actual",
+                "storageAccount": "mystorageaccount",
+                "storageContainer": "cost-exports",
+            }],
+            amortized_bill_config=[{
+                "exportName": "my-amortized-export",
+                "exportPath": "exports/amortized",
+                "storageAccount": "mystorageaccount",
+                "storageContainer": "cost-exports",
+            }])
+        ```
 
         ## Import
 

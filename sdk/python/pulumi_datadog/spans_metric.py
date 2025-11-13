@@ -153,6 +153,27 @@ class SpansMetric(pulumi.CustomResource):
 
         ## Example Usage
 
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create new spans_metric resource
+        testing_spans_metric = datadog.SpansMetric("testing_spans_metric",
+            name="testing.span.metric",
+            compute=[{
+                "aggregationType": "distribution",
+                "includePercentiles": False,
+                "path": "@duration",
+            }],
+            filter=[{
+                "query": "@http.status_code:200 service:my-service",
+            }],
+            group_bies=[{
+                "path": "resource_name",
+                "tag_name": "resource_name",
+            }])
+        ```
+
         ## Import
 
         The `pulumi import` command can be used, for example:
@@ -175,6 +196,27 @@ class SpansMetric(pulumi.CustomResource):
         Provides a Datadog SpansMetric resource. This can be used to create and manage Datadog spans_metric.
 
         ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create new spans_metric resource
+        testing_spans_metric = datadog.SpansMetric("testing_spans_metric",
+            name="testing.span.metric",
+            compute=[{
+                "aggregationType": "distribution",
+                "includePercentiles": False,
+                "path": "@duration",
+            }],
+            filter=[{
+                "query": "@http.status_code:200 service:my-service",
+            }],
+            group_bies=[{
+                "path": "resource_name",
+                "tag_name": "resource_name",
+            }])
+        ```
 
         ## Import
 
