@@ -17,6 +17,7 @@ import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorLookupProcessorArgs;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorMessageRemapperArgs;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorPipelineArgs;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorReferenceTableLookupProcessorArgs;
+import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorSchemaProcessorArgs;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorServiceRemapperArgs;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorSpanIdRemapperArgs;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorStatusRemapperArgs;
@@ -206,6 +207,21 @@ public final class LogsCustomPipelineProcessorArgs extends com.pulumi.resources.
     }
 
     /**
+     * Schema Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#schema-processor)
+     * 
+     */
+    @Import(name="schemaProcessor")
+    private @Nullable Output<LogsCustomPipelineProcessorSchemaProcessorArgs> schemaProcessor;
+
+    /**
+     * @return Schema Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#schema-processor)
+     * 
+     */
+    public Optional<Output<LogsCustomPipelineProcessorSchemaProcessorArgs>> schemaProcessor() {
+        return Optional.ofNullable(this.schemaProcessor);
+    }
+
+    /**
      * Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
      * 
      */
@@ -325,6 +341,7 @@ public final class LogsCustomPipelineProcessorArgs extends com.pulumi.resources.
         this.messageRemapper = $.messageRemapper;
         this.pipeline = $.pipeline;
         this.referenceTableLookupProcessor = $.referenceTableLookupProcessor;
+        this.schemaProcessor = $.schemaProcessor;
         this.serviceRemapper = $.serviceRemapper;
         this.spanIdRemapper = $.spanIdRemapper;
         this.statusRemapper = $.statusRemapper;
@@ -590,6 +607,27 @@ public final class LogsCustomPipelineProcessorArgs extends com.pulumi.resources.
          */
         public Builder referenceTableLookupProcessor(LogsCustomPipelineProcessorReferenceTableLookupProcessorArgs referenceTableLookupProcessor) {
             return referenceTableLookupProcessor(Output.of(referenceTableLookupProcessor));
+        }
+
+        /**
+         * @param schemaProcessor Schema Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#schema-processor)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder schemaProcessor(@Nullable Output<LogsCustomPipelineProcessorSchemaProcessorArgs> schemaProcessor) {
+            $.schemaProcessor = schemaProcessor;
+            return this;
+        }
+
+        /**
+         * @param schemaProcessor Schema Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#schema-processor)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder schemaProcessor(LogsCustomPipelineProcessorSchemaProcessorArgs schemaProcessor) {
+            return schemaProcessor(Output.of(schemaProcessor));
         }
 
         /**

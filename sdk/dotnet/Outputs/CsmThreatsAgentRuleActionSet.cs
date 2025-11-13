@@ -18,9 +18,21 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? Append;
         /// <summary>
+        /// The default value to set
+        /// </summary>
+        public readonly string? DefaultValue;
+        /// <summary>
+        /// The expression to use for the set action
+        /// </summary>
+        public readonly string? Expression;
+        /// <summary>
         /// The field to get the value from
         /// </summary>
         public readonly string? Field;
+        /// <summary>
+        /// Whether the set action is inherited
+        /// </summary>
+        public readonly bool? Inherited;
         /// <summary>
         /// The name of the set action
         /// </summary>
@@ -46,7 +58,13 @@ namespace Pulumi.Datadog.Outputs
         private CsmThreatsAgentRuleActionSet(
             bool? append,
 
+            string? defaultValue,
+
+            string? expression,
+
             string? field,
+
+            bool? inherited,
 
             string name,
 
@@ -59,7 +77,10 @@ namespace Pulumi.Datadog.Outputs
             string? value)
         {
             Append = append;
+            DefaultValue = defaultValue;
+            Expression = expression;
             Field = field;
+            Inherited = inherited;
             Name = name;
             Scope = scope;
             Size = size;
