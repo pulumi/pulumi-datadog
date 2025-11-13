@@ -16,6 +16,7 @@ import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorLookupProcessor;
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorMessageRemapper;
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorPipeline;
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorReferenceTableLookupProcessor;
+import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorSchemaProcessor;
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorServiceRemapper;
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorSpanIdRemapper;
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorStatusRemapper;
@@ -85,6 +86,11 @@ public final class LogsCustomPipelineProcessor {
      * 
      */
     private @Nullable LogsCustomPipelineProcessorReferenceTableLookupProcessor referenceTableLookupProcessor;
+    /**
+     * @return Schema Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#schema-processor)
+     * 
+     */
+    private @Nullable LogsCustomPipelineProcessorSchemaProcessor schemaProcessor;
     /**
      * @return Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
      * 
@@ -203,6 +209,13 @@ public final class LogsCustomPipelineProcessor {
         return Optional.ofNullable(this.referenceTableLookupProcessor);
     }
     /**
+     * @return Schema Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#schema-processor)
+     * 
+     */
+    public Optional<LogsCustomPipelineProcessorSchemaProcessor> schemaProcessor() {
+        return Optional.ofNullable(this.schemaProcessor);
+    }
+    /**
      * @return Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
      * 
      */
@@ -273,6 +286,7 @@ public final class LogsCustomPipelineProcessor {
         private @Nullable LogsCustomPipelineProcessorMessageRemapper messageRemapper;
         private @Nullable LogsCustomPipelineProcessorPipeline pipeline;
         private @Nullable LogsCustomPipelineProcessorReferenceTableLookupProcessor referenceTableLookupProcessor;
+        private @Nullable LogsCustomPipelineProcessorSchemaProcessor schemaProcessor;
         private @Nullable LogsCustomPipelineProcessorServiceRemapper serviceRemapper;
         private @Nullable LogsCustomPipelineProcessorSpanIdRemapper spanIdRemapper;
         private @Nullable LogsCustomPipelineProcessorStatusRemapper statusRemapper;
@@ -295,6 +309,7 @@ public final class LogsCustomPipelineProcessor {
     	      this.messageRemapper = defaults.messageRemapper;
     	      this.pipeline = defaults.pipeline;
     	      this.referenceTableLookupProcessor = defaults.referenceTableLookupProcessor;
+    	      this.schemaProcessor = defaults.schemaProcessor;
     	      this.serviceRemapper = defaults.serviceRemapper;
     	      this.spanIdRemapper = defaults.spanIdRemapper;
     	      this.statusRemapper = defaults.statusRemapper;
@@ -377,6 +392,12 @@ public final class LogsCustomPipelineProcessor {
             return this;
         }
         @CustomType.Setter
+        public Builder schemaProcessor(@Nullable LogsCustomPipelineProcessorSchemaProcessor schemaProcessor) {
+
+            this.schemaProcessor = schemaProcessor;
+            return this;
+        }
+        @CustomType.Setter
         public Builder serviceRemapper(@Nullable LogsCustomPipelineProcessorServiceRemapper serviceRemapper) {
 
             this.serviceRemapper = serviceRemapper;
@@ -432,6 +453,7 @@ public final class LogsCustomPipelineProcessor {
             _resultValue.messageRemapper = messageRemapper;
             _resultValue.pipeline = pipeline;
             _resultValue.referenceTableLookupProcessor = referenceTableLookupProcessor;
+            _resultValue.schemaProcessor = schemaProcessor;
             _resultValue.serviceRemapper = serviceRemapper;
             _resultValue.spanIdRemapper = spanIdRemapper;
             _resultValue.statusRemapper = statusRemapper;

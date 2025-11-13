@@ -460,9 +460,21 @@ export interface CsmThreatsAgentRuleActionSet {
      */
     append: boolean;
     /**
+     * The default value to set
+     */
+    defaultValue: string;
+    /**
+     * The expression to use for the set action
+     */
+    expression: string;
+    /**
      * The field to get the value from
      */
     field: string;
+    /**
+     * Whether the set action is inherited
+     */
+    inherited: boolean;
     /**
      * The name of the set action
      */
@@ -9769,7 +9781,10 @@ export interface GetCsmThreatsAgentRulesAgentRuleActionHash {
 
 export interface GetCsmThreatsAgentRulesAgentRuleActionSet {
     append: boolean;
+    defaultValue: string;
+    expression: string;
     field: string;
+    inherited: boolean;
     name: string;
     scope: string;
     size: number;
@@ -11129,6 +11144,10 @@ export interface LogsCustomPipelineProcessor {
      */
     referenceTableLookupProcessor?: outputs.LogsCustomPipelineProcessorReferenceTableLookupProcessor;
     /**
+     * Schema Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#schema-processor)
+     */
+    schemaProcessor?: outputs.LogsCustomPipelineProcessorSchemaProcessor;
+    /**
      * Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
      */
     serviceRemapper?: outputs.LogsCustomPipelineProcessorServiceRemapper;
@@ -11522,6 +11541,10 @@ export interface LogsCustomPipelineProcessorPipelineProcessor {
      */
     referenceTableLookupProcessor?: outputs.LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor;
     /**
+     * Schema Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#schema-processor)
+     */
+    schemaProcessor?: outputs.LogsCustomPipelineProcessorPipelineProcessorSchemaProcessor;
+    /**
      * Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
      */
     serviceRemapper?: outputs.LogsCustomPipelineProcessorPipelineProcessorServiceRemapper;
@@ -11876,6 +11899,150 @@ export interface LogsCustomPipelineProcessorPipelineProcessorReferenceTableLooku
     target: string;
 }
 
+export interface LogsCustomPipelineProcessorPipelineProcessorSchemaProcessor {
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: boolean;
+    /**
+     * Array of mappers for the schema processor.
+     */
+    mappers: outputs.LogsCustomPipelineProcessorPipelineProcessorSchemaProcessorMapper[];
+    /**
+     * The name of the processor.
+     */
+    name?: string;
+    /**
+     * Configuration of the schema data to use.
+     */
+    schema: outputs.LogsCustomPipelineProcessorPipelineProcessorSchemaProcessorSchema;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorSchemaProcessorMapper {
+    /**
+     * Mapper that categorizes log events into enum fields. In the case of OCSF, they can be used to map sibling fields which are composed of an ID and a name.
+     */
+    schemaCategoryMappers?: outputs.LogsCustomPipelineProcessorPipelineProcessorSchemaProcessorMapperSchemaCategoryMapper[];
+    /**
+     * Mapper that maps source log fields to their correct fields.
+     */
+    schemaRemappers?: outputs.LogsCustomPipelineProcessorPipelineProcessorSchemaProcessorMapperSchemaRemapper[];
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorSchemaProcessorMapperSchemaCategoryMapper {
+    /**
+     * Object describing the logs filter with corresponding category ID.
+     */
+    categories: outputs.LogsCustomPipelineProcessorPipelineProcessorSchemaProcessorMapperSchemaCategoryMapperCategory[];
+    /**
+     * Used to override hardcoded category values with a value pulled from a source attribute on the log.
+     */
+    fallback?: outputs.LogsCustomPipelineProcessorPipelineProcessorSchemaProcessorMapperSchemaCategoryMapperFallback;
+    /**
+     * Name of the logs schema category mapper.
+     */
+    name: string;
+    /**
+     * Name of the target attributes which value is defined by the matching.
+     */
+    targets: outputs.LogsCustomPipelineProcessorPipelineProcessorSchemaProcessorMapperSchemaCategoryMapperTargets;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorSchemaProcessorMapperSchemaCategoryMapperCategory {
+    filter: outputs.LogsCustomPipelineProcessorPipelineProcessorSchemaProcessorMapperSchemaCategoryMapperCategoryFilter;
+    /**
+     * ID to inject into the category.
+     */
+    id: number;
+    /**
+     * Value to assign to target schema field.
+     */
+    name: string;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorSchemaProcessorMapperSchemaCategoryMapperCategoryFilter {
+    /**
+     * Filter criteria of the category.
+     */
+    query: string;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorSchemaProcessorMapperSchemaCategoryMapperFallback {
+    /**
+     * Fallback sources used to populate value of field.
+     */
+    sources?: {[key: string]: string};
+    /**
+     * Values that define when the fallback is used.
+     */
+    values?: {[key: string]: string};
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorSchemaProcessorMapperSchemaCategoryMapperTargets {
+    /**
+     * ID of the field to map log attributes to
+     */
+    id?: string;
+    /**
+     * Name of the field to map log attributes to.
+     */
+    name?: string;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorSchemaProcessorMapperSchemaRemapper {
+    /**
+     * Name of the logs schema remapper.
+     */
+    name: string;
+    /**
+     * Override or not the target element if already set.
+     */
+    overrideOnConflict?: boolean;
+    /**
+     * Remove or preserve the remapped source element.
+     */
+    preserveSource?: boolean;
+    /**
+     * Array of source attributes.
+     */
+    sources: string[];
+    /**
+     * Target field to map log source field to
+     */
+    target: string;
+    /**
+     * If the `targetType` of the remapper is `attribute`, try to cast the value to a new specific type. If the cast is not possible, the original type is kept. `string`, `integer`, or `double` are the possible types. If the `targetType` is `tag`, this parameter may not be specified.
+     */
+    targetFormat?: string;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorSchemaProcessorSchema {
+    /**
+     * Class name of the schema to use.
+     */
+    className: string;
+    /**
+     * Class UID of the schema to use.
+     */
+    classUid: number;
+    /**
+     * Optional list of extensions to modify the schema.
+     */
+    extensions?: string[];
+    /**
+     * Optional list of profiles to modify the schema.
+     */
+    profiles?: string[];
+    /**
+     * Type of schema to use.
+     */
+    schemaType: string;
+    /**
+     * Version of the schema to use.
+     */
+    version: string;
+}
+
 export interface LogsCustomPipelineProcessorPipelineProcessorServiceRemapper {
     /**
      * If the processor is enabled or not.
@@ -12026,6 +12193,150 @@ export interface LogsCustomPipelineProcessorReferenceTableLookupProcessor {
      * Name of the attribute that contains the result of the lookup.
      */
     target: string;
+}
+
+export interface LogsCustomPipelineProcessorSchemaProcessor {
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: boolean;
+    /**
+     * Array of mappers for the schema processor.
+     */
+    mappers: outputs.LogsCustomPipelineProcessorSchemaProcessorMapper[];
+    /**
+     * The name of the processor.
+     */
+    name?: string;
+    /**
+     * Configuration of the schema data to use.
+     */
+    schema: outputs.LogsCustomPipelineProcessorSchemaProcessorSchema;
+}
+
+export interface LogsCustomPipelineProcessorSchemaProcessorMapper {
+    /**
+     * Mapper that categorizes log events into enum fields. In the case of OCSF, they can be used to map sibling fields which are composed of an ID and a name.
+     */
+    schemaCategoryMappers?: outputs.LogsCustomPipelineProcessorSchemaProcessorMapperSchemaCategoryMapper[];
+    /**
+     * Mapper that maps source log fields to their correct fields.
+     */
+    schemaRemappers?: outputs.LogsCustomPipelineProcessorSchemaProcessorMapperSchemaRemapper[];
+}
+
+export interface LogsCustomPipelineProcessorSchemaProcessorMapperSchemaCategoryMapper {
+    /**
+     * Object describing the logs filter with corresponding category ID.
+     */
+    categories: outputs.LogsCustomPipelineProcessorSchemaProcessorMapperSchemaCategoryMapperCategory[];
+    /**
+     * Used to override hardcoded category values with a value pulled from a source attribute on the log.
+     */
+    fallback?: outputs.LogsCustomPipelineProcessorSchemaProcessorMapperSchemaCategoryMapperFallback;
+    /**
+     * Name of the logs schema category mapper.
+     */
+    name: string;
+    /**
+     * Name of the target attributes which value is defined by the matching.
+     */
+    targets: outputs.LogsCustomPipelineProcessorSchemaProcessorMapperSchemaCategoryMapperTargets;
+}
+
+export interface LogsCustomPipelineProcessorSchemaProcessorMapperSchemaCategoryMapperCategory {
+    filter: outputs.LogsCustomPipelineProcessorSchemaProcessorMapperSchemaCategoryMapperCategoryFilter;
+    /**
+     * ID to inject into the category.
+     */
+    id: number;
+    /**
+     * Value to assign to target schema field.
+     */
+    name: string;
+}
+
+export interface LogsCustomPipelineProcessorSchemaProcessorMapperSchemaCategoryMapperCategoryFilter {
+    /**
+     * Filter criteria of the category.
+     */
+    query: string;
+}
+
+export interface LogsCustomPipelineProcessorSchemaProcessorMapperSchemaCategoryMapperFallback {
+    /**
+     * Fallback sources used to populate value of field.
+     */
+    sources?: {[key: string]: string};
+    /**
+     * Values that define when the fallback is used.
+     */
+    values?: {[key: string]: string};
+}
+
+export interface LogsCustomPipelineProcessorSchemaProcessorMapperSchemaCategoryMapperTargets {
+    /**
+     * ID of the field to map log attributes to
+     */
+    id?: string;
+    /**
+     * Name of the field to map log attributes to.
+     */
+    name?: string;
+}
+
+export interface LogsCustomPipelineProcessorSchemaProcessorMapperSchemaRemapper {
+    /**
+     * Name of the logs schema remapper.
+     */
+    name: string;
+    /**
+     * Override or not the target element if already set.
+     */
+    overrideOnConflict?: boolean;
+    /**
+     * Remove or preserve the remapped source element.
+     */
+    preserveSource?: boolean;
+    /**
+     * Array of source attributes.
+     */
+    sources: string[];
+    /**
+     * Target field to map log source field to
+     */
+    target: string;
+    /**
+     * If the `targetType` of the remapper is `attribute`, try to cast the value to a new specific type. If the cast is not possible, the original type is kept. `string`, `integer`, or `double` are the possible types. If the `targetType` is `tag`, this parameter may not be specified.
+     */
+    targetFormat?: string;
+}
+
+export interface LogsCustomPipelineProcessorSchemaProcessorSchema {
+    /**
+     * Class name of the schema to use.
+     */
+    className: string;
+    /**
+     * Class UID of the schema to use.
+     */
+    classUid: number;
+    /**
+     * Optional list of extensions to modify the schema.
+     */
+    extensions?: string[];
+    /**
+     * Optional list of profiles to modify the schema.
+     */
+    profiles?: string[];
+    /**
+     * Type of schema to use.
+     */
+    schemaType: string;
+    /**
+     * Version of the schema to use.
+     */
+    version: string;
 }
 
 export interface LogsCustomPipelineProcessorServiceRemapper {

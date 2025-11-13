@@ -460,9 +460,21 @@ export interface CsmThreatsAgentRuleActionSet {
      */
     append?: pulumi.Input<boolean>;
     /**
+     * The default value to set
+     */
+    defaultValue?: pulumi.Input<string>;
+    /**
+     * The expression to use for the set action
+     */
+    expression?: pulumi.Input<string>;
+    /**
      * The field to get the value from
      */
     field?: pulumi.Input<string>;
+    /**
+     * Whether the set action is inherited
+     */
+    inherited?: pulumi.Input<boolean>;
     /**
      * The name of the set action
      */
@@ -10689,6 +10701,10 @@ export interface LogsCustomPipelineProcessor {
      */
     referenceTableLookupProcessor?: pulumi.Input<inputs.LogsCustomPipelineProcessorReferenceTableLookupProcessor>;
     /**
+     * Schema Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#schema-processor)
+     */
+    schemaProcessor?: pulumi.Input<inputs.LogsCustomPipelineProcessorSchemaProcessor>;
+    /**
      * Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
      */
     serviceRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorServiceRemapper>;
@@ -11082,6 +11098,10 @@ export interface LogsCustomPipelineProcessorPipelineProcessor {
      */
     referenceTableLookupProcessor?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor>;
     /**
+     * Schema Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#schema-processor)
+     */
+    schemaProcessor?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorSchemaProcessor>;
+    /**
      * Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
      */
     serviceRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorServiceRemapper>;
@@ -11436,6 +11456,150 @@ export interface LogsCustomPipelineProcessorPipelineProcessorReferenceTableLooku
     target: pulumi.Input<string>;
 }
 
+export interface LogsCustomPipelineProcessorPipelineProcessorSchemaProcessor {
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: pulumi.Input<boolean>;
+    /**
+     * Array of mappers for the schema processor.
+     */
+    mappers: pulumi.Input<pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorSchemaProcessorMapper>[]>;
+    /**
+     * The name of the processor.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Configuration of the schema data to use.
+     */
+    schema: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorSchemaProcessorSchema>;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorSchemaProcessorMapper {
+    /**
+     * Mapper that categorizes log events into enum fields. In the case of OCSF, they can be used to map sibling fields which are composed of an ID and a name.
+     */
+    schemaCategoryMappers?: pulumi.Input<pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorSchemaProcessorMapperSchemaCategoryMapper>[]>;
+    /**
+     * Mapper that maps source log fields to their correct fields.
+     */
+    schemaRemappers?: pulumi.Input<pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorSchemaProcessorMapperSchemaRemapper>[]>;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorSchemaProcessorMapperSchemaCategoryMapper {
+    /**
+     * Object describing the logs filter with corresponding category ID.
+     */
+    categories: pulumi.Input<pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorSchemaProcessorMapperSchemaCategoryMapperCategory>[]>;
+    /**
+     * Used to override hardcoded category values with a value pulled from a source attribute on the log.
+     */
+    fallback?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorSchemaProcessorMapperSchemaCategoryMapperFallback>;
+    /**
+     * Name of the logs schema category mapper.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the target attributes which value is defined by the matching.
+     */
+    targets: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorSchemaProcessorMapperSchemaCategoryMapperTargets>;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorSchemaProcessorMapperSchemaCategoryMapperCategory {
+    filter: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorSchemaProcessorMapperSchemaCategoryMapperCategoryFilter>;
+    /**
+     * ID to inject into the category.
+     */
+    id: pulumi.Input<number>;
+    /**
+     * Value to assign to target schema field.
+     */
+    name: pulumi.Input<string>;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorSchemaProcessorMapperSchemaCategoryMapperCategoryFilter {
+    /**
+     * Filter criteria of the category.
+     */
+    query: pulumi.Input<string>;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorSchemaProcessorMapperSchemaCategoryMapperFallback {
+    /**
+     * Fallback sources used to populate value of field.
+     */
+    sources?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Values that define when the fallback is used.
+     */
+    values?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorSchemaProcessorMapperSchemaCategoryMapperTargets {
+    /**
+     * ID of the field to map log attributes to
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Name of the field to map log attributes to.
+     */
+    name?: pulumi.Input<string>;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorSchemaProcessorMapperSchemaRemapper {
+    /**
+     * Name of the logs schema remapper.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Override or not the target element if already set.
+     */
+    overrideOnConflict?: pulumi.Input<boolean>;
+    /**
+     * Remove or preserve the remapped source element.
+     */
+    preserveSource?: pulumi.Input<boolean>;
+    /**
+     * Array of source attributes.
+     */
+    sources: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Target field to map log source field to
+     */
+    target: pulumi.Input<string>;
+    /**
+     * If the `targetType` of the remapper is `attribute`, try to cast the value to a new specific type. If the cast is not possible, the original type is kept. `string`, `integer`, or `double` are the possible types. If the `targetType` is `tag`, this parameter may not be specified.
+     */
+    targetFormat?: pulumi.Input<string>;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorSchemaProcessorSchema {
+    /**
+     * Class name of the schema to use.
+     */
+    className: pulumi.Input<string>;
+    /**
+     * Class UID of the schema to use.
+     */
+    classUid: pulumi.Input<number>;
+    /**
+     * Optional list of extensions to modify the schema.
+     */
+    extensions?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Optional list of profiles to modify the schema.
+     */
+    profiles?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Type of schema to use.
+     */
+    schemaType: pulumi.Input<string>;
+    /**
+     * Version of the schema to use.
+     */
+    version: pulumi.Input<string>;
+}
+
 export interface LogsCustomPipelineProcessorPipelineProcessorServiceRemapper {
     /**
      * If the processor is enabled or not.
@@ -11586,6 +11750,150 @@ export interface LogsCustomPipelineProcessorReferenceTableLookupProcessor {
      * Name of the attribute that contains the result of the lookup.
      */
     target: pulumi.Input<string>;
+}
+
+export interface LogsCustomPipelineProcessorSchemaProcessor {
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: pulumi.Input<boolean>;
+    /**
+     * Array of mappers for the schema processor.
+     */
+    mappers: pulumi.Input<pulumi.Input<inputs.LogsCustomPipelineProcessorSchemaProcessorMapper>[]>;
+    /**
+     * The name of the processor.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Configuration of the schema data to use.
+     */
+    schema: pulumi.Input<inputs.LogsCustomPipelineProcessorSchemaProcessorSchema>;
+}
+
+export interface LogsCustomPipelineProcessorSchemaProcessorMapper {
+    /**
+     * Mapper that categorizes log events into enum fields. In the case of OCSF, they can be used to map sibling fields which are composed of an ID and a name.
+     */
+    schemaCategoryMappers?: pulumi.Input<pulumi.Input<inputs.LogsCustomPipelineProcessorSchemaProcessorMapperSchemaCategoryMapper>[]>;
+    /**
+     * Mapper that maps source log fields to their correct fields.
+     */
+    schemaRemappers?: pulumi.Input<pulumi.Input<inputs.LogsCustomPipelineProcessorSchemaProcessorMapperSchemaRemapper>[]>;
+}
+
+export interface LogsCustomPipelineProcessorSchemaProcessorMapperSchemaCategoryMapper {
+    /**
+     * Object describing the logs filter with corresponding category ID.
+     */
+    categories: pulumi.Input<pulumi.Input<inputs.LogsCustomPipelineProcessorSchemaProcessorMapperSchemaCategoryMapperCategory>[]>;
+    /**
+     * Used to override hardcoded category values with a value pulled from a source attribute on the log.
+     */
+    fallback?: pulumi.Input<inputs.LogsCustomPipelineProcessorSchemaProcessorMapperSchemaCategoryMapperFallback>;
+    /**
+     * Name of the logs schema category mapper.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the target attributes which value is defined by the matching.
+     */
+    targets: pulumi.Input<inputs.LogsCustomPipelineProcessorSchemaProcessorMapperSchemaCategoryMapperTargets>;
+}
+
+export interface LogsCustomPipelineProcessorSchemaProcessorMapperSchemaCategoryMapperCategory {
+    filter: pulumi.Input<inputs.LogsCustomPipelineProcessorSchemaProcessorMapperSchemaCategoryMapperCategoryFilter>;
+    /**
+     * ID to inject into the category.
+     */
+    id: pulumi.Input<number>;
+    /**
+     * Value to assign to target schema field.
+     */
+    name: pulumi.Input<string>;
+}
+
+export interface LogsCustomPipelineProcessorSchemaProcessorMapperSchemaCategoryMapperCategoryFilter {
+    /**
+     * Filter criteria of the category.
+     */
+    query: pulumi.Input<string>;
+}
+
+export interface LogsCustomPipelineProcessorSchemaProcessorMapperSchemaCategoryMapperFallback {
+    /**
+     * Fallback sources used to populate value of field.
+     */
+    sources?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Values that define when the fallback is used.
+     */
+    values?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}
+
+export interface LogsCustomPipelineProcessorSchemaProcessorMapperSchemaCategoryMapperTargets {
+    /**
+     * ID of the field to map log attributes to
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Name of the field to map log attributes to.
+     */
+    name?: pulumi.Input<string>;
+}
+
+export interface LogsCustomPipelineProcessorSchemaProcessorMapperSchemaRemapper {
+    /**
+     * Name of the logs schema remapper.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Override or not the target element if already set.
+     */
+    overrideOnConflict?: pulumi.Input<boolean>;
+    /**
+     * Remove or preserve the remapped source element.
+     */
+    preserveSource?: pulumi.Input<boolean>;
+    /**
+     * Array of source attributes.
+     */
+    sources: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Target field to map log source field to
+     */
+    target: pulumi.Input<string>;
+    /**
+     * If the `targetType` of the remapper is `attribute`, try to cast the value to a new specific type. If the cast is not possible, the original type is kept. `string`, `integer`, or `double` are the possible types. If the `targetType` is `tag`, this parameter may not be specified.
+     */
+    targetFormat?: pulumi.Input<string>;
+}
+
+export interface LogsCustomPipelineProcessorSchemaProcessorSchema {
+    /**
+     * Class name of the schema to use.
+     */
+    className: pulumi.Input<string>;
+    /**
+     * Class UID of the schema to use.
+     */
+    classUid: pulumi.Input<number>;
+    /**
+     * Optional list of extensions to modify the schema.
+     */
+    extensions?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Optional list of profiles to modify the schema.
+     */
+    profiles?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Type of schema to use.
+     */
+    schemaType: pulumi.Input<string>;
+    /**
+     * Version of the schema to use.
+     */
+    version: pulumi.Input<string>;
 }
 
 export interface LogsCustomPipelineProcessorServiceRemapper {
