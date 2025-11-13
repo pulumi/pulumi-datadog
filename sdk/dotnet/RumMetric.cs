@@ -14,6 +14,55 @@ namespace Pulumi.Datadog
     /// 
     /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Create new rum_metric resource
+    ///     var testingRumMetric = new Datadog.RumMetric("testing_rum_metric", new()
+    ///     {
+    ///         Name = "testing.rum.metric",
+    ///         Compute = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "aggregationType", "distribution" },
+    ///                 { "includePercentiles", true },
+    ///                 { "path", "@duration" },
+    ///             },
+    ///         },
+    ///         EventType = "session",
+    ///         Filter = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "query", "@service:web-ui" },
+    ///             },
+    ///         },
+    ///         GroupBies = new[]
+    ///         {
+    ///             new Datadog.Inputs.RumMetricGroupByArgs
+    ///             {
+    ///                 Path = "@browser.name",
+    ///                 TagName = "browser_name",
+    ///             },
+    ///         },
+    ///         Uniqueness = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "when", "match" },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// The `pulumi import` command can be used, for example:

@@ -312,6 +312,26 @@ class AwsCurConfig(pulumi.CustomResource):
 
         ## Example Usage
 
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create new aws_cur_config resource
+        foo = datadog.AwsCurConfig("foo",
+            account_id="123456789123",
+            bucket_name="dd-cost-bucket",
+            bucket_region="us-east-1",
+            report_name="dd-report-name",
+            report_prefix="dd-report-prefix",
+            account_filters=[{
+                "includeNewAccounts": True,
+                "excludedAccounts": [
+                    "123456789123",
+                    "123456789143",
+                ],
+            }])
+        ```
+
         ## Import
 
         The `pulumi import` command can be used, for example:
@@ -338,6 +358,26 @@ class AwsCurConfig(pulumi.CustomResource):
         Provides a Datadog AWS CUR (Cost and Usage Report) configuration resource. This enables Datadog Cloud Cost Management to access your AWS billing data by configuring the connection to your AWS Cost and Usage Report. **Prerequisites**: An active Datadog AWS integration, existing AWS Cost and Usage Report, and proper S3 bucket permissions.
 
         ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create new aws_cur_config resource
+        foo = datadog.AwsCurConfig("foo",
+            account_id="123456789123",
+            bucket_name="dd-cost-bucket",
+            bucket_region="us-east-1",
+            report_name="dd-report-name",
+            report_prefix="dd-report-prefix",
+            account_filters=[{
+                "includeNewAccounts": True,
+                "excludedAccounts": [
+                    "123456789123",
+                    "123456789143",
+                ],
+            }])
+        ```
 
         ## Import
 

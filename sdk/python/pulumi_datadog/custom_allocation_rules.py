@@ -76,6 +76,72 @@ class CustomAllocationRules(pulumi.CustomResource):
 
         ## Example Usage
 
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        rule1 = datadog.CustomAllocationRule("rule_1",
+            costs_to_allocates=[{
+                "condition": "is",
+                "tag": "aws_product",
+                "value": "AmazonEC2",
+            }],
+            enabled=True,
+            providernames=["aws"],
+            rule_name="my-custom-rule-1",
+            strategy=[{
+                "allocatedByTagKeys": ["team"],
+                "basedOnCosts": [{
+                    "condition": "is",
+                    "tag": "aws_product",
+                    "value": "AmazonEC2",
+                }],
+                "method": "even",
+            }])
+        rule2 = datadog.CustomAllocationRule("rule_2",
+            costs_to_allocates=[{
+                "condition": "is",
+                "tag": "aws_product",
+                "value": "AmazonS3",
+            }],
+            enabled=True,
+            providernames=["aws"],
+            rule_name="my-custom-rule-2",
+            strategy=[{
+                "allocatedByTagKeys": ["team"],
+                "basedOnCosts": [{
+                    "condition": "is",
+                    "tag": "aws_product",
+                    "value": "AmazonS3",
+                }],
+                "method": "even",
+            }])
+        rule3 = datadog.CustomAllocationRule("rule_3",
+            costs_to_allocates=[{
+                "condition": "is",
+                "tag": "aws_product",
+                "value": "AmazonRDS",
+            }],
+            enabled=True,
+            providernames=["aws"],
+            rule_name="my-custom-rule-3",
+            strategy=[{
+                "allocatedByTagKeys": ["team"],
+                "basedOnCosts": [{
+                    "condition": "is",
+                    "tag": "aws_product",
+                    "value": "AmazonRDS",
+                }],
+                "method": "even",
+            }])
+        # Manage the order of custom allocation rules
+        order = datadog.CustomAllocationRules("order", rule_ids=[
+            rule1.id,
+            rule2.id,
+            rule3.id,
+        ])
+        ```
+
         ## Import
 
         The `pulumi import` command can be used, for example:
@@ -98,6 +164,72 @@ class CustomAllocationRules(pulumi.CustomResource):
         Provides a Datadog Custom Allocation Rule Order API resource. This can be used to manage the order of Datadog Custom Allocation Rules.
 
         ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        rule1 = datadog.CustomAllocationRule("rule_1",
+            costs_to_allocates=[{
+                "condition": "is",
+                "tag": "aws_product",
+                "value": "AmazonEC2",
+            }],
+            enabled=True,
+            providernames=["aws"],
+            rule_name="my-custom-rule-1",
+            strategy=[{
+                "allocatedByTagKeys": ["team"],
+                "basedOnCosts": [{
+                    "condition": "is",
+                    "tag": "aws_product",
+                    "value": "AmazonEC2",
+                }],
+                "method": "even",
+            }])
+        rule2 = datadog.CustomAllocationRule("rule_2",
+            costs_to_allocates=[{
+                "condition": "is",
+                "tag": "aws_product",
+                "value": "AmazonS3",
+            }],
+            enabled=True,
+            providernames=["aws"],
+            rule_name="my-custom-rule-2",
+            strategy=[{
+                "allocatedByTagKeys": ["team"],
+                "basedOnCosts": [{
+                    "condition": "is",
+                    "tag": "aws_product",
+                    "value": "AmazonS3",
+                }],
+                "method": "even",
+            }])
+        rule3 = datadog.CustomAllocationRule("rule_3",
+            costs_to_allocates=[{
+                "condition": "is",
+                "tag": "aws_product",
+                "value": "AmazonRDS",
+            }],
+            enabled=True,
+            providernames=["aws"],
+            rule_name="my-custom-rule-3",
+            strategy=[{
+                "allocatedByTagKeys": ["team"],
+                "basedOnCosts": [{
+                    "condition": "is",
+                    "tag": "aws_product",
+                    "value": "AmazonRDS",
+                }],
+                "method": "even",
+            }])
+        # Manage the order of custom allocation rules
+        order = datadog.CustomAllocationRules("order", rule_ids=[
+            rule1.id,
+            rule2.id,
+            rule3.id,
+        ])
+        ```
 
         ## Import
 

@@ -14,6 +14,111 @@ namespace Pulumi.Datadog
     /// 
     /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var awsConnection = new Datadog.ActionConnection("aws_connection", new()
+    ///     {
+    ///         Name = "My AWS Connection",
+    ///         Aws = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "assumeRole", new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "accountId", "123456789012" },
+    ///                         { "role", "role2" },
+    ///                     },
+    ///                 } },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var config = new Config();
+    ///     var token1 = config.Require("token1");
+    ///     var token2 = config.Require("token2");
+    ///     var httpConnection = new Datadog.ActionConnection("http_connection", new()
+    ///     {
+    ///         Name = "My HTTP connection with token auth",
+    ///         Http = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "baseUrl", "https://catfact.ninja" },
+    ///                 { "tokenAuth", new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "tokens", new[]
+    ///                         {
+    ///                             
+    ///                             {
+    ///                                 { "type", "SECRET" },
+    ///                                 { "name", "token1" },
+    ///                                 { "value", token1 },
+    ///                             },
+    ///                             
+    ///                             {
+    ///                                 { "type", "SECRET" },
+    ///                                 { "name", "token2" },
+    ///                                 { "value", token2 },
+    ///                             },
+    ///                         } },
+    ///                         { "headers", new[]
+    ///                         {
+    ///                             
+    ///                             {
+    ///                                 { "name", "header-one" },
+    ///                                 { "value", "headerval" },
+    ///                             },
+    ///                             
+    ///                             {
+    ///                                 { "name", "h2" },
+    ///                                 { "value", "{{ token1 }} test" },
+    ///                             },
+    ///                         } },
+    ///                         { "urlParameters", new[]
+    ///                         {
+    ///                             
+    ///                             {
+    ///                                 { "name", "param1" },
+    ///                                 { "value", "{{ token1 }}" },
+    ///                             },
+    ///                             
+    ///                             {
+    ///                                 { "name", "param2" },
+    ///                                 { "value", "paramVal2" },
+    ///                             },
+    ///                         } },
+    ///                         { "body", new[]
+    ///                         {
+    ///                             
+    ///                             {
+    ///                                 { "contentType", "application/json" },
+    ///                                 { "content", JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///                                 {
+    ///                                     ["key"] = "mykey",
+    ///                                     ["value"] = "maybe with a secret: {{ token2 }}",
+    ///                                 }) },
+    ///                             },
+    ///                         } },
+    ///                     },
+    ///                 } },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// The `pulumi import` command can be used, for example:

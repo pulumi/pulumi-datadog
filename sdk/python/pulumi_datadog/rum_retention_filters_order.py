@@ -106,6 +106,40 @@ class RumRetentionFiltersOrder(pulumi.CustomResource):
         """
         Provides a Datadog RumRetentionFiltersOrder resource. This is used to manage the order of Datadog RUM retention filters. Please note that retention_filter_ids should contain all IDs of retention filters, including the default ones created internally for a given RUM application.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+        import pulumi_std as std
+
+        # Create a new rum_application resource.
+        my_rum_application = datadog.RumApplication("my_rum_application",
+            name="my-rum-application-test",
+            type="browser")
+        # Retrieve rum_retention_filters for the rum_application created above.
+        my_retention_filters = datadog.get_rum_retention_filters(application_id=datadog_rum_application["myRumApplication"]["id"])
+        # Create a new rum_retention_filter resource.
+        new_rum_retention_filter = datadog.RumRetentionFilter("new_rum_retention_filter",
+            application_id=datadog_rum_application["myRumApplication"]["id"],
+            name="testing.rum.retention_filter",
+            event_type="action",
+            sample_rate=60,
+            query="@session.has_replay:true",
+            enabled=True)
+        # Create a new rum_retention_filters_order resource for reordering.
+        # Please note that the IDs of all default retention filters have the prefix 'default', and you need to populate the retention_filter_ids field with all retention filter IDs.
+        my_rum_retention_filters_order = datadog.RumRetentionFiltersOrder("my_rum_retention_filters_order",
+            application_id=datadog_rum_application["myRumApplication"]["id"],
+            retention_filter_ids=std.index.concat(input=[
+                [rf.id for rf in my_retention_filters.retention_filters if std.index.startswith(input=rf.id,
+                    prefix="default")["result"]],
+                [new_rum_retention_filter.id],
+                [rf.id for rf in my_retention_filters.retention_filters if not std.index.startswith(input=rf.id,
+                    prefix="default")["result"] and rf.id != _arg0_],
+            ])["result"])
+        ```
+
         ## Import
 
         The `pulumi import` command can be used, for example:
@@ -127,6 +161,40 @@ class RumRetentionFiltersOrder(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog RumRetentionFiltersOrder resource. This is used to manage the order of Datadog RUM retention filters. Please note that retention_filter_ids should contain all IDs of retention filters, including the default ones created internally for a given RUM application.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+        import pulumi_std as std
+
+        # Create a new rum_application resource.
+        my_rum_application = datadog.RumApplication("my_rum_application",
+            name="my-rum-application-test",
+            type="browser")
+        # Retrieve rum_retention_filters for the rum_application created above.
+        my_retention_filters = datadog.get_rum_retention_filters(application_id=datadog_rum_application["myRumApplication"]["id"])
+        # Create a new rum_retention_filter resource.
+        new_rum_retention_filter = datadog.RumRetentionFilter("new_rum_retention_filter",
+            application_id=datadog_rum_application["myRumApplication"]["id"],
+            name="testing.rum.retention_filter",
+            event_type="action",
+            sample_rate=60,
+            query="@session.has_replay:true",
+            enabled=True)
+        # Create a new rum_retention_filters_order resource for reordering.
+        # Please note that the IDs of all default retention filters have the prefix 'default', and you need to populate the retention_filter_ids field with all retention filter IDs.
+        my_rum_retention_filters_order = datadog.RumRetentionFiltersOrder("my_rum_retention_filters_order",
+            application_id=datadog_rum_application["myRumApplication"]["id"],
+            retention_filter_ids=std.index.concat(input=[
+                [rf.id for rf in my_retention_filters.retention_filters if std.index.startswith(input=rf.id,
+                    prefix="default")["result"]],
+                [new_rum_retention_filter.id],
+                [rf.id for rf in my_retention_filters.retention_filters if not std.index.startswith(input=rf.id,
+                    prefix="default")["result"] and rf.id != _arg0_],
+            ])["result"])
+        ```
 
         ## Import
 

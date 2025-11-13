@@ -14,6 +14,60 @@ namespace Pulumi.Datadog
     /// 
     /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Example Security Monitoring Rule JSON
+    ///     var securityRuleJson = new Datadog.SecurityMonitoringRuleJson("security_rule_json", new()
+    ///     {
+    ///         Rule = @"{
+    ///   ""name"": ""High error rate security monitoring"",
+    ///   ""isEnabled"": true,
+    ///   ""type"": ""log_detection"",
+    ///   ""message"": ""High error rate detected in logs"",
+    ///   ""tags"": [""env:prod"", ""security""],
+    ///   ""cases"": [
+    ///     {
+    ///       ""name"": ""high case"",
+    ///       ""status"": ""high"",
+    ///       ""condition"": ""errors &gt; 100 &amp;&amp; warnings &gt; 1000"",
+    ///       ""notifications"": [""@security-team""]
+    ///     }
+    ///   ],
+    ///   ""queries"": [
+    ///     {
+    ///       ""name"": ""errors"",
+    ///       ""query"": ""status:error"",
+    ///       ""aggregation"": ""count"",
+    ///       ""dataSource"": ""logs"",
+    ///       ""groupByFields"": [""service"", ""env""]
+    ///     },
+    ///     {
+    ///       ""name"": ""warnings"",
+    ///       ""query"": ""status:warning"",
+    ///       ""aggregation"": ""count"",
+    ///       ""dataSource"": ""logs"",
+    ///       ""groupByFields"": [""service"", ""env""]
+    ///     }
+    ///   ],
+    ///   ""options"": {
+    ///     ""evaluationWindow"": 300,
+    ///     ""keepAlive"": 600,
+    ///     ""maxSignalDuration"": 900,
+    ///     ""detectionMethod"": ""threshold""
+    ///   }
+    /// }
+    /// ",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// The `pulumi import` command can be used, for example:

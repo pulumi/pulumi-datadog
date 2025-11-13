@@ -288,6 +288,32 @@ class CustomAllocationRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create new datadog_custom_allocation_rule resource
+        my_allocation_rule = datadog.CustomAllocationRule("my_allocation_rule",
+            costs_to_allocates=[{
+                "condition": "is",
+                "tag": "aws_product",
+                "value": "ec2",
+            }],
+            enabled=True,
+            providernames=["aws"],
+            rule_name="my-allocation-rule",
+            strategy=[{
+                "allocatedByTagKeys": ["team"],
+                "basedOnCosts": [{
+                    "condition": "is",
+                    "tag": "env",
+                    "value": "prod",
+                }],
+                "granularity": "daily",
+                "method": "even",
+            }])
+        ```
+
         ## Import
 
         The `pulumi import` command can be used, for example:
@@ -312,6 +338,32 @@ class CustomAllocationRule(pulumi.CustomResource):
         Provides a Datadog Custom Allocation Rule resource. Custom allocation rules allow you to allocate cloud costs based on tags and filters.
 
         ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create new datadog_custom_allocation_rule resource
+        my_allocation_rule = datadog.CustomAllocationRule("my_allocation_rule",
+            costs_to_allocates=[{
+                "condition": "is",
+                "tag": "aws_product",
+                "value": "ec2",
+            }],
+            enabled=True,
+            providernames=["aws"],
+            rule_name="my-allocation-rule",
+            strategy=[{
+                "allocatedByTagKeys": ["team"],
+                "basedOnCosts": [{
+                    "condition": "is",
+                    "tag": "env",
+                    "value": "prod",
+                }],
+                "granularity": "daily",
+                "method": "even",
+            }])
+        ```
 
         ## Import
 

@@ -16,6 +16,49 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create new Azure Usage Cost configuration resource
+//			_, err := datadog.NewAzureUcConfig(ctx, "example", &datadog.AzureUcConfigArgs{
+//				AccountId: pulumi.String("12345678-1234-abcd-1234-123456789012"),
+//				ClientId:  pulumi.String("87654321-4321-dcba-4321-210987654321"),
+//				Scope:     pulumi.String("/subscriptions/12345678-1234-abcd-1234-123456789012"),
+//				ActualBillConfig: datadog.AzureUcConfigActualBillConfigArgs{
+//					map[string]interface{}{
+//						"exportName":       "my-actual-export",
+//						"exportPath":       "exports/actual",
+//						"storageAccount":   "mystorageaccount",
+//						"storageContainer": "cost-exports",
+//					},
+//				},
+//				AmortizedBillConfig: datadog.AzureUcConfigAmortizedBillConfigArgs{
+//					map[string]interface{}{
+//						"exportName":       "my-amortized-export",
+//						"exportPath":       "exports/amortized",
+//						"storageAccount":   "mystorageaccount",
+//						"storageContainer": "cost-exports",
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // The `pulumi import` command can be used, for example:

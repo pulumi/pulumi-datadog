@@ -21,6 +21,61 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.OnCallTeamRoutingRules;
+ * import com.pulumi.datadog.OnCallTeamRoutingRulesArgs;
+ * import com.pulumi.datadog.inputs.OnCallTeamRoutingRulesRuleArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var teamRulesTest = new OnCallTeamRoutingRules("teamRulesTest", OnCallTeamRoutingRulesArgs.builder()
+ *             .teamId("00000000-aba2-0000-0000-000000000000")
+ *             .rules(            
+ *                 OnCallTeamRoutingRulesRuleArgs.builder()
+ *                     .query("tags.service:test")
+ *                     .actions(OnCallTeamRoutingRulesRuleActionArgs.builder()
+ *                         .sendSlackMessage(OnCallTeamRoutingRulesRuleActionSendSlackMessageArgs.builder()
+ *                             .workspace("workspace")
+ *                             .channel("channel")
+ *                             .build())
+ *                         .build())
+ *                     .timeRestrictions(OnCallTeamRoutingRulesRuleTimeRestrictionsArgs.builder()
+ *                         .timeZone("America/New_York")
+ *                         .restrictions(OnCallTeamRoutingRulesRuleTimeRestrictionsRestrictionArgs.builder()
+ *                             .endDay("monday")
+ *                             .endTime("17:00:00")
+ *                             .startDay("monday")
+ *                             .startTime("09:00:00")
+ *                             .build())
+ *                         .build())
+ *                     .build(),
+ *                 OnCallTeamRoutingRulesRuleArgs.builder()
+ *                     .escalationPolicy("00000000-aba2-0000-0000-000000000000")
+ *                     .urgency("dynamic")
+ *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * The `pulumi import` command can be used, for example:

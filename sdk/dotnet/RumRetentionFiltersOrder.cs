@@ -12,6 +12,82 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog RumRetentionFiltersOrder resource. This is used to manage the order of Datadog RUM retention filters. Please note that RetentionFilterIds should contain all IDs of retention filters, including the default ones created internally for a given RUM application.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Create a new rum_application resource.
+    ///     var myRumApplication = new Datadog.RumApplication("my_rum_application", new()
+    ///     {
+    ///         Name = "my-rum-application-test",
+    ///         Type = "browser",
+    ///     });
+    /// 
+    ///     // Retrieve rum_retention_filters for the rum_application created above.
+    ///     var myRetentionFilters = Datadog.GetRumRetentionFilters.Invoke(new()
+    ///     {
+    ///         ApplicationId = datadogRumApplication.MyRumApplication.Id,
+    ///     });
+    /// 
+    ///     // Create a new rum_retention_filter resource.
+    ///     var newRumRetentionFilter = new Datadog.RumRetentionFilter("new_rum_retention_filter", new()
+    ///     {
+    ///         ApplicationId = datadogRumApplication.MyRumApplication.Id,
+    ///         Name = "testing.rum.retention_filter",
+    ///         EventType = "action",
+    ///         SampleRate = 60,
+    ///         Query = "@session.has_replay:true",
+    ///         Enabled = true,
+    ///     });
+    /// 
+    ///     // Create a new rum_retention_filters_order resource for reordering.
+    ///     // Please note that the IDs of all default retention filters have the prefix 'default', and you need to populate the retention_filter_ids field with all retention filter IDs.
+    ///     var myRumRetentionFiltersOrder = new Datadog.RumRetentionFiltersOrder("my_rum_retention_filters_order", new()
+    ///     {
+    ///         ApplicationId = datadogRumApplication.MyRumApplication.Id,
+    ///         RetentionFilterIds = Std.Index.Concat.Invoke(new()
+    ///         {
+    ///             Input = new[]
+    ///             {
+    ///                 .Where(rf =&gt; Std.Index.Startswith.Invoke(new()
+    ///                 {
+    ///                     Input = rf.Id,
+    ///                     Prefix = "default",
+    ///                 }).Result).Select(rf =&gt; 
+    ///                 {
+    ///                     return rf.Id;
+    ///                 }).ToList(),
+    ///                 new[]
+    ///                 {
+    ///                     newRumRetentionFilter.Id,
+    ///                 },
+    ///                 Output.Tuple(myRetentionFilters, newRumRetentionFilter.Id).Apply(values =&gt;
+    ///                 {
+    ///                     var myRetentionFilters = values.Item1;
+    ///                     var id = values.Item2;
+    ///                     return .Where(rf =&gt; !Std.Index.Startswith.Invoke(new()
+    ///                     {
+    ///                         Input = rf.Id,
+    ///                         Prefix = "default",
+    ///                     }).Result &amp;&amp; rf.Id != id).Select(rf =&gt; 
+    ///                     {
+    ///                         return rf.Id;
+    ///                     }).ToList();
+    ///                 }),
+    ///             },
+    ///         }).Result,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// The `pulumi import` command can be used, for example:

@@ -16,6 +16,41 @@ import javax.annotation.Nullable;
 /**
  * Deprecated: use the `datadog.SoftwareCatalog` resource instead. Provides a Datadog OpenAPI resource. This can be used to synchronize Datadog&#39;s [API catalog](https://docs.datadoghq.com/api_catalog/) with an [OpenAPI](https://www.openapis.org/) specifications file.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.OpenapiApi;
+ * import com.pulumi.datadog.OpenapiApiArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         // Uploads an OpenAPI file from the given local path to Datadog's API catalog
+ *         var my_api = new OpenapiApi("my-api", OpenapiApiArgs.builder()
+ *             .spec(StdFunctions.file(Map.of("input", "./path/my-api.yaml")).result())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * The `pulumi import` command can be used, for example:

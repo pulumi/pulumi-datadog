@@ -11,6 +11,27 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * // Create new aws_cur_config resource
+ * const foo = new datadog.AwsCurConfig("foo", {
+ *     accountId: "123456789123",
+ *     bucketName: "dd-cost-bucket",
+ *     bucketRegion: "us-east-1",
+ *     reportName: "dd-report-name",
+ *     reportPrefix: "dd-report-prefix",
+ *     accountFilters: [{
+ *         includeNewAccounts: true,
+ *         excludedAccounts: [
+ *             "123456789123",
+ *             "123456789143",
+ *         ],
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * The `pulumi import` command can be used, for example:

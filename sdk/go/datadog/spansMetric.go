@@ -16,6 +16,49 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create new spans_metric resource
+//			_, err := datadog.NewSpansMetric(ctx, "testing_spans_metric", &datadog.SpansMetricArgs{
+//				Name: pulumi.String("testing.span.metric"),
+//				Compute: datadog.SpansMetricComputeArgs{
+//					map[string]interface{}{
+//						"aggregationType":    "distribution",
+//						"includePercentiles": false,
+//						"path":               "@duration",
+//					},
+//				},
+//				Filter: datadog.SpansMetricFilterArgs{
+//					map[string]interface{}{
+//						"query": "@http.status_code:200 service:my-service",
+//					},
+//				},
+//				GroupBies: datadog.SpansMetricGroupByArray{
+//					&datadog.SpansMetricGroupByArgs{
+//						Path:    pulumi.String("resource_name"),
+//						TagName: pulumi.String("resource_name"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // The `pulumi import` command can be used, for example:
