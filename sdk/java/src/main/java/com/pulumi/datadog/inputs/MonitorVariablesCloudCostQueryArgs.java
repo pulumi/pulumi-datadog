@@ -8,8 +8,6 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class MonitorVariablesCloudCostQueryArgs extends com.pulumi.resources.ResourceArgs {
@@ -20,15 +18,15 @@ public final class MonitorVariablesCloudCostQueryArgs extends com.pulumi.resourc
      * The aggregation methods available for cloud cost queries. Valid values are `avg`, `sum`, `max`, `min`, `last`, `area`, `l2norm`, `percentile`, `stddev`.
      * 
      */
-    @Import(name="aggregator")
-    private @Nullable Output<String> aggregator;
+    @Import(name="aggregator", required=true)
+    private Output<String> aggregator;
 
     /**
      * @return The aggregation methods available for cloud cost queries. Valid values are `avg`, `sum`, `max`, `min`, `last`, `area`, `l2norm`, `percentile`, `stddev`.
      * 
      */
-    public Optional<Output<String>> aggregator() {
-        return Optional.ofNullable(this.aggregator);
+    public Output<String> aggregator() {
+        return this.aggregator;
     }
 
     /**
@@ -109,7 +107,7 @@ public final class MonitorVariablesCloudCostQueryArgs extends com.pulumi.resourc
          * @return builder
          * 
          */
-        public Builder aggregator(@Nullable Output<String> aggregator) {
+        public Builder aggregator(Output<String> aggregator) {
             $.aggregator = aggregator;
             return this;
         }
@@ -188,6 +186,9 @@ public final class MonitorVariablesCloudCostQueryArgs extends com.pulumi.resourc
         }
 
         public MonitorVariablesCloudCostQueryArgs build() {
+            if ($.aggregator == null) {
+                throw new MissingRequiredPropertyException("MonitorVariablesCloudCostQueryArgs", "aggregator");
+            }
             if ($.dataSource == null) {
                 throw new MissingRequiredPropertyException("MonitorVariablesCloudCostQueryArgs", "dataSource");
             }

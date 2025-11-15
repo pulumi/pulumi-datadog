@@ -31,7 +31,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? CrossOrgUuids { get; set; }
 
         /// <summary>
-        /// The data source for event platform-based queries. Valid values are `Logs`, `Spans`, `Network`, `Rum`, `SecuritySignals`, `Profiles`, `Audit`, `Events`, `CiTests`, `CiPipelines`, `IncidentAnalytics`, `ProductAnalytics`.
+        /// The data source for event platform-based queries. Valid values are `Logs`, `Spans`, `Network`, `Rum`, `SecuritySignals`, `Profiles`, `Audit`, `Events`, `CiTests`, `CiPipelines`, `IncidentAnalytics`, `ProductAnalytics`, `OnCallEvents`.
         /// </summary>
         [Input("dataSource", required: true)]
         public Input<string> DataSource { get; set; } = null!;

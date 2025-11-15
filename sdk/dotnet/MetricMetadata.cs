@@ -83,7 +83,7 @@ namespace Pulumi.Datadog
         public Output<string?> Type { get; private set; } = null!;
 
         /// <summary>
-        /// Primary unit of the metric such as `Byte` or `Operation`.
+        /// Primary unit of the metric such as `Byte` or `Operation`. For a list of allowed units, refer to [Datadog metric unit documentation](https://docs.datadoghq.com/metrics/units/#unit-list).
         /// </summary>
         [Output("unit")]
         public Output<string?> Unit { get; private set; } = null!;
@@ -171,7 +171,7 @@ namespace Pulumi.Datadog
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// Primary unit of the metric such as `Byte` or `Operation`.
+        /// Primary unit of the metric such as `Byte` or `Operation`. For a list of allowed units, refer to [Datadog metric unit documentation](https://docs.datadoghq.com/metrics/units/#unit-list).
         /// </summary>
         [Input("unit")]
         public Input<string>? Unit { get; set; }
@@ -221,7 +221,7 @@ namespace Pulumi.Datadog
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// Primary unit of the metric such as `Byte` or `Operation`.
+        /// Primary unit of the metric such as `Byte` or `Operation`. For a list of allowed units, refer to [Datadog metric unit documentation](https://docs.datadoghq.com/metrics/units/#unit-list).
         /// </summary>
         [Input("unit")]
         public Input<string>? Unit { get; set; }

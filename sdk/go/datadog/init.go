@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ActionConnection{}
 	case "datadog:index/agentlessScanningAwsScanOptions:AgentlessScanningAwsScanOptions":
 		r = &AgentlessScanningAwsScanOptions{}
+	case "datadog:index/agentlessScanningGcpScanOptions:AgentlessScanningGcpScanOptions":
+		r = &AgentlessScanningGcpScanOptions{}
 	case "datadog:index/apiKey:ApiKey":
 		r = &ApiKey{}
 	case "datadog:index/apmRetentionFilter:ApmRetentionFilter":
@@ -250,6 +252,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/agentlessScanningAwsScanOptions",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/agentlessScanningGcpScanOptions",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
