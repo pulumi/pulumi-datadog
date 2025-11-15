@@ -10,8 +10,4 @@ env:
     DATADOG_API_KEY: ${{ secrets.DATADOG_API_KEY }}
 pulumiConvert: 1
 registryDocs: true
-plugins:
-    - name: terraform
-      version: "1.0.16"
-      kind: converter
 integrationTestProvider: true
