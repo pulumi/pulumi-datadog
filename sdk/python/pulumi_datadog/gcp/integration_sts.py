@@ -709,7 +709,7 @@ class IntegrationSts(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="metricNamespaceConfigs")
-    def metric_namespace_configs(self) -> pulumi.Output[Optional[Sequence['outputs.IntegrationStsMetricNamespaceConfig']]]:
+    def metric_namespace_configs(self) -> pulumi.Output[Sequence['outputs.IntegrationStsMetricNamespaceConfig']]:
         """
         Configurations for GCP metric namespaces.
         """

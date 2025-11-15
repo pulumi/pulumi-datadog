@@ -13,7 +13,10 @@ import java.util.Objects;
 @CustomType
 public final class GetCsmThreatsAgentRulesAgentRuleActionSet {
     private Boolean append;
+    private String defaultValue;
+    private String expression;
     private String field;
+    private Boolean inherited;
     private String name;
     private String scope;
     private Integer size;
@@ -24,8 +27,17 @@ public final class GetCsmThreatsAgentRulesAgentRuleActionSet {
     public Boolean append() {
         return this.append;
     }
+    public String defaultValue() {
+        return this.defaultValue;
+    }
+    public String expression() {
+        return this.expression;
+    }
     public String field() {
         return this.field;
+    }
+    public Boolean inherited() {
+        return this.inherited;
     }
     public String name() {
         return this.name;
@@ -53,7 +65,10 @@ public final class GetCsmThreatsAgentRulesAgentRuleActionSet {
     @CustomType.Builder
     public static final class Builder {
         private Boolean append;
+        private String defaultValue;
+        private String expression;
         private String field;
+        private Boolean inherited;
         private String name;
         private String scope;
         private Integer size;
@@ -63,7 +78,10 @@ public final class GetCsmThreatsAgentRulesAgentRuleActionSet {
         public Builder(GetCsmThreatsAgentRulesAgentRuleActionSet defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.append = defaults.append;
+    	      this.defaultValue = defaults.defaultValue;
+    	      this.expression = defaults.expression;
     	      this.field = defaults.field;
+    	      this.inherited = defaults.inherited;
     	      this.name = defaults.name;
     	      this.scope = defaults.scope;
     	      this.size = defaults.size;
@@ -80,11 +98,35 @@ public final class GetCsmThreatsAgentRulesAgentRuleActionSet {
             return this;
         }
         @CustomType.Setter
+        public Builder defaultValue(String defaultValue) {
+            if (defaultValue == null) {
+              throw new MissingRequiredPropertyException("GetCsmThreatsAgentRulesAgentRuleActionSet", "defaultValue");
+            }
+            this.defaultValue = defaultValue;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder expression(String expression) {
+            if (expression == null) {
+              throw new MissingRequiredPropertyException("GetCsmThreatsAgentRulesAgentRuleActionSet", "expression");
+            }
+            this.expression = expression;
+            return this;
+        }
+        @CustomType.Setter
         public Builder field(String field) {
             if (field == null) {
               throw new MissingRequiredPropertyException("GetCsmThreatsAgentRulesAgentRuleActionSet", "field");
             }
             this.field = field;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder inherited(Boolean inherited) {
+            if (inherited == null) {
+              throw new MissingRequiredPropertyException("GetCsmThreatsAgentRulesAgentRuleActionSet", "inherited");
+            }
+            this.inherited = inherited;
             return this;
         }
         @CustomType.Setter
@@ -130,7 +172,10 @@ public final class GetCsmThreatsAgentRulesAgentRuleActionSet {
         public GetCsmThreatsAgentRulesAgentRuleActionSet build() {
             final var _resultValue = new GetCsmThreatsAgentRulesAgentRuleActionSet();
             _resultValue.append = append;
+            _resultValue.defaultValue = defaultValue;
+            _resultValue.expression = expression;
             _resultValue.field = field;
+            _resultValue.inherited = inherited;
             _resultValue.name = name;
             _resultValue.scope = scope;
             _resultValue.size = size;

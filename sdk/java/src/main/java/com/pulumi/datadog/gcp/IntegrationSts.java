@@ -185,14 +185,14 @@ public class IntegrationSts extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="metricNamespaceConfigs", refs={List.class,IntegrationStsMetricNamespaceConfig.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<IntegrationStsMetricNamespaceConfig>> metricNamespaceConfigs;
+    private Output<List<IntegrationStsMetricNamespaceConfig>> metricNamespaceConfigs;
 
     /**
      * @return Configurations for GCP metric namespaces.
      * 
      */
-    public Output<Optional<List<IntegrationStsMetricNamespaceConfig>>> metricNamespaceConfigs() {
-        return Codegen.optional(this.metricNamespaceConfigs);
+    public Output<List<IntegrationStsMetricNamespaceConfig>> metricNamespaceConfigs() {
+        return this.metricNamespaceConfigs;
     }
     /**
      * Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
