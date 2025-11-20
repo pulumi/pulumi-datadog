@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? CrossOrgUuids;
         /// <summary>
-        /// The data source for event platform-based queries. Valid values are `Logs`, `Spans`, `Network`, `Rum`, `SecuritySignals`, `Profiles`, `Audit`, `Events`, `CiTests`, `CiPipelines`, `IncidentAnalytics`, `ProductAnalytics`.
+        /// The data source for event platform-based queries. Valid values are `Logs`, `Spans`, `Network`, `Rum`, `SecuritySignals`, `Profiles`, `Audit`, `Events`, `CiTests`, `CiPipelines`, `IncidentAnalytics`, `ProductAnalytics`, `OnCallEvents`.
         /// </summary>
         public readonly string DataSource;
         /// <summary>

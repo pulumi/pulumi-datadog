@@ -20,10 +20,25 @@ public final class CsmThreatsAgentRuleActionSet {
      */
     private @Nullable Boolean append;
     /**
+     * @return The default value to set
+     * 
+     */
+    private @Nullable String defaultValue;
+    /**
+     * @return The expression to use for the set action
+     * 
+     */
+    private @Nullable String expression;
+    /**
      * @return The field to get the value from
      * 
      */
     private @Nullable String field;
+    /**
+     * @return Whether the set action is inherited
+     * 
+     */
+    private @Nullable Boolean inherited;
     /**
      * @return The name of the set action
      * 
@@ -59,11 +74,32 @@ public final class CsmThreatsAgentRuleActionSet {
         return Optional.ofNullable(this.append);
     }
     /**
+     * @return The default value to set
+     * 
+     */
+    public Optional<String> defaultValue() {
+        return Optional.ofNullable(this.defaultValue);
+    }
+    /**
+     * @return The expression to use for the set action
+     * 
+     */
+    public Optional<String> expression() {
+        return Optional.ofNullable(this.expression);
+    }
+    /**
      * @return The field to get the value from
      * 
      */
     public Optional<String> field() {
         return Optional.ofNullable(this.field);
+    }
+    /**
+     * @return Whether the set action is inherited
+     * 
+     */
+    public Optional<Boolean> inherited() {
+        return Optional.ofNullable(this.inherited);
     }
     /**
      * @return The name of the set action
@@ -111,7 +147,10 @@ public final class CsmThreatsAgentRuleActionSet {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean append;
+        private @Nullable String defaultValue;
+        private @Nullable String expression;
         private @Nullable String field;
+        private @Nullable Boolean inherited;
         private String name;
         private @Nullable String scope;
         private @Nullable Integer size;
@@ -121,7 +160,10 @@ public final class CsmThreatsAgentRuleActionSet {
         public Builder(CsmThreatsAgentRuleActionSet defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.append = defaults.append;
+    	      this.defaultValue = defaults.defaultValue;
+    	      this.expression = defaults.expression;
     	      this.field = defaults.field;
+    	      this.inherited = defaults.inherited;
     	      this.name = defaults.name;
     	      this.scope = defaults.scope;
     	      this.size = defaults.size;
@@ -136,9 +178,27 @@ public final class CsmThreatsAgentRuleActionSet {
             return this;
         }
         @CustomType.Setter
+        public Builder defaultValue(@Nullable String defaultValue) {
+
+            this.defaultValue = defaultValue;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder expression(@Nullable String expression) {
+
+            this.expression = expression;
+            return this;
+        }
+        @CustomType.Setter
         public Builder field(@Nullable String field) {
 
             this.field = field;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder inherited(@Nullable Boolean inherited) {
+
+            this.inherited = inherited;
             return this;
         }
         @CustomType.Setter
@@ -176,7 +236,10 @@ public final class CsmThreatsAgentRuleActionSet {
         public CsmThreatsAgentRuleActionSet build() {
             final var _resultValue = new CsmThreatsAgentRuleActionSet();
             _resultValue.append = append;
+            _resultValue.defaultValue = defaultValue;
+            _resultValue.expression = expression;
             _resultValue.field = field;
+            _resultValue.inherited = inherited;
             _resultValue.name = name;
             _resultValue.scope = scope;
             _resultValue.size = size;

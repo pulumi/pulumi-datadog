@@ -28,14 +28,10 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// Source the permissions for scoped keys
-//			ddPerms, err := datadog.GetPermissions(ctx, &datadog.GetPermissionsArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
+//			// See the permissions available for scoped keys at https://docs.datadoghq.com/account_management/rbac/permissions/#permissions-list
 //			// Create an unrestricted Application Key
 //			// This key inherits all permissions of the user that owns the key
-//			_, err = datadog.NewApplicationKey(ctx, "unrestricted_key", &datadog.ApplicationKeyArgs{
+//			_, err := datadog.NewApplicationKey(ctx, "unrestricted_key", &datadog.ApplicationKeyArgs{
 //				Name: pulumi.String("Unrestricted Application Key"),
 //			})
 //			if err != nil {
@@ -45,8 +41,8 @@ import (
 //			_, err = datadog.NewApplicationKey(ctx, "monitor_management_key", &datadog.ApplicationKeyArgs{
 //				Name: pulumi.String("Monitor Management Key"),
 //				Scopes: pulumi.StringArray{
-//					pulumi.String(ddPerms.Permissions.MonitorsRead),
-//					pulumi.String(ddPerms.Permissions.MonitorsWrite),
+//					pulumi.String("monitors_read"),
+//					pulumi.String("monitors_write"),
 //				},
 //			})
 //			if err != nil {

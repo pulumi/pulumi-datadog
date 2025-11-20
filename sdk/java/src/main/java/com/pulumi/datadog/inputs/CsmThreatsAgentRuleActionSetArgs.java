@@ -34,6 +34,36 @@ public final class CsmThreatsAgentRuleActionSetArgs extends com.pulumi.resources
     }
 
     /**
+     * The default value to set
+     * 
+     */
+    @Import(name="defaultValue")
+    private @Nullable Output<String> defaultValue;
+
+    /**
+     * @return The default value to set
+     * 
+     */
+    public Optional<Output<String>> defaultValue() {
+        return Optional.ofNullable(this.defaultValue);
+    }
+
+    /**
+     * The expression to use for the set action
+     * 
+     */
+    @Import(name="expression")
+    private @Nullable Output<String> expression;
+
+    /**
+     * @return The expression to use for the set action
+     * 
+     */
+    public Optional<Output<String>> expression() {
+        return Optional.ofNullable(this.expression);
+    }
+
+    /**
      * The field to get the value from
      * 
      */
@@ -46,6 +76,21 @@ public final class CsmThreatsAgentRuleActionSetArgs extends com.pulumi.resources
      */
     public Optional<Output<String>> field() {
         return Optional.ofNullable(this.field);
+    }
+
+    /**
+     * Whether the set action is inherited
+     * 
+     */
+    @Import(name="inherited")
+    private @Nullable Output<Boolean> inherited;
+
+    /**
+     * @return Whether the set action is inherited
+     * 
+     */
+    public Optional<Output<Boolean>> inherited() {
+        return Optional.ofNullable(this.inherited);
     }
 
     /**
@@ -127,7 +172,10 @@ public final class CsmThreatsAgentRuleActionSetArgs extends com.pulumi.resources
 
     private CsmThreatsAgentRuleActionSetArgs(CsmThreatsAgentRuleActionSetArgs $) {
         this.append = $.append;
+        this.defaultValue = $.defaultValue;
+        this.expression = $.expression;
         this.field = $.field;
+        this.inherited = $.inherited;
         this.name = $.name;
         this.scope = $.scope;
         this.size = $.size;
@@ -175,6 +223,48 @@ public final class CsmThreatsAgentRuleActionSetArgs extends com.pulumi.resources
         }
 
         /**
+         * @param defaultValue The default value to set
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultValue(@Nullable Output<String> defaultValue) {
+            $.defaultValue = defaultValue;
+            return this;
+        }
+
+        /**
+         * @param defaultValue The default value to set
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultValue(String defaultValue) {
+            return defaultValue(Output.of(defaultValue));
+        }
+
+        /**
+         * @param expression The expression to use for the set action
+         * 
+         * @return builder
+         * 
+         */
+        public Builder expression(@Nullable Output<String> expression) {
+            $.expression = expression;
+            return this;
+        }
+
+        /**
+         * @param expression The expression to use for the set action
+         * 
+         * @return builder
+         * 
+         */
+        public Builder expression(String expression) {
+            return expression(Output.of(expression));
+        }
+
+        /**
          * @param field The field to get the value from
          * 
          * @return builder
@@ -193,6 +283,27 @@ public final class CsmThreatsAgentRuleActionSetArgs extends com.pulumi.resources
          */
         public Builder field(String field) {
             return field(Output.of(field));
+        }
+
+        /**
+         * @param inherited Whether the set action is inherited
+         * 
+         * @return builder
+         * 
+         */
+        public Builder inherited(@Nullable Output<Boolean> inherited) {
+            $.inherited = inherited;
+            return this;
+        }
+
+        /**
+         * @param inherited Whether the set action is inherited
+         * 
+         * @return builder
+         * 
+         */
+        public Builder inherited(Boolean inherited) {
+            return inherited(Output.of(inherited));
         }
 
         /**

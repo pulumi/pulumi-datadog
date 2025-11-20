@@ -108,14 +108,14 @@ public final class MetricMetadataArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Primary unit of the metric such as `byte` or `operation`.
+     * Primary unit of the metric such as `byte` or `operation`. For a list of allowed units, refer to [Datadog metric unit documentation](https://docs.datadoghq.com/metrics/units/#unit-list).
      * 
      */
     @Import(name="unit")
     private @Nullable Output<String> unit;
 
     /**
-     * @return Primary unit of the metric such as `byte` or `operation`.
+     * @return Primary unit of the metric such as `byte` or `operation`. For a list of allowed units, refer to [Datadog metric unit documentation](https://docs.datadoghq.com/metrics/units/#unit-list).
      * 
      */
     public Optional<Output<String>> unit() {
@@ -279,7 +279,7 @@ public final class MetricMetadataArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param unit Primary unit of the metric such as `byte` or `operation`.
+         * @param unit Primary unit of the metric such as `byte` or `operation`. For a list of allowed units, refer to [Datadog metric unit documentation](https://docs.datadoghq.com/metrics/units/#unit-list).
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class MetricMetadataArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param unit Primary unit of the metric such as `byte` or `operation`.
+         * @param unit Primary unit of the metric such as `byte` or `operation`. For a list of allowed units, refer to [Datadog metric unit documentation](https://docs.datadoghq.com/metrics/units/#unit-list).
          * 
          * @return builder
          * 

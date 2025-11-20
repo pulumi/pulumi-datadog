@@ -7,8 +7,6 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class MonitorVariablesCloudCostQuery {
@@ -16,7 +14,7 @@ public final class MonitorVariablesCloudCostQuery {
      * @return The aggregation methods available for cloud cost queries. Valid values are `avg`, `sum`, `max`, `min`, `last`, `area`, `l2norm`, `percentile`, `stddev`.
      * 
      */
-    private @Nullable String aggregator;
+    private String aggregator;
     /**
      * @return The data source for cloud cost queries. Valid values are `metrics`, `cloudCost`, `datadogUsage`.
      * 
@@ -38,8 +36,8 @@ public final class MonitorVariablesCloudCostQuery {
      * @return The aggregation methods available for cloud cost queries. Valid values are `avg`, `sum`, `max`, `min`, `last`, `area`, `l2norm`, `percentile`, `stddev`.
      * 
      */
-    public Optional<String> aggregator() {
-        return Optional.ofNullable(this.aggregator);
+    public String aggregator() {
+        return this.aggregator;
     }
     /**
      * @return The data source for cloud cost queries. Valid values are `metrics`, `cloudCost`, `datadogUsage`.
@@ -72,7 +70,7 @@ public final class MonitorVariablesCloudCostQuery {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable String aggregator;
+        private String aggregator;
         private String dataSource;
         private String name;
         private String query;
@@ -86,8 +84,10 @@ public final class MonitorVariablesCloudCostQuery {
         }
 
         @CustomType.Setter
-        public Builder aggregator(@Nullable String aggregator) {
-
+        public Builder aggregator(String aggregator) {
+            if (aggregator == null) {
+              throw new MissingRequiredPropertyException("MonitorVariablesCloudCostQuery", "aggregator");
+            }
             this.aggregator = aggregator;
             return this;
         }

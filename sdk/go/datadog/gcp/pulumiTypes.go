@@ -114,8 +114,9 @@ func (o IntegrationMonitoredResourceConfigArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type IntegrationStsMetricNamespaceConfig struct {
-	Disabled bool   `pulumi:"disabled"`
-	Id       string `pulumi:"id"`
+	Disabled bool     `pulumi:"disabled"`
+	Filters  []string `pulumi:"filters"`
+	Id       string   `pulumi:"id"`
 }
 
 // IntegrationStsMetricNamespaceConfigInput is an input type that accepts IntegrationStsMetricNamespaceConfigArgs and IntegrationStsMetricNamespaceConfigOutput values.
@@ -130,8 +131,9 @@ type IntegrationStsMetricNamespaceConfigInput interface {
 }
 
 type IntegrationStsMetricNamespaceConfigArgs struct {
-	Disabled pulumi.BoolInput   `pulumi:"disabled"`
-	Id       pulumi.StringInput `pulumi:"id"`
+	Disabled pulumi.BoolInput        `pulumi:"disabled"`
+	Filters  pulumi.StringArrayInput `pulumi:"filters"`
+	Id       pulumi.StringInput      `pulumi:"id"`
 }
 
 func (IntegrationStsMetricNamespaceConfigArgs) ElementType() reflect.Type {
@@ -187,6 +189,10 @@ func (o IntegrationStsMetricNamespaceConfigOutput) ToIntegrationStsMetricNamespa
 
 func (o IntegrationStsMetricNamespaceConfigOutput) Disabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v IntegrationStsMetricNamespaceConfig) bool { return v.Disabled }).(pulumi.BoolOutput)
+}
+
+func (o IntegrationStsMetricNamespaceConfigOutput) Filters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IntegrationStsMetricNamespaceConfig) []string { return v.Filters }).(pulumi.StringArrayOutput)
 }
 
 func (o IntegrationStsMetricNamespaceConfigOutput) Id() pulumi.StringOutput {
