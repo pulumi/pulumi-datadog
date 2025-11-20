@@ -79,6 +79,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorGetArgs>? ReferenceTableLookupProcessor { get; set; }
 
         /// <summary>
+        /// Schema Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#schema-processor)
+        /// </summary>
+        [Input("schemaProcessor")]
+        public Input<Inputs.LogsCustomPipelineProcessorPipelineProcessorSchemaProcessorGetArgs>? SchemaProcessor { get; set; }
+
+        /// <summary>
         /// Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
         /// </summary>
         [Input("serviceRemapper")]

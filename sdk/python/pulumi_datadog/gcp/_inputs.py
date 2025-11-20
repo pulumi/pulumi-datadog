@@ -62,6 +62,7 @@ class IntegrationMonitoredResourceConfigArgs:
 if not MYPY:
     class IntegrationStsMetricNamespaceConfigArgsDict(TypedDict):
         disabled: pulumi.Input[_builtins.bool]
+        filters: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
         id: pulumi.Input[_builtins.str]
 elif False:
     IntegrationStsMetricNamespaceConfigArgsDict: TypeAlias = Mapping[str, Any]
@@ -70,8 +71,10 @@ elif False:
 class IntegrationStsMetricNamespaceConfigArgs:
     def __init__(__self__, *,
                  disabled: pulumi.Input[_builtins.bool],
+                 filters: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  id: pulumi.Input[_builtins.str]):
         pulumi.set(__self__, "disabled", disabled)
+        pulumi.set(__self__, "filters", filters)
         pulumi.set(__self__, "id", id)
 
     @_builtins.property
@@ -82,6 +85,15 @@ class IntegrationStsMetricNamespaceConfigArgs:
     @disabled.setter
     def disabled(self, value: pulumi.Input[_builtins.bool]):
         pulumi.set(self, "disabled", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def filters(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        return pulumi.get(self, "filters")
+
+    @filters.setter
+    def filters(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "filters", value)
 
     @_builtins.property
     @pulumi.getter

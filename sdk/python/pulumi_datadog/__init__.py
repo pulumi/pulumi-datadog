@@ -8,6 +8,7 @@ import typing
 # Export this package's modules as members:
 from .action_connection import *
 from .agentless_scanning_aws_scan_options import *
+from .agentless_scanning_gcp_scan_options import *
 from .api_key import *
 from .apm_retention_filter import *
 from .apm_retention_filter_order import *
@@ -336,6 +337,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/agentlessScanningAwsScanOptions:AgentlessScanningAwsScanOptions": "AgentlessScanningAwsScanOptions"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/agentlessScanningGcpScanOptions",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/agentlessScanningGcpScanOptions:AgentlessScanningGcpScanOptions": "AgentlessScanningGcpScanOptions"
   }
  },
  {

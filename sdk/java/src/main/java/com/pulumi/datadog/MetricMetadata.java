@@ -152,14 +152,14 @@ public class MetricMetadata extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.type);
     }
     /**
-     * Primary unit of the metric such as `byte` or `operation`.
+     * Primary unit of the metric such as `byte` or `operation`. For a list of allowed units, refer to [Datadog metric unit documentation](https://docs.datadoghq.com/metrics/units/#unit-list).
      * 
      */
     @Export(name="unit", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> unit;
 
     /**
-     * @return Primary unit of the metric such as `byte` or `operation`.
+     * @return Primary unit of the metric such as `byte` or `operation`. For a list of allowed units, refer to [Datadog metric unit documentation](https://docs.datadoghq.com/metrics/units/#unit-list).
      * 
      */
     public Output<Optional<String>> unit() {

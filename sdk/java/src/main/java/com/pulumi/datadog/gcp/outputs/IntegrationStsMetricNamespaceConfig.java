@@ -7,16 +7,21 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class IntegrationStsMetricNamespaceConfig {
     private Boolean disabled;
+    private List<String> filters;
     private String id;
 
     private IntegrationStsMetricNamespaceConfig() {}
     public Boolean disabled() {
         return this.disabled;
+    }
+    public List<String> filters() {
+        return this.filters;
     }
     public String id() {
         return this.id;
@@ -32,11 +37,13 @@ public final class IntegrationStsMetricNamespaceConfig {
     @CustomType.Builder
     public static final class Builder {
         private Boolean disabled;
+        private List<String> filters;
         private String id;
         public Builder() {}
         public Builder(IntegrationStsMetricNamespaceConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.disabled = defaults.disabled;
+    	      this.filters = defaults.filters;
     	      this.id = defaults.id;
         }
 
@@ -49,6 +56,17 @@ public final class IntegrationStsMetricNamespaceConfig {
             return this;
         }
         @CustomType.Setter
+        public Builder filters(List<String> filters) {
+            if (filters == null) {
+              throw new MissingRequiredPropertyException("IntegrationStsMetricNamespaceConfig", "filters");
+            }
+            this.filters = filters;
+            return this;
+        }
+        public Builder filters(String... filters) {
+            return filters(List.of(filters));
+        }
+        @CustomType.Setter
         public Builder id(String id) {
             if (id == null) {
               throw new MissingRequiredPropertyException("IntegrationStsMetricNamespaceConfig", "id");
@@ -59,6 +77,7 @@ public final class IntegrationStsMetricNamespaceConfig {
         public IntegrationStsMetricNamespaceConfig build() {
             final var _resultValue = new IntegrationStsMetricNamespaceConfig();
             _resultValue.disabled = disabled;
+            _resultValue.filters = filters;
             _resultValue.id = id;
             return _resultValue;
         }

@@ -14,15 +14,19 @@ namespace Pulumi.Datadog.Gcp.Outputs
     public sealed class IntegrationStsMetricNamespaceConfig
     {
         public readonly bool Disabled;
+        public readonly ImmutableArray<string> Filters;
         public readonly string Id;
 
         [OutputConstructor]
         private IntegrationStsMetricNamespaceConfig(
             bool disabled,
 
+            ImmutableArray<string> filters,
+
             string id)
         {
             Disabled = disabled;
+            Filters = filters;
             Id = id;
         }
     }

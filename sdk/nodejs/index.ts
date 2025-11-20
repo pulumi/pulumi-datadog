@@ -15,6 +15,11 @@ export type AgentlessScanningAwsScanOptions = import("./agentlessScanningAwsScan
 export const AgentlessScanningAwsScanOptions: typeof import("./agentlessScanningAwsScanOptions").AgentlessScanningAwsScanOptions = null as any;
 utilities.lazyLoad(exports, ["AgentlessScanningAwsScanOptions"], () => require("./agentlessScanningAwsScanOptions"));
 
+export { AgentlessScanningGcpScanOptionsArgs, AgentlessScanningGcpScanOptionsState } from "./agentlessScanningGcpScanOptions";
+export type AgentlessScanningGcpScanOptions = import("./agentlessScanningGcpScanOptions").AgentlessScanningGcpScanOptions;
+export const AgentlessScanningGcpScanOptions: typeof import("./agentlessScanningGcpScanOptions").AgentlessScanningGcpScanOptions = null as any;
+utilities.lazyLoad(exports, ["AgentlessScanningGcpScanOptions"], () => require("./agentlessScanningGcpScanOptions"));
+
 export { ApiKeyArgs, ApiKeyState } from "./apiKey";
 export type ApiKey = import("./apiKey").ApiKey;
 export const ApiKey: typeof import("./apiKey").ApiKey = null as any;
@@ -806,6 +811,8 @@ const _module = {
                 return new ActionConnection(name, <any>undefined, { urn })
             case "datadog:index/agentlessScanningAwsScanOptions:AgentlessScanningAwsScanOptions":
                 return new AgentlessScanningAwsScanOptions(name, <any>undefined, { urn })
+            case "datadog:index/agentlessScanningGcpScanOptions:AgentlessScanningGcpScanOptions":
+                return new AgentlessScanningGcpScanOptions(name, <any>undefined, { urn })
             case "datadog:index/apiKey:ApiKey":
                 return new ApiKey(name, <any>undefined, { urn })
             case "datadog:index/apmRetentionFilter:ApmRetentionFilter":
@@ -999,6 +1006,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("datadog", "index/actionConnection", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/agentlessScanningAwsScanOptions", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/agentlessScanningGcpScanOptions", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/apiKey", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/apmRetentionFilter", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/apmRetentionFilterOrder", _module)

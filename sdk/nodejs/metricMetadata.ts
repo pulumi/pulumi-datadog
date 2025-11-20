@@ -84,7 +84,7 @@ export class MetricMetadata extends pulumi.CustomResource {
      */
     declare public readonly type: pulumi.Output<string | undefined>;
     /**
-     * Primary unit of the metric such as `byte` or `operation`.
+     * Primary unit of the metric such as `byte` or `operation`. For a list of allowed units, refer to [Datadog metric unit documentation](https://docs.datadoghq.com/metrics/units/#unit-list).
      */
     declare public readonly unit: pulumi.Output<string | undefined>;
 
@@ -155,7 +155,7 @@ export interface MetricMetadataState {
      */
     type?: pulumi.Input<string>;
     /**
-     * Primary unit of the metric such as `byte` or `operation`.
+     * Primary unit of the metric such as `byte` or `operation`. For a list of allowed units, refer to [Datadog metric unit documentation](https://docs.datadoghq.com/metrics/units/#unit-list).
      */
     unit?: pulumi.Input<string>;
 }
@@ -189,7 +189,7 @@ export interface MetricMetadataArgs {
      */
     type?: pulumi.Input<string>;
     /**
-     * Primary unit of the metric such as `byte` or `operation`.
+     * Primary unit of the metric such as `byte` or `operation`. For a list of allowed units, refer to [Datadog metric unit documentation](https://docs.datadoghq.com/metrics/units/#unit-list).
      */
     unit?: pulumi.Input<string>;
 }
