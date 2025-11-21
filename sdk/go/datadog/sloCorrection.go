@@ -104,7 +104,7 @@ type SloCorrection struct {
 	SloId pulumi.StringOutput `pulumi:"sloId"`
 	// Starting time of the correction in epoch seconds.
 	Start pulumi.IntOutput `pulumi:"start"`
-	// The timezone to display in the UI for the correction times (defaults to "UTC")
+	// The timezone to display in the UI for the correction times. Prefers IANA timezone name format (for example, 'America/Los_Angeles', 'Europe/Paris'), but some common standard abbreviations are supported. Defaults to 'UTC'.
 	Timezone pulumi.StringPtrOutput `pulumi:"timezone"`
 }
 
@@ -161,7 +161,7 @@ type sloCorrectionState struct {
 	SloId *string `pulumi:"sloId"`
 	// Starting time of the correction in epoch seconds.
 	Start *int `pulumi:"start"`
-	// The timezone to display in the UI for the correction times (defaults to "UTC")
+	// The timezone to display in the UI for the correction times. Prefers IANA timezone name format (for example, 'America/Los_Angeles', 'Europe/Paris'), but some common standard abbreviations are supported. Defaults to 'UTC'.
 	Timezone *string `pulumi:"timezone"`
 }
 
@@ -180,7 +180,7 @@ type SloCorrectionState struct {
 	SloId pulumi.StringPtrInput
 	// Starting time of the correction in epoch seconds.
 	Start pulumi.IntPtrInput
-	// The timezone to display in the UI for the correction times (defaults to "UTC")
+	// The timezone to display in the UI for the correction times. Prefers IANA timezone name format (for example, 'America/Los_Angeles', 'Europe/Paris'), but some common standard abbreviations are supported. Defaults to 'UTC'.
 	Timezone pulumi.StringPtrInput
 }
 
@@ -203,7 +203,7 @@ type sloCorrectionArgs struct {
 	SloId string `pulumi:"sloId"`
 	// Starting time of the correction in epoch seconds.
 	Start int `pulumi:"start"`
-	// The timezone to display in the UI for the correction times (defaults to "UTC")
+	// The timezone to display in the UI for the correction times. Prefers IANA timezone name format (for example, 'America/Los_Angeles', 'Europe/Paris'), but some common standard abbreviations are supported. Defaults to 'UTC'.
 	Timezone *string `pulumi:"timezone"`
 }
 
@@ -223,7 +223,7 @@ type SloCorrectionArgs struct {
 	SloId pulumi.StringInput
 	// Starting time of the correction in epoch seconds.
 	Start pulumi.IntInput
-	// The timezone to display in the UI for the correction times (defaults to "UTC")
+	// The timezone to display in the UI for the correction times. Prefers IANA timezone name format (for example, 'America/Los_Angeles', 'Europe/Paris'), but some common standard abbreviations are supported. Defaults to 'UTC'.
 	Timezone pulumi.StringPtrInput
 }
 
@@ -349,7 +349,7 @@ func (o SloCorrectionOutput) Start() pulumi.IntOutput {
 	return o.ApplyT(func(v *SloCorrection) pulumi.IntOutput { return v.Start }).(pulumi.IntOutput)
 }
 
-// The timezone to display in the UI for the correction times (defaults to "UTC")
+// The timezone to display in the UI for the correction times. Prefers IANA timezone name format (for example, 'America/Los_Angeles', 'Europe/Paris'), but some common standard abbreviations are supported. Defaults to 'UTC'.
 func (o SloCorrectionOutput) Timezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SloCorrection) pulumi.StringPtrOutput { return v.Timezone }).(pulumi.StringPtrOutput)
 }

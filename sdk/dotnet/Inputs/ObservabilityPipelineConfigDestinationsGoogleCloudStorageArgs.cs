@@ -15,11 +15,11 @@ namespace Pulumi.Datadog.Inputs
         /// <summary>
         /// Access control list setting for objects written to the bucket.
         /// </summary>
-        [Input("acl", required: true)]
-        public Input<string> Acl { get; set; } = null!;
+        [Input("acl")]
+        public Input<string>? Acl { get; set; }
 
         /// <summary>
-        /// GCP credentials used to authenticate with Google Cloud Storage.
+        /// GCP credentials used to authenticate with Google Cloud services.
         /// </summary>
         [Input("auth")]
         public Input<Inputs.ObservabilityPipelineConfigDestinationsGoogleCloudStorageAuthArgs>? Auth { get; set; }

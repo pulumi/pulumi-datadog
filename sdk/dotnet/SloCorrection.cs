@@ -126,7 +126,7 @@ namespace Pulumi.Datadog
         public Output<int> Start { get; private set; } = null!;
 
         /// <summary>
-        /// The timezone to display in the UI for the correction times (defaults to "UTC")
+        /// The timezone to display in the UI for the correction times. Prefers IANA timezone name format (for example, 'America/Los_Angeles', 'Europe/Paris'), but some common standard abbreviations are supported. Defaults to 'UTC'.
         /// </summary>
         [Output("timezone")]
         public Output<string?> Timezone { get; private set; } = null!;
@@ -220,7 +220,7 @@ namespace Pulumi.Datadog
         public Input<int> Start { get; set; } = null!;
 
         /// <summary>
-        /// The timezone to display in the UI for the correction times (defaults to "UTC")
+        /// The timezone to display in the UI for the correction times. Prefers IANA timezone name format (for example, 'America/Los_Angeles', 'Europe/Paris'), but some common standard abbreviations are supported. Defaults to 'UTC'.
         /// </summary>
         [Input("timezone")]
         public Input<string>? Timezone { get; set; }
@@ -276,7 +276,7 @@ namespace Pulumi.Datadog
         public Input<int>? Start { get; set; }
 
         /// <summary>
-        /// The timezone to display in the UI for the correction times (defaults to "UTC")
+        /// The timezone to display in the UI for the correction times. Prefers IANA timezone name format (for example, 'America/Los_Angeles', 'Europe/Paris'), but some common standard abbreviations are supported. Defaults to 'UTC'.
         /// </summary>
         [Input("timezone")]
         public Input<string>? Timezone { get; set; }

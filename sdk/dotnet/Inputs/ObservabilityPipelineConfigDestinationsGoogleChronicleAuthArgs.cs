@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ObservabilityPipelineConfigDestinationsGoogleChronicleAuthArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Path to the GCP service account key file.
+        /// Path to the GCP service account key file. Required when `Auth` block is specified.
         /// </summary>
         [Input("credentialsFile")]
         public Input<string>? CredentialsFile { get; set; }

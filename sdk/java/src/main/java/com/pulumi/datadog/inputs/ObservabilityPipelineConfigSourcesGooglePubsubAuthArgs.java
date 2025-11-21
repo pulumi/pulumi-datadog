@@ -5,9 +5,10 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ObservabilityPipelineConfigSourcesGooglePubsubAuthArgs extends com.pulumi.resources.ResourceArgs {
@@ -15,18 +16,18 @@ public final class ObservabilityPipelineConfigSourcesGooglePubsubAuthArgs extend
     public static final ObservabilityPipelineConfigSourcesGooglePubsubAuthArgs Empty = new ObservabilityPipelineConfigSourcesGooglePubsubAuthArgs();
 
     /**
-     * Path to the GCP service account key file.
+     * Path to the GCP service account key file. Required when `auth` block is specified.
      * 
      */
-    @Import(name="credentialsFile", required=true)
-    private Output<String> credentialsFile;
+    @Import(name="credentialsFile")
+    private @Nullable Output<String> credentialsFile;
 
     /**
-     * @return Path to the GCP service account key file.
+     * @return Path to the GCP service account key file. Required when `auth` block is specified.
      * 
      */
-    public Output<String> credentialsFile() {
-        return this.credentialsFile;
+    public Optional<Output<String>> credentialsFile() {
+        return Optional.ofNullable(this.credentialsFile);
     }
 
     private ObservabilityPipelineConfigSourcesGooglePubsubAuthArgs() {}
@@ -54,18 +55,18 @@ public final class ObservabilityPipelineConfigSourcesGooglePubsubAuthArgs extend
         }
 
         /**
-         * @param credentialsFile Path to the GCP service account key file.
+         * @param credentialsFile Path to the GCP service account key file. Required when `auth` block is specified.
          * 
          * @return builder
          * 
          */
-        public Builder credentialsFile(Output<String> credentialsFile) {
+        public Builder credentialsFile(@Nullable Output<String> credentialsFile) {
             $.credentialsFile = credentialsFile;
             return this;
         }
 
         /**
-         * @param credentialsFile Path to the GCP service account key file.
+         * @param credentialsFile Path to the GCP service account key file. Required when `auth` block is specified.
          * 
          * @return builder
          * 
@@ -75,9 +76,6 @@ public final class ObservabilityPipelineConfigSourcesGooglePubsubAuthArgs extend
         }
 
         public ObservabilityPipelineConfigSourcesGooglePubsubAuthArgs build() {
-            if ($.credentialsFile == null) {
-                throw new MissingRequiredPropertyException("ObservabilityPipelineConfigSourcesGooglePubsubAuthArgs", "credentialsFile");
-            }
             return $;
         }
     }

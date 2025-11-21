@@ -52,6 +52,8 @@ func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.Invoke
 type LookupUserArgs struct {
 	// When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute. Defaults to `false`.
 	ExactMatch *bool `pulumi:"exactMatch"`
+	// When true, service accounts are excluded from the result. Defaults to `false`.
+	ExcludeServiceAccounts *bool `pulumi:"excludeServiceAccounts"`
 	// Filter all users by the given string.
 	Filter string `pulumi:"filter"`
 }
@@ -66,6 +68,8 @@ type LookupUserResult struct {
 	Email string `pulumi:"email"`
 	// When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute. Defaults to `false`.
 	ExactMatch *bool `pulumi:"exactMatch"`
+	// When true, service accounts are excluded from the result. Defaults to `false`.
+	ExcludeServiceAccounts *bool `pulumi:"excludeServiceAccounts"`
 	// Filter all users by the given string.
 	Filter string `pulumi:"filter"`
 	// The user's handle.
@@ -103,6 +107,8 @@ func LookupUserOutput(ctx *pulumi.Context, args LookupUserOutputArgs, opts ...pu
 type LookupUserOutputArgs struct {
 	// When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute. Defaults to `false`.
 	ExactMatch pulumi.BoolPtrInput `pulumi:"exactMatch"`
+	// When true, service accounts are excluded from the result. Defaults to `false`.
+	ExcludeServiceAccounts pulumi.BoolPtrInput `pulumi:"excludeServiceAccounts"`
 	// Filter all users by the given string.
 	Filter pulumi.StringInput `pulumi:"filter"`
 }
@@ -144,6 +150,11 @@ func (o LookupUserResultOutput) Email() pulumi.StringOutput {
 // When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute. Defaults to `false`.
 func (o LookupUserResultOutput) ExactMatch() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupUserResult) *bool { return v.ExactMatch }).(pulumi.BoolPtrOutput)
+}
+
+// When true, service accounts are excluded from the result. Defaults to `false`.
+func (o LookupUserResultOutput) ExcludeServiceAccounts() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupUserResult) *bool { return v.ExcludeServiceAccounts }).(pulumi.BoolPtrOutput)
 }
 
 // Filter all users by the given string.

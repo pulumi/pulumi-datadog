@@ -14,12 +14,12 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigSourcesGooglePubsubAuth
     {
         /// <summary>
-        /// Path to the GCP service account key file.
+        /// Path to the GCP service account key file. Required when `Auth` block is specified.
         /// </summary>
-        public readonly string CredentialsFile;
+        public readonly string? CredentialsFile;
 
         [OutputConstructor]
-        private ObservabilityPipelineConfigSourcesGooglePubsubAuth(string credentialsFile)
+        private ObservabilityPipelineConfigSourcesGooglePubsubAuth(string? credentialsFile)
         {
             CredentialsFile = credentialsFile;
         }

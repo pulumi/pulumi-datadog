@@ -20,14 +20,14 @@ public final class ObservabilityPipelineConfigDestinationsGooglePubsubArgs exten
     public static final ObservabilityPipelineConfigDestinationsGooglePubsubArgs Empty = new ObservabilityPipelineConfigDestinationsGooglePubsubArgs();
 
     /**
-     * GCP credentials used to authenticate with Google Cloud Pub/Sub.
+     * GCP credentials used to authenticate with Google Cloud services.
      * 
      */
     @Import(name="auth")
     private @Nullable Output<ObservabilityPipelineConfigDestinationsGooglePubsubAuthArgs> auth;
 
     /**
-     * @return GCP credentials used to authenticate with Google Cloud Pub/Sub.
+     * @return GCP credentials used to authenticate with Google Cloud services.
      * 
      */
     public Optional<Output<ObservabilityPipelineConfigDestinationsGooglePubsubAuthArgs>> auth() {
@@ -155,7 +155,7 @@ public final class ObservabilityPipelineConfigDestinationsGooglePubsubArgs exten
         }
 
         /**
-         * @param auth GCP credentials used to authenticate with Google Cloud Pub/Sub.
+         * @param auth GCP credentials used to authenticate with Google Cloud services.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class ObservabilityPipelineConfigDestinationsGooglePubsubArgs exten
         }
 
         /**
-         * @param auth GCP credentials used to authenticate with Google Cloud Pub/Sub.
+         * @param auth GCP credentials used to authenticate with Google Cloud services.
          * 
          * @return builder
          * 

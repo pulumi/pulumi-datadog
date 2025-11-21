@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ObservabilityPipelineConfigDestinationsGoogleChronicle {
     /**
-     * @return GCP credentials used to authenticate with Google Cloud Storage.
+     * @return GCP credentials used to authenticate with Google Cloud services.
      * 
      */
     private @Nullable ObservabilityPipelineConfigDestinationsGoogleChronicleAuth auth;
@@ -47,7 +47,7 @@ public final class ObservabilityPipelineConfigDestinationsGoogleChronicle {
 
     private ObservabilityPipelineConfigDestinationsGoogleChronicle() {}
     /**
-     * @return GCP credentials used to authenticate with Google Cloud Storage.
+     * @return GCP credentials used to authenticate with Google Cloud services.
      * 
      */
     public Optional<ObservabilityPipelineConfigDestinationsGoogleChronicleAuth> auth() {

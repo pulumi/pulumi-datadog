@@ -32,6 +32,21 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
+     * When true, service accounts are excluded from the result. Defaults to `false`.
+     * 
+     */
+    @Import(name="excludeServiceAccounts")
+    private @Nullable Boolean excludeServiceAccounts;
+
+    /**
+     * @return When true, service accounts are excluded from the result. Defaults to `false`.
+     * 
+     */
+    public Optional<Boolean> excludeServiceAccounts() {
+        return Optional.ofNullable(this.excludeServiceAccounts);
+    }
+
+    /**
      * Filter all users by the given string.
      * 
      */
@@ -50,6 +65,7 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetUserPlainArgs(GetUserPlainArgs $) {
         this.exactMatch = $.exactMatch;
+        this.excludeServiceAccounts = $.excludeServiceAccounts;
         this.filter = $.filter;
     }
 
@@ -79,6 +95,17 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder exactMatch(@Nullable Boolean exactMatch) {
             $.exactMatch = exactMatch;
+            return this;
+        }
+
+        /**
+         * @param excludeServiceAccounts When true, service accounts are excluded from the result. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder excludeServiceAccounts(@Nullable Boolean excludeServiceAccounts) {
+            $.excludeServiceAccounts = excludeServiceAccounts;
             return this;
         }
 

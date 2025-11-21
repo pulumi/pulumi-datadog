@@ -15,6 +15,7 @@ import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorPipelineProcessorGr
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorPipelineProcessorLookupProcessor;
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorPipelineProcessorMessageRemapper;
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor;
+import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorPipelineProcessorSchemaProcessor;
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorPipelineProcessorServiceRemapper;
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorPipelineProcessorSpanIdRemapper;
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorPipelineProcessorStatusRemapper;
@@ -83,6 +84,11 @@ public final class LogsCustomPipelineProcessorPipelineProcessor {
      * 
      */
     private @Nullable LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor referenceTableLookupProcessor;
+    /**
+     * @return Schema Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#schema-processor)
+     * 
+     */
+    private @Nullable LogsCustomPipelineProcessorPipelineProcessorSchemaProcessor schemaProcessor;
     /**
      * @return Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
      * 
@@ -198,6 +204,13 @@ public final class LogsCustomPipelineProcessorPipelineProcessor {
         return Optional.ofNullable(this.referenceTableLookupProcessor);
     }
     /**
+     * @return Schema Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#schema-processor)
+     * 
+     */
+    public Optional<LogsCustomPipelineProcessorPipelineProcessorSchemaProcessor> schemaProcessor() {
+        return Optional.ofNullable(this.schemaProcessor);
+    }
+    /**
      * @return Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
      * 
      */
@@ -267,6 +280,7 @@ public final class LogsCustomPipelineProcessorPipelineProcessor {
         private @Nullable LogsCustomPipelineProcessorPipelineProcessorLookupProcessor lookupProcessor;
         private @Nullable LogsCustomPipelineProcessorPipelineProcessorMessageRemapper messageRemapper;
         private @Nullable LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor referenceTableLookupProcessor;
+        private @Nullable LogsCustomPipelineProcessorPipelineProcessorSchemaProcessor schemaProcessor;
         private @Nullable LogsCustomPipelineProcessorPipelineProcessorServiceRemapper serviceRemapper;
         private @Nullable LogsCustomPipelineProcessorPipelineProcessorSpanIdRemapper spanIdRemapper;
         private @Nullable LogsCustomPipelineProcessorPipelineProcessorStatusRemapper statusRemapper;
@@ -288,6 +302,7 @@ public final class LogsCustomPipelineProcessorPipelineProcessor {
     	      this.lookupProcessor = defaults.lookupProcessor;
     	      this.messageRemapper = defaults.messageRemapper;
     	      this.referenceTableLookupProcessor = defaults.referenceTableLookupProcessor;
+    	      this.schemaProcessor = defaults.schemaProcessor;
     	      this.serviceRemapper = defaults.serviceRemapper;
     	      this.spanIdRemapper = defaults.spanIdRemapper;
     	      this.statusRemapper = defaults.statusRemapper;
@@ -364,6 +379,12 @@ public final class LogsCustomPipelineProcessorPipelineProcessor {
             return this;
         }
         @CustomType.Setter
+        public Builder schemaProcessor(@Nullable LogsCustomPipelineProcessorPipelineProcessorSchemaProcessor schemaProcessor) {
+
+            this.schemaProcessor = schemaProcessor;
+            return this;
+        }
+        @CustomType.Setter
         public Builder serviceRemapper(@Nullable LogsCustomPipelineProcessorPipelineProcessorServiceRemapper serviceRemapper) {
 
             this.serviceRemapper = serviceRemapper;
@@ -418,6 +439,7 @@ public final class LogsCustomPipelineProcessorPipelineProcessor {
             _resultValue.lookupProcessor = lookupProcessor;
             _resultValue.messageRemapper = messageRemapper;
             _resultValue.referenceTableLookupProcessor = referenceTableLookupProcessor;
+            _resultValue.schemaProcessor = schemaProcessor;
             _resultValue.serviceRemapper = serviceRemapper;
             _resultValue.spanIdRemapper = spanIdRemapper;
             _resultValue.statusRemapper = statusRemapper;

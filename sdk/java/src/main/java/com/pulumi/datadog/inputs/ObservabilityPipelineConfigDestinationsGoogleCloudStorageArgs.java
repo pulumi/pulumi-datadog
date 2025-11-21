@@ -23,26 +23,26 @@ public final class ObservabilityPipelineConfigDestinationsGoogleCloudStorageArgs
      * Access control list setting for objects written to the bucket.
      * 
      */
-    @Import(name="acl", required=true)
-    private Output<String> acl;
+    @Import(name="acl")
+    private @Nullable Output<String> acl;
 
     /**
      * @return Access control list setting for objects written to the bucket.
      * 
      */
-    public Output<String> acl() {
-        return this.acl;
+    public Optional<Output<String>> acl() {
+        return Optional.ofNullable(this.acl);
     }
 
     /**
-     * GCP credentials used to authenticate with Google Cloud Storage.
+     * GCP credentials used to authenticate with Google Cloud services.
      * 
      */
     @Import(name="auth")
     private @Nullable Output<ObservabilityPipelineConfigDestinationsGoogleCloudStorageAuthArgs> auth;
 
     /**
-     * @return GCP credentials used to authenticate with Google Cloud Storage.
+     * @return GCP credentials used to authenticate with Google Cloud services.
      * 
      */
     public Optional<Output<ObservabilityPipelineConfigDestinationsGoogleCloudStorageAuthArgs>> auth() {
@@ -176,7 +176,7 @@ public final class ObservabilityPipelineConfigDestinationsGoogleCloudStorageArgs
          * @return builder
          * 
          */
-        public Builder acl(Output<String> acl) {
+        public Builder acl(@Nullable Output<String> acl) {
             $.acl = acl;
             return this;
         }
@@ -192,7 +192,7 @@ public final class ObservabilityPipelineConfigDestinationsGoogleCloudStorageArgs
         }
 
         /**
-         * @param auth GCP credentials used to authenticate with Google Cloud Storage.
+         * @param auth GCP credentials used to authenticate with Google Cloud services.
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class ObservabilityPipelineConfigDestinationsGoogleCloudStorageArgs
         }
 
         /**
-         * @param auth GCP credentials used to authenticate with Google Cloud Storage.
+         * @param auth GCP credentials used to authenticate with Google Cloud services.
          * 
          * @return builder
          * 
@@ -359,9 +359,6 @@ public final class ObservabilityPipelineConfigDestinationsGoogleCloudStorageArgs
         }
 
         public ObservabilityPipelineConfigDestinationsGoogleCloudStorageArgs build() {
-            if ($.acl == null) {
-                throw new MissingRequiredPropertyException("ObservabilityPipelineConfigDestinationsGoogleCloudStorageArgs", "acl");
-            }
             if ($.bucket == null) {
                 throw new MissingRequiredPropertyException("ObservabilityPipelineConfigDestinationsGoogleCloudStorageArgs", "bucket");
             }

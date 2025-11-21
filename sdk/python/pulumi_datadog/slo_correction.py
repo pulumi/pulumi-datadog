@@ -36,7 +36,7 @@ class SloCorrectionArgs:
         :param pulumi.Input[_builtins.int] duration: Length of time in seconds for a specified `rrule` recurring SLO correction (required if specifying `rrule`)
         :param pulumi.Input[_builtins.int] end: Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified
         :param pulumi.Input[_builtins.str] rrule: Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
-        :param pulumi.Input[_builtins.str] timezone: The timezone to display in the UI for the correction times (defaults to "UTC")
+        :param pulumi.Input[_builtins.str] timezone: The timezone to display in the UI for the correction times. Prefers IANA timezone name format (for example, 'America/Los_Angeles', 'Europe/Paris'), but some common standard abbreviations are supported. Defaults to 'UTC'.
         """
         pulumi.set(__self__, "category", category)
         pulumi.set(__self__, "slo_id", slo_id)
@@ -140,7 +140,7 @@ class SloCorrectionArgs:
     @pulumi.getter
     def timezone(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The timezone to display in the UI for the correction times (defaults to "UTC")
+        The timezone to display in the UI for the correction times. Prefers IANA timezone name format (for example, 'America/Los_Angeles', 'Europe/Paris'), but some common standard abbreviations are supported. Defaults to 'UTC'.
         """
         return pulumi.get(self, "timezone")
 
@@ -169,7 +169,7 @@ class _SloCorrectionState:
         :param pulumi.Input[_builtins.str] rrule: Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
         :param pulumi.Input[_builtins.str] slo_id: ID of the SLO that this correction will be applied to.
         :param pulumi.Input[_builtins.int] start: Starting time of the correction in epoch seconds.
-        :param pulumi.Input[_builtins.str] timezone: The timezone to display in the UI for the correction times (defaults to "UTC")
+        :param pulumi.Input[_builtins.str] timezone: The timezone to display in the UI for the correction times. Prefers IANA timezone name format (for example, 'America/Los_Angeles', 'Europe/Paris'), but some common standard abbreviations are supported. Defaults to 'UTC'.
         """
         if category is not None:
             pulumi.set(__self__, "category", category)
@@ -276,7 +276,7 @@ class _SloCorrectionState:
     @pulumi.getter
     def timezone(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The timezone to display in the UI for the correction times (defaults to "UTC")
+        The timezone to display in the UI for the correction times. Prefers IANA timezone name format (for example, 'America/Los_Angeles', 'Europe/Paris'), but some common standard abbreviations are supported. Defaults to 'UTC'.
         """
         return pulumi.get(self, "timezone")
 
@@ -358,7 +358,7 @@ class SloCorrection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] rrule: Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
         :param pulumi.Input[_builtins.str] slo_id: ID of the SLO that this correction will be applied to.
         :param pulumi.Input[_builtins.int] start: Starting time of the correction in epoch seconds.
-        :param pulumi.Input[_builtins.str] timezone: The timezone to display in the UI for the correction times (defaults to "UTC")
+        :param pulumi.Input[_builtins.str] timezone: The timezone to display in the UI for the correction times. Prefers IANA timezone name format (for example, 'America/Los_Angeles', 'Europe/Paris'), but some common standard abbreviations are supported. Defaults to 'UTC'.
         """
         ...
     @overload
@@ -493,7 +493,7 @@ class SloCorrection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] rrule: Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
         :param pulumi.Input[_builtins.str] slo_id: ID of the SLO that this correction will be applied to.
         :param pulumi.Input[_builtins.int] start: Starting time of the correction in epoch seconds.
-        :param pulumi.Input[_builtins.str] timezone: The timezone to display in the UI for the correction times (defaults to "UTC")
+        :param pulumi.Input[_builtins.str] timezone: The timezone to display in the UI for the correction times. Prefers IANA timezone name format (for example, 'America/Los_Angeles', 'Europe/Paris'), but some common standard abbreviations are supported. Defaults to 'UTC'.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -569,7 +569,7 @@ class SloCorrection(pulumi.CustomResource):
     @pulumi.getter
     def timezone(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The timezone to display in the UI for the correction times (defaults to "UTC")
+        The timezone to display in the UI for the correction times. Prefers IANA timezone name format (for example, 'America/Los_Angeles', 'Europe/Paris'), but some common standard abbreviations are supported. Defaults to 'UTC'.
         """
         return pulumi.get(self, "timezone")
 

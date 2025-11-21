@@ -19,14 +19,14 @@ public final class ObservabilityPipelineConfigDestinationsGoogleChronicleArgs ex
     public static final ObservabilityPipelineConfigDestinationsGoogleChronicleArgs Empty = new ObservabilityPipelineConfigDestinationsGoogleChronicleArgs();
 
     /**
-     * GCP credentials used to authenticate with Google Cloud Storage.
+     * GCP credentials used to authenticate with Google Cloud services.
      * 
      */
     @Import(name="auth")
     private @Nullable Output<ObservabilityPipelineConfigDestinationsGoogleChronicleAuthArgs> auth;
 
     /**
-     * @return GCP credentials used to authenticate with Google Cloud Storage.
+     * @return GCP credentials used to authenticate with Google Cloud services.
      * 
      */
     public Optional<Output<ObservabilityPipelineConfigDestinationsGoogleChronicleAuthArgs>> auth() {
@@ -138,7 +138,7 @@ public final class ObservabilityPipelineConfigDestinationsGoogleChronicleArgs ex
         }
 
         /**
-         * @param auth GCP credentials used to authenticate with Google Cloud Storage.
+         * @param auth GCP credentials used to authenticate with Google Cloud services.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class ObservabilityPipelineConfigDestinationsGoogleChronicleArgs ex
         }
 
         /**
-         * @param auth GCP credentials used to authenticate with Google Cloud Storage.
+         * @param auth GCP credentials used to authenticate with Google Cloud services.
          * 
          * @return builder
          * 

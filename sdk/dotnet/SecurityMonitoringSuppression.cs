@@ -99,6 +99,12 @@ namespace Pulumi.Datadog
         public Output<string?> SuppressionQuery { get; private set; } = null!;
 
         /// <summary>
+        /// A list of tags associated with the suppression rule.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// Whether to validate the suppression rule during `pulumi preview`. When set to `True`, the rule is validated against Datadog's suppression validation endpoint. Defaults to `True`.
         /// </summary>
         [Output("validate")]
@@ -198,6 +204,18 @@ namespace Pulumi.Datadog
         [Input("suppressionQuery")]
         public Input<string>? SuppressionQuery { get; set; }
 
+        [Input("tags")]
+        private InputList<string>? _tags;
+
+        /// <summary>
+        /// A list of tags associated with the suppression rule.
+        /// </summary>
+        public InputList<string> Tags
+        {
+            get => _tags ?? (_tags = new InputList<string>());
+            set => _tags = value;
+        }
+
         /// <summary>
         /// Whether to validate the suppression rule during `pulumi preview`. When set to `True`, the rule is validated against Datadog's suppression validation endpoint. Defaults to `True`.
         /// </summary>
@@ -259,6 +277,18 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("suppressionQuery")]
         public Input<string>? SuppressionQuery { get; set; }
+
+        [Input("tags")]
+        private InputList<string>? _tags;
+
+        /// <summary>
+        /// A list of tags associated with the suppression rule.
+        /// </summary>
+        public InputList<string> Tags
+        {
+            get => _tags ?? (_tags = new InputList<string>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// Whether to validate the suppression rule during `pulumi preview`. When set to `True`, the rule is validated against Datadog's suppression validation endpoint. Defaults to `True`.

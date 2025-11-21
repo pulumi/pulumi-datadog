@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ObservabilityPipelineConfigDestinationsGooglePubsubGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// GCP credentials used to authenticate with Google Cloud Pub/Sub.
+        /// GCP credentials used to authenticate with Google Cloud services.
         /// </summary>
         [Input("auth")]
         public Input<Inputs.ObservabilityPipelineConfigDestinationsGooglePubsubAuthGetArgs>? Auth { get; set; }

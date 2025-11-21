@@ -9,18 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * // Create new tag_pipeline_ruleset_order resource
- * const myRulesets = new datadog.TagPipelineRulesets("my_rulesets", {rulesetIds: [
- *     "ruleset-id-1",
- *     "ruleset-id-2",
- *     "ruleset-id-3",
- * ]});
- * ```
- *
  * ## Import
  *
  * The `pulumi import` command can be used, for example:
@@ -57,6 +45,7 @@ export class TagPipelineRulesets extends pulumi.CustomResource {
         return obj['__pulumiType'] === TagPipelineRulesets.__pulumiType;
     }
 
+    declare public readonly overrideUiDefinedResources: pulumi.Output<boolean | undefined>;
     /**
      * The list of Tag Pipeline Ruleset IDs, in order. Rulesets are executed in the order specified in this list.
      */
@@ -75,12 +64,14 @@ export class TagPipelineRulesets extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TagPipelineRulesetsState | undefined;
+            resourceInputs["overrideUiDefinedResources"] = state?.overrideUiDefinedResources;
             resourceInputs["rulesetIds"] = state?.rulesetIds;
         } else {
             const args = argsOrState as TagPipelineRulesetsArgs | undefined;
             if (args?.rulesetIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rulesetIds'");
             }
+            resourceInputs["overrideUiDefinedResources"] = args?.overrideUiDefinedResources;
             resourceInputs["rulesetIds"] = args?.rulesetIds;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -92,6 +83,7 @@ export class TagPipelineRulesets extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TagPipelineRulesets resources.
  */
 export interface TagPipelineRulesetsState {
+    overrideUiDefinedResources?: pulumi.Input<boolean>;
     /**
      * The list of Tag Pipeline Ruleset IDs, in order. Rulesets are executed in the order specified in this list.
      */
@@ -102,6 +94,7 @@ export interface TagPipelineRulesetsState {
  * The set of arguments for constructing a TagPipelineRulesets resource.
  */
 export interface TagPipelineRulesetsArgs {
+    overrideUiDefinedResources?: pulumi.Input<boolean>;
     /**
      * The list of Tag Pipeline Ruleset IDs, in order. Rulesets are executed in the order specified in this list.
      */

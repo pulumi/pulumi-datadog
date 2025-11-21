@@ -34,7 +34,7 @@ class MetricMetadataArgs:
         :param pulumi.Input[_builtins.str] short_name: A short name of the metric.
         :param pulumi.Input[_builtins.int] statsd_interval: If applicable, statsd flush interval in seconds for the metric.
         :param pulumi.Input[_builtins.str] type: Metric type such as `count`, `gauge`, or `rate`. Updating a metric of type `distribution` is not supported. If you would like to see the `distribution` type returned, contact [Datadog support](https://docs.datadoghq.com/help/).
-        :param pulumi.Input[_builtins.str] unit: Primary unit of the metric such as `byte` or `operation`.
+        :param pulumi.Input[_builtins.str] unit: Primary unit of the metric such as `byte` or `operation`. For a list of allowed units, refer to [Datadog metric unit documentation](https://docs.datadoghq.com/metrics/units/#unit-list).
         """
         pulumi.set(__self__, "metric", metric)
         if description is not None:
@@ -126,7 +126,7 @@ class MetricMetadataArgs:
     @pulumi.getter
     def unit(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Primary unit of the metric such as `byte` or `operation`.
+        Primary unit of the metric such as `byte` or `operation`. For a list of allowed units, refer to [Datadog metric unit documentation](https://docs.datadoghq.com/metrics/units/#unit-list).
         """
         return pulumi.get(self, "unit")
 
@@ -153,7 +153,7 @@ class _MetricMetadataState:
         :param pulumi.Input[_builtins.str] short_name: A short name of the metric.
         :param pulumi.Input[_builtins.int] statsd_interval: If applicable, statsd flush interval in seconds for the metric.
         :param pulumi.Input[_builtins.str] type: Metric type such as `count`, `gauge`, or `rate`. Updating a metric of type `distribution` is not supported. If you would like to see the `distribution` type returned, contact [Datadog support](https://docs.datadoghq.com/help/).
-        :param pulumi.Input[_builtins.str] unit: Primary unit of the metric such as `byte` or `operation`.
+        :param pulumi.Input[_builtins.str] unit: Primary unit of the metric such as `byte` or `operation`. For a list of allowed units, refer to [Datadog metric unit documentation](https://docs.datadoghq.com/metrics/units/#unit-list).
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -246,7 +246,7 @@ class _MetricMetadataState:
     @pulumi.getter
     def unit(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Primary unit of the metric such as `byte` or `operation`.
+        Primary unit of the metric such as `byte` or `operation`. For a list of allowed units, refer to [Datadog metric unit documentation](https://docs.datadoghq.com/metrics/units/#unit-list).
         """
         return pulumi.get(self, "unit")
 
@@ -303,7 +303,7 @@ class MetricMetadata(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] short_name: A short name of the metric.
         :param pulumi.Input[_builtins.int] statsd_interval: If applicable, statsd flush interval in seconds for the metric.
         :param pulumi.Input[_builtins.str] type: Metric type such as `count`, `gauge`, or `rate`. Updating a metric of type `distribution` is not supported. If you would like to see the `distribution` type returned, contact [Datadog support](https://docs.datadoghq.com/help/).
-        :param pulumi.Input[_builtins.str] unit: Primary unit of the metric such as `byte` or `operation`.
+        :param pulumi.Input[_builtins.str] unit: Primary unit of the metric such as `byte` or `operation`. For a list of allowed units, refer to [Datadog metric unit documentation](https://docs.datadoghq.com/metrics/units/#unit-list).
         """
         ...
     @overload
@@ -407,7 +407,7 @@ class MetricMetadata(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] short_name: A short name of the metric.
         :param pulumi.Input[_builtins.int] statsd_interval: If applicable, statsd flush interval in seconds for the metric.
         :param pulumi.Input[_builtins.str] type: Metric type such as `count`, `gauge`, or `rate`. Updating a metric of type `distribution` is not supported. If you would like to see the `distribution` type returned, contact [Datadog support](https://docs.datadoghq.com/help/).
-        :param pulumi.Input[_builtins.str] unit: Primary unit of the metric such as `byte` or `operation`.
+        :param pulumi.Input[_builtins.str] unit: Primary unit of the metric such as `byte` or `operation`. For a list of allowed units, refer to [Datadog metric unit documentation](https://docs.datadoghq.com/metrics/units/#unit-list).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -474,7 +474,7 @@ class MetricMetadata(pulumi.CustomResource):
     @pulumi.getter
     def unit(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Primary unit of the metric such as `byte` or `operation`.
+        Primary unit of the metric such as `byte` or `operation`. For a list of allowed units, refer to [Datadog metric unit documentation](https://docs.datadoghq.com/metrics/units/#unit-list).
         """
         return pulumi.get(self, "unit")
 

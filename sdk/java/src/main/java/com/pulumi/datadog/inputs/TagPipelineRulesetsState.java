@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -15,6 +16,13 @@ import javax.annotation.Nullable;
 public final class TagPipelineRulesetsState extends com.pulumi.resources.ResourceArgs {
 
     public static final TagPipelineRulesetsState Empty = new TagPipelineRulesetsState();
+
+    @Import(name="overrideUiDefinedResources")
+    private @Nullable Output<Boolean> overrideUiDefinedResources;
+
+    public Optional<Output<Boolean>> overrideUiDefinedResources() {
+        return Optional.ofNullable(this.overrideUiDefinedResources);
+    }
 
     /**
      * The list of Tag Pipeline Ruleset IDs, in order. Rulesets are executed in the order specified in this list.
@@ -34,6 +42,7 @@ public final class TagPipelineRulesetsState extends com.pulumi.resources.Resourc
     private TagPipelineRulesetsState() {}
 
     private TagPipelineRulesetsState(TagPipelineRulesetsState $) {
+        this.overrideUiDefinedResources = $.overrideUiDefinedResources;
         this.rulesetIds = $.rulesetIds;
     }
 
@@ -53,6 +62,15 @@ public final class TagPipelineRulesetsState extends com.pulumi.resources.Resourc
 
         public Builder(TagPipelineRulesetsState defaults) {
             $ = new TagPipelineRulesetsState(Objects.requireNonNull(defaults));
+        }
+
+        public Builder overrideUiDefinedResources(@Nullable Output<Boolean> overrideUiDefinedResources) {
+            $.overrideUiDefinedResources = overrideUiDefinedResources;
+            return this;
+        }
+
+        public Builder overrideUiDefinedResources(Boolean overrideUiDefinedResources) {
+            return overrideUiDefinedResources(Output.of(overrideUiDefinedResources));
         }
 
         /**

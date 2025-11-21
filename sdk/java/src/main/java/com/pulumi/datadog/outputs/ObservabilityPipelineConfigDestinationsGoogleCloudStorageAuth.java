@@ -4,25 +4,26 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class ObservabilityPipelineConfigDestinationsGoogleCloudStorageAuth {
     /**
-     * @return Path to the GCP service account key file.
+     * @return Path to the GCP service account key file. Required when `auth` block is specified.
      * 
      */
-    private String credentialsFile;
+    private @Nullable String credentialsFile;
 
     private ObservabilityPipelineConfigDestinationsGoogleCloudStorageAuth() {}
     /**
-     * @return Path to the GCP service account key file.
+     * @return Path to the GCP service account key file. Required when `auth` block is specified.
      * 
      */
-    public String credentialsFile() {
-        return this.credentialsFile;
+    public Optional<String> credentialsFile() {
+        return Optional.ofNullable(this.credentialsFile);
     }
 
     public static Builder builder() {
@@ -34,7 +35,7 @@ public final class ObservabilityPipelineConfigDestinationsGoogleCloudStorageAuth
     }
     @CustomType.Builder
     public static final class Builder {
-        private String credentialsFile;
+        private @Nullable String credentialsFile;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigDestinationsGoogleCloudStorageAuth defaults) {
     	      Objects.requireNonNull(defaults);
@@ -42,10 +43,8 @@ public final class ObservabilityPipelineConfigDestinationsGoogleCloudStorageAuth
         }
 
         @CustomType.Setter
-        public Builder credentialsFile(String credentialsFile) {
-            if (credentialsFile == null) {
-              throw new MissingRequiredPropertyException("ObservabilityPipelineConfigDestinationsGoogleCloudStorageAuth", "credentialsFile");
-            }
+        public Builder credentialsFile(@Nullable String credentialsFile) {
+
             this.credentialsFile = credentialsFile;
             return this;
         }

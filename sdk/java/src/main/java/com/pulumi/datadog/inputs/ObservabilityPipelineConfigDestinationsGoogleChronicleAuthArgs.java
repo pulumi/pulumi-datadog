@@ -16,14 +16,14 @@ public final class ObservabilityPipelineConfigDestinationsGoogleChronicleAuthArg
     public static final ObservabilityPipelineConfigDestinationsGoogleChronicleAuthArgs Empty = new ObservabilityPipelineConfigDestinationsGoogleChronicleAuthArgs();
 
     /**
-     * Path to the GCP service account key file.
+     * Path to the GCP service account key file. Required when `auth` block is specified.
      * 
      */
     @Import(name="credentialsFile")
     private @Nullable Output<String> credentialsFile;
 
     /**
-     * @return Path to the GCP service account key file.
+     * @return Path to the GCP service account key file. Required when `auth` block is specified.
      * 
      */
     public Optional<Output<String>> credentialsFile() {
@@ -55,7 +55,7 @@ public final class ObservabilityPipelineConfigDestinationsGoogleChronicleAuthArg
         }
 
         /**
-         * @param credentialsFile Path to the GCP service account key file.
+         * @param credentialsFile Path to the GCP service account key file. Required when `auth` block is specified.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class ObservabilityPipelineConfigDestinationsGoogleChronicleAuthArg
         }
 
         /**
-         * @param credentialsFile Path to the GCP service account key file.
+         * @param credentialsFile Path to the GCP service account key file. Required when `auth` block is specified.
          * 
          * @return builder
          * 

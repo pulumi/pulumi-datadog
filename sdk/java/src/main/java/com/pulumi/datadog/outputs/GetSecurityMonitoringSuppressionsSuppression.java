@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
@@ -20,6 +21,7 @@ public final class GetSecurityMonitoringSuppressionsSuppression {
     private String ruleQuery;
     private String startDate;
     private String suppressionQuery;
+    private List<String> tags;
 
     private GetSecurityMonitoringSuppressionsSuppression() {}
     public String dataExclusionQuery() {
@@ -49,6 +51,9 @@ public final class GetSecurityMonitoringSuppressionsSuppression {
     public String suppressionQuery() {
         return this.suppressionQuery;
     }
+    public List<String> tags() {
+        return this.tags;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -68,6 +73,7 @@ public final class GetSecurityMonitoringSuppressionsSuppression {
         private String ruleQuery;
         private String startDate;
         private String suppressionQuery;
+        private List<String> tags;
         public Builder() {}
         public Builder(GetSecurityMonitoringSuppressionsSuppression defaults) {
     	      Objects.requireNonNull(defaults);
@@ -80,6 +86,7 @@ public final class GetSecurityMonitoringSuppressionsSuppression {
     	      this.ruleQuery = defaults.ruleQuery;
     	      this.startDate = defaults.startDate;
     	      this.suppressionQuery = defaults.suppressionQuery;
+    	      this.tags = defaults.tags;
         }
 
         @CustomType.Setter
@@ -154,6 +161,17 @@ public final class GetSecurityMonitoringSuppressionsSuppression {
             this.suppressionQuery = suppressionQuery;
             return this;
         }
+        @CustomType.Setter
+        public Builder tags(List<String> tags) {
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetSecurityMonitoringSuppressionsSuppression", "tags");
+            }
+            this.tags = tags;
+            return this;
+        }
+        public Builder tags(String... tags) {
+            return tags(List.of(tags));
+        }
         public GetSecurityMonitoringSuppressionsSuppression build() {
             final var _resultValue = new GetSecurityMonitoringSuppressionsSuppression();
             _resultValue.dataExclusionQuery = dataExclusionQuery;
@@ -165,6 +183,7 @@ public final class GetSecurityMonitoringSuppressionsSuppression {
             _resultValue.ruleQuery = ruleQuery;
             _resultValue.startDate = startDate;
             _resultValue.suppressionQuery = suppressionQuery;
+            _resultValue.tags = tags;
             return _resultValue;
         }
     }

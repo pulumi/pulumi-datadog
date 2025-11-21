@@ -75,6 +75,8 @@ type SecurityMonitoringSuppression struct {
 	StartDate pulumi.StringPtrOutput `pulumi:"startDate"`
 	// The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
 	SuppressionQuery pulumi.StringPtrOutput `pulumi:"suppressionQuery"`
+	// A list of tags associated with the suppression rule.
+	Tags pulumi.StringArrayOutput `pulumi:"tags"`
 	// Whether to validate the suppression rule during `pulumi preview`. When set to `true`, the rule is validated against Datadog's suppression validation endpoint. Defaults to `true`.
 	Validate pulumi.BoolOutput `pulumi:"validate"`
 }
@@ -134,6 +136,8 @@ type securityMonitoringSuppressionState struct {
 	StartDate *string `pulumi:"startDate"`
 	// The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
 	SuppressionQuery *string `pulumi:"suppressionQuery"`
+	// A list of tags associated with the suppression rule.
+	Tags []string `pulumi:"tags"`
 	// Whether to validate the suppression rule during `pulumi preview`. When set to `true`, the rule is validated against Datadog's suppression validation endpoint. Defaults to `true`.
 	Validate *bool `pulumi:"validate"`
 }
@@ -155,6 +159,8 @@ type SecurityMonitoringSuppressionState struct {
 	StartDate pulumi.StringPtrInput
 	// The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
 	SuppressionQuery pulumi.StringPtrInput
+	// A list of tags associated with the suppression rule.
+	Tags pulumi.StringArrayInput
 	// Whether to validate the suppression rule during `pulumi preview`. When set to `true`, the rule is validated against Datadog's suppression validation endpoint. Defaults to `true`.
 	Validate pulumi.BoolPtrInput
 }
@@ -180,6 +186,8 @@ type securityMonitoringSuppressionArgs struct {
 	StartDate *string `pulumi:"startDate"`
 	// The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
 	SuppressionQuery *string `pulumi:"suppressionQuery"`
+	// A list of tags associated with the suppression rule.
+	Tags []string `pulumi:"tags"`
 	// Whether to validate the suppression rule during `pulumi preview`. When set to `true`, the rule is validated against Datadog's suppression validation endpoint. Defaults to `true`.
 	Validate *bool `pulumi:"validate"`
 }
@@ -202,6 +210,8 @@ type SecurityMonitoringSuppressionArgs struct {
 	StartDate pulumi.StringPtrInput
 	// The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
 	SuppressionQuery pulumi.StringPtrInput
+	// A list of tags associated with the suppression rule.
+	Tags pulumi.StringArrayInput
 	// Whether to validate the suppression rule during `pulumi preview`. When set to `true`, the rule is validated against Datadog's suppression validation endpoint. Defaults to `true`.
 	Validate pulumi.BoolPtrInput
 }
@@ -331,6 +341,11 @@ func (o SecurityMonitoringSuppressionOutput) StartDate() pulumi.StringPtrOutput 
 // The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
 func (o SecurityMonitoringSuppressionOutput) SuppressionQuery() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityMonitoringSuppression) pulumi.StringPtrOutput { return v.SuppressionQuery }).(pulumi.StringPtrOutput)
+}
+
+// A list of tags associated with the suppression rule.
+func (o SecurityMonitoringSuppressionOutput) Tags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SecurityMonitoringSuppression) pulumi.StringArrayOutput { return v.Tags }).(pulumi.StringArrayOutput)
 }
 
 // Whether to validate the suppression rule during `pulumi preview`. When set to `true`, the rule is validated against Datadog's suppression validation endpoint. Defaults to `true`.

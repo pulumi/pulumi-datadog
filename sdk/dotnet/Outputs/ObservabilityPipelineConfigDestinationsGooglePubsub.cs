@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigDestinationsGooglePubsub
     {
         /// <summary>
-        /// GCP credentials used to authenticate with Google Cloud Pub/Sub.
+        /// GCP credentials used to authenticate with Google Cloud services.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigDestinationsGooglePubsubAuth? Auth;
         /// <summary>

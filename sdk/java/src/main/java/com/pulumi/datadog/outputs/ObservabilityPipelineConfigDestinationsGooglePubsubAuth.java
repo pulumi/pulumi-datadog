@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ObservabilityPipelineConfigDestinationsGooglePubsubAuth {
     /**
-     * @return Path to the GCP service account key file.
+     * @return Path to the GCP service account key file. Required when `auth` block is specified.
      * 
      */
     private @Nullable String credentialsFile;
 
     private ObservabilityPipelineConfigDestinationsGooglePubsubAuth() {}
     /**
-     * @return Path to the GCP service account key file.
+     * @return Path to the GCP service account key file. Required when `auth` block is specified.
      * 
      */
     public Optional<String> credentialsFile() {

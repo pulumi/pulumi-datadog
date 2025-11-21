@@ -15,6 +15,11 @@ export type AgentlessScanningAwsScanOptions = import("./agentlessScanningAwsScan
 export const AgentlessScanningAwsScanOptions: typeof import("./agentlessScanningAwsScanOptions").AgentlessScanningAwsScanOptions = null as any;
 utilities.lazyLoad(exports, ["AgentlessScanningAwsScanOptions"], () => require("./agentlessScanningAwsScanOptions"));
 
+export { AgentlessScanningGcpScanOptionsArgs, AgentlessScanningGcpScanOptionsState } from "./agentlessScanningGcpScanOptions";
+export type AgentlessScanningGcpScanOptions = import("./agentlessScanningGcpScanOptions").AgentlessScanningGcpScanOptions;
+export const AgentlessScanningGcpScanOptions: typeof import("./agentlessScanningGcpScanOptions").AgentlessScanningGcpScanOptions = null as any;
+utilities.lazyLoad(exports, ["AgentlessScanningGcpScanOptions"], () => require("./agentlessScanningGcpScanOptions"));
+
 export { ApiKeyArgs, ApiKeyState } from "./apiKey";
 export type ApiKey = import("./apiKey").ApiKey;
 export const ApiKey: typeof import("./apiKey").ApiKey = null as any;
@@ -299,6 +304,11 @@ export { GetMetricTagsArgs, GetMetricTagsResult, GetMetricTagsOutputArgs } from 
 export const getMetricTags: typeof import("./getMetricTags").getMetricTags = null as any;
 export const getMetricTagsOutput: typeof import("./getMetricTags").getMetricTagsOutput = null as any;
 utilities.lazyLoad(exports, ["getMetricTags","getMetricTagsOutput"], () => require("./getMetricTags"));
+
+export { GetMetricsArgs, GetMetricsResult, GetMetricsOutputArgs } from "./getMetrics";
+export const getMetrics: typeof import("./getMetrics").getMetrics = null as any;
+export const getMetricsOutput: typeof import("./getMetrics").getMetricsOutput = null as any;
+utilities.lazyLoad(exports, ["getMetrics","getMetricsOutput"], () => require("./getMetrics"));
 
 export { GetMonitorArgs, GetMonitorResult, GetMonitorOutputArgs } from "./getMonitor";
 export const getMonitor: typeof import("./getMonitor").getMonitor = null as any;
@@ -806,6 +816,8 @@ const _module = {
                 return new ActionConnection(name, <any>undefined, { urn })
             case "datadog:index/agentlessScanningAwsScanOptions:AgentlessScanningAwsScanOptions":
                 return new AgentlessScanningAwsScanOptions(name, <any>undefined, { urn })
+            case "datadog:index/agentlessScanningGcpScanOptions:AgentlessScanningGcpScanOptions":
+                return new AgentlessScanningGcpScanOptions(name, <any>undefined, { urn })
             case "datadog:index/apiKey:ApiKey":
                 return new ApiKey(name, <any>undefined, { urn })
             case "datadog:index/apmRetentionFilter:ApmRetentionFilter":
@@ -999,6 +1011,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("datadog", "index/actionConnection", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/agentlessScanningAwsScanOptions", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/agentlessScanningGcpScanOptions", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/apiKey", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/apmRetentionFilter", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/apmRetentionFilterOrder", _module)

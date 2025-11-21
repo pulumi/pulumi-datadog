@@ -19,10 +19,28 @@ namespace Pulumi.Datadog.Inputs
         public Input<bool>? Append { get; set; }
 
         /// <summary>
+        /// The default value to set
+        /// </summary>
+        [Input("defaultValue")]
+        public Input<string>? DefaultValue { get; set; }
+
+        /// <summary>
+        /// The expression to use for the set action
+        /// </summary>
+        [Input("expression")]
+        public Input<string>? Expression { get; set; }
+
+        /// <summary>
         /// The field to get the value from
         /// </summary>
         [Input("field")]
         public Input<string>? Field { get; set; }
+
+        /// <summary>
+        /// Whether the set action is inherited
+        /// </summary>
+        [Input("inherited")]
+        public Input<bool>? Inherited { get; set; }
 
         /// <summary>
         /// The name of the set action

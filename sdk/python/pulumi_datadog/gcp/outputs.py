@@ -43,14 +43,21 @@ class IntegrationMonitoredResourceConfig(dict):
 class IntegrationStsMetricNamespaceConfig(dict):
     def __init__(__self__, *,
                  disabled: _builtins.bool,
+                 filters: Sequence[_builtins.str],
                  id: _builtins.str):
         pulumi.set(__self__, "disabled", disabled)
+        pulumi.set(__self__, "filters", filters)
         pulumi.set(__self__, "id", id)
 
     @_builtins.property
     @pulumi.getter
     def disabled(self) -> _builtins.bool:
         return pulumi.get(self, "disabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def filters(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "filters")
 
     @_builtins.property
     @pulumi.getter
