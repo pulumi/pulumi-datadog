@@ -15,6 +15,14 @@ namespace Pulumi.Datadog.Gcp.Inputs
         [Input("disabled", required: true)]
         public Input<bool> Disabled { get; set; } = null!;
 
+        [Input("filters", required: true)]
+        private InputList<string>? _filters;
+        public InputList<string> Filters
+        {
+            get => _filters ?? (_filters = new InputList<string>());
+            set => _filters = value;
+        }
+
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 

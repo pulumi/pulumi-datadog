@@ -122,14 +122,14 @@ public final class SloCorrectionState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The timezone to display in the UI for the correction times (defaults to &#34;UTC&#34;)
+     * The timezone to display in the UI for the correction times. Prefers IANA timezone name format (for example, &#39;America/Los_Angeles&#39;, &#39;Europe/Paris&#39;), but some common standard abbreviations are supported. Defaults to &#39;UTC&#39;.
      * 
      */
     @Import(name="timezone")
     private @Nullable Output<String> timezone;
 
     /**
-     * @return The timezone to display in the UI for the correction times (defaults to &#34;UTC&#34;)
+     * @return The timezone to display in the UI for the correction times. Prefers IANA timezone name format (for example, &#39;America/Los_Angeles&#39;, &#39;Europe/Paris&#39;), but some common standard abbreviations are supported. Defaults to &#39;UTC&#39;.
      * 
      */
     public Optional<Output<String>> timezone() {
@@ -315,7 +315,7 @@ public final class SloCorrectionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param timezone The timezone to display in the UI for the correction times (defaults to &#34;UTC&#34;)
+         * @param timezone The timezone to display in the UI for the correction times. Prefers IANA timezone name format (for example, &#39;America/Los_Angeles&#39;, &#39;Europe/Paris&#39;), but some common standard abbreviations are supported. Defaults to &#39;UTC&#39;.
          * 
          * @return builder
          * 
@@ -326,7 +326,7 @@ public final class SloCorrectionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param timezone The timezone to display in the UI for the correction times (defaults to &#34;UTC&#34;)
+         * @param timezone The timezone to display in the UI for the correction times. Prefers IANA timezone name format (for example, &#39;America/Los_Angeles&#39;, &#39;Europe/Paris&#39;), but some common standard abbreviations are supported. Defaults to &#39;UTC&#39;.
          * 
          * @return builder
          * 

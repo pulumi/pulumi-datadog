@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 
 
@@ -22,6 +23,13 @@ public final class IntegrationStsMetricNamespaceConfigArgs extends com.pulumi.re
         return this.disabled;
     }
 
+    @Import(name="filters", required=true)
+    private Output<List<String>> filters;
+
+    public Output<List<String>> filters() {
+        return this.filters;
+    }
+
     @Import(name="id", required=true)
     private Output<String> id;
 
@@ -33,6 +41,7 @@ public final class IntegrationStsMetricNamespaceConfigArgs extends com.pulumi.re
 
     private IntegrationStsMetricNamespaceConfigArgs(IntegrationStsMetricNamespaceConfigArgs $) {
         this.disabled = $.disabled;
+        this.filters = $.filters;
         this.id = $.id;
     }
 
@@ -63,6 +72,19 @@ public final class IntegrationStsMetricNamespaceConfigArgs extends com.pulumi.re
             return disabled(Output.of(disabled));
         }
 
+        public Builder filters(Output<List<String>> filters) {
+            $.filters = filters;
+            return this;
+        }
+
+        public Builder filters(List<String> filters) {
+            return filters(Output.of(filters));
+        }
+
+        public Builder filters(String... filters) {
+            return filters(List.of(filters));
+        }
+
         public Builder id(Output<String> id) {
             $.id = id;
             return this;
@@ -75,6 +97,9 @@ public final class IntegrationStsMetricNamespaceConfigArgs extends com.pulumi.re
         public IntegrationStsMetricNamespaceConfigArgs build() {
             if ($.disabled == null) {
                 throw new MissingRequiredPropertyException("IntegrationStsMetricNamespaceConfigArgs", "disabled");
+            }
+            if ($.filters == null) {
+                throw new MissingRequiredPropertyException("IntegrationStsMetricNamespaceConfigArgs", "filters");
             }
             if ($.id == null) {
                 throw new MissingRequiredPropertyException("IntegrationStsMetricNamespaceConfigArgs", "id");

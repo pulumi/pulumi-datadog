@@ -16,9 +16,9 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// Access control list setting for objects written to the bucket.
         /// </summary>
-        public readonly string Acl;
+        public readonly string? Acl;
         /// <summary>
-        /// GCP credentials used to authenticate with Google Cloud Storage.
+        /// GCP credentials used to authenticate with Google Cloud services.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigDestinationsGoogleCloudStorageAuth? Auth;
         /// <summary>
@@ -48,7 +48,7 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private ObservabilityPipelineConfigDestinationsGoogleCloudStorage(
-            string acl,
+            string? acl,
 
             Outputs.ObservabilityPipelineConfigDestinationsGoogleCloudStorageAuth? auth,
 

@@ -22,6 +22,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly string RuleQuery;
         public readonly string StartDate;
         public readonly string SuppressionQuery;
+        public readonly ImmutableArray<string> Tags;
 
         [OutputConstructor]
         private GetSecurityMonitoringSuppressionsSuppressionResult(
@@ -41,7 +42,9 @@ namespace Pulumi.Datadog.Outputs
 
             string startDate,
 
-            string suppressionQuery)
+            string suppressionQuery,
+
+            ImmutableArray<string> tags)
         {
             DataExclusionQuery = dataExclusionQuery;
             Description = description;
@@ -52,6 +55,7 @@ namespace Pulumi.Datadog.Outputs
             RuleQuery = ruleQuery;
             StartDate = startDate;
             SuppressionQuery = suppressionQuery;
+            Tags = tags;
         }
     }
 }

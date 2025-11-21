@@ -34,6 +34,11 @@ public final class GetUserResult {
      */
     private @Nullable Boolean exactMatch;
     /**
+     * @return When true, service accounts are excluded from the result. Defaults to `false`.
+     * 
+     */
+    private @Nullable Boolean excludeServiceAccounts;
+    /**
      * @return Filter all users by the given string.
      * 
      */
@@ -117,6 +122,13 @@ public final class GetUserResult {
      */
     public Optional<Boolean> exactMatch() {
         return Optional.ofNullable(this.exactMatch);
+    }
+    /**
+     * @return When true, service accounts are excluded from the result. Defaults to `false`.
+     * 
+     */
+    public Optional<Boolean> excludeServiceAccounts() {
+        return Optional.ofNullable(this.excludeServiceAccounts);
     }
     /**
      * @return Filter all users by the given string.
@@ -209,6 +221,7 @@ public final class GetUserResult {
         private Boolean disabled;
         private String email;
         private @Nullable Boolean exactMatch;
+        private @Nullable Boolean excludeServiceAccounts;
         private String filter;
         private String handle;
         private String icon;
@@ -227,6 +240,7 @@ public final class GetUserResult {
     	      this.disabled = defaults.disabled;
     	      this.email = defaults.email;
     	      this.exactMatch = defaults.exactMatch;
+    	      this.excludeServiceAccounts = defaults.excludeServiceAccounts;
     	      this.filter = defaults.filter;
     	      this.handle = defaults.handle;
     	      this.icon = defaults.icon;
@@ -268,6 +282,12 @@ public final class GetUserResult {
         public Builder exactMatch(@Nullable Boolean exactMatch) {
 
             this.exactMatch = exactMatch;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder excludeServiceAccounts(@Nullable Boolean excludeServiceAccounts) {
+
+            this.excludeServiceAccounts = excludeServiceAccounts;
             return this;
         }
         @CustomType.Setter
@@ -364,6 +384,7 @@ public final class GetUserResult {
             _resultValue.disabled = disabled;
             _resultValue.email = email;
             _resultValue.exactMatch = exactMatch;
+            _resultValue.excludeServiceAccounts = excludeServiceAccounts;
             _resultValue.filter = filter;
             _resultValue.handle = handle;
             _resultValue.icon = icon;

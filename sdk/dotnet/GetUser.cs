@@ -94,6 +94,12 @@ namespace Pulumi.Datadog
         public bool? ExactMatch { get; set; }
 
         /// <summary>
+        /// When true, service accounts are excluded from the result. Defaults to `False`.
+        /// </summary>
+        [Input("excludeServiceAccounts")]
+        public bool? ExcludeServiceAccounts { get; set; }
+
+        /// <summary>
         /// Filter all users by the given string.
         /// </summary>
         [Input("filter", required: true)]
@@ -112,6 +118,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("exactMatch")]
         public Input<bool>? ExactMatch { get; set; }
+
+        /// <summary>
+        /// When true, service accounts are excluded from the result. Defaults to `False`.
+        /// </summary>
+        [Input("excludeServiceAccounts")]
+        public Input<bool>? ExcludeServiceAccounts { get; set; }
 
         /// <summary>
         /// Filter all users by the given string.
@@ -145,6 +157,10 @@ namespace Pulumi.Datadog
         /// When true, `Filter` string is exact matched against the user's `Email`, followed by `Name` attribute. Defaults to `False`.
         /// </summary>
         public readonly bool? ExactMatch;
+        /// <summary>
+        /// When true, service accounts are excluded from the result. Defaults to `False`.
+        /// </summary>
+        public readonly bool? ExcludeServiceAccounts;
         /// <summary>
         /// Filter all users by the given string.
         /// </summary>
@@ -200,6 +216,8 @@ namespace Pulumi.Datadog
 
             bool? exactMatch,
 
+            bool? excludeServiceAccounts,
+
             string filter,
 
             string handle,
@@ -226,6 +244,7 @@ namespace Pulumi.Datadog
             Disabled = disabled;
             Email = email;
             ExactMatch = exactMatch;
+            ExcludeServiceAccounts = excludeServiceAccounts;
             Filter = filter;
             Handle = handle;
             Icon = icon;

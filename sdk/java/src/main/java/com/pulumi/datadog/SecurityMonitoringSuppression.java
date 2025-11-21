@@ -12,6 +12,7 @@ import com.pulumi.datadog.Utilities;
 import com.pulumi.datadog.inputs.SecurityMonitoringSuppressionState;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -182,6 +183,20 @@ public class SecurityMonitoringSuppression extends com.pulumi.resources.CustomRe
      */
     public Output<Optional<String>> suppressionQuery() {
         return Codegen.optional(this.suppressionQuery);
+    }
+    /**
+     * A list of tags associated with the suppression rule.
+     * 
+     */
+    @Export(name="tags", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> tags;
+
+    /**
+     * @return A list of tags associated with the suppression rule.
+     * 
+     */
+    public Output<Optional<List<String>>> tags() {
+        return Codegen.optional(this.tags);
     }
     /**
      * Whether to validate the suppression rule during `pulumi preview`. When set to `true`, the rule is validated against Datadog&#39;s suppression validation endpoint. Defaults to `true`.

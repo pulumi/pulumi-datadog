@@ -15,6 +15,7 @@
     "files": [
         "actionConnection.ts",
         "agentlessScanningAwsScanOptions.ts",
+        "agentlessScanningGcpScanOptions.ts",
         "apiKey.ts",
         "apmRetentionFilter.ts",
         "apmRetentionFilterOrder.ts",
@@ -102,6 +103,7 @@
         "getMetricActiveTagsAndAggregations.ts",
         "getMetricMetadata.ts",
         "getMetricTags.ts",
+        "getMetrics.ts",
         "getMonitor.ts",
         "getMonitorConfigPolicies.ts",
         "getMonitors.ts",

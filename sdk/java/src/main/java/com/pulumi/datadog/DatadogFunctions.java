@@ -46,6 +46,8 @@ import com.pulumi.datadog.inputs.GetMetricMetadataArgs;
 import com.pulumi.datadog.inputs.GetMetricMetadataPlainArgs;
 import com.pulumi.datadog.inputs.GetMetricTagsArgs;
 import com.pulumi.datadog.inputs.GetMetricTagsPlainArgs;
+import com.pulumi.datadog.inputs.GetMetricsArgs;
+import com.pulumi.datadog.inputs.GetMetricsPlainArgs;
 import com.pulumi.datadog.inputs.GetMonitorArgs;
 import com.pulumi.datadog.inputs.GetMonitorPlainArgs;
 import com.pulumi.datadog.inputs.GetMonitorsArgs;
@@ -122,6 +124,7 @@ import com.pulumi.datadog.outputs.GetLogsPipelinesResult;
 import com.pulumi.datadog.outputs.GetMetricActiveTagsAndAggregationsResult;
 import com.pulumi.datadog.outputs.GetMetricMetadataResult;
 import com.pulumi.datadog.outputs.GetMetricTagsResult;
+import com.pulumi.datadog.outputs.GetMetricsResult;
 import com.pulumi.datadog.outputs.GetMonitorConfigPoliciesResult;
 import com.pulumi.datadog.outputs.GetMonitorResult;
 import com.pulumi.datadog.outputs.GetMonitorsResult;
@@ -4633,6 +4636,41 @@ public final class DatadogFunctions {
      */
     public static CompletableFuture<GetMetricTagsResult> getMetricTagsPlain(GetMetricTagsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:index/getMetricTags:getMetricTags", TypeShape.of(GetMetricTagsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to list metrics for use in other resources.
+     * 
+     */
+    public static Output<GetMetricsResult> getMetrics(GetMetricsArgs args) {
+        return getMetrics(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to list metrics for use in other resources.
+     * 
+     */
+    public static CompletableFuture<GetMetricsResult> getMetricsPlain(GetMetricsPlainArgs args) {
+        return getMetricsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to list metrics for use in other resources.
+     * 
+     */
+    public static Output<GetMetricsResult> getMetrics(GetMetricsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getMetrics:getMetrics", TypeShape.of(GetMetricsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to list metrics for use in other resources.
+     * 
+     */
+    public static Output<GetMetricsResult> getMetrics(GetMetricsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getMetrics:getMetrics", TypeShape.of(GetMetricsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to list metrics for use in other resources.
+     * 
+     */
+    public static CompletableFuture<GetMetricsResult> getMetricsPlain(GetMetricsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getMetrics:getMetrics", TypeShape.of(GetMetricsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve information about an existing monitor for use in other resources.

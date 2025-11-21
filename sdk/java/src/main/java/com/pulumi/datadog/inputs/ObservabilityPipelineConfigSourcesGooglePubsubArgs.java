@@ -19,14 +19,14 @@ public final class ObservabilityPipelineConfigSourcesGooglePubsubArgs extends co
     public static final ObservabilityPipelineConfigSourcesGooglePubsubArgs Empty = new ObservabilityPipelineConfigSourcesGooglePubsubArgs();
 
     /**
-     * GCP credentials used to authenticate with Google Cloud Storage.
+     * GCP credentials used to authenticate with Google Cloud services.
      * 
      */
     @Import(name="auth")
     private @Nullable Output<ObservabilityPipelineConfigSourcesGooglePubsubAuthArgs> auth;
 
     /**
-     * @return GCP credentials used to authenticate with Google Cloud Storage.
+     * @return GCP credentials used to authenticate with Google Cloud services.
      * 
      */
     public Optional<Output<ObservabilityPipelineConfigSourcesGooglePubsubAuthArgs>> auth() {
@@ -138,7 +138,7 @@ public final class ObservabilityPipelineConfigSourcesGooglePubsubArgs extends co
         }
 
         /**
-         * @param auth GCP credentials used to authenticate with Google Cloud Storage.
+         * @param auth GCP credentials used to authenticate with Google Cloud services.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class ObservabilityPipelineConfigSourcesGooglePubsubArgs extends co
         }
 
         /**
-         * @param auth GCP credentials used to authenticate with Google Cloud Storage.
+         * @param auth GCP credentials used to authenticate with Google Cloud services.
          * 
          * @return builder
          * 

@@ -27,6 +27,7 @@ class SecurityMonitoringSuppressionArgs:
                  expiration_date: Optional[pulumi.Input[_builtins.str]] = None,
                  start_date: Optional[pulumi.Input[_builtins.str]] = None,
                  suppression_query: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  validate: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a SecurityMonitoringSuppression resource.
@@ -38,6 +39,7 @@ class SecurityMonitoringSuppressionArgs:
         :param pulumi.Input[_builtins.str] expiration_date: A RFC3339 timestamp giving an expiration date for the suppression rule. After this date, it won't suppress signals anymore.
         :param pulumi.Input[_builtins.str] start_date: A RFC3339 timestamp giving a start date for the suppression rule. Before this date, it doesn't suppress signals.
         :param pulumi.Input[_builtins.str] suppression_query: The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags associated with the suppression rule.
         :param pulumi.Input[_builtins.bool] validate: Whether to validate the suppression rule during `pulumi preview`. When set to `true`, the rule is validated against Datadog's suppression validation endpoint. Defaults to `true`.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -53,6 +55,8 @@ class SecurityMonitoringSuppressionArgs:
             pulumi.set(__self__, "start_date", start_date)
         if suppression_query is not None:
             pulumi.set(__self__, "suppression_query", suppression_query)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if validate is not None:
             pulumi.set(__self__, "validate", validate)
 
@@ -154,6 +158,18 @@ class SecurityMonitoringSuppressionArgs:
 
     @_builtins.property
     @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of tags associated with the suppression rule.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @_builtins.property
+    @pulumi.getter
     def validate(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         Whether to validate the suppression rule during `pulumi preview`. When set to `true`, the rule is validated against Datadog's suppression validation endpoint. Defaults to `true`.
@@ -176,6 +192,7 @@ class _SecurityMonitoringSuppressionState:
                  rule_query: Optional[pulumi.Input[_builtins.str]] = None,
                  start_date: Optional[pulumi.Input[_builtins.str]] = None,
                  suppression_query: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  validate: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering SecurityMonitoringSuppression resources.
@@ -187,6 +204,7 @@ class _SecurityMonitoringSuppressionState:
         :param pulumi.Input[_builtins.str] rule_query: The rule query of the suppression rule, with the same syntax as the search bar for detection rules.
         :param pulumi.Input[_builtins.str] start_date: A RFC3339 timestamp giving a start date for the suppression rule. Before this date, it doesn't suppress signals.
         :param pulumi.Input[_builtins.str] suppression_query: The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags associated with the suppression rule.
         :param pulumi.Input[_builtins.bool] validate: Whether to validate the suppression rule during `pulumi preview`. When set to `true`, the rule is validated against Datadog's suppression validation endpoint. Defaults to `true`.
         """
         if data_exclusion_query is not None:
@@ -205,6 +223,8 @@ class _SecurityMonitoringSuppressionState:
             pulumi.set(__self__, "start_date", start_date)
         if suppression_query is not None:
             pulumi.set(__self__, "suppression_query", suppression_query)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if validate is not None:
             pulumi.set(__self__, "validate", validate)
 
@@ -306,6 +326,18 @@ class _SecurityMonitoringSuppressionState:
 
     @_builtins.property
     @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of tags associated with the suppression rule.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @_builtins.property
+    @pulumi.getter
     def validate(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         Whether to validate the suppression rule during `pulumi preview`. When set to `true`, the rule is validated against Datadog's suppression validation endpoint. Defaults to `true`.
@@ -331,6 +363,7 @@ class SecurityMonitoringSuppression(pulumi.CustomResource):
                  rule_query: Optional[pulumi.Input[_builtins.str]] = None,
                  start_date: Optional[pulumi.Input[_builtins.str]] = None,
                  suppression_query: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  validate: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
@@ -373,6 +406,7 @@ class SecurityMonitoringSuppression(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] rule_query: The rule query of the suppression rule, with the same syntax as the search bar for detection rules.
         :param pulumi.Input[_builtins.str] start_date: A RFC3339 timestamp giving a start date for the suppression rule. Before this date, it doesn't suppress signals.
         :param pulumi.Input[_builtins.str] suppression_query: The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags associated with the suppression rule.
         :param pulumi.Input[_builtins.bool] validate: Whether to validate the suppression rule during `pulumi preview`. When set to `true`, the rule is validated against Datadog's suppression validation endpoint. Defaults to `true`.
         """
         ...
@@ -434,6 +468,7 @@ class SecurityMonitoringSuppression(pulumi.CustomResource):
                  rule_query: Optional[pulumi.Input[_builtins.str]] = None,
                  start_date: Optional[pulumi.Input[_builtins.str]] = None,
                  suppression_query: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  validate: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -458,6 +493,7 @@ class SecurityMonitoringSuppression(pulumi.CustomResource):
             __props__.__dict__["rule_query"] = rule_query
             __props__.__dict__["start_date"] = start_date
             __props__.__dict__["suppression_query"] = suppression_query
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["validate"] = validate
         super(SecurityMonitoringSuppression, __self__).__init__(
             'datadog:index/securityMonitoringSuppression:SecurityMonitoringSuppression',
@@ -477,6 +513,7 @@ class SecurityMonitoringSuppression(pulumi.CustomResource):
             rule_query: Optional[pulumi.Input[_builtins.str]] = None,
             start_date: Optional[pulumi.Input[_builtins.str]] = None,
             suppression_query: Optional[pulumi.Input[_builtins.str]] = None,
+            tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             validate: Optional[pulumi.Input[_builtins.bool]] = None) -> 'SecurityMonitoringSuppression':
         """
         Get an existing SecurityMonitoringSuppression resource's state with the given name, id, and optional extra
@@ -493,6 +530,7 @@ class SecurityMonitoringSuppression(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] rule_query: The rule query of the suppression rule, with the same syntax as the search bar for detection rules.
         :param pulumi.Input[_builtins.str] start_date: A RFC3339 timestamp giving a start date for the suppression rule. Before this date, it doesn't suppress signals.
         :param pulumi.Input[_builtins.str] suppression_query: The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags associated with the suppression rule.
         :param pulumi.Input[_builtins.bool] validate: Whether to validate the suppression rule during `pulumi preview`. When set to `true`, the rule is validated against Datadog's suppression validation endpoint. Defaults to `true`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -507,6 +545,7 @@ class SecurityMonitoringSuppression(pulumi.CustomResource):
         __props__.__dict__["rule_query"] = rule_query
         __props__.__dict__["start_date"] = start_date
         __props__.__dict__["suppression_query"] = suppression_query
+        __props__.__dict__["tags"] = tags
         __props__.__dict__["validate"] = validate
         return SecurityMonitoringSuppression(resource_name, opts=opts, __props__=__props__)
 
@@ -573,6 +612,14 @@ class SecurityMonitoringSuppression(pulumi.CustomResource):
         The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
         """
         return pulumi.get(self, "suppression_query")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        A list of tags associated with the suppression rule.
+        """
+        return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter

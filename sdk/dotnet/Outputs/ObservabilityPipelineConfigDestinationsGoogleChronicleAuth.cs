@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigDestinationsGoogleChronicleAuth
     {
         /// <summary>
-        /// Path to the GCP service account key file.
+        /// Path to the GCP service account key file. Required when `Auth` block is specified.
         /// </summary>
         public readonly string? CredentialsFile;
 

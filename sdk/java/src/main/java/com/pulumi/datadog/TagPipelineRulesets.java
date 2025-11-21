@@ -10,49 +10,16 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.datadog.TagPipelineRulesetsArgs;
 import com.pulumi.datadog.Utilities;
 import com.pulumi.datadog.inputs.TagPipelineRulesetsState;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
  * Provides a Datadog Tag Pipeline Ruleset Order resource that can be used to manage the order of Tag Pipeline Rulesets.
  * 
  * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.datadog.TagPipelineRulesets;
- * import com.pulumi.datadog.TagPipelineRulesetsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         // Create new tag_pipeline_ruleset_order resource
- *         var myRulesets = new TagPipelineRulesets("myRulesets", TagPipelineRulesetsArgs.builder()
- *             .rulesetIds(            
- *                 "ruleset-id-1",
- *                 "ruleset-id-2",
- *                 "ruleset-id-3")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
  * 
  * ## Import
  * 
@@ -65,6 +32,12 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="datadog:index/tagPipelineRulesets:TagPipelineRulesets")
 public class TagPipelineRulesets extends com.pulumi.resources.CustomResource {
+    @Export(name="overrideUiDefinedResources", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> overrideUiDefinedResources;
+
+    public Output<Optional<Boolean>> overrideUiDefinedResources() {
+        return Codegen.optional(this.overrideUiDefinedResources);
+    }
     /**
      * The list of Tag Pipeline Ruleset IDs, in order. Rulesets are executed in the order specified in this list.
      * 

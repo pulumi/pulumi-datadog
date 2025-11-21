@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -138,6 +139,21 @@ public final class SecurityMonitoringSuppressionArgs extends com.pulumi.resource
     }
 
     /**
+     * A list of tags associated with the suppression rule.
+     * 
+     */
+    @Import(name="tags")
+    private @Nullable Output<List<String>> tags;
+
+    /**
+     * @return A list of tags associated with the suppression rule.
+     * 
+     */
+    public Optional<Output<List<String>>> tags() {
+        return Optional.ofNullable(this.tags);
+    }
+
+    /**
      * Whether to validate the suppression rule during `pulumi preview`. When set to `true`, the rule is validated against Datadog&#39;s suppression validation endpoint. Defaults to `true`.
      * 
      */
@@ -163,6 +179,7 @@ public final class SecurityMonitoringSuppressionArgs extends com.pulumi.resource
         this.ruleQuery = $.ruleQuery;
         this.startDate = $.startDate;
         this.suppressionQuery = $.suppressionQuery;
+        this.tags = $.tags;
         this.validate = $.validate;
     }
 
@@ -350,6 +367,37 @@ public final class SecurityMonitoringSuppressionArgs extends com.pulumi.resource
          */
         public Builder suppressionQuery(String suppressionQuery) {
             return suppressionQuery(Output.of(suppressionQuery));
+        }
+
+        /**
+         * @param tags A list of tags associated with the suppression rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(@Nullable Output<List<String>> tags) {
+            $.tags = tags;
+            return this;
+        }
+
+        /**
+         * @param tags A list of tags associated with the suppression rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(List<String> tags) {
+            return tags(Output.of(tags));
+        }
+
+        /**
+         * @param tags A list of tags associated with the suppression rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(String... tags) {
+            return tags(List.of(tags));
         }
 
         /**

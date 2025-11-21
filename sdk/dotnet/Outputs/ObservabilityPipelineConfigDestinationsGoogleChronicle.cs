@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigDestinationsGoogleChronicle
     {
         /// <summary>
-        /// GCP credentials used to authenticate with Google Cloud Storage.
+        /// GCP credentials used to authenticate with Google Cloud services.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigDestinationsGoogleChronicleAuth? Auth;
         /// <summary>

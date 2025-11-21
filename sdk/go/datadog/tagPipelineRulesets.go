@@ -16,35 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// Create new tag_pipeline_ruleset_order resource
-//			_, err := datadog.NewTagPipelineRulesets(ctx, "my_rulesets", &datadog.TagPipelineRulesetsArgs{
-//				RulesetIds: pulumi.StringArray{
-//					pulumi.String("ruleset-id-1"),
-//					pulumi.String("ruleset-id-2"),
-//					pulumi.String("ruleset-id-3"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // The `pulumi import` command can be used, for example:
@@ -55,6 +26,7 @@ import (
 type TagPipelineRulesets struct {
 	pulumi.CustomResourceState
 
+	OverrideUiDefinedResources pulumi.BoolPtrOutput `pulumi:"overrideUiDefinedResources"`
 	// The list of Tag Pipeline Ruleset IDs, in order. Rulesets are executed in the order specified in this list.
 	RulesetIds pulumi.StringArrayOutput `pulumi:"rulesetIds"`
 }
@@ -92,11 +64,13 @@ func GetTagPipelineRulesets(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TagPipelineRulesets resources.
 type tagPipelineRulesetsState struct {
+	OverrideUiDefinedResources *bool `pulumi:"overrideUiDefinedResources"`
 	// The list of Tag Pipeline Ruleset IDs, in order. Rulesets are executed in the order specified in this list.
 	RulesetIds []string `pulumi:"rulesetIds"`
 }
 
 type TagPipelineRulesetsState struct {
+	OverrideUiDefinedResources pulumi.BoolPtrInput
 	// The list of Tag Pipeline Ruleset IDs, in order. Rulesets are executed in the order specified in this list.
 	RulesetIds pulumi.StringArrayInput
 }
@@ -106,12 +80,14 @@ func (TagPipelineRulesetsState) ElementType() reflect.Type {
 }
 
 type tagPipelineRulesetsArgs struct {
+	OverrideUiDefinedResources *bool `pulumi:"overrideUiDefinedResources"`
 	// The list of Tag Pipeline Ruleset IDs, in order. Rulesets are executed in the order specified in this list.
 	RulesetIds []string `pulumi:"rulesetIds"`
 }
 
 // The set of arguments for constructing a TagPipelineRulesets resource.
 type TagPipelineRulesetsArgs struct {
+	OverrideUiDefinedResources pulumi.BoolPtrInput
 	// The list of Tag Pipeline Ruleset IDs, in order. Rulesets are executed in the order specified in this list.
 	RulesetIds pulumi.StringArrayInput
 }
@@ -201,6 +177,10 @@ func (o TagPipelineRulesetsOutput) ToTagPipelineRulesetsOutput() TagPipelineRule
 
 func (o TagPipelineRulesetsOutput) ToTagPipelineRulesetsOutputWithContext(ctx context.Context) TagPipelineRulesetsOutput {
 	return o
+}
+
+func (o TagPipelineRulesetsOutput) OverrideUiDefinedResources() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TagPipelineRulesets) pulumi.BoolPtrOutput { return v.OverrideUiDefinedResources }).(pulumi.BoolPtrOutput)
 }
 
 // The list of Tag Pipeline Ruleset IDs, in order. Rulesets are executed in the order specified in this list.

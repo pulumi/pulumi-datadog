@@ -19,12 +19,15 @@ __all__ = ['TagPipelineRulesetsArgs', 'TagPipelineRulesets']
 @pulumi.input_type
 class TagPipelineRulesetsArgs:
     def __init__(__self__, *,
-                 ruleset_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+                 ruleset_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 override_ui_defined_resources: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a TagPipelineRulesets resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ruleset_ids: The list of Tag Pipeline Ruleset IDs, in order. Rulesets are executed in the order specified in this list.
         """
         pulumi.set(__self__, "ruleset_ids", ruleset_ids)
+        if override_ui_defined_resources is not None:
+            pulumi.set(__self__, "override_ui_defined_resources", override_ui_defined_resources)
 
     @_builtins.property
     @pulumi.getter(name="rulesetIds")
@@ -38,17 +41,38 @@ class TagPipelineRulesetsArgs:
     def ruleset_ids(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         pulumi.set(self, "ruleset_ids", value)
 
+    @_builtins.property
+    @pulumi.getter(name="overrideUiDefinedResources")
+    def override_ui_defined_resources(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "override_ui_defined_resources")
+
+    @override_ui_defined_resources.setter
+    def override_ui_defined_resources(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "override_ui_defined_resources", value)
+
 
 @pulumi.input_type
 class _TagPipelineRulesetsState:
     def __init__(__self__, *,
+                 override_ui_defined_resources: Optional[pulumi.Input[_builtins.bool]] = None,
                  ruleset_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering TagPipelineRulesets resources.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ruleset_ids: The list of Tag Pipeline Ruleset IDs, in order. Rulesets are executed in the order specified in this list.
         """
+        if override_ui_defined_resources is not None:
+            pulumi.set(__self__, "override_ui_defined_resources", override_ui_defined_resources)
         if ruleset_ids is not None:
             pulumi.set(__self__, "ruleset_ids", ruleset_ids)
+
+    @_builtins.property
+    @pulumi.getter(name="overrideUiDefinedResources")
+    def override_ui_defined_resources(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "override_ui_defined_resources")
+
+    @override_ui_defined_resources.setter
+    def override_ui_defined_resources(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "override_ui_defined_resources", value)
 
     @_builtins.property
     @pulumi.getter(name="rulesetIds")
@@ -69,24 +93,13 @@ class TagPipelineRulesets(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 override_ui_defined_resources: Optional[pulumi.Input[_builtins.bool]] = None,
                  ruleset_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a Datadog Tag Pipeline Ruleset Order resource that can be used to manage the order of Tag Pipeline Rulesets.
 
         ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        # Create new tag_pipeline_ruleset_order resource
-        my_rulesets = datadog.TagPipelineRulesets("my_rulesets", ruleset_ids=[
-            "ruleset-id-1",
-            "ruleset-id-2",
-            "ruleset-id-3",
-        ])
-        ```
 
         ## Import
 
@@ -111,18 +124,6 @@ class TagPipelineRulesets(pulumi.CustomResource):
 
         ## Example Usage
 
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        # Create new tag_pipeline_ruleset_order resource
-        my_rulesets = datadog.TagPipelineRulesets("my_rulesets", ruleset_ids=[
-            "ruleset-id-1",
-            "ruleset-id-2",
-            "ruleset-id-3",
-        ])
-        ```
-
         ## Import
 
         The `pulumi import` command can be used, for example:
@@ -146,6 +147,7 @@ class TagPipelineRulesets(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 override_ui_defined_resources: Optional[pulumi.Input[_builtins.bool]] = None,
                  ruleset_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -156,6 +158,7 @@ class TagPipelineRulesets(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TagPipelineRulesetsArgs.__new__(TagPipelineRulesetsArgs)
 
+            __props__.__dict__["override_ui_defined_resources"] = override_ui_defined_resources
             if ruleset_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'ruleset_ids'")
             __props__.__dict__["ruleset_ids"] = ruleset_ids
@@ -169,6 +172,7 @@ class TagPipelineRulesets(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            override_ui_defined_resources: Optional[pulumi.Input[_builtins.bool]] = None,
             ruleset_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'TagPipelineRulesets':
         """
         Get an existing TagPipelineRulesets resource's state with the given name, id, and optional extra
@@ -183,8 +187,14 @@ class TagPipelineRulesets(pulumi.CustomResource):
 
         __props__ = _TagPipelineRulesetsState.__new__(_TagPipelineRulesetsState)
 
+        __props__.__dict__["override_ui_defined_resources"] = override_ui_defined_resources
         __props__.__dict__["ruleset_ids"] = ruleset_ids
         return TagPipelineRulesets(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="overrideUiDefinedResources")
+    def override_ui_defined_resources(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        return pulumi.get(self, "override_ui_defined_resources")
 
     @_builtins.property
     @pulumi.getter(name="rulesetIds")

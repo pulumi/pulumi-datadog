@@ -14,28 +14,6 @@ namespace Pulumi.Datadog
     /// 
     /// ## Example Usage
     /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Datadog = Pulumi.Datadog;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // Create new tag_pipeline_ruleset_order resource
-    ///     var myRulesets = new Datadog.TagPipelineRulesets("my_rulesets", new()
-    ///     {
-    ///         RulesetIds = new[]
-    ///         {
-    ///             "ruleset-id-1",
-    ///             "ruleset-id-2",
-    ///             "ruleset-id-3",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// The `pulumi import` command can be used, for example:
@@ -47,6 +25,9 @@ namespace Pulumi.Datadog
     [DatadogResourceType("datadog:index/tagPipelineRulesets:TagPipelineRulesets")]
     public partial class TagPipelineRulesets : global::Pulumi.CustomResource
     {
+        [Output("overrideUiDefinedResources")]
+        public Output<bool?> OverrideUiDefinedResources { get; private set; } = null!;
+
         /// <summary>
         /// The list of Tag Pipeline Ruleset IDs, in order. Rulesets are executed in the order specified in this list.
         /// </summary>
@@ -99,6 +80,9 @@ namespace Pulumi.Datadog
 
     public sealed class TagPipelineRulesetsArgs : global::Pulumi.ResourceArgs
     {
+        [Input("overrideUiDefinedResources")]
+        public Input<bool>? OverrideUiDefinedResources { get; set; }
+
         [Input("rulesetIds", required: true)]
         private InputList<string>? _rulesetIds;
 
@@ -119,6 +103,9 @@ namespace Pulumi.Datadog
 
     public sealed class TagPipelineRulesetsState : global::Pulumi.ResourceArgs
     {
+        [Input("overrideUiDefinedResources")]
+        public Input<bool>? OverrideUiDefinedResources { get; set; }
+
         [Input("rulesetIds")]
         private InputList<string>? _rulesetIds;
 

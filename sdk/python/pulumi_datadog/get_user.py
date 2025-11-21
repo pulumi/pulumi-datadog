@@ -26,7 +26,7 @@ class GetUserResult:
     """
     A collection of values returned by getUser.
     """
-    def __init__(__self__, created_at=None, disabled=None, email=None, exact_match=None, filter=None, handle=None, icon=None, id=None, mfa_enabled=None, modified_at=None, name=None, service_account=None, status=None, title=None, verified=None):
+    def __init__(__self__, created_at=None, disabled=None, email=None, exact_match=None, exclude_service_accounts=None, filter=None, handle=None, icon=None, id=None, mfa_enabled=None, modified_at=None, name=None, service_account=None, status=None, title=None, verified=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -39,6 +39,9 @@ class GetUserResult:
         if exact_match and not isinstance(exact_match, bool):
             raise TypeError("Expected argument 'exact_match' to be a bool")
         pulumi.set(__self__, "exact_match", exact_match)
+        if exclude_service_accounts and not isinstance(exclude_service_accounts, bool):
+            raise TypeError("Expected argument 'exclude_service_accounts' to be a bool")
+        pulumi.set(__self__, "exclude_service_accounts", exclude_service_accounts)
         if filter and not isinstance(filter, str):
             raise TypeError("Expected argument 'filter' to be a str")
         pulumi.set(__self__, "filter", filter)
@@ -104,6 +107,14 @@ class GetUserResult:
         When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute. Defaults to `false`.
         """
         return pulumi.get(self, "exact_match")
+
+    @_builtins.property
+    @pulumi.getter(name="excludeServiceAccounts")
+    def exclude_service_accounts(self) -> Optional[_builtins.bool]:
+        """
+        When true, service accounts are excluded from the result. Defaults to `false`.
+        """
+        return pulumi.get(self, "exclude_service_accounts")
 
     @_builtins.property
     @pulumi.getter
@@ -204,6 +215,7 @@ class AwaitableGetUserResult(GetUserResult):
             disabled=self.disabled,
             email=self.email,
             exact_match=self.exact_match,
+            exclude_service_accounts=self.exclude_service_accounts,
             filter=self.filter,
             handle=self.handle,
             icon=self.icon,
@@ -218,6 +230,7 @@ class AwaitableGetUserResult(GetUserResult):
 
 
 def get_user(exact_match: Optional[_builtins.bool] = None,
+             exclude_service_accounts: Optional[_builtins.bool] = None,
              filter: Optional[_builtins.str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
     """
@@ -234,10 +247,12 @@ def get_user(exact_match: Optional[_builtins.bool] = None,
 
 
     :param _builtins.bool exact_match: When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute. Defaults to `false`.
+    :param _builtins.bool exclude_service_accounts: When true, service accounts are excluded from the result. Defaults to `false`.
     :param _builtins.str filter: Filter all users by the given string.
     """
     __args__ = dict()
     __args__['exactMatch'] = exact_match
+    __args__['excludeServiceAccounts'] = exclude_service_accounts
     __args__['filter'] = filter
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('datadog:index/getUser:getUser', __args__, opts=opts, typ=GetUserResult).value
@@ -247,6 +262,7 @@ def get_user(exact_match: Optional[_builtins.bool] = None,
         disabled=pulumi.get(__ret__, 'disabled'),
         email=pulumi.get(__ret__, 'email'),
         exact_match=pulumi.get(__ret__, 'exact_match'),
+        exclude_service_accounts=pulumi.get(__ret__, 'exclude_service_accounts'),
         filter=pulumi.get(__ret__, 'filter'),
         handle=pulumi.get(__ret__, 'handle'),
         icon=pulumi.get(__ret__, 'icon'),
@@ -259,6 +275,7 @@ def get_user(exact_match: Optional[_builtins.bool] = None,
         title=pulumi.get(__ret__, 'title'),
         verified=pulumi.get(__ret__, 'verified'))
 def get_user_output(exact_match: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
+                    exclude_service_accounts: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
                     filter: Optional[pulumi.Input[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
@@ -275,10 +292,12 @@ def get_user_output(exact_match: Optional[pulumi.Input[Optional[_builtins.bool]]
 
 
     :param _builtins.bool exact_match: When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute. Defaults to `false`.
+    :param _builtins.bool exclude_service_accounts: When true, service accounts are excluded from the result. Defaults to `false`.
     :param _builtins.str filter: Filter all users by the given string.
     """
     __args__ = dict()
     __args__['exactMatch'] = exact_match
+    __args__['excludeServiceAccounts'] = exclude_service_accounts
     __args__['filter'] = filter
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('datadog:index/getUser:getUser', __args__, opts=opts, typ=GetUserResult)
@@ -287,6 +306,7 @@ def get_user_output(exact_match: Optional[pulumi.Input[Optional[_builtins.bool]]
         disabled=pulumi.get(__response__, 'disabled'),
         email=pulumi.get(__response__, 'email'),
         exact_match=pulumi.get(__response__, 'exact_match'),
+        exclude_service_accounts=pulumi.get(__response__, 'exclude_service_accounts'),
         filter=pulumi.get(__response__, 'filter'),
         handle=pulumi.get(__response__, 'handle'),
         icon=pulumi.get(__response__, 'icon'),

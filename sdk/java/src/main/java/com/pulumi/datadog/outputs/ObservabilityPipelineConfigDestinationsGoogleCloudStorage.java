@@ -19,9 +19,9 @@ public final class ObservabilityPipelineConfigDestinationsGoogleCloudStorage {
      * @return Access control list setting for objects written to the bucket.
      * 
      */
-    private String acl;
+    private @Nullable String acl;
     /**
-     * @return GCP credentials used to authenticate with Google Cloud Storage.
+     * @return GCP credentials used to authenticate with Google Cloud services.
      * 
      */
     private @Nullable ObservabilityPipelineConfigDestinationsGoogleCloudStorageAuth auth;
@@ -61,11 +61,11 @@ public final class ObservabilityPipelineConfigDestinationsGoogleCloudStorage {
      * @return Access control list setting for objects written to the bucket.
      * 
      */
-    public String acl() {
-        return this.acl;
+    public Optional<String> acl() {
+        return Optional.ofNullable(this.acl);
     }
     /**
-     * @return GCP credentials used to authenticate with Google Cloud Storage.
+     * @return GCP credentials used to authenticate with Google Cloud services.
      * 
      */
     public Optional<ObservabilityPipelineConfigDestinationsGoogleCloudStorageAuth> auth() {
@@ -123,7 +123,7 @@ public final class ObservabilityPipelineConfigDestinationsGoogleCloudStorage {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String acl;
+        private @Nullable String acl;
         private @Nullable ObservabilityPipelineConfigDestinationsGoogleCloudStorageAuth auth;
         private String bucket;
         private String id;
@@ -145,10 +145,8 @@ public final class ObservabilityPipelineConfigDestinationsGoogleCloudStorage {
         }
 
         @CustomType.Setter
-        public Builder acl(String acl) {
-            if (acl == null) {
-              throw new MissingRequiredPropertyException("ObservabilityPipelineConfigDestinationsGoogleCloudStorage", "acl");
-            }
+        public Builder acl(@Nullable String acl) {
+
             this.acl = acl;
             return this;
         }

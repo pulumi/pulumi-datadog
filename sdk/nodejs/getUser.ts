@@ -22,6 +22,7 @@ export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getUser:getUser", {
         "exactMatch": args.exactMatch,
+        "excludeServiceAccounts": args.excludeServiceAccounts,
         "filter": args.filter,
     }, opts);
 }
@@ -34,6 +35,10 @@ export interface GetUserArgs {
      * When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute. Defaults to `false`.
      */
     exactMatch?: boolean;
+    /**
+     * When true, service accounts are excluded from the result. Defaults to `false`.
+     */
+    excludeServiceAccounts?: boolean;
     /**
      * Filter all users by the given string.
      */
@@ -60,6 +65,10 @@ export interface GetUserResult {
      * When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute. Defaults to `false`.
      */
     readonly exactMatch?: boolean;
+    /**
+     * When true, service accounts are excluded from the result. Defaults to `false`.
+     */
+    readonly excludeServiceAccounts?: boolean;
     /**
      * Filter all users by the given string.
      */
@@ -123,6 +132,7 @@ export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOutpu
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("datadog:index/getUser:getUser", {
         "exactMatch": args.exactMatch,
+        "excludeServiceAccounts": args.excludeServiceAccounts,
         "filter": args.filter,
     }, opts);
 }
@@ -135,6 +145,10 @@ export interface GetUserOutputArgs {
      * When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute. Defaults to `false`.
      */
     exactMatch?: pulumi.Input<boolean>;
+    /**
+     * When true, service accounts are excluded from the result. Defaults to `false`.
+     */
+    excludeServiceAccounts?: pulumi.Input<boolean>;
     /**
      * Filter all users by the given string.
      */

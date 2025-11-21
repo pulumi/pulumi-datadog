@@ -197,14 +197,14 @@ public class SloCorrection extends com.pulumi.resources.CustomResource {
         return this.start;
     }
     /**
-     * The timezone to display in the UI for the correction times (defaults to &#34;UTC&#34;)
+     * The timezone to display in the UI for the correction times. Prefers IANA timezone name format (for example, &#39;America/Los_Angeles&#39;, &#39;Europe/Paris&#39;), but some common standard abbreviations are supported. Defaults to &#39;UTC&#39;.
      * 
      */
     @Export(name="timezone", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> timezone;
 
     /**
-     * @return The timezone to display in the UI for the correction times (defaults to &#34;UTC&#34;)
+     * @return The timezone to display in the UI for the correction times. Prefers IANA timezone name format (for example, &#39;America/Los_Angeles&#39;, &#39;Europe/Paris&#39;), but some common standard abbreviations are supported. Defaults to &#39;UTC&#39;.
      * 
      */
     public Output<Optional<String>> timezone() {

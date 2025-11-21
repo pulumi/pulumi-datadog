@@ -92,7 +92,7 @@ export class IntegrationSts extends pulumi.CustomResource {
     /**
      * Configurations for GCP metric namespaces.
      */
-    declare public readonly metricNamespaceConfigs: pulumi.Output<outputs.gcp.IntegrationStsMetricNamespaceConfig[] | undefined>;
+    declare public readonly metricNamespaceConfigs: pulumi.Output<outputs.gcp.IntegrationStsMetricNamespaceConfig[]>;
     /**
      * Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
      */

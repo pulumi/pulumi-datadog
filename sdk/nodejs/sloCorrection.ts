@@ -113,7 +113,7 @@ export class SloCorrection extends pulumi.CustomResource {
      */
     declare public readonly start: pulumi.Output<number>;
     /**
-     * The timezone to display in the UI for the correction times (defaults to "UTC")
+     * The timezone to display in the UI for the correction times. Prefers IANA timezone name format (for example, 'America/Los_Angeles', 'Europe/Paris'), but some common standard abbreviations are supported. Defaults to 'UTC'.
      */
     declare public readonly timezone: pulumi.Output<string | undefined>;
 
@@ -196,7 +196,7 @@ export interface SloCorrectionState {
      */
     start?: pulumi.Input<number>;
     /**
-     * The timezone to display in the UI for the correction times (defaults to "UTC")
+     * The timezone to display in the UI for the correction times. Prefers IANA timezone name format (for example, 'America/Los_Angeles', 'Europe/Paris'), but some common standard abbreviations are supported. Defaults to 'UTC'.
      */
     timezone?: pulumi.Input<string>;
 }
@@ -234,7 +234,7 @@ export interface SloCorrectionArgs {
      */
     start: pulumi.Input<number>;
     /**
-     * The timezone to display in the UI for the correction times (defaults to "UTC")
+     * The timezone to display in the UI for the correction times. Prefers IANA timezone name format (for example, 'America/Los_Angeles', 'Europe/Paris'), but some common standard abbreviations are supported. Defaults to 'UTC'.
      */
     timezone?: pulumi.Input<string>;
 }
