@@ -8,9 +8,5 @@ config:
 resources:
   datadogGcpIntegration:
     properties:
-      clientEmail: <YOUR_CLIENT_EMAIL>
-      clientId: <YOUR_CLIENT_ID>
-      privateKey: <YOUR_PRIVATE_KEY>
-      privateKeyId: <YOUR_PRIVATE_KEY_ID>
-      projectId: <YOUR_PROJECT_ID>
-    type: datadog:gcp:Integration
+      clientEmail: your-client-email@example.com
+    type: datadog:gcp/integrationSts:IntegrationSts
