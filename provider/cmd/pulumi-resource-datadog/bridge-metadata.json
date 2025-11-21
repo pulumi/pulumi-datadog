@@ -28,6 +28,10 @@
                 "current": "datadog:index/agentlessScanningAwsScanOptions:AgentlessScanningAwsScanOptions",
                 "majorVersion": 4
             },
+            "datadog_agentless_scanning_gcp_scan_options": {
+                "current": "datadog:index/agentlessScanningGcpScanOptions:AgentlessScanningGcpScanOptions",
+                "majorVersion": 4
+            },
             "datadog_api_key": {
                 "current": "datadog:index/apiKey:ApiKey",
                 "majorVersion": 4
@@ -12683,7 +12687,14 @@
                         "maxItemsOne": false
                     },
                     "metric_namespace_configs": {
-                        "maxItemsOne": false
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "filters": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     },
                     "monitored_resource_configs": {
                         "maxItemsOne": false,
@@ -13048,6 +13059,66 @@
                                                         "reference_table_lookup_processor": {
                                                             "maxItemsOne": true
                                                         },
+                                                        "schema_processor": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "mappers": {
+                                                                        "maxItemsOne": false,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "schema_category_mapper": {
+                                                                                    "maxItemsOne": false,
+                                                                                    "elem": {
+                                                                                        "fields": {
+                                                                                            "categories": {
+                                                                                                "maxItemsOne": false,
+                                                                                                "elem": {
+                                                                                                    "fields": {
+                                                                                                        "filter": {
+                                                                                                            "maxItemsOne": true
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
+                                                                                            },
+                                                                                            "fallback": {
+                                                                                                "maxItemsOne": true
+                                                                                            },
+                                                                                            "targets": {
+                                                                                                "maxItemsOne": true
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                "schema_remapper": {
+                                                                                    "maxItemsOne": false,
+                                                                                    "elem": {
+                                                                                        "fields": {
+                                                                                            "sources": {
+                                                                                                "maxItemsOne": false
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "schema": {
+                                                                        "maxItemsOne": true,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "extensions": {
+                                                                                    "maxItemsOne": false
+                                                                                },
+                                                                                "profiles": {
+                                                                                    "maxItemsOne": false
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
                                                         "service_remapper": {
                                                             "maxItemsOne": true,
                                                             "elem": {
@@ -13122,6 +13193,66 @@
                                 },
                                 "reference_table_lookup_processor": {
                                     "maxItemsOne": true
+                                },
+                                "schema_processor": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "mappers": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "schema_category_mapper": {
+                                                            "maxItemsOne": false,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "categories": {
+                                                                        "maxItemsOne": false,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "filter": {
+                                                                                    "maxItemsOne": true
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "fallback": {
+                                                                        "maxItemsOne": true
+                                                                    },
+                                                                    "targets": {
+                                                                        "maxItemsOne": true
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "schema_remapper": {
+                                                            "maxItemsOne": false,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "sources": {
+                                                                        "maxItemsOne": false
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "schema": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "extensions": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "profiles": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
                                 },
                                 "service_remapper": {
                                     "maxItemsOne": true,
@@ -17688,7 +17819,12 @@
             },
             "datadog_security_monitoring_suppression": {
                 "current": "datadog:index/securityMonitoringSuppression:SecurityMonitoringSuppression",
-                "majorVersion": 4
+                "majorVersion": 4,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "datadog_security_notification_rule": {
                 "current": "datadog:index/securityNotificationRule:SecurityNotificationRule",
@@ -18792,6 +18928,15 @@
                     }
                 }
             },
+            "datadog_metrics": {
+                "current": "datadog:index/getMetrics:getMetrics",
+                "majorVersion": 4,
+                "fields": {
+                    "metrics": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "datadog_monitor": {
                 "current": "datadog:index/getMonitor:getMonitor",
                 "majorVersion": 4,
@@ -19095,7 +19240,14 @@
                         "maxItemsOne": false
                     },
                     "suppressions": {
-                        "maxItemsOne": false
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "tags": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -19294,6 +19446,7 @@
             "datadog:gcp/integrationSts:IntegrationSts": 1,
             "datadog:index/actionConnection:ActionConnection": 1,
             "datadog:index/agentlessScanningAwsScanOptions:AgentlessScanningAwsScanOptions": 1,
+            "datadog:index/agentlessScanningGcpScanOptions:AgentlessScanningGcpScanOptions": 1,
             "datadog:index/apiKey:ApiKey": 1,
             "datadog:index/apmRetentionFilter:ApmRetentionFilter": 1,
             "datadog:index/apmRetentionFilterOrder:ApmRetentionFilterOrder": 1,
@@ -19430,6 +19583,7 @@
             "datadog:index/getMetricActiveTagsAndAggregations:getMetricActiveTagsAndAggregations": 1,
             "datadog:index/getMetricMetadata:getMetricMetadata": 1,
             "datadog:index/getMetricTags:getMetricTags": 1,
+            "datadog:index/getMetrics:getMetrics": 1,
             "datadog:index/getMonitor:getMonitor": 0,
             "datadog:index/getMonitorConfigPolicies:getMonitorConfigPolicies": 0,
             "datadog:index/getMonitors:getMonitors": 0,
